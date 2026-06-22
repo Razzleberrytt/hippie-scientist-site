@@ -18,7 +18,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -28,7 +28,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -52,7 +52,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -62,7 +62,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -84,7 +84,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -94,7 +94,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -117,10 +117,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -130,7 +130,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -162,7 +163,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -185,7 +186,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -195,7 +196,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -214,10 +215,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -227,7 +228,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -253,7 +255,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -263,7 +265,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -286,10 +288,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -299,7 +301,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -322,10 +325,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -335,7 +338,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -358,10 +362,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -371,7 +375,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -393,7 +398,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -403,7 +408,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -429,7 +434,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -439,7 +444,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -465,7 +470,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -475,7 +480,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -501,7 +506,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -511,7 +516,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -533,7 +538,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -543,7 +548,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -569,7 +574,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -579,7 +584,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -600,10 +605,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -613,7 +618,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -639,7 +645,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -649,7 +655,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -673,7 +679,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -683,7 +689,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -709,7 +715,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -719,7 +725,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -752,7 +758,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -773,10 +779,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -786,7 +792,8 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -794,7 +801,9 @@
     "name": "Astragalus",
     "summary": "It is best framed around astragalosides and polysaccharides.",
     "primary_effects": [
-      "research-pending"
+      "immune_support",
+      "adaptogen",
+      "energy"
     ],
     "effects": [
       "stress"
@@ -808,18 +817,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -827,7 +836,9 @@
     "name": "Astragalus Membranaceus",
     "summary": "Astragalus membranaceus contains Astragaloside IV and is linked here to PI3K/Akt modulation.",
     "primary_effects": [
-      "research-pending"
+      "immune_support",
+      "adaptogen",
+      "energy"
     ],
     "effects": [
       "stress"
@@ -838,21 +849,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -874,7 +884,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -884,7 +894,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -910,7 +920,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -920,7 +930,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -943,10 +953,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -956,7 +966,8 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -980,7 +991,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -990,7 +1001,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1022,7 +1033,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1044,7 +1055,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -1054,7 +1065,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1080,7 +1091,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1090,7 +1101,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1111,10 +1122,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1124,7 +1135,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -1143,10 +1155,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -1156,7 +1168,8 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -1177,10 +1190,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1190,7 +1203,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -1198,10 +1212,14 @@
     "name": "Black Pepper",
     "summary": "Piper nigrum contains Beta-caryophyllene and is linked here to CB2 receptor agonism.",
     "primary_effects": [
-      "research-pending"
+      "bioavailability_enhancer",
+      "digestive_support",
+      "anti_inflammatory"
     ],
     "effects": [
-      "research-pending"
+      "bioavailability_enhancer",
+      "digestive_support",
+      "anti_inflammatory"
     ],
     "evidence_grade": "b",
     "evidence_tier": "Strong Human Evidence",
@@ -1209,21 +1227,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:top50_authority_patched",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1249,7 +1266,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1259,7 +1276,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1285,7 +1302,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1295,7 +1312,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1318,7 +1335,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -1328,7 +1345,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1354,7 +1371,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1364,7 +1381,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1386,7 +1403,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -1396,7 +1413,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1428,7 +1445,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1447,10 +1464,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -1460,7 +1477,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -1479,10 +1497,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -1492,7 +1510,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -1511,10 +1530,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -1524,7 +1543,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -1550,7 +1570,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1560,7 +1580,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1568,7 +1588,9 @@
     "name": "Bupleurum",
     "summary": "It should be framed conservatively because traditional-system context matters more than casual wellness claims.",
     "primary_effects": [
-      "research-pending"
+      "liver_support",
+      "anti_inflammatory",
+      "adaptogen"
     ],
     "effects": [
       "stress"
@@ -1579,21 +1601,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1614,10 +1635,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1627,7 +1648,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -1651,7 +1673,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1661,7 +1683,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1683,7 +1705,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -1693,7 +1715,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1725,7 +1747,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1747,7 +1769,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -1757,7 +1779,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1783,7 +1805,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1793,7 +1815,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1826,7 +1848,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1849,10 +1871,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1862,7 +1884,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -1881,10 +1904,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -1894,7 +1917,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -1930,7 +1954,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1954,7 +1978,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1964,7 +1988,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -1986,7 +2010,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -1996,7 +2020,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -2020,7 +2044,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2030,7 +2054,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -2038,7 +2062,9 @@
     "name": "Catuba",
     "summary": "It should be framed conservatively because traditional aphrodisiac narratives exceed modern evidence depth.",
     "primary_effects": [
-      "research-pending"
+      "libido",
+      "nervous_system",
+      "stimulant"
     ],
     "effects": [
       "stress"
@@ -2049,21 +2075,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -2085,7 +2110,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -2095,7 +2120,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -2103,7 +2128,9 @@
     "name": "Celastrus Paniculatus",
     "summary": "Internal cross-linking supports Celastrus Paniculatus through compounds such as beta-amyrin, celastrine, lupeol.",
     "primary_effects": [
-      "research-pending"
+      "cognitive_support",
+      "neuroprotective",
+      "adaptogen"
     ],
     "effects": [
       "stress"
@@ -2114,21 +2141,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -2136,7 +2162,9 @@
     "name": "Chaga",
     "summary": "A medicinal mushroom widely used in traditional medicine, best known for its rich antioxidant content and potential to support immune function, modulate inflammation, and manage cellular stress.",
     "primary_effects": [
-      "research-pending"
+      "immune_support",
+      "antioxidant",
+      "adaptogen"
     ],
     "effects": [
       "stress"
@@ -2150,18 +2178,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -2194,7 +2222,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -2216,7 +2244,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -2226,7 +2254,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -2248,7 +2276,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -2258,7 +2286,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -2279,10 +2307,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2292,7 +2320,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -2311,10 +2340,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -2324,7 +2353,8 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -2348,7 +2378,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2358,7 +2388,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -2380,7 +2410,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -2390,7 +2420,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -2416,7 +2446,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2426,7 +2456,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -2447,10 +2477,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2460,7 +2490,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -2481,10 +2512,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2494,7 +2525,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -2518,7 +2550,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2528,7 +2560,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -2549,10 +2581,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2562,7 +2594,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -2582,10 +2615,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -2595,7 +2628,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -2631,7 +2665,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -2653,7 +2687,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -2663,7 +2697,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -2685,7 +2719,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -2695,7 +2729,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -2716,10 +2750,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2729,7 +2763,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -2751,7 +2786,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -2761,7 +2796,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -2782,10 +2817,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2795,7 +2830,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -2831,7 +2867,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -2850,10 +2886,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -2863,7 +2899,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -2884,10 +2921,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2897,7 +2934,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -2919,7 +2957,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -2929,7 +2967,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -2951,7 +2989,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -2961,7 +2999,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -2969,7 +3007,9 @@
     "name": "Crocus Sativus",
     "summary": "Crocus sativus (Saffron) is a highly valued spice botanical containing crocin, crocetin, and safranal, with emerging evidence for mood support.",
     "primary_effects": [
-      "research-pending"
+      "mood_support",
+      "antidepressant",
+      "cognitive"
     ],
     "effects": [
       "stress"
@@ -2983,18 +3023,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -3018,7 +3058,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3028,7 +3068,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -3049,10 +3089,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3062,7 +3102,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -3096,7 +3137,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -3117,10 +3158,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3130,7 +3171,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -3151,10 +3193,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3164,7 +3206,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -3183,10 +3226,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -3196,7 +3239,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -3204,7 +3248,9 @@
     "name": "Damiana",
     "summary": "damiana is tracked for stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "primary_effects": [
-      "research-pending"
+      "libido",
+      "mood_support",
+      "nervous_system"
     ],
     "effects": [
       "stress"
@@ -3215,21 +3261,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -3253,7 +3298,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3263,7 +3308,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -3285,7 +3330,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -3295,7 +3340,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -3314,10 +3359,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -3327,7 +3372,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -3349,7 +3395,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -3359,7 +3405,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -3385,7 +3431,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3395,7 +3441,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -3414,10 +3460,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -3427,7 +3473,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -3451,7 +3498,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3461,7 +3508,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -3485,7 +3532,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3495,7 +3542,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -3519,7 +3566,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3529,7 +3576,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -3537,7 +3584,9 @@
     "name": "Eleuthero",
     "summary": "Eleuthero (Siberian ginseng) is an adaptogenic root used to support stress resilience and physical endurance. It modulates HPA axis activity and influences cortisol and catecholamine signaling. Human trials report reduced fatigue and improved cognitive performance under stress conditions, particularly in shift workers and athletes.",
     "primary_effects": [
-      "research-pending"
+      "adaptogen",
+      "immune_support",
+      "energy"
     ],
     "effects": [
       "stress"
@@ -3551,18 +3600,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -3583,10 +3632,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3596,7 +3645,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -3620,7 +3670,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3630,7 +3680,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -3651,10 +3701,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3664,7 +3714,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -3690,7 +3741,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3700,7 +3751,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -3724,7 +3775,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3734,7 +3785,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -3756,7 +3807,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -3766,7 +3817,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -3774,7 +3825,9 @@
     "name": "Fennel",
     "summary": "It is best handled as an aromatic seed botanical with traditional GI-support use and modest mechanistic confidence.",
     "primary_effects": [
-      "research-pending"
+      "digestive_support",
+      "antispasmodic",
+      "anti_inflammatory"
     ],
     "effects": [
       "stress"
@@ -3785,21 +3838,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -3818,10 +3870,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -3831,7 +3883,8 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -3855,7 +3908,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3865,7 +3918,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -3886,10 +3939,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3899,7 +3952,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -3923,7 +3977,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3933,7 +3987,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -3954,10 +4008,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3967,7 +4021,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -3989,7 +4044,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -3999,7 +4054,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4020,10 +4075,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4033,7 +4088,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -4054,10 +4110,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4067,7 +4123,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -4099,7 +4156,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4125,7 +4182,7 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 73,
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4134,8 +4191,9 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "summary-quality:weak",
+      "summary-too-thin",
+      "weak-summary-quality"
     ]
   },
   {
@@ -4143,7 +4201,9 @@
     "name": "Gastrodia",
     "summary": "It should be framed conservatively because traditional neurologic use is broader than modern evidence.",
     "primary_effects": [
-      "research-pending"
+      "neuroprotective",
+      "cognitive_support",
+      "anticonvulsant"
     ],
     "effects": [
       "stress"
@@ -4154,21 +4214,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4176,7 +4235,9 @@
     "name": "Ginger (Zingiber officinale)",
     "summary": "Ginger centers on the unspecified.",
     "primary_effects": [
-      "research-pending"
+      "digestion",
+      "nausea_support",
+      "inflammation"
     ],
     "effects": [
       "digestion",
@@ -4192,18 +4253,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "summary-quality:weak",
+      "summary-too-thin",
+      "weak-summary-quality"
     ]
   },
   {
@@ -4226,10 +4287,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": true,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4238,8 +4299,9 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "summary-quality:weak",
+      "summary-too-thin",
+      "weak-summary-quality"
     ]
   },
   {
@@ -4258,10 +4320,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4271,7 +4333,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -4293,7 +4356,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4303,7 +4366,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4311,7 +4374,9 @@
     "name": "Gotu Kola (Centella asiatica)",
     "summary": "Centella asiatica contains Asiatic acid and is linked here to PI3K/Akt modulation.",
     "primary_effects": [
-      "research-pending"
+      "cognitive_support",
+      "circulation",
+      "calm_focus"
     ],
     "effects": [
       "cognitive_support",
@@ -4324,21 +4389,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4346,7 +4410,9 @@
     "name": "Grape",
     "summary": "Grape is tracked for stress,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "primary_effects": [
-      "research-pending"
+      "antioxidant",
+      "cardiovascular",
+      "anti_inflammatory"
     ],
     "effects": [
       "stress"
@@ -4357,21 +4423,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:top50_authority_patched",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4393,7 +4458,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4403,7 +4468,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4439,7 +4504,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4471,7 +4536,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4497,7 +4562,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4507,7 +4572,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4529,7 +4594,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4539,7 +4604,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4561,7 +4626,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4571,7 +4636,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4603,7 +4668,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4627,7 +4692,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4637,7 +4702,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4656,10 +4721,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4669,7 +4734,8 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -4705,7 +4771,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4713,7 +4779,9 @@
     "name": "Holy Basil / Tulsi (Ocimum tenuiflorum)",
     "summary": "Holy basil is best framed for stress adaptation over time, not acute anxiety relief.",
     "primary_effects": [
-      "research-pending"
+      "stress_adaptation",
+      "cortisol_modulation",
+      "metabolic_support"
     ],
     "effects": [
       "stress_adaptation",
@@ -4726,21 +4794,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4748,7 +4815,9 @@
     "name": "Holy Basil Purple",
     "summary": "It should be framed similarly to tulsi while noting cultivar/form distinctions are secondary to constituent variability.",
     "primary_effects": [
-      "research-pending"
+      "adaptogen",
+      "stress_reduction",
+      "anti_inflammatory"
     ],
     "effects": [
       "stress"
@@ -4759,21 +4828,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4795,7 +4863,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4805,7 +4873,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4827,7 +4895,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4837,7 +4905,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4860,7 +4928,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4870,7 +4938,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4894,7 +4962,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4904,7 +4972,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4928,7 +4996,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4938,7 +5006,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4960,7 +5028,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4970,7 +5038,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -4978,7 +5046,9 @@
     "name": "Hypericum Perforatum",
     "summary": "Hypericum perforatum contains Hyperforin and is linked here to TRPC6 channel modulation.",
     "primary_effects": [
-      "research-pending"
+      "mood_support",
+      "antidepressant",
+      "anti_anxiety"
     ],
     "effects": [
       "stress"
@@ -4989,21 +5059,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5039,7 +5108,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5058,10 +5127,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -5071,7 +5140,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -5093,7 +5163,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -5103,7 +5173,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5126,7 +5196,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -5136,7 +5206,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5159,7 +5229,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -5169,7 +5239,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5191,7 +5261,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -5201,7 +5271,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5209,7 +5279,9 @@
     "name": "Kanna",
     "summary": "Internal cross-linking supports Kanna through compounds such as mesembrenone, mesembranol, mesembrine.",
     "primary_effects": [
-      "research-pending"
+      "mood_support",
+      "anti_anxiety",
+      "empathogen"
     ],
     "effects": [
       "stress"
@@ -5220,21 +5292,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5254,10 +5325,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -5267,7 +5338,8 @@
       "profile-status:complete",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -5291,7 +5363,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5301,7 +5373,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5327,7 +5399,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5337,7 +5409,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5345,7 +5417,9 @@
     "name": "L-Tyrosine",
     "summary": "L-Tyrosine is tracked for stress,cognition,energy with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "primary_effects": [
-      "research-pending"
+      "cognitive_support",
+      "dopamine_precursor",
+      "stress_resilience"
     ],
     "effects": [
       "stress"
@@ -5356,21 +5430,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:top50_authority_patched",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5390,10 +5463,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -5403,7 +5476,8 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -5427,7 +5501,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5437,7 +5511,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5470,7 +5544,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5493,7 +5567,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -5503,7 +5577,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5511,7 +5585,9 @@
     "name": "Lemongrass",
     "summary": "It is best framed as an aromatic culinary-medicinal grass with modest clinical depth.",
     "primary_effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "antioxidant",
+      "antimicrobial"
     ],
     "effects": [
       "stress"
@@ -5522,21 +5598,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5558,7 +5633,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -5568,7 +5643,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5589,10 +5664,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5602,7 +5677,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -5621,10 +5697,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -5634,7 +5710,44 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
+    ]
+  },
+  {
+    "slug": "lions-mane",
+    "name": "Lion's Mane",
+    "summary": "Traditional herbal medicine with emerging evidence supporting therapeutic applications.",
+    "primary_effects": [
+      "cognitive",
+      "neuroprotective",
+      "mood"
+    ],
+    "effects": [
+      "cognitive",
+      "neuroprotective",
+      "mood"
+    ],
+    "evidence_grade": "b",
+    "evidence_tier": "Mechanistic Evidence",
+    "profile_status": "partial",
+    "runtime_export_decision": "limited",
+    "affiliate_ready": true,
+    "visibility_tier": "public",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 93,
+    "indexability_reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:limited",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
+      "safety-context",
+      "summary-depth",
+      "summary-quality:lion's mane (hericium erinaceus) is a medicinal mushroom traditionally used in east asian cultures for supporting brain and nerve health. modern interest centers on its unique ability to stimulate nerve growth factor (ngf), making it one of the few natural compounds studied for neurogenesis and neuroprotection. while preclinical research is strong, human clinical evidence remains moderate and emerging, with the greatest potential currently seen for cognitive function and mild mood support in aging or stressed populations."
     ]
   },
   {
@@ -5658,7 +5771,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5668,7 +5781,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5688,10 +5801,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -5701,7 +5814,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -5725,7 +5839,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5735,7 +5849,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5761,7 +5875,7 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 73,
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5770,8 +5884,9 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "summary-quality:weak",
+      "summary-too-thin",
+      "weak-summary-quality"
     ]
   },
   {
@@ -5804,7 +5919,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5826,7 +5941,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -5836,7 +5951,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5857,10 +5972,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5870,7 +5985,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -5894,7 +6010,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5904,7 +6020,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5912,7 +6028,9 @@
     "name": "Maral Root",
     "summary": "It is best framed carefully because ecdysteroid narratives often outpace evidence quality.",
     "primary_effects": [
-      "research-pending"
+      "adaptogen",
+      "stamina",
+      "anabolic_support"
     ],
     "effects": [
       "stress"
@@ -5923,21 +6041,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -5956,10 +6073,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -5969,7 +6086,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -5992,7 +6110,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -6002,7 +6120,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6025,10 +6143,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6038,7 +6156,8 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -6059,10 +6178,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6072,7 +6191,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -6095,10 +6215,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6108,7 +6228,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -6132,7 +6253,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6142,7 +6263,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6164,7 +6285,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -6174,7 +6295,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6182,7 +6303,9 @@
     "name": "Mucuna",
     "summary": "It is best framed around L-DOPA-rich seeds with clear neurologic and stimulation-related caution.",
     "primary_effects": [
-      "research-pending"
+      "dopamine_support",
+      "neuroprotective",
+      "libido"
     ],
     "effects": [
       "stress"
@@ -6193,21 +6316,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6229,7 +6351,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -6239,7 +6361,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6247,7 +6369,9 @@
     "name": "Muira Puama",
     "summary": "It is best framed as a traditional Amazonian botanical with modest modern evidence.",
     "primary_effects": [
-      "research-pending"
+      "libido",
+      "cognitive_support",
+      "neuroprotective"
     ],
     "effects": [
       "stress"
@@ -6258,21 +6382,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6294,7 +6417,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -6304,7 +6427,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6328,7 +6451,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6338,7 +6461,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6346,7 +6469,9 @@
     "name": "Myrtle",
     "summary": "It is best framed as an aromatic Mediterranean leaf botanical with modest modern evidence.",
     "primary_effects": [
-      "research-pending"
+      "antimicrobial",
+      "anti_inflammatory",
+      "respiratory"
     ],
     "effects": [
       "stress"
@@ -6357,21 +6482,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6395,7 +6519,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6405,7 +6529,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6413,7 +6537,9 @@
     "name": "Nelumbo Nucifera",
     "summary": "Nelumbo nucifera lean monograph row enriched in bulk mode.",
     "primary_effects": [
-      "research-pending"
+      "sedative",
+      "anti_inflammatory",
+      "antioxidant"
     ],
     "effects": [
       "stress"
@@ -6427,18 +6553,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -6457,10 +6583,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -6470,7 +6596,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -6489,10 +6616,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -6502,7 +6629,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -6524,7 +6652,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -6534,7 +6662,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6560,7 +6688,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6570,7 +6698,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6578,7 +6706,9 @@
     "name": "Oatstraw",
     "summary": "It is best framed as a gentle nutritive herb with limited high-signal clinical depth.",
     "primary_effects": [
-      "research-pending"
+      "nervous_system",
+      "cognitive_support",
+      "libido"
     ],
     "effects": [
       "stress"
@@ -6589,21 +6719,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6626,7 +6755,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -6636,7 +6765,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6655,10 +6784,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -6668,7 +6797,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -6691,10 +6821,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6704,7 +6834,8 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -6728,7 +6859,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6738,7 +6869,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6764,7 +6895,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6774,7 +6905,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6796,7 +6927,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -6806,7 +6937,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6832,7 +6963,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6842,7 +6973,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6863,10 +6994,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6876,7 +7007,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -6902,7 +7034,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6912,7 +7044,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6934,7 +7066,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -6944,7 +7076,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6977,7 +7109,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -6998,10 +7130,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7011,7 +7143,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -7035,7 +7168,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7045,7 +7178,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -7067,7 +7200,7 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 68,
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7076,8 +7209,9 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "summary-quality:weak",
+      "summary-too-thin",
+      "weak-summary-quality"
     ]
   },
   {
@@ -7099,7 +7233,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7109,7 +7243,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -7131,7 +7265,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7141,7 +7275,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -7164,10 +7298,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7177,7 +7311,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -7185,7 +7320,9 @@
     "name": "Phosphatidylserine",
     "summary": "Phosphatidylserine is tracked for stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "primary_effects": [
-      "research-pending"
+      "cognitive_support",
+      "cortisol_reduction",
+      "neuroprotective"
     ],
     "effects": [
       "stress"
@@ -7196,21 +7333,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:top50_authority_patched",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -7218,7 +7354,9 @@
     "name": "Piper Longum",
     "summary": "Minimum source-backed intake for Piper longum.",
     "primary_effects": [
-      "research-pending"
+      "bioavailability_enhancer",
+      "digestive_support",
+      "respiratory"
     ],
     "effects": [
       "stress"
@@ -7232,18 +7370,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -7251,10 +7389,14 @@
     "name": "Plantago Lanceolata",
     "summary": "Plantago lanceolata contains Verbascoside and is linked here to NF-κB inhibition.",
     "primary_effects": [
-      "research-pending"
+      "respiratory",
+      "anti_inflammatory",
+      "wound_healing"
     ],
     "effects": [
-      "research-pending"
+      "respiratory",
+      "anti_inflammatory",
+      "wound_healing"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -7262,21 +7404,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -7284,10 +7425,14 @@
     "name": "Plantago Major",
     "summary": "Plantago major contains Aucubin and is linked here to NF-κB inhibition.",
     "primary_effects": [
-      "research-pending"
+      "wound_healing",
+      "anti_inflammatory",
+      "antimicrobial"
     ],
     "effects": [
-      "research-pending"
+      "wound_healing",
+      "anti_inflammatory",
+      "antimicrobial"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -7298,18 +7443,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -7317,10 +7462,14 @@
     "name": "Plumbago Zeylanica",
     "summary": "Plumbago zeylanica contains Plumbagin and is linked here to NF-κB inhibition.",
     "primary_effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "digestive_support",
+      "antimicrobial"
     ],
     "effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "digestive_support",
+      "antimicrobial"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -7331,18 +7480,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -7350,7 +7499,9 @@
     "name": "Polygala",
     "summary": "It is best framed as a traditional nootropic-style root with limited modern clinical depth.",
     "primary_effects": [
-      "research-pending"
+      "cognitive_support",
+      "neuroprotective",
+      "anti_anxiety"
     ],
     "effects": [
       "stress"
@@ -7361,21 +7512,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -7397,7 +7547,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7407,7 +7557,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -7415,7 +7565,9 @@
     "name": "Poria",
     "summary": "It is best framed as a traditional medicinal fungus with modest modern clinical depth.",
     "primary_effects": [
-      "research-pending"
+      "immune_support",
+      "adaptogen",
+      "calm_focus"
     ],
     "effects": [
       "stress"
@@ -7426,21 +7578,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -7448,7 +7599,9 @@
     "name": "Psoralea Corylifolia",
     "summary": "Psoralea corylifolia lean monograph row enriched in bulk mode.",
     "primary_effects": [
-      "research-pending"
+      "bone_health",
+      "skin_support",
+      "anti_inflammatory"
     ],
     "effects": [
       "stress"
@@ -7462,18 +7615,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -7497,7 +7650,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7507,7 +7660,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -7528,10 +7681,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7541,7 +7694,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -7560,10 +7714,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7573,7 +7727,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -7597,7 +7752,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7607,7 +7762,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -7615,7 +7770,9 @@
     "name": "Quercetin",
     "summary": "Quercetin is tracked for stress,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "primary_effects": [
-      "research-pending"
+      "antioxidant",
+      "anti_inflammatory",
+      "antihistamine"
     ],
     "effects": [
       "stress"
@@ -7626,21 +7783,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:top50_authority_patched",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -7662,7 +7818,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7672,7 +7828,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -7696,7 +7852,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7706,7 +7862,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -7714,10 +7870,14 @@
     "name": "Rehmannia Glutinosa",
     "summary": "Rehmannia glutinosa contains Catalpol and is linked here to PI3K/Akt modulation.",
     "primary_effects": [
-      "research-pending"
+      "adrenal_support",
+      "blood_tonic",
+      "anti_inflammatory"
     ],
     "effects": [
-      "research-pending"
+      "adrenal_support",
+      "blood_tonic",
+      "anti_inflammatory"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -7725,21 +7885,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -7761,7 +7920,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7771,7 +7930,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -7805,7 +7964,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -7825,10 +7984,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7838,7 +7997,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -7872,7 +8032,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -7880,10 +8040,14 @@
     "name": "Rheum Palmatum",
     "summary": "Rheum palmatum (Turkish Rhubarb) is a root botanical containing emodin and rhein, used traditionally for digestive health.",
     "primary_effects": [
-      "research-pending"
+      "digestive_support",
+      "laxative",
+      "liver_support"
     ],
     "effects": [
-      "research-pending"
+      "digestive_support",
+      "laxative",
+      "liver_support"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -7894,18 +8058,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -7913,7 +8077,9 @@
     "name": "Rhodiola",
     "summary": "Rhodiola may support stress-related fatigue and mental stamina; avoid framing it as a bedtime calming herb.",
     "primary_effects": [
-      "research-pending"
+      "adaptogen",
+      "stress_resilience",
+      "fatigue_reduction"
     ],
     "effects": [
       "stress"
@@ -7924,21 +8090,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": true,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:top50_authority_patched",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -7964,7 +8129,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7974,7 +8139,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -7993,10 +8158,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -8006,7 +8171,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -8028,7 +8194,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -8038,7 +8204,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -8060,7 +8226,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -8070,7 +8236,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -8096,7 +8262,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8106,7 +8272,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -8114,7 +8280,9 @@
     "name": "Saffron",
     "summary": "Internal cross-linking supports Saffron through compounds such as picrocrocin, crocin, safranal.",
     "primary_effects": [
-      "research-pending"
+      "mood_support",
+      "antidepressant",
+      "anti_anxiety"
     ],
     "effects": [
       "stress"
@@ -8125,21 +8293,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -8147,7 +8314,9 @@
     "name": "Sage",
     "summary": "sage is tracked for stress,cognition,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
     "primary_effects": [
-      "research-pending"
+      "cognitive_support",
+      "antimicrobial",
+      "anti_inflammatory"
     ],
     "effects": [
       "stress"
@@ -8158,21 +8327,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -8204,7 +8372,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -8237,7 +8405,7 @@
       "profile-status:minimal",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -8259,7 +8427,7 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 68,
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -8268,8 +8436,9 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "summary-quality:weak",
+      "summary-too-thin",
+      "weak-summary-quality"
     ]
   },
   {
@@ -8277,7 +8446,9 @@
     "name": "Schisandra (Schisandra chinensis)",
     "summary": "Schisandra (Schisandra chinensis) is a five-flavor berry used in TCM as an adaptogen and liver tonic. Its primary lignans (schisandrin A/B/C) support hepatocyte detoxification via CYP450 modulation and exhibit antioxidant activity. Human data support mild stress reduction and liver enzyme normalization in hepatitis populations.",
     "primary_effects": [
-      "research-pending"
+      "adaptogen",
+      "liver_support",
+      "cognitive"
     ],
     "effects": [
       "stress"
@@ -8291,18 +8462,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -8310,7 +8481,9 @@
     "name": "Schisandra Berry",
     "summary": "It is best framed specifically around berry lignans and traditional stress-support positioning.",
     "primary_effects": [
-      "research-pending"
+      "adaptogen",
+      "liver_support",
+      "cognitive"
     ],
     "effects": [
       "stress"
@@ -8321,21 +8494,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -8343,7 +8515,9 @@
     "name": "Schisandra Chinensis",
     "summary": "Schisandra chinensis is an adaptogenic berry botanical rich in schisandrins, used to support stress resilience and cognitive focus.",
     "primary_effects": [
-      "research-pending"
+      "adaptogen",
+      "liver_support",
+      "cognitive"
     ],
     "effects": [
       "stress"
@@ -8357,18 +8531,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -8376,7 +8550,9 @@
     "name": "Scutellaria Baicalensis",
     "summary": "Scutellaria baicalensis (Baical Skullcap) is a root botanical containing baicalin and baicalein, studied for sleep and relaxation.",
     "primary_effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "neuroprotective",
+      "anti_anxiety"
     ],
     "effects": [
       "stress"
@@ -8390,18 +8566,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -8409,10 +8585,14 @@
     "name": "Selaginella Tamariscina",
     "summary": "Minimum source-backed intake for ginkgetin and 5-lipoxygenase inhibition cluster completion.",
     "primary_effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "antioxidant",
+      "anticancer_research"
     ],
     "effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "antioxidant",
+      "anticancer_research"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
@@ -8420,21 +8600,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -8442,7 +8621,9 @@
     "name": "Serenoa Repens",
     "summary": "Serenoa repens contains Beta-sitosterol and is linked here to PPAR activation.",
     "primary_effects": [
-      "research-pending"
+      "prostate_health",
+      "anti_androgenic",
+      "urinary_support"
     ],
     "effects": [
       "stress"
@@ -8456,18 +8637,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -8475,7 +8656,9 @@
     "name": "Shankhpushpi",
     "summary": "It is best framed as a traditional cognitive-support herb with limited modern clinical depth.",
     "primary_effects": [
-      "research-pending"
+      "cognitive_support",
+      "nootropic",
+      "neuroprotective"
     ],
     "effects": [
       "stress"
@@ -8486,21 +8669,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -8508,7 +8690,9 @@
     "name": "Shatavari",
     "summary": "It is best framed around steroidal saponins with hormonal-context caution.",
     "primary_effects": [
-      "research-pending"
+      "adaptogen",
+      "hormonal_support",
+      "libido"
     ],
     "effects": [
       "stress"
@@ -8522,18 +8706,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -8553,10 +8737,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -8566,7 +8750,8 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -8574,10 +8759,14 @@
     "name": "Sophora Alopecuroides",
     "summary": "Sophora alopecuroides lean monograph row enriched in bulk mode.",
     "primary_effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "antimicrobial",
+      "antiparasitic"
     ],
     "effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "antimicrobial",
+      "antiparasitic"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -8588,18 +8777,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -8607,10 +8796,14 @@
     "name": "Sophora Flavescens",
     "summary": "Sophora flavescens lean monograph row enriched in bulk mode.",
     "primary_effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "antiparasitic",
+      "cardiac_support"
     ],
     "effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "antiparasitic",
+      "cardiac_support"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -8621,18 +8814,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -8654,7 +8847,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -8664,7 +8857,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -8690,7 +8883,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8700,7 +8893,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -8708,7 +8901,9 @@
     "name": "St. John's Wort (Hypericum perforatum)",
     "summary": "St. John's Wort (Hypericum perforatum) is a yellow-flowered herb with well-studied antidepressant effects for mild-to-moderate depression. Its active constituents (hypericin, hyperforin) inhibit reuptake of serotonin, dopamine, and norepinephrine. Multiple meta-analyses confirm efficacy comparable to low-dose SSRIs for mild depression, with fewer side effects in that population.",
     "primary_effects": [
-      "research-pending"
+      "mood_support",
+      "antidepressant",
+      "nervine"
     ],
     "effects": [
       "stress"
@@ -8722,18 +8917,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -8741,10 +8936,14 @@
     "name": "Stellera Chamaejasme",
     "summary": "Stellera chamaejasme lean monograph row enriched in bulk mode.",
     "primary_effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "antitumor_research",
+      "antiparasitic"
     ],
     "effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "antitumor_research",
+      "antiparasitic"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -8755,18 +8954,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -8774,10 +8973,14 @@
     "name": "Stephania Cepharantha",
     "summary": "Stephania cepharantha lean monograph row enriched in bulk mode.",
     "primary_effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "antitumor_research",
+      "antiviral"
     ],
     "effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "antitumor_research",
+      "antiviral"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -8788,18 +8991,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -8807,10 +9010,14 @@
     "name": "Stephania Japonica",
     "summary": "Stephania japonica lean monograph row enriched in bulk mode.",
     "primary_effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "analgesic",
+      "muscle_relaxant"
     ],
     "effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "analgesic",
+      "muscle_relaxant"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -8821,18 +9028,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -8840,10 +9047,14 @@
     "name": "Stephania Tetrandra",
     "summary": "Stephania tetrandra lean monograph row enriched in bulk mode.",
     "primary_effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "diuretic",
+      "immune_modulation"
     ],
     "effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "diuretic",
+      "immune_modulation"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -8854,18 +9065,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -8888,7 +9099,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -8898,44 +9109,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
-    ]
-  },
-  {
-    "slug": "lions-mane",
-    "name": "Supports nerve growth factor (NGF) synthesis, cognitive function, and mild mood regulation. Promotes neurogenesis and neuroprotection in preclinical models. Human evidence is moderate and emerging, with the strongest signals for mild cognitive support and emotional well-being in aging or stressed adults. Effects are generally subtle and cumulative rather than acute.",
-    "summary": "Traditional herbal medicine with emerging evidence supporting therapeutic applications.",
-    "primary_effects": [
-      "cognitive",
-      "neuroprotective",
-      "mood"
-    ],
-    "effects": [
-      "cognitive",
-      "neuroprotective",
-      "mood"
-    ],
-    "evidence_grade": "Lion's Mane (Hericium erinaceus) shows promising but still emerging human evidence for cognitive support, primarily through neurotrophic and neuroprotective mechanisms. Several small randomized and open-label human studies have reported improvements in cognitive function, mood, and nerve-related outcomes, though results vary by extract type, dosage, population, and study duration. Preclinical research has identified hericenones and erinacines as key compounds that stimulate nerve growth factor (NGF) synthesis and promote neurogenesis, particularly in the hippocampus. Human data remains more limited. A 2019 double-blind, placebo-controlled trial in adults with mild cognitive impairment found that 3 g/day of Lion's Mane powder for 16 weeks was associated with improved cognitive scores compared with placebo, with effects diminishing after supplementation ended. Other small studies have explored benefits for mood, anxiety, and depression symptoms, as well as peripheral nerve recovery, with generally favorable but preliminary findings. Evidence quality is currently rated Moderate (B). Strengths include consistent mechanistic rationale and some positive human trials using standardized extracts. Limitations include small sample sizes, short durations, heterogeneous preparations (fruiting body vs. mycelium, varying beta-glucan content), and a lack of large, long-term RCTs in healthy or clinical populations. Product standardization remains inconsistent across commercial sources, which may affect reproducibility of effects. Overall, Lion's Mane is best positioned as a supportive compound for cognitive maintenance and mild mood support rather than a primary treatment for diagnosed conditions. Individuals interested in trying it should prioritize third-party tested fruiting-body extracts with verified beta-glucan content and track personal response over 8–12 weeks.",
-    "evidence_tier": "Mechanistic Evidence",
-    "profile_status": "minimal",
-    "runtime_export_decision": "limited",
-    "affiliate_ready": true,
-    "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
-    "indexability_reasons": [
-      "effect-coverage",
-      "evidence-signal",
-      "export-decision:limited",
-      "identity-present",
-      "mechanism-context",
-      "non-publishable-profile-status",
-      "profile-status:minimal",
-      "safety-context",
-      "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -8943,7 +9117,9 @@
     "name": "Syzygium Aromaticum",
     "summary": "Syzygium aromaticum (Clove) is an aromatic spice botanical rich in eugenol, studied for antioxidant and dental health support.",
     "primary_effects": [
-      "research-pending"
+      "analgesic",
+      "antimicrobial",
+      "anti_inflammatory"
     ],
     "effects": [
       "stress"
@@ -8957,18 +9133,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -8989,10 +9165,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9002,7 +9178,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -9034,7 +9211,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -9042,10 +9219,14 @@
     "name": "Terminalia arjuna",
     "summary": "Terminalia arjuna bark extract has limited human cardiac-patient evidence and should remain conservative pending stronger replication.",
     "primary_effects": [
-      "research-pending"
+      "cardiovascular_support",
+      "antioxidant",
+      "cardioprotective"
     ],
     "effects": [
-      "research-pending"
+      "cardiovascular_support",
+      "antioxidant",
+      "cardioprotective"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -9058,17 +9239,16 @@
     "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 45,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "non-publishable-profile-status",
       "profile-status:minimal",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -9092,7 +9272,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9102,7 +9282,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -9124,7 +9304,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -9134,7 +9314,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -9142,7 +9322,9 @@
     "name": "Tongkat Ali",
     "summary": "It is best framed as a bitter root extract with endocrine and stimulation-related caution.",
     "primary_effects": [
-      "research-pending"
+      "testosterone_support",
+      "libido",
+      "adaptogen"
     ],
     "effects": [
       "stress"
@@ -9153,21 +9335,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -9186,10 +9367,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -9199,7 +9380,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -9220,10 +9402,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9233,7 +9415,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -9252,10 +9435,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -9265,7 +9448,8 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -9273,7 +9457,9 @@
     "name": "Turmeric (Curcuma longa)",
     "summary": "Curcuma longa contains Demethoxycurcumin and is linked here to NF-κB inhibition.",
     "primary_effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "antioxidant",
+      "joint_support"
     ],
     "effects": [
       "inflammation",
@@ -9286,21 +9472,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:near_complete",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -9320,10 +9505,10 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 60,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -9333,7 +9518,8 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -9356,7 +9542,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -9366,7 +9552,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -9374,7 +9560,9 @@
     "name": "Verbena Officinalis",
     "summary": "Verbena officinalis contains Acteoside and is linked here to NF-κB inhibition.",
     "primary_effects": [
-      "research-pending"
+      "nervine",
+      "anti_anxiety",
+      "liver_support"
     ],
     "effects": [
       "stress"
@@ -9388,18 +9576,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -9407,7 +9595,9 @@
     "name": "White Peony",
     "summary": "It is best framed as a paeoniflorin-rich root with traditional-system relevance.",
     "primary_effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "muscle_relaxant",
+      "liver_support"
     ],
     "effects": [
       "stress"
@@ -9418,21 +9608,20 @@
     "runtime_export_decision": "limited",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -9440,10 +9629,14 @@
     "name": "Wild Yam",
     "summary": "Wild Yam lean herb row for high-speed phytochemical ingestion.",
     "primary_effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "hormonal_support",
+      "digestive_support"
     ],
     "effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "hormonal_support",
+      "digestive_support"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -9454,18 +9647,18 @@
     "robots": "noindex,follow",
     "sitemap_included": false,
     "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "indexability_score": 60,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:partial",
-      "research-pending-effect",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality:weak",
+      "weak-summary-quality"
     ]
   },
   {
@@ -9487,7 +9680,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -9497,7 +9690,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -9521,7 +9714,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9531,7 +9724,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -9557,7 +9750,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9567,7 +9760,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   },
   {
@@ -9590,7 +9783,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -9600,7 +9793,7 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ]
   }
 ]

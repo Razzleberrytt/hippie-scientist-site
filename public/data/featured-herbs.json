@@ -93,6 +93,7 @@
     "dea_watchlist_status": "",
     "regulatory_status": "",
     "profile_status": "top50_authority_patched",
+    "summary_quality": "strong",
     "runtime_export_decision": "limited",
     "visibility_tier": "public",
     "robots": "index,follow",
@@ -108,7 +109,7 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ],
     "meta_title": "Ashwagandha for sleep support: evidence and safety",
     "meta_description": "Evidence-aware guide to Ashwagandha, including main use cases, safety notes, and how strong the current human evidence appears.",
@@ -117,7 +118,7 @@
   },
   {
     "slug": "lions-mane",
-    "name": "Supports nerve growth factor (NGF) synthesis, cognitive function, and mild mood regulation. Promotes neurogenesis and neuroprotection in preclinical models. Human evidence is moderate and emerging, with the strongest signals for mild cognitive support and emotional well-being in aging or stressed adults. Effects are generally subtle and cumulative rather than acute.",
+    "name": "Lion's Mane",
     "summary": "Traditional herbal medicine with emerging evidence supporting therapeutic applications.",
     "description": "Lion’s Mane is best framed as a conservative research profile with mechanistic evidence and a focus on Cognition; Neurobiology. Current workbook signals support mechanistic context around Neuroprotective Activity, not treatment claims.",
     "effects": [
@@ -150,7 +151,7 @@
     ],
     "mechanism_normalization_status": "fully_mapped",
     "unmapped_mechanisms": [],
-    "evidence_grade": "Lion's Mane (Hericium erinaceus) shows promising but still emerging human evidence for cognitive support, primarily through neurotrophic and neuroprotective mechanisms. Several small randomized and open-label human studies have reported improvements in cognitive function, mood, and nerve-related outcomes, though results vary by extract type, dosage, population, and study duration. Preclinical research has identified hericenones and erinacines as key compounds that stimulate nerve growth factor (NGF) synthesis and promote neurogenesis, particularly in the hippocampus. Human data remains more limited. A 2019 double-blind, placebo-controlled trial in adults with mild cognitive impairment found that 3 g/day of Lion's Mane powder for 16 weeks was associated with improved cognitive scores compared with placebo, with effects diminishing after supplementation ended. Other small studies have explored benefits for mood, anxiety, and depression symptoms, as well as peripheral nerve recovery, with generally favorable but preliminary findings. Evidence quality is currently rated Moderate (B). Strengths include consistent mechanistic rationale and some positive human trials using standardized extracts. Limitations include small sample sizes, short durations, heterogeneous preparations (fruiting body vs. mycelium, varying beta-glucan content), and a lack of large, long-term RCTs in healthy or clinical populations. Product standardization remains inconsistent across commercial sources, which may affect reproducibility of effects. Overall, Lion's Mane is best positioned as a supportive compound for cognitive maintenance and mild mood support rather than a primary treatment for diagnosed conditions. Individuals interested in trying it should prioritize third-party tested fruiting-body extracts with verified beta-glucan content and track personal response over 8–12 weeks.",
+    "evidence_grade": "b",
     "evidence_tier": "Mechanistic Evidence",
     "evidence_design_match": "",
     "evidence_risk_of_bias": "",
@@ -195,24 +196,24 @@
     "dea_status": "",
     "dea_watchlist_status": "",
     "regulatory_status": "",
-    "profile_status": "minimal",
+    "profile_status": "partial",
+    "summary_quality": "Lion's Mane (Hericium erinaceus) is a medicinal mushroom traditionally used in East Asian cultures for supporting brain and nerve health. Modern interest centers on its unique ability to stimulate nerve growth factor (NGF), making it one of the few natural compounds studied for neurogenesis and neuroprotection. While preclinical research is strong, human clinical evidence remains moderate and emerging, with the greatest potential currently seen for cognitive function and mild mood support in aging or stressed populations.",
     "runtime_export_decision": "limited",
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
-      "non-publishable-profile-status",
-      "profile-status:minimal",
+      "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:lion's mane (hericium erinaceus) is a medicinal mushroom traditionally used in east asian cultures for supporting brain and nerve health. modern interest centers on its unique ability to stimulate nerve growth factor (ngf), making it one of the few natural compounds studied for neurogenesis and neuroprotection. while preclinical research is strong, human clinical evidence remains moderate and emerging, with the greatest potential currently seen for cognitive function and mild mood support in aging or stressed populations."
     ],
     "meta_title": "",
     "meta_description": "",
@@ -230,7 +231,9 @@
       "antioxidant_support"
     ],
     "primary_effects": [
-      "research-pending"
+      "anti_inflammatory",
+      "antioxidant",
+      "joint_support"
     ],
     "mechanisms": [
       "Inflammatory Signaling Modulation",
@@ -323,23 +326,23 @@
     "dea_watchlist_status": "",
     "regulatory_status": "",
     "profile_status": "near_complete",
+    "summary_quality": "strong",
     "runtime_export_decision": "limited",
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 45,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "effect-present",
+      "effect-coverage",
       "evidence-signal",
       "export-decision:limited",
       "identity-present",
       "mechanism-context",
       "profile-status:near_complete",
-      "research-pending-effect",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality:strong"
     ],
     "meta_title": "Turmeric for stress support: evidence and safety",
     "meta_description": "Evidence-aware guide to Turmeric, including main use cases, safety notes, and how strong the current human evidence appears.",
