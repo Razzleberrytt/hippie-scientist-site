@@ -19,6 +19,12 @@ interface Selections {
   stimSensitive: StimSensitivity | null
 }
 
+type ResolvedSelections = {
+  goal: Goal
+  timing: Timing
+  stimSensitive: StimSensitivity
+}
+
 // ─── Scoring helpers ──────────────────────────────────────────────────────────
 
 function matchesAny(haystack: string[], needles: string[]): boolean {
@@ -76,7 +82,7 @@ function scoreForTiming(item: CompareItem, timing: Timing): number {
 function chooseRecommendation(
   item1: CompareItem,
   item2: CompareItem,
-  selections: Required<Selections>
+  selections: ResolvedSelections
 ): { recommended: CompareItem; other: CompareItem; isTie: boolean } {
   let score1 = scoreForGoal(item1, selections.goal)
   let score2 = scoreForGoal(item2, selections.goal)
@@ -112,7 +118,7 @@ const GOAL_LABELS: Record<Goal, string> = {
 function buildReason(
   recommended: CompareItem,
   other: CompareItem,
-  selections: Required<Selections>,
+  selections: ResolvedSelections,
   isTie: boolean
 ): string {
   const goalLabel = GOAL_LABELS[selections.goal]
@@ -139,7 +145,7 @@ function buildReason(
 function buildStackSuggestion(
   item1: CompareItem,
   item2: CompareItem,
-  selections: Required<Selections>
+  selections: ResolvedSelections
 ): string {
   const stim1 = isStimulating(item1)
   const stim2 = isStimulating(item2)
@@ -309,18 +315,18 @@ export default function CompareDecisionWidget({
         const { recommended, other, isTie } = chooseRecommendation(
           item1,
           item2,
-          selections as Required<Selections>
+          selections as ResolvedSelections
         )
         const reason = buildReason(
           recommended,
           other,
-          selections as Required<Selections>,
+          selections as ResolvedSelections,
           isTie
         )
         const stackSuggestion = buildStackSuggestion(
           item1,
           item2,
-          selections as Required<Selections>
+          selections as ResolvedSelections
         )
 
         return (

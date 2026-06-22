@@ -177,14 +177,16 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   }
 
   const indexable = isFlagshipCompareSlug(slug) || allComparisonSlugs.includes(slug)
-  return buildPageMetadata({
-    title,
-    description,
-    path: `/compare/${slug}`,
-    openGraphType: 'article',
-    robots: indexable ? undefined : { index: false, follow: true },
+  return {
+    ...buildPageMetadata({
+      title,
+      description,
+      path: `/compare/${slug}`,
+      openGraphType: 'article',
+      robots: indexable ? undefined : { index: false, follow: true },
+    }),
     alternates: { canonical: `${SITE_URL}/compare/${slug}/` },
-  })
+  }
 }
 
 export default async function Page({ params }: Params) {
