@@ -116,3 +116,6 @@ docs/internal/
 
 # Build cache directory
 .build-cache/
+
+# Agent metadata harvester cache (auto-generated, regenerates on each run)
+agent/cache/
