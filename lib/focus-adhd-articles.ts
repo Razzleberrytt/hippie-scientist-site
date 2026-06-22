@@ -192,6 +192,17 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     readingTime: '11 min read',
   },
   {
+    slug: 'l-tyrosine-and-adhd',
+    source: 'docs/content/focus-cluster/l-tyrosine-and-adhd.md',
+    title: 'L-Tyrosine for ADHD: Evidence, Focus Benefits, Stress Support, and Safety',
+    seoTitle: 'L-Tyrosine for ADHD: Evidence, Focus Benefits, Stress Support, and Safety',
+    description: 'Evidence-based guide to L-tyrosine for ADHD, focus, and stress support. Covers dopamine and norepinephrine pathways, attention research, dosing, safety, medication cautions, and realistic expectations.',
+    category: 'Supplement Evidence',
+    tags: ['Focus', 'ADHD', 'Supplement Evidence'],
+    date: '2026-06-22',
+    readingTime: '10 min read',
+  },
+  {
     slug: 'l-theanine-vs-caffeine-for-focus',
     source: 'docs/content/focus-cluster/l-theanine-vs-caffeine-for-focus-content-v1.md',
     title: 'L-Theanine vs Caffeine for Focus: Which Works Better for Attention and Calm Energy?',
