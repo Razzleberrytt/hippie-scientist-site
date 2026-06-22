@@ -71,8 +71,16 @@
 /comparisons /compare/ 301
 /comparisons/* /compare/:splat 301
 /start /goals/ 301
+/best/muscle /goals/energy/ 301
+/best/muscle/ /goals/energy/ 301
+/best/workout-performance /goals/energy/ 301
+/best/workout-performance/ /goals/energy/ 301
 /best/* /goals/:splat 301
 /best-for/* /goals/:splat 301
+/collections/gabaergic-herbs /goals/anxiety/ 301
+/collections/gabaergic-herbs/ /goals/anxiety/ 301
+/collections/stimulant-herb-combinations /goals/energy/ 301
+/collections/stimulant-herb-combinations/ /goals/energy/ 301
 /collections /goals/ 301
 /collections/* /goals/:splat 301
 /top /goals/ 301
@@ -340,3 +348,75 @@
 # Compare URL cleanup: l-threonate URL slug doesn't parse cleanly; redirect to data-accurate slug
 /compare/magnesium-glycinate-vs-l-threonate-for-sleep /compare/magnesium-glycinate-vs-magnesium-threonate/ 301
 /compare/magnesium-glycinate-vs-l-threonate-for-sleep/ /compare/magnesium-glycinate-vs-magnesium-threonate/ 301
+
+# GSC 404 remediation (2026-06-22) — compounds that belong under /herbs/
+/compounds/berberis /herbs/berberis/ 301
+/compounds/berberis/ /herbs/berberis/ 301
+/compounds/astragalus /herbs/astragalus/ 301
+/compounds/astragalus/ /herbs/astragalus/ 301
+/compounds/astragalus-membranaceus /herbs/astragalus/ 301
+/compounds/astragalus-membranaceus/ /herbs/astragalus/ 301
+/compounds/piper-methysticum /herbs/kava/ 301
+/compounds/piper-methysticum/ /herbs/kava/ 301
+/compounds/pau-d-arco /herbs/pau-d-arco/ 301
+/compounds/pau-d-arco/ /herbs/pau-d-arco/ 301
+/compounds/mangifera-indica /herbs/mangifera-indica/ 301
+/compounds/mangifera-indica/ /herbs/mangifera-indica/ 301
+/compounds/coffee-cherry /herbs/coffea-arabica/ 301
+/compounds/coffee-cherry/ /herbs/coffea-arabica/ 301
+/compounds/epigallocatechin-gallate /compounds/green-tea-extract/ 301
+/compounds/epigallocatechin-gallate/ /compounds/green-tea-extract/ 301
+
+# GSC 404 remediation — single-compound /stacks/ URLs
+/stacks/alpha-gpc /compounds/alpha-gpc/ 301
+/stacks/alpha-gpc/ /compounds/alpha-gpc/ 301
+/stacks/caffeine /compounds/caffeine/ 301
+/stacks/caffeine/ /compounds/caffeine/ 301
+/stacks/dihydrokavain /compounds/dihydrokavain/ 301
+/stacks/dihydrokavain/ /compounds/dihydrokavain/ 301
+/stacks/kavain /compounds/kavain/ 301
+/stacks/kavain/ /compounds/kavain/ 301
+/stacks/mangifera-indica /herbs/mangifera-indica/ 301
+/stacks/mangifera-indica/ /herbs/mangifera-indica/ 301
+
+# GSC 404 remediation — removed articles redirected to closest subject page
+/articles/2025-09-11-formulation-tips-skullcap-thursday-notes /herbs/scutellaria-lateriflora/ 301
+/articles/2025-09-11-formulation-tips-skullcap-thursday-notes/ /herbs/scutellaria-lateriflora/ 301
+/articles/2025-09-08-safety-set-setting-gotu-kola-monday-notes /herbs/gotu-kola/ 301
+/articles/2025-09-08-safety-set-setting-gotu-kola-monday-notes/ /herbs/gotu-kola/ 301
+/articles/2025-10-14-field-notes-damiana-tuesday-notes /herbs/damiana/ 301
+/articles/2025-10-14-field-notes-damiana-tuesday-notes/ /herbs/damiana/ 301
+
+# GSC 404 remediation — missing /guides/ slugs redirected to closest live content
+/guides/best-supplements-for-gut-health /best-supplements-for-gut-health/ 301
+/guides/best-supplements-for-gut-health/ /best-supplements-for-gut-health/ 301
+/guides/deep-sleep-support /guides/best-natural-sleep-aids-that-work/ 301
+/guides/deep-sleep-support/ /guides/best-natural-sleep-aids-that-work/ 301
+/guides/anti-inflammatory /guides/how-to-lower-cortisol-naturally/ 301
+/guides/anti-inflammatory/ /guides/how-to-lower-cortisol-naturally/ 301
+/guides/antioxidant /guides/how-to-lower-cortisol-naturally/ 301
+/guides/antioxidant/ /guides/how-to-lower-cortisol-naturally/ 301
+/guides/metabolic /goals/ 301
+/guides/metabolic/ /goals/ 301
+/guides/cardiovascular /goals/ 301
+/guides/cardiovascular/ /goals/ 301
+/guides/antimicrobial /guides/ 301
+/guides/antimicrobial/ /guides/ 301
+/guides/research-pending /guides/ 301
+/guides/research-pending/ /guides/ 301
+/guides/digestive /goals/ 301
+/guides/digestive/ /goals/ 301
+
+# GSC 404 remediation — education pages redirected to equivalent content
+/education/how-set-and-setting-work /guides/psychedelic-adjacent-herbs/ 301
+/education/how-set-and-setting-work/ /guides/psychedelic-adjacent-herbs/ 301
+/education/psychoactive-substances-overview /novel-psychoactive-substances/ 301
+/education/psychoactive-substances-overview/ /novel-psychoactive-substances/ 301
+
+# GSC 404 remediation — /herb/ typo (missing s)
+/herb/* /herbs/:splat 301
+
+# GSC 404 remediation — misc
+/sitemap /sitemap.xml 301
+/best-herbs-for-focus /guides/best-nootropics-for-focus/ 301
+/best-herbs-for-focus/ /guides/best-nootropics-for-focus/ 301
