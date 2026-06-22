@@ -1,45 +1,35 @@
 import type { CompareItem } from '@/lib/compare'
-import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import { revenueProductSets } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
-import { getRevenueProductSet } from '@/config/revenue-products'
 
 interface CompareAffiliateProps {
   item1: CompareItem
   item2: CompareItem
+  isHR: boolean
 }
 
-export default function CompareAffiliate({ item1, item2 }: CompareAffiliateProps) {
-  // If either item is harm-reduction, do not monetize (render nothing)
-  if (item1.isHarmReduction || item2.isHarmReduction) {
-    return null
-  }
+export default function CompareAffiliate({ item1, item2, isHR }: CompareAffiliateProps) {
+  if (isHR) return null
 
-  // Fetch the product sets from configuration
-  const productSet1 = getRevenueProductSet(item1.slug)
-  const productSet2 = getRevenueProductSet(item2.slug)
+  const set1 = revenueProductSets[item1.slug]
+  const set2 = revenueProductSets[item2.slug]
 
-  // If no products are defined for either item, render nothing
-  if (!productSet1 && !productSet2) {
-    return null
-  }
-
-  const products = [
-    ...(productSet1?.products || []),
-    ...(productSet2?.products || [])
-  ]
-
-  if (products.length === 0) {
-    return null
-  }
+  if (!set1 && !set2) return null
 
   return (
-    <div className="space-y-4">
-      <RecommendationSection
-        title={`${item1.name} and ${item2.name} Sourcing Options`}
-        description="Existing configured product picks for these two non-harm-reduction profiles. Use them as sourcing starting points, not medical recommendations."
-        products={products}
-      />
-      <AffiliateDisclosure variant="compact" />
+    <div className="space-y-8">
+      {set1 && (
+        <RecommendationSection
+          title={`If you choose ${item1.name}`}
+          products={set1.products}
+        />
+      )}
+      {set2 && (
+        <RecommendationSection
+          title={`If you choose ${item2.name}`}
+          products={set2.products}
+        />
+      )}
     </div>
   )
 }
