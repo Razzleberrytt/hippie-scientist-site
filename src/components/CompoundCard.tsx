@@ -129,7 +129,7 @@ export default function CompoundCard({ compound }: { compound: CompoundWithRefs 
     <motion.article
       whileHover={{ scale: 1.003 }}
       title={compound.herbsFound.map(h => h.name).join(', ')}
-      className='group relative flex h-full flex-col gap-2.5 rounded-[var(--radius-lg)] border border-white/10 bg-white/[0.03] p-4 text-left transition-all duration-200 hover:-translate-y-0.5 hover:border-white/16 hover:bg-white/[0.055] hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
+      className='group relative flex h-full flex-col gap-2.5 rounded-[var(--radius-lg)] border border-white/10 bg-white/[0.03] p-4 text-left transition-all duration-200 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.055] hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)]'
     >
       <div
         aria-hidden

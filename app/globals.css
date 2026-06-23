@@ -394,14 +394,6 @@ html.dark ::selection {
     @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
   }
 
-  .glass-card {
-    border: 1px solid var(--border-soft);
-    background-color: var(--surface-card);
-    @apply backdrop-blur-xl;
-    border-radius: var(--radius-card-premium);
-    box-shadow: var(--shadow-card-calm);
-  }
-
   .card-premium {
     border: 1px solid var(--border-soft);
     background-color: var(--surface-card);
@@ -680,7 +672,6 @@ html.dark .content-prose blockquote {
    Keep this centralized so page contracts and generated content stay untouched. */
 html.dark :is(
   .card-premium,
-  .glass-card,
   .section-frame,
   .surface-subtle,
   .surface-depth,
@@ -707,7 +698,6 @@ html.dark :is(
 html.dark :is(
   .surface-depth,
   .section-frame,
-  .glass-card,
   .hero-shell,
   [class~="bg-white/90"],
   [class~="bg-white/95"]
@@ -933,6 +923,12 @@ html.dark :is(.prose, .prose p, .prose li, .prose td) {
   color: var(--text-muted);
 }
 
+html.dark .text-prose-body,
+html.dark .text-prose-soft,
+html.dark .text-prose-muted {
+  color: var(--text-muted);
+}
+
 html.dark :is(.prose h1, .prose h2, .prose h3, .prose h4, .prose strong) {
   color: var(--text-primary);
 }
@@ -1021,6 +1017,19 @@ html.dark :is(
 
   .text-muted-soft {
     color: var(--text-secondary);
+  }
+
+  /* Semantic prose text utilities - replace hardcoded hex throughout */
+  .text-prose-body {
+    color: #36483e;
+  }
+
+  .text-prose-soft {
+    color: #46574d;
+  }
+
+  .text-prose-muted {
+    color: #64766b;
   }
 
   .heading-premium {

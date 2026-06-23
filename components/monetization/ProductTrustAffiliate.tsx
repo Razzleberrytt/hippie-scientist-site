@@ -42,7 +42,7 @@ export default function ProductTrustAffiliate({
   }
 
   return (
-    <article className='rounded-2xl border border-emerald-900/12 bg-emerald-50/35 p-5'>
+    <article className='rounded-2xl border border-brand-900/10 bg-brand-50/30 p-5'>
       {slotLabel ? (
         <p className='text-[10px] font-bold uppercase tracking-[0.14em] text-emerald-800'>{slotLabel}</p>
       ) : null}
