@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react'
 import Link from 'next/link'
-import EvidenceClaimCard from '../../../src/components/evidence-engine/EvidenceClaimCard'
 import type { Goal } from '@/data/goals'
 import SafetyChecklistPromo from '@/components/monetization/SafetyChecklistPromo'
 import GoalTopAffiliatePicks from '@/components/monetization/GoalTopAffiliatePicks'
@@ -9,25 +8,20 @@ import { getGoalFreshness } from '@/lib/freshness'
 import type { GoalContentExtension } from '@/data/goal-content'
 import type { EmailCaptureGoal } from '@/content/emailCapture'
 import GoalHubSections from '../../../src/components/goals/GoalHubSections'
-import GoalContentDepth from '../../../src/components/goals/GoalContentDepth'
 import GoalStartHereLinks from '@/components/goals/GoalStartHereLinks'
 import type { GoalStartHereLink } from '@/lib/goal-start-here-links'
 import type { getGoalHubLinks } from '../../../src/lib/goal-hub-links'
-
-type GoalHubBundle = ReturnType<typeof getGoalHubLinks>
 import {
-  type EvidenceEngineClaim,
   type EvidenceEnginePayload,
   formatEvidenceLabel,
-  getClaimProblemKey,
   getSafetySeverityTone,
-  groupClaimsByDecisionGroup,
-  groupSafetyNotesByIngredient,
 } from '../../../src/lib/evidence-engine'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import AuthorCredentials from '@/components/AuthorCredentials'
 import SeeAlsoInCluster from '@/components/SeeAlsoInCluster'
 import { getGoalCluster, type GoalCategory } from '@/lib/goal-clusters'
+
+type GoalHubBundle = ReturnType<typeof getGoalHubLinks>
 
 type GoalOption = {
   option: {
@@ -57,14 +51,17 @@ type GoalDecisionExperienceProps = {
   captureGoal?: EmailCaptureGoal
 }
 
-function profileHrefFor(claim: EvidenceEngineClaim, enrichedOptions: GoalOption[]) {
-  const option = enrichedOptions.find((item) => item.option.slug === claim.ingredient_slug)
-  return option?.profileHref || `/compounds/${claim.ingredient_slug}`
+type SafetyCard = {
+  safety_id: string
+  ingredient_slug: string
+  severity: string
+  warning: string
+  decision_effect: string
 }
 
 function ArticleClusterLinks({
   category,
-  eyebrow = 'Article cluster',
+  eyebrow = 'More guides',
 }: {
   category: GoalCategory
   eyebrow?: string
@@ -76,9 +73,7 @@ function ArticleClusterLinks({
     <section className="rounded-2xl border border-emerald-800/15 bg-emerald-50/70 p-5 shadow-sm sm:p-6">
       <p className="eyebrow-label">{eyebrow}</p>
       <h2 className="mt-2 text-xl font-semibold text-ink">{cluster.title}</h2>
-      <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">
-        {cluster.description}
-      </p>
+      <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">{cluster.description}</p>
       <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {cluster.articles.map((article) => (
           <Link
@@ -93,7 +88,7 @@ function ArticleClusterLinks({
           </Link>
         ))}
       </div>
-      </section>
+    </section>
   )
 }
 
@@ -102,6 +97,16 @@ function clusterForGoal(slug: string): GoalCategory | null {
   if (slug === 'anxiety' || slug === 'stress') return 'mood'
   if (slug === 'focus') return 'memory'
   return null
+}
+
+function defaultSafetyCards(options: GoalOption[]): SafetyCard[] {
+  return options.map(({ option }) => ({
+    safety_id: `${option.slug}-avoid`,
+    ingredient_slug: option.slug,
+    severity: 'moderate',
+    warning: option.avoidIf,
+    decision_effect: 'Review this caution before use.',
+  }))
 }
 
 export default function GoalDecisionExperience({
@@ -115,22 +120,19 @@ export default function GoalDecisionExperience({
   captureGoal = 'default',
 }: GoalDecisionExperienceProps) {
   const freshness = getGoalFreshness(goal.slug)
-  const claims = evidence.claims
-  const problemLabels = evidence.problemLabels
   const config = evidence.config ?? {}
-  const claimGroups = groupClaimsByDecisionGroup(claims)
-  const safetyGroups = groupSafetyNotesByIngredient(evidence.safetyNotes)
-  const hasEvidence = claims.length > 0
-
-  const problemField = config.problemField ?? `${goal.slug}_problem`
-  const orientationId = `${goal.slug}-orientation`
+  const comparisonOptions = enrichedOptions.slice(0, 6)
+  const safetyCards: SafetyCard[] = evidence.safetyNotes.length > 0
+    ? evidence.safetyNotes.slice(0, 4)
+    : defaultSafetyCards(comparisonOptions).slice(0, 4)
+  const faqItems = goalContent?.faqItems.slice(0, 4) ?? []
+  const cluster = clusterForGoal(goal.slug)
+  const quickAnswerId = `${goal.slug}-quick-answer`
   const heroHeadline = config.heroHeadline ?? `${goal.title.replace(/ decisions$/, '')}: What does the evidence actually support?`
-  const heroDescription = `An evidence-reviewed ${goal.slug} decision page that separates claim, evidence, limitation, source, and safety context before you decide what to research next.`
-  const heroCta = config.heroCta ?? `Start with the ${goal.slug} problem`
-  const orientationHeading = config.orientationHeading ?? `Start by naming the ${goal.slug} problem`
-  const orientationSubtext = config.orientationSubtext ?? `The same ingredient can look useful or weak depending on which ${goal.slug} problem you are targeting.`
-  const safetyHeading = config.safetyHeading ?? `${goal.title} decisions change when risk context changes`
-  const safetyBody = config.safetyBody ?? `Do not use supplements to manage complex clinical situations without professional guidance.`
+  const heroDescription = goal.description
+  const heroCta = config.heroCta ?? 'Start with the quick answer'
+  const safetyHeading = config.safetyHeading ?? 'Safety notes before buying'
+  const safetyBody = config.safetyBody ?? 'Use this as a screening layer before comparing products. Medication use, pregnancy, chronic conditions, and psychiatric history can change the risk calculation.'
 
   return (
     <div className="mx-auto max-w-6xl space-y-10 px-4 pb-28 pt-8 sm:px-6 sm:py-10 lg:px-8">
@@ -144,123 +146,101 @@ export default function GoalDecisionExperience({
       />
 
       <section className="hero-shell rounded-[1.25rem] border border-brand-900/10 p-5 shadow-card sm:rounded-[2rem] sm:p-12">
-        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-          <div>
-            <p className="eyebrow-label">{goal.title} evidence engine</p>
-            <h1 className="heading-premium mt-3 text-ink">{heroHeadline}</h1>
-            <p className="mt-4 max-w-3xl text-base leading-8 text-muted">
-              {heroDescription}
-            </p>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a href={`#${orientationId}`} className="inline-flex min-h-11 items-center justify-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-900">
-                {heroCta}
-              </a>
-              <a href="#safety-first" className="inline-flex min-h-11 items-center justify-center rounded-full border border-brand-900/15 bg-white/90 px-5 py-2.5 text-sm font-bold text-brand-900 shadow-sm transition hover:border-brand-700/30 hover:bg-white dark:bg-[var(--surface-card-strong)] dark:!text-[var(--text-primary)]">
-                Review safety warnings
-              </a>
-            </div>
-          </div>
-
-          <div className="rounded-2xl border border-brand-900/12 bg-white/90 p-5 shadow-sm dark:bg-[var(--surface-card-strong)]">
-            <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Evidence snapshot</p>
-            <dl className="mt-4 space-y-3 text-sm leading-6 text-[#36483e] dark:text-[var(--text-muted)]">
-              <div>
-                <dt className="font-semibold text-ink">Reviewed evidence</dt>
-                <dd>{claims.length} published {goal.slug} claims</dd>
-              </div>
-              <div>
-                <dt className="font-semibold text-ink">Safety notes</dt>
-                <dd>{evidence.safetyNotes.length} ingredient warnings</dd>
-              </div>
-              <div>
-                <dt className="font-semibold text-ink">Last reviewed</dt>
-                <dd>{evidence.updatedAt ? new Date(evidence.updatedAt).toLocaleDateString('en-US') : 'Review pending'}</dd>
-              </div>
-            </dl>
-          </div>
+        <p className="eyebrow-label">{goal.eyebrow}</p>
+        <h1 className="heading-premium mt-3 max-w-4xl text-ink">{heroHeadline}</h1>
+        <p className="mt-4 max-w-3xl text-base leading-8 text-muted">{heroDescription}</p>
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+          <a href={`#${quickAnswerId}`} className="inline-flex min-h-11 items-center justify-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-900">
+            {heroCta}
+          </a>
+          <a href="#comparison-table" className="inline-flex min-h-11 items-center justify-center rounded-full border border-brand-900/15 bg-white/90 px-5 py-2.5 text-sm font-bold text-brand-900 shadow-sm transition hover:border-brand-700/30 hover:bg-white dark:bg-[var(--surface-card-strong)] dark:!text-[var(--text-primary)]">
+            Compare options
+          </a>
         </div>
-        <div className="mt-6">
+        <div className="mt-5">
           <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
         </div>
       </section>
 
-      <section id={orientationId} className="card-premium p-6 sm:p-8">
+      <section id={quickAnswerId} className="card-premium scroll-mt-24 p-6 sm:p-8">
         <div className="max-w-3xl">
-          <p className="eyebrow-label">{goal.title} problem orientation</p>
-          <h2 className="mt-2 text-2xl font-semibold text-ink">{orientationHeading}</h2>
-          <p className="mt-3 text-sm leading-7 text-[#36483e] dark:text-[var(--text-muted)]">
-            {orientationSubtext}
+          <p className="eyebrow-label">Quick answer</p>
+          <h2 className="mt-2 text-2xl font-semibold text-ink">Best options by {goal.slug.replace(/-/g, ' ')} problem</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Start with the problem you are trying to solve, then use the table to check timing, evidence, and risk.
           </p>
         </div>
-        <div className="mt-6 grid gap-3 md:grid-cols-5">
-          {Object.entries(problemLabels).map(([key, problem]) => {
-            const count = claims.filter((claim) => getClaimProblemKey(claim, problemField) === key).length
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {goal.quickPicks.map((pick) => {
+            const opt = comparisonOptions.find((item) => item.option.slug === pick.slug)
+            const href = opt?.profileHref || `/compounds/${pick.slug}`
             return (
-              <article key={key} className="rounded-2xl border border-brand-900/12 bg-white/90 p-4 shadow-sm dark:bg-[var(--surface-card-strong)]">
-                <h3 className="text-sm font-semibold text-ink">{problem.title}</h3>
-                <p className="mt-2 text-xs leading-5 text-[#36483e] dark:text-[var(--text-muted)]">{problem.description}</p>
-                <p className="mt-3 text-xs font-bold uppercase tracking-[0.14em] text-brand-700">{count} claim{count === 1 ? '' : 's'}</p>
+              <article key={pick.slug} className="rounded-2xl border border-brand-900/12 bg-white/90 p-5 shadow-sm dark:bg-[var(--surface-card-strong)]">
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">{pick.need}</p>
+                <h3 className="mt-2 text-lg font-semibold text-ink">
+                  <Link href={href} className="text-brand-800 transition hover:text-brand-700 hover:underline">
+                    {pick.option}
+                  </Link>
+                </h3>
+                {opt ? <p className="mt-2 text-sm leading-6 text-muted">{opt.option.bestFor}</p> : null}
               </article>
             )
           })}
         </div>
       </section>
 
-      {hasEvidence ? (
-        <section id="shortlist" className="card-premium p-6 sm:p-8">
-          <div className="max-w-3xl">
-            <p className="eyebrow-label">Claim-backed shortlist</p>
-            <h2 className="mt-2 text-2xl font-semibold text-ink">Source-backed evidence, grouped by decision role</h2>
-            <p className="mt-3 text-sm leading-7 text-muted">
-              These are not rankings or personalized recommendations. Each card shows the claim, evidence summary, limitation, source trail, and ingredient-specific safety notes.
-            </p>
-          </div>
-
-          <div className="mt-6 space-y-6">
-            {Object.entries(claimGroups).map(([group, groupClaims]) => (
-              <section key={group} className="rounded-2xl border border-brand-900/10 bg-white/85 p-4 shadow-sm sm:p-5 dark:bg-[var(--surface-card-strong)]">
-                <h3 className="text-lg font-semibold text-ink">{group}</h3>
-                <div className="mt-4 grid gap-4 lg:grid-cols-2">
-                  {groupClaims.map((claim) => {
-                    const problemKey = getClaimProblemKey(claim, problemField)
-                    const sources = evidence.sourcesByClaim[claim.claim_id] || []
-                    const safetyNotes = safetyGroups[claim.ingredient_slug] || []
-                    return (
-                      <EvidenceClaimCard
-                        key={claim.claim_id}
-                        claim={claim}
-                        problemLabel={problemLabels[problemKey]?.title || problemKey}
-                        profileHref={profileHrefFor(claim, enrichedOptions)}
-                        safetyNotes={safetyNotes}
-                        sources={sources}
-                      />
-                    )
-                  })}
-                </div>
-              </section>
-            ))}
-          </div>
-        </section>
-      ) : (
-        <section className="card-premium p-6 sm:p-8">
-          <p className="eyebrow-label">Evidence page</p>
-          <h2 className="mt-2 text-2xl font-semibold text-ink">No evidence claims are currently published for this topic</h2>
-          <p className="mt-3 text-sm leading-7 text-muted">
-            We are still compiling the evidence for {goal.title}. Check back soon for reviewed claims, source trails, and safety notes.
-          </p>
-        </section>
-      )}
-
-      <section id="safety-first" className="rounded-[2rem] border border-rose-700/15 bg-rose-50/70 p-7 sm:p-9 shadow-sm">
+      <section id="comparison-table" className="card-premium scroll-mt-24 p-6 sm:p-8">
         <div className="max-w-3xl">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-rose-800">Safety first</p>
-          <h2 className="mt-2 text-2xl font-semibold text-rose-950">{safetyHeading}</h2>
-          <p className="mt-3 text-sm leading-7 text-rose-900">
-            {safetyBody}
+          <p className="eyebrow-label">Compare the main options</p>
+          <h2 className="mt-2 text-2xl font-semibold text-ink">Shortlist before you read deeper</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            The table keeps the practical decision points visible: fit, timing, form quality, evidence, and caution level.
           </p>
         </div>
+        <div className="mt-6 overflow-x-auto">
+          <table className="min-w-full border-collapse text-left text-sm">
+            <thead>
+              <tr className="border-b border-brand-900/10">
+                <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Option</th>
+                <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Best fit</th>
+                <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Timing</th>
+                <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Form to check</th>
+                <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Evidence</th>
+                <th className="py-3 text-xs font-bold uppercase tracking-wider text-ink">Caution</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonOptions.map(({ option, profileHref, evidenceLabel, safetyLabel }) => (
+                <tr key={option.slug} className="border-b border-brand-900/5 align-top last:border-0">
+                  <td className="py-3 pr-4 font-semibold text-ink">
+                    <Link href={profileHref || `/compounds/${option.slug}`} className="text-brand-800 transition hover:text-brand-700 hover:underline">
+                      {option.name}
+                    </Link>
+                  </td>
+                  <td className="py-3 pr-4 text-muted">{option.bestFor}</td>
+                  <td className="py-3 pr-4 text-muted">{option.speed}</td>
+                  <td className="py-3 pr-4 text-muted">{option.form}</td>
+                  <td className="py-3 pr-4">
+                    <span className="inline-flex rounded-full border border-emerald-100/50 bg-emerald-50 px-2 py-0.5 text-xs font-semibold text-emerald-800">
+                      {evidenceLabel}
+                    </span>
+                  </td>
+                  <td className="py-3 text-muted">{safetyLabel}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="safety-first" className="rounded-[2rem] border border-rose-700/15 bg-rose-50/70 p-7 shadow-sm sm:p-9">
+        <div className="max-w-3xl">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-rose-800">Safety notes</p>
+          <h2 className="mt-2 text-2xl font-semibold text-rose-950">{safetyHeading}</h2>
+          <p className="mt-3 text-sm leading-7 text-rose-900">{safetyBody}</p>
+        </div>
         <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {evidence.safetyNotes.map((note) => (
+          {safetyCards.map((note) => (
             <article key={`${note.safety_id}-global`} className={`rounded-2xl border p-5 ${getSafetySeverityTone(note.severity)}`}>
               <h3 className="text-base font-semibold capitalize">{formatEvidenceLabel(note.ingredient_slug)}</h3>
               <p className="mt-2 text-sm leading-6">{note.warning}</p>
@@ -270,35 +250,11 @@ export default function GoalDecisionExperience({
         </div>
       </section>
 
-      <GoalTopAffiliatePicks goalSlug={goal.slug} limit={4} />
-
       <GoalStartHereLinks links={startHereLinks} />
 
-      {clusterForGoal(goal.slug) ? <ArticleClusterLinks category={clusterForGoal(goal.slug)!} /> : null}
+      {cluster ? <ArticleClusterLinks category={cluster} /> : null}
 
-      {goal.slug === 'focus' ? (
-        <SeeAlsoInCluster currentPath="/goals/focus" />
-      ) : null}
-
-      {goal.slug === 'anxiety' ? (
-        <section className="rounded-2xl border border-emerald-700/15 bg-emerald-50/70 p-5 shadow-sm sm:p-6">
-          <p className="eyebrow-label">Decision guide</p>
-          <h2 className="mt-2 text-xl font-semibold text-ink">Need the broader anxiety herb shortlist?</h2>
-          <p className="mt-3 text-sm leading-7 text-muted">
-            The anxiety goal page keeps the evidence engine separate from the canonical decision guide.
-          </p>
-          <Link
-            href="/guides/best-herbs-for-anxiety"
-            className="mt-4 inline-flex min-h-11 items-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-900"
-          >
-            See our full evidence-based guide - Best Herbs for Anxiety
-          </Link>
-        </section>
-      ) : null}
-
-      <SafetyChecklistPromo goal={captureGoal} variant="hero" />
-
-      {goalContent ? <GoalContentDepth content={goalContent} /> : null}
+      {goal.slug === 'focus' ? <SeeAlsoInCluster currentPath="/goals/focus" /> : null}
 
       {hubLinks ? (
         <GoalHubSections
@@ -307,6 +263,48 @@ export default function GoalDecisionExperience({
           compares={hubLinks.compares}
           seoEntry={hubLinks.seoEntry}
         />
+      ) : null}
+
+      <GoalTopAffiliatePicks goalSlug={goal.slug} limit={4} />
+
+      <SafetyChecklistPromo goal={captureGoal} variant="hero" />
+
+      {faqItems.length > 0 ? (
+        <section className="card-premium p-6 sm:p-8">
+          <div className="max-w-3xl">
+            <p className="eyebrow-label">FAQ</p>
+            <h2 className="mt-2 text-2xl font-semibold text-ink">Short answers before you decide</h2>
+          </div>
+          <div className="mt-6 space-y-4">
+            {faqItems.map((item) => (
+              <details key={item.question} className="group rounded-2xl border border-brand-900/10 bg-white/70 p-4">
+                <summary className="flex cursor-pointer list-none justify-between gap-3 text-sm font-semibold text-ink">
+                  {item.question}
+                  <span className="text-brand-500 transition-transform group-open:rotate-180" aria-hidden>
+                    v
+                  </span>
+                </summary>
+                <p className="mt-3 text-sm leading-7 text-muted">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {goal.slug === 'anxiety' ? (
+        <section className="rounded-2xl border border-emerald-700/15 bg-emerald-50/70 p-5 shadow-sm sm:p-6">
+          <p className="eyebrow-label">Decision guide</p>
+          <h2 className="mt-2 text-xl font-semibold text-ink">Need the broader anxiety herb shortlist?</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            Use the broader guide when you want the herb-by-herb anxiety framework beyond this goal comparison.
+          </p>
+          <Link
+            href="/guides/best-herbs-for-anxiety"
+            className="mt-4 inline-flex min-h-11 items-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-900"
+          >
+            See the anxiety herb guide
+          </Link>
+        </section>
       ) : null}
 
       <AuthorCredentials />

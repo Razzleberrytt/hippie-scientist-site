@@ -205,7 +205,7 @@ export async function generateMetadata({
   const goalEvidence = await getGoalEvidenceEngine(goalSlug)
   if (goalEvidence) {
     return buildGoalPageMetadata(
-      { ...goal, title: `${goal.title} Evidence Engine` },
+      goal,
       topNames,
     )
   }
@@ -275,12 +275,24 @@ export default async function GoalDecisionPage({
   const matches = rankEntitiesForGoal(goalSlug)
 
   const enrichedOptions = await Promise.all(
-    matches.map(async (match) => {
-      const staticOpt = goal.options.find((opt) => opt.slug === match.slug)
-      const record = match.type === 'herb'
-        ? await getHerbBySlug(match.slug)
-        : await getCompoundBySlug(match.slug)
-      return buildDynamicEnrichedOption(match, record ?? {}, staticOpt)
+    goal.options.map(async (staticOpt) => {
+      const rankedMatch = matches.find((match) => match.slug === staticOpt.slug)
+      const [herbRecord, compoundRecord] = await Promise.all([
+        getHerbBySlug(staticOpt.slug),
+        getCompoundBySlug(staticOpt.slug),
+      ])
+      const record = herbRecord ?? compoundRecord ?? {}
+      const match = rankedMatch ?? {
+        slug: staticOpt.slug,
+        name: staticOpt.name,
+        type: herbRecord ? 'herb' as const : 'compound' as const,
+        score: 0,
+        confidence: 0,
+        reasons: [],
+        bestFor: [staticOpt.bestFor],
+        avoidIf: [staticOpt.avoidIf],
+      }
+      return buildDynamicEnrichedOption(match, record, staticOpt)
     })
   )
 
@@ -344,14 +356,6 @@ export default async function GoalDecisionPage({
           goalContent={goalContent}
           captureGoal={goalCaptureGoal(goal.slug)}
         />
-        {goalProducts.length > 0 && (
-          <div className="mx-auto max-w-6xl px-4 pb-10 sm:px-6 lg:px-8">
-            <RecommendationSection
-              title={`${goal.title} product picks`}
-              products={goalProducts}
-            />
-          </div>
-        )}
       </>
     )
   }
