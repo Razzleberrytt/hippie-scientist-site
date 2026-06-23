@@ -127,7 +127,7 @@ export default async function BeginnerPathwayPage({ params }: StartRouteProps) {
             <Link
               key={profile}
               href={buildProfileHref(profile)}
-              className="rounded-3xl border border-brand-900/10 bg-white/80 p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-md"
+              className="rounded-3xl border border-brand-900/10 bg-white/80 p-6 shadow-sm transition motion-safe:hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-md"
             >
               <div className="space-y-3">
                 <div>

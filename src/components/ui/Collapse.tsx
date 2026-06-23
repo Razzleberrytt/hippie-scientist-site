@@ -1,5 +1,4 @@
-import { type ReactNode, useId, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { type ReactNode, useEffect, useId, useRef, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 
 export default function Collapse({
@@ -14,7 +13,14 @@ export default function Collapse({
   onToggle?: (open: boolean) => void
 }) {
   const [open, setOpen] = useState(defaultOpen)
+  const [contentHeight, setContentHeight] = useState<number | 'auto'>(defaultOpen ? 'auto' : 0)
   const contentId = useId()
+  const contentRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!contentRef.current) return
+    setContentHeight(open ? contentRef.current.scrollHeight : 0)
+  }, [open, children])
 
   return (
     <section className='overflow-hidden rounded-2xl border border-white/10 bg-white/5'>
@@ -39,21 +45,16 @@ export default function Collapse({
           <ChevronDown size={14} className={`transition-transform ${open ? 'rotate-180' : ''}`} />
         </span>
       </button>
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            key='collapse-content'
-            id={contentId}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.22, ease: 'easeInOut' }}
-            className='overflow-hidden'
-          >
-            <div className='border-white/10 border-t px-4 py-3'>{children}</div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div
+        id={contentId}
+        aria-hidden={!open}
+        className='overflow-hidden transition-all duration-[220ms] ease-in-out'
+        style={{ height: contentHeight, opacity: open ? 1 : 0 }}
+      >
+        <div ref={contentRef}>
+          <div className='border-white/10 border-t px-4 py-3'>{children}</div>
+        </div>
+      </div>
     </section>
   )
 }

@@ -61,14 +61,14 @@ export function Navigation() {
           </Link>
 
           {/* Desktop nav links */}
-          <div className="hidden items-center gap-5 text-sm md:flex lg:gap-6">
+          <div className="hidden items-center gap-6 text-sm md:flex lg:gap-7">
             {primaryLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={`font-medium transition-colors ${
                   isActive(link.href)
-                    ? 'font-semibold text-brand-900 dark:text-[var(--text-primary)] underline underline-offset-4 decoration-brand-700/40'
+                    ? 'font-semibold text-brand-800 underline underline-offset-[6px] decoration-brand-700/35 decoration-2 dark:text-[var(--text-primary)] dark:decoration-[var(--accent-teal)]/40'
                     : 'text-ink/80 hover:text-ink dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]'
                 }`}
               >
@@ -131,7 +131,7 @@ export function Navigation() {
                   onClick={closeMobile}
                   className={`rounded-lg px-3 py-2.5 font-medium transition ${
                     isActive(link.href)
-                      ? 'bg-brand-50 text-brand-900'
+                      ? 'border-l-2 border-brand-700 bg-brand-50/60 pl-[10px] font-semibold text-brand-900 dark:border-[var(--accent-teal)] dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]'
                       : 'text-ink hover:bg-brand-50/60'
                   }`}
                 >

@@ -1,5 +1,4 @@
 import React from 'react'
-import { motion } from '../lib/motion'
 import { ChevronDown } from 'lucide-react'
 
 interface Props {
@@ -15,15 +14,12 @@ export default function ScrollDownHint({ targetId = 'featured-herb-carousel' }: 
   }
 
   return (
-    <motion.button
+    <button
       onClick={handleClick}
-      initial={{ y: 0 }}
-      animate={{ y: [0, 10, 0] }}
-      transition={{ repeat: Infinity, duration: 2 }}
-      className='absolute bottom-6 left-1/2 z-20 -translate-x-1/2 rounded-full bg-black/40 p-3 text-white backdrop-blur-md hover:scale-105'
+      className='absolute bottom-6 left-1/2 z-20 -translate-x-1/2 rounded-full bg-black/40 p-3 text-white backdrop-blur-md transition motion-safe:animate-bounce motion-safe:hover:scale-105'
       aria-label='Scroll down'
     >
       <ChevronDown className='h-6 w-6' />
-    </motion.button>
+    </button>
   )
 }

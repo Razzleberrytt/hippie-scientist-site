@@ -312,7 +312,7 @@ function ResultCard({ item }: { item: SearchItem }) {
   return (
     <Link
       href={item.href}
-      className="group flex h-full min-h-[13.5rem] flex-col rounded-[1.3rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 sm:min-h-[15rem] sm:p-5"
+      className="group flex h-full min-h-[13.5rem] flex-col rounded-[1.3rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition duration-300 motion-safe:hover:-translate-y-0.5 hover:border-brand-700/20 hover:bg-white hover:shadow-[var(--shadow-card-calm)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 sm:min-h-[15rem] sm:p-5"
     >
       <div className="flex flex-1 flex-col">
         <div className={decisionMetadataClusterClass}>

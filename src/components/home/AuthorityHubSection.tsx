@@ -49,7 +49,7 @@ export function AuthorityHubSection({
           <Link
             key={hub.slug}
             href={`/explore/${hub.slug}`}
-            className="group rounded-3xl border border-neutral-200 bg-white/80 p-6 shadow-sm transition hover:-translate-y-1 hover:border-emerald-300 hover:shadow-lg"
+            className="group rounded-3xl border border-neutral-200 bg-white/80 p-6 shadow-sm transition motion-safe:hover:-translate-y-1 hover:border-emerald-300 hover:shadow-lg"
           >
             <div className="mb-4 flex items-center justify-between gap-3">
               <span className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-emerald-700">

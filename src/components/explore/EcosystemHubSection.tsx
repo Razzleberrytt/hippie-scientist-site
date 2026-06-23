@@ -54,7 +54,7 @@ export function EcosystemHubSection({
           <Link
             key={hub.slug}
             href={`/explore/${hub.slug}`}
-            className="group rounded-3xl border border-cyan-100 bg-gradient-to-br from-cyan-50/70 to-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-cyan-300 hover:shadow-lg"
+            className="group rounded-3xl border border-cyan-100 bg-gradient-to-br from-cyan-50/70 to-white p-5 shadow-sm transition motion-safe:hover:-translate-y-1 hover:border-cyan-300 hover:shadow-lg"
           >
             <div className="space-y-4">
               <div className="flex items-center justify-between gap-3">

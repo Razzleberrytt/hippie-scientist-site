@@ -51,7 +51,7 @@ export function RelatedDiscoveryWidget({
             <Link
               key={`discovery-${idx}`}
               href={item.href}
-              className={`rounded-[1.25rem] border p-5 transition hover:-translate-y-0.5 ${colors}`}
+              className={`rounded-[1.25rem] border p-5 transition motion-safe:hover:-translate-y-0.5 ${colors}`}
             >
               <p className="text-xs font-bold uppercase tracking-[0.16em] opacity-75">{typeLabel[item.type]}</p>
               <h3 className="mt-2 text-lg font-semibold text-ink">{item.title}</h3>

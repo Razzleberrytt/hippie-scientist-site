@@ -1,9 +1,11 @@
 'use client'
 
 import Link from 'next/link'
+import { Suspense } from 'react'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { DecisionEmptyState, DecisionFilterGroup, DecisionProfileCard } from '@/components/ui/DecisionPrimitives'
+import Skeleton from '@/src/components/ui/Skeleton'
 import '@/styles/premium-cards.css'
 import type { RuntimeRecord } from '../../src/types/content'
 
@@ -255,6 +257,30 @@ function CompoundCard({ compound, featured = false }: { compound: RuntimeRecord;
   )
 }
 
+function CompoundCardSkeleton() {
+  return (
+    <div className="flex h-full flex-col gap-2.5 rounded-[var(--radius-lg)] border border-brand-900/10 bg-white/80 p-4">
+      <Skeleton variant="line" className="h-5 w-3/4" />
+      <Skeleton variant="line" className="mt-2 h-3 w-full" />
+      <Skeleton variant="line" className="h-3 w-5/6" />
+      <div className="mt-3 flex gap-1.5">
+        <Skeleton variant="line" className="h-5 w-16 rounded-full" />
+        <Skeleton variant="line" className="h-5 w-20 rounded-full" />
+      </div>
+    </div>
+  )
+}
+
+function CompoundSkeletonGrid() {
+  return (
+    <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
+      {Array.from({ length: 12 }).map((_, i) => (
+        <CompoundCardSkeleton key={i} />
+      ))}
+    </div>
+  )
+}
+
 const browsePaths = [
   {
     label: 'Herb sources',
@@ -389,11 +415,13 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
                   </p>
                 </div>
 
-                <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
-                  {featuredCompounds.map((compound: RuntimeRecord) => (
-                    <CompoundCard key={compound.slug} compound={compound} featured />
-                  ))}
-                </div>
+                <Suspense fallback={<CompoundSkeletonGrid />}>
+                  <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
+                    {featuredCompounds.map((compound: RuntimeRecord) => (
+                      <CompoundCard key={compound.slug} compound={compound} featured />
+                    ))}
+                  </div>
+                </Suspense>
               </section>
             ) : null}
 
@@ -411,11 +439,13 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
                   </span>
                 </div>
 
-                <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
-                  {libraryCompounds.map((compound: RuntimeRecord) => (
-                    <CompoundCard key={compound.slug} compound={compound} />
-                  ))}
-                </div>
+                <Suspense fallback={<CompoundSkeletonGrid />}>
+                  <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
+                    {libraryCompounds.map((compound: RuntimeRecord) => (
+                      <CompoundCard key={compound.slug} compound={compound} />
+                    ))}
+                  </div>
+                </Suspense>
               </section>
             ) : null}
             {paginated && !hasActiveFilters && totalPages > 1 ? (

@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-import { motion } from '../lib/motion'
 import InfoTooltip from './InfoTooltip'
 import { tagAliasMap } from '../utils/tagUtils'
 import {
@@ -33,21 +32,15 @@ export default function TagBadge({ label, variant = 'purple', toneKey, className
     : (VARIANT_TO_CLASS_KEY[variant] ?? gradientKeyForTag(cleaned))
   const gradientClass = gradientClassName(gradientKey, 'blog')
   const content = (
-    <motion.span
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      tabIndex={0}
+    <span
       className={clsx(
-        'inline-flex items-center whitespace-pre-wrap break-words rounded-full border border-white/15 bg-white/[0.06] px-2.5 py-1 text-[11px] font-medium text-white/75 transition-colors duration-200',
+        'inline-flex items-center whitespace-pre-wrap break-words rounded-full border border-white/15 bg-white/[0.06] px-2.5 py-1 text-[11px] font-medium text-white/75 transition-all duration-200 motion-safe:hover:scale-105 active:scale-95',
         gradientClass,
         className
       )}
     >
       {cleaned}
-    </motion.span>
+    </span>
   )
   return alias ? <InfoTooltip text={`aka ${alias}`}>{content}</InfoTooltip> : content
 }

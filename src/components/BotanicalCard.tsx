@@ -6,7 +6,7 @@ export default function BotanicalCard({ data }: BotanicalCardProps) {
   const linkHref = type === 'herb' ? `/herbs/${slug}` : `/compounds/${slug}`
 
   return (
-    <article className='group relative flex h-full flex-col gap-2.5 rounded-2xl border border-brand-900/10 bg-white/90 p-4 text-left shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-emerald-300/30 hover:shadow-md'>
+    <article className='group relative flex h-full flex-col gap-2.5 rounded-2xl border border-brand-900/10 bg-white/90 p-4 text-left shadow-sm transition-all duration-200 motion-safe:hover:-translate-y-0.5 hover:border-emerald-300/30 hover:shadow-md'>
       <h3 className='line-clamp-2 min-h-[2rem] text-base font-semibold leading-tight text-slate-900'>
         {name}
       </h3>

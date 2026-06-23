@@ -55,7 +55,7 @@ export function EcosystemBuyingGuideSection() {
           <Link
             key={guide.slug}
             href={`/explore/${guide.slug}`}
-            className="group rounded-3xl border border-cyan-100 bg-gradient-to-br from-cyan-50/70 to-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-cyan-300 hover:shadow-lg"
+            className="group rounded-3xl border border-cyan-100 bg-gradient-to-br from-cyan-50/70 to-white p-6 shadow-sm transition motion-safe:hover:-translate-y-1 hover:border-cyan-300 hover:shadow-lg"
           >
             <div className="space-y-5">
               <div className="flex items-center justify-between gap-3">

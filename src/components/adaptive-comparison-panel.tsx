@@ -53,7 +53,7 @@ export default function AdaptiveComparisonPanel({
           <Link
             key={`${comparison.label}-${comparison.href}`}
             href={comparison.href || '#'}
-            className={`rounded-3xl border p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md ${toneClass(comparison.tone)}`}
+            className={`rounded-3xl border p-5 shadow-sm transition motion-safe:hover:-translate-y-0.5 hover:shadow-md ${toneClass(comparison.tone)}`}
           >
             <div className="space-y-3">
               <div className="flex items-center justify-between gap-3">

@@ -63,7 +63,7 @@ export default function DopaminePathwayPage() {
           <Link
             key={profile.href}
             href={profile.href}
-            className="card-premium p-6 transition hover:-translate-y-0.5"
+            className="card-premium p-6 transition motion-safe:hover:-translate-y-0.5"
           >
             <div className="space-y-3">
               <p className="eyebrow-label">Related System</p>

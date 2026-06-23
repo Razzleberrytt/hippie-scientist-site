@@ -1,9 +1,8 @@
 'use client'
 import clsx from 'clsx'
-import { motion, useMotionValue, useTransform, animate } from '../lib/motion'
-import { useEffect, useRef, type CSSProperties } from 'react'
+import { useEffect, useRef, useState, type CSSProperties, type HTMLAttributes } from 'react'
 
-type Props = React.ComponentProps<typeof motion.div> & {
+type Props = HTMLAttributes<HTMLDivElement> & {
   maxTilt?: number
   perspective?: number
 }
@@ -16,12 +15,7 @@ export default function Tilt({
   ...rest
 }: Props) {
   const ref = useRef<HTMLDivElement>(null)
-  const px = useMotionValue(0)
-  const py = useMotionValue(0)
-
-  const rx = useTransform(py, [-0.5, 0.5], [maxTilt, -maxTilt])
-  const ry = useTransform(px, [-0.5, 0.5], [-maxTilt, maxTilt])
-  const r = useTransform([rx, ry], ([x, y]) => `rotateX(${x}deg) rotateY(${y}deg)`)
+  const [tiltTransform, setTiltTransform] = useState('rotateX(0deg) rotateY(0deg)')
 
   const prefersReduced =
     typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
@@ -32,13 +26,11 @@ export default function Tilt({
       const rect = ref.current.getBoundingClientRect()
       const x = (e.clientX - rect.left) / rect.width - 0.5
       const y = (e.clientY - rect.top) / rect.height - 0.5
-      px.set(x)
-      py.set(y)
+      setTiltTransform(`rotateX(${y * -maxTilt * 2}deg) rotateY(${x * maxTilt * 2}deg)`)
     }
 
     function reset() {
-      animate(px, 0, { type: 'spring', stiffness: 180, damping: 25 })
-      animate(py, 0, { type: 'spring', stiffness: 180, damping: 25 })
+      setTiltTransform('rotateX(0deg) rotateY(0deg)')
     }
 
     const el = ref.current
@@ -55,18 +47,18 @@ export default function Tilt({
       el.removeEventListener('pointercancel', reset)
       el.removeEventListener('pointerup', reset)
     }
-  }, [px, py])
+  }, [maxTilt])
 
   if (prefersReduced) {
     return (
-      <motion.div ref={ref} className={className} {...rest}>
+      <div ref={ref} className={className} {...rest}>
         {children}
-      </motion.div>
+      </div>
     )
   }
 
   return (
-    <motion.div
+    <div
       ref={ref}
       style={{ '--tilt-perspective': `${perspective}px` } as CSSProperties}
       className={clsx(
@@ -75,7 +67,9 @@ export default function Tilt({
       )}
       {...rest}
     >
-      <motion.div style={{ transform: r }}>{children}</motion.div>
-    </motion.div>
+      <div className='transition-transform duration-200 ease-out' style={{ transform: tiltTransform }}>
+        {children}
+      </div>
+    </div>
   )
 }

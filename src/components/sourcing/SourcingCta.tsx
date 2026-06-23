@@ -55,7 +55,7 @@ export function SourcingCta({ record, displayName }: SourcingCtaProps) {
             href={finalUrl}
             target="_blank"
             rel="nofollow sponsored noopener noreferrer"
-            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#358f52] hover:bg-[#2d7a46] px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#358f52] hover:bg-[#2d7a46] px-5 py-3 text-sm font-bold text-white shadow-sm transition motion-safe:hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
           >
             <span>Check sourcing options</span>
             <svg

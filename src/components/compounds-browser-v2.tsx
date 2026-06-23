@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
-import { motion } from '../lib/motion'
 import { safeArray, safeIncludes, safeJoin, safeLower, safeSlug, safeTrim } from '@/lib/search-safe'
 
 type CompoundItem = {
@@ -99,12 +98,9 @@ export default function CompoundsBrowserV2({ items }: Props) {
       </section>
 
       <section className='mt-4 grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2 xl:grid-cols-3'>
-        {filtered.map((item, index) => (
-          <motion.article
+        {filtered.map((item) => (
+          <article
             key={item.slug}
-            initial={{ opacity: 0, y: 16, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ type: 'spring', stiffness: 130, damping: 16, delay: index * 0.04 }}
           >
             <Link
               href={item.href}
@@ -125,7 +121,7 @@ export default function CompoundsBrowserV2({ items }: Props) {
 
               <span className='mt-4 text-sm font-bold text-emerald-700 transition group-hover:translate-x-0.5'>Open compound profile →</span>
             </Link>
-          </motion.article>
+          </article>
         ))}
       </section>
 

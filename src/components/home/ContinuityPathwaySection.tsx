@@ -52,7 +52,7 @@ export function ContinuityPathwaySection({
           <Link
             key={pathway.slug}
             href={`/explore/${pathway.slug}`}
-            className="group flex flex-col gap-5 rounded-3xl border border-amber-100 bg-gradient-to-r from-amber-50/80 to-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-amber-300 hover:shadow-lg lg:flex-row lg:items-center lg:justify-between"
+            className="group flex flex-col gap-5 rounded-3xl border border-amber-100 bg-gradient-to-r from-amber-50/80 to-white p-6 shadow-sm transition motion-safe:hover:-translate-y-1 hover:border-amber-300 hover:shadow-lg lg:flex-row lg:items-center lg:justify-between"
           >
             <div className="flex items-start gap-5">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-lg font-semibold text-amber-800">

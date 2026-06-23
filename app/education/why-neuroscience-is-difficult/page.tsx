@@ -117,7 +117,7 @@ export default function WhyNeuroscienceIsDifficultPage() {
         </div>
         <div className="grid gap-5 lg:grid-cols-2">
           {relatedSystems.map((system) => (
-            <Link key={system.href} href={system.href} className="card-premium p-6 transition hover:-translate-y-0.5">
+            <Link key={system.href} href={system.href} className="card-premium p-6 transition motion-safe:hover:-translate-y-0.5">
               <div className="space-y-3">
                 <p className="eyebrow-label">Related System</p>
                 <h3 className="text-2xl font-semibold tracking-tight text-ink">{system.title}</h3>

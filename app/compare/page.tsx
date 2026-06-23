@@ -153,7 +153,7 @@ export default async function ComparePage() {
           <div className="flex flex-wrap gap-3 pt-2">
             <Link
               href="#featured-comparisons"
-              className="inline-flex items-center gap-2 rounded-full bg-brand-850 hover:bg-brand-900 px-5 py-2.5 text-sm font-bold text-white shadow transition hover:-translate-y-0.5 focus:outline-none"
+              className="inline-flex items-center gap-2 rounded-full bg-brand-850 hover:bg-brand-900 px-5 py-2.5 text-sm font-bold text-white shadow transition motion-safe:hover:-translate-y-0.5 focus:outline-none"
             >
               Browse comparisons
             </Link>

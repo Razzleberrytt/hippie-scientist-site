@@ -47,9 +47,7 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
             height={300}
             sizes="(max-width: 768px) 100vw, 33vw"
             quality={85}
-            unoptimized
             decoding="async"
-            loading="lazy"
             className="h-full w-full object-cover"
           />
         </div>
@@ -81,7 +79,7 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
               label: title,
               target: affiliateUrl,
             })}
-            className='mt-5 inline-flex min-h-11 w-full items-center justify-center gap-1.5 rounded-full bg-brand-800 px-4 py-2.5 text-sm font-bold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-md active:translate-y-0 dark:bg-[var(--accent-primary)] dark:text-[#07150c] dark:hover:bg-[var(--accent-teal)]'
+            className='mt-5 inline-flex min-h-11 w-full items-center justify-center gap-1.5 rounded-full bg-brand-800 px-4 py-2.5 text-sm font-bold text-white shadow-sm transition-all duration-200 motion-safe:hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-md active:translate-y-0 dark:bg-[var(--accent-primary)] dark:text-[#07150c] dark:hover:bg-[var(--accent-teal)]'
           >
             {ctaLabel} <span aria-hidden="true">→</span>
           </a>

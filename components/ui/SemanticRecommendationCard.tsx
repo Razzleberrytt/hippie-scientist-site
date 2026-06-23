@@ -41,7 +41,7 @@ export default function SemanticRecommendationCard({ item }: Props) {
   return (
     <Link
       href={href}
-      className="card-premium block p-5 transition-all duration-300 hover:-translate-y-1"
+      className="card-premium block p-5 transition-all duration-300 motion-safe:hover:-translate-y-1"
     >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">

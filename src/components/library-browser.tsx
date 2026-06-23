@@ -164,7 +164,7 @@ export default function LibraryBrowser({
               <Link
                 key={item.slug}
                 href={item.href}
-                className='group rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md'
+                className='group rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition motion-safe:hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md'
               >
                 <div className='flex flex-wrap items-center gap-2'>
                   {index < 3 && score >= 40 ? <span className='rounded-full bg-emerald-600 px-2.5 py-1 text-[11px] font-black uppercase tracking-[0.12em] text-white'>Top match</span> : null}

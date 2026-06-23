@@ -67,7 +67,7 @@ export default function ProfileCard({
         'group block rounded-[var(--radius-card-premium)]',
         'border border-brand-900/10 bg-white/85 backdrop-blur-xl',
         'p-5 transition-all duration-200',
-        'hover:border-brand-900/15 hover:-translate-y-0.5',
+        'hover:border-brand-900/15 motion-safe:hover:-translate-y-0.5',
         'focus-visible:outline-2 focus-visible:outline-offset-4',
         featured
           ? 'shadow-[var(--shadow-card-calm-hover)] ring-1 ring-brand-700/10'
