@@ -4,7 +4,7 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'About the Author — The Hippie Scientist',
   description:
-    'The Hippie Scientist is an independent evidence-first botanical research project. Learn about the editorial philosophy, methodology, and the person behind the database.',
+    'Willie B. Randolph III is the independent author behind The Hippie Scientist. Learn about the editorial philosophy, methodology, and the person behind the database.',
   alternates: {
     canonical: '/author/',
   },
@@ -17,10 +17,10 @@ export default function AuthorPage() {
       <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
         <p className="eyebrow-label">Author</p>
         <h1 className="mt-3 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
-          The Hippie Scientist
+          Willie B. Randolph III
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-7 text-muted sm:text-lg">
-          An independent researcher synthesizing peer-reviewed botanical science for curious, health-conscious readers — plain language, conservative on claims, honest about uncertainty.
+          Age 34, father of two little girls, and based in Oak Ridge, Tennessee. He synthesizes peer-reviewed botanical science for curious, health-conscious readers in plain language, conservative claims, and honest uncertainty.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
@@ -54,6 +54,32 @@ export default function AuthorPage() {
             Dosing and safety language is kept conservative. Affiliate revenue is disclosed and structurally
             separated from evidence grades — no brand can pay to change a rating or suppress a caution.
           </p>
+        </div>
+      </section>
+
+      <section className="rounded-[1.5rem] border border-brand-900/10 bg-gradient-to-br from-white to-emerald-50/60 p-6 shadow-sm sm:p-8">
+        <div className="grid gap-4 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Personal snapshot</p>
+            <h2 className="mt-2 text-2xl font-bold tracking-tight text-ink">Willie B. Randolph III</h2>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-muted">
+              Oak Ridge, Tennessee. Age 34. Father of two little girls. The work here is built around making supplement research feel premium, readable, and honest enough to trust when the stakes are health and money.
+            </p>
+          </div>
+          <div className="grid grid-cols-3 gap-3 text-center">
+            <div className="rounded-2xl border border-brand-900/10 bg-white/95 px-3 py-3">
+              <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-brand-700">Age</p>
+              <p className="mt-1 text-lg font-semibold text-ink">34</p>
+            </div>
+            <div className="rounded-2xl border border-brand-900/10 bg-white/95 px-3 py-3">
+              <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-brand-700">Family</p>
+              <p className="mt-1 text-lg font-semibold text-ink">2 girls</p>
+            </div>
+            <div className="rounded-2xl border border-brand-900/10 bg-white/95 px-3 py-3">
+              <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-brand-700">City</p>
+              <p className="mt-1 text-lg font-semibold text-ink">Oak Ridge</p>
+            </div>
+          </div>
         </div>
       </section>
 

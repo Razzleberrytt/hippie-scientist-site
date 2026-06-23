@@ -25,13 +25,17 @@ export default function AboutClient() {
   const personJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: 'Will Thomas',
+    name: 'Willie B. Randolph III',
     url: 'https://thehippiescientist.net/about/',
     jobTitle: 'Founder & Head Researcher',
     worksFor: {
       '@type': 'Organization',
       name: 'The Hippie Scientist',
       url: 'https://thehippiescientist.net/',
+    },
+    homeLocation: {
+      '@type': 'Place',
+      name: 'Oak Ridge, TN',
     },
     sameAs: [
       'https://twitter.com/HippieScientist',
@@ -52,31 +56,60 @@ export default function AboutClient() {
           About The Hippie Scientist
         </h1>
 
-        <p className="mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg">
-          The Hippie Scientist is an evidence-first reference for herbs, supplements, and compounds. We publish mechanism, safety, and practical context for {TOTAL_PROFILE_COUNT}+ profiles — plain-English, conservative on claims, and grounded in the strength of available research.
-        </p>
+        <div className="mt-5 grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+          <div>
+            <p className="max-w-3xl text-base leading-7 text-muted sm:text-lg">
+              The Hippie Scientist is an evidence-first reference for herbs, supplements, and compounds. We publish mechanism, safety, and practical context for {TOTAL_PROFILE_COUNT}+ profiles - plain-English, conservative on claims, and grounded in the strength of available research.
+            </p>
 
-        <div className="mt-7 flex flex-wrap gap-3">
-          <Link
-            href="/herbs"
-            className="rounded-full bg-brand-800 px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-900"
-          >
-            Explore herbs
-          </Link>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link
+                href="/herbs"
+                className="rounded-full bg-brand-800 px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-900"
+              >
+                Explore herbs
+              </Link>
 
-          <Link
-            href="/compounds"
-            className="rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50"
-          >
-            Explore compounds
-          </Link>
+              <Link
+                href="/compounds"
+                className="rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50"
+              >
+                Explore compounds
+              </Link>
 
-          <Link
-            href="/goals"
-            className="rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50"
-          >
-            Browse by goals
-          </Link>
+              <Link
+                href="/goals"
+                className="rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50"
+              >
+                Browse by goals
+              </Link>
+            </div>
+          </div>
+
+          <aside className="overflow-hidden rounded-[1.5rem] border border-brand-900/10 bg-gradient-to-br from-white to-emerald-50/60 p-5 shadow-sm">
+            <div className="rounded-[1.2rem] border border-brand-900/10 bg-white/95 p-5">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">About Willie B. Randolph III</p>
+              <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">Willie B. Randolph III</h2>
+              <p className="mt-2 text-sm leading-7 text-muted">
+                Age 34, father of two little girls, and based in Oak Ridge, Tennessee. He built this site to make supplement choices feel calmer, clearer, and less like marketing.
+              </p>
+
+              <div className="mt-4 grid grid-cols-3 gap-3 text-center">
+                <div className="rounded-2xl border border-brand-900/10 bg-paper-50 px-3 py-3">
+                  <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-brand-700">Age</p>
+                  <p className="mt-1 text-lg font-semibold text-ink">34</p>
+                </div>
+                <div className="rounded-2xl border border-brand-900/10 bg-paper-50 px-3 py-3">
+                  <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-brand-700">Family</p>
+                  <p className="mt-1 text-lg font-semibold text-ink">2 girls</p>
+                </div>
+                <div className="rounded-2xl border border-brand-900/10 bg-paper-50 px-3 py-3">
+                  <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-brand-700">Home</p>
+                  <p className="mt-1 text-lg font-semibold text-ink">Oak Ridge</p>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
       </section>
 
