@@ -54,7 +54,7 @@ export default function ReceptorsPage() {
         <div className="space-y-3">
           <p className="eyebrow-label">Neuropharmacology Education</p>
 
-          <h1 className="text-5xl font-bold tracking-tight text-ink">
+          <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">
             How Receptors Work
           </h1>
         </div>

@@ -54,7 +54,7 @@ export default function SleepMentalHealthPage() {
         <div className="space-y-3">
           <p className="eyebrow-label">Sleep and Recovery Education</p>
 
-          <h1 className="text-5xl font-bold tracking-tight text-ink">
+          <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">
             Why Sleep Matters for Mental Health
           </h1>
         </div>

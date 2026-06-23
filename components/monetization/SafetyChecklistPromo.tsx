@@ -60,7 +60,7 @@ export default function SafetyChecklistPromo({
           <ul className='mt-5 space-y-2.5 text-sm leading-6 text-ink'>
             {checklistBullets.map((item) => (
               <li key={item} className='flex gap-2.5'>
-                <span className='mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-600' aria-hidden />
+                <span className='mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-evidence-strong)]' aria-hidden />
                 {item}
               </li>
             ))}

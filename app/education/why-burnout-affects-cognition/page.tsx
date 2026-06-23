@@ -55,7 +55,7 @@ export default function WhyBurnoutAffectsCognitionPage() {
       <section className="space-y-6 max-w-4xl">
         <div className="space-y-3">
           <p className="eyebrow-label">Recovery-Oriented Neuroscience</p>
-          <h1 className="text-5xl font-bold tracking-tight text-ink">Why Burnout Affects Cognition</h1>
+          <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">Why Burnout Affects Cognition</h1>
         </div>
         <p className="text-xl leading-9 text-[#46574d]">
           Burnout-related cognition changes may involve substantially more than low motivation. Stress physiology, emotional exhaustion, sleep disruption, recovery-system strain, and nervous-system overload may all influence cognition continuity and attentional resilience.

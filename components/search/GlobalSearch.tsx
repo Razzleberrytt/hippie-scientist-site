@@ -178,7 +178,7 @@ export default function GlobalSearch() {
               onChange={(e) => search.setQuery(e.target.value)}
               onKeyDown={onKeyDown}
               placeholder="Try sleep, ashwagandha, GABA, dopamine, evidence levels…"
-              className="min-h-12 w-full bg-transparent py-2 text-base text-ink outline-none placeholder:text-[#7b887f] sm:text-lg"
+              className="min-h-12 w-full bg-transparent py-2 text-base text-ink outline-none placeholder:text-muted/60 dark:placeholder:text-[var(--text-muted)]/50 sm:text-lg"
             />
           </div>
         </div>

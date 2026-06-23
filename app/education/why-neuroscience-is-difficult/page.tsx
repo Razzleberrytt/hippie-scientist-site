@@ -70,7 +70,7 @@ export default function WhyNeuroscienceIsDifficultPage() {
       <section className="space-y-6 max-w-4xl">
         <div className="space-y-3">
           <p className="eyebrow-label">Scientific Literacy Systems</p>
-          <h1 className="text-5xl font-bold tracking-tight text-ink">Why Neuroscience Is Difficult</h1>
+          <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">Why Neuroscience Is Difficult</h1>
         </div>
         <p className="text-xl leading-9 text-[#46574d]">
           Neuroscience is extraordinarily complex because the brain interacts continuously with stress physiology, emotional regulation, sleep continuity, recovery biology, environmental context, nervous-system sensitivity, and countless interconnected biological systems.

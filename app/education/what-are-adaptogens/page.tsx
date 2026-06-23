@@ -92,7 +92,7 @@ export default function AdaptogensEducationPage() {
       <section className='space-y-5 max-w-4xl'>
         <p className='eyebrow-label'>Educational Supernode</p>
 
-        <h1 className='text-5xl font-bold tracking-tight text-ink'>
+        <h1 className='font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl'>
           What Are Adaptogens?
         </h1>
 

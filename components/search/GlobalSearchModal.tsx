@@ -170,7 +170,7 @@ export function GlobalSearchModal() {
                 onChange={(e) => search.setQuery(e.target.value)}
                 onKeyDown={onKeyDown}
                 placeholder="Search herbs, compounds, and education…"
-                className="min-h-14 w-full bg-transparent py-3 text-base text-ink outline-none placeholder:text-[#7b887f]"
+                className="min-h-14 w-full bg-transparent py-3 text-base text-ink outline-none placeholder:text-muted/60 dark:placeholder:text-[var(--text-muted)]/50"
               />
               <kbd className="hidden shrink-0 rounded border border-brand-900/15 bg-brand-50/60 px-1.5 py-0.5 text-[10px] font-semibold text-ink/40 dark:border-[var(--border-soft)] dark:bg-[var(--surface-neutral)] dark:text-[var(--text-muted)] sm:inline">
                 Esc

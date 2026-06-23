@@ -92,7 +92,7 @@ export default function ScientificButHumanNeurosciencePage() {
       <section className='space-y-6 max-w-5xl'>
         <div className='space-y-3'>
           <p className='eyebrow-label'>Platform Philosophy</p>
-          <h1 className='text-5xl font-bold tracking-tight text-ink'>
+          <h1 className='font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl'>
             Scientific But Human Neuroscience
           </h1>
         </div>

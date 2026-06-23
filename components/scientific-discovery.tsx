@@ -108,7 +108,7 @@ export function EvidenceMaturityRibbon({ label }: { label: string }) {
 
   return (
     <div className="inline-flex items-center gap-2 rounded-full border border-emerald-800/10 bg-emerald-700/10 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-emerald-900">
-      <span className="h-2 w-2 rounded-full bg-emerald-600" />
+      <span className="h-2 w-2 rounded-full bg-[var(--color-evidence-strong)]" />
       {cleanLabel}
     </div>
   )

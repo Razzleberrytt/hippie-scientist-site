@@ -70,7 +70,7 @@ export default function WhySleepChangesEmotionalRegulationPage() {
       <section className="space-y-6 max-w-4xl">
         <div className="space-y-3">
           <p className="eyebrow-label">Recovery-Oriented Neuroscience</p>
-          <h1 className="text-5xl font-bold tracking-tight text-ink">Why Sleep Changes Emotional Regulation</h1>
+          <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">Why Sleep Changes Emotional Regulation</h1>
         </div>
         <p className="text-xl leading-9 text-[#46574d]">
           Emotional regulation may involve substantially more than mindset or willpower. Sleep continuity, stress physiology, nervous-system restoration, emotional processing, and recovery biology may all influence emotional resilience and cognition stability.

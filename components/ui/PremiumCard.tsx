@@ -32,7 +32,7 @@ export default function PremiumCard({
   const visibleTags = tags.map(formatDisplayLabel).filter(isClean).slice(0, 3)
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-card border border-brand-900/10 bg-[rgba(255,253,247,0.92)] p-6 sm:p-7 shadow-[0_10px_30px_rgba(29,74,47,0.08)] backdrop-blur-xl transition duration-300 hover:-translate-y-[3px] hover:border-brand-700/25 hover:bg-white hover:shadow-glow">
+    <article className="group flex h-full flex-col overflow-hidden rounded-card border border-brand-900/10 bg-[rgba(255,253,247,0.92)] p-6 shadow-[var(--soft-lift-shadow)] backdrop-blur-xl transition duration-300 motion-safe:hover:-translate-y-1 hover:border-brand-700/25 hover:bg-white hover:shadow-[var(--deep-lift-shadow)] sm:p-7">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="eyebrow text-brand-700">
           Evidence-informed profile
@@ -52,7 +52,7 @@ export default function PremiumCard({
       </div>
 
       <div className="mt-7 flex-1">
-        <Link href={href} className="block rounded-xl focus:outline-none focus:ring-4 focus:ring-brand-500/20">
+        <Link href={href} className="block rounded-xl focus:outline-none focus:ring-4 focus:ring-brand-700/25">
           <h2 className="text-display text-[2rem] leading-[1.02] transition group-hover:text-brand-800 sm:text-4xl">
             {title}
           </h2>

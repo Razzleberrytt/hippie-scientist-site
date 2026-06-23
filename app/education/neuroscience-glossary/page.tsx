@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
-import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import EducationPageLayout from '@/components/layouts/EducationPageLayout'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "Neuroscience Glossary",
@@ -65,7 +65,7 @@ const relatedSystems = [
 
 export default function NeuroscienceGlossaryPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <>
       <AuthorityJsonLd
         title="Neuroscience Glossary"
         description="Educational glossary exploring contextual neurobiology, recovery continuity, emotional salience, attentional resilience, and sustainable cognition systems."
@@ -73,24 +73,10 @@ export default function NeuroscienceGlossaryPage() {
         type="Article"
       />
 
-      <AuthorityBreadcrumbs
-        items={[
-          { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
-          { label: 'Neuroscience Glossary' },
-        ]}
-      />
-
-      <section className="space-y-6 max-w-5xl">
-        <div className="space-y-3">
-          <p className="eyebrow-label">Scientific Literacy Infrastructure</p>
-          <h1 className="text-5xl font-bold tracking-tight text-ink">Neuroscience Glossary</h1>
-        </div>
-
-        <p className="text-xl leading-9 text-[#46574d]">
-          Neuroscience terminology is often oversimplified online. This glossary provides a more contextual and recovery-oriented framework for understanding cognition, stress physiology, emotional regulation, attentional systems, and sustainable neuroscience concepts.
-        </p>
-      </section>
+      <EducationPageLayout
+        title="Neuroscience Glossary"
+        description="Neuroscience terminology is often oversimplified online. This glossary provides a more contextual and recovery-oriented framework for understanding cognition, stress physiology, emotional regulation, attentional systems, and sustainable neuroscience concepts."
+      >
 
       <section className="grid gap-5">
         {glossaryTerms.map((item) => (
@@ -126,6 +112,7 @@ export default function NeuroscienceGlossaryPage() {
           ))}
         </div>
       </section>
-    </main>
+      </EducationPageLayout>
+    </>
   )
 }
