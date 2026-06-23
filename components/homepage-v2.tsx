@@ -40,29 +40,6 @@ const trustSignals = [
   'Guides are reviewed and linked to the site evidence methodology.',
 ]
 
-const popularGuides = [
-  {
-    href: '/guides/best-supplements-for-sleep/',
-    title: 'Best supplements for sleep',
-    description: 'Compare sleep aids by timing, grogginess risk, evidence, and safety.',
-  },
-  {
-    href: '/guides/best-supplements-for-stress/',
-    title: 'Best supplements for stress',
-    description: 'Separate acute calm support from longer-term adaptogen routines.',
-  },
-  {
-    href: '/guides/best-herbs-for-anxiety/',
-    title: 'Best herbs for anxiety',
-    description: 'Review calming herbs with interaction cautions and evidence limits visible.',
-  },
-  {
-    href: '/best-magnesium-supplements-for-adhd/',
-    title: 'Best magnesium for ADHD',
-    description: 'Compare magnesium forms for focus, sleep, and practical product fit.',
-  },
-]
-
 const comparisonLinks = [
   { href: '/compare/melatonin-vs-magnesium/', title: 'Melatonin vs magnesium' },
   { href: '/compare/rhodiola-vs-ashwagandha/', title: 'Rhodiola vs ashwagandha' },
@@ -139,38 +116,6 @@ export default function HomepageV2() {
                 </Link>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* High-intent guides */}
-        <section className='space-y-4'>
-          <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
-            <SectionHeader
-              title='Popular evidence guides'
-              subtitle='Start with the most common supplement decisions, then move into goals, comparisons, and profiles.'
-              as='h2'
-            />
-            <Link href='/guides' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
-              View all guides →
-            </Link>
-          </div>
-
-          <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
-            {popularGuides.map((guide) => (
-              <Link
-                key={guide.href}
-                href={guide.href}
-                className='group flex min-h-40 flex-col justify-between rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-700/20 hover:shadow-md dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]'
-              >
-                <div>
-                  <h3 className='text-lg font-bold tracking-tight text-ink group-hover:text-brand-800'>{guide.title}</h3>
-                  <p className='mt-3 text-sm font-medium leading-6 text-muted'>{guide.description}</p>
-                </div>
-                <span className='mt-5 text-sm font-bold text-brand-700 transition group-hover:translate-x-1 group-hover:text-brand-800'>
-                  Read guide <span aria-hidden='true'>→</span>
-                </span>
-              </Link>
-            ))}
           </div>
         </section>
 
@@ -269,12 +214,9 @@ export default function HomepageV2() {
               ))}
             </div>
           </div>
-          <div className='mt-5 flex flex-wrap gap-3 text-sm font-bold'>
+          <div className='mt-5 text-sm font-bold'>
             <Link href='/methodology' className='text-brand-700 transition hover:text-brand-800'>
               Read the evidence methodology →
-            </Link>
-            <Link href='/safety-checker' className='text-brand-700 transition hover:text-brand-800'>
-              Check supplement safety →
             </Link>
           </div>
         </section>
