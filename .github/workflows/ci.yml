@@ -67,6 +67,9 @@ jobs:
       - name: Run typecheck
         run: npm run typecheck
 
+      - name: Run tests (vitest + a11y gate)
+        run: npm run test
+
       - name: Guard workbook source of truth
         run: npm run guard:source-of-truth
 

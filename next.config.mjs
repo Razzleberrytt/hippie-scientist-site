@@ -1,6 +1,13 @@
 import bundleAnalyzer from '@next/bundle-analyzer'
 import { withContentCollections } from '@content-collections/next'
 
+// Security headers are managed at the CDN/edge layer rather than here.
+// Rationale: this project uses `output: 'export'` (fully static), which means
+// Next.js's `headers()` config function is unsupported and ignored. All
+// production security headers (CSP, HSTS, X-Frame-Options, COOP, CORP, etc.)
+// are defined in `public/_headers` (Cloudflare Pages format) and validated in
+// CI by `scripts/ci/validate-security-headers.mjs`. See ARCHITECTURE_OVERVIEW.md §6.
+
 const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })
 
 /** @type {import('next').NextConfig} */
