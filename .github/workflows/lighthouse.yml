@@ -1,0 +1,74 @@
+name: Lighthouse CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: lighthouse-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    name: Lighthouse audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Cache Next.js build cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.next/cache
+          key: ${{ runner.os }}-nextjs-lhci-${{ hashFiles('package-lock.json') }}-${{ hashFiles('**/*.ts', '**/*.tsx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-lhci-${{ hashFiles('package-lock.json') }}-
+            ${{ runner.os }}-nextjs-lhci-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static export
+        env:
+          COMMIT_HASH: ${{ github.sha }}
+        run: npm run build:deploy
+
+      - name: Run Lighthouse CI
+        run: |
+          npx serve@14 out -p 3000 &
+          SERVER_PID=$!
+          # Wait for server to be ready
+          timeout 30 bash -c 'until curl -sf http://localhost:3000 > /dev/null; do sleep 1; done'
+          npx @lhci/cli@0.14 collect --config=.lighthouserc.json
+          npx @lhci/cli@0.14 assert --config=.lighthouserc.json
+          kill $SERVER_PID 2>/dev/null || true
+
+      - name: Upload Lighthouse results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-results-${{ github.run_number }}
+          path: .lighthouseci/
+          retention-days: 30
+
+      - name: Add workflow summary
+        if: always()
+        run: |
+          echo "## Lighthouse CI Results" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Thresholds: Performance ≥ 80, Accessibility ≥ 90 (hard fail), SEO ≥ 90, Best Practices ≥ 85" >> "$GITHUB_STEP_SUMMARY"
+          echo "- URLs tested: /, /herbs/ashwagandha/, /compounds/l-theanine/" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Artifact: lighthouse-results-${{ github.run_number }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"

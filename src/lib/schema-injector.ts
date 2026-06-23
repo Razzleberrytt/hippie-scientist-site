@@ -58,6 +58,12 @@ export type HerbArticleSchemaArgs = {
    * the core Article fields.
    */
   evidenceGrade?: string
+  /**
+   * Optional list of cited sources emitted as schema:citation nodes.
+   * Each entry should be a descriptive title or full bibliographic reference.
+   * Strengthens AI-search discovery signals for scholarly herb research pages.
+   */
+  citations?: string[]
 }
 
 /**
@@ -80,7 +86,10 @@ export function buildHerbArticleSchema(args: HerbArticleSchemaArgs): JsonLdNode 
 
   const node: JsonLdNode = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    // ScholarlyArticle is a Schema.org subtype of Article — keeps Article rich
+    // result eligibility while providing stronger AI-search discovery signals
+    // for botanical research pages.
+    '@type': ['ScholarlyArticle', 'Article'],
     headline: args.headline,
     description: args.description,
     url: args.url,
@@ -102,6 +111,13 @@ export function buildHerbArticleSchema(args: HerbArticleSchemaArgs): JsonLdNode 
       name: 'Evidence grade',
       value: args.evidenceGrade,
     }
+  }
+
+  if (args.citations && args.citations.length > 0) {
+    node.citation = args.citations.map(title => ({
+      '@type': 'CreativeWork',
+      name: title,
+    }))
   }
 
   return node
