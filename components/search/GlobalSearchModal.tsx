@@ -128,7 +128,7 @@ export function GlobalSearchModal() {
       >
         <Search className="h-4 w-4" aria-hidden="true" />
         <span className="hidden sm:inline">Search</span>
-        <kbd className="hidden rounded border border-brand-900/15 bg-stone-50 px-1.5 py-0.5 text-[10px] font-semibold text-ink/50 dark:border-[var(--border-soft)] dark:bg-[var(--surface-neutral)] dark:text-[var(--text-muted)] md:inline">
+        <kbd className="hidden rounded border border-brand-900/15 bg-brand-50/60 px-1.5 py-0.5 text-[10px] font-semibold text-ink/50 dark:border-[var(--border-soft)] dark:bg-[var(--surface-neutral)] dark:text-[var(--text-muted)] md:inline">
           ⌘K
         </kbd>
       </button>
@@ -172,7 +172,7 @@ export function GlobalSearchModal() {
                 placeholder="Search herbs, compounds, and education…"
                 className="min-h-14 w-full bg-transparent py-3 text-base text-ink outline-none placeholder:text-[#7b887f]"
               />
-              <kbd className="hidden shrink-0 rounded border border-brand-900/15 bg-stone-50 px-1.5 py-0.5 text-[10px] font-semibold text-ink/40 dark:border-[var(--border-soft)] dark:bg-[var(--surface-neutral)] dark:text-[var(--text-muted)] sm:inline">
+              <kbd className="hidden shrink-0 rounded border border-brand-900/15 bg-brand-50/60 px-1.5 py-0.5 text-[10px] font-semibold text-ink/40 dark:border-[var(--border-soft)] dark:bg-[var(--surface-neutral)] dark:text-[var(--text-muted)] sm:inline">
                 Esc
               </kbd>
             </div>
@@ -226,7 +226,7 @@ export function GlobalSearchModal() {
             </ul>
 
             {/* Footer / live region */}
-            <div className="flex items-center justify-between border-t border-brand-900/10 bg-stone-50/60 px-4 py-2 text-[11px] text-[#5f6f66]">
+            <div className="flex items-center justify-between border-t border-brand-900/10 bg-[var(--surface-subtle)] px-4 py-2 text-[11px] text-muted">
               <span aria-live="polite" aria-atomic="true">
                 {search.ready
                   ? `${search.results.length} result${search.results.length === 1 ? '' : 's'}`

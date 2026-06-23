@@ -104,7 +104,7 @@ export function ResultRow({ doc, active, id, onHover, onSelect }: ResultRowProps
           'flex w-full flex-col gap-1 rounded-xl border px-3 py-2.5 text-left transition',
           active
             ? 'border-brand-700/30 bg-brand-50/70 dark:border-brand-600/40 dark:bg-[var(--surface-subtle)]'
-            : 'border-transparent hover:bg-stone-50 dark:hover:bg-[var(--surface-card)]',
+            : 'border-transparent hover:bg-brand-50/40 dark:hover:bg-[var(--surface-card)]',
         )}
       >
         <span className="flex items-center gap-2">

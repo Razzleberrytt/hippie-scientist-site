@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { ChevronRight } from 'lucide-react'
 
 export type BreadcrumbItem = {
   label: string
@@ -6,7 +7,7 @@ export type BreadcrumbItem = {
 }
 
 type AuthorityBreadcrumbsProps = {
-  items: BreadcrumbItem[]
+  items?: BreadcrumbItem[]
 }
 
 export default function AuthorityBreadcrumbs({
@@ -19,33 +20,31 @@ export default function AuthorityBreadcrumbs({
   return (
     <nav
       aria-label="Breadcrumb"
-      className="flex flex-wrap items-center gap-2 text-sm text-[#5c6b63]"
+      className="flex flex-wrap items-center gap-1.5 text-sm"
     >
       {items.map((item, index) => {
         const isLast = index === items.length - 1
 
         return (
           <div
-            key={`${item.label}-${index}`}
-            className="flex items-center gap-2"
+            key={item.href ?? item.label}
+            className="flex items-center gap-1.5"
           >
             {item.href && !isLast ? (
               <Link
                 href={item.href}
-                className="hover:text-ink transition-colors"
+                className="text-brand-700 transition-colors hover:text-brand-800 hover:underline underline-offset-2 dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]"
               >
                 {item.label}
               </Link>
             ) : (
-              <span className={isLast ? 'font-medium text-ink' : ''}>
+              <span className={isLast ? 'font-semibold text-ink dark:text-[var(--text-primary)]' : 'text-muted dark:text-[var(--text-muted)]'}>
                 {item.label}
               </span>
             )}
 
             {!isLast ? (
-              <span aria-hidden="true" className="text-[#94a39a]">
-                /
-              </span>
+              <ChevronRight aria-hidden="true" className="h-3.5 w-3.5 text-muted/40" />
             ) : null}
           </div>
         )

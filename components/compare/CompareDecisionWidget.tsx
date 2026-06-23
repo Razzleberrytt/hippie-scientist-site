@@ -175,14 +175,18 @@ function OptionButton({ label, selected, onClick }: OptionButtonProps) {
     <button
       type="button"
       onClick={onClick}
+      aria-pressed={selected}
       className={[
         'rounded-xl border px-4 py-2.5 text-sm font-medium transition-colors duration-150 text-left',
         selected
           ? 'border-brand-700 bg-brand-800 text-white shadow-sm'
-          : 'border-brand-900/10 bg-white/85 text-ink hover:border-brand-700/30 hover:bg-brand-50',
+          : 'border-brand-900/15 bg-white text-ink hover:border-brand-700/40 hover:bg-brand-50/80 shadow-sm',
       ].join(' ')}
     >
-      {label}
+      <span className="flex items-center gap-2">
+        <span aria-hidden="true" className={selected ? 'text-white/80' : 'opacity-0'}>✓</span>
+        {label}
+      </span>
     </button>
   )
 }
@@ -202,7 +206,7 @@ function QuestionBlock({ step, question, children }: QuestionBlockProps) {
         </span>
         <p className="text-sm font-semibold text-ink">{question}</p>
       </div>
-      <div className="flex flex-wrap gap-2 pl-8">
+      <div className="flex flex-wrap gap-2 pl-8" role="group" aria-label={question}>
         {children}
       </div>
     </div>

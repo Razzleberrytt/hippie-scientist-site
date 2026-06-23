@@ -34,11 +34,11 @@ export default function NewsletterSignup({
   const textColor = isFooter ? 'text-white' : 'text-ink'
   const mutedColor = isFooter ? 'text-white/65' : 'text-muted'
   const inputClass = isFooter
-    ? 'min-h-11 flex-1 rounded-full border border-white/15 bg-white/10 px-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20'
+    ? 'min-h-11 flex-1 rounded-full border border-white/15 bg-white/10 px-4 text-sm text-white outline-none transition placeholder:text-white/35 focus:border-white/40 focus:ring-2 focus:ring-white/15'
     : 'min-h-11 flex-1 rounded-full border border-brand-900/15 bg-white px-4 text-sm text-ink outline-none transition placeholder:text-muted/70 focus:border-brand-700 focus:ring-2 focus:ring-brand-700/15'
   const buttonClass = isFooter
-    ? 'min-h-11 rounded-full bg-emerald-600 px-5 text-sm font-semibold text-white transition hover:bg-emerald-500'
-    : 'min-h-11 rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-brand-900'
+    ? 'min-h-11 rounded-full bg-white/15 px-5 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/25 border border-white/20'
+    : 'button-primary min-h-11 px-5 py-2.5 text-sm'
   const emailId = useId()
   const honeypotId = useId()
   const statusId = useId()

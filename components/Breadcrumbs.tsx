@@ -1,8 +1,7 @@
 'use client'
 
-import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ChevronRight } from 'lucide-react'
+import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import {
   generateDynamicBreadcrumbs,
   BreadcrumbItem,
@@ -56,40 +55,11 @@ export function Breadcrumbs({
   }
 
   return (
-    <nav
-      aria-label="Breadcrumb"
-      className="border-b border-brand-900/10 bg-[var(--surface)] dark:border-[var(--border-soft)] dark:bg-[var(--surface)]"
-    >
+    <div className="border-b border-brand-900/10 bg-[var(--surface)] dark:border-[var(--border-soft)] dark:bg-[var(--surface)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        <ol className="flex flex-wrap items-center gap-2 text-sm">
-          {breadcrumbs.map((breadcrumb, index) => (
-            <li key={breadcrumb.href} className="flex items-center gap-2">
-              {/* Separator */}
-              {index > 0 && (
-                <ChevronRight className="h-4 w-4 shrink-0 text-muted/50 dark:text-[var(--text-muted)]/40" />
-              )}
-
-              {/* Link or Current Page */}
-              {breadcrumb.current ? (
-                <span
-                  className="inline-flex min-h-[44px] items-center font-semibold text-ink line-clamp-1 dark:text-[var(--text-primary)]"
-                  aria-current="page"
-                >
-                  {breadcrumb.label}
-                </span>
-              ) : (
-                <Link
-                  href={breadcrumb.href}
-                  className="inline-flex min-h-[44px] items-center text-brand-700 transition-colors hover:text-brand-800 hover:underline line-clamp-1 dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]"
-                >
-                  {breadcrumb.label}
-                </Link>
-              )}
-            </li>
-          ))}
-        </ol>
+        <AuthorityBreadcrumbs items={breadcrumbs.map(({ href, label }) => ({ href, label }))} />
       </div>
-    </nav>
+    </div>
   )
 }
 

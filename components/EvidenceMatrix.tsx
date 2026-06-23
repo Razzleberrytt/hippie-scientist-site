@@ -51,11 +51,11 @@ export interface EvidenceMatrixProps<T extends Record<string, any>> {
 // ============================================
 
 const defaultGradeColors: Record<EvidenceGrade, string> = {
-  'Strong': 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300',
-  'Moderate': 'bg-blue-100 text-blue-800 dark:bg-blue-900/40 dark:text-blue-300',
-  'Limited to Moderate': 'bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300',
-  'Limited': 'bg-orange-100 text-orange-800 dark:bg-orange-900/40 dark:text-orange-300',
-  'Mixed': 'bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300',
+  'Strong': 'bg-[var(--color-evidence-strong)]/10 text-[var(--color-evidence-strong)]',
+  'Moderate': 'bg-[var(--color-evidence-moderate)]/10 text-[var(--color-evidence-moderate)]',
+  'Limited to Moderate': 'bg-[var(--color-evidence-limited)]/10 text-[var(--color-evidence-limited)]',
+  'Limited': 'bg-[var(--color-evidence-limited)]/10 text-[var(--color-evidence-limited)]',
+  'Mixed': 'bg-[var(--accent-secondary)]/10 text-[var(--accent-secondary)] dark:bg-[var(--accent-secondary)]/15 dark:text-[var(--accent-secondary)]',
 };
 
 // ============================================
@@ -142,9 +142,9 @@ export function EvidenceMatrix<T extends Record<string, any>>({
 
   const tablePadding = density === 'compact' ? 'px-3 py-2.5' : 'px-4 py-4';
   const variantBorder = {
-    default: 'border-gray-200 dark:border-gray-700',
-    comparison: 'border-teal-200 dark:border-teal-800',
-    compact: 'border-gray-200 dark:border-gray-700',
+    default: 'border-brand-900/10 dark:border-[var(--border-soft)]',
+    comparison: 'border-brand-900/10 dark:border-[var(--border-soft)]',
+    compact: 'border-brand-900/10 dark:border-[var(--border-soft)]',
   }[variant];
 
   if (loading) {
@@ -152,8 +152,8 @@ export function EvidenceMatrix<T extends Record<string, any>>({
       <div className={`my-8 ${className}`}>
         {title && <h3 className="text-xl font-semibold mb-4">{title}</h3>}
         {loadingComponent || (
-          <div className="flex items-center justify-center h-40 border rounded-xl border-gray-200 dark:border-gray-700">
-            <div className="text-gray-500 dark:text-gray-400">Loading data...</div>
+          <div className="flex items-center justify-center h-40 border rounded-xl border-brand-900/10 dark:border-[var(--border-soft)]">
+            <div className="text-muted dark:text-[var(--text-muted)]">Loading data...</div>
           </div>
         )}
       </div>
@@ -164,7 +164,7 @@ export function EvidenceMatrix<T extends Record<string, any>>({
     return (
       <div className={`my-8 ${className}`}>
         {title && <h3 className="text-xl font-semibold mb-4">{title}</h3>}
-        {emptyState || <p className="text-gray-500 italic">No data available.</p>}
+        {emptyState || <p className="text-muted italic">No data available.</p>}
       </div>
     );
   }
@@ -175,7 +175,7 @@ export function EvidenceMatrix<T extends Record<string, any>>({
     <div className={`my-8 ${className}`}>
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
         {title && (
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">{title}</h3>
+          <h3 className="text-xl font-semibold text-ink dark:text-[var(--text-primary)]">{title}</h3>
         )}
 
         {searchable && (
@@ -185,7 +185,7 @@ export function EvidenceMatrix<T extends Record<string, any>>({
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder={searchPlaceholder}
-              className="w-full px-4 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-teal-500"
+              className="w-full rounded-lg border border-brand-900/10 bg-white px-4 py-2 text-sm text-ink outline-none transition placeholder:text-muted/60 focus:border-brand-700 focus:ring-2 focus:ring-brand-700/15 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)]"
             />
           </div>
         )}
@@ -193,15 +193,15 @@ export function EvidenceMatrix<T extends Record<string, any>>({
 
       <div className={`overflow-x-auto rounded-xl border ${variantBorder}`}>
         <table className="w-full min-w-[800px] text-sm">
-          <thead className="bg-gray-50 dark:bg-gray-800/60">
+          <thead className="bg-[var(--surface-subtle)] dark:bg-[var(--surface-card-strong)]">
             <tr>
               {columns.map((column) => (
                 <th
                   key={String(column.key)}
                   onClick={() => column.sortable !== false && handleSort(column.key)}
                   className={`
-                    ${tablePadding} text-left font-semibold text-gray-700 dark:text-gray-300
-                    ${column.sortable !== false ? 'cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700/60 select-none' : ''}
+                    ${tablePadding} text-left font-semibold text-ink dark:text-[var(--text-primary)]
+                    ${column.sortable !== false ? 'cursor-pointer hover:bg-brand-50/40 dark:hover:bg-[var(--surface-subtle)] select-none' : ''}
                     ${column.headerClassName || ''}
                   `}
                 >
@@ -210,16 +210,16 @@ export function EvidenceMatrix<T extends Record<string, any>>({
                 </th>
               ))}
               {actions && (
-                <th className={`${tablePadding} text-left font-semibold text-gray-700 dark:text-gray-300 w-24`}>
+                <th className={`${tablePadding} text-left font-semibold text-ink dark:text-[var(--text-primary)] w-24`}>
                   {actionsHeader}
                 </th>
               )}
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200 dark:divide-gray-700 bg-white dark:bg-gray-900">
+          <tbody className="divide-y divide-brand-900/10 dark:divide-[var(--border-soft)] bg-white dark:bg-[var(--surface-card-strong)]">
             {!hasResults && (
               <tr>
-                <td colSpan={columns.length + (actions ? 1 : 0)} className="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
+                <td colSpan={columns.length + (actions ? 1 : 0)} className="px-6 py-8 text-center text-muted dark:text-[var(--text-muted)]">
                   No results found for “{searchTerm}”.
                 </td>
               </tr>
@@ -230,7 +230,7 @@ export function EvidenceMatrix<T extends Record<string, any>>({
                 key={index}
                 onClick={() => onRowClick?.(row, index)}
                 className={`
-                  group hover:bg-gray-50 dark:hover:bg-gray-800/40 transition-colors
+                  group hover:bg-brand-50/40 dark:hover:bg-[var(--surface-subtle)] transition-colors
                   ${onRowClick ? 'cursor-pointer' : ''}
                 `}
               >
@@ -239,7 +239,7 @@ export function EvidenceMatrix<T extends Record<string, any>>({
                   const isGradeValue = showGrades && typeof value === 'string' && Object.keys(gradeColorMap).includes(value);
 
                   return (
-                    <td key={String(column.key)} className={`${tablePadding} align-top text-gray-700 dark:text-gray-300 ${column.className || ''}`}>
+                    <td key={String(column.key)} className={`${tablePadding} align-top text-muted dark:text-[var(--text-muted)] ${column.className || ''}`}>
                       {column.render ? (
                         column.render(row, index)
                       ) : isGradeValue ? (
@@ -273,7 +273,7 @@ export function EvidenceMatrix<T extends Record<string, any>>({
       </div>
 
       {caption && (
-        <div className="mt-3 text-xs text-gray-500 dark:text-gray-400">
+        <div className="mt-3 text-xs text-muted dark:text-[var(--text-muted)]">
           {caption}
         </div>
       )}
