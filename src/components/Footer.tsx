@@ -61,24 +61,24 @@ export default function Footer() {
   }
 
   return (
-    <footer className='mt-8 w-full border-t border-white/8 bg-[#07080F] px-4 py-12'>
+    <footer className='mt-8 w-full border-t border-white/10 bg-[#07080F] px-4 py-12'>
       <div className='mx-auto w-full max-w-screen-lg'>
         <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4'>
           <div>
             <p className='font-display text-lg italic text-white'>The Hippie Scientist</p>
-            <p className='mt-2 text-xs text-white/65'>
+            <p className='mt-1.5 text-[0.7rem] uppercase tracking-[0.14em] text-white/45'>
               Evidence-first botanical research. Not medical advice.
             </p>
             <div className='mt-4 flex flex-wrap items-center gap-x-2 text-xs text-white/50'>
-              <a href='https://twitter.com/HippieScientist' target='_blank' rel='noopener noreferrer' className='flex min-h-[44px] items-center px-1 transition-colors hover:text-white'>
+              <a href='https://twitter.com/HippieScientist' target='_blank' rel='noopener noreferrer' aria-label='The Hippie Scientist on Twitter' className='flex min-h-[44px] items-center gap-1.5 rounded-md px-2 text-xs font-medium text-white/55 transition-all duration-200 hover:bg-white/10 hover:text-white'>
                 Twitter
               </a>
               <span>•</span>
-              <a href='https://www.instagram.com/thehippiescientist' target='_blank' rel='noopener noreferrer' className='flex min-h-[44px] items-center px-1 transition-colors hover:text-white'>
+              <a href='https://www.instagram.com/thehippiescientist' target='_blank' rel='noopener noreferrer' aria-label='The Hippie Scientist on Instagram' className='flex min-h-[44px] items-center gap-1.5 rounded-md px-2 text-xs font-medium text-white/55 transition-all duration-200 hover:bg-white/10 hover:text-white'>
                 Instagram
               </a>
               <span>•</span>
-              <a href='https://www.youtube.com/@HippieScientist' target='_blank' rel='noopener noreferrer' className='flex min-h-[44px] items-center px-1 transition-colors hover:text-white'>
+              <a href='https://www.youtube.com/@HippieScientist' target='_blank' rel='noopener noreferrer' aria-label='The Hippie Scientist on YouTube' className='flex min-h-[44px] items-center gap-1.5 rounded-md px-2 text-xs font-medium text-white/55 transition-all duration-200 hover:bg-white/10 hover:text-white'>
                 YouTube
               </a>
             </div>
@@ -145,7 +145,7 @@ export default function Footer() {
           </NonEmpty>
         </div>
 
-        <div className='mt-10 flex flex-col justify-between gap-2 border-t border-white/8 pt-4 text-xs text-white/65 sm:flex-row'>
+        <div className='mt-10 flex flex-col justify-between gap-2 border-t border-white/10 pt-5 text-xs text-white/65 sm:flex-row'>
           {showBuildMeta && <div>Build {versionStampParts.join(' · ')}</div>}
           <div>© 2024–{copyrightYear} The Hippie Scientist – Educational use only. Not medical advice.</div>
         </div>

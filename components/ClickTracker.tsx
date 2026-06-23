@@ -35,24 +35,10 @@ export default function ClickTracker() {
                              ? pathname.split('/')[2]
                              : '')
 
-        const eventData = {
-          event: 'affiliate_click',
-          route: pathname,
-          href: href,
-          cta: cta,
-          ingredient: ingredient || 'unknown',
-          timestamp: new Date().toISOString()
-        }
-
         // 1. Send to GA4 if active
         trackAffiliateClick({ itemName: ingredient || cta || 'unknown', program: href.includes('amazon') || href.includes('amzn.to') ? 'Amazon' : 'Affiliate' })
 
-        // 2. Log to console in development
-        if (process.env.NODE_ENV !== 'production') {
-          console.log('[Analytics] Affiliate Click tracked:', eventData)
-        }
-
-        // 3. No localStorage click log (privacy: affiliate clicks are only sent to consented analytics if gtag present).
+        // 2. No localStorage click log (privacy: affiliate clicks are only sent to consented analytics if gtag present).
         //    Previously stored full eventData (href, route, CTA, ingredient, ts) in localStorage under 'affiliate_clicks'.
         //    Removed to reduce stored data; rely on GA4 (gated by consent) + dev console only.
       }

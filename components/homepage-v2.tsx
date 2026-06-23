@@ -7,37 +7,53 @@ const heroGoals = [
   {
     slug: 'sleep',
     title: 'Sleep',
+    icon: '🌙',
     prompt: 'Fall asleep, stay asleep, and compare sleep supplements without guessing.',
-    bg: 'border-[#b9c8d8] bg-[#f4f8fb]',
-    accent: 'text-[#244966]',
+    bg: 'from-[#eaf2fb] to-[#dceef8] border-[#a8c8e0]',
+    accent: 'text-[#1a3d5c]',
   },
   {
     slug: 'stress',
     title: 'Stress',
+    icon: '🌿',
     prompt: 'Sort adaptogens and calming supports by fatigue pattern, timing, and safety.',
-    bg: 'border-[#bdd2c2] bg-[#f3f8f1]',
-    accent: 'text-[#28593a]',
+    bg: 'from-[#edf6ee] to-[#ddf0df] border-[#8dc49a]',
+    accent: 'text-[#1e4a2c]',
   },
   {
     slug: 'anxiety',
     title: 'Anxiety',
+    icon: '☁️',
     prompt: 'Find grounded options for calm, overthinking, and daytime tension.',
-    bg: 'border-[#d3c4df] bg-[#faf6fc]',
-    accent: 'text-[#5a3f70]',
+    bg: 'from-[#f3eefc] to-[#ebe2f8] border-[#c4aadf]',
+    accent: 'text-[#4a2d6e]',
   },
   {
     slug: 'focus',
     title: 'Focus',
+    icon: '⚡',
     prompt: 'Compare non-stimulant focus supports and caffeine-adjacent options.',
-    bg: 'border-[#d8c7a5] bg-[#fbf7ec]',
-    accent: 'text-[#6b4d1f]',
+    bg: 'from-[#fdf5e6] to-[#f9ecce] border-[#d4aa62]',
+    accent: 'text-[#5c3f0e]',
   },
 ]
 
 const trustSignals = [
-  'Clinical evidence is separated from mechanism-only claims.',
-  'Safety, interactions, and uncertainty are surfaced before recommendations.',
-  'Guides are reviewed and linked to the site evidence methodology.',
+  {
+    n: '01',
+    label: 'Evidence tiered, not flattened',
+    body: 'Clinical evidence is separated from mechanism-only claims so you know what actually has human trial data.',
+  },
+  {
+    n: '02',
+    label: 'Safety before recommendations',
+    body: 'Interactions, contraindications, and uncertainty are surfaced before any product comparison.',
+  },
+  {
+    n: '03',
+    label: 'Methodology is public',
+    body: 'Every guide links to the evidence grading system so you can audit the claims yourself.',
+  },
 ]
 
 const comparisonLinks = [
@@ -83,12 +99,12 @@ export default function HomepageV2() {
   })
 
   return (
-    <div className='overflow-x-clip bg-site-bg'>
+    <div className='overflow-x-clip bg-[var(--bg)]'>
       <div className='mx-auto max-w-6xl space-y-8 px-4 pb-12 pt-4 sm:px-6 sm:space-y-10 sm:pb-16 sm:pt-6 lg:px-8'>
 
         {/* ── Hero ─────────────────────────────────────────────── */}
-        <section className='rounded-[1.25rem] border border-brand-900/10 bg-white/90 px-6 py-8 shadow-sm sm:px-10 sm:py-12'>
-          <div className='mx-auto max-w-4xl'>
+        <section className='relative overflow-hidden rounded-[1.5rem] border border-brand-900/10 bg-gradient-to-br from-white via-[#fafdf6] to-[#f2f8ed] px-6 py-10 shadow-md sm:px-10 sm:py-16 dark:from-[#1a3028] dark:via-[#162a20] dark:to-[#0f2419]'>
+          <div className='relative mx-auto max-w-4xl'>
             <div className='flex flex-col items-center text-center'>
               <p role='doc-subtitle' className='mb-3 inline-flex text-[0.7rem] font-bold uppercase tracking-[0.2em] text-brand-700'>
                 Start with the problem, not the product
@@ -110,7 +126,7 @@ export default function HomepageV2() {
               <div className='mt-6 flex w-full max-w-sm flex-col'>
                 <Link
                   href='#choose-a-path'
-                  className='rounded-full border border-brand-900/15 bg-brand-700 px-5 py-3 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-800 focus:outline-none text-center'
+                  className='rounded-full bg-brand-800 px-6 py-3.5 text-sm font-bold text-white shadow-[0_4px_14px_rgba(11,29,20,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-[0_8px_20px_rgba(11,29,20,0.28)] active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 text-center'
                 >
                   Browse by Health Goal
                 </Link>
@@ -182,9 +198,10 @@ export default function HomepageV2() {
                 <Link
                   key={hGoal.slug}
                   href={`/goals/${hGoal.slug}`}
-                  className={`group flex min-h-44 flex-col justify-between rounded-[1rem] border ${hGoal.bg} p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]`}
+                  className={`group flex min-h-48 flex-col justify-between rounded-[1.25rem] border bg-gradient-to-br ${hGoal.bg} p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)] dark:from-[var(--surface-card)] dark:to-[var(--surface-card)]`}
                 >
                   <div>
+                    <span className='mb-3 block text-2xl' aria-hidden='true'>{hGoal.icon}</span>
                     <h3 className={`text-2xl font-bold tracking-tight ${hGoal.accent} dark:text-[var(--text-primary)]`}>
                       {hGoal.title}
                     </h3>
@@ -208,8 +225,12 @@ export default function HomepageV2() {
             />
             <div className='grid gap-3 sm:grid-cols-3'>
               {trustSignals.map((signal) => (
-                <div key={signal} className='rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4 text-sm font-medium leading-6 text-ink dark:bg-[var(--surface-card)] dark:text-[var(--text-secondary)]'>
-                  {signal}
+                <div key={signal.n} className='flex gap-4 rounded-[0.85rem] border border-brand-900/10 bg-white/60 p-4 dark:bg-[var(--surface-card)] dark:text-[var(--text-secondary)]'>
+                  <span className='mt-0.5 shrink-0 font-mono text-[0.65rem] font-bold tracking-widest text-brand-400'>{signal.n}</span>
+                  <div>
+                    <p className='text-sm font-semibold text-ink'>{signal.label}</p>
+                    <p className='mt-1 text-sm leading-6 text-muted'>{signal.body}</p>
+                  </div>
                 </div>
               ))}
             </div>

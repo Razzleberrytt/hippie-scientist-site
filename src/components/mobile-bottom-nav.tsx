@@ -49,12 +49,12 @@ export default function MobileBottomNav() {
               aria-current={active ? 'page' : undefined}
               className={`flex min-h-[3.45rem] min-w-0 flex-1 flex-col items-center justify-center gap-1.5 rounded-2xl px-0.5 py-2 text-center ${
                 active
-                  ? 'border-b-2 border-brand-800 bg-brand-50 text-brand-900 opacity-100 shadow-sm dark:border-brand-700 dark:bg-[var(--surface-subtle)] dark:text-brand-800'
-                  : 'text-[#405047] opacity-85 hover:bg-brand-50/60 hover:text-ink hover:opacity-100 dark:text-[var(--text-secondary)] dark:opacity-90 dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]'
+                  ? 'bg-brand-50 text-brand-900 opacity-100 shadow-sm ring-1 ring-brand-700/20 dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)] dark:ring-[var(--border-strong)]'
+                  : 'text-[#405047] opacity-75 hover:opacity-100 hover:text-ink dark:text-[var(--text-secondary)] dark:opacity-70 dark:hover:text-[var(--text-primary)]'
               }`}
             >
               <Icon aria-hidden="true" className="h-6 w-6" strokeWidth={active ? 2.5 : 2.2} />
-              <span className={`max-w-full whitespace-nowrap text-[0.76rem] leading-none ${active ? 'font-semibold' : 'font-medium'}`}>
+              <span className={`max-w-full whitespace-nowrap text-[0.72rem] leading-none ${active ? 'font-semibold' : 'font-medium'}`}>
                 {item.label}
               </span>
             </Link>

@@ -50,7 +50,7 @@ export default function Collapse({
             transition={{ duration: 0.22, ease: 'easeInOut' }}
             className='overflow-hidden'
           >
-            <div className='border-white/8 border-t px-4 py-3'>{children}</div>
+            <div className='border-white/10 border-t px-4 py-3'>{children}</div>
           </motion.div>
         )}
       </AnimatePresence>
