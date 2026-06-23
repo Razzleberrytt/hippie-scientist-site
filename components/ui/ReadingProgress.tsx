@@ -13,16 +13,16 @@ export default function ReadingProgress() {
       setProgress(value)
     }
 
-    window.addEventListener('scroll', onScroll)
+    window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
 
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
-    <div className="fixed top-0 left-0 w-full h-1 bg-transparent z-50">
+    <div className="fixed top-0 left-0 w-full h-[2px] bg-transparent z-[60]">
       <div
-        className="h-full bg-black transition-all duration-150"
+        className="h-full bg-brand-700 transition-all duration-150 dark:bg-[var(--accent-teal)]"
         style={{ width: `${progress}%` }}
       />
     </div>

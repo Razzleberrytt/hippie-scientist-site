@@ -21,22 +21,22 @@ export default function EvidenceMeter({ level = 'moderate' }: { level?: string }
   }
 
   const tones: Record<string, string> = {
-    'strong evidence': 'bg-[#358f52]',
-    'strong': 'bg-[#358f52]',
-    'moderate evidence': 'bg-[#4fb876]',
-    'moderate': 'bg-[#4fb876]',
-    'limited evidence': 'bg-amber-500',
-    'limited': 'bg-amber-500',
-    'mixed evidence': 'bg-amber-500',
-    'mixed': 'bg-amber-500',
-    'preliminary evidence': 'bg-amber-400',
-    'preliminary': 'bg-amber-400',
-    'traditional use': 'bg-stone-400',
-    'traditional': 'bg-stone-400',
-    'insufficient evidence': 'bg-stone-300',
-    'insufficient': 'bg-stone-300',
-    'needs review': 'bg-stone-300',
-    'review': 'bg-stone-300',
+    'strong evidence': 'bg-[var(--color-evidence-strong)]',
+    'strong': 'bg-[var(--color-evidence-strong)]',
+    'moderate evidence': 'bg-[var(--color-evidence-moderate)]/80',
+    'moderate': 'bg-[var(--color-evidence-moderate)]/80',
+    'limited evidence': 'bg-[var(--color-evidence-limited)]',
+    'limited': 'bg-[var(--color-evidence-limited)]',
+    'mixed evidence': 'bg-[var(--color-evidence-limited)]',
+    'mixed': 'bg-[var(--color-evidence-limited)]',
+    'preliminary evidence': 'bg-[var(--color-evidence-limited)]/70',
+    'preliminary': 'bg-[var(--color-evidence-limited)]/70',
+    'traditional use': 'bg-[var(--color-evidence-theoretical)]',
+    'traditional': 'bg-[var(--color-evidence-theoretical)]',
+    'insufficient evidence': 'bg-[var(--color-evidence-theoretical)]/60',
+    'insufficient': 'bg-[var(--color-evidence-theoretical)]/60',
+    'needs review': 'bg-[var(--color-evidence-theoretical)]/60',
+    'review': 'bg-[var(--color-evidence-theoretical)]/60',
   }
 
   const displayLevel = normalized.includes('evidence') || normalized.includes('use') || normalized.includes('review')

@@ -167,7 +167,7 @@ export default function CompareHero({ item1, item2 }: CompareHeroProps) {
           className="flex items-center justify-center md:absolute md:inset-y-0 md:left-1/2 md:-translate-x-1/2 md:z-10"
           aria-hidden="true"
         >
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-800 text-xs font-bold text-white shadow-md ring-4 ring-paper-50">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-800 text-xs font-bold text-white shadow-lg ring-[3px] ring-[var(--color-paper-50)] dark:ring-[var(--bg)]">
             VS
           </div>
         </div>
