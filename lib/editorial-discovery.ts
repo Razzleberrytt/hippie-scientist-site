@@ -8,6 +8,7 @@ export type DiscoveryLink = {
   description: string
   meta?: string
   kind?: 'herb' | 'compound' | 'article' | 'path'
+  evidenceLevel?: string
 }
 
 export type BlogPostRecord = {
@@ -219,6 +220,7 @@ export const findArticleEntities = (post: BlogPostRecord, entities: EditorialEnt
         description: [topics.effects[0], topics.mechanisms[0]].filter(Boolean).join(' • ') || 'Related research profile',
         meta: `${topics.maturity} • ${topics.researchStyle}`,
         kind,
+        evidenceLevel: text(entity.evidence_grade) || text(entity.evidenceLevel) || text(entity.evidence_tier),
       }
     })
 }

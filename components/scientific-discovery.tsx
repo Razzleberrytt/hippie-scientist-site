@@ -16,6 +16,14 @@ const kindStyles: Record<string, string> = {
   path: 'identity-path',
 }
 
+function evidenceTier(value = '') {
+  const normalized = value.toLowerCase()
+  if (/\b(strong|high|robust|meta|a[+-]?)\b/.test(normalized)) return 'strong'
+  if (/\b(moderate|promising|mixed|b[+-]?)\b/.test(normalized)) return 'moderate'
+  if (/\b(limited|early|traditional|preclinical|c[+-]?|d[+-]?)\b/.test(normalized)) return 'limited'
+  return 'theoretical'
+}
+
 export function ContentIdentityCard({ item }: { item: DiscoveryLink }) {
   const style = kindStyles[item.kind || 'path'] || kindStyles.path
 
@@ -25,7 +33,7 @@ export function ContentIdentityCard({ item }: { item: DiscoveryLink }) {
   if (!isSafeInternalHref(item.href) || !title || !isClean(title)) return null
 
   return (
-    <Link href={item.href} className={`scientific-card ${style} group`}>
+    <Link href={item.href} data-evidence={evidenceTier(item.evidenceLevel || item.meta)} className={`scientific-card ${style} group`}>
       <div className="flex items-center justify-between gap-3">
         <span className="identity-kicker">{item.kind || 'path'}</span>
         {item.meta ? <span className="identity-meta">{item.meta}</span> : null}

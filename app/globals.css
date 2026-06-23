@@ -228,9 +228,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html,
-body,
-body * {
+/* Theme-switch transitions: only apply after hydration to prevent load flash */
+html.theme-ready,
+html.theme-ready body,
+html.theme-ready body * {
   transition-property: background-color, border-color, color, fill, stroke, box-shadow;
   transition-duration: 220ms;
   transition-timing-function: ease;
@@ -1029,6 +1030,10 @@ html.dark :is(
   .eyebrow {
     @apply text-xs font-bold tracking-[0.16em];
   }
+
+  .section-label {
+    @apply text-[0.68rem] font-bold tracking-[0.16em] uppercase text-white/50;
+  }
 }
 
 @layer components {
@@ -1036,6 +1041,22 @@ html.dark :is(
     @apply block border border-brand-900/10 bg-white/80 p-4 backdrop-blur transition-all duration-200 hover:border-brand-900/15 hover:bg-white;
     border-radius: var(--radius-card-compact);
     box-shadow: var(--shadow-card-calm);
+  }
+
+  .scientific-card[data-evidence="strong"] {
+    border-left: 3px solid var(--color-evidence-strong);
+  }
+
+  .scientific-card[data-evidence="moderate"] {
+    border-left: 3px solid var(--color-evidence-moderate);
+  }
+
+  .scientific-card[data-evidence="limited"] {
+    border-left: 3px solid var(--color-evidence-limited);
+  }
+
+  .scientific-card[data-evidence="theoretical"] {
+    border-left: 3px solid var(--color-evidence-theoretical);
   }
 
   .identity-herb {

@@ -67,7 +67,6 @@ const HERB_CANONICAL_SOURCE_ALIASES: Record<string, string> = {
 
 export async function generateStaticParams() {
   const herbs = await getHerbSummaryIndex()
-  console.log(`[generateStaticParams] read ${herbs.length} herbs from summary index`)
 
   const dynamicParams = herbs
     .filter((herb: RuntimeRecord) => getRuntimeVisibility(herb).canRender)
@@ -79,7 +78,6 @@ export async function generateStaticParams() {
     ...Object.keys(HERB_CANONICAL_SOURCE_ALIASES).map((slug) => ({ slug })),
   ]
 
-  console.log(`[generateStaticParams] returning ${totalParams.length} static params`)
   return totalParams
 }
 

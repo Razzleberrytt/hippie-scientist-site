@@ -45,16 +45,16 @@ export function Navigation() {
   return (
     <nav
       className={`sticky top-0 z-50 border-b border-brand-900/10 transition-all dark:border-[var(--border-strong)] ${
-        scrolled ? 'bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:bg-[var(--surface-card-strong)] dark:supports-[backdrop-filter]:bg-[var(--surface-card-strong)]' : 'bg-white dark:bg-[var(--surface)]'
+        scrolled ? 'bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:bg-[var(--surface-card-strong)] dark:supports-[backdrop-filter]:bg-[var(--surface-card-strong)]' : 'bg-[#fffdf7]/95 dark:bg-[var(--surface)]'
       }`}
       aria-label="Primary"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-14 items-center justify-between">
+        <div className="flex h-16 items-center justify-between">
           {/* Logo — Fraunces via font-display */}
           <Link
             href="/"
-            className="font-display text-xl font-semibold tracking-[-0.01em] text-ink transition hover:text-brand-800"
+            className="font-display text-[1.15rem] font-bold italic tracking-[-0.02em] text-ink transition hover:text-brand-700 dark:text-[var(--text-primary)]"
             aria-label="The Hippie Scientist home"
           >
             The Hippie Scientist
@@ -68,7 +68,7 @@ export function Navigation() {
                 href={link.href}
                 className={`font-medium transition-colors ${
                   isActive(link.href)
-                    ? 'text-brand-800 dark:text-brand-700'
+                    ? 'font-semibold text-brand-900 dark:text-[var(--text-primary)] underline underline-offset-4 decoration-brand-700/40'
                     : 'text-ink/80 hover:text-ink dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]'
                 }`}
               >

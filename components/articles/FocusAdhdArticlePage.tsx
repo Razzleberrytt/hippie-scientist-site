@@ -236,8 +236,12 @@ function parseBlocks(raw: string): Block[] {
 function inlineFormat(text: string) {
   return text
     .replace(/\[([^\]]+)]\(([^)]+)\)/g, (_match, label: string, href: string) => {
-      const external = /^https?:\/\//i.test(href)
-      return `<a href="${href}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''} class="font-semibold text-brand-700 hover:text-brand-800 hover:underline">${label}</a>`
+      const safePrefixes = /^(https?:\/\/|\/)/i
+      const safeHref = safePrefixes.test(href.trim()) ? href.trim() : '#'
+      const external = /^https?:\/\//i.test(safeHref)
+      const escapedHref = safeHref.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      const safeLabel = label.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      return `<a href="${escapedHref}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''} class="font-semibold text-brand-700 hover:text-brand-800 hover:underline">${safeLabel}</a>`
     })
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.+?)\*/g, '<em>$1</em>')
