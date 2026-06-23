@@ -34,7 +34,7 @@ export const goalContentBySlug: Record<string, GoalContentExtension> = {
       {
         question: 'What is the best evidence-based supplement for sleep onset?',
         answer:
-          'Melatonin has the strongest human evidence for circadian timing and sleep-onset support, but grogginess and vivid dreams are common reasons people stop. Magnesium and L-theanine are often used for wind-down support when timing or racing thoughts are the main issue — evidence is more limited and population-dependent.',
+          'Melatonin has the strongest human evidence for circadian timing and sleep-onset support, but grogginess and vivid dreams are common reasons people stop. Magnesium and L-Theanine are often used for wind-down support when timing or racing thoughts are the main issue — evidence is more limited and population-dependent.',
       },
       {
         question: 'How do melatonin, valerian, and magnesium compare for sleep?',
@@ -49,7 +49,7 @@ export const goalContentBySlug: Record<string, GoalContentExtension> = {
       {
         question: 'How long before bed should I take sleep supplements?',
         answer:
-          'Melatonin and L-theanine are often taken 30–60 minutes before bed; magnesium glycinate is commonly used in the evening. Onset varies by product form, dose, and individual response — verify the label and adjust conservatively.',
+          'Melatonin and L-Theanine are often taken 30–60 minutes before bed; magnesium glycinate is commonly used in the evening. Onset varies by product form, dose, and individual response — verify the label and adjust conservatively.',
       },
       {
         question: 'Why do some sleep aids cause next-day grogginess?',
@@ -77,7 +77,7 @@ export const goalContentBySlug: Record<string, GoalContentExtension> = {
   stress: {
     faqItems: [
       {
-        question: 'Ashwagandha vs L-theanine vs magnesium — which fits my stress pattern?',
+        question: 'Ashwagandha vs L-Theanine vs Magnesium — which fits my stress pattern?',
         answer:
           'Ashwagandha is an adaptogen suited for long-term HPA-axis regulation and lowering chronic cortisol. L-Theanine is an amino acid that provides rapid, acute stress buffering and daytime calm within 30–90 minutes. Magnesium glycinate provides basic daily mineral support for physical tension and evening recovery. Compare these three in our dedicated comparison guide.',
       },
@@ -125,9 +125,9 @@ export const goalContentBySlug: Record<string, GoalContentExtension> = {
           'Kava has moderate human evidence for general anxiety in some trials, but liver risk and motor impairment require strict product quality and abstinence from alcohol.',
       },
       {
-        question: 'Can L-theanine help racing thoughts at night?',
+        question: 'Can L-Theanine help racing thoughts at night?',
         answer:
-          'L-theanine is often used for cognitive quieting without strong sedation; evidence is moderate for relaxation-related outcomes but may be too subtle for severe insomnia or panic.',
+          'L-Theanine is often used for cognitive quieting without strong sedation; evidence is moderate for relaxation-related outcomes but may be too subtle for severe insomnia or panic.',
       },
     ],
     dosingNotes: [
@@ -148,19 +148,19 @@ export const goalContentBySlug: Record<string, GoalContentExtension> = {
   focus: {
     faqItems: [
       {
-        question: 'Caffeine vs L-theanine vs bacopa — how do they differ for focus?',
+        question: 'Caffeine vs L-Theanine vs Bacopa — how do they differ for focus?',
         answer:
           'Caffeine is a fast-acting stimulant that blocks adenosine for quick wakefulness. L-Theanine smooths out caffeine jitters, promoting calm attention when paired. Bacopa is a non-stimulant adaptogen that takes 4–12 weeks of daily dosing to build memory and learning rates. See our dedicated 3-way focus comparison guide.',
       },
       {
         question: 'What is the best non-stimulant focus supplement?',
         answer:
-          'L-theanine (often with caffeine) and rhodiola are common non-stimulant or low-stimulant choices. Bacopa targets memory over weeks, not acute focus.',
+          'L-Theanine (often with caffeine) and rhodiola are common non-stimulant or low-stimulant choices. Bacopa targets memory over weeks, not acute focus.',
       },
       {
         question: 'Will caffeine help focus without side effects?',
         answer:
-          'Caffeine has strong acute evidence for vigilance but commonly disrupts sleep and increases anxiety in sensitive users. Pairing with L-theanine is a frequent strategy to smooth stimulation.',
+          'Caffeine has strong acute evidence for vigilance but commonly disrupts sleep and increases anxiety in sensitive users. Pairing with L-Theanine is a frequent strategy to smooth stimulation.',
       },
     ],
     dosingNotes: [

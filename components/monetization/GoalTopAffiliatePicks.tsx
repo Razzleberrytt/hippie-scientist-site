@@ -1,6 +1,7 @@
 import { getGoal } from '@/data/goals'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import ProductTrustAffiliate from '@/components/monetization/ProductTrustAffiliate'
+import { isRestrictedRecord } from '@/src/lib/restricted-ingredients'
 
 const SLOT_LABELS: Record<string, string> = {
   budget: 'Budget pick',
@@ -18,9 +19,10 @@ export default function GoalTopAffiliatePicks({ goalSlug, limit = 4 }: GoalTopAf
   if (!goal) return null
 
   const picks = goal.quickPicks.slice(0, limit).flatMap((pick) => {
+    if (isRestrictedRecord({ slug: pick.slug, name: pick.option })) return []
     const set = getRevenueProductSet(pick.slug)
     const product = set?.products.find((p) => p.slot === 'overall') ?? set?.products[0]
-    if (!product?.affiliateUrl) return []
+    if (!product?.affiliateUrl || isRestrictedRecord(product)) return []
     return [
       {
         key: pick.slug,

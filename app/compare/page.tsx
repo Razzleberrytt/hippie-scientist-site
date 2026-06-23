@@ -43,7 +43,7 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
       { slug: 'bacopa-vs-lions-mane', label: "Bacopa vs Lion's Mane" },
       { slug: 'bacopa-vs-ginkgo-biloba', label: 'Bacopa vs Ginkgo Biloba' },
       { slug: 'alpha-gpc-vs-cdp-choline', label: 'Alpha-GPC vs CDP-Choline' },
-      { slug: 'caffeine-vs-l-theanine', label: 'Caffeine vs L-Theanine' },
+      { slug: 'caffeine-vs-theanine', label: 'Caffeine vs L-Theanine' },
     ],
   },
   {

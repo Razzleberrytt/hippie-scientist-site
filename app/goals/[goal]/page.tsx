@@ -23,6 +23,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import AuthorCredentials from '@/components/AuthorCredentials'
 import SeeAlsoInCluster from '@/components/SeeAlsoInCluster'
 import { getGoalCluster } from '@/lib/goal-clusters'
+import { isRestrictedRecord } from '../../../src/lib/restricted-ingredients'
 
 import GoalDecisionExperience from './GoalDecisionExperience'
 import GoalHubSections from '../../../src/components/goals/GoalHubSections'
@@ -175,7 +176,10 @@ const GOAL_PRODUCT_SETS: Record<string, string[]> = {
 
 function getGoalProducts(goalSlug: string) {
   const keys = GOAL_PRODUCT_SETS[goalSlug] ?? []
-  return keys.flatMap((key) => revenueProductSets[key]?.products ?? [])
+  return keys
+    .filter((key) => !isRestrictedRecord({ slug: key }))
+    .flatMap((key) => revenueProductSets[key]?.products ?? [])
+    .filter((p) => !isRestrictedRecord(p))
 }
 
 export const dynamicParams = false
@@ -525,6 +529,9 @@ export default async function GoalDecisionPage({
               </div>
               {/* Sourcing CTA */}
               {(() => {
+                if (isRestrictedRecord({ slug: option.slug, name: option.name }) || (compound && isRestrictedRecord(compound))) {
+                  return null
+                }
                 const revenue = getRevenueProductSet(option.slug)
                 const overall = revenue?.products.find((p) => p.slot === 'overall') ?? revenue?.products[0]
                 if (overall?.affiliateUrl) {

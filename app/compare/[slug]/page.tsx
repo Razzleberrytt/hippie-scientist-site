@@ -4,6 +4,7 @@ import { getStacks } from '../../../src/lib/runtime-data'
 import { generatedComparisons } from '@/data/generated-comparisons'
 import { supplementComparisons } from '@/data/comparisons'
 import { bestPages } from '@/data/best'
+import { goals } from '@/data/goals'
 import { formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
 import { getAffiliateShopLinks } from '../../../src/lib/affiliate'
 import { getUnifiedRuntimeRecords } from '../../../src/lib/runtime-record-index'
@@ -11,7 +12,7 @@ import { buildPageMetadata, SITE_URL } from '../../../src/lib/seo'
 import { isFlagshipCompareSlug } from '../../../src/lib/goal-hub-links'
 import { buildCompareDetailSchemaGraph } from '../../../src/lib/schema-graph'
 import { getComparisonRecommendationEntries } from '../../../src/lib/runtime-related-maps'
-import { getValidComparisonSlug } from '@/lib/comparison-utils'
+import { getValidComparisonSlug, formatComparisonSlug } from '@/lib/comparison-utils'
 import { COMPARE_COMBINATIONS } from '@/config/compare-combinations'
 import {
   recordToCompareItem,
@@ -30,13 +31,7 @@ import ComparePageScaffold from '@/components/compare/ComparePageScaffold'
 
 type Params = { params: Promise<{ slug: string }> }
 
-const formatSlug = (value: string) =>
-  value
-    .replace(/-/g, ' ')
-    .replace(/\b\w/g, char => char.toUpperCase())
-    .replace(/\bVs\b/g, 'vs')
-    .replace(/\bL\b/g, 'L')
-    .replace(/\bD3\b/g, 'D3')
+const formatSlug = (value: string) => formatComparisonSlug(value)
 
 const normalize = (value?: string) => (value ?? '').toLowerCase().replace(/[^a-z0-9]/g, '')
 const asString = (value: unknown, fallback = '') => typeof value === 'string' ? value : fallback
@@ -288,7 +283,18 @@ export default async function Page({ params }: Params) {
     {
       title: 'Related goals pages',
       description: 'Use goal pages when choosing by outcome instead of ingredient.',
-      links: [{ href: '/goals', label: 'Browse goal guides' }],
+      links: goals
+        .filter(g => g.options.some(opt => opt.slug === a.slug || opt.slug === b.slug))
+        .map(g => ({
+          href: `/goals/${g.slug}`,
+          label: `${g.title.replace(/ decisions$/, '')} support`,
+        }))
+        .slice(0, 3)
+        .concat(
+          goals.filter(g => g.options.some(opt => opt.slug === a.slug || opt.slug === b.slug)).length === 0
+            ? [{ href: '/goals', label: 'Browse goal guides' }]
+            : []
+        ),
     },
   ]
 

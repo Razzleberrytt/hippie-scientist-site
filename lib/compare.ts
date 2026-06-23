@@ -10,6 +10,7 @@
 
 import compoundsJson from '@/public/data/compounds.json'
 import herbsJson from '@/public/data/herbs.json'
+import { isRestrictedRecord } from '@/src/lib/restricted-ingredients'
 
 export const HARM_REDUCTION_SLUGS = new Set([
   'kava', 'kavain', 'dihydrokavain', 'methysticin', 'yangonin',
@@ -99,7 +100,8 @@ function hasHarmFlag(item: SourceItem, slug: string): boolean {
     item.controlled_substance === true ||
     item.doNotPromote === true ||
     item.doNotMonetize === true ||
-    textFields.includes('harm')
+    textFields.includes('harm') ||
+    isRestrictedRecord(item)
   )
 }
 
@@ -194,11 +196,12 @@ export function recordToCompareItem(record: Record<string, unknown>): CompareIte
     category: arr(record.mechanism_categories)[0] || undefined,
     safety: str(record.safety) || undefined,
     sources: Array.isArray(record.sources) ? record.sources : [],
-    doNotMonetize: Boolean(record.doNotMonetize),
+    doNotMonetize: Boolean(record.doNotMonetize) || isRestrictedRecord(record),
     isHarmReduction:
       HARM_REDUCTION_SLUGS.has(slug) ||
       Boolean(record.harm_reduction) ||
-      Boolean(record.doNotMonetize),
+      Boolean(record.doNotMonetize) ||
+      isRestrictedRecord(record),
     pageUrl: type === 'herb' ? `/herbs/${slug}` : `/compounds/${slug}`,
   }
 }

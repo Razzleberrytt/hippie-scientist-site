@@ -113,7 +113,7 @@ export const goals: Goal[] = [
     options: [
       { slug: 'ashwagandha', name: 'Ashwagandha', bestFor: 'Chronic cortisol stress and anxiety resilience', speed: '2 to 8 weeks', evidence: 'Moderate to strong for subjective stress and anxiety', risk: 'Low to moderate', avoidIf: 'Autoimmune diseases, thyroid disorders, or pregnancy', whyPeopleStop: 'Emotional flattening (anhedonia) or stomach upset', form: 'Standardized KSM-66 or Shoden extract' },
       { slug: 'rhodiola', name: 'Rhodiola', bestFor: 'Mental performance under stress or exhaustion', speed: 'Days to 2 weeks', evidence: 'Moderate for stress-related fatigue and cognitive score', risk: 'Low', avoidIf: 'Bipolar disorder (manic potential)', whyPeopleStop: 'Overstimulation or mild insomnia', form: 'Rhodiola rosea extract (3% rosavins, 1% salidroside)' },
-      { slug: 'l-theanine', name: 'L-Theanine', bestFor: 'Acute nervous tension and focus buffering', speed: '30 to 90 minutes', evidence: 'Moderate for stress symptoms and acute relaxation', risk: 'Low', avoidIf: 'Severe hypotension tendency', whyPeopleStop: 'Effect is subtle when used in high-stress settings', form: 'L-theanine capsules' },
+      { slug: 'l-theanine', name: 'L-Theanine', bestFor: 'Acute nervous tension and focus buffering', speed: '30 to 90 minutes', evidence: 'Moderate for stress symptoms and acute relaxation', risk: 'Low', avoidIf: 'Severe hypotension tendency', whyPeopleStop: 'Effect is subtle when used in high-stress settings', form: 'L-Theanine capsules' },
     ],
     relatedGoals: ['anxiety', 'sleep', 'focus'],
   },
@@ -128,7 +128,7 @@ export const goals: Goal[] = [
       { need: 'Social tension / wind-down', option: 'Kava', slug: 'kava' },
     ],
     options: [
-      { slug: 'l-theanine', name: 'L-Theanine', bestFor: 'Quieting mental chatter without day-time drowsiness', speed: '30 to 90 minutes', evidence: 'Moderate for acute anxiety-like scores under stress', risk: 'Low', avoidIf: 'No major warnings; evaluate stack compatibility', whyPeopleStop: 'Subtle benefits or too mild for panic episodes', form: 'Pure L-theanine capsules or green tea extracts' },
+      { slug: 'l-theanine', name: 'L-Theanine', bestFor: 'Quieting mental chatter without day-time drowsiness', speed: '30 to 90 minutes', evidence: 'Moderate for acute anxiety-like scores under stress', risk: 'Low', avoidIf: 'No major warnings; evaluate stack compatibility', whyPeopleStop: 'Subtle benefits or too mild for panic episodes', form: 'Pure L-Theanine capsules or green tea extracts' },
       { slug: 'ashwagandha', name: 'Ashwagandha', bestFor: 'Lowering overall daily cortisol-related tension', speed: '2 to 8 weeks', evidence: 'Moderate to strong for general anxiety scales', risk: 'Low to moderate', avoidIf: 'Thyroid medications, pregnancy, autoimmune conditions', whyPeopleStop: 'Delayed benefits or mild gastrointestinal effects', form: 'Root extract standardized (e.g. KSM-66)' },
       { slug: 'kava', name: 'Kava', bestFor: 'Social relaxation and rapid relief of nervous tension', speed: '20 to 60 minutes', evidence: 'Moderate to strong for general anxiety support', risk: 'Moderate', avoidIf: 'Liver disorders, heavy alcohol consumption, motor operating', whyPeopleStop: 'Bitter taste, numbing mouth sensation, or grogginess', form: 'Traditional root brew or high-quality CO2 extract' },
     ],

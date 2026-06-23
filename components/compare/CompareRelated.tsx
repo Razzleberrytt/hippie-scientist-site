@@ -1,16 +1,9 @@
 import Link from 'next/link'
+import { formatComparisonSlug } from '@/lib/comparison-utils'
 
 interface CompareRelatedProps {
   comparisons: string[]
   currentSlug: string
-}
-
-function formatSlugToTitle(slug: string): string {
-  return slug
-    .replace(/-vs-/gi, ' vs ')
-    .split(' ')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ')
 }
 
 export default function CompareRelated({ comparisons, currentSlug }: CompareRelatedProps) {
@@ -38,7 +31,7 @@ export default function CompareRelated({ comparisons, currentSlug }: CompareRela
             href={`/compare/${slug}`}
             className="rounded-2xl border border-brand-900/10 bg-paper-50 px-4 py-4 text-sm font-medium text-ink transition-colors hover:bg-brand-50 hover:text-brand-700"
           >
-            {formatSlugToTitle(slug)}
+            {formatComparisonSlug(slug)}
           </Link>
         ))}
       </div>
