@@ -27,13 +27,17 @@
     "monetizationAllowed": true,
     "indexingAllowed": false,
     "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "requiresHumanReview": true,
+    "reason": "missing_record_level_sources"
   },
   "evidence": {
     "reviewStatus": "needs_review",
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "NEEDS_REVIEW",
+  "robots": "noindex,follow",
+  "sitemap_included": false,
+  "indexability_reasons": []
 }

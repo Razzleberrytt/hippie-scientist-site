@@ -245,6 +245,101 @@ async function goalRouteRecords() {
   }
 }
 
+async function buildCompareRouteRecords() {
+  const readTsStringArray = async (relativePath, varName) => {
+    const filePath = path.join(ROOT, relativePath)
+    try {
+      const src = await fs.readFile(filePath, 'utf8')
+      const re = new RegExp(`export\\s+(?:const|type)\\s+${varName}[\\s\\S]*?=\\s*\\[([\\s\\S]*?)\\]`, 'm')
+      const m = src.match(re)
+      if (!m) {
+        const re2 = new RegExp(`const\\s+${varName}[\\s\\S]*?=\\s*\\[([\\s\\S]*?)\\]`, 'm')
+        const m2 = src.match(re2)
+        if (!m2) return []
+        const body = m2[1]
+        const items = []
+        const itemRe = /['"]([^'"]+)['"]/g
+        let im
+        while ((im = itemRe.exec(body)) !== null) {
+          if (im[1]) items.push(im[1])
+        }
+        return items
+      }
+      const body = m[1]
+      const items = []
+      const itemRe = /['"]([^'"]+)['"]/g
+      let im
+      while ((im = itemRe.exec(body)) !== null) {
+        if (im[1]) items.push(im[1])
+      }
+      return items
+    } catch {
+      return []
+    }
+  }
+
+  const readComparisonsJson = async () => {
+    const filePath = path.join(ROOT, 'data', 'comparisons.ts')
+    try {
+      const src = await fs.readFile(filePath, 'utf8')
+      const matches = [...src.matchAll(/slug:\s*['"]([^'"]+)['"]/g)]
+      return matches.map((m) => m[1])
+    } catch {
+      return []
+    }
+  }
+
+  const combinations = await readTsStringArray('config/compare-combinations.ts', 'COMPARE_COMBINATIONS')
+  const generated = await readTsStringArray('data/generated-comparisons.ts', 'generatedComparisons')
+  const comparisons = await readComparisonsJson()
+
+  // Static/custom compare pages under app/compare/
+  const staticCompareSlugs = [
+    'ashwagandha-vs-l-theanine-vs-magnesium',
+    'caffeine-vs-l-theanine-vs-bacopa-for-focus',
+    'curcumin-vs-boswellia-vs-omega-3',
+    'melatonin-vs-valerian-vs-magnesium-for-sleep',
+    'berberine-vs-metformin',
+    'kanna-vs-ssris',
+    'kava-vs-alcohol',
+    'sleep-herbs-vs-melatonin',
+  ]
+
+  const allSlugs = [...new Set([...combinations, ...generated, ...comparisons, ...staticCompareSlugs])]
+
+  return allSlugs.map((slug) => {
+    // Determine title
+    let title = `${titleize(slug)} Comparison`
+    if (slug.includes('-vs-')) {
+      const parts = slug.split('-vs-')
+      const n1 = titleize(parts[0])
+      const n2 = titleize(parts[1])
+      title = `${n1} vs ${n2}`
+    }
+
+    // Parse items to extract signals
+    const items = slug.split('-vs-').flatMap((part) => part.split('-for-')[0].split('-'))
+
+    return routeRecord({
+      route: `/compare/${slug}`,
+      type: 'guide',
+      title,
+      signals: [...items, slug, slug.replace(/-/g, ' ')],
+      source: 'compare-data',
+    })
+  })
+}
+
+function parseCompareRouteSlugs(route) {
+  if (!route.startsWith('/compare/')) return []
+  const slug = route.split('/compare/')[1]
+  if (!slug) return []
+  const parts = slug.split('-vs-')
+  return parts.map((part) => {
+    return part.split('-for-')[0].split('-vs-')[0].trim()
+  }).filter(Boolean)
+}
+
 function dedupeRecords(records) {
   const byRoute = new Map()
   for (const record of records) {
@@ -271,6 +366,37 @@ function scoreRelationship(source, target) {
   if (target.type === 'safety' && /safety|risk|caution|interaction|contraindication|pregnancy|medication/.test(source.signals.join(' '))) score += 8
   if ((EDITORIAL_LINK_BOOSTS[source.route] || []).includes(target.route)) score += 60
   if (['/articles', '/compounds', '/goals', '/guides', '/herbs'].includes(target.route)) score -= 8
+
+  // Boost compare pages vs their compared items
+  if (source.route.startsWith('/compare/')) {
+    const compared = parseCompareRouteSlugs(source.route)
+    const targetSlug = routeSlug(target.route)
+    if (compared.includes(targetSlug) || compared.some(item => targetSlug.includes(item) || item.includes(targetSlug))) {
+      score += 50
+    }
+  }
+  if (target.route.startsWith('/compare/')) {
+    const compared = parseCompareRouteSlugs(target.route)
+    const sourceSlug = routeSlug(source.route)
+    if (compared.includes(sourceSlug) || compared.some(item => sourceSlug.includes(item) || item.includes(sourceSlug))) {
+      score += 50
+    }
+  }
+
+  // Boost compare pages vs their relevant goals
+  if (source.route.startsWith('/compare/') && target.route.startsWith('/goals/')) {
+    const goalSlug = routeSlug(target.route)
+    if (source.route.includes(goalSlug) || source.signals.includes(goalSlug) || source.clusters.includes(goalSlug)) {
+      score += 45
+    }
+  }
+  if (target.route.startsWith('/compare/') && source.route.startsWith('/goals/')) {
+    const goalSlug = routeSlug(source.route)
+    if (target.route.includes(goalSlug) || target.signals.includes(goalSlug) || target.clusters.includes(goalSlug)) {
+      score += 45
+    }
+  }
+
   return score
 }
 
@@ -425,12 +551,13 @@ async function writeDocs(records, internalMap, topicClusters) {
 }
 
 async function main() {
-  const [staticRecords, herbs, compounds, conditionMap, goals] = await Promise.all([
+  const [staticRecords, herbs, compounds, conditionMap, goals, compareRecords] = await Promise.all([
     buildStaticRouteRecords(),
     readJson('herbs-summary.json', []),
     readJson('compounds-summary.json', []),
     readJson('runtime-maps/entity-to-conditions.json', {}),
     goalRouteRecords(),
+    buildCompareRouteRecords(),
   ])
 
   const safetyRecords = []
@@ -445,6 +572,7 @@ async function main() {
     ...entityRouteRecords(herbs, 'herb', conditionMap),
     ...entityRouteRecords(compounds, 'compound', conditionMap),
     ...goals,
+    ...compareRecords,
     ...safetyRecords,
   ])
   const internalMap = buildInternalLinkMap(records)

@@ -628,6 +628,135 @@ async function writeJson(fileName, value) {
   await fs.writeFile(path.join(OUT_DIR, fileName), `${JSON.stringify(stableClone(value))}\n`, 'utf8')
 }
 
+const RESTRICTED_TERMS = [
+  '5-meo-dmt',
+  '5 meo dmt',
+  '7-hydroxymitragynine',
+  '7 hydroxymitragynine',
+  '7-oh-mitragynine',
+  '7 oh mitragynine',
+  '7-oh',
+  'amanita muscaria',
+  'anabasine',
+  'anatabine',
+  'dmt',
+  'fadogia',
+  'fadogia agrestis',
+  'hawaiian baby woodrose',
+  'harmaline',
+  'harmine',
+  'ibogaine',
+  'ketamine',
+  'kratom',
+  'lobeline',
+  'lsa',
+  'mescaline',
+  'mitragynine',
+  'morning glory',
+  'nicotiana glauca',
+  'nicotiana tabacum',
+  'noopept',
+  'psilocybin',
+  'salvinorin',
+  'sinicuichi',
+  'tetrahydroharmine',
+  'thc',
+  'thcv',
+  // harm-reduction / high-risk substances:
+  'kava',
+  'kavain',
+  'dihydrokavain',
+  'methysticin',
+  'dihydromethysticin',
+  'yangonin',
+  'desmethoxyyangonin',
+  'kavalactones',
+]
+
+const RESTRICTED_STATUS_PATTERNS = [
+  /schedule\s*i\b/i,
+  /schedule\s*1\b/i,
+  /dea\s*watch\s*list/i,
+  /dea\s*watchlist/i,
+  /controlled\s*substance/i,
+]
+
+function isRestricted(record) {
+  if (!record) return false
+  if (record.doNotMonetize === true || record.do_not_monetize === true ||
+      record.doNotPromote === true || record.do_not_promote === true) {
+    return true
+  }
+
+  // Check governance fields
+  const gov = record.governance || {}
+  if (gov.monetizationAllowed === false || gov.recommendationAllowed === false) {
+    return true
+  }
+
+  const governanceStatus = [
+    record.governance_status,
+    record.governanceStatus,
+    record.legal_status,
+    record.legalStatus,
+    record.controlled_status,
+    record.controlledStatus,
+    record.controlled_schedule,
+    record.controlledSchedule,
+    record.schedule,
+    record.dea_status,
+    record.deaStatus,
+    record.dea_watchlist_status,
+    record.deaWatchlistStatus,
+    record.regulatory_status,
+    record.regulatoryStatus,
+    record.safety_level,
+  ].map(v => (v == null ? '' : String(v).trim())).join(' ')
+
+  if (RESTRICTED_STATUS_PATTERNS.some((pattern) => pattern.test(governanceStatus))) return true
+
+  // Standard normalize logic
+  const normalize = (value) => {
+    if (value == null) return ''
+    return String(value)
+      .toLowerCase()
+      .replace(/[’']/g, '')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+  }
+
+  const fieldsToCheck = [
+    record.slug,
+    record.name,
+    record.displayName,
+    record.compoundName,
+    record.canonicalCompoundName,
+    record.scientific_name,
+    record.botanical_name,
+    record.affiliate_query,
+    record.affiliateQuery,
+    record.amazon_affiliate_url,
+    record.amazonAffiliateUrl,
+    record.affiliate_url,
+    record.affiliateUrl,
+    record.product_url,
+    record.summary,
+    record.description,
+    record.safety,
+    record.active_constituents,
+    record.compound_profile,
+  ].map(normalize)
+
+  return fieldsToCheck.some(field => {
+    if (!field) return false
+    return RESTRICTED_TERMS.some(term => {
+      const normTerm = normalize(term)
+      return field === normTerm || field.includes(normTerm)
+    })
+  })
+}
+
 async function main() {
   const [herbs, compounds] = await Promise.all([
     mergeRows('herbs', 'herbs.json', 'herbs-summary.json'),
@@ -639,9 +768,10 @@ async function main() {
     ...compounds.map((record) => ({ ...record, entityType: 'compound' })),
   ]
     // Governance gate: records explicitly marked recommendationAllowed=false (restricted /
-    // high-risk profiles) are excluded from every recommendation/related map so they are
-    // neither recommended to other pages nor surfaced as recommendation hubs themselves.
-    .filter((record) => record?.governance?.recommendationAllowed !== false)
+    // high-risk profiles) or classified as restricted/harm-reduction are excluded from every
+    // recommendation/related map so they are neither recommended to other pages nor surfaced
+    // as recommendation hubs themselves.
+    .filter((record) => record?.governance?.recommendationAllowed !== false && !isRestricted(record))
   const index = buildIndex(records)
   const comparisonMap = buildCandidateMap(records, index, 'comparison')
   const conditionMaps = buildConditionMaps(records)
