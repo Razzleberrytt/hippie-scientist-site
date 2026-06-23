@@ -18,7 +18,7 @@ const TIERS: TierRow[] = [
     label: 'Strong Human Evidence',
     what: 'Multiple RCTs or a meta-analysis with consistent positive results across independent labs.',
     human: 'Yes — robust human clinical data',
-    barClass: 'bg-emerald-600',
+    barClass: 'bg-[var(--color-evidence-strong)]',
     badgeClass: 'bg-emerald-50 border-emerald-200 text-emerald-800',
     score: 90,
   },

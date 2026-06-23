@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { buildPageMetadata } from '../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
-import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import EducationPageLayout from '@/components/layouts/EducationPageLayout'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
@@ -73,7 +73,7 @@ const faqItems = [
 
 export default function NootropicEducationPage() {
   return (
-    <main className='container-page py-10 space-y-12'>
+    <>
       <AuthorityJsonLd
         title='What Is a Nootropic?'
         description='Educational introduction to nootropics, cognition-oriented compounds, focus systems, neuropharmacology, and cognitive support.'
@@ -82,28 +82,11 @@ export default function NootropicEducationPage() {
         faqItems={faqItems}
       />
 
-      <AuthorityBreadcrumbs
-        items={[
-          { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
-          { label: 'What Is a Nootropic?' },
-        ]}
-      />
-
+      <EducationPageLayout
+        title='What Is a Nootropic?'
+        description='Nootropics are compounds, herbs, or substances associated with cognition-oriented systems including focus continuity, memory formation, attentional regulation, motivation signaling, alertness, executive function, and mental performance.'
+      >
       <section className='space-y-5 max-w-4xl'>
-        <p className='eyebrow-label'>Educational Supernode</p>
-
-        <h1 className='text-5xl font-bold tracking-tight text-ink'>
-          What Is a Nootropic?
-        </h1>
-
-        <p className='text-lg leading-8 text-[#46574d]'>
-          Nootropics are compounds, herbs, or substances associated with
-          cognition-oriented systems including focus continuity, memory formation,
-          attentional regulation, motivation signaling, alertness, executive
-          function, and mental performance.
-        </p>
-
         <p className='text-base leading-8 text-[#5c6b63]'>
           Educational nootropic exploration commonly intersects with
           neuropharmacology, stress-aware cognition systems, sleep-dependent
@@ -216,6 +199,7 @@ export default function NootropicEducationPage() {
           },
         ]}
       />
-    </main>
+      </EducationPageLayout>
+    </>
   )
 }

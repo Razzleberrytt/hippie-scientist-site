@@ -70,7 +70,7 @@ export default function WhyOnlineSupplementClaimsSpreadPage() {
       <section className="space-y-6 max-w-4xl">
         <div className="space-y-3">
           <p className="eyebrow-label">Scientific Literacy Systems</p>
-          <h1 className="text-5xl font-bold tracking-tight text-ink">Why Online Supplement Claims Spread</h1>
+          <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">Why Online Supplement Claims Spread</h1>
         </div>
         <p className="text-xl leading-9 text-[#46574d]">
           Online supplement discussions frequently simplify highly complex biological systems into deterministic optimization narratives. Mechanistic hype, contextual variability, scientific uncertainty, emotional marketing, and simplified neuroscience may all influence how supplement claims spread online.

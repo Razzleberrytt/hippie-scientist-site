@@ -70,7 +70,7 @@ export default function PlaceboAndContextEffectsPage() {
       <section className="space-y-6 max-w-4xl">
         <div className="space-y-3">
           <p className="eyebrow-label">Scientific Literacy Systems</p>
-          <h1 className="text-5xl font-bold tracking-tight text-ink">Placebo and Context Effects</h1>
+          <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">Placebo and Context Effects</h1>
         </div>
         <p className="text-xl leading-9 text-[#46574d]">
           Human experiences are shaped by substantially more than isolated biological mechanisms. Expectations, emotional regulation, stress physiology, environmental context, attentional systems, and contextual neurobiology may all influence subjective cognition and wellness experiences.

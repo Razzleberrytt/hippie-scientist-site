@@ -641,7 +641,7 @@ export default function SearchClient() {
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
                   placeholder="Try sleep, magnesium, stress, inflammation..."
-                  className="min-h-12 w-full rounded-[1.1rem] border border-brand-900/10 bg-white px-4 py-3 text-base font-medium text-ink shadow-sm outline-none transition-all placeholder:text-[#7b887f] focus:border-brand-600/30 focus:bg-white focus:ring-4 focus:ring-brand-500/15 sm:px-5 sm:text-lg"
+                  className="min-h-12 w-full rounded-[1.1rem] border border-brand-900/10 bg-white px-4 py-3 text-base font-medium text-ink shadow-sm outline-none transition-all placeholder:text-muted/60 dark:placeholder:text-[var(--text-muted)]/50 focus:border-brand-700/30 focus:bg-white focus:ring-4 focus:ring-brand-700/20 sm:px-5 sm:text-lg"
                   autoComplete="off"
                 />
 

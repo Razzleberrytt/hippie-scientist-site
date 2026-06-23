@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
-import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import EducationPageLayout from '@/components/layouts/EducationPageLayout'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
@@ -53,7 +53,7 @@ const relatedSystems = [
 
 export default function WhyStudiesConflictPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <>
       <AuthorityJsonLd
         title="Why Studies Conflict"
         description="Educational exploration of scientific uncertainty, human variability, study design differences, and biological complexity in neuroscience and health research."
@@ -61,22 +61,10 @@ export default function WhyStudiesConflictPage() {
         type="Article"
         faqItems={faqs}
       />
-      <AuthorityBreadcrumbs
-        items={[
-          { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
-          { label: 'Why Studies Conflict' },
-        ]}
-      />
-      <section className="space-y-6 max-w-4xl">
-        <div className="space-y-3">
-          <p className="eyebrow-label">Scientific Literacy Systems</p>
-          <h1 className="text-5xl font-bold tracking-tight text-ink">Why Studies Conflict</h1>
-        </div>
-        <p className="text-xl leading-9 text-[#46574d]">
-          Scientific disagreement does not necessarily mean research is meaningless. Human variability, study design differences, biological complexity, contextual neurobiology, and evolving evidence systems may all contribute to mixed or conflicting findings.
-        </p>
-      </section>
+      <EducationPageLayout
+        title="Why Studies Conflict"
+        description="Scientific disagreement does not necessarily mean research is meaningless. Human variability, study design differences, biological complexity, contextual neurobiology, and evolving evidence systems may all contribute to mixed or conflicting findings."
+      >
       <EvidenceSummaryCard
         title="Scientific uncertainty and biological complexity"
         evidenceLevel="Strong"
@@ -127,6 +115,7 @@ export default function WhyStudiesConflictPage() {
           ))}
         </div>
       </section>
-    </main>
+      </EducationPageLayout>
+    </>
   )
 }

@@ -70,7 +70,7 @@ export default function WhyCalmFocusDiffersFromStimulationPage() {
       <section className="space-y-6 max-w-4xl">
         <div className="space-y-3">
           <p className="eyebrow-label">Sustainable Cognition Systems</p>
-          <h1 className="text-5xl font-bold tracking-tight text-ink">Why Calm Focus Differs From Stimulation</h1>
+          <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">Why Calm Focus Differs From Stimulation</h1>
         </div>
         <p className="text-xl leading-9 text-[#46574d]">
           Calm attentional continuity and stimulation intensity are not identical cognition systems. Sustainable focus may involve emotional regulation, nervous-system stability, recovery continuity, stress resilience, and attentional flexibility rather than continual hyperarousal.

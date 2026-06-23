@@ -70,7 +70,7 @@ export default function WhyIndividualVariabilityMattersPage() {
       <section className="space-y-6 max-w-4xl">
         <div className="space-y-3">
           <p className="eyebrow-label">Contextual Neuroscience</p>
-          <h1 className="text-5xl font-bold tracking-tight text-ink">Why Individual Variability Matters</h1>
+          <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">Why Individual Variability Matters</h1>
         </div>
         <p className="text-xl leading-9 text-[#46574d]">
           Human neurobiology is highly variable. Stress physiology, emotional regulation, sleep continuity, recovery biology, environmental context, nervous-system sensitivity, and psychological state may all influence cognition experiences and subjective responses.

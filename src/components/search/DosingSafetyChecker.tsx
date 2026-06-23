@@ -131,7 +131,7 @@ export default function DosingSafetyChecker({ items }: DosingSafetyCheckerProps)
               id="substance-select"
               value={selectedSlug}
               onChange={(e) => setSelectedSlug(e.target.value)}
-              className="min-h-11 w-full rounded-xl border border-brand-900/10 bg-white px-3 py-2 text-sm text-ink outline-none transition focus:border-brand-600/30 focus:ring-2 focus:ring-brand-500/15"
+              className="min-h-11 w-full rounded-xl border border-brand-900/10 bg-white px-3 py-2 text-sm text-ink outline-none transition focus:border-brand-700/30 focus:ring-2 focus:ring-brand-700/20"
             >
               <option value="">-- Select Substance --</option>
               {selectableItems.map(item => (
@@ -152,7 +152,7 @@ export default function DosingSafetyChecker({ items }: DosingSafetyCheckerProps)
                 placeholder="e.g. 70"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value === '' ? '' : Number(e.target.value))}
-                className="min-h-11 flex-1 rounded-xl border border-brand-900/10 bg-white px-3 py-2 text-sm text-ink outline-none transition focus:border-brand-600/30 focus:ring-2 focus:ring-brand-500/15"
+                className="min-h-11 flex-1 rounded-xl border border-brand-900/10 bg-white px-3 py-2 text-sm text-ink outline-none transition focus:border-brand-700/30 focus:ring-2 focus:ring-brand-700/20"
               />
               <button
                 type="button"

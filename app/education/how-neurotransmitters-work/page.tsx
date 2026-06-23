@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
-import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import EducationPageLayout from '@/components/layouts/EducationPageLayout'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
@@ -39,7 +39,7 @@ const pathways = [
 
 export default function NeurotransmittersPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <>
       <AuthorityJsonLd
         title="How Neurotransmitters Work"
         description="Educational overview of neurotransmitters, signaling systems, neuropharmacology, pathway interactions, and nervous-system communication."
@@ -47,27 +47,11 @@ export default function NeurotransmittersPage() {
         type="Article"
       />
 
-      <AuthorityBreadcrumbs
-        items={[
-          { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
-          { label: 'How Neurotransmitters Work' },
-        ]}
-      />
-
+      <EducationPageLayout
+        title="How Neurotransmitters Work"
+        description="Neurotransmitters are signaling molecules associated with communication between neurons and nervous-system pathways. Different signaling systems may influence emotional regulation, stress adaptation, cognition, sleep continuity, sensory processing, behavioral motivation, and psychoactive perception."
+      >
       <section className="space-y-6 max-w-4xl">
-        <div className="space-y-3">
-          <p className="eyebrow-label">Neurochemistry Education</p>
-
-          <h1 className="text-5xl font-bold tracking-tight text-ink">
-            How Neurotransmitters Work
-          </h1>
-        </div>
-
-        <p className="text-xl leading-9 text-[#46574d]">
-          Neurotransmitters are signaling molecules associated with communication between neurons and nervous-system pathways. Different signaling systems may influence emotional regulation, stress adaptation, cognition, sleep continuity, sensory processing, behavioral motivation, and psychoactive perception.
-        </p>
-
         <p className="text-base leading-8 text-[#5c6b63]">
           Educational neuropharmacology discussions commonly focus on how neurotransmitter systems interact rather than functioning in complete isolation. Modern neuroscience increasingly emphasizes systems biology, receptor diversity, pathway overlap, environmental context, and individual variability.
         </p>
@@ -139,6 +123,7 @@ export default function NeurotransmittersPage() {
           },
         ]}
       />
-    </main>
+      </EducationPageLayout>
+    </>
   )
 }

@@ -70,7 +70,7 @@ export default function WhyOverstimulationImpairsFocusPage() {
       <section className="space-y-6 max-w-4xl">
         <div className="space-y-3">
           <p className="eyebrow-label">Sustainable Cognition Systems</p>
-          <h1 className="text-5xl font-bold tracking-tight text-ink">Why Overstimulation Impairs Focus</h1>
+          <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">Why Overstimulation Impairs Focus</h1>
         </div>
         <p className="text-xl leading-9 text-[#46574d]">
           Sustainable cognition continuity may involve substantially more than increasing stimulation intensity. Hyperarousal, emotional reactivity, stress physiology, sleep disruption, and nervous-system overload may impair attentional stability and recovery-oriented cognition systems.

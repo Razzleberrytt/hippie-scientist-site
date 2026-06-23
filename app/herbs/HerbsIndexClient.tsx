@@ -397,7 +397,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
               type="search"
               defaultValue={query}
               placeholder="Search herb, effect, mechanism, or safety note"
-              className="min-h-10 w-full rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 text-sm text-ink shadow-sm placeholder:text-[#7b8a81]"
+              className="min-h-10 w-full rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 text-sm text-ink shadow-sm placeholder:text-muted/60 dark:placeholder:text-[var(--text-muted)]/50"
             />
             {activeFilter !== 'all' ? <input type="hidden" name="context" value={activeFilter} /> : null}
             {activeEvidence !== 'all' ? <input type="hidden" name="evidence" value={activeEvidence} /> : null}
