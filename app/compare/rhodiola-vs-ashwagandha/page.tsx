@@ -1,0 +1,111 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { buildPageMetadata } from '../../../src/lib/seo'
+import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
+import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import AffiliateDisclosure from '../../../components/AffiliateDisclosure'
+import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
+import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
+
+export const metadata: Metadata = buildPageMetadata({
+  title: 'Rhodiola vs Ashwagandha for Stress & Fatigue',
+  description: 'Evidence-informed comparison of rhodiola and ashwagandha for stress resilience, fatigue, sleep-adjacent tradeoffs, and product selection.',
+  path: '/compare/rhodiola-vs-ashwagandha/',
+  openGraphType: 'article',
+})
+
+export default function RhodiolaVsAshwagandhaComparePage() {
+  const revenueProducts = ['rhodiola', 'ashwagandha']
+    .map((slug) => getRevenueProductSet(slug))
+    .filter((set): set is NonNullable<typeof set> => Boolean(set))
+    .flatMap((set) => set.products)
+
+  return (
+    <div className="container-page py-10 space-y-10">
+      <AuthorityJsonLd
+        title="Rhodiola vs Ashwagandha for Stress & Fatigue"
+        description="Evidence-informed comparison of rhodiola and ashwagandha for stress resilience, fatigue, sleep-adjacent tradeoffs, and product selection."
+        url="https://thehippiescientist.net/compare/rhodiola-vs-ashwagandha"
+        type="Article"
+      />
+
+      <AuthorityBreadcrumbs
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Compare', href: '/compare' },
+          { label: 'Rhodiola vs Ashwagandha' },
+        ]}
+      />
+
+      <section className="space-y-5 max-w-4xl">
+        <p className="eyebrow-label">Educational Comparison</p>
+        <h1 className="text-5xl font-bold tracking-tight text-ink">
+          Rhodiola vs Ashwagandha: Which Fits Your Stress Pattern?
+        </h1>
+        <p className="text-lg leading-8 text-[#46574d]">
+          Rhodiola is usually the better fit for fatigue-heavy, overextended days.
+          Ashwagandha is usually the better fit for longer-running stress load and evening unwind support.
+        </p>
+      </section>
+
+      <AffiliateDisclosure />
+
+      <section className="grid gap-6 lg:grid-cols-2">
+        <article className="card-premium p-6 space-y-4">
+          <p className="eyebrow-label">Fatigue-forward</p>
+          <h2 className="text-3xl font-semibold tracking-tight text-ink">Rhodiola</h2>
+          <p className="text-sm leading-7 text-[#46574d]">
+            Better for mental fatigue, stress resilience, and daytime output when you do not want a sedating option.
+          </p>
+          <Link href="/herbs/rhodiola" className="chip-readable text-xs font-bold">Explore Rhodiola →</Link>
+        </article>
+
+        <article className="card-premium p-6 space-y-4">
+          <p className="eyebrow-label">Stress-load forward</p>
+          <h2 className="text-3xl font-semibold tracking-tight text-ink">Ashwagandha</h2>
+          <p className="text-sm leading-7 text-[#46574d]">
+            Better for steady stress support, evening settling, and routines where calm matters more than activation.
+          </p>
+          <Link href="/herbs/ashwagandha" className="chip-readable text-xs font-bold">Explore Ashwagandha →</Link>
+        </article>
+      </section>
+
+      <section className="space-y-6">
+        <EnhancedEmailCapture
+          headline="Get the comparison notes"
+          description="Save the tradeoffs, dosing reminders, and safety checks before you buy."
+        />
+
+        {revenueProducts.length > 0 ? (
+          <RecommendationSection
+            title="If you choose either path"
+            products={revenueProducts}
+          />
+        ) : null}
+      </section>
+
+      <RelatedDiscoveryWidget
+        heading="Continue comparing"
+        subheading="Move from this pair into related stress and focus decisions."
+        items={[
+          {
+            href: '/compare/ashwagandha-vs-l-theanine-vs-magnesium',
+            label: 'Stress comparison',
+            title: 'Ashwagandha vs L-Theanine vs Magnesium',
+            description: 'A three-way stress comparison that splits calming, timing, and muscle-relaxation roles.',
+            type: 'comparison',
+          },
+          {
+            href: '/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus',
+            label: 'Focus comparison',
+            title: 'Caffeine vs L-Theanine vs Bacopa',
+            description: 'A focus comparison that separates acute stimulation from calm concentration and long-term memory support.',
+            type: 'comparison',
+          },
+        ]}
+      />
+    </div>
+  )
+}

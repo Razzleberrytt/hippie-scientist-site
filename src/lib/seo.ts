@@ -375,16 +375,16 @@ export function shouldIndexRoute(path: string, pageData?: Record<string, unknown
       return { index: true, follow: true, reason: 'curated-herb-allowlist', priority: 0.7 }
     }
 
-    // 2. Quality gate applies to all non-curated profiles
+    // 2. Explicit publish policy should override the generated quality gate.
+    if (hasExplicitPublishSignal(pageData)) {
+      return { index: true, follow: true, reason: 'indexability-policy-publish', priority: 0.6 }
+    }
+
+    // 3. Quality gate applies to all non-curated profiles
     if (!passesGeneratedProfileQualityGate(pageData)) {
       return { index: false, follow: true, reason: 'generated-herb-quality-gate-failed', priority: 0 }
     }
 
-    // 3. Otherwise, check explicit publish signal
-    if (hasExplicitPublishSignal(pageData)) {
-      return { index: true, follow: true, reason: 'indexability-policy-publish', priority: 0.6 }
-    }
-    
     return { index: true, follow: true, reason: 'generated-profile-quality-gate', priority: 0.6 }
   }
 
@@ -396,16 +396,16 @@ export function shouldIndexRoute(path: string, pageData?: Record<string, unknown
       return { index: true, follow: true, reason: 'curated-compound-allowlist', priority: 0.7 }
     }
 
-    // 2. Quality gate applies to all non-curated profiles
+    // 2. Explicit publish policy should override the generated quality gate.
+    if (hasExplicitPublishSignal(pageData)) {
+      return { index: true, follow: true, reason: 'indexability-policy-publish', priority: 0.6 }
+    }
+
+    // 3. Quality gate applies to all non-curated profiles
     if (!passesGeneratedProfileQualityGate(pageData)) {
       return { index: false, follow: true, reason: 'generated-compound-quality-gate-failed', priority: 0 }
     }
 
-    // 3. Otherwise, check explicit publish signal
-    if (hasExplicitPublishSignal(pageData)) {
-      return { index: true, follow: true, reason: 'indexability-policy-publish', priority: 0.6 }
-    }
-    
     return { index: true, follow: true, reason: 'generated-profile-quality-gate', priority: 0.6 }
   }
 
@@ -1039,4 +1039,3 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
         },
   })
 }
-

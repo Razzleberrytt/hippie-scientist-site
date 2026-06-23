@@ -113,6 +113,7 @@
 /compounds/citicoline/ /compounds/cdp-choline/ 301
 /compounds/bacopa /herbs/bacopa/ 301
 /compounds/bacopa/ /herbs/bacopa/ 301
+/herbs/bacopa /herbs/bacopa/ 301
 /compounds/magnesium-l-threonate /compounds/magnesium-threonate/ 301
 /compounds/magnesium-l-threonate/ /compounds/magnesium-threonate/ 301
 /compounds/ashwagandha /herbs/ashwagandha/ 301
@@ -202,6 +203,7 @@
 /herbs/american-ginseng/ /herbs/panax-quinquefolius/ 301
 /herbs/asian-ginseng /herbs/panax-ginseng/ 301
 /herbs/asian-ginseng/ /herbs/panax-ginseng/ 301
+/herbs/panax-ginseng /herbs/panax-ginseng/ 301
 /herbs/banaba /herbs/lagerstroemia-speciosa/ 301
 /herbs/banaba/ /herbs/lagerstroemia-speciosa/ 301
 /herbs/bitter-melon /herbs/momordica-charantia/ 301
