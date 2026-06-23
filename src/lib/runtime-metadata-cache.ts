@@ -1,8 +1,9 @@
 import { cache } from './react-cache'
 import { getCompoundSummaryIndex, getHerbSummaryIndex } from './runtime-summary-indexes'
+import type { RuntimeRecord } from '../types/content'
 
-function buildSlugMap(records: any[]) {
-  const bySlug = new Map<string, any>()
+function buildSlugMap(records: RuntimeRecord[]) {
+  const bySlug = new Map<string, RuntimeRecord>()
 
   for (const record of records) {
     const slug = typeof record?.slug === 'string'
@@ -27,12 +28,12 @@ export const getCompoundMetadataMap = cache(async () => {
   return buildSlugMap(records)
 })
 
-export async function getHerbMetadataRecord(slug: string) {
+export async function getHerbMetadataRecord(slug: string): Promise<RuntimeRecord | null> {
   const map = await getHerbMetadataMap()
   return map.get(slug) || null
 }
 
-export async function getCompoundMetadataRecord(slug: string) {
+export async function getCompoundMetadataRecord(slug: string): Promise<RuntimeRecord | null> {
   const map = await getCompoundMetadataMap()
   return map.get(slug) || null
 }

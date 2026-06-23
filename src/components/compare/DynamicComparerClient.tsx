@@ -168,10 +168,10 @@ export default function DynamicComparerClient({ herbs, compounds }: DynamicCompa
               }}
               onFocus={() => setOpenA(true)}
               placeholder='Type to search A...'
-              className='w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-emerald-500 focus:outline-none'
+              className='w-full rounded-2xl border border-brand-900/10 bg-white px-4 py-3 text-sm outline-none transition focus:border-brand-700/30 focus:ring-2 focus:ring-brand-700/15 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)]'
             />
             {openA && filteredA.length > 0 && (
-              <div className='absolute left-0 right-0 top-full z-[110] mt-2 rounded-2xl border border-slate-200 bg-white py-1.5 shadow-xl'>
+              <div className='absolute left-0 right-0 top-full z-[110] mt-2 rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-card-strong)] py-1.5 shadow-xl'>
                 {filteredA.map(item => (
                   <button
                     key={item.slug}
@@ -181,10 +181,10 @@ export default function DynamicComparerClient({ herbs, compounds }: DynamicCompa
                       setOpenA(false)
                     }}
                     type='button'
-                    className='flex w-full items-center justify-between px-4 py-2.5 text-left text-sm text-slate-700 hover:bg-slate-50'
+                    className='flex w-full items-center justify-between px-4 py-2.5 text-left text-sm text-ink hover:bg-[var(--surface-subtle)] dark:text-[var(--text-secondary)]'
                   >
                     <span>{item.name}</span>
-                    <span className='rounded bg-slate-100 px-2 py-0.5 text-[9px] uppercase font-bold text-slate-500'>
+                    <span className='rounded bg-brand-50 px-2 py-0.5 text-[9px] uppercase font-bold text-muted dark:bg-[var(--surface-subtle)] dark:text-[var(--text-muted)]'>
                       {item.type}
                     </span>
                   </button>
@@ -209,10 +209,10 @@ export default function DynamicComparerClient({ herbs, compounds }: DynamicCompa
               }}
               onFocus={() => setOpenB(true)}
               placeholder='Type to search B...'
-              className='w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-emerald-500 focus:outline-none'
+              className='w-full rounded-2xl border border-brand-900/10 bg-white px-4 py-3 text-sm outline-none transition focus:border-brand-700/30 focus:ring-2 focus:ring-brand-700/15 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)]'
             />
             {openB && filteredB.length > 0 && (
-              <div className='absolute left-0 right-0 top-full z-[110] mt-2 rounded-2xl border border-slate-200 bg-white py-1.5 shadow-xl'>
+              <div className='absolute left-0 right-0 top-full z-[110] mt-2 rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-card-strong)] py-1.5 shadow-xl'>
                 {filteredB.map(item => (
                   <button
                     key={item.slug}
@@ -222,10 +222,10 @@ export default function DynamicComparerClient({ herbs, compounds }: DynamicCompa
                       setOpenB(false)
                     }}
                     type='button'
-                    className='flex w-full items-center justify-between px-4 py-2.5 text-left text-sm text-slate-700 hover:bg-slate-50'
+                    className='flex w-full items-center justify-between px-4 py-2.5 text-left text-sm text-ink hover:bg-[var(--surface-subtle)] dark:text-[var(--text-secondary)]'
                   >
                     <span>{item.name}</span>
-                    <span className='rounded bg-slate-100 px-2 py-0.5 text-[9px] uppercase font-bold text-slate-500'>
+                    <span className='rounded bg-brand-50 px-2 py-0.5 text-[9px] uppercase font-bold text-muted dark:bg-[var(--surface-subtle)] dark:text-[var(--text-muted)]'>
                       {item.type}
                     </span>
                   </button>
@@ -238,7 +238,7 @@ export default function DynamicComparerClient({ herbs, compounds }: DynamicCompa
 
       {/* Side-by-Side Comparison Matrix */}
       {(!itemA || !itemB) ? (
-        <div className='rounded-[2rem] border border-dashed border-slate-200 bg-white/50 py-16 text-center text-slate-400 text-sm'>
+        <div className='rounded-[2rem] border border-dashed border-brand-900/10 bg-white/50 py-16 text-center text-muted text-sm dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)]'>
           Select two active ingredients from the inputs above to generate a side-by-side comparison.
         </div>
       ) : (

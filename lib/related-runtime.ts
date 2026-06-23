@@ -4,13 +4,12 @@ import {
   getRuntimeMapEntries,
   getRuntimeMapEntriesForSlugs,
 } from '../src/lib/runtime-related-maps'
+import type { RuntimeRecord } from '../src/types/content'
 
 const MAX_RELATED_PROFILES = 12
 const MAX_COMPARISON_CANDIDATES = 8
 const MAX_STACK_CANDIDATES = 8
 const MAX_BATCHED_SLUGS = 100
-
-type RuntimeRecord = Record<string, unknown>
 
 type RuntimeRelationshipKind = 'related' | 'comparison' | 'stack'
 

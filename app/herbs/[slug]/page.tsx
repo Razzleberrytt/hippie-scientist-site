@@ -180,7 +180,7 @@ function getEvidenceStrength(herb: Herb): string {
       (herb.evidence_tier as string) ||
       (herb.evidenceTier as string) ||
       (herb.evidence_grade as string) ||
-      getEvidenceLabel(herb as unknown as RuntimeRecord)
+      getEvidenceLabel(herb as RuntimeRecord)
   )
 }
 
@@ -310,7 +310,8 @@ export default async function HerbDetailPage({ params }: PageProps) {
     notFound()
   }
 
-  const herb = herbRaw as unknown as Herb
+  const herbRecord = herbRaw
+  const herb = herbRecord as Herb
   const freshness = getProfileFreshness(sourceSlug)
 
   if (slug !== normalizedSlug) {
@@ -337,15 +338,15 @@ export default async function HerbDetailPage({ params }: PageProps) {
     conditionLinks,
     internalLinkGroups,
   ] = await Promise.all([
-    getBatchedRuntimeRecords('related', [herb], allRecords, 8),
-    getBatchedRuntimeRecords('comparison', [herb], allRecords, 8),
-    getBatchedRuntimeRecords('stack', [herb], allRecords, 6),
-    getEcosystemContinuityRecords(herb, allRecords, 6),
+    getBatchedRuntimeRecords('related', [herbRecord], allRecords, 8),
+    getBatchedRuntimeRecords('comparison', [herbRecord], allRecords, 8),
+    getBatchedRuntimeRecords('stack', [herbRecord], allRecords, 6),
+    getEcosystemContinuityRecords(herbRecord, allRecords, 6),
     getEntityConditionEntries(sourceRecordSlug),
     getRouteInternalLinkGroups(`/herbs/${normalizedSlug}`),
   ])
 
-  const relatedCandidates = ((relatedBySlug[sourceRecordSlug] || []) as unknown as RuntimeRecord[])
+  const relatedCandidates = (relatedBySlug[sourceRecordSlug] || [])
     .filter((item: RuntimeRecord) => getRuntimeVisibility(item).canRender)
 
   const relatedHerbs = relatedCandidates
@@ -358,11 +359,11 @@ export default async function HerbDetailPage({ params }: PageProps) {
     .slice(0, 4)
     .map((item: RuntimeRecord) => ({ ...item, entityType: 'compound' as const }))
 
-  const _visibleEcosystemContinuityRecords = (ecosystemContinuityRecords as unknown as RuntimeRecord[])
+  const _visibleEcosystemContinuityRecords = ecosystemContinuityRecords
     .filter((item: RuntimeRecord) => getRuntimeVisibility(item).canRender)
 
 
-  const comparisonRecords = ((comparisonBySlug[sourceRecordSlug] || []) as unknown as RuntimeRecord[])
+  const comparisonRecords = (comparisonBySlug[sourceRecordSlug] || [])
     .filter((item: RuntimeRecord) => getRuntimeVisibility(item).canRender)
     .slice(0, 8)
 
@@ -384,7 +385,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const revenueProducts = getRevenueProductSet(normalizedSlug)
   const stackRecommendations = getStackRecommendations(normalizedSlug, 3)
   const citations = extractCitationsFromRecord(herb)
-  const pathwayDiagram = generatePathwayDiagram({ ...(herb as unknown as Record<string, unknown>), name: displayName })
+  const pathwayDiagram = generatePathwayDiagram({ ...herb, name: displayName })
   const expansion = herbProfileExpansions[normalizedSlug]
 
   const goalLinks = getGoalsForEntity(normalizedSlug)
@@ -496,7 +497,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
           <p className="text-base leading-7 text-[#46574d]">{briefSummary}</p>
           <div className="mt-3 flex flex-wrap items-center gap-3">
             <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
-            <EvidenceScoreBadge record={herb as unknown as RuntimeRecord} />
+            <EvidenceScoreBadge record={herbRecord} />
           </div>
         </header>
       </div>
@@ -654,10 +655,10 @@ export default async function HerbDetailPage({ params }: PageProps) {
       <section id="evidence-summary" className="card-premium scroll-mt-24 p-4 sm:p-5 space-y-4">
         <div className="flex items-center gap-2 flex-wrap">
           <h2 className="text-lg font-bold text-ink">Evidence Summary</h2>
-          <EvidenceScoreBadge record={herb as unknown as RuntimeRecord} size="sm" />
+          <EvidenceScoreBadge record={herbRecord} size="sm" />
         </div>
         <ProfileEvidenceLens
-          record={herb as unknown as RuntimeRecord}
+          record={herbRecord}
           evidenceLevel={evidenceStrength}
           safetySummary={safetySummary}
           citationsCount={freshness.citationCount}

@@ -366,19 +366,19 @@ export default function RegimenPlannerClient({ herbs, compounds }: RegimenPlanne
               }}
               onFocus={() => setIsOpen(true)}
               placeholder={`Search to add to ${activeSlot.charAt(0).toUpperCase() + activeSlot.slice(1)} schedule...`}
-              className='w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-emerald-500 focus:outline-none'
+              className='w-full rounded-2xl border border-brand-900/10 bg-white px-4 py-3 text-sm outline-none transition focus:border-brand-700/30 focus:ring-2 focus:ring-brand-700/15 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)]'
             />
             {isOpen && filteredSearchItems.length > 0 && (
-              <div className='absolute left-0 right-0 top-full z-[110] mt-2 rounded-2xl border border-slate-200 bg-white py-1.5 shadow-xl'>
+              <div className='absolute left-0 right-0 top-full z-[110] mt-2 rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-card-strong)] py-1.5 shadow-xl'>
                 {filteredSearchItems.map(item => (
                   <button
                     key={item.slug}
                     onClick={() => handleAddItem(item)}
                     type='button'
-                    className='flex w-full items-center justify-between px-4 py-2.5 text-left text-sm text-slate-700 hover:bg-slate-50'
+                    className='flex w-full items-center justify-between px-4 py-2.5 text-left text-sm text-ink hover:bg-[var(--surface-subtle)] dark:text-[var(--text-secondary)]'
                   >
                     <span>{item.name}</span>
-                    <span className='rounded bg-slate-100 px-2 py-0.5 text-[9px] uppercase font-bold text-slate-500'>
+                    <span className='rounded bg-brand-50 px-2 py-0.5 text-[9px] uppercase font-bold text-muted dark:bg-[var(--surface-subtle)] dark:text-[var(--text-muted)]'>
                       {item.type}
                     </span>
                   </button>
@@ -516,13 +516,13 @@ export default function RegimenPlannerClient({ herbs, compounds }: RegimenPlanne
             <button
               onClick={exportJson}
               type='button'
-              className='w-full rounded-2xl border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold text-xs py-3 px-4 transition-all text-center'
+              className='w-full rounded-2xl border border-brand-900/10 px-4 py-3 text-center text-xs font-bold text-ink transition-all hover:bg-[var(--surface-subtle)] dark:border-[var(--border-soft)] dark:text-[var(--text-secondary)]'
             >
               📥 Backup Regimen (JSON)
             </button>
 
             {/* Import JSON */}
-            <label className='w-full rounded-2xl border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold text-xs py-3 px-4 transition-all text-center cursor-pointer block'>
+            <label className='block w-full cursor-pointer rounded-2xl border border-brand-900/10 px-4 py-3 text-center text-xs font-bold text-ink transition-all hover:bg-[var(--surface-subtle)] dark:border-[var(--border-soft)] dark:text-[var(--text-secondary)]'>
               📤 Restore Backup (JSON)
               <input
                 type='file'
@@ -536,7 +536,7 @@ export default function RegimenPlannerClient({ herbs, compounds }: RegimenPlanne
             <button
               onClick={() => window.print()}
               type='button'
-              className='w-full rounded-2xl border border-slate-200 hover:bg-slate-50 text-slate-700 font-bold text-xs py-3 px-4 transition-all text-center'
+              className='w-full rounded-2xl border border-brand-900/10 px-4 py-3 text-center text-xs font-bold text-ink transition-all hover:bg-[var(--surface-subtle)] dark:border-[var(--border-soft)] dark:text-[var(--text-secondary)]'
             >
               🖨️ Print Daily Schedule
             </button>

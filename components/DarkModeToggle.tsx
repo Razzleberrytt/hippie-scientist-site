@@ -21,7 +21,7 @@ export default function DarkModeToggle({ showLabel = false, className = '' }: Pr
       aria-pressed={isDark}
       aria-label={label}
       title={`${label}${themePreference === 'system' ? ' (currently following system)' : ''}`}
-      className={`inline-flex min-h-9 min-w-9 items-center justify-center gap-1.5 rounded-full border border-brand-900/10 bg-white/80 px-2.5 text-sm font-semibold text-muted shadow-sm transition hover:border-brand-700/20 hover:bg-brand-50 hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-1 dark:focus-visible:ring-offset-slate-950 ${className}`}
+      className={`inline-flex min-h-9 min-w-9 items-center justify-center gap-1.5 rounded-full border border-brand-900/10 bg-white/80 px-2.5 text-sm font-semibold text-muted shadow-sm transition hover:border-brand-700/20 hover:bg-brand-50 hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:ring-offset-1 dark:focus-visible:ring-offset-[var(--bg)] ${className}`}
     >
       {isDark ? (
         <Sun

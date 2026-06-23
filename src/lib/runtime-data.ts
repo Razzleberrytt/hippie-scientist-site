@@ -9,11 +9,10 @@ import type {
   EvidenceEngineSafetyNote,
   EvidenceEngineSource,
 } from './evidence-engine'
+import type { RuntimeRecord } from '../types/content'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 
 const dataDir = path.join(process.cwd(), 'public', 'data')
-
-type RuntimeRecord = Record<string, any>
 
 const fileCache = new Map<string, unknown>()
 
@@ -106,12 +105,12 @@ function mergeBySlug(baseRows: RuntimeRecord[], enrichmentRows: RuntimeRecord[])
   return merged
 }
 
-async function readDetailRecord(kind: 'herbs' | 'compounds', slug: string): Promise<RuntimeRecord | undefined> {
-  if (!isSafeSlug(slug)) return undefined
+async function readDetailRecord(kind: 'herbs' | 'compounds', slug: string): Promise<RuntimeRecord | null> {
+  if (!isSafeSlug(slug)) return null
 
   const detail = await readJsonFile(`${kind}-detail/${slug}.json`)
 
-  return detail && !Array.isArray(detail) && typeof detail === 'object' ? detail as RuntimeRecord : undefined
+  return detail && !Array.isArray(detail) && typeof detail === 'object' ? detail as RuntimeRecord : null
 }
 
 export const getHerbs = cache(async (): Promise<RuntimeRecord[]> => {
@@ -143,7 +142,11 @@ export const getCompounds = cache(async (): Promise<RuntimeRecord[]> => {
   const firstPass = mergeBySlug(baseRows, enrichmentRows)
 
   return mergeBySlug(firstPass, indexedRows).map(row => ({
-    name: row?.name || row?.compoundName || row?.canonicalCompoundName || row?.slug,
+    name:
+      cleanString(row?.name) ||
+      cleanString(row?.compoundName) ||
+      cleanString(row?.canonicalCompoundName) ||
+      cleanString(row?.slug),
     ...row,
   }))
 })
@@ -212,24 +215,24 @@ export const getRouteBuildManifest = cache(async (): Promise<RuntimeRecord[]> =>
   return Array.isArray(rows) ? rows : []
 })
 
-export async function getHerbBySlug(slug: string): Promise<RuntimeRecord | undefined> {
+export async function getHerbBySlug(slug: string): Promise<RuntimeRecord | null> {
   const herbs = await getHerbs()
   const herb = herbs.find((herb: any) => herb.slug === slug)
   const detail = await readDetailRecord('herbs', slug)
   const mergedHerb = detail ? { ...herb, ...detail } : herb
 
-  if (!mergedHerb || !getRuntimeVisibility(mergedHerb).canRender) return undefined
+  if (!mergedHerb || !getRuntimeVisibility(mergedHerb).canRender) return null
 
   return mergedHerb
 }
 
-export async function getCompoundBySlug(slug: string): Promise<RuntimeRecord | undefined> {
+export async function getCompoundBySlug(slug: string): Promise<RuntimeRecord | null> {
   const compounds = await getCompounds()
   const compound = compounds.find((compound: any) => compound.slug === slug)
   const detail = await readDetailRecord('compounds', slug)
   const mergedCompound = detail ? { ...compound, ...detail } : compound
 
-  if (!mergedCompound || !getRuntimeVisibility(mergedCompound).canRender) return undefined
+  if (!mergedCompound || !getRuntimeVisibility(mergedCompound).canRender) return null
 
   return mergedCompound
 }

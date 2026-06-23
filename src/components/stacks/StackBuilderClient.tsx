@@ -197,21 +197,23 @@ export default function StackBuilderClient({ herbs, compounds }: StackBuilderCli
               onKeyDown={handleKeyDown}
               onFocus={() => setIsOpen(true)}
               placeholder='Type an herb or compound name... (e.g. Ashwagandha, L-Theanine)'
-              className='w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm focus:border-emerald-500 focus:outline-none'
+              className='w-full rounded-2xl border border-brand-900/10 bg-white px-4 py-3 text-sm outline-none transition focus:border-brand-700/30 focus:ring-2 focus:ring-brand-700/15 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)]'
             />
             {isOpen && filteredItems.length > 0 && (
-              <div className='absolute left-0 right-0 top-full z-[110] mt-2 rounded-2xl border border-slate-200 bg-white py-2 shadow-xl'>
+              <div className='absolute left-0 right-0 top-full z-[110] mt-2 rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-card-strong)] py-2 shadow-xl'>
                 {filteredItems.map((item, idx) => (
                   <button
                     key={item.slug}
                     onClick={() => handleAddItem(item)}
                     type='button'
                     className={`flex w-full items-center justify-between px-4 py-3.5 text-left text-sm transition ${
-                      idx === focusedIndex ? 'bg-emerald-50 text-emerald-800' : 'hover:bg-slate-50 text-slate-700'
+                      idx === focusedIndex
+                        ? 'bg-brand-50/80 text-brand-900 dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]'
+                        : 'text-ink hover:bg-[var(--surface-subtle)] dark:text-[var(--text-secondary)]'
                     }`}
                   >
                     <span>{item.name}</span>
-                    <span className='rounded-full bg-slate-100 px-2.5 py-0.5 text-[10px] uppercase font-bold text-slate-500'>
+                    <span className='rounded-full bg-brand-50 px-2.5 py-0.5 text-[10px] uppercase font-bold text-muted dark:bg-[var(--surface-subtle)] dark:text-[var(--text-muted)]'>
                       {item.type}
                     </span>
                   </button>
@@ -245,7 +247,7 @@ export default function StackBuilderClient({ herbs, compounds }: StackBuilderCli
               {selectedItems.map(item => (
                 <div
                   key={item.slug}
-                  className='flex flex-col justify-between rounded-2xl border border-slate-100 bg-slate-50/50 p-4 transition-all hover:shadow-sm'
+                  className='flex flex-col justify-between rounded-2xl border border-brand-900/8 bg-white/80 p-4 transition-all hover:shadow-sm dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)]'
                 >
                   <div>
                     <div className='flex items-start justify-between gap-2'>
@@ -264,12 +266,12 @@ export default function StackBuilderClient({ herbs, compounds }: StackBuilderCli
                         ✕
                       </button>
                     </div>
-                    <span className='inline-flex mt-1 rounded bg-slate-100 px-1.5 py-0.5 text-[9px] font-extrabold uppercase text-slate-500'>
+                    <span className='inline-flex mt-1 rounded bg-brand-50 px-1.5 py-0.5 text-[9px] font-extrabold uppercase text-muted dark:bg-[var(--surface-subtle)] dark:text-[var(--text-muted)]'>
                       {item.type}
                     </span>
                   </div>
                   {item.evidence && (
-                    <div className='mt-3 flex items-center justify-between border-t border-slate-100 pt-2 text-[10px] text-slate-500'>
+                    <div className='mt-3 flex items-center justify-between border-t border-brand-900/8 pt-2 text-[10px] text-muted dark:border-[var(--border-soft)]'>
                       <span>Evidence: {item.evidence}</span>
                     </div>
                   )}
@@ -336,11 +338,11 @@ export default function StackBuilderClient({ herbs, compounds }: StackBuilderCli
               <div className='border-t border-slate-100 pt-3'>
                 <h3 className='text-xs font-bold uppercase tracking-wider text-slate-400'>Stack Summary</h3>
                 <div className='mt-2 grid grid-cols-2 gap-2 text-center'>
-                  <div className='rounded-xl bg-slate-50 p-2.5'>
+                  <div className='rounded-xl bg-[var(--surface-subtle)] p-2.5'>
                     <p className='text-lg font-bold text-slate-800'>{selectedItems.length}</p>
                     <p className='text-[9px] uppercase font-bold text-slate-400'>Ingredients</p>
                   </div>
-                  <div className='rounded-xl bg-slate-50 p-2.5'>
+                  <div className='rounded-xl bg-[var(--surface-subtle)] p-2.5'>
                     <p className='text-lg font-bold text-slate-800'>
                       {safetyCautionCount > 0 ? 'Caution' : 'Tolerated'}
                     </p>

@@ -453,10 +453,10 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                 aria-controls={listboxId}
                 aria-activedescendant={activeOptionId}
                 aria-describedby={searchHelpId}
-                className='min-h-11 w-full rounded-2xl border border-slate-200 px-4 py-2.5 text-base sm:text-sm focus:border-emerald-500 focus:outline-none disabled:bg-slate-50 disabled:text-slate-400'
+                className='min-h-11 w-full rounded-2xl border border-brand-900/10 bg-white px-4 py-2.5 text-base outline-none transition focus:border-brand-700/30 focus:ring-2 focus:ring-brand-700/15 disabled:bg-[var(--surface-subtle)] disabled:text-muted sm:text-sm dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)]'
               />
             {isOpen && filteredItems.length > 0 && (
-              <div id={listboxId} role="listbox" aria-label="Ingredient search results" className='absolute left-0 right-0 top-full z-[110] mt-2 rounded-2xl border border-slate-200 bg-white py-1.5 shadow-xl'>
+              <div id={listboxId} role="listbox" aria-label="Ingredient search results" className='absolute left-0 right-0 top-full z-[110] mt-2 rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-card-strong)] py-1.5 shadow-xl'>
                 {filteredItems.map((item, idx) => (
                   <button
                     key={item.slug}
@@ -466,11 +466,13 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                     role='option'
                     aria-selected={idx === focusedIndex}
                     className={`flex min-h-11 w-full items-center justify-between px-4 py-2.5 text-left text-sm transition ${
-                      idx === focusedIndex ? 'bg-emerald-50 text-emerald-800' : 'hover:bg-slate-50 text-slate-700'
+                      idx === focusedIndex
+                        ? 'bg-brand-50/80 text-brand-900 dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]'
+                        : 'text-ink hover:bg-[var(--surface-subtle)] dark:text-[var(--text-secondary)]'
                     }`}
                   >
                     <span>{item.name}</span>
-                    <span className='rounded bg-slate-100 px-2 py-0.5 text-[9px] uppercase font-bold text-slate-500'>
+                    <span className='rounded bg-brand-50 px-2 py-0.5 text-[9px] uppercase font-bold text-muted dark:bg-[var(--surface-subtle)] dark:text-[var(--text-muted)]'>
                       {item.type}
                     </span>
                   </button>
@@ -510,7 +512,7 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                   className={`min-h-11 w-full text-left p-3 rounded-xl border text-xs transition flex flex-col gap-1 ${
                     isSelected
                       ? 'border-emerald-600 bg-emerald-50/70 text-emerald-950 font-medium font-bold'
-                      : 'border-slate-100 bg-slate-50/50 text-slate-700 hover:bg-slate-100/60'
+                      : 'border-brand-900/8 bg-white/80 text-ink hover:bg-[var(--surface-subtle)] dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-secondary)]'
                   }`}
                 >
                   <div className='flex items-center justify-between w-full'>
@@ -549,7 +551,7 @@ export default function SafetyCheckerClient({ herbs, compounds }: SafetyCheckerC
                 <div
                   key={item.slug}
                   role="listitem"
-                  className='flex items-center justify-between rounded-xl bg-slate-50 p-3 border border-slate-100'
+                  className='flex items-center justify-between rounded-xl border border-brand-900/8 bg-[var(--surface-subtle)] p-3 dark:border-[var(--border-soft)]'
                 >
                   <div className='min-w-0'>
                     <Link
