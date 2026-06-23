@@ -1,10 +1,9 @@
 import { list, text, unique } from '@/lib/display-utils'
 import { safeArray, safeLower, safeScore, safeSlug } from '@/lib/search-safe'
 import { getRuntimeMapEntries } from '../src/lib/runtime-related-maps'
+import type { RuntimeRecord } from '../src/types/content'
 
 const MAX_ECOSYSTEM_CONTINUITY_RECORDS = 6
-
-type RuntimeRecord = Record<string, unknown>
 
 type RuntimeRelationshipEntry = {
   slug: string
@@ -20,7 +19,7 @@ function capLimit(limit: number | undefined) {
   return Math.min(MAX_ECOSYSTEM_CONTINUITY_RECORDS, Math.max(0, safeScore(limit, MAX_ECOSYSTEM_CONTINUITY_RECORDS)))
 }
 
-function sortByScoreThenName(a: RuntimeRecord, b: RuntimeRecord) {
+function sortByScoreThenName(a: Record<string, unknown>, b: Record<string, unknown>) {
   const scoreDelta = safeScore(b?.relatedScore) - safeScore(a?.relatedScore)
   if (scoreDelta !== 0) return scoreDelta
 

@@ -638,8 +638,8 @@ export default async function CompoundPage({ params }: PageProps) {
     .map((item: string) => formatDisplayLabel(item))
     .filter(isClean)
 
-  const evidenceLevel = normalizeEvidenceLevel(compound.evidence_tier || compound.evidenceLevel || compound.evidence_grade)
-  const safetyLevel = normalizeSafetyLevel(compound.safety || compound.safetyNotes)
+  const evidenceLevel = normalizeEvidenceLevel(text(compound.evidence_tier || compound.evidenceLevel || compound.evidence_grade) || undefined)
+  const safetyLevel = normalizeSafetyLevel(text(compound.safety || compound.safetyNotes) || undefined)
 
   const snapshot = getEvidenceSnapshot(compound)
 
@@ -678,7 +678,7 @@ export default async function CompoundPage({ params }: PageProps) {
     .map((item: Record<string, unknown>) => ({ ...item, entityType: 'herb' }))
 
   const visibleEcosystemContinuityRecords = ecosystemContinuityRecords
-    .filter((item): item is Record<string, unknown> => Boolean(item && getRuntimeVisibility(item).canRender))
+    .filter((item) => getRuntimeVisibility(item).canRender)
 
   const semanticRelated = mergeEcosystemContinuityRecords(
     [...relatedCompounds, ...relatedHerbs],
@@ -707,6 +707,11 @@ export default async function CompoundPage({ params }: PageProps) {
   const canonicalNote = CANONICAL_COMPOUND_NOTES[normalizedSlug]
   const citations = extractCitationsFromRecord(compound)
   const clusterSeeAlso = getClusterSeeAlso(normalizedSlug, 'compound', 8)
+  const evidenceDesignMatch = text(compound.evidence_design_match)
+  const evidenceRiskOfBias = text(compound.evidence_risk_of_bias)
+  const evidenceConsistency = text(compound.evidence_consistency)
+  const evidenceRationale = text(compound.evidence_rationale || compound.evidence_summary || compound.summary)
+  const trialDesignInsight = text(compound.trial_design_insight)
 
   const schemaGraph = buildProfileSchemaGraphWithCluster({
     kind: 'compound',
@@ -717,7 +722,7 @@ export default async function CompoundPage({ params }: PageProps) {
       description: summary,
       category: compound.compoundClass || compound.class || undefined,
       evidenceGrade: evidenceLevel || undefined,
-      safetyNotes: compound.safetyNotes || compound.safety_notes || compound.safety || undefined,
+      safetyNotes: text(compound.safetyNotes || compound.safety_notes || compound.safety) || undefined,
       // Phase-1-ready molecular identifiers (undefined until the workbook populates them).
       pubchemCid: (compound.pubchem_cid as string | number | undefined) || undefined,
       casNumber: (compound.cas_number as string | undefined) || undefined,
@@ -973,23 +978,23 @@ export default async function CompoundPage({ params }: PageProps) {
             <EvidenceSnapshotCard snapshot={snapshot} />
           </div>
 
-          {compound.evidence_design_match && compound.evidence_risk_of_bias && compound.evidence_consistency && (
+          {evidenceDesignMatch && evidenceRiskOfBias && evidenceConsistency && (
             <EvidenceGradeRationale
-              grade={compound.evidence_grade || 'C'}
-              designMatch={compound.evidence_design_match as string}
-              riskOfBias={compound.evidence_risk_of_bias as string}
-              consistency={compound.evidence_consistency as string}
+              grade={text(compound.evidence_grade) || 'C'}
+              designMatch={evidenceDesignMatch}
+              riskOfBias={evidenceRiskOfBias}
+              consistency={evidenceConsistency}
             >
-              {(compound.evidence_rationale || compound.evidence_summary || compound.summary || '') as string}
+              {evidenceRationale}
             </EvidenceGradeRationale>
           )}
 
-          {compound.trial_design_insight && (
+          {trialDesignInsight && (
             <TrialDesignInsight
-              designType={(compound.trial_design_insight as string).includes('RCT') ? 'RCT' : 'Human Trial'}
+              designType={trialDesignInsight.includes('RCT') ? 'RCT' : 'Human Trial'}
               title={`${displayName} Study Design Insight`}
             >
-              {compound.trial_design_insight as string}
+              {trialDesignInsight}
             </TrialDesignInsight>
           )}
 
