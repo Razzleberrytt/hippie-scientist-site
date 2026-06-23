@@ -55,7 +55,7 @@ export default function EcosystemContinuityPanel({
           <Link
             key={item.href}
             href={item.href}
-            className="card-premium p-5 transition hover:-translate-y-0.5"
+            className="card-premium p-5 transition motion-safe:hover:-translate-y-0.5"
           >
             <div className="space-y-4">
               <div className="space-y-2">

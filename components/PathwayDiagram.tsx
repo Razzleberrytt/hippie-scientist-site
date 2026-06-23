@@ -18,15 +18,15 @@ function nodeCy(row: number) { return nodeY(row) + NODE_H / 2 }
 function roleColors(role: PathwayNodeRole) {
   switch (role) {
     case 'compound':
-      return { fill: '#f1f5f9', stroke: '#94a3b8', text: '#1e293b' }
+      return { fill: 'var(--surface-subtle)', stroke: 'var(--border-strong)', text: 'var(--text-primary)' }
     case 'target':
-      return { fill: '#eff6ff', stroke: '#93c5fd', text: '#1e40af' }
+      return { fill: 'rgba(37,99,235,0.08)', stroke: 'rgba(147,197,253,0.6)', text: 'var(--color-evidence-moderate)' }
     case 'mechanism':
-      return { fill: '#f0fdf4', stroke: '#86efac', text: '#166534' }
+      return { fill: 'rgba(47,95,58,0.08)', stroke: 'rgba(134,239,172,0.5)', text: 'var(--color-evidence-strong)' }
     case 'effect':
-      return { fill: '#fff7ed', stroke: '#fed7aa', text: '#9a3412' }
+      return { fill: 'rgba(180,83,9,0.07)', stroke: 'rgba(254,215,170,0.5)', text: 'var(--color-evidence-limited)' }
     default:
-      return { fill: '#f9fafb', stroke: '#e5e7eb', text: '#374151' }
+      return { fill: 'var(--surface)', stroke: 'var(--border-soft)', text: 'var(--text-secondary)' }
   }
 }
 
@@ -111,7 +111,7 @@ export default function PathwayDiagram({ data, className = '' }: Props) {
               markerHeight="10"
               orient="auto-start-reverse"
             >
-              <path d="M 0 1 L 10 5 L 0 9 z" fill="#94a3b8" />
+              <path d="M 0 1 L 10 5 L 0 9 z" fill="var(--border-strong)" />
             </marker>
           </defs>
 
@@ -127,7 +127,7 @@ export default function PathwayDiagram({ data, className = '' }: Props) {
               <g key={i}>
                 <line
                   x1={x1} y1={y1} x2={x2} y2={y2}
-                  stroke="#94a3b8"
+                  stroke="var(--border-strong)"
                   strokeWidth="2"
                   markerEnd={`url(#${markerId})`}
                 />
@@ -137,7 +137,7 @@ export default function PathwayDiagram({ data, className = '' }: Props) {
                     y={midY - 6}
                     textAnchor="middle"
                     fontSize="9"
-                    fill="#94a3b8"
+                    fill="var(--text-muted)"
                     fontFamily="system-ui, sans-serif"
                   >
                     {edge.label}

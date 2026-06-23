@@ -1,10 +1,9 @@
-import type { ReactNode } from 'react'
-import { motion, type HTMLMotionProps } from '../../lib/motion'
+import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger' | 'default'
 type ButtonSize = 'sm' | 'md' | 'lg'
 
-type ButtonProps = HTMLMotionProps<'button'> & {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode
   variant?: ButtonVariant
   size?: ButtonSize
@@ -28,8 +27,6 @@ const sizeClasses: Record<ButtonSize, string> = {
   lg: 'px-5 py-2.5 text-base',
 }
 
-const MotionButton = motion.button
-
 function Spinner() {
   return (
     <span
@@ -51,14 +48,13 @@ export function Button({
   const isDisabled = disabled || loading
 
   return (
-    <MotionButton
-      whileTap={{ scale: 0.99 }}
+    <button
       disabled={isDisabled}
-      className={`inline-flex items-center justify-center gap-2 rounded-md font-medium transition-colors ${variantClasses[variant]} ${sizeClasses[size]} ${loading ? 'cursor-not-allowed opacity-60' : ''} ${className}`.trim()}
+      className={`inline-flex items-center justify-center gap-2 rounded-md font-medium transition-colors active:scale-[0.99] ${variantClasses[variant]} ${sizeClasses[size]} ${loading ? 'cursor-not-allowed opacity-60' : ''} ${className}`.trim()}
       {...props}
     >
       {loading && <Spinner />}
       {children}
-    </MotionButton>
+    </button>
   )
 }

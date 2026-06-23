@@ -55,7 +55,7 @@ export function IntentAwareAffiliateSection() {
           <Link
             key={flow.slug}
             href={`/explore/${flow.slug}`}
-            className="group rounded-3xl border border-amber-100 bg-gradient-to-br from-amber-50/70 to-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-amber-300 hover:shadow-lg"
+            className="group rounded-3xl border border-amber-100 bg-gradient-to-br from-amber-50/70 to-white p-6 shadow-sm transition motion-safe:hover:-translate-y-1 hover:border-amber-300 hover:shadow-lg"
           >
             <div className="space-y-5">
               <div className="flex items-center justify-between gap-3">

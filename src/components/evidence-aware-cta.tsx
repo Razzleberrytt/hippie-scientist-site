@@ -97,7 +97,7 @@ export default function EvidenceAwareCTA({
               href={affiliate.affiliateUrl}
               target="_blank"
               rel="nofollow sponsored noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full border border-brand-900/15 bg-brand-950 px-4 py-2 text-sm font-bold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-brand-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
+              className="inline-flex items-center justify-center rounded-full border border-brand-900/15 bg-brand-950 px-4 py-2 text-sm font-bold text-white shadow-sm transition motion-safe:hover:-translate-y-0.5 hover:bg-brand-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700"
             >
               {affiliate.affiliateLabel}
             </a>

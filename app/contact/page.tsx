@@ -83,17 +83,17 @@ export default function ContactPage() {
           <p className='eyebrow-label'>Explore</p>
 
           <div className='mt-4 space-y-3'>
-            <Link href='/about' className='compact-card block transition hover:-translate-y-0.5'>
+            <Link href='/about' className='compact-card block transition motion-safe:hover:-translate-y-0.5'>
               <p className='text-sm font-semibold text-ink'>About</p>
               <p className='mt-1 text-sm leading-6 text-ink/65'>Learn how the project approaches evidence and semantic exploration.</p>
             </Link>
 
-            <Link href='/herbs' className='compact-card block transition hover:-translate-y-0.5'>
+            <Link href='/herbs' className='compact-card block transition motion-safe:hover:-translate-y-0.5'>
               <p className='text-sm font-semibold text-ink'>Herbs</p>
               <p className='mt-1 text-sm leading-6 text-ink/65'>Browse research-oriented herb profiles and summaries.</p>
             </Link>
 
-            <Link href='/compounds' className='compact-card block transition hover:-translate-y-0.5'>
+            <Link href='/compounds' className='compact-card block transition motion-safe:hover:-translate-y-0.5'>
               <p className='text-sm font-semibold text-ink'>Compounds</p>
               <p className='mt-1 text-sm leading-6 text-ink/65'>Review mechanisms, evidence layers, and comparison pathways.</p>
             </Link>

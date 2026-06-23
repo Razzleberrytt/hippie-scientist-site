@@ -105,17 +105,17 @@ export default function PrivacyPage() {
           <p className='eyebrow-label'>Related pages</p>
 
           <div className='mt-4 space-y-3'>
-            <Link href='/about' className='compact-card block transition hover:-translate-y-0.5'>
+            <Link href='/about' className='compact-card block transition motion-safe:hover:-translate-y-0.5'>
               <p className='text-sm font-semibold text-ink'>About</p>
               <p className='mt-1 text-sm leading-6 text-ink/65'>Learn what the project is for.</p>
             </Link>
 
-            <Link href='/contact' className='compact-card block transition hover:-translate-y-0.5'>
+            <Link href='/contact' className='compact-card block transition motion-safe:hover:-translate-y-0.5'>
               <p className='text-sm font-semibold text-ink'>Contact</p>
               <p className='mt-1 text-sm leading-6 text-ink/65'>Send corrections, feedback, or questions.</p>
             </Link>
 
-            <Link href='/disclaimer' className='compact-card block transition hover:-translate-y-0.5'>
+            <Link href='/disclaimer' className='compact-card block transition motion-safe:hover:-translate-y-0.5'>
               <p className='text-sm font-semibold text-ink'>Disclaimer</p>
               <p className='mt-1 text-sm leading-6 text-ink/65'>Read the educational and medical disclaimer.</p>
             </Link>

@@ -1,6 +1,5 @@
 import React, { type CSSProperties } from 'react'
 import clsx from 'clsx'
-import { motion } from '../lib/motion'
 import { useNavigate } from '../lib/router-compat'
 
 interface Node {
@@ -25,11 +24,11 @@ export default function NeuroHerbGraph() {
   return (
     <div className='relative h-64 w-full bg-[#0f0f0f]'>
       {nodes.map(node => (
-        <motion.div
+        <div
           key={node.id}
           className={clsx(
             'absolute flex h-10 w-10 items-center justify-center rounded-full bg-emerald-600/60 text-xs text-white',
-            'cursor-pointer select-none',
+            'cursor-pointer select-none transition-transform motion-safe:hover:scale-110',
             {
               'ring-2 ring-emerald-300': node.type === 'neuro',
             },
@@ -41,11 +40,10 @@ export default function NeuroHerbGraph() {
               '--node-offset-y': `${node.y}px`,
             } as CSSProperties
           }
-          whileHover={{ scale: 1.1 }}
           onClick={() => node.slug && navigate(`/herbs/${node.slug}`)}
         >
           {node.label}
-        </motion.div>
+        </div>
       ))}
     </div>
   )

@@ -93,7 +93,7 @@ export default function SleepMentalHealthPage() {
             <Link
               key={system.href}
               href={system.href}
-              className="card-premium p-6 transition hover:-translate-y-0.5"
+              className="card-premium p-6 transition motion-safe:hover:-translate-y-0.5"
             >
               <div className="space-y-3">
                 <h3 className="text-2xl font-semibold tracking-tight text-ink">

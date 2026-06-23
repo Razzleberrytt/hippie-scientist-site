@@ -58,7 +58,7 @@ export function EcosystemDiscoverySection({
           <Link
             key={ecosystem.slug}
             href={`/explore/${ecosystem.slug}`}
-            className="group rounded-3xl border border-sky-100 bg-gradient-to-br from-sky-50/80 to-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-sky-300 hover:shadow-lg"
+            className="group rounded-3xl border border-sky-100 bg-gradient-to-br from-sky-50/80 to-white p-6 shadow-sm transition motion-safe:hover:-translate-y-1 hover:border-sky-300 hover:shadow-lg"
           >
             <div className="flex items-start justify-between gap-4">
               <div className="space-y-3">

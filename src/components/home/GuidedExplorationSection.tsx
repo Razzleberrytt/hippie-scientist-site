@@ -55,7 +55,7 @@ export function GuidedExplorationSection() {
           <Link
             key={flow.href}
             href={flow.href}
-            className="group rounded-3xl border border-violet-100 bg-gradient-to-br from-violet-50/80 to-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg"
+            className="group rounded-3xl border border-violet-100 bg-gradient-to-br from-violet-50/80 to-white p-6 shadow-sm transition motion-safe:hover:-translate-y-1 hover:border-violet-300 hover:shadow-lg"
           >
             <div className="space-y-4">
               <div className="flex items-center justify-between gap-4">

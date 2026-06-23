@@ -68,7 +68,7 @@ export default function HarmReductionPage() {
           <Link
             key={topic.href}
             href={topic.href}
-            className="card-premium p-6 transition hover:-translate-y-0.5"
+            className="card-premium p-6 transition motion-safe:hover:-translate-y-0.5"
           >
             <div className="space-y-3">
               <p className="eyebrow-label">Safety System</p>

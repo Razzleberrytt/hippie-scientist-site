@@ -126,7 +126,7 @@ export default function HomepageV2() {
               <div className='mt-6 flex w-full max-w-sm flex-col'>
                 <Link
                   href='#choose-a-path'
-                  className='rounded-full bg-brand-800 px-6 py-3.5 text-sm font-bold text-white shadow-[0_4px_14px_rgba(11,29,20,0.22)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-[0_8px_20px_rgba(11,29,20,0.28)] active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 text-center'
+                  className='rounded-full bg-brand-800 px-6 py-3.5 text-sm font-bold text-white shadow-[0_4px_14px_rgba(11,29,20,0.22)] transition-all duration-200 motion-safe:hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-[0_8px_20px_rgba(11,29,20,0.28)] active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 text-center'
                 >
                   Browse by Health Goal
                 </Link>
@@ -198,7 +198,7 @@ export default function HomepageV2() {
                 <Link
                   key={hGoal.slug}
                   href={`/goals/${hGoal.slug}`}
-                  className={`group flex min-h-48 flex-col justify-between rounded-[1.25rem] border bg-gradient-to-br ${hGoal.bg} p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)] dark:from-[var(--surface-card)] dark:to-[var(--surface-card)]`}
+                  className={`group flex min-h-48 flex-col justify-between rounded-[1.25rem] border bg-gradient-to-br ${hGoal.bg} p-5 shadow-sm transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)] dark:from-[var(--surface-card)] dark:to-[var(--surface-card)]`}
                 >
                   <div>
                     <span className='mb-3 block text-2xl' aria-hidden='true'>{hGoal.icon}</span>

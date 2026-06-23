@@ -18,7 +18,8 @@ const nextConfig = {
     cpus: 2,
   },
   images: {
-    unoptimized: true,
+    loader: 'custom',
+    loaderFile: './src/lib/cloudflare-image-loader.ts',
     remotePatterns: [
       { protocol: 'https', hostname: '**.media-amazon.com' },
       { protocol: 'https', hostname: '**.ssl-images-amazon.com' },

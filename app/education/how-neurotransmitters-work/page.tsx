@@ -100,7 +100,7 @@ export default function NeurotransmittersPage() {
             <Link
               key={pathway.href}
               href={pathway.href}
-              className="card-premium p-6 transition hover:-translate-y-0.5"
+              className="card-premium p-6 transition motion-safe:hover:-translate-y-0.5"
             >
               <div className="space-y-4">
                 <h3 className="text-2xl font-semibold tracking-tight text-ink">
