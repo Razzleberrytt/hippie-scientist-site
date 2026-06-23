@@ -64,24 +64,24 @@ function gradeMeta(grade: string): { rank: number; badge: string } {
   const g = grade.toLowerCase()
   // Order matters: check the strongest qualifiers first.
   if (g.startsWith('strong')) {
-    return { rank: 5, badge: 'bg-green-100 text-green-900 dark:bg-green-500/20 dark:text-green-200' }
+    return { rank: 5, badge: 'border border-[var(--color-evidence-strong)]/20 bg-[var(--color-evidence-strong)]/10 text-[var(--color-evidence-strong)]' }
   }
   if (g.includes('limited to moderate')) {
-    return { rank: 2.5, badge: 'bg-amber-100 text-amber-900 dark:bg-amber-500/20 dark:text-amber-100' }
+    return { rank: 2.5, badge: 'border border-[var(--color-evidence-limited)]/20 bg-[var(--color-evidence-limited)]/10 text-[var(--color-evidence-limited)]' }
   }
   if (g.startsWith('moderate')) {
-    return { rank: 4, badge: 'bg-emerald-100 text-emerald-900 dark:bg-emerald-500/20 dark:text-emerald-200' }
+    return { rank: 4, badge: 'border border-[var(--color-evidence-moderate)]/20 bg-[var(--color-evidence-moderate)]/10 text-[var(--color-evidence-moderate)]' }
   }
   if (g.startsWith('generally favorable')) {
-    return { rank: 4, badge: 'bg-emerald-100 text-emerald-900 dark:bg-emerald-500/20 dark:text-emerald-200' }
+    return { rank: 4, badge: 'border border-[var(--color-evidence-moderate)]/20 bg-[var(--color-evidence-moderate)]/10 text-[var(--color-evidence-moderate)]' }
   }
   if (g.startsWith('mixed')) {
-    return { rank: 2, badge: 'bg-slate-200 text-slate-800 dark:bg-slate-500/25 dark:text-slate-100' }
+    return { rank: 2, badge: 'border border-[var(--color-evidence-theoretical)]/20 bg-[var(--color-evidence-theoretical)]/10 text-[var(--color-evidence-theoretical)]' }
   }
   if (g.startsWith('limited')) {
-    return { rank: 1.5, badge: 'bg-orange-100 text-orange-900 dark:bg-orange-500/20 dark:text-orange-100' }
+    return { rank: 1.5, badge: 'border border-[var(--color-evidence-limited)]/20 bg-[var(--color-evidence-limited)]/10 text-[var(--color-evidence-limited)]' }
   }
-  return { rank: 3, badge: 'bg-stone-200 text-stone-800 dark:bg-stone-500/25 dark:text-stone-100' }
+  return { rank: 3, badge: 'border border-[var(--color-evidence-theoretical)]/20 bg-[var(--color-evidence-theoretical)]/10 text-[var(--color-evidence-theoretical)]' }
 }
 
 function GradeBadge({ grade }: { grade: string }) {

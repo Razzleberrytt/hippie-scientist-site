@@ -64,20 +64,20 @@ export default function ConversionAffiliateCard({
   return (
     <section className={isDark
       ? 'rounded-3xl border border-emerald-300/20 bg-emerald-300/[0.06] p-5 text-white'
-      : 'rounded-3xl border border-emerald-200 bg-emerald-50 p-5 text-slate-950 shadow-sm'
+      : 'rounded-[1.25rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)]'
     }>
       <p className={isDark
-        ? 'text-xs font-black uppercase tracking-[0.18em] text-emerald-200/75'
-        : 'text-xs font-black uppercase tracking-[0.18em] text-emerald-800/80'
+        ? 'text-xs font-bold uppercase tracking-[0.18em] text-white/60'
+        : 'eyebrow-label text-brand-700'
       }>{title}</p>
 
-      <h2 className={isDark ? 'mt-2 text-2xl font-black text-white' : 'mt-2 text-2xl font-black text-slate-950'}>
+      <h2 className={isDark ? 'mt-2 text-2xl font-bold text-white' : 'mt-2 text-2xl font-bold text-ink'}>
         Before buying {label}
       </h2>
 
       <p className={isDark
         ? 'mt-2 max-w-3xl text-sm leading-6 text-white/75'
-        : 'mt-2 max-w-3xl text-sm leading-6 text-slate-700'
+        : 'mt-2 max-w-3xl text-sm leading-6 text-muted'
       }>
         Review evidence, dose, timing, and safety first. Product links should come after the profile fits your goal and risk context{intent ? ` for ${intent}` : ''}.
       </p>
@@ -87,8 +87,8 @@ export default function ConversionAffiliateCard({
           <Link
             href={compoundHref}
             className={isDark
-              ? 'rounded-full bg-white px-4 py-2 text-sm font-black text-slate-950 hover:bg-emerald-100'
-              : 'rounded-full bg-slate-950 px-4 py-2 text-sm font-black text-white hover:bg-slate-800'
+              ? 'rounded-full bg-white px-4 py-2 text-sm font-bold text-[#07150c] hover:bg-emerald-100'
+              : 'button-primary px-4 py-2 text-sm'
             }
           >
             Check profile first
@@ -100,15 +100,15 @@ export default function ConversionAffiliateCard({
           target="_blank"
           rel="sponsored nofollow noopener noreferrer"
           className={isDark
-            ? 'rounded-full border border-white/15 px-4 py-2 text-sm font-black text-white/85 hover:bg-white/10'
-            : 'rounded-full border border-slate-900/10 bg-white px-4 py-2 text-sm font-black text-slate-800 hover:bg-slate-50'
+            ? 'rounded-full border border-white/15 px-4 py-2 text-sm font-bold text-white/85 hover:bg-white/10'
+            : 'button-secondary px-4 py-2 text-sm'
           }
         >
           Compare product options
         </a>
       </div>
 
-      <p className={isDark ? 'mt-3 text-xs text-white/45' : 'mt-3 text-xs text-slate-500'}>
+      <p className={isDark ? 'mt-3 text-xs text-white/45' : 'mt-3 text-xs text-muted/70'}>
         Affiliate disclosure: we may earn a commission at no extra cost. This never changes evidence or safety language.
       </p>
     </section>

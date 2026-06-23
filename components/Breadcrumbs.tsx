@@ -58,7 +58,7 @@ export function Breadcrumbs({
   return (
     <nav
       aria-label="Breadcrumb"
-      className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800"
+      className="border-b border-brand-900/10 bg-[var(--surface)] dark:border-[var(--border-soft)] dark:bg-[var(--surface)]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <ol className="flex flex-wrap items-center gap-2 text-sm">
@@ -66,13 +66,13 @@ export function Breadcrumbs({
             <li key={breadcrumb.href} className="flex items-center gap-2">
               {/* Separator */}
               {index > 0 && (
-                <ChevronRight className="w-4 h-4 text-slate-400 dark:text-slate-600 flex-shrink-0" />
+                <ChevronRight className="h-4 w-4 shrink-0 text-muted/50 dark:text-[var(--text-muted)]/40" />
               )}
 
               {/* Link or Current Page */}
               {breadcrumb.current ? (
                 <span
-                  className="inline-flex min-h-[44px] items-center text-slate-900 dark:text-white font-medium line-clamp-1"
+                  className="inline-flex min-h-[44px] items-center font-semibold text-ink line-clamp-1 dark:text-[var(--text-primary)]"
                   aria-current="page"
                 >
                   {breadcrumb.label}
@@ -80,7 +80,7 @@ export function Breadcrumbs({
               ) : (
                 <Link
                   href={breadcrumb.href}
-                  className="inline-flex min-h-[44px] items-center text-emerald-600 dark:text-emerald-500 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors hover:underline line-clamp-1"
+                  className="inline-flex min-h-[44px] items-center text-brand-700 transition-colors hover:text-brand-800 hover:underline line-clamp-1 dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]"
                 >
                   {breadcrumb.label}
                 </Link>

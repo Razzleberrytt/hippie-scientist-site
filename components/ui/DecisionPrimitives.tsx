@@ -31,7 +31,7 @@ export function DecisionEmptyState({
       <div className="max-w-2xl space-y-2">
         <p className="eyebrow-label">{eyebrow}</p>
         <h2 className="compact-heading">{title}</h2>
-        <p className="text-sm leading-6 text-[#46574d] sm:text-base">{description}</p>
+        <p className="text-sm leading-6 text-prose-soft sm:text-base">{description}</p>
         {currentScan ? (
           <p className="text-sm leading-6 text-[#5f6f66]">Current scan: {currentScan}</p>
         ) : null}
@@ -118,7 +118,7 @@ export function DecisionProfileCard({
   return (
     <Link
       href={href}
-      className="group flex h-full flex-col rounded-[0.85rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm transition-colors duration-200 hover:border-brand-700/20 hover:bg-[var(--surface-card-strong)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40"
+      className="group flex h-full flex-col rounded-[0.9rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-700/25 hover:bg-[var(--surface-card-strong)] hover:shadow-[0_6px_18px_rgba(16,32,24,0.08)] focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 dark:hover:shadow-[0_6px_18px_rgba(0,0,0,0.25)]"
     >
       <div className="flex flex-1 flex-col">
         <div className="flex min-w-0 items-start justify-between gap-3">
@@ -158,8 +158,8 @@ export function DecisionProfileCard({
         ) : null}
       </div>
 
-      <div className="mt-3 text-sm font-bold text-brand-800 transition group-hover:text-brand-900">
-        View profile <span aria-hidden="true">→</span>
+      <div className="mt-3 flex items-center gap-1 text-sm font-bold text-brand-700 transition-all duration-200 group-hover:gap-2 group-hover:text-brand-900 dark:text-[var(--text-secondary)] dark:group-hover:text-[var(--text-primary)]">
+        View profile <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
       </div>
     </Link>
   )
