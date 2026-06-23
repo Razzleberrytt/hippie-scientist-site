@@ -13,11 +13,13 @@ interface CompareSchemaProps {
   item2: CompareItem
   slug: string
   faqs: FAQItem[]
+  dateModified?: string
 }
 
-export default function CompareSchema({ item1, item2, slug, faqs }: CompareSchemaProps) {
+export default function CompareSchema({ item1, item2, slug, faqs, dateModified }: CompareSchemaProps) {
   const pageUrl = `${SITE_URL}/compare/${slug}`
   const headline = `${item1.name} vs ${item2.name}: Complete Comparison`
+  const modified = dateModified || new Date().toISOString().slice(0, 10)
 
   const schema = {
     '@context': 'https://schema.org',
@@ -35,7 +37,7 @@ export default function CompareSchema({ item1, item2, slug, faqs }: CompareSchem
           name: 'The Hippie Scientist',
           url: SITE_URL,
         },
-        dateModified: '2026-06-22',
+        dateModified: modified,
         url: pageUrl,
         mainEntityOfPage: {
           '@type': 'WebPage',

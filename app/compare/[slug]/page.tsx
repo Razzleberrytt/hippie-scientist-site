@@ -1,18 +1,15 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { getStacks } from '../../../src/lib/runtime-data'
 import { generatedComparisons } from '@/data/generated-comparisons'
 import { supplementComparisons } from '@/data/comparisons'
-import { bestPageHref, bestPages } from '@/data/best'
+import { bestPages } from '@/data/best'
 import { formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
-import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import { getAffiliateShopLinks } from '../../../src/lib/affiliate'
 import { getUnifiedRuntimeRecords } from '../../../src/lib/runtime-record-index'
 import { buildPageMetadata, SITE_URL } from '../../../src/lib/seo'
 import { isFlagshipCompareSlug } from '../../../src/lib/goal-hub-links'
 import { buildCompareDetailSchemaGraph } from '../../../src/lib/schema-graph'
-import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { getComparisonRecommendationEntries } from '../../../src/lib/runtime-related-maps'
 import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { COMPARE_COMBINATIONS } from '@/config/compare-combinations'
@@ -22,10 +19,6 @@ import {
   getRelatedComparisons,
   buildFAQs,
 } from '@/lib/compare'
-import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
-import CompareHero from '@/components/compare/CompareHero'
-import CompareDecisionWidget from '@/components/compare/CompareDecisionWidget'
-import CompareSummaryTable from '@/components/compare/CompareSummaryTable'
 import CompareMechanisms from '@/components/compare/CompareMechanisms'
 import CompareEvidenceMatrix from '@/components/compare/CompareEvidenceMatrix'
 import CompareGoalRouting from '@/components/compare/CompareGoalRouting'
@@ -33,10 +26,7 @@ import CompareSynergy from '@/components/compare/CompareSynergy'
 import CompareSafety from '@/components/compare/CompareSafety'
 import CompareDosing from '@/components/compare/CompareDosing'
 import CompareAffiliate from '@/components/compare/CompareAffiliate'
-import CompareRelated from '@/components/compare/CompareRelated'
-import CompareFAQ from '@/components/compare/CompareFAQ'
-import CompareCitations from '@/components/compare/CompareCitations'
-import CompareSchema from '@/components/compare/CompareSchema'
+import ComparePageScaffold from '@/components/compare/ComparePageScaffold'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -273,6 +263,35 @@ export default async function Page({ params }: Params) {
     .filter(page => page.compoundCandidates.some(candidate => normalize(candidate) === normalize(a.slug) || normalize(candidate) === normalize(b.slug)))
     .slice(0, 3)
 
+  const relatedDiscoveryGroups = [
+    {
+      title: 'Related comparisons',
+      description: 'Compare close alternatives without forcing a single winner.',
+      links: relatedComparisons.map(item => ({ href: `/compare/${item.slug}`, label: item.title })),
+    },
+    {
+      title: 'Beginner-friendly next reads',
+      description: 'Start with practical overviews before advanced stacking.',
+      links: [
+        { href: `/${winner.entityType === 'herb' ? 'herbs' : 'compounds'}/${winner.slug}`, label: `${displayName(winner)} profile` },
+        { href: '/guides', label: 'Browse supplement guides' },
+      ],
+    },
+    {
+      title: 'Safety context',
+      description: 'Read safety framing before trial decisions.',
+      links: [
+        { href: '/guides/sleep-herbs-vs-melatonin', label: 'Sleep safety tradeoffs' },
+        { href: '/guides/psychedelic-adjacent-herbs', label: 'Harm-reduction herb context' },
+      ],
+    },
+    {
+      title: 'Related goals pages',
+      description: 'Use goal pages when choosing by outcome instead of ingredient.',
+      links: [{ href: '/goals', label: 'Browse goal guides' }],
+    },
+  ]
+
   const evidenceA = evidenceScore(a)
   const evidenceB = evidenceScore(b)
   const cautionA = list(a?.safety_flags || a?.safetyNotes || a?.contraindications).map(formatDisplayLabel).filter(isClean)
@@ -350,51 +369,28 @@ export default async function Page({ params }: Params) {
   const relatedPairs = getRelatedComparisons(item1.slug, item2.slug, COMPARE_COMBINATIONS)
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-8 space-y-12">
-      <SchemaGraphScript graph={schemaGraph} />
-      <CompareSchema item1={item1} item2={item2} slug={slug} faqs={faqs} />
-
-      <AuthorityBreadcrumbs
-        items={[
-          { label: 'Home', href: '/' },
-          { label: 'Compare', href: '/compare' },
-          { label: title },
-        ]}
-      />
-
-      {/* Hero */}
-      <CompareHero item1={item1} item2={item2} />
-
-      {/* Interactive decision widget — client component */}
-      <section>
-        <CompareDecisionWidget item1={item1} item2={item2} isHarmReduction={isHR} />
-      </section>
-
-      {/* Quick summary table */}
-      <CompareSummaryTable item1={item1} item2={item2} />
-
-      {/* Mechanism comparison at molecular level */}
+    <ComparePageScaffold
+      item1={item1}
+      item2={item2}
+      slug={slug}
+      faqs={faqs}
+      schemaGraph={schemaGraph}
+      title={title}
+      isHarmReduction={isHR}
+      relatedComparisons={relatedPairs}
+      runtimeComparisonLinks={runtimeComparisonLinks}
+      relatedBestPages={relatedBestPages}
+      relatedStack={relatedStack ? { slug: relatedStack.slug } : null}
+      relatedDiscoveryGroups={relatedDiscoveryGroups}
+    >
       <CompareMechanisms item1={item1} item2={item2} />
-
-      {/* Evidence quality matrix */}
       <CompareEvidenceMatrix item1={item1} item2={item2} />
-
-      {/* Goal-based routing */}
       <CompareGoalRouting item1={item1} item2={item2} />
-
-      {/* Stack / synergy section */}
       <CompareSynergy item1={item1} item2={item2} />
-
-      {/* Safety comparison */}
       <CompareSafety item1={item1} item2={item2} />
-
-      {/* Dosing + cost-per-effective-dose */}
       <CompareDosing item1={item1} item2={item2} />
-
-      {/* Affiliate (zone-gated) */}
       {!isHR && <CompareAffiliate item1={item1} item2={item2} isHR={isHR} />}
 
-      {/* Original comparison table — preserved for detail */}
       <section className="card-premium p-6 sm:p-8 space-y-6">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Side-by-Side</p>
@@ -473,97 +469,6 @@ export default async function Page({ params }: Params) {
           )}
         </div>
       </section>
-
-      {/* Related comparisons */}
-      <CompareRelated comparisons={relatedPairs} currentSlug={slug} />
-
-      {/* FAQ */}
-      <CompareFAQ faqs={faqs} />
-
-      {/* Citations */}
-      <CompareCitations item1={item1} item2={item2} />
-
-      {/* Navigation cards */}
-      <section className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {relatedStack && (
-          <article className="card-premium p-5 space-y-2">
-            <h3 className="font-bold text-ink">Use in a routine</h3>
-            <p className="text-sm text-muted">These options can be stacked for goal-based synergy.</p>
-            <Link href={`/stacks/${relatedStack.slug}`} className="inline-block text-sm font-bold text-brand-700 hover:text-brand-900">
-              View stack →
-            </Link>
-          </article>
-        )}
-        {relatedComparisons.length > 0 && (
-          <article className="card-premium p-5 space-y-2">
-            <h3 className="font-bold text-ink">Related comparisons</h3>
-            <div className="flex flex-col gap-2">
-              {relatedComparisons.map(item => (
-                <Link key={item.slug} href={`/compare/${item.slug}`} className="text-sm font-semibold text-brand-850 hover:underline">
-                  {item.title} →
-                </Link>
-              ))}
-            </div>
-          </article>
-        )}
-        {runtimeComparisonLinks.length > 0 && (
-          <article className="card-premium p-5 space-y-2">
-            <h3 className="font-bold text-ink">More comparison paths</h3>
-            <div className="flex flex-col gap-2">
-              {runtimeComparisonLinks.map(item => (
-                <Link key={item.slug} href={`/compare/${item.slug}`} className="text-sm font-semibold text-brand-850 hover:underline">
-                  {item.title} →
-                </Link>
-              ))}
-            </div>
-          </article>
-        )}
-        {relatedBestPages.length > 0 && (
-          <article className="card-premium p-5 space-y-2">
-            <h3 className="font-bold text-ink">Best-of guides</h3>
-            <div className="flex flex-col gap-2">
-              {relatedBestPages.map(page => (
-                <Link key={page.slug} href={bestPageHref(page.slug)} className="text-sm font-semibold text-brand-850 hover:underline">
-                  {page.title} →
-                </Link>
-              ))}
-            </div>
-          </article>
-        )}
-      </section>
-
-      <RelatedDiscoveryGroups
-        eyebrow="Continue comparison research"
-        title="Explore nearby decision paths"
-        groups={[
-          {
-            title: 'Related comparisons',
-            description: 'Compare close alternatives without forcing a single winner.',
-            links: relatedComparisons.map(item => ({ href: `/compare/${item.slug}`, label: item.title })),
-          },
-          {
-            title: 'Beginner-friendly next reads',
-            description: 'Start with practical overviews before advanced stacking.',
-            links: [
-              { href: `/${winner.entityType === 'herb' ? 'herbs' : 'compounds'}/${winner.slug}`, label: `${displayName(winner)} profile` },
-              { href: '/guides', label: 'Browse supplement guides' },
-            ],
-          },
-          {
-            title: 'Safety context',
-            description: 'Read safety framing before trial decisions.',
-            links: [
-              { href: '/guides/sleep-herbs-vs-melatonin', label: 'Sleep safety tradeoffs' },
-              { href: '/guides/psychedelic-adjacent-herbs', label: 'Harm-reduction herb context' },
-            ],
-          },
-          {
-            title: 'Related goals pages',
-            description: 'Use goal pages when choosing by outcome instead of ingredient.',
-            links: [{ href: '/goals', label: 'Browse goal guides' }],
-          },
-        ]}
-      />
-    </div>
+    </ComparePageScaffold>
   )
 }
