@@ -15,7 +15,7 @@ type BlogPostLayoutProps = {
 
 export default function BlogPost({ children, title, author, sources }: BlogPostLayoutProps) {
   return (
-    <article className='dark:prose-dark prose prose-invert mx-auto max-w-3xl p-4'>
+    <article className='prose dark:prose-invert mx-auto max-w-3xl p-4'>
       {title && <h1>{title}</h1>}
       <p className='-mt-3 text-sm text-white/70'>By {author || 'Hippie Scientist Team'}</p>
       {children}

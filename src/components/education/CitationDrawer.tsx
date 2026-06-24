@@ -178,7 +178,7 @@ export function ParsedCitationText({ text: content, entityName = 'Botanical' }: 
 
           return (
             <button
-              key={index}
+              key={`cp-${index}-${String(part).slice(0, 12)}`}
               onClick={() => triggerCitation(mockDetail)}
               type="button"
               className="mx-0.5 inline-flex items-center justify-center rounded bg-emerald-50 px-1.5 py-0.5 text-[10px] font-bold text-emerald-800 hover:bg-emerald-100 border border-emerald-200/50"
@@ -188,7 +188,7 @@ export function ParsedCitationText({ text: content, entityName = 'Botanical' }: 
             </button>
           )
         }
-        return <span key={index}>{part}</span>
+        return <span key={`cp-${index}-${String(part).slice(0, 12)}`}>{part}</span>
       })}
     </span>
   )

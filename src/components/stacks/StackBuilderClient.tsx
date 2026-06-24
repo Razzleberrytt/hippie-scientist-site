@@ -323,8 +323,8 @@ export default function StackBuilderClient({ herbs, compounds }: StackBuilderCli
                   </p>
                 ) : (
                   <div className='mt-2 space-y-2'>
-                    {safetyWarnings.map((warning, idx) => (
-                      <div key={idx} className='rounded-xl bg-rose-50 p-3 border border-rose-200/30'>
+                    {safetyWarnings.map((warning) => (
+                      <div key={warning.slice(0, 40)} className='rounded-xl bg-rose-50 p-3 border border-rose-200/30'>
                         <p className='text-[11px] text-rose-800 font-medium leading-normal'>
                           {warning}
                         </p>
