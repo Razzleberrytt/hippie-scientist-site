@@ -17,6 +17,7 @@ import { DarkModeProvider } from '@/lib/dark-mode-provider'
 import DarkModeToggle from '@/components/DarkModeToggle'
 import './globals.css'
 import '@/styles/foundation-readability.css'
+import '@/styles/premium-library-polish.css'
 
 const ga4Id = process.env.NEXT_PUBLIC_GA4_ID?.trim() || ''
 
