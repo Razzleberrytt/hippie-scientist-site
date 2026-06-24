@@ -69,7 +69,7 @@ const faqItems = [
 
 export default function NeuroinflammationEducationPage() {
   return (
-    <div className="container-page py-10 space-y-12">
+    <div className="container-page space-y-10 py-8 sm:space-y-12 sm:py-10">
       <AuthorityJsonLd
         title="What Is Neuroinflammation?"
         description="Educational exploration of neuroinflammation, stress-response biology, nervous-system signaling, cognition systems, and recovery-oriented neuropharmacology."
@@ -85,7 +85,7 @@ export default function NeuroinflammationEducationPage() {
         ]}
       />
 
-      <section className="space-y-6 max-w-4xl">
+      <section className="max-w-4xl space-y-6">
         <div className="space-y-3">
           <p className="eyebrow-label">Educational Supernode</p>
 
@@ -94,11 +94,11 @@ export default function NeuroinflammationEducationPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Neuroinflammation refers to inflammatory signaling processes associated with nervous-system and brain-related immune activity. Educational exploration of neuroinflammation often intersects with stress biology, fatigue systems, cognition continuity, emotional processing, sleep recovery, and nervous-system regulation.
         </p>
 
-        <p className="text-base leading-8 text-[#5c6b63]">
+        <p className="text-base leading-8 text-muted">
           Neuroinflammatory discussions are biologically complex and highly context dependent. Educational interpretation should remain conservative, evidence aware, systems oriented, and cautious regarding exaggerated mechanistic claims.
         </p>
       </section>
@@ -118,38 +118,38 @@ export default function NeuroinflammationEducationPage() {
 
       <section className="grid gap-6 lg:grid-cols-3">
         {sections.map((section) => (
-          <div key={section.title} className="card-premium p-6 space-y-4">
+          <div key={section.title} className="card-premium space-y-4 p-6">
             <h2 className="text-2xl font-semibold tracking-tight text-ink">
               {section.title}
             </h2>
 
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               {section.body}
             </p>
           </div>
         ))}
       </section>
 
-      <section className="card-premium p-8 space-y-6">
-        <div className="space-y-2 max-w-3xl">
+      <section className="card-premium space-y-6 p-6 sm:p-8">
+        <div className="max-w-3xl space-y-2">
           <p className="eyebrow-label">Systems Biology Context</p>
 
           <h2 className="text-3xl font-semibold tracking-tight text-ink">
             Neuroinflammation intersects with broader recovery biology
           </h2>
 
-          <p className="text-base leading-8 text-[#46574d]">
+          <p className="text-base leading-8 text-muted">
             Modern systems-biology discussions increasingly explore interactions between inflammatory signaling, stress-response continuity, mitochondrial function, nervous-system recovery, glymphatic clearance, fatigue systems, sleep restoration, and cognition resilience.
           </p>
         </div>
 
         <div className="grid gap-5 lg:grid-cols-2">
-          <div className="rounded-3xl border border-black/5 bg-white/60 p-6 space-y-3">
+          <div className="space-y-3 rounded-3xl border border-brand-900/10 bg-white/60 p-6 dark:border-white/10 dark:bg-white/5">
             <h3 className="text-xl font-semibold text-ink">
               Frequently discussed mechanisms
             </h3>
 
-            <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
+            <ul className="space-y-2 text-sm leading-7 text-muted">
               <li>• Immune signaling pathways</li>
               <li>• Stress-response physiology</li>
               <li>• Oxidative stress systems</li>
@@ -158,12 +158,12 @@ export default function NeuroinflammationEducationPage() {
             </ul>
           </div>
 
-          <div className="rounded-3xl border border-black/5 bg-white/60 p-6 space-y-3">
+          <div className="space-y-3 rounded-3xl border border-brand-900/10 bg-white/60 p-6 dark:border-white/10 dark:bg-white/5">
             <h3 className="text-xl font-semibold text-ink">
               Major evidence limitations
             </h3>
 
-            <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
+            <ul className="space-y-2 text-sm leading-7 text-muted">
               <li>• Difficult human measurement systems</li>
               <li>• Mechanistic uncertainty</li>
               <li>• High individual variability</li>
@@ -198,12 +198,12 @@ export default function NeuroinflammationEducationPage() {
 
         <div className="grid gap-5">
           {faqItems.map((item) => (
-            <div key={item.question} className="card-premium p-6 space-y-3">
+            <div key={item.question} className="card-premium space-y-3 p-6">
               <h3 className="text-xl font-semibold tracking-tight text-ink">
                 {item.question}
               </h3>
 
-              <p className="text-sm leading-7 text-[#46574d]">
+              <p className="text-sm leading-7 text-muted">
                 {item.answer}
               </p>
             </div>
