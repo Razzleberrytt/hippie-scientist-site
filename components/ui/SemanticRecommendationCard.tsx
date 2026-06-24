@@ -64,12 +64,12 @@ export default function SemanticRecommendationCard({ item }: Props) {
           </div>
         </div>
 
-        <div className={`${decisionStatusBadgeClass} shrink-0 border-brand-900/10 bg-white/80 text-[#5f6f66]`}>
+        <div className={`${decisionStatusBadgeClass} shrink-0 border-brand-900/10 bg-[var(--surface-card)] text-muted dark:border-white/10`}>
           {confidence}
         </div>
       </div>
 
-      <div className="mt-4 text-sm leading-7 text-[#46574d]">
+      <div className="mt-4 text-sm leading-7 text-muted">
         {reason}
       </div>
 
