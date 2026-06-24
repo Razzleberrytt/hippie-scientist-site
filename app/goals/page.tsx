@@ -14,10 +14,10 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function GoalsPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8 space-y-8">
-      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 sm:p-10 shadow-sm">
+    <div className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-sm sm:p-10">
         <p className="eyebrow-label">Goal decision system</p>
-        <h1 className="heading-premium mt-3 text-ink">
+        <h1 className="heading-premium mt-3 max-w-[12ch] text-ink sm:max-w-[16ch]">
           Choose by outcome, then compare options clearly.
         </h1>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
@@ -27,13 +27,13 @@ export default function GoalsPage() {
         </p>
 
         <div className="mt-6 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
-          <Link href="/methodology" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/methodology" className="text-brand-700 hover:text-brand-800 hover:underline dark:text-brand-100 dark:hover:text-white">
             Research methodology →
           </Link>
-          <Link href="/education/evidence-hierarchy" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/education/evidence-hierarchy" className="text-brand-700 hover:text-brand-800 hover:underline dark:text-brand-100 dark:hover:text-white">
             Evidence hierarchy →
           </Link>
-          <Link href="/disclaimer" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/disclaimer" className="text-brand-700 hover:text-brand-800 hover:underline dark:text-brand-100 dark:hover:text-white">
             Disclaimer →
           </Link>
         </div>
@@ -53,29 +53,29 @@ export default function GoalsPage() {
           <Link
             key={goal.slug}
             href={`/goals/${goal.slug}`}
-            className="group card-premium p-6 flex flex-col justify-between"
+            className="group card-premium flex flex-col justify-between p-5 sm:p-6"
           >
             <div>
-              <h2 className="text-lg font-semibold text-ink group-hover:text-brand-800 transition">
+              <h2 className="!font-display !text-[2.25rem] !font-semibold !leading-[1.02] !tracking-tight text-ink transition group-hover:text-brand-800 sm:!text-[2rem] lg:!text-[1.6rem] dark:group-hover:text-brand-100">
                 {goal.title}
               </h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted line-clamp-3">
+              <p className="mt-4 text-sm leading-7 text-muted line-clamp-4">
                 {goal.description}
               </p>
             </div>
-            <div className="mt-4 pt-4 border-t border-brand-900/5">
-              <p className="text-[10px] uppercase font-bold tracking-wider text-brand-700 mb-2">Options compared</p>
+            <div className="mt-5 border-t border-brand-900/10 pt-4 dark:border-white/10">
+              <p className="mb-2 text-[10px] font-bold uppercase tracking-wider text-brand-700 dark:text-brand-200">Options compared</p>
               <div className="flex flex-wrap gap-1.5">
                 {goal.options.slice(0, 3).map((option) => (
                   <span
                     key={option.slug}
-                    className="inline-flex items-center rounded-full bg-brand-50 px-2 py-0.5 text-[10px] font-bold text-brand-800 border border-brand-100/50"
+                    className="inline-flex items-center rounded-full border border-brand-100/50 bg-brand-50 px-2 py-0.5 text-[10px] font-bold text-brand-800 dark:border-white/10 dark:bg-white/5 dark:text-brand-100"
                   >
                     {option.name}
                   </span>
                 ))}
                 {goal.options.length > 3 && (
-                  <span className="text-[10px] font-semibold text-muted self-center">
+                  <span className="self-center text-[10px] font-semibold text-muted">
                     +{goal.options.length - 3} more
                   </span>
                 )}
