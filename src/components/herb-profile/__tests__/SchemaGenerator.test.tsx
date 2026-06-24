@@ -17,7 +17,10 @@ function getScripts(c: HTMLElement): { product?: Record<string, unknown>; articl
   const scripts = c.querySelectorAll('script[type="application/ld+json"]')
   const parsed = Array.from(scripts).map(s => JSON.parse(s.textContent ?? '{}'))
   const product = parsed.find(p => p['@type'] === 'Product')
-  const article = parsed.find(p => p['@type'] === 'Article')!
+  const article = parsed.find(p => {
+    const type = p['@type']
+    return type === 'Article' || (Array.isArray(type) && type.includes('Article'))
+  })!
   return { product, article }
 }
 
@@ -27,7 +30,7 @@ describe('HerbSchemaGenerator', () => {
     const scripts = c.querySelectorAll('script[type="application/ld+json"]')
     expect(scripts.length).toBe(1)
     const { article, product } = getScripts(c)
-    expect(article['@type']).toBe('Article')
+    expect(article['@type']).toEqual(expect.arrayContaining(['ScholarlyArticle', 'Article']))
     expect(product).toBeUndefined()
   })
 
@@ -43,7 +46,7 @@ describe('HerbSchemaGenerator', () => {
     const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} />)
     const { article } = getScripts(c)
     expect(article['@context']).toBe('https://schema.org')
-    expect(article['@type']).toBe('Article')
+    expect(article['@type']).toEqual(expect.arrayContaining(['ScholarlyArticle', 'Article']))
   })
 
   it('Article headline includes the herb name (Google Rich Results required)', () => {

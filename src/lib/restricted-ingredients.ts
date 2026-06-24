@@ -19,6 +19,10 @@ const RESTRICTED_TERMS = [
   'harmine',
   'ibogaine',
   'ketamine',
+  'kava',
+  'kavain',
+  'kavalactone',
+  'kavalactones',
   'kratom',
   'lobeline',
   'lsa',
@@ -29,11 +33,18 @@ const RESTRICTED_TERMS = [
   'nicotiana tabacum',
   'noopept',
   'psilocybin',
+  'piper methysticum',
+  'piper-methysticum',
   'salvinorin',
   'sinicuichi',
   'tetrahydroharmine',
   'thc',
   'thcv',
+  'dihydrokavain',
+  'methysticin',
+  'dihydromethysticin',
+  'yangonin',
+  'desmethoxyyangonin',
 ]
 
 const RESTRICTED_STATUS_PATTERNS = [
@@ -98,8 +109,11 @@ export function isRestrictedRecord(record: any) {
 
   return [
     record.slug,
+    record.title,
     record.name,
     record.displayName,
+    record.productName,
+    record.product_name,
     record.compoundName,
     record.canonicalCompoundName,
     record.scientific_name,
@@ -117,4 +131,68 @@ export function isRestrictedRecord(record: any) {
     record.active_constituents,
     record.compound_profile,
   ].some(isRestrictedIngredient)
+}
+
+type GoalRestrictedCheckInput = {
+  slug?: unknown
+  title?: unknown
+  description?: unknown
+  quickPicks?: Array<{
+    slug?: unknown
+    option?: unknown
+    name?: unknown
+  }>
+  options?: Array<{
+    slug?: unknown
+    name?: unknown
+  }>
+}
+
+type EnrichedRestrictedCheckInput = {
+  slug?: unknown
+  name?: unknown
+  displayName?: unknown
+  option?: {
+    slug?: unknown
+    name?: unknown
+  }
+  compound?: unknown
+  herb?: unknown
+  record?: unknown
+}
+
+export function goalContainsRestrictedIngredient(
+  goal: GoalRestrictedCheckInput | null | undefined,
+  enrichedOptions: EnrichedRestrictedCheckInput[] = [],
+  products: unknown[] = []
+) {
+  if (!goal) return false
+
+  const goalRecords = [
+    { slug: goal.slug, name: goal.title, description: goal.description },
+    ...(goal.quickPicks ?? []).map((pick) => ({
+      slug: pick.slug,
+      name: pick.option ?? pick.name,
+    })),
+    ...(goal.options ?? []).map((option) => ({
+      slug: option.slug,
+      name: option.name,
+    })),
+  ]
+
+  if (goalRecords.some(isRestrictedRecord)) return true
+
+  const enrichedRecords = enrichedOptions.flatMap((enriched) => [
+    {
+      slug: enriched.option?.slug ?? enriched.slug,
+      name: enriched.option?.name ?? enriched.name ?? enriched.displayName,
+    },
+    enriched.compound,
+    enriched.herb,
+    enriched.record,
+  ])
+
+  if (enrichedRecords.some(isRestrictedRecord)) return true
+
+  return products.some(isRestrictedRecord)
 }

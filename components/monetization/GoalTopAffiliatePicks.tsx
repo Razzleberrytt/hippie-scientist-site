@@ -12,9 +12,16 @@ const SLOT_LABELS: Record<string, string> = {
 type GoalTopAffiliatePicksProps = {
   goalSlug: string
   limit?: number
+  suppressMonetization?: boolean
 }
 
-export default function GoalTopAffiliatePicks({ goalSlug, limit = 4 }: GoalTopAffiliatePicksProps) {
+export default function GoalTopAffiliatePicks({
+  goalSlug,
+  limit = 4,
+  suppressMonetization = false,
+}: GoalTopAffiliatePicksProps) {
+  if (suppressMonetization) return null
+
   const goal = getGoal(goalSlug)
   if (!goal) return null
 

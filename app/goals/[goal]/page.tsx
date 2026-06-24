@@ -23,7 +23,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import AuthorCredentials from '@/components/AuthorCredentials'
 import SeeAlsoInCluster from '@/components/SeeAlsoInCluster'
 import { getGoalCluster } from '@/lib/goal-clusters'
-import { isRestrictedRecord } from '../../../src/lib/restricted-ingredients'
+import { goalContainsRestrictedIngredient, isRestrictedRecord } from '../../../src/lib/restricted-ingredients'
 
 import GoalDecisionExperience from './GoalDecisionExperience'
 import GoalHubSections from '../../../src/components/goals/GoalHubSections'
@@ -175,11 +175,14 @@ const GOAL_PRODUCT_SETS: Record<string, string[]> = {
 }
 
 function getGoalProducts(goalSlug: string) {
+  return getGoalProductRecords(goalSlug)
+    .filter((p) => !isRestrictedRecord(p))
+}
+
+function getGoalProductRecords(goalSlug: string) {
   const keys = GOAL_PRODUCT_SETS[goalSlug] ?? []
   return keys
-    .filter((key) => !isRestrictedRecord({ slug: key }))
     .flatMap((key) => revenueProductSets[key]?.products ?? [])
-    .filter((p) => !isRestrictedRecord(p))
 }
 
 export const dynamicParams = false
@@ -344,7 +347,9 @@ export default async function GoalDecisionPage({
 
   const hubLinks = getGoalHubLinks(goal.slug)
   const startHereLinks = getGoalStartHereLinks(goal.slug)
-  const goalProducts = getGoalProducts(goal.slug)
+  const goalProductRecords = getGoalProductRecords(goal.slug)
+  const isEducationOnly = goalContainsRestrictedIngredient(goal, enrichedOptions, goalProductRecords)
+  const goalProducts = isEducationOnly ? [] : getGoalProducts(goal.slug)
 
   const goalEvidence = await getGoalEvidenceEngine(goal.slug)
   if (goalEvidence) {
@@ -359,6 +364,7 @@ export default async function GoalDecisionPage({
           startHereLinks={startHereLinks}
           goalContent={goalContent}
           captureGoal={goalCaptureGoal(goal.slug)}
+          isEducationOnly={isEducationOnly}
         />
       </>
     )
@@ -529,7 +535,7 @@ export default async function GoalDecisionPage({
               </div>
               {/* Sourcing CTA */}
               {(() => {
-                if (isRestrictedRecord({ slug: option.slug, name: option.name }) || (compound && isRestrictedRecord(compound))) {
+                if (isEducationOnly || isRestrictedRecord({ slug: option.slug, name: option.name }) || (compound && isRestrictedRecord(compound))) {
                   return null
                 }
                 const revenue = getRevenueProductSet(option.slug)
@@ -676,7 +682,7 @@ export default async function GoalDecisionPage({
         </div>
       </section>
 
-      <GoalTopAffiliatePicks goalSlug={goal.slug} limit={4} />
+      <GoalTopAffiliatePicks goalSlug={goal.slug} limit={4} suppressMonetization={isEducationOnly} />
 
       <GoalStartHereLinks links={startHereLinks} />
 
@@ -686,18 +692,20 @@ export default async function GoalDecisionPage({
         <SeeAlsoInCluster currentPath="/goals/focus" />
       ) : null}
 
-      <section className='rounded-2xl border border-emerald-800/15 bg-emerald-50/70 p-5 shadow-sm sm:p-6'>
-        <h2 className='text-xl font-semibold text-ink'>Ready to start?</h2>
-        <p className='mt-2 max-w-3xl text-sm leading-6 text-muted'>
-          Which supplement should you start with? Review the ranked options, then open the product-quality notes before buying.
-        </p>
-        <Link
-          href={goal.slug === 'focus' ? '/best-magnesium-supplements-for-adhd/' : `/goals/${goal.slug}/#comparison-table`}
-          className='mt-4 inline-flex min-h-11 items-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-900'
-        >
-          See ranked options
-        </Link>
-      </section>
+      {!isEducationOnly ? (
+        <section className='rounded-2xl border border-emerald-800/15 bg-emerald-50/70 p-5 shadow-sm sm:p-6'>
+          <h2 className='text-xl font-semibold text-ink'>Ready to start?</h2>
+          <p className='mt-2 max-w-3xl text-sm leading-6 text-muted'>
+            Which supplement should you start with? Review the ranked options, then open the product-quality notes before buying.
+          </p>
+          <Link
+            href={goal.slug === 'focus' ? '/best-magnesium-supplements-for-adhd/' : `/goals/${goal.slug}/#comparison-table`}
+            className='mt-4 inline-flex min-h-11 items-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-900'
+          >
+            See ranked options
+          </Link>
+        </section>
+      ) : null}
 
       <section className="card-premium p-6 sm:p-8">
         <h2 className="text-xl font-semibold text-ink">Related Goals</h2>
@@ -734,7 +742,7 @@ export default async function GoalDecisionPage({
 
       <AuthorCredentials />
 
-      {goalProducts.length > 0 && (
+      {!isEducationOnly && goalProducts.length > 0 && (
         <RecommendationSection
           title={`${goal.title} product picks`}
           products={goalProducts}
