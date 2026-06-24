@@ -75,6 +75,7 @@ const STATIC_COMPARE_PAGES = new Set([
   'kanna-vs-ssris',
   'kava-vs-alcohol',
   'sleep-herbs-vs-melatonin',
+  'melatonin-vs-magnesium',
 ])
 
 const allComparisonSlugs = Array.from(new Set([
