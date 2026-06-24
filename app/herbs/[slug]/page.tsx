@@ -15,6 +15,7 @@ import { faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, shouldInd
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import HerbSchemaGenerator from '../../../src/components/herb-profile/SchemaGenerator'
 import HerbCompoundLinks from '@/components/seo/HerbCompoundLinks'
+import ProfileTOC from '@/components/ui/ProfileTOC'
 import { getClusterSeeAlso, buildProfileSchemaGraphWithCluster } from '@/lib/cluster-linking'
 import SeeAlsoCluster from '@/components/SeeAlsoCluster'
 import { getGoalsForEntity } from '../../../src/lib/goal-hub-links'
@@ -458,7 +459,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
 
   return (
-    <div className="mx-auto max-w-4xl space-y-10 px-4 pb-28 pt-6">
+    <div className="mx-auto max-w-4xl lg:max-w-6xl space-y-10 px-4 pb-28 pt-6">
       <ScrollEngagementPrompt storageKey={`herb-prompt-${normalizedSlug}`} />
       <SchemaGraphScript graph={schemaGraph} />
       <HerbSchemaGenerator
@@ -477,7 +478,9 @@ export default async function HerbDetailPage({ params }: PageProps) {
         />
       ) : null}
 
-      {/* Header Breadcrumb - use only common name, not scientific name */}
+      <div className="flex gap-8 items-start">
+        <div className="flex-1 min-w-0 space-y-10">
+          {/* Header Breadcrumb - use only common name, not scientific name */}
       <nav className="flex items-center gap-2 text-xs text-muted">
         <Link href="/herbs" className="transition hover:text-ink">Herbs</Link>
         <span>/</span>
@@ -652,7 +655,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       </section>
 
       {/* Section 3: Evidence Summary */}
-      <section id="evidence-summary" className="card-premium scroll-mt-24 p-4 sm:p-5 space-y-4">
+      <section id="evidence" className="card-premium scroll-mt-24 p-4 sm:p-5 space-y-4">
         <div className="flex items-center gap-2 flex-wrap">
           <h2 className="text-lg font-bold text-ink">Evidence Summary</h2>
           <EvidenceScoreBadge record={herbRecord} size="sm" />
@@ -728,7 +731,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       )}
 
       {/* Active compounds — internal links from the curated relationship map */}
-      <HerbCompoundLinks herbSlug={herb.slug} herbName={displayName} />
+      <div id="compounds"><HerbCompoundLinks herbSlug={herb.slug} herbName={displayName} /></div>
 
       {goalLinks.length > 0 ? (
         <section className="rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4 sm:p-5">
@@ -859,6 +862,15 @@ export default async function HerbDetailPage({ params }: PageProps) {
         <Link href="/safety-checker" className="text-sm font-bold text-brand-800 hover:underline">
           Safety checker →
         </Link>
+      </div>
+        </div>
+        <ProfileTOC items={[
+          { id: 'evidence',  label: 'Evidence'  },
+          { id: 'safety',    label: 'Safety'    },
+          { id: 'dosing',    label: 'Dosing'    },
+          { id: 'compounds', label: 'Compounds' },
+          { id: 'faq',       label: 'FAQ'       },
+        ]} />
       </div>
     </div>
   )

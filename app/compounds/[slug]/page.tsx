@@ -15,6 +15,7 @@ import { normalizeSlug } from '@/lib/slug-utils'
 import { faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, shouldIndexRoute, SITE_URL } from '../../../src/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import CompoundSourceHerbs from '@/components/seo/CompoundSourceHerbs'
+import ProfileTOC from '@/components/ui/ProfileTOC'
 import { getClusterSeeAlso, buildProfileSchemaGraphWithCluster } from '@/lib/cluster-linking'
 import SeeAlsoCluster from '@/components/SeeAlsoCluster'
 import { getGoalsForEntity } from '../../../src/lib/goal-hub-links'
@@ -781,9 +782,11 @@ export default async function CompoundPage({ params }: PageProps) {
 
       <ReadingProgress />
 
-      <div className="mx-auto max-w-4xl space-y-10 px-4 py-6 pb-20">
+      <div className="mx-auto max-w-4xl lg:max-w-6xl space-y-10 px-4 py-6 pb-20">
         <ScrollEngagementPrompt storageKey={`compound-prompt-${normalizedSlug}`} />
-        <Breadcrumbs
+        <div className="flex gap-8 items-start">
+          <div className="flex-1 min-w-0 space-y-10">
+            <Breadcrumbs
           items={[
             { label: 'Home', href: '/' },
             { label: 'Compounds', href: '/compounds' },
@@ -938,7 +941,7 @@ export default async function CompoundPage({ params }: PageProps) {
         </section>
 
         {/* Source herbs — internal links from the curated relationship map */}
-        <CompoundSourceHerbs compoundSlug={compound.slug} compoundName={displayName} />
+        <div id="compounds"><CompoundSourceHerbs compoundSlug={compound.slug} compoundName={displayName} /></div>
 
         {canonicalNote ? (
           <section className="card-premium p-4 sm:p-5 space-y-3">
@@ -959,7 +962,7 @@ export default async function CompoundPage({ params }: PageProps) {
         </section>
 
         {/* Section 3: Evidence Summary */}
-        <section id="evidence-summary" className="card-premium scroll-mt-24 p-4 sm:p-5 space-y-4">
+        <section id="evidence" className="card-premium scroll-mt-24 p-4 sm:p-5 space-y-4">
           <div className="flex items-center gap-2 flex-wrap">
             <h2 className="text-lg font-bold text-ink">Evidence Summary</h2>
             <EvidenceScoreBadge record={compound} size="sm" />
@@ -1206,6 +1209,15 @@ export default async function CompoundPage({ params }: PageProps) {
           <Link href="/safety-checker" className="text-sm font-bold text-brand-800 hover:underline">
             Safety checker →
           </Link>
+        </div>
+          </div>
+          <ProfileTOC items={[
+            { id: 'evidence',  label: 'Evidence'  },
+            { id: 'safety',    label: 'Safety'    },
+            { id: 'dosing',    label: 'Dosing'    },
+            { id: 'compounds', label: 'Compounds' },
+            { id: 'faq',       label: 'FAQ'       },
+          ]} />
         </div>
       </div>
     </>
