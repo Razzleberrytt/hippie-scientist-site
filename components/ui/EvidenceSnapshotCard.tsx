@@ -63,10 +63,10 @@ export default function EvidenceSnapshotCard({ snapshot }: Props) {
   }
 
   return (
-    <section className="border-y border-brand-900/10 py-7">
+    <section className="border-y border-brand-900/10 py-7 dark:border-white/10">
       <div className="flex flex-wrap items-center gap-3">
         {archetype ? (
-          <span className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-800">
+          <span className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-800 dark:text-emerald-100">
             {archetype}
           </span>
         ) : null}
@@ -74,7 +74,7 @@ export default function EvidenceSnapshotCard({ snapshot }: Props) {
         {clusters.slice(0, 4).map((cluster) => (
           <span
             key={cluster}
-            className="text-xs font-semibold text-[#33443a]"
+            className="text-xs font-semibold text-muted"
           >
             {cluster}
           </span>
@@ -86,9 +86,9 @@ export default function EvidenceSnapshotCard({ snapshot }: Props) {
           {items.map((item) => (
             <div
               key={item.label}
-              className="border-t border-brand-900/10 pt-3"
+              className="border-t border-brand-900/10 pt-3 dark:border-white/10"
             >
-              <div className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-[#66756d]">
+              <div className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-muted">
                 {item.label}
               </div>
 
