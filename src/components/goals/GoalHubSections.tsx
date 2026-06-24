@@ -18,18 +18,19 @@ export default function GoalHubSections({
   if (!hasLinks) return null
 
   return (
-    <section className='card-premium p-6 sm:p-8 space-y-6'>
+    <section className='card-premium space-y-6 p-5 sm:p-8'>
       <div>
-        <h2 className='text-xl font-semibold text-ink'>Explore stacks &amp; comparisons</h2>
+        <p className='eyebrow-label'>Explore next</p>
+        <h2 className='mt-2 text-xl font-semibold text-ink'>Stacks and comparisons</h2>
         <p className='mt-2 text-sm leading-6 text-muted'>
           Continue from this goal into pre-built stacks and head-to-head comparisons — educational context only.
         </p>
       </div>
 
       {stack ? (
-        <div className='rounded-2xl border border-brand-900/10 bg-white/70 p-5'>
-          <p className='text-[10px] font-bold uppercase tracking-wider text-brand-700'>Stack</p>
-          <Link href={stack.href} className='mt-2 block text-base font-semibold text-brand-800 hover:underline'>
+        <div className='rounded-2xl border border-brand-900/10 bg-white/70 p-5 dark:border-white/10 dark:bg-white/5'>
+          <p className='text-[10px] font-bold uppercase tracking-wider text-brand-700 dark:text-brand-200'>Stack</p>
+          <Link href={stack.href} className='mt-2 block text-base font-semibold text-brand-800 hover:underline dark:text-brand-100'>
             {stack.label} →
           </Link>
           {stack.note ? <p className='mt-2 text-sm text-muted'>{stack.note}</p> : null}
@@ -38,7 +39,7 @@ export default function GoalHubSections({
 
       {compares.length > 0 ? (
         <div>
-          <p className='text-[10px] font-bold uppercase tracking-wider text-brand-700 mb-3'>
+          <p className='mb-3 text-[10px] font-bold uppercase tracking-wider text-brand-700 dark:text-brand-200'>
             Head-to-head compares
           </p>
           <ul className='grid gap-3 sm:grid-cols-2'>
@@ -46,11 +47,11 @@ export default function GoalHubSections({
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className='block rounded-2xl border border-brand-900/10 bg-white/70 p-4 transition hover:border-brand-700/20 hover:shadow-sm'
+                  className='block rounded-2xl border border-brand-900/10 bg-white/70 p-4 transition hover:border-brand-700/20 hover:bg-white hover:shadow-sm dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10'
                 >
-                  <span className='font-semibold text-brand-800'>{link.label}</span>
+                  <span className='font-semibold text-brand-800 dark:text-brand-100'>{link.label}</span>
                   {link.note ? (
-                    <span className='mt-2 block text-xs leading-relaxed text-muted line-clamp-2'>
+                    <span className='mt-2 block line-clamp-2 text-xs leading-relaxed text-muted'>
                       {link.note}
                     </span>
                   ) : null}
@@ -63,7 +64,7 @@ export default function GoalHubSections({
 
       {seoEntry ? (
         <p className='text-sm text-muted'>
-          <Link href={seoEntry.href} className='font-semibold text-brand-800 hover:underline'>
+          <Link href={seoEntry.href} className='font-semibold text-brand-800 hover:underline dark:text-brand-100'>
             {seoEntry.label}
           </Link>
           {seoEntry.note ? ` — ${seoEntry.note}` : null}
@@ -71,7 +72,7 @@ export default function GoalHubSections({
       ) : null}
 
       <p className='text-xs text-muted'>
-        <Link href='/safety-checker' className='font-semibold text-brand-800 hover:underline'>
+        <Link href='/safety-checker' className='font-semibold text-brand-800 hover:underline dark:text-brand-100'>
           Run the safety interaction checker
         </Link>{' '}
         before stacking multiple products for {goalSlug} support.
