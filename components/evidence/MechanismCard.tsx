@@ -10,7 +10,7 @@ export default function MechanismCard({
   pathway,
 }: MechanismCardProps) {
   return (
-    <div className="card-premium p-6 space-y-4">
+    <div className="card-premium space-y-4 p-6">
       <div className="space-y-2">
         <p className="eyebrow-label">Mechanism Overview</p>
 
@@ -19,12 +19,12 @@ export default function MechanismCard({
         </h3>
       </div>
 
-      <p className="text-sm leading-7 text-[#46574d]">
+      <p className="text-sm leading-7 text-muted">
         {description}
       </p>
 
       {pathway ? (
-        <div className="inline-flex rounded-full bg-[#f5f3ec] px-3 py-1 text-xs font-semibold tracking-wide text-[#5c6b63]">
+        <div className="inline-flex rounded-full border border-brand-900/10 bg-brand-50/70 px-3 py-1 text-xs font-semibold tracking-wide text-brand-800 dark:border-white/10 dark:bg-white/5 dark:text-brand-100">
           Related pathway: {pathway}
         </div>
       ) : null}
