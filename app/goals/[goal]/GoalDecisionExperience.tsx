@@ -49,6 +49,7 @@ type GoalDecisionExperienceProps = {
   startHereLinks?: GoalStartHereLink[]
   goalContent?: GoalContentExtension | null
   captureGoal?: EmailCaptureGoal
+  isEducationOnly?: boolean
 }
 
 type SafetyCard = {
@@ -118,6 +119,7 @@ export default function GoalDecisionExperience({
   startHereLinks = [],
   goalContent = null,
   captureGoal = 'default',
+  isEducationOnly = false,
 }: GoalDecisionExperienceProps) {
   const freshness = getGoalFreshness(goal.slug)
   const config = evidence.config ?? {}
@@ -131,8 +133,8 @@ export default function GoalDecisionExperience({
   const heroHeadline = config.heroHeadline ?? `${goal.title.replace(/ decisions$/, '')}: What does the evidence actually support?`
   const heroDescription = goal.description
   const heroCta = config.heroCta ?? 'Start with the quick answer'
-  const safetyHeading = config.safetyHeading ?? 'Safety notes before buying'
-  const safetyBody = config.safetyBody ?? 'Use this as a screening layer before comparing products. Medication use, pregnancy, chronic conditions, and psychiatric history can change the risk calculation.'
+  const safetyHeading = config.safetyHeading ?? (isEducationOnly ? 'Safety notes before use' : 'Safety notes before buying')
+  const safetyBody = config.safetyBody ?? 'Use this as a screening layer before comparing options. Medication use, pregnancy, chronic conditions, and psychiatric history can change the risk calculation.'
 
   return (
     <div className="mx-auto max-w-6xl space-y-10 px-4 pb-28 pt-8 sm:px-6 sm:py-10 lg:px-8">
@@ -265,7 +267,7 @@ export default function GoalDecisionExperience({
         />
       ) : null}
 
-      <GoalTopAffiliatePicks goalSlug={goal.slug} limit={4} />
+      <GoalTopAffiliatePicks goalSlug={goal.slug} limit={4} suppressMonetization={isEducationOnly} />
 
       <SafetyChecklistPromo goal={captureGoal} variant="hero" />
 

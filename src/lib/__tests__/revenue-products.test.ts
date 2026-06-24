@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { getRevenueProductSet, revenueProductSets } from '@/config/revenue-products'
+import { isRestrictedRecord } from '../restricted-ingredients'
 
 describe('revenue product recommendations', () => {
   it('provides three real recommendation slots for priority ingredients', () => {
@@ -26,9 +27,15 @@ describe('revenue product recommendations', () => {
     const allProducts = Object.values(revenueProductSets).flatMap(set => set.products)
 
     expect(allProducts.length).toBe(276)
-    for (const product of allProducts) {
+    for (const product of allProducts.filter(product => !isRestrictedRecord(product))) {
       expect(product.affiliateUrl).toContain('tag=')
       expect(product.affiliateUrl).toMatch(/^https:\/\/www\.amazon\.com\//)
     }
+  })
+
+  it('does not return restricted kava product sets for monetization', () => {
+    expect(getRevenueProductSet('kava')).toBeNull()
+    expect(getRevenueProductSet('piper-methysticum')).toBeNull()
+    expect(getRevenueProductSet('kavalactones')).toBeNull()
   })
 })

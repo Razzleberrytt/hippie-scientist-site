@@ -5,7 +5,8 @@ import {
   getAffiliateShopLinks,
   getGovernedCompoundSearchLinks,
 } from '../affiliate'
-import { isRestrictedRecord } from '../restricted-ingredients'
+import { getGoal } from '@/data/goals'
+import { goalContainsRestrictedIngredient, isRestrictedRecord } from '../restricted-ingredients'
 
 const baseAffiliateRecord = {
   slug: 'l-theanine',
@@ -78,5 +79,23 @@ describe('affiliate governance gates', () => {
       expect(getAffiliateShopLinks(rec, rec.displayName, 'compound')).toEqual([])
       expect(getGovernedCompoundSearchLinks(rec, rec.displayName)).toEqual([])
     })
+  })
+
+  it('blocks kava and kavalactone markers for monetization governance', () => {
+    expect(isRestrictedRecord({ slug: 'kava' })).toBe(true)
+    expect(isRestrictedRecord({ name: 'Piper methysticum' })).toBe(true)
+    expect(isRestrictedRecord({ slug: 'kavain' })).toBe(true)
+  })
+
+  it('detects the anxiety goal as education-only because it contains kava', () => {
+    const anxiety = getGoal('anxiety')
+
+    expect(goalContainsRestrictedIngredient(anxiety)).toBe(true)
+  })
+
+  it('keeps sleep, stress, and focus outside education-only mode when their ingredients are unrestricted', () => {
+    for (const slug of ['sleep', 'stress', 'focus']) {
+      expect(goalContainsRestrictedIngredient(getGoal(slug))).toBe(false)
+    }
   })
 })

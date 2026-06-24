@@ -7,6 +7,7 @@ type ProductTrustAffiliateProps = {
   rationale: string
   slotLabel?: string
   compact?: boolean
+  suppressMonetization?: boolean
 }
 
 export default function ProductTrustAffiliate({
@@ -16,7 +17,10 @@ export default function ProductTrustAffiliate({
   rationale,
   slotLabel,
   compact = false,
+  suppressMonetization = false,
 }: ProductTrustAffiliateProps) {
+  if (suppressMonetization) return null
+
   const displayTitle = brand ? `${brand} — ${productName}` : productName
 
   if (compact) {

@@ -12,6 +12,7 @@ type RecommendationSectionProps = {
   title?: string
   description?: string
   products: RecommendationProduct[]
+  suppressMonetization?: boolean
 }
 
 const slotLabels: Record<RecommendationSlot, string> = {
@@ -24,7 +25,9 @@ export default function RecommendationSection({
   title = 'Product recommendations',
   description = 'Use these as sourcing starting points, not medical recommendations. Product quality, dose, and fit still need review.',
   products,
+  suppressMonetization = false,
 }: RecommendationSectionProps) {
+  if (suppressMonetization) return null
   if (products.length === 0) return null
 
   const ordered = ['budget', 'overall', 'premium'].flatMap((slot) =>

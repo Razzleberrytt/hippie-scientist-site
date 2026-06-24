@@ -59,7 +59,7 @@ describe('buildHerbArticleSchema', () => {
   it('emits required @context and @type', () => {
     const schema = buildHerbArticleSchema(base)
     expect(schema['@context']).toBe('https://schema.org')
-    expect(schema['@type']).toBe('Article')
+    expect(schema['@type']).toEqual(expect.arrayContaining(['ScholarlyArticle', 'Article']))
   })
 
   it('includes headline (required for Article rich results)', () => {
