@@ -29,7 +29,7 @@ export default function CompoundStats({ compound }: { compound: Record<string, u
           key={stat.label}
           className="surface-subtle rounded-2xl p-5"
         >
-          <div className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-[#66756d]">
+          <div className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-muted">
             {stat.label}
           </div>
 
