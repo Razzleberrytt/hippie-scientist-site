@@ -257,7 +257,29 @@ html:not(.dark) .library-index-page > section:last-child {
 
   .library-index-page h1,
   .goal-decision-experience h1 {
+    max-width: 14ch;
+    font-size: clamp(2.4rem, 12vw, 3.25rem) !important;
+    line-height: 0.98 !important;
+  }
+
+  .library-index-page h2,
+  .goal-decision-experience h2 {
     max-width: 15ch;
+    font-size: clamp(1.75rem, 8.5vw, 2.35rem) !important;
+    line-height: 1.05 !important;
+  }
+
+  .library-index-page h3,
+  .goal-decision-experience h3 {
+    font-size: clamp(1.05rem, 5.2vw, 1.35rem) !important;
+    line-height: 1.18 !important;
+  }
+
+  .library-index-page .library-content-card h3,
+  .library-index-page .card-premium h3,
+  .goal-decision-experience .goal-link-card h3,
+  .goal-decision-experience .goal-mini-card h3 {
+    max-width: 18ch;
   }
 
   .library-index-page .library-nav-card,
