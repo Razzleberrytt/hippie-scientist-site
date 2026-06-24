@@ -440,7 +440,7 @@ function MarkdownArticle({ markdown, slug }: { markdown: string; slug: string })
             <React.Fragment key={index}>
               {criteriaBlock}
               {capture}
-              <p className="text-[1.03rem] leading-8 text-[#46574d]">
+              <p className="text-[1.03rem] leading-8 text-muted">
                 {renderInline(block.text)}
               </p>
             </React.Fragment>
@@ -452,7 +452,7 @@ function MarkdownArticle({ markdown, slug }: { markdown: string; slug: string })
             <React.Fragment key={index}>
               {criteriaBlock}
               {capture}
-              <blockquote className="border-l-4 border-brand-700/30 bg-brand-50/60 py-3 pl-4 pr-3 text-[1.01rem] leading-8 text-[#46574d]">
+              <blockquote className="border-l-4 border-brand-700/30 bg-brand-50/60 py-3 pl-4 pr-3 text-[1.01rem] leading-8 text-muted">
                 {renderInline(block.text)}
               </blockquote>
             </React.Fragment>
@@ -494,7 +494,7 @@ function MarkdownArticle({ markdown, slug }: { markdown: string; slug: string })
                     {block.rows.map((row, rowIndex) => (
                       <tr key={rowIndex}>
                         {row.map((cell, cellIndex) => (
-                          <td key={`${rowIndex}-${cellIndex}`} className="px-4 py-3 align-top leading-6 text-[#46574d]">
+                          <td key={`${rowIndex}-${cellIndex}`} className="px-4 py-3 align-top leading-6 text-muted">
                             {renderInline(cell)}
                           </td>
                         ))}
@@ -585,7 +585,7 @@ export default async function FocusClusterRootArticlePage({ params }: { params: 
         <h1 className="mt-3 font-display text-4xl font-semibold leading-tight tracking-tight text-ink sm:text-5xl">
           {article.title}
         </h1>
-        <p className="mt-5 max-w-3xl text-base leading-7 text-[#46574d]">
+        <p className="mt-5 max-w-3xl text-base leading-7 text-muted">
           {article.metaDescription}
         </p>
         <div className="mt-5 flex flex-wrap gap-2 text-xs">

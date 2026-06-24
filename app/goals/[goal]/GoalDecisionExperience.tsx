@@ -164,6 +164,8 @@ export default function GoalDecisionExperience({
         </div>
       </section>
 
+      <GoalStartHereLinks links={startHereLinks} />
+
       <section id={quickAnswerId} className="card-premium scroll-mt-24 p-5 sm:p-8">
         <div className="max-w-3xl">
           <p className="eyebrow-label">Quick answer</p>
@@ -235,6 +237,10 @@ export default function GoalDecisionExperience({
         </div>
       </section>
 
+      <AuthorCredentials />
+
+      <GoalTopAffiliatePicks goalSlug={goal.slug} limit={2} suppressMonetization={isEducationOnly} />
+
       <section id="safety-first" className="rounded-[1.5rem] border border-rose-700/15 bg-rose-50/75 p-5 shadow-sm sm:rounded-[2rem] sm:p-9 dark:border-rose-200/20 dark:bg-rose-950/30">
         <div className="max-w-3xl">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-rose-800 dark:text-rose-200">Safety notes</p>
@@ -251,8 +257,6 @@ export default function GoalDecisionExperience({
           ))}
         </div>
       </section>
-
-      <GoalStartHereLinks links={startHereLinks} />
 
       {cluster ? <ArticleClusterLinks category={cluster} /> : null}
 
@@ -305,11 +309,7 @@ export default function GoalDecisionExperience({
         </section>
       ) : null}
 
-      <GoalTopAffiliatePicks goalSlug={goal.slug} limit={2} suppressMonetization={isEducationOnly} />
-
       <SafetyChecklistPromo goal={captureGoal} variant="compact" />
-
-      <AuthorCredentials />
 
       <footer className="rounded-2xl border border-brand-900/10 bg-brand-950/[0.02] p-5 text-xs leading-6 text-muted dark:border-white/10 dark:bg-white/5">
         Educational only. Not medical advice. Evidence varies by population, preparation, dose, timing, and study design.

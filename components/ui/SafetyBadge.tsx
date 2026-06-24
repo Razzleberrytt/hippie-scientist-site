@@ -9,17 +9,13 @@ export default function SafetyBadge({ level = 'Safety review pending' }: { level
   const label = normalizeDecisionSafety(level)
   const tone = getDecisionSafetyTone(label)
   const isPending = label === 'Safety review pending'
-  const aria = isPending
-    ? 'Safety data pending review; use caution and review the full profile before making decisions.'
-    : undefined
+  const displayLabel = isPending ? 'Safety notes in development' : label
 
   return (
     <span
       className={`${decisionStatusBadgeClass} ${safetyToneClasses(tone)}`}
-      aria-label={aria}
-      title={isPending ? 'Safety data is still under review' : undefined}
     >
-      {label}
+      {displayLabel}
     </span>
   )
 }

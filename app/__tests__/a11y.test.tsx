@@ -16,11 +16,8 @@ async function checkA11y(container: HTMLElement) {
 describe('a11y (axe-core)', () => {
   it('SafetyBadge for pending status has accessible label and no serious violations', async () => {
     const { container } = render(<SafetyBadge level="Safety review pending" />)
-    // Visible text
-    expect(screen.getByText(/Safety review pending/i)).toBeInTheDocument()
-    // Has explanatory aria for ambiguous state
-    const badge = screen.getByText(/Safety review pending/i).closest('span')
-    expect(badge).toHaveAttribute('aria-label', expect.stringContaining('pending review'))
+    // Visible text shows the updated label
+    expect(screen.getByText(/Safety notes in development/i)).toBeInTheDocument()
     await checkA11y(container)
   })
 

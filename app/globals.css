@@ -201,6 +201,12 @@ html.dark {
   --border-c: var(--border-soft);
   --shadow-card-calm: 0 1px 3px rgba(0, 0, 0, 0.22);
   --shadow-card-calm-hover: 0 8px 22px rgba(0, 0, 0, 0.24);
+  /* evidence badge colors — lightened for contrast on dark green card backgrounds */
+  --color-evidence-strong: #6ee7a0;
+  --color-evidence-moderate: #93c5fd;
+  --color-evidence-limited: #fcd34d;
+  --color-evidence-theoretical: #94a3b8;
+  --color-evidence-risk: #fca5a5;
   color-scheme: dark;
 }
 

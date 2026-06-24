@@ -211,23 +211,22 @@ function SectionHeader({ kicker, title, children }: { kicker: string; title: str
     <div className="space-y-2">
       <p className="eyebrow-label">{kicker}</p>
       <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{title}</h2>
-      {children ? <div className="text-sm leading-6 text-[#46574d]">{children}</div> : null}
+      {children ? <div className="text-sm leading-6 text-muted">{children}</div> : null}
     </div>
   )
 }
 
 export function AshwagandhaStressClaim() {
   return (
-    <section id="ashwagandha-stress-claim" className="space-y-6 rounded-[1.35rem] border border-emerald-900/15 bg-white/80 p-4 shadow-sm sm:p-6">
+    <section id="ashwagandha-stress-claim" className="space-y-6 rounded-[1.35rem] border border-emerald-900/15 bg-white/80 p-4 shadow-sm sm:p-6 dark:border-white/10">
       <header className="hero-shell rounded-[1.15rem] border border-brand-900/10 p-4 sm:p-6">
         <div className="flex flex-wrap items-center gap-2">
           <span className="evidence-pill-moderate">{claim.evidenceLabel} evidence</span>
-          <span className="rounded-full border border-amber-700/15 bg-amber-100/70 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-amber-900">{claim.safetyModifier}</span>
+          <span className="rounded-full border border-amber-700/15 bg-amber-100/70 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-amber-900 dark:border-amber-400/20 dark:bg-amber-300/10 dark:text-amber-200">{claim.safetyModifier}</span>
         </div>
         <div className="mt-5 space-y-3">
-          <p className="eyebrow-label">Evidence Engine proof of concept</p>
           <h2 className="max-w-[26ch] text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{claim.statement}</h2>
-          <p className="max-w-3xl text-base leading-7 text-[#46574d]">A claim-level view for one practical question: does the evidence justify considering ashwagandha for perceived stress?</p>
+          <p className="max-w-3xl text-base leading-7 text-muted">A claim-level view for one practical question: does the evidence justify considering ashwagandha for perceived stress?</p>
         </div>
         <dl className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {[
@@ -249,7 +248,7 @@ export function AshwagandhaStressClaim() {
         <SectionHeader kicker="Bottom line" title="Promising, short-term, and not universal" />
         <div className="mt-4 grid gap-3">
           {claim.bottomLine.map(item => (
-            <p key={item} className="rounded-xl border border-brand-900/10 bg-white/80 p-3 text-sm leading-6 text-[#46574d]">{item}</p>
+            <p key={item} className="rounded-xl border border-brand-900/10 bg-white/80 p-3 text-sm leading-6 text-muted">{item}</p>
           ))}
         </div>
       </section>
@@ -262,7 +261,7 @@ export function AshwagandhaStressClaim() {
           {decisionStates.map(item => (
             <div key={item.state} className={`rounded-xl border p-4 ${item.active ? 'border-emerald-700/25 bg-emerald-50/80' : 'border-brand-900/10 bg-white/75'}`}>
               <p className={`text-sm font-bold ${item.active ? 'text-emerald-900' : 'text-ink'}`}>{item.active ? '✓ ' : ''}{item.state}</p>
-              <p className="mt-2 text-sm leading-6 text-[#46574d]">{item.note}</p>
+              <p className="mt-2 text-sm leading-6 text-muted">{item.note}</p>
             </div>
           ))}
         </div>
@@ -278,7 +277,7 @@ export function AshwagandhaStressClaim() {
                 <span className="font-mono text-sm tracking-wider text-emerald-800" aria-label={`${item.level} evidence indicator`}>{item.indicator}</span>
               </div>
               <p className="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-muted">{item.level}</p>
-              <p className="mt-2 text-sm leading-6 text-[#46574d]">{item.explanation}</p>
+              <p className="mt-2 text-sm leading-6 text-muted">{item.explanation}</p>
             </div>
           ))}
         </div>
@@ -293,7 +292,7 @@ export function AshwagandhaStressClaim() {
                 {['Year', 'Type', 'Population', 'Sample', 'Duration', 'Result', 'Relevance'].map(heading => <th key={heading} className="px-3 py-3 font-semibold">{heading}</th>)}
               </tr>
             </thead>
-            <tbody className="text-[#46574d]">
+            <tbody className="text-muted">
               {supportingStudies.map(study => (
                 <tr key={`${study.year}-${study.sampleSize}`} className="border-b border-brand-900/10 last:border-0">
                   <td className="px-3 py-3 font-semibold text-ink">{study.year}</td>
@@ -313,9 +312,9 @@ export function AshwagandhaStressClaim() {
       <section className="rounded-2xl border border-amber-800/15 bg-amber-50/75 p-4 sm:p-5">
         <SectionHeader kicker="Contradictory evidence" title="What disagrees, and how much should it change confidence?" />
         <div className="mt-4 grid gap-3 sm:grid-cols-3">
-          <div className="rounded-xl border border-amber-900/10 bg-white/70 p-4"><h3 className="text-base font-semibold text-ink">What disagrees</h3><p className="mt-2 text-sm leading-6 text-[#5f4a24]">A 2023 trial in adults with high stress and fatigue found fatigue improvement but not a clear perceived-stress reduction versus placebo.</p></div>
-          <div className="rounded-xl border border-amber-900/10 bg-white/70 p-4"><h3 className="text-base font-semibold text-ink">Why it may disagree</h3><p className="mt-2 text-sm leading-6 text-[#5f4a24]">Population, baseline fatigue, extract chemistry, dose, study duration, and outcome sensitivity can all change whether perceived stress moves.</p></div>
-          <div className="rounded-xl border border-amber-900/10 bg-white/70 p-4"><h3 className="text-base font-semibold text-ink">Confidence change</h3><p className="mt-2 text-sm leading-6 text-[#5f4a24]">This keeps the label at Moderate and changes the practical state to “consider with caution,” not “strongly recommended.”</p></div>
+          <div className="rounded-xl border border-amber-900/10 bg-white/70 p-4"><h3 className="text-base font-semibold text-ink">What disagrees</h3><p className="mt-2 text-sm leading-6 text-muted">A 2023 trial in adults with high stress and fatigue found fatigue improvement but not a clear perceived-stress reduction versus placebo.</p></div>
+          <div className="rounded-xl border border-amber-900/10 bg-white/70 p-4"><h3 className="text-base font-semibold text-ink">Why it may disagree</h3><p className="mt-2 text-sm leading-6 text-muted">Population, baseline fatigue, extract chemistry, dose, study duration, and outcome sensitivity can all change whether perceived stress moves.</p></div>
+          <div className="rounded-xl border border-amber-900/10 bg-white/70 p-4"><h3 className="text-base font-semibold text-ink">Confidence change</h3><p className="mt-2 text-sm leading-6 text-muted">This keeps the label at Moderate and changes the practical state to “consider with caution,” not “strongly recommended.”</p></div>
         </div>
       </section>
 
@@ -325,7 +324,7 @@ export function AshwagandhaStressClaim() {
           {safetyGroups.map(group => (
             <div key={group.title} className="rounded-xl border border-amber-900/10 bg-white/75 p-4">
               <h3 className="text-base font-semibold text-ink">{group.title}</h3>
-              <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-6 text-[#5f4a24]">
+              <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-6 text-muted">
                 {group.items.map(item => <li key={item}>{item}</li>)}
               </ul>
             </div>
@@ -336,7 +335,7 @@ export function AshwagandhaStressClaim() {
       <section className="card-premium p-4 sm:p-5">
         <SectionHeader kicker="What we still do not know" title="The limits are part of the claim" />
         <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-          {unknowns.map(item => <li key={item} className="rounded-xl border border-brand-900/10 bg-white/80 p-3 text-sm leading-6 text-[#46574d]">{item}</li>)}
+          {unknowns.map(item => <li key={item} className="rounded-xl border border-brand-900/10 bg-white/80 p-3 text-sm leading-6 text-muted">{item}</li>)}
         </ul>
       </section>
 
@@ -347,9 +346,9 @@ export function AshwagandhaStressClaim() {
             <article key={source.citation} className="rounded-xl border border-brand-900/10 bg-white/80 p-4">
               <h3 className="max-w-none text-base font-semibold text-ink"><a href={source.href} className="hover:underline">{source.citation}</a></h3>
               <dl className="mt-3 grid gap-2 text-sm sm:grid-cols-3">
-                <div><dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Study type</dt><dd className="mt-1 text-[#46574d]">{source.studyType}</dd></div>
-                <div><dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Relationship</dt><dd className="mt-1 text-[#46574d]">{source.relationship}</dd></div>
-                <div><dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Extraction note</dt><dd className="mt-1 text-[#46574d]">{source.note}</dd></div>
+                <div><dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Study type</dt><dd className="mt-1 text-muted">{source.studyType}</dd></div>
+                <div><dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Relationship</dt><dd className="mt-1 text-muted">{source.relationship}</dd></div>
+                <div><dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Extraction note</dt><dd className="mt-1 text-muted">{source.note}</dd></div>
               </dl>
             </article>
           ))}
@@ -362,7 +361,7 @@ export function AshwagandhaStressClaim() {
           {nextDecisions.map(item => (
             <Link key={item.href} href={item.href} className="rounded-xl border border-brand-900/10 bg-white/80 p-4 hover:border-emerald-700/20 hover:bg-emerald-50/60">
               <span className="text-sm font-semibold text-ink">{item.label}</span>
-              <span className="mt-2 block text-sm leading-6 text-[#46574d]">{item.note}</span>
+              <span className="mt-2 block text-sm leading-6 text-muted">{item.note}</span>
             </Link>
           ))}
         </div>

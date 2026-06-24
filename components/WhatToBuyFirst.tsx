@@ -44,7 +44,7 @@ function RankBadge({ rank, isFeatured }: { rank: number; isFeatured: boolean }) 
     )
   }
   return (
-    <span className="inline-flex min-w-[2rem] items-center justify-center rounded-full border border-brand-900/10 bg-white px-2 py-0.5 text-xs font-semibold text-[#5f6f66]">
+    <span className="inline-flex min-w-[2rem] items-center justify-center rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-2 py-0.5 text-xs font-semibold text-muted dark:border-white/10">
       #{rank}
     </span>
   )
@@ -62,7 +62,7 @@ export default function WhatToBuyFirst({
     'Ranked by evidence strength, safety profile, and practical cost. Review each profile before purchasing.'
 
   return (
-    <section aria-labelledby="wtbf-heading" className="rounded-[1.25rem] border border-brand-900/10 bg-white/90 shadow-sm overflow-hidden">
+    <section aria-labelledby="wtbf-heading" className="rounded-[1.25rem] border border-brand-900/10 bg-white/90 shadow-sm overflow-hidden dark:border-white/10 dark:bg-[var(--surface-card)]">
       {/* Header */}
       <div className="border-b border-brand-900/10 bg-brand-50/40 px-5 py-4 sm:px-6 sm:py-5">
         <div className="flex flex-wrap items-start justify-between gap-3">
@@ -76,7 +76,7 @@ export default function WhatToBuyFirst({
             >
               {title}
             </h2>
-            <p className="text-sm leading-6 text-[#46574d]">
+            <p className="text-sm leading-6 text-muted">
               {description || defaultDescription}
             </p>
           </div>
@@ -103,23 +103,23 @@ export default function WhatToBuyFirst({
       <div className="hidden sm:block overflow-x-auto">
         <table className="min-w-full text-sm">
           <thead>
-            <tr className="border-b border-brand-900/10 bg-[#fbfaf6]/60">
-              <th scope="col" className="py-3 pl-5 pr-3 text-left text-[0.64rem] font-bold uppercase tracking-[0.09em] text-[#68786f]">
+            <tr className="border-b border-brand-900/10 bg-brand-50/40 dark:bg-white/5">
+              <th scope="col" className="py-3 pl-5 pr-3 text-left text-[0.64rem] font-bold uppercase tracking-[0.09em] text-muted">
                 Rank
               </th>
-              <th scope="col" className="py-3 px-3 text-left text-[0.64rem] font-bold uppercase tracking-[0.09em] text-[#68786f]">
+              <th scope="col" className="py-3 px-3 text-left text-[0.64rem] font-bold uppercase tracking-[0.09em] text-muted">
                 Option
               </th>
-              <th scope="col" className="py-3 px-3 text-left text-[0.64rem] font-bold uppercase tracking-[0.09em] text-[#68786f]">
+              <th scope="col" className="py-3 px-3 text-left text-[0.64rem] font-bold uppercase tracking-[0.09em] text-muted">
                 Evidence
               </th>
-              <th scope="col" className="py-3 px-3 text-left text-[0.64rem] font-bold uppercase tracking-[0.09em] text-[#68786f]">
+              <th scope="col" className="py-3 px-3 text-left text-[0.64rem] font-bold uppercase tracking-[0.09em] text-muted">
                 Typical dose
               </th>
-              <th scope="col" className="py-3 px-3 text-left text-[0.64rem] font-bold uppercase tracking-[0.09em] text-[#68786f]">
+              <th scope="col" className="py-3 px-3 text-left text-[0.64rem] font-bold uppercase tracking-[0.09em] text-muted">
                 Cost
               </th>
-              <th scope="col" className="py-3 pl-3 pr-5 text-left text-[0.64rem] font-bold uppercase tracking-[0.09em] text-[#68786f]">
+              <th scope="col" className="py-3 pl-3 pr-5 text-left text-[0.64rem] font-bold uppercase tracking-[0.09em] text-muted">
                 <span className="sr-only">Affiliate link</span>
               </th>
             </tr>
@@ -161,8 +161,8 @@ export default function WhatToBuyFirst({
                 </td>
 
                 {/* Dose */}
-                <td className="py-4 px-3 text-xs text-[#5f6f66]">
-                  {entry.typicalDose || <span className="text-[#9ab3a0]">Varies</span>}
+                <td className="py-4 px-3 text-xs text-muted">
+                  {entry.typicalDose || <span className="text-muted/60">Varies</span>}
                 </td>
 
                 {/* Price tier */}
@@ -199,7 +199,7 @@ export default function WhatToBuyFirst({
       </div>
 
       {/* Disclaimer footer */}
-      <div className="border-t border-brand-900/10 bg-[#fbfaf6]/40 px-5 py-3 text-[0.65rem] leading-5 text-[#7a8e82]">
+      <div className="border-t border-brand-900/10 bg-brand-50/40 px-5 py-3 text-[0.65rem] leading-5 text-muted dark:border-white/10 dark:bg-white/5">
         Rankings are educational starting points. Affiliate links help support this site — we
         only link products we&apos;ve reviewed. Always read the profile and consult a clinician
         before use.{' '}
@@ -234,14 +234,14 @@ function WhatToBuyCard({ entry }: { entry: WhatToBuyFirstEntry }) {
           </Link>
 
           {entry.bestFor && (
-            <p className="text-xs text-[#5f6f66]">{entry.bestFor}</p>
+            <p className="text-xs text-muted">{entry.bestFor}</p>
           )}
 
           <EvidenceMeter data={entry.evidenceData} compact />
 
           <div className="flex flex-wrap items-center gap-2">
             {entry.typicalDose && (
-              <span className="text-xs text-[#5f6f66]">{entry.typicalDose}</span>
+              <span className="text-xs text-muted">{entry.typicalDose}</span>
             )}
             <PriceBadge tier={entry.priceTier} />
           </div>

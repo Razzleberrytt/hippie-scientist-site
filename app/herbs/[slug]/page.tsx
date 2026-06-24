@@ -480,13 +480,6 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
       <div className="flex gap-8 items-start">
         <div className="flex-1 min-w-0 space-y-10">
-          {/* Header Breadcrumb - use only common name, not scientific name */}
-      <nav className="flex items-center gap-2 text-xs text-muted">
-        <Link href="/herbs" className="transition hover:text-ink">Herbs</Link>
-        <span>/</span>
-        <span className="text-ink font-medium">{displayName}</span>
-      </nav>
-
       {/* Title Header */}
       <div className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 sm:p-10 shadow-sm">
         <header className="space-y-3">
@@ -497,7 +490,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
             </h1>
             {botanicalName ? <p className="text-sm italic text-muted">{botanicalName}</p> : null}
           </div>
-          <p className="text-base leading-7 text-[#46574d]">{briefSummary}</p>
+          <p className="text-base leading-7 text-muted">{briefSummary}</p>
           <div className="mt-3 flex flex-wrap items-center gap-3">
             <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
             <EvidenceScoreBadge record={herbRecord} />
@@ -506,7 +499,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       </div>
 
       {/* Jump navigation — lets keyboard and screen-reader users reach sections directly */}
-      <nav aria-label="Jump to profile sections" className="flex flex-wrap gap-2">
+      <nav aria-label="Jump to profile sections" className="flex flex-nowrap overflow-x-auto gap-2 pb-1" style={{ scrollbarWidth: 'none' }}>
         {[
           { label: 'Quick Stats', href: '#quick-stats' },
           { label: 'Safety', href: '#safety' },
@@ -517,7 +510,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
           <a
             key={href}
             href={href}
-            className="rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-3 py-1.5 text-xs font-semibold text-brand-800 transition-colors hover:bg-brand-50"
+            className="rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-3 py-1.5 text-xs font-semibold text-brand-800 transition-colors hover:bg-brand-50 dark:hover:bg-white/10"
           >
             {label}
           </a>
@@ -550,8 +543,8 @@ export default async function HerbDetailPage({ params }: PageProps) {
           )}
           {avoidIf.length > 0 && (
             <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-amber-900 font-semibold">Avoid / review if</p>
-              <p className="mt-1 text-sm text-amber-900">{avoidIf.slice(0, 3).join(', ')}</p>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-amber-900 dark:text-amber-300 font-semibold">Avoid / review if</p>
+              <p className="mt-1 text-sm text-amber-900 dark:text-amber-200">{avoidIf.slice(0, 3).join(', ')}</p>
             </div>
           )}
         </div>
@@ -608,9 +601,9 @@ export default async function HerbDetailPage({ params }: PageProps) {
                 ))}
               </div>
             </div>
-            <div className="rounded-2xl border border-amber-900/10 bg-amber-50/70 p-4">
-              <h3 className="font-bold text-amber-950">Safety checks</h3>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-xs leading-5 text-amber-900/90">
+            <div className="rounded-2xl border border-amber-900/10 bg-amber-50/70 p-4 dark:border-amber-400/20 dark:bg-[var(--surface-warning)]">
+              <h3 className="font-bold text-amber-950 dark:text-amber-200">Safety checks</h3>
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-xs leading-5 text-amber-900/90 dark:text-amber-200/80">
                 {expansion.safetyNotes.map((item) => <li key={item}>{item}</li>)}
               </ul>
             </div>
@@ -637,15 +630,15 @@ export default async function HerbDetailPage({ params }: PageProps) {
       ) : null}
 
       {/* Section 2: Safety */}
-      <section id="safety" className="rounded-2xl bg-amber-50/70 border border-amber-900/10 border-l-4 border-amber-500/60 p-4 sm:p-5 space-y-3">
+      <section id="safety" className="rounded-2xl bg-amber-50/70 border border-amber-900/10 border-l-4 border-amber-500/60 p-4 sm:p-5 space-y-3 dark:bg-[var(--surface-warning)] dark:border-amber-400/20 dark:border-l-amber-400/50">
         <h2 className="text-lg font-bold text-ink">Safety &amp; Cautions</h2>
-        <p className="text-sm leading-6 text-amber-900">{safetySummary}</p>
+        <p className="text-sm leading-6 text-amber-900 dark:text-amber-200">{safetySummary}</p>
         {safetyGroups.length > 0 && (
-          <div className="mt-4 grid gap-4 pt-3 border-t border-amber-900/10 sm:grid-cols-2">
+          <div className="mt-4 grid gap-4 pt-3 border-t border-amber-900/10 dark:border-amber-400/15 sm:grid-cols-2">
             {safetyGroups.map(group => (
               <div key={group.title} className="space-y-1.5">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-amber-900 font-semibold">{group.title}</h3>
-                <ul className="space-y-1 text-xs text-amber-900">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-amber-900 dark:text-amber-300 font-semibold">{group.title}</h3>
+                <ul className="space-y-1 text-xs text-amber-900 dark:text-amber-200/80">
                   {group.items.map(item => <li key={item}>• {item}</li>)}
                 </ul>
               </div>

@@ -16,6 +16,7 @@ import { clampPositiveInt } from '@/lib/pagination'
 import { focusAdhdArticleSummaries } from '@/lib/focus-adhd-articles'
 import { getAllFocusClusterArticles } from '@/lib/focus-cluster-markdown'
 import JsonLd from '@/components/seo/JsonLd'
+import ArticleThumbnailFallback from '@/components/articles/ArticleThumbnailFallback'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Research Archive & Educational Articles',
@@ -112,6 +113,7 @@ function BlogCard({ post }: { post: ArticleCardPost }) {
 
   return (
     <article className="library-content-card card-premium flex h-full flex-col p-4">
+      <ArticleThumbnailFallback category={post.categories?.[0]} title={post.title} />
       <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
         <Link href={cat.href} className="rounded-full border border-brand-900/10 bg-white/70 px-2 py-0.5 font-semibold text-brand-800 dark:border-white/10 dark:bg-white/5 dark:text-brand-100">
           {cat.label}

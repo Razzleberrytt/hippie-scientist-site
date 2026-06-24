@@ -658,9 +658,9 @@ export default async function GoalDecisionPage({
         </article>
       </section>
 
-      <section id="safety-first" className="rounded-[2rem] border border-amber-600/10 bg-amber-50/50 p-7 sm:p-9 shadow-sm">
-        <h2 className="text-base font-bold text-amber-950">How to read this guide</h2>
-        <p className="mt-2 text-sm leading-7 text-amber-900">
+      <section id="safety-first" className="rounded-[2rem] border border-amber-600/10 bg-amber-50/50 p-7 sm:p-9 shadow-sm dark:border-amber-400/20 dark:bg-[var(--surface-warning)]">
+        <h2 className="text-base font-bold text-amber-950 dark:text-amber-200">How to read this guide</h2>
+        <p className="mt-2 text-sm leading-7 text-amber-900 dark:text-amber-200/80">
           These comparisons are educational triage notes, not treatment instructions. They are meant to
           help you compare evidence strength, tolerance issues, and practical tradeoffs before reading the
           full profile or speaking with a qualified clinician.
@@ -679,9 +679,9 @@ export default async function GoalDecisionPage({
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {enrichedOptions.map(({ option }) => (
-            <article key={`${option.slug}-avoid`} className="rounded-2xl border border-rose-600/10 bg-rose-50/50 p-5 shadow-sm">
-              <h3 className="text-sm font-bold uppercase tracking-wider text-rose-900">Review Carefully — {option.name}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-rose-800">{option.avoidIf}</p>
+            <article key={`${option.slug}-avoid`} className="rounded-2xl border border-rose-600/10 bg-rose-50/50 p-5 shadow-sm dark:border-rose-400/20 dark:bg-rose-950/30">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-rose-900 dark:text-rose-200">Review Carefully — {option.name}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-rose-800 dark:text-rose-200/80">{option.avoidIf}</p>
             </article>
           ))}
         </div>
