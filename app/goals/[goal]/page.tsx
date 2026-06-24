@@ -6,6 +6,7 @@ import { getHerbBySlug, getCompoundBySlug, getGoalEvidenceEngine } from '../../.
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
 import { SITE_URL } from '../../../src/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
+import JsonLd from '@/components/seo/JsonLd'
 import { buildGoalSchemaGraph } from '../../../src/lib/schema-graph'
 import { buildGoalClusterGraph } from '@/lib/cluster-linking'
 import { buildGoalPageMetadata } from '../../../src/lib/goal-seo'
@@ -338,10 +339,14 @@ export default async function GoalDecisionPage({
   })
 
   const clusterGraph = buildGoalClusterGraph(goal.slug)
+  const isHarmReductionZone = ['kava', 'kratom', 'harm-reduction', 'psychedelic'].includes(goal.slug);
   const structuredData = (
     <>
       <SchemaGraphScript graph={schemaGraph} />
       {clusterGraph ? <SchemaGraphScript graph={clusterGraph} /> : null}
+      {!isHarmReductionZone && faqQuestions && faqQuestions.length > 0 && (
+        <JsonLd schema={faqPageJsonLd({ pagePath: goalPath, questions: faqQuestions })} />
+      )}
     </>
   )
 
