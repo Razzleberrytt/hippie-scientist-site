@@ -267,10 +267,6 @@ export default function GoalDecisionExperience({
         />
       ) : null}
 
-      <GoalTopAffiliatePicks goalSlug={goal.slug} limit={4} suppressMonetization={isEducationOnly} />
-
-      <SafetyChecklistPromo goal={captureGoal} variant="hero" />
-
       {faqItems.length > 0 ? (
         <section className="card-premium p-5 sm:p-8">
           <div className="max-w-3xl">
@@ -308,6 +304,10 @@ export default function GoalDecisionExperience({
           </Link>
         </section>
       ) : null}
+
+      <GoalTopAffiliatePicks goalSlug={goal.slug} limit={2} suppressMonetization={isEducationOnly} />
+
+      <SafetyChecklistPromo goal={captureGoal} variant="compact" />
 
       <AuthorCredentials />
 
