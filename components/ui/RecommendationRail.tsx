@@ -27,7 +27,7 @@ export default function RecommendationRail({ title, subtitle, items }: Props) {
   return (
     <section className="space-y-5">
       <div>
-        <div className={`${decisionMicroLabelClass} text-brand-700`}>
+        <div className={`${decisionMicroLabelClass} text-brand-700 dark:text-brand-200`}>
           Semantic Discovery
         </div>
 
@@ -36,7 +36,7 @@ export default function RecommendationRail({ title, subtitle, items }: Props) {
         </h2>
 
         {subtitle && (
-          <p className="mt-3 max-w-3xl text-sm leading-7 text-[#46574d]">
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-muted">
             {subtitle}
           </p>
         )}
@@ -55,22 +55,22 @@ export default function RecommendationRail({ title, subtitle, items }: Props) {
             >
               <div className="space-y-4">
                 <div className="flex items-start justify-between gap-3">
-                  <h3 className="min-w-0 flex-1 break-words text-lg font-semibold text-ink transition group-hover:text-brand-800">
+                  <h3 className="min-w-0 flex-1 break-words text-lg font-semibold text-ink transition group-hover:text-brand-800 dark:group-hover:text-brand-100">
                     {item.name || item.slug}
                   </h3>
 
                   <div className={decisionMetadataClusterClass}>
-                    <div className={`${decisionStatusBadgeClass} shrink-0 border-brand-900/10 bg-white/80 text-[#5f6f66]`}>
+                    <div className={`${decisionStatusBadgeClass} shrink-0 border-brand-900/10 bg-white/80 text-muted dark:border-white/10 dark:bg-white/5`}>
                       {strengthLabel}
                     </div>
                   </div>
                 </div>
 
-                <p className="text-sm leading-7 text-[#46574d]">
+                <p className="text-sm leading-7 text-muted">
                   {isClean(item.relationship_reason) ? item.relationship_reason : 'Related through shared mechanisms, pathways, or overlapping wellness targets.'}
                 </p>
 
-                <div className="h-2 overflow-hidden rounded-full bg-brand-900/10">
+                <div className="h-2 overflow-hidden rounded-full bg-brand-900/10 dark:bg-white/10">
                   <div
                     className="h-full rounded-full bg-gradient-to-r from-brand-600 to-emerald-500"
                     style={{ width: `${strength}%` }}
