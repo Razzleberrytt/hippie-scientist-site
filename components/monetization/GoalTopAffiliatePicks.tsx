@@ -17,7 +17,7 @@ type GoalTopAffiliatePicksProps = {
 
 export default function GoalTopAffiliatePicks({
   goalSlug,
-  limit = 4,
+  limit = 2,
   suppressMonetization = false,
 }: GoalTopAffiliatePicksProps) {
   if (suppressMonetization) return null
@@ -46,16 +46,16 @@ export default function GoalTopAffiliatePicks({
   if (picks.length === 0) return null
 
   return (
-    <section className='card-premium p-6 sm:p-8'>
-      <h2 className='text-xl font-semibold text-ink'>Sourcing picks for this goal</h2>
+    <section className='card-premium p-5 sm:p-8'>
+      <p className='eyebrow-label'>Optional sourcing notes</p>
+      <h2 className='mt-2 text-xl font-semibold text-ink'>Product examples to research carefully</h2>
       <p className='mt-2 text-sm leading-6 text-muted'>
-        These are comparison starting points with quality context — not prescriptions. Open each profile for
-        evidence and safety before buying.
+        These are starting points for checking quality markers — not prescriptions and not a substitute for the safety notes above.
       </p>
       <div className='mt-6 grid gap-4 sm:grid-cols-2'>
         {picks.map((pick) => (
           <div key={pick.key}>
-            <p className='mb-2 text-xs font-semibold uppercase tracking-wider text-brand-700'>{pick.need}</p>
+            <p className='mb-2 text-xs font-semibold uppercase tracking-wider text-brand-700 dark:text-brand-200'>{pick.need}</p>
             <ProductTrustAffiliate
               productName={pick.productName}
               brand={pick.brand}
