@@ -305,8 +305,24 @@ main:has(nav[aria-label="Jump to profile sections"]) a {
     padding: 1rem;
   }
 
+  main:has(nav[aria-label="Jump to profile sections"]) h1,
   #ashwagandha-stress-claim > header h2 {
+    max-width: 15ch;
+    font-size: clamp(2rem, 10vw, 2.75rem) !important;
+    line-height: 1.02 !important;
+  }
+
+  main:has(nav[aria-label="Jump to profile sections"]) h2,
+  #ashwagandha-stress-claim h2 {
     max-width: 16ch;
+    font-size: clamp(1.55rem, 7.8vw, 2.2rem) !important;
+    line-height: 1.08 !important;
+  }
+
+  main:has(nav[aria-label="Jump to profile sections"]) h3,
+  #ashwagandha-stress-claim h3 {
+    font-size: clamp(1.05rem, 5.2vw, 1.35rem) !important;
+    line-height: 1.18 !important;
   }
 
   #ashwagandha-stress-claim .overflow-x-auto::after,
@@ -340,12 +356,17 @@ main:has(nav[aria-label="Jump to profile sections"]) a {
 
 @media (max-width: 480px) {
   #ashwagandha-stress-claim > header h2 {
-    font-size: clamp(2rem, 11vw, 2.8rem);
-    line-height: 0.98;
+    font-size: clamp(1.95rem, 10vw, 2.45rem) !important;
+    line-height: 1.02 !important;
   }
 
   main:has(nav[aria-label="Jump to profile sections"]) h1 {
-    font-size: clamp(2.35rem, 12vw, 3rem);
+    font-size: clamp(2rem, 10.5vw, 2.65rem) !important;
+    line-height: 1.02 !important;
+  }
+
+  main:has(nav[aria-label="Jump to profile sections"]) h2 {
+    font-size: clamp(1.45rem, 7.5vw, 2rem) !important;
   }
 
   #ashwagandha-stress-claim .rounded-xl,
