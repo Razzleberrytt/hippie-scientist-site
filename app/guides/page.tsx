@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/navigation-config'
 
@@ -140,7 +141,7 @@ function GuidesCollectionJsonLd() {
   )
 }
 
-function LibraryCard({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+function LibraryCard({ children, className = '' }: { children: ReactNode; className?: string }) {
   return (
     <div className={`card-premium p-5 sm:p-6 ${className}`}>
       {children}
