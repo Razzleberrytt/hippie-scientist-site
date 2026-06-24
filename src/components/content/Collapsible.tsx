@@ -11,9 +11,9 @@ export default function Collapsible({ title, children, defaultOpen = false, clas
   return (
     <details
       open={defaultOpen}
-      className={`group rounded-xl border border-brand-900/10 bg-white/90 shadow-sm ${className}`}
+      className={`group rounded-xl border border-brand-900/10 bg-white/90 shadow-sm dark:border-white/10 dark:bg-white/5 ${className}`}
     >
-      <summary className="flex cursor-pointer select-none items-center justify-between gap-3 px-5 py-4 font-semibold text-ink transition hover:bg-brand-50/40 rounded-xl group-open:rounded-b-none">
+      <summary className="flex cursor-pointer select-none items-center justify-between gap-3 rounded-xl px-5 py-4 font-semibold text-ink transition hover:bg-brand-50/40 group-open:rounded-b-none dark:hover:bg-white/10">
         <span>{title}</span>
         <span
           className="flex-shrink-0 text-muted transition-transform group-open:rotate-180"
@@ -22,7 +22,7 @@ export default function Collapsible({ title, children, defaultOpen = false, clas
           v
         </span>
       </summary>
-      <div className="px-5 pb-5 pt-3 text-sm leading-7 text-[#46574d] border-t border-brand-900/10">
+      <div className="border-t border-brand-900/10 px-5 pb-5 pt-3 text-sm leading-7 text-muted dark:border-white/10">
         {children}
       </div>
     </details>
