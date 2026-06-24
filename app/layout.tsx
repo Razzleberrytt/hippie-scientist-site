@@ -9,6 +9,7 @@ import { NavigationSchema } from '@/components/NavigationSchema'
 import { BreadcrumbSchema } from '@/components/BreadcrumbSchema'
 import Footer from '../src/components/Footer'
 import MobileBottomNav from '../src/components/mobile-bottom-nav'
+import ScrollToTopButton from '../src/components/ScrollToTopButton'
 import ClickTracker from '@/components/ClickTracker'
 import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
 import { buildPageMetadata, DEFAULT_TITLE, DEFAULT_DESCRIPTION, SITE_URL, SITE_NAME, websiteJsonLd, organizationJsonLd } from '../src/lib/seo'
@@ -112,10 +113,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </main>
           <Footer />
           <MobileBottomNav />
+          <ScrollToTopButton />
           <CitationDrawerLazy />
           <ClickTracker />
           {/* Dark mode toggle — fixed fallback plus nav controls, accessible via keyboard */}
-          <div className='fixed bottom-20 right-4 z-40 md:bottom-6 md:hidden'>
+          <div className='fixed bottom-[6.5rem] right-4 z-40 md:hidden'>
             <DarkModeToggle />
           </div>
         </div>

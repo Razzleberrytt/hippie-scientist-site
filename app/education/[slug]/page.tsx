@@ -34,17 +34,34 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 // Inline markdown formatting helper
+function sanitizeHref(href: string): string {
+  const trimmed = href.trim()
+  if (/^(javascript|data|vbscript):/i.test(trimmed)) return '#'
+  return trimmed
+}
+
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
 function inlineFormat(text: string): string {
   return text
-    .replace(/\[([^\]]+)]\(([^)]+)\)/g, (_match, label: string, href: string) => {
-      const isExternal = /^https?:\/\//i.test(href)
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label: string, href: string) => {
+      const safeHref = sanitizeHref(href)
+      const safeLabel = escapeHtml(label)
+      const isExternal = /^https?:\/\//i.test(safeHref)
       const attrs = isExternal ? ' target="_blank" rel="noopener noreferrer"' : ''
-      return `<a href="${href}"${attrs} class="font-semibold text-brand-700 hover:text-brand-800 hover:underline">${label}</a>`
+      return `<a href="${safeHref}"${attrs} class="font-semibold text-brand-700 hover:text-brand-800 hover:underline">${safeLabel}</a>`
     })
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.+?)\*/g, '<em>$1</em>')
-    .replace(/_(.+?)_/g, '<em>$1</em>')
-    .replace(/`(.+?)`/g, '<code class="rounded bg-brand-50 px-1 py-0.5 font-mono text-sm text-brand-800">$1</code>')
+    .replace(/\*\*(.+?)\*\*/g, (_m, t) => `<strong>${escapeHtml(t)}</strong>`)
+    .replace(/\*(.+?)\*/g, (_m, t) => `<em>${escapeHtml(t)}</em>`)
+    .replace(/_(.+?)_/g, (_m, t) => `<em>${escapeHtml(t)}</em>`)
+    .replace(/`(.+?)`/g, (_m, t) => `<code class="rounded bg-brand-50 px-1 py-0.5 font-mono text-sm text-brand-800">${escapeHtml(t)}</code>`)
 }
 
 export default async function EducationArticlePage({ params }: Props) {

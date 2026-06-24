@@ -1231,6 +1231,11 @@ html.dark :is(
       white-space: normal;
     }
   }
+
+  @keyframes slide-up {
+    from { opacity: 0; transform: translateY(0.75rem); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
 }
 
 /* Article layout typography — scoped to .article-body, inside @layer components

@@ -63,9 +63,11 @@ export default function ScrollEngagementPrompt({
 
   return (
     <div
-      className='fixed bottom-20 left-4 right-4 z-40 mx-auto max-w-md md:bottom-8 md:left-auto md:right-6'
+      className='fixed bottom-20 left-4 right-4 z-[85] mx-auto max-w-md motion-safe:animate-[slide-up_0.2s_ease-out] md:bottom-8 md:left-auto md:right-6'
       role='dialog'
-      aria-label='Newsletter and safety checklist prompt'
+      aria-modal='true'
+      aria-live='polite'
+      aria-label='Safety checklist and newsletter offer'
     >
       <div className='rounded-2xl border border-brand-900/15 bg-white p-4 shadow-lg'>
         <div className='flex items-start justify-between gap-3'>
