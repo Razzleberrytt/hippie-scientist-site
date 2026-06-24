@@ -1,25 +1,18 @@
 {
   "name": "The Hippie Scientist",
   "short_name": "HippieScientist",
-  "description": "Explore consciousness through psychedelic research, ancient wisdom, and modern science",
+  "description": "Evidence-first herb and supplement reference — mechanisms, safety, and research context in plain language.",
   "lang": "en",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#8B5CF6",
+  "background_color": "#fffdf7",
+  "theme_color": "#314b33",
+  "orientation": "portrait-primary",
+  "categories": ["education", "health", "medical"],
   "icons": [
-    {
-      "src": "/icon-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
+    { "src": "/icon-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ],
-  "categories": ["education", "science", "health"],
-  "orientation": "portrait-primary"
+  "screenshots": []
 }

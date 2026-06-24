@@ -52,6 +52,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             __html: `(function(){try{var d=document.documentElement;var s=localStorage.getItem('theme');var p=window.matchMedia('(prefers-color-scheme: dark)').matches;var dark=s==='dark'||((s===null||s==='system')&&p);d.classList.toggle('dark',dark);d.dataset.theme=dark?'dark':'light';d.style.colorScheme=dark?'dark':'light';d.classList.add('theme-ready')}catch(e){}})();`,
           }}
         />
+        <link rel="manifest" href="/manifest.json" />
+        {ga4Id && (
+          <>
+            <link rel="preconnect" href="https://www.googletagmanager.com" />
+            <link rel="preconnect" href="https://www.google-analytics.com" />
+            <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+            <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+          </>
+        )}
       </head>
       <body className='font-sans antialiased'>
         {ga4Id && (
