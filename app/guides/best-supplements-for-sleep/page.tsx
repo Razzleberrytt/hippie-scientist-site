@@ -6,6 +6,16 @@ import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
+import {
+  BestForCard,
+  ComparisonCard,
+  InternalLinkCard,
+  MethodologyStrip,
+  NotBestForCard,
+  ProductPickCard,
+  SafetyBadge,
+  SectionHeader,
+} from '@/components/ui/clinical-apothecary'
 
 const PAGE_URL = `${SITE_URL}/guides/best-supplements-for-sleep`
 
@@ -142,11 +152,12 @@ export default function BestSupplementsForSleepPage() {
       <div className="space-y-14">
 
         {/* Hero */}
-        <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
-          <p className="eyebrow-label">Evidence-based sleep guide</p>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
-            Best Supplements for Sleep
-          </h1>
+        <section className="rounded-lg border border-brand-900/10 bg-white/85 p-6 shadow-sm sm:p-10 dark:bg-[var(--surface-card-strong)]">
+          <SectionHeader
+            eyebrow="Evidence-based sleep guide"
+            title="Best Supplements for Sleep"
+            as="h1"
+          />
           <p className="mt-2 text-xs text-muted">
             Written and reviewed by{' '}
             <Link href="/author" className="font-medium text-brand-700 hover:underline">Will Thomas</Link>
@@ -158,23 +169,19 @@ export default function BestSupplementsForSleepPage() {
             the six best-supported options, their mechanisms, evidence grades, dosing context, safety
             limits, and how to combine them intelligently.
           </p>
-          <div className="mt-6 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
-            <strong>Evidence approach:</strong> Grades reflect human clinical evidence quality (A = strong
-            RCTs, B = moderate RCTs/mixed results, C = preliminary/traditional). All safety notes are
-            conservative. This is educational context, not personal medical advice.
-          </div>
+          <MethodologyStrip
+            className="mt-6"
+            description="Grades reflect human clinical evidence quality (A = strong RCTs, B = moderate RCTs/mixed results, C = preliminary/traditional). All safety notes are conservative. This is educational context, not personal medical advice."
+          />
         </section>
 
         {/* Decision Framework */}
         <section id="match" className="scroll-mt-20 space-y-4">
-          <p className="eyebrow-label">Start here</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">
-            Match supplement to sleep problem
-          </h2>
-          <p className="text-sm text-muted">
-            Sleep problems are not homogeneous. A mismatch between supplement and cause is the most
-            common reason supplements fail.
-          </p>
+          <SectionHeader
+            eyebrow="Start here"
+            title="Match supplement to sleep problem"
+            subtitle="Sleep problems are not homogeneous. A mismatch between supplement and cause is the most common reason supplements fail."
+          />
           <div className="grid gap-4 sm:grid-cols-2">
             {[
               { problem: 'Trouble falling asleep', suggestion: 'Melatonin (low dose) + L-Theanine', href: '/compounds/melatonin' },
@@ -184,100 +191,75 @@ export default function BestSupplementsForSleepPage() {
               { problem: 'Jet lag or shift work', suggestion: 'Melatonin (timed precisely to destination)', href: '/compounds/melatonin' },
               { problem: 'Muscle tension / physical restlessness', suggestion: 'Magnesium Glycinate (evening)', href: '/compounds/magnesium-glycinate' },
             ].map((row) => (
-              <div key={row.problem} className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted">Problem</p>
-                <p className="mt-1 text-sm font-semibold text-ink">{row.problem}</p>
-                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-brand-700">Best option</p>
-                <Link href={row.href} className="mt-1 block text-sm font-medium text-brand-800 hover:underline">
+              <BestForCard key={row.problem} title={row.problem}>
+                <p className="mt-3 text-xs font-bold uppercase tracking-[0.12em] text-brand-700">Best option</p>
+                <Link href={row.href} className="mt-1 block text-sm font-semibold text-brand-800 hover:underline">
                   {row.suggestion}
                 </Link>
-              </div>
+              </BestForCard>
             ))}
           </div>
         </section>
 
         {/* Individual profiles */}
         <section id="profiles" className="scroll-mt-20 space-y-6">
-          <div>
-            <p className="eyebrow-label">Evidence profiles</p>
-            <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">
-              Sleep supplement profiles
-            </h2>
-          </div>
+          <SectionHeader
+            eyebrow="Evidence profiles"
+            title="Sleep supplement profiles"
+          />
           <div className="space-y-5">
             {SLEEP_SUPPLEMENTS.map((s) => (
-              <div key={s.name} className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-                <div className="flex flex-wrap items-start justify-between gap-2">
-                  <Link href={s.href} className="text-xl font-semibold text-brand-800 hover:underline">
-                    {s.name}
-                  </Link>
-                  <span className="rounded-full bg-brand-50 px-3 py-0.5 text-xs font-semibold text-brand-800">
-                    {s.badge}
-                  </span>
+              <ProductPickCard
+                key={s.name}
+                href={s.href}
+                title={s.name}
+                evidence={s.badge}
+                mechanism={s.mechanism}
+                bestFor={s.bestFor}
+                dose={s.dose}
+                safety={s.safety}
+              >
+                <div className="mt-4 rounded-lg border border-brand-900/10 bg-white/60 p-4 dark:bg-[var(--surface-subtle)]">
+                  <p className="font-semibold text-ink">Evidence</p>
+                  <p className="mt-1 text-sm leading-6 text-muted">{s.evidence}</p>
                 </div>
-                <div className="mt-4 grid gap-3 sm:grid-cols-2 text-sm">
-                  <div>
-                    <p className="font-semibold text-ink">Mechanism</p>
-                    <p className="mt-0.5 text-muted">{s.mechanism}</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-ink">Best for</p>
-                    <p className="mt-0.5 text-muted">{s.bestFor}</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-ink">Evidence</p>
-                    <p className="mt-0.5 text-muted">{s.evidence}</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-ink">Typical dose</p>
-                    <p className="mt-0.5 text-muted">{s.dose}</p>
-                  </div>
-                  <div className="sm:col-span-2">
-                    <p className="font-semibold text-ink">Safety</p>
-                    <p className="mt-0.5 text-muted">{s.safety}</p>
-                  </div>
-                </div>
-                <Link href={s.href} className="mt-4 inline-block text-xs font-semibold text-brand-700 hover:underline">
-                  Full profile →
-                </Link>
-              </div>
+              </ProductPickCard>
             ))}
           </div>
         </section>
 
         {/* Stacking guide */}
         <section id="stacking" className="scroll-mt-20 space-y-5">
-          <div>
-            <p className="eyebrow-label">Combinations</p>
-            <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">
-              Evidence-informed stacking guide
-            </h2>
-            <p className="mt-2 text-sm text-muted">
-              These combinations are commonly used, generally well-tolerated, and have mechanistic rationale.
-              Always start with single supplements to establish your individual response first.
-            </p>
-          </div>
+          <SectionHeader
+            eyebrow="Combinations"
+            title="Evidence-informed stacking guide"
+            subtitle="These combinations are commonly used, generally well-tolerated, and have mechanistic rationale. Always start with single supplements to establish your individual response first."
+          />
           <div className="grid gap-4 sm:grid-cols-2">
             {STACKING_GUIDE.map((row) => (
-              <div key={row.stack} className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
-                <p className="text-xs font-bold uppercase tracking-wider text-brand-700">{row.stack}</p>
-                <p className="mt-2 text-sm font-semibold text-ink">{row.combo}</p>
-                <p className="mt-2 text-xs leading-relaxed text-muted">{row.notes}</p>
-              </div>
+              <ComparisonCard
+                key={row.stack}
+                eyebrow={row.stack}
+                title={row.combo}
+                description={row.notes}
+              />
             ))}
           </div>
         </section>
 
         {/* What NOT to do */}
-        <section id="mistakes" className="scroll-mt-20 rounded-[1.65rem] border border-red-100 bg-red-50/60 p-6 space-y-3">
-          <h2 className="text-xl font-semibold text-red-900">Common mistakes to avoid</h2>
-          <ul className="space-y-2 text-sm text-red-800">
-            <li>• <strong>High-dose melatonin:</strong> More is not better — 0.5 mg is often as effective as 10 mg for circadian support with fewer side effects.</li>
-            <li>• <strong>Random stacking:</strong> Adding 4–5 supplements without identifying your root sleep problem. Start with one.</li>
-            <li>• <strong>Expecting instant valerian effects:</strong> Valerian takes 2–4 weeks of consistent use in many studies.</li>
-            <li>• <strong>Using sleep supplements as a substitute for sleep hygiene:</strong> No supplement compensates for screen exposure before bed, inconsistent schedules, or caffeine after noon.</li>
-            <li>• <strong>Ignoring magnesium form:</strong> Magnesium oxide is cheap but poorly absorbed. Glycinate or L-threonate for sleep/cognition.</li>
-          </ul>
+        <section id="mistakes" className="scroll-mt-20 space-y-4">
+          <div className="flex flex-wrap items-center gap-3">
+            <h2 className="text-xl font-semibold text-red-950">Common mistakes to avoid</h2>
+            <SafetyBadge level="avoid" label="Safety-sensitive" />
+          </div>
+          <div className="grid gap-3">
+            <NotBestForCard title="High-dose melatonin" description="More is not better — 0.5 mg is often as effective as 10 mg for circadian support with fewer side effects." />
+            <NotBestForCard title="Random stacking" description="Adding 4–5 supplements without identifying your root sleep problem. Start with one." />
+            <NotBestForCard title="Expecting instant valerian effects" description="Valerian takes 2–4 weeks of consistent use in many studies." />
+            <NotBestForCard title="Using sleep supplements as a substitute for sleep hygiene" description="No supplement compensates for screen exposure before bed, inconsistent schedules, or caffeine after noon." />
+            <NotBestForCard title="Ignoring magnesium form" description="Magnesium oxide is cheap but poorly absorbed. Glycinate or L-threonate for sleep/cognition." />
+          </div>
         </section>
 
         {magnesiumProducts && (
@@ -285,12 +267,12 @@ export default function BestSupplementsForSleepPage() {
         )}
 
         {/* Related */}
-        <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
-          <Link href="/guides/magnesium-vs-melatonin" className="hover:text-brand-800">Magnesium vs Melatonin →</Link>
-          <Link href="/compare/sleep-herbs-vs-melatonin" className="hover:text-brand-800">Sleep Herbs vs Melatonin →</Link>
-          <Link href="/guides/magnesium-for-sleep" className="hover:text-brand-800">Magnesium for Sleep Guide →</Link>
-          <Link href="/compare/magnesium-glycinate-vs-l-threonate-for-sleep" className="hover:text-brand-800">Glycinate vs L-Threonate →</Link>
-          <Link href="/guides" className="hover:text-brand-800">All Guides →</Link>
+        <nav className="grid gap-3 sm:grid-cols-2" aria-label="Related sleep guides">
+          <InternalLinkCard href="/guides/magnesium-vs-melatonin" title="Magnesium vs Melatonin" />
+          <InternalLinkCard href="/compare/sleep-herbs-vs-melatonin" title="Sleep Herbs vs Melatonin" />
+          <InternalLinkCard href="/guides/magnesium-for-sleep" title="Magnesium for Sleep Guide" />
+          <InternalLinkCard href="/compare/magnesium-glycinate-vs-l-threonate-for-sleep" title="Glycinate vs L-Threonate" />
+          <InternalLinkCard href="/guides" title="All Guides" />
         </nav>
       </div>
       </ArticleLayout>
