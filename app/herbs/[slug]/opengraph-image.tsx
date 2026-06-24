@@ -10,8 +10,8 @@ export const dynamic = 'force-static'
 export async function generateStaticParams() {
   const herbs = await getHerbSummaryIndex()
   return herbs
-    .filter(h => getRuntimeVisibility(h).canRender)
-    .map(h => ({ slug: h.slug }))
+    .filter((h: any) => getRuntimeVisibility(h).canRender)
+    .map((h: any) => ({ slug: String(h.slug) }))
 }
 
 export default async function OGImage({ params }: { params: Promise<{ slug: string }> }) {
@@ -26,7 +26,7 @@ export default async function OGImage({ params }: { params: Promise<{ slug: stri
     (
       <div style={{ width: '100%', height: '100%', display: 'flex', background: 'linear-gradient(135deg, #fffdf7 0%, #eef8f1 60%, #d9f0df 100%)', padding: '48px', fontFamily: 'Inter, sans-serif' }}>
         <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', width: '100%', borderRadius: '32px', border: '1px solid rgba(16,32,24,0.08)', background: 'rgba(255,255,255,0.6)', padding: '48px' }}>
-          <div>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div style={{ fontSize: 18, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(16,32,24,0.5)', marginBottom: '16px' }}>
               The Hippie Scientist · Herb Profile
             </div>
@@ -34,8 +34,8 @@ export default async function OGImage({ params }: { params: Promise<{ slug: stri
               {name}
             </div>
             {summary && (
-              <div style={{ fontSize: 28, color: 'rgba(16,32,24,0.7)', marginTop: '20px', lineHeight: 1.4, maxWidth: '800px' }}>
-                {summary}…
+              <div style={{ display: 'flex', fontSize: 28, color: 'rgba(16,32,24,0.7)', marginTop: '20px', lineHeight: 1.4, maxWidth: '800px' }}>
+                {summary + '…'}
               </div>
             )}
           </div>
