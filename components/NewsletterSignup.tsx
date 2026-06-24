@@ -16,7 +16,7 @@ type NewsletterSignupProps = {
 }
 
 const variantClasses: Record<NonNullable<NewsletterSignupProps['variant']>, string> = {
-  card: 'rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8',
+  card: 'rounded-[1.5rem] border border-brand-900/10 border-l-4 border-l-brand-700 bg-white/90 p-6 shadow-sm sm:p-8 dark:border-white/10 dark:border-l-[var(--accent-teal)] dark:bg-white/5',
   inline: 'rounded-[1.25rem] border border-brand-900/10 bg-white/85 p-5',
   footer: 'rounded-xl border border-white/10 bg-white/5 p-4',
   compact: 'rounded-2xl border border-emerald-800/15 bg-emerald-50/80 p-4',

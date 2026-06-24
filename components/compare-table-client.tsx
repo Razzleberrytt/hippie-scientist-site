@@ -121,7 +121,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
   return (
     <div className="space-y-6">
       {/* Interactive Selection Dashboard */}
-      <div className="card-premium p-6 space-y-6 bg-white/95">
+      <div className="card-premium p-6 space-y-6 dark:bg-[var(--surface-card-strong)]">
         <div className="grid gap-6 md:grid-cols-2">
           {/* Compound Search Input */}
           <div className="space-y-2 relative">
@@ -158,7 +158,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
 
             {/* Search Results Dropdown */}
             {showDropdown && filteredCompounds.length > 0 && (
-              <div className="absolute z-10 left-0 right-0 mt-1.5 rounded-2xl border border-brand-900/10 bg-white shadow-lg max-h-60 overflow-y-auto py-2">
+              <div className="absolute z-10 left-0 right-0 mt-1.5 rounded-2xl border border-brand-900/10 bg-white shadow-lg max-h-60 overflow-y-auto py-2 dark:border-white/10 dark:bg-[var(--surface-card-strong)]">
                 {filteredCompounds.map((c) => {
                   const isSelected = selectedSlugs.includes(String(c.slug || '').toLowerCase())
                   return (
@@ -181,7 +181,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
               </div>
             )}
             {showDropdown && searchQuery && filteredCompounds.length === 0 && (
-              <div className="absolute z-10 left-0 right-0 mt-1.5 rounded-2xl border border-brand-900/10 bg-white shadow-lg p-4 text-sm text-muted">
+              <div className="absolute z-10 left-0 right-0 mt-1.5 rounded-2xl border border-brand-900/10 bg-white shadow-lg p-4 text-sm text-muted dark:border-white/10 dark:bg-[var(--surface-card-strong)]">
                 No matching compounds found.
               </div>
             )}
