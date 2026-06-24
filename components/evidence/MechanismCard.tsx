@@ -1,33 +1,13 @@
-interface MechanismCardProps {
-  title: string
-  description: string
-  pathway?: string
+type Props = {
+  mechanism: string
+  detail?: string
 }
 
-export default function MechanismCard({
-  title,
-  description,
-  pathway,
-}: MechanismCardProps) {
+export default function MechanismCard({ mechanism, detail }: Props) {
   return (
-    <div className="card-premium p-6 space-y-4">
-      <div className="space-y-2">
-        <p className="eyebrow-label">Mechanism Overview</p>
-
-        <h3 className="text-2xl font-semibold tracking-tight text-ink">
-          {title}
-        </h3>
-      </div>
-
-      <p className="text-sm leading-7 text-[#46574d]">
-        {description}
-      </p>
-
-      {pathway ? (
-        <div className="inline-flex rounded-full bg-[#f5f3ec] px-3 py-1 text-xs font-semibold tracking-wide text-[#5c6b63]">
-          Related pathway: {pathway}
-        </div>
-      ) : null}
+    <div className="rounded-xl border border-brand-900/8 bg-brand-50/40 px-3 py-2.5 dark:border-white/10 dark:bg-white/5">
+      <p className="text-xs font-semibold text-ink">{mechanism}</p>
+      {detail && <p className="mt-0.5 text-[0.7rem] leading-4 text-muted">{detail}</p>}
     </div>
   )
 }
