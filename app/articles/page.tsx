@@ -18,8 +18,9 @@ import { getAllFocusClusterArticles } from '@/lib/focus-cluster-markdown'
 import JsonLd from '@/components/seo/JsonLd'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Articles',
-  description: 'Evidence-first articles on herbs, compounds, supplement safety, focus, sleep, and practical decision-making.',
+  title: 'Research Archive & Educational Articles',
+  description:
+    'Research notes, mechanisms, safety discussions, and educational deep-dives on herbs, compounds, sleep, stress, anxiety, and focus.',
   path: '/articles',
   openGraphType: 'website',
 })
@@ -101,7 +102,7 @@ function getPostCategory(post: BlogPost): { label: string; href: string } {
     (g.slug === 'extraction-preparation' && (style.toLowerCase().includes('preparation') || style.toLowerCase().includes('extraction'))) ||
     (g.slug === 'safety-set-setting' && style.toLowerCase().includes('safety'))
   )
-  return group ? { label: group.title, href: group.href } : { label: 'Editorial note', href: '/articles' }
+  return group ? { label: group.title, href: group.href } : { label: 'Research note', href: '/articles' }
 }
 
 function BlogCard({ post }: { post: ArticleCardPost }) {
@@ -110,29 +111,28 @@ function BlogCard({ post }: { post: ArticleCardPost }) {
   const href = `/articles/${post.slug}`
 
   return (
-    <article className="flex h-full flex-col rounded-[0.85rem] border border-brand-900/10 bg-white/80 p-4 shadow-sm transition hover:border-brand-700/20">
+    <article className="library-content-card card-premium flex h-full flex-col p-4">
       <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
-        <Link href={cat.href} className="rounded-full border border-brand-900/10 bg-white px-2 py-0.5 font-semibold text-brand-800">
+        <Link href={cat.href} className="rounded-full border border-brand-900/10 bg-white/70 px-2 py-0.5 font-semibold text-brand-800 dark:border-white/10 dark:bg-white/5 dark:text-brand-100">
           {cat.label}
         </Link>
-        <time dateTime={post.date || ''} className="text-[#5f6f66]">{formatDate(post.date)}</time>
-        {post.readingTime ? <span className="text-[#5f6f66]">{post.readingTime}</span> : null}
+        <time dateTime={post.date || ''} className="text-muted">{formatDate(post.date)}</time>
+        {post.readingTime ? <span className="text-muted">{post.readingTime}</span> : null}
         {post.evidenceGrade ? (
-          <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2 py-0.5 font-semibold text-brand-800">
+          <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2 py-0.5 font-semibold text-brand-800 dark:border-white/10 dark:bg-white/5 dark:text-brand-100">
             {post.evidenceGrade}
           </span>
         ) : null}
-        <span className="text-[#5f6f66]">· The Hippie Scientist</span>
       </div>
 
       <h3 className="mt-3 text-lg font-semibold tracking-tight text-ink hover:text-brand-800">
         <Link href={href}>{post.title}</Link>
       </h3>
 
-      <p className="mt-2 line-clamp-3 text-sm leading-6 text-[#46574d]">{excerpt}</p>
+      <p className="mt-2 line-clamp-3 text-sm leading-6 text-muted">{excerpt}</p>
 
-      <Link href={href} className="mt-auto pt-3 text-sm font-semibold text-brand-800 hover:underline">
-        Read article →
+      <Link href={href} className="mt-auto pt-3 text-sm font-semibold text-brand-800 hover:underline dark:text-brand-100">
+        Read note →
       </Link>
     </article>
   )
@@ -142,11 +142,12 @@ function LatestStrip({ posts }: { posts: ArticleCardPost[] }) {
   if (!posts.length) return null
   return (
     <section className="space-y-3">
-      <div className="flex items-end justify-between">
-        <div>
-          <p className="eyebrow-label">Latest</p>
-          <h2 className="compact-heading">The three most recent articles.</h2>
-        </div>
+      <div className="library-section-header">
+        <p className="eyebrow-label">Latest</p>
+        <h2 className="compact-heading">Latest research notes.</h2>
+        <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">
+          Newest education-heavy pieces from the archive. Use guides when you need a practical choosing path.
+        </p>
       </div>
       <div className="grid gap-3 md:grid-cols-3">
         {posts.map((post) => (
@@ -162,24 +163,27 @@ function FocusAdhdRootSection() {
 
   return (
     <section className="space-y-3">
-      <div>
+      <div className="library-section-header">
         <p className="eyebrow-label">Focus &amp; ADHD</p>
-        <h2 className="compact-heading">Supplement guides for attention, calm focus, and ADHD-adjacent support.</h2>
+        <h2 className="compact-heading">Focus and ADHD evidence archive.</h2>
+        <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">
+          Background education for attention, calm focus, and ADHD-adjacent supplement context.
+        </p>
       </div>
       <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
         {rootFocusClusterArticles.map((article) => (
           <Link
             key={article.slug}
             href={`/${article.slug}`}
-            className="rounded-[0.85rem] border border-brand-900/10 bg-white/80 p-4 shadow-sm transition hover:border-brand-700/20"
+            className="library-content-card card-premium block p-4"
           >
-            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">
+            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700 dark:text-brand-200">
               Focus &amp; ADHD
             </p>
             <h3 className="mt-2 text-lg font-semibold tracking-tight text-ink hover:text-brand-800">
               {article.title}
             </h3>
-            <p className="mt-2 line-clamp-3 text-sm leading-6 text-[#46574d]">
+            <p className="mt-2 line-clamp-3 text-sm leading-6 text-muted">
               {article.metaDescription}
             </p>
           </Link>
@@ -194,20 +198,20 @@ function CategoryFilterBar({ active }: { active: string }) {
     <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter by category">
       <Link
         href="/articles"
-        className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${!active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-white/80 text-[#33443a] hover:border-brand-700/20'}`}
+        className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${!active ? 'border-brand-700/25 bg-brand-50 text-brand-900 dark:border-white/15 dark:bg-white/10 dark:text-brand-50' : 'border-brand-900/10 bg-white/80 text-muted hover:border-brand-700/20 dark:border-white/10 dark:bg-white/5 dark:text-brand-100'}`}
       >
-        All articles
+        All notes
       </Link>
-      {BLOG_STYLE_GROUPS.map((g) => {
-        const href = `/articles?category=${g.slug}`
-        const isActive = active === g.slug
+      {BLOG_STYLE_GROUPS.map((group) => {
+        const href = `/articles?category=${group.slug}`
+        const isActive = active === group.slug
         return (
           <Link
-            key={g.slug}
+            key={group.slug}
             href={href}
-            className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${isActive ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-white/80 text-[#33443a] hover:border-brand-700/20'}`}
+            className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${isActive ? 'border-brand-700/25 bg-brand-50 text-brand-900 dark:border-white/15 dark:bg-white/10 dark:text-brand-50' : 'border-brand-900/10 bg-white/80 text-muted hover:border-brand-700/20 dark:border-white/10 dark:bg-white/5 dark:text-brand-100'}`}
           >
-            {g.title}
+            {group.title}
           </Link>
         )
       })}
@@ -223,8 +227,8 @@ function BlogItemListJsonLd({ posts }: { posts: ArticleCardPost[] }) {
       {
         '@type': 'CollectionPage',
         '@id': `${SITE_URL}/articles/#webpage`,
-        name: 'Articles',
-        headline: 'Guides & articles',
+        name: 'Research Archive',
+        headline: 'Research archive and educational articles',
         description: 'Research notes on herbs, compounds, safety, preparation, mechanisms, and evidence maturity.',
         url: `${SITE_URL}/articles/`,
         mainEntity: { '@id': itemListId },
@@ -233,7 +237,7 @@ function BlogItemListJsonLd({ posts }: { posts: ArticleCardPost[] }) {
       {
         '@type': 'ItemList',
         '@id': itemListId,
-        name: 'The Hippie Scientist articles',
+        name: 'The Hippie Scientist research archive',
         itemListElement: posts.slice(0, 200).map((post, index) => ({
           '@type': 'ListItem',
           position: index + 1,
@@ -259,10 +263,10 @@ export default async function BlogPage({
 
   let filtered = sorted
   if (category) {
-    filtered = sorted.filter((p) => {
-      const corpus = `${p.title} ${p.excerpt ?? ''} ${p.content ?? ''}`.toLowerCase()
-      const g = BLOG_STYLE_GROUPS.find((gg) => gg.slug === category)
-      if (!g) return true
+    filtered = sorted.filter((post) => {
+      const corpus = `${post.title} ${post.excerpt ?? ''} ${post.content ?? ''}`.toLowerCase()
+      const group = BLOG_STYLE_GROUPS.find((candidate) => candidate.slug === category)
+      if (!group) return true
       if (category === 'research-digests') return corpus.includes('research digest')
       if (category === 'pharmacology-basics') return corpus.includes('pharmacology')
       if (category === 'traditional-use') return corpus.includes('traditional')
@@ -285,54 +289,66 @@ export default async function BlogPage({
 
   const count = filtered.length
 
-  function buildBlogHref(p: number, cat: string) {
+  function buildBlogHref(nextPage: number, activeCategory: string) {
     const params = new URLSearchParams()
-    if (cat) params.set('category', cat)
-    if (p > 1) params.set('page', String(p))
+    if (activeCategory) params.set('category', activeCategory)
+    if (nextPage > 1) params.set('page', String(nextPage))
     const qs = params.toString()
     return qs ? `/articles?${qs}` : '/articles'
   }
 
   return (
-    <div className="mx-auto max-w-6xl space-y-8 px-4 py-6 sm:py-8">
+    <div className="library-index-page mx-auto max-w-6xl space-y-8 px-4 py-6 sm:px-6 sm:py-10 lg:px-8">
       <BlogItemListJsonLd posts={filtered} />
 
-      {/* Hero */}
-      <section className="hero-shell rounded-[0.95rem] border border-brand-900/10 p-4 shadow-sm sm:p-5">
-          <p className="eyebrow-label">Articles</p>
-          <h1 className="mt-2 max-w-3xl font-display text-3xl font-semibold tracking-tight text-ink sm:text-5xl">Educational &amp; research articles</h1>
-        <p className="mt-2 max-w-2xl text-sm leading-6 text-[#46574d]">
-          Pharmacology, mechanisms, safety discussions, practical guides, and compound deep dives. Conservative, evidence-first context for supplement decisions.
+      <section className="hero-shell rounded-[1.25rem] border border-brand-900/10 p-5 shadow-sm sm:rounded-[2rem] sm:p-8 dark:border-white/10">
+        <p className="eyebrow-label">Research archive</p>
+        <h1 className="mt-3 max-w-4xl font-display text-3xl font-semibold tracking-tight text-ink sm:text-5xl">
+          Educational articles, research notes, and deep-dives.
+        </h1>
+        <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
+          This is the archive for mechanisms, safety discussions, research context, and individual deep-dives. For practical supplement choices, start with the guide library.
         </p>
-        <p className="mt-1 text-sm font-semibold text-[#46574d]">{count} articles available</p>
+        <p className="mt-2 text-sm font-semibold text-muted">{count} archive items available</p>
+        <div className="mt-6 flex flex-wrap gap-3">
+          <Link
+            href="/guides"
+            className="inline-flex min-h-11 items-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-brand-900 dark:bg-brand-200 dark:text-brand-950 dark:hover:bg-brand-100"
+          >
+            Use practical guides
+          </Link>
+          <Link
+            href="/goals"
+            className="inline-flex min-h-11 items-center rounded-full border border-brand-900/15 bg-white/80 px-5 py-2.5 text-sm font-bold text-brand-900 shadow-sm hover:bg-white dark:border-white/15 dark:bg-white/5 dark:text-brand-50 dark:hover:bg-white/10"
+          >
+            Browse goals
+          </Link>
+        </div>
       </section>
 
-      {/* Category filter (static links) */}
       <div>
-        <p className="mb-2 text-xs font-bold uppercase tracking-[0.12em] text-[#5f6f66]">Filter by category</p>
+        <p className="mb-2 text-xs font-bold uppercase tracking-[0.12em] text-muted">Archive filters</p>
         <CategoryFilterBar active={category} />
       </div>
 
-      {/* Latest 3 prominently */}
       {!category && latestThree.length > 0 ? <LatestStrip posts={latestThree} /> : null}
 
       {!category ? <FocusAdhdRootSection /> : null}
 
-      {/* Grid + pagination */}
       <section className="space-y-4">
-        <div className="flex items-end justify-between">
-          <div>
-            <p className="eyebrow-label">{category ? 'Matching articles' : 'Archive'}</p>
-            <h2 className="compact-heading">{category ? 'Articles in this style.' : 'All articles.'}</h2>
+        <div className="flex items-end justify-between gap-4">
+          <div className="library-section-header">
+            <p className="eyebrow-label">{category ? 'Filtered archive' : 'Archive'}</p>
+            <h2 className="compact-heading">{category ? 'Matching research notes.' : 'All research notes.'}</h2>
           </div>
-          <span className="hidden text-xs font-bold uppercase tracking-[0.12em] text-[#5f6f66] sm:inline">
-            {totalForGrid} notes
+          <span className="hidden text-xs font-bold uppercase tracking-[0.12em] text-muted sm:inline">
+            {totalForGrid} items
           </span>
         </div>
 
         {pageItems.length === 0 ? (
-          <div className="rounded-[0.85rem] border border-brand-900/10 bg-white/80 p-6 text-sm text-[#46574d]">
-            No articles in this filter. <Link href="/articles" className="font-semibold text-brand-800">View all</Link>.
+          <div className="card-premium p-6 text-sm text-muted">
+            No archive items in this filter. <Link href="/articles" className="font-semibold text-brand-800 dark:text-brand-100">View all</Link>.
           </div>
         ) : (
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
@@ -342,20 +358,19 @@ export default async function BlogPage({
           </div>
         )}
 
-        {/* Pagination (12 per page) */}
         {totalPages > 1 && (
-          <nav className="flex flex-wrap items-center justify-between gap-3 rounded-[0.8rem] border border-brand-900/10 bg-white/80 p-3 text-sm" aria-label="Blog pagination">
+          <nav className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-brand-900/10 bg-white/80 p-3 text-sm text-muted dark:border-white/10 dark:bg-white/5" aria-label="Article pagination">
             <div>
               Page {currentPage} of {totalPages} — showing {start + 1}–{Math.min(start + BLOG_PAGE_SIZE, totalForGrid)} of {totalForGrid}
             </div>
             <div className="flex gap-3">
               {currentPage > 1 ? (
-                <Link rel="prev" href={buildBlogHref(currentPage - 1, category)} className="font-semibold text-brand-800">
+                <Link rel="prev" href={buildBlogHref(currentPage - 1, category)} className="font-semibold text-brand-800 dark:text-brand-100">
                   ← Previous
                 </Link>
               ) : null}
               {currentPage < totalPages ? (
-                <Link rel="next" href={buildBlogHref(currentPage + 1, category)} className="font-semibold text-brand-800">
+                <Link rel="next" href={buildBlogHref(currentPage + 1, category)} className="font-semibold text-brand-800 dark:text-brand-100">
                   Next →
                 </Link>
               ) : null}
@@ -364,7 +379,6 @@ export default async function BlogPage({
         )}
       </section>
 
-      {/* Crawlable index */}
       <nav aria-label="All articles index" className="sr-only">
         <ul>
           {filtered.map((post) => (
