@@ -35,10 +35,10 @@ export default function DecisionCard({
           <div className="space-y-3">
             <p className="eyebrow-label">Commonly explored for</p>
 
-            <ul className="space-y-3 text-sm leading-7 text-[#435246]">
+            <ul className="space-y-3 text-sm leading-7 text-muted">
               {cleanedBestFor.map((b: string, i: number)=>(
                 <li key={i} className="flex gap-3">
-                  <span className="mt-[0.45rem] h-1.5 w-1.5 rounded-full bg-brand-700" />
+                  <span className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-brand-700 dark:bg-brand-200" />
                   <span>{b}</span>
                 </li>
               ))}
@@ -50,16 +50,16 @@ export default function DecisionCard({
           <p className="eyebrow-label">Safety context</p>
 
           {cleanedAvoid.length > 0 ? (
-            <ul className="space-y-3 text-sm leading-7 text-[#435246]">
+            <ul className="space-y-3 text-sm leading-7 text-muted">
               {cleanedAvoid.map((a: string, i: number)=>(
                 <li key={i} className="flex gap-3">
-                  <span className="mt-[0.45rem] h-1.5 w-1.5 rounded-full bg-amber-600" />
+                  <span className="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-amber-600 dark:bg-amber-300" />
                   <span>{a}</span>
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="text-sm leading-7 text-[#435246]">
+            <p className="text-sm leading-7 text-muted">
               No major cautions surfaced in the current profile.
             </p>
           )}
@@ -67,7 +67,7 @@ export default function DecisionCard({
 
       </div>
 
-      <div className="flex flex-wrap gap-3 border-t border-brand-900/10 pt-2 text-xs font-medium">
+      <div className="flex flex-wrap gap-3 border-t border-brand-900/10 pt-2 text-xs font-medium dark:border-white/10">
         <span className="chip-readable">⏱ {time || 'Varies by dosage and context'}</span>
         {evidence ? (
           <span className="chip-readable">📊 {cleanLabel(evidence)}</span>
