@@ -65,7 +65,7 @@ const relatedSystems = [
 
 export default function StressAndCognitionContinuityPage() {
   return (
-    <main className='container-page py-10 space-y-12'>
+    <div className='container-page py-10 space-y-12'>
       <AuthorityJsonLd
         title='Stress and Cognition Continuity'
         description='Educational exploration of stress physiology, recovery continuity, attentional resilience, and sustainable cognition systems.'
@@ -156,6 +156,6 @@ export default function StressAndCognitionContinuityPage() {
         title='Continue exploring recovery-oriented neuroscience'
         systems={relatedSystems}
       />
-    </main>
+    </div>
   )
 }

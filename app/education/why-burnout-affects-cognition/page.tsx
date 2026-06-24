@@ -38,7 +38,7 @@ const relatedSystems = [
 
 export default function WhyBurnoutAffectsCognitionPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Why Burnout Affects Cognition"
         description="Educational exploration of burnout, stress exhaustion, recovery biology, attentional fatigue, and sustainable cognition systems."
@@ -97,6 +97,6 @@ export default function WhyBurnoutAffectsCognitionPage() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   )
 }

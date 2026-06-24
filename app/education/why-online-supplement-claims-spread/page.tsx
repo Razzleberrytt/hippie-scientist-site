@@ -53,7 +53,7 @@ const relatedSystems = [
 
 export default function WhyOnlineSupplementClaimsSpreadPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Why Online Supplement Claims Spread"
         description="Educational exploration of mechanistic hype, simplified neuroscience, contextual variability, and scientific uncertainty in supplement discourse."
@@ -126,6 +126,6 @@ export default function WhyOnlineSupplementClaimsSpreadPage() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   )
 }

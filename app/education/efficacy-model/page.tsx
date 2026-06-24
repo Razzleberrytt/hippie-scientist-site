@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function EfficacyModelPage() {
   return (
-    <main className='container-page py-10 space-y-12'>
+    <div className='container-page py-10 space-y-12'>
       {/* Authority Structured Data */}
       <AuthorityJsonLd
         title='Interactive Supplement Efficacy Modeler & Pharmacokinetics Visualizer'
@@ -34,6 +34,6 @@ export default function EfficacyModelPage() {
       <section className='card-premium p-6 sm:p-8'>
         <EfficacyModelerClient />
       </section>
-    </main>
+    </div>
   )
 }

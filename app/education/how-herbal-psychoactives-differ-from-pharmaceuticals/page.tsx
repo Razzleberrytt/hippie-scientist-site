@@ -31,7 +31,7 @@ const systems = [
 
 export default function HerbalVsPharmaPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="How Herbal Psychoactives Differ From Pharmaceuticals"
         description="Educational exploration of herbal psychoactives, pharmaceutical systems, neuropharmacology, ethnobotany, and careful comparison."
@@ -80,6 +80,6 @@ export default function HerbalVsPharmaPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

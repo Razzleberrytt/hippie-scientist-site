@@ -31,7 +31,7 @@ const systems = [
 
 export default function NeuropharmacologyPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="What Is Neuropharmacology?"
         description="Educational introduction to neuropharmacology, psychoactive mechanisms, signaling pathways, and ethnobotanical neurochemistry."
@@ -80,6 +80,6 @@ export default function NeuropharmacologyPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

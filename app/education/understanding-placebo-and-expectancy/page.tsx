@@ -13,7 +13,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function PlaceboExpectancyPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Understanding Placebo and Expectancy"
         description="Educational exploration of placebo effects, expectancy systems, perception, neurochemistry, and scientific interpretation."
@@ -69,6 +69,6 @@ export default function PlaceboExpectancyPage() {
           'Small studies may overestimate effect size reliability.',
         ]}
       />
-    </main>
+    </div>
   )
 }

@@ -13,7 +13,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function ResearchMethodologyPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Research Methodology"
         description="Educational overview of evidence standards, human trials, mechanistic evidence, neuropharmacology interpretation, and scientific methodology."
@@ -101,6 +101,6 @@ export default function ResearchMethodologyPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

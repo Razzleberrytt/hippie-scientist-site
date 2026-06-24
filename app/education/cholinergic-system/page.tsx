@@ -27,7 +27,7 @@ const systems = [
 
 export default function CholinergicSystemPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Cholinergic System"
         description="Educational exploration of cholinergic signaling, dreaming systems, cognition pathways, memory mechanisms, and oneirogenic neuropharmacology."
@@ -76,6 +76,6 @@ export default function CholinergicSystemPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

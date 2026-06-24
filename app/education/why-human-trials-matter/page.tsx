@@ -14,7 +14,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function HumanTrialsMatterPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Why Human Trials Matter"
         description="Educational overview of human clinical evidence, translational limitations, mechanistic research, and evidence-informed scientific interpretation."
@@ -79,6 +79,6 @@ export default function HumanTrialsMatterPage() {
           },
         ]}
       />
-    </main>
+    </div>
   )
 }

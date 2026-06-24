@@ -51,7 +51,7 @@ const related = [
 
 export default function StressBrainEducationPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="How Stress Affects the Brain"
         description="Educational exploration of stress neurochemistry, emotional regulation, nervous-system signaling, sleep continuity, and recovery-oriented neuropharmacology."
@@ -167,6 +167,6 @@ export default function StressBrainEducationPage() {
           },
         ]}
       />
-    </main>
+    </div>
   )
 }

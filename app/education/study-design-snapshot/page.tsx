@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function StudyDesignSnapshotHubPage() {
   return (
-    <main className="container-page space-y-12 py-10">
+    <div className="container-page space-y-12 py-10">
       <AuthorityJsonLd
         title="Study Design Snapshots: Reading an Evidence Grade"
         description="How evidence grades are assigned and which clinical trial design factors matter, shown through embeddable Study Design Snapshots."
@@ -116,6 +116,6 @@ export default function StudyDesignSnapshotHubPage() {
           and so you can judge the evidence for yourself.
         </p>
       </section>
-    </main>
+    </div>
   )
 }

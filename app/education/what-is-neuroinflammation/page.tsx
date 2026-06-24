@@ -69,7 +69,7 @@ const faqItems = [
 
 export default function NeuroinflammationEducationPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="What Is Neuroinflammation?"
         description="Educational exploration of neuroinflammation, stress-response biology, nervous-system signaling, cognition systems, and recovery-oriented neuropharmacology."
@@ -253,6 +253,6 @@ export default function NeuroinflammationEducationPage() {
           },
         ]}
       />
-    </main>
+    </div>
   )
 }

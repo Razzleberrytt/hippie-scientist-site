@@ -73,7 +73,7 @@ const faqItems = [
 
 export default function AdaptogensEducationPage() {
   return (
-    <main className='container-page py-10 space-y-12'>
+    <div className='container-page py-10 space-y-12'>
       <AuthorityJsonLd
         title='What Are Adaptogens?'
         description='Educational introduction to adaptogens, stress-response systems, nervous-system regulation, and evidence-informed adaptogenic neuropharmacology.'
@@ -214,6 +214,6 @@ export default function AdaptogensEducationPage() {
           },
         ]}
       />
-    </main>
+    </div>
   )
 }

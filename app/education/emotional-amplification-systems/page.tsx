@@ -53,7 +53,7 @@ const relatedSystems = [
 
 export default function EmotionalAmplificationSystemsPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Emotional Amplification Systems"
         description="Educational exploration of emotional salience, contextual neurobiology, stress physiology, perception systems, and subjective emotional experiences."
@@ -140,6 +140,6 @@ export default function EmotionalAmplificationSystemsPage() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   )
 }

@@ -51,7 +51,7 @@ const related = [
 
 export default function FatigueRecoveryPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="How the Brain Recovers From Fatigue"
         description="Educational exploration of fatigue recovery, nervous-system restoration, stress signaling, sleep continuity, and recovery-oriented neuropharmacology."
@@ -167,6 +167,6 @@ export default function FatigueRecoveryPage() {
           },
         ]}
       />
-    </main>
+    </div>
   )
 }

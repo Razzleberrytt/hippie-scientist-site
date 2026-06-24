@@ -27,7 +27,7 @@ const systems = [
 
 export default function GlutamatePathwayPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Glutamate Pathway"
         description="Educational exploration of glutamatergic signaling, excitatory neurochemistry, dissociative mechanisms, and psychoactive neuropharmacology."
@@ -76,6 +76,6 @@ export default function GlutamatePathwayPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

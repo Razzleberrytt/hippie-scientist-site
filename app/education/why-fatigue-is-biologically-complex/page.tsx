@@ -53,7 +53,7 @@ const relatedSystems = [
 
 export default function WhyFatigueIsBiologicallyComplexPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Why Fatigue Is Biologically Complex"
         description="Educational exploration of fatigue systems, recovery biology, stress physiology, burnout-oriented neurobiology, and cognition sustainability."
@@ -127,6 +127,6 @@ export default function WhyFatigueIsBiologicallyComplexPage() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   )
 }

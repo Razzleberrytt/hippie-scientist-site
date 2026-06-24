@@ -32,7 +32,7 @@ const myths = [
 
 export default function NeurochemistryMythsPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Common Neurochemistry Myths"
         description="Educational overview of common neurochemistry misconceptions, oversimplified neurotransmitter narratives, and evidence-informed scientific interpretation."
@@ -99,6 +99,6 @@ export default function NeurochemistryMythsPage() {
           'Psychological, environmental, and behavioral factors strongly influence subjective experiences.',
         ]}
       />
-    </main>
+    </div>
   )
 }

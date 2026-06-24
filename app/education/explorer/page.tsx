@@ -36,7 +36,7 @@ export default async function PathwayExplorerPage() {
   })
 
   return (
-    <main className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
+    <div className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
       <AuthorityJsonLd
         title="Biological Pathway Connectivity Explorer"
         description="Interact with neurochemical targets and find modulating herbs and compounds sorted by scientific evidence certainty."
@@ -55,6 +55,6 @@ export default async function PathwayExplorerPage() {
       </section>
 
       <PathwayExplorerClient herbs={herbs} compounds={compounds} />
-    </main>
+    </div>
   )
 }

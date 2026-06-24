@@ -53,7 +53,7 @@ const relatedSystems = [
 
 export default function WhyIndividualVariabilityMattersPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Why Individual Variability Matters"
         description="Educational exploration of contextual neurobiology, human variability, stress physiology, recovery biology, and scientific uncertainty."
@@ -126,6 +126,6 @@ export default function WhyIndividualVariabilityMattersPage() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   )
 }

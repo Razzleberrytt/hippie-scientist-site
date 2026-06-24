@@ -16,7 +16,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function NeurochemistryComplexityPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Why Neurochemistry Is Complex"
         description="Educational overview of systems biology, pathway interaction, receptor complexity, neuropharmacology, and scientific uncertainty."
@@ -105,6 +105,6 @@ export default function NeurochemistryComplexityPage() {
           },
         ]}
       />
-    </main>
+    </div>
   )
 }

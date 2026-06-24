@@ -35,7 +35,7 @@ const systems = [
 
 export default function AnxietyNeurochemistryPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="What Is Anxiety Neurochemistry?"
         description="Educational overview of anxiety-related neurochemistry, stress signaling, calming systems, emotional processing, and nervous-system regulation."
@@ -90,6 +90,6 @@ export default function AnxietyNeurochemistryPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

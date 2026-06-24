@@ -57,7 +57,7 @@ const relatedProfiles = [
 
 export default function GabaPathwayPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="GABA Pathway"
         description="Educational overview of GABAergic signaling, calming neuropharmacology, inhibitory neurotransmission, and related herbs and compounds."
@@ -188,6 +188,6 @@ export default function GabaPathwayPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

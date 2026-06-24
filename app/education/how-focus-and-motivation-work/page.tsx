@@ -51,7 +51,7 @@ const related = [
 
 export default function FocusMotivationPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="How Focus and Motivation Work"
         description="Educational exploration of focus neurochemistry, motivation signaling, cognition systems, calm productivity, and stress-aware neuropharmacology."
@@ -167,6 +167,6 @@ export default function FocusMotivationPage() {
           },
         ]}
       />
-    </main>
+    </div>
   )
 }

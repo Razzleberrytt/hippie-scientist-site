@@ -69,7 +69,7 @@ const faqItems = [
 
 export default function AlteredStatesEducationPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Understanding Altered States"
         description="Educational exploration of altered states, perception-oriented neurobiology, emotional processing, psychoactive context, and systems-oriented neuroscience."
@@ -254,6 +254,6 @@ export default function AlteredStatesEducationPage() {
           },
         ]}
       />
-    </main>
+    </div>
   )
 }

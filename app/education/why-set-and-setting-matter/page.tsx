@@ -53,7 +53,7 @@ const relatedSystems = [
 
 export default function WhySetAndSettingMatterPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Why Set and Setting Matter"
         description="Educational exploration of set and setting, contextual neurobiology, emotional regulation, environmental influence, and subjective experiences."
@@ -141,6 +141,6 @@ export default function WhySetAndSettingMatterPage() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   )
 }

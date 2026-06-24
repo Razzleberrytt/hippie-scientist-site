@@ -13,7 +13,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function EvidenceHierarchyPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Evidence Hierarchy"
         description="Educational overview of evidence hierarchy, clinical trials, mechanistic evidence, ethnobotanical context, and scientific interpretation systems."
@@ -81,6 +81,6 @@ export default function EvidenceHierarchyPage() {
           },
         ]}
       />
-    </main>
+    </div>
   )
 }

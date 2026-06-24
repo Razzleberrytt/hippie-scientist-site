@@ -14,7 +14,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function ReadScientificStudiesPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="How to Read Scientific Studies"
         description="Educational overview of scientific interpretation, evidence quality, human trials, mechanistic evidence, and research limitations."
@@ -90,6 +90,6 @@ export default function ReadScientificStudiesPage() {
           'Publication bias and selective reporting may affect interpretation quality.',
         ]}
       />
-    </main>
+    </div>
   )
 }

@@ -53,7 +53,7 @@ const relatedSystems = [
 
 export default function WhySleepChangesEmotionalRegulationPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Why Sleep Changes Emotional Regulation"
         description="Educational exploration of sleep continuity, emotional regulation, stress resilience, recovery biology, and nervous-system restoration."
@@ -126,6 +126,6 @@ export default function WhySleepChangesEmotionalRegulationPage() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   )
 }

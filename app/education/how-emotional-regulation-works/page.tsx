@@ -51,7 +51,7 @@ const related = [
 
 export default function EmotionalRegulationPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="How Emotional Regulation Works"
         description="Educational exploration of emotional regulation neurochemistry, stress signaling, mood systems, recovery continuity, and nervous-system balance."
@@ -167,6 +167,6 @@ export default function EmotionalRegulationPage() {
           },
         ]}
       />
-    </main>
+    </div>
   )
 }

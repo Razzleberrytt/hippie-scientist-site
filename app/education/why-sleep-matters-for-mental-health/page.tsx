@@ -34,7 +34,7 @@ const relatedSystems = [
 
 export default function SleepMentalHealthPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Why Sleep Matters for Mental Health"
         description="Educational exploration of sleep continuity, emotional regulation, cognition recovery, stress systems, and mental-health-related neurochemistry."
@@ -119,6 +119,6 @@ export default function SleepMentalHealthPage() {
           },
         ]}
       />
-    </main>
+    </div>
   )
 }

@@ -53,7 +53,7 @@ const relatedSystems = [
 
 export default function WhyNeuroscienceIsDifficultPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Why Neuroscience Is Difficult"
         description="Educational exploration of biological complexity, contextual neurobiology, human variability, and scientific limitations in neuroscience research."
@@ -126,6 +126,6 @@ export default function WhyNeuroscienceIsDifficultPage() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   )
 }

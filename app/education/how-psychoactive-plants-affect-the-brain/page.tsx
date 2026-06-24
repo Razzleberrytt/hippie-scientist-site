@@ -31,7 +31,7 @@ const systems = [
 
 export default function PsychoactiveBrainPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="How Psychoactive Plants Affect the Brain"
         description="Educational exploration of psychoactive neuropharmacology, signaling systems, pathways, and ethnobotanical mechanisms."
@@ -75,6 +75,6 @@ export default function PsychoactiveBrainPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

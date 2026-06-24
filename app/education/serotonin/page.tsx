@@ -34,7 +34,7 @@ const profiles = [
 
 export default function SerotoninPathwayPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Serotonin Pathway"
         description="Educational overview of serotonergic signaling, mood regulation, psychoactive neuropharmacology, and related herbs and compounds."
@@ -83,6 +83,6 @@ export default function SerotoninPathwayPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

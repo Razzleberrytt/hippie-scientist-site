@@ -51,7 +51,7 @@ const related = [
 
 export default function SleepNeurochemistryPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="How Sleep Affects Neurochemistry"
         description="Educational exploration of sleep neurochemistry, REM systems, recovery continuity, nervous-system restoration, and dream-related signaling."
@@ -167,6 +167,6 @@ export default function SleepNeurochemistryPage() {
           },
         ]}
       />
-    </main>
+    </div>
   )
 }

@@ -13,7 +13,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function SafetyAndDisclaimersPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Safety and Educational Disclaimers"
         description="Educational overview of safety considerations, psychoactive risks, evidence limitations, and responsible interpretation principles."
@@ -59,6 +59,6 @@ export default function SafetyAndDisclaimersPage() {
           'Individual responses may vary significantly.',
         ]}
       />
-    </main>
+    </div>
   )
 }

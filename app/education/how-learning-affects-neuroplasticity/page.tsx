@@ -69,7 +69,7 @@ const faqItems = [
 
 export default function NeuroplasticityEducationPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="How Learning Affects Neuroplasticity"
         description="Educational exploration of neuroplasticity, learning systems, cognition continuity, recovery biology, and adaptive nervous-system signaling."
@@ -254,6 +254,6 @@ export default function NeuroplasticityEducationPage() {
           },
         ]}
       />
-    </main>
+    </div>
   )
 }

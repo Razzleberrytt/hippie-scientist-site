@@ -53,7 +53,7 @@ const relatedSystems = [
 
 export default function PlaceboAndContextEffectsPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Placebo and Context Effects"
         description="Educational exploration of placebo effects, contextual neurobiology, expectation systems, and scientific complexity in neuroscience and health research."
@@ -126,6 +126,6 @@ export default function PlaceboAndContextEffectsPage() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   )
 }

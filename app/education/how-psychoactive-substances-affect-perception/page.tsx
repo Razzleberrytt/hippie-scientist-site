@@ -17,7 +17,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function PsychoactivePerceptionPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="How Psychoactive Substances Affect Perception"
         description="Educational exploration of psychoactive perception, neurochemical signaling, altered states, sensory processing, and neuropharmacology."
@@ -111,6 +111,6 @@ export default function PsychoactivePerceptionPage() {
           },
         ]}
       />
-    </main>
+    </div>
   )
 }

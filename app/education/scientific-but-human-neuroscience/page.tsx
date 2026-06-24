@@ -73,7 +73,7 @@ const relatedSystems = [
 
 export default function ScientificButHumanNeurosciencePage() {
   return (
-    <main className='container-page py-10 space-y-12'>
+    <div className='container-page py-10 space-y-12'>
       <AuthorityJsonLd
         title='Scientific But Human Neuroscience'
         description='Authority hub exploring scientific literacy, contextual neurobiology, sustainable cognition, recovery-oriented neuroscience, and emotionally mature evidence interpretation.'
@@ -164,6 +164,6 @@ export default function ScientificButHumanNeurosciencePage() {
         title='Explore the broader neuroscience ecosystem'
         systems={relatedSystems}
       />
-    </main>
+    </div>
   )
 }

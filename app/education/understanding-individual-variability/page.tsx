@@ -14,7 +14,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function IndividualVariabilityPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Understanding Individual Variability"
         description="Educational overview of individual variability, neurochemical diversity, stress systems, psychoactive responses, and systems biology."
@@ -84,6 +84,6 @@ export default function IndividualVariabilityPage() {
           'Average study outcomes may not predict individual experiences.',
         ]}
       />
-    </main>
+    </div>
   )
 }

@@ -53,7 +53,7 @@ const relatedSystems = [
 
 export default function WhyCalmFocusDiffersFromStimulationPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Why Calm Focus Differs From Stimulation"
         description="Educational exploration of calm focus, stimulation tradeoffs, attentional continuity, emotional regulation, and sustainable cognition systems."
@@ -126,6 +126,6 @@ export default function WhyCalmFocusDiffersFromStimulationPage() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   )
 }

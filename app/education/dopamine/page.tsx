@@ -30,7 +30,7 @@ const profiles = [
 
 export default function DopaminePathwayPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Dopamine Pathway"
         description="Educational overview of dopaminergic signaling, motivation systems, cognition, reward processing, and focus-related neuropharmacology."
@@ -75,6 +75,6 @@ export default function DopaminePathwayPage() {
           </Link>
         ))}
       </section>
-    </main>
+    </div>
   )
 }

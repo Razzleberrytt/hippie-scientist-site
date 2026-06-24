@@ -12,7 +12,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function GabaVsSerotoninPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="GABA vs Serotonin"
         description="Educational comparison of GABAergic and serotonergic systems, calming pathways, mood regulation, and psychoactive neuropharmacology."
@@ -61,6 +61,6 @@ export default function GabaVsSerotoninPage() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

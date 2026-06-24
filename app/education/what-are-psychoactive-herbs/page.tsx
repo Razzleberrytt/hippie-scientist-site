@@ -58,7 +58,7 @@ const systems = [
 
 export default function WhatArePsychoactiveHerbsPage() {
   return (
-    <main className="container-page py-10 space-y-10">
+    <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="What Are Psychoactive Herbs?"
         description="Educational overview of psychoactive herbs, neuropharmacology, mechanisms, pathways, and harm reduction."
@@ -186,6 +186,6 @@ export default function WhatArePsychoactiveHerbsPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

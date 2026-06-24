@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function CitationExplorerPage() {
   return (
-    <main className="container-page py-10 space-y-10 max-w-4xl mx-auto">
+    <div className="container-page py-10 space-y-10 max-w-4xl mx-auto">
       <AuthorityJsonLd
         title="Scientific Evidence Citation Explorer"
         description="Verify scientific citations, clinical trials, and GRADE evidence levels behind botanical monograph claims."
@@ -46,6 +46,6 @@ export default function CitationExplorerPage() {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   )
 }

@@ -69,7 +69,7 @@ const faqItems = [
 
 export default function MemoryFormationEducationPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="How Memory Formation Works"
         description="Educational exploration of memory formation, cognition continuity, sleep-dependent consolidation, emotional salience, and neuropharmacology."
@@ -254,6 +254,6 @@ export default function MemoryFormationEducationPage() {
           },
         ]}
       />
-    </main>
+    </div>
   )
 }

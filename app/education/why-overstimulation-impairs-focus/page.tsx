@@ -53,7 +53,7 @@ const relatedSystems = [
 
 export default function WhyOverstimulationImpairsFocusPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="Why Overstimulation Impairs Focus"
         description="Educational exploration of overstimulation, hyperarousal, attentional fragmentation, stress physiology, and sustainable cognition systems."
@@ -129,6 +129,6 @@ export default function WhyOverstimulationImpairsFocusPage() {
           ))}
         </div>
       </section>
-    </main>
+    </div>
   )
 }

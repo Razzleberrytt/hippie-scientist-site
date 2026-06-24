@@ -34,7 +34,7 @@ const receptorSystems = [
 
 export default function ReceptorsPage() {
   return (
-    <main className="container-page py-10 space-y-12">
+    <div className="container-page py-10 space-y-12">
       <AuthorityJsonLd
         title="How Receptors Work"
         description="Educational overview of receptor systems, signaling pathways, neuropharmacology, neurotransmitter interactions, and psychoactive mechanisms."
@@ -117,6 +117,6 @@ export default function ReceptorsPage() {
           },
         ]}
       />
-    </main>
+    </div>
   )
 }
