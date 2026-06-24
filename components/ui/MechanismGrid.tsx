@@ -16,7 +16,7 @@ export default function MechanismGrid({ mechanisms = [] }: { mechanisms?: unknow
             Mechanism
           </div>
 
-          <div className="text-sm leading-7 text-[#435246]">
+          <div className="text-sm leading-7 text-muted">
             {m}
           </div>
         </div>
