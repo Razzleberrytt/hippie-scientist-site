@@ -1,0 +1,269 @@
+/*
+  Premium polish layer for the public library and goal decision pages.
+  Scoped intentionally: no route changes, no data changes, no generated artifacts.
+*/
+
+.library-index-page,
+.goal-decision-experience {
+  --polish-border: rgba(222, 235, 224, 0.14);
+  --polish-border-strong: rgba(235, 246, 236, 0.22);
+  --polish-card-bg: rgba(24, 45, 34, 0.86);
+  --polish-card-bg-strong: rgba(30, 55, 42, 0.92);
+  --polish-card-bg-soft: rgba(255, 255, 255, 0.065);
+  --polish-highlight: rgba(203, 216, 192, 0.18);
+  --polish-warm: rgba(192, 138, 53, 0.12);
+  --polish-shadow: 0 18px 60px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.045);
+  --polish-shadow-hover: 0 22px 72px rgba(0, 0, 0, 0.27), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+html:not(.dark) .library-index-page,
+html:not(.dark) .goal-decision-experience {
+  --polish-border: rgba(29, 74, 47, 0.11);
+  --polish-border-strong: rgba(29, 74, 47, 0.19);
+  --polish-card-bg: rgba(255, 255, 255, 0.88);
+  --polish-card-bg-strong: rgba(255, 255, 255, 0.95);
+  --polish-card-bg-soft: rgba(243, 245, 238, 0.72);
+  --polish-highlight: rgba(83, 111, 73, 0.08);
+  --polish-warm: rgba(192, 138, 53, 0.10);
+  --polish-shadow: 0 18px 50px rgba(16, 32, 24, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  --polish-shadow-hover: 0 24px 68px rgba(16, 32, 24, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.84);
+}
+
+.library-index-page .hero-shell,
+.goal-decision-experience .hero-shell {
+  position: relative;
+  overflow: hidden;
+  border-color: var(--polish-border-strong);
+  background:
+    radial-gradient(circle at 8% 0%, var(--polish-highlight), transparent 34%),
+    radial-gradient(circle at 92% 12%, var(--polish-warm), transparent 30%),
+    linear-gradient(180deg, var(--polish-card-bg-strong), var(--polish-card-bg));
+  box-shadow: var(--polish-shadow);
+}
+
+.library-index-page .hero-shell::after,
+.goal-decision-experience .hero-shell::after {
+  content: '';
+  position: absolute;
+  inset: auto 1.2rem 0 1.2rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  pointer-events: none;
+}
+
+.library-index-page .card-premium,
+.goal-decision-experience .card-premium {
+  position: relative;
+  overflow: hidden;
+  border-color: var(--polish-border);
+  background:
+    linear-gradient(180deg, var(--polish-card-bg-strong), var(--polish-card-bg));
+  box-shadow: var(--polish-shadow);
+}
+
+.library-index-page .card-premium:hover,
+.goal-decision-experience .card-premium:hover,
+.library-index-page .library-content-card:hover,
+.goal-decision-experience .goal-link-card:hover,
+.goal-decision-experience .goal-mini-card:hover {
+  border-color: var(--polish-border-strong);
+  box-shadow: var(--polish-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.library-index-page .library-section-header,
+.goal-decision-experience .card-premium > .max-w-3xl:first-child,
+.goal-decision-experience #safety-first > .max-w-3xl:first-child {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.library-index-page .library-section-header::before,
+.goal-decision-experience .card-premium > .max-w-3xl:first-child::before,
+.goal-decision-experience #safety-first > .max-w-3xl:first-child::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.18rem;
+  width: 3px;
+  height: calc(100% - 0.25rem);
+  min-height: 2.4rem;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(203, 216, 192, 0.82), rgba(192, 138, 53, 0.46));
+}
+
+.library-index-page .library-nav-card,
+.library-index-page .library-content-card,
+.goal-decision-experience .goal-link-card,
+.goal-decision-experience .goal-mini-card,
+.goal-decision-experience details,
+.goal-decision-experience #comparison-table .overflow-x-auto {
+  border-color: var(--polish-border);
+  background:
+    linear-gradient(180deg, var(--polish-card-bg-soft), rgba(255, 255, 255, 0.035));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}
+
+html:not(.dark) .library-index-page .library-nav-card,
+html:not(.dark) .library-index-page .library-content-card,
+html:not(.dark) .goal-decision-experience .goal-link-card,
+html:not(.dark) .goal-decision-experience .goal-mini-card,
+html:not(.dark) .goal-decision-experience details,
+html:not(.dark) .goal-decision-experience #comparison-table .overflow-x-auto {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(243, 245, 238, 0.58));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.library-index-page .library-nav-card,
+.library-index-page .library-content-card,
+.goal-decision-experience .goal-link-card,
+.goal-decision-experience .goal-mini-card {
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, box-shadow 220ms ease;
+}
+
+.library-index-page .library-content-card h3,
+.goal-decision-experience .goal-mini-card h3,
+.goal-decision-experience .goal-link-card span:last-child {
+  letter-spacing: -0.025em;
+}
+
+.library-index-page :is(.eyebrow-label, .section-label),
+.goal-decision-experience :is(.eyebrow-label, .section-label) {
+  color: #cbd8c0;
+}
+
+html:not(.dark) .library-index-page :is(.eyebrow-label, .section-label),
+html:not(.dark) .goal-decision-experience :is(.eyebrow-label, .section-label) {
+  color: #314b33;
+}
+
+.library-index-page p,
+.goal-decision-experience p,
+.library-index-page .text-muted,
+.goal-decision-experience .text-muted {
+  color: rgba(221, 233, 223, 0.78);
+}
+
+html:not(.dark) .library-index-page p,
+html:not(.dark) .goal-decision-experience p,
+html:not(.dark) .library-index-page .text-muted,
+html:not(.dark) .goal-decision-experience .text-muted {
+  color: #4f6057;
+}
+
+.library-index-page h1,
+.library-index-page h2,
+.library-index-page h3,
+.goal-decision-experience h1,
+.goal-decision-experience h2,
+.goal-decision-experience h3,
+.library-index-page .text-ink,
+.goal-decision-experience .text-ink {
+  color: #f5f0e6;
+}
+
+html:not(.dark) .library-index-page h1,
+html:not(.dark) .library-index-page h2,
+html:not(.dark) .library-index-page h3,
+html:not(.dark) .goal-decision-experience h1,
+html:not(.dark) .goal-decision-experience h2,
+html:not(.dark) .goal-decision-experience h3,
+html:not(.dark) .library-index-page .text-ink,
+html:not(.dark) .goal-decision-experience .text-ink {
+  color: #111a16;
+}
+
+.goal-decision-experience #comparison-table table {
+  border-spacing: 0;
+}
+
+.goal-decision-experience #comparison-table thead th {
+  background: rgba(255, 255, 255, 0.045);
+  color: #edf5ee;
+}
+
+html:not(.dark) .goal-decision-experience #comparison-table thead th {
+  background: rgba(243, 245, 238, 0.78);
+  color: #182f22;
+}
+
+.goal-decision-experience #comparison-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.028);
+}
+
+html:not(.dark) .goal-decision-experience #comparison-table tbody tr:nth-child(even) {
+  background: rgba(243, 245, 238, 0.46);
+}
+
+.goal-decision-experience #safety-first {
+  border-color: rgba(253, 164, 175, 0.22);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(253, 164, 175, 0.11), transparent 34%),
+    linear-gradient(180deg, rgba(63, 28, 36, 0.72), rgba(42, 25, 29, 0.74));
+  box-shadow: var(--polish-shadow);
+}
+
+html:not(.dark) .goal-decision-experience #safety-first {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(244, 63, 94, 0.08), transparent 32%),
+    linear-gradient(180deg, rgba(255, 241, 242, 0.86), rgba(255, 247, 247, 0.72));
+}
+
+.goal-decision-experience #safety-first article {
+  border-color: rgba(253, 164, 175, 0.2);
+  background: rgba(255, 255, 255, 0.055);
+}
+
+html:not(.dark) .goal-decision-experience #safety-first article {
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.goal-decision-experience footer,
+.library-index-page > section:last-child {
+  border-color: var(--polish-border);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+}
+
+html:not(.dark) .goal-decision-experience footer,
+html:not(.dark) .library-index-page > section:last-child {
+  background: rgba(243, 245, 238, 0.72);
+}
+
+@media (max-width: 640px) {
+  .library-index-page,
+  .goal-decision-experience {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+  }
+
+  .library-index-page .hero-shell,
+  .goal-decision-experience .hero-shell {
+    padding: 1.2rem;
+  }
+
+  .library-index-page .card-premium,
+  .goal-decision-experience .card-premium,
+  .goal-decision-experience #safety-first {
+    padding: 1.1rem;
+  }
+
+  .library-index-page .library-section-header,
+  .goal-decision-experience .card-premium > .max-w-3xl:first-child,
+  .goal-decision-experience #safety-first > .max-w-3xl:first-child {
+    padding-left: 0.8rem;
+  }
+
+  .library-index-page h1,
+  .goal-decision-experience h1 {
+    max-width: 15ch;
+  }
+
+  .library-index-page .library-nav-card,
+  .library-index-page .library-content-card,
+  .goal-decision-experience .goal-link-card,
+  .goal-decision-experience .goal-mini-card {
+    border-radius: 1rem;
+  }
+}
