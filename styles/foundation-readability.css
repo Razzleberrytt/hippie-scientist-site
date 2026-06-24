@@ -243,3 +243,91 @@ html.dark .glass-card {
     white-space: normal;
   }
 }
+
+/* Goal decision page polish: scoped to /goals/[goal] runtime pages. */
+.goal-decision-experience {
+  --goal-card-border: rgba(29, 74, 47, 0.12);
+  --goal-card-bg: rgba(255, 255, 255, 0.78);
+}
+
+.goal-decision-experience .goal-mini-card,
+.goal-decision-experience .goal-link-card,
+.goal-decision-experience details {
+  border-color: var(--goal-card-border);
+  background-color: var(--goal-card-bg);
+}
+
+.goal-decision-experience details summary::after {
+  content: none;
+}
+
+.goal-decision-experience #comparison-table .overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.goal-decision-experience #comparison-table th,
+.goal-decision-experience #comparison-table td {
+  vertical-align: top;
+}
+
+.goal-decision-experience #safety-first article {
+  background-color: rgba(255, 255, 255, 0.58);
+}
+
+html.dark .goal-decision-experience {
+  --goal-card-border: rgba(232, 245, 236, 0.14);
+  --goal-card-bg: rgba(255, 255, 255, 0.055);
+}
+
+html.dark .goal-decision-experience .goal-mini-card,
+html.dark .goal-decision-experience .goal-link-card,
+html.dark .goal-decision-experience details {
+  background-color: var(--goal-card-bg);
+  border-color: var(--goal-card-border);
+}
+
+html.dark .goal-decision-experience .goal-mini-card p,
+html.dark .goal-decision-experience .goal-link-card span,
+html.dark .goal-decision-experience details p,
+html.dark .goal-decision-experience footer {
+  color: var(--text-muted);
+}
+
+html.dark .goal-decision-experience #safety-first article {
+  background-color: rgba(255, 255, 255, 0.055);
+  border-color: rgba(253, 164, 175, 0.18);
+  color: var(--text-primary);
+}
+
+html.dark .goal-decision-experience #safety-first article p {
+  color: rgba(255, 228, 230, 0.88);
+}
+
+@media (max-width: 640px) {
+  .goal-decision-experience {
+    row-gap: 1.5rem;
+  }
+
+  .goal-decision-experience .hero-shell,
+  .goal-decision-experience .card-premium,
+  .goal-decision-experience #safety-first {
+    border-radius: 1.25rem;
+  }
+
+  .goal-decision-experience #comparison-table {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .goal-decision-experience #comparison-table .overflow-x-auto {
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+  }
+
+  .goal-decision-experience #comparison-table th,
+  .goal-decision-experience #comparison-table td {
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+  }
+}
