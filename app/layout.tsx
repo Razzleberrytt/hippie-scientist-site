@@ -109,7 +109,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               Page components must use <div>, <section>, <article>, etc. — NEVER another <main>. */}
           <main
             id='main-content'
-            className='pb-[calc(env(safe-area-inset-bottom)+7rem)] md:pb-8'
+            className='pb-[calc(env(safe-area-inset-bottom)+11rem)] md:pb-8'
           >
             {children}
           </main>
