@@ -98,18 +98,18 @@ function SignalCard({
 }) {
   const toneClass =
     tone === 'clinical'
-      ? 'border-emerald-800/15 bg-emerald-50/80 text-emerald-950'
+      ? 'border-emerald-600/20 bg-emerald-50/80 text-emerald-950 dark:border-emerald-200/20 dark:bg-emerald-300/10 dark:text-emerald-50'
       : tone === 'mechanism'
-        ? 'border-blue-800/15 bg-blue-50/70 text-blue-950'
+        ? 'border-blue-600/20 bg-blue-50/75 text-blue-950 dark:border-blue-200/20 dark:bg-blue-300/10 dark:text-blue-50'
         : tone === 'caution'
-          ? 'border-amber-800/20 bg-amber-50/80 text-amber-950'
-          : 'border-brand-900/10 bg-white/85 text-ink'
+          ? 'border-amber-700/20 bg-amber-50/80 text-amber-950 dark:border-amber-200/20 dark:bg-amber-300/10 dark:text-amber-50'
+          : 'border-brand-900/10 bg-white/80 text-ink dark:border-white/10 dark:bg-white/5'
 
   return (
     <div className={`rounded-xl border p-3 ${toneClass}`}>
       <p className="text-[10px] font-bold uppercase tracking-[0.12em] opacity-75">{title}</p>
-      <p className="mt-1 text-sm font-semibold">{value}</p>
-      <p className="mt-1 text-xs leading-5 opacity-80">{detail}</p>
+      <p className="mt-1 text-sm font-semibold leading-6">{value}</p>
+      <p className="mt-1 text-xs leading-5 opacity-85">{detail}</p>
     </div>
   )
 }
@@ -135,26 +135,26 @@ export default function ProfileEvidenceLens({
 
   return (
     <section
-      className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm sm:p-5"
+      className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 shadow-sm sm:p-5 dark:border-white/10 dark:bg-white/5"
       aria-labelledby="profile-evidence-lens-heading"
     >
       <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
         <div className="max-w-2xl space-y-2">
-          <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Evidence lens</p>
-          <h3 id="profile-evidence-lens-heading" className="text-base font-bold text-ink">
+          <p className="eyebrow-label">Evidence lens</p>
+          <h3 id="profile-evidence-lens-heading" className="text-base font-bold leading-6 text-ink">
             What kind of evidence supports this profile?
           </h3>
-          <p className="text-sm leading-6 text-[#46574d]">
+          <p className="text-sm leading-6 text-muted">
             {meter.note}
           </p>
         </div>
-        <div className="min-w-[12rem] rounded-xl border border-brand-900/10 bg-brand-50/50 p-3">
+        <div className="min-w-[12rem] rounded-xl border border-brand-900/10 bg-brand-50/60 p-3 dark:border-white/10 dark:bg-white/5">
           <div className="flex items-center justify-between gap-3">
-            <span className="text-xs font-bold text-brand-900">{meter.label}</span>
-            <span className="text-[11px] font-semibold text-[#5f6f66]">{label}</span>
+            <span className="text-xs font-bold text-brand-900 dark:text-brand-100">{meter.label}</span>
+            <span className="text-[11px] font-semibold text-muted">{label}</span>
           </div>
           <div
-            className="mt-3 h-2 overflow-hidden rounded-full bg-white"
+            className="mt-3 h-2 overflow-hidden rounded-full bg-white dark:bg-white/10"
             role="progressbar"
             aria-label={`Evidence strength: ${label}`}
             aria-valuemin={0}
@@ -194,7 +194,7 @@ export default function ProfileEvidenceLens({
       </div>
 
       {citationsCount > 0 ? (
-        <p className="mt-3 text-xs leading-5 text-[#5f6f66]">
+        <p className="mt-3 text-xs leading-5 text-muted">
           This profile cites {citationsCount} human stud{citationsCount === 1 ? 'y' : 'ies'}.
         </p>
       ) : null}
