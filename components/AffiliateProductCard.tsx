@@ -37,9 +37,9 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
   const ctaLabel = product.ctaLabel || 'Check current price'
 
   return (
-    <article className={`flex h-full flex-col overflow-hidden rounded-2xl border border-brand-900/10 bg-white/85 shadow-sm ${compact ? 'p-4' : 'p-5'}`}>
+    <article className={`flex h-full flex-col overflow-hidden rounded-2xl border border-brand-900/10 bg-white/80 shadow-sm dark:border-white/10 dark:bg-white/5 ${compact ? 'p-4' : 'p-5'}`}>
       {imageUrl && isOptimizableRemoteImage(imageUrl) ? (
-        <div className='mb-4 aspect-[4/3] overflow-hidden rounded-xl border border-brand-900/10 bg-brand-50'>
+        <div className='mb-4 aspect-[4/3] overflow-hidden rounded-xl border border-brand-900/10 bg-brand-50 dark:border-white/10 dark:bg-white/5'>
           <Image
             src={imageUrl}
             alt={title}
@@ -56,7 +56,7 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
       <div className='flex flex-1 flex-col'>
         <div>
           {product.brand ? (
-            <p className='text-xs font-bold uppercase tracking-[0.16em] text-brand-700'>{product.brand}</p>
+            <p className='text-xs font-bold uppercase tracking-[0.16em] text-brand-700 dark:text-brand-200'>{product.brand}</p>
           ) : null}
           <h3 className='mt-2 text-base font-semibold leading-6 text-ink'>{title}</h3>
           <p className='mt-3 text-sm leading-6 text-muted'>{rationale}</p>
@@ -79,12 +79,12 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
               label: title,
               target: affiliateUrl,
             })}
-            className='mt-5 inline-flex min-h-11 w-full items-center justify-center gap-1.5 rounded-full bg-brand-800 px-4 py-2.5 text-sm font-bold text-white shadow-sm transition-all duration-200 motion-safe:hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-md active:translate-y-0 dark:bg-[var(--accent-primary)] dark:text-[#07150c] dark:hover:bg-[var(--accent-teal)]'
+            className='mt-5 inline-flex min-h-11 w-full items-center justify-center gap-1.5 rounded-full bg-brand-950 px-4 py-2.5 text-sm font-bold text-white shadow-sm transition-all duration-200 motion-safe:hover:-translate-y-0.5 hover:bg-brand-900 hover:shadow-md active:translate-y-0 dark:bg-brand-200 dark:text-brand-950 dark:hover:bg-brand-100'
           >
             {ctaLabel} <span aria-hidden="true">→</span>
           </a>
         ) : (
-          <span className='mt-5 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brand-50 border border-brand-900/10 px-4 py-2.5 text-sm font-bold text-muted cursor-not-allowed'>
+          <span className='mt-5 inline-flex min-h-11 w-full cursor-not-allowed items-center justify-center rounded-full border border-brand-900/10 bg-brand-50 px-4 py-2.5 text-sm font-bold text-muted dark:border-white/10 dark:bg-white/5'>
             Product Unavailable
           </span>
         )}
