@@ -228,6 +228,55 @@ html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) [id="compar
   background: rgba(255, 255, 255, 0.74);
 }
 
+/* Make large evidence tables feel intentional instead of tiny on mobile. */
+#ashwagandha-stress-claim .overflow-x-auto,
+main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+#ashwagandha-stress-claim .overflow-x-auto::after,
+main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto::after {
+  content: 'Swipe table →';
+  display: none;
+  padding: 0.7rem 0.85rem;
+  border-top: 1px solid rgba(235, 246, 236, 0.12);
+  color: rgba(221, 233, 223, 0.68);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+html:not(.dark) #ashwagandha-stress-claim .overflow-x-auto::after,
+html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto::after {
+  border-top-color: rgba(29, 74, 47, 0.1);
+  color: #5f6f66;
+}
+
+#ashwagandha-stress-claim table th,
+#ashwagandha-stress-claim table td,
+main:has(nav[aria-label="Jump to profile sections"]) table th,
+main:has(nav[aria-label="Jump to profile sections"]) table td {
+  vertical-align: top;
+  line-height: 1.55;
+}
+
+#ashwagandha-stress-claim table tbody tr:nth-child(even),
+main:has(nav[aria-label="Jump to profile sections"]) table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+html:not(.dark) #ashwagandha-stress-claim table tbody tr:nth-child(even),
+html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) table tbody tr:nth-child(even) {
+  background: rgba(243, 245, 238, 0.48);
+}
+
+#ashwagandha-stress-claim a,
+main:has(nav[aria-label="Jump to profile sections"]) a {
+  text-underline-offset: 0.22em;
+}
+
 @media (max-width: 768px) {
   main:has(nav[aria-label="Jump to profile sections"]) > div.mx-auto {
     padding-left: 0.9rem;
@@ -237,6 +286,13 @@ html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) [id="compar
   main:has(nav[aria-label="Jump to profile sections"]) nav[aria-label="Jump to profile sections"] {
     position: static;
     border-radius: 1.15rem;
+    gap: 0.4rem;
+  }
+
+  main:has(nav[aria-label="Jump to profile sections"]) nav[aria-label="Jump to profile sections"] a {
+    min-height: 2.25rem;
+    display: inline-flex;
+    align-items: center;
   }
 
   main:has(nav[aria-label="Jump to profile sections"]) .hero-shell,
@@ -253,8 +309,55 @@ html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) [id="compar
     max-width: 16ch;
   }
 
+  #ashwagandha-stress-claim .overflow-x-auto::after,
+  main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto::after {
+    display: block;
+  }
+
   #ashwagandha-stress-claim table,
   main:has(nav[aria-label="Jump to profile sections"]) table {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
+  }
+
+  #ashwagandha-stress-claim table th,
+  #ashwagandha-stress-claim table td,
+  main:has(nav[aria-label="Jump to profile sections"]) table th,
+  main:has(nav[aria-label="Jump to profile sections"]) table td {
+    padding: 0.7rem 0.75rem;
+  }
+
+  #ashwagandha-stress-claim .grid,
+  main:has(nav[aria-label="Jump to profile sections"]) #quick-stats .grid,
+  main:has(nav[aria-label="Jump to profile sections"]) #compare .grid {
+    gap: 0.7rem;
+  }
+
+  #ashwagandha-stress-claim > section + section,
+  main:has(nav[aria-label="Jump to profile sections"]) section + section {
+    margin-top: 0.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #ashwagandha-stress-claim > header h2 {
+    font-size: clamp(2rem, 11vw, 2.8rem);
+    line-height: 0.98;
+  }
+
+  main:has(nav[aria-label="Jump to profile sections"]) h1 {
+    font-size: clamp(2.35rem, 12vw, 3rem);
+  }
+
+  #ashwagandha-stress-claim .rounded-xl,
+  main:has(nav[aria-label="Jump to profile sections"]) #quick-stats .rounded-xl,
+  main:has(nav[aria-label="Jump to profile sections"]) #compare .rounded-2xl {
+    border-radius: 0.95rem;
+  }
+
+  #ashwagandha-stress-claim p,
+  #ashwagandha-stress-claim li,
+  main:has(nav[aria-label="Jump to profile sections"]) p,
+  main:has(nav[aria-label="Jump to profile sections"]) li {
+    line-height: 1.72;
   }
 }
