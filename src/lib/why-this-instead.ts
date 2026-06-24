@@ -3,8 +3,6 @@ import {
   buildDecisionVisualProfile,
   type DecisionVisualProfile,
   type RecoveryOrientation,
-  type StimulationProfile,
-  type TimelineProfile,
 } from './decision-visuals'
 
 export type AlternativeReasoning = {

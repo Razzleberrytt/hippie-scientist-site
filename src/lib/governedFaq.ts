@@ -1,4 +1,4 @@
-import { getEvidenceLabelMeta, getTopicJudgment } from './governedResearch'
+import { getEvidenceLabelMeta } from './governedResearch'
 import type { GovernedEntityType } from './governedResearch'
 import type { ResearchEnrichment } from '@/types/researchEnrichment'
 

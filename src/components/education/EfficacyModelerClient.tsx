@@ -1,8 +1,8 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { Activity, Info, Clock, AlertTriangle, ArrowRight } from 'lucide-react'
-import { resolveBestProduct, type ResolvedProductRoute } from '../../lib/affiliate-intelligence-routing'
+import { Activity, Info, ArrowRight } from 'lucide-react'
+import { resolveBestProduct } from '../../lib/affiliate-intelligence-routing'
 import AffiliateProductCard from '../sourcing/AffiliateProductCard'
 
 interface IngredientModel {
@@ -135,7 +135,7 @@ export default function EfficacyModelerClient() {
 
     if (isAcute) {
       // Plot 24 hours, step = 0.2 hours (120 points)
-      const tOnset = activeIngredient.onsetHours || 0.5
+      const _tOnset = activeIngredient.onsetHours || 0.5
       const tPeak = activeIngredient.peakHours || 1.5
       const tHalf = activeIngredient.halfLifeHours || 4.0
 

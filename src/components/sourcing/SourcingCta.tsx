@@ -17,7 +17,7 @@ export function SourcingCta({ record, displayName }: SourcingCtaProps) {
   const directUrl = ensureAmazonAffiliateTag(rawUrl)
   const affiliateQuery = text(record?.affiliate_query) || displayName
 
-  const isAffiliateReady = !!(directUrl || affiliateQuery)
+  const _isAffiliateReady = !!(directUrl || affiliateQuery)
 
   // 2. Safe source link display
   const getUrl = () => {

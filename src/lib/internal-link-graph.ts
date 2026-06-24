@@ -71,9 +71,7 @@ function nodeHref(node: SemanticLinkNode): string {
   }
 }
 
-function pairKey(source: SemanticLinkNode, target: SemanticLinkNode): string {
-  return [source.type, nodeSlug(source), target.type, nodeSlug(target)].join(':')
-}
+
 
 function allowedRelationship(source: SemanticNodeType, target: SemanticNodeType): boolean {
   const valid: Array<[SemanticNodeType, SemanticNodeType]> = [

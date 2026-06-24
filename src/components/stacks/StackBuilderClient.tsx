@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import Link from 'next/link'
 
 interface BotanicalItem {
@@ -29,10 +29,10 @@ export default function StackBuilderClient({ herbs, compounds }: StackBuilderCli
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   // Merge datasets and tag them by type
-  const allItems = [
+  const allItems = useMemo(() => [
     ...herbs.map(item => ({ ...item, type: 'herb' as const })),
     ...compounds.map(item => ({ ...item, type: 'compound' as const })),
-  ]
+  ], [herbs, compounds])
 
   // Filter items by query
   const filteredItems = searchQuery
@@ -59,7 +59,7 @@ export default function StackBuilderClient({ herbs, compounds }: StackBuilderCli
       // eslint-disable-next-line no-console
       console.error('Failed to load stack:', e)
     }
-  }, [])
+  }, [allItems])
 
   // Save stack to localStorage
   const saveStack = (items: BotanicalItem[]) => {

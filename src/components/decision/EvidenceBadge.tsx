@@ -1,6 +1,6 @@
 'use client'
 
-import type { ReactNode } from 'react'
+
 
 export type EvidenceTier = 'strong' | 'moderate' | 'early' | 'review' | 'unknown'
 

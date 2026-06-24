@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
+import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
 import { rankSemanticRecommendations } from '../lib/semantic-orchestration'
 import type { RuntimeRecord } from '../types/content'
 

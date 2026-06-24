@@ -1,4 +1,4 @@
-import type { Herb } from '@/types/herb'
+
 import type { Compound } from '../types/compound'
 import { loadHerbData } from './herb-data'
 import { loadCompoundSummaryData } from './compound-data'

@@ -162,7 +162,7 @@ export default function SourcingComparerClient({ herbs, compounds }: SourcingCom
   const auditResults = useMemo(() => {
     return comparedItems.map(item => {
       const costPerServing = item.standardPrice / (item.servings || 1)
-      const costPerMgActive = costPerServing / ((item.doseMg * item.standardizationPct) || 1)
+      const _costPerMgActive = costPerServing / ((item.doseMg * item.standardizationPct) || 1)
 
       // Calculate active compound yield per $1.00 spent:
       // Active yield (mg) per dose = doseMg * standardizationPct

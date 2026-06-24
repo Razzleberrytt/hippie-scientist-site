@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { HelpCircle, RefreshCw, AlertTriangle, ArrowRight, ShieldCheck } from 'lucide-react'
+import { HelpCircle, RefreshCw, AlertTriangle, ArrowRight } from 'lucide-react'
 import { resolveBestProduct } from '../../lib/affiliate-intelligence-routing'
 import AffiliateProductCard from './AffiliateProductCard'
 

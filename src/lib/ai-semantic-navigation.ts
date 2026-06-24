@@ -137,7 +137,7 @@ export function buildSemanticNavigationSuggestions(
   return suggestions.slice(0, limit)
 }
 
-export function buildSemanticAssistantSummary(record: any, relatedRecords: any[] = []) {
+export function buildSemanticAssistantSummary(record: any, _relatedRecords: any[] = []) {
   const signals = collectSignals(record).slice(0, 5).map(title)
   const ecosystems = matchingEcosystems(collectSignals(record)).slice(0, 2).map((item) => item.ecosystem.title)
 

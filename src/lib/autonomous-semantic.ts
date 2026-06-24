@@ -11,11 +11,7 @@ export type AutonomousSemanticState = {
   ecosystemBalancingTargets: string[]
 }
 
-function normalizeText(value: unknown) {
-  return typeof value === 'string'
-    ? value.trim().toLowerCase()
-    : ''
-}
+
 
 export function buildAutonomousSemanticState(
   source: any,

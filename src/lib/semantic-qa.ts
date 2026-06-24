@@ -1,5 +1,5 @@
 import { buildAuthoritySupernodes } from './authority-supernodes'
-import { buildMultiHopTraversal } from './multi-hop-traversal'
+
 
 export type SemanticQAReport = {
   orphanNodes: string[]

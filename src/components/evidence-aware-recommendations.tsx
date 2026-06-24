@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
+import { formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 
 type RecommendationItem = {
   title: string

@@ -172,7 +172,7 @@ export default function CyclingPlannerClient() {
               </div>
             ) : (
               <div className='space-y-5 divide-y divide-slate-100 max-h-[300px] overflow-y-auto pr-2'>
-                {activeIngredients.map((ing, idx) => (
+                {activeIngredients.map((ing) => (
                   <div key={ing.slug} className={`pt-4 first:pt-0 space-y-2`}>
                     <div className='flex items-center justify-between'>
                       <span className='font-bold text-slate-800 text-sm'>{ing.name} Protocol</span>

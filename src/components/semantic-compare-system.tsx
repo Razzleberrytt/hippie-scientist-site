@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
+import { cleanSummary, formatDisplayLabel, isClean, list, unique } from '@/lib/display-utils'
 
 type CompareEntity = {
   slug?: string

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useMemo, useRef } from 'react'
+import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import Link from 'next/link'
 
 interface RegimenItem {
@@ -21,12 +21,13 @@ interface RegimenPlannerClientProps {
 
 type TimeSlot = 'morning' | 'afternoon' | 'evening' | 'prebed'
 
-interface PlannedInterval {
-  slot: TimeSlot
-  label: string
-  icon: string
-  items: RegimenItem[]
-}
+// Time Slot definitions
+const slots: { id: TimeSlot; label: string; icon: string; timeRange: string }[] = [
+  { id: 'morning', label: 'Morning', icon: '🌅', timeRange: '6:00 AM - 11:00 AM' },
+  { id: 'afternoon', label: 'Afternoon', icon: '☀️', timeRange: '11:00 AM - 4:00 PM' },
+  { id: 'evening', label: 'Evening', icon: '🌆', timeRange: '4:00 PM - 9:00 PM' },
+  { id: 'prebed', label: 'Pre-Bed / Night', icon: '🌙', timeRange: '9:00 PM - 6:00 AM' },
+]
 
 export default function RegimenPlannerClient({ herbs, compounds }: RegimenPlannerClientProps) {
   const allItems = useMemo(() => {
@@ -35,14 +36,6 @@ export default function RegimenPlannerClient({ herbs, compounds }: RegimenPlanne
       ...compounds.map(item => ({ ...item, type: 'compound' as const })),
     ] as RegimenItem[]
   }, [herbs, compounds])
-
-  // Time Slot definitions
-  const slots: { id: TimeSlot; label: string; icon: string; timeRange: string }[] = [
-    { id: 'morning', label: 'Morning', icon: '🌅', timeRange: '6:00 AM - 11:00 AM' },
-    { id: 'afternoon', label: 'Afternoon', icon: '☀️', timeRange: '11:00 AM - 4:00 PM' },
-    { id: 'evening', label: 'Evening', icon: '🌆', timeRange: '4:00 PM - 9:00 PM' },
-    { id: 'prebed', label: 'Pre-Bed / Night', icon: '🌙', timeRange: '9:00 PM - 6:00 AM' },
-  ]
 
   // State for selections in each slot
   const [morningItems, setMorningItems] = useState<RegimenItem[]>([])
@@ -56,15 +49,14 @@ export default function RegimenPlannerClient({ herbs, compounds }: RegimenPlanne
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
-  // Map state hooks to slots
-  const getSlotItems = (slot: TimeSlot) => {
+  const getSlotItems = useCallback((slot: TimeSlot) => {
     switch (slot) {
       case 'morning': return morningItems
       case 'afternoon': return afternoonItems
       case 'evening': return eveningItems
       case 'prebed': return prebedItems
     }
-  }
+  }, [morningItems, afternoonItems, eveningItems, prebedItems])
 
   const setSlotItems = (slot: TimeSlot, items: RegimenItem[]) => {
     switch (slot) {
@@ -185,7 +177,7 @@ export default function RegimenPlannerClient({ herbs, compounds }: RegimenPlanne
       const notSelected = !current.some(selected => selected.slug === item.slug)
       return nameMatch && notSelected
     }).slice(0, 8)
-  }, [searchQuery, activeSlot, morningItems, afternoonItems, eveningItems, prebedItems, allItems])
+  }, [searchQuery, activeSlot, getSlotItems, allItems])
 
   // Close dropdown on outside click
   useEffect(() => {
@@ -313,7 +305,7 @@ export default function RegimenPlannerClient({ herbs, compounds }: RegimenPlanne
         setPrebedItems(pb)
 
         saveRegimen(m, a, ev, pb)
-      } catch (err) {
+      } catch (_err) {
         alert('Invalid JSON file format.')
       }
     }
