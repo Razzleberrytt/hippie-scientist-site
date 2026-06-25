@@ -60,6 +60,13 @@ type SafetyCard = {
   decision_effect: string
 }
 
+function cleanGoalHeading(value: string) {
+  return value
+    .replace(/\s+decisions$/i, '')
+    .replace(/\bsupplement decisions change\b/gi, 'supplement context changes')
+    .replace(/\bsupport decisions change\b/gi, 'support context changes')
+}
+
 function ArticleClusterLinks({
   category,
   eyebrow = 'More guides',
@@ -130,10 +137,11 @@ export default function GoalDecisionExperience({
   const faqItems = goalContent?.faqItems.slice(0, 4) ?? []
   const cluster = clusterForGoal(goal.slug)
   const quickAnswerId = `${goal.slug}-quick-answer`
-  const heroHeadline = config.heroHeadline ?? `${goal.title.replace(/ decisions$/, '')}: What does the evidence actually support?`
+  const goalDisplayTitle = cleanGoalHeading(goal.title)
+  const heroHeadline = cleanGoalHeading(config.heroHeadline ?? `${goalDisplayTitle}: What does the evidence actually support?`)
   const heroDescription = goal.description
   const heroCta = config.heroCta ?? 'Start with the quick answer'
-  const safetyHeading = config.safetyHeading ?? (isEducationOnly ? 'Safety notes before use' : 'Safety notes before buying')
+  const safetyHeading = cleanGoalHeading(config.safetyHeading ?? (isEducationOnly ? 'Safety notes before use' : 'Safety notes before buying'))
   const safetyBody = config.safetyBody ?? 'Use this as a screening layer before comparing options. Medication use, pregnancy, chronic conditions, and psychiatric history can change the risk calculation.'
 
   return (
@@ -143,7 +151,7 @@ export default function GoalDecisionExperience({
         items={[
           { label: 'Home', href: '/' },
           { label: 'Goals', href: '/goals' },
-          { label: goal.title },
+          { label: goalDisplayTitle },
         ]}
       />
 
@@ -258,63 +266,15 @@ export default function GoalDecisionExperience({
 
       {goal.slug === 'focus' ? <SeeAlsoInCluster currentPath="/goals/focus" /> : null}
 
-      {hubLinks ? (
-        <GoalHubSections
-          goalSlug={goal.slug}
-          stack={hubLinks.stack}
-          compares={hubLinks.compares}
-          seoEntry={hubLinks.seoEntry}
-        />
-      ) : null}
+      {isEducationOnly ? null : <GoalTopAffiliatePicks goal={captureGoal} />}
 
-      {faqItems.length > 0 ? (
-        <section className="card-premium p-5 sm:p-8">
-          <div className="max-w-3xl">
-            <p className="eyebrow-label">FAQ</p>
-            <h2 className="mt-2 text-2xl font-semibold text-ink">Short answers before you decide</h2>
-          </div>
-          <div className="mt-6 space-y-4">
-            {faqItems.map((item) => (
-              <details key={item.question} className="group rounded-2xl border border-brand-900/10 bg-white/75 p-4 dark:border-white/10 dark:bg-white/5">
-                <summary className="flex cursor-pointer list-none justify-between gap-3 text-sm font-semibold text-ink">
-                  {item.question}
-                  <span className="text-brand-500 transition-transform group-open:rotate-180 dark:text-brand-200" aria-hidden>
-                    v
-                  </span>
-                </summary>
-                <p className="mt-3 text-sm leading-7 text-muted">{item.answer}</p>
-              </details>
-            ))}
-          </div>
-        </section>
-      ) : null}
+      {isEducationOnly ? null : <SafetyChecklistPromo goal={captureGoal} />}
 
-      {goal.slug === 'anxiety' ? (
-        <section className="card-premium p-5 sm:p-6">
-          <p className="eyebrow-label">Decision guide</p>
-          <h2 className="mt-2 text-xl font-semibold text-ink">Need the broader anxiety herb shortlist?</h2>
-          <p className="mt-3 text-sm leading-7 text-muted">
-            Use the broader guide when you want the herb-by-herb anxiety framework beyond this goal comparison.
-          </p>
-          <Link
-            href="/guides/best-herbs-for-anxiety"
-            className="mt-4 inline-flex min-h-11 items-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-brand-900 dark:bg-brand-200 dark:text-brand-950 dark:hover:bg-brand-100"
-          >
-            See the anxiety herb guide
-          </Link>
-        </section>
-      ) : null}
+      {hubLinks ? <GoalHubSections goal={goal} hubLinks={hubLinks} /> : null}
 
-      <GoalTopAffiliatePicks goalSlug={goal.slug} limit={2} suppressMonetization={isEducationOnly} />
-
-      <SafetyChecklistPromo goal={captureGoal} variant="compact" />
+      {goalContent ? <GoalContentDepth content={goalContent} /> : null}
 
       <AuthorCredentials />
-
-      <footer className="rounded-2xl border border-brand-900/10 bg-brand-950/[0.02] p-5 text-xs leading-6 text-muted dark:border-white/10 dark:bg-white/5">
-        Educational only. Not medical advice. Evidence varies by population, preparation, dose, timing, and study design.
-        Review medications, health conditions, pregnancy status, and clinician guidance before using supplements.
-      </footer>
     </div>
   )
 }
