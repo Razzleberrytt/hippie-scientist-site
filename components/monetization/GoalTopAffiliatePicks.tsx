@@ -48,9 +48,9 @@ export default function GoalTopAffiliatePicks({
   return (
     <section className='card-premium p-5 sm:p-8'>
       <p className='eyebrow-label'>Optional sourcing notes</p>
-      <h2 className='mt-2 text-xl font-semibold text-ink'>Product examples to research carefully</h2>
+      <h2 className='mt-2 text-xl font-semibold text-ink'>Sourcing picks for this goal</h2>
       <p className='mt-2 text-sm leading-6 text-muted'>
-        These are starting points for checking quality markers — not prescriptions and not a substitute for the safety notes above.
+        These are product examples to research carefully — not prescriptions and not a substitute for the safety notes above.
       </p>
       <div className='mt-6 grid gap-4 sm:grid-cols-2'>
         {picks.map((pick) => (
