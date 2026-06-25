@@ -1,5 +1,13 @@
 import ExcelJS from 'exceljs'
 
+const WORKBOOK_READ_OPTIONS = {
+  // The runtime exporters only need worksheet names, headers, and cell values.
+  // Excel table metadata is not part of the source-of-truth contract, and some
+  // workbooks can contain stale table relationships that make ExcelJS fail while
+  // hydrating worksheet.table models before any row data is available.
+  ignoreNodes: ['tableParts'],
+}
+
 function normalizeCellValue(cell) {
   const value = cell?.value
 
@@ -49,7 +57,7 @@ function worksheetToRows(worksheet) {
 
 export async function readWorkbookExcelJS(filePath) {
   const workbook = new ExcelJS.Workbook()
-  await workbook.xlsx.readFile(filePath)
+  await workbook.xlsx.readFile(filePath, WORKBOOK_READ_OPTIONS)
 
   return {
     workbook,
