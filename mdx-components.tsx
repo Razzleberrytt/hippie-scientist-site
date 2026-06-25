@@ -16,7 +16,10 @@ type MdxTableProps = Record<string, unknown> & { children?: ReactNode }
 function MdxTable({ children, ...props }: MdxTableProps) {
   return (
     <ResponsiveTable label="Article table" className="article-table">
-      <table {...props}>{children}</table>
+      <table {...props}>
+        <caption className="sr-only">Article table</caption>
+        {children}
+      </table>
     </ResponsiveTable>
   )
 }
