@@ -20,6 +20,13 @@ const exploreLinks = [
   { href: '/goals', label: 'Goals' },
 ]
 
+const priorityGoalLinks = [
+  { href: '/goals/sleep', label: 'Sleep' },
+  { href: '/goals/stress', label: 'Stress' },
+  { href: '/goals/anxiety', label: 'Anxiety' },
+  { href: '/goals/focus', label: 'Focus' },
+]
+
 const safetyLinks = [
   { href: '/methodology', label: 'Methodology' },
   { href: PUBLIC_ROUTES.disclaimer, label: 'Disclaimer' },
@@ -90,6 +97,23 @@ export default function Footer() {
                 <h3 className='section-label mb-3'>Explore</h3>
                 <ul className='space-y-2'>
                   {exploreLinks.map(link => (
+                    <li key={link.href}>
+                      <Link className='text-sm text-white/70 transition-colors hover:text-white' to={link.href} prefetch={true}>
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </NonEmpty>
+
+          <NonEmpty>
+            {priorityGoalLinks.length > 0 && (
+              <div>
+                <h3 className='section-label mb-3'>Popular Goals</h3>
+                <ul className='space-y-2'>
+                  {priorityGoalLinks.map(link => (
                     <li key={link.href}>
                       <Link className='text-sm text-white/70 transition-colors hover:text-white' to={link.href} prefetch={true}>
                         {link.label}
