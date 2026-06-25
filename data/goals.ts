@@ -27,8 +27,8 @@ export type Goal = {
 export const goals: Goal[] = [
   {
     slug: 'pain',
-    title: 'Pain support decisions',
-    eyebrow: 'Goal decision guide',
+    title: 'Pain support',
+    eyebrow: 'Goal guide',
     description: 'Compare common non-prescription options for everyday pain support based on fit, onset, evidence quality, and risk profile.',
     quickPicks: [
       { need: 'General joint discomfort', option: 'Curcumin', slug: 'curcumin' },
@@ -46,8 +46,8 @@ export const goals: Goal[] = [
   },
   {
     slug: 'inflammation',
-    title: 'Inflammation support decisions',
-    eyebrow: 'Goal decision guide',
+    title: 'Inflammation support',
+    eyebrow: 'Goal guide',
     description: 'Use this page to compare anti-inflammatory options by practical use case, likely onset, and tolerance constraints.',
     quickPicks: [
       { need: 'Joint stiffness and mobility', option: 'Curcumin', slug: 'curcumin' },
@@ -65,8 +65,8 @@ export const goals: Goal[] = [
   },
   {
     slug: 'focus',
-    title: 'Focus support decisions',
-    eyebrow: 'Goal decision guide',
+    title: 'Focus support',
+    eyebrow: 'Goal guide',
     description: 'Compare cognitive support options by stimulation profile, onset speed, evidence strength, and common dropout reasons.',
     quickPicks: [
       { need: 'Calm concentration', option: 'L-Theanine', slug: 'l-theanine' },
@@ -84,8 +84,8 @@ export const goals: Goal[] = [
   },
   {
     slug: 'sleep',
-    title: 'Sleep support decisions',
-    eyebrow: 'Goal decision guide',
+    title: 'Sleep support',
+    eyebrow: 'Goal guide',
     description: 'Evaluate common sleep aids by onset window, expected benefit profile, safety constraints, and adherence friction.',
     quickPicks: [
       { need: 'Sleep-onset difficulty', option: 'Melatonin', slug: 'melatonin' },
@@ -102,8 +102,8 @@ export const goals: Goal[] = [
   },
   {
     slug: 'stress',
-    title: 'Stress resilience decisions',
-    eyebrow: 'Goal decision guide',
+    title: 'Stress resilience',
+    eyebrow: 'Goal guide',
     description: 'Compare adaptogens and relaxing compounds for coping with lifestyle stress, workload fatigue, and physical strain.',
     quickPicks: [
       { need: 'Chronic burnout feeling', option: 'Ashwagandha', slug: 'ashwagandha' },
@@ -119,8 +119,8 @@ export const goals: Goal[] = [
   },
   {
     slug: 'anxiety',
-    title: 'Anxiety support decisions',
-    eyebrow: 'Goal decision guide',
+    title: 'Anxiety support',
+    eyebrow: 'Goal guide',
     description: 'Compare non-clinical support options for everyday anxious thoughts, physical tension, and situational stress.',
     quickPicks: [
       { need: 'Bedtime worry loop', option: 'L-Theanine', slug: 'l-theanine' },
@@ -136,8 +136,8 @@ export const goals: Goal[] = [
   },
   {
     slug: 'energy',
-    title: 'Energy and vitality decisions',
-    eyebrow: 'Goal decision guide',
+    title: 'Energy and vitality',
+    eyebrow: 'Goal guide',
     description: 'Compare stimulatory, metabolic, and adaptogenic solutions for cellular energy, wakefulness, and stamina.',
     quickPicks: [
       { need: 'Immediate wakefulness', option: 'Caffeine', slug: 'caffeine' },
@@ -153,8 +153,8 @@ export const goals: Goal[] = [
   },
   {
     slug: 'cognition',
-    title: 'Cognitive enhancement decisions',
-    eyebrow: 'Goal decision guide',
+    title: 'Cognitive enhancement',
+    eyebrow: 'Goal guide',
     description: 'Evaluate options targeting long-term memory consolidation, neuroprotection, and information processing speed.',
     quickPicks: [
       { need: 'Long-term memory retention', option: 'Bacopa', slug: 'bacopa' },
@@ -171,7 +171,7 @@ export const goals: Goal[] = [
   {
     slug: 'longevity',
     title: 'Longevity and cellular health',
-    eyebrow: 'Goal decision guide',
+    eyebrow: 'Goal guide',
     description: 'Compare options targeted at aging markers, NAD+ synthesis, cellular protection, and inflammatory lifestyle support.',
     quickPicks: [
       { need: 'NAD+ precursor path', option: 'Nicotinamide Riboside', slug: 'nicotinamide-riboside' },
@@ -187,8 +187,8 @@ export const goals: Goal[] = [
   },
   {
     slug: 'gut-health',
-    title: 'Gut health support decisions',
-    eyebrow: 'Goal decision guide',
+    title: 'Gut health support',
+    eyebrow: 'Goal guide',
     description: 'Compare fiber, digestion, and gut-support options by tolerance, timing, evidence strength, and medication-separation needs.',
     quickPicks: [
       { need: 'Fiber regularity support', option: 'Psyllium', slug: 'psyllium' },
@@ -205,8 +205,8 @@ export const goals: Goal[] = [
   },
   {
     slug: 'joint-support',
-    title: 'Joint support decisions',
-    eyebrow: 'Goal decision guide',
+    title: 'Joint support',
+    eyebrow: 'Goal guide',
     description: 'Compare joint-support supplements by evidence quality, mobility context, onset speed, and allergy or medication cautions.',
     quickPicks: [
       { need: 'Mobility and stiffness support', option: 'Glucosamine', slug: 'glucosamine' },
@@ -223,8 +223,8 @@ export const goals: Goal[] = [
   },
   {
     slug: 'recovery',
-    title: 'Recovery support decisions',
-    eyebrow: 'Goal decision guide',
+    title: 'Recovery support',
+    eyebrow: 'Goal guide',
     description: 'Compare recovery-support options for soreness, sleep quality, training load, and fatigue without treating recovery as a single supplement problem.',
     quickPicks: [
       { need: 'Muscle performance recovery', option: 'Creatine', slug: 'creatine' },
@@ -241,8 +241,8 @@ export const goals: Goal[] = [
   },
   {
     slug: 'fat-loss',
-    title: 'Fat loss support decisions',
-    eyebrow: 'Goal decision guide',
+    title: 'Fat loss support',
+    eyebrow: 'Goal guide',
     description: 'Compare fat-loss supplement claims conservatively, with stimulant load, blood pressure, appetite context, and evidence limits kept visible.',
     quickPicks: [
       { need: 'Caffeine-based thermogenic support', option: 'Caffeine', slug: 'caffeine' },
@@ -259,8 +259,8 @@ export const goals: Goal[] = [
   },
   {
     slug: 'blood-pressure',
-    title: 'Blood pressure support decisions',
-    eyebrow: 'Goal decision guide',
+    title: 'Blood pressure support',
+    eyebrow: 'Goal guide',
     description: 'Compare cardiovascular-support supplements with medication context, monitoring, and safety-first framing before any buying decision.',
     quickPicks: [
       { need: 'Nitric-oxide support', option: 'Beetroot Nitrate', slug: 'beetroot-nitrate' },
@@ -277,8 +277,8 @@ export const goals: Goal[] = [
   },
   {
     slug: 'testosterone-support',
-    title: 'Testosterone support decisions',
-    eyebrow: 'Goal decision guide',
+    title: 'Testosterone support',
+    eyebrow: 'Goal guide',
     description: 'Evaluate testosterone-support supplements skeptically, emphasizing sleep, deficiency context, safety, and weak-claim filtering.',
     quickPicks: [
       { need: 'Stress and sleep-linked support', option: 'Ashwagandha', slug: 'ashwagandha' },
