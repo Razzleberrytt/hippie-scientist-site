@@ -13,7 +13,7 @@ type ToolCard = {
   href: string
   title: string
   description: string
-  icon: React.ComponentType<{ className?: string }>
+  icon: React.ComponentType<{ className?: string; 'aria-hidden'?: true }>
   available: boolean
 }
 
@@ -103,8 +103,8 @@ export default function ToolsPage() {
                 className="group flex h-full flex-col rounded-[0.85rem] border border-brand-900/10 bg-white/80 p-4 shadow-sm transition hover:border-brand-700/30 hover:bg-white"
               >
                 <div className="flex items-center gap-3">
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-brand-900/10 bg-white text-brand-800">
-                    <Icon className="h-4 w-4" />
+                  <span className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-brand-900/10 bg-white text-brand-800">
+                    <Icon aria-hidden={true} className="h-4 w-4" />
                   </span>
                   <h3 className="text-base font-semibold tracking-tight text-ink group-hover:text-brand-800">{tool.title}</h3>
                 </div>
@@ -132,8 +132,8 @@ export default function ToolsPage() {
                 className="flex h-full flex-col rounded-[0.85rem] border border-brand-900/10 bg-white/60 p-4 opacity-80"
               >
                 <div className="flex items-center gap-3">
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-brand-900/10 bg-white text-[#5f6f66]">
-                    <Icon className="h-4 w-4" />
+                  <span className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-brand-900/10 bg-white text-[#5f6f66]">
+                    <Icon aria-hidden={true} className="h-4 w-4" />
                   </span>
                   <h3 className="text-base font-semibold tracking-tight text-ink">{tool.title}</h3>
                 </div>
