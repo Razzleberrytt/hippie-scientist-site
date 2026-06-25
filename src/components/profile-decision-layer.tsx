@@ -224,7 +224,7 @@ export function ProfileDecisionLayer({
       <div className="grid gap-0 lg:grid-cols-[1fr_0.7fr]">
         <div className="space-y-4 p-4 sm:p-5 lg:p-6">
           <div className="space-y-2">
-            <p className="eyebrow-label">Decision Layer</p>
+            <p className="eyebrow-label">Profile snapshot</p>
             <h2 className="max-w-2xl text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
               {name ? `${name}: quick read` : 'Quick read'}
             </h2>
