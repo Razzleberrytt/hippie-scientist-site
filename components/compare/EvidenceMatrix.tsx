@@ -2,6 +2,7 @@
 
 import { useId, useMemo, useState } from 'react'
 import type { ReactNode } from 'react'
+import ResponsiveTable from '@/components/ui/ResponsiveTable'
 
 /**
  * EvidenceMatrix
@@ -185,18 +186,10 @@ export default function EvidenceMatrix({
         {sortKey === 'b' ? `, sorted by ${entityB} evidence strength` : ''}.
       </p>
 
-      {/*
-        Scrollable, keyboard-focusable region. tabindex + role=region + aria-label
-        let keyboard users scroll the wide table on small screens (WCAG 2.1).
-      */}
-      <div
-        role="region"
-        aria-label={caption}
-        // A focusable scroll container is the recommended WCAG technique for letting
-        // keyboard users scroll a wide data table on small screens.
-        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
-        tabIndex={0}
-        className="overflow-x-auto rounded-2xl border border-brand-900/10 focus:outline-none focus:ring-2 focus:ring-brand-700/40"
+      <ResponsiveTable
+        label={caption}
+        hint="This evidence table scrolls horizontally on small screens. Use the filter controls above to isolate outcomes."
+        className="rounded-2xl"
       >
         <table id={tableId} className="w-full min-w-[920px] border-collapse text-left text-sm">
           <caption className="sr-only">{caption}</caption>
@@ -250,7 +243,7 @@ export default function EvidenceMatrix({
             ))}
           </tbody>
         </table>
-      </div>
+      </ResponsiveTable>
 
       <p className="text-xs text-[#5c6b63]">
         Tip: use the filters above to isolate a single outcome, or scroll the table
