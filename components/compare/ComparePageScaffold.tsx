@@ -60,10 +60,12 @@ export default function ComparePageScaffold({
   relatedDiscoveryGroups,
   children,
 }: ComparePageScaffoldProps) {
+  const schemaFaqs = isHarmReduction ? [] : faqs
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 space-y-12">
       <SchemaGraphScript graph={schemaGraph} />
-      <CompareSchema item1={item1} item2={item2} slug={slug} faqs={faqs} />
+      <CompareSchema item1={item1} item2={item2} slug={slug} faqs={schemaFaqs} />
 
       <AuthorityBreadcrumbs
         items={[
