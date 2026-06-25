@@ -1,0 +1,236 @@
+/*
+  Premium surface detail layer.
+  Extends the resonant visual language into navigation, footer, forms, tables,
+  chips, FAQ/detail elements, and dense utility surfaces.
+*/
+
+:root {
+  --surface-detail-border: rgba(49, 75, 51, 0.14);
+  --surface-detail-border-strong: rgba(49, 75, 51, 0.24);
+  --surface-detail-bg: rgba(255, 255, 255, 0.68);
+  --surface-detail-bg-strong: rgba(255, 253, 247, 0.86);
+  --surface-detail-glow: rgba(192, 138, 53, 0.16);
+  --surface-detail-focus: rgba(83, 111, 73, 0.30);
+  --surface-detail-text: #26382f;
+  --surface-detail-muted: #52645a;
+}
+
+html.dark {
+  --surface-detail-border: rgba(235, 246, 236, 0.13);
+  --surface-detail-border-strong: rgba(235, 246, 236, 0.24);
+  --surface-detail-bg: rgba(255, 255, 255, 0.055);
+  --surface-detail-bg-strong: rgba(32, 57, 45, 0.86);
+  --surface-detail-glow: rgba(196, 125, 46, 0.14);
+  --surface-detail-focus: rgba(203, 216, 192, 0.28);
+  --surface-detail-text: #f5f0e6;
+  --surface-detail-muted: #bdd0c2;
+}
+
+/* Top navigation: glassier, calmer, more premium without changing layout. */
+header nav,
+header [role='navigation'] {
+  border-color: var(--surface-detail-border) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 253, 247, 0.82), rgba(255, 253, 247, 0.64)) !important;
+  box-shadow: 0 10px 34px rgba(16, 32, 24, 0.075);
+  backdrop-filter: blur(18px) saturate(1.08);
+  -webkit-backdrop-filter: blur(18px) saturate(1.08);
+}
+
+html.dark header nav,
+html.dark header [role='navigation'] {
+  background:
+    linear-gradient(180deg, rgba(21, 42, 31, 0.88), rgba(13, 29, 20, 0.78)) !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
+}
+
+header nav a,
+header [role='navigation'] a {
+  text-underline-offset: 0.26em;
+}
+
+header nav a:hover,
+header [role='navigation'] a:hover {
+  text-shadow: 0 0 18px rgba(83, 111, 73, 0.16);
+}
+
+html.dark header nav a:hover,
+html.dark header [role='navigation'] a:hover {
+  text-shadow: 0 0 20px rgba(203, 216, 192, 0.20);
+}
+
+/* Footer: intentional closing surface instead of plain bottom content. */
+footer {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--surface-detail-border) !important;
+  background:
+    radial-gradient(circle at 14% 0%, rgba(83, 111, 73, 0.13), transparent 24rem),
+    radial-gradient(circle at 88% 20%, rgba(192, 138, 53, 0.12), transparent 24rem),
+    linear-gradient(180deg, rgba(255, 253, 247, 0.72), rgba(246, 239, 224, 0.94)) !important;
+}
+
+html.dark footer {
+  background:
+    radial-gradient(circle at 14% 0%, rgba(142, 186, 143, 0.10), transparent 24rem),
+    radial-gradient(circle at 88% 20%, rgba(196, 125, 46, 0.11), transparent 24rem),
+    linear-gradient(180deg, rgba(18, 38, 28, 0.88), rgba(8, 21, 15, 0.98)) !important;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(192, 138, 53, 0.34), rgba(83, 111, 73, 0.30), transparent);
+  pointer-events: none;
+}
+
+footer > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Tables: better reading rhythm and premium row separation. */
+main table {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+main thead th {
+  background:
+    linear-gradient(180deg, rgba(243, 245, 238, 0.92), rgba(231, 237, 224, 0.76)) !important;
+  color: #1d3125 !important;
+}
+
+html.dark main thead th {
+  background:
+    linear-gradient(180deg, rgba(48, 76, 60, 0.86), rgba(33, 57, 44, 0.82)) !important;
+  color: #f5f0e6 !important;
+}
+
+main tbody tr {
+  transition: background-color 160ms ease;
+}
+
+main tbody tr:hover {
+  background-color: rgba(83, 111, 73, 0.055) !important;
+}
+
+html.dark main tbody tr:hover {
+  background-color: rgba(203, 216, 192, 0.055) !important;
+}
+
+/* Forms and search fields: make inputs feel designed, not default. */
+main input,
+main select,
+main textarea {
+  border-color: var(--surface-detail-border) !important;
+  background: var(--surface-detail-bg-strong) !important;
+  color: var(--surface-detail-text) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.38), 0 8px 22px rgba(16, 32, 24, 0.045);
+}
+
+main input::placeholder,
+main textarea::placeholder {
+  color: var(--surface-detail-muted) !important;
+  opacity: 0.72;
+}
+
+main input:focus,
+main select:focus,
+main textarea:focus {
+  border-color: var(--surface-detail-border-strong) !important;
+  outline: 3px solid var(--surface-detail-focus) !important;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 1px var(--surface-detail-border-strong), 0 14px 32px rgba(16, 32, 24, 0.08);
+}
+
+html.dark main input,
+html.dark main select,
+html.dark main textarea {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.055), 0 10px 28px rgba(0, 0, 0, 0.22);
+}
+
+/* Details / FAQ / accordion surfaces. */
+main details {
+  border-color: var(--surface-detail-border) !important;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.30), transparent 10rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.74), rgba(251, 246, 233, 0.64)) !important;
+  box-shadow: 0 12px 32px rgba(16, 32, 24, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.58);
+}
+
+html.dark main details {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.05), transparent 10rem),
+    linear-gradient(180deg, rgba(36, 61, 50, 0.84), rgba(22, 42, 31, 0.78)) !important;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.045);
+}
+
+main details[open] {
+  border-color: var(--surface-detail-border-strong) !important;
+}
+
+main summary {
+  cursor: pointer;
+  text-wrap: pretty;
+}
+
+/* Chips, pills, badges: add subtle luminosity and better contrast. */
+.chip-readable,
+.evidence-pill-strong,
+.evidence-pill-moderate,
+main :is([class*='rounded-full'][class*='text-']) {
+  border-color: var(--surface-detail-border) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.34);
+}
+
+html.dark .chip-readable,
+html.dark .evidence-pill-strong,
+html.dark .evidence-pill-moderate,
+html.dark main :is([class*='rounded-full'][class*='text-']) {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Callouts: subtle left-side light rail for scannability. */
+.safety-block,
+main :is(.bg-amber-50\/80, .bg-amber-50\/85, .bg-rose-50, .bg-red-50, .bg-emerald-50) {
+  position: relative;
+  overflow: hidden;
+}
+
+.safety-block::before,
+main :is(.bg-amber-50\/80, .bg-amber-50\/85, .bg-rose-50, .bg-red-50, .bg-emerald-50)::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: linear-gradient(180deg, rgba(192, 138, 53, 0.72), rgba(83, 111, 73, 0.42));
+  pointer-events: none;
+}
+
+/* Selection color: small but powerful polish detail. */
+::selection {
+  background: rgba(192, 138, 53, 0.28);
+  color: #111a16;
+}
+
+html.dark ::selection {
+  background: rgba(203, 216, 192, 0.24);
+  color: #f5f0e6;
+}
+
+@media (max-width: 768px) {
+  header nav,
+  header [role='navigation'] {
+    box-shadow: 0 8px 24px rgba(16, 32, 24, 0.065);
+  }
+
+  main details,
+  main input,
+  main select,
+  main textarea {
+    border-radius: 1rem;
+  }
+}
