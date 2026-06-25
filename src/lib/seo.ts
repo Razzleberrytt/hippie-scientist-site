@@ -310,7 +310,7 @@ export function shouldIndexRoute(path: string, pageData?: Record<string, unknown
   const normalizedPath = normalizeIndexRoutePath(path)
   const noindexSignal = hasNoindexSignal(pageData)
   const hardNoindexSignal =
-    noindexSignal && /^(sitemap_included|robots|indexability_status|runtime_export_decision)=/.test(noindexSignal)
+    noindexSignal && /^(sitemap_included|robots|indexability_status|runtime_export_decision|profile_status)=/.test(noindexSignal)
       ? noindexSignal
       : null
 
