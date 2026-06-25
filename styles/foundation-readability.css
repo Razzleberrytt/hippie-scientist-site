@@ -100,7 +100,7 @@ canvas {
 .glass-card,
 .mobile-reading-card,
 .scientific-card,
-library-card-premium {
+.library-card-premium {
   border-color: var(--scientific-border);
   background-color: var(--paper-card);
   box-shadow: var(--soft-lift-shadow);
