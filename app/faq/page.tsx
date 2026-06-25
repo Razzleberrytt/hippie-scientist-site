@@ -23,12 +23,12 @@ const faqs = [
   {
     question: 'How should I use the site?',
     answer:
-      'Start with the herb or compound libraries, then open detail pages and blog posts for more context. Use the information as a starting point for learning, not as a final authority for important health decisions.',
+      'Start with the herb or compound libraries, then open detail pages and blog posts for more context. Use the information as a starting point for learning, not as a final authority for important health choices.',
   },
   {
     question: 'Can herbs or compounds be risky?',
     answer:
-      'Yes. Herbs and compounds may have side effects, medication interactions, contraindications, or other safety concerns. Always verify important decisions with a qualified professional.',
+      'Yes. Herbs and compounds may have side effects, medication interactions, contraindications, or other safety concerns. Always verify important safety questions with a qualified professional.',
   },
   {
     question: 'What if I find an error?',
@@ -179,4 +179,3 @@ export default function FaqPage() {
     </div>
   )
 }
-
