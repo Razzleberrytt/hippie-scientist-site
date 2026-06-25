@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Dopamine Pathway Education',
   description:
     'Explore educational content on dopaminergic signaling, focus, motivation, reward systems, and related herbs and compounds.',
+  alternates: { canonical: '/education/dopamine/' },
 }
 
 const profiles = [

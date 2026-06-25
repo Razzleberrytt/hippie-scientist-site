@@ -5,6 +5,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 export const metadata: Metadata = {
   title: 'Scientific Evidence Citation Explorer',
   description: 'Explore the scientific studies, clinical trials, and research papers backing the mechanisms and claims on The Hippie Scientist.',
+  alternates: { canonical: '/education/citation-explorer/' },
 }
 
 export default function CitationExplorerPage() {

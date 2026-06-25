@@ -3,2399 +3,3564 @@
     "id": "ajwain-carvacrol",
     "herb_slug": "ajwain",
     "compound_slug": "carvacrol",
-    "relationship": "partial"
+    "herb": "Ajwain",
+    "compound": "carvacrol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "ajwain-thymol",
     "herb_slug": "ajwain",
     "compound_slug": "thymol",
-    "relationship": "partial"
+    "herb": "Ajwain",
+    "compound": "thymol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "allium-sativum-allicin",
     "herb_slug": "allium-sativum",
     "compound_slug": "allicin",
-    "relationship": "primary",
+    "herb": "Garlic",
+    "compound": "allicin",
+    "relationship": "contains_compound",
     "notes": "Organosulfur compounds (allicin) enhance nitric oxide signaling, reduce ACE activity, and improve endothelial function, lowering blood pressure and lipids."
   },
   {
     "id": "aloe-vera-acemannan",
     "herb_slug": "aloe-vera",
     "compound_slug": "acemannan",
-    "relationship": "partial"
+    "herb": "Aloe Vera",
+    "compound": "acemannan",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "aloe-vera-emodin",
     "herb_slug": "aloe-vera",
     "compound_slug": "emodin",
-    "relationship": "partial"
+    "herb": "Aloe Vera",
+    "compound": "Emodin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "aloe-vera-rhein",
     "herb_slug": "aloe-vera",
     "compound_slug": "rhein",
-    "relationship": "partial"
+    "herb": "Aloe Vera",
+    "compound": "Rhein",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "andrographis-paniculata-andrographolide",
     "herb_slug": "andrographis-paniculata",
     "compound_slug": "andrographolide",
-    "relationship": "partial"
+    "herb": "Andrographis paniculata",
+    "compound": "Andrographolide",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "andrographis-paniculata-neoandrographolide",
     "herb_slug": "andrographis-paniculata",
     "compound_slug": "neoandrographolide",
-    "relationship": "partial"
+    "herb": "Andrographis paniculata",
+    "compound": "Neoandrographolide",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "anemarrhena-asphodeloides-mangiferin-aglycone",
     "herb_slug": "anemarrhena-asphodeloides",
     "compound_slug": "mangiferin-aglycone",
-    "relationship": "partial"
+    "herb": "Anemarrhena asphodeloides",
+    "compound": "Mangiferin aglycone",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "anemarrhena-asphodeloides-timosaponin-aiii",
     "herb_slug": "anemarrhena-asphodeloides",
     "compound_slug": "timosaponin-aiii",
-    "relationship": "partial"
+    "herb": "Anemarrhena asphodeloides",
+    "compound": "Timosaponin AIII",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "angelica-archangelica-angelicin",
     "herb_slug": "angelica-archangelica",
     "compound_slug": "angelicin",
-    "relationship": "partial"
+    "herb": "Angelica archangelica",
+    "compound": "Angelicin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "angelica-archangelica-umbelliferone",
     "herb_slug": "angelica-archangelica",
     "compound_slug": "umbelliferone",
-    "relationship": "partial"
+    "herb": "Angelica archangelica",
+    "compound": "Umbelliferone",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "angelica-dahurica-imperatorin",
     "herb_slug": "angelica-dahurica",
     "compound_slug": "imperatorin",
-    "relationship": "partial"
+    "herb": "Angelica dahurica",
+    "compound": "Imperatorin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "angelica-dahurica-isoimperatorin",
     "herb_slug": "angelica-dahurica",
     "compound_slug": "isoimperatorin",
-    "relationship": "partial"
+    "herb": "Angelica dahurica",
+    "compound": "Isoimperatorin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "angelica-dahurica-xanthotoxin",
     "herb_slug": "angelica-dahurica",
     "compound_slug": "xanthotoxin",
-    "relationship": "partial"
+    "herb": "Angelica dahurica",
+    "compound": "Xanthotoxin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "angelica-pubescens-osthole",
     "herb_slug": "angelica-pubescens",
     "compound_slug": "osthole",
-    "relationship": "partial"
+    "herb": "Angelica pubescens",
+    "compound": "Osthole",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "angelica-root-angelicin",
     "herb_slug": "angelica-root",
     "compound_slug": "angelicin",
-    "relationship": "partial"
+    "herb": "Angelica Root",
+    "compound": "angelicin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "angelica-sinensis-butylidenephthalide",
     "herb_slug": "angelica-sinensis",
     "compound_slug": "butylidenephthalide",
-    "relationship": "partial"
+    "herb": "Angelica sinensis",
+    "compound": "Butylidenephthalide",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "angelica-sinensis-ferulic-acid",
     "herb_slug": "angelica-sinensis",
     "compound_slug": "ferulic-acid",
-    "relationship": "partial"
+    "herb": "Angelica sinensis",
+    "compound": "Ferulic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "angelica-sinensis-ligustilide",
     "herb_slug": "angelica-sinensis",
     "compound_slug": "ligustilide",
-    "relationship": "partial"
+    "herb": "Angelica sinensis",
+    "compound": "Ligustilide",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "angelica-sinensis-senkyunolide-a",
     "herb_slug": "angelica-sinensis",
     "compound_slug": "senkyunolide-a",
-    "relationship": "partial"
+    "herb": "Angelica sinensis",
+    "compound": "Senkyunolide A",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "anise-hyssop-anethole",
     "herb_slug": "anise-hyssop",
     "compound_slug": "anethole",
-    "relationship": "partial"
+    "herb": "Anise Hyssop",
+    "compound": "anethole",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "arjuna-arjunolic-acid",
     "herb_slug": "arjuna",
     "compound_slug": "arjunolic-acid",
-    "relationship": "partial",
+    "herb": "Arjuna | Terminalia arjuna",
+    "compound": "arjunolic acid",
+    "relationship": "contains_compound",
     "notes": "PMID:16397921; adjunct cardiovascular evidence context."
   },
   {
     "id": "artemisia-absinthium-thujone",
     "herb_slug": "artemisia-absinthium",
     "compound_slug": "thujone",
-    "relationship": "partial"
+    "herb": "Artemisia absinthium",
+    "compound": "Thujone",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "artemisia-annua-artemisinin",
     "herb_slug": "artemisia-annua",
     "compound_slug": "artemisinin",
-    "relationship": "partial"
+    "herb": "Artemisia annua",
+    "compound": "Artemisinin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "artemisia-annua-artemisinin-b",
     "herb_slug": "artemisia-annua",
     "compound_slug": "artemisinin-b",
-    "relationship": "partial"
+    "herb": "Artemisia annua",
+    "compound": "Artemisinin B",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "artemisia-annua-artesunate",
     "herb_slug": "artemisia-annua",
     "compound_slug": "artesunate",
-    "relationship": "partial"
+    "herb": "Artemisia annua",
+    "compound": "Artesunate",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "artemisia-capillaris-esculetin",
     "herb_slug": "artemisia-capillaris",
     "compound_slug": "esculetin",
-    "relationship": "partial"
+    "herb": "Artemisia capillaris",
+    "compound": "Esculetin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "artemisia-capillaris-fraxetin",
     "herb_slug": "artemisia-capillaris",
     "compound_slug": "fraxetin",
-    "relationship": "partial"
+    "herb": "Artemisia capillaris",
+    "compound": "Fraxetin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "artemisia-capillaris-scopoletin",
     "herb_slug": "artemisia-capillaris",
     "compound_slug": "scopoletin",
-    "relationship": "partial"
+    "herb": "Artemisia capillaris",
+    "compound": "Scopoletin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "artichoke-chlorogenic-acid",
     "herb_slug": "artichoke",
     "compound_slug": "chlorogenic-acid",
-    "relationship": "partial"
+    "herb": "Artichoke",
+    "compound": "Chlorogenic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "artichoke-luteolin",
     "herb_slug": "artichoke",
     "compound_slug": "luteolin",
-    "relationship": "partial"
+    "herb": "Artichoke",
+    "compound": "Luteolin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "ashwagandha-withaferin-a",
     "herb_slug": "ashwagandha",
     "compound_slug": "withaferin-a",
-    "relationship": "partial"
+    "herb": "Ashwagandha",
+    "compound": "Withaferin A",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "ashwagandha-withanolide-a",
     "herb_slug": "ashwagandha",
     "compound_slug": "withanolide-a",
-    "relationship": "partial"
+    "herb": "Ashwagandha",
+    "compound": "Withanolide A",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "ashwagandha-withanolides",
     "herb_slug": "ashwagandha",
     "compound_slug": "withanolides",
-    "relationship": "partial",
+    "herb": "Ashwagandha (Withania somnifera)",
+    "compound": "Withanolides",
+    "relationship": "contains_compound",
     "notes": "Class of compounds; multiple withanolides contribute"
   },
   {
     "id": "ashwagandha-withanoside-iv",
     "herb_slug": "ashwagandha",
     "compound_slug": "withanoside-iv",
-    "relationship": "partial"
+    "herb": "Ashwagandha",
+    "compound": "Withanoside IV",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "astragalus-astragaloside-iv",
     "herb_slug": "astragalus",
     "compound_slug": "astragaloside-iv",
-    "relationship": "partial"
+    "herb": "Astragalus",
+    "compound": "astragaloside iv",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "astragalus-calycosin",
     "herb_slug": "astragalus",
     "compound_slug": "calycosin",
-    "relationship": "partial"
+    "herb": "Astragalus",
+    "compound": "calycosin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "astragalus-formononetin",
     "herb_slug": "astragalus",
     "compound_slug": "formononetin",
-    "relationship": "partial"
+    "herb": "Astragalus",
+    "compound": "Formononetin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "astragalus-membranaceus-astragalin",
     "herb_slug": "astragalus-membranaceus",
     "compound_slug": "astragalin",
-    "relationship": "partial"
+    "herb": "Astragalus membranaceus",
+    "compound": "Astragalin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "astragalus-membranaceus-astragaloside-iv",
     "herb_slug": "astragalus-membranaceus",
     "compound_slug": "astragaloside-iv",
-    "relationship": "partial"
+    "herb": "Astragalus membranaceus",
+    "compound": "Astragaloside IV",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "astragalus-membranaceus-calycosin",
     "herb_slug": "astragalus-membranaceus",
     "compound_slug": "calycosin",
-    "relationship": "partial"
+    "herb": "Astragalus membranaceus",
+    "compound": "Calycosin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "astragalus-membranaceus-formononetin",
     "herb_slug": "astragalus-membranaceus",
     "compound_slug": "formononetin",
-    "relationship": "partial"
+    "herb": "Astragalus membranaceus",
+    "compound": "Formononetin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "atractylodes-atractylenolide-i",
     "herb_slug": "atractylodes",
     "compound_slug": "atractylenolide-i",
-    "relationship": "partial"
+    "herb": "Atractylodes",
+    "compound": "atractylenolide i",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "atractylodes-macrocephala-atractylenolide-i",
     "herb_slug": "atractylodes-macrocephala",
     "compound_slug": "atractylenolide-i",
-    "relationship": "partial"
+    "herb": "Atractylodes macrocephala",
+    "compound": "Atractylenolide I",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "atractylodes-macrocephala-atractylenolide-ii",
     "herb_slug": "atractylodes-macrocephala",
     "compound_slug": "atractylenolide-ii",
-    "relationship": "partial"
+    "herb": "Atractylodes macrocephala",
+    "compound": "Atractylenolide II",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "atractylodes-macrocephala-atractylenolide-iii",
     "herb_slug": "atractylodes-macrocephala",
     "compound_slug": "atractylenolide-iii",
-    "relationship": "partial"
+    "herb": "Atractylodes macrocephala",
+    "compound": "Atractylenolide III",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "bacopa-bacopaside-ii",
     "herb_slug": "bacopa",
     "compound_slug": "bacopaside-ii",
-    "relationship": "partial"
+    "herb": "Bacopa",
+    "compound": "bacopaside II",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "bacopa-bacoside-a",
     "herb_slug": "bacopa",
     "compound_slug": "bacoside-a",
-    "relationship": "partial"
+    "herb": "Bacopa",
+    "compound": "bacoside a",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "bacopa-bacoside-b",
     "herb_slug": "bacopa",
     "compound_slug": "bacoside-b",
-    "relationship": "partial"
+    "herb": "Bacopa",
+    "compound": "Bacoside B",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "bayberry-myricetin",
     "herb_slug": "bayberry",
     "compound_slug": "myricetin",
-    "relationship": "partial"
+    "herb": "Bayberry",
+    "compound": "Myricetin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "berberis-aristata-berberine",
     "herb_slug": "berberis-aristata",
     "compound_slug": "berberine",
-    "relationship": "primary",
+    "herb": "Indian Barberry",
+    "compound": "berberine",
+    "relationship": "contains_compound",
     "notes": "Berberine activates AMPK, improving insulin sensitivity, reducing hepatic gluconeogenesis, and modulating gut microbiota."
   },
   {
     "id": "berberis-berbamine",
     "herb_slug": "berberis",
     "compound_slug": "berbamine",
-    "relationship": "partial"
+    "herb": "Berberis",
+    "compound": "berbamine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "berberis-berberine",
     "herb_slug": "berberis",
     "compound_slug": "berberine",
-    "relationship": "partial"
+    "herb": "Berberis",
+    "compound": "berberine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "berberis-vulgaris-berberine",
     "herb_slug": "berberis-vulgaris",
     "compound_slug": "berberine",
-    "relationship": "partial"
+    "herb": "Berberis vulgaris",
+    "compound": "Berberine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "berberis-vulgaris-columbamine",
     "herb_slug": "berberis-vulgaris",
     "compound_slug": "columbamine",
-    "relationship": "partial"
+    "herb": "Berberis vulgaris",
+    "compound": "Columbamine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "black-cohosh-23-epi-26-deoxyactein",
     "herb_slug": "black-cohosh",
     "compound_slug": "23-epi-26-deoxyactein",
-    "relationship": "partial"
+    "herb": "Black Cohosh",
+    "compound": "23-epi-26-deoxyactein",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "black-cohosh-actein",
     "herb_slug": "black-cohosh",
     "compound_slug": "actein",
-    "relationship": "partial"
+    "herb": "Black Cohosh",
+    "compound": "Actein",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "black-seed-thymoquinone",
     "herb_slug": "black-seed",
     "compound_slug": "thymoquinone",
-    "relationship": "partial"
+    "herb": "Black Seed",
+    "compound": "Thymoquinone",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "black-tea-theaflavin",
     "herb_slug": "black-tea",
     "compound_slug": "theaflavin",
-    "relationship": "partial"
+    "herb": "Black Tea",
+    "compound": "Theaflavin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "black-tea-thearubigin",
     "herb_slug": "black-tea",
     "compound_slug": "thearubigin",
-    "relationship": "partial"
+    "herb": "Black Tea",
+    "compound": "Thearubigin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "blue-lotus-puerarin",
     "herb_slug": "blue-lotus",
     "compound_slug": "puerarin",
-    "relationship": "partial"
+    "herb": "Blue Lotus",
+    "compound": "puerarin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "blueberry-pterostilbene",
     "herb_slug": "blueberry",
     "compound_slug": "pterostilbene",
-    "relationship": "partial"
+    "herb": "Blueberry",
+    "compound": "Pterostilbene",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "boswellia-carterii-acetyl-11-keto-beta-boswellic-acid",
     "herb_slug": "boswellia-carterii",
     "compound_slug": "acetyl-11-keto-beta-boswellic-acid",
-    "relationship": "partial"
+    "herb": "Boswellia carterii",
+    "compound": "acetyl-11-keto-beta-boswellic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "boswellia-serrata-11-keto-beta-boswellic-acid",
     "herb_slug": "boswellia-serrata",
     "compound_slug": "11-keto-beta-boswellic-acid",
-    "relationship": "partial"
+    "herb": "Boswellia serrata",
+    "compound": "11-keto-beta-boswellic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "boswellia-serrata-acetyl-11-keto-beta-boswellic-acid",
     "herb_slug": "boswellia-serrata",
     "compound_slug": "acetyl-11-keto-beta-boswellic-acid",
-    "relationship": "partial"
+    "herb": "Boswellia",
+    "compound": "acetyl-11-keto-beta-boswellic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "boswellia-serrata-acetyl-beta-boswellic-acid",
     "herb_slug": "boswellia-serrata",
     "compound_slug": "acetyl-beta-boswellic-acid",
-    "relationship": "partial"
+    "herb": "Boswellia serrata",
+    "compound": "Acetyl-beta-boswellic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "boswellia-serrata-boswellic-acid",
     "herb_slug": "boswellia-serrata",
     "compound_slug": "boswellic-acid",
-    "relationship": "partial"
+    "herb": "Boswellia serrata",
+    "compound": "Boswellic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "brassica-juncea-sulforaphane",
     "herb_slug": "brassica-juncea",
     "compound_slug": "sulforaphane",
-    "relationship": "partial"
+    "herb": "Brassica juncea",
+    "compound": "sulforaphane",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "brassica-oleracea-sulforaphane",
     "herb_slug": "brassica-oleracea",
     "compound_slug": "sulforaphane",
-    "relationship": "partial"
+    "herb": "Brassica oleracea",
+    "compound": "sulforaphane",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "buckwheat-rutin",
     "herb_slug": "buckwheat",
     "compound_slug": "rutin",
-    "relationship": "partial"
+    "herb": "Buckwheat",
+    "compound": "Rutin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "bupleurum-falcatum-saikosaponin-a",
     "herb_slug": "bupleurum-falcatum",
     "compound_slug": "saikosaponin-a",
-    "relationship": "partial"
+    "herb": "Bupleurum falcatum",
+    "compound": "Saikosaponin A",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "bupleurum-saikosaponin-a",
     "herb_slug": "bupleurum",
     "compound_slug": "saikosaponin-a",
-    "relationship": "partial"
+    "herb": "Bupleurum",
+    "compound": "saikosaponin a",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "calamus-alpha-asarone",
     "herb_slug": "calamus",
     "compound_slug": "alpha-asarone",
-    "relationship": "partial"
+    "herb": "Calamus",
+    "compound": "alpha-asarone",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "calamus-eugenol",
     "herb_slug": "calamus",
     "compound_slug": "eugenol",
-    "relationship": "partial"
+    "herb": "Calamus",
+    "compound": "Eugenol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "camellia-sinensis-caffeine",
     "herb_slug": "camellia-sinensis",
     "compound_slug": "caffeine",
-    "relationship": "partial"
+    "herb": "Green Tea",
+    "compound": "Caffeine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "camellia-sinensis-catechin",
     "herb_slug": "camellia-sinensis",
     "compound_slug": "catechin",
-    "relationship": "partial"
+    "herb": "Camellia sinensis",
+    "compound": "catechin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "camellia-sinensis-epicatechin",
     "herb_slug": "camellia-sinensis",
     "compound_slug": "epicatechin",
-    "relationship": "partial"
+    "herb": "Green Tea",
+    "compound": "Epicatechin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "camellia-sinensis-epicatechin-gallate",
     "herb_slug": "camellia-sinensis",
     "compound_slug": "epicatechin-gallate",
-    "relationship": "partial"
+    "herb": "Green Tea",
+    "compound": "epicatechin gallate",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "camellia-sinensis-epigallocatechin",
     "herb_slug": "camellia-sinensis",
     "compound_slug": "epigallocatechin",
-    "relationship": "partial"
+    "herb": "Green Tea",
+    "compound": "epigallocatechin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "camellia-sinensis-epigallocatechin-gallate-egcg",
     "herb_slug": "camellia-sinensis",
     "compound_slug": "epigallocatechin-gallate-egcg",
-    "relationship": "partial"
+    "herb": "Green Tea",
+    "compound": "EGCG | Epigallocatechin gallate (EGCG) | epigallocatechin gallate",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "camellia-sinensis-gallic-acid",
     "herb_slug": "camellia-sinensis",
     "compound_slug": "gallic-acid",
-    "relationship": "partial"
+    "herb": "Green Tea",
+    "compound": "Gallic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "camellia-sinensis-gallocatechin",
     "herb_slug": "camellia-sinensis",
     "compound_slug": "gallocatechin",
-    "relationship": "partial"
+    "herb": "Green Tea",
+    "compound": "gallocatechin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "camellia-sinensis-myricetin",
     "herb_slug": "camellia-sinensis",
     "compound_slug": "myricetin",
-    "relationship": "partial"
+    "herb": "Green Tea",
+    "compound": "Myricetin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "camellia-sinensis-quercetin",
     "herb_slug": "camellia-sinensis",
     "compound_slug": "quercetin",
-    "relationship": "partial"
+    "herb": "Green Tea",
+    "compound": "Quercetin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "camellia-sinensis-theanine",
     "herb_slug": "camellia-sinensis",
     "compound_slug": "theanine",
-    "relationship": "partial"
+    "herb": "Green Tea",
+    "compound": "Theanine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "capsicum-annuum-capsaicin",
     "herb_slug": "capsicum-annuum",
     "compound_slug": "capsaicin",
-    "relationship": "partial"
+    "herb": "Capsicum",
+    "compound": "capsaicin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "chaga-betulinic-acid",
     "herb_slug": "chaga",
     "compound_slug": "betulinic-acid",
-    "relationship": "partial"
+    "herb": "Chaga",
+    "compound": "betulinic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "chinese-skullcap-baicalein",
     "herb_slug": "chinese-skullcap",
     "compound_slug": "baicalein",
-    "relationship": "partial"
+    "herb": "Chinese Skullcap",
+    "compound": "Baicalein",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "chinese-skullcap-baicalin",
     "herb_slug": "chinese-skullcap",
     "compound_slug": "baicalin",
-    "relationship": "partial"
+    "herb": "Chinese Skullcap",
+    "compound": "Baicalin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "chinese-skullcap-wogonin",
     "herb_slug": "chinese-skullcap",
     "compound_slug": "wogonin",
-    "relationship": "partial"
+    "herb": "Chinese Skullcap",
+    "compound": "wogonin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "cichorium-intybus-esculetin",
     "herb_slug": "cichorium-intybus",
     "compound_slug": "esculetin",
-    "relationship": "partial"
+    "herb": "Cichorium intybus",
+    "compound": "Esculetin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "cinnamomum-verum-cinnamaldehyde",
     "herb_slug": "cinnamomum-verum",
     "compound_slug": "cinnamaldehyde",
-    "relationship": "partial"
+    "herb": "Cinnamon",
+    "compound": "cinnamaldehyde",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "cistanche-deserticola-echinacoside",
     "herb_slug": "cistanche-deserticola",
     "compound_slug": "echinacoside",
-    "relationship": "partial"
+    "herb": "Cistanche deserticola",
+    "compound": "Echinacoside",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "cistanche-echinacoside",
     "herb_slug": "cistanche",
     "compound_slug": "echinacoside",
-    "relationship": "partial"
+    "herb": "Cistanche",
+    "compound": "echinacoside",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "citrus-bergamia-bergapten",
     "herb_slug": "citrus-bergamia",
     "compound_slug": "bergapten",
-    "relationship": "partial"
+    "herb": "Citrus bergamia",
+    "compound": "Bergapten",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "citrus-sinensis-hesperidin",
     "herb_slug": "citrus-sinensis",
     "compound_slug": "hesperidin",
-    "relationship": "partial"
+    "herb": "Citrus sinensis",
+    "compound": "Hesperidin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "citrus-sinensis-naringenin",
     "herb_slug": "citrus-sinensis",
     "compound_slug": "naringenin",
-    "relationship": "partial"
+    "herb": "Citrus sinensis",
+    "compound": "naringenin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "clove-eugenol",
     "herb_slug": "clove",
     "compound_slug": "eugenol",
-    "relationship": "partial"
+    "herb": "Clove",
+    "compound": "Eugenol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "cnidium-monnieri-imperatorin",
     "herb_slug": "cnidium-monnieri",
     "compound_slug": "imperatorin",
-    "relationship": "partial"
+    "herb": "Cnidium monnieri",
+    "compound": "Imperatorin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "cnidium-monnieri-isoimperatorin",
     "herb_slug": "cnidium-monnieri",
     "compound_slug": "isoimperatorin",
-    "relationship": "partial"
+    "herb": "Cnidium monnieri",
+    "compound": "Isoimperatorin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "cnidium-monnieri-osthole",
     "herb_slug": "cnidium-monnieri",
     "compound_slug": "osthole",
-    "relationship": "partial"
+    "herb": "Cnidium monnieri",
+    "compound": "Osthole",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "coffea-arabica-caffeic-acid",
     "herb_slug": "coffea-arabica",
     "compound_slug": "caffeic-acid",
-    "relationship": "partial"
+    "herb": "Coffee",
+    "compound": "Caffeic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "coffea-arabica-caffeine",
     "herb_slug": "coffea-arabica",
     "compound_slug": "caffeine",
-    "relationship": "partial",
+    "herb": "Coffea arabica",
+    "compound": "Caffeine",
+    "relationship": "contains_compound",
     "notes": "PMID:28697850; primary active driver of performance/cognition effects; not herb-specific."
   },
   {
     "id": "coffea-arabica-chlorogenic-acid",
     "herb_slug": "coffea-arabica",
     "compound_slug": "chlorogenic-acid",
-    "relationship": "partial"
+    "herb": "Coffea arabica",
+    "compound": "chlorogenic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "coffea-arabica-trigonelline",
     "herb_slug": "coffea-arabica",
     "compound_slug": "trigonelline",
-    "relationship": "partial"
+    "herb": "Coffee",
+    "compound": "trigonelline",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "coffee-cherry-cafestol",
     "herb_slug": "coffee-cherry",
     "compound_slug": "cafestol",
-    "relationship": "partial"
+    "herb": "Coffee Cherry",
+    "compound": "cafestol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "coffee-cherry-caffeine",
     "herb_slug": "coffee-cherry",
     "compound_slug": "caffeine",
-    "relationship": "partial"
+    "herb": "Coffee Cherry",
+    "compound": "Caffeine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "coffee-cherry-kahweol",
     "herb_slug": "coffee-cherry",
     "compound_slug": "kahweol",
-    "relationship": "partial"
+    "herb": "Coffee Cherry",
+    "compound": "kahweol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "coleus-forskohlii-forskolin",
     "herb_slug": "coleus-forskohlii",
     "compound_slug": "forskolin",
-    "relationship": "partial"
+    "herb": "Coleus forskohlii",
+    "compound": "Forskolin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "commiphora-mukul-commipheric-acid",
     "herb_slug": "commiphora-mukul",
     "compound_slug": "commipheric-acid",
-    "relationship": "partial"
+    "herb": "Commiphora mukul",
+    "compound": "Commipheric acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "commiphora-mukul-guggulsterone",
     "herb_slug": "commiphora-mukul",
     "compound_slug": "guggulsterone",
-    "relationship": "partial"
+    "herb": "Commiphora mukul",
+    "compound": "Guggulsterone",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "coptis-berberine",
     "herb_slug": "coptis",
     "compound_slug": "berberine",
-    "relationship": "partial"
+    "herb": "Coptis",
+    "compound": "berberine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "coptis-chinensis-columbamine",
     "herb_slug": "coptis-chinensis",
     "compound_slug": "columbamine",
-    "relationship": "partial"
+    "herb": "Coptis chinensis",
+    "compound": "Columbamine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "coptis-chinensis-magnoflorine",
     "herb_slug": "coptis-chinensis",
     "compound_slug": "magnoflorine",
-    "relationship": "partial"
+    "herb": "Coptis chinensis",
+    "compound": "Magnoflorine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "coptis-chinensis-palmatine",
     "herb_slug": "coptis-chinensis",
     "compound_slug": "palmatine",
-    "relationship": "partial"
+    "herb": "Coptis chinensis",
+    "compound": "Palmatine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "coptis-coptisine",
     "herb_slug": "coptis",
     "compound_slug": "coptisine",
-    "relationship": "partial"
+    "herb": "Coptis",
+    "compound": "coptisine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "coptis-palmatine",
     "herb_slug": "coptis",
     "compound_slug": "palmatine",
-    "relationship": "partial"
+    "herb": "Coptis",
+    "compound": "palmatine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "cordyceps-sinensis-cordycepin",
     "herb_slug": "cordyceps-sinensis",
     "compound_slug": "cordycepin",
-    "relationship": "partial"
+    "herb": "Cordyceps",
+    "compound": "cordycepin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "coriandrum-sativum-umbelliferone",
     "herb_slug": "coriandrum-sativum",
     "compound_slug": "umbelliferone",
-    "relationship": "partial"
+    "herb": "Coriandrum sativum",
+    "compound": "Umbelliferone",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "cornus-officinalis-loganin",
     "herb_slug": "cornus-officinalis",
     "compound_slug": "loganin",
-    "relationship": "partial"
+    "herb": "Cornus officinalis",
+    "compound": "Loganin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "cornus-officinalis-morroniside",
     "herb_slug": "cornus-officinalis",
     "compound_slug": "morroniside",
-    "relationship": "partial"
+    "herb": "Cornus officinalis",
+    "compound": "Morroniside",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "crataegus-monogyna-oleanolic-acid",
     "herb_slug": "crataegus-monogyna",
     "compound_slug": "oleanolic-acid",
-    "relationship": "partial"
+    "herb": "Hawthorn",
+    "compound": "Oleanolic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "crocus-sativus-crocetin",
     "herb_slug": "crocus-sativus",
     "compound_slug": "crocetin",
-    "relationship": "partial"
+    "herb": "Crocus sativus",
+    "compound": "Crocetin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "crocus-sativus-crocin",
     "herb_slug": "crocus-sativus",
     "compound_slug": "crocin",
-    "relationship": "partial"
+    "herb": "Crocus sativus",
+    "compound": "Crocin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "curcuma-wenyujin-beta-elemene",
     "herb_slug": "curcuma-wenyujin",
     "compound_slug": "beta-elemene",
-    "relationship": "partial"
+    "herb": "Curcuma wenyujin",
+    "compound": "Beta-elemene",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "curcuma-zedoaria-curcumol",
     "herb_slug": "curcuma-zedoaria",
     "compound_slug": "curcumol",
-    "relationship": "partial"
+    "herb": "Curcuma zedoaria",
+    "compound": "Curcumol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "curcuma-zedoaria-curdione",
     "herb_slug": "curcuma-zedoaria",
     "compound_slug": "curdione",
-    "relationship": "partial"
+    "herb": "Curcuma zedoaria",
+    "compound": "Curdione",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "curcumin-curcumin",
     "herb_slug": "curcumin",
     "compound_slug": "curcumin",
-    "relationship": "primary",
+    "herb": "Curcumin",
+    "compound": "curcumin",
+    "relationship": "contains_compound",
     "notes": "Potent NF-κB inhibition and cytokine suppression reducing systemic inflammation."
   },
   {
     "id": "cyclea-peltata-tetrandrine",
     "herb_slug": "cyclea-peltata",
     "compound_slug": "tetrandrine",
-    "relationship": "partial"
+    "herb": "Cyclea peltata",
+    "compound": "Tetrandrine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "cymbopogon-citratus-nerolidol",
     "herb_slug": "cymbopogon-citratus",
     "compound_slug": "nerolidol",
-    "relationship": "partial"
+    "herb": "Cymbopogon citratus",
+    "compound": "Nerolidol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "danshen-salvianolic-acid-b",
     "herb_slug": "danshen",
     "compound_slug": "salvianolic-acid-b",
-    "relationship": "partial"
+    "herb": "Danshen",
+    "compound": "Salvianolic acid B",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "danshen-tanshinone-iia",
     "herb_slug": "danshen",
     "compound_slug": "tanshinone-iia",
-    "relationship": "partial"
+    "herb": "Danshen",
+    "compound": "Tanshinone IIA",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "daphne-odora-daphnetin",
     "herb_slug": "daphne-odora",
     "compound_slug": "daphnetin",
-    "relationship": "partial"
+    "herb": "Daphne odora",
+    "compound": "Daphnetin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "dong-quai-curcumin",
     "herb_slug": "dong-quai",
     "compound_slug": "curcumin",
-    "relationship": "partial"
+    "herb": "Dong Quai",
+    "compound": "curcumin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "echinacea-purpurea-alkylamides",
     "herb_slug": "echinacea-purpurea",
     "compound_slug": "alkylamides",
-    "relationship": "partial",
+    "herb": "Echinacea (Echinacea purpurea)",
+    "compound": "Alkylamides",
+    "relationship": "contains_compound",
     "notes": "Compound class; varies by species"
   },
   {
     "id": "echinacea-purpurea-caffeic-acid",
     "herb_slug": "echinacea-purpurea",
     "compound_slug": "caffeic-acid",
-    "relationship": "partial"
+    "herb": "Echinacea Purpurea",
+    "compound": "Caffeic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "echinacea-purpurea-chicoric-acid",
     "herb_slug": "echinacea-purpurea",
     "compound_slug": "chicoric-acid",
-    "relationship": "partial"
+    "herb": "Echinacea Purpurea",
+    "compound": "chicoric acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "echinacea-purpurea-echinacoside",
     "herb_slug": "echinacea-purpurea",
     "compound_slug": "echinacoside",
-    "relationship": "partial"
+    "herb": "Echinacea Purpurea",
+    "compound": "echinacoside",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "elephantopus-scaber-deoxyelephantopin",
     "herb_slug": "elephantopus-scaber",
     "compound_slug": "deoxyelephantopin",
-    "relationship": "partial"
+    "herb": "Elephantopus scaber",
+    "compound": "Deoxyelephantopin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "elephantopus-scaber-elephantopin",
     "herb_slug": "elephantopus-scaber",
     "compound_slug": "elephantopin",
-    "relationship": "partial"
+    "herb": "Elephantopus scaber",
+    "compound": "Elephantopin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "eleuthero-eleutheroside-b",
     "herb_slug": "eleuthero",
     "compound_slug": "eleutheroside-b",
-    "relationship": "partial"
+    "herb": "Eleuthero",
+    "compound": "eleutheroside B",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "eleuthero-eleutheroside-e",
     "herb_slug": "eleuthero",
     "compound_slug": "eleutheroside-e",
-    "relationship": "partial"
+    "herb": "Eleuthero",
+    "compound": "eleutheroside E",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "embelia-ribes-embelin",
     "herb_slug": "embelia-ribes",
     "compound_slug": "embelin",
-    "relationship": "partial"
+    "herb": "Embelia ribes",
+    "compound": "Embelin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "epimedium-brevicornum-icariin",
     "herb_slug": "epimedium-brevicornum",
     "compound_slug": "icariin",
-    "relationship": "partial"
+    "herb": "Epimedium brevicornum",
+    "compound": "Icariin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "epimedium-icariin",
     "herb_slug": "epimedium",
     "compound_slug": "icariin",
-    "relationship": "partial"
+    "herb": "Epimedium",
+    "compound": "Icariin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "fennel-anethole",
     "herb_slug": "fennel",
     "compound_slug": "anethole",
-    "relationship": "partial"
+    "herb": "Fennel",
+    "compound": "anethole",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "feverfew-actein",
     "herb_slug": "feverfew",
     "compound_slug": "actein",
-    "relationship": "partial"
+    "herb": "Feverfew",
+    "compound": "Actein",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "ficus-carica-psoralen",
     "herb_slug": "ficus-carica",
     "compound_slug": "psoralen",
-    "relationship": "partial"
+    "herb": "Ficus carica",
+    "compound": "Psoralen",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "fraxinus-rhynchophylla-fraxetin",
     "herb_slug": "fraxinus-rhynchophylla",
     "compound_slug": "fraxetin",
-    "relationship": "partial"
+    "herb": "Fraxinus rhynchophylla",
+    "compound": "Fraxetin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "galangal-galangin",
     "herb_slug": "galangal",
     "compound_slug": "galangin",
-    "relationship": "partial"
+    "herb": "Galangal",
+    "compound": "galangin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "ganoderma-lucidum-beta-glucans",
     "herb_slug": "ganoderma-lucidum",
     "compound_slug": "beta-glucans",
-    "relationship": "primary",
+    "herb": "Reishi",
+    "compound": "beta-glucans",
+    "relationship": "contains_compound",
     "notes": "Immunomodulatory polysaccharides influence cytokine production; unclear direct clinical performance effects."
   },
   {
     "id": "garcinia-indica-garcinol",
     "herb_slug": "garcinia-indica",
     "compound_slug": "garcinol",
-    "relationship": "partial"
+    "herb": "Garcinia indica",
+    "compound": "Garcinol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "garcinia-mangostana-alpha-mangostin",
     "herb_slug": "garcinia-mangostana",
     "compound_slug": "alpha-mangostin",
-    "relationship": "partial"
+    "herb": "Garcinia mangostana",
+    "compound": "Alpha-mangostin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "garcinia-mangostana-mangostin",
     "herb_slug": "garcinia-mangostana",
     "compound_slug": "mangostin",
-    "relationship": "partial"
+    "herb": "Garcinia mangostana",
+    "compound": "Mangostin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "garlic-ajoene",
     "herb_slug": "garlic",
     "compound_slug": "ajoene",
-    "relationship": "partial"
+    "herb": "Garlic",
+    "compound": "ajoene",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "garlic-allicin",
     "herb_slug": "garlic",
     "compound_slug": "allicin",
-    "relationship": "partial",
+    "herb": "Garlic (Allium sativum)",
+    "compound": "Allicin",
+    "relationship": "contains_compound",
     "notes": "Unstable compound formed on crushing"
   },
   {
     "id": "ginger-gingerols",
     "herb_slug": "ginger",
     "compound_slug": "gingerols",
-    "relationship": "partial",
+    "herb": "Ginger (Zingiber officinale)",
+    "compound": "Gingerols",
+    "relationship": "contains_compound",
     "notes": "PMID:11710709; standardized extract context; pain-domain evidence."
   },
   {
     "id": "ginkgo-biloba-bilobetin",
     "herb_slug": "ginkgo-biloba",
     "compound_slug": "bilobetin",
-    "relationship": "partial"
+    "herb": "Ginkgo Biloba",
+    "compound": "bilobetin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "ginkgo-biloba-ginkgolide-b",
     "herb_slug": "ginkgo-biloba",
     "compound_slug": "ginkgolide-b",
-    "relationship": "partial"
+    "herb": "Ginkgo Biloba",
+    "compound": "Ginkgolide B",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "ginkgo-biloba-ginkgolides",
     "herb_slug": "ginkgo-biloba",
     "compound_slug": "ginkgolides",
-    "relationship": "partial",
+    "herb": "Ginkgo biloba",
+    "compound": "Ginkgolides",
+    "relationship": "contains_compound",
     "notes": "Part of terpene lactone fraction; includes ginkgolide A, B, C"
   },
   {
     "id": "ginkgo-biloba-kaempferol",
     "herb_slug": "ginkgo-biloba",
     "compound_slug": "kaempferol",
-    "relationship": "partial"
+    "herb": "Ginkgo Biloba",
+    "compound": "Kaempferol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "ginkgo-biloba-quercetin",
     "herb_slug": "ginkgo-biloba",
     "compound_slug": "quercetin",
-    "relationship": "partial"
+    "herb": "Ginkgo Biloba",
+    "compound": "Quercetin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "glycyrrhiza-glabra-glycyrrhetinic-acid",
     "herb_slug": "glycyrrhiza-glabra",
     "compound_slug": "glycyrrhetinic-acid",
-    "relationship": "partial"
+    "herb": "Glycyrrhiza glabra",
+    "compound": "Glycyrrhetinic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "glycyrrhiza-glabra-glycyrrhizin",
     "herb_slug": "glycyrrhiza-glabra",
     "compound_slug": "glycyrrhizin",
-    "relationship": "partial"
+    "herb": "Glycyrrhiza glabra",
+    "compound": "Glycyrrhizin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "goldenseal-berberine",
     "herb_slug": "goldenseal",
     "compound_slug": "berberine",
-    "relationship": "partial"
+    "herb": "Goldenseal",
+    "compound": "berberine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "goldenseal-jatrorrhizine",
     "herb_slug": "goldenseal",
     "compound_slug": "jatrorrhizine",
-    "relationship": "partial"
+    "herb": "Goldenseal",
+    "compound": "Jatrorrhizine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "goldenseal-palmatine",
     "herb_slug": "goldenseal",
     "compound_slug": "palmatine",
-    "relationship": "partial"
+    "herb": "Goldenseal",
+    "compound": "Palmatine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "gotu-kola-asiatic-acid",
     "herb_slug": "gotu-kola",
     "compound_slug": "asiatic-acid",
-    "relationship": "partial"
+    "herb": "Gotu Kola (Centella asiatica)",
+    "compound": "Asiatic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "gotu-kola-asiaticoside",
     "herb_slug": "gotu-kola",
     "compound_slug": "asiaticoside",
-    "relationship": "partial"
+    "herb": "Gotu Kola (Centella asiatica)",
+    "compound": "Asiaticoside",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "gotu-kola-madecassic-acid",
     "herb_slug": "gotu-kola",
     "compound_slug": "madecassic-acid",
-    "relationship": "partial"
+    "herb": "Gotu Kola (Centella asiatica)",
+    "compound": "Madecassic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "gotu-kola-madecassoside",
     "herb_slug": "gotu-kola",
     "compound_slug": "madecassoside",
-    "relationship": "partial"
+    "herb": "Gotu Kola (Centella asiatica)",
+    "compound": "Madecassoside",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "grapefruit-naringenin",
     "herb_slug": "grapefruit",
     "compound_slug": "naringenin",
-    "relationship": "partial"
+    "herb": "Grapefruit",
+    "compound": "Naringenin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "grapefruit-naringin",
     "herb_slug": "grapefruit",
     "compound_slug": "naringin",
-    "relationship": "partial"
+    "herb": "Grapefruit",
+    "compound": "Naringin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "guarana-caffeine",
     "herb_slug": "guarana",
     "compound_slug": "caffeine",
-    "relationship": "partial"
+    "herb": "Guarana",
+    "compound": "Caffeine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "guayusa-caffeine",
     "herb_slug": "guayusa",
     "compound_slug": "caffeine",
-    "relationship": "partial"
+    "herb": "Guayusa",
+    "compound": "Caffeine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "gymnema-sylvestre-gurmarin",
     "herb_slug": "gymnema-sylvestre",
     "compound_slug": "gurmarin",
-    "relationship": "partial"
+    "herb": "Gymnema sylvestre",
+    "compound": "Gurmarin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "gymnema-sylvestre-gymnemagenin",
     "herb_slug": "gymnema-sylvestre",
     "compound_slug": "gymnemagenin",
-    "relationship": "partial"
+    "herb": "Gymnema sylvestre",
+    "compound": "Gymnemagenin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "gymnema-sylvestre-gymnemic-acid",
     "herb_slug": "gymnema-sylvestre",
     "compound_slug": "gymnemic-acid",
-    "relationship": "partial"
+    "herb": "Gymnema",
+    "compound": "Gymnemic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "harpagophytum-procumbens-harpagoside",
     "herb_slug": "harpagophytum-procumbens",
     "compound_slug": "harpagoside",
-    "relationship": "partial"
+    "herb": "Harpagophytum procumbens",
+    "compound": "Harpagoside",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "hericium-erinaceus-erinacines",
     "herb_slug": "hericium-erinaceus",
     "compound_slug": "erinacines",
-    "relationship": "partial"
+    "herb": "Lion's Mane",
+    "compound": "erinacines",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "hericium-erinaceus-hericenones",
     "herb_slug": "hericium-erinaceus",
     "compound_slug": "hericenones",
-    "relationship": "partial"
+    "herb": "Lion's Mane",
+    "compound": "hericenones",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "holy-basil-eugenol",
     "herb_slug": "holy-basil",
     "compound_slug": "eugenol",
-    "relationship": "partial"
+    "herb": "Holy Basil",
+    "compound": "Eugenol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "holy-basil-methyl-eugenol",
     "herb_slug": "holy-basil",
     "compound_slug": "methyl-eugenol",
-    "relationship": "partial"
+    "herb": "Holy Basil",
+    "compound": "methyl eugenol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "holy-basil-purple-eugenol",
     "herb_slug": "holy-basil-purple",
     "compound_slug": "eugenol",
-    "relationship": "partial"
+    "herb": "Holy Basil Purple",
+    "compound": "Eugenol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "holy-basil-rosmarinic-acid",
     "herb_slug": "holy-basil",
     "compound_slug": "rosmarinic-acid",
-    "relationship": "partial"
+    "herb": "Holy Basil",
+    "compound": "Rosmarinic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "holy-basil-ursolic-acid",
     "herb_slug": "holy-basil",
     "compound_slug": "ursolic-acid",
-    "relationship": "partial"
+    "herb": "Holy Basil",
+    "compound": "Ursolic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "horse-chestnut-aescin",
     "herb_slug": "horse-chestnut",
     "compound_slug": "aescin",
-    "relationship": "partial"
+    "herb": "Horse Chestnut",
+    "compound": "aescin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "huperzia-serrata-huperzine-a",
     "herb_slug": "huperzia-serrata",
     "compound_slug": "huperzine-a",
-    "relationship": "partial"
+    "herb": "Huperzia serrata",
+    "compound": "Huperzine A",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "huperzia-serrata-huperzine-b",
     "herb_slug": "huperzia-serrata",
     "compound_slug": "huperzine-b",
-    "relationship": "partial"
+    "herb": "Huperzia serrata",
+    "compound": "Huperzine B",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "hypericum-perforatum-hyperforin",
     "herb_slug": "hypericum-perforatum",
     "compound_slug": "hyperforin",
-    "relationship": "partial"
+    "herb": "Hypericum perforatum",
+    "compound": "Hyperforin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "hypericum-perforatum-hypericin",
     "herb_slug": "hypericum-perforatum",
     "compound_slug": "hypericin",
-    "relationship": "partial"
+    "herb": "Hypericum perforatum",
+    "compound": "Hypericin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "hypericum-perforatum-quercetin",
     "herb_slug": "hypericum-perforatum",
     "compound_slug": "quercetin",
-    "relationship": "partial"
+    "herb": "Hypericum perforatum",
+    "compound": "Quercetin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "isatis-indirubin",
     "herb_slug": "isatis",
     "compound_slug": "indirubin",
-    "relationship": "partial"
+    "herb": "Isatis",
+    "compound": "indirubin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "japanese-knotweed-emodin",
     "herb_slug": "japanese-knotweed",
     "compound_slug": "emodin",
-    "relationship": "partial"
+    "herb": "Japanese Knotweed",
+    "compound": "Emodin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "japanese-knotweed-resveratrol",
     "herb_slug": "japanese-knotweed",
     "compound_slug": "resveratrol",
-    "relationship": "partial"
+    "herb": "Japanese Knotweed",
+    "compound": "Resveratrol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "kanna-mesembrenone",
     "herb_slug": "kanna",
     "compound_slug": "mesembrenone",
-    "relationship": "partial"
+    "herb": "Kanna",
+    "compound": "mesembrenone",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "kanna-mesembrine",
     "herb_slug": "kanna",
     "compound_slug": "mesembrine",
-    "relationship": "partial"
+    "herb": "Kanna",
+    "compound": "mesembrine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "kudzu-biochanin-a",
     "herb_slug": "kudzu",
     "compound_slug": "biochanin-a",
-    "relationship": "partial"
+    "herb": "Kudzu",
+    "compound": "biochanin A",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "kudzu-daidzin",
     "herb_slug": "kudzu",
     "compound_slug": "daidzin",
-    "relationship": "partial"
+    "herb": "Kudzu",
+    "compound": "daidzin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "kudzu-ononin",
     "herb_slug": "kudzu",
     "compound_slug": "ononin",
-    "relationship": "partial"
+    "herb": "Kudzu",
+    "compound": "ononin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "kudzu-puerarin",
     "herb_slug": "kudzu",
     "compound_slug": "puerarin",
-    "relationship": "partial"
+    "herb": "Kudzu",
+    "compound": "puerarin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "lagerstroemia-speciosa-corosolic-acid",
     "herb_slug": "lagerstroemia-speciosa",
     "compound_slug": "corosolic-acid",
-    "relationship": "partial"
+    "herb": "Banaba",
+    "compound": "corosolic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "lagerstroemia-speciosa-lagerstroemin",
     "herb_slug": "lagerstroemia-speciosa",
     "compound_slug": "lagerstroemin",
-    "relationship": "partial"
+    "herb": "Lagerstroemia speciosa",
+    "compound": "Lagerstroemin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "lavandula-angustifolia-linalool",
     "herb_slug": "lavandula-angustifolia",
     "compound_slug": "linalool",
-    "relationship": "partial"
+    "herb": "Lavandula angustifolia",
+    "compound": "Linalool",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "lawsonia-inermis-lawsone",
     "herb_slug": "lawsonia-inermis",
     "compound_slug": "lawsone",
-    "relationship": "partial"
+    "herb": "Lawsonia inermis",
+    "compound": "Lawsone",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "lemon-verbena-verbascoside",
     "herb_slug": "lemon-verbena",
     "compound_slug": "verbascoside",
-    "relationship": "partial"
+    "herb": "Lemon Verbena",
+    "compound": "verbascoside",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "lemongrass-citronellal",
     "herb_slug": "lemongrass",
     "compound_slug": "citronellal",
-    "relationship": "partial"
+    "herb": "Lemongrass",
+    "compound": "citronellal",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "licorice-glycyrrhizin",
     "herb_slug": "licorice",
     "compound_slug": "glycyrrhizin",
-    "relationship": "partial"
+    "herb": "Licorice",
+    "compound": "Glycyrrhizin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "ligusticum-chuanxiong-butylidenephthalide",
     "herb_slug": "ligusticum-chuanxiong",
     "compound_slug": "butylidenephthalide",
-    "relationship": "partial"
+    "herb": "Ligusticum chuanxiong",
+    "compound": "Butylidenephthalide",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "ligusticum-chuanxiong-ligustilide",
     "herb_slug": "ligusticum-chuanxiong",
     "compound_slug": "ligustilide",
-    "relationship": "partial"
+    "herb": "Ligusticum chuanxiong",
+    "compound": "Ligustilide",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "ligusticum-chuanxiong-senkyunolide-a",
     "herb_slug": "ligusticum-chuanxiong",
     "compound_slug": "senkyunolide-a",
-    "relationship": "partial"
+    "herb": "Ligusticum chuanxiong",
+    "compound": "Senkyunolide A",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "lithospermum-erythrorhizon-acetylshikonin",
     "herb_slug": "lithospermum-erythrorhizon",
     "compound_slug": "acetylshikonin",
-    "relationship": "partial"
+    "herb": "Lithospermum erythrorhizon",
+    "compound": "Acetylshikonin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "lithospermum-erythrorhizon-shikonin",
     "herb_slug": "lithospermum-erythrorhizon",
     "compound_slug": "shikonin",
-    "relationship": "partial"
+    "herb": "Lithospermum erythrorhizon",
+    "compound": "Shikonin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "longan-gallic-acid",
     "herb_slug": "longan",
     "compound_slug": "gallic-acid",
-    "relationship": "partial"
+    "herb": "Longan",
+    "compound": "gallic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "maca-macamides",
     "herb_slug": "maca",
     "compound_slug": "macamides",
-    "relationship": "partial"
+    "herb": "Maca",
+    "compound": "macamides",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "magnolia-officinalis-honokiol",
     "herb_slug": "magnolia-officinalis",
     "compound_slug": "honokiol",
-    "relationship": "partial"
+    "herb": "Magnolia officinalis",
+    "compound": "honokiol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "magnolia-officinalis-magnolol",
     "herb_slug": "magnolia-officinalis",
     "compound_slug": "magnolol",
-    "relationship": "partial"
+    "herb": "Magnolia officinalis",
+    "compound": "magnolol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "maitake-d-fraction-beta-glucans",
     "herb_slug": "maitake-d-fraction",
     "compound_slug": "beta-glucans",
-    "relationship": "partial"
+    "herb": "Maitake D-Fraction",
+    "compound": "beta-glucans",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "mangifera-indica-mangiferin",
     "herb_slug": "mangifera-indica",
     "compound_slug": "mangiferin",
-    "relationship": "partial"
+    "herb": "Mangifera indica",
+    "compound": "Mangiferin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "mangosteen-alpha-mangostin",
     "herb_slug": "mangosteen",
     "compound_slug": "alpha-mangostin",
-    "relationship": "partial"
+    "herb": "Mangosteen",
+    "compound": "alpha-mangostin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "matricaria-chamomilla-apigenin",
     "herb_slug": "matricaria-chamomilla",
     "compound_slug": "apigenin",
-    "relationship": "partial"
+    "herb": "Chamomile",
+    "compound": "Apigenin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "matricaria-chamomilla-bisabolol",
     "herb_slug": "matricaria-chamomilla",
     "compound_slug": "bisabolol",
-    "relationship": "partial"
+    "herb": "Matricaria chamomilla",
+    "compound": "Bisabolol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "matricaria-chamomilla-chamazulene",
     "herb_slug": "matricaria-chamomilla",
     "compound_slug": "chamazulene",
-    "relationship": "partial"
+    "herb": "Chamomile",
+    "compound": "chamazulene",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "matricaria-chamomilla-farnesol",
     "herb_slug": "matricaria-chamomilla",
     "compound_slug": "farnesol",
-    "relationship": "partial"
+    "herb": "Matricaria chamomilla",
+    "compound": "Farnesol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "melissa-officinalis-rosmarinic-acid",
     "herb_slug": "melissa-officinalis",
     "compound_slug": "rosmarinic-acid",
-    "relationship": "partial"
+    "herb": "Lemon Balm",
+    "compound": "Rosmarinic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "milk-thistle-silibinin",
     "herb_slug": "milk-thistle",
     "compound_slug": "silibinin",
-    "relationship": "partial"
+    "herb": "Milk Thistle",
+    "compound": "Silibinin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "milk-thistle-silybin",
     "herb_slug": "milk-thistle",
     "compound_slug": "silybin",
-    "relationship": "partial"
+    "herb": "Milk Thistle",
+    "compound": "silybin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "milk-thistle-silychristin",
     "herb_slug": "milk-thistle",
     "compound_slug": "silychristin",
-    "relationship": "partial"
+    "herb": "Milk Thistle",
+    "compound": "silychristin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "milk-thistle-silydianin",
     "herb_slug": "milk-thistle",
     "compound_slug": "silydianin",
-    "relationship": "partial"
+    "herb": "Milk Thistle",
+    "compound": "silydianin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "milk-thistle-silymarin",
     "herb_slug": "milk-thistle",
     "compound_slug": "silymarin",
-    "relationship": "partial",
+    "herb": "Milk Thistle (Silybum marianum)",
+    "compound": "Silymarin",
+    "relationship": "contains_compound",
     "notes": "Mixture of flavonolignans (not a single compound)"
   },
   {
     "id": "momordica-charantia-charantin",
     "herb_slug": "momordica-charantia",
     "compound_slug": "charantin",
-    "relationship": "partial"
+    "herb": "Bitter Melon",
+    "compound": "Charantin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "momordica-charantia-momordicoside-k",
     "herb_slug": "momordica-charantia",
     "compound_slug": "momordicoside-k",
-    "relationship": "partial"
+    "herb": "Bitter Melon",
+    "compound": "Momordicoside K",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "morinda-citrifolia-scopoletin",
     "herb_slug": "morinda-citrifolia",
     "compound_slug": "scopoletin",
-    "relationship": "partial"
+    "herb": "Morinda citrifolia",
+    "compound": "Scopoletin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "moringa-glucomoringin",
     "herb_slug": "moringa",
     "compound_slug": "glucomoringin",
-    "relationship": "partial"
+    "herb": "Moringa",
+    "compound": "glucomoringin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "morus-alba-morin",
     "herb_slug": "morus-alba",
     "compound_slug": "morin",
-    "relationship": "partial"
+    "herb": "Morus alba",
+    "compound": "Morin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "morus-alba-mulberroside-a",
     "herb_slug": "morus-alba",
     "compound_slug": "mulberroside-a",
-    "relationship": "partial"
+    "herb": "Morus alba",
+    "compound": "Mulberroside A",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "morus-alba-oxyresveratrol",
     "herb_slug": "morus-alba",
     "compound_slug": "oxyresveratrol",
-    "relationship": "partial"
+    "herb": "Morus alba",
+    "compound": "Oxyresveratrol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "mugwort-thujone",
     "herb_slug": "mugwort",
     "compound_slug": "thujone",
-    "relationship": "partial"
+    "herb": "Mugwort",
+    "compound": "thujone",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "muira-puama-beta-sitosterol",
     "herb_slug": "muira-puama",
     "compound_slug": "beta-sitosterol",
-    "relationship": "partial"
+    "herb": "Muira Puama",
+    "compound": "beta-sitosterol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "myristica-fragrans-elemicin",
     "herb_slug": "myristica-fragrans",
     "compound_slug": "elemicin",
-    "relationship": "partial"
+    "herb": "Myristica fragrans",
+    "compound": "Elemicin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "myristica-fragrans-myristicin",
     "herb_slug": "myristica-fragrans",
     "compound_slug": "myristicin",
-    "relationship": "partial"
+    "herb": "Myristica fragrans",
+    "compound": "Myristicin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "nelumbo-nucifera-magnoflorine",
     "herb_slug": "nelumbo-nucifera",
     "compound_slug": "magnoflorine",
-    "relationship": "partial"
+    "herb": "Nelumbo nucifera",
+    "compound": "Magnoflorine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "nettle-root-beta-sitosterol",
     "herb_slug": "nettle-root",
     "compound_slug": "beta-sitosterol",
-    "relationship": "partial"
+    "herb": "Nettle Root",
+    "compound": "beta-sitosterol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "nigella-sativa-thymoquinone",
     "herb_slug": "nigella-sativa",
     "compound_slug": "thymoquinone",
-    "relationship": "partial"
+    "herb": "Nigella sativa",
+    "compound": "Thymoquinone",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "ocimum-basilicum-methyleugenol",
     "herb_slug": "ocimum-basilicum",
     "compound_slug": "methyleugenol",
-    "relationship": "partial"
+    "herb": "Ocimum basilicum",
+    "compound": "Methyleugenol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "ocotea-odorifera-safrole",
     "herb_slug": "ocotea-odorifera",
     "compound_slug": "safrole",
-    "relationship": "partial"
+    "herb": "Ocotea odorifera",
+    "compound": "Safrole",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "olea-europaea-hydroxytyrosol",
     "herb_slug": "olea-europaea",
     "compound_slug": "hydroxytyrosol",
-    "relationship": "partial"
+    "herb": "Olea europaea",
+    "compound": "Hydroxytyrosol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "olea-europaea-oleacein",
     "herb_slug": "olea-europaea",
     "compound_slug": "oleacein",
-    "relationship": "partial"
+    "herb": "Olea europaea",
+    "compound": "Oleacein",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "olea-europaea-oleocanthal",
     "herb_slug": "olea-europaea",
     "compound_slug": "oleocanthal",
-    "relationship": "partial"
+    "herb": "Olea europaea",
+    "compound": "Oleocanthal",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "olea-europaea-oleuropein",
     "herb_slug": "olea-europaea",
     "compound_slug": "oleuropein",
-    "relationship": "partial"
+    "herb": "Olea europaea",
+    "compound": "Oleuropein",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "orange-peel-hesperidin",
     "herb_slug": "orange-peel",
     "compound_slug": "hesperidin",
-    "relationship": "partial"
+    "herb": "Orange Peel",
+    "compound": "Hesperidin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "orange-peel-naringenin",
     "herb_slug": "orange-peel",
     "compound_slug": "naringenin",
-    "relationship": "partial"
+    "herb": "Orange Peel",
+    "compound": "Naringenin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "orange-peel-naringin",
     "herb_slug": "orange-peel",
     "compound_slug": "naringin",
-    "relationship": "partial"
+    "herb": "Orange Peel",
+    "compound": "Naringin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "oregano-carvacrol",
     "herb_slug": "oregano",
     "compound_slug": "carvacrol",
-    "relationship": "partial"
+    "herb": "Oregano",
+    "compound": "carvacrol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "oregano-thymol",
     "herb_slug": "oregano",
     "compound_slug": "thymol",
-    "relationship": "partial"
+    "herb": "Oregano",
+    "compound": "thymol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "paeonia-lactiflora-albiflorin",
     "herb_slug": "paeonia-lactiflora",
     "compound_slug": "albiflorin",
-    "relationship": "partial"
+    "herb": "Paeonia lactiflora",
+    "compound": "Albiflorin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "paeonia-lactiflora-paeoniflorin",
     "herb_slug": "paeonia-lactiflora",
     "compound_slug": "paeoniflorin",
-    "relationship": "partial"
+    "herb": "Paeonia lactiflora",
+    "compound": "Paeoniflorin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "paeonia-suffruticosa-paeonol",
     "herb_slug": "paeonia-suffruticosa",
     "compound_slug": "paeonol",
-    "relationship": "partial"
+    "herb": "Paeonia suffruticosa",
+    "compound": "Paeonol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "panax-ginseng-ginsenoside-rb1",
     "herb_slug": "panax-ginseng",
     "compound_slug": "ginsenoside-rb1",
-    "relationship": "partial"
+    "herb": "Panax Ginseng",
+    "compound": "Ginsenoside RB1",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "panax-ginseng-ginsenoside-rg1",
     "herb_slug": "panax-ginseng",
     "compound_slug": "ginsenoside-rg1",
-    "relationship": "partial"
+    "herb": "Panax Ginseng",
+    "compound": "Ginsenoside RG1",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "panax-ginseng-ginsenoside-rg3",
     "herb_slug": "panax-ginseng",
     "compound_slug": "ginsenoside-rg3",
-    "relationship": "partial"
+    "herb": "Panax Ginseng",
+    "compound": "Ginsenoside Rg3",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "panax-ginseng-ginsenosides",
     "herb_slug": "panax-ginseng",
     "compound_slug": "ginsenosides",
-    "relationship": "primary",
+    "herb": "Asian Ginseng",
+    "compound": "ginsenosides",
+    "relationship": "contains_compound",
     "notes": "Ginsenosides modulate NO production, improve glucose metabolism, and enhance cognitive performance."
   },
   {
     "id": "panax-quinquefolius-ginsenoside-rb1",
     "herb_slug": "panax-quinquefolius",
     "compound_slug": "ginsenoside-rb1",
-    "relationship": "partial"
+    "herb": "American Ginseng",
+    "compound": "Ginsenoside RB1",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "panax-quinquefolius-ginsenoside-rg1",
     "herb_slug": "panax-quinquefolius",
     "compound_slug": "ginsenoside-rg1",
-    "relationship": "partial"
+    "herb": "American Ginseng",
+    "compound": "Ginsenoside Rg1",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "panax-quinquefolius-ginsenoside-rg3",
     "herb_slug": "panax-quinquefolius",
     "compound_slug": "ginsenoside-rg3",
-    "relationship": "partial"
+    "herb": "American Ginseng",
+    "compound": "Ginsenoside Rg3",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "panax-quinquefolius-ginsenosides",
     "herb_slug": "panax-quinquefolius",
     "compound_slug": "ginsenosides",
-    "relationship": "primary",
+    "herb": "American Ginseng",
+    "compound": "ginsenosides",
+    "relationship": "contains_compound",
     "notes": "Improves postprandial glucose via insulin modulation and slowed carbohydrate absorption."
   },
   {
     "id": "parsley-apigenin",
     "herb_slug": "parsley",
     "compound_slug": "apigenin",
-    "relationship": "partial"
+    "herb": "Parsley",
+    "compound": "Apigenin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "pastinaca-sativa-xanthotoxin",
     "herb_slug": "pastinaca-sativa",
     "compound_slug": "xanthotoxin",
-    "relationship": "partial"
+    "herb": "Pastinaca sativa",
+    "compound": "Xanthotoxin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "peppermint-menthol",
     "herb_slug": "peppermint",
     "compound_slug": "menthol",
-    "relationship": "partial",
+    "herb": "Peppermint (Mentha × piperita)",
+    "compound": "Menthol",
+    "relationship": "contains_compound",
     "notes": "Primary bioactive in essential oil"
   },
   {
     "id": "phellodendron-amurense-berberine",
     "herb_slug": "phellodendron-amurense",
     "compound_slug": "berberine",
-    "relationship": "partial"
+    "herb": "Phellodendron amurense",
+    "compound": "Berberine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "phellodendron-amurense-jatrorrhizine",
     "herb_slug": "phellodendron-amurense",
     "compound_slug": "jatrorrhizine",
-    "relationship": "partial"
+    "herb": "Phellodendron amurense",
+    "compound": "Jatrorrhizine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "phellodendron-amurense-palmatine",
     "herb_slug": "phellodendron-amurense",
     "compound_slug": "palmatine",
-    "relationship": "partial"
+    "herb": "Phellodendron amurense",
+    "compound": "Palmatine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "phellodendron-berberine",
     "herb_slug": "phellodendron",
     "compound_slug": "berberine",
-    "relationship": "partial"
+    "herb": "Phellodendron",
+    "compound": "berberine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "phellodendron-palmatine",
     "herb_slug": "phellodendron",
     "compound_slug": "palmatine",
-    "relationship": "partial"
+    "herb": "Phellodendron",
+    "compound": "palmatine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "piper-longum-piperine",
     "herb_slug": "piper-longum",
     "compound_slug": "piperine",
-    "relationship": "partial"
+    "herb": "Piper longum",
+    "compound": "Piperine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "piper-longum-piperlongumine",
     "herb_slug": "piper-longum",
     "compound_slug": "piperlongumine",
-    "relationship": "partial"
+    "herb": "Piper longum",
+    "compound": "Piperlongumine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "piper-methysticum-desmethoxyyangonin",
     "herb_slug": "piper-methysticum",
     "compound_slug": "desmethoxyyangonin",
-    "relationship": "partial"
+    "herb": "Kava",
+    "compound": "desmethoxyyangonin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "piper-methysticum-dihydrokavain",
     "herb_slug": "piper-methysticum",
     "compound_slug": "dihydrokavain",
-    "relationship": "partial"
+    "herb": "Kava",
+    "compound": "dihydrokavain",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "piper-methysticum-dihydromethysticin",
     "herb_slug": "piper-methysticum",
     "compound_slug": "dihydromethysticin",
-    "relationship": "partial"
+    "herb": "Kava",
+    "compound": "dihydromethysticin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "piper-methysticum-kavain",
     "herb_slug": "piper-methysticum",
     "compound_slug": "kavain",
-    "relationship": "partial"
+    "herb": "Kava",
+    "compound": "kavain",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "piper-methysticum-kavalactones",
     "herb_slug": "piper-methysticum",
     "compound_slug": "kavalactones",
-    "relationship": "partial"
+    "herb": "Piper methysticum",
+    "compound": "Kavalactones",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "piper-methysticum-methysticin",
     "herb_slug": "piper-methysticum",
     "compound_slug": "methysticin",
-    "relationship": "partial"
+    "herb": "Piper methysticum",
+    "compound": "Methysticin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "piper-methysticum-yangonin",
     "herb_slug": "piper-methysticum",
     "compound_slug": "yangonin",
-    "relationship": "partial"
+    "herb": "Piper methysticum",
+    "compound": "Yangonin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "piper-nigrum-beta-caryophyllene",
     "herb_slug": "piper-nigrum",
     "compound_slug": "beta-caryophyllene",
-    "relationship": "partial"
+    "herb": "Piper nigrum",
+    "compound": "Beta-caryophyllene",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "piper-nigrum-caryophyllene-oxide",
     "herb_slug": "piper-nigrum",
     "compound_slug": "caryophyllene-oxide",
-    "relationship": "partial"
+    "herb": "Piper nigrum",
+    "compound": "Caryophyllene oxide",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "piper-nigrum-piperine",
     "herb_slug": "piper-nigrum",
     "compound_slug": "piperine",
-    "relationship": "partial"
+    "herb": "Black Pepper",
+    "compound": "Piperine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "plantago-lanceolata-verbascoside",
     "herb_slug": "plantago-lanceolata",
     "compound_slug": "verbascoside",
-    "relationship": "partial"
+    "herb": "Plantago lanceolata",
+    "compound": "Verbascoside",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "plantago-major-aucubin",
     "herb_slug": "plantago-major",
     "compound_slug": "aucubin",
-    "relationship": "partial"
+    "herb": "Plantago major",
+    "compound": "Aucubin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "plumbago-zeylanica-plumbagin",
     "herb_slug": "plumbago-zeylanica",
     "compound_slug": "plumbagin",
-    "relationship": "partial"
+    "herb": "Plumbago zeylanica",
+    "compound": "Plumbagin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "pomegranate-ellagic-acid",
     "herb_slug": "pomegranate",
     "compound_slug": "ellagic-acid",
-    "relationship": "partial"
+    "herb": "Pomegranate",
+    "compound": "Ellagic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "pomegranate-gallic-acid",
     "herb_slug": "pomegranate",
     "compound_slug": "gallic-acid",
-    "relationship": "partial"
+    "herb": "Pomegranate",
+    "compound": "Gallic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "pomegranate-punicalagin",
     "herb_slug": "pomegranate",
     "compound_slug": "punicalagin",
-    "relationship": "partial"
+    "herb": "Pomegranate",
+    "compound": "punicalagin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "psoralea-corylifolia-angelicin",
     "herb_slug": "psoralea-corylifolia",
     "compound_slug": "angelicin",
-    "relationship": "partial"
+    "herb": "Psoralea corylifolia",
+    "compound": "Angelicin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "psoralea-corylifolia-bergapten",
     "herb_slug": "psoralea-corylifolia",
     "compound_slug": "bergapten",
-    "relationship": "partial"
+    "herb": "Psoralea corylifolia",
+    "compound": "Bergapten",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "psoralea-corylifolia-psoralen",
     "herb_slug": "psoralea-corylifolia",
     "compound_slug": "psoralen",
-    "relationship": "partial"
+    "herb": "Psoralea corylifolia",
+    "compound": "Psoralen",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "pueraria-lobata-daidzin",
     "herb_slug": "pueraria-lobata",
     "compound_slug": "daidzin",
-    "relationship": "partial"
+    "herb": "Pueraria lobata",
+    "compound": "Daidzin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "pueraria-lobata-ononin",
     "herb_slug": "pueraria-lobata",
     "compound_slug": "ononin",
-    "relationship": "partial"
+    "herb": "Pueraria lobata",
+    "compound": "Ononin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "pueraria-lobata-puerarin",
     "herb_slug": "pueraria-lobata",
     "compound_slug": "puerarin",
-    "relationship": "partial"
+    "herb": "Pueraria lobata",
+    "compound": "Puerarin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "pueraria-mirifica-daidzin",
     "herb_slug": "pueraria-mirifica",
     "compound_slug": "daidzin",
-    "relationship": "partial"
+    "herb": "Pueraria Mirifica",
+    "compound": "daidzin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "pueraria-mirifica-deoxymiroestrol",
     "herb_slug": "pueraria-mirifica",
     "compound_slug": "deoxymiroestrol",
-    "relationship": "partial"
+    "herb": "Pueraria Mirifica",
+    "compound": "deoxymiroestrol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "quercetin-quercetin",
     "herb_slug": "quercetin",
     "compound_slug": "quercetin",
-    "relationship": "primary",
+    "herb": "Quercetin",
+    "compound": "quercetin",
+    "relationship": "contains_compound",
     "notes": "Antioxidant flavonoid reducing oxidative stress and modulating inflammatory cytokines."
   },
   {
     "id": "raspberry-leaf-ellagic-acid",
     "herb_slug": "raspberry-leaf",
     "compound_slug": "ellagic-acid",
-    "relationship": "partial"
+    "herb": "Raspberry Leaf",
+    "compound": "Ellagic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "red-clover-biochanin-a",
     "herb_slug": "red-clover",
     "compound_slug": "biochanin-a",
-    "relationship": "partial"
+    "herb": "Red Clover",
+    "compound": "biochanin A",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "red-clover-calycosin",
     "herb_slug": "red-clover",
     "compound_slug": "calycosin",
-    "relationship": "partial"
+    "herb": "Red Clover",
+    "compound": "calycosin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "red-clover-daidzein",
     "herb_slug": "red-clover",
     "compound_slug": "daidzein",
-    "relationship": "partial"
+    "herb": "Red Clover",
+    "compound": "Daidzein",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "red-clover-formononetin",
     "herb_slug": "red-clover",
     "compound_slug": "formononetin",
-    "relationship": "partial"
+    "herb": "Red Clover",
+    "compound": "Formononetin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "red-clover-genistein",
     "herb_slug": "red-clover",
     "compound_slug": "genistein",
-    "relationship": "partial"
+    "herb": "Red Clover",
+    "compound": "genistein",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "red-clover-ononin",
     "herb_slug": "red-clover",
     "compound_slug": "ononin",
-    "relationship": "partial"
+    "herb": "Red Clover",
+    "compound": "ononin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "rehmannia-glutinosa-catalpol",
     "herb_slug": "rehmannia-glutinosa",
     "compound_slug": "catalpol",
-    "relationship": "partial"
+    "herb": "Rehmannia glutinosa",
+    "compound": "Catalpol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "rehmannia-prepared-catalpol",
     "herb_slug": "rehmannia-prepared",
     "compound_slug": "catalpol",
-    "relationship": "partial"
+    "herb": "Rehmannia Prepared",
+    "compound": "catalpol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "reishi-beta-glucans",
     "herb_slug": "reishi",
     "compound_slug": "beta-glucans",
-    "relationship": "partial"
+    "herb": "Reishi",
+    "compound": "beta-glucans",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "resveratrol-resveratrol",
     "herb_slug": "resveratrol",
     "compound_slug": "resveratrol",
-    "relationship": "primary",
+    "herb": "Resveratrol",
+    "compound": "resveratrol",
+    "relationship": "contains_compound",
     "notes": "Activates SIRT1 and improves mitochondrial function; antioxidant and anti-inflammatory effects."
   },
   {
     "id": "rheum-palmatum-emodin",
     "herb_slug": "rheum-palmatum",
     "compound_slug": "emodin",
-    "relationship": "partial"
+    "herb": "Rheum palmatum",
+    "compound": "Emodin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "rheum-palmatum-rhein",
     "herb_slug": "rheum-palmatum",
     "compound_slug": "rhein",
-    "relationship": "partial"
+    "herb": "Rheum palmatum",
+    "compound": "Rhein",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "rhodiola-rosarin",
     "herb_slug": "rhodiola",
     "compound_slug": "rosarin",
-    "relationship": "partial"
+    "herb": "Rhodiola",
+    "compound": "Rosarin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "rhodiola-rosavin",
     "herb_slug": "rhodiola",
     "compound_slug": "rosavin",
-    "relationship": "partial"
+    "herb": "Rhodiola",
+    "compound": "Rosavin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "rhodiola-rosin",
     "herb_slug": "rhodiola",
     "compound_slug": "rosin",
-    "relationship": "partial"
+    "herb": "Rhodiola",
+    "compound": "Rosin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "rhodiola-salidroside",
     "herb_slug": "rhodiola",
     "compound_slug": "salidroside",
-    "relationship": "partial"
+    "herb": "Rhodiola",
+    "compound": "Salidroside",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "rhodiola-tyrosol",
     "herb_slug": "rhodiola",
     "compound_slug": "tyrosol",
-    "relationship": "partial"
+    "herb": "Rhodiola",
+    "compound": "Tyrosol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "rice-bran-ferulic-acid",
     "herb_slug": "rice-bran",
     "compound_slug": "ferulic-acid",
-    "relationship": "partial"
+    "herb": "Rice Bran",
+    "compound": "Ferulic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "rooibos-aspalathin",
     "herb_slug": "rooibos",
     "compound_slug": "aspalathin",
-    "relationship": "partial"
+    "herb": "Rooibos",
+    "compound": "aspalathin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "rosemary-carnosic-acid",
     "herb_slug": "rosemary",
     "compound_slug": "carnosic-acid",
-    "relationship": "partial"
+    "herb": "Rosemary",
+    "compound": "Carnosic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "rosemary-carnosol",
     "herb_slug": "rosemary",
     "compound_slug": "carnosol",
-    "relationship": "partial"
+    "herb": "Rosemary",
+    "compound": "carnosol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "rosemary-oleanolic-acid",
     "herb_slug": "rosemary",
     "compound_slug": "oleanolic-acid",
-    "relationship": "partial"
+    "herb": "Rosemary",
+    "compound": "Oleanolic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "rosemary-thymol",
     "herb_slug": "rosemary",
     "compound_slug": "thymol",
-    "relationship": "partial"
+    "herb": "Rosemary",
+    "compound": "thymol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "rosemary-ursolic-acid",
     "herb_slug": "rosemary",
     "compound_slug": "ursolic-acid",
-    "relationship": "partial"
+    "herb": "Rosemary",
+    "compound": "Ursolic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "saffron-crocetin",
     "herb_slug": "saffron",
     "compound_slug": "crocetin",
-    "relationship": "partial"
+    "herb": "Saffron",
+    "compound": "Crocetin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "saffron-crocin",
     "herb_slug": "saffron",
     "compound_slug": "crocin",
-    "relationship": "partial"
+    "herb": "Saffron",
+    "compound": "Crocin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "saffron-safranal",
     "herb_slug": "saffron",
     "compound_slug": "safranal",
-    "relationship": "partial"
+    "herb": "Saffron",
+    "compound": "safranal",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "sage-carnosic-acid",
     "herb_slug": "sage",
     "compound_slug": "carnosic-acid",
-    "relationship": "partial"
+    "herb": "Sage",
+    "compound": "Carnosic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "sage-carvacrol",
     "herb_slug": "sage",
     "compound_slug": "carvacrol",
-    "relationship": "partial"
+    "herb": "Sage",
+    "compound": "carvacrol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "sage-oleanolic-acid",
     "herb_slug": "sage",
     "compound_slug": "oleanolic-acid",
-    "relationship": "partial"
+    "herb": "Sage",
+    "compound": "Oleanolic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "sage-thujone",
     "herb_slug": "sage",
     "compound_slug": "thujone",
-    "relationship": "partial"
+    "herb": "Sage",
+    "compound": "thujone",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "sage-ursolic-acid",
     "herb_slug": "sage",
     "compound_slug": "ursolic-acid",
-    "relationship": "partial"
+    "herb": "Sage",
+    "compound": "Ursolic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "salacia-reticulata-kotalanol",
     "herb_slug": "salacia-reticulata",
     "compound_slug": "kotalanol",
-    "relationship": "partial"
+    "herb": "Salacia",
+    "compound": "kotalanol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "salvia-miltiorrhiza-cryptotanshinone",
     "herb_slug": "salvia-miltiorrhiza",
     "compound_slug": "cryptotanshinone",
-    "relationship": "partial"
+    "herb": "Salvia miltiorrhiza",
+    "compound": "cryptotanshinone",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "salvia-miltiorrhiza-salvianolic-acid-b",
     "herb_slug": "salvia-miltiorrhiza",
     "compound_slug": "salvianolic-acid-b",
-    "relationship": "partial"
+    "herb": "Salvia miltiorrhiza",
+    "compound": "Salvianolic acid B",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "salvia-miltiorrhiza-tanshinone-iia",
     "herb_slug": "salvia-miltiorrhiza",
     "compound_slug": "tanshinone-iia",
-    "relationship": "partial"
+    "herb": "Salvia miltiorrhiza",
+    "compound": "Tanshinone IIA",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "saw-palmetto-beta-sitosterol",
     "herb_slug": "saw-palmetto",
     "compound_slug": "beta-sitosterol",
-    "relationship": "partial"
+    "herb": "Saw Palmetto",
+    "compound": "beta-sitosterol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "schisandra-chinensis-schisandrin",
     "herb_slug": "schisandra-chinensis",
     "compound_slug": "schisandrin",
-    "relationship": "partial"
+    "herb": "Schisandra chinensis",
+    "compound": "Schisandrin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "schisandra-schisandrin",
     "herb_slug": "schisandra",
     "compound_slug": "schisandrin",
-    "relationship": "partial"
+    "herb": "Schisandra",
+    "compound": "Schisandrin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "schisandra-schisandrin-b",
     "herb_slug": "schisandra",
     "compound_slug": "schisandrin-b",
-    "relationship": "partial"
+    "herb": "Schisandra",
+    "compound": "schisandrin B",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "scutellaria-baicalensis-baicalein",
     "herb_slug": "scutellaria-baicalensis",
     "compound_slug": "baicalein",
-    "relationship": "partial"
+    "herb": "Scutellaria baicalensis",
+    "compound": "Baicalein",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "scutellaria-baicalensis-baicalin",
     "herb_slug": "scutellaria-baicalensis",
     "compound_slug": "baicalin",
-    "relationship": "partial"
+    "herb": "Scutellaria baicalensis",
+    "compound": "Baicalin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "scutellaria-baicalensis-wogonin",
     "herb_slug": "scutellaria-baicalensis",
     "compound_slug": "wogonin",
-    "relationship": "partial"
+    "herb": "Scutellaria baicalensis",
+    "compound": "Wogonin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "scutellaria-lateriflora-baicalein",
     "herb_slug": "scutellaria-lateriflora",
     "compound_slug": "baicalein",
-    "relationship": "partial"
+    "herb": "Skullcap",
+    "compound": "Baicalein",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "scutellaria-lateriflora-baicalin",
     "herb_slug": "scutellaria-lateriflora",
     "compound_slug": "baicalin",
-    "relationship": "partial"
+    "herb": "Skullcap",
+    "compound": "Baicalin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "scutellaria-lateriflora-wogonin",
     "herb_slug": "scutellaria-lateriflora",
     "compound_slug": "wogonin",
-    "relationship": "partial"
+    "herb": "Skullcap",
+    "compound": "Wogonin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "serenoa-repens-beta-sitosterol",
     "herb_slug": "serenoa-repens",
     "compound_slug": "beta-sitosterol",
-    "relationship": "partial"
+    "herb": "Serenoa repens",
+    "compound": "Beta-sitosterol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "serenoa-repens-stigmasterol",
     "herb_slug": "serenoa-repens",
     "compound_slug": "stigmasterol",
-    "relationship": "partial"
+    "herb": "Serenoa repens",
+    "compound": "Stigmasterol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "silybum-marianum-silybin",
     "herb_slug": "silybum-marianum",
     "compound_slug": "silybin",
-    "relationship": "primary",
+    "herb": "Milk Thistle",
+    "compound": "silybin",
+    "relationship": "contains_compound",
     "notes": "Silymarin stabilizes hepatocyte membranes, enhances glutathione, and reduces oxidative liver damage."
   },
   {
     "id": "sophora-alopecuroides-matrine",
     "herb_slug": "sophora-alopecuroides",
     "compound_slug": "matrine",
-    "relationship": "partial"
+    "herb": "Sophora alopecuroides",
+    "compound": "Matrine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "sophora-alopecuroides-oxymatrine",
     "herb_slug": "sophora-alopecuroides",
     "compound_slug": "oxymatrine",
-    "relationship": "partial"
+    "herb": "Sophora alopecuroides",
+    "compound": "Oxymatrine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "sophora-flavescens-matrine",
     "herb_slug": "sophora-flavescens",
     "compound_slug": "matrine",
-    "relationship": "partial"
+    "herb": "Sophora Flavescens",
+    "compound": "matrine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "sophora-flavescens-oxymatrine",
     "herb_slug": "sophora-flavescens",
     "compound_slug": "oxymatrine",
-    "relationship": "partial"
+    "herb": "Sophora flavescens",
+    "compound": "Oxymatrine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "soybean-biochanin-a",
     "herb_slug": "soybean",
     "compound_slug": "biochanin-a",
-    "relationship": "partial"
+    "herb": "Soybean",
+    "compound": "Biochanin A",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "soybean-daidzein",
     "herb_slug": "soybean",
     "compound_slug": "daidzein",
-    "relationship": "partial"
+    "herb": "Soybean",
+    "compound": "Daidzein",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "soybean-genistein",
     "herb_slug": "soybean",
     "compound_slug": "genistein",
-    "relationship": "partial"
+    "herb": "Soybean",
+    "compound": "Genistein",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "st-johns-wort-hyperforin",
     "herb_slug": "st-johns-wort",
     "compound_slug": "hyperforin",
-    "relationship": "partial",
+    "herb": "St. John's Wort (Hypericum perforatum)",
+    "compound": "Hyperforin",
+    "relationship": "contains_compound",
     "notes": "Key active and interaction driver"
   },
   {
     "id": "st-johns-wort-hypericin",
     "herb_slug": "st-johns-wort",
     "compound_slug": "hypericin",
-    "relationship": "partial"
+    "herb": "St Johns Wort",
+    "compound": "Hypericin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "st-johns-wort-kaempferol",
     "herb_slug": "st-johns-wort",
     "compound_slug": "kaempferol",
-    "relationship": "partial"
+    "herb": "St Johns Wort",
+    "compound": "Kaempferol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "st-johns-wort-quercetin",
     "herb_slug": "st-johns-wort",
     "compound_slug": "quercetin",
-    "relationship": "partial"
+    "herb": "St Johns Wort",
+    "compound": "Quercetin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "st-johns-wort-rutin",
     "herb_slug": "st-johns-wort",
     "compound_slug": "rutin",
-    "relationship": "partial"
+    "herb": "St Johns Wort",
+    "compound": "Rutin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "stellera-chamaejasme-daphnetin",
     "herb_slug": "stellera-chamaejasme",
     "compound_slug": "daphnetin",
-    "relationship": "partial"
+    "herb": "Stellera chamaejasme",
+    "compound": "Daphnetin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "stephania-cepharantha-cepharanthine",
     "herb_slug": "stephania-cepharantha",
     "compound_slug": "cepharanthine",
-    "relationship": "partial"
+    "herb": "Stephania cepharantha",
+    "compound": "Cepharanthine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "stephania-japonica-cepharanthine",
     "herb_slug": "stephania-japonica",
     "compound_slug": "cepharanthine",
-    "relationship": "partial"
+    "herb": "Stephania japonica",
+    "compound": "Cepharanthine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "stephania-tetrandra-tetrandrine",
     "herb_slug": "stephania-tetrandra",
     "compound_slug": "tetrandrine",
-    "relationship": "partial"
+    "herb": "Stephania tetrandra",
+    "compound": "Tetrandrine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "syzygium-aromaticum-eugenol",
     "herb_slug": "syzygium-aromaticum",
     "compound_slug": "eugenol",
-    "relationship": "partial"
+    "herb": "Syzygium aromaticum",
+    "compound": "Eugenol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "terminalia-arjuna-arjunolic-acid",
     "herb_slug": "terminalia-arjuna",
     "compound_slug": "arjunolic-acid",
-    "relationship": "partial",
+    "herb": "Terminalia arjuna",
+    "compound": "arjunolic acid",
+    "relationship": "contains_compound",
     "notes": "PMID:16397921; adjunct cardiovascular evidence context."
   },
   {
     "id": "theobroma-cacao-catechin",
     "herb_slug": "theobroma-cacao",
     "compound_slug": "catechin",
-    "relationship": "partial"
+    "herb": "Cacao",
+    "compound": "Catechin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "theobroma-cacao-epicatechin",
     "herb_slug": "theobroma-cacao",
     "compound_slug": "epicatechin",
-    "relationship": "partial"
+    "herb": "Cacao",
+    "compound": "Epicatechin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "thunder-god-vine-celastrol",
     "herb_slug": "thunder-god-vine",
     "compound_slug": "celastrol",
-    "relationship": "partial"
+    "herb": "Thunder God Vine",
+    "compound": "Celastrol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "thyme-carvacrol",
     "herb_slug": "thyme",
     "compound_slug": "carvacrol",
-    "relationship": "partial"
+    "herb": "Thyme",
+    "compound": "carvacrol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "thyme-luteolin",
     "herb_slug": "thyme",
     "compound_slug": "luteolin",
-    "relationship": "partial"
+    "herb": "Thyme",
+    "compound": "Luteolin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "thyme-thymol",
     "herb_slug": "thyme",
     "compound_slug": "thymol",
-    "relationship": "partial"
+    "herb": "Thyme",
+    "compound": "thymol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "tribulus-terrestris-protodioscin",
     "herb_slug": "tribulus-terrestris",
     "compound_slug": "protodioscin",
-    "relationship": "partial"
+    "herb": "Tribulus terrestris",
+    "compound": "Protodioscin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "trigonella-foenum-graecum-diosgenin",
     "herb_slug": "trigonella-foenum-graecum",
     "compound_slug": "diosgenin",
-    "relationship": "partial"
+    "herb": "Fenugreek",
+    "compound": "Diosgenin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "trigonella-foenum-graecum-protodioscin",
     "herb_slug": "trigonella-foenum-graecum",
     "compound_slug": "protodioscin",
-    "relationship": "partial"
+    "herb": "Fenugreek",
+    "compound": "Protodioscin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "trigonella-foenum-graecum-trigonelline",
     "herb_slug": "trigonella-foenum-graecum",
     "compound_slug": "trigonelline",
-    "relationship": "partial"
+    "herb": "Fenugreek",
+    "compound": "trigonelline",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "tripterygium-wilfordii-celastrol",
     "herb_slug": "tripterygium-wilfordii",
     "compound_slug": "celastrol",
-    "relationship": "partial"
+    "herb": "Tripterygium wilfordii",
+    "compound": "Celastrol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "turmeric-bisdemethoxycurcumin",
     "herb_slug": "turmeric",
     "compound_slug": "bisdemethoxycurcumin",
-    "relationship": "partial"
+    "herb": "Turmeric (Curcuma longa)",
+    "compound": "Bisdemethoxycurcumin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "turmeric-curcumin",
     "herb_slug": "turmeric",
     "compound_slug": "curcumin",
-    "relationship": "partial",
+    "herb": "Turmeric (Curcuma longa)",
+    "compound": "Curcumin",
+    "relationship": "contains_compound",
     "notes": "Primary polyphenol; one of several curcuminoids"
   },
   {
     "id": "turmeric-demethoxycurcumin",
     "herb_slug": "turmeric",
     "compound_slug": "demethoxycurcumin",
-    "relationship": "partial"
+    "herb": "Turmeric (Curcuma longa)",
+    "compound": "Demethoxycurcumin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "valerian-valerenic-acid",
     "herb_slug": "valerian",
     "compound_slug": "valerenic-acid",
-    "relationship": "partial",
+    "herb": "Valeriana officinalis",
+    "compound": "Valerenic Acid",
+    "relationship": "contains_compound",
     "notes": "Single compound; not sole active component"
   },
   {
     "id": "valeriana-officinalis-valepotriates",
     "herb_slug": "valeriana-officinalis",
     "compound_slug": "valepotriates",
-    "relationship": "partial"
+    "herb": "Valeriana officinalis",
+    "compound": "Valepotriates",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "valeriana-officinalis-valerenic-acid",
     "herb_slug": "valeriana-officinalis",
     "compound_slug": "valerenic-acid",
-    "relationship": "partial"
+    "herb": "Valeriana officinalis",
+    "compound": "Valerenic acid",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "valeriana-officinalis-valerenol",
     "herb_slug": "valeriana-officinalis",
     "compound_slug": "valerenol",
-    "relationship": "partial"
+    "herb": "Valeriana officinalis",
+    "compound": "Valerenol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "verbena-officinalis-acteoside",
     "herb_slug": "verbena-officinalis",
     "compound_slug": "acteoside",
-    "relationship": "partial"
+    "herb": "Verbena officinalis",
+    "compound": "Acteoside",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "vitis-vinifera-proanthocyanidins",
     "herb_slug": "vitis-vinifera",
     "compound_slug": "proanthocyanidins",
-    "relationship": "secondary",
+    "herb": "Grape",
+    "compound": "proanthocyanidins",
+    "relationship": "contains_compound",
     "notes": "Polyphenols (resveratrol, OPCs) improve endothelial function and reduce oxidative stress."
   },
   {
     "id": "vitis-vinifera-pterostilbene",
     "herb_slug": "vitis-vinifera",
     "compound_slug": "pterostilbene",
-    "relationship": "partial"
+    "herb": "Grape",
+    "compound": "Pterostilbene",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "vitis-vinifera-resveratrol",
     "herb_slug": "vitis-vinifera",
     "compound_slug": "resveratrol",
-    "relationship": "partial"
+    "herb": "Grape",
+    "compound": "Resveratrol",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "white-peony-paeoniflorin",
     "herb_slug": "white-peony",
     "compound_slug": "paeoniflorin",
-    "relationship": "partial"
+    "herb": "White Peony",
+    "compound": "paeoniflorin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "wild-yam-diosgenin",
     "herb_slug": "wild-yam",
     "compound_slug": "diosgenin",
-    "relationship": "partial"
+    "herb": "Wild Yam",
+    "compound": "Diosgenin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "yerba-mate-apigenin",
     "herb_slug": "yerba-mate",
     "compound_slug": "apigenin",
-    "relationship": "partial"
+    "herb": "Yerba Mate",
+    "compound": "Apigenin",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   },
   {
     "id": "yerba-mate-caffeine",
     "herb_slug": "yerba-mate",
     "compound_slug": "caffeine",
-    "relationship": "partial"
+    "herb": "Yerba Mate",
+    "compound": "Caffeine",
+    "relationship": "contains_compound",
+    "notes": "Phase 4 relationship QA; do not use weak/unsupported relationship rows in stack claims without review."
   }
 ]

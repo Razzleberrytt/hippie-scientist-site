@@ -39,8 +39,8 @@
     "monetizationAllowed": true,
     "indexingAllowed": false,
     "recommendationAllowed": true,
-    "requiresHumanReview": true,
-    "reason": "missing_record_level_sources"
+    "requiresHumanReview": false,
+    "reason": ""
   },
   "evidence": {
     "reviewStatus": "needs_review",

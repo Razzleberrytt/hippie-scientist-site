@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: 'GABA Pathway Education',
   description:
     'Learn about GABAergic signaling, calming neurochemistry, inhibitory neurotransmission, sleep-related pathways, and related herbs and compounds.',
+  alternates: { canonical: '/education/gaba/' },
 }
 
 const faqItems = [

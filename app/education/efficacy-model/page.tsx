@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: 'Interactive Supplement Efficacy Modeler & Pharmacokinetics Visualizer',
   description:
     'Simulate absorption onset, peak action, half-life clearance timelines, and cumulative build-up curves for herbs and compounds.',
+  alternates: { canonical: '/education/efficacy-model/' },
 }
 
 export default function EfficacyModelPage() {

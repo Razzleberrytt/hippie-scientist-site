@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Serotonin Pathway Education',
   description:
     'Learn about serotonergic signaling, mood regulation, emotional processing, and herbs and compounds associated with the serotonin pathway.',
+  alternates: { canonical: '/education/serotonin/' },
 }
 
 const profiles = [
