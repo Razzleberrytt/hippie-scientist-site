@@ -12,11 +12,15 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/goals',
 })
 
+function displayGoalTitle(title: string) {
+  return title.replace(/\s+decisions$/i, '')
+}
+
 export default function GoalsPage() {
   return (
     <div className="mx-auto max-w-6xl space-y-7 px-4 py-7 sm:px-6 sm:py-10 lg:px-8">
       <section className="hero-shell rounded-[1.5rem] border border-brand-900/10 p-5 shadow-sm sm:rounded-[2rem] sm:p-10">
-        <p className="eyebrow-label">Goal decision system</p>
+        <p className="eyebrow-label">Goal guide system</p>
         <h1 className="heading-premium mt-3 max-w-[12ch] text-ink sm:max-w-[16ch]">
           Choose by outcome, then compare options clearly.
         </h1>
@@ -57,7 +61,7 @@ export default function GoalsPage() {
           >
             <div>
               <h2 className="!font-display !text-[1.9rem] !font-semibold !leading-[1.02] !tracking-tight text-ink transition group-hover:text-brand-800 sm:!text-[2rem] lg:!text-[1.55rem] dark:group-hover:text-brand-100">
-                {goal.title}
+                {displayGoalTitle(goal.title)}
               </h2>
               <p className="mt-3 text-sm leading-7 text-muted line-clamp-3 sm:mt-4 sm:line-clamp-4">
                 {goal.description}
