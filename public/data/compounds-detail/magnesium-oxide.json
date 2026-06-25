@@ -23,8 +23,8 @@
     "monetizationAllowed": true,
     "indexingAllowed": false,
     "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "requiresHumanReview": true,
+    "reason": "missing_record_level_sources"
   },
   "evidence": {
     "reviewStatus": "needs_review",

@@ -57,25 +57,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "7-hydroxymitragynine",
-    "slug": "7-hydroxymitragynine",
-    "name": "7-Hydroxymitragynine",
-    "summary": "7-Hydroxymitragynine is a potent kratom alkaloid present only in trace amounts in natural kratom leaf, but concentrated or synthetic 7-OH products carry opioid-like safety and regulatory risk.",
-    "description": "7-Hydroxymitragynine (7-OH) is a kratom alkaloid with mu-opioid receptor activity. The 2025-2026 regulatory focus is concentrated, synthetic, enhanced, or added-ingredient 7-OH products such as tablets, gummies, shots, and enhanced extracts, not plain natural kratom leaf with trace 7-OH.",
-    "compoundClass": "",
-    "mechanisms": [
-      "potent mu-opioid receptor agonism",
-      "higher potency than mitragynine preclinical"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "acarbose",
     "slug": "acarbose",
     "name": "Acarbose",
@@ -436,25 +417,6 @@
     "mechanisms": [
       "Oxidative Stress Modulation",
       "Vascular Function Support"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "aloe-vera",
-    "slug": "aloe-vera",
-    "name": "Aloe Vera",
-    "summary": "May improve IBS symptoms; inconsistent findings.",
-    "description": "May improve IBS symptoms; inconsistent findings.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "Metabolic Regulation"
     ],
     "targets": [],
     "pathways": [],
@@ -831,29 +793,6 @@
       "Stress Response Modulation",
       "Neuroprotective Activity",
       "Lipid Metabolism Support"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "ashitaba",
-    "slug": "ashitaba",
-    "name": "Ashitaba Angelica keiskei",
-    "summary": "Ashitaba has preclinical chalcone research but insufficient human clinical evidence.",
-    "description": "Angelica keiskei botanical containing xanthoangelol and 4-hydroxyderricin; evidence is mainly metabolic/anti-inflammatory preclinical work.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "Oxidative Stress Modulation",
-      "Metabolic Regulation",
-      "Stress Response Modulation",
-      "Neuroprotective Activity",
-      "AMPK Signaling"
     ],
     "targets": [],
     "pathways": [],
@@ -1858,29 +1797,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "black-seed",
-    "slug": "black-seed",
-    "name": "Black seed / Nigella sativa",
-    "summary": "Black seed / Nigella sativa is a compound studied in connection with inflammation and respiratory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Black seed / Nigella sativa is a compound studied in connection with inflammation and respiratory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "Oxidative Stress Modulation",
-      "Metabolic Regulation",
-      "Vascular Function Support",
-      "Stress Response Modulation",
-      "Neuroprotective Activity"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "black-seed-oil",
     "slug": "black-seed-oil",
     "name": "Black Seed Oil",
@@ -1891,24 +1807,6 @@
       "Inflammatory Signaling Modulation",
       "Oxidative Stress Modulation",
       "Metabolic Regulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "blue-lotus",
-    "slug": "blue-lotus",
-    "name": "Blue Lotus",
-    "summary": "Blue Lotus is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Blue Lotus is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Neurotransmitter Modulation"
     ],
     "targets": [],
     "pathways": [],
@@ -2407,25 +2305,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "cat-s-claw",
-    "slug": "cat-s-claw",
-    "name": "Cat's Claw",
-    "summary": "Cat's claw has limited human evidence for arthritis symptom improvement and mostly preclinical immune-modulating data.",
-    "description": "Uncaria tomentosa botanical with oxindole alkaloids and limited clinical data.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "Immune Signaling Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "catalpol",
     "slug": "catalpol",
     "name": "catalpol",
@@ -2538,26 +2417,6 @@
     "mechanisms": [
       "Inflammatory Signaling Modulation",
       "NF-kB Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "chaga",
-    "slug": "chaga",
-    "name": "Chaga Inonotus obliquus",
-    "summary": "Chaga has primarily preclinical antioxidant research and notable renal safety concerns from oxalate exposure case reports.",
-    "description": "Fungal preparation with polyphenols and betulinic acid derivatives; lacks robust human efficacy trials.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Oxidative Stress Modulation",
-      "Stress Response Modulation",
-      "Neuroprotective Activity"
     ],
     "targets": [],
     "pathways": [],
@@ -3191,25 +3050,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "cranberry",
-    "slug": "cranberry",
-    "name": "Cranberry",
-    "summary": "Cranberry is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Cranberry is a compound of emerging research interest. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "proanthocyanidins reduce bacterial adhesion in urinary tract",
-      "Proanthocyanidins inhibit bacterial adhesion."
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "creatine",
     "slug": "creatine",
     "name": "Creatine",
@@ -3342,28 +3182,6 @@
     "mechanisms": [
       "Inflammatory Signaling Modulation",
       "Vascular Function Support",
-      "NF-kB Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "curcumin",
-    "slug": "curcumin",
-    "name": "Curcumin",
-    "summary": "Curcumin is a compound studied in connection with inflammation and pain activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Curcumin is a compound studied in connection with inflammation and pain activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "Oxidative Stress Modulation",
-      "Mitochondrial Support",
-      "Immune Signaling Modulation",
       "NF-kB Modulation"
     ],
     "targets": [],
@@ -3571,25 +3389,6 @@
       "Hormonal Signaling Context",
       "AMPK Signaling",
       "Glucose Metabolism Support"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "damiana",
-    "slug": "damiana",
-    "name": "Damiana",
-    "summary": "Damiana is a compound studied in connection with anxiety activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Damiana is a compound studied in connection with anxiety activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Neurotransmitter Modulation",
-      "Stress Response Modulation"
     ],
     "targets": [],
     "pathways": [],
@@ -4031,24 +3830,6 @@
       "Vascular Function Support",
       "AMPK Signaling",
       "Glucose Metabolism Support"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "elderberry",
-    "slug": "elderberry",
-    "name": "Elderberry",
-    "summary": "Elderberry is a compound studied in connection with immunity and respiratory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Elderberry is a compound studied in connection with immunity and respiratory activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Oxidative Stress Modulation"
     ],
     "targets": [],
     "pathways": [],
@@ -4908,26 +4689,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "garlic",
-    "slug": "garlic",
-    "name": "Garlic",
-    "summary": "Garlic modestly reduces total cholesterol and blood pressure.",
-    "description": "Garlic modestly reduces total cholesterol and blood pressure.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Metabolic Regulation",
-      "Vascular Function Support",
-      "Lipid Metabolism Support"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "garlic-aged-extract",
     "slug": "garlic-aged-extract",
     "name": "Garlic Aged Extract",
@@ -5001,26 +4762,6 @@
       "Hormonal Signaling Context",
       "AMPK Signaling",
       "Glucose Metabolism Support"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "ginger",
-    "slug": "ginger",
-    "name": "Ginger",
-    "summary": "Ginger is a compound studied in connection with digestion activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Ginger is a compound studied in connection with digestion activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "Oxidative Stress Modulation",
-      "Neurotransmitter Modulation"
     ],
     "targets": [],
     "pathways": [],
@@ -5471,44 +5212,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "goldenseal",
-    "slug": "goldenseal",
-    "name": "Goldenseal",
-    "summary": "Goldenseal contains berberine and hydrastine, but strong human efficacy evidence is lacking and interaction risk is meaningful.",
-    "description": "Hydrastis canadensis botanical with antimicrobial preclinical activity and CYP interaction concerns.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Metabolic Regulation",
-      "Neuroprotective Activity"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "gotu-kola",
-    "slug": "gotu-kola",
-    "name": "Gotu Kola Centella asiatica",
-    "summary": "Gotu kola has moderate human support for chronic venous insufficiency symptoms, with additional cognitive claims remaining limited.",
-    "description": "Centella asiatica extract rich in triterpenoid saponins used in vascular and wound-healing contexts.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Vascular Function Support",
-      "Neuroprotective Activity"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "grape-seed-extract",
     "slug": "grape-seed-extract",
     "name": "Grape Seed Extract",
@@ -5572,28 +5275,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "green-tea-extract",
-    "slug": "green-tea-extract",
-    "name": "Green Tea Extract",
-    "summary": "Green Tea Extract is a compound studied in connection with anxiety activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Green Tea Extract is a compound studied in connection with anxiety activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Oxidative Stress Modulation",
-      "Metabolic Regulation",
-      "Vascular Function Support",
-      "Stress Response Modulation",
-      "Neuroprotective Activity"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "green-tea-extract-egcg",
     "slug": "green-tea-extract-egcg",
     "name": "Green tea extract / EGCG",
@@ -5603,25 +5284,6 @@
     "mechanisms": [
       "Oxidative Stress Modulation",
       "Metabolic Regulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "guarana",
-    "slug": "guarana",
-    "name": "Guarana",
-    "summary": "Guarana is a compound studied in connection with energy activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Guarana is a compound studied in connection with energy activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Vascular Function Support",
-      "Stress Response Modulation"
     ],
     "targets": [],
     "pathways": [],
@@ -6363,25 +6025,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "kanna",
-    "slug": "kanna",
-    "name": "Kanna Sceletium tortuosum",
-    "summary": "Kanna has preliminary human evidence for anxiety/mood effects but remains limited by small studies and extract variability.",
-    "description": "Sceletium extract containing mesembrine-type alkaloids with serotonin transporter and PDE4-related activity.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Neurotransmitter Modulation",
-      "Stress Response Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "kava",
     "slug": "kava",
     "name": "Kava",
@@ -6453,24 +6096,6 @@
     "compoundClass": "",
     "mechanisms": [
       "alpha-glucosidase inhibition"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "kratom",
-    "slug": "kratom",
-    "name": "Kratom",
-    "summary": "Kratom is the common name for Mitragyna speciosa leaf, a botanical source of mitragynine and trace 7-hydroxymitragynine. This reference-only profile distinguishes traditional leaf material from concentrated or enhanced alkaloid products and emphasizes FDA warnings, dependence and withdrawal risk, product variability, and state-by-state legal uncertainty.",
-    "description": "Kratom leaf contains multiple alkaloids, with mitragynine usually dominant and 7-hydroxymitragynine normally present at much lower levels. Modern products vary widely and may include concentrated extracts or enhanced 7-OH products, which change the safety profile. This page is educational only and is not a recommendation to use or purchase kratom products.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Inflammatory Signaling Modulation"
     ],
     "targets": [],
     "pathways": [],
@@ -6882,25 +6507,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "lions-mane",
-    "slug": "lions-mane",
-    "name": "Lion's Mane",
-    "summary": "Lion's Mane is a compound studied in connection with cognition and focus activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Lion's Mane is a compound studied in connection with cognition and focus activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "Neuroprotective Activity"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "lithium-orotate",
     "slug": "lithium-orotate",
     "name": "Lithium Orotate",
@@ -7014,24 +6620,6 @@
     "mechanisms": [
       "Oxidative Stress Modulation",
       "Vascular Function Support"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "maca",
-    "slug": "maca",
-    "name": "Maca",
-    "summary": "May improve sexual desire; limited evidence.",
-    "description": "May improve sexual desire; limited evidence.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Stress Response Modulation"
     ],
     "targets": [],
     "pathways": [],
@@ -7637,45 +7225,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "milk-thistle",
-    "slug": "milk-thistle",
-    "name": "Milk Thistle",
-    "summary": "Milk Thistle is a compound studied in connection with antioxidant and liver health activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Milk Thistle is a compound studied in connection with antioxidant and liver health activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "Oxidative Stress Modulation",
-      "Cellular Protection",
-      "Hormonal Signaling Context"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "mitragynine",
-    "slug": "mitragynine",
-    "name": "Mitragynine",
-    "summary": "Mitragynine is the primary alkaloid in kratom leaf and a partial mu-opioid receptor agonist that can be metabolized by CYP3A4 into 7-hydroxymitragynine. This profile is educational and reference-only because dependence, withdrawal, product variability, medication interactions, and regulatory concerns remain important safety issues.",
-    "description": "Mitragynine is a kratom alkaloid with partial mu-opioid receptor activity and additional adrenergic and serotonergic pharmacology. Human pharmacokinetic data show measurable conversion to 7-hydroxymitragynine after oral kratom leaf powder. Controlled human outcome data remain limited, and this page should not be read as a recommendation to use or source kratom-derived products.",
-    "compoundClass": "",
-    "mechanisms": [
-      "partial mu-opioid receptor agonism with G-protein biased signaling preclinical"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "momordicoside-k",
     "slug": "momordicoside-k",
     "name": "momordicoside k",
@@ -7773,25 +7322,6 @@
     "compoundClass": "",
     "mechanisms": [
       "Neurotransmitter Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "muira-puama",
-    "slug": "muira-puama",
-    "name": "Muira Puama",
-    "summary": "Human evidence is insufficient for libido, cognition, or performance claims.",
-    "description": "Human evidence is insufficient for libido, cognition, or performance claims.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Proposed CNS stimulant or libido effects are not clinically established",
-      "mechanism-only."
     ],
     "targets": [],
     "pathways": [],
@@ -8025,26 +7555,6 @@
       "Cellular Protection",
       "Stress Response Modulation",
       "Neuroprotective Activity"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "nettle-root",
-    "slug": "nettle-root",
-    "name": "Nettle Root",
-    "summary": "Nettle root has limited-to-moderate evidence for modest improvement in BPH urinary symptoms.",
-    "description": "Urtica dioica root preparation with proposed androgen/SHBG and anti-inflammatory effects.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "Oxidative Stress Modulation",
-      "Hormonal Signaling Context"
     ],
     "targets": [],
     "pathways": [],
@@ -8685,29 +8195,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "panax-ginseng",
-    "slug": "panax-ginseng",
-    "name": "Panax Ginseng",
-    "summary": "Panax Ginseng is a compound studied in connection with cognition and energy activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Panax Ginseng is a compound studied in connection with cognition and energy activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Metabolic Regulation",
-      "Neurotransmitter Modulation",
-      "Vascular Function Support",
-      "Immune Signaling Modulation",
-      "Stress Response Modulation",
-      "Neuroprotective Activity"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "panax-ginseng-extract",
     "slug": "panax-ginseng-extract",
     "name": "Panax Ginseng Extract",
@@ -8975,29 +8462,6 @@
       "Neurotransmitter Modulation",
       "Cellular Protection",
       "Stress Response Modulation",
-      "Lipid Metabolism Support"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "phosphatidylserine",
-    "slug": "phosphatidylserine",
-    "name": "Phosphatidylserine",
-    "summary": "Phosphatidylserine is a compound studied in connection with brain health and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Phosphatidylserine is a compound studied in connection with brain health and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Metabolic Regulation",
-      "Cellular Protection",
-      "Hormonal Signaling Context",
-      "Stress Response Modulation",
-      "Neuroprotective Activity",
       "Lipid Metabolism Support"
     ],
     "targets": [],
@@ -9565,29 +9029,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "quercetin",
-    "slug": "quercetin",
-    "name": "Quercetin",
-    "summary": "Quercetin is a compound studied in connection with healthy aging and inflammation activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Quercetin is a compound studied in connection with healthy aging and inflammation activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "Oxidative Stress Modulation",
-      "Vascular Function Support",
-      "Stress Response Modulation",
-      "Neuroprotective Activity",
-      "NF-kB Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "quercetin-phytosome",
     "slug": "quercetin-phytosome",
     "name": "Quercetin Phytosome",
@@ -9649,27 +9090,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "reishi",
-    "slug": "reishi",
-    "name": "Reishi",
-    "summary": "Reishi is a compound studied in connection with immunity and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Reishi is a compound studied in connection with immunity and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "Oxidative Stress Modulation",
-      "Immune Signaling Modulation",
-      "Stress Response Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "resistant-starch",
     "slug": "resistant-starch",
     "name": "Resistant Starch",
@@ -9679,29 +9099,6 @@
     "mechanisms": [
       "Metabolic Regulation",
       "Glucose Metabolism Support"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "resveratrol",
-    "slug": "resveratrol",
-    "name": "Resveratrol",
-    "summary": "Resveratrol is a compound studied in connection with cardiovascular and healthy aging activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Resveratrol is a compound studied in connection with cardiovascular and healthy aging activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "Oxidative Stress Modulation",
-      "Mitochondrial Support",
-      "Metabolic Regulation",
-      "Vascular Function Support",
-      "Hormonal Signaling Context"
     ],
     "targets": [],
     "pathways": [],
@@ -10026,27 +9423,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "saw-palmetto",
-    "slug": "saw-palmetto",
-    "name": "Saw Palmetto",
-    "summary": "Saw Palmetto is a compound studied in connection with prostate health activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Saw Palmetto is a compound studied in connection with prostate health activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "Metabolic Regulation",
-      "Hormonal Signaling Context",
-      "Lipid Metabolism Support"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "saw-palmetto-extract",
     "slug": "saw-palmetto-extract",
     "name": "Saw Palmetto Extract",
@@ -10058,26 +9434,6 @@
       "Metabolic Regulation",
       "Hormonal Signaling Context",
       "Lipid Metabolism Support"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "schisandra",
-    "slug": "schisandra",
-    "name": "Schisandra",
-    "summary": "Schisandra is a compound studied in connection with liver health and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Schisandra is a compound studied in connection with liver health and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Oxidative Stress Modulation",
-      "Stress Response Modulation",
-      "Neuroprotective Activity"
     ],
     "targets": [],
     "pathways": [],
@@ -10605,24 +9961,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "st-johns-wort",
-    "slug": "st-johns-wort",
-    "name": "St. John's Wort",
-    "summary": "St. John's Wort is a compound studied in connection with mood activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "St. John's Wort is a compound studied in connection with mood activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Neurotransmitter Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "stigmasterol",
     "slug": "stigmasterol",
     "name": "stigmasterol",
@@ -10974,25 +10312,6 @@
     "relatedCompounds": []
   },
   {
-    "id": "tongkat-ali",
-    "slug": "tongkat-ali",
-    "name": "Tongkat Ali",
-    "summary": "Tongkat Ali is a compound studied in connection with mens health and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Tongkat Ali is a compound studied in connection with mens health and stress activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Hormonal Signaling Context",
-      "Stress Response Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
     "id": "trans-resveratrol",
     "slug": "trans-resveratrol",
     "name": "Trans-Resveratrol",
@@ -11006,24 +10325,6 @@
       "Vascular Function Support",
       "AMPK Signaling",
       "SIRT1 Signaling"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "tribulus-terrestris",
-    "slug": "tribulus-terrestris",
-    "name": "Tribulus terrestris",
-    "summary": "Human RCT evidence does not support Tribulus for increasing testosterone, strength, or body composition in trained men.",
-    "description": "Human RCT evidence does not support Tribulus for increasing testosterone, strength, or body composition in trained men.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Hormonal Signaling Context"
     ],
     "targets": [],
     "pathways": [],
@@ -11123,46 +10424,6 @@
     "compoundClass": "",
     "mechanisms": [
       "Hormonal Signaling Context"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "turkey-tail",
-    "slug": "turkey-tail",
-    "name": "Turkey Tail Trametes versicolor",
-    "summary": "Turkey tail has moderate evidence in specific adjunct oncology contexts, especially PSK/PSP products used in regulated settings.",
-    "description": "Medicinal mushroom containing PSK/PSP polysaccharides studied as adjunct immune therapy in some cancer contexts.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Immune Signaling Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "turmeric",
-    "slug": "turmeric",
-    "name": "Turmeric",
-    "summary": "Turmeric is a compound studied in connection with inflammation and pain activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Turmeric is a compound studied in connection with inflammation and pain activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "Oxidative Stress Modulation",
-      "Mitochondrial Support",
-      "NF-kB Modulation",
-      "Nrf2 Activation"
     ],
     "targets": [],
     "pathways": [],
@@ -11429,25 +10690,6 @@
       "Neurotransmitter Modulation",
       "Vascular Function Support",
       "Stress Response Modulation",
-      "Neuroprotective Activity"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "valerian",
-    "slug": "valerian",
-    "name": "Valerian",
-    "summary": "Valerian is a compound studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Valerian is a compound studied in connection with sleep activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Neurotransmitter Modulation",
       "Neuroprotective Activity"
     ],
     "targets": [],
@@ -11971,46 +11213,6 @@
     "compoundClass": "",
     "mechanisms": [
       "anthraquinone-related laxative effects (traditional/preclinical)"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "yerba-mate",
-    "slug": "yerba-mate",
-    "name": "Yerba Mate",
-    "summary": "Yerba Mate is a compound studied in connection with anxiety activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "description": "Yerba Mate is a compound studied in connection with anxiety activity. This profile summarizes its proposed mechanisms, the current state of evidence, and practical safety considerations.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Oxidative Stress Modulation",
-      "Metabolic Regulation",
-      "Vascular Function Support",
-      "Stress Response Modulation"
-    ],
-    "targets": [],
-    "pathways": [],
-    "foundIn": [],
-    "bioavailability": "",
-    "safetyNotes": "Generally well tolerated for most users.",
-    "evidenceLevel": "",
-    "relatedCompounds": []
-  },
-  {
-    "id": "yohimbe",
-    "slug": "yohimbe",
-    "name": "Yohimbe Pausinystalia johimbe",
-    "summary": "Yohimbe/yohimbine has older human evidence for erectile dysfunction but substantial cardiovascular and neuropsychiatric safety concerns.",
-    "description": "Alpha-2 adrenergic antagonist botanical/pharmaceutical compound source; safety limits general supplement use.",
-    "compoundClass": "",
-    "mechanisms": [
-      "Vascular Function Support",
-      "Stress Response Modulation"
     ],
     "targets": [],
     "pathways": [],

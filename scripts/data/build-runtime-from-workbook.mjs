@@ -30,9 +30,10 @@ const deterministicUpdatedAt = Number.isFinite(sourceDateEpoch)
 const SHEETS = {
   herbs: ['Herb Master V3', 'Herb Monographs', 'Site Export Herbs'],
   compounds: ['Compound Master V3', 'Site Export Compounds'],
-  map: ['Herb Compound Map V3'],
-  claims: ['Study Registry'],
-  canonicalMechanisms: ['Canonical_Mechanisms', 'Canonical Mechanisms'],
+  entityMaster: ['Entity_Master', 'Sheet7'],
+  map: ['Herb Compound Map V3', 'Entity_Relationships', 'Sheet11'],
+  claims: ['Study Registry', 'Evidence_Register', 'Sheet8'],
+  canonicalMechanisms: ['Canonical_Mechanisms', 'Canonical Mechanisms', 'Taxonomy_Rules', 'Sheet12'],
 }
 
 const GRAPH_SHEETS = {
@@ -297,12 +298,16 @@ function normalizeAlias(value) {
 }
 
 function canonicalMechanismRow(row) {
-  const label = clean(first(row, ['canonical_label', 'canonical label', 'display_name', 'display name', 'label', 'name', 'mechanism']))
+  // For consolidated Taxonomy_Rules (Sheet12), only process canonical mechanism rows
+  const sourceTable = clean(row.source_table)
+  if (sourceTable && sourceTable !== 'Canonical_Mechanisms' && sourceTable !== 'Canonical Mechanisms') return null
+
+  const label = clean(first(row, ['canonical_label', 'canonical label', 'display_name', 'display name', 'label', 'name', 'mechanism', 'label_or_name']))
   if (!label) return null
-  const id = slug(first(row, ['canonical_mechanism_id', 'canonical mechanism id', 'canonical_slug', 'canonical slug', 'id', 'slug']) || label)
+  const id = slug(first(row, ['canonical_mechanism_id', 'canonical mechanism id', 'canonical_slug', 'canonical slug', 'id', 'slug', 'key']) || label)
   const synonyms = uniqueList([
     label,
-    first(row, ['synonyms', 'aliases', 'allowed_aliases', 'allowed aliases', 'example_terms', 'example terms']),
+    first(row, ['synonyms', 'aliases', 'allowed_aliases', 'allowed aliases', 'example_terms', 'example terms', 'rule_or_value', 'alias_or_context']),
   ])
   return stripRecord({
     id,
@@ -310,14 +315,14 @@ function canonicalMechanismRow(row) {
     canonical_label: label,
     label,
     category: clean(first(row, ['category', 'mechanism_category', 'mechanism category'])),
-    mechanism_class: clean(first(row, ['mechanism_class', 'mechanism class'])),
+    mechanism_class: clean(first(row, ['mechanism_class', 'mechanism class', 'sub_category'])),
     target_system: clean(first(row, ['target_system', 'target system'])),
     directionality: clean(first(row, ['directionality'])),
     definition: compact(first(row, ['definition', 'description'])),
     synonyms,
     related_effects: uniqueList(first(row, ['related_effects', 'related effects'])),
     related_compare_groups: uniqueList(first(row, ['related_compare_groups', 'related compare groups'])),
-    confidence_status: clean(first(row, ['confidence_status', 'confidence status'])),
+    confidence_status: clean(first(row, ['confidence_status', 'confidence status', 'status_or_behavior'])),
     review_status: clean(first(row, ['review_status', 'review status'])),
     source_basis: compact(first(row, ['source_basis', 'source basis', 'source'])),
   })
@@ -433,8 +438,8 @@ function profile(row, type, taxonomy) {
     ? compact(first(row, ['runtime_safety', 'runtime safety']))
     : ''
   const rawMechanisms = uniqueList([
-    first(row, ['mechanisms', 'mechanism_of_action', 'mechanism of action']),
-    first(row, ['mechanism', 'primary_mechanisms', 'primary mechanisms']),
+    first(row, ['mechanisms', 'mechanism_of_action', 'mechanism of action', 'mechanism_summary']),
+    first(row, ['mechanism', 'primary_mechanisms', 'primary mechanisms', 'canonical_pathways']),
   ])
   const normalizedMechanisms = normalizeMechanisms(rawMechanisms, taxonomy)
 
@@ -446,8 +451,8 @@ function profile(row, type, taxonomy) {
     summary: compact(first(row, ['summary', 'description', 'overview'])),
     summary_quality: clean(first(row, ['summary_quality', 'summary quality'])),
     description: compact(first(row, ['description', 'overview', 'summary'])),
-    primary_effects: firstList(row, ['primary_effects', 'primary effects', 'effects']),
-    effects: firstList(row, ['effects', 'primary_effects', 'primary effects']),
+    primary_effects: firstList(row, ['primary_effects', 'primary effects', 'effects', 'primary_effects_or_targets']),
+    effects: firstList(row, ['effects', 'primary_effects', 'primary effects', 'primary_effects_or_targets']),
     mechanisms: rawMechanisms,
     ...normalizedMechanisms,
     evidence_grade: clean(first(row, ['evidence_grade', 'evidence grade'])),
@@ -457,18 +462,18 @@ function profile(row, type, taxonomy) {
     evidence_consistency: clean(first(row, ['evidence_consistency', 'evidence consistency'])),
     evidence_rationale: compact(first(row, ['evidence_rationale', 'evidence rationale'])),
     trial_design_insight: compact(first(row, ['trial_design_insight', 'trial design insight'])),
-    profile_status: clean(first(row, ['profile_status', 'profile status'])),
+    profile_status: clean(first(row, ['profile_status', 'profile status', 'publish_status'])),
     runtime_export_decision: clean(first(row, ['runtime_export_decision', 'runtime export decision'])),
     visibility_tier: clean(first(row, ['visibility_tier', 'visibility tier'])),
-    robots: clean(first(row, ['robots'])),
-    sitemap_included: first(row, ['sitemap_included', 'sitemap included']),
+    robots: clean(first(row, ['robots', 'seo_indexing_recommendation'])),
+    sitemap_included: first(row, ['sitemap_included', 'sitemap included', 'public_search_visibility']),
     ...(runtimeSafety ? { safety: runtimeSafety } : {}),
     safety_level: clean(first(row, ['safety_level', 'safety level'])),
-    contraindications: firstList(row, ['contraindications', 'avoid_if', 'avoid if']),
+    contraindications: firstList(row, ['contraindications', 'avoid_if', 'avoid if', 'contraindications_or_flags']),
     interactions: firstList(row, ['interactions']),
     side_effects: firstList(row, ['side_effects', 'side effects']),
-    dosage: clean(first(row, ['dosage', 'typical_dosage', 'typical dosage'])),
-    typical_dosage: clean(first(row, ['typical_dosage', 'typical dosage', 'dosage'])),
+    dosage: clean(first(row, ['dosage', 'typical_dosage', 'typical dosage', 'dosage_or_preferred_form'])),
+    typical_dosage: clean(first(row, ['typical_dosage', 'typical dosage', 'dosage', 'dosage_or_preferred_form'])),
     forms: firstList(row, ['forms', 'available_forms', 'available forms']),
     available_forms: firstList(row, ['available_forms', 'available forms', 'forms']),
     conditions: firstList(row, ['conditions', 'best_for', 'best for']),
@@ -515,12 +520,16 @@ function rowId(row, fallbackFields = []) {
 }
 
 function mapRow(row) {
-  const herb = first(row, ['herb', 'herb name', 'herb_name'])
-  const compound = first(row, ['compound', 'compound name', 'compound_name'])
-  const hs = slug(first(row, ['herb_slug', 'herb slug']) || herb)
-  const cs = slug(first(row, ['compound_slug', 'compound slug']) || compound)
+  // For Entity_Relationships (consolidated format), only process herb-compound map rows
+  const sourceTable = clean(row.source_table)
+  if (sourceTable && sourceTable !== 'Herb Compound Map V3') return null
+
+  const herb = first(row, ['herb', 'herb name', 'herb_name', 'source_name'])
+  const compound = first(row, ['compound', 'compound name', 'compound_name', 'target_name'])
+  const hs = slug(first(row, ['herb_slug', 'herb slug', 'source_slug']) || herb)
+  const cs = slug(first(row, ['compound_slug', 'compound slug', 'target_slug']) || compound)
   if (!hs || !cs) return null
-  return stripRecord({ id: `${hs}-${cs}`, herb_slug: hs, compound_slug: cs, herb: clean(herb), compound: clean(compound), relationship: clean(first(row, ['relationship', 'relationship_type', 'role'])), notes: compact(first(row, ['notes', 'summary', 'rationale'])) })
+  return stripRecord({ id: `${hs}-${cs}`, herb_slug: hs, compound_slug: cs, herb: clean(herb), compound: clean(compound), relationship: clean(first(row, ['relationship', 'relationship_type', 'role'])), notes: compact(first(row, ['notes', 'summary', 'rationale', 'context_or_amount'])) })
 }
 
 function filterRestrictedMapRows(rows, herbs, compounds) {
@@ -539,11 +548,11 @@ function filterRestrictedMapRows(rows, herbs, compounds) {
 }
 
 function claimRow(row) {
-  const title = clean(first(row, ['title', 'study title', 'claim', 'summary']))
+  const title = clean(first(row, ['title', 'study title', 'claim', 'summary', 'supported_claim_language', 'effect_or_condition']))
   const pmid = clean(first(row, ['pmid', 'PMID']))
-  const id = rowId(row, ['claim_id', 'claim id']) || slug(pmid || title)
+  const id = rowId(row, ['claim_id', 'claim id', 'record_id']) || slug(pmid || title)
   if (!id && !title && !pmid) return null
-  return stripRecord({ id: id || pmid, title, claim: compact(first(row, ['claim', 'finding', 'summary', 'conclusion'])), pmid, doi: clean(first(row, ['doi', 'DOI'])), source_url: clean(first(row, ['source_url', 'url', 'link'])), evidence_tier: clean(first(row, ['evidence_tier', 'study_type'])), profile_slug: slug(first(row, ['profile_slug', 'slug', 'herb_slug', 'compound_slug'])) })
+  return stripRecord({ id: id || pmid, title, claim: compact(first(row, ['claim', 'finding', 'summary', 'conclusion', 'supported_claim_language'])), pmid, doi: clean(first(row, ['doi', 'DOI'])), source_url: clean(first(row, ['source_url', 'url', 'link', 'url_or_source'])), evidence_tier: clean(first(row, ['evidence_tier', 'study_type', 'evidence_type'])), profile_slug: slug(first(row, ['profile_slug', 'slug', 'herb_slug', 'compound_slug', 'entity_slug'])) })
 }
 
 function published(v) {
@@ -764,17 +773,28 @@ async function main() {
   // URLs through this parsing boundary.
   const wb = await readWorkbook(workbookPath)
 
-  for (const required of ['Herb Master V3', 'Compound Master V3']) {
-    if (!getSheet(wb, required)) {
-      throw new Error(`[data] missing required sheet: ${required}`)
-    }
+  const hasEntityMaster = !!(getSheet(wb, 'Entity_Master') || getSheet(wb, 'Sheet7'))
+  const hasOldHerbSheet = !!(getSheet(wb, 'Herb Master V3') || getSheet(wb, 'Herb Monographs') || getSheet(wb, 'Site Export Herbs'))
+  if (!hasEntityMaster && !hasOldHerbSheet) {
+    throw new Error('[data] missing required sheet: Entity_Master (Sheet7) or Herb Master V3')
   }
 
   ensureDir(outDir)
 
   const taxonomy = buildMechanismTaxonomy(read(wb, SHEETS.canonicalMechanisms, true))
-  const allHerbs = dedupe(read(wb, SHEETS.herbs).map((r) => profile(r, 'herb', taxonomy)))
-  const allCompounds = dedupe(read(wb, SHEETS.compounds).map((r) => profile(r, 'compound', taxonomy)))
+
+  let herbRows, compoundRows
+  if (hasEntityMaster) {
+    const entityRows = read(wb, SHEETS.entityMaster)
+    herbRows = entityRows.filter((r) => !clean(r.entity_type) || clean(r.entity_type).toLowerCase() === 'herb')
+    compoundRows = entityRows.filter((r) => clean(r.entity_type).toLowerCase() === 'compound')
+  } else {
+    herbRows = read(wb, SHEETS.herbs)
+    compoundRows = read(wb, SHEETS.compounds)
+  }
+
+  const allHerbs = dedupe(herbRows.map((r) => profile(r, 'herb', taxonomy)))
+  const allCompounds = dedupe(compoundRows.map((r) => profile(r, 'compound', taxonomy)))
   const herbs = allHerbs.filter((record) => !isRestrictedRuntimeRecord(record) || canExportRestrictedReference(record))
   const compounds = allCompounds.filter((record) => !isRestrictedRuntimeRecord(record) || canExportRestrictedReference(record))
   const claims = normalizeRows(read(wb, SHEETS.claims), claimRow)

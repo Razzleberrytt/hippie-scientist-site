@@ -2,10 +2,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { createRequire } from 'node:module';
-
-const require = createRequire(import.meta.url);
-const ExcelJS = require('exceljs');
+import { readWorkbook, getSheet, sheetToRows } from './workbook-parser.mjs';
 
 const ROOT = process.cwd();
 const DATA_DIR = path.join(ROOT, 'public', 'data');
@@ -78,63 +75,49 @@ function extractCitationsFromRecord(record) {
   return results;
 }
 
-// Load Study Registry sheet from workbook
+// Load Study Registry sheet from workbook (supports both old and new consolidated formats)
 async function loadStudyRegistryCitations() {
   if (!fs.existsSync(WORKBOOK_PATH)) {
     console.warn('[freshness-metadata] Workbook not found at:', WORKBOOK_PATH);
     return {};
   }
 
-  const workbook = new ExcelJS.Workbook();
-  await workbook.xlsx.readFile(WORKBOOK_PATH);
-  const sheet = workbook.getWorksheet('Study Registry');
-  if (!sheet) {
-    console.warn('[freshness-metadata] Study Registry sheet not found');
+  let wb;
+  try {
+    wb = await readWorkbook(WORKBOOK_PATH);
+  } catch (err) {
+    console.warn('[freshness-metadata] Could not read workbook:', err.message);
     return {};
   }
 
-  const headers = {};
-  sheet.getRow(1).eachCell((cell, colNumber) => {
-    headers[colNumber] = cell.value ? String(cell.value).trim().toLowerCase() : '';
-  });
-
-  let slugCol = -1;
-  let pmidCol = -1;
-  let notesCol = -1;
-  let studyTypeCol = -1;
-
-  for (const [colNum, name] of Object.entries(headers)) {
-    const col = parseInt(colNum, 10);
-    if (name === 'compound_slug' || name === 'slug' || name === 'herb_slug') slugCol = col;
-    if (name === 'pmid_or_source' || name === 'pmid' || name === 'source') pmidCol = col;
-    if (name === 'notes' || name === 'study_title' || name === 'title') notesCol = col;
-    if (name === 'study_type') studyTypeCol = col;
+  // Support both old 'Study Registry' and new 'Evidence_Register' / 'Sheet8'
+  const sheetCandidates = ['Study Registry', 'Evidence_Register', 'Sheet8'];
+  const sheetName = sheetCandidates.find((name) => getSheet(wb, name));
+  if (!sheetName) {
+    console.warn('[freshness-metadata] No study registry sheet found');
+    return {};
   }
 
+  const rows = sheetToRows(getSheet(wb, sheetName));
   const results = {};
-  sheet.eachRow((row, rowNumber) => {
-    if (rowNumber === 1) return;
-    const slug = row.getCell(slugCol).value ? String(row.getCell(slugCol).value).trim().toLowerCase() : '';
-    const pmidOrSource = row.getCell(pmidCol).value ? String(row.getCell(pmidCol).value).trim() : '';
-    const notes = row.getCell(notesCol).value ? String(row.getCell(notesCol).value).trim() : '';
-    const studyType = row.getCell(studyTypeCol).value ? String(row.getCell(studyTypeCol).value).trim() : '';
 
-    if (!slug || !pmidOrSource) return;
+  for (const row of rows) {
+    const slug = String(row.compound_slug || row.slug || row.herb_slug || row.entity_slug || '').trim().toLowerCase();
+    const pmidOrSource = String(row.pmid_or_source || row.pmid || row.doi || row.url_or_source || row.source || '').trim();
+    const notes = String(row.notes || row.study_title || row.title || row.supported_claim_language || '').trim();
+    const studyType = String(row.study_type || row.evidence_type || '').trim();
+
+    if (!slug || !pmidOrSource) continue;
 
     const pmid = parsePmid(pmidOrSource);
     const title = pmid ? `PubMed ${pmid}` : pmidOrSource;
-    
+
     if (!results[slug]) results[slug] = [];
-    
     const list = results[slug];
     if (!list.some(c => (pmid && c.pmid === pmid) || c.title === title)) {
-      list.push({
-        title: notes || title,
-        pmid,
-        studyType
-      });
+      list.push({ title: notes || title, pmid, studyType });
     }
-  });
+  }
 
   return results;
 }

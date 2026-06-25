@@ -1,1 +1,3846 @@
-[]
+[
+  {
+    "id": "aggregate-row-10",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "chromium"
+  },
+  {
+    "id": "aggregate-row-11",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "citrulline"
+  },
+  {
+    "id": "aggregate-row-12",
+    "title": "study_count=2; rct_count=1; meta_analysis_count=1; systematic_review_count=0; positive=2; neutral=0; negative=0",
+    "claim": "study_count=2; rct_count=1; meta_analysis_count=1; systematic_review_count=0; positive=2; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "coq10"
+  },
+  {
+    "id": "aggregate-row-13",
+    "title": "study_count=3; rct_count=2; meta_analysis_count=1; systematic_review_count=0; positive=3; neutral=0; negative=0",
+    "claim": "study_count=3; rct_count=2; meta_analysis_count=1; systematic_review_count=0; positive=3; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "creatine"
+  },
+  {
+    "id": "aggregate-row-14",
+    "title": "study_count=4; rct_count=2; meta_analysis_count=2; systematic_review_count=0; positive=4; neutral=0; negative=0",
+    "claim": "study_count=4; rct_count=2; meta_analysis_count=2; systematic_review_count=0; positive=4; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "curcumin"
+  },
+  {
+    "id": "aggregate-row-15",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "eaa"
+  },
+  {
+    "id": "aggregate-row-16",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "folate"
+  },
+  {
+    "id": "aggregate-row-17",
+    "title": "study_count=1; rct_count=0; meta_analysis_count=1; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=0; meta_analysis_count=1; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "garlic"
+  },
+  {
+    "id": "aggregate-row-18",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "ginger"
+  },
+  {
+    "id": "aggregate-row-19",
+    "title": "study_count=2; rct_count=2; meta_analysis_count=2; systematic_review_count=0; positive=2; neutral=0; negative=0",
+    "claim": "study_count=2; rct_count=2; meta_analysis_count=2; systematic_review_count=0; positive=2; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "ginkgo"
+  },
+  {
+    "id": "aggregate-row-2",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "alpha-lipoic-acid"
+  },
+  {
+    "id": "aggregate-row-20",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "ginseng"
+  },
+  {
+    "id": "aggregate-row-21",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "glycine"
+  },
+  {
+    "id": "aggregate-row-22",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "green-tea-extract"
+  },
+  {
+    "id": "aggregate-row-23",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "hmb"
+  },
+  {
+    "id": "aggregate-row-24",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "iodine"
+  },
+  {
+    "id": "aggregate-row-25",
+    "title": "study_count=2; rct_count=2; meta_analysis_count=0; systematic_review_count=0; positive=2; neutral=0; negative=0",
+    "claim": "study_count=2; rct_count=2; meta_analysis_count=0; systematic_review_count=0; positive=2; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "iron"
+  },
+  {
+    "id": "aggregate-row-26",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "l-carnitine"
+  },
+  {
+    "id": "aggregate-row-27",
+    "title": "study_count=4; rct_count=4; meta_analysis_count=0; systematic_review_count=0; positive=4; neutral=0; negative=0",
+    "claim": "study_count=4; rct_count=4; meta_analysis_count=0; systematic_review_count=0; positive=4; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "l-theanine"
+  },
+  {
+    "id": "aggregate-row-28",
+    "title": "study_count=4; rct_count=2; meta_analysis_count=2; systematic_review_count=1; positive=4; neutral=0; negative=0",
+    "claim": "study_count=4; rct_count=2; meta_analysis_count=2; systematic_review_count=1; positive=4; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "magnesium"
+  },
+  {
+    "id": "aggregate-row-29",
+    "title": "study_count=4; rct_count=2; meta_analysis_count=2; systematic_review_count=1; positive=4; neutral=0; negative=0",
+    "claim": "study_count=4; rct_count=2; meta_analysis_count=2; systematic_review_count=1; positive=4; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "melatonin"
+  },
+  {
+    "id": "aggregate-row-3",
+    "title": "study_count=4; rct_count=3; meta_analysis_count=0; systematic_review_count=1; positive=4; neutral=0; negative=0",
+    "claim": "study_count=4; rct_count=3; meta_analysis_count=0; systematic_review_count=1; positive=4; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "ashwagandha"
+  },
+  {
+    "id": "aggregate-row-30",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "nac"
+  },
+  {
+    "id": "aggregate-row-31",
+    "title": "study_count=5; rct_count=1; meta_analysis_count=4; systematic_review_count=0; positive=5; neutral=0; negative=0",
+    "claim": "study_count=5; rct_count=1; meta_analysis_count=4; systematic_review_count=0; positive=5; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "omega-3"
+  },
+  {
+    "id": "aggregate-row-32",
+    "title": "study_count=2; rct_count=1; meta_analysis_count=1; systematic_review_count=0; positive=2; neutral=0; negative=0",
+    "claim": "study_count=2; rct_count=1; meta_analysis_count=1; systematic_review_count=0; positive=2; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "probiotics"
+  },
+  {
+    "id": "aggregate-row-33",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "quercetin"
+  },
+  {
+    "id": "aggregate-row-34",
+    "title": "study_count=2; rct_count=2; meta_analysis_count=0; systematic_review_count=0; positive=2; neutral=0; negative=0",
+    "claim": "study_count=2; rct_count=2; meta_analysis_count=0; systematic_review_count=0; positive=2; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "resveratrol"
+  },
+  {
+    "id": "aggregate-row-35",
+    "title": "study_count=2; rct_count=2; meta_analysis_count=0; systematic_review_count=0; positive=2; neutral=0; negative=0",
+    "claim": "study_count=2; rct_count=2; meta_analysis_count=0; systematic_review_count=0; positive=2; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "rhodiola"
+  },
+  {
+    "id": "aggregate-row-36",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "selenium"
+  },
+  {
+    "id": "aggregate-row-37",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "taurine"
+  },
+  {
+    "id": "aggregate-row-38",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "turmeric"
+  },
+  {
+    "id": "aggregate-row-39",
+    "title": "study_count=1; rct_count=0; meta_analysis_count=1; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=0; meta_analysis_count=1; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "valerian"
+  },
+  {
+    "id": "aggregate-row-4",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "bacopa"
+  },
+  {
+    "id": "aggregate-row-40",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "vitamin-a"
+  },
+  {
+    "id": "aggregate-row-41",
+    "title": "study_count=2; rct_count=2; meta_analysis_count=0; systematic_review_count=0; positive=2; neutral=0; negative=0",
+    "claim": "study_count=2; rct_count=2; meta_analysis_count=0; systematic_review_count=0; positive=2; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "vitamin-b12"
+  },
+  {
+    "id": "aggregate-row-42",
+    "title": "study_count=2; rct_count=1; meta_analysis_count=1; systematic_review_count=0; positive=2; neutral=0; negative=0",
+    "claim": "study_count=2; rct_count=1; meta_analysis_count=1; systematic_review_count=0; positive=2; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "vitamin-c"
+  },
+  {
+    "id": "aggregate-row-43",
+    "title": "study_count=3; rct_count=2; meta_analysis_count=2; systematic_review_count=0; positive=3; neutral=0; negative=0",
+    "claim": "study_count=3; rct_count=2; meta_analysis_count=2; systematic_review_count=0; positive=3; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "vitamin-d"
+  },
+  {
+    "id": "aggregate-row-44",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=1; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=1; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "zinc"
+  },
+  {
+    "id": "aggregate-row-45",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "acarbose"
+  },
+  {
+    "id": "aggregate-row-46",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "banaba-leaf-extract"
+  },
+  {
+    "id": "aggregate-row-47",
+    "title": "study_count=1; rct_count=0; meta_analysis_count=0; systematic_review_count=1; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=0; meta_analysis_count=0; systematic_review_count=1; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "devils-claw"
+  },
+  {
+    "id": "aggregate-row-48",
+    "title": "study_count=1; rct_count=0; meta_analysis_count=1; systematic_review_count=1; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=0; meta_analysis_count=1; systematic_review_count=1; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "fos"
+  },
+  {
+    "id": "aggregate-row-49",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=0; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=0; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "fucoxanthin"
+  },
+  {
+    "id": "aggregate-row-5",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "bcaas"
+  },
+  {
+    "id": "aggregate-row-50",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "galantamine"
+  },
+  {
+    "id": "aggregate-row-51",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=0; neutral=1; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=0; neutral=1; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "garcinia-cambogia-extract"
+  },
+  {
+    "id": "aggregate-row-52",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=0; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=0; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "glycinate-magnesium-complex"
+  },
+  {
+    "id": "aggregate-row-53",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=0; neutral=1; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=0; neutral=1; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "hawthorn-extract"
+  },
+  {
+    "id": "aggregate-row-54",
+    "title": "study_count=1; rct_count=0; meta_analysis_count=0; systematic_review_count=1; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=0; meta_analysis_count=0; systematic_review_count=1; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "iberogast"
+  },
+  {
+    "id": "aggregate-row-55",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=1; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=1; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "lavender-extract"
+  },
+  {
+    "id": "aggregate-row-56",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "passionflower-extract"
+  },
+  {
+    "id": "aggregate-row-57",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "saffron-extract"
+  },
+  {
+    "id": "aggregate-row-58",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "uc-ii-collagen"
+  },
+  {
+    "id": "aggregate-row-59",
+    "title": "study_count=1; rct_count=0; meta_analysis_count=1; systematic_review_count=1; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=0; meta_analysis_count=1; systematic_review_count=1; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "valerian-root-extract"
+  },
+  {
+    "id": "aggregate-row-6",
+    "title": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "beetroot"
+  },
+  {
+    "id": "aggregate-row-60",
+    "title": "study_count=1; rct_count=0; meta_analysis_count=1; systematic_review_count=1; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=0; meta_analysis_count=1; systematic_review_count=1; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "yohimbine"
+  },
+  {
+    "id": "aggregate-row-7",
+    "title": "study_count=4; rct_count=2; meta_analysis_count=2; systematic_review_count=0; positive=4; neutral=0; negative=0",
+    "claim": "study_count=4; rct_count=2; meta_analysis_count=2; systematic_review_count=0; positive=4; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "berberine"
+  },
+  {
+    "id": "aggregate-row-8",
+    "title": "study_count=1; rct_count=0; meta_analysis_count=1; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=0; meta_analysis_count=1; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "beta-alanine"
+  },
+  {
+    "id": "aggregate-row-9",
+    "title": "study_count=1; rct_count=0; meta_analysis_count=1; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "claim": "study_count=1; rct_count=0; meta_analysis_count=1; systematic_review_count=0; positive=1; neutral=0; negative=0",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "caffeine"
+  },
+  {
+    "id": "ashwagandha-anticipatory-worry",
+    "title": "Ashwagandha has the clearest anxiety fit when the pattern is anticipatory or ongoing worry rather than acute event-linked nervousness.",
+    "claim": "Ashwagandha has the clearest anxiety fit when the pattern is anticipatory or ongoing worry rather than acute event-linked nervousness.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "ashwagandha"
+  },
+  {
+    "id": "ashwagandha-baseline-tension",
+    "title": "Ashwagandha has the clearest stress fit when the issue is ongoing perceived stress rather than a single acute spike.",
+    "claim": "Ashwagandha has the clearest stress fit when the issue is ongoing perceived stress rather than a single acute spike.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "ashwagandha"
+  },
+  {
+    "id": "bacopa-attention-maintenance",
+    "title": "Bacopa monnieri has the most consistent human trial evidence among botanicals for sustained attention and information processing speed.",
+    "claim": "Bacopa monnieri has the most consistent human trial evidence among botanicals for sustained attention and information processing speed.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "bacopa"
+  },
+  {
+    "id": "bacopa-cognitive-load",
+    "title": "Bacopa may reduce working memory load and improve cognitive performance under conditions of mental complexity.",
+    "claim": "Bacopa may reduce working memory load and improve cognitive performance under conditions of mental complexity.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "bacopa"
+  },
+  {
+    "id": "ginkgo-attention-maintenance",
+    "title": "Ginkgo biloba has moderate human evidence for supporting attention speed and accuracy, particularly in populations with attention-related concerns.",
+    "claim": "Ginkgo biloba has moderate human evidence for supporting attention speed and accuracy, particularly in populations with attention-related concerns.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "ginkgo"
+  },
+  {
+    "id": "glycine-sleep-quality",
+    "title": "Glycine may be worth researching when the goal is subjective sleep quality without a strongly sedating approach.",
+    "claim": "Glycine may be worth researching when the goal is subjective sleep quality without a strongly sedating approach.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "glycine"
+  },
+  {
+    "id": "kava-situational-nervousness",
+    "title": "Kava has the strongest acute anxiolytic evidence among the botanical options but carries a liver safety signal that changes the risk calculus.",
+    "claim": "Kava has the strongest acute anxiolytic evidence among the botanical options but carries a liver safety signal that changes the risk calculus.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "kava"
+  },
+  {
+    "id": "l-theanine-acute-stress",
+    "title": "L-theanine is a plausible first-pass option when the stress pattern is acute tension or task-linked physiological arousal.",
+    "claim": "L-theanine is a plausible first-pass option when the stress pattern is acute tension or task-linked physiological arousal.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "l-theanine"
+  },
+  {
+    "id": "l-theanine-attention-maintenance",
+    "title": "L-theanine may support sustained attention and reduce mind-wandering without producing sedation.",
+    "claim": "L-theanine may support sustained attention and reduce mind-wandering without producing sedation.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "l-theanine"
+  },
+  {
+    "id": "l-theanine-racing-mind",
+    "title": "L-theanine is a plausible first-pass option when the barrier to sleep is mental tension rather than circadian timing.",
+    "claim": "L-theanine is a plausible first-pass option when the barrier to sleep is mental tension rather than circadian timing.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "l-theanine"
+  },
+  {
+    "id": "l-theanine-racing-thoughts",
+    "title": "L-theanine may reduce cognitive over-activity or worry-loop patterns associated with racing thoughts.",
+    "claim": "L-theanine may reduce cognitive over-activity or worry-loop patterns associated with racing thoughts.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "l-theanine"
+  },
+  {
+    "id": "l-theanine-situational-nervousness",
+    "title": "L-theanine is a plausible first-pass option when anxiety is situational, acute, or tied to performance pressure.",
+    "claim": "L-theanine is a plausible first-pass option when anxiety is situational, acute, or tied to performance pressure.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "l-theanine"
+  },
+  {
+    "id": "l-theanine-stress-sleep-spillover",
+    "title": "L-theanine may be a gentle fit when stress carries into sleep quality or bedtime cognitive tension.",
+    "claim": "L-theanine may be a gentle fit when stress carries into sleep quality or bedtime cognitive tension.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "l-theanine"
+  },
+  {
+    "id": "l-theanine-task-switching",
+    "title": "L-theanine combined with caffeine has the strongest acute evidence for reducing task-switching errors and attention carryover.",
+    "claim": "L-theanine combined with caffeine has the strongest acute evidence for reducing task-switching errors and attention carryover.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "l-theanine"
+  },
+  {
+    "id": "lemon-balm-relaxation",
+    "title": "Lemon balm is best framed as a gentle relaxation candidate rather than a high-certainty sleep intervention.",
+    "claim": "Lemon balm is best framed as a gentle relaxation candidate rather than a high-certainty sleep intervention.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "lemon-balm"
+  },
+  {
+    "id": "lemon-balm-situational-nervousness",
+    "title": "Lemon balm is a mild first-step option for situational nervousness where a strong sedating effect is not desired.",
+    "claim": "Lemon balm is a mild first-step option for situational nervousness where a strong sedating effect is not desired.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "lemon-balm"
+  },
+  {
+    "id": "lions-mane-cognitive-load",
+    "title": "Lion's mane mushroom has early-stage human evidence suggesting benefits for cognitive function that may be relevant to cognitive load capacity.",
+    "claim": "Lion's mane mushroom has early-stage human evidence suggesting benefits for cognitive function that may be relevant to cognitive load capacity.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "lions-mane"
+  },
+  {
+    "id": "magnesium-baseline-tension",
+    "title": "Magnesium is most decision-useful when stress overlaps with low intake context, muscle tension, or low-magnesium risk signals.",
+    "claim": "Magnesium is most decision-useful when stress overlaps with low intake context, muscle tension, or low-magnesium risk signals.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "magnesium"
+  },
+  {
+    "id": "magnesium-physical-tension",
+    "title": "Magnesium is most decision-useful for anxiety when somatic tension, muscle tightness, or low-intake signals are part of the presentation.",
+    "claim": "Magnesium is most decision-useful for anxiety when somatic tension, muscle tightness, or low-intake signals are part of the presentation.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "magnesium"
+  },
+  {
+    "id": "magnesium-sleep-quality",
+    "title": "Magnesium may be most decision-useful when poor sleep overlaps with low intake context, tension, or older-adult sleep quality concerns.",
+    "claim": "Magnesium may be most decision-useful when poor sleep overlaps with low intake context, tension, or older-adult sleep quality concerns.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "magnesium"
+  },
+  {
+    "id": "melatonin-sleep-onset",
+    "title": "Melatonin has the clearest fit when the sleep problem is circadian timing or difficulty falling asleep.",
+    "claim": "Melatonin has the clearest fit when the sleep problem is circadian timing or difficulty falling asleep.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "melatonin"
+  },
+  {
+    "id": "passionflower-racing-thoughts",
+    "title": "Passionflower is a plausible option when racing thoughts or cognitive restlessness dominate the anxiety pattern.",
+    "claim": "Passionflower is a plausible option when racing thoughts or cognitive restlessness dominate the anxiety pattern.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "passionflower"
+  },
+  {
+    "id": "phosphatidylserine-stress-reactivity",
+    "title": "Phosphatidylserine is a niche option for stress-reactivity questions involving cortisol or ACTH response patterns.",
+    "claim": "Phosphatidylserine is a niche option for stress-reactivity questions involving cortisol or ACTH response patterns.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "phosphatidylserine"
+  },
+  {
+    "id": "rg-0291",
+    "title": "PK/bioavailability confirmed; food effect increases absorption; 5-LOX/inflammation.",
+    "claim": "PK/bioavailability confirmed; food effect increases absorption; 5-LOX/inflammation.",
+    "pmid": "15070181; 22167571",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/15070181/; https://pubmed.ncbi.nlm.nih.gov/22167571/",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "11-keto-beta-boswellic-acid"
+  },
+  {
+    "id": "rg-0292",
+    "title": "Phase I PK (black cohosh); t½ ~2h, no acute toxicity.",
+    "claim": "Phase I PK (black cohosh); t½ ~2h, no acute toxicity.",
+    "pmid": "20032972",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/20032972/",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "23-epi-26-deoxyactein"
+  },
+  {
+    "id": "rg-0297",
+    "title": "Immunomodulatory/wound-healing (preclinical dominant).",
+    "claim": "Immunomodulatory/wound-healing (preclinical dominant).",
+    "source_url": "PubMed aloe polysaccharide studies.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "acemannan"
+  },
+  {
+    "id": "rg-0299",
+    "title": "Anti-inflammatory (NF-κB/5-LOX); extract OA trials.",
+    "claim": "Anti-inflammatory (NF-κB/5-LOX); extract OA trials.",
+    "source_url": "Boswellia PK/RCT PMIDs.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "acetyl-11-keto-beta-boswellic-acid"
+  },
+  {
+    "id": "rg-0300",
+    "title": "Linked to leukotriene suppression in Boswellia; preclinical dominant.",
+    "claim": "Linked to leukotriene suppression in Boswellia; preclinical dominant.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "acetyl-beta-boswellic-acid"
+  },
+  {
+    "id": "rg-0306",
+    "title": "Venotonic for CVI (strong Cochrane-level extract evidence).",
+    "claim": "Venotonic for CVI (strong Cochrane-level extract evidence).",
+    "source_url": "Multiple RCTs/meta.",
+    "evidence_tier": "systematic_review_or_meta_analysis",
+    "profile_slug": "aescin"
+  },
+  {
+    "id": "rg-0313",
+    "title": "Variable bioavailability; cholesterol/antimicrobial in garlic preparations.",
+    "claim": "Variable bioavailability; cholesterol/antimicrobial in garlic preparations.",
+    "source_url": "Garlic trials.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "allicin"
+  },
+  {
+    "id": "rg-0315",
+    "title": "CNS/cholinergic; preclinical anxiolytic.",
+    "claim": "CNS/cholinergic; preclinical anxiolytic.",
+    "pmid": "28732807",
+    "source_url": "PMID 28732807.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "alpha-asarone"
+  },
+  {
+    "id": "rg-0317",
+    "title": "Inflammatory/apoptotic; rat PK.",
+    "claim": "Inflammatory/apoptotic; rat PK.",
+    "pmid": "21254395",
+    "source_url": "PMID 21254395.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "alpha-mangostin"
+  },
+  {
+    "id": "rg-0320",
+    "title": "Nicotinic receptor activity; limited direct human data; primarily mechanistic/toxicology context.",
+    "claim": "Nicotinic receptor activity; limited direct human data; primarily mechanistic/toxicology context.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "anabasine"
+  },
+  {
+    "id": "rg-0322",
+    "title": "Inflammatory pathway effects; nicotinic signaling; preclinical dominant.",
+    "claim": "Inflammatory pathway effects; nicotinic signaling; preclinical dominant.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "anatabine"
+  },
+  {
+    "id": "rg-0325",
+    "title": "Digestive/anti-inflammatory from fennel/anise; preclinical and some traditional use data.",
+    "claim": "Digestive/anti-inflammatory from fennel/anise; preclinical and some traditional use data.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "anethole"
+  },
+  {
+    "id": "rg-0326",
+    "title": "Photosensitizing furocoumarin; skin/bone research context; primarily mechanistic/preclinical.",
+    "claim": "Photosensitizing furocoumarin; skin/bone research context; primarily mechanistic/preclinical.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "angelicin"
+  },
+  {
+    "id": "rg-0329",
+    "title": "Cardioprotective triterpenoid; preclinical signaling data.",
+    "claim": "Cardioprotective triterpenoid; preclinical signaling data.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "arjunolic-acid"
+  },
+  {
+    "id": "rg-0330",
+    "title": "Redox/survival pathways; established antimalarial (extract/derivative context); human data for derivatives.",
+    "claim": "Redox/survival pathways; established antimalarial (extract/derivative context); human data for derivatives.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "artemisinin"
+  },
+  {
+    "id": "rg-0331",
+    "title": "Redox-related; limited isolated data.",
+    "claim": "Redox-related; limited isolated data.",
+    "evidence_tier": "systematic_review_or_meta_analysis",
+    "profile_slug": "artemisinin-b"
+  },
+  {
+    "id": "rg-0338",
+    "title": "Tissue repair/inflammatory pathways; preclinical strong, some human context via Centella.",
+    "claim": "Tissue repair/inflammatory pathways; preclinical strong, some human context via Centella.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "asiatic-acid"
+  },
+  {
+    "id": "rg-0339",
+    "title": "Wound/matrix signaling (Centella); preclinical/human wound data.",
+    "claim": "Wound/matrix signaling (Centella); preclinical/human wound data.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "asiaticoside"
+  },
+  {
+    "id": "rg-0340",
+    "title": "Metabolic/redox (rooibos); preclinical dominant.",
+    "claim": "Metabolic/redox (rooibos); preclinical dominant.",
+    "evidence_tier": "systematic_review_or_meta_analysis",
+    "profile_slug": "aspalathin"
+  },
+  {
+    "id": "rg-0342",
+    "title": "Inflammatory/liver; flavonoid glycoside preclinical.",
+    "claim": "Inflammatory/liver; flavonoid glycoside preclinical.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "astragalin"
+  },
+  {
+    "id": "rg-0343",
+    "title": "Metabolic/tissue-protective (Astragalus); some human supportive data.",
+    "claim": "Metabolic/tissue-protective (Astragalus); some human supportive data.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "astragaloside-iv"
+  },
+  {
+    "id": "rg-0344",
+    "title": "Immune/survival signaling (preclinical).",
+    "claim": "Immune/survival signaling (preclinical).",
+    "pmid": "34269984",
+    "source_url": "PMID 34269984.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "atractylenolide-i"
+  },
+  {
+    "id": "rg-0345",
+    "title": "Anti-cancer/inflammatory control.",
+    "claim": "Anti-cancer/inflammatory control.",
+    "pmid": "34269984",
+    "source_url": "PMID 34269984.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "atractylenolide-ii"
+  },
+  {
+    "id": "rg-0346",
+    "title": "Cytoprotective/ischemia.",
+    "claim": "Cytoprotective/ischemia.",
+    "pmid": "30981186",
+    "source_url": "PMID 30981186.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "atractylenolide-iii"
+  },
+  {
+    "id": "rg-0347",
+    "title": "Hepatoprotective/anti-inflammatory; rat PK.",
+    "claim": "Hepatoprotective/anti-inflammatory; rat PK.",
+    "pmid": "1924160",
+    "source_url": "PMID 1924160.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "aucubin"
+  },
+  {
+    "id": "rg-0349",
+    "title": "Nootropic/apoptosis.",
+    "claim": "Nootropic/apoptosis.",
+    "pmid": "30037060",
+    "source_url": "PMID 30037060.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "bacopaside-ii"
+  },
+  {
+    "id": "rg-0350",
+    "title": "Bacopa saponin fraction; cognitive signaling support.",
+    "claim": "Bacopa saponin fraction; cognitive signaling support.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "bacoside-a"
+  },
+  {
+    "id": "rg-0351",
+    "title": "Bacopa saponin fraction linked to cognition.",
+    "claim": "Bacopa saponin fraction linked to cognition.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "bacoside-b"
+  },
+  {
+    "id": "rg-0355",
+    "title": "Inconsistent human evidence vs. complete protein/EAA.",
+    "claim": "Inconsistent human evidence vs. complete protein/EAA.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "bcaa"
+  },
+  {
+    "id": "rg-0359",
+    "title": "Bis-benzylisoquinoline; anti-inflammatory, anti-cancer preclinical.",
+    "claim": "Bis-benzylisoquinoline; anti-inflammatory, anti-cancer preclinical.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "berbamine"
+  },
+  {
+    "id": "rg-0361",
+    "title": "Methoxypsoralen; MAPK/inflammatory modulation.",
+    "claim": "Methoxypsoralen; MAPK/inflammatory modulation.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "bergapten"
+  },
+  {
+    "id": "rg-0362",
+    "title": "Sesquiterpene; CB2 receptor and inflammatory signaling.",
+    "claim": "Sesquiterpene; CB2 receptor and inflammatory signaling.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "beta-caryophyllene"
+  },
+  {
+    "id": "rg-0364",
+    "title": "Sesquiterpene; survival/apoptotic signaling.",
+    "claim": "Sesquiterpene; survival/apoptotic signaling.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "beta-elemene"
+  },
+  {
+    "id": "rg-0367",
+    "title": "Methylation/homocysteine; human evidence mixed.",
+    "claim": "Methylation/homocysteine; human evidence mixed.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "betaine"
+  },
+  {
+    "id": "rg-0371",
+    "title": "Pentacyclic triterpenoid; inflammatory/apoptotic signaling.",
+    "claim": "Pentacyclic triterpenoid; inflammatory/apoptotic signaling.",
+    "evidence_tier": "systematic_review_or_meta_analysis",
+    "profile_slug": "betulinic-acid"
+  },
+  {
+    "id": "rg-0374",
+    "title": "Vision claims; human evidence insufficient.",
+    "claim": "Vision claims; human evidence insufficient.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "bilberry-extract"
+  },
+  {
+    "id": "rg-0375",
+    "title": "Biflavone from Ginkgo; anti-inflammatory preclinical.",
+    "claim": "Biflavone from Ginkgo; anti-inflammatory preclinical.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "bilobetin"
+  },
+  {
+    "id": "rg-0376",
+    "title": "Isoflavone; estrogen/metabolic/anti-inflammatory.",
+    "claim": "Isoflavone; estrogen/metabolic/anti-inflammatory.",
+    "evidence_tier": "systematic_review_or_meta_analysis",
+    "profile_slug": "biochanin-a"
+  },
+  {
+    "id": "rg-0378",
+    "title": "Sesquiterpene alcohol; topical anti-inflammatory.",
+    "claim": "Sesquiterpene alcohol; topical anti-inflammatory.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "bisabolol"
+  },
+  {
+    "id": "rg-0379",
+    "title": "Curcuminoid; inflammatory/redox signaling.",
+    "claim": "Curcuminoid; inflammatory/redox signaling.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "bisdemethoxycurcumin"
+  },
+  {
+    "id": "rg-0381",
+    "title": "Glucose/lipid support; needs verified RCTs.",
+    "claim": "Glucose/lipid support; needs verified RCTs.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "black-seed-oil"
+  },
+  {
+    "id": "rg-0386",
+    "title": "5-LOX/inflammatory; extract-level human data.",
+    "claim": "5-LOX/inflammatory; extract-level human data.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "boswellic-acid"
+  },
+  {
+    "id": "rg-0390",
+    "title": "Phthalide; PI3K/Akt/inflammatory modulation.",
+    "claim": "Phthalide; PI3K/Akt/inflammatory modulation.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "butylidenephthalide"
+  },
+  {
+    "id": "rg-0393",
+    "title": "Coffee diterpene; xenobiotic/inflammatory signaling.",
+    "claim": "Coffee diterpene; xenobiotic/inflammatory signaling.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "cafestol"
+  },
+  {
+    "id": "rg-0394",
+    "title": "Phenolic acid; NF-κB/MAPK signaling.",
+    "claim": "Phenolic acid; NF-κB/MAPK signaling.",
+    "evidence_tier": "systematic_review_or_meta_analysis",
+    "profile_slug": "caffeic-acid"
+  },
+  {
+    "id": "rg-0398",
+    "title": "Isoflavone from Astragalus; vascular/antioxidant.",
+    "claim": "Isoflavone from Astragalus; vascular/antioxidant.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "calycosin"
+  },
+  {
+    "id": "rg-0402",
+    "title": "Rosemary diterpene; antioxidant/neuroprotective.",
+    "claim": "Rosemary diterpene; antioxidant/neuroprotective.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "carnosic-acid"
+  },
+  {
+    "id": "rg-0403",
+    "title": "Phenolic diterpene from rosemary.",
+    "claim": "Phenolic diterpene from rosemary.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "carnosol"
+  },
+  {
+    "id": "rg-0404",
+    "title": "Monoterpenoid phenol; antimicrobial/anti-inflammatory.",
+    "claim": "Monoterpenoid phenol; antimicrobial/anti-inflammatory.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "carvacrol"
+  },
+  {
+    "id": "rg-0405",
+    "title": "Oxidized caryophyllene; inflammatory/apoptotic.",
+    "claim": "Oxidized caryophyllene; inflammatory/apoptotic.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "caryophyllene-oxide"
+  },
+  {
+    "id": "rg-0407",
+    "title": "Iridoid glycoside; metabolic/cytoprotective.",
+    "claim": "Iridoid glycoside; metabolic/cytoprotective.",
+    "evidence_tier": "systematic_review_or_meta_analysis",
+    "profile_slug": "catalpol"
+  },
+  {
+    "id": "rg-0408",
+    "title": "Flavanol; PI3K/Akt signaling (mixtures common).",
+    "claim": "Flavanol; PI3K/Akt signaling (mixtures common).",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "catechin"
+  },
+  {
+    "id": "rg-0412",
+    "title": "HSP90/NF-κB suppression; strong preclinical.",
+    "claim": "HSP90/NF-κB suppression; strong preclinical.",
+    "evidence_tier": "systematic_review_or_meta_analysis",
+    "profile_slug": "celastrol"
+  },
+  {
+    "id": "rg-0413",
+    "title": "NF-κB/PI3K/Akt effects.",
+    "claim": "NF-κB/PI3K/Akt effects.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "cepharanthine"
+  },
+  {
+    "id": "rg-0415",
+    "title": "Azulene derivative; inflammatory modulation.",
+    "claim": "Azulene derivative; inflammatory modulation.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "chamazulene"
+  },
+  {
+    "id": "rg-0417",
+    "title": "Bitter melon mixture; glucose regulation.",
+    "claim": "Bitter melon mixture; glucose regulation.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "charantin"
+  },
+  {
+    "id": "rg-0418",
+    "title": "Anti-inflammatory signaling.",
+    "claim": "Anti-inflammatory signaling.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "chicoric-acid"
+  },
+  {
+    "id": "rg-0419",
+    "title": "Lipid/immune markers; needs verified citations.",
+    "claim": "Lipid/immune markers; needs verified citations.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "chlorella"
+  },
+  {
+    "id": "rg-0420",
+    "title": "AMPK/glucose pathways.",
+    "claim": "AMPK/glucose pathways.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "chlorogenic-acid"
+  },
+  {
+    "id": "rg-0425",
+    "title": "Black cohosh marker; limited evidence.",
+    "claim": "Black cohosh marker; limited evidence.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "cimifugoside"
+  },
+  {
+    "id": "rg-0426",
+    "title": "Metabolic/inflammatory signaling.",
+    "claim": "Metabolic/inflammatory signaling.",
+    "evidence_tier": "systematic_review_or_meta_analysis",
+    "profile_slug": "cinnamaldehyde"
+  },
+  {
+    "id": "rg-0428",
+    "title": "Aromatic monoterpene; preclinical.",
+    "claim": "Aromatic monoterpene; preclinical.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "citronellal"
+  },
+  {
+    "id": "rg-0431",
+    "title": "No strong cardiometabolic support.",
+    "claim": "No strong cardiometabolic support.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "coconut-oil"
+  },
+  {
+    "id": "rg-0433",
+    "title": "No oral benefit established.",
+    "claim": "No oral benefit established.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "coenzyme-a"
+  },
+  {
+    "id": "rg-0437",
+    "title": "Metabolic regulation.",
+    "claim": "Metabolic regulation.",
+    "evidence_tier": "systematic_review_or_meta_analysis",
+    "profile_slug": "columbamine"
+  },
+  {
+    "id": "rg-0438",
+    "title": "Anti-inflammatory diterpenoid.",
+    "claim": "Anti-inflammatory diterpenoid.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "columbin"
+  },
+  {
+    "id": "rg-0439",
+    "title": "Lipid/inflammatory control.",
+    "claim": "Lipid/inflammatory control.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "commipheric-acid"
+  },
+  {
+    "id": "rg-0441",
+    "title": "Metabolic/inflammatory.",
+    "claim": "Metabolic/inflammatory.",
+    "evidence_tier": "systematic_review_or_meta_analysis",
+    "profile_slug": "coptisine"
+  },
+  {
+    "id": "rg-0446",
+    "title": "Glucose disposal signaling.",
+    "claim": "Glucose disposal signaling.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "corosolic-acid"
+  },
+  {
+    "id": "rg-0452",
+    "title": "PI3K/Akt/Nrf2 antioxidant.",
+    "claim": "PI3K/Akt/Nrf2 antioxidant.",
+    "pmid": "35095483",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/35095483/",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "crocetin"
+  },
+  {
+    "id": "rg-0453",
+    "title": "Antidepressant adjunct, anti-inflammatory.",
+    "claim": "Antidepressant adjunct, anti-inflammatory.",
+    "pmid": "25484177",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/25484177/",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "crocin"
+  },
+  {
+    "id": "rg-0454",
+    "title": "Anti-cancer/anti-inflammatory.",
+    "claim": "Anti-cancer/anti-inflammatory.",
+    "pmid": "38039759",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/38039759/",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "cryptotanshinone"
+  },
+  {
+    "id": "rg-0456",
+    "title": "OA pain/inflammation (RCTs/meta).",
+    "claim": "OA pain/inflammation (RCTs/meta).",
+    "pmid": "38561618",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/38561618/",
+    "evidence_tier": "systematic_review_or_meta_analysis",
+    "profile_slug": "curcumin-piperine"
+  },
+  {
+    "id": "rg-0457",
+    "title": "Inflammatory modulation.",
+    "claim": "Inflammatory modulation.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "curcumol"
+  },
+  {
+    "id": "rg-0458",
+    "title": "Survival/apoptotic pathways.",
+    "claim": "Survival/apoptotic pathways.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "curdione"
+  },
+  {
+    "id": "rg-0459",
+    "title": "Inconsistent testosterone effects.",
+    "claim": "Inconsistent testosterone effects.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "d-aspartic-acid"
+  },
+  {
+    "id": "rg-0463",
+    "title": "Estrogen/MAPK; bone/glucose.",
+    "claim": "Estrogen/MAPK; bone/glucose.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "daidzein"
+  },
+  {
+    "id": "rg-0464",
+    "title": "Hormone/glycemic effects.",
+    "claim": "Hormone/glycemic effects.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "daidzin"
+  },
+  {
+    "id": "rg-0466",
+    "title": "Traditional digestive; minimal human RCTs.",
+    "claim": "Traditional digestive; minimal human RCTs.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "dandelion-root"
+  },
+  {
+    "id": "rg-0467",
+    "title": "JAK/STAT/NF-κB inhibition.",
+    "claim": "JAK/STAT/NF-κB inhibition.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "daphnetin"
+  },
+  {
+    "id": "rg-0469",
+    "title": "Inflammatory/antioxidant.",
+    "claim": "Inflammatory/antioxidant.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "demethoxycurcumin"
+  },
+  {
+    "id": "rg-0470",
+    "title": "Inflammatory/apoptotic.",
+    "claim": "Inflammatory/apoptotic.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "deoxyelephantopin"
+  },
+  {
+    "id": "rg-0471",
+    "title": "Phytoestrogen signaling.",
+    "claim": "Phytoestrogen signaling.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "deoxymiroestrol"
+  },
+  {
+    "id": "rg-0472",
+    "title": "Monoamine/GABAergic.",
+    "claim": "Monoamine/GABAergic.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "desmethoxyyangonin"
+  },
+  {
+    "id": "rg-0477",
+    "title": "GABAergic calming.",
+    "claim": "GABAergic calming.",
+    "pmid": "12494336",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/12494336/",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "dihydrokavain"
+  },
+  {
+    "id": "rg-0478",
+    "title": "GABAergic/monoamine.",
+    "claim": "GABAergic/monoamine.",
+    "pmid": "21908763",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/21908763/",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "dihydromethysticin"
+  },
+  {
+    "id": "rg-0480",
+    "title": "Endocrine/metabolic/osteogenic.",
+    "claim": "Endocrine/metabolic/osteogenic.",
+    "pmid": "35677108",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/35677108/",
+    "evidence_tier": "systematic_review_or_meta_analysis",
+    "profile_slug": "diosgenin"
+  },
+  {
+    "id": "rg-0486",
+    "title": "Antioxidant/neuroprotective.",
+    "claim": "Antioxidant/neuroprotective.",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6100060/",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "echinacoside"
+  },
+  {
+    "id": "rg-0494",
+    "title": "Monoamine/sensory.",
+    "claim": "Monoamine/sensory.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "elemicin"
+  },
+  {
+    "id": "rg-0495",
+    "title": "Inflammatory signaling.",
+    "claim": "Inflammatory signaling.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "elephantopin"
+  },
+  {
+    "id": "rg-0497",
+    "title": "Adaptogenic.",
+    "claim": "Adaptogenic.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "eleutheroside-b"
+  },
+  {
+    "id": "rg-0498",
+    "title": "Endurance/stress adaptation.",
+    "claim": "Endurance/stress adaptation.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "eleutheroside-e"
+  },
+  {
+    "id": "rg-0501",
+    "title": "NF-κB/MAPK.",
+    "claim": "NF-κB/MAPK.",
+    "evidence_tier": "systematic_review_or_meta_analysis",
+    "profile_slug": "emodin"
+  },
+  {
+    "id": "rg-0502",
+    "title": "Endothelial signaling.",
+    "claim": "Endothelial signaling.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "epicatechin"
+  },
+  {
+    "id": "rg-0503",
+    "title": "Anti-inflammatory.",
+    "claim": "Anti-inflammatory.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "epicatechin-gallate"
+  },
+  {
+    "id": "rg-0504",
+    "title": "Redox/cell signaling.",
+    "claim": "Redox/cell signaling.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "epigallocatechin"
+  },
+  {
+    "id": "rg-0506",
+    "title": "NGF/neurotrophic.",
+    "claim": "NGF/neurotrophic.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "erinacines"
+  },
+  {
+    "id": "rg-0507",
+    "title": "Lipoxygenase/NF-κB.",
+    "claim": "Lipoxygenase/NF-κB.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "esculetin"
+  },
+  {
+    "id": "rg-0509",
+    "title": "Analgesic/anti-inflammatory.",
+    "claim": "Analgesic/anti-inflammatory.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "eugenol"
+  },
+  {
+    "id": "rg-0511",
+    "title": "Animal testosterone data only.",
+    "claim": "Animal testosterone data only.",
+    "pmid": "16281088",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/16281088/",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "fadogia-agrestis"
+  },
+  {
+    "id": "rg-0512",
+    "title": "Antimicrobial/antitumor (preclinical).",
+    "claim": "Antimicrobial/antitumor (preclinical).",
+    "pmid": "31958255",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/31958255/",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "farnesol"
+  },
+  {
+    "id": "rg-0515",
+    "title": "Testosterone/metabolic in RCTs.",
+    "claim": "Testosterone/metabolic in RCTs.",
+    "pmid": "32048383",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/32048383/",
+    "evidence_tier": "systematic_review_or_meta_analysis",
+    "profile_slug": "fenugreek-extract"
+  },
+  {
+    "id": "rg-0516",
+    "title": "Nrf2/PI3K/Akt bioavailability.",
+    "claim": "Nrf2/PI3K/Akt bioavailability.",
+    "pmid": "9878519",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/9878519/",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "ferulic-acid"
+  },
+  {
+    "id": "rg-0520",
+    "title": "Estrogen/PI3K/Akt.",
+    "claim": "Estrogen/PI3K/Akt.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "formononetin"
+  },
+  {
+    "id": "rg-0523",
+    "title": "Nrf2/inflammatory suppression.",
+    "claim": "Nrf2/inflammatory suppression.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "fraxetin"
+  },
+  {
+    "id": "rg-0527",
+    "title": "Antimicrobial/anti-inflammatory.",
+    "claim": "Antimicrobial/anti-inflammatory.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "galangin"
+  },
+  {
+    "id": "rg-0529",
+    "title": "Antioxidant/inflammatory.",
+    "claim": "Antioxidant/inflammatory.",
+    "evidence_tier": "systematic_review_or_meta_analysis",
+    "profile_slug": "gallic-acid"
+  },
+  {
+    "id": "rg-0530",
+    "title": "Antioxidant signaling.",
+    "claim": "Antioxidant signaling.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "gallocatechin"
+  },
+  {
+    "id": "rg-0532",
+    "title": "HAT/HDAC inhibition; anti-inflammatory.",
+    "claim": "HAT/HDAC inhibition; anti-inflammatory.",
+    "pmid": "33799504; 33034447",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/33799504/; https://pubmed.ncbi.nlm.nih.gov/33034447/",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "garcinol"
+  },
+  {
+    "id": "rg-0556",
+    "title": "Cognitive/neuroprotective (AD models).",
+    "claim": "Cognitive/neuroprotective (AD models).",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7993717/",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "ginsenoside-rg1"
+  },
+  {
+    "id": "rg-0557",
+    "title": "Anticancer/anti-inflammatory.",
+    "claim": "Anticancer/anti-inflammatory.",
+    "pmid": "28098857",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/28098857/",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "ginsenoside-rg3"
+  },
+  {
+    "id": "rg-0560",
+    "title": "Weight/glucose in meta-analyses.",
+    "claim": "Weight/glucose in meta-analyses.",
+    "pmid": "24533610",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/24533610/",
+    "evidence_tier": "systematic_review_or_meta_analysis",
+    "profile_slug": "glucomannan"
+  },
+  {
+    "id": "rg-0569",
+    "title": "Wound healing/collagen.",
+    "claim": "Wound healing/collagen.",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8956065/",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "gotu-kola"
+  },
+  {
+    "id": "rg-0575",
+    "title": "Antioxidant/metabolic.",
+    "claim": "Antioxidant/metabolic.",
+    "pmid": "39942757",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/39942757/",
+    "evidence_tier": "systematic_review_or_meta_analysis",
+    "profile_slug": "green-tea-extract-egcg"
+  },
+  {
+    "id": "rg-0580",
+    "title": "FXR/lipid-lowering.",
+    "claim": "FXR/lipid-lowering.",
+    "pmid": "27771932",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/27771932/",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "guggulsterone"
+  },
+  {
+    "id": "rg-0605",
+    "title": "MAO inhibition/neuroprotective.",
+    "claim": "MAO inhibition/neuroprotective.",
+    "source_url": "PubMed harmine studies.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "harmine"
+  },
+  {
+    "id": "rg-0615",
+    "title": "Mild heart failure support.",
+    "claim": "Mild heart failure support.",
+    "pmid": "17470176",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/17470176/",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "hawthorn-extract"
+  },
+  {
+    "id": "rg-0620",
+    "title": "Vascular/anti-inflammatory.",
+    "claim": "Vascular/anti-inflammatory.",
+    "pmid": "32353900",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/32353900/",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "hesperidin"
+  },
+  {
+    "id": "rg-0640",
+    "title": "AChE inhibitor/cognitive.",
+    "claim": "AChE inhibitor/cognitive.",
+    "source_url": "PubMed huperzine RCTs.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "huperzine-a"
+  },
+  {
+    "id": "rg-0650",
+    "title": "Olive antioxidant/cardiovascular.",
+    "claim": "Olive antioxidant/cardiovascular.",
+    "source_url": "PubMed olive polyphenol studies.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "hydroxytyrosol"
+  },
+  {
+    "id": "rg-0755",
+    "title": "Omega-3 lipid benefits.",
+    "claim": "Omega-3 lipid benefits.",
+    "source_url": "PubMed krill RCTs.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "krill-oil"
+  },
+  {
+    "id": "rg-0775",
+    "title": "Relaxation/focus (with caffeine).",
+    "claim": "Relaxation/focus (with caffeine).",
+    "source_url": "PubMed theanine RCTs.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "l-theanine"
+  },
+  {
+    "id": "rg-0780",
+    "title": "Anxiolytic/sleep.",
+    "claim": "Anxiolytic/sleep.",
+    "source_url": "PubMed lavender trials.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "lavender"
+  },
+  {
+    "id": "rg-0850",
+    "title": "Eye health/macula.",
+    "claim": "Eye health/macula.",
+    "source_url": "PubMed lutein trials.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "lutein"
+  },
+  {
+    "id": "rg-0865",
+    "title": "Energy/libido in trials.",
+    "claim": "Energy/libido in trials.",
+    "source_url": "PubMed maca RCTs.",
+    "evidence_tier": "clinical_study_needs_specific_design",
+    "profile_slug": "maca"
+  },
+  {
+    "id": "rhodiola-cognitive-stress-load",
+    "title": "Rhodiola is most decision-useful when stress shows up as fatigue, pressure-linked cognitive load, or reduced mental stamina.",
+    "claim": "Rhodiola is most decision-useful when stress shows up as fatigue, pressure-linked cognitive load, or reduced mental stamina.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "rhodiola"
+  },
+  {
+    "id": "rhodiola-decision-fatigue",
+    "title": "Rhodiola rosea has the clearest evidence base among adaptogens for reducing mental fatigue and cognitive performance decline under sustained demands.",
+    "claim": "Rhodiola rosea has the clearest evidence base among adaptogens for reducing mental fatigue and cognitive performance decline under sustained demands.",
+    "evidence_tier": "needs_classification",
+    "profile_slug": "rhodiola"
+  },
+  {
+    "id": "study-row-10",
+    "title": "stress_response",
+    "pmid": "26609282",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/26609282/",
+    "evidence_tier": "RCT",
+    "profile_slug": "ashwagandha"
+  },
+  {
+    "id": "study-row-100",
+    "title": "metabolic_syndrome",
+    "pmid": "37405785",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/37405785/",
+    "evidence_tier": "randomized_double_blind_placebo_controlled_trial",
+    "profile_slug": "fucoxanthin"
+  },
+  {
+    "id": "study-row-101",
+    "title": "alzheimer_cognition",
+    "pmid": "10881250",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/10881250/",
+    "evidence_tier": "randomized_placebo_controlled_trial",
+    "profile_slug": "galantamine"
+  },
+  {
+    "id": "study-row-102",
+    "title": "weight_loss",
+    "pmid": "9820262",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/9820262/",
+    "evidence_tier": "randomized_double_blind_placebo_controlled_trial",
+    "profile_slug": "garcinia-cambogia-extract"
+  },
+  {
+    "id": "study-row-103",
+    "title": "sleep_quality",
+    "pmid": "40918053",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/40918053/",
+    "evidence_tier": "randomized_placebo_controlled_trial",
+    "profile_slug": "glycinate-magnesium-complex"
+  },
+  {
+    "id": "study-row-104",
+    "title": "heart_failure_function",
+    "pmid": "19789403",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/19789403/",
+    "evidence_tier": "randomized_double_blind_placebo_controlled_trial",
+    "profile_slug": "hawthorn-extract"
+  },
+  {
+    "id": "study-row-105",
+    "title": "functional_dyspepsia",
+    "pmid": "15927925",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/15927925/",
+    "evidence_tier": "systematic_review",
+    "profile_slug": "iberogast"
+  },
+  {
+    "id": "study-row-106",
+    "title": "anxiety_score",
+    "pmid": "21170695",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/21170695/",
+    "evidence_tier": "randomized_controlled_trials_review",
+    "profile_slug": "lavender-extract"
+  },
+  {
+    "id": "study-row-107",
+    "title": "sleep_parameters",
+    "pmid": "31714321",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/31714321/",
+    "evidence_tier": "randomized_double_blind_placebo_controlled_trial",
+    "profile_slug": "passionflower-extract"
+  },
+  {
+    "id": "study-row-108",
+    "title": "negative_mood",
+    "pmid": "28735826",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/28735826/",
+    "evidence_tier": "randomized_double_blind_placebo_controlled_trial",
+    "profile_slug": "saffron-extract"
+  },
+  {
+    "id": "study-row-109",
+    "title": "knee_osteoarthritis",
+    "pmid": "27551171",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/27551171/",
+    "evidence_tier": "randomized_controlled_trial",
+    "profile_slug": "uc-ii-collagen"
+  },
+  {
+    "id": "study-row-11",
+    "title": "anxiety_score",
+    "pmid": "18296328",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/18296328/",
+    "evidence_tier": "RCT",
+    "profile_slug": "l-theanine"
+  },
+  {
+    "id": "study-row-110",
+    "title": "sleep_quality",
+    "pmid": "17145239",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/17145239/",
+    "evidence_tier": "systematic_review_meta_analysis",
+    "profile_slug": "valerian-root-extract"
+  },
+  {
+    "id": "study-row-111",
+    "title": "erectile_function",
+    "pmid": "35118966",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/35118966/",
+    "evidence_tier": "systematic_review_meta_analysis",
+    "profile_slug": "yohimbine"
+  },
+  {
+    "id": "study-row-112",
+    "title": "gut_health",
+    "source_url": "PMC6337770",
+    "evidence_tier": "systematic_review_meta_analysis_randomized_trials",
+    "profile_slug": "peppermint-oil"
+  },
+  {
+    "id": "study-row-113",
+    "title": "abdominal_pain",
+    "pmid": "19507027",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/19507027/",
+    "evidence_tier": "randomized_double_blind_placebo_controlled_trial",
+    "profile_slug": "peppermint-oil"
+  },
+  {
+    "id": "study-row-114",
+    "title": "ldl_cholesterol",
+    "pmid": "30239559",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/30239559/",
+    "evidence_tier": "systematic_review_meta_analysis_randomized_controlled_trials",
+    "profile_slug": "psyllium-husk"
+  },
+  {
+    "id": "study-row-115",
+    "title": "nausea",
+    "pmid": "11275030",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/11275030/",
+    "evidence_tier": "randomized_double_masked_placebo_controlled_trial",
+    "profile_slug": "ginger"
+  },
+  {
+    "id": "study-row-116",
+    "title": "lipid_profile",
+    "pmid": "26875640",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/26875640/",
+    "evidence_tier": "systematic_review_meta_analysis_randomized_placebo_controlled_trials",
+    "profile_slug": "black-seed"
+  },
+  {
+    "id": "study-row-117",
+    "title": "nash_histology",
+    "pmid": "28419855",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/28419855/",
+    "evidence_tier": "randomized_double_blind_placebo_controlled_trial",
+    "profile_slug": "milk-thistle"
+  },
+  {
+    "id": "study-row-118",
+    "title": "fracture_risk_combination",
+    "pmid": "31860103",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/31860103/",
+    "evidence_tier": "systematic_review_meta_analysis_randomized_trials",
+    "profile_slug": "calcium"
+  },
+  {
+    "id": "study-row-119",
+    "title": "blood_pressure",
+    "pmid": "27888156",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/27888156/",
+    "evidence_tier": "systematic_review_meta_analysis_randomized_controlled_trials",
+    "profile_slug": "pomegranate-extract"
+  },
+  {
+    "id": "study-row-12",
+    "title": "stress_response",
+    "pmid": "16930802",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/16930802/",
+    "evidence_tier": "RCT",
+    "profile_slug": "l-theanine"
+  },
+  {
+    "id": "study-row-120",
+    "title": "osteoarthritis_pain",
+    "pmid": "40554037",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/40554037/",
+    "evidence_tier": "randomized_double_blind_placebo_controlled_multicenter_trial",
+    "profile_slug": "boswellia"
+  },
+  {
+    "id": "study-row-121",
+    "title": "immunity",
+    "pmid": "15095142",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/15095142/ | https://www.ncbi.nlm.nih.gov/books/NBK70784/",
+    "evidence_tier": "systematic_review_controlled_trials",
+    "profile_slug": "andrographis"
+  },
+  {
+    "id": "study-row-122",
+    "title": "immunity, inflammation",
+    "pmid": "15095142",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/15095142/",
+    "evidence_tier": "parent_extract_human_evidence",
+    "profile_slug": "andrographolide"
+  },
+  {
+    "id": "study-row-123",
+    "title": "eye_health, inflammation",
+    "pmid": "34376917",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/34376917/ | https://pubmed.ncbi.nlm.nih.gov/36777084/ | https://pubmed.ncbi.nlm.nih.gov/40014233/",
+    "evidence_tier": "randomized_placebo_controlled_trials",
+    "profile_slug": "astaxanthin"
+  },
+  {
+    "id": "study-row-124",
+    "title": "immunity",
+    "pmid": "29456638",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/29456638/",
+    "evidence_tier": "randomized_double_blind_placebo_controlled_trial",
+    "profile_slug": "arabinoxylan"
+  },
+  {
+    "id": "study-row-125",
+    "title": "heart_health, metabolism",
+    "pmid": "22746542",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/22746542/",
+    "evidence_tier": "randomized_placebo_controlled_trial",
+    "profile_slug": "artichoke-extract"
+  },
+  {
+    "id": "study-row-126",
+    "title": "immunity, heart_health",
+    "pmid": "30198828",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/30198828/",
+    "evidence_tier": "randomized_placebo_controlled_trial",
+    "profile_slug": "beta-glucans"
+  },
+  {
+    "id": "study-row-127",
+    "title": "prostate_health",
+    "pmid": "9313662",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/9313662/ | https://pubmed.ncbi.nlm.nih.gov/2423337/",
+    "evidence_tier": "randomized_placebo_controlled_trials",
+    "profile_slug": "beta-sitosterol"
+  },
+  {
+    "id": "study-row-128",
+    "title": "skin_hair_nails, metabolism",
+    "source_url": "https://ods.od.nih.gov/factsheets/Biotin-HealthProfessional/",
+    "evidence_tier": "official_nutrient_fact_sheet",
+    "profile_slug": "biotin"
+  },
+  {
+    "id": "study-row-129",
+    "title": "inflammation, pain",
+    "pmid": "17121765",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/17121765/",
+    "evidence_tier": "randomized_placebo_controlled_pilot_trial",
+    "profile_slug": "bromelain"
+  },
+  {
+    "id": "study-row-13",
+    "title": "sleep_quality",
+    "pmid": "23853635",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/23853635/",
+    "evidence_tier": "RCT",
+    "profile_slug": "magnesium"
+  },
+  {
+    "id": "study-row-130",
+    "title": "pain, inflammation",
+    "pmid": "24941673",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/24941673/ | https://pubmed.ncbi.nlm.nih.gov/20973322/",
+    "evidence_tier": "systematic_review_randomized_trials",
+    "profile_slug": "capsaicin"
+  },
+  {
+    "id": "study-row-131",
+    "title": "metabolism, gut_health",
+    "pmid": "27347994",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/27347994/",
+    "evidence_tier": "systematic_review_meta_analysis_randomized_trials",
+    "profile_slug": "aloe-vera"
+  },
+  {
+    "id": "study-row-132",
+    "title": "focus, cognition",
+    "pmid": "14767959",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/14767959/",
+    "evidence_tier": "clinical_trial_cognitive_impairment",
+    "profile_slug": "alpha-gpc"
+  },
+  {
+    "id": "study-row-133",
+    "title": "immunity, energy",
+    "pmid": "16332936",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/16332936/",
+    "evidence_tier": "randomized_controlled_trial",
+    "profile_slug": "american-ginseng-extract"
+  },
+  {
+    "id": "study-row-134",
+    "title": "performance",
+    "pmid": "34503527",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/34503527/",
+    "evidence_tier": "sports_nutrition_position_or_meta_evidence",
+    "profile_slug": "bicarbonate"
+  },
+  {
+    "id": "study-row-135",
+    "title": "bone_health, testosterone",
+    "pmid": "21129941",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/21129941/",
+    "evidence_tier": "small_human_intervention_trial",
+    "profile_slug": "boron"
+  },
+  {
+    "id": "study-row-136",
+    "title": "focus, energy",
+    "pmid": "18681988",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/18681988/",
+    "evidence_tier": "randomized_controlled_trial",
+    "profile_slug": "caffeine-l-theanine"
+  },
+  {
+    "id": "study-row-137",
+    "title": "performance, recovery",
+    "pmid": "12930169",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/12930169/",
+    "evidence_tier": "randomized_exercise_recovery_trial",
+    "profile_slug": "carnitine-l-tartrate"
+  },
+  {
+    "id": "study-row-138",
+    "title": "anxiety, sleep",
+    "pmid": "19593179",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/19593179/ | https://pubmed.ncbi.nlm.nih.gov/27912875/",
+    "evidence_tier": "randomized_clinical_trials",
+    "profile_slug": "chamomile"
+  },
+  {
+    "id": "study-row-139",
+    "title": "focus, cognition",
+    "pmid": "33978188",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/33978188/ | https://pmc.ncbi.nlm.nih.gov/articles/PMC8349115/",
+    "evidence_tier": "randomized_double_blind_placebo_controlled_trial",
+    "profile_slug": "citicoline"
+  },
+  {
+    "id": "study-row-14",
+    "title": "anxiety_score",
+    "pmid": "28471760",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/28471760/",
+    "evidence_tier": "systematic_review",
+    "profile_slug": "magnesium"
+  },
+  {
+    "id": "study-row-140",
+    "title": "focus, cognition",
+    "pmid": "33978188",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/33978188/ | https://pmc.ncbi.nlm.nih.gov/articles/PMC8349115/",
+    "evidence_tier": "randomized_double_blind_placebo_controlled_trial",
+    "profile_slug": "cdp-choline"
+  },
+  {
+    "id": "study-row-141",
+    "title": "focus, metabolism",
+    "source_url": "https://ods.od.nih.gov/factsheets/Choline-HealthProfessional/",
+    "evidence_tier": "official_nutrient_guidance",
+    "profile_slug": "choline"
+  },
+  {
+    "id": "study-row-142",
+    "title": "metabolism",
+    "pmid": "37818728",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/37818728/ | https://www.ncbi.nlm.nih.gov/books/NBK159776/",
+    "evidence_tier": "systematic_review_meta_analysis",
+    "profile_slug": "cinnamon-extract"
+  },
+  {
+    "id": "study-row-143",
+    "title": "blood_flow, performance",
+    "pmid": "39408204",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/39408204/",
+    "evidence_tier": "randomized_double_blind_crossover_trial",
+    "profile_slug": "citrulline-malate"
+  },
+  {
+    "id": "study-row-144",
+    "title": "gut_health",
+    "pmid": "20458757",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/20458757/",
+    "evidence_tier": "systematic_review_meta_analysis_randomized_trials",
+    "profile_slug": "saccharomyces-boulardii"
+  },
+  {
+    "id": "study-row-145",
+    "title": "pain, inflammation",
+    "pmid": "11752510",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/11752510/ | https://pubmed.ncbi.nlm.nih.gov/12244878/",
+    "evidence_tier": "randomized_controlled_study",
+    "profile_slug": "willow-bark-extract"
+  },
+  {
+    "id": "study-row-146",
+    "title": "prostate_health",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3326341/ | https://jamanetwork.com/journals/jama/fullarticle/1104439",
+    "evidence_tier": "negative_randomized_trial",
+    "profile_slug": "saw-palmetto"
+  },
+  {
+    "id": "study-row-147",
+    "title": "prostate_health",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3326341/ | https://jamanetwork.com/journals/jama/fullarticle/1104439",
+    "evidence_tier": "negative_randomized_trial",
+    "profile_slug": "saw-palmetto-extract"
+  },
+  {
+    "id": "study-row-148",
+    "title": "heart_health",
+    "pmid": "31763928",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/31763928/ | https://pubmed.ncbi.nlm.nih.gov/18037769/",
+    "evidence_tier": "meta_analysis_mixed_result",
+    "profile_slug": "pycnogenol"
+  },
+  {
+    "id": "study-row-149",
+    "title": "prostate_health",
+    "pmid": "15748367",
+    "source_url": "https://www.sciencedirect.com/science/article/abs/pii/S0002934300006045 | https://pubmed.ncbi.nlm.nih.gov/15748367/",
+    "evidence_tier": "systematic_review_plus_negative_combination_rct",
+    "profile_slug": "pygeum"
+  },
+  {
+    "id": "study-row-15",
+    "title": "sleep_latency",
+    "pmid": "23853635",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/23853635/",
+    "evidence_tier": "RCT",
+    "profile_slug": "magnesium"
+  },
+  {
+    "id": "study-row-150",
+    "title": "testosterone, stress",
+    "pmid": "23754792",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/23754792/ | https://pubmed.ncbi.nlm.nih.gov/33541567/",
+    "evidence_tier": "randomized_trial_plus_review",
+    "profile_slug": "tongkat-ali"
+  },
+  {
+    "id": "study-row-151",
+    "title": "energy, libido",
+    "pmid": "18072817",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/18072817/ | https://pubmed.ncbi.nlm.nih.gov/23674952/",
+    "evidence_tier": "randomized_clinical_trials",
+    "profile_slug": "maca"
+  },
+  {
+    "id": "study-row-152",
+    "title": "energy, stress",
+    "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK548496/",
+    "evidence_tier": "safety_review_limited_human_evidence",
+    "profile_slug": "schisandra"
+  },
+  {
+    "id": "study-row-153",
+    "title": "stress, metabolism",
+    "pmid": "28400848",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/28400848/",
+    "evidence_tier": "systematic_review",
+    "profile_slug": "holy-basil"
+  },
+  {
+    "id": "study-row-154",
+    "title": "fertility, dopamine",
+    "pmid": "15548480",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/15548480/ | https://pubmed.ncbi.nlm.nih.gov/19416311/",
+    "evidence_tier": "clinical_trials_context_restricted",
+    "profile_slug": "mucuna-pruriens"
+  },
+  {
+    "id": "study-row-155",
+    "title": "testosterone",
+    "source_url": "source_pending_review",
+    "evidence_tier": "blocked_hype_compound",
+    "profile_slug": "fadogia-agrestis"
+  },
+  {
+    "id": "study-row-156",
+    "title": "libido, blood_flow",
+    "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK548239/",
+    "evidence_tier": "blocked_low_evidence_safety_risk",
+    "profile_slug": "horny-goat-weed"
+  },
+  {
+    "id": "study-row-157",
+    "title": "energy, cognition",
+    "source_url": "source_pending_review",
+    "evidence_tier": "blocked_until_human_trials",
+    "profile_slug": "cistanche"
+  },
+  {
+    "id": "study-row-158",
+    "title": "libido",
+    "pmid": "17530942",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/17530942/ | https://pubmed.ncbi.nlm.nih.gov/24559105/",
+    "evidence_tier": "negative_testosterone_evidence",
+    "profile_slug": "tribulus-terrestris"
+  },
+  {
+    "id": "study-row-159",
+    "title": "energy, testosterone",
+    "pmid": "26395129",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/26395129/",
+    "evidence_tier": "single_randomized_trial",
+    "profile_slug": "shilajit"
+  },
+  {
+    "id": "study-row-16",
+    "title": "anxiety_score",
+    "pmid": "30686880",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/30686880/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "omega-3"
+  },
+  {
+    "id": "study-row-160",
+    "title": "anxiety, stress",
+    "pmid": "23439798",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/23439798/ | https://pubmed.ncbi.nlm.nih.gov/32540634/",
+    "evidence_tier": "randomized_controlled_trials",
+    "profile_slug": "ashwagandha"
+  },
+  {
+    "id": "study-row-161",
+    "title": "anxiety, sleep",
+    "pmid": "34449930",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/34449930/",
+    "evidence_tier": "systematic_review_meta_analysis_clinical_trials",
+    "profile_slug": "lemon-balm"
+  },
+  {
+    "id": "study-row-162",
+    "title": "anxiety, sleep",
+    "pmid": "34449930",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/34449930/",
+    "evidence_tier": "systematic_review_meta_analysis_clinical_trials",
+    "profile_slug": "melissa-officinalis"
+  },
+  {
+    "id": "study-row-163",
+    "title": "anxiety",
+    "pmid": "24456909",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/24456909/ | https://pubmed.ncbi.nlm.nih.gov/21170695/",
+    "evidence_tier": "randomized_controlled_trials",
+    "profile_slug": "lavender"
+  },
+  {
+    "id": "study-row-164",
+    "title": "anxiety",
+    "pmid": "24456909",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/24456909/ | https://pubmed.ncbi.nlm.nih.gov/21170695/",
+    "evidence_tier": "randomized_controlled_trials",
+    "profile_slug": "lavender-extract"
+  },
+  {
+    "id": "study-row-165",
+    "title": "sleep",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4394901/",
+    "evidence_tier": "systematic_review_meta_analysis_randomized_trials",
+    "profile_slug": "valerian"
+  },
+  {
+    "id": "study-row-166",
+    "title": "anxiety",
+    "pmid": "18499602",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/18499602/ | https://pubmed.ncbi.nlm.nih.gov/11679027/",
+    "evidence_tier": "randomized_clinical_trials",
+    "profile_slug": "passionflower"
+  },
+  {
+    "id": "study-row-167",
+    "title": "anxiety",
+    "pmid": "18499602",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/18499602/ | https://pubmed.ncbi.nlm.nih.gov/11679027/",
+    "evidence_tier": "randomized_clinical_trials",
+    "profile_slug": "passiflora-incarnata"
+  },
+  {
+    "id": "study-row-168",
+    "title": "anxiety",
+    "pmid": "12131602",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/12131602/ | https://pubmed.ncbi.nlm.nih.gov/23348842/",
+    "evidence_tier": "randomized_controlled_trials_mixed",
+    "profile_slug": "kava"
+  },
+  {
+    "id": "study-row-169",
+    "title": "sleep, anxiety",
+    "pmid": "41554764",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/41554764/",
+    "evidence_tier": "specific_probiotic_sleep_rct_not_generic_gaba",
+    "profile_slug": "gaba"
+  },
+  {
+    "id": "study-row-17",
+    "title": "inflammation_markers",
+    "pmid": "25287985",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/25287985/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "omega-3"
+  },
+  {
+    "id": "study-row-170",
+    "title": "sleep",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4394901/",
+    "evidence_tier": "systematic_review_combination_context",
+    "profile_slug": "hops"
+  },
+  {
+    "id": "study-row-171",
+    "title": "heart_health",
+    "pmid": "27282571",
+    "source_url": "https://www.nccih.nih.gov/health/red-yeast-rice | https://pubmed.ncbi.nlm.nih.gov/27282571/",
+    "evidence_tier": "official_safety_guidance",
+    "profile_slug": "red-yeast-rice"
+  },
+  {
+    "id": "study-row-172",
+    "title": "heart_health",
+    "pmid": "24780090",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/24780090/ | https://www.efsa.europa.eu/en/efsajournal/pub/1175",
+    "evidence_tier": "meta_analysis_authoritative_review",
+    "profile_slug": "plant-sterols"
+  },
+  {
+    "id": "study-row-173",
+    "title": "heart_health",
+    "pmid": "17127598",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/17127598/ | https://pubmed.ncbi.nlm.nih.gov/17452504/",
+    "evidence_tier": "negative_replication_trials",
+    "profile_slug": "policosanol"
+  },
+  {
+    "id": "study-row-174",
+    "title": "heart_health, metabolism",
+    "pmid": "28023674",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/28023674/ | https://pubmed.ncbi.nlm.nih.gov/25862022/",
+    "evidence_tier": "clinical_trials_review",
+    "profile_slug": "bergamot"
+  },
+  {
+    "id": "study-row-175",
+    "title": "heart_health, immunity",
+    "pmid": "24035939",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/24035939/ | https://pubmed.ncbi.nlm.nih.gov/22778096/",
+    "evidence_tier": "meta_analysis_randomized_trials",
+    "profile_slug": "garlic"
+  },
+  {
+    "id": "study-row-176",
+    "title": "heart_health, metabolism",
+    "pmid": "21443487",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/21443487/ | https://pubmed.ncbi.nlm.nih.gov/26137252/",
+    "evidence_tier": "randomized_human_trials",
+    "profile_slug": "olive-leaf-extract"
+  },
+  {
+    "id": "study-row-177",
+    "title": "heart_health, circulation",
+    "pmid": "18971533",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/18971533/ | https://pubmed.ncbi.nlm.nih.gov/28763875/",
+    "evidence_tier": "small_human_trials_safety_sensitive",
+    "profile_slug": "nattokinase"
+  },
+  {
+    "id": "study-row-178",
+    "title": "heart_health",
+    "pmid": "12915429",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/12915429/",
+    "evidence_tier": "negative_randomized_trial",
+    "profile_slug": "guggul"
+  },
+  {
+    "id": "study-row-179",
+    "title": "metabolism, testosterone",
+    "pmid": "28266134",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/28266134/ | https://pubmed.ncbi.nlm.nih.gov/26791805/",
+    "evidence_tier": "randomized_human_trials",
+    "profile_slug": "fenugreek"
+  },
+  {
+    "id": "study-row-18",
+    "title": "inflammation_markers",
+    "pmid": "27403209",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/27403209/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "curcumin"
+  },
+  {
+    "id": "study-row-180",
+    "title": "metabolism",
+    "pmid": "22592140",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/22592140/",
+    "evidence_tier": "limited_human_study_context",
+    "profile_slug": "gymnema-sylvestre"
+  },
+  {
+    "id": "study-row-181",
+    "title": "metabolism, weight",
+    "pmid": "17658120",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/17658120/ | https://pubmed.ncbi.nlm.nih.gov/24469443/",
+    "evidence_tier": "randomized_human_trials_limited",
+    "profile_slug": "white-kidney-bean-extract"
+  },
+  {
+    "id": "study-row-182",
+    "title": "skin_hair_nails, joints",
+    "pmid": "23949208",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/23949208/ | https://pubmed.ncbi.nlm.nih.gov/24401291/ | https://pubmed.ncbi.nlm.nih.gov/25946119/",
+    "evidence_tier": "randomized_controlled_trials",
+    "profile_slug": "collagen-peptides"
+  },
+  {
+    "id": "study-row-183",
+    "title": "joints, inflammation",
+    "pmid": "24153020",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/24153020/ | https://nutritionj.biomedcentral.com/articles/10.1186/s12937-016-0130-8 | https://pubmed.ncbi.nlm.nih.gov/35765574/",
+    "evidence_tier": "randomized_controlled_trials",
+    "profile_slug": "uc-ii-collagen"
+  },
+  {
+    "id": "study-row-184",
+    "title": "joints, inflammation",
+    "pmid": "24153020",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/24153020/ | https://nutritionj.biomedcentral.com/articles/10.1186/s12937-016-0130-8 | https://pubmed.ncbi.nlm.nih.gov/35765574/",
+    "evidence_tier": "randomized_controlled_trials",
+    "profile_slug": "undenatured-type-ii-collagen"
+  },
+  {
+    "id": "study-row-185",
+    "title": "joints, pain",
+    "pmid": "21708034",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/21708034/ | https://pubmed.ncbi.nlm.nih.gov/31331587/",
+    "evidence_tier": "randomized_controlled_trial",
+    "profile_slug": "msm"
+  },
+  {
+    "id": "study-row-186",
+    "title": "joints, skin_hair_nails",
+    "pmid": "32650511",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/32650511/ | https://pubmed.ncbi.nlm.nih.gov/32047830/",
+    "evidence_tier": "pilot_or_route_specific_trials",
+    "profile_slug": "hyaluronic-acid"
+  },
+  {
+    "id": "study-row-187",
+    "title": "joints, pain",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7989856/",
+    "evidence_tier": "randomized_double_blind_placebo_controlled_trial",
+    "profile_slug": "eggshell-membrane"
+  },
+  {
+    "id": "study-row-188",
+    "title": "joints, pain",
+    "pmid": "17470980",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/17470980/ | https://pubmed.ncbi.nlm.nih.gov/18321734/",
+    "evidence_tier": "large_randomized_trials_mixed",
+    "profile_slug": "glucosamine"
+  },
+  {
+    "id": "study-row-189",
+    "title": "joints, pain",
+    "pmid": "17470980",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/17470980/ | https://pubmed.ncbi.nlm.nih.gov/20068243/",
+    "evidence_tier": "large_randomized_trials_mixed",
+    "profile_slug": "chondroitin"
+  },
+  {
+    "id": "study-row-19",
+    "title": "inflammation_markers",
+    "pmid": "19594223",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/19594223/",
+    "evidence_tier": "RCT",
+    "profile_slug": "curcumin"
+  },
+  {
+    "id": "study-row-190",
+    "title": "joints, inflammation",
+    "pmid": "32848497",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/32848497/ | https://pubmed.ncbi.nlm.nih.gov/22457547/",
+    "evidence_tier": "randomized_trials_and_review",
+    "profile_slug": "boswellia"
+  },
+  {
+    "id": "study-row-191",
+    "title": "pain, inflammation",
+    "pmid": "11406863",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/11406863/ | https://pubmed.ncbi.nlm.nih.gov/16437442/",
+    "evidence_tier": "systematic_review_randomized_trials",
+    "profile_slug": "devils-claw"
+  },
+  {
+    "id": "study-row-192",
+    "title": "bone_health, skin_hair_nails",
+    "pmid": "17435954",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/17435954/",
+    "evidence_tier": "limited_human_trial",
+    "profile_slug": "silicon"
+  },
+  {
+    "id": "study-row-193",
+    "title": "focus, cognition",
+    "pmid": "33978188",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/33978188/ | https://pmc.ncbi.nlm.nih.gov/articles/PMC8349115/",
+    "evidence_tier": "randomized_double_blind_placebo_controlled_trial",
+    "profile_slug": "citicoline"
+  },
+  {
+    "id": "study-row-194",
+    "title": "focus, cognition",
+    "pmid": "33978188",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/33978188/ | https://pmc.ncbi.nlm.nih.gov/articles/PMC8349115/",
+    "evidence_tier": "randomized_double_blind_placebo_controlled_trial",
+    "profile_slug": "cdp-choline"
+  },
+  {
+    "id": "study-row-195",
+    "title": "focus, cognition",
+    "pmid": "14767959",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/14767959/",
+    "evidence_tier": "clinical_trial_cognitive_impairment",
+    "profile_slug": "alpha-gpc"
+  },
+  {
+    "id": "study-row-196",
+    "title": "focus, cognition",
+    "pmid": "20590480",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/20590480/ | https://pubmed.ncbi.nlm.nih.gov/23320031/",
+    "evidence_tier": "randomized_controlled_trials",
+    "profile_slug": "bacopa-monnieri"
+  },
+  {
+    "id": "study-row-197",
+    "title": "focus, cognition",
+    "pmid": "18844328",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/18844328/ | https://pubmed.ncbi.nlm.nih.gov/38004235/",
+    "evidence_tier": "small_randomized_trials",
+    "profile_slug": "lions-mane"
+  },
+  {
+    "id": "study-row-198",
+    "title": "focus, stress",
+    "pmid": "12140984",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/12140984/ | https://pubmed.ncbi.nlm.nih.gov/11897831/",
+    "evidence_tier": "human_trials_limited",
+    "profile_slug": "phosphatidylserine"
+  },
+  {
+    "id": "study-row-199",
+    "title": "focus, energy",
+    "pmid": "8629725",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/8629725/ | https://pubmed.ncbi.nlm.nih.gov/1924634/",
+    "evidence_tier": "randomized_stress_condition_trials",
+    "profile_slug": "tyrosine"
+  },
+  {
+    "id": "study-row-2",
+    "title": "cognitive_performance",
+    "pmid": "19773644",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/19773644/",
+    "evidence_tier": "RCT",
+    "profile_slug": "creatine"
+  },
+  {
+    "id": "study-row-20",
+    "title": "metabolic_markers",
+    "pmid": "22739410",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/22739410/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "berberine"
+  },
+  {
+    "id": "study-row-200",
+    "title": "mood, cognition",
+    "pmid": "18710823",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/18710823/ | https://pubmed.ncbi.nlm.nih.gov/22101279/",
+    "evidence_tier": "clinical_trial_combination_context",
+    "profile_slug": "uridine"
+  },
+  {
+    "id": "study-row-201",
+    "title": "cognition",
+    "source_url": "source_pending_review",
+    "evidence_tier": "blocked_scope",
+    "profile_slug": "noopept"
+  },
+  {
+    "id": "study-row-202",
+    "title": "cognition",
+    "source_url": "source_pending_review",
+    "evidence_tier": "blocked_scope",
+    "profile_slug": "piracetam"
+  },
+  {
+    "id": "study-row-203",
+    "title": "immunity, respiratory",
+    "pmid": "12807337",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/12807337/ | https://pubmed.ncbi.nlm.nih.gov/29563828/ | https://pmc.ncbi.nlm.nih.gov/articles/PMC5849386/",
+    "evidence_tier": "randomized_trials_and_review",
+    "profile_slug": "pelargonium-sidoides"
+  },
+  {
+    "id": "study-row-204",
+    "title": "immunity, respiratory",
+    "pmid": "24554461",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/24554461/ | https://www.nccih.nih.gov/health/echinacea",
+    "evidence_tier": "systematic_review_mixed_evidence",
+    "profile_slug": "echinacea"
+  },
+  {
+    "id": "study-row-205",
+    "title": "immunity, respiratory",
+    "pmid": "30670267",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/30670267/ | https://pubmed.ncbi.nlm.nih.gov/15080016/",
+    "evidence_tier": "small_trials_and_review",
+    "profile_slug": "elderberry"
+  },
+  {
+    "id": "study-row-206",
+    "title": "immunity, oral_health",
+    "pmid": "34029993",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/34029993/",
+    "evidence_tier": "clinical_trial_or_review_limited",
+    "profile_slug": "propolis"
+  },
+  {
+    "id": "study-row-207",
+    "title": "inflammation, immunity",
+    "pmid": "26907242",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/26907242/ | https://pubmed.ncbi.nlm.nih.gov/31868167/",
+    "evidence_tier": "systematic_review_and_trials",
+    "profile_slug": "quercetin"
+  },
+  {
+    "id": "study-row-208",
+    "title": "metabolism, immunity",
+    "pmid": "20301409",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/20301409/ | https://pubmed.ncbi.nlm.nih.gov/28000559/",
+    "evidence_tier": "small_human_trials_and_review",
+    "profile_slug": "spirulina"
+  },
+  {
+    "id": "study-row-209",
+    "title": "immunity, gut_health",
+    "pmid": "30157070",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/30157070/",
+    "evidence_tier": "population_specific_trials_review",
+    "profile_slug": "lactoferrin"
+  },
+  {
+    "id": "study-row-21",
+    "title": "metabolic_markers",
+    "pmid": "18442638",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/18442638/",
+    "evidence_tier": "RCT",
+    "profile_slug": "berberine"
+  },
+  {
+    "id": "study-row-210",
+    "title": "gut_health, immunity",
+    "pmid": "27587206",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/27587206/",
+    "evidence_tier": "review_and_small_trials",
+    "profile_slug": "colostrum"
+  },
+  {
+    "id": "study-row-211",
+    "title": "immunity, vision",
+    "source_url": "https://ods.od.nih.gov/factsheets/VitaminA-HealthProfessional/",
+    "evidence_tier": "official_nutrient_guidance",
+    "profile_slug": "vitamin-a"
+  },
+  {
+    "id": "study-row-212",
+    "title": "urinary_health, immunity",
+    "pmid": "37068952",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/37068952/ | https://www.cochrane.org/evidence/CD001321_cranberries-preventing-urinary-tract-infections",
+    "evidence_tier": "cochrane_review_randomized_trials",
+    "profile_slug": "cranberry"
+  },
+  {
+    "id": "study-row-213",
+    "title": "urinary_health",
+    "source_url": "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2817488 | https://pmc.ncbi.nlm.nih.gov/articles/PMC11002776/ | https://pmc.ncbi.nlm.nih.gov/articles/PMC12471090/",
+    "evidence_tier": "negative_randomized_clinical_trial",
+    "profile_slug": "d-mannose"
+  },
+  {
+    "id": "study-row-214",
+    "title": "metabolism, hormone_health",
+    "pmid": "29498933",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/29498933/ | https://pubmed.ncbi.nlm.nih.gov/34078260/",
+    "evidence_tier": "systematic_review_meta_analysis",
+    "profile_slug": "myo-inositol"
+  },
+  {
+    "id": "study-row-215",
+    "title": "metabolism, hormone_health",
+    "pmid": "29498933",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/29498933/",
+    "evidence_tier": "systematic_review_context",
+    "profile_slug": "d-chiro-inositol"
+  },
+  {
+    "id": "study-row-216",
+    "title": "energy, blood_health",
+    "pmid": "18711167",
+    "source_url": "https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/ | https://pubmed.ncbi.nlm.nih.gov/18711167/",
+    "evidence_tier": "official_nutrient_guidance_and_rct",
+    "profile_slug": "iron"
+  },
+  {
+    "id": "study-row-217",
+    "title": "thyroid_health",
+    "source_url": "https://ods.od.nih.gov/factsheets/Iodine-HealthProfessional/",
+    "evidence_tier": "official_nutrient_guidance",
+    "profile_slug": "iodine"
+  },
+  {
+    "id": "study-row-218",
+    "title": "thyroid_health, antioxidant",
+    "pmid": "19926708",
+    "source_url": "https://ods.od.nih.gov/factsheets/Selenium-HealthProfessional/ | https://pubmed.ncbi.nlm.nih.gov/19926708/",
+    "evidence_tier": "official_nutrient_guidance_and_human_trials",
+    "profile_slug": "selenium"
+  },
+  {
+    "id": "study-row-219",
+    "title": "metabolism",
+    "pmid": "15208835",
+    "source_url": "https://ods.od.nih.gov/factsheets/Chromium-HealthProfessional/ | https://pubmed.ncbi.nlm.nih.gov/15208835/",
+    "evidence_tier": "official_nutrient_guidance_mixed_trials",
+    "profile_slug": "chromium"
+  },
+  {
+    "id": "study-row-22",
+    "title": "fatigue",
+    "pmid": "19016404",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/19016404/",
+    "evidence_tier": "RCT",
+    "profile_slug": "rhodiola"
+  },
+  {
+    "id": "study-row-220",
+    "title": "metabolism",
+    "pmid": "15208835",
+    "source_url": "https://ods.od.nih.gov/factsheets/Chromium-HealthProfessional/ | https://pubmed.ncbi.nlm.nih.gov/15208835/",
+    "evidence_tier": "official_nutrient_guidance_mixed_trials",
+    "profile_slug": "chromium-picolinate"
+  },
+  {
+    "id": "study-row-221",
+    "title": "eye_health",
+    "pmid": "23644932",
+    "source_url": "https://www.nei.nih.gov/research/clinical-trials/age-related-eye-disease-studies-aredsareds2 | https://pubmed.ncbi.nlm.nih.gov/23644932/",
+    "evidence_tier": "large_clinical_trial_formula",
+    "profile_slug": "lutein"
+  },
+  {
+    "id": "study-row-222",
+    "title": "eye_health",
+    "pmid": "23644932",
+    "source_url": "https://www.nei.nih.gov/research/clinical-trials/age-related-eye-disease-studies-aredsareds2 | https://pubmed.ncbi.nlm.nih.gov/23644932/",
+    "evidence_tier": "large_clinical_trial_formula",
+    "profile_slug": "zeaxanthin"
+  },
+  {
+    "id": "study-row-223",
+    "title": "bone_health",
+    "source_url": "https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/",
+    "evidence_tier": "official_nutrient_guidance",
+    "profile_slug": "calcium"
+  },
+  {
+    "id": "study-row-224",
+    "title": "heart_health, blood_pressure",
+    "pmid": "25059961",
+    "source_url": "https://ods.od.nih.gov/factsheets/Potassium-HealthProfessional/ | https://pubmed.ncbi.nlm.nih.gov/25059961/",
+    "evidence_tier": "official_guidance_and_meta_analysis",
+    "profile_slug": "potassium"
+  },
+  {
+    "id": "study-row-225",
+    "title": "weight, gut_health",
+    "pmid": "18842808",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/18842808/ | https://pubmed.ncbi.nlm.nih.gov/23433643/",
+    "evidence_tier": "randomized_trials_mixed",
+    "profile_slug": "glucomannan"
+  },
+  {
+    "id": "study-row-226",
+    "title": "weight, metabolism",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2943088/",
+    "evidence_tier": "systematic_review_meta_analysis_high_bias",
+    "profile_slug": "green-coffee"
+  },
+  {
+    "id": "study-row-227",
+    "title": "weight, body_composition",
+    "pmid": "21990002",
+    "source_url": "https://www.ncbi.nlm.nih.gov/books/NBK98502/ | https://pubmed.ncbi.nlm.nih.gov/21990002/",
+    "evidence_tier": "systematic_review_meta_analysis",
+    "profile_slug": "cla"
+  },
+  {
+    "id": "study-row-228",
+    "title": "weight, metabolism",
+    "pmid": "16129715",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/16129715/ | https://pubmed.ncbi.nlm.nih.gov/18211366/",
+    "evidence_tier": "small_randomized_trials_inconsistent",
+    "profile_slug": "forskolin"
+  },
+  {
+    "id": "study-row-229",
+    "title": "weight",
+    "pmid": "21297532",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/21297532/ | https://www.ncbi.nlm.nih.gov/books/NBK548087/",
+    "evidence_tier": "systematic_review_meta_analysis_safety_context",
+    "profile_slug": "garcinia-cambogia"
+  },
+  {
+    "id": "study-row-23",
+    "title": "sleep_quality",
+    "pmid": "22592091",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/22592091/",
+    "evidence_tier": "RCT",
+    "profile_slug": "glycine"
+  },
+  {
+    "id": "study-row-230",
+    "title": "energy, weight",
+    "pmid": "18326600",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/18326600/ | https://pubmed.ncbi.nlm.nih.gov/25636220/",
+    "evidence_tier": "small_human_trials",
+    "profile_slug": "mct-oil"
+  },
+  {
+    "id": "study-row-231",
+    "title": "weight",
+    "source_url": "source_pending_review",
+    "evidence_tier": "blocked_hype_compound",
+    "profile_slug": "raspberry-ketones"
+  },
+  {
+    "id": "study-row-232",
+    "title": "energy, body_composition",
+    "pmid": "32359762",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/32359762/ | https://pubmed.ncbi.nlm.nih.gov/12930169/",
+    "evidence_tier": "meta_analysis_context_specific",
+    "profile_slug": "carnitine"
+  },
+  {
+    "id": "study-row-233",
+    "title": "weight, energy",
+    "pmid": "19597519",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/19597519/ | https://ods.od.nih.gov/factsheets/GreenTea-HealthProfessional/",
+    "evidence_tier": "meta_analysis_safety_guidance",
+    "profile_slug": "egcg-caffeine"
+  },
+  {
+    "id": "study-row-234",
+    "title": "gut_health, pain",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6337770/",
+    "evidence_tier": "systematic_review_meta_analysis_randomized_trials",
+    "profile_slug": "peppermint-oil"
+  },
+  {
+    "id": "study-row-235",
+    "title": "gut_health",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2868213/",
+    "evidence_tier": "systematic_review_meta_analysis_randomized_trials",
+    "profile_slug": "saccharomyces-boulardii"
+  },
+  {
+    "id": "study-row-236",
+    "title": "gut_health",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6769658/",
+    "evidence_tier": "randomized_double_blind_placebo_controlled_trial",
+    "profile_slug": "phgg"
+  },
+  {
+    "id": "study-row-237",
+    "title": "gut_health",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7284493/",
+    "evidence_tier": "systematic_review_controlled_trials",
+    "profile_slug": "lactase-enzyme"
+  },
+  {
+    "id": "study-row-238",
+    "title": "digestion",
+    "source_url": "source_pending_review",
+    "evidence_tier": "blocked_medical_context",
+    "profile_slug": "bile-salts"
+  },
+  {
+    "id": "study-row-239",
+    "title": "digestion",
+    "source_url": "source_pending_review",
+    "evidence_tier": "blocked_generic_blend",
+    "profile_slug": "digestive-enzymes"
+  },
+  {
+    "id": "study-row-24",
+    "title": "cognitive_performance",
+    "pmid": "20182035",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/20182035/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "caffeine"
+  },
+  {
+    "id": "study-row-240",
+    "title": "gut_health, metabolism",
+    "pmid": "27347994",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/27347994/",
+    "evidence_tier": "systematic_review_meta_analysis_randomized_trials",
+    "profile_slug": "aloe-vera"
+  },
+  {
+    "id": "study-row-241",
+    "title": "gut_health",
+    "source_url": "source_pending_review",
+    "evidence_tier": "blocked_low_evidence",
+    "profile_slug": "slippery-elm"
+  },
+  {
+    "id": "study-row-242",
+    "title": "gut_health",
+    "source_url": "source_pending_review",
+    "evidence_tier": "blocked_low_evidence",
+    "profile_slug": "marshmallow-root"
+  },
+  {
+    "id": "study-row-25",
+    "title": "memory",
+    "pmid": "18611150",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/18611150/",
+    "evidence_tier": "RCT",
+    "profile_slug": "bacopa"
+  },
+  {
+    "id": "study-row-26",
+    "title": "cognitive_performance",
+    "pmid": "12895670",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/12895670/",
+    "evidence_tier": "RCT",
+    "profile_slug": "ginseng"
+  },
+  {
+    "id": "study-row-27",
+    "title": "immune_function",
+    "pmid": "15496046",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/15496046/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "zinc"
+  },
+  {
+    "id": "study-row-28",
+    "title": "sleep_quality",
+    "pmid": "17145239",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/17145239/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "valerian"
+  },
+  {
+    "id": "study-row-29",
+    "title": "immune_function",
+    "pmid": "28202713",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/28202713/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "vitamin-d"
+  },
+  {
+    "id": "study-row-3",
+    "title": "strength_output",
+    "pmid": "28615996",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/28615996/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "creatine"
+  },
+  {
+    "id": "study-row-30",
+    "title": "mood",
+    "pmid": "24191306",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/24191306/",
+    "evidence_tier": "RCT",
+    "profile_slug": "vitamin-d"
+  },
+  {
+    "id": "study-row-31",
+    "title": "gut_health",
+    "pmid": "24912386",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/24912386/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "probiotics"
+  },
+  {
+    "id": "study-row-32",
+    "title": "anxiety_score",
+    "pmid": "25808252",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/25808252/",
+    "evidence_tier": "RCT",
+    "profile_slug": "probiotics"
+  },
+  {
+    "id": "study-row-33",
+    "title": "fatigue",
+    "pmid": "12706309",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/12706309/",
+    "evidence_tier": "RCT",
+    "profile_slug": "iron"
+  },
+  {
+    "id": "study-row-34",
+    "title": "cognitive_performance",
+    "pmid": "17344500",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/17344500/",
+    "evidence_tier": "RCT",
+    "profile_slug": "iron"
+  },
+  {
+    "id": "study-row-35",
+    "title": "cognitive_performance",
+    "pmid": "22221769",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/22221769/",
+    "evidence_tier": "RCT",
+    "profile_slug": "vitamin-b12"
+  },
+  {
+    "id": "study-row-36",
+    "title": "fatigue",
+    "pmid": "16549418",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/16549418/",
+    "evidence_tier": "RCT",
+    "profile_slug": "vitamin-b12"
+  },
+  {
+    "id": "study-row-37",
+    "title": "mood",
+    "pmid": "15671130",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/15671130/",
+    "evidence_tier": "RCT",
+    "profile_slug": "folate"
+  },
+  {
+    "id": "study-row-38",
+    "title": "fatigue",
+    "pmid": "25174896",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/25174896/",
+    "evidence_tier": "RCT",
+    "profile_slug": "coq10"
+  },
+  {
+    "id": "study-row-39",
+    "title": "cardiovascular",
+    "pmid": "25282031",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/25282031/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "coq10"
+  },
+  {
+    "id": "study-row-4",
+    "title": "cognitive_performance",
+    "pmid": "16416332",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/16416332/",
+    "evidence_tier": "RCT",
+    "profile_slug": "creatine"
+  },
+  {
+    "id": "study-row-40",
+    "title": "neuropathy",
+    "pmid": "12874400",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/12874400/",
+    "evidence_tier": "RCT",
+    "profile_slug": "alpha-lipoic-acid"
+  },
+  {
+    "id": "study-row-41",
+    "title": "oxidative_stress",
+    "pmid": "17507892",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/17507892/",
+    "evidence_tier": "RCT",
+    "profile_slug": "nac"
+  },
+  {
+    "id": "study-row-42",
+    "title": "exercise_performance",
+    "pmid": "20386132",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/20386132/",
+    "evidence_tier": "RCT",
+    "profile_slug": "taurine"
+  },
+  {
+    "id": "study-row-43",
+    "title": "exercise_performance",
+    "pmid": "17194255",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/17194255/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "beta-alanine"
+  },
+  {
+    "id": "study-row-44",
+    "title": "exercise_performance",
+    "pmid": "20386132",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/20386132/",
+    "evidence_tier": "RCT",
+    "profile_slug": "citrulline"
+  },
+  {
+    "id": "study-row-45",
+    "title": "exercise_performance",
+    "pmid": "19910809",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/19910809/",
+    "evidence_tier": "RCT",
+    "profile_slug": "beetroot"
+  },
+  {
+    "id": "study-row-46",
+    "title": "fat_loss",
+    "pmid": "15598647",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/15598647/",
+    "evidence_tier": "RCT",
+    "profile_slug": "green-tea-extract"
+  },
+  {
+    "id": "study-row-47",
+    "title": "cholesterol",
+    "pmid": "22492349",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/22492349/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "garlic"
+  },
+  {
+    "id": "study-row-48",
+    "title": "nausea",
+    "pmid": "12542115",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/12542115/",
+    "evidence_tier": "RCT",
+    "profile_slug": "ginger"
+  },
+  {
+    "id": "study-row-49",
+    "title": "pain",
+    "pmid": "24672232",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/24672232/",
+    "evidence_tier": "RCT",
+    "profile_slug": "turmeric"
+  },
+  {
+    "id": "study-row-5",
+    "title": "sleep_latency",
+    "pmid": "23691095",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/23691095/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "melatonin"
+  },
+  {
+    "id": "study-row-50",
+    "title": "strength_output",
+    "pmid": "26609282",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/26609282/",
+    "evidence_tier": "RCT",
+    "profile_slug": "ashwagandha"
+  },
+  {
+    "id": "study-row-51",
+    "title": "cognitive_performance",
+    "pmid": "20378318",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/20378318/",
+    "evidence_tier": "RCT",
+    "profile_slug": "rhodiola"
+  },
+  {
+    "id": "study-row-52",
+    "title": "memory",
+    "pmid": "12736092",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/12736092/",
+    "evidence_tier": "RCT",
+    "profile_slug": "ginkgo"
+  },
+  {
+    "id": "study-row-53",
+    "title": "circulation",
+    "pmid": "15831234",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/15831234/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "ginkgo"
+  },
+  {
+    "id": "study-row-54",
+    "title": "metabolic_markers",
+    "pmid": "22271614",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/22271614/",
+    "evidence_tier": "RCT",
+    "profile_slug": "resveratrol"
+  },
+  {
+    "id": "study-row-55",
+    "title": "exercise_performance",
+    "pmid": "19589961",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/19589961/",
+    "evidence_tier": "RCT",
+    "profile_slug": "quercetin"
+  },
+  {
+    "id": "study-row-56",
+    "title": "mood",
+    "pmid": "23832433",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/23832433/",
+    "evidence_tier": "RCT",
+    "profile_slug": "curcumin"
+  },
+  {
+    "id": "study-row-57",
+    "title": "cardiovascular",
+    "pmid": "30415628",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/30415628/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "omega-3"
+  },
+  {
+    "id": "study-row-58",
+    "title": "blood_pressure",
+    "pmid": "28471760",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/28471760/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "magnesium"
+  },
+  {
+    "id": "study-row-59",
+    "title": "immune_function",
+    "pmid": "23440782",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/23440782/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "vitamin-c"
+  },
+  {
+    "id": "study-row-6",
+    "title": "sleep_quality",
+    "pmid": "20091037",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/20091037/",
+    "evidence_tier": "RCT",
+    "profile_slug": "melatonin"
+  },
+  {
+    "id": "study-row-60",
+    "title": "fatigue",
+    "pmid": "19147492",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/19147492/",
+    "evidence_tier": "RCT",
+    "profile_slug": "vitamin-c"
+  },
+  {
+    "id": "study-row-61",
+    "title": "immune_function",
+    "pmid": "15496046",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/15496046/",
+    "evidence_tier": "RCT",
+    "profile_slug": "zinc"
+  },
+  {
+    "id": "study-row-62",
+    "title": "immune_function",
+    "pmid": "14668278",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/14668278/",
+    "evidence_tier": "RCT",
+    "profile_slug": "selenium"
+  },
+  {
+    "id": "study-row-63",
+    "title": "cognitive_performance",
+    "pmid": "15734706",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/15734706/",
+    "evidence_tier": "RCT",
+    "profile_slug": "iodine"
+  },
+  {
+    "id": "study-row-64",
+    "title": "immune_function",
+    "pmid": "11311045",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/11311045/",
+    "evidence_tier": "RCT",
+    "profile_slug": "vitamin-a"
+  },
+  {
+    "id": "study-row-65",
+    "title": "metabolic_markers",
+    "pmid": "12612144",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/12612144/",
+    "evidence_tier": "RCT",
+    "profile_slug": "chromium"
+  },
+  {
+    "id": "study-row-66",
+    "title": "fatigue",
+    "pmid": "15607555",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/15607555/",
+    "evidence_tier": "RCT",
+    "profile_slug": "l-carnitine"
+  },
+  {
+    "id": "study-row-67",
+    "title": "strength_output",
+    "pmid": "10410847",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/10410847/",
+    "evidence_tier": "RCT",
+    "profile_slug": "hmb"
+  },
+  {
+    "id": "study-row-68",
+    "title": "muscle_synthesis",
+    "pmid": "14671205",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/14671205/",
+    "evidence_tier": "RCT",
+    "profile_slug": "eaa"
+  },
+  {
+    "id": "study-row-69",
+    "title": "exercise_performance",
+    "pmid": "17095909",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/17095909/",
+    "evidence_tier": "RCT",
+    "profile_slug": "bcaas"
+  },
+  {
+    "id": "study-row-7",
+    "title": "sleep_latency",
+    "pmid": "25128263",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/25128263/",
+    "evidence_tier": "systematic_review",
+    "profile_slug": "melatonin"
+  },
+  {
+    "id": "study-row-70",
+    "title": "cognitive_performance",
+    "pmid": "22592091",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/22592091/",
+    "evidence_tier": "RCT",
+    "profile_slug": "glycine"
+  },
+  {
+    "id": "study-row-71",
+    "title": "circadian_rhythm",
+    "pmid": "12467979",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/12467979/",
+    "evidence_tier": "RCT",
+    "profile_slug": "melatonin"
+  },
+  {
+    "id": "study-row-72",
+    "title": "sleep_quality",
+    "pmid": "32540634",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/32540634/",
+    "evidence_tier": "RCT",
+    "profile_slug": "ashwagandha"
+  },
+  {
+    "id": "study-row-73",
+    "title": "cognitive_performance",
+    "pmid": "21040626",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/21040626/",
+    "evidence_tier": "RCT",
+    "profile_slug": "l-theanine"
+  },
+  {
+    "id": "study-row-74",
+    "title": "reaction_time",
+    "pmid": "20182035",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/20182035/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "caffeine"
+  },
+  {
+    "id": "study-row-75",
+    "title": "bone_density",
+    "pmid": "22736219",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/22736219/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "vitamin-d"
+  },
+  {
+    "id": "study-row-76",
+    "title": "immune_function",
+    "pmid": "28202713",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/28202713/",
+    "evidence_tier": "RCT",
+    "profile_slug": "vitamin-d"
+  },
+  {
+    "id": "study-row-77",
+    "title": "depression",
+    "pmid": "27132744",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/27132744/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "omega-3"
+  },
+  {
+    "id": "study-row-78",
+    "title": "triglycerides",
+    "pmid": "18497367",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/18497367/",
+    "evidence_tier": "RCT",
+    "profile_slug": "omega-3"
+  },
+  {
+    "id": "study-row-79",
+    "title": "sleep_quality",
+    "pmid": "31654344",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/31654344/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "magnesium"
+  },
+  {
+    "id": "study-row-8",
+    "title": "stress_response",
+    "pmid": "23439798",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/23439798/",
+    "evidence_tier": "RCT",
+    "profile_slug": "ashwagandha"
+  },
+  {
+    "id": "study-row-80",
+    "title": "stress_response",
+    "pmid": "29679349",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/29679349/",
+    "evidence_tier": "RCT",
+    "profile_slug": "magnesium"
+  },
+  {
+    "id": "study-row-81",
+    "title": "pain",
+    "pmid": "27533649",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/27533649/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "curcumin"
+  },
+  {
+    "id": "study-row-82",
+    "title": "depression",
+    "pmid": "23832433",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/23832433/",
+    "evidence_tier": "RCT",
+    "profile_slug": "curcumin"
+  },
+  {
+    "id": "study-row-83",
+    "title": "lipids",
+    "pmid": "25676062",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/25676062/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "berberine"
+  },
+  {
+    "id": "study-row-84",
+    "title": "insulin_sensitivity",
+    "pmid": "21346706",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/21346706/",
+    "evidence_tier": "RCT",
+    "profile_slug": "berberine"
+  },
+  {
+    "id": "study-row-85",
+    "title": "fatigue",
+    "pmid": "19773644",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/19773644/",
+    "evidence_tier": "RCT",
+    "profile_slug": "creatine"
+  },
+  {
+    "id": "study-row-86",
+    "title": "muscle_mass",
+    "pmid": "28615996",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/28615996/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "creatine"
+  },
+  {
+    "id": "study-row-87",
+    "title": "circadian_rhythm",
+    "pmid": "12467979",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/12467979/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "melatonin"
+  },
+  {
+    "id": "study-row-88",
+    "title": "sleep_quality",
+    "pmid": "25128263",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/25128263/",
+    "evidence_tier": "systematic_review",
+    "profile_slug": "melatonin"
+  },
+  {
+    "id": "study-row-89",
+    "title": "stress_response",
+    "pmid": "19016404",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/19016404/",
+    "evidence_tier": "RCT",
+    "profile_slug": "rhodiola"
+  },
+  {
+    "id": "study-row-9",
+    "title": "anxiety_score",
+    "pmid": "31517876",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/31517876/",
+    "evidence_tier": "systematic_review",
+    "profile_slug": "ashwagandha"
+  },
+  {
+    "id": "study-row-90",
+    "title": "sleep_quality",
+    "pmid": "22214254",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/22214254/",
+    "evidence_tier": "RCT",
+    "profile_slug": "l-theanine"
+  },
+  {
+    "id": "study-row-91",
+    "title": "memory",
+    "pmid": "12736092",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/12736092/",
+    "evidence_tier": "meta_analysis",
+    "profile_slug": "ginkgo"
+  },
+  {
+    "id": "study-row-92",
+    "title": "circulation",
+    "pmid": "15831234",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/15831234/",
+    "evidence_tier": "RCT",
+    "profile_slug": "ginkgo"
+  },
+  {
+    "id": "study-row-93",
+    "title": "cognitive_performance",
+    "pmid": "22271614",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/22271614/",
+    "evidence_tier": "RCT",
+    "profile_slug": "resveratrol"
+  },
+  {
+    "id": "study-row-94",
+    "title": "blood_flow",
+    "pmid": "23347199",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/23347199/",
+    "evidence_tier": "RCT",
+    "profile_slug": "resveratrol"
+  },
+  {
+    "id": "study-row-95",
+    "title": "immune_function",
+    "pmid": "19589961",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/19589961/",
+    "evidence_tier": "RCT",
+    "profile_slug": "quercetin"
+  },
+  {
+    "id": "study-row-96",
+    "title": "hba1c",
+    "pmid": "10372249",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/10372249/",
+    "evidence_tier": "randomized_controlled_trial",
+    "profile_slug": "acarbose"
+  },
+  {
+    "id": "study-row-97",
+    "title": "metabolic_syndrome",
+    "pmid": "34726501",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/34726501/",
+    "evidence_tier": "randomized_double_blind_placebo_controlled_trial",
+    "profile_slug": "banaba-leaf-extract"
+  },
+  {
+    "id": "study-row-98",
+    "title": "osteoarthritis_pain",
+    "pmid": "17212570",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/17212570/",
+    "evidence_tier": "clinical_evidence_review",
+    "profile_slug": "devils-claw"
+  },
+  {
+    "id": "study-row-99",
+    "title": "gut_microbiota",
+    "source_url": "PMCID:PMC9413759",
+    "evidence_tier": "systematic_review_meta_analysis",
+    "profile_slug": "fos"
+  },
+  {
+    "id": "summary-row-10",
+    "title": "fatigue supported by 5 RCTs, 0 meta-analyses (5 positive studies)",
+    "claim": "fatigue supported by 5 RCTs, 0 meta-analyses (5 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "rhodiola"
+  },
+  {
+    "id": "summary-row-11",
+    "title": "sleep_quality supported by 3 RCTs, 0 meta-analyses (3 positive studies)",
+    "claim": "sleep_quality supported by 3 RCTs, 0 meta-analyses (3 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "glycine"
+  },
+  {
+    "id": "summary-row-12",
+    "title": "cognitive_performance supported by 0 RCTs, 3 meta-analyses (3 positive studies)",
+    "claim": "cognitive_performance supported by 0 RCTs, 3 meta-analyses (3 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "caffeine"
+  },
+  {
+    "id": "summary-row-13",
+    "title": "memory supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "claim": "memory supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "bacopa"
+  },
+  {
+    "id": "summary-row-14",
+    "title": "cognitive_performance supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "claim": "cognitive_performance supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "ginseng"
+  },
+  {
+    "id": "summary-row-15",
+    "title": "immune_function supported by 1 RCTs, 2 meta-analyses (3 positive studies)",
+    "claim": "immune_function supported by 1 RCTs, 2 meta-analyses (3 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "zinc"
+  },
+  {
+    "id": "summary-row-16",
+    "title": "sleep_quality supported by 0 RCTs, 1 meta-analyses (1 positive studies)",
+    "claim": "sleep_quality supported by 0 RCTs, 1 meta-analyses (1 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "valerian"
+  },
+  {
+    "id": "summary-row-17",
+    "title": "immune_function supported by 2 RCTs, 3 meta-analyses (5 positive studies)",
+    "claim": "immune_function supported by 2 RCTs, 3 meta-analyses (5 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "vitamin-d"
+  },
+  {
+    "id": "summary-row-18",
+    "title": "gut_health supported by 1 RCTs, 2 meta-analyses (3 positive studies)",
+    "claim": "gut_health supported by 1 RCTs, 2 meta-analyses (3 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "probiotics"
+  },
+  {
+    "id": "summary-row-19",
+    "title": "fatigue supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "claim": "fatigue supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "iron"
+  },
+  {
+    "id": "summary-row-2",
+    "title": "cognitive_performance supported by 3 RCTs, 3 meta-analyses (6 positive studies)",
+    "claim": "cognitive_performance supported by 3 RCTs, 3 meta-analyses (6 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "creatine"
+  },
+  {
+    "id": "summary-row-20",
+    "title": "cognitive_performance supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "claim": "cognitive_performance supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "vitamin-b12"
+  },
+  {
+    "id": "summary-row-21",
+    "title": "mood supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "claim": "mood supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "folate"
+  },
+  {
+    "id": "summary-row-22",
+    "title": "fatigue supported by 2 RCTs, 1 meta-analyses (3 positive studies)",
+    "claim": "fatigue supported by 2 RCTs, 1 meta-analyses (3 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "coq10"
+  },
+  {
+    "id": "summary-row-23",
+    "title": "neuropathy supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "claim": "neuropathy supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "alpha-lipoic-acid"
+  },
+  {
+    "id": "summary-row-24",
+    "title": "oxidative_stress supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "claim": "oxidative_stress supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "nac"
+  },
+  {
+    "id": "summary-row-25",
+    "title": "exercise_performance supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "claim": "exercise_performance supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "taurine"
+  },
+  {
+    "id": "summary-row-26",
+    "title": "exercise_performance supported by 0 RCTs, 2 meta-analyses (2 positive studies)",
+    "claim": "exercise_performance supported by 0 RCTs, 2 meta-analyses (2 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "beta-alanine"
+  },
+  {
+    "id": "summary-row-27",
+    "title": "exercise_performance supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "claim": "exercise_performance supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "citrulline"
+  },
+  {
+    "id": "summary-row-28",
+    "title": "exercise_performance supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "claim": "exercise_performance supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "beetroot"
+  },
+  {
+    "id": "summary-row-29",
+    "title": "fat_loss supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "claim": "fat_loss supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "green-tea-extract"
+  },
+  {
+    "id": "summary-row-3",
+    "title": "sleep_latency supported by 2 RCTs, 3 meta-analyses (7 positive studies)",
+    "claim": "sleep_latency supported by 2 RCTs, 3 meta-analyses (7 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "melatonin"
+  },
+  {
+    "id": "summary-row-30",
+    "title": "cholesterol supported by 0 RCTs, 2 meta-analyses (2 positive studies)",
+    "claim": "cholesterol supported by 0 RCTs, 2 meta-analyses (2 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "garlic"
+  },
+  {
+    "id": "summary-row-31",
+    "title": "nausea supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "claim": "nausea supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "ginger"
+  },
+  {
+    "id": "summary-row-32",
+    "title": "pain supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "claim": "pain supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "turmeric"
+  },
+  {
+    "id": "summary-row-33",
+    "title": "memory supported by 2 RCTs, 2 meta-analyses (4 positive studies)",
+    "claim": "memory supported by 2 RCTs, 2 meta-analyses (4 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "ginkgo"
+  },
+  {
+    "id": "summary-row-34",
+    "title": "metabolic_markers supported by 4 RCTs, 0 meta-analyses (4 positive studies)",
+    "claim": "metabolic_markers supported by 4 RCTs, 0 meta-analyses (4 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "resveratrol"
+  },
+  {
+    "id": "summary-row-35",
+    "title": "exercise_performance supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "claim": "exercise_performance supported by 2 RCTs, 0 meta-analyses (2 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "quercetin"
+  },
+  {
+    "id": "summary-row-36",
+    "title": "immune_function supported by 1 RCTs, 1 meta-analyses (2 positive studies)",
+    "claim": "immune_function supported by 1 RCTs, 1 meta-analyses (2 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "vitamin-c"
+  },
+  {
+    "id": "summary-row-37",
+    "title": "immune_function supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "claim": "immune_function supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "selenium"
+  },
+  {
+    "id": "summary-row-38",
+    "title": "cognitive_performance supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "claim": "cognitive_performance supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "iodine"
+  },
+  {
+    "id": "summary-row-39",
+    "title": "immune_function supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "claim": "immune_function supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "vitamin-a"
+  },
+  {
+    "id": "summary-row-4",
+    "title": "stress_response supported by 7 RCTs, 0 meta-analyses (8 positive studies)",
+    "claim": "stress_response supported by 7 RCTs, 0 meta-analyses (8 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "ashwagandha"
+  },
+  {
+    "id": "summary-row-40",
+    "title": "metabolic_markers supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "claim": "metabolic_markers supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "chromium"
+  },
+  {
+    "id": "summary-row-41",
+    "title": "fatigue supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "claim": "fatigue supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "l-carnitine"
+  },
+  {
+    "id": "summary-row-42",
+    "title": "strength_output supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "claim": "strength_output supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "hmb"
+  },
+  {
+    "id": "summary-row-43",
+    "title": "muscle_synthesis supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "claim": "muscle_synthesis supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "eaa"
+  },
+  {
+    "id": "summary-row-44",
+    "title": "exercise_performance supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "claim": "exercise_performance supported by 1 RCTs, 0 meta-analyses (1 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "bcaas"
+  },
+  {
+    "id": "summary-row-45",
+    "title": "Strong drug evidence: Human RCT evidence supports improved glycemic control in type 2 diabetes; UKPDS 44 randomized 1,946 participants and found lower HbA1c with acarbose vs placebo over 3 years, with GI side effects affecting adherence.",
+    "claim": "Strong drug evidence: Human RCT evidence supports improved glycemic control in type 2 diabetes; UKPDS 44 randomized 1,946 participants and found lower HbA1c with acarbose vs placebo over 3 years, with GI side effects affecting adherence.",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "acarbose"
+  },
+  {
+    "id": "summary-row-46",
+    "title": "Limited human evidence: Human RCT evidence exists in metabolic syndrome: 24 participants received Banaba 500 mg twice daily or placebo for 12 weeks; trial evaluated MetS components, insulin sensitivity, and insulin secretion.",
+    "claim": "Limited human evidence: Human RCT evidence exists in metabolic syndrome: 24 participants received Banaba 500 mg twice daily or placebo for 12 weeks; trial evaluated MetS components, insulin sensitivity, and insulin secretion.",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "banaba-leaf-extract"
+  },
+  {
+    "id": "summary-row-47",
+    "title": "Limited-to-moderate human evidence: Clinical evidence review identified randomized placebo-controlled trials in osteoarthritis/back pain; higher-quality studies suggested pain reduction, but trial quality limitations prevent strong certainty.",
+    "claim": "Limited-to-moderate human evidence: Clinical evidence review identified randomized placebo-controlled trials in osteoarthritis/back pain; higher-quality studies suggested pain reduction, but trial quality limitations prevent strong certainty.",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "devils-claw"
+  },
+  {
+    "id": "summary-row-48",
+    "title": "Moderate prebiotic evidence: Human systematic review/meta-analysis evidence supports fructooligosaccharides as a prebiotic affecting gut microbiota composition; strongest signal is microbiome modulation rather than direct disease treatment.",
+    "claim": "Moderate prebiotic evidence: Human systematic review/meta-analysis evidence supports fructooligosaccharides as a prebiotic affecting gut microbiota composition; strongest signal is microbiome modulation rather than direct disease treatment.",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "fos"
+  },
+  {
+    "id": "summary-row-49",
+    "title": "Limited human evidence: Human randomized double-blind placebo-controlled trial evidence exists in 28 patients with metabolic syndrome using 12 mg/day for 12 weeks; endpoint-specific extraction should be reviewed before strong claims.",
+    "claim": "Limited human evidence: Human randomized double-blind placebo-controlled trial evidence exists in 28 patients with metabolic syndrome using 12 mg/day for 12 weeks; endpoint-specific extraction should be reviewed before strong claims.",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "fucoxanthin"
+  },
+  {
+    "id": "summary-row-5",
+    "title": "stress_response supported by 6 RCTs, 0 meta-analyses (6 positive studies)",
+    "claim": "stress_response supported by 6 RCTs, 0 meta-analyses (6 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "l-theanine"
+  },
+  {
+    "id": "summary-row-50",
+    "title": "Strong drug evidence: Multiple large randomized placebo-controlled trials support galantamine for cognitive and global outcomes in Alzheimer’s disease; this is prescription-drug evidence, not supplement evidence.",
+    "claim": "Strong drug evidence: Multiple large randomized placebo-controlled trials support galantamine for cognitive and global outcomes in Alzheimer’s disease; this is prescription-drug evidence, not supplement evidence.",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "galantamine"
+  },
+  {
+    "id": "summary-row-51",
+    "title": "Low/mixed human evidence: Human RCT evidence is mixed/negative. A 12-week JAMA randomized placebo-controlled trial in 135 overweight adults found no significant weight or fat-mass loss beyond placebo; other small trials/reviews are inconsistent.",
+    "claim": "Low/mixed human evidence: Human RCT evidence is mixed/negative. A 12-week JAMA randomized placebo-controlled trial in 135 overweight adults found no significant weight or fat-mass loss beyond placebo; other small trials/reviews are inconsistent.",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "garcinia-cambogia-extract"
+  },
+  {
+    "id": "summary-row-52",
+    "title": "Limited-to-moderate human evidence: Human clinical evidence for magnesium bisglycinate/glycinate is emerging; a randomized placebo-controlled trial in adults with poor sleep tested magnesium bisglycinate, while broader magnesium evidence supports sleep/BP contexts depending on population and deficiency.",
+    "claim": "Limited-to-moderate human evidence: Human clinical evidence for magnesium bisglycinate/glycinate is emerging; a randomized placebo-controlled trial in adults with poor sleep tested magnesium bisglycinate, while broader magnesium evidence supports sleep/BP contexts depending on population and deficiency.",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "glycinate-magnesium-complex"
+  },
+  {
+    "id": "summary-row-53",
+    "title": "Mixed human evidence: Human evidence is mixed. Cochrane review found adjunctive benefits in chronic heart failure trials, but the later HERB CHF randomized trial found no symptomatic/functional benefit when added to standard therapy.",
+    "claim": "Mixed human evidence: Human evidence is mixed. Cochrane review found adjunctive benefits in chronic heart failure trials, but the later HERB CHF randomized trial found no symptomatic/functional benefit when added to standard therapy.",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "hawthorn-extract"
+  },
+  {
+    "id": "summary-row-54",
+    "title": "Moderate human evidence: Human evidence supports Iberogast/STW 5 in functional dyspepsia symptom reduction based on systematic review evidence and more recent randomized trials evaluating gastric gas tolerance.",
+    "claim": "Moderate human evidence: Human evidence supports Iberogast/STW 5 in functional dyspepsia symptom reduction based on systematic review evidence and more recent randomized trials evaluating gastric gas tolerance.",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "iberogast"
+  },
+  {
+    "id": "summary-row-55",
+    "title": "Moderate-to-strong human evidence: Human randomized trial evidence supports oral lavender oil preparation Silexan for anxiety symptoms, including GAD trials vs placebo and comparator arms.",
+    "claim": "Moderate-to-strong human evidence: Human randomized trial evidence supports oral lavender oil preparation Silexan for anxiety symptoms, including GAD trials vs placebo and comparator arms.",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "lavender-extract"
+  },
+  {
+    "id": "summary-row-56",
+    "title": "Limited-to-moderate human evidence: Human evidence includes randomized trials and a systematic review suggesting Passionflower may reduce anxiety in some contexts; sleep evidence includes a placebo-controlled polysomnography insomnia study.",
+    "claim": "Limited-to-moderate human evidence: Human evidence includes randomized trials and a systematic review suggesting Passionflower may reduce anxiety in some contexts; sleep evidence includes a placebo-controlled polysomnography insomnia study.",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "passionflower-extract"
+  },
+  {
+    "id": "summary-row-57",
+    "title": "Moderate human evidence: Human RCT and meta-analysis evidence supports saffron for mood-related outcomes. Affron 28 mg/day improved mood/stress/anxiety in low-mood adults over 4 weeks; MDD meta-analysis evidence exists but claims should remain condition-specific.",
+    "claim": "Moderate human evidence: Human RCT and meta-analysis evidence supports saffron for mood-related outcomes. Affron 28 mg/day improved mood/stress/anxiety in low-mood adults over 4 weeks; MDD meta-analysis evidence exists but claims should remain condition-specific.",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "saffron-extract"
+  },
+  {
+    "id": "summary-row-58",
+    "title": "Moderate human evidence: Human randomized controlled trial evidence supports native/undenatured type II collagen for knee osteoarthritis-related symptoms and function, with newer RCT literature continuing to evaluate UC-II/hydrolyzed collagen combinations.",
+    "claim": "Moderate human evidence: Human randomized controlled trial evidence supports native/undenatured type II collagen for knee osteoarthritis-related symptoms and function, with newer RCT literature continuing to evaluate UC-II/hydrolyzed collagen combinations.",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "uc-ii-collagen"
+  },
+  {
+    "id": "summary-row-59",
+    "title": "Mixed/limited human evidence: Human systematic review/meta-analysis evidence suggests valerian may improve sleep quality, but trial methods and preparations vary; umbrella review notes uncertainty and heterogeneity.",
+    "claim": "Mixed/limited human evidence: Human systematic review/meta-analysis evidence suggests valerian may improve sleep quality, but trial methods and preparations vary; umbrella review notes uncertainty and heterogeneity.",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "valerian-root-extract"
+  },
+  {
+    "id": "summary-row-6",
+    "title": "sleep_quality supported by 3 RCTs, 3 meta-analyses (7 positive studies)",
+    "claim": "sleep_quality supported by 3 RCTs, 3 meta-analyses (7 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "magnesium"
+  },
+  {
+    "id": "summary-row-60",
+    "title": "Moderate efficacy / high safety caution: Human systematic review/meta-analysis evidence suggests yohimbine can improve erectile dysfunction outcomes, but safety concerns and sympathomimetic effects require strict caution.",
+    "claim": "Moderate efficacy / high safety caution: Human systematic review/meta-analysis evidence suggests yohimbine can improve erectile dysfunction outcomes, but safety concerns and sympathomimetic effects require strict caution.",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "yohimbine"
+  },
+  {
+    "id": "summary-row-7",
+    "title": "cardiovascular supported by 1 RCTs, 5 meta-analyses (6 positive studies)",
+    "claim": "cardiovascular supported by 1 RCTs, 5 meta-analyses (6 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "omega-3"
+  },
+  {
+    "id": "summary-row-8",
+    "title": "inflammation_markers supported by 3 RCTs, 3 meta-analyses (6 positive studies)",
+    "claim": "inflammation_markers supported by 3 RCTs, 3 meta-analyses (6 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "curcumin"
+  },
+  {
+    "id": "summary-row-9",
+    "title": "metabolic_markers supported by 2 RCTs, 3 meta-analyses (5 positive studies)",
+    "claim": "metabolic_markers supported by 2 RCTs, 3 meta-analyses (5 positive studies)",
+    "evidence_tier": "evidence_summary",
+    "profile_slug": "berberine"
+  }
+]

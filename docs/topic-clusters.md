@@ -4,9 +4,9 @@ Priority clusters used by the internal link engine.
 
 ## ADHD
 - Signals: adhd, attention deficit, hyperactivity, executive function, focus, dopamine, iron, zinc, vitamin d
-- Pages: 205
+- Pages: 195
 - [The Hippie Scientist - Clinical Evidence & Safety for Herbs & Supplements](/) (static)
-- [Articles](/articles) (static)
+- [Research Archive & Educational Articles](/articles) (static)
 - [Adhd Blood Tests](/articles/adhd-blood-tests) (article)
 - [Adhd Stack Guide](/articles/adhd-stack-guide) (article)
 - [Alpha Gpc And Adhd](/articles/alpha-gpc-and-adhd) (article)
@@ -48,9 +48,9 @@ Priority clusters used by the internal link engine.
 
 ## Anxiety
 - Signals: anxiety, anxious, calm, gaba, worry, nervous, relaxation
-- Pages: 775
+- Pages: 815
 - [The Hippie Scientist - Clinical Evidence & Safety for Herbs & Supplements](/) (static)
-- [Articles](/articles) (static)
+- [Research Archive & Educational Articles](/articles) (static)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
 - [Ashwagandha For Anxiety](/articles/ashwagandha-for-anxiety) (article)
 - [Ashwagandha Vs Magnesium For Sleep](/articles/ashwagandha-vs-magnesium-for-sleep) (article)
@@ -67,34 +67,34 @@ Priority clusters used by the internal link engine.
 - [Natural Anxiety Relief](/articles/natural-anxiety-relief) (article)
 - [Sleep Stack Guide](/articles/sleep-stack-guide) (article)
 - [Best Magnesium Supplements for ADHD: Forms, Dose, and Buying Guide](/best-magnesium-supplements-for-adhd) (static)
+- [Best Supplements for Sleep: Evidence-First Buyer Guide](/best-supplements-for-sleep) (static)
 - [Glycine vs Gaba](/compare/glycine-vs-gaba) (guide)
 - [L Theanine vs Gaba](/compare/l-theanine-vs-gaba) (guide)
 - [11-keto-beta-boswellic acid](/compounds/11-keto-beta-boswellic-acid) (compound)
 - [23-epi-26-deoxyactein](/compounds/23-epi-26-deoxyactein) (compound)
 - [5-HTP](/compounds/5-htp) (compound)
-- [Acarbose](/compounds/acarbose) (compound)
 - [acemannan](/compounds/acemannan) (compound)
 - [acetate](/compounds/acetate) (compound)
 - [acetyl-11-keto-beta-boswellic acid](/compounds/acetyl-11-keto-beta-boswellic-acid) (compound)
 - [acetyl-beta-boswellic acid](/compounds/acetyl-beta-boswellic-acid) (compound)
+- [acetylshikonin](/compounds/acetylshikonin) (compound)
 - [Actein](/compounds/actein) (compound)
+- [acteoside](/compounds/acteoside) (compound)
 - [Adenosine](/compounds/adenosine) (compound)
 - [aescin](/compounds/aescin) (compound)
 - [Agaricus blazei](/compounds/agaricus-blazei) (compound)
 - [Aged Garlic Extract](/compounds/aged-garlic-extract) (compound)
+- [ajoene](/compounds/ajoene) (compound)
 - [albiflorin](/compounds/albiflorin) (compound)
 - [Alkylamides](/compounds/alkylamides) (compound)
 - [Allicin](/compounds/allicin) (compound)
-- [Aloe Vera](/compounds/aloe-vera) (compound)
 - [alpha-asarone](/compounds/alpha-asarone) (compound)
-- [Alpha-Lipoic Acid](/compounds/alpha-lipoic-acid) (compound)
-- [American Ginseng Extract](/compounds/american-ginseng-extract) (compound)
 
 ## Sleep
 - Signals: sleep, insomnia, melatonin, valerian, bedtime, circadian, night
-- Pages: 219
+- Pages: 250
 - [The Hippie Scientist - Clinical Evidence & Safety for Herbs & Supplements](/) (static)
-- [Articles](/articles) (static)
+- [Research Archive & Educational Articles](/articles) (static)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
 - [Ashwagandha For Anxiety](/articles/ashwagandha-for-anxiety) (article)
 - [Ashwagandha For Sleep](/articles/ashwagandha-for-sleep) (article)
@@ -116,7 +116,7 @@ Priority clusters used by the internal link engine.
 - [Sleep Stack Guide](/articles/sleep-stack-guide) (article)
 - [Sleep Stack Magnesium Melatonin](/articles/sleep-stack-magnesium-melatonin) (article)
 - [Best Magnesium Supplements for ADHD: Forms, Dose, and Buying Guide](/best-magnesium-supplements-for-adhd) (static)
-- [Best Supplements For Sleep](/best-supplements-for-sleep) (static)
+- [Best Supplements for Sleep: Evidence-First Buyer Guide](/best-supplements-for-sleep) (static)
 - [Herb & Supplement Comparison Center ${SEO_YEAR} | The Hippie Scientist](/compare) (static)
 - [Apigenin vs Melatonin](/compare/apigenin-vs-melatonin) (guide)
 - [Ashwagandha Extract Ksm 66 vs Glycine Sleep](/compare/ashwagandha-extract-ksm-66-vs-glycine-sleep) (guide)
@@ -136,8 +136,9 @@ Priority clusters used by the internal link engine.
 
 ## Stress
 - Signals: stress, cortisol, adaptogen, burnout, hpa, resilience
-- Pages: 515
+- Pages: 504
 - [The Hippie Scientist - Clinical Evidence & Safety for Herbs & Supplements](/) (static)
+- [Research Archive & Educational Articles](/articles) (static)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
 - [Ashwagandha For Anxiety](/articles/ashwagandha-for-anxiety) (article)
 - [Ashwagandha For Sleep](/articles/ashwagandha-for-sleep) (article)
@@ -150,6 +151,7 @@ Priority clusters used by the internal link engine.
 - [Magnesium Types For Sleep](/articles/magnesium-types-for-sleep) (article)
 - [Natural Anxiety Relief](/articles/natural-anxiety-relief) (article)
 - [Sleep Stack Guide](/articles/sleep-stack-guide) (article)
+- [Best Supplements for Sleep: Evidence-First Buyer Guide](/best-supplements-for-sleep) (static)
 - [Best Supplements For Stress](/best-supplements-for-stress) (static)
 - [Herb & Supplement Comparison Center ${SEO_YEAR} | The Hippie Scientist](/compare) (static)
 - [Dynamic Ingredient Comparison Matrix](/compare/dynamic) (guide)
@@ -168,7 +170,6 @@ Priority clusters used by the internal link engine.
 - [artemisinin b](/compounds/artemisinin-b) (compound)
 - [artesunate](/compounds/artesunate) (compound)
 - [Artichoke Extract](/compounds/artichoke-extract) (compound)
-- [Ashitaba Angelica keiskei](/compounds/ashitaba) (compound)
 - [Ashwagandha KSM-66 extract](/compounds/ashwagandha-extract-ksm-66) (compound)
 - [Ashwagandha Root Extract](/compounds/ashwagandha-root-extract) (compound)
 - [aspalathin](/compounds/aspalathin) (compound)
@@ -176,13 +177,12 @@ Priority clusters used by the internal link engine.
 - [astragalin](/compounds/astragalin) (compound)
 - [astragaloside iv](/compounds/astragaloside-iv) (compound)
 - [aucubin](/compounds/aucubin) (compound)
-- [Bacopa extract standardized](/compounds/bacopa-extract-bacoside-standardized) (compound)
 
 ## Focus
 - Signals: focus, attention, nootropic, cognition, productivity, caffeine, l-theanine
-- Pages: 656
+- Pages: 699
 - [The Hippie Scientist - Clinical Evidence & Safety for Herbs & Supplements](/) (static)
-- [Articles](/articles) (static)
+- [Research Archive & Educational Articles](/articles) (static)
 - [Adhd Blood Tests](/articles/adhd-blood-tests) (article)
 - [Adhd Stack Guide](/articles/adhd-stack-guide) (article)
 - [Alpha Gpc And Adhd](/articles/alpha-gpc-and-adhd) (article)
@@ -224,12 +224,14 @@ Priority clusters used by the internal link engine.
 
 ## Energy
 - Signals: energy, fatigue, stamina, mitochondria, atp, vitality, performance
-- Pages: 505
+- Pages: 514
 - [Best Magnesium Supplement For Adhd](/articles/best-magnesium-supplement-for-adhd) (article)
+- [11-keto-beta-boswellic acid](/compounds/11-keto-beta-boswellic-acid) (compound)
 - [23-epi-26-deoxyactein](/compounds/23-epi-26-deoxyactein) (compound)
-- [Acarbose](/compounds/acarbose) (compound)
 - [acemannan](/compounds/acemannan) (compound)
 - [acetate](/compounds/acetate) (compound)
+- [acetyl-11-keto-beta-boswellic acid](/compounds/acetyl-11-keto-beta-boswellic-acid) (compound)
+- [acetyl-beta-boswellic acid](/compounds/acetyl-beta-boswellic-acid) (compound)
 - [Acetyl-L-Carnitine](/compounds/acetyl-l-carnitine) (compound)
 - [acetylshikonin](/compounds/acetylshikonin) (compound)
 - [Actein](/compounds/actein) (compound)
@@ -237,6 +239,7 @@ Priority clusters used by the internal link engine.
 - [Adenosine](/compounds/adenosine) (compound)
 - [aescin](/compounds/aescin) (compound)
 - [Agaricus blazei](/compounds/agaricus-blazei) (compound)
+- [ajoene](/compounds/ajoene) (compound)
 - [Alkylamides](/compounds/alkylamides) (compound)
 - [Allicin](/compounds/allicin) (compound)
 - [Alpha-GPC](/compounds/alpha-gpc) (compound)
@@ -250,25 +253,22 @@ Priority clusters used by the internal link engine.
 - [artemisinin](/compounds/artemisinin) (compound)
 - [artemisinin b](/compounds/artemisinin-b) (compound)
 - [Ashitaba Extract](/compounds/ashitaba-extract) (compound)
+- [asiatic acid](/compounds/asiatic-acid) (compound)
 - [asiaticoside](/compounds/asiaticoside) (compound)
 - [aspalathin](/compounds/aspalathin) (compound)
 - [Astaxanthin](/compounds/astaxanthin) (compound)
 - [astragalin](/compounds/astragalin) (compound)
 - [astragaloside iv](/compounds/astragaloside-iv) (compound)
 - [atractylenolide i](/compounds/atractylenolide-i) (compound)
+- [atractylenolide ii](/compounds/atractylenolide-ii) (compound)
 - [atractylenolide iii](/compounds/atractylenolide-iii) (compound)
 - [Bacopa extract standardized](/compounds/bacopa-extract-bacoside-standardized) (compound)
 - [baicalein](/compounds/baicalein) (compound)
 - [baicalin](/compounds/baicalin) (compound)
-- [Banaba Leaf Extract](/compounds/banaba-leaf-extract) (compound)
-- [BCAA](/compounds/bcaa) (compound)
-- [Bcaas](/compounds/bcaas) (compound)
-- [Beetroot extract](/compounds/beetroot-extract) (compound)
-- [Beetroot nitrate](/compounds/beetroot-nitrate) (compound)
 
 ## Gut Health
 - Signals: gut, digestive, microbiome, probiotic, prebiotic, fiber, bloating
-- Pages: 94
+- Pages: 106
 - [Magnesium Glycinate Vs Citrate For Adhd](/articles/magnesium-glycinate-vs-citrate-for-adhd) (article)
 - [Magnesium Types For Sleep](/articles/magnesium-types-for-sleep) (article)
 - [Best Supplements For Gut Health](/best-supplements-for-gut-health) (static)
@@ -281,38 +281,38 @@ Priority clusters used by the internal link engine.
 - [Probiotic Strain Bifidobacterium vs Probiotics Bifidobacterium](/compare/probiotic-strain-bifidobacterium-vs-probiotics-bifidobacterium) (guide)
 - [Probiotic Strain Bifidobacterium vs Probiotics Lactobacillus](/compare/probiotic-strain-bifidobacterium-vs-probiotics-lactobacillus) (guide)
 - [Probiotic Strain Lactobacillus vs Probiotic Multistrain](/compare/probiotic-strain-lactobacillus-vs-probiotic-multistrain) (guide)
-- [Aloe Vera](/compounds/aloe-vera) (compound)
+- [Acarbose](/compounds/acarbose) (compound)
 - [anethole](/compounds/anethole) (compound)
 - [Arabinoxylan](/compounds/arabinoxylan) (compound)
+- [aucubin](/compounds/aucubin) (compound)
+- [BCAA](/compounds/bcaa) (compound)
+- [Bcaas](/compounds/bcaas) (compound)
 - [Beta-glucans](/compounds/beta-glucans) (compound)
-- [Betaine HCl](/compounds/betaine-hcl) (compound)
 - [butyrate](/compounds/butyrate) (compound)
+- [caffeic acid](/compounds/caffeic-acid) (compound)
 - [catalpol](/compounds/catalpol) (compound)
 - [Chamomile](/compounds/chamomile) (compound)
+- [chicoric acid](/compounds/chicoric-acid) (compound)
+- [Chlorella](/compounds/chlorella) (compound)
 - [Dandelion Root](/compounds/dandelion-root) (compound)
+- [Devils Claw Extract](/compounds/devils-claw) (compound)
 - [Digestive enzymes](/compounds/digestive-enzymes) (compound)
+- [ellagic acid](/compounds/ellagic-acid) (compound)
+- [Estrogen Balance Stack](/compounds/estrogen-balance-stack) (compound)
 - [Fenugreek Extract](/compounds/fenugreek-extract) (compound)
+- [ferulic acid](/compounds/ferulic-acid) (compound)
 - [Fructooligosaccharides](/compounds/fos) (compound)
-- [Ginger](/compounds/ginger) (compound)
+- [gallic acid](/compounds/gallic-acid) (compound)
 - [Glucomannan](/compounds/glucomannan) (compound)
 - [Glutamine](/compounds/glutamine) (compound)
 - [harpagoside](/compounds/harpagoside) (compound)
 - [Iberogast](/compounds/iberogast) (compound)
 - [Inulin](/compounds/inulin) (compound)
-- [Marshmallow Root](/compounds/marshmallow-root) (compound)
-- [Oral rehydration salts](/compounds/oral-rehydration-salts) (compound)
-- [Papain](/compounds/papain) (compound)
-- [Peppermint Oil](/compounds/peppermint-oil) (compound)
-- [Probiotic Multistrain](/compounds/probiotic-multistrain) (compound)
-- [Bifidobacterium Probiotic](/compounds/probiotic-strain-bifidobacterium) (compound)
-- [Lactobacillus Probiotic](/compounds/probiotic-strain-lactobacillus) (compound)
-- [Probiotics](/compounds/probiotics) (compound)
-- [Probiotics - Bifidobacterium spp.](/compounds/probiotics-bifidobacterium) (compound)
-- [Probiotics - Lactobacillus spp.](/compounds/probiotics-lactobacillus) (compound)
+- [loganin](/compounds/loganin) (compound)
 
 ## Longevity
 - Signals: longevity, aging, nad, sirtuin, mitochondrial, cellular health
-- Pages: 151
+- Pages: 147
 - [Fisetin vs Nad Plus](/compare/fisetin-vs-nad-plus) (guide)
 - [Fisetin vs Nadh](/compare/fisetin-vs-nadh) (guide)
 - [Nad Plus vs Nadh](/compare/nad-plus-vs-nadh) (guide)
@@ -356,11 +356,13 @@ Priority clusters used by the internal link engine.
 
 ## Inflammation
 - Signals: inflammation, anti-inflammatory, nf-kb, cox, oxidative, immune
-- Pages: 533
+- Pages: 512
 - [Ashwagandha Vs Magnesium For Sleep](/articles/ashwagandha-vs-magnesium-for-sleep) (article)
+- [Best Supplements for Sleep: Evidence-First Buyer Guide](/best-supplements-for-sleep) (static)
 - [Herb & Supplement Comparison Center ${SEO_YEAR} | The Hippie Scientist](/compare) (static)
 - [Alpha Lipoic Acid vs Fucoxanthin](/compare/alpha-lipoic-acid-vs-fucoxanthin) (guide)
 - [11-keto-beta-boswellic acid](/compounds/11-keto-beta-boswellic-acid) (compound)
+- [Acarbose](/compounds/acarbose) (compound)
 - [acemannan](/compounds/acemannan) (compound)
 - [acetyl-11-keto-beta-boswellic acid](/compounds/acetyl-11-keto-beta-boswellic-acid) (compound)
 - [acetyl-beta-boswellic acid](/compounds/acetyl-beta-boswellic-acid) (compound)
@@ -385,7 +387,6 @@ Priority clusters used by the internal link engine.
 - [artemisinin b](/compounds/artemisinin-b) (compound)
 - [artesunate](/compounds/artesunate) (compound)
 - [Artichoke Extract](/compounds/artichoke-extract) (compound)
-- [Ashitaba Angelica keiskei](/compounds/ashitaba) (compound)
 - [Ashwagandha KSM-66 extract](/compounds/ashwagandha-extract-ksm-66) (compound)
 - [asiatic acid](/compounds/asiatic-acid) (compound)
 - [asiaticoside](/compounds/asiaticoside) (compound)
@@ -396,11 +397,10 @@ Priority clusters used by the internal link engine.
 - [atractylenolide i](/compounds/atractylenolide-i) (compound)
 - [atractylenolide ii](/compounds/atractylenolide-ii) (compound)
 - [atractylenolide iii](/compounds/atractylenolide-iii) (compound)
-- [aucubin](/compounds/aucubin) (compound)
 
 ## Metabolic Health
 - Signals: metabolic, glucose, insulin, blood sugar, lipid, weight, berberine
-- Pages: 347
+- Pages: 336
 - [Best Magnesium Supplement For Adhd](/articles/best-magnesium-supplement-for-adhd) (article)
 - [Magnesium Glycinate Vs Citrate For Adhd](/articles/magnesium-glycinate-vs-citrate-for-adhd) (article)
 - [Magnesium Types For Sleep](/articles/magnesium-types-for-sleep) (article)
@@ -421,14 +421,12 @@ Priority clusters used by the internal link engine.
 - [aescin](/compounds/aescin) (compound)
 - [Aged Garlic Extract](/compounds/aged-garlic-extract) (compound)
 - [Alkylamides](/compounds/alkylamides) (compound)
-- [Aloe Vera](/compounds/aloe-vera) (compound)
 - [Alpha-GPC](/compounds/alpha-gpc) (compound)
 - [Alpha-Lipoic Acid](/compounds/alpha-lipoic-acid) (compound)
 - [American Ginseng Extract](/compounds/american-ginseng-extract) (compound)
 - [Arabinoxylan](/compounds/arabinoxylan) (compound)
 - [arjunolic acid](/compounds/arjunolic-acid) (compound)
 - [Artichoke Extract](/compounds/artichoke-extract) (compound)
-- [Ashitaba Angelica keiskei](/compounds/ashitaba) (compound)
 - [Ashitaba Extract](/compounds/ashitaba-extract) (compound)
 - [aspalathin](/compounds/aspalathin) (compound)
 - [Astaxanthin](/compounds/astaxanthin) (compound)
@@ -441,3 +439,5 @@ Priority clusters used by the internal link engine.
 - [Berberine](/compounds/berberine) (compound)
 - [Berberine](/compounds/berberine-hcl) (compound)
 - [Beta-glucans](/compounds/beta-glucans) (compound)
+- [Beta-sitosterol](/compounds/beta-sitosterol) (compound)
+- [betulinic acid](/compounds/betulinic-acid) (compound)

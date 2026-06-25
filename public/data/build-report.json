@@ -2,21 +2,21 @@
   "buildReportVersion": 1,
   "workbook": "herb_monograph_master.xlsx",
   "counts": {
-    "herbs": 287,
-    "compounds": 597,
-    "claims": 0,
+    "herbs": 290,
+    "compounds": 557,
+    "claims": 509,
     "herbCompoundMap": 396,
     "canonicalMechanisms": 53,
     "topics": 0,
     "pathways": 0,
     "supernodes": 0,
-    "sleepEvidenceClaims": 5,
-    "sleepSafetyNotes": 6,
-    "stressEvidenceClaims": 6,
-    "stressSafetyNotes": 8,
-    "focusEvidenceClaims": 7,
-    "focusSafetyNotes": 7,
-    "anxietyEvidenceClaims": 7,
-    "anxietySafetyNotes": 8
+    "sleepEvidenceClaims": 0,
+    "sleepSafetyNotes": 0,
+    "stressEvidenceClaims": 0,
+    "stressSafetyNotes": 0,
+    "focusEvidenceClaims": 0,
+    "focusSafetyNotes": 0,
+    "anxietyEvidenceClaims": 0,
+    "anxietySafetyNotes": 0
   }
 }

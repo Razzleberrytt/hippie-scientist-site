@@ -1,18 +1,82 @@
 {
   "reportVersion": 1,
   "canonicalMechanisms": 53,
-  "records": 884,
-  "fullyMappedRecords": 659,
-  "partiallyMappedRecords": 155,
-  "unmappedRecords": 69,
-  "noRawMechanismRecords": 1,
+  "records": 847,
+  "fullyMappedRecords": 91,
+  "partiallyMappedRecords": 702,
+  "unmappedRecords": 54,
+  "noRawMechanismRecords": 0,
   "unmappedMechanisms": [
     {
-      "term": "Neurotransmitter Modulation",
-      "count": 162
+      "term": "Oxidative Stress",
+      "count": 283
     },
     {
-      "term": "general phytochemical signaling",
+      "term": "Neurotransmitter Modulation",
+      "count": 157
+    },
+    {
+      "term": "Glucose Metabolism",
+      "count": 131
+    },
+    {
+      "term": "Nrf2",
+      "count": 111
+    },
+    {
+      "term": "AMPK",
+      "count": 109
+    },
+    {
+      "term": "Lipid Metabolism",
+      "count": 106
+    },
+    {
+      "term": "NF-kB",
+      "count": 80
+    },
+    {
+      "term": "Endothelial Function",
+      "count": 71
+    },
+    {
+      "term": "inflammatory",
+      "count": 63
+    },
+    {
+      "term": "neuroprotective",
+      "count": 45
+    },
+    {
+      "term": "metabolic",
+      "count": 40
+    },
+    {
+      "term": "Neurotransmitter Signaling",
+      "count": 39
+    },
+    {
+      "term": "endocrine",
+      "count": 23
+    },
+    {
+      "term": "cardiovascular",
+      "count": 12
+    },
+    {
+      "term": "mitochondrial",
+      "count": 12
+    },
+    {
+      "term": "liver_detoxification",
+      "count": 11
+    },
+    {
+      "term": "mTOR",
+      "count": 8
+    },
+    {
+      "term": "SIRT1",
       "count": 8
     },
     {
@@ -20,11 +84,27 @@
       "count": 7
     },
     {
+      "term": "gut_microbiome",
+      "count": 6
+    },
+    {
       "term": "SIRT1 Signaling",
       "count": 5
     },
     {
+      "term": "endocannabinoid",
+      "count": 4
+    },
+    {
+      "term": "Added as site-safe referenced entity during workbook readiness pass",
+      "count": 3
+    },
+    {
       "term": "aromatic support",
+      "count": 3
+    },
+    {
+      "term": "limited",
       "count": 3
     },
     {
@@ -36,7 +116,15 @@
       "count": 2
     },
     {
+      "term": "\"Provides caffeine",
+      "count": 1
+    },
+    {
       "term": "5-HT1A activity",
+      "count": 1
+    },
+    {
+      "term": "Acidifies gastric contents",
       "count": 1
     },
     {
@@ -45,14 +133,6 @@
     },
     {
       "term": "additional mechanisms (preclinical)",
-      "count": 1
-    },
-    {
-      "term": "adrenergic and serotonergic activity",
-      "count": 1
-    },
-    {
-      "term": "adrenergic and serotonergic activity under study",
       "count": 1
     },
     {
@@ -68,6 +148,10 @@
       "count": 1
     },
     {
+      "term": "and visceral sensitivity.",
+      "count": 1
+    },
+    {
       "term": "anthraquinone-related laxative effects (traditional/preclinical)",
       "count": 1
     },
@@ -80,7 +164,7 @@
       "count": 1
     },
     {
-      "term": "antispasmodic activity in GI tract",
+      "term": "Antispasmodic effect on GI smooth muscle.",
       "count": 1
     },
     {
@@ -88,7 +172,15 @@
       "count": 1
     },
     {
+      "term": "Autophagy",
+      "count": 1
+    },
+    {
       "term": "buffering intracellular pH.",
+      "count": 1
+    },
+    {
+      "term": "Buffers lactic acid and delays fatigue.",
       "count": 1
     },
     {
@@ -101,6 +193,10 @@
     },
     {
       "term": "carminative effects",
+      "count": 1
+    },
+    {
+      "term": "catecholaminergic",
       "count": 1
     },
     {
@@ -120,10 +216,6 @@
       "count": 1
     },
     {
-      "term": "CYP3A4-mediated conversion to 7-hydroxymitragynine",
-      "count": 1
-    },
-    {
       "term": "demulcent support",
       "count": 1
     },
@@ -133,6 +225,10 @@
     },
     {
       "term": "FAAH degradation",
+      "count": 1
+    },
+    {
+      "term": "Fermentable oligosaccharides selectively increase beneficial gut bacteria and SCFA production.",
       "count": 1
     },
     {
@@ -152,14 +248,6 @@
       "count": 1
     },
     {
-      "term": "higher potency than mitragynine preclinical",
-      "count": 1
-    },
-    {
-      "term": "increases gastric acidity",
-      "count": 1
-    },
-    {
       "term": "Increases muscle carnosine",
       "count": 1
     },
@@ -176,19 +264,11 @@
       "count": 1
     },
     {
-      "term": "intracellular pH buffering",
-      "count": 1
-    },
-    {
       "term": "limited pharmacological data",
       "count": 1
     },
     {
       "term": "lipases",
-      "count": 1
-    },
-    {
-      "term": "lowers gastric pH transiently",
       "count": 1
     },
     {
@@ -200,10 +280,6 @@
       "count": 1
     },
     {
-      "term": "mannose-mediated bacterial adhesion interference",
-      "count": 1
-    },
-    {
       "term": "mechanism unclear",
       "count": 1
     },
@@ -212,11 +288,15 @@
       "count": 1
     },
     {
-      "term": "mechanism-only.",
+      "term": "mechanism-only for digestion claims.",
       "count": 1
     },
     {
       "term": "methionine synthase cofactor",
+      "count": 1
+    },
+    {
+      "term": "Methyl donor supporting homocysteine remethylation.",
       "count": 1
     },
     {
@@ -225,10 +305,6 @@
     },
     {
       "term": "mild choleretic/diuretic effects (preclinical/traditional)",
-      "count": 1
-    },
-    {
-      "term": "mitragynine-dominant alkaloid mixture",
       "count": 1
     },
     {
@@ -248,23 +324,23 @@
       "count": 1
     },
     {
+      "term": "Multi-herb preparation may modulate gastric motility",
+      "count": 1
+    },
+    {
       "term": "myelin-related B12 physiology",
       "count": 1
     },
     {
-      "term": "no unified mechanism can be validated for a proprietary blend category",
+      "term": "neuromuscular",
+      "count": 1
+    },
+    {
+      "term": "no unified or validated pathway.",
       "count": 1
     },
     {
       "term": "osmotic fluid retention",
-      "count": 1
-    },
-    {
-      "term": "partial mu-opioid receptor activity",
-      "count": 1
-    },
-    {
-      "term": "partial mu-opioid receptor agonism",
       "count": 1
     },
     {
@@ -273,10 +349,6 @@
     },
     {
       "term": "PKC modulation",
-      "count": 1
-    },
-    {
-      "term": "potent mu-opioid receptor agonism",
       "count": 1
     },
     {
@@ -292,14 +364,6 @@
       "count": 1
     },
     {
-      "term": "Proanthocyanidins inhibit bacterial adhesion.",
-      "count": 1
-    },
-    {
-      "term": "proanthocyanidins reduce bacterial adhesion in urinary tract",
-      "count": 1
-    },
-    {
       "term": "Proposed arginase inhibition could theoretically increase arginine availability",
       "count": 1
     },
@@ -308,15 +372,7 @@
       "count": 1
     },
     {
-      "term": "Proposed CNS stimulant or libido effects are not clinically established",
-      "count": 1
-    },
-    {
       "term": "Provide substrates for muscle metabolism.",
-      "count": 1
-    },
-    {
-      "term": "Provides caffeine",
       "count": 1
     },
     {
@@ -324,15 +380,15 @@
       "count": 1
     },
     {
-      "term": "raises muscle carnosine",
-      "count": 1
-    },
-    {
       "term": "silica provision",
       "count": 1
     },
     {
-      "term": "smooth muscle calcium-channel effects",
+      "term": "sleep",
+      "count": 1
+    },
+    {
+      "term": "smooth-muscle tone",
       "count": 1
     },
     {
@@ -340,7 +396,11 @@
       "count": 1
     },
     {
-      "term": "trace or enriched 7-hydroxymitragynine depending on product",
+      "term": "Supports DNA synthesis and methylation.",
+      "count": 1
+    },
+    {
+      "term": "Systematic reviews show no consistent benefit for eczema",
       "count": 1
     },
     {
@@ -352,7 +412,7 @@
       "count": 1
     },
     {
-      "term": "variable and undisclosed",
+      "term": "Variable mechanisms depending on undisclosed ingredients",
       "count": 1
     },
     {

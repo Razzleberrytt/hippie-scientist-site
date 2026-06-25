@@ -6,9 +6,6 @@
     "label": "Acetylcholine modulation",
     "category": "neuro",
     "mechanism_class": "Receptor interaction",
-    "target_system": "nervous-system",
-    "directionality": "modulation",
-    "definition": "Modulates acetylcholine signaling through receptors, synthesis, release, or degradation.",
     "synonyms": [
       "Acetylcholine modulation",
       "cholinergic",
@@ -17,19 +14,7 @@
       "muscarinic modulation",
       "nicotinic modulation"
     ],
-    "related_effects": [
-      "Memory",
-      "Focus",
-      "Cognition"
-    ],
-    "related_compare_groups": [
-      "cognition",
-      "focus",
-      "memory"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "adaptogenic",
@@ -38,9 +23,6 @@
     "label": "Adaptogenic",
     "category": "core",
     "mechanism_class": "Physiological effect",
-    "target_system": "stress/neuroendocrine",
-    "directionality": "modulation",
-    "definition": "Supports stress adaptation through non-specific neuroendocrine or resilience-related pathways.",
     "synonyms": [
       "Adaptogenic",
       "adaptogen",
@@ -48,19 +30,7 @@
       "stress adaptation",
       "resilience support"
     ],
-    "related_effects": [
-      "Stress",
-      "Fatigue",
-      "Resilience"
-    ],
-    "related_compare_groups": [
-      "stress",
-      "energy",
-      "mood"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "adenosine-modulation",
@@ -69,9 +39,6 @@
     "label": "Adenosine modulation",
     "category": "neuro",
     "mechanism_class": "Receptor interaction",
-    "target_system": "nervous-system",
-    "directionality": "modulation",
-    "definition": "Modulates adenosine receptor signaling or adenosine-linked arousal pathways.",
     "synonyms": [
       "Adenosine modulation",
       "adenosinergic",
@@ -79,19 +46,7 @@
       "adenosine antagonist",
       "adenosine support"
     ],
-    "related_effects": [
-      "Energy",
-      "Sleep",
-      "Alertness"
-    ],
-    "related_compare_groups": [
-      "energy",
-      "sleep",
-      "focus"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "adrenergic-modulation",
@@ -100,9 +55,6 @@
     "label": "Adrenergic modulation",
     "category": "neuro-cardiometabolic",
     "mechanism_class": "Receptor interaction",
-    "target_system": "nervous-system/cardiovascular",
-    "directionality": "modulation",
-    "definition": "Modulates alpha or beta adrenergic receptor signaling.",
     "synonyms": [
       "Adrenergic modulation",
       "adrenergic",
@@ -112,19 +64,7 @@
       "beta blocker",
       "alpha agonist"
     ],
-    "related_effects": [
-      "Energy",
-      "Focus",
-      "Cardiovascular"
-    ],
-    "related_compare_groups": [
-      "energy",
-      "focus",
-      "cardiovascular"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "ampk-activation",
@@ -133,9 +73,6 @@
     "label": "AMPK activation",
     "category": "metabolic",
     "mechanism_class": "Signaling pathway modulation",
-    "target_system": "metabolic/mitochondrial",
-    "directionality": "activation",
-    "definition": "Activates AMPK signaling involved in cellular energy balance.",
     "synonyms": [
       "AMPK activation",
       "ampk upregulation",
@@ -143,19 +80,7 @@
       "cellular energy sensing",
       "AMPK Signaling"
     ],
-    "related_effects": [
-      "Metabolic health",
-      "Energy",
-      "Longevity"
-    ],
-    "related_compare_groups": [
-      "metabolic-health",
-      "mitochondrial-health",
-      "longevity"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "androgen-modulation",
@@ -164,9 +89,6 @@
     "label": "Androgen modulation",
     "category": "hormonal",
     "mechanism_class": "Hormonal receptor modulation",
-    "target_system": "endocrine/reproductive",
-    "directionality": "modulation",
-    "definition": "Modulates androgen signaling, androgen receptor activity, or androgen-linked pathways.",
     "synonyms": [
       "Androgen modulation",
       "androgenic",
@@ -174,17 +96,7 @@
       "testosterone support",
       "androgen receptor modulation"
     ],
-    "related_effects": [
-      "Hormonal health",
-      "Performance"
-    ],
-    "related_compare_groups": [
-      "hormonal-health",
-      "performance"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "anti-inflammatory",
@@ -193,9 +105,6 @@
     "label": "Anti-inflammatory",
     "category": "core",
     "mechanism_class": "Physiological effect",
-    "target_system": "immune/inflammatory",
-    "directionality": "downregulation",
-    "definition": "Reduces inflammatory signaling, mediators, or downstream inflammatory burden through one or more pathways.",
     "synonyms": [
       "Anti-inflammatory",
       "anti inflammatory",
@@ -206,19 +115,7 @@
       "Inflammatory Signaling Modulation",
       "inflammatory signaling"
     ],
-    "related_effects": [
-      "Inflammation",
-      "Pain",
-      "Recovery"
-    ],
-    "related_compare_groups": [
-      "inflammation",
-      "pain",
-      "joint-support"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "antioxidant",
@@ -227,9 +124,6 @@
     "label": "Antioxidant",
     "category": "core",
     "mechanism_class": "Physiological effect",
-    "target_system": "redox/mitochondrial",
-    "directionality": "downregulation",
-    "definition": "Reduces oxidative stress directly or indirectly through radical scavenging or endogenous antioxidant defenses.",
     "synonyms": [
       "Antioxidant",
       "oxidative stress support",
@@ -239,19 +133,7 @@
       "Oxidative Stress Modulation",
       "redox modulation"
     ],
-    "related_effects": [
-      "Oxidative stress",
-      "Recovery",
-      "Longevity"
-    ],
-    "related_compare_groups": [
-      "longevity",
-      "mitochondrial-health",
-      "recovery"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "anxiolytic",
@@ -260,9 +142,6 @@
     "label": "Anxiolytic",
     "category": "neuro",
     "mechanism_class": "Physiological effect",
-    "target_system": "nervous-system",
-    "directionality": "downregulation",
-    "definition": "Associated with reduced anxious arousal or calming effects in educational context.",
     "synonyms": [
       "Anxiolytic",
       "anxiety support",
@@ -270,19 +149,7 @@
       "calm support",
       "relaxation support"
     ],
-    "related_effects": [
-      "Stress",
-      "Sleep",
-      "Mood"
-    ],
-    "related_compare_groups": [
-      "sleep",
-      "stress",
-      "mood"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "autophagy-modulation",
@@ -291,26 +158,13 @@
     "label": "Autophagy modulation",
     "category": "longevity",
     "mechanism_class": "Cellular quality-control modulation",
-    "target_system": "cellular/longevity",
-    "directionality": "modulation",
-    "definition": "Modulates autophagy or cellular degradation/recycling pathways.",
     "synonyms": [
       "Autophagy modulation",
       "autophagy activation",
       "autophagy support",
       "cellular cleanup"
     ],
-    "related_effects": [
-      "Longevity",
-      "Cellular health"
-    ],
-    "related_compare_groups": [
-      "longevity",
-      "mitochondrial-health"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "bdnf-modulation",
@@ -319,28 +173,13 @@
     "label": "BDNF modulation",
     "category": "neuro",
     "mechanism_class": "Growth factor modulation",
-    "target_system": "nervous-system",
-    "directionality": "modulation",
-    "definition": "Modulates brain-derived neurotrophic factor or neurotrophic signaling.",
     "synonyms": [
       "BDNF modulation",
       "bdnf upregulation",
       "brain-derived neurotrophic factor",
       "neurotrophic support"
     ],
-    "related_effects": [
-      "Cognition",
-      "Mood",
-      "Neuroplasticity"
-    ],
-    "related_compare_groups": [
-      "cognition",
-      "mood",
-      "longevity"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "calcium-channel-modulation",
@@ -349,28 +188,13 @@
     "label": "Calcium-channel modulation",
     "category": "ion-channel",
     "mechanism_class": "Ion-channel modulation",
-    "target_system": "nervous-system/cardiovascular",
-    "directionality": "modulation",
-    "definition": "Modulates calcium channel activity.",
     "synonyms": [
       "Calcium-channel modulation",
       "calcium channel blocker",
       "calcium channel blockade",
       "voltage gated calcium channel"
     ],
-    "related_effects": [
-      "Cardiovascular",
-      "Relaxation",
-      "Pain"
-    ],
-    "related_compare_groups": [
-      "cardiovascular",
-      "pain",
-      "nervous-system"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "cellular-protection",
@@ -379,28 +203,13 @@
     "label": "Cellular protection",
     "category": "core",
     "mechanism_class": "Physiological effect",
-    "target_system": "cellular resilience",
-    "directionality": "support",
-    "definition": "Broad protection of cellular integrity or resilience without specifying a single pathway.",
     "synonyms": [
       "Cellular protection",
       "cell protection",
       "cytoprotective",
       "cytoprotection"
     ],
-    "related_effects": [
-      "Recovery",
-      "Longevity",
-      "Oxidative stress"
-    ],
-    "related_compare_groups": [
-      "longevity",
-      "recovery",
-      "mitochondrial-health"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "cholinesterase-inhibition",
@@ -409,9 +218,6 @@
     "label": "Cholinesterase inhibition",
     "category": "neuro",
     "mechanism_class": "Enzyme inhibition",
-    "target_system": "nervous-system",
-    "directionality": "inhibition",
-    "definition": "Inhibits acetylcholine breakdown enzymes such as acetylcholinesterase or butyrylcholinesterase.",
     "synonyms": [
       "Cholinesterase inhibition",
       "acetylcholinesterase inhibition",
@@ -419,17 +225,7 @@
       "butyrylcholinesterase inhibition",
       "bche inhibition"
     ],
-    "related_effects": [
-      "Memory",
-      "Cognition"
-    ],
-    "related_compare_groups": [
-      "cognition",
-      "memory"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "comt-modulation",
@@ -438,28 +234,13 @@
     "label": "COMT modulation",
     "category": "neuro",
     "mechanism_class": "Enzyme modulation",
-    "target_system": "nervous-system",
-    "directionality": "modulation",
-    "definition": "Modulates catechol-O-methyltransferase activity or catecholamine metabolism.",
     "synonyms": [
       "COMT modulation",
       "catechol-o-methyltransferase modulation",
       "comt inhibition",
       "catecholamine metabolism"
     ],
-    "related_effects": [
-      "Focus",
-      "Stress",
-      "Mood"
-    ],
-    "related_compare_groups": [
-      "focus",
-      "cognition",
-      "stress"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "cortisol-modulation",
@@ -468,28 +249,13 @@
     "label": "Cortisol modulation",
     "category": "stress",
     "mechanism_class": "Hormonal modulation",
-    "target_system": "endocrine/stress",
-    "directionality": "modulation",
-    "definition": "Modulates cortisol-related signaling, secretion patterns, or stress hormone response.",
     "synonyms": [
       "Cortisol modulation",
       "cortisol support",
       "cortisol regulation",
       "stress hormone regulation"
     ],
-    "related_effects": [
-      "Stress",
-      "Sleep",
-      "Energy"
-    ],
-    "related_compare_groups": [
-      "stress",
-      "sleep",
-      "energy"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "cox-inhibition",
@@ -498,9 +264,6 @@
     "label": "COX inhibition",
     "category": "inflammatory",
     "mechanism_class": "Enzyme inhibition",
-    "target_system": "immune/inflammatory",
-    "directionality": "inhibition",
-    "definition": "Inhibits cyclooxygenase enzymes involved in prostaglandin synthesis.",
     "synonyms": [
       "COX inhibition",
       "cyclooxygenase inhibition",
@@ -508,17 +271,7 @@
       "cox-2 inhibition",
       "prostaglandin synthesis inhibition"
     ],
-    "related_effects": [
-      "Inflammation",
-      "Pain"
-    ],
-    "related_compare_groups": [
-      "pain",
-      "inflammation"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "cytokine-modulation",
@@ -527,9 +280,6 @@
     "label": "Cytokine modulation",
     "category": "immune",
     "mechanism_class": "Immune signaling modulation",
-    "target_system": "immune/inflammatory",
-    "directionality": "modulation",
-    "definition": "Modulates cytokine production, signaling, or inflammatory messenger balance.",
     "synonyms": [
       "Cytokine modulation",
       "cytokine regulation",
@@ -537,17 +287,7 @@
       "il-6 modulation",
       "interleukin modulation"
     ],
-    "related_effects": [
-      "Inflammation",
-      "Immune function"
-    ],
-    "related_compare_groups": [
-      "inflammation",
-      "immune"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "dopamine-modulation",
@@ -556,9 +296,6 @@
     "label": "Dopamine modulation",
     "category": "neuro",
     "mechanism_class": "Receptor interaction",
-    "target_system": "nervous-system",
-    "directionality": "modulation",
-    "definition": "Modulates dopamine signaling, dopamine-linked receptors, dopamine precursors, release, reuptake, or turnover.",
     "synonyms": [
       "Dopamine modulation",
       "dopaminergic",
@@ -567,19 +304,7 @@
       "pro dopamine",
       "l-dopa activity"
     ],
-    "related_effects": [
-      "Focus",
-      "Motivation",
-      "Mood"
-    ],
-    "related_compare_groups": [
-      "focus",
-      "cognition",
-      "mood"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "endocannabinoid-modulation",
@@ -588,9 +313,6 @@
     "label": "Endocannabinoid modulation",
     "category": "neuro-immune",
     "mechanism_class": "Receptor interaction",
-    "target_system": "nervous-system/immune",
-    "directionality": "modulation",
-    "definition": "Modulates endocannabinoid tone, cannabinoid receptor signaling, or related lipid signaling.",
     "synonyms": [
       "Endocannabinoid modulation",
       "ecs support",
@@ -599,19 +321,7 @@
       "cb2 modulation",
       "cannabinoid receptor modulation"
     ],
-    "related_effects": [
-      "Pain",
-      "Mood",
-      "Inflammation"
-    ],
-    "related_compare_groups": [
-      "pain",
-      "mood",
-      "inflammation"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "estrogen-receptor-modulation",
@@ -620,9 +330,6 @@
     "label": "Estrogen receptor modulation",
     "category": "hormonal",
     "mechanism_class": "Hormonal receptor modulation",
-    "target_system": "endocrine/reproductive",
-    "directionality": "modulation",
-    "definition": "Modulates estrogen receptor signaling or estrogen-linked pathways.",
     "synonyms": [
       "Estrogen receptor modulation",
       "phytoestrogen",
@@ -631,17 +338,7 @@
       "estrogen receptor agonist",
       "estrogen receptor antagonist"
     ],
-    "related_effects": [
-      "Hormonal balance",
-      "Menopause"
-    ],
-    "related_compare_groups": [
-      "hormonal-health",
-      "menopause"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "gaba-modulation",
@@ -650,9 +347,6 @@
     "label": "GABA modulation",
     "category": "neuro",
     "mechanism_class": "Receptor interaction",
-    "target_system": "nervous-system",
-    "directionality": "modulation",
-    "definition": "Modulates gamma-aminobutyric acid signaling or receptor activity.",
     "synonyms": [
       "GABA modulation",
       "gabaergic",
@@ -660,19 +354,7 @@
       "gaba receptor modulation",
       "gaba-a modulation"
     ],
-    "related_effects": [
-      "Relaxation",
-      "Sleep",
-      "Stress"
-    ],
-    "related_compare_groups": [
-      "sleep",
-      "stress",
-      "calming"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "glucose-regulation",
@@ -681,9 +363,6 @@
     "label": "Glucose regulation",
     "category": "metabolic",
     "mechanism_class": "Metabolic modulation",
-    "target_system": "metabolic/endocrine",
-    "directionality": "modulation",
-    "definition": "Modulates glucose handling, glycemic response, insulin sensitivity, or glucose uptake.",
     "synonyms": [
       "Glucose regulation",
       "anti-hyperglycemic",
@@ -693,18 +372,7 @@
       "blood glucose support",
       "Glucose Metabolism Support"
     ],
-    "related_effects": [
-      "Blood sugar",
-      "Metabolic health"
-    ],
-    "related_compare_groups": [
-      "metabolic-health",
-      "glucose",
-      "weight"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "https://www.who.int/tools/atc-ddd-toolkit/atc-classification"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "glucose-uptake-modulation",
@@ -713,27 +381,13 @@
     "label": "Glucose uptake modulation",
     "category": "metabolic",
     "mechanism_class": "Metabolic modulation",
-    "target_system": "metabolic/cellular",
-    "directionality": "modulation",
-    "definition": "Modulates cellular glucose uptake or GLUT transporter activity.",
     "synonyms": [
       "Glucose uptake modulation",
       "glucose uptake",
       "glut4 translocation",
       "cellular glucose uptake"
     ],
-    "related_effects": [
-      "Blood sugar",
-      "Energy"
-    ],
-    "related_compare_groups": [
-      "metabolic-health",
-      "glucose",
-      "energy"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "glutamate-modulation",
@@ -742,9 +396,6 @@
     "label": "Glutamate modulation",
     "category": "neuro",
     "mechanism_class": "Receptor interaction",
-    "target_system": "nervous-system",
-    "directionality": "modulation",
-    "definition": "Modulates glutamate signaling, NMDA/AMPA receptor activity, or excitatory neurotransmission.",
     "synonyms": [
       "Glutamate modulation",
       "glutamatergic",
@@ -752,19 +403,7 @@
       "nmda modulation",
       "ampa modulation"
     ],
-    "related_effects": [
-      "Cognition",
-      "Neuroprotection",
-      "Mood"
-    ],
-    "related_compare_groups": [
-      "cognition",
-      "mood",
-      "neuroprotection"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "gut-microbiome-modulation",
@@ -773,9 +412,6 @@
     "label": "Gut microbiome modulation",
     "category": "gut",
     "mechanism_class": "Microbiome modulation",
-    "target_system": "gut/metabolic/immune",
-    "directionality": "modulation",
-    "definition": "Modulates gut microbial composition, activity, metabolites, or microbial ecology.",
     "synonyms": [
       "Gut microbiome modulation",
       "microbiome support",
@@ -783,19 +419,7 @@
       "gut flora modulation",
       "microbial diversity"
     ],
-    "related_effects": [
-      "Gut health",
-      "Immune function",
-      "Metabolic health"
-    ],
-    "related_compare_groups": [
-      "gut-health",
-      "immune",
-      "metabolic-health"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "histamine-modulation",
@@ -804,9 +428,6 @@
     "label": "Histamine modulation",
     "category": "immune-neuro",
     "mechanism_class": "Receptor interaction",
-    "target_system": "immune/nervous-system",
-    "directionality": "modulation",
-    "definition": "Modulates histamine receptor signaling or histamine-linked responses.",
     "synonyms": [
       "Histamine modulation",
       "antihistamine",
@@ -814,19 +435,7 @@
       "h1 modulation",
       "mast cell histamine"
     ],
-    "related_effects": [
-      "Allergy",
-      "Sleep",
-      "Inflammation"
-    ],
-    "related_compare_groups": [
-      "allergy",
-      "sleep",
-      "immune"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "hormonal-signaling-context",
@@ -835,28 +444,13 @@
     "label": "Hormonal signaling context",
     "category": "core",
     "mechanism_class": "Physiological effect",
-    "target_system": "endocrine",
-    "directionality": "modulation",
-    "definition": "Broad endocrine or hormonal signaling context where a specific receptor or axis is not yet supported.",
     "synonyms": [
       "Hormonal signaling context",
       "hormonal signaling",
       "endocrine modulation",
       "endocrine support"
     ],
-    "related_effects": [
-      "Hormonal context",
-      "Stress",
-      "Metabolism"
-    ],
-    "related_compare_groups": [
-      "endocrine",
-      "stress",
-      "metabolic-health"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "hpa-axis-modulation",
@@ -865,9 +459,6 @@
     "label": "HPA-axis modulation",
     "category": "stress",
     "mechanism_class": "Neuroendocrine modulation",
-    "target_system": "stress/neuroendocrine",
-    "directionality": "modulation",
-    "definition": "Modulates hypothalamic-pituitary-adrenal axis signaling or stress-hormone response patterns.",
     "synonyms": [
       "HPA-axis modulation",
       "hpa axis support",
@@ -876,19 +467,7 @@
       "neuroendocrine stress response",
       "Stress Response Modulation"
     ],
-    "related_effects": [
-      "Stress",
-      "Fatigue",
-      "Sleep"
-    ],
-    "related_compare_groups": [
-      "stress",
-      "energy",
-      "sleep"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "immune-modulation",
@@ -897,9 +476,6 @@
     "label": "Immune modulation",
     "category": "immune",
     "mechanism_class": "Physiological effect",
-    "target_system": "immune-system",
-    "directionality": "modulation",
-    "definition": "Modulates immune signaling or immune response patterns.",
     "synonyms": [
       "Immune modulation",
       "immunomodulatory",
@@ -908,17 +484,7 @@
       "immune balancing",
       "Immune Signaling Modulation"
     ],
-    "related_effects": [
-      "Immune function",
-      "Inflammation"
-    ],
-    "related_compare_groups": [
-      "immune",
-      "inflammation"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "insulin-sensitivity-modulation",
@@ -927,26 +493,13 @@
     "label": "Insulin sensitivity modulation",
     "category": "metabolic",
     "mechanism_class": "Metabolic modulation",
-    "target_system": "metabolic/endocrine",
-    "directionality": "modulation",
-    "definition": "Modulates insulin signaling or insulin sensitivity.",
     "synonyms": [
       "Insulin sensitivity modulation",
       "insulin sensitivity",
       "insulin signaling",
       "insulin resistance support"
     ],
-    "related_effects": [
-      "Blood sugar",
-      "Metabolic health"
-    ],
-    "related_compare_groups": [
-      "metabolic-health",
-      "glucose"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "https://www.who.int/tools/atc-ddd-toolkit/atc-classification"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "lipid-metabolism-support",
@@ -955,28 +508,13 @@
     "label": "Lipid metabolism support",
     "category": "core",
     "mechanism_class": "Physiological effect",
-    "target_system": "metabolic/cardiovascular",
-    "directionality": "modulation",
-    "definition": "Modulates lipid handling, lipid transport, or cholesterol/triglyceride-related metabolic context.",
     "synonyms": [
       "Lipid metabolism support",
       "cholesterol metabolism support",
       "lipid regulation",
       "fat metabolism support"
     ],
-    "related_effects": [
-      "Lipids",
-      "Cardiovascular support",
-      "Metabolism"
-    ],
-    "related_compare_groups": [
-      "cardiovascular",
-      "metabolic-health",
-      "longevity"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "lox-inhibition",
@@ -985,9 +523,6 @@
     "label": "LOX inhibition",
     "category": "inflammatory",
     "mechanism_class": "Enzyme inhibition",
-    "target_system": "immune/inflammatory",
-    "directionality": "inhibition",
-    "definition": "Inhibits lipoxygenase enzymes or leukotriene-linked inflammatory signaling.",
     "synonyms": [
       "LOX inhibition",
       "lipoxygenase inhibition",
@@ -995,19 +530,7 @@
       "5-lipoxygenase inhibition",
       "leukotriene modulation"
     ],
-    "related_effects": [
-      "Inflammation",
-      "Respiratory",
-      "Pain"
-    ],
-    "related_compare_groups": [
-      "inflammation",
-      "respiratory",
-      "pain"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "mao-inhibition",
@@ -1016,9 +539,6 @@
     "label": "MAO inhibition",
     "category": "neuro",
     "mechanism_class": "Enzyme inhibition",
-    "target_system": "nervous-system",
-    "directionality": "inhibition",
-    "definition": "Inhibits monoamine oxidase enzymes involved in monoamine neurotransmitter metabolism.",
     "synonyms": [
       "MAO inhibition",
       "maoi",
@@ -1027,19 +547,7 @@
       "monoamine oxidase inhibition",
       "mao inhibitor"
     ],
-    "related_effects": [
-      "Mood",
-      "Focus",
-      "Energy"
-    ],
-    "related_compare_groups": [
-      "mood",
-      "focus",
-      "energy"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "mast-cell-stabilization",
@@ -1048,27 +556,13 @@
     "label": "Mast-cell stabilization",
     "category": "immune",
     "mechanism_class": "Immune modulation",
-    "target_system": "immune/allergy",
-    "directionality": "downregulation",
-    "definition": "Modulates mast-cell activation or degranulation.",
     "synonyms": [
       "Mast-cell stabilization",
       "mast cell stabilization",
       "mast cell modulation",
       "degranulation inhibition"
     ],
-    "related_effects": [
-      "Allergy",
-      "Inflammation"
-    ],
-    "related_compare_groups": [
-      "allergy",
-      "immune",
-      "inflammation"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "melatonin-circadian-modulation",
@@ -1077,9 +571,6 @@
     "label": "Melatonin/circadian modulation",
     "category": "sleep",
     "mechanism_class": "Hormonal/circadian modulation",
-    "target_system": "sleep/endocrine",
-    "directionality": "modulation",
-    "definition": "Modulates melatonin signaling or circadian timing pathways.",
     "synonyms": [
       "Melatonin/circadian modulation",
       "melatonin support",
@@ -1088,17 +579,7 @@
       "sleep onset",
       "circadian rhythm"
     ],
-    "related_effects": [
-      "Sleep",
-      "Circadian rhythm"
-    ],
-    "related_compare_groups": [
-      "sleep",
-      "circadian"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "metabolic-regulation",
@@ -1107,28 +588,13 @@
     "label": "Metabolic regulation",
     "category": "core",
     "mechanism_class": "Physiological effect",
-    "target_system": "metabolic",
-    "directionality": "modulation",
-    "definition": "Broad modulation of metabolic signaling, energy handling, or nutrient processing when a more specific pathway is not established.",
     "synonyms": [
       "Metabolic regulation",
       "metabolic support",
       "metabolic signaling",
       "metabolic modulation"
     ],
-    "related_effects": [
-      "Metabolism",
-      "Energy",
-      "Blood sugar"
-    ],
-    "related_compare_groups": [
-      "metabolic-health",
-      "energy",
-      "longevity"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "mitochondrial-biogenesis",
@@ -1137,9 +603,6 @@
     "label": "Mitochondrial biogenesis",
     "category": "mitochondrial",
     "mechanism_class": "Physiological/cellular effect",
-    "target_system": "mitochondrial",
-    "directionality": "upregulation",
-    "definition": "Supports mitochondrial biogenesis or mitochondrial functional capacity.",
     "synonyms": [
       "Mitochondrial biogenesis",
       "mitochondrial support",
@@ -1149,19 +612,7 @@
       "energy metabolism",
       "cellular energy support"
     ],
-    "related_effects": [
-      "Energy",
-      "Longevity",
-      "Recovery"
-    ],
-    "related_compare_groups": [
-      "mitochondrial-health",
-      "energy",
-      "longevity"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "mtor-modulation",
@@ -1170,9 +621,6 @@
     "label": "mTOR modulation",
     "category": "metabolic",
     "mechanism_class": "Signaling pathway modulation",
-    "target_system": "metabolic/cellular-growth",
-    "directionality": "modulation",
-    "definition": "Modulates mTOR signaling involved in growth, nutrient sensing, and cellular metabolism.",
     "synonyms": [
       "mTOR modulation",
       "mtor inhibition",
@@ -1180,19 +628,7 @@
       "mechanistic target of rapamycin",
       "mTOR Signaling"
     ],
-    "related_effects": [
-      "Longevity",
-      "Metabolic health",
-      "Recovery"
-    ],
-    "related_compare_groups": [
-      "longevity",
-      "metabolic-health",
-      "recovery"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "neuroprotective-activity",
@@ -1201,28 +637,13 @@
     "label": "Neuroprotective activity",
     "category": "core",
     "mechanism_class": "Physiological effect",
-    "target_system": "nervous system",
-    "directionality": "support",
-    "definition": "Broad protection or support of neural tissue or neuronal resilience, usually requiring cautious evidence framing.",
     "synonyms": [
       "Neuroprotective activity",
       "neuroprotection",
       "neural protection",
       "neuronal protection"
     ],
-    "related_effects": [
-      "Cognition",
-      "Neuroprotection",
-      "Longevity"
-    ],
-    "related_compare_groups": [
-      "cognition",
-      "neuroprotection",
-      "longevity"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "nf-kb-inhibition",
@@ -1231,9 +652,6 @@
     "label": "NF-kB inhibition",
     "category": "inflammatory",
     "mechanism_class": "Signaling pathway modulation",
-    "target_system": "immune/inflammatory",
-    "directionality": "downregulation",
-    "definition": "Downregulates nuclear factor kappa B signaling or related pro-inflammatory transcription.",
     "synonyms": [
       "NF-kB inhibition",
       "nfkb inhibition",
@@ -1244,19 +662,7 @@
       "NF-kB Modulation",
       "NF kB modulation"
     ],
-    "related_effects": [
-      "Inflammation",
-      "Pain",
-      "Recovery"
-    ],
-    "related_compare_groups": [
-      "inflammation",
-      "pain",
-      "recovery"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "nitric-oxide-modulation",
@@ -1265,9 +671,6 @@
     "label": "Nitric oxide modulation",
     "category": "cardiovascular",
     "mechanism_class": "Signaling molecule modulation",
-    "target_system": "cardiovascular/endothelial",
-    "directionality": "modulation",
-    "definition": "Modulates nitric oxide signaling or endothelial vasodilation pathways.",
     "synonyms": [
       "Nitric oxide modulation",
       "no modulation",
@@ -1277,19 +680,7 @@
       "vasodilation support",
       "Endothelial Function Support"
     ],
-    "related_effects": [
-      "Circulation",
-      "Blood pressure",
-      "Exercise"
-    ],
-    "related_compare_groups": [
-      "cardiovascular",
-      "exercise",
-      "performance"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "nrf2-activation",
@@ -1298,9 +689,6 @@
     "label": "Nrf2 activation",
     "category": "redox",
     "mechanism_class": "Signaling pathway modulation",
-    "target_system": "redox/cellular-defense",
-    "directionality": "activation",
-    "definition": "Activates Nrf2-linked antioxidant response signaling.",
     "synonyms": [
       "Nrf2 activation",
       "nrf2 upregulation",
@@ -1308,19 +696,7 @@
       "antioxidant response element",
       "are activation"
     ],
-    "related_effects": [
-      "Oxidative stress",
-      "Longevity",
-      "Recovery"
-    ],
-    "related_compare_groups": [
-      "longevity",
-      "mitochondrial-health",
-      "recovery"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "opioid-receptor-modulation",
@@ -1329,9 +705,6 @@
     "label": "Opioid receptor modulation",
     "category": "neuro",
     "mechanism_class": "Receptor interaction",
-    "target_system": "nervous-system",
-    "directionality": "modulation",
-    "definition": "Modulates opioid receptor signaling or endogenous opioid pathways.",
     "synonyms": [
       "Opioid receptor modulation",
       "opioid modulation",
@@ -1340,17 +713,7 @@
       "delta opioid receptor",
       "opioidergic"
     ],
-    "related_effects": [
-      "Pain",
-      "Mood"
-    ],
-    "related_compare_groups": [
-      "pain",
-      "mood"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "orexin-modulation",
@@ -1359,28 +722,13 @@
     "label": "Orexin modulation",
     "category": "sleep-wake",
     "mechanism_class": "Neuropeptide modulation",
-    "target_system": "sleep/nervous-system",
-    "directionality": "modulation",
-    "definition": "Modulates orexin/hypocretin-linked arousal and wakefulness signaling.",
     "synonyms": [
       "Orexin modulation",
       "hypocretin modulation",
       "orexin support",
       "wakefulness signaling"
     ],
-    "related_effects": [
-      "Energy",
-      "Sleep",
-      "Alertness"
-    ],
-    "related_compare_groups": [
-      "energy",
-      "sleep",
-      "focus"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "pde-inhibition",
@@ -1389,9 +737,6 @@
     "label": "PDE inhibition",
     "category": "enzyme",
     "mechanism_class": "Enzyme inhibition",
-    "target_system": "cell-signaling/vascular",
-    "directionality": "inhibition",
-    "definition": "Inhibits phosphodiesterase enzymes involved in cyclic nucleotide signaling.",
     "synonyms": [
       "PDE inhibition",
       "phosphodiesterase inhibition",
@@ -1399,19 +744,7 @@
       "pde-5 inhibitor",
       "pde inhibitor"
     ],
-    "related_effects": [
-      "Circulation",
-      "Performance",
-      "Mood"
-    ],
-    "related_compare_groups": [
-      "cardiovascular",
-      "performance",
-      "cognition"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "potassium-channel-modulation",
@@ -1420,26 +753,13 @@
     "label": "Potassium-channel modulation",
     "category": "ion-channel",
     "mechanism_class": "Ion-channel modulation",
-    "target_system": "nervous-system/cardiovascular",
-    "directionality": "modulation",
-    "definition": "Modulates potassium channel activity.",
     "synonyms": [
       "Potassium-channel modulation",
       "potassium channel opener",
       "potassium channel blocker",
       "k channel modulation"
     ],
-    "related_effects": [
-      "Cardiovascular",
-      "Nerve signaling"
-    ],
-    "related_compare_groups": [
-      "cardiovascular",
-      "nervous-system"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "ppar-activation",
@@ -1448,9 +768,6 @@
     "label": "PPAR activation",
     "category": "metabolic",
     "mechanism_class": "Nuclear receptor modulation",
-    "target_system": "metabolic/endocrine",
-    "directionality": "activation",
-    "definition": "Activates or modulates peroxisome proliferator-activated receptor signaling.",
     "synonyms": [
       "PPAR activation",
       "ppar agonist",
@@ -1458,19 +775,7 @@
       "ppar-gamma activation",
       "peroxisome proliferator activated receptor"
     ],
-    "related_effects": [
-      "Metabolic health",
-      "Lipids",
-      "Inflammation"
-    ],
-    "related_compare_groups": [
-      "metabolic-health",
-      "inflammation",
-      "lipids"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "serotonin-modulation",
@@ -1479,9 +784,6 @@
     "label": "Serotonin modulation",
     "category": "neuro",
     "mechanism_class": "Receptor interaction",
-    "target_system": "nervous-system",
-    "directionality": "modulation",
-    "definition": "Modulates serotonin signaling, serotonin receptors, serotonin turnover, or serotonin-linked pathways.",
     "synonyms": [
       "Serotonin modulation",
       "serotonergic",
@@ -1490,19 +792,7 @@
       "5ht support",
       "serotonin signaling"
     ],
-    "related_effects": [
-      "Mood",
-      "Sleep",
-      "Stress"
-    ],
-    "related_compare_groups": [
-      "mood",
-      "sleep",
-      "stress"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "sodium-channel-modulation",
@@ -1511,27 +801,13 @@
     "label": "Sodium-channel modulation",
     "category": "ion-channel",
     "mechanism_class": "Ion-channel modulation",
-    "target_system": "nervous-system/cardiovascular",
-    "directionality": "modulation",
-    "definition": "Modulates sodium channel activity.",
     "synonyms": [
       "Sodium-channel modulation",
       "sodium channel blocker",
       "voltage gated sodium channel",
       "nav channel modulation"
     ],
-    "related_effects": [
-      "Pain",
-      "Nerve signaling",
-      "Cardiovascular"
-    ],
-    "related_compare_groups": [
-      "pain",
-      "nervous-system"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "https://en.wikipedia.org/wiki/Drug_class#Mechanism_of_action; https://ptcbtestprep.com/top-20-mechanisms-of-action/"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "thyroid-axis-modulation",
@@ -1540,9 +816,6 @@
     "label": "Thyroid-axis modulation",
     "category": "hormonal",
     "mechanism_class": "Hormonal modulation",
-    "target_system": "endocrine/thyroid",
-    "directionality": "modulation",
-    "definition": "Modulates thyroid hormone pathways or thyroid-axis signaling.",
     "synonyms": [
       "Thyroid-axis modulation",
       "thyroid support",
@@ -1550,17 +823,7 @@
       "t3 modulation",
       "t4 modulation"
     ],
-    "related_effects": [
-      "Energy",
-      "Metabolic health"
-    ],
-    "related_compare_groups": [
-      "energy",
-      "metabolic-health"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "trpv1-modulation",
@@ -1569,9 +832,6 @@
     "label": "TRPV1 modulation",
     "category": "ion-channel",
     "mechanism_class": "Ion-channel/receptor modulation",
-    "target_system": "sensory-nervous-system",
-    "directionality": "modulation",
-    "definition": "Modulates transient receptor potential vanilloid 1 signaling.",
     "synonyms": [
       "TRPV1 modulation",
       "trpv1 activation",
@@ -1579,17 +839,7 @@
       "capsaicin receptor",
       "vanilloid receptor"
     ],
-    "related_effects": [
-      "Pain",
-      "Thermogenesis"
-    ],
-    "related_compare_groups": [
-      "pain",
-      "metabolic-health"
-    ],
-    "confidence_status": "draft",
-    "review_status": "needs_review",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   },
   {
     "id": "vascular-function-support",
@@ -1598,27 +848,12 @@
     "label": "Vascular function support",
     "category": "core",
     "mechanism_class": "Physiological effect",
-    "target_system": "cardiovascular",
-    "directionality": "modulation",
-    "definition": "Broad support for vascular tone, circulation, endothelial signaling, or blood-flow related physiology.",
     "synonyms": [
       "Vascular function support",
       "circulatory support",
       "blood flow support",
       "vascular tone support"
     ],
-    "related_effects": [
-      "Circulation",
-      "Cardiovascular support",
-      "Exercise support"
-    ],
-    "related_compare_groups": [
-      "cardiovascular",
-      "circulation",
-      "exercise"
-    ],
-    "confidence_status": "curated",
-    "review_status": "active",
-    "source_basis": "Canonical Mechanism Taxonomy report, 2026-05-21"
+    "confidence_status": "active_needs_review"
   }
 ]
