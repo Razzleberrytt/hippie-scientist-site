@@ -8,7 +8,7 @@ interface Props {
 }
 
 const baseButtonClasses =
-  'inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/12 bg-transparent text-sm font-medium text-white/60 transition-all hover:bg-white/8 hover:text-white disabled:cursor-not-allowed disabled:opacity-40'
+  'inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border border-white/12 bg-transparent px-3 text-sm font-medium text-white/70 transition-all hover:bg-white/8 hover:text-white disabled:cursor-not-allowed disabled:opacity-40'
 
 const activePageClasses = 'border-[var(--accent-teal)]/40 bg-[var(--accent-teal)]/10 text-[var(--accent-teal)]'
 
@@ -31,7 +31,7 @@ const Pagination: React.FC<Props> = ({ currentPage, totalPages, onPageChange }) 
   const pages = getPages()
 
   return (
-    <div className='mx-auto mb-8 mt-4 flex flex-wrap items-center justify-center gap-2'>
+    <nav aria-label='Pagination' className='mx-auto mb-8 mt-4 flex flex-wrap items-center justify-center gap-2'>
       <button
         type='button'
         aria-label='Previous page'
@@ -39,7 +39,7 @@ const Pagination: React.FC<Props> = ({ currentPage, totalPages, onPageChange }) 
         onClick={() => onPageChange(currentPage - 1)}
         className={baseButtonClasses}
       >
-        <ChevronLeft size={16} />
+        <ChevronLeft aria-hidden='true' size={16} />
       </button>
 
       {pages.map((p, i) =>
@@ -58,7 +58,7 @@ const Pagination: React.FC<Props> = ({ currentPage, totalPages, onPageChange }) 
           <span
             key={`ellipsis-${i}`}
             aria-hidden='true'
-            className='inline-flex h-9 w-9 items-center justify-center text-sm font-medium text-white/40'
+            className='inline-flex min-h-11 min-w-11 items-center justify-center text-sm font-medium text-white/40'
           >
             {p}
           </span>
@@ -72,9 +72,9 @@ const Pagination: React.FC<Props> = ({ currentPage, totalPages, onPageChange }) 
         onClick={() => onPageChange(currentPage + 1)}
         className={baseButtonClasses}
       >
-        <ChevronRight size={16} />
+        <ChevronRight aria-hidden='true' size={16} />
       </button>
-    </div>
+    </nav>
   )
 }
 
