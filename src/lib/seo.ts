@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import { formatDisplayLabel, list } from '@/lib/display-utils'
 import { getEvidenceLabel } from '@/lib/evidence'
 import { SITE_URL, SITE_NAME } from './site'
@@ -1022,7 +1021,6 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
   const path = `/${type === 'herb' ? 'herbs' : 'compounds'}/${record.slug}`
   const meta = buildMeta({ title, description, path })
 
-  const visibility = getRuntimeVisibility(record)
   const indexDecision = shouldIndexRoute(path, record)
 
   return buildPageMetadata({
@@ -1031,7 +1029,7 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
     path,
     image: `/og/${type === 'herb' ? 'herbs' : 'compounds'}/${record.slug}.png`,
     openGraphType: 'article',
-    robots: visibility.canIndex && indexDecision.index
+    robots: indexDecision.index
       ? undefined
       : {
           index: false,
