@@ -83,13 +83,13 @@ const steps = [
   {
     name: 'build-route-manifest',
     cmd: 'node scripts/data/build-route-manifest.mjs --data-dir=public/data',
-    inputs: ['public/data/**/*', 'src/**/*.{ts,tsx}'],
+    inputs: ['public/data/**/*', 'app/**/*.{ts,tsx}', 'src/**/*.{ts,tsx}'],
     outputs: ['public/data/route-manifest.json'],
   },
   {
     name: 'build-internal-link-engine',
     cmd: 'node scripts/data/build-internal-link-engine.mjs --data-dir=public/data',
-    inputs: ['public/data/**/*', 'app/**/*.{ts,tsx}', 'data/goals.ts'],
+    inputs: ['public/data/**/*', 'app/**/*.{ts,tsx}', 'components/**/*.{ts,tsx}', 'data/goals.ts'],
     outputs: ['public/data/runtime-maps/internal-link-map.json', 'public/data/runtime-maps/topic-clusters.json', 'docs/internal-link-map.md', 'docs/topic-clusters.md', 'docs/pages-needing-links.md'],
   },
   {
@@ -113,7 +113,19 @@ const steps = [
   {
     name: 'build-production',
     cmd: 'node scripts/build-production.mjs',
-    inputs: ['src/**/*', 'public/data/**/*', 'pages/**/*', 'app/**/*'],
+    inputs: [
+      'app/**/*',
+      'components/**/*',
+      'src/**/*',
+      'lib/**/*',
+      'styles/**/*',
+      'public/data/**/*',
+      'data/**/*.{ts,json}',
+      'next.config.*',
+      'postcss.config.*',
+      'tailwind.config.*',
+      'package.json',
+    ],
     outputs: ['out/**/*', '.next/**/*'],
   },
   {
