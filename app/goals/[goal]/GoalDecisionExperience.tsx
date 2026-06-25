@@ -8,6 +8,7 @@ import { getGoalFreshness } from '@/lib/freshness'
 import type { GoalContentExtension } from '@/data/goal-content'
 import type { EmailCaptureGoal } from '@/content/emailCapture'
 import GoalHubSections from '../../../src/components/goals/GoalHubSections'
+import GoalContentDepth from '../../../src/components/goals/GoalContentDepth'
 import GoalStartHereLinks from '@/components/goals/GoalStartHereLinks'
 import type { GoalStartHereLink } from '@/lib/goal-start-here-links'
 import type { getGoalHubLinks } from '../../../src/lib/goal-hub-links'
@@ -266,11 +267,18 @@ export default function GoalDecisionExperience({
 
       {goal.slug === 'focus' ? <SeeAlsoInCluster currentPath="/goals/focus" /> : null}
 
-      {isEducationOnly ? null : <GoalTopAffiliatePicks goal={captureGoal} />}
+      <GoalTopAffiliatePicks goalSlug={goal.slug} limit={2} suppressMonetization={isEducationOnly} />
 
       {isEducationOnly ? null : <SafetyChecklistPromo goal={captureGoal} />}
 
-      {hubLinks ? <GoalHubSections goal={goal} hubLinks={hubLinks} /> : null}
+      {hubLinks ? (
+        <GoalHubSections
+          goalSlug={goal.slug}
+          stack={hubLinks.stack}
+          compares={hubLinks.compares}
+          seoEntry={hubLinks.seoEntry}
+        />
+      ) : null}
 
       {goalContent ? <GoalContentDepth content={goalContent} /> : null}
 
