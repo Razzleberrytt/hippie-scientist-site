@@ -204,29 +204,30 @@ export default function GoalDecisionExperience({
           <p className="eyebrow-label">Compare the main options</p>
           <h2 className="mt-2 text-2xl font-semibold text-ink">Shortlist before you read deeper</h2>
           <p className="mt-3 text-sm leading-7 text-muted">
-            The table keeps the practical decision points visible: fit, timing, form quality, evidence, and caution level.
+            The table keeps the practical comparison points visible: fit, timing, form quality, evidence, and caution level.
           </p>
         </div>
         <div className="mt-6 overflow-x-auto rounded-2xl border border-brand-900/10 bg-white/55 dark:border-white/10 dark:bg-white/5">
-          <table className="min-w-[780px] border-collapse text-left text-sm lg:min-w-full">
+          <table className="min-w-[780px] w-max border-collapse text-left text-sm lg:min-w-full lg:w-full">
+            <caption className="sr-only">{goalDisplayTitle} comparison table</caption>
             <thead>
               <tr className="border-b border-brand-900/10 dark:border-white/10">
-                <th className="py-3 pl-4 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Option</th>
-                <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Best fit</th>
-                <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Timing</th>
-                <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Form to check</th>
-                <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Evidence</th>
-                <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Caution</th>
+                <th scope="col" className="py-3 pl-4 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Option</th>
+                <th scope="col" className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Best fit</th>
+                <th scope="col" className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Timing</th>
+                <th scope="col" className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Form to check</th>
+                <th scope="col" className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Evidence</th>
+                <th scope="col" className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink">Caution</th>
               </tr>
             </thead>
             <tbody>
               {comparisonOptions.map(({ option, profileHref, evidenceLabel, safetyLabel }) => (
                 <tr key={option.slug} className="border-b border-brand-900/5 align-top last:border-0 dark:border-white/10">
-                  <td className="py-3 pl-4 pr-4 font-semibold text-ink">
+                  <th scope="row" className="py-3 pl-4 pr-4 text-left font-semibold text-ink">
                     <Link href={profileHref || `/compounds/${option.slug}`} className="text-brand-800 transition hover:text-brand-700 hover:underline dark:text-brand-100 dark:hover:text-white">
                       {option.name}
                     </Link>
-                  </td>
+                  </th>
                   <td className="py-3 pr-4 text-muted">{option.bestFor}</td>
                   <td className="py-3 pr-4 text-muted">{option.speed}</td>
                   <td className="py-3 pr-4 text-muted">{option.form}</td>
