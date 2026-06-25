@@ -22,6 +22,7 @@ import '@/styles/herb-profile-polish.css'
 import '@/styles/compact-hero-typography.css'
 import '@/styles/resonant-theme-lighting.css'
 import '@/styles/premium-surface-details.css'
+import '@/styles/accessibility-wcag-22.css'
 
 const ga4Id = process.env.NEXT_PUBLIC_GA4_ID?.trim() || ''
 
@@ -96,10 +97,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         />
         <NavigationSchema />
         <BreadcrumbSchema />
-        <a
-          href='#main-content'
-          className='sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-ink focus:shadow-lg'
-        >
+        <a href='#main-content' className='skip-link'>
           Skip to main content
         </a>
         <DarkModeProvider>
@@ -113,6 +111,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <main
             id='main-content'
             className='pb-[calc(env(safe-area-inset-bottom)+9rem)] md:pb-8'
+            tabIndex={-1}
           >
             {children}
           </main>
