@@ -147,7 +147,7 @@ main th[scope='row'] {
 
 /* WCAG 1.4.11 Non-text Contrast: strengthen state boundaries and controls. */
 :where(input, select, textarea, button, summary) {
-  border-width: max(1px, currentColor * 0);
+  border-style: solid;
 }
 
 [aria-current='page'] {
