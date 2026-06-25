@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import ResponsiveTable from '@/components/ui/ResponsiveTable'
 
 export interface ComparisonRow {
   attribute?: string
@@ -33,6 +34,7 @@ export function ComparisonTable({
   const tableHeaders = headersIncludeLabel ? headers : ['Comparison', ...headers]
   const valueHeaders = headersIncludeLabel ? headers.slice(1) : headers
   const accessibleLabel = title || caption || 'Comparison table'
+  const tableCaption = caption || accessibleLabel
 
   return (
     <div className={`space-y-3 ${className}`}>
@@ -42,17 +44,9 @@ export function ComparisonTable({
         </h3>
       ) : null}
 
-      <div
-        role="region"
-        aria-label={accessibleLabel}
-        className="hidden overflow-x-auto rounded-xl border border-brand-900/10 bg-white/90 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-700/30 dark:bg-[var(--surface-card)] sm:block"
-      >
+      <ResponsiveTable label={accessibleLabel} className="hidden sm:block">
         <table className="min-w-[680px] w-full text-sm">
-          {caption && (
-            <caption className="px-4 py-2 text-left text-xs italic text-muted">
-              {caption}
-            </caption>
-          )}
+          <caption>{tableCaption}</caption>
           <thead>
             <tr className="border-b border-brand-900/10 bg-brand-50/50 dark:bg-brand-100/40">
               {tableHeaders.map((header, index) => (
@@ -84,7 +78,7 @@ export function ComparisonTable({
             ))}
           </tbody>
         </table>
-      </div>
+      </ResponsiveTable>
 
       <div className="grid gap-3 sm:hidden">
         {normalizedRows.map((row, rowIndex) => (
