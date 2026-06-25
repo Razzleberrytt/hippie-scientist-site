@@ -4,6 +4,13 @@ const SITE_URL = 'https://thehippiescientist.net'
 const SITE_NAME = 'The Hippie Scientist'
 const DEFAULT_AUTHOR = 'Will Thomas'
 
+const FAQ_FALLBACK_ANSWER_PREFIXES = [
+  'See dosing guidelines and product labeling.',
+  'Review personal medications, pregnancy status, chronic conditions, and clinician guidance before use.',
+  'Review medications, pregnancy status, chronic conditions, and clinician guidance before use.',
+  'See the page evidence section',
+]
+
 export interface FAQItem {
   question: string
   answer: string
@@ -26,6 +33,17 @@ export interface StructuredDataProps {
   zone?: 'monetized' | 'harm-reduction'
 }
 
+function isMeaningfulFaq(faq: FAQItem): boolean {
+  const question = String(faq.question || '').trim()
+  const answer = String(faq.answer || '').trim()
+  if (question.length < 12 || answer.length <= 50) return false
+
+  const lowerAnswer = answer.toLowerCase()
+  return !FAQ_FALLBACK_ANSWER_PREFIXES.some((fallback) =>
+    lowerAnswer.startsWith(fallback.toLowerCase().slice(0, 40)),
+  )
+}
+
 export default function StructuredData({
   pageUrl,
   headline,
@@ -40,6 +58,7 @@ export default function StructuredData({
   const schemas: Record<string, unknown>[] = []
 
   const isMonetized = zone === 'monetized'
+  const meaningfulFaqs = faqs?.filter(isMeaningfulFaq) ?? []
 
   if (isMonetized) {
     schemas.push({
@@ -111,11 +130,11 @@ export default function StructuredData({
     })
   }
 
-  if (faqs && faqs.length > 0) {
+  if (meaningfulFaqs.length > 0) {
     schemas.push({
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
-      mainEntity: faqs.map((faq) => ({
+      mainEntity: meaningfulFaqs.map((faq) => ({
         '@type': 'Question',
         name: faq.question,
         acceptedAnswer: {
