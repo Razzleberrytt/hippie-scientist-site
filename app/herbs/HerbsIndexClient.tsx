@@ -153,8 +153,8 @@ function getBestFor(item: RuntimeRecord) {
 function scoreHerb(item: RuntimeRecord) {
   let score = 0
 
-  const quality = text(item?.profile_status || item?.summary_quality || item?.safety?.confidence).toLowerCase()
-  const evidence = text(item?.evidence_tier || item?.evidence_grade || item?.evidenceLevel).toLowerCase()
+  const quality = text(item?.profile_status || item.summary_quality || item.safety?.confidence).toLowerCase()
+  const evidence = text(item?.evidence_tier || item.evidence_grade || item.evidenceLevel).toLowerCase()
 
   if (/complete|strong|high|ready/.test(quality)) score += 5
   if (/strong|human|clinical|high/.test(evidence)) score += 4
@@ -360,7 +360,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
         <section className="hero-shell relative overflow-hidden rounded-[0.95rem] border border-brand-900/10 px-3 py-4 shadow-sm sm:px-4 sm:py-5">
           <div className="relative grid gap-3 lg:grid-cols-[1.05fr_.95fr] lg:items-end">
             <div className="max-w-3xl space-y-2">
-              <p className="eyebrow-label">Botanical decision library</p>
+              <p className="eyebrow-label">Botanical research library</p>
               <h2 className="max-w-[18ch] text-balance font-display text-2xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-4xl">
                 Herbal research library
               </h2>
@@ -384,7 +384,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
           <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl space-y-1.5">
               <p className="eyebrow-label">Search and filter</p>
-              <h2 id="herb-search-heading" className="compact-heading">Start with the decision you need to make.</h2>
+              <h2 id="herb-search-heading" className="compact-heading">Start with the question you need answered.</h2>
             </div>
             <Link href="/goals" className="w-fit text-sm font-bold text-brand-800 transition hover:text-brand-900">Browse all goals →</Link>
           </div>
