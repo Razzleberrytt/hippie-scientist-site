@@ -36,7 +36,7 @@ export default function MobileBottomNav() {
   const pathname = usePathname() || '/'
 
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-[90] border-t border-brand-900/15 bg-white/94 shadow-[0_-10px_28px_rgba(16,32,24,0.10)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/88 dark:border-[var(--border-strong)] dark:bg-[rgba(28,52,41,0.92)] dark:shadow-[0_-10px_28px_rgba(0,0,0,0.30)] dark:supports-[backdrop-filter]:bg-[rgba(28,52,41,0.86)] md:hidden">
+    <nav aria-label="Primary mobile navigation" className="mobile-bottom-nav fixed inset-x-0 bottom-0 z-[90] border-t border-brand-900/15 bg-white/94 shadow-[0_-10px_28px_rgba(16,32,24,0.10)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/88 dark:border-[var(--border-strong)] dark:bg-[rgba(28,52,41,0.92)] dark:shadow-[0_-10px_28px_rgba(0,0,0,0.30)] dark:supports-[backdrop-filter]:bg-[rgba(28,52,41,0.86)] md:hidden">
       <div className="mx-auto flex max-w-2xl items-stretch gap-1 px-2 pb-[calc(env(safe-area-inset-bottom)+0.45rem)] pt-1.5">
         {navItems.map((item) => {
           const active = pathname === item.href || pathname?.startsWith(`${item.href}/`)
