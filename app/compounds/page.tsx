@@ -30,7 +30,7 @@ export default async function CompoundsPage() {
     <div className="mx-auto max-w-6xl space-y-6 px-4 py-6 sm:py-8">
       {/* Hero */}
       <section className="hero-shell rounded-[0.95rem] border border-brand-900/10 px-4 py-5 shadow-sm sm:px-6 sm:py-6">
-        <p className="eyebrow-label">Compound decision library</p>
+        <p className="eyebrow-label">Compound research library</p>
         <h1 className="mt-2 max-w-3xl font-display text-3xl font-semibold tracking-tight text-ink sm:text-5xl">
           Compound Library
         </h1>
