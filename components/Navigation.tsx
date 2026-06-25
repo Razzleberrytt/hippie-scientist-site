@@ -86,12 +86,12 @@ export function Navigation() {
             <button
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="inline-flex items-center justify-center rounded-md p-2 text-ink/70 transition hover:bg-brand-50 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)] md:hidden"
+              className="inline-flex items-center justify-center rounded-md p-2 text-ink/70 transition hover:bg-brand-50 hover:text-ink focus-visible:outline-none dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)] md:hidden"
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav"
             >
-              {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {mobileOpen ? <X aria-hidden="true" className="h-5 w-5" /> : <Menu aria-hidden="true" className="h-5 w-5" />}
             </button>
           </div>
         </div>
@@ -108,7 +108,12 @@ export function Navigation() {
           />
 
           {/* Slide-in panel */}
-          <div className="fixed inset-y-0 right-0 z-50 w-72 overflow-y-auto border-l border-brand-900/10 bg-white px-4 py-6 shadow-xl dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)]">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation menu"
+            className="fixed inset-y-0 right-0 z-50 w-72 overflow-y-auto border-l border-brand-900/10 bg-white px-4 py-6 shadow-xl dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)]"
+          >
             <div className="mb-6 flex items-center justify-between">
               <Link href="/" onClick={closeMobile} className="font-display text-lg font-semibold text-ink">
                 The Hippie Scientist
@@ -119,11 +124,11 @@ export function Navigation() {
                 className="rounded p-2 text-ink/70 hover:bg-brand-50 dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]"
                 aria-label="Close menu"
               >
-                <X className="h-5 w-5" />
+                <X aria-hidden="true" className="h-5 w-5" />
               </button>
             </div>
 
-            <nav className="flex flex-col gap-1 text-base">
+            <nav className="flex flex-col gap-1 text-base" aria-label="Mobile primary links">
               {primaryLinks.map((link) => (
                 <Link
                   key={link.href}
