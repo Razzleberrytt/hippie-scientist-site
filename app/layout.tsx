@@ -19,6 +19,7 @@ import './globals.css'
 import '@/styles/foundation-readability.css'
 import '@/styles/premium-library-polish.css'
 import '@/styles/herb-profile-polish.css'
+import '@/styles/compact-hero-typography.css'
 
 const ga4Id = process.env.NEXT_PUBLIC_GA4_ID?.trim() || ''
 
