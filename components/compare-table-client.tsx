@@ -142,7 +142,6 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
                   setShowDropdown(true)
                 }}
                 onFocus={() => setShowDropdown(true)}
-                aria-autocomplete="list"
                 aria-controls={SEARCH_RESULTS_ID}
                 aria-expanded={showDropdown && Boolean(searchQuery)}
                 placeholder="Type to search (e.g. Rhodiola, Kanna)..."
@@ -165,7 +164,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
 
             {/* Search Results Dropdown */}
             {showDropdown && filteredCompounds.length > 0 && (
-              <div id={SEARCH_RESULTS_ID} role="listbox" aria-label="Compound search results" className="absolute left-0 right-0 z-10 mt-1.5 max-h-60 overflow-y-auto rounded-2xl border border-brand-900/10 bg-white py-2 shadow-lg dark:bg-[var(--surface-card-strong)]">
+              <div id={SEARCH_RESULTS_ID} aria-label="Compound search results" className="absolute left-0 right-0 z-10 mt-1.5 max-h-60 overflow-y-auto rounded-2xl border border-brand-900/10 bg-white py-2 shadow-lg dark:bg-[var(--surface-card-strong)]">
                 {filteredCompounds.map((c) => {
                   const isSelected = selectedSlugs.includes(String(c.slug || '').toLowerCase())
                   return (
@@ -178,8 +177,6 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
                         setShowDropdown(false)
                       }}
                       aria-pressed={isSelected}
-                      role="option"
-                      aria-selected={isSelected}
                       className="flex min-h-11 w-full items-center justify-between px-4 py-2 text-left text-sm text-ink transition hover:bg-brand-50 dark:hover:bg-white/10"
                     >
                       <span>{c.name || c.slug}</span>
