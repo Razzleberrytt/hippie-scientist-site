@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import type { ReactNode } from 'react'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/navigation-config'
+import { PremiumCallout, PremiumCard, PremiumHero, PremiumLinkCard, PremiumSectionHeader } from '@/components/ui/PremiumVisual'
 
 export const metadata: Metadata = {
   title: 'Supplement Guides — Practical Choosing Guides',
@@ -141,29 +141,17 @@ function GuidesCollectionJsonLd() {
   )
 }
 
-function LibraryCard({ children, className = '' }: { children: ReactNode; className?: string }) {
-  return (
-    <div className={`card-premium p-5 sm:p-6 ${className}`}>
-      {children}
-    </div>
-  )
-}
-
 export default function GuidesPage() {
   return (
     <div className="library-index-page mx-auto max-w-6xl space-y-8 px-4 py-6 sm:space-y-10 sm:px-6 sm:py-12 lg:px-8">
       <GuidesCollectionJsonLd />
 
-      <section className="hero-shell rounded-[1.25rem] border border-brand-900/10 p-5 shadow-card sm:rounded-[2rem] sm:p-10 dark:border-white/10">
-        <p className="eyebrow-label">Main guide library</p>
-        <h1 className="mt-3 max-w-4xl font-display text-3xl font-semibold tracking-tight text-ink sm:text-5xl">
-          Practical supplement guides for choosing what fits.
-        </h1>
-        <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
-          Use this page when you already know the problem and want a practical next read. Guides help you compare options,
-          check safety tradeoffs, and avoid turning every supplement question into a rabbit hole.
-        </p>
-        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+      <PremiumHero
+        eyebrow="Main guide library"
+        title="Practical supplement guides for choosing what fits."
+        description="Use this page when you already know the problem and want a practical next read. Guides help you compare options, check safety tradeoffs, and avoid turning every supplement question into a rabbit hole."
+      >
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           {LIBRARY_MAP.map((item) => (
             <Link
               key={item.href}
@@ -175,20 +163,18 @@ export default function GuidesPage() {
             </Link>
           ))}
         </div>
-      </section>
+      </PremiumHero>
 
       <section className="space-y-4">
-        <div className="library-section-header">
-          <p className="eyebrow-label">Start by goal</p>
-          <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Choose the problem first.</h2>
-          <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">
-            Goals are the decision pages. Guides are the deeper practical reads once you know the direction.
-          </p>
-        </div>
+        <PremiumSectionHeader
+          eyebrow="Start by goal"
+          title="Choose the problem first."
+          description="Goals are the decision pages. Guides are the deeper practical reads once you know the direction."
+        />
 
         <div className="grid gap-4 lg:grid-cols-2">
           {GOAL_GUIDES.map((goal) => (
-            <LibraryCard key={goal.slug}>
+            <PremiumCard key={goal.slug}>
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <p className="eyebrow-label">{goal.label}</p>
@@ -218,64 +204,57 @@ export default function GuidesPage() {
                   </Link>
                 ))}
               </div>
-            </LibraryCard>
+            </PremiumCard>
           ))}
         </div>
       </section>
 
       <section className="space-y-4">
-        <div className="library-section-header">
-          <p className="eyebrow-label">Compare</p>
-          <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Head-to-head choosing guides.</h2>
-          <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">
-            Use comparisons when you are deciding between two options and want mechanism, evidence, timing, and tradeoffs side by side.
-          </p>
-        </div>
+        <PremiumSectionHeader
+          eyebrow="Compare"
+          title="Head-to-head choosing guides."
+          description="Use comparisons when you are deciding between two options and want mechanism, evidence, timing, and tradeoffs side by side."
+        />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {COMPARISONS.map((comparison) => (
-            <Link
+            <PremiumLinkCard
               key={comparison.href}
               href={comparison.href}
-              className="library-content-card card-premium block p-5"
-            >
-              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700 dark:text-brand-200">Compare</p>
-              <h3 className="mt-2 text-base font-semibold tracking-tight text-ink">{comparison.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-muted">{comparison.subtitle}</p>
-            </Link>
+              eyebrow="Compare"
+              title={comparison.title}
+              description={comparison.subtitle}
+            />
           ))}
         </div>
       </section>
 
       <section className="space-y-4">
-        <div className="library-section-header">
-          <p className="eyebrow-label">Safety first</p>
-          <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Safety and harm-reduction guides.</h2>
-          <p className="mt-2 max-w-3xl text-sm leading-7 text-muted">
-            These pages are educational and conservative. They should not be mixed into buying-oriented recommendation flows.
-          </p>
-        </div>
+        <PremiumSectionHeader
+          eyebrow="Safety first"
+          title="Safety and harm-reduction guides."
+          description="These pages are educational and conservative. They should not be mixed into buying-oriented recommendation flows."
+        />
         <div className="grid gap-4 sm:grid-cols-2">
           {SAFETY_GUIDES.map((guide) => (
-            <Link
+            <PremiumLinkCard
               key={guide.href}
               href={guide.href}
-              className="library-content-card rounded-2xl border border-rose-700/15 bg-rose-50/70 p-5 shadow-sm transition hover:border-rose-700/25 hover:bg-rose-50 dark:border-rose-200/20 dark:bg-rose-950/25 dark:hover:bg-rose-950/35"
-            >
-              <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-rose-800 dark:text-rose-200">{guide.meta}</p>
-              <h3 className="mt-2 text-base font-semibold tracking-tight text-rose-950 dark:text-rose-50">{guide.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-rose-900 dark:text-rose-100/85">{guide.subtitle}</p>
-            </Link>
+              eyebrow={guide.meta}
+              title={guide.title}
+              description={guide.subtitle}
+              tone="safety"
+            />
           ))}
         </div>
       </section>
 
-      <section className="rounded-2xl border border-brand-900/10 bg-brand-50/70 p-5 text-sm leading-7 text-muted dark:border-white/10 dark:bg-white/5">
+      <PremiumCallout>
         Looking for deeper research notes, mechanisms, individual herb writeups, or education-heavy posts? Use the{' '}
         <Link href="/articles" className="font-bold text-brand-800 underline underline-offset-4 dark:text-brand-100">
           articles archive
         </Link>
         . This page stays focused on practical choosing guides.
-      </section>
+      </PremiumCallout>
     </div>
   )
 }
