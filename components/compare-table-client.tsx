@@ -5,6 +5,7 @@ import { useMemo, useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Search, X, Check } from 'lucide-react'
 import { EvidenceBadge } from '@/components/ui'
+import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import { formatDisplayLabel, isClean, list as cleanList, text as cleanText } from '@/lib/display-utils'
 
 type Compound = Record<string, any>
@@ -41,7 +42,6 @@ const POPULAR_SLUGS = [
 ]
 
 const SEARCH_RESULTS_ID = 'compound-search-results'
-const COMPARE_TABLE_HINT_ID = 'compound-comparison-table-hint'
 
 export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
   const searchParams = useSearchParams()
@@ -143,7 +143,6 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
                 }}
                 onFocus={() => setShowDropdown(true)}
                 aria-controls={SEARCH_RESULTS_ID}
-                aria-expanded={showDropdown && Boolean(searchQuery)}
                 placeholder="Type to search (e.g. Rhodiola, Kanna)..."
                 className="min-h-11 w-full rounded-full border border-brand-900/10 bg-white/80 py-2 pl-10 pr-12 text-sm text-ink placeholder:text-muted transition focus:border-brand-700"
               />
@@ -255,16 +254,11 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
 
       {/* Comparison Results */}
       {selectedCompounds.length >= 2 ? (
-        <div
-          role="region"
-          aria-label="Comparison matrix of selected compounds"
-          aria-describedby={COMPARE_TABLE_HINT_ID}
-          tabIndex={0}
-          className="accessible-table-region overflow-x-auto rounded-[1.65rem] border border-brand-900/10 bg-white shadow-sm dark:bg-[var(--surface-card-strong)]"
+        <ResponsiveTable
+          label="Comparison matrix of selected compounds"
+          hint="This comparison table scrolls horizontally on small screens. The first column lists metrics, and each following column represents a selected compound."
+          className="rounded-[1.65rem] bg-white dark:bg-[var(--surface-card-strong)]"
         >
-          <p id={COMPARE_TABLE_HINT_ID} className="sr-only">
-            This comparison table scrolls horizontally on small screens. The first column lists metrics, and each following column represents a selected compound.
-          </p>
           <table className="min-w-[720px] w-full border-collapse text-left text-sm">
             <caption>Selected compound comparison by metric</caption>
             <thead>
@@ -295,7 +289,7 @@ export function CompareTableClient({ compounds }: { compounds: Compound[] }) {
               ))}
             </tbody>
           </table>
-        </div>
+        </ResponsiveTable>
       ) : (
         <div className="card-premium space-y-4 p-10 text-center">
           <p className="text-lg font-medium text-ink">
