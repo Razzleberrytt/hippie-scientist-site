@@ -139,27 +139,27 @@ export default async function ComparePage() {
   })
 
   return (
-    <div className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10">
+    <div className="library-index-page mx-auto max-w-6xl space-y-7 px-4 py-7 sm:space-y-8 sm:py-10">
       <SchemaGraphScript graph={schemaGraph} />
-      <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+      <section className="hero-shell rounded-[1.5rem] border border-brand-900/10 p-5 shadow-sm sm:rounded-[2rem] sm:p-8">
         <p className="eyebrow-label">Evidence-informed comparison</p>
         <div className="mt-3 max-w-3xl space-y-4">
-          <h1 className="text-3xl font-bold tracking-tight text-ink sm:text-5xl">
+          <h1 className="heading-premium max-w-[12ch] text-ink sm:max-w-[16ch]">
             Herb &amp; Supplement Comparison Center
           </h1>
-          <p className="text-base leading-7 text-muted sm:text-lg">
+          <p className="text-sm leading-7 text-muted sm:text-lg sm:leading-8">
             Compare herbs and supplements by evidence strength, mechanism, stimulation profile, safety, and dosing. Each comparison page shows data-backed tradeoffs — not marketing claims.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
             <Link
               href="#featured-comparisons"
-              className="inline-flex items-center gap-2 rounded-full bg-brand-850 hover:bg-brand-900 px-5 py-2.5 text-sm font-bold text-white shadow transition motion-safe:hover:-translate-y-0.5 focus:outline-none"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white shadow transition motion-safe:hover:-translate-y-0.5 hover:bg-brand-900 focus:outline-none dark:bg-brand-200 dark:text-brand-950 dark:hover:bg-brand-100"
             >
               Browse comparisons
             </Link>
             <Link
               href="#comparison-table"
-              className="inline-flex items-center gap-2 rounded-full border border-brand-900/20 bg-white px-5 py-2.5 text-sm font-bold text-ink shadow-sm hover:bg-brand-50 transition focus:outline-none"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full border border-brand-900/20 bg-white px-5 py-2.5 text-sm font-bold text-ink shadow-sm transition hover:bg-brand-50 focus:outline-none dark:border-white/10 dark:bg-white/5 dark:text-brand-50 dark:hover:bg-white/10"
             >
               Open full table
             </Link>
@@ -169,7 +169,7 @@ export default async function ComparePage() {
 
       <section className="grid gap-4 md:grid-cols-3">
         {guidanceCards.map((card) => (
-          <article key={card.title} className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
+          <article key={card.title} className="card-premium p-5">
             <h2 className="text-base font-semibold text-ink">{card.title}</h2>
             <p className="mt-2 text-sm leading-6 text-muted">{card.body}</p>
           </article>
@@ -177,26 +177,26 @@ export default async function ComparePage() {
       </section>
 
       {/* Featured comparisons by category */}
-      <section id="featured-comparisons" className="space-y-8 scroll-mt-24">
-        <div>
+      <section id="featured-comparisons" className="space-y-7 scroll-mt-24">
+        <div className="library-section-header max-w-3xl">
           <p className="eyebrow-label">Browse by category</p>
-          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">Featured Comparisons</h2>
-          <p className="mt-2 text-sm leading-6 text-muted max-w-2xl">
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">Featured comparisons</h2>
+          <p className="mt-2 text-sm leading-6 text-muted">
             Each page covers evidence level, mechanisms, dosing, safety, and which fits your goal better.
           </p>
         </div>
         {FEATURED_CATEGORIES.map((cat) => (
-          <div key={cat.label}>
-            <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-brand-700">{cat.label}</h3>
+          <div key={cat.label} className="space-y-3">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-brand-700 dark:text-brand-200">{cat.label}</h3>
             <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {cat.pairs.map((pair) => (
                 <li key={pair.slug}>
                   <Link
                     href={`/compare/${pair.slug}`}
-                    className="block rounded-2xl border border-brand-900/10 bg-white/90 px-4 py-3 text-sm font-medium text-ink shadow-sm hover:border-brand-300 hover:shadow transition"
+                    className="library-content-card block rounded-2xl border border-brand-900/10 bg-white/90 px-4 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-brand-300 hover:shadow dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
                   >
-                    {pair.label}
-                    <span className="mt-0.5 block text-xs text-brand-700">Compare →</span>
+                    <span className="block truncate">{pair.label}</span>
+                    <span className="mt-1 block text-xs font-bold text-brand-700 dark:text-brand-100">Compare →</span>
                   </Link>
                 </li>
               ))}
@@ -205,46 +205,46 @@ export default async function ComparePage() {
         ))}
       </section>
 
-      <section className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
+      <section className="card-premium p-5">
         <h2 className="text-xl font-semibold text-ink">More comparison starting points</h2>
         <p className="mt-2 text-sm leading-6 text-muted">Flagship pages with the most detailed evidence breakdowns.</p>
-        <ul className="mt-3 grid gap-2 text-sm leading-6 text-muted sm:grid-cols-2">
+        <ul className="mt-4 grid gap-2 text-sm leading-6 text-muted sm:grid-cols-2">
           {popularComparisonPairs.map(pair => (
             <li key={pair.href}>
-              <a href={pair.href} className="hover:text-brand-800 hover:underline">{pair.label}</a>
+              <a href={pair.href} className="font-semibold text-brand-800 hover:underline dark:text-brand-100 dark:hover:text-white">{pair.label}</a>
             </li>
           ))}
         </ul>
       </section>
 
-      <section className="rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-sm leading-6 text-amber-950">
-        <p className="font-semibold">Use this cautiously.</p>
-        <p className="mt-1">
+      <section className="rounded-2xl border border-amber-600/25 bg-amber-50/80 p-5 text-sm leading-7 text-amber-950 shadow-sm dark:border-amber-200/25 dark:bg-amber-300/10 dark:text-amber-50">
+        <p className="font-semibold uppercase tracking-wide text-amber-900 dark:text-amber-100">Use this cautiously.</p>
+        <p className="mt-2 text-amber-950/90 dark:text-amber-50/90">
           This page is educational and does not replace medical advice. Evidence strength reflects research signal quality, not guaranteed outcomes, and individual response varies. Review medications, health conditions, pregnancy or nursing status, and clinician guidance before using supplements.
         </p>
       </section>
 
-      <section className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
+      <section className="card-premium p-5">
         <p className="eyebrow-label">Decision next step</p>
         <h2 className="mt-2 text-xl font-semibold text-ink">Use comparisons to choose a safer path</h2>
         <div className="mt-4 grid gap-3 text-sm leading-6 text-muted md:grid-cols-3">
-          <Link href="/goals" className="rounded-xl border border-brand-900/10 p-4 hover:bg-stone-50">
+          <Link href="/goals" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">
             Start from your goal
           </Link>
-          <Link href="/safety-checker" className="rounded-xl border border-brand-900/10 p-4 hover:bg-stone-50">
+          <Link href="/safety-checker" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">
             Check safety context
           </Link>
-          <Link href="/learn/product-quality" className="rounded-xl border border-brand-900/10 p-4 hover:bg-stone-50">
+          <Link href="/learn/product-quality" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">
             Review product quality
           </Link>
         </div>
       </section>
 
       <section id="comparison-table" className="space-y-4 scroll-mt-24">
-        <div>
+        <div className="library-section-header max-w-3xl">
           <p className="eyebrow-label">Comparison table</p>
           <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">Scan for fit, then read deeper</h2>
-          <p className="mt-2 max-w-3xl text-sm leading-6 text-muted">
+          <p className="mt-2 text-sm leading-6 text-muted">
             The table is meant to narrow options, not finalize a decision. Follow up by reading the individual compound pages, safety notes, and cited research context where available.
           </p>
         </div>
