@@ -1,13 +1,5 @@
 import ExcelJS from 'exceljs'
 
-const WORKBOOK_READ_OPTIONS = {
-  // The runtime exporters only need worksheet names, headers, and cell values.
-  // Excel table metadata is not part of the source-of-truth contract, and some
-  // workbooks can contain stale table relationships that make ExcelJS fail while
-  // hydrating worksheet.table models before any row data is available.
-  ignoreNodes: ['tableParts'],
-}
-
 function normalizeCellValue(cell) {
   const value = cell?.value
 
@@ -55,9 +47,81 @@ function worksheetToRows(worksheet) {
   return rows
 }
 
+function rawRowsToRecords(rawRows) {
+  const headerValues = rawRows[0] || []
+  const headers = headerValues.map((header) => String(header ?? '').trim())
+  const rows = []
+
+  for (const rawRow of rawRows.slice(1)) {
+    const values = headers.map((_, index) => rawRow[index] ?? '')
+    if (!rowHasValue(values)) continue
+
+    const record = {}
+    headers.forEach((header, index) => {
+      if (!header) return
+      record[header] = values[index] ?? ''
+    })
+    rows.push(record)
+  }
+
+  return rows
+}
+
+function rowToRawValues(row) {
+  const values = []
+  row.eachCell({ includeEmpty: true }, (cell, columnNumber) => {
+    values[columnNumber - 1] = normalizeCellValue(cell)
+  })
+  return values.map((value) => value ?? '')
+}
+
+async function readWorkbookStreaming(filePath, originalError) {
+  const workbookReader = new ExcelJS.stream.xlsx.WorkbookReader(filePath, {
+    entries: 'emit',
+    sharedStrings: 'cache',
+    hyperlinks: 'cache',
+    styles: 'ignore',
+    worksheets: 'emit',
+  })
+  const sheetNames = []
+  const sheets = new Map()
+
+  try {
+    for await (const worksheetReader of workbookReader) {
+      const rawRows = []
+      sheetNames.push(worksheetReader.name)
+
+      for await (const row of worksheetReader) {
+        rawRows[row.number - 1] = rowToRawValues(row)
+      }
+
+      sheets.set(worksheetReader.name, rawRowsToRecords(rawRows.filter(Boolean)))
+    }
+  } catch (streamingError) {
+    streamingError.cause = originalError
+    throw streamingError
+  }
+
+  return {
+    workbook: null,
+    getSheetNames() {
+      return sheetNames
+    },
+    getSheetData(sheetName) {
+      return sheets.get(sheetName) || []
+    },
+  }
+}
+
 export async function readWorkbookExcelJS(filePath) {
   const workbook = new ExcelJS.Workbook()
-  await workbook.xlsx.readFile(filePath, WORKBOOK_READ_OPTIONS)
+
+  try {
+    await workbook.xlsx.readFile(filePath)
+  } catch (error) {
+    console.warn(`[workbook-source] ExcelJS full workbook read failed; falling back to streaming row reader: ${error.message}`)
+    return readWorkbookStreaming(filePath, error)
+  }
 
   return {
     workbook,
