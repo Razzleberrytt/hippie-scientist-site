@@ -1,0 +1,181 @@
+/*
+  WCAG 2.2 accessibility baseline.
+  Scope: sitewide keyboard visibility, target sizing, focus-not-obscured behavior,
+  table affordances, text spacing resilience, and high-contrast fallbacks.
+*/
+
+:root {
+  --a11y-focus-ring: #7a4d00;
+  --a11y-focus-ring-outer: rgba(255, 210, 92, 0.72);
+  --a11y-focus-bg: rgba(255, 244, 204, 0.92);
+  --a11y-target-size: 44px;
+  --a11y-scroll-top: 7rem;
+  --a11y-scroll-bottom: calc(env(safe-area-inset-bottom) + 11rem);
+}
+
+html.dark {
+  --a11y-focus-ring: #f7d36b;
+  --a11y-focus-ring-outer: rgba(247, 211, 107, 0.36);
+  --a11y-focus-bg: rgba(45, 66, 49, 0.96);
+}
+
+html {
+  scroll-padding-block-start: var(--a11y-scroll-top);
+  scroll-padding-block-end: var(--a11y-scroll-bottom);
+}
+
+/* WCAG 2.4.1 Bypass Blocks: keep skip link discoverable on keyboard focus. */
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 9999;
+  transform: translateY(-140%);
+  border: 2px solid var(--a11y-focus-ring);
+  border-radius: 999px;
+  background: var(--a11y-focus-bg);
+  color: #111a16;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 0 0 5px var(--a11y-focus-ring-outer), 0 12px 34px rgba(0, 0, 0, 0.22);
+  transition: transform 160ms ease;
+}
+
+html.dark .skip-link {
+  color: #fffdf7;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: none;
+}
+
+/*
+  WCAG 2.4.7 Focus Visible (AA), 2.4.11 Focus Not Obscured (AA),
+  2.4.12 Focus Not Obscured Enhanced (AAA), and 2.4.13 Focus Appearance (AAA).
+  Minimum 3px visible ring with offset and strong contrast in light/dark themes.
+*/
+:where(a[href], button, input, select, textarea, summary, [tabindex]:not([tabindex='-1'])):focus-visible {
+  outline: 3px solid var(--a11y-focus-ring) !important;
+  outline-offset: 4px !important;
+  box-shadow: 0 0 0 7px var(--a11y-focus-ring-outer) !important;
+  text-decoration-thickness: max(2px, 0.12em);
+  text-underline-offset: 0.22em;
+}
+
+:where(a[href], button, input, select, textarea, summary, [tabindex]:not([tabindex='-1'])) {
+  scroll-margin-block-start: var(--a11y-scroll-top);
+  scroll-margin-block-end: var(--a11y-scroll-bottom);
+}
+
+/* WCAG 2.5.5 Target Size Enhanced (AAA) where feasible; inline prose links are intentionally excluded. */
+:where(
+  button,
+  summary,
+  input,
+  select,
+  textarea,
+  [role='button'],
+  [role='tab'],
+  [role='menuitem'],
+  .button-primary,
+  .button-secondary,
+  a.rounded-full,
+  a.library-nav-card,
+  a.library-content-card,
+  header nav a,
+  header [role='navigation'] a,
+  .mobile-bottom-nav a
+) {
+  min-width: var(--a11y-target-size);
+  min-height: var(--a11y-target-size);
+}
+
+/* Links inside long-form text remain inline, but get stronger focus and underline cues. */
+:where(.content-prose, article, main) p a[href],
+:where(.content-prose, article, main) li a[href] {
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
+}
+
+:where(.content-prose, article, main) p a[href]:hover,
+:where(.content-prose, article, main) li a[href]:hover {
+  text-decoration-thickness: 0.12em;
+}
+
+/* WCAG 1.4.10 Reflow and 1.4.12 Text Spacing: avoid clipping when users increase spacing. */
+main {
+  overflow-wrap: anywhere;
+}
+
+p,
+li,
+dd,
+td,
+th {
+  text-size-adjust: 100%;
+}
+
+/* Tables: keyboard-visible scroll regions and clearer structure affordances. */
+.accessible-table-region {
+  scroll-margin-block-start: var(--a11y-scroll-top);
+  scroll-margin-block-end: var(--a11y-scroll-bottom);
+}
+
+.accessible-table-region:focus-visible {
+  outline: 3px solid var(--a11y-focus-ring) !important;
+  outline-offset: 4px !important;
+  box-shadow: 0 0 0 7px var(--a11y-focus-ring-outer) !important;
+}
+
+.accessible-table-region caption,
+main table caption {
+  caption-side: top;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+main th[scope='row'] {
+  font-weight: 800;
+}
+
+/* WCAG 1.4.11 Non-text Contrast: strengthen state boundaries and controls. */
+:where(input, select, textarea, button, summary) {
+  border-width: max(1px, currentColor * 0);
+}
+
+[aria-current='page'] {
+  text-decoration-thickness: 0.14em;
+  text-underline-offset: 0.24em;
+}
+
+[aria-disabled='true'],
+:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
+@media (forced-colors: active) {
+  .skip-link,
+  :where(a[href], button, input, select, textarea, summary, [tabindex]:not([tabindex='-1'])):focus-visible,
+  .accessible-table-region:focus-visible {
+    outline: 3px solid CanvasText !important;
+    box-shadow: none !important;
+  }
+
+  :where(button, input, select, textarea, summary, a[href]) {
+    forced-color-adjust: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link {
+    transition: none;
+  }
+}
