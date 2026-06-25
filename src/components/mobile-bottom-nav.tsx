@@ -49,7 +49,7 @@ export default function MobileBottomNav() {
               aria-current={active ? 'page' : undefined}
               className={`flex min-h-[3rem] min-w-0 flex-1 flex-col items-center justify-center gap-1 rounded-xl px-0.5 py-1.5 text-center transition ${
                 active
-                  ? 'bg-brand-50 text-brand-900 opacity-100 shadow-sm ring-1 ring-brand-700/20 dark:bg-white/8 dark:text-[var(--text-primary)] dark:ring-white/15'
+                  ? 'bg-brand-50 text-brand-900 opacity-100 shadow-sm ring-1 ring-brand-700/20 dark:bg-[rgba(255,255,255,0.08)] dark:text-[var(--text-primary)] dark:ring-white/15'
                   : 'text-[#405047] opacity-75 hover:opacity-100 hover:text-ink dark:text-[var(--text-secondary)] dark:opacity-70 dark:hover:text-[var(--text-primary)]'
               }`}
             >
