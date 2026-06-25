@@ -36,7 +36,7 @@ export default function ResultsSummaryCard({
   const shareGoal = goal
     .toLowerCase()
     .replace(/[^a-z\s/-]/g, '')
-    .split(/[/\s-]+/)
+    .split(/[\/\s-]+/)
     .find(Boolean)
   const shareUrl = useMemo(() => {
     const goalParam = shareGoal || 'calm'
@@ -154,7 +154,7 @@ export default function ResultsSummaryCard({
             <button
               type='button'
               onClick={handleCopy}
-              className='border-white/18 min-h-9 rounded-lg border bg-black/20 px-3 py-1.5 text-xs font-medium text-white/60 transition hover:border-lime-400/40 hover:text-white'
+              className='border-white/18 min-h-11 rounded-lg border bg-black/20 px-3 py-2 text-xs font-medium text-white/60 transition hover:border-lime-400/40 hover:text-white'
             >
               Share
             </button>
@@ -162,15 +162,17 @@ export default function ResultsSummaryCard({
               <button
                 type='button'
                 onClick={handleNativeShare}
-                className='border-white/18 min-h-9 rounded-lg border bg-black/20 px-3 py-1.5 text-xs font-medium text-white/60 transition hover:border-lime-400/40 hover:text-white'
+                className='border-white/18 min-h-11 rounded-lg border bg-black/20 px-3 py-2 text-xs font-medium text-white/60 transition hover:border-lime-400/40 hover:text-white'
               >
                 Native share
               </button>
             )}
           </div>
         )}
-        {shareMessage === 'copied' && <p className='text-xs text-lime-300'>Copied ✓</p>}
-        {shareMessage === 'shared' && <p className='text-xs text-lime-300'>Shared ✓</p>}
+        <div aria-live='polite' aria-atomic='true'>
+          {shareMessage === 'copied' && <p className='text-xs text-lime-300'>Copied ✓</p>}
+          {shareMessage === 'shared' && <p className='text-xs text-lime-300'>Shared ✓</p>}
+        </div>
       </div>
     </article>
   )
