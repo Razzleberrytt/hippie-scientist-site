@@ -36,14 +36,17 @@ const checks = [
     id: 'unsupported-aria-expanded-on-search-input',
     wcag: 'WCAG 4.1.2 Name, Role, Value',
     pattern: /<input[\s\S]{0,600}type=["']search["'][\s\S]{0,600}aria-expanded=/g,
-    allow: () => false,
+    allow: (_file, source, index) => {
+      const local = source.slice(index, index + 900)
+      return /role=["']combobox["']/.test(local)
+    },
     message: 'Do not put aria-expanded on a plain search input unless it has a supported combobox role/pattern.',
   },
   {
     id: 'raw-table-needs-review',
     wcag: 'WCAG 1.3.1 Info and Relationships',
     pattern: /<table\b/g,
-    allow: (file, source, index) => {
+    allow: (_file, source, index) => {
       const before = source.slice(Math.max(0, index - 1200), index)
       const after = source.slice(index, index + 1800)
       return /<caption\b/.test(after) && /scope=["'](?:col|row)["']/.test(after + before)
@@ -54,7 +57,7 @@ const checks = [
     id: 'small-explicit-target',
     wcag: 'WCAG 2.5.5 Target Size Enhanced AAA',
     pattern: /\b(?:h-8|w-8|min-h-8|min-w-8|h-9|w-9|min-h-9|min-w-9)\b/g,
-    allow: (file, source, index) => {
+    allow: (_file, source, index) => {
       const local = source.slice(Math.max(0, index - 240), index + 240)
       return /aria-hidden|decorative|icon|svg|className="h-[45]/.test(local)
     },
@@ -64,7 +67,7 @@ const checks = [
     id: 'icon-needs-hidden-or-label',
     wcag: 'WCAG 1.1.1 Non-text Content / 4.1.2 Name, Role, Value',
     pattern: /<(?:[A-Z][A-Za-z0-9]*Icon|Search|X|Menu|ChevronLeft|ChevronRight|ArrowUp|Moon|Sun|Shield|Target|Leaf|Sparkles|BookOpen|Calculator|AlertTriangle|GitCompare)\b(?![^>]*aria-hidden=)/g,
-    allow: (file, source, index) => {
+    allow: (_file, source, index) => {
       const local = source.slice(Math.max(0, index - 260), index + 260)
       return /aria-label=|title=|role=/.test(local)
     },
