@@ -100,7 +100,7 @@ canvas {
 .glass-card,
 .mobile-reading-card,
 .scientific-card,
-.library-card-premium {
+library-card-premium {
   border-color: var(--scientific-border);
   background-color: var(--paper-card);
   box-shadow: var(--soft-lift-shadow);
@@ -241,6 +241,44 @@ html.dark .glass-card {
     line-height: 1.2;
     min-height: 2.25rem;
     white-space: normal;
+  }
+}
+
+/* Goal comparison tables should scroll on mobile instead of crushing columns. */
+#comparison-table .overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+}
+
+#comparison-table table {
+  table-layout: auto;
+}
+
+@media (max-width: 1023px) {
+  #comparison-table table {
+    width: max-content;
+    min-width: 760px;
+  }
+
+  #comparison-table th,
+  #comparison-table td {
+    min-width: 8.5rem;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+
+  #comparison-table th:first-child,
+  #comparison-table td:first-child {
+    min-width: 7rem;
+  }
+
+  #comparison-table th:nth-child(2),
+  #comparison-table td:nth-child(2),
+  #comparison-table th:nth-child(4),
+  #comparison-table td:nth-child(4) {
+    min-width: 11rem;
   }
 }
 
