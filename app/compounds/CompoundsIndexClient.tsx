@@ -290,7 +290,7 @@ const browsePaths = [
   {
     label: 'Goal guides',
     href: '/goals',
-    description: 'Use decision guides when the practical context matters more than the molecule.',
+    description: 'Use goal guides when the practical context matters more than the molecule.',
   },
   {
     label: 'Compare options',
@@ -321,7 +321,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
         <section className="hero-shell relative overflow-hidden rounded-[0.95rem] border border-brand-900/10 px-3 py-4 shadow-sm sm:px-4 sm:py-5">
           <div className="relative grid gap-3 lg:grid-cols-[1.05fr_.95fr] lg:items-end">
             <div className="max-w-3xl space-y-2">
-              <p className="eyebrow-label">Compound decision library</p>
+              <p className="eyebrow-label">Compound research library</p>
               <h2 className="max-w-[18ch] text-balance font-display text-2xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-4xl">
                 Explore compound profiles
               </h2>
@@ -345,7 +345,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
           <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl space-y-1.5">
               <p className="eyebrow-label">Search and filter</p>
-              <h2 id="compound-search-heading" className="compact-heading">Start with the decision you need to make.</h2>
+              <h2 id="compound-search-heading" className="compact-heading">Start with the question you need answered.</h2>
             </div>
             <Link href="/herbs" className="w-fit text-sm font-bold text-brand-800 transition hover:text-brand-900">Browse herb sources →</Link>
           </div>
