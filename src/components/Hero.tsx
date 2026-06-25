@@ -28,7 +28,7 @@ export default function Hero() {
             <ul className='mt-3 space-y-2 text-sm text-white/80'>
               <li>Start with a herb or compound profile.</li>
               <li>Cross-check mechanism clues against source quality.</li>
-              <li>Review safety cautions and interactions before decisions.</li>
+              <li>Review safety cautions and interactions before choosing.</li>
             </ul>
           </aside>
         </div>
