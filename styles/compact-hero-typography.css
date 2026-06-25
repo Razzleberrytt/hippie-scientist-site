@@ -4,19 +4,16 @@
   Loaded after readability/polish styles so it can override older heading scales safely.
 */
 
-.hero-shell :is(h1, .heading-premium),
-.library-index-page .hero-shell :is(h1, .heading-premium),
-.goal-decision-experience .hero-shell :is(h1, .heading-premium),
-main:has(nav[aria-label="Jump to profile sections"]) .hero-shell :is(h1, .heading-premium) {
+.hero-shell h1,
+.hero-shell .heading-premium {
   max-width: min(100%, 13.5ch) !important;
   font-size: clamp(2.05rem, 5.4vw, 3.35rem) !important;
   line-height: 1.04 !important;
   letter-spacing: -0.045em !important;
 }
 
-.hero-shell :is(h1, .heading-premium) + p,
-.library-index-page .hero-shell :is(h1, .heading-premium) + p,
-.goal-decision-experience .hero-shell :is(h1, .heading-premium) + p {
+.hero-shell h1 + p,
+.hero-shell .heading-premium + p {
   margin-top: 1rem;
 }
 
@@ -25,10 +22,8 @@ main:has(nav[aria-label="Jump to profile sections"]) .hero-shell :is(h1, .headin
 }
 
 @media (max-width: 768px) {
-  .hero-shell :is(h1, .heading-premium),
-  .library-index-page .hero-shell :is(h1, .heading-premium),
-  .goal-decision-experience .hero-shell :is(h1, .heading-premium),
-  main:has(nav[aria-label="Jump to profile sections"]) .hero-shell :is(h1, .heading-premium) {
+  .hero-shell h1,
+  .hero-shell .heading-premium {
     max-width: min(100%, 12.5ch) !important;
     font-size: clamp(1.85rem, 8vw, 2.35rem) !important;
     line-height: 1.06 !important;
@@ -40,24 +35,22 @@ main:has(nav[aria-label="Jump to profile sections"]) .hero-shell :is(h1, .headin
     border-radius: 1.25rem !important;
   }
 
-  .hero-shell :is(.eyebrow-label, .section-label) {
+  .hero-shell .eyebrow-label,
+  .hero-shell .section-label {
     margin-bottom: 0.45rem;
   }
 }
 
 @media (max-width: 430px) {
-  .hero-shell :is(h1, .heading-premium),
-  .library-index-page .hero-shell :is(h1, .heading-premium),
-  .goal-decision-experience .hero-shell :is(h1, .heading-premium),
-  main:has(nav[aria-label="Jump to profile sections"]) .hero-shell :is(h1, .heading-premium) {
+  .hero-shell h1,
+  .hero-shell .heading-premium {
     max-width: min(100%, 12ch) !important;
     font-size: clamp(1.72rem, 7.4vw, 2.12rem) !important;
     line-height: 1.08 !important;
   }
 
-  .hero-shell :is(h1, .heading-premium) + p,
-  .library-index-page .hero-shell :is(h1, .heading-premium) + p,
-  .goal-decision-experience .hero-shell :is(h1, .heading-premium) + p {
+  .hero-shell h1 + p,
+  .hero-shell .heading-premium + p {
     margin-top: 0.75rem;
   }
 }
