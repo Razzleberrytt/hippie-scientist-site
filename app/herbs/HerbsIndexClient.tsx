@@ -153,8 +153,8 @@ function getBestFor(item: RuntimeRecord) {
 function scoreHerb(item: RuntimeRecord) {
   let score = 0
 
-  const quality = text(item?.profile_status || item.summary_quality || item.safety?.confidence).toLowerCase()
-  const evidence = text(item?.evidence_tier || item.evidence_grade || item.evidenceLevel).toLowerCase()
+  const quality = text(item?.profile_status || item?.summary_quality || item?.safety?.confidence).toLowerCase()
+  const evidence = text(item?.evidence_tier || item?.evidence_grade || item?.evidenceLevel).toLowerCase()
 
   if (/complete|strong|high|ready/.test(quality)) score += 5
   if (/strong|human|clinical|high/.test(evidence)) score += 4
