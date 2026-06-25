@@ -14,11 +14,12 @@ export default function ScrollToTopButton() {
 
   return (
     <button
+      type="button"
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      className={`fixed bottom-32 right-4 z-[85] rounded-full border border-white/20 bg-violet-500/90 p-2.5 text-white shadow-lg backdrop-blur transition-all motion-safe:hover:scale-105 md:bottom-8 md:right-6 md:flex ${visible ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
+      className={`fixed bottom-[9.25rem] right-4 z-[85] min-h-11 min-w-11 rounded-full border border-white/20 bg-violet-500/90 p-2.5 text-white shadow-lg backdrop-blur transition-all motion-safe:hover:scale-105 md:bottom-8 md:right-6 md:flex ${visible ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
       aria-label='Scroll to top'
     >
-      <ArrowUp className="h-5 w-5" />
+      <ArrowUp aria-hidden="true" className="h-5 w-5" />
     </button>
   )
 }
