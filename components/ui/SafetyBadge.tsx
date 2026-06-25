@@ -10,7 +10,7 @@ export default function SafetyBadge({ level = 'Safety review pending' }: { level
   const tone = getDecisionSafetyTone(label)
   const isPending = label === 'Safety review pending'
   const aria = isPending
-    ? 'Safety data pending review; use caution and review the full profile before making decisions.'
+    ? 'Safety data pending review; use caution and review the full profile before choosing.'
     : undefined
 
   return (
