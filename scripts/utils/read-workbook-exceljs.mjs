@@ -83,23 +83,54 @@ async function readWorkbookStreaming(filePath, originalError) {
     styles: 'ignore',
     worksheets: 'emit',
   })
-  const sheetNames = []
-  const sheets = new Map()
+  // Collect entries during streaming; real names are resolved after the loop
+  // because workbookReader.model is only fully populated once all entries are read.
+  const sheetEntries = []
 
   try {
     for await (const worksheetReader of workbookReader) {
       const rawRows = []
-      sheetNames.push(worksheetReader.name)
 
       for await (const row of worksheetReader) {
         rawRows[row.number - 1] = rowToRawValues(row)
       }
 
-      sheets.set(worksheetReader.name, rawRowsToRecords(rawRows.filter(Boolean)))
+      sheetEntries.push({
+        id: worksheetReader.id,
+        name: worksheetReader.name,
+        rows: rawRowsToRecords(rawRows.filter(Boolean)),
+      })
     }
   } catch (streamingError) {
     streamingError.cause = originalError
     throw streamingError
+  }
+
+  // ExcelJS streaming fails to set worksheetReader.name when workbook.xml.rels
+  // uses absolute-style targets ("/xl/worksheets/sheetN.xml") instead of the
+  // relative form ("worksheets/sheetN.xml") the matching logic expects.
+  // After streaming completes, workbookReader.model.sheets and
+  // workbookReader.workbookRels are both populated; use them to build a
+  // sheetNo→realName map keyed by the number extracted from the filename.
+  const sheetNoToName = new Map()
+  const model = workbookReader.model
+  const rels = workbookReader.workbookRels
+  if (model && Array.isArray(model.sheets) && Array.isArray(rels)) {
+    for (const rel of rels) {
+      const match = String(rel.Target || '').match(/\/sheet(\d+)\.xml$/i)
+      if (!match) continue
+      const sheetNo = match[1]
+      const sheet = model.sheets.find((s) => s.rId === rel.Id)
+      if (sheet && sheet.name) sheetNoToName.set(sheetNo, sheet.name)
+    }
+  }
+
+  const sheetNames = []
+  const sheets = new Map()
+  for (const { id, name, rows } of sheetEntries) {
+    const realName = sheetNoToName.get(String(id)) || name
+    sheetNames.push(realName)
+    sheets.set(realName, rows)
   }
 
   return {

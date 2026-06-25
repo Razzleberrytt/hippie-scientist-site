@@ -35,7 +35,7 @@ export default function SearchPage() {
     { name: 'Caffeine', href: '/compounds/caffeine' },
     { name: 'Alpha-GPC', href: '/compounds/alpha-gpc' },
     { name: 'Omega-3', href: '/compounds/omega-3' },
-    { name: 'Quercetin', href: '/compounds/quercetin' },
+    { name: 'Quercetin', href: '/search?q=quercetin' },
     { name: 'Panax Ginseng', href: '/herbs/panax-ginseng' },
   ]
 

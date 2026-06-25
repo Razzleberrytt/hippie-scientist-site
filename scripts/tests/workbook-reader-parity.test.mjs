@@ -124,12 +124,12 @@ if (process.env.VITEST) {
     assertWorkbookExists(workbookPath)
 
     const workbook = await readWorkbook(workbookPath, {
-      sheets: ['Herb Master V3'],
+      sheets: ['Entity_Master'],
     })
 
-    expect(getSheetNames(workbook)).toContain('Compound Master V3')
-    expect(sheetToRows(getSheet(workbook, 'Herb Master V3')).length).toBeGreaterThan(0)
-    expect(getSheet(workbook, 'Compound Master V3')).toBeNull()
+    expect(getSheetNames(workbook)).toContain('Source_Register')
+    expect(sheetToRows(getSheet(workbook, 'Entity_Master')).length).toBeGreaterThan(0)
+    expect(getSheet(workbook, 'Source_Register')).toBeNull()
   }, 30000)
 }
 
