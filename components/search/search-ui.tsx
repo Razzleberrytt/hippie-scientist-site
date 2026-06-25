@@ -62,7 +62,7 @@ export function FilterChip({ label, count, active, onClick }: FilterChipProps) {
       onClick={onClick}
       aria-pressed={active}
       className={clsx(
-        'inline-flex min-h-9 items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40',
+        'inline-flex min-h-11 items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40',
         active
           ? 'border-brand-800 bg-brand-800 text-white shadow-sm dark:border-brand-600 dark:bg-brand-600 dark:text-[#07150c]'
           : 'border-brand-900/10 bg-white text-[#33443a] hover:border-brand-700/25 hover:text-brand-800 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-secondary)] dark:hover:border-[var(--border-strong)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]',
