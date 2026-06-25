@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Shield, GitCompare, Target, Search, Calculator, AlertTriangle, BookOpen } from 'lucide-react'
+import type { LucideIcon } from 'lucide-react'
 import { buildPageMetadata } from '../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -13,7 +14,7 @@ type ToolCard = {
   href: string
   title: string
   description: string
-  icon: React.ComponentType<{ className?: string; 'aria-hidden'?: true }>
+  icon: LucideIcon
   available: boolean
 }
 
