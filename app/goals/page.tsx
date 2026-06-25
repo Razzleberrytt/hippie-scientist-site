@@ -14,8 +14,8 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function GoalsPage() {
   return (
-    <div className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-sm sm:p-10">
+    <div className="mx-auto max-w-6xl space-y-7 px-4 py-7 sm:px-6 sm:py-10 lg:px-8">
+      <section className="hero-shell rounded-[1.5rem] border border-brand-900/10 p-5 shadow-sm sm:rounded-[2rem] sm:p-10">
         <p className="eyebrow-label">Goal decision system</p>
         <h1 className="heading-premium mt-3 max-w-[12ch] text-ink sm:max-w-[16ch]">
           Choose by outcome, then compare options clearly.
@@ -26,7 +26,7 @@ export default function GoalsPage() {
           diagnose, prescribe, or replace professional care.
         </p>
 
-        <div className="mt-6 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
+        <div className="mt-6 flex flex-wrap gap-3 text-[11px] font-semibold uppercase tracking-[0.13em] sm:gap-4 sm:text-xs">
           <Link href="/methodology" className="text-brand-700 hover:text-brand-800 hover:underline dark:text-brand-100 dark:hover:text-white">
             Research methodology →
           </Link>
@@ -53,25 +53,25 @@ export default function GoalsPage() {
           <Link
             key={goal.slug}
             href={`/goals/${goal.slug}`}
-            className="group card-premium flex flex-col justify-between p-5 sm:p-6"
+            className="group card-premium flex min-h-[17rem] flex-col justify-between overflow-hidden p-4 sm:min-h-[18rem] sm:p-6"
           >
             <div>
-              <h2 className="!font-display !text-[2.25rem] !font-semibold !leading-[1.02] !tracking-tight text-ink transition group-hover:text-brand-800 sm:!text-[2rem] lg:!text-[1.6rem] dark:group-hover:text-brand-100">
+              <h2 className="!font-display !text-[1.9rem] !font-semibold !leading-[1.02] !tracking-tight text-ink transition group-hover:text-brand-800 sm:!text-[2rem] lg:!text-[1.55rem] dark:group-hover:text-brand-100">
                 {goal.title}
               </h2>
-              <p className="mt-4 text-sm leading-7 text-muted line-clamp-4">
+              <p className="mt-3 text-sm leading-7 text-muted line-clamp-3 sm:mt-4 sm:line-clamp-4">
                 {goal.description}
               </p>
             </div>
-            <div className="mt-5 border-t border-brand-900/10 pt-4 dark:border-white/10">
+            <div className="mt-4 border-t border-brand-900/10 pt-3 dark:border-white/10 sm:mt-5 sm:pt-4">
               <p className="mb-2 text-[10px] font-bold uppercase tracking-wider text-brand-700 dark:text-brand-200">Options compared</p>
               <div className="flex flex-wrap gap-1.5">
                 {goal.options.slice(0, 3).map((option) => (
                   <span
                     key={option.slug}
-                    className="inline-flex items-center rounded-full border border-brand-100/50 bg-brand-50 px-2 py-0.5 text-[10px] font-bold text-brand-800 dark:border-white/10 dark:bg-white/5 dark:text-brand-100"
+                    className="inline-flex max-w-full items-center rounded-full border border-brand-100/50 bg-brand-50 px-2 py-0.5 text-[10px] font-bold text-brand-800 dark:border-white/10 dark:bg-white/5 dark:text-brand-100"
                   >
-                    {option.name}
+                    <span className="truncate">{option.name}</span>
                   </span>
                 ))}
                 {goal.options.length > 3 && (
