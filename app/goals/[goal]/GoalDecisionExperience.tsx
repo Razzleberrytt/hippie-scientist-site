@@ -134,7 +134,6 @@ export default function GoalDecisionExperience({
   const safetyCards: SafetyCard[] = evidence.safetyNotes.length > 0
     ? evidence.safetyNotes.slice(0, 4)
     : defaultSafetyCards(comparisonOptions).slice(0, 4)
-  const faqItems = goalContent?.faqItems.slice(0, 4) ?? []
   const cluster = clusterForGoal(goal.slug)
   const quickAnswerId = `${goal.slug}-quick-answer`
   const goalDisplayTitle = cleanGoalHeading(goal.title)
