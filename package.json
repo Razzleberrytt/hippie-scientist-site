@@ -125,7 +125,7 @@
     "validate:content": "node scripts/ci/validate-article-quality.mjs && node scripts/ci/lint-touched-files.mjs && npm run validate:workbook-source && npm run data:validate && npm run typecheck",
     "validate:code": "npm run typecheck && npm run lint",
     "validate:deploy": "npm run build:deploy && npm run verify:output",
-    "validate:release": "npm run typecheck && npm run lint && npm run build && npm run verify:output && node scripts/ci/validate-indexability-metadata.mjs && npm run validate:evidence-language && npm run audit:data-governance:strict",
+    "validate:release": "npm run typecheck && npm run lint && npm run build:full && npm run verify:output && node scripts/ci/validate-indexability-metadata.mjs && npm run validate:evidence-language && npm run audit:data-governance:strict",
     "validate:release:full": "node -e \"process.env.FULL_HTML_AUDIT='1'; require('child_process').execSync('npm run validate:release', { stdio: 'inherit' })\"",
     "benchmark:validation": "node scripts/benchmark-validation.mjs",
     "audit:data-governance": "node scripts/ci/validate-data-governance.mjs",
