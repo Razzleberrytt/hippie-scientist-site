@@ -81,6 +81,19 @@ if (lines.includes(obsoleteAppShellRewrite)) {
   process.exit(1)
 }
 
+const malformedTargetRules = lines.filter((line) => {
+  const [, target = ''] = line.split(/\s+/)
+  if (!target) return true
+  return !target.startsWith('/') && !/^https?:\/\//i.test(target)
+})
+
+if (malformedTargetRules.length) {
+  console.warn(`[verify-redirects] Warning: ${malformedTargetRules.length} redirect rules have malformed-looking targets:`)
+  for (const rule of malformedTargetRules.slice(0, 20)) {
+    console.warn(`[verify-redirects]   ${rule}`)
+  }
+}
+
 const atomRedirectRule = '/atom.xml /feed.xml 301'
 if (!lines.includes(atomRedirectRule)) {
   console.error(`[verify-redirects] Expected feed compatibility redirect "${atomRedirectRule}"`)
