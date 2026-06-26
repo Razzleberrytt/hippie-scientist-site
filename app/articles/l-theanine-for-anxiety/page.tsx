@@ -11,7 +11,7 @@ const SLUG = 'l-theanine-for-anxiety'
 const TITLE = 'L-Theanine for Anxiety: Benefits, Dosage, Safety, and Research Review'
 const DESCRIPTION =
   'An evidence-based review of L-theanine for anxiety, stress, calm focus, dosage, safety, and how it compares with ashwagandha and magnesium.'
-const DATE = '2026-06-10'
+const DATE = '2026-06-26'
 
 export const metadata = buildPageMetadata({
   title: compactMetaTitle(TITLE),
@@ -24,32 +24,65 @@ const FAQS = [
   {
     question: 'Does L-theanine help anxiety?',
     answer:
-      'L-theanine has been studied for its potential to promote relaxation and reduce stress-related mental tension. Some research suggests it may support calm focus without heavy sedation, though results vary and more high-quality evidence is needed for anxiety specifically.',
+      'L-theanine may help stress-related tension and calm focus, especially when anxiety feels like overarousal or caffeine jitters. Evidence is more limited for diagnosed anxiety disorders, so it should not replace professional care.',
   },
   {
-    question: 'How long does it take for L-theanine to work?',
+    question: 'How long does L-theanine take to work?',
     answer:
-      'Many people report effects within 30–60 minutes. Research often examines both acute (single-dose) effects and longer-term daily use. Individual responses differ.',
+      'Many people notice effects within 30 to 60 minutes. The most practical acute use is before a stressful event, with caffeine, or before bed when the issue is racing thoughts.',
+  },
+  {
+    question: 'How much L-theanine should I take for anxiety?',
+    answer:
+      'A common evidence-aligned range is 100 to 200 mg per dose. For acute stress, 200 mg taken 30 to 60 minutes before the stressor is a practical starting point discussed in human stress-response research.',
   },
   {
     question: 'Is L-theanine better than ashwagandha for anxiety?',
     answer:
-      'They serve somewhat different roles. L-theanine is often discussed for more acute mental relaxation and calm focus, while ashwagandha has more research around chronic stress adaptation. Direct comparative studies are limited.',
-  },
-  {
-    question: 'Can I combine L-theanine with ashwagandha?',
-    answer:
-      'Some people stack them for complementary effects (acute calm + longer-term stress support). There is limited published research on the specific combination. Start with one at a time and consult a clinician if you take medications.',
+      'L-theanine is usually the faster, lower-friction option for situational calm. Ashwagandha is better positioned for chronic stress patterns that build over weeks.',
   },
   {
     question: 'Can I take L-theanine every day?',
     answer:
-      'Daily use is common. Most studies examine consistent use over days to weeks. It is generally considered well-tolerated, but long-term safety data is still developing.',
+      'Daily use is common and generally well tolerated in studies, but long-term use should still be treated like a supplement decision, especially if you take medications or have a medical condition.',
   },
   {
     question: 'Is L-theanine sedating?',
     answer:
-      'L-theanine is often described as promoting relaxation without strong sedation. Many people use it during the day for calm focus. Individual sensitivity varies.',
+      'L-theanine is usually described as calming rather than strongly sedating. That is why many readers use it during the day for calm focus or with caffeine to smooth stimulation.',
+  },
+]
+
+const relatedArticles = [
+  {
+    href: '/articles/l-theanine',
+    title: 'Complete L-Theanine Evidence Guide',
+    description: 'The main hub for caffeine, calm focus, sleep, stress, dosage, safety, and evidence.',
+  },
+  {
+    href: '/articles/natural-anxiety-relief',
+    title: 'Natural Anxiety Relief',
+    description: 'A broader anxiety guide for readers comparing supplement and lifestyle options.',
+  },
+  {
+    href: '/articles/ashwagandha-for-anxiety',
+    title: 'Ashwagandha for Anxiety',
+    description: 'Better fit when the problem is chronic stress rather than acute overarousal.',
+  },
+  {
+    href: '/guides/magnesium-for-sleep',
+    title: 'Magnesium for Sleep',
+    description: 'Better fit when sleep, muscle tension, or magnesium status is the main issue.',
+  },
+  {
+    href: '/articles/l-theanine-for-sleep',
+    title: 'L-Theanine for Sleep',
+    description: 'A focused sleep page for wired-at-night and racing-thought use cases.',
+  },
+  {
+    href: '/articles/anxiety-stack-guide',
+    title: 'Anxiety Stack Guide',
+    description: 'A practical stack guide for readers comparing combined support options.',
   },
 ]
 
@@ -97,33 +130,52 @@ export default function LTheanineForAnxietyPage() {
           </p>
         </div>
 
-        <div className="mb-10 p-6 border rounded-xl bg-card">
+        <section className="mb-10 p-6 border rounded-xl bg-card">
           <h2 className="text-2xl font-semibold mb-4">Quick Verdict</h2>
-          <ul className="space-y-2 text-muted-foreground">
-            <li>• May help promote relaxation without heavy sedation.</li>
-            <li>• Often discussed for racing thoughts and everyday stress.</li>
-            <li>• May support calm focus during the day.</li>
-            <li>• Usually well tolerated at typical supplemental doses.</li>
-            <li>• Not a replacement for professional mental health care.</li>
-          </ul>
-        </div>
+          <p className="text-muted-foreground mb-4">
+            L-theanine is a better fit for situational anxiety, caffeine-related tension, and
+            calm focus than for severe or persistent anxiety disorders. It is most useful when
+            the reader wants to feel less wired without feeling knocked out.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+            <div className="p-4 rounded-lg bg-muted/50">
+              <p className="font-semibold mb-1">Best fit</p>
+              <p className="text-muted-foreground">Caffeine jitters, racing thoughts, acute stress, calm focus.</p>
+            </div>
+            <div className="p-4 rounded-lg bg-muted/50">
+              <p className="font-semibold mb-1">Typical dose</p>
+              <p className="text-muted-foreground">100 to 200 mg, usually 30 to 60 minutes before the use case.</p>
+            </div>
+            <div className="p-4 rounded-lg bg-muted/50">
+              <p className="font-semibold mb-1">Evidence level</p>
+              <p className="text-muted-foreground">Limited-to-moderate for anxiety; stronger for caffeine synergy.</p>
+            </div>
+            <div className="p-4 rounded-lg bg-muted/50">
+              <p className="font-semibold mb-1">Main caution</p>
+              <p className="text-muted-foreground">Not a replacement for clinical anxiety care or medication guidance.</p>
+            </div>
+          </div>
+          <p className="text-sm text-muted-foreground mt-4">
+            For the complete evidence hub, read the{' '}
+            <Link href="/articles/l-theanine" className="text-primary underline">
+              full L-theanine guide
+            </Link>
+            .
+          </p>
+        </section>
 
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">What Is L-Theanine?</h2>
           <div className="prose prose-lg max-w-none">
             <p>
-              L-theanine is a non-protein amino acid primarily found in tea leaves (Camellia sinensis).
-              It is best known for its potential to promote relaxation while supporting alertness and
-              focus — a combination often described as &ldquo;calm focus.&rdquo;
+              L-theanine is a non-protein amino acid found primarily in tea leaves from
+              <em> Camellia sinensis</em>. It is best known for calm alertness: a relaxed but
+              functional state that can pair well with focus work.
             </p>
             <p>
-              Unlike sedative compounds, L-theanine does not typically cause drowsiness. It is thought
-              to influence brain wave activity (particularly alpha waves) and may interact with
-              neurotransmitters involved in stress and mood regulation.
-            </p>
-            <p>
-              It is commonly used as a standalone supplement or stacked with caffeine for focus, or
-              with other calming compounds for stress support.
+              For anxiety readers, the key point is not sedation. L-theanine is better framed as
+              a support for overarousal: mental tension, racing thoughts, caffeine sensitivity,
+              and stress that makes the body feel wired.
             </p>
           </div>
         </section>
@@ -132,92 +184,68 @@ export default function LTheanineForAnxietyPage() {
           <h2 className="text-3xl font-semibold mb-6">How L-Theanine May Affect Anxiety</h2>
           <div className="prose prose-lg max-w-none">
             <p>
-              Research on L-theanine has explored its potential effects on relaxation, stress response,
-              and mental tension. Some studies have looked at changes in alpha-wave activity, which is
-              associated with a relaxed but alert mental state.
+              Current evidence suggests L-theanine is most relevant for stress-related mental
+              tension rather than severe clinical anxiety disorders. Research has examined acute
+              stress response, alpha-wave activity, and the way theanine can smooth caffeine.
             </p>
             <p>
-              It has been studied for its possible role in reducing subjective feelings of stress and
-              supporting a sense of calm without strong sedation. There is also interest in how it may
-              interact with caffeine to improve focus while mitigating jitteriness.
-            </p>
-            <p>
-              Current evidence suggests L-theanine may be most relevant for situational or
-              stress-related mental tension rather than severe clinical anxiety disorders. More robust
-              research is needed.
+              The strongest reader promise is simple: L-theanine may help take the edge off while
+              keeping the mind clear. That makes it useful for work stress, performance pressure,
+              and caffeine-driven anxiousness.
             </p>
           </div>
         </section>
 
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Evidence Summary</h2>
-
           <EvidenceSummaryCard
-            title="L-Theanine for Anxiety &amp; Stress"
+            title="L-Theanine for Anxiety and Stress"
             evidenceLevel="Limited"
-            humanEvidence="Small human studies report acute reductions in physiological and psychological stress markers. EEG studies show increased alpha-wave activity associated with a relaxed-but-alert state. Most evidence is in non-clinical populations under task-based stress conditions, with limited data for diagnosed anxiety disorders."
-            mechanisticEvidence="L-theanine is proposed to promote alpha-wave activity in the brain, modulate GABA and glutamate pathways, and support stress-response systems. Animal data suggest serotonergic and dopaminergic effects, but human neurochemistry work is mostly indirect."
-            safetyProfile="Well tolerated in most populations at common supplemental doses. Potential interaction with blood-pressure medications. Use caution when combining with other sedating supplements. Limited long-term safety data available."
+            humanEvidence="Small human studies report acute reductions in psychological and physiological stress markers. The best anxiety-adjacent evidence is in stress-task and high-arousal contexts, not large trials in diagnosed anxiety disorders."
+            mechanisticEvidence="L-theanine is proposed to support alpha-wave activity and modulate glutamate and GABA-related pathways. This may help explain relaxed alertness without strong sedation."
+            safetyProfile="Generally well tolerated at common doses. Use caution with blood-pressure medications, sedatives, sleep medications, prescription stimulants, pregnancy, breastfeeding, or psychiatric conditions."
           />
         </section>
 
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Dosage and Timing</h2>
-          <div className="prose prose-lg max-w-none">
-            <p>
-              Common supplemental doses in research and practice often range from 100–400 mg per day,
-              sometimes taken as a single dose or split. Many studies examining relaxation or focus
-              effects have used doses around 200 mg.
-            </p>
-            <p>
-              Timing: Effects are often reported within 30–60 minutes. Some people take it in the
-              morning or early afternoon for calm focus, while others use it in the evening.
-            </p>
-            <p>
-              Consistency and individual response appear important. Many people experiment with timing
-              and stacking (e.g., with caffeine or other supplements).
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="border rounded-xl p-5">
+              <h3 className="font-semibold mb-2">Situational anxiety</h3>
+              <p className="text-muted-foreground text-sm">200 mg, 30 to 60 minutes before the stressful event.</p>
+            </div>
+            <div className="border rounded-xl p-5">
+              <h3 className="font-semibold mb-2">Caffeine jitters</h3>
+              <p className="text-muted-foreground text-sm">100 mg L-theanine with 50 to 100 mg caffeine.</p>
+            </div>
+            <div className="border rounded-xl p-5">
+              <h3 className="font-semibold mb-2">Evening tension</h3>
+              <p className="text-muted-foreground text-sm">100 to 200 mg before bed when racing thoughts are the issue.</p>
+            </div>
           </div>
-
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">L-Theanine vs Ashwagandha</h2>
+          <h2 className="text-3xl font-semibold mb-6">L-Theanine vs Ashwagandha vs Magnesium</h2>
           <div className="prose prose-lg max-w-none">
             <p>
-              <strong>L-Theanine</strong> is frequently discussed for more immediate or situational
-              mental relaxation and calm focus. Effects may be noticed relatively quickly.
+              <strong>L-theanine</strong> is the fast, simple option for calm focus and acute
+              overarousal. <strong>Ashwagandha</strong> is better suited for chronic stress patterns
+              that build over weeks. <strong>Magnesium</strong> is a better fit when sleep quality,
+              muscle tension, or mineral status is central.
             </p>
             <p>
-              <strong>Ashwagandha</strong> has more research around longer-term adaptation to chronic
-              stress. It is typically used daily over weeks.
-            </p>
-            <p>
-              Many people find the two complementary and use them at different times of day or for
-              different aspects of stress and anxiety. See our comparison in{' '}
+              For deeper comparisons, read{' '}
               <Link href="/articles/ashwagandha-for-anxiety" className="text-primary underline">
                 Ashwagandha for Anxiety
               </Link>
-              .
-            </p>
-          </div>
-        </section>
-
-        <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">L-Theanine vs Magnesium</h2>
-          <div className="prose prose-lg max-w-none">
-            <p>
-              <strong>L-Theanine</strong> is often chosen for mental relaxation and calm focus.
-            </p>
-            <p>
-              <strong>Magnesium</strong> is frequently used for physical tension, muscle relaxation,
-              and sleep support. Different forms of magnesium have varying effects.
-            </p>
-            <p>
-              The two are sometimes stacked because they may address overlapping but distinct aspects
-              of stress (mental vs physical). See related content in{' '}
-              <Link href="/articles/magnesium-for-sleep" className="text-primary underline">
+              ,{' '}
+              <Link href="/guides/magnesium-for-sleep" className="text-primary underline">
                 Magnesium for Sleep
+              </Link>
+              , and{' '}
+              <Link href="/compare/l-theanine-vs-magnesium" className="text-primary underline">
+                L-Theanine vs Magnesium
               </Link>
               .
             </p>
@@ -228,79 +256,37 @@ export default function LTheanineForAnxietyPage() {
           <h2 className="text-3xl font-semibold mb-6">Anxiety and Sleep Overlap</h2>
           <div className="prose prose-lg max-w-none">
             <p>
-              Stress and anxiety frequently affect sleep quality, and poor sleep can worsen daytime
-              anxiety. L-theanine is sometimes used in the evening for its relaxing properties without
-              strong next-day grogginess.
+              Anxiety and sleep often reinforce each other. Poor sleep increases next-day anxiety,
+              and anxious rumination can delay sleep. L-theanine is most rational when the sleep
+              problem is a wired mind rather than pain, sleep apnea, restless legs, alcohol, or
+              inconsistent sleep timing.
             </p>
-            <p>For broader context, see:</p>
-            <ul>
-              <li>
-                <Link href="/articles/l-theanine-for-sleep" className="text-primary underline">
-                  L-Theanine for Sleep
-                </Link>
-              </li>
-              <li>
-                <Link href="/articles/best-herbs-for-sleep" className="text-primary underline">
-                  Best Herbs for Sleep
-                </Link>
-              </li>
-              <li>
-                <Link href="/articles/sleep-stack-guide" className="text-primary underline">
-                  Sleep Stack Guide
-                </Link>
-              </li>
-            </ul>
+            <p>
+              For sleep-specific context, read{' '}
+              <Link href="/articles/l-theanine-for-sleep" className="text-primary underline">
+                L-Theanine for Sleep
+              </Link>
+              {' '}and{' '}
+              <Link href="/articles/sleep-stack-guide" className="text-primary underline">
+                Sleep Stack Guide
+              </Link>
+              .
+            </p>
           </div>
         </section>
 
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Safety and Side Effects</h2>
-
           <SafetyNotice>
             <ul className="space-y-2">
               <li>L-theanine is generally well tolerated at typical supplemental doses.</li>
               <li>Some people may experience mild side effects such as headache or dizziness.</li>
-              <li>
-                Caution is advised when combining with medications that affect blood pressure or have
-                sedative effects.
-              </li>
-              <li>
-                Pregnancy and breastfeeding: Limited safety data — consult a healthcare provider.
-              </li>
-              <li>
-                Always speak with a qualified clinician before starting, especially if you have
-                medical conditions or take medications.
-              </li>
+              <li>Caution is advised with medications that affect blood pressure or sedation.</li>
+              <li>Use extra caution with prescription stimulants or psychiatric medications.</li>
+              <li>Pregnancy and breastfeeding: limited supplemental-dose safety data.</li>
+              <li>Do not stop prescribed medication without medical supervision.</li>
             </ul>
           </SafetyNotice>
-        </section>
-
-        <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">Who Might Consider L-Theanine?</h2>
-          <div className="prose prose-lg max-w-none">
-            <p>L-theanine may be worth considering for people who:</p>
-            <ul>
-              <li>Experience stress-related mental tension or racing thoughts</li>
-              <li>Want support for calm focus during the day</li>
-              <li>Prefer options that are generally non-sedating</li>
-              <li>Are looking for a supplement that can be used as needed or daily</li>
-            </ul>
-            <p>It is not positioned as a primary treatment for clinical anxiety disorders.</p>
-          </div>
-        </section>
-
-        <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">What Not To Do</h2>
-          <ul className="space-y-3 text-muted-foreground">
-            <li>
-              • Do not expect dramatic or immediate results in all cases — individual responses vary.
-            </li>
-            <li>• Do not combine multiple new supplements at once without guidance.</li>
-            <li>• Do not stop prescribed medications without medical supervision.</li>
-            <li>
-              • Do not ignore severe or worsening anxiety symptoms — seek professional support.
-            </li>
-          </ul>
         </section>
 
         <section className="mb-12">
@@ -318,49 +304,26 @@ export default function LTheanineForAnxietyPage() {
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Related Articles</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Link
-              href="/articles/natural-anxiety-relief"
-              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
-            >
-              Natural Anxiety Relief: Evidence-Based Approaches
-            </Link>
-            <Link
-              href="/articles/ashwagandha-for-anxiety"
-              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
-            >
-              Ashwagandha for Anxiety
-            </Link>
-            <Link
-              href="/articles/cbd-vs-ashwagandha-for-anxiety"
-              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
-            >
-              CBD vs Ashwagandha for Anxiety
-            </Link>
-            <Link
-              href="/articles/anxiety-stack-guide"
-              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
-            >
-              Anxiety Stack Guide
-            </Link>
-            <Link
-              href="/articles/l-theanine-for-sleep"
-              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
-            >
-              L-Theanine for Sleep
-            </Link>
-            <Link
-              href="/articles/sleep-stack-guide"
-              className="block p-4 border rounded-lg hover:bg-muted transition-colors"
-            >
-              Sleep Stack Guide
-            </Link>
+            {relatedArticles.map((article) => (
+              <Link
+                key={article.href}
+                href={article.href}
+                className="block p-4 border rounded-lg hover:bg-muted transition-colors"
+              >
+                <span className="font-semibold block mb-1">{article.title}</span>
+                <span className="text-sm text-muted-foreground">{article.description}</span>
+              </Link>
+            ))}
           </div>
         </section>
 
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Buyer Guide</h2>
           <div className="prose prose-lg max-w-none">
-            <p>Look for reputable brands with third-party testing when possible.</p>
+            <p>
+              Look for L-theanine products with clear milligram dosing and third-party testing when
+              possible. Most readers do not need a complex stack to test whether L-theanine helps.
+            </p>
           </div>
 
           <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -401,15 +364,13 @@ export default function LTheanineForAnxietyPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">Sources &amp; References</h2>
+          <h2 className="text-3xl font-semibold mb-6">Sources and References</h2>
           <div className="p-6 bg-muted/50 rounded-xl text-sm">
-            <p className="mb-4 font-medium">
-              Key sources include:
-            </p>
+            <p className="mb-4 font-medium">Key source categories include:</p>
             <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-              <li>L-theanine anxiety and stress clinical trials (PMIDs, n-sizes, outcomes)</li>
-              <li>Systematic reviews and meta-analyses</li>
-              <li>Safety and adverse event data</li>
+              <li>L-theanine stress-response and anxiety-adjacent clinical trials</li>
+              <li>Systematic reviews of theanine, stress, and anxiety research</li>
+              <li>Safety and adverse event reporting from human studies</li>
               <li>Mechanistic and alpha-wave studies</li>
             </ul>
           </div>
