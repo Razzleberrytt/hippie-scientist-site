@@ -12,7 +12,7 @@ import MobileBottomNav from '../src/components/mobile-bottom-nav'
 import ScrollToTopButton from '../src/components/ScrollToTopButton'
 import ClickTracker from '@/components/ClickTracker'
 import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
-import { buildPageMetadata, DEFAULT_TITLE, DEFAULT_DESCRIPTION, SITE_URL, SITE_NAME, websiteJsonLd, organizationJsonLd } from '../src/lib/seo'
+import { buildPageMetadata, DEFAULT_TITLE, DEFAULT_DESCRIPTION, SITE_URL, websiteJsonLd, organizationJsonLd } from '../src/lib/seo'
 import { DarkModeProvider } from '@/lib/dark-mode-provider'
 import DarkModeToggle from '@/components/DarkModeToggle'
 import './globals.css'
@@ -40,10 +40,9 @@ const rootMetadata = buildPageMetadata({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: DEFAULT_TITLE, template: `%s | ${SITE_NAME}` },
+  title: { default: DEFAULT_TITLE, template: '%s' },
   description: DEFAULT_DESCRIPTION,
   ...rootMetadata,
-  // ensure template wins for children
   openGraph: rootMetadata.openGraph,
   twitter: rootMetadata.twitter,
   robots: { index: true, follow: true },
