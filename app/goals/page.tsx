@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { goals } from '@/data/goals'
 import DecisionCtaGroup from '../../src/components/decision/DecisionCtaGroup'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
-import { buildSchemaGraph } from '@/lib/schema-graph'
+import { buildSchemaGraph } from '../../src/lib/schema-graph'
 
 import {
   buildPageMetadata,
@@ -67,7 +67,9 @@ export default function GoalsPage() {
           Choose by outcome, then compare options clearly.
         </h1>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
-          These pages are educational comparison summaries designed for fast scanning. They help readers compare evidence context, tolerance considerations, and practical tradeoffs before opening a detailed profile.
+          These pages are educational comparison summaries designed for fast scanning. They are intended to
+          help readers compare evidence context, tolerance considerations, and practical tradeoffs — not to
+          diagnose, prescribe, or replace professional care.
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3 text-[11px] font-semibold uppercase tracking-[0.13em] sm:gap-4 sm:text-xs">
