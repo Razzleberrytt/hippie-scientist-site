@@ -37,14 +37,14 @@ export const supplementComparisons: ComparisonConfig[] = [
   {
     slug: 'melatonin-vs-l-theanine',
     title: 'Melatonin vs L-Theanine',
-    summary: 'Melatonin is more about sleep timing, while L-theanine is more about calming without necessarily acting as a direct sleep-timing signal.',
+    summary: 'Melatonin is better framed around sleep timing and circadian signaling, while L-theanine is better for wired-at-night relaxation, racing thoughts, and calm without directly shifting the body clock.',
     a: { label: 'Melatonin', candidates: ['melatonin'] },
     b: { label: 'L-Theanine', candidates: ['l-theanine', 'theanine'] },
   },
   {
     slug: 'caffeine-vs-theanine',
     title: 'Caffeine vs L-Theanine',
-    summary: 'Caffeine is the stronger alertness driver, while L-theanine is commonly paired with it to smooth stimulation and support calmer focus.',
+    summary: 'Caffeine is the stronger alertness driver, while L-theanine is the smoothing partner for calmer focus, fewer jitters, and less overstimulation during caffeine use.',
     a: { label: 'Caffeine', candidates: ['caffeine'] },
     b: { label: 'L-Theanine', candidates: ['l-theanine', 'theanine'] },
   },
@@ -156,7 +156,7 @@ export const supplementComparisons: ComparisonConfig[] = [
   {
     slug: 'l-theanine-vs-taurine',
     title: 'L-Theanine vs Taurine',
-    summary: 'Compare L-theanine and taurine for calming support, focus preservation, neurotransmitter balance, and relaxation pathways.',
+    summary: 'L-theanine is better positioned for calm focus and caffeine-smoothing, while taurine is broader nervous-system and cardiovascular-adjacent relaxation support with a different mechanism profile.',
     a: { label: 'L-Theanine', candidates: ['l-theanine', 'theanine'] },
     b: { label: 'Taurine', candidates: ['taurine'] },
   },
