@@ -10,6 +10,11 @@ import { mainNavigation } from '@/lib/navigation-config'
 
 const primaryLinks = mainNavigation.map(({ href, label }) => ({ href, label }))
 
+function toCanonicalHref(href: string) {
+  if (!href || href === '/' || href.includes('?') || href.includes('#')) return href
+  return href.endsWith('/') ? href : `${href}/`
+}
+
 export function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -65,7 +70,7 @@ export function Navigation() {
             {primaryLinks.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
+                href={toCanonicalHref(link.href)}
                 className={`font-medium transition-colors ${
                   isActive(link.href)
                     ? 'font-semibold text-brand-800 underline underline-offset-[6px] decoration-brand-700/35 decoration-2 dark:text-[var(--text-primary)] dark:decoration-[var(--accent-teal)]/40'
@@ -137,7 +142,7 @@ export function Navigation() {
               {primaryLinks.map((link) => (
                 <Link
                   key={link.href}
-                  href={link.href}
+                  href={toCanonicalHref(link.href)}
                   onClick={closeMobile}
                   className={`rounded-lg px-3 py-2.5 font-medium transition ${
                     isActive(link.href)
