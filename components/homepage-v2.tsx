@@ -119,7 +119,7 @@ export default function HomepageV2() {
               <div className='mt-4 flex flex-wrap items-center justify-center gap-2 text-xs font-semibold text-brand-800' aria-label={`Last reviewed: ${formattedDate}. ${citationCount} peer-reviewed studies cited. Evidence methodology available.`}>
                 <span className='rounded-full border border-brand-900/10 bg-brand-50/50 px-3.5 py-1'>Last reviewed: {formattedDate}</span>
                 <span className='rounded-full border border-brand-900/10 bg-brand-50/50 px-3.5 py-1'>{citationCount} peer-reviewed studies</span>
-                <Link href='/methodology' className='rounded-full border border-brand-900/10 bg-brand-50/50 px-3.5 py-1 transition hover:bg-brand-50 hover:text-brand-900'>
+                <Link href='/methodology/' className='rounded-full border border-brand-900/10 bg-brand-50/50 px-3.5 py-1 transition hover:bg-brand-50 hover:text-brand-900'>
                   Evidence methodology
                 </Link>
               </div>
@@ -154,7 +154,7 @@ export default function HomepageV2() {
                 </Link>
               ))}
             </div>
-            <Link href='/compare' className='mt-5 inline-flex text-sm font-bold text-brand-700 transition hover:text-brand-800'>
+            <Link href='/compare/' className='mt-5 inline-flex text-sm font-bold text-brand-700 transition hover:text-brand-800'>
               Browse all comparisons →
             </Link>
           </div>
@@ -188,7 +188,7 @@ export default function HomepageV2() {
               subtitle='Most visitors should start here. Pick the outcome you care about, then compare options inside that guide.'
               as='h2'
             />
-            <Link href='/goals' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
+            <Link href='/goals/' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
               View all goals →
             </Link>
           </div>
@@ -197,7 +197,7 @@ export default function HomepageV2() {
             {heroGoals.map((hGoal) => (
                 <Link
                   key={hGoal.slug}
-                  href={`/goals/${hGoal.slug}`}
+                  href={`/goals/${hGoal.slug}/`}
                   className={`group flex min-h-48 flex-col justify-between rounded-[1.25rem] border bg-gradient-to-br ${hGoal.bg} p-5 shadow-sm transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)] dark:from-[var(--surface-card)] dark:to-[var(--surface-card)]`}
                 >
                   <div>
@@ -236,7 +236,7 @@ export default function HomepageV2() {
             </div>
           </div>
           <div className='mt-5 text-sm font-bold'>
-            <Link href='/methodology' className='text-brand-700 transition hover:text-brand-800'>
+            <Link href='/methodology/' className='text-brand-700 transition hover:text-brand-800'>
               Read the evidence methodology →
             </Link>
           </div>
