@@ -23,7 +23,8 @@
  * 9. build-export-batches (batch optimization)
  * 10. build-semantic-snapshots (snapshot generation)
  * 11. build-production (next build)
- * 12. build-pagefind (static search index)
+ * 12. repair-static-blog-h1s (legacy static blog heading repair)
+ * 13. build-pagefind (static search index)
  *
  * Time estimate: ~40-55s (instead of ~180s with full validation)
  * Savings: ~125s by deferring non-critical checks to npm run build:qa
@@ -129,6 +130,13 @@ const steps = [
     outputs: ['out/**/*', '.next/**/*'],
   },
   {
+    name: 'repair-static-blog-h1s',
+    cmd: 'node scripts/ci/repair-static-blog-h1s.mjs',
+    inputs: ['out/blog/**/*', 'scripts/ci/repair-static-blog-h1s.mjs'],
+    outputs: ['out/blog/**/*'],
+    cacheable: false,
+  },
+  {
     name: 'build-pagefind',
     cmd: 'npm run build:pagefind',
     inputs: ['out/**/*'],
@@ -220,15 +228,6 @@ Next Steps:
 Pro Tip: To clear build cache, run:
   npm run cache:clear
 `)
-
-  process.exit(0)
+} else {
+  process.exit(1)
 }
-
-console.log(`
-╔════════════════════════════════════════════════╗
-║     ✗ Deploy Build Failed                      ║
-║     Check error above for details              ║
-╚════════════════════════════════════════════════╝
-`)
-
-process.exit(1)
