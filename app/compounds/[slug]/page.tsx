@@ -741,32 +741,35 @@ export default async function CompoundPage({ params }: PageProps) {
     citationCount: freshness.citationCount,
   })
 
-  const faqSchema = faqPageJsonLd({
-    pagePath: `/compounds/${normalizedSlug}/`,
-    questions: [
-      {
-        question: `What is ${displayName} used for?`,
-        answer: cleanText(compound.clinicalUse || compound.clinical_use || summary) || quickSummary,
-      },
-      {
-        question: `Is ${displayName} safe?`,
-        answer:
-          cleanText(
-            compound.safetyProfile ||
-              compound.safety_profile ||
-              compound.safetyNotes ||
-              compound.safety_notes ||
-              compound.safety,
-          ) || safetySummary,
-      },
-      {
-        question: `What is the dose of ${displayName}?`,
-        answer:
-          cleanText(compound.dosing || compound.dose || compound.dosage || compound.doseInfo || '') ||
-          'See dosing guidelines and product labeling.',
-      },
-    ].filter((entry) => isMeaningfulFaqAnswer(entry.answer)),
-  })
+  const faqCandidates = [
+    {
+      question: `What is ${displayName} used for?`,
+      answer: cleanText(compound.clinicalUse || compound.clinical_use || summary) || quickSummary,
+    },
+    {
+      question: `Is ${displayName} safe?`,
+      answer:
+        cleanText(
+          compound.safetyProfile ||
+            compound.safety_profile ||
+            compound.safetyNotes ||
+            compound.safety_notes ||
+            compound.safety,
+        ) || safetySummary,
+    },
+    {
+      question: `What is the dose of ${displayName}?`,
+      answer:
+        cleanText(compound.dosing || compound.dose || compound.dosage || compound.doseInfo || '') ||
+        'See dosing guidelines and product labeling.',
+    },
+  ].filter((entry) => isMeaningfulFaqAnswer(entry.answer))
+
+  // Suppress FAQPage schema when fewer than 2 substantive Q&As exist;
+  // Google requires ≥2 for rich results and a 1-Q block can't earn them.
+  const faqSchema = faqCandidates.length >= 2
+    ? faqPageJsonLd({ pagePath: `/compounds/${normalizedSlug}/`, questions: faqCandidates })
+    : null
   const pathwayDiagram = generatePathwayDiagram({ ...compound, name: displayName })
   const goalLinks = getGoalsForEntity(normalizedSlug)
 
