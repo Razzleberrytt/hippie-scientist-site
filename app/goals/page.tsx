@@ -2,13 +2,28 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { goals } from '@/data/goals'
 import DecisionCtaGroup from '../../src/components/decision/DecisionCtaGroup'
+import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
+import { buildSchemaGraph } from '@/lib/schema-graph'
 
-import { buildPageMetadata, SEO_YEAR } from '../../src/lib/seo'
+import {
+  buildPageMetadata,
+  breadcrumbJsonLd,
+  collectionPageJsonLd,
+  itemListJsonLd,
+  SEO_YEAR,
+  SITE_URL,
+} from '../../src/lib/seo'
+
+const GOALS_PAGE_TITLE = `Supplement Goal Guides ${SEO_YEAR} – Evidence, Safety & Comparisons`
+const GOALS_PAGE_DESCRIPTION =
+  'Choose your goal — sleep, stress, focus, anxiety, pain, and more — then compare herbs and compounds by evidence strength, safety, and practical tradeoffs.'
+const GOALS_CANONICAL_URL = `${SITE_URL}/goals/`
+const GOALS_BREADCRUMB_ID = `${GOALS_CANONICAL_URL}#breadcrumb`
+const GOALS_ITEM_LIST_ID = `${GOALS_CANONICAL_URL}#goal-list`
 
 export const metadata: Metadata = buildPageMetadata({
-  title: `Supplement Goal Guides ${SEO_YEAR} – Evidence, Safety & Comparisons`,
-  description:
-    'Choose your goal — sleep, stress, focus, anxiety, pain, and more — then compare herbs and compounds by evidence strength, safety, and practical tradeoffs.',
+  title: GOALS_PAGE_TITLE,
+  description: GOALS_PAGE_DESCRIPTION,
   path: '/goals',
 })
 
@@ -16,18 +31,43 @@ function displayGoalTitle(title: string) {
   return title.replace(/\s+decisions$/i, '')
 }
 
+const goalsSchemaGraph = buildSchemaGraph([
+  collectionPageJsonLd({
+    title: GOALS_PAGE_TITLE,
+    description: GOALS_PAGE_DESCRIPTION,
+    path: '/goals/',
+    itemListId: GOALS_ITEM_LIST_ID,
+    breadcrumbId: GOALS_BREADCRUMB_ID,
+  }),
+  breadcrumbJsonLd(
+    [
+      { name: 'Home', url: `${SITE_URL}/` },
+      { name: 'Goals', url: GOALS_CANONICAL_URL },
+    ],
+    { id: GOALS_BREADCRUMB_ID },
+  ),
+  itemListJsonLd({
+    id: GOALS_ITEM_LIST_ID,
+    name: 'Supplement Goal Guides',
+    path: '/goals/',
+    items: goals.map((goal) => ({
+      name: displayGoalTitle(goal.title),
+      url: `/goals/${goal.slug}/`,
+    })),
+  }),
+])
+
 export default function GoalsPage() {
   return (
     <div className="mx-auto max-w-6xl space-y-7 px-4 py-7 sm:px-6 sm:py-10 lg:px-8">
+      <SchemaGraphScript graph={goalsSchemaGraph} />
       <section className="hero-shell rounded-[1.5rem] border border-brand-900/10 p-5 shadow-sm sm:rounded-[2rem] sm:p-10">
         <p className="eyebrow-label">Goal guide system</p>
         <h1 className="heading-premium mt-3 max-w-[12ch] text-ink sm:max-w-[16ch]">
           Choose by outcome, then compare options clearly.
         </h1>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
-          These pages are educational comparison summaries designed for fast scanning. They are intended to
-          help readers compare evidence context, tolerance considerations, and practical tradeoffs — not to
-          diagnose, prescribe, or replace professional care.
+          These pages are educational comparison summaries designed for fast scanning. They help readers compare evidence context, tolerance considerations, and practical tradeoffs before opening a detailed profile.
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3 text-[11px] font-semibold uppercase tracking-[0.13em] sm:gap-4 sm:text-xs">
