@@ -60,6 +60,34 @@ function normalizeRoute(href) {
   return pathOnly.replace(/\/+$/, '') || '/'
 }
 
+function collectRedirectSources() {
+  const sources = new Set()
+  const addSource = (value) => {
+    const raw = String(value || '').trim()
+    if (!raw || raw.includes('*')) return
+    const route = normalizeRoute(raw)
+    if (route) sources.add(route)
+  }
+
+  const redirectsJson = readJson(path.join(root, 'public', '_redirects.json'), [])
+  if (Array.isArray(redirectsJson)) {
+    for (const row of redirectsJson) addSource(row?.source || row?.from)
+  }
+
+  const redirectsPath = path.join(root, 'public', '_redirects')
+  if (fs.existsSync(redirectsPath)) {
+    const lines = fs.readFileSync(redirectsPath, 'utf8').split(/\r?\n/)
+    for (const line of lines) {
+      const trimmed = line.trim()
+      if (!trimmed || trimmed.startsWith('#')) continue
+      const [source, _target, status] = trimmed.split(/\s+/)
+      if (status && /^30[1278]$/.test(status)) addSource(source)
+    }
+  }
+
+  return sources
+}
+
 function nonCanonicalInternalHref(href) {
   if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return null
   if (/^https?:\/\//i.test(href)) {
@@ -124,10 +152,8 @@ function collectHtmlRows() {
   })
 }
 
-function collectLinks(rows) {
+function collectLinks(rows, redirectSources) {
   const routes = new Set(rows.map((row) => row.route))
-  const redirects = readJson(path.join(root, 'public', '_redirects.json'), [])
-  const redirectSources = new Set(Array.isArray(redirects) ? redirects.map((row) => normalizeRoute(row?.source || row?.from)).filter(Boolean) : [])
   const links = []
   const nonCanonical = []
   const inbound = new Map([...routes].map((route) => [route, new Set()]))
@@ -203,7 +229,7 @@ function routeH1(row) {
   }
 }
 
-function collectTechnicalSeoIssues(rows, htmlRows) {
+function collectTechnicalSeoIssues(rows, htmlRows, redirectSources) {
   const titleTooLong = rows
     .filter((row) => String(row.title || '').length > titleTooLongThreshold)
     .map(routeTitle)
@@ -214,8 +240,13 @@ function collectTechnicalSeoIssues(rows, htmlRows) {
     .map(routeHtmlSize)
     .sort((a, b) => b.htmlSizeBytes - a.htmlSizeBytes || a.route.localeCompare(b.route))
 
+  const redirectH1Skipped = htmlRows
+    .filter((row) => row.h1Count === 0 && redirectSources.has(row.route))
+    .map(routeH1)
+    .sort((a, b) => a.route.localeCompare(b.route))
+
   const h1Missing = htmlRows
-    .filter((row) => row.h1Count === 0)
+    .filter((row) => row.h1Count === 0 && !redirectSources.has(row.route))
     .map(routeH1)
     .sort((a, b) => a.route.localeCompare(b.route))
 
@@ -245,6 +276,10 @@ function collectTechnicalSeoIssues(rows, htmlRows) {
     multipleH1: {
       count: multipleH1.length,
       pages: multipleH1,
+    },
+    redirectH1Skipped: {
+      count: redirectH1Skipped.length,
+      pages: redirectH1Skipped,
     },
   }
 }
@@ -298,9 +333,10 @@ function main() {
   const htmlRows = collectHtmlRows()
   const manifestRows = collectManifestRows()
   const rows = htmlRows.length ? htmlRows : manifestRows
-  const linkReport = htmlRows.length ? collectLinks(htmlRows) : { links: [], broken: [], nonCanonical: [], orphanRoutes: [] }
+  const redirectSources = collectRedirectSources()
+  const linkReport = htmlRows.length ? collectLinks(htmlRows, redirectSources) : { links: [], broken: [], nonCanonical: [], orphanRoutes: [] }
   const nonCanonicalSummary = summarizeNonCanonicalLinks(linkReport.nonCanonical)
-  const technicalSeoIssues = collectTechnicalSeoIssues(rows, htmlRows)
+  const technicalSeoIssues = collectTechnicalSeoIssues(rows, htmlRows, redirectSources)
   const duplicateSlugs = collectDuplicateSlugs()
   const duplicateMetadata = {
     generatedAt,
@@ -340,6 +376,7 @@ function main() {
       headings: {
         h1Missing: technicalSeoIssues.h1Missing.count,
         multipleH1: technicalSeoIssues.multipleH1.count,
+        redirectH1Skipped: technicalSeoIssues.redirectH1Skipped.count,
       },
       htmlSize: {
         warningBytes: htmlSizeWarningBytes,
