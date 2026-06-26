@@ -39,7 +39,7 @@ describe('SEO Metadata & JSON-LD Utilities', () => {
     it('generates correct metadata for a compound', () => {
       const meta = generateDetailMetadata(mockCompound, 'compound')
 
-      expect(meta.title).toBe('L-Theanine Dosage, Effects & Safety: What the Evidence Says')
+      expect(meta.title).toBe('L-Theanine: Effects, Dose and Safety')
       expect(meta.description).toContain('L-Theanine dosage by use case')
       expect(meta.alternates?.canonical).toBe('https://thehippiescientist.net/compounds/l-theanine/')
     })
