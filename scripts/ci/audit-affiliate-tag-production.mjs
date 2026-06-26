@@ -1,17 +1,18 @@
 #!/usr/bin/env node
 /**
- * Production-safety guard: refuses to ship if the Amazon Associates tag is
- * the dev placeholder, which would silently lose every affiliate sale.
+ * Production-safety guard: refuses to ship if the built HTML still contains
+ * dev-affiliate-00 references, which would silently lose every affiliate sale.
  *
- * In Cloudflare Pages, set the env var:
- *   AMAZON_AFFILIATE_TAG=razzleberry02-20
+ * The Amazon Associates tag is injected via the AMAZON_AFFILIATE_TAG env var,
+ * which is set in Cloudflare Pages env vars for production builds. This script
+ * does NOT require the env var locally (we only care about the built output).
  *
- * This script:
- *  - reads process.env.AMAZON_AFFILIATE_TAG
- *  - exits non-zero if it's unset or equals the dev placeholder
- *  - exits non-zero if the built out/*.html still references the dev tag
+ * To fix the live site, set the env var in Cloudflare Pages:
+ *   Production environment: AMAZON_AFFILIATE_TAG=razzleberry02-20
+ * Then trigger a redeploy.
  *
- * Use as a CI step (npm run audit:affiliate-tag-production).
+ * Usage: node scripts/ci/audit-affiliate-tag-production.mjs
+ *        npm run audit:affiliate-tag-production
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -20,51 +21,44 @@ const ROOT = process.cwd();
 const DEV_TAG = 'dev-affiliate-00';
 const OUT_DIR = path.join(ROOT, 'out');
 
-const envTag = process.env.AMAZON_AFFILIATE_TAG;
 let problems = 0;
 
-if (!envTag) {
-  console.error('[affiliate-tag] FAIL: AMAZON_AFFILIATE_TAG env var is not set.');
-  console.error('  In Cloudflare Pages: Settings -> Environment variables -> Production');
-  console.error('  For local dev, add AMAZON_AFFILIATE_TAG=razzleberry02-20 to .env.local');
-  problems++;
-} else if (envTag === DEV_TAG) {
-  console.error(`[affiliate-tag] FAIL: AMAZON_AFFILIATE_TAG is the dev placeholder ("${DEV_TAG}").`);
-  console.error('  Real Amazon Associates tag required for affiliate sales.');
-  problems++;
-} else {
-  console.log(`[affiliate-tag] env tag = ${envTag} OK`);
+if (!fs.existsSync(OUT_DIR)) {
+  console.error('[affiliate-tag] FAIL: out/ directory does not exist. Run npm run build first.');
+  process.exit(1);
 }
 
-if (fs.existsSync(OUT_DIR)) {
-  let htmlScanned = 0;
-  let badRefs = 0;
-  function walk(dir) {
-    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-      const full = path.join(dir, entry.name);
-      if (entry.isDirectory()) walk(full);
-      else if (entry.isFile() && entry.name.endsWith('.html')) {
-        htmlScanned++;
-        const content = fs.readFileSync(full, 'utf8');
-        // count any amazon link missing the real tag (covers the dev placeholder)
-        const amazonMatches = content.match(/https?:\/\/(?:www\.)?amazon\.com\/[^"'<>\s]*tag=([^"'<>\s&]+)/g) || [];
-        for (const m of amazonMatches) {
-          if (m.includes(`tag=${DEV_TAG}`)) badRefs++;
-        }
+let htmlScanned = 0;
+let badRefs = 0;
+const badUrls = new Set();
+
+function walk(dir) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) walk(full);
+    else if (entry.isFile() && entry.name.endsWith('.html')) {
+      htmlScanned++;
+      const content = fs.readFileSync(full, 'utf8');
+      const matches = content.match(/https?:\/\/(?:www\.)?amazon\.com\/[^"'<>\s)]*tag=dev-affiliate-00[^"'<>\s)]*/g) || [];
+      for (const m of matches) {
+        badRefs++;
+        if (badUrls.size < 5) badUrls.add(m);
       }
     }
   }
-  walk(OUT_DIR);
-  console.log(`[affiliate-tag] scanned ${htmlScanned} HTML files in out/`);
-  if (badRefs > 0) {
-    console.error(`[affiliate-tag] FAIL: ${badRefs} Amazon links in built HTML still reference ${DEV_TAG}.`);
-    console.error('  The build did not pick up AMAZON_AFFILIATE_TAG. Check env injection order.');
-    problems++;
-  } else {
-    console.log('[affiliate-tag] built HTML clean of dev-tag references OK');
-  }
+}
+
+walk(OUT_DIR);
+console.log(`[affiliate-tag] scanned ${htmlScanned} HTML files in out/`);
+
+if (badRefs > 0) {
+  console.error(`[affiliate-tag] FAIL: ${badRefs} Amazon links still reference ${DEV_TAG}.`);
+  console.error('  Sample URLs with dev tag:');
+  for (const u of badUrls) console.error(`    ${u}`);
+  console.error('  Set AMAZON_AFFILIATE_TAG in Cloudflare Pages env vars before redeploying.');
+  problems++;
 } else {
-  console.log('[affiliate-tag] out/ directory missing; skipping HTML scan (pre-build).');
+  console.log(`[affiliate-tag] no ${DEV_TAG} references in built HTML OK`);
 }
 
 if (problems > 0) {

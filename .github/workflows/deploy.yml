@@ -76,14 +76,13 @@ jobs:
       - name: Build app
         env:
           COMMIT_HASH: ${{ env.DEPLOY_SHA }}
+          AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}
         run: npm run build:deploy
 
       - name: Verify build output
         run: npm run verify:output
 
       - name: Verify Amazon affiliate tag (production safety)
-        env:
-          AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}
         run: npm run audit:affiliate-tag-production
 
       - name: Validate deployment secrets
