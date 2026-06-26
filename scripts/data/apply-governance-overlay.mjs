@@ -48,7 +48,29 @@ const RESTRICTED_SLUGS = new Set([
   'salvinorin-a',
 ])
 
-// Curated index-allowlisted compound slugs.
+// Curated index-allowlisted herb slugs. Mirrors the canonical
+// editor-curated allowlist in src/lib/index-allowlist.ts so the runtime
+// visibility gate honors the same source of truth used by the sitemap.
+const CURATED_HERB_SLUGS = new Set([
+  'ashwagandha',
+  'rhodiola',
+  'piper-methysticum',
+  'turmeric',
+  'ginger',
+  'peppermint',
+  'black-cohosh',
+  'momordica-charantia',
+  'black-seed',
+  'bacopa',
+  'ginkgo-biloba',
+  'saffron',
+  'melissa-officinalis',
+  'valerian',
+])
+
+// Curated index-allowlisted compound slugs. Mirrors the canonical
+// editor-curated allowlist in src/lib/index-allowlist.ts.
+// Kratom + mitragynine intentionally excluded — restricted.
 const CURATED_COMPOUND_SLUGS = new Set([
   'l-theanine',
   'magnesium',
@@ -57,16 +79,14 @@ const CURATED_COMPOUND_SLUGS = new Set([
   'epigallocatechin-gallate-egcg',
   'n-acetylcysteine',
   'coenzyme-q10',
-  'curcumin',
+  'curcumin-piperine',
   'berberine',
   'alpha-gpc',
   'cdp-choline',
-  'phosphatidylserine',
+  'phosphatidylcholine',
   'acetyl-l-carnitine',
   'l-tyrosine',
   'huperzine-a',
-  'kratom',
-  'mitragynine',
 ])
 
 function readJson(filePath, fallback) {
@@ -226,9 +246,15 @@ function processKind(kind, listFile, detailDirName, report) {
 
     const detailEntry = detailBySlug.get(slug)
     // Sources can live on either the detail record or the flat record.
+    // Curated allowlists (herbs + compounds) are editor-approved by
+    // src/lib/index-allowlist.ts and bypass the record-level sources gate
+    // so high-traffic slugs stay indexable while real citations are
+    // curated. Restricted slugs never get this bypass.
+    const isCuratedHerb = kind === 'herbs' && CURATED_HERB_SLUGS.has(slug) && !RESTRICTED_SLUGS.has(slug)
     const isCuratedCompound = kind === 'compounds' && CURATED_COMPOUND_SLUGS.has(slug) && !RESTRICTED_SLUGS.has(slug)
-    const hasSources = (detailEntry && hasRealSources(detailEntry.record)) || hasRealSources(record) || isCuratedCompound
-    const baseIndexable = isBaseIndexable(record)
+    const isCurated = isCuratedHerb || isCuratedCompound
+    const hasSources = (detailEntry && hasRealSources(detailEntry.record)) || hasRealSources(record) || isCurated
+    const baseIndexable = isBaseIndexable(record) || isCurated
     const existingReasons = Array.isArray(record.indexability_reasons) ? record.indexability_reasons : []
     // Stable across re-runs: a record we previously downgraded still counts as "meant to
     // be indexable" even though its status is now NEEDS_REVIEW.
@@ -242,7 +268,7 @@ function processKind(kind, listFile, detailDirName, report) {
         record.indexability_reasons.push('restricted_or_high_risk_compound')
       }
       restricted.push(slug)
-    } else if (wasIndexable && !hasSources) {
+    } else if (wasIndexable && !hasSources && !isCurated) {
       applyIndexabilityState(record, 'NEEDS_REVIEW')
       if (!record.indexability_reasons.includes(DOWNGRADE_REASON)) {
         record.indexability_reasons.push(DOWNGRADE_REASON)
@@ -252,13 +278,17 @@ function processKind(kind, listFile, detailDirName, report) {
 
     record.governance = governance
 
-    if (isCuratedCompound) {
+    if (isCurated) {
       record.indexability_status = 'PUBLISH'
       record.robots = 'index,follow'
       record.sitemap_included = true
       record.governance.indexingAllowed = true
       record.governance.reviewStatus = 'approved'
       record.governance.requiresHumanReview = false
+      record.governance.reason = record.governance.reason || 'curated_allowlist'
+      if (!record.indexability_reasons.includes('curated_allowlist')) {
+        record.indexability_reasons.push('curated_allowlist')
+      }
     }
 
     // 4. Enrich the detail record with governance + evidence (no fabrication).
@@ -275,9 +305,9 @@ function processKind(kind, listFile, detailDirName, report) {
       if (!Array.isArray(detailEntry.record.claimMap)) detailEntry.record.claimMap = []
       // Mirror indexability decisions onto the detail record for runtime robots.
       if (RESTRICTED_SLUGS.has(slug)) applyIndexabilityState(detailEntry.record, 'BLOCKED')
-      else if (wasIndexable && !hasSources) applyIndexabilityState(detailEntry.record, 'NEEDS_REVIEW')
+      else if (wasIndexable && !hasSources && !isCurated) applyIndexabilityState(detailEntry.record, 'NEEDS_REVIEW')
 
-      if (isCuratedCompound) {
+      if (isCurated) {
         detailEntry.record.indexability_status = 'PUBLISH'
         detailEntry.record.robots = 'index,follow'
         detailEntry.record.sitemap_included = true
@@ -291,6 +321,10 @@ function processKind(kind, listFile, detailDirName, report) {
 
   report.deIndexed[kind] = deIndexed.sort()
   report.restricted[kind] = restricted.sort()
+  report.curatedAllowlist[kind] = list
+    .filter((r) => Array.isArray(r.indexability_reasons) && r.indexability_reasons.includes('curated_allowlist'))
+    .map((r) => r.slug)
+    .sort()
   report.counts[kind] = {
     records: list.length,
     detailFiles: listJsonFiles(detailDir).length,
@@ -309,6 +343,7 @@ function main() {
     deIndexed: {},
     restricted: {},
     counts: {},
+    curatedAllowlist: {},
     skipped: [],
   }
 
@@ -327,8 +362,9 @@ function main() {
   console.log(`[governance-overlay] removed singular dirs: ${report.removedSingularDirs.join(', ') || 'none'}`)
   for (const kind of ['herbs', 'compounds']) {
     const c = report.counts[kind] || {}
+    const curated = (report.curatedAllowlist[kind] || []).length
     console.log(
-      `[governance-overlay] ${kind}: records=${c.records} detail=${c.detailFiles} indexable=${c.indexable} needsReview=${c.needsReview} orphansRemoved=${(report.removedOrphans[kind] || []).length} restricted=${(report.restricted[kind] || []).length}`,
+      `[governance-overlay] ${kind}: records=${c.records} detail=${c.detailFiles} indexable=${c.indexable} needsReview=${c.needsReview} curated=${curated} orphansRemoved=${(report.removedOrphans[kind] || []).length} restricted=${(report.restricted[kind] || []).length}`,
     )
   }
   console.log(`[governance-overlay] report: ${path.relative(repoRoot, reportPath)}`)
