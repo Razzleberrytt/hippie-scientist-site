@@ -4,9 +4,8 @@ import { notFound } from 'next/navigation'
 import { getGoal, goals } from '@/data/goals'
 import { getHerbBySlug, getCompoundBySlug, getGoalEvidenceEngine } from '../../../src/lib/runtime-data'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
-import { faqPageJsonLd, SITE_URL } from '../../../src/lib/seo'
+import { SITE_URL } from '../../../src/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
-import JsonLd from '@/components/seo/JsonLd'
 import { buildGoalSchemaGraph } from '../../../src/lib/schema-graph'
 import { buildGoalClusterGraph } from '@/lib/cluster-linking'
 import { buildGoalPageMetadata } from '../../../src/lib/goal-seo'
@@ -313,6 +312,10 @@ export default async function GoalDecisionPage({
   }))
   const faqQuestions = getGoalFaqItems(goal.slug, fallbackFaq)
 
+  // Define harm-reduction zone before schema graph so FAQ schema is gated here,
+  // making buildGoalSchemaGraph the single source of truth for FAQPage JSON-LD.
+  const isHarmReductionZone = ['kava', 'kratom', 'harm-reduction', 'psychedelic'].includes(goal.slug)
+
   const schemaGraph = buildGoalSchemaGraph({
     goalPath,
     title: `${goal.title} | The Hippie Scientist`,
@@ -321,7 +324,7 @@ export default async function GoalDecisionPage({
       { name: 'Goals', url: `${SITE_URL}/goals/` },
       { name: goal.title, url: `${SITE_URL}${goalPath}/` },
     ],
-    faqQuestions,
+    faqQuestions: isHarmReductionZone ? [] : faqQuestions,
     comparisonRows: enrichedOptions.map((opt) => ({
       name: opt.option.name,
       bestFor: opt.option.bestFor,
@@ -339,14 +342,10 @@ export default async function GoalDecisionPage({
   })
 
   const clusterGraph = buildGoalClusterGraph(goal.slug)
-  const isHarmReductionZone = ['kava', 'kratom', 'harm-reduction', 'psychedelic'].includes(goal.slug);
   const structuredData = (
     <>
       <SchemaGraphScript graph={schemaGraph} />
       {clusterGraph ? <SchemaGraphScript graph={clusterGraph} /> : null}
-      {!isHarmReductionZone && faqQuestions && faqQuestions.length > 0 && (
-        <JsonLd schema={faqPageJsonLd({ pagePath: goalPath, questions: faqQuestions })} />
-      )}
     </>
   )
 
@@ -538,7 +537,6 @@ export default async function GoalDecisionPage({
                   </div>
                 ) : null}
               </div>
-              {/* Sourcing CTA */}
               {(() => {
                 if (isEducationOnly || isRestrictedRecord({ slug: option.slug, name: option.name }) || (compound && isRestrictedRecord(compound))) {
                   return null
