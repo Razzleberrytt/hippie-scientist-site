@@ -15,6 +15,35 @@ type AuthorityJsonLdProps = {
   faqItems?: FaqItem[]
 }
 
+function normalizeFaqItem(item: FaqItem): FaqItem | null {
+  const question = String(item.question || '').trim()
+  const answer = String(item.answer || '').trim()
+
+  if (question.length < 12 || answer.length <= 50) {
+    return null
+  }
+
+  return { question, answer }
+}
+
+function getMeaningfulFaqItems(items: FaqItem[] | undefined): FaqItem[] {
+  const seenQuestions = new Set<string>()
+  const meaningfulItems: FaqItem[] = []
+
+  for (const item of items ?? []) {
+    const normalized = normalizeFaqItem(item)
+    if (!normalized) continue
+
+    const questionKey = normalized.question.toLowerCase()
+    if (seenQuestions.has(questionKey)) continue
+
+    seenQuestions.add(questionKey)
+    meaningfulItems.push(normalized)
+  }
+
+  return meaningfulItems
+}
+
 export default function AuthorityJsonLd({
   title,
   description,
@@ -28,6 +57,7 @@ export default function AuthorityJsonLd({
   const webpageId = `${canonical}#webpage`
   const breadcrumbId = `${canonical}#breadcrumb`
   const faqId = `${canonical}#faq`
+  const meaningfulFaqItems = getMeaningfulFaqItems(faqItems)
 
   const webpage = {
     '@type': type === 'MedicalWebPage' ? ['MedicalWebPage', 'WebPage'] : type,
@@ -38,7 +68,7 @@ export default function AuthorityJsonLd({
     url: canonical,
     isPartOf: { '@type': 'WebSite', name: 'The Hippie Scientist', url: SITE_URL },
     ...(breadcrumbs.length ? { breadcrumb: { '@id': breadcrumbId } } : {}),
-    ...(faqItems?.length ? { hasPart: { '@id': faqId } } : {}),
+    ...(meaningfulFaqItems.length ? { hasPart: { '@id': faqId } } : {}),
   }
 
   const breadcrumb = breadcrumbs.length
@@ -55,13 +85,13 @@ export default function AuthorityJsonLd({
     : null
 
   const faq =
-    faqItems && faqItems.length > 0
+    meaningfulFaqItems.length > 0
       ? {
           '@type': 'FAQPage',
           '@id': faqId,
           url: canonical,
           isPartOf: { '@id': webpageId },
-          mainEntity: faqItems.map((item) => ({
+          mainEntity: meaningfulFaqItems.map((item) => ({
             '@type': 'Question',
             name: item.question,
             acceptedAnswer: { '@type': 'Answer', text: item.answer },
@@ -75,7 +105,7 @@ export default function AuthorityJsonLd({
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(graph).replace(/</g, '\\u003c'),
+        __html: JSON.stringify(graph).replace(/</g, '\u003c'),
       }}
     />
   )
