@@ -200,7 +200,7 @@ export default function LTheanineForAnxietyPage() {
           <h2 className="text-3xl font-semibold mb-6">Evidence Summary</h2>
           <EvidenceSummaryCard
             title="L-Theanine for Anxiety and Stress"
-            evidenceLevel="Limited-to-moderate"
+            evidenceLevel="Limited"
             humanEvidence="Small human studies report acute reductions in psychological and physiological stress markers. The best anxiety-adjacent evidence is in stress-task and high-arousal contexts, not large trials in diagnosed anxiety disorders."
             mechanisticEvidence="L-theanine is proposed to support alpha-wave activity and modulate glutamate and GABA-related pathways. This may help explain relaxed alertness without strong sedation."
             safetyProfile="Generally well tolerated at common doses. Use caution with blood-pressure medications, sedatives, sleep medications, prescription stimulants, pregnancy, breastfeeding, or psychiatric conditions."
