@@ -8,6 +8,11 @@ type GoalHubSectionsProps = {
   seoEntry: GoalHubLink | null
 }
 
+function toCanonicalHref(href: string) {
+  if (!href || href === '/' || href.includes('?') || href.includes('#')) return href
+  return href.endsWith('/') ? href : `${href}/`
+}
+
 export default function GoalHubSections({
   goalSlug,
   stack,
@@ -30,7 +35,7 @@ export default function GoalHubSections({
       {stack ? (
         <div className='rounded-2xl border border-brand-900/10 bg-white/70 p-5 dark:border-white/10 dark:bg-white/5'>
           <p className='text-[10px] font-bold uppercase tracking-wider text-brand-700 dark:text-brand-200'>Stack</p>
-          <Link href={stack.href} className='mt-2 block text-base font-semibold text-brand-800 hover:underline dark:text-brand-100'>
+          <Link href={toCanonicalHref(stack.href)} className='mt-2 block text-base font-semibold text-brand-800 hover:underline dark:text-brand-100'>
             {stack.label} →
           </Link>
           {stack.note ? <p className='mt-2 text-sm text-muted'>{stack.note}</p> : null}
@@ -46,7 +51,7 @@ export default function GoalHubSections({
             {compares.map((link) => (
               <li key={link.href}>
                 <Link
-                  href={link.href}
+                  href={toCanonicalHref(link.href)}
                   className='block rounded-2xl border border-brand-900/10 bg-white/70 p-4 transition hover:border-brand-700/20 hover:bg-white hover:shadow-sm dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10'
                 >
                   <span className='font-semibold text-brand-800 dark:text-brand-100'>{link.label}</span>
@@ -64,7 +69,7 @@ export default function GoalHubSections({
 
       {seoEntry ? (
         <p className='text-sm text-muted'>
-          <Link href={seoEntry.href} className='font-semibold text-brand-800 hover:underline dark:text-brand-100'>
+          <Link href={toCanonicalHref(seoEntry.href)} className='font-semibold text-brand-800 hover:underline dark:text-brand-100'>
             {seoEntry.label}
           </Link>
           {seoEntry.note ? ` — ${seoEntry.note}` : null}
@@ -72,7 +77,7 @@ export default function GoalHubSections({
       ) : null}
 
       <p className='text-xs text-muted'>
-        <Link href='/safety-checker' className='font-semibold text-brand-800 hover:underline dark:text-brand-100'>
+        <Link href='/safety-checker/' className='font-semibold text-brand-800 hover:underline dark:text-brand-100'>
           Run the safety interaction checker
         </Link>{' '}
         before stacking multiple products for {goalSlug} support.
