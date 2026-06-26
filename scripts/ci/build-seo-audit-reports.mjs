@@ -151,6 +151,28 @@ function collectLinks(rows) {
   }
 }
 
+function topCounts(rows, key, limit = 25) {
+  const counts = new Map()
+  for (const row of rows) {
+    const value = String(row[key] || '').trim()
+    if (!value) continue
+    counts.set(value, (counts.get(value) || 0) + 1)
+  }
+  return [...counts.entries()]
+    .map(([value, count]) => ({ value, count }))
+    .sort((a, b) => b.count - a.count || a.value.localeCompare(b.value))
+    .slice(0, limit)
+}
+
+function summarizeNonCanonicalLinks(rows) {
+  return {
+    total: rows.length,
+    topHrefs: topCounts(rows, 'href'),
+    topCanonicalHrefs: topCounts(rows, 'canonicalHref'),
+    topSourceRoutes: topCounts(rows, 'source'),
+  }
+}
+
 function collectManifestRows() {
   const routes = readJson(routeManifestPath, [])
   return Array.isArray(routes) ? routes.map((row) => ({
@@ -201,6 +223,7 @@ function main() {
   const manifestRows = collectManifestRows()
   const rows = htmlRows.length ? htmlRows : manifestRows
   const linkReport = htmlRows.length ? collectLinks(htmlRows) : { links: [], broken: [], nonCanonical: [], orphanRoutes: [] }
+  const nonCanonicalSummary = summarizeNonCanonicalLinks(linkReport.nonCanonical)
   const duplicateSlugs = collectDuplicateSlugs()
   const duplicateMetadata = {
     generatedAt,
@@ -255,6 +278,8 @@ function main() {
         totalInternalLinks: linkReport.links.length,
         brokenInternalLinks: linkReport.broken.length,
         nonCanonicalInternalLinks: linkReport.nonCanonical.length,
+        topNonCanonicalInternalHrefs: nonCanonicalSummary.topHrefs.slice(0, 10),
+        topNonCanonicalSourceRoutes: nonCanonicalSummary.topSourceRoutes.slice(0, 10),
         orphanRoutes: linkReport.orphanRoutes.length,
       },
       routeGeneration: {
@@ -270,7 +295,11 @@ function main() {
   writeReport('seo-audit.json', seoAudit)
   writeReport('orphan-pages.json', { generatedAt, orphanRoutes: linkReport.orphanRoutes })
   writeReport('broken-links.json', { generatedAt, brokenLinks: linkReport.broken })
-  writeReport('noncanonical-internal-links.json', { generatedAt, links: linkReport.nonCanonical })
+  writeReport('noncanonical-internal-links.json', {
+    generatedAt,
+    summary: nonCanonicalSummary,
+    links: linkReport.nonCanonical,
+  })
   writeReport('duplicate-metadata.json', duplicateMetadata)
   writeReport('thin-pages.json', { generatedAt, thinPages })
   console.log(`[seo-audit-reports] wrote reports to ${path.relative(root, reportDir)}`)
