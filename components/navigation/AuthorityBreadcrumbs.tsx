@@ -10,6 +10,14 @@ type AuthorityBreadcrumbsProps = {
   items?: BreadcrumbItem[]
 }
 
+function normalizeBreadcrumbHref(href: string): string {
+  if (!href || href === '/') return '/'
+  if (href.includes('?') || href.includes('#')) return href
+  if (href.split('/').pop()?.includes('.')) return href
+
+  return href.endsWith('/') ? href : `${href}/`
+}
+
 export default function AuthorityBreadcrumbs({
   items,
 }: AuthorityBreadcrumbsProps) {
@@ -24,15 +32,16 @@ export default function AuthorityBreadcrumbs({
     >
       {items.map((item, index) => {
         const isLast = index === items.length - 1
+        const href = item.href ? normalizeBreadcrumbHref(item.href) : undefined
 
         return (
           <div
-            key={item.href ?? item.label}
+            key={href ?? item.label}
             className="flex items-center gap-1.5"
           >
-            {item.href && !isLast ? (
+            {href && !isLast ? (
               <Link
-                href={item.href}
+                href={href}
                 className="inline-flex items-center py-2 text-brand-700 transition-colors hover:text-brand-800 hover:underline underline-offset-2 dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]"
               >
                 {item.label}
