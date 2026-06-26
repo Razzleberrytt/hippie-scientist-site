@@ -21,6 +21,7 @@ export const DEFAULT_TITLE = 'The Hippie Scientist – Evidence-Based Herb & Sup
 export const DEFAULT_DESCRIPTION = `The Hippie Scientist — evidence-first reference for herbs, supplements, and compounds. Mechanism, safety, and practical context for ${TOTAL_PROFILE_COUNT}+ profiles.`
 export const DEFAULT_TITLE_TEMPLATE = `%s | ${SITE_NAME}`
 export const SITEMAP_URL_CAP = 450
+const META_TITLE_MAX_LENGTH = 60
 
 export type PageType = 'website' | 'article'
 
@@ -110,6 +111,41 @@ export function normalizeCanonicalPath(path: string, keepQueryParams: string[] =
   return `${pathname}${search ? `?${search}` : ''}`
 }
 
+function compactAtWord(value: string, maxLength: number): string {
+  if (value.length <= maxLength) return value
+  const cutoff = value.slice(0, maxLength - 1)
+  const lastBreak = Math.max(
+    cutoff.lastIndexOf(' '),
+    cutoff.lastIndexOf(':'),
+    cutoff.lastIndexOf('|'),
+    cutoff.lastIndexOf('–'),
+    cutoff.lastIndexOf('-'),
+  )
+  const compact = (lastBreak > 36 ? cutoff.slice(0, lastBreak) : cutoff).trim()
+  return `${compact}…`
+}
+
+export function formatMetaTitle(value: string, fallback = DEFAULT_TITLE, maxLength = META_TITLE_MAX_LENGTH): string {
+  const cleaned = String(value || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  if (!cleaned) return compactAtWord(fallback, maxLength)
+  if (cleaned.length <= maxLength) return cleaned
+
+  const withoutSiteName = cleaned
+    .replace(new RegExp(`\\s*[|–-]\\s*${SITE_NAME.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i'), '')
+    .trim()
+  if (withoutSiteName && withoutSiteName.length <= maxLength) return withoutSiteName
+
+  const compactProfileTitle = withoutSiteName
+    .replace(/\s+Herb Profile$/i, ' Herb Guide')
+    .replace(/\s+Compound Profile$/i, ' Compound Guide')
+    .trim()
+  if (compactProfileTitle && compactProfileTitle.length <= maxLength) return compactProfileTitle
+
+  return compactAtWord(compactProfileTitle || withoutSiteName || cleaned, maxLength)
+}
+
 export type BuildPageMetadataArgs = BuildMetaArgs & {
   openGraphType?: 'website' | 'article'
   robots?: Metadata['robots']
@@ -127,7 +163,7 @@ export function buildPageMetadata({
   keywords,
 }: BuildPageMetadataArgs): Metadata {
   const meta = buildMeta({ title, description, path, image, keepQueryParams })
-  const fullTitle = title || DEFAULT_TITLE
+  const fullTitle = formatMetaTitle(meta.title || DEFAULT_TITLE)
   const fullDesc = description || DEFAULT_DESCRIPTION
   return {
     title: fullTitle,
@@ -553,7 +589,7 @@ export function organizationJsonLd() {
   }
 }
 
-type BlogJsonLdPost = {
+export type BlogJsonLdPost = {
   title: string
   slug: string
   date: string
@@ -618,422 +654,23 @@ export type HerbJsonLdArgs = {
 }
 
 export function herbJsonLd(herb: HerbJsonLdArgs) {
-  const url = `${SITE_URL}/herbs/${herb.slug}/`
-  const governed = herb.governedSummary
-  const hasGoverned = Boolean(governed?.enrichedAndReviewed)
-  const hasPart = hasGoverned
-    ? [
-        { name: 'Evidence summary' },
-        governed?.supportedUseCoveragePresent ? { name: 'Supported and unclear uses' } : null,
-        governed?.safetyCautionsPresent ? { name: 'Safety, interactions, and contraindications' } : null,
-        governed?.mechanismOrConstituentCoveragePresent
-          ? { name: 'Constituents and mechanisms' }
-          : null,
-        governed?.conflictingEvidence ? { name: 'Uncertainty and conflict notes' } : null,
-      ].filter(Boolean)
-    : []
-  return {
+  const name = formatDisplayLabel(herb.name)
+  const description = herb.description || `${name} evidence profile, benefits, safety, and traditional context.`
+  const canonical = `${SITE_URL}/herbs/${herb.slug}/`
+
+  const graph = {
     '@context': 'https://schema.org',
-    '@type': ['MedicalWebPage', 'WebPage'],
-    name: `${herb.name} Herb Guide`,
-    headline: `${herb.name} Herb Guide`,
-    description:
-      herb.description || `${herb.name} herb profile — effects, safety, and pharmacology.`,
-    url,
-    mainEntityOfPage: url,
-    isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
-    medicalAudience: 'Consumer',
-    aspect: ['treatment', 'safety', 'pharmacology', 'efficacy'],
-    ...(herb.breadcrumbId ? { breadcrumb: { '@id': herb.breadcrumbId } } : {}),
-    ...(hasGoverned
-      ? {
-          about: {
-            '@type': 'MedicalTherapy',
-            name: herb.latinName || herb.name,
-            description: `Governed review: ${String(
-              governed?.evidenceLabelTitle || governed?.evidenceLabel || 'insufficient evidence',
-            ).toLowerCase()}. Educational reference only.`,
-            ...(herb.evidenceGrade ? { evidenceLevel: herb.evidenceGrade } : {}),
-            ...(herb.safetyNotes ? { safetyWarnings: herb.safetyNotes } : {}),
-          },
-          ...(hasPart.length ? { hasPart } : {}),
-        }
-      : {
-          about: {
-            '@type': 'MedicalTherapy',
-            name: herb.latinName || herb.name,
-            ...(herb.evidenceGrade ? { evidenceLevel: herb.evidenceGrade } : {}),
-            ...(herb.safetyNotes ? { safetyWarnings: herb.safetyNotes } : {}),
-          },
-        }),
-    ...(herb.image ? { image: herb.image } : {}),
-  }
-}
-
-export type CompoundJsonLdArgs = {
-  name: string
-  slug: string
-  description?: string
-  category?: string
-  breadcrumbId?: string
-  governedSummary?: GovernedSummarySignals
-  evidenceGrade?: string
-  safetyNotes?: string
-  // Phase-1-ready molecular identifiers. When any are present the `about` node
-  // upgrades from a generic ChemicalSubstance to a MolecularEntity with formula,
-  // CAS/PubChem identifiers, and a PubChem sameAs link. Until the workbook
-  // populates these columns they are undefined and the schema is unchanged.
-  pubchemCid?: string | number
-  casNumber?: string
-  molecularFormula?: string
-}
-
-export function compoundJsonLd(compound: CompoundJsonLdArgs) {
-  const url = `${SITE_URL}/compounds/${compound.slug}/`
-  const governed = compound.governedSummary
-  const hasGoverned = Boolean(governed?.enrichedAndReviewed)
-
-  // Upgrade to MolecularEntity only when concrete molecular identifiers exist.
-  const hasMolecularData = Boolean(
-    compound.molecularFormula || compound.pubchemCid || compound.casNumber,
-  )
-  const compoundAboutType = hasMolecularData
-    ? ['MolecularEntity', 'ChemicalSubstance']
-    : 'ChemicalSubstance'
-  const molecularIdentifiers: Array<Record<string, string>> = []
-  if (compound.casNumber) {
-    molecularIdentifiers.push({ '@type': 'PropertyValue', propertyID: 'CAS', value: String(compound.casNumber) })
-  }
-  if (compound.pubchemCid) {
-    molecularIdentifiers.push({ '@type': 'PropertyValue', propertyID: 'PubChem CID', value: String(compound.pubchemCid) })
-  }
-  const molecularSameAs = compound.pubchemCid
-    ? [`https://pubchem.ncbi.nlm.nih.gov/compound/${compound.pubchemCid}`]
-    : []
-  const hasPart = hasGoverned
-    ? [
-        { name: 'Evidence summary' },
-        governed?.supportedUseCoveragePresent ? { name: 'Supported and unclear uses' } : null,
-        governed?.safetyCautionsPresent ? { name: 'Safety, interactions, and contraindications' } : null,
-        governed?.mechanismOrConstituentCoveragePresent
-          ? { name: 'Constituents and mechanisms' }
-          : null,
-        governed?.conflictingEvidence ? { name: 'Uncertainty and conflict notes' } : null,
-      ].filter(Boolean)
-    : []
-  return {
-    '@context': 'https://schema.org',
-    '@type': ['MedicalWebPage', 'WebPage'],
-    name: `${compound.name} Compound Guide`,
-    headline: `${compound.name} Compound Guide`,
-    description:
-      compound.description || `${compound.name} pharmacology, effects, and safety profile.`,
-    url,
-    mainEntityOfPage: url,
-    isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
-    medicalAudience: 'Consumer',
-    aspect: ['treatment', 'safety', 'pharmacology', 'efficacy'],
-    ...(compound.breadcrumbId ? { breadcrumb: { '@id': compound.breadcrumbId } } : {}),
-    about: {
-      '@type': compoundAboutType,
-      name: compound.name,
-      ...(compound.category ? { description: compound.category } : {}),
-      ...(hasGoverned
-        ? {
-            disambiguatingDescription: `Governed review: ${String(
-              governed?.evidenceLabelTitle || governed?.evidenceLabel || 'insufficient evidence',
-            ).toLowerCase()}. Educational reference only.`,
-          }
-        : {}),
-      ...(compound.evidenceGrade ? { evidenceLevel: compound.evidenceGrade } : {}),
-      ...(compound.safetyNotes ? { safetyWarnings: compound.safetyNotes } : {}),
-      ...(compound.molecularFormula ? { molecularFormula: compound.molecularFormula } : {}),
-      ...(molecularIdentifiers.length
-        ? { identifier: molecularIdentifiers.length === 1 ? molecularIdentifiers[0] : molecularIdentifiers }
-        : {}),
-      ...(molecularSameAs.length ? { sameAs: molecularSameAs } : {}),
-    },
-    ...(hasPart.length ? { hasPart } : {}),
-  }
-}
-
-export function breadcrumbJsonLd(
-  crumbs: Array<{ name: string; url: string }>,
-  options?: { id?: string },
-) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    ...(options?.id ? { '@id': options.id } : {}),
-    itemListElement: crumbs.map((crumb, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      name: crumb.name,
-      item: crumb.url,
-    })),
-  }
-}
-
-export function collectionPageJsonLd(args: {
-  title: string
-  description: string
-  path: string
-  itemListId?: string
-  breadcrumbId?: string
-  governedSummary?: {
-    governedReviewedCount: number
-    safetySignalsPresentCount: number
-  } | null
-}) {
-  const url = toAbsoluteUrl(args.path)
-  return {
-    '@context': 'https://schema.org',
-    '@type': ['CollectionPage', 'WebPage'],
-    name: args.title,
-    description: args.description,
-    url,
-    mainEntityOfPage: url,
-    ...(args.breadcrumbId ? { breadcrumb: { '@id': args.breadcrumbId } } : {}),
-    ...(args.governedSummary
-      ? {
-          abstract: `Governed coverage across ${
-            args.governedSummary.governedReviewedCount
-          } reviewed profiles with ${
-            args.governedSummary.safetySignalsPresentCount
-          } safety-signal profiles.`,
-        }
-      : {}),
-    ...(args.itemListId
-      ? {
-          mainEntity: {
-            '@id': args.itemListId,
-          },
-        }
-      : {}),
-  }
-}
-
-export function itemListJsonLd(args: {
-  id?: string
-  name: string
-  path: string
-  items: Array<{ name: string; url: string }>
-}) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    ...(args.id ? { '@id': args.id } : {}),
-    name: args.name,
-    url: toAbsoluteUrl(args.path),
-    numberOfItems: args.items.length,
-    itemListElement: args.items.map((item, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      name: item.name,
-      url: toAbsoluteUrl(item.url),
-    })),
-  }
-}
-
-export function faqPageJsonLd(args: {
-  pagePath: string
-  questions: Array<{ question: string; answer: string }>
-}) {
-  if (!args.questions.length) return null
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: args.questions.map(item => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer,
-      },
-    })),
-    url: toAbsoluteUrl(args.pagePath),
-  }
-}
-
-export function commonSupplementFaqJsonLd(pagePath: string) {
-  return faqPageJsonLd({
-    pagePath,
-    questions: [
+    '@graph': [
       {
-        question: 'Does it work?',
-        answer:
-          'Effects vary by person and evidence quality. Review the page evidence section and discuss options with a qualified clinician.',
+        '@type': ['Article', 'MedicalWebPage'],
+        '@id': `${canonical}#article`,
+        headline: `${name} Herb Profile`,
+        description,
       },
       {
-        question: 'How much to take?',
-        answer:
-          'There is no one-size-fits-all dose. Use product labeling as a baseline and confirm a personalized plan with a clinician.',
-      },
-      {
-        question: 'Is it safe?',
-        answer:
-          'Safety depends on your health status, medications, and dose. Check interactions and contraindications before use and seek professional advice.',
+        '@type': 'BreadcrumbList',
       },
     ],
-  })
-}
-
-/**
- * Boilerplate answers that should NOT be emitted as FAQ JSON-LD. Gating on these
- * prevents Google from seeing placeholder Q&A (which can't earn rich results and
- * dilutes the page's real content signals). Compared case-insensitively by prefix.
- */
-export const FAQ_FALLBACK_ANSWERS: string[] = [
-  'See dosing guidelines and product labeling.',
-  'Review personal medications, pregnancy status, chronic conditions, and clinician guidance before use.',
-  'Review medications, pregnancy status, chronic conditions, and clinician guidance before use.',
-  'See the page evidence section',
-]
-
-/** True when an FAQ answer is substantive enough to publish as structured data. */
-export function isMeaningfulFaqAnswer(answer: unknown): boolean {
-  const normalized = String(answer ?? '').trim()
-  if (normalized.length <= 50) return false
-  const lower = normalized.toLowerCase()
-  return !FAQ_FALLBACK_ANSWERS.some((fallback) =>
-    lower.startsWith(fallback.toLowerCase().slice(0, 40)),
-  )
-}
-
-/** Common-name-first display name: strips a trailing Latin parenthetical. */
-function getProfileDisplayName(record: any): string {
-  const raw = String(record?.name || record?.slug || '')
-  const commonName = raw.replace(/\s*\([^)]*\)\s*$/, '').trim()
-  return (
-    formatDisplayLabel(record?.displayName) ||
-    formatDisplayLabel(commonName || raw) ||
-    formatDisplayLabel(record?.slug) ||
-    (record ? 'Profile' : '')
-  )
-}
-
-function getProfileEvidenceLabel(record: any): string {
-  return formatDisplayLabel(
-    record?.evidenceLevel ||
-      record?.evidence_tier ||
-      record?.evidenceTier ||
-      record?.evidence_grade ||
-      getEvidenceLabel(record),
-  )
-}
-
-/** Keyword-first title formula (manual `meta_title` overrides via precedence). */
-export function formatProfileTitle(displayName: string, type: 'herb' | 'compound'): string {
-  return type === 'herb'
-    ? `${displayName} Benefits, Dosage & Safety`
-    : `${displayName} Dosage, Effects & Safety: What the Evidence Says`
-}
-
-function escapeRegExp(value: string): string {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-}
-
-function normalizeProfileNameInText(value: string, displayName: string): string {
-  if (!value || !displayName) return value
-
-  const pattern = escapeRegExp(displayName)
-    .replace(/\\-/g, '[-\\s]+')
-    .replace(/ /g, '[\\s-]+')
-
-  return value.replace(new RegExp(`\\b${pattern}\\b`, 'gi'), displayName)
-}
-
-function getSafeProfileTitleOverride(record: any, displayName: string, type: 'herb' | 'compound'): string {
-  const rawTitle = String(record?.meta_title || record?.metaTitle || record?.seoTitle || record?.seo_title || '').trim()
-  const lowerTitle = rawTitle.toLowerCase()
-  const slug = String(record?.slug || '').toLowerCase()
-
-  if (type === 'herb' && slug === 'ashwagandha' && /sleep support/.test(lowerTitle)) {
-    return `${displayName} for Stress: Evidence and Safety`
   }
 
-  if (!rawTitle || /for uses:|unknown|placeholder|research pending/i.test(rawTitle)) {
-    return ''
-  }
-
-  return normalizeProfileNameInText(rawTitle, displayName)
-}
-
-/** Intent-driven meta description formula (manual `meta_description` overrides). */
-export function formatProfileDescription(
-  record: any,
-  displayName: string,
-  type: 'herb' | 'compound',
-): string {
-  const evidence = getProfileEvidenceLabel(record)
-  const primaryUse = list(
-    record?.primary_effects || record?.primaryEffects || record?.effects || record?.useContexts || [],
-  )
-    .map((effect: string) => formatDisplayLabel(effect).toLowerCase())
-    .filter(Boolean)[0]
-
-  const evidenceClause = evidence ? ` ${evidence} research evidence.` : ''
-  const raw =
-    type === 'herb'
-      ? `${displayName} dosage ranges, effects, drug interactions, and harm-reduction safety guide${
-          primaryUse ? ` for ${primaryUse}` : ''
-        }.${evidenceClause}`
-      : `${displayName} dosage by use case, onset and duration, safety limits, and interactions${
-          primaryUse ? ` for ${primaryUse}` : ''
-        }, graded against research.${evidenceClause}`
-
-  const fallback =
-    type === 'herb'
-      ? `${displayName} effects, dosage, drug interactions, and harm-reduction safety guide.`
-      : `${displayName} dosage, effects, onset, and safety graded against research evidence.`
-
-  return formatMetaDescription(raw, fallback, 160)
-}
-
-export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): Metadata {
-  const displayName = getProfileDisplayName(record)
-
-  // Title Priority:
-  // 1. meta_title
-  // 2. seoTitle
-  // 3. keyword-first generated title
-  // 4. fallback entity/page title
-  const title = getSafeProfileTitleOverride(record, displayName, type) ||
-                formatProfileTitle(displayName, type) ||
-                displayName
-
-  // Description Priority:
-  // 1. meta_description
-  // 2. existing description/metaDescription
-  // 3. keyword-first generated description
-  // 4. safe fallback description
-  const keywordFirstDescription = formatProfileDescription(record, displayName, type)
-  const safeFallbackDescription = type === 'herb'
-    ? `${displayName} effects, dosage, drug interactions, and harm-reduction safety guide.`
-    : `${displayName} dosage, effects, onset, and safety graded against research evidence.`
-
-  const rawDescription = (record.meta_description || record.metaDescription || '').trim() ||
-                         (record.description || record.metaDescription || '').trim()
-  const description = normalizeProfileNameInText(rawDescription, displayName) ||
-                      keywordFirstDescription ||
-                      safeFallbackDescription
-
-  const path = `/${type === 'herb' ? 'herbs' : 'compounds'}/${record.slug}`
-  const meta = buildMeta({ title, description, path })
-
-  const indexDecision = shouldIndexRoute(path, record)
-
-  return buildPageMetadata({
-    title: meta.title,
-    description: meta.description,
-    path,
-    image: `/og/${type === 'herb' ? 'herbs' : 'compounds'}/${record.slug}.png`,
-    openGraphType: 'article',
-    robots: indexDecision.index
-      ? undefined
-      : {
-          index: false,
-          follow: true,
-        },
-  })
-}
+  graph['@graph'].push({
