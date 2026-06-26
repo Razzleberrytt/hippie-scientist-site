@@ -86,11 +86,11 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
 ]
 
 const popularComparisonPairs = [
-  { label: 'Melatonin vs Magnesium', href: '/compare/melatonin-vs-magnesium' },
-  { label: 'Sleep herbs vs Melatonin', href: '/compare/sleep-herbs-vs-melatonin' },
-  { label: 'Rhodiola vs Ashwagandha', href: '/compare/rhodiola-vs-ashwagandha' },
-  { label: 'Ashwagandha vs L-Theanine vs Magnesium', href: '/compare/ashwagandha-vs-l-theanine-vs-magnesium' },
-  { label: 'Caffeine vs L-Theanine vs Bacopa for Focus', href: '/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus' },
+  { label: 'Melatonin vs Magnesium', href: '/compare/melatonin-vs-magnesium/' },
+  { label: 'Sleep herbs vs Melatonin', href: '/compare/sleep-herbs-vs-melatonin/' },
+  { label: 'Rhodiola vs Ashwagandha', href: '/compare/rhodiola-vs-ashwagandha/' },
+  { label: 'Ashwagandha vs L-Theanine vs Magnesium', href: '/compare/ashwagandha-vs-l-theanine-vs-magnesium/' },
+  { label: 'Caffeine vs L-Theanine vs Bacopa for Focus', href: '/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/' },
 ]
 
 const guidanceCards = [
@@ -174,7 +174,7 @@ export default async function ComparePage() {
               {cat.pairs.map((pair) => (
                 <li key={pair.slug}>
                   <Link
-                    href={`/compare/${pair.slug}`}
+                    href={`/compare/${pair.slug}/`}
                     className="library-content-card block rounded-2xl border border-brand-900/10 bg-white/90 px-4 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-brand-300 hover:shadow dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
                   >
                     <span className="block truncate">{pair.label}</span>
@@ -210,13 +210,13 @@ export default async function ComparePage() {
         <p className="eyebrow-label">Decision next step</p>
         <h2 className="mt-2 text-xl font-semibold text-ink">Use comparisons to choose a safer path</h2>
         <div className="mt-4 grid gap-3 text-sm leading-6 text-muted md:grid-cols-3">
-          <Link href="/goals" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">
+          <Link href="/goals/" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">
             Start from your goal
           </Link>
-          <Link href="/safety-checker" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">
+          <Link href="/safety-checker/" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">
             Check safety context
           </Link>
-          <Link href="/learn/product-quality" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">
+          <Link href="/learn/product-quality/" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">
             Review product quality
           </Link>
         </div>
