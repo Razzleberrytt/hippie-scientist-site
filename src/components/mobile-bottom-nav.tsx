@@ -32,6 +32,11 @@ const navItems = [
   },
 ]
 
+function toCanonicalHref(href: string) {
+  if (!href || href === '/' || href.includes('?') || href.includes('#')) return href
+  return href.endsWith('/') ? href : `${href}/`
+}
+
 export default function MobileBottomNav() {
   const pathname = usePathname() || '/'
 
@@ -45,7 +50,7 @@ export default function MobileBottomNav() {
           return (
             <Link
               key={item.href}
-              href={item.href}
+              href={toCanonicalHref(item.href)}
               aria-current={active ? 'page' : undefined}
               className={`flex min-h-[3rem] min-w-0 flex-1 flex-col items-center justify-center gap-1 rounded-xl px-0.5 py-1.5 text-center transition ${
                 active
