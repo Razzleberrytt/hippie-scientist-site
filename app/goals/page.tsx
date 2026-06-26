@@ -73,13 +73,13 @@ export default function GoalsPage() {
         </p>
 
         <div className="mt-6 flex flex-wrap gap-3 text-[11px] font-semibold uppercase tracking-[0.13em] sm:gap-4 sm:text-xs">
-          <Link href="/methodology" className="text-brand-700 hover:text-brand-800 hover:underline dark:text-brand-100 dark:hover:text-white">
+          <Link href="/methodology/" className="text-brand-700 hover:text-brand-800 hover:underline dark:text-brand-100 dark:hover:text-white">
             Research methodology →
           </Link>
-          <Link href="/education/evidence-hierarchy" className="text-brand-700 hover:text-brand-800 hover:underline dark:text-brand-100 dark:hover:text-white">
+          <Link href="/education/evidence-hierarchy/" className="text-brand-700 hover:text-brand-800 hover:underline dark:text-brand-100 dark:hover:text-white">
             Evidence hierarchy →
           </Link>
-          <Link href="/disclaimer" className="text-brand-700 hover:text-brand-800 hover:underline dark:text-brand-100 dark:hover:text-white">
+          <Link href="/disclaimer/" className="text-brand-700 hover:text-brand-800 hover:underline dark:text-brand-100 dark:hover:text-white">
             Disclaimer →
           </Link>
         </div>
@@ -89,8 +89,8 @@ export default function GoalsPage() {
       <DecisionCtaGroup
         ctas={[
           { label: 'Browse goal paths', href: '#goals', variant: 'primary' },
-          { label: 'Search the library', href: '/search', variant: 'secondary' },
-          { label: 'Compare compounds', href: '/compare', variant: 'ghost' },
+          { label: 'Search the library', href: '/search/', variant: 'secondary' },
+          { label: 'Compare compounds', href: '/compare/', variant: 'ghost' },
         ]}
       />
 
@@ -98,7 +98,7 @@ export default function GoalsPage() {
         {goals.map((goal) => (
           <Link
             key={goal.slug}
-            href={`/goals/${goal.slug}`}
+            href={`/goals/${goal.slug}/`}
             className="group card-premium flex min-h-[17rem] flex-col justify-between overflow-hidden p-4 sm:min-h-[18rem] sm:p-6"
           >
             <div>
