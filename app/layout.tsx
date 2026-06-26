@@ -12,7 +12,7 @@ import MobileBottomNav from '../src/components/mobile-bottom-nav'
 import ScrollToTopButton from '../src/components/ScrollToTopButton'
 import ClickTracker from '@/components/ClickTracker'
 import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
-import { buildPageMetadata, DEFAULT_TITLE, DEFAULT_DESCRIPTION, SITE_URL, websiteJsonLd, organizationJsonLd } from '../src/lib/seo'
+import { buildPageMetadata, DEFAULT_DESCRIPTION, SITE_URL, websiteJsonLd, organizationJsonLd } from '../src/lib/seo'
 import { DarkModeProvider } from '@/lib/dark-mode-provider'
 import DarkModeToggle from '@/components/DarkModeToggle'
 import './globals.css'
@@ -25,13 +25,14 @@ import '@/styles/premium-surface-details.css'
 import '@/styles/accessibility-wcag-22.css'
 
 const ga4Id = process.env.NEXT_PUBLIC_GA4_ID?.trim() || ''
+const HOME_TITLE = 'The Hippie Scientist | Supplement Research'
 
 // Reusable JSON-LD from central helper (WebSite + Organization for homepage)
 const siteWebsiteLd = websiteJsonLd()
 const siteOrgLd = organizationJsonLd()
 
 const rootMetadata = buildPageMetadata({
-  title: DEFAULT_TITLE,
+  title: HOME_TITLE,
   description: DEFAULT_DESCRIPTION,
   path: '/',
   image: '/og-default.jpg',
@@ -40,7 +41,7 @@ const rootMetadata = buildPageMetadata({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: DEFAULT_TITLE, template: '%s' },
+  title: { default: HOME_TITLE, template: '%s' },
   description: DEFAULT_DESCRIPTION,
   ...rootMetadata,
   openGraph: rootMetadata.openGraph,
