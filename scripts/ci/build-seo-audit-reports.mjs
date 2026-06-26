@@ -11,6 +11,8 @@ const siteHost = 'https://thehippiescientist.net'
 
 const staticAssetExt = /\.(?:css|js|json|png|jpe?g|gif|webp|avif|svg|ico|txt|xml|map|woff2?)$/i
 const weakTextPattern = /placeholder|research[-\s]?pending|unknown|not specified|not available|needs review|minimal/i
+const titleTooLongThreshold = 60
+const htmlSizeWarningBytes = 100 * 1024
 
 function readJson(filePath, fallback) {
   try {
@@ -81,6 +83,8 @@ function htmlMeta(html) {
   const canonical = (html.match(/<link\s+[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']/i) || [])[1] || ''
   const robots = (html.match(/<meta\s+[^>]*name=["']robots["'][^>]*content=["']([^"']*)["']/i) || [])[1] || ''
   const structuredDataBlocks = [...html.matchAll(/<script type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/g)].map((m) => m[1])
+  const h1Count = [...html.matchAll(/<h1\b[^>]*>/gi)].length
+  const htmlSizeBytes = Buffer.byteLength(html, 'utf8')
   const bodyText = html
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
     .replace(/<style[\s\S]*?<\/style>/gi, ' ')
@@ -93,6 +97,8 @@ function htmlMeta(html) {
     canonical,
     robots,
     structuredDataBlocks,
+    h1Count,
+    htmlSizeBytes,
     wordCount: bodyText ? bodyText.split(/\s+/).length : 0,
   }
 }
@@ -173,6 +179,76 @@ function summarizeNonCanonicalLinks(rows) {
   }
 }
 
+function routeTitle(row) {
+  return {
+    route: row.route,
+    title: row.title,
+    titleLength: String(row.title || '').length,
+  }
+}
+
+function routeHtmlSize(row) {
+  return {
+    route: row.route,
+    htmlSizeBytes: row.htmlSizeBytes,
+    htmlSizeKb: Number((row.htmlSizeBytes / 1024).toFixed(1)),
+  }
+}
+
+function routeH1(row) {
+  return {
+    route: row.route,
+    h1Count: row.h1Count ?? null,
+    title: row.title,
+  }
+}
+
+function collectTechnicalSeoIssues(rows, htmlRows) {
+  const titleTooLong = rows
+    .filter((row) => String(row.title || '').length > titleTooLongThreshold)
+    .map(routeTitle)
+    .sort((a, b) => b.titleLength - a.titleLength || a.route.localeCompare(b.route))
+
+  const htmlTooLarge = htmlRows
+    .filter((row) => row.htmlSizeBytes > htmlSizeWarningBytes)
+    .map(routeHtmlSize)
+    .sort((a, b) => b.htmlSizeBytes - a.htmlSizeBytes || a.route.localeCompare(b.route))
+
+  const h1Missing = htmlRows
+    .filter((row) => row.h1Count === 0)
+    .map(routeH1)
+    .sort((a, b) => a.route.localeCompare(b.route))
+
+  const multipleH1 = htmlRows
+    .filter((row) => row.h1Count > 1)
+    .map(routeH1)
+    .sort((a, b) => b.h1Count - a.h1Count || a.route.localeCompare(b.route))
+
+  return {
+    generatedThresholds: {
+      titleTooLongChars: titleTooLongThreshold,
+      htmlSizeWarningBytes,
+      htmlSizeWarningKb: htmlSizeWarningBytes / 1024,
+    },
+    titleTooLong: {
+      count: titleTooLong.length,
+      pages: titleTooLong,
+    },
+    htmlTooLarge: {
+      count: htmlTooLarge.length,
+      pages: htmlTooLarge,
+    },
+    h1Missing: {
+      count: h1Missing.length,
+      pages: h1Missing,
+    },
+    multipleH1: {
+      count: multipleH1.length,
+      pages: multipleH1,
+    },
+  }
+}
+
 function collectManifestRows() {
   const routes = readJson(routeManifestPath, [])
   return Array.isArray(routes) ? routes.map((row) => ({
@@ -224,6 +300,7 @@ function main() {
   const rows = htmlRows.length ? htmlRows : manifestRows
   const linkReport = htmlRows.length ? collectLinks(htmlRows) : { links: [], broken: [], nonCanonical: [], orphanRoutes: [] }
   const nonCanonicalSummary = summarizeNonCanonicalLinks(linkReport.nonCanonical)
+  const technicalSeoIssues = collectTechnicalSeoIssues(rows, htmlRows)
   const duplicateSlugs = collectDuplicateSlugs()
   const duplicateMetadata = {
     generatedAt,
@@ -256,8 +333,17 @@ function main() {
       metadata: {
         missingTitles: rows.filter((row) => !row.title).map((row) => row.route),
         missingDescriptions: rows.filter((row) => !row.description).map((row) => row.route),
+        titleTooLong: technicalSeoIssues.titleTooLong.count,
         duplicateTitleGroups: duplicateMetadata.duplicateTitles.length,
         duplicateDescriptionGroups: duplicateMetadata.duplicateDescriptions.length,
+      },
+      headings: {
+        h1Missing: technicalSeoIssues.h1Missing.count,
+        multipleH1: technicalSeoIssues.multipleH1.count,
+      },
+      htmlSize: {
+        warningBytes: htmlSizeWarningBytes,
+        pagesTooLarge: technicalSeoIssues.htmlTooLarge.count,
       },
       canonicals: {
         missing: rows.filter((row) => !row.canonical).map((row) => row.route),
@@ -299,6 +385,10 @@ function main() {
     generatedAt,
     summary: nonCanonicalSummary,
     links: linkReport.nonCanonical,
+  })
+  writeReport('technical-seo-issues.json', {
+    generatedAt,
+    ...technicalSeoIssues,
   })
   writeReport('duplicate-metadata.json', duplicateMetadata)
   writeReport('thin-pages.json', { generatedAt, thinPages })
