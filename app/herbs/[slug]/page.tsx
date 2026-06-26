@@ -430,32 +430,35 @@ export default async function HerbDetailPage({ params }: PageProps) {
     citationCount: freshness.citationCount,
   })
 
-  const faqSchema = faqPageJsonLd({
-    pagePath: `/herbs/${normalizedSlug}/`,
-    questions: [
-      {
-        question: `What is ${displayName} used for?`,
-        answer: cleanText(herb.clinicalUse || herb.clinical_use || summary) || briefSummary,
-      },
-      {
-        question: `Is ${displayName} safe?`,
-        answer:
-          cleanText(
-            herb.safetyProfile ||
-              herb.safety_profile ||
-              herb.safetyNotes ||
-              herb.safety_notes ||
-              herb.safety,
-          ) || safetySummary,
-      },
-      {
-        question: `What is the dose of ${displayName}?`,
-        answer:
-          cleanText(herb.dosing || herb.dose || herb.dosage || herb.doseInfo || '') ||
-          'See dosing guidelines and product labeling.',
-      },
-    ].filter((entry) => isMeaningfulFaqAnswer(entry.answer)),
-  })
+  const faqCandidates = [
+    {
+      question: `What is ${displayName} used for?`,
+      answer: cleanText(herb.clinicalUse || herb.clinical_use || summary) || briefSummary,
+    },
+    {
+      question: `Is ${displayName} safe?`,
+      answer:
+        cleanText(
+          herb.safetyProfile ||
+            herb.safety_profile ||
+            herb.safetyNotes ||
+            herb.safety_notes ||
+            herb.safety,
+        ) || safetySummary,
+    },
+    {
+      question: `What is the dose of ${displayName}?`,
+      answer:
+        cleanText(herb.dosing || herb.dose || herb.dosage || herb.doseInfo || '') ||
+        'See dosing guidelines and product labeling.',
+    },
+  ].filter((entry) => isMeaningfulFaqAnswer(entry.answer))
+
+  // Suppress FAQPage schema when fewer than 2 substantive Q&As exist;
+  // Google requires ≥2 for rich results and a 1-Q block can't earn them.
+  const faqSchema = faqCandidates.length >= 2
+    ? faqPageJsonLd({ pagePath: `/herbs/${normalizedSlug}/`, questions: faqCandidates })
+    : null
 
 
   return (
