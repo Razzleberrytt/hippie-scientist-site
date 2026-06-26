@@ -926,7 +926,7 @@ function getProfileEvidenceLabel(record: any): string {
 export function formatProfileTitle(displayName: string, type: 'herb' | 'compound'): string {
   return type === 'herb'
     ? `${displayName} Benefits, Dosage & Safety`
-    : `${displayName} Dosage, Effects & Safety: What the Evidence Says`
+    : `${displayName}: Effects, Dose and Safety`
 }
 
 function escapeRegExp(value: string): string {

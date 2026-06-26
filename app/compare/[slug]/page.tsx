@@ -39,6 +39,22 @@ const asString = (value: unknown, fallback = '') => typeof value === 'string' ? 
 const displayName = (compound: Record<string, unknown>) =>
   asString(compound?.displayName) || asString(compound?.name) || formatSlug(asString(compound?.slug, 'Compound'))
 
+// Metadata-only: strip parenthetical annotations (e.g. "(Withania somnifera)") to keep titles compact.
+const metaDisplayName = (compound: Record<string, unknown>) =>
+  (asString(compound?.displayName) || asString(compound?.name) || formatSlug(asString(compound?.slug, 'Compound')))
+    .replace(/\s*\([^)]+\)\s*/g, '').replace(/\s+/g, ' ').trim()
+
+// Produce a compact compare metadata title <= 60 chars.
+function compactCompareTitle(n1: string, n2: string): string {
+  const withSuffix = `${n1} vs ${n2}: Comparison`
+  if (withSuffix.length <= 60) return withSuffix
+  const vsOnly = `${n1} vs ${n2}`
+  if (vsOnly.length <= 60) return vsOnly
+  const cut = vsOnly.slice(0, 57)
+  const lastSpace = cut.lastIndexOf(' ')
+  return (lastSpace > 30 ? cut.slice(0, lastSpace) : cut) + '…'
+}
+
 const evidenceScore = (compound: Record<string, unknown>) => {
   const text = `${compound?.evidence_grade ?? ''} ${compound?.evidenceTier ?? ''} ${compound?.tier_level ?? ''} ${compound?.evidence ?? ''} ${compound?.summary_quality ?? ''}`.toLowerCase()
   if (/strong|high|tier\s*1|a-tier|meta|rct/.test(text)) return 5
@@ -158,18 +174,20 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   let description: string
 
   if (config?.title) {
-    title = `${config.title}: Which Is Better?`
+    title = `${config.title}: Comparison`
     description = config.summary || `Compare ${config.title} for benefits, safety, evidence, and best use cases.`
   } else if (parsed) {
     const { allRecords } = await getUnifiedRuntimeRecords()
     const a = allRecords.find((c: Record<string, unknown>) => c.slug === parsed.item1Slug)
     const b = allRecords.find((c: Record<string, unknown>) => c.slug === parsed.item2Slug)
-    const n1 = a ? displayName(a) : formatSlug(parsed.item1Slug)
-    const n2 = b ? displayName(b) : formatSlug(parsed.item2Slug)
-    title = `${n1} vs ${n2}: Complete Comparison | The Hippie Scientist`
-    description = `Evidence-based comparison of ${n1} and ${n2}. Compare mechanisms, dosing, safety, and which is right for your goals.`
+    const n1 = a ? metaDisplayName(a) : formatSlug(parsed.item1Slug)
+    const n2 = b ? metaDisplayName(b) : formatSlug(parsed.item2Slug)
+    title = compactCompareTitle(n1, n2)
+    const fullN1 = a ? displayName(a) : n1
+    const fullN2 = b ? displayName(b) : n2
+    description = `Evidence-based comparison of ${fullN1} and ${fullN2}. Compare mechanisms, dosing, safety, and which is right for your goals.`
   } else {
-    title = `${formatSlug(slug)}: Which Is Better?`
+    title = `${formatSlug(slug)}: Comparison`
     description = `Compare ${formatSlug(slug)} for benefits, safety, evidence, best use cases, and supplement buying options.`
   }
 
