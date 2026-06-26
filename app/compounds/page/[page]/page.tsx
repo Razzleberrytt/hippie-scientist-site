@@ -40,6 +40,16 @@ export default async function CompoundsPageN({ params }: P) {
 
   return (
     <div className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10">
+      <header className="rounded-xl border border-brand-900/10 bg-white/85 p-4 shadow-sm sm:p-5">
+        <p className="eyebrow-label">Compound research library</p>
+        <h1 className="mt-2 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+          Compound Profiles &amp; Research Library — Page {p.currentPage}
+        </h1>
+        <p className="mt-2 max-w-2xl text-sm leading-6 text-[#46574d]">
+          Browse evidence, mechanism, and safety summaries for published compound profiles.
+        </p>
+      </header>
+
       <nav className="rounded-xl border border-brand-900/10 bg-white/80 p-4 text-sm">
         <p className="font-semibold">Page {p.currentPage} of {p.totalPages}</p>
         <div className="mt-2 flex gap-4">
