@@ -66,6 +66,7 @@
     "audit:dual-slugs": "node scripts/audit/dual-slug-audit.mjs",
     "audit:curated-indexable": "node scripts/audit/verify-curated-indexable.mjs",
     "audit:education-canonicals": "node scripts/audit/check-education-canonicals.mjs",
+    "audit:affiliate-tag-production": "node scripts/ci/audit-affiliate-tag-production.mjs",
     "pipeline:apply-redirects": "node scripts/pipeline/apply-slug-redirects.mjs",
     "pipeline:clean-leaks": "node scripts/pipeline/clean-workbook-leaks.mjs",
     "generate:redirects": "node scripts/generate-redirects.mjs",

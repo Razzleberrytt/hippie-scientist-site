@@ -81,6 +81,11 @@ jobs:
       - name: Verify build output
         run: npm run verify:output
 
+      - name: Verify Amazon affiliate tag (production safety)
+        env:
+          AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}
+        run: npm run audit:affiliate-tag-production
+
       - name: Validate deployment secrets
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
