@@ -1,3 +1,5 @@
+import { compactMetaTitle } from '../src/lib/seo'
+
 export type GoalCategory = 'sleep' | 'energy' | 'mood' | 'immune' | 'memory'
 
 export type GoalArticleKind = 'cornerstone' | 'satellite' | 'product-guide'
@@ -32,7 +34,8 @@ const makeArticle = (
 ): GoalArticle => ({
   slug,
   title,
-  seoTitle: `${title} | The Hippie Scientist`,
+  // Metadata <title> only — keeps the visible H1 (title) intact while capping length.
+  seoTitle: compactMetaTitle(title),
   description,
   category,
   kind,

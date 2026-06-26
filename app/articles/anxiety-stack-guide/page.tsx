@@ -3,7 +3,8 @@ import {
   buildPageMetadata,
   blogJsonLd,
   breadcrumbJsonLd,
-  faqPageJsonLd
+  faqPageJsonLd,
+  compactMetaTitle
 } from '../../../src/lib/seo';
 import LastUpdatedBadge from '../../../src/components/editorial/LastUpdatedBadge';
 import ResponsiveTable from '@/components/ui/ResponsiveTable';
@@ -20,7 +21,7 @@ const lastUpdated = "2026-06-10";
 const slug = "anxiety-stack-guide";
 
 export const metadata = buildPageMetadata({
-  title: articleTitle,
+  title: compactMetaTitle(articleTitle),
   description: articleDescription,
   path: `/articles/${slug}`,
   openGraphType: 'article',

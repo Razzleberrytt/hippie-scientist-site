@@ -22,6 +22,53 @@ export const DEFAULT_DESCRIPTION = `The Hippie Scientist — evidence-first refe
 export const DEFAULT_TITLE_TEMPLATE = `%s | ${SITE_NAME}`
 export const SITEMAP_URL_CAP = 450
 
+export const META_TITLE_LIMIT = 60
+
+/**
+ * Compact a metadata <title> to <= META_TITLE_LIMIT characters without touching
+ * the visible H1/headline. Applied only at metadata-generation points.
+ *
+ * Strategy (in order, stopping at the first result that fits):
+ *  1. Strip a trailing brand suffix ("… | The Hippie Scientist", "… | Guides").
+ *  2. Drop a trailing parenthetical ("(2026)").
+ *  3. Drop a trailing em-dash clause ("Topic — Mechanisms and Evidence").
+ *  4. For colon-structured titles, keep "{Head}: {first clause}" so the primary
+ *     keyword and one descriptive clause survive; fall back to the head alone.
+ *  5. Last resort: truncate at a word boundary with an ellipsis.
+ */
+export function compactMetaTitle(value: string, limit: number = META_TITLE_LIMIT): string {
+  const cleaned = stripBrandSuffix(String(value || '').replace(/\s+/g, ' ').trim())
+  if (cleaned.length <= limit) return cleaned
+
+  const noTrailingParen = cleaned.replace(/\s*\([^)]*\)\s*$/, '').trim()
+  if (noTrailingParen.length <= limit) return noTrailingParen
+
+  const noDashTail = noTrailingParen.replace(/\s*[—–]\s*[^—–]*$/, '').trim()
+  if (noDashTail.length <= limit && /[A-Za-z]/.test(noDashTail)) return noDashTail
+
+  const colonIdx = noTrailingParen.indexOf(':')
+  if (colonIdx > 0) {
+    const head = noTrailingParen.slice(0, colonIdx).trim()
+    const tail = noTrailingParen.slice(colonIdx + 1).trim()
+    const firstClause = tail.split(/\s*[,—–]\s*| - /)[0]?.trim()
+    const withClause = firstClause ? `${head}: ${firstClause}` : ''
+    if (withClause && withClause.length <= limit) return withClause
+    if (head.length >= 10 && head.length <= limit) return head
+  }
+
+  const cutoff = noDashTail.slice(0, limit - 1)
+  const lastBreak = Math.max(cutoff.lastIndexOf(' '), cutoff.lastIndexOf(','), cutoff.lastIndexOf(':'))
+  const compact = (lastBreak > 30 ? cutoff.slice(0, lastBreak) : cutoff).replace(/[\s,:—–-]+$/, '').trim()
+  return `${compact}…`
+}
+
+function stripBrandSuffix(value: string): string {
+  return value
+    .replace(/\s*[|–—-]\s*The Hippie Scientist\s*$/i, '')
+    .replace(/\s*\|\s*Guides\s*$/i, '')
+    .trim()
+}
+
 export type PageType = 'website' | 'article'
 
 export type IndexDecision = {

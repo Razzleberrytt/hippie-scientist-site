@@ -10,47 +10,18 @@ import {
   shouldNoindexBlogPost,
   type BlogPost,
 } from '@/lib/blog-index'
-import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd } from '../../src/lib/seo'
+import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, compactMetaTitle } from '../../src/lib/seo'
 import LastUpdatedBadge from '../../src/components/editorial/LastUpdatedBadge'
 import EmailCapture from '@/components/EmailCapture'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import JsonLd from '@/components/seo/JsonLd'
 
 const allPosts: BlogPost[] = posts
-const ARTICLE_META_TITLE_LIMIT = 60
 
 type BlogRouteParams = Promise<{ slug: string }>
 
 export type BlogRouteProps = {
   params: BlogRouteParams
-}
-
-function compactArticleMetaTitle(value: string): string {
-  const cleaned = String(value || '').replace(/\s+/g, ' ').trim()
-  if (cleaned.length <= ARTICLE_META_TITLE_LIMIT) return cleaned
-
-  const withoutParenthetical = cleaned.replace(/\s*\([^)]*\)\s*$/, '').trim()
-  if (withoutParenthetical.length <= ARTICLE_META_TITLE_LIMIT) return withoutParenthetical
-
-  const beforeColon = cleaned.split(':')[0]?.trim()
-  if (beforeColon && beforeColon.length >= 24 && beforeColon.length <= ARTICLE_META_TITLE_LIMIT) return beforeColon
-
-  const simplified = cleaned
-    .replace(/\bEvidence-Based\b/gi, 'Evidence')
-    .replace(/\bEvidence-Informed\b/gi, 'Evidence')
-    .replace(/\bSupplementation\b/gi, 'Safety')
-    .replace(/\bClinical Relevance\b/gi, 'Clinical Use')
-    .replace(/\bDaily Functioning\b/gi, 'Daily Function')
-    .replace(/\bCognitive Support\b/gi, 'Focus')
-    .replace(/\bEmotional Regulation\b/gi, 'Calm')
-    .replace(/\s+/g, ' ')
-    .trim()
-  if (simplified.length <= ARTICLE_META_TITLE_LIMIT) return simplified
-
-  const cutoff = simplified.slice(0, ARTICLE_META_TITLE_LIMIT - 1)
-  const lastBreak = Math.max(cutoff.lastIndexOf(' '), cutoff.lastIndexOf(','), cutoff.lastIndexOf(':'))
-  const compact = (lastBreak > 36 ? cutoff.slice(0, lastBreak) : cutoff).trim()
-  return `${compact}…`
 }
 
 export function generateStaticParams() {
@@ -65,7 +36,7 @@ export async function generateMetadata({ params }: BlogRouteProps) {
 
   const path = `/articles/${resolvedParams.slug}/`
   const rawTitle = (post as any).seoTitle || (post as any).metaTitle || post.title
-  const title = compactArticleMetaTitle(rawTitle)
+  const title = compactMetaTitle(rawTitle)
   const description = (post as any).seoDescription || (post as any).metaDescription || post.excerpt || 'Research note with mechanisms, evidence, and safety context.'
 
   const base = {

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import { getEducationArticleBySlug, getAllEducationArticles, parseMdxBlocks } from '@/lib/education'
-import { buildPageMetadata } from '../../../src/lib/seo'
+import { buildPageMetadata, compactMetaTitle } from '../../../src/lib/seo'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import LastUpdatedBadge from '../../../src/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!article) return {}
 
   return buildPageMetadata({
-    title: article.title,
+    title: compactMetaTitle(article.title),
     description: article.description,
     path: `/education/${slug}`,
     openGraphType: 'article',

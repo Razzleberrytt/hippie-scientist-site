@@ -10,7 +10,7 @@ import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Sleep Herbs vs Melatonin – Magnesium, L-Theanine & Valerian Compared',
+  title: 'Sleep Herbs vs Melatonin: Evidence Comparison',
   description:
     'Evidence-graded comparison of melatonin, magnesium, L-theanine, and valerian for sleep. Understand mechanisms, onset, evidence quality, safety, and when to use each — or stack them.',
   path: '/compare/sleep-herbs-vs-melatonin/',

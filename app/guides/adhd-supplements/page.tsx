@@ -9,7 +9,7 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 
 const SLUG = 'adhd-supplements'
-const TITLE = 'ADHD Supplements Guide: Evidence, Safety, Testing, and Practical Use'
+const TITLE = 'ADHD Supplements: Evidence, Safety & Testing'
 const DESCRIPTION = 'Start here for evidence-based ADHD supplement guidance, including nutrient deficiencies, sleep support, focus stacks, safety, and testing.'
 
 export const metadata: Metadata = buildPageMetadata({

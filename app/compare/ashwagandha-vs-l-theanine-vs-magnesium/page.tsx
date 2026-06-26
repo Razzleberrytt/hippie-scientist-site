@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { buildPageMetadata } from '../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Ashwagandha vs L-Theanine vs Magnesium for Stress & Anxiety',
+  title: 'Ashwagandha vs L-Theanine vs Magnesium',
   description: 'Evidence-informed 3-way comparison of ashwagandha, L-theanine, and magnesium for chronic tension, acute stress buffering, sleep latency, safety, and supplement selection.',
   path: '/compare/ashwagandha-vs-l-theanine-vs-magnesium/',
 })

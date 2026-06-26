@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { getLearnPost, learnPosts } from '../data'
 import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
+import { compactMetaTitle } from '../../../src/lib/seo'
 
 type LearnRouteParams = Promise<{ slug: string }>
 
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: LearnRouteProps): Promise<Met
   }
 
   return {
-    title: `${post.title} | Guides`,
+    title: compactMetaTitle(post.title),
     description: post.description,
     alternates: { canonical: `/learn/${post.slug}` },
   }

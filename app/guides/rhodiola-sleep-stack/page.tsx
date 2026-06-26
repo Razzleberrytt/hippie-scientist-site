@@ -17,7 +17,7 @@ import type { Heading } from '@/components/articles'
 
 const SLUG = 'rhodiola-sleep-stack'
 const PAGE_URL = 'https://thehippiescientist.net/guides/rhodiola-sleep-stack'
-const TITLE = 'Rhodiola + Magnesium for Sleep: The Adaptogen Stack That Works'
+const TITLE = 'Rhodiola + Magnesium for Sleep: Adaptogen Stack'
 const DESCRIPTION =
   'The rhodiola-magnesium sleep stack explained: complementary mechanisms, dosing and timing protocols, realistic expectations, and who should avoid it.'
 const DATE_PUBLISHED = '2024-06-09'

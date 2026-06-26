@@ -14,7 +14,7 @@ import {
   SITE_URL,
 } from '../../src/lib/seo'
 
-const GOALS_PAGE_TITLE = `Supplement Goal Guides ${SEO_YEAR} – Evidence, Safety & Comparisons`
+const GOALS_PAGE_TITLE = `Supplement Goal Guides ${SEO_YEAR}: Evidence & Safety`
 const GOALS_PAGE_DESCRIPTION =
   'Choose your goal — sleep, stress, focus, anxiety, pain, and more — then compare herbs and compounds by evidence strength, safety, and practical tradeoffs.'
 const GOALS_CANONICAL_URL = `${SITE_URL}/goals/`

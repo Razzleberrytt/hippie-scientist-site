@@ -7,7 +7,7 @@ import BlogPostPage, {
   generateMetadata as generateBlogMetadata,
   generateStaticParams as generateBlogStaticParams,
 } from '@/components/blog/BlogPostPage'
-import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, SITE_URL } from '../../../src/lib/seo'
+import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, SITE_URL, compactMetaTitle } from '../../../src/lib/seo'
 import { formatDate } from '@/lib/blog-index'
 import LastUpdatedBadge from '../../../src/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
@@ -73,10 +73,10 @@ export async function generateMetadata({ params }: { params: ArticleRouteParams 
   const { slug } = await params
   const mdxArticle = mdxArticles.find((a) => a.slug === slug)
   if (mdxArticle) {
-    const title = (mdxArticle as any).seoTitle || (mdxArticle as any).metaTitle || mdxArticle.title
+    const rawTitle = (mdxArticle as any).seoTitle || (mdxArticle as any).metaTitle || mdxArticle.title
     const description = (mdxArticle as any).seoDescription || (mdxArticle as any).metaDescription || mdxArticle.description
     return buildPageMetadata({
-      title,
+      title: compactMetaTitle(rawTitle),
       description,
       path: `/articles/${slug}/`,
       openGraphType: 'article',
@@ -86,11 +86,11 @@ export async function generateMetadata({ params }: { params: ArticleRouteParams 
   const article = allArticles.find((a) => a.slug === slug)
   if (!article) return generateBlogMetadata({ params: Promise.resolve({ slug }) })
 
-  const title = (article as any).seoTitle || (article as any).metaTitle || article.title
+  const rawTitle = (article as any).seoTitle || (article as any).metaTitle || article.title
   const description = (article as any).seoDescription || (article as any).metaDescription || article.description
 
   return buildPageMetadata({
-    title,
+    title: compactMetaTitle(rawTitle),
     description,
     path: `/articles/${slug}/`,
     openGraphType: 'article',

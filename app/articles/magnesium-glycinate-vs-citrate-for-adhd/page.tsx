@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '../../../src/lib/seo'
+import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, compactMetaTitle } from '../../../src/lib/seo'
 import LastUpdatedBadge from '../../../src/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
@@ -23,7 +23,7 @@ const TAGS = ['magnesium', 'ADHD', 'focus', 'sleep', 'minerals']
 const CATEGORY = 'Supplement Evidence'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: TITLE,
+  title: compactMetaTitle(TITLE),
   description: DESCRIPTION,
   path: `/articles/${SLUG}`,
   openGraphType: 'article',

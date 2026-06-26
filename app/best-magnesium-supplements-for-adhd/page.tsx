@@ -8,7 +8,7 @@ import { buildPageMetadata, faqPageJsonLd } from '../../src/lib/seo'
 import JsonLd from '@/components/seo/JsonLd'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Best Magnesium Supplements for ADHD: Forms, Dose, and Buying Guide',
+  title: 'Best Magnesium Supplements for ADHD: Forms & Dose',
   description:
     'Compare magnesium glycinate, threonate, citrate, and other forms for ADHD-adjacent focus and sleep support. Includes safety notes and affiliate product picks.',
   path: '/best-magnesium-supplements-for-adhd',

@@ -17,7 +17,7 @@ import type { Heading } from '@/components/articles'
 
 const SLUG = 'elderberry'
 const PAGE_URL = 'https://thehippiescientist.net/guides/elderberry'
-const TITLE = 'Elderberry for Colds and Flu: Clinical Evidence and Practical Guidance'
+const TITLE = 'Elderberry for Colds and Flu: Evidence & Guidance'
 const DESCRIPTION =
   'Evidence-based review of elderberry (Sambucus nigra) for upper respiratory infections: meta-analyses, mechanisms, the cyanogenic-glycoside safety issue, quality, and dosing.'
 const DATE_PUBLISHED = '2024-06-09'

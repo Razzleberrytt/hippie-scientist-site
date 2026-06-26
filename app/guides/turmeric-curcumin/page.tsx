@@ -17,7 +17,7 @@ import type { Heading } from '@/components/articles'
 
 const SLUG = 'turmeric-curcumin'
 const PAGE_URL = 'https://thehippiescientist.net/guides/turmeric-curcumin'
-const TITLE = 'Turmeric & Curcumin: Evidence, Dosage, and Bioavailability Guide'
+const TITLE = 'Turmeric & Curcumin: Evidence, Dose, Bioavailability'
 const DESCRIPTION =
   'A science-backed breakdown of curcumin bioavailability, anti-inflammatory evidence, dosage ranges, form comparison, and safety context — including what the research actually shows versus the hype.'
 const DATE_PUBLISHED = '2025-01-15'

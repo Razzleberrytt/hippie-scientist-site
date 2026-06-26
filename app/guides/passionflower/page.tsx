@@ -17,7 +17,7 @@ import type { Heading } from '@/components/articles'
 
 const SLUG = 'passionflower'
 const PAGE_URL = 'https://thehippiescientist.net/guides/passionflower'
-const TITLE = 'Passionflower for Anxiety and Sleep: Clinical Evidence and Guidance'
+const TITLE = 'Passionflower for Anxiety & Sleep: Evidence Guide'
 const DESCRIPTION =
   'Evidence-based review of passionflower (Passiflora incarnata) for anxiety and sleep: GABA mechanism, clinical trials, safety, drug interactions, and dosing.'
 const DATE_PUBLISHED = '2024-06-09'

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '../../../src/lib/seo'
+import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, compactMetaTitle } from '../../../src/lib/seo'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import EmailCapture from '@/components/EmailCapture'
@@ -23,7 +23,7 @@ const TAGS = ['l-theanine', 'sleep', 'amino-acids', 'relaxation', 'stress']
 const CATEGORY = 'amino-acids'
 
 export const metadata = buildPageMetadata({
-  title: TITLE,
+  title: compactMetaTitle(TITLE),
   description: DESCRIPTION,
   path: `/articles/${SLUG}`,
   openGraphType: 'article',

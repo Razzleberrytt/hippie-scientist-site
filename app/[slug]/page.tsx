@@ -13,7 +13,7 @@ import {
   focusClusterArticleSources,
   getFocusClusterArticle,
 } from '@/lib/focus-cluster-markdown'
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, TWITTER_HANDLE } from '../../src/lib/seo'
+import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, TWITTER_HANDLE, compactMetaTitle } from '../../src/lib/seo'
 const ADHD_CHECKLIST_CAPTURE = {
   title: 'Get the ADHD Supplement Starter Checklist',
   description: 'A simple 4-week tracker for choosing one supplement at a time, watching side effects, and avoiding messy stimulant-heavy stacks.',
@@ -155,22 +155,23 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
   const article = getFocusClusterArticle(slug)
   if (!article) return {}
   const canonical = `${SITE_URL}/${article.slug}/`
+  const metaTitle = compactMetaTitle(article.seoTitle)
 
   return {
-    title: article.seoTitle,
+    title: metaTitle,
     description: article.metaDescription,
     alternates: { canonical },
     openGraph: {
-      title: article.seoTitle,
+      title: metaTitle,
       description: article.metaDescription,
       url: canonical,
       siteName: SITE_NAME,
       type: 'article',
-      images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: article.seoTitle }],
+      images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: metaTitle }],
     },
     twitter: {
       card: 'summary_large_image',
-      title: article.seoTitle,
+      title: metaTitle,
       description: article.metaDescription,
       images: [DEFAULT_OG_IMAGE],
       site: TWITTER_HANDLE,

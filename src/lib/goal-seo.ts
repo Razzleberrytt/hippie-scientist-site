@@ -1,16 +1,19 @@
 import type { Metadata } from 'next'
-import { formatMetaDescription, buildPageMetadata, SEO_YEAR } from './seo'
+import { formatMetaDescription, buildPageMetadata, compactMetaTitle, SEO_YEAR } from './seo'
 import type { Goal } from '@/data/goals'
 
 const GOAL_SEO_TITLES: Record<string, string> = {
-  sleep: `Best Evidence-Based Supplements for Sleep ${SEO_YEAR} – Safety & Comparisons`,
-  stress: `Best Supplements for Stress ${SEO_YEAR} – Evidence, Safety & What to Avoid`,
-  anxiety: `Best Natural Options for Anxiety Support ${SEO_YEAR} – Compared by Evidence`,
-  focus: `Best Focus Supplements ${SEO_YEAR} – Stimulant vs Non-Stimulant Compared`,
-  pain: `Best Supplements for Pain Support ${SEO_YEAR} – Evidence & Safety Compared`,
-  inflammation: `Best Anti-Inflammatory Supplements ${SEO_YEAR} – Compared by Evidence`,
-  cognition: `Best Cognitive Support Supplements ${SEO_YEAR} – Memory & Focus Compared`,
-  energy: `Best Energy Supplements ${SEO_YEAR} – Stimulant vs Adaptogen Compared`,
+  sleep: `Best Sleep Supplements ${SEO_YEAR}: Evidence & Safety`,
+  stress: `Best Stress Supplements ${SEO_YEAR}: Evidence & Safety`,
+  anxiety: `Best Anxiety Supplements ${SEO_YEAR}: Evidence & Safety`,
+  focus: `Best Focus Supplements ${SEO_YEAR}: Stimulant vs Non-Stimulant`,
+  pain: `Best Pain Supplements ${SEO_YEAR}: Evidence & Safety`,
+  inflammation: `Best Anti-Inflammatory Supplements ${SEO_YEAR}: Evidence`,
+  cognition: `Best Cognitive Supplements ${SEO_YEAR}: Memory & Focus`,
+  energy: `Best Energy Supplements ${SEO_YEAR}: Stimulant vs Adaptogen`,
+  longevity: `Best Longevity Supplements ${SEO_YEAR}: Evidence & Safety`,
+  'blood-pressure': `Best Blood Pressure Supplements ${SEO_YEAR}: Evidence`,
+  'testosterone-support': `Best Testosterone Supplements ${SEO_YEAR}: Evidence`,
 }
 
 const GOAL_SEO_DESCRIPTIONS: Record<string, string> = {
@@ -39,7 +42,8 @@ function fallbackGoalTitle(goal: Goal): string {
 }
 
 export function getGoalSeoTitle(goal: Goal): string {
-  return GOAL_SEO_TITLES[goal.slug] ?? fallbackGoalTitle(goal)
+  // Cap the metadata <title> at 60 chars; the visible goal-page H1 is unaffected.
+  return compactMetaTitle(GOAL_SEO_TITLES[goal.slug] ?? fallbackGoalTitle(goal))
 }
 
 export function buildGoalMetaDescription(

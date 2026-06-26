@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import Script from "next/script";
 import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
-import { buildPageMetadata, SITE_URL } from "../../../src/lib/seo";
+import { buildPageMetadata, SITE_URL, compactMetaTitle } from "../../../src/lib/seo";
 import { ArticleLayout, RelatedArticles } from "@/components/articles";
 import type { RelatedArticle } from "@/components/articles";
 
@@ -75,7 +75,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const guide = await getGuideBySlug(slug);
   if (!guide) return {};
   return buildPageMetadata({
-    title: guide.title,
+    title: compactMetaTitle(guide.title),
     description: guide.description,
     path: `/guides/${slug}/`,
   });
