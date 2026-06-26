@@ -43,6 +43,28 @@ function nonCanonicalInternalHref(href) {
   return { href, canonicalHref: `${href}/` }
 }
 
+function topCounts(rows, key, limit = 25) {
+  const counts = new Map()
+  for (const row of rows) {
+    const value = String(row[key] || '').trim()
+    if (!value) continue
+    counts.set(value, (counts.get(value) || 0) + 1)
+  }
+  return [...counts.entries()]
+    .map(([value, count]) => ({ value, count }))
+    .sort((a, b) => b.count - a.count || a.value.localeCompare(b.value))
+    .slice(0, limit)
+}
+
+function summarizeNonCanonicalLinks(rows) {
+  return {
+    total: rows.length,
+    topHrefs: topCounts(rows, 'href'),
+    topCanonicalHrefs: topCounts(rows, 'canonicalHref'),
+    topSourceRoutes: topCounts(rows, 'source'),
+  }
+}
+
 async function run() {
   const batchSize = 100
   const noindexRoutes = new Set()
@@ -76,11 +98,16 @@ async function run() {
   const orphan=[...graph.entries()].filter(([,o])=>o.size===0).map(([r])=>r)
   const weak=[...graph.entries()].filter(([,o])=>o.size>0&&o.size<3).map(([r,o])=>({route:r,outbound:o.size}))
   const density=[...graph.entries()].map(([r,o])=>({route:r,outbound:o.size})).sort((a,b)=>b.outbound-a.outbound)
-  const report={generatedAt:new Date().toISOString(),totalRoutes:routes.size,orphanRoutes:orphan,weaklyConnected:weak,internalLinkDensity:density.slice(0,100),nonCanonicalInternalLinks}
+  const nonCanonicalSummary = summarizeNonCanonicalLinks(nonCanonicalInternalLinks)
+  const report={generatedAt:new Date().toISOString(),totalRoutes:routes.size,orphanRoutes:orphan,weaklyConnected:weak,internalLinkDensity:density.slice(0,100),nonCanonicalInternalLinks,nonCanonicalSummary}
   fs.mkdirSync(path.join(root,'ops','reports'),{recursive:true}); fs.writeFileSync(path.join(root,'ops/reports/internal-link-report.json'),JSON.stringify(report,null,2));
   const nonIndexable = orphan.filter(r => r.startsWith('/_not-found') || r.startsWith('/sitemap.xml') || r.startsWith('/robots.txt') || r.startsWith('/opengraph-image') || r.startsWith('/twitter-image') || r.startsWith('/blogdata') || noindexRoutes.has(r))
   const blockingOrphans = orphan.filter(r => !nonIndexable.includes(r))
+  const topNonCanonicalSource = nonCanonicalSummary.topSourceRoutes[0]
   console.log(`internal-links: routes=${routes.size}, orphan=${orphan.length}, blockingOrphan=${blockingOrphans.length}, weak=${weak.length}, nonCanonical=${nonCanonicalInternalLinks.length}`)
+  if (topNonCanonicalSource) {
+    console.log(`[internal-links] top non-canonical source: ${topNonCanonicalSource.value} (${topNonCanonicalSource.count})`)
+  }
   if (nonCanonicalInternalLinks.length) {
     console.warn(`[internal-links] non-blocking warning: found ${nonCanonicalInternalLinks.length} non-canonical internal hrefs`)
   }
