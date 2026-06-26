@@ -63,6 +63,17 @@ export function Breadcrumbs({
   )
 }
 
+function normalizeBreadcrumbSchemaItem(siteUrl: string, href: string): string {
+  const cleanSiteUrl = siteUrl.replace(/\/$/, '')
+  if (!href || href === '/') return `${cleanSiteUrl}/`
+  if (href.includes('?') || href.includes('#')) return `${cleanSiteUrl}${href}`
+  if (href.split('/').pop()?.includes('.')) return `${cleanSiteUrl}${href}`
+
+  const path = href.startsWith('/') ? href : `/${href}`
+  const canonicalPath = path.endsWith('/') ? path : `${path}/`
+  return `${cleanSiteUrl}${canonicalPath}`
+}
+
 /**
  * Breadcrumb structured data (JSON-LD)
  * Used by BreadcrumbSchema component for Schema.org markup
@@ -82,7 +93,7 @@ export function getBreadcrumbSchema(
       '@type': 'ListItem',
       position: index + 1,
       name: breadcrumb.label,
-      item: `${siteUrl}${breadcrumb.href}`,
+      item: normalizeBreadcrumbSchemaItem(siteUrl, breadcrumb.href),
     })),
   }
 }
