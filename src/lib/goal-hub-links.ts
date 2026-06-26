@@ -51,17 +51,17 @@ const GOAL_COMPARE_SLUGS: Record<string, string[]> = {
 const GOAL_SEO_ENTRIES: Record<string, GoalHubLink> = {
   sleep: {
     label: 'Best supplements for sleep (entry guide)',
-    href: '/best-supplements-for-sleep',
+    href: '/best-supplements-for-sleep/',
     note: 'Broader sleep keyword landing page with ranked picks.',
   },
   stress: {
     label: 'Best supplements for stress (entry guide)',
-    href: '/best-supplements-for-stress',
+    href: '/best-supplements-for-stress/',
     note: 'Calming vs adaptogen framing for stress support.',
   },
   focus: {
     label: 'Best supplements for focus (entry guide)',
-    href: '/best-supplements-for-focus',
+    href: '/best-supplements-for-focus/',
     note: 'Stimulant vs non-stimulant focus comparison entry.',
   },
 }
@@ -90,7 +90,7 @@ export function getGoalStackLink(goalSlug: string): GoalHubLink | null {
   if (!stackSlug) return null
   return {
     label: `${stackSlug.charAt(0).toUpperCase()}${stackSlug.slice(1)} stack guide`,
-    href: `/stacks/${stackSlug}`,
+    href: `/stacks/${stackSlug}/`,
     note: 'Pre-built stack context with ingredient interactions.',
   }
 }
@@ -106,7 +106,7 @@ export function getGoalCompareLinks(goalSlug: string, limit = 4): GoalHubLink[] 
     const config = supplementComparisons.find((item) => item.slug === slug)
     links.push({
       label: config?.title ?? slug.replace(/-/g, ' '),
-      href: `/compare/${slug}`,
+      href: `/compare/${slug}/`,
       note: config?.summary?.slice(0, 120),
     })
     if (links.length >= limit) break
@@ -150,6 +150,6 @@ export function getGoalsForEntity(slug: string): GoalHubLink[] {
   const goalSlugs = ENTITY_GOAL_MAP[normalized] ?? []
   return goalSlugs.map((goalSlug) => ({
     label: goalSlug.replace(/-/g, ' '),
-    href: `/goals/${goalSlug}`,
+    href: `/goals/${goalSlug}/`,
   }))
 }
