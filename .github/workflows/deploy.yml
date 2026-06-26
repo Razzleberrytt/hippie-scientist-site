@@ -80,6 +80,8 @@ jobs:
         run: npm run build:deploy
 
       - name: Verify build output
+        env:
+          AMAZON_AFFILIATE_TAG: ${{ vars.AMAZON_AFFILIATE_TAG }}
         run: npm run verify:output
 
       - name: Verify Amazon affiliate tag (production safety)
