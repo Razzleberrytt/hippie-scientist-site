@@ -33,24 +33,33 @@ export const MONEY_ENTRY_ROUTES = [
   '/best-adaptogens-for-stress',
 ] as const
 
+// Canonical (current-data) slugs. Curated index-allowlisted herb slugs.
+// Must match the actual `slug` field on records in public/data/herbs.json so
+// the governance overlay + sitemap treat them as PUBLISH. If the workbook
+// renames a canonical slug, update this list in lockstep with the rename.
 export const CURATED_INDEXABLE_HERB_SLUGS = [
   'ashwagandha',
   'rhodiola',
-  'kava',
+  'piper-methysticum',
   'turmeric',
   'ginger',
   'peppermint',
   'black-cohosh',
-  'berberine',
   'momordica-charantia',
   'black-seed',
   'bacopa',
-  'ginkgo',
+  'ginkgo-biloba',
   'saffron',
-  'lemon-balm',
+  'melissa-officinalis',
   'valerian',
 ] as const
 
+// Canonical (current-data) slugs. Curated index-allowlisted compound slugs.
+// Must match the actual `slug` field on records in public/data/compounds.json.
+// Note: kratom + mitragynine are intentionally EXCLUDED — those are
+// restricted slugs (see scripts/data/apply-governance-overlay.mjs) and must
+// stay noindex. Phosphatidylserine -> use phosphatidylcholine (closest
+// canonical slug in current data).
 export const CURATED_INDEXABLE_COMPOUND_SLUGS = [
   'l-theanine',
   'magnesium',
@@ -59,14 +68,12 @@ export const CURATED_INDEXABLE_COMPOUND_SLUGS = [
   'epigallocatechin-gallate-egcg',
   'n-acetylcysteine',
   'coenzyme-q10',
-  'curcumin',
+  'curcumin-piperine',
   'berberine',
   'alpha-gpc',
   'cdp-choline',
-  'phosphatidylserine',
+  'phosphatidylcholine',
   'acetyl-l-carnitine',
   'l-tyrosine',
   'huperzine-a',
-  'kratom',
-  'mitragynine',
 ] as const

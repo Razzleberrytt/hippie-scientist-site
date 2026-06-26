@@ -64,6 +64,7 @@
     "audit:best-for": "node scripts/audit/best-for-audit.mjs",
     "audit:leaked-text": "node scripts/audit/find-leaked-pipeline-text.mjs",
     "audit:dual-slugs": "node scripts/audit/dual-slug-audit.mjs",
+    "audit:curated-indexable": "node scripts/audit/verify-curated-indexable.mjs",
     "pipeline:apply-redirects": "node scripts/pipeline/apply-slug-redirects.mjs",
     "pipeline:clean-leaks": "node scripts/pipeline/clean-workbook-leaks.mjs",
     "generate:redirects": "node scripts/generate-redirects.mjs",
