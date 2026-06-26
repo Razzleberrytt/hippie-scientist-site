@@ -17,7 +17,7 @@ const CompareTableClient = dynamic(
 )
 
 export const metadata: Metadata = buildPageMetadata({
-  title: `Herb & Supplement Comparison Center ${SEO_YEAR} | The Hippie Scientist`,
+  title: `Herb & Supplement Comparison Center ${SEO_YEAR}`,
   description:
     'Compare herbs and supplements side-by-side by evidence strength, mechanism, stimulation profile, safety, and dosing. Evidence-based decision support.',
   path: '/compare',

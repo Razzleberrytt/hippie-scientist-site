@@ -7,7 +7,7 @@ import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 
 export const metadata: Metadata = {
-  title: 'Natural Alternatives to Anxiety Medication | Educational Guide',
+  title: 'Natural Alternatives to Anxiety Medication',
   description: 'Educational overview of supportive herbs and non-supplement routines for anxiety-related stress patterns.',
   alternates: { canonical: '/guides/best-herbs-for-anxiety/' },
 }

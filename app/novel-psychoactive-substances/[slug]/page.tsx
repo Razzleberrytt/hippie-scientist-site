@@ -6,7 +6,7 @@ import { allNovelPsychoactiveSubstancePages } from '../../../.content-collection
 import ArticleMdx from '@/components/articles/ArticleMdx'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import JsonLd from '@/components/seo/JsonLd'
-import { SITE_URL } from '../../../src/lib/seo'
+import { SITE_URL, compactMetaTitle } from '../../../src/lib/seo'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -23,13 +23,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const page = articlePages.find((item) => item.slug === slug)
   if (!page) return {}
 
+  const metaTitle = (page as { metaTitle?: string }).metaTitle ?? compactMetaTitle(page.title)
+
   return {
-    title: page.title,
+    title: metaTitle,
     description: page.metaDescription,
     keywords: page.keywords,
     alternates: { canonical: `${SITE_URL}/novel-psychoactive-substances/${page.slug}/` },
     openGraph: {
-      title: page.title,
+      title: metaTitle,
       description: page.metaDescription,
       type: 'article',
       url: `${SITE_URL}/novel-psychoactive-substances/${page.slug}/`,

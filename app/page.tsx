@@ -3,7 +3,7 @@ import HomepageV2 from '@/components/homepage-v2'
 import { buildPageMetadata } from '../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'The Hippie Scientist - Clinical Evidence & Safety for Herbs & Supplements',
+  title: 'The Hippie Scientist: Evidence & Safety for Supplements',
   description:
     'Compare evidence-based plant medicine, herbs, and supplements by goal. Explore human clinical trial evidence, biological mechanisms, and drug interactions for sleep, anxiety, focus, and stress.',
   keywords: [

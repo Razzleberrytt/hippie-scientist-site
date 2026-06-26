@@ -16,7 +16,7 @@ import type { Heading } from '@/components/articles'
 
 const SLUG = 'kava'
 const PAGE_URL = 'https://thehippiescientist.net/guides/kava'
-const TITLE = 'Kava: Clinical Evidence for Anxiety, Hepatotoxicity Risk, and Harm Reduction'
+const TITLE = 'Kava: Anxiety Evidence, Liver Risk & Harm Reduction'
 const DESCRIPTION =
   'Evidence review of kava (Piper methysticum) for anxiety: kavalactones, GABA mechanism, the serious liver-injury risk, noble vs tudei cultivars, and harm-reduction guidance.'
 const DATE_PUBLISHED = '2024-06-09'

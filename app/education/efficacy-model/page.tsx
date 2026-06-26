@@ -3,7 +3,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import EfficacyModelerClient from '../../../src/components/education/EfficacyModelerClient'
 
 export const metadata: Metadata = {
-  title: 'Interactive Supplement Efficacy Modeler & Pharmacokinetics Visualizer',
+  title: 'Supplement Efficacy & Pharmacokinetics Modeler',
   description:
     'Simulate absorption onset, peak action, half-life clearance timelines, and cumulative build-up curves for herbs and compounds.',
   alternates: { canonical: '/education/efficacy-model/' },

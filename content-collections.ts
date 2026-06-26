@@ -88,6 +88,7 @@ const novelPsychoactiveSubstancePages = defineCollection({
   include: '**/*.mdx',
   schema: z.object({
     title: z.string().min(1),
+    metaTitle: z.string().min(1).optional(),
     metaDescription: z.string().min(1),
     keywords: z.array(z.string()).default([]),
     lastUpdated: z.string().regex(isoDatePattern),
