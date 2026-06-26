@@ -58,6 +58,23 @@ function normalizeRoute(href) {
   return pathOnly.replace(/\/+$/, '') || '/'
 }
 
+function nonCanonicalInternalHref(href) {
+  if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return null
+  if (/^https?:\/\//i.test(href)) {
+    if (!href.startsWith(siteHost)) return null
+    href = href.slice(siteHost.length) || '/'
+  }
+  if (!href.startsWith('/') || href === '/') return null
+  if (href.includes('?') || href.includes('#')) return null
+  if (staticAssetExt.test(href)) return null
+  if (href.endsWith('/')) return null
+  if (href.split('/').pop()?.includes('.')) return null
+  return {
+    href,
+    canonicalHref: `${href}/`,
+  }
+}
+
 function htmlMeta(html) {
   const title = (html.match(/<title>([^<]*)<\/title>/i) || [])[1] || ''
   const description = (html.match(/<meta\s+[^>]*name=["']description["'][^>]*content=["']([^"']*)["']/i) || [])[1] || ''
@@ -106,12 +123,16 @@ function collectLinks(rows) {
   const redirects = readJson(path.join(root, 'public', '_redirects.json'), [])
   const redirectSources = new Set(Array.isArray(redirects) ? redirects.map((row) => normalizeRoute(row?.source || row?.from)).filter(Boolean) : [])
   const links = []
+  const nonCanonical = []
   const inbound = new Map([...routes].map((route) => [route, new Set()]))
   const hrefRe = /href=["']([^"'#\s>]+)["']/g
 
   for (const row of rows) {
     for (const match of row.html.matchAll(hrefRe)) {
-      const target = normalizeRoute(match[1])
+      const rawHref = match[1]
+      const target = normalizeRoute(rawHref)
+      const nonCanonicalHref = nonCanonicalInternalHref(rawHref)
+      if (nonCanonicalHref) nonCanonical.push({ source: row.route, ...nonCanonicalHref })
       if (!target) continue
       const exists = routes.has(target) || redirectSources.has(target)
       links.push({ source: row.route, target, exists })
@@ -122,6 +143,7 @@ function collectLinks(rows) {
   return {
     links,
     broken: links.filter((link) => !link.exists),
+    nonCanonical,
     orphanRoutes: [...inbound.entries()]
       .filter(([route, sources]) => route !== '/' && sources.size === 0)
       .map(([route]) => route)
@@ -178,7 +200,7 @@ function main() {
   const htmlRows = collectHtmlRows()
   const manifestRows = collectManifestRows()
   const rows = htmlRows.length ? htmlRows : manifestRows
-  const linkReport = htmlRows.length ? collectLinks(htmlRows) : { links: [], broken: [], orphanRoutes: [] }
+  const linkReport = htmlRows.length ? collectLinks(htmlRows) : { links: [], broken: [], nonCanonical: [], orphanRoutes: [] }
   const duplicateSlugs = collectDuplicateSlugs()
   const duplicateMetadata = {
     generatedAt,
@@ -232,6 +254,7 @@ function main() {
       internalLinks: {
         totalInternalLinks: linkReport.links.length,
         brokenInternalLinks: linkReport.broken.length,
+        nonCanonicalInternalLinks: linkReport.nonCanonical.length,
         orphanRoutes: linkReport.orphanRoutes.length,
       },
       routeGeneration: {
@@ -247,6 +270,7 @@ function main() {
   writeReport('seo-audit.json', seoAudit)
   writeReport('orphan-pages.json', { generatedAt, orphanRoutes: linkReport.orphanRoutes })
   writeReport('broken-links.json', { generatedAt, brokenLinks: linkReport.broken })
+  writeReport('noncanonical-internal-links.json', { generatedAt, links: linkReport.nonCanonical })
   writeReport('duplicate-metadata.json', duplicateMetadata)
   writeReport('thin-pages.json', { generatedAt, thinPages })
   console.log(`[seo-audit-reports] wrote reports to ${path.relative(root, reportDir)}`)
