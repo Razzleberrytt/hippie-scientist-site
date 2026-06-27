@@ -45,8 +45,7 @@ function firstText(...values: unknown[]) {
 function toTextList(value: unknown) {
   if (Array.isArray(value)) return value.map(asText).filter(Boolean).slice(0, 12)
   const raw = asText(value)
-  return raw ? raw.split(/[;,
-]+/).map(item => item.trim()).filter(Boolean).slice(0, 12) : []
+  return raw ? raw.split(/[;,\n]+/).map(item => item.trim()).filter(Boolean).slice(0, 12) : []
 }
 
 function canUseRecord(record: RuntimeRecord) {
