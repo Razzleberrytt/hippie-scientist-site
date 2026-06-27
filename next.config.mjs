@@ -16,6 +16,14 @@ const nextConfig = {
   reactStrictMode: true,
   output: 'export',
   trailingSlash: true,
+  // Skip ESLint during `next build`. Linting ~1.4k files inside the production
+  // build duplicates the dedicated `npm run lint` / `check` / `check:full` gates
+  // and adds tens of seconds to every build. Lint stays enforced in those gates.
+  // TypeScript checking is intentionally left ON (no `typescript.ignoreBuildErrors`)
+  // so the build still fails on real type errors.
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   // outputFileTracingRoot: helps Next.js file tracing in git worktrees and certain monorepo setups.
   // Silences "Lockfile ... " or workspace-related tracing warnings without changing behavior.
   // See plan for 2026-06-05 Phase 2 note.
