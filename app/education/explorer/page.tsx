@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 }
 
-type RuntimeRecord = Record<string, unknown>
+type RuntimeRecord = Record<string, any>
 type PathwayClientItem = {
   slug: string
   name: string
