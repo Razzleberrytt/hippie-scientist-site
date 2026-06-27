@@ -12,33 +12,74 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/dosing/',
 })
 
+type RuntimeRecord = Record<string, unknown>
+type DosageClientItem = {
+  slug: string
+  name: string
+  displayName: string
+  dosage?: string
+  dose?: string
+  administration?: string
+  time_of_day?: string
+  cycling?: string
+  cycling_notes?: string
+}
+
+function asText(value: unknown) {
+  if (typeof value === 'string') return value.trim()
+  if (typeof value === 'number') return String(value)
+  return ''
+}
+
+function firstText(...values: unknown[]) {
+  return values.map(asText).find(Boolean) || ''
+}
+
+function canUseRecord(record: RuntimeRecord) {
+  if (isRestrictedRecord(record)) return false
+  try {
+    return getRuntimeVisibility(record).canRender
+  } catch {
+    return true
+  }
+}
+
+function toDosageClientItem(record: RuntimeRecord): DosageClientItem {
+  const slug = firstText(record.slug)
+  const name = firstText(record.displayName, record.name, slug)
+
+  return {
+    slug,
+    name,
+    displayName: name,
+    dosage: firstText(record.dosage, record.dose),
+    dose: firstText(record.dose, record.dosage),
+    administration: firstText(record.administration, record.time_of_day),
+    time_of_day: firstText(record.time_of_day, record.administration),
+    cycling: firstText(record.cycling, record.cycling_notes),
+    cycling_notes: firstText(record.cycling_notes, record.cycling),
+  }
+}
+
 export default async function DosingPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs = rawHerbs.filter((h: Record<string, unknown>) => {
-    if (isRestrictedRecord(h)) return false
-    try {
-      return getRuntimeVisibility(h).canRender
-    } catch {
-      return true
-    }
-  })
+  const herbs = rawHerbs
+    .filter(canUseRecord)
+    .map(toDosageClientItem)
+    .filter(item => item.slug)
 
-  const compounds = rawCompounds.filter((c: Record<string, unknown>) => {
-    if (isRestrictedRecord(c)) return false
-    try {
-      return getRuntimeVisibility(c).canRender
-    } catch {
-      return true
-    }
-  })
+  const compounds = rawCompounds
+    .filter(canUseRecord)
+    .map(toDosageClientItem)
+    .filter(item => item.slug)
 
   return (
     <div className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
       <AuthorityJsonLd
         title="Dynamic Dosage & Active Molecular Yield Calculator"
         description="Calculate personalized dosing ranges and active marker compounds for cognitive and physical supplements."
-        url="https://thehippiescientist.net/dosing"
+        url="https://thehippiescientist.net/dosing/"
         type="MedicalWebPage"
       />
 
