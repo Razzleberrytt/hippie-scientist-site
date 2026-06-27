@@ -1,6 +1,7 @@
 import { buildPageMetadata } from '../../../src/lib/seo'
 import type { Metadata } from 'next'
 import { getHerbs, getCompounds } from '../../../src/lib/runtime-data'
+import type { RuntimeRecord } from '../../../src/types/content'
 import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
 import DynamicComparerClient from '../../../src/components/compare/DynamicComparerClient'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
@@ -12,7 +13,6 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/compare/dynamic/',
 })
 
-type RuntimeRecord = Record<string, any>
 type CompareClientItem = {
   slug: string
   name: string
