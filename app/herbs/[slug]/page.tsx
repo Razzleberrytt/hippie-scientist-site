@@ -92,6 +92,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!herb) {
     return {
       title: 'Herb Not Found',
+      robots: { index: false, follow: true },
     }
   }
 

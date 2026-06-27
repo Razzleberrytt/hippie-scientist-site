@@ -1059,8 +1059,7 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
     ? `${displayName} effects, dosage, drug interactions, and harm-reduction safety guide.`
     : `${displayName} dosage, effects, onset, and safety graded against research evidence.`
 
-  const rawDescription = (record.meta_description || record.metaDescription || '').trim() ||
-                         (record.description || record.metaDescription || '').trim()
+  const rawDescription = (record.meta_description || record.metaDescription || record.description || '').trim()
   const description = normalizeProfileNameInText(rawDescription, displayName) ||
                       keywordFirstDescription ||
                       safeFallbackDescription

@@ -218,6 +218,9 @@ function checkRouteFileEligibility(normalizedRoute: string): boolean {
   const clean = normalizedRoute.replace(/^\//, '');
   if (clean.includes('[') || clean.includes(']')) return true;
 
+  // Root route is always eligible
+  if (!clean) return true;
+
   const possiblePaths = [
     path.join(process.cwd(), 'app', clean, 'page.tsx'),
     path.join(process.cwd(), 'app', clean, 'page.ts'),
@@ -231,8 +234,11 @@ function checkRouteFileEligibility(normalizedRoute: string): boolean {
       path.join(process.cwd(), 'app', ...segments.slice(0, -1), '[slug]', 'page.ts'),
     );
   }
+
+  let fileFound = false;
   for (const filePath of possiblePaths) {
     if (existsSync(filePath)) {
+      fileFound = true;
       try {
         const content = readFileSync(filePath, 'utf8');
         if (/robots\s*:\s*["'][^"']*noindex/i.test(content) || /robots\s*:\s*\{\s*index\s*:\s*false/i.test(content)) {
@@ -251,7 +257,9 @@ function checkRouteFileEligibility(normalizedRoute: string): boolean {
       }
     }
   }
-  return true;
+
+  // Routes with no matching page file should not be included in the sitemap
+  return fileFound;
 }
 
 function isAllowedRouteManifestEntry(routeStr: string): boolean {
@@ -684,9 +692,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'best-supplements-for-blood-pressure',
     'best-supplements-for-gut-health',
     'best-supplements-for-joint-support',
-    'best-herbs-for-anxiety',
-    'best-nootropics-for-focus',
-    'best-adaptogens-for-stress',
+    'best-magnesium-supplements-for-adhd',
   ];
   topPages.forEach((p) => {
     addRoute(`/${p}`, 'monthly', 0.6);

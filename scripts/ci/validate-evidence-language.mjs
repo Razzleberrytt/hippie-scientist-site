@@ -50,8 +50,16 @@ export function auditRecord(record, datasetName = 'test') {
   const textToAudit = `${summary} ${description}`.trim()
   const localFindings = []
 
-  // 1. Missing fields (Critical)
-  if (!summary.trim() && !description.trim()) {
+  // Determine if this record is published/indexable. Only PUBLISH records
+  // are expected to have content; NOINDEX, NEEDS_REVIEW, BLOCKED, hidden,
+  // and redirect-only records are not flagged for empty content.
+  const indexabilityStatus = String(record.indexability_status || '').toUpperCase()
+  const runtimeExportDecision = String(record.runtime_export_decision || '').toLowerCase()
+  const isPublished = indexabilityStatus === 'PUBLISH' &&
+    !['hidden', 'hidden_until_grounded', 'alias_redirect_only', 'research_archive_runtime'].includes(runtimeExportDecision)
+
+  // 1. Missing fields (Critical) — only for published/indexable records
+  if (isPublished && !summary.trim() && !description.trim()) {
     return [{
       type: 'critical',
       dataset: datasetName,
@@ -61,6 +69,9 @@ export function auditRecord(record, datasetName = 'test') {
       reason: 'Both summary and description are empty'
     }]
   }
+
+  // Skip all further checks for records with no auditable content
+  if (!textToAudit) return []
 
   // 2. Placeholder checks (Critical)
   for (const kw of PLACEHOLDER_KEYWORDS) {
