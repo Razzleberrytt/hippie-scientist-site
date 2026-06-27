@@ -153,7 +153,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: PageParams }): Promise<Metadata> {
   const { slug } = await params
   const article = getFocusClusterArticle(slug)
-  if (!article) return {}
+  if (!article) return { title: 'Page Not Found', robots: { index: false, follow: true } }
   const canonical = `${SITE_URL}/${article.slug}/`
   const metaTitle = compactMetaTitle(article.seoTitle)
 

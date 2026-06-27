@@ -610,13 +610,21 @@ type BlogJsonLdPost = {
   image?: string
 }
 
+function safeIsoDate(value: string | undefined | null): string | undefined {
+  if (!value) return undefined
+  const parsed = new Date(value)
+  return Number.isNaN(parsed.getTime()) ? undefined : parsed.toISOString()
+}
+
 export function blogJsonLd(post: BlogJsonLdPost, path: string) {
   const canonicalPath = withLeadingSlash(path)
   const url = new URL(canonicalPath, SITE_URL).toString()
 
   const description = post.description || post.excerpt || ''
-  const published = new Date(post.date).toISOString()
-  const modified = post.updated ? new Date(post.updated).toISOString() : published
+  // Guard against invalid/empty dates: an invalid Date would throw on
+  // .toISOString() (crashing the build) and emit invalid structured data.
+  const published = safeIsoDate(post.date)
+  const modified = safeIsoDate(post.updated) || published
 
   const imageUrl = post.image
     ? isAbsoluteUrl(post.image)
@@ -1069,11 +1077,19 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
 
   const indexDecision = shouldIndexRoute(path, record)
 
+  // Per-profile social card image is produced by the file-based
+  // `opengraph-image.tsx` route convention (app/herbs/[slug]/opengraph-image.tsx
+  // and app/compounds/[slug]/opengraph-image.tsx), which Next emits as a static
+  // PNG at `<route>/opengraph-image.png`. Referencing that generated URL keeps
+  // og:image / twitter:image pointing at a real, branded image. The previous
+  // `/og/{type}/{slug}.png` path was never generated and resolved to a 404.
+  const profileOgImage = `${path}/opengraph-image.png`
+
   return buildPageMetadata({
     title: meta.title,
     description: meta.description,
     path,
-    image: `/og/${type === 'herb' ? 'herbs' : 'compounds'}/${record.slug}.png`,
+    image: profileOgImage,
     openGraphType: 'article',
     robots: indexDecision.index
       ? undefined
