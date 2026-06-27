@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { getHerbs, getCompounds } from '../../../src/lib/runtime-data'
+import type { RuntimeRecord } from '../../../src/types/content'
 import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
 import { SearchSkeleton } from '@/components/skeletons'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
@@ -17,7 +18,6 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 }
 
-type RuntimeRecord = Record<string, any>
 type PathwayClientItem = {
   slug: string
   name: string
