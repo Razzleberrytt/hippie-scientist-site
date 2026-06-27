@@ -122,6 +122,28 @@ export default function LTheanineWithoutCaffeinePage() {
       <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_240px]">
         <div className="space-y-6">
 
+          {/* Fastest useful choice */}
+          <section className="rounded-[1rem] border border-brand-700/20 bg-brand-50/60 p-6 shadow-sm sm:p-8">
+            <p className="eyebrow-label">Fastest useful choice</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+              If you only try one thing: L-theanine 100 mg alone
+            </h2>
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <strong>L-theanine 100&nbsp;mg alone (no caffeine) is itself the fastest useful choice for
+              stimulant-free ADHD focus.</strong> Effects within 30–60 minutes, no crash, no sleep
+              disruption, no dependency. If 100&nbsp;mg is not enough, increase to 200&nbsp;mg before
+              considering other compounds. For comparison with the caffeine combination, see{' '}
+              <Link href="/articles/l-theanine-vs-caffeine-for-focus" className="font-semibold text-brand-700 hover:underline">
+                L-Theanine vs Caffeine for Focus
+              </Link>
+              . For the broader evidence review, see the{' '}
+              <Link href="/articles/l-theanine-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+                full L-theanine article
+              </Link>
+              .
+            </p>
+          </section>
+
           {/* Quick Verdict */}
           <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
             <p className="eyebrow-label">Quick Verdict</p>
@@ -454,6 +476,7 @@ export default function LTheanineWithoutCaffeinePage() {
                   ['/articles/l-theanine-magnesium-adhd-stack', 'Stack Guide', 'L-Theanine + Magnesium Stack', 'Combine for broader ADHD support.'],
                   ['/articles/l-theanine-for-sleep', 'Sleep Cluster', 'L-Theanine for Sleep', 'Nighttime calm without caffeine.'],
                   ['/articles/adhd-stack-guide', 'ADHD Cluster', 'ADHD Stack Guide', 'Building a safe ADHD supplement stack.'],
+                  ['/articles/ashwagandha', 'Umbrella', 'Ashwagandha Article', 'Full evidence review across stress, anxiety, sleep, and focus.'],
                   ['/articles/ashwagandha-for-adhd', 'ADHD Cluster', 'Ashwagandha for ADHD', 'Chronic stress and focus support.'],
                   ['/goals/focus', 'Goal Hub', 'Focus Goal Hub', 'Compare all focus supplements.'],
                 ].map(([href, eyebrow, label, desc]) => (
@@ -514,6 +537,7 @@ export default function LTheanineWithoutCaffeinePage() {
                 ['/articles/l-theanine-vs-caffeine-for-focus', 'L-Theanine vs Caffeine →'],
                 ['/articles/adhd-stack-guide', 'ADHD stack guide →'],
                 ['/articles/l-theanine-for-sleep', 'L-Theanine for sleep →'],
+                ['/goals/focus', 'Focus goal hub →'],
               ].map(([href, label]) => (
                 <Link key={href as string} href={href as string}
                   className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline">

@@ -157,7 +157,7 @@ export default function LTheanineForAnxietyPage() {
           </div>
           <p className="text-sm text-muted-foreground mt-4">
             For the complete evidence hub, read the{' '}
-            <Link href="/articles/l-theanine" className="text-primary underline">
+            <Link href="/articles/l-theanine-for-anxiety" className="text-primary underline">
               full L-theanine guide
             </Link>
             .

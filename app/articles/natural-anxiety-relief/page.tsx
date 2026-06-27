@@ -158,6 +158,37 @@ export default function NaturalAnxietyReliefPage() {
         {/* Main content */}
         <div className="space-y-6">
 
+          {/* Fastest useful choice */}
+          <section className="rounded-[1rem] border border-brand-700/20 bg-brand-50/60 p-6 shadow-sm sm:p-8">
+            <p className="eyebrow-label">Fastest useful choice</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+              If you only try one thing: L-theanine
+            </h2>
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <strong>L-theanine (100–200 mg) is the fastest useful choice for situational or
+              racing-thought anxiety.</strong> Effects typically within 30–60 minutes, no sedation,
+              no dependency. It is a calming amino acid, not a sedative, and it stacks cleanly with
+              magnesium or ashwagandha. For chronic stress-driven anxiety that builds over weeks,
+              add{' '}
+              <Link href="/articles/ashwagandha-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+                ashwagandha
+              </Link>{' '}
+              (KSM-66 or Sensoril, 300–600&nbsp;mg/day). See the{' '}
+              <Link href="/articles/l-theanine-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+                full L-theanine guide
+              </Link>
+              , the{' '}
+              <Link href="/articles/ashwagandha-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+                ashwagandha guide
+              </Link>
+              , and the{' '}
+              <Link href="/articles/anxiety-stack-guide" className="font-semibold text-brand-700 hover:underline">
+                anxiety stack guide
+              </Link>
+              .
+            </p>
+          </section>
+
           {/* Quick Verdict */}
           <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
             <p className="eyebrow-label">Quick Verdict</p>

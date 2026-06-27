@@ -125,6 +125,22 @@ export default function BestSupplementsForFocusPage() {
           </p>
         </section>
 
+        {/* Fastest useful choice */}
+        <section className="rounded-[1.65rem] border border-brand-700/20 bg-brand-50/60 p-6 shadow-sm">
+          <p className="eyebrow-label">Fastest useful choice</p>
+          <h2 className="mt-2 text-xl font-semibold tracking-tight text-ink">If you only try one thing: L-theanine + caffeine</h2>
+          <p className="mt-3 text-sm leading-7 text-muted sm:text-base">
+            <strong>The fastest useful choice for most people is L-theanine 100–200 mg paired with caffeine 50–100 mg (2:1 ratio)</strong>,
+            taken 30–60 minutes before a focus session. L-theanine is the most consistently studied
+            nootropic for reducing anxiety-driven mental noise without sedation; caffeine provides
+            direct alerting. Together they blunt the jitters of caffeine alone. See the{' '}
+            <Link href="/articles/l-theanine-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+              full L-theanine guide
+            </Link>{' '}
+            for dosing, mechanisms, and stacking notes.
+          </p>
+        </section>
+
         {/* Decision table */}
         <section id="root-cause" className="scroll-mt-20 space-y-4">
           <p className="eyebrow-label">What's blocking your focus?</p>
@@ -192,6 +208,9 @@ export default function BestSupplementsForFocusPage() {
           <Link href="/guides/focus-without-caffeine-crash" className="hover:text-brand-800">Focus Without the Caffeine Crash →</Link>
           <Link href="/guides/supplements-for-brain-fog-and-fatigue" className="hover:text-brand-800">Brain Fog & Fatigue →</Link>
           <Link href="/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus" className="hover:text-brand-800">Caffeine vs L-Theanine vs Bacopa →</Link>
+          <Link href="/articles/ashwagandha-for-anxiety" className="hover:text-brand-800">Ashwagandha Article →</Link>
+          <Link href="/articles/l-theanine-for-anxiety" className="hover:text-brand-800">L-Theanine Article →</Link>
+          <Link href="/goals/focus" className="hover:text-brand-800">Focus Goal Hub →</Link>
           <Link href="/guides" className="hover:text-brand-800">All Guides →</Link>
         </nav>
       </div>

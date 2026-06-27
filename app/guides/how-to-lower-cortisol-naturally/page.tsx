@@ -98,6 +98,27 @@ export default function Page() {
           </p>
         </section>
 
+        {/* Fastest useful choice */}
+        <section className="card-premium scroll-mt-20 space-y-3 border-brand-700/30 bg-brand-50/60 p-6">
+          <p className="eyebrow-label">Fastest useful choice</p>
+          <h2 className="text-xl font-semibold text-ink">If you only try one thing: protect your sleep</h2>
+          <p className="text-muted">
+            <strong>Sleep is the fastest and most powerful lever on cortisol</strong> &mdash; a single
+            poor night measurably raises next-day cortisol, while a consistent sleep-and-wake schedule
+            restores the natural morning-peak / evening-trough rhythm that supplements cannot replicate.
+            For acute stress moments,{' '}
+            <Link href="/compounds/l-theanine" className="font-semibold text-brand-700 hover:underline">
+              L-theanine
+            </Link>{' '}
+            (100&ndash;200&nbsp;mg) blunts cortisol within an hour. For chronic baseline elevation over
+            weeks,{' '}
+            <Link href="/herbs/ashwagandha" className="font-semibold text-brand-700 hover:underline">
+              ashwagandha
+            </Link>{' '}
+            (300&ndash;600&nbsp;mg, KSM-66 or Sensoril) has the strongest supplement evidence.
+          </p>
+        </section>
+
         {/* Quick Answer */}
         <section id="quick-answer" className="card-premium scroll-mt-20 space-y-3 p-6">
           <h2 className="text-2xl font-semibold text-ink">Quick answer</h2>
@@ -220,9 +241,12 @@ export default function Page() {
           <h2 className="text-xl font-semibold text-amber-900">Risks &amp; safety</h2>
           <ul className="space-y-2 text-sm text-amber-900">
             <li>• Adaptogens are not a substitute for medical evaluation, especially with endocrine conditions, diabetes, or while pregnant or breastfeeding.</li>
-            <li>• Ashwagandha can affect thyroid hormone levels and interacts with sedatives and immunosuppressants — check with a clinician if relevant.</li>
-            <li>• Rhodiola is stimulating for some people and may worsen sleep or agitation if taken late or in high doses.</li>
-            <li>• If you take medication for blood pressure, mood, sleep or a hormonal condition, confirm compatibility before adding herbs.</li>
+            <li>• <strong>Ashwagandha:</strong> avoid in pregnancy and breastfeeding; rare hepatotoxicity reported; can affect thyroid hormone levels; caution with sedatives, immunosuppressants, and autoimmune disease.</li>
+            <li>• <strong>Rhodiola:</strong> caution with bipolar disorder (may trigger mania); interaction risk with SSRIs and MAOIs; stimulating for some people and may worsen sleep or agitation if taken late or in high doses.</li>
+            <li>• <strong>Holy basil:</strong> may lower blood sugar; caution with diabetes medication and hypoglycemic agents.</li>
+            <li>• <strong>Magnesium:</strong> caution with kidney disease (kidneys regulate excretion); high doses cause loose stools &mdash; lower the dose rather than stopping.</li>
+            <li>• If you take medication for blood pressure, mood, sleep, thyroid, or a hormonal condition, confirm compatibility before adding herbs.</li>
+            <li>• Persistent symptoms &mdash; unexplained weight changes, severe fatigue, easy bruising, or persistent high blood pressure &mdash; warrant medical evaluation for conditions such as Cushing&rsquo;s syndrome or adrenal disorders.</li>
           </ul>
         </section>
 
