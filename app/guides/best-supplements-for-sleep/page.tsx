@@ -10,12 +10,12 @@ import RecommendationSection from '@/components/RecommendationSection'
 const PAGE_URL = `${SITE_URL}/guides/best-supplements-for-sleep`
 
 export const metadata: Metadata = {
-  title: 'Best Supplements for Sleep — Evidence-Based Guide',
+  title: 'Best Supplements for Sleep: Magnesium, Melatonin, L-Theanine & More',
   description:
     'Evidence-graded review of the best sleep supplements: magnesium glycinate, L-theanine, melatonin, valerian, ashwagandha, and more. Mechanisms, dosing, safety, and decision framework.',
   alternates: { canonical: '/guides/best-supplements-for-sleep/' },
   openGraph: {
-    title: 'Best Supplements for Sleep — Evidence-Based Guide',
+    title: 'Best Supplements for Sleep: Magnesium, Melatonin, L-Theanine & More',
     description:
       'Which sleep supplements actually work? Magnesium, melatonin, L-theanine, valerian, ashwagandha — evidence-graded with dosing, safety, and stacking notes.',
     url: '/guides/best-supplements-for-sleep',
@@ -39,9 +39,9 @@ const SLEEP_SUPPLEMENTS = [
     mechanism: 'Increases alpha-wave brain activity; modulates GABA and glutamate; reduces stress-related arousal without sedation',
     evidence: 'B – consistent evidence for relaxation and sleep quality; less data on sleep onset',
     dose: '100–200 mg taken 30–60 min before bed; often stacked with magnesium',
-    safety: 'Very well-tolerated; no dependency; safe long-term',
+    safety: 'Generally well-tolerated; use extra caution with sedatives, blood pressure medication, pregnancy/breastfeeding, or psychiatric medication',
     bestFor: 'Racing thoughts, anxiety-driven wakefulness, improving sleep quality',
-    href: '/compounds/l-theanine',
+    href: '/articles/l-theanine',
     badge: 'Moderate',
   },
   {
@@ -127,10 +127,10 @@ export default function BestSupplementsForSleepPage() {
     <>
       <StructuredData
         pageUrl={PAGE_URL}
-        headline="Best Supplements for Sleep — Evidence-Based Guide"
+        headline="Best Supplements for Sleep: Magnesium, Melatonin, L-Theanine & More"
         description="Evidence-graded review of the best sleep supplements including magnesium glycinate, L-theanine, melatonin, ashwagandha, and valerian. Includes mechanisms, dosing, safety, and stacking recommendations."
         datePublished="2026-06-16"
-        dateModified="2026-06-16"
+        dateModified="2026-06-26"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides' },
@@ -150,7 +150,7 @@ export default function BestSupplementsForSleepPage() {
           <p className="mt-2 text-xs text-muted">
             Written and reviewed by{' '}
             <Link href="/author" className="font-medium text-brand-700 hover:underline">Will Thomas</Link>
-            {' '}· Last updated June 2026
+            {' '}· Last updated June 26, 2026
           </p>
           <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
             Most sleep supplements are oversold. A small number have credible evidence behind them —
@@ -162,6 +162,14 @@ export default function BestSupplementsForSleepPage() {
             <strong>Evidence approach:</strong> Grades reflect human clinical evidence quality (A = strong
             RCTs, B = moderate RCTs/mixed results, C = preliminary/traditional). All safety notes are
             conservative. This is educational context, not personal medical advice.
+          </div>
+          <div className="mt-4 rounded-xl border border-brand-900/10 bg-brand-50 p-4 text-sm text-brand-950">
+            <strong>Fastest useful choice:</strong> for racing thoughts, start with{' '}
+            <Link href="/articles/l-theanine" className="font-semibold text-brand-800 hover:underline">L-theanine</Link>;
+            for muscle tension or night waking, start with{' '}
+            <Link href="/compounds/magnesium-glycinate" className="font-semibold text-brand-800 hover:underline">magnesium glycinate</Link>;
+            for jet lag or a shifted sleep schedule, start with low-dose{' '}
+            <Link href="/compounds/melatonin" className="font-semibold text-brand-800 hover:underline">melatonin</Link>.
           </div>
         </section>
 
@@ -179,7 +187,7 @@ export default function BestSupplementsForSleepPage() {
             {[
               { problem: 'Trouble falling asleep', suggestion: 'Melatonin (low dose) + L-Theanine', href: '/compounds/melatonin' },
               { problem: 'Waking during the night', suggestion: 'Magnesium Glycinate + Ashwagandha (if stress-driven)', href: '/compounds/magnesium-glycinate' },
-              { problem: 'Racing thoughts at bedtime', suggestion: 'L-Theanine + Passionflower', href: '/compounds/l-theanine' },
+              { problem: 'Racing thoughts at bedtime', suggestion: 'L-Theanine + Passionflower', href: '/articles/l-theanine' },
               { problem: '"Wired but tired" / cortisol issues', suggestion: 'Ashwagandha (long-term) + Magnesium', href: '/herbs/ashwagandha' },
               { problem: 'Jet lag or shift work', suggestion: 'Melatonin (timed precisely to destination)', href: '/compounds/melatonin' },
               { problem: 'Muscle tension / physical restlessness', suggestion: 'Magnesium Glycinate (evening)', href: '/compounds/magnesium-glycinate' },
@@ -286,6 +294,7 @@ export default function BestSupplementsForSleepPage() {
 
         {/* Related */}
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
+          <Link href="/articles/l-theanine" className="hover:text-brand-800">L-Theanine for Calm Sleep →</Link>
           <Link href="/guides/magnesium-vs-melatonin" className="hover:text-brand-800">Magnesium vs Melatonin →</Link>
           <Link href="/compare/sleep-herbs-vs-melatonin" className="hover:text-brand-800">Sleep Herbs vs Melatonin →</Link>
           <Link href="/guides/magnesium-for-sleep" className="hover:text-brand-800">Magnesium for Sleep Guide →</Link>
