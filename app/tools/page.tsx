@@ -6,8 +6,8 @@ import { buildPageMetadata } from '../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Research Tools',
-  description: 'Interactive tools for navigating herb and compound evidence: safety checker, comparisons, goal guides, and site search.',
-  path: '/tools',
+  description: 'Interactive tools for navigating herb and compound evidence: safety checker, comparisons, goal guides, dosage context, stack builder, and research explorers.',
+  path: '/tools/',
 })
 
 type ToolCard = {
@@ -20,50 +20,71 @@ type ToolCard = {
 
 const tools: ToolCard[] = [
   {
-    href: '/safety-checker',
+    href: '/safety-checker/',
     title: 'Safety Checker',
     description: 'Check interactions, contraindications, and cautions for herbs and compounds against your medications or conditions.',
     icon: Shield,
     available: true,
   },
   {
-    href: '/compare',
+    href: '/compare/',
     title: 'Herb & Compound Comparison',
     description: 'Side-by-side evidence, mechanisms, and safety comparison of two or more profiles.',
     icon: GitCompare,
     available: true,
   },
   {
-    href: '/goals',
+    href: '/goals/',
     title: 'Goal-Based Guides',
-    description: 'Browse by practical goal (sleep, focus, stress) with evidence-ranked recommendations and context.',
+    description: 'Browse by practical goal — sleep, focus, stress, and anxiety — with evidence-ranked recommendations and context.',
     icon: Target,
     available: true,
   },
   {
-    href: '/search',
+    href: '/search/',
     title: 'Site Search',
-    description: 'Full-text search across all herb, compound, and research note profiles powered by Pagefind.',
+    description: 'Full-text search across herb, compound, guide, and research note profiles powered by Pagefind.',
+    icon: Search,
+    available: true,
+  },
+  {
+    href: '/dosing/',
+    title: 'Dosing Context Calculator',
+    description: 'Estimate active compound yield and dosage context before comparing forms or products.',
+    icon: Calculator,
+    available: true,
+  },
+  {
+    href: '/stacks/builder/',
+    title: 'Supplement Stack Builder',
+    description: 'Build a cautious supplement stack and review overlap risk before combining options.',
+    icon: Target,
+    available: true,
+  },
+  {
+    href: '/education/citation-explorer/',
+    title: 'Citation Explorer',
+    description: 'Open the evidence trail behind claims and research notes when you want to audit the source quality.',
+    icon: BookOpen,
+    available: true,
+  },
+  {
+    href: '/education/efficacy-model/',
+    title: 'Efficacy Modeler',
+    description: 'Explore how evidence strength, dose context, and uncertainty change confidence in an option.',
+    icon: AlertTriangle,
+    available: true,
+  },
+  {
+    href: '/education/explorer/',
+    title: 'Pathway Explorer',
+    description: 'Browse biological pathway connections across herbs, compounds, goals, and mechanisms.',
     icon: Search,
     available: true,
   },
 ]
 
 const plannedTools: ToolCard[] = [
-  {
-    href: '#',
-    title: 'Dosing Calculator',
-    description: 'Evidence-informed starting ranges and titration guidance (with safety guardrails).',
-    icon: Calculator,
-    available: false,
-  },
-  {
-    href: '#',
-    title: 'Interaction Checker',
-    description: 'Deeper medication + supplement interaction matrix with references.',
-    icon: AlertTriangle,
-    available: false,
-  },
   {
     href: '#',
     title: 'Evidence Tracker',
