@@ -49,6 +49,15 @@ export default function SearchPage() {
     { name: 'Joint Support', href: '/goals/joint-support/' },
   ]
 
+  const researchTools = [
+    { name: 'Safety Checker', href: '/safety-checker/' },
+    { name: 'Compare Supplements', href: '/compare/' },
+    { name: 'Research Tools Hub', href: '/tools/' },
+    { name: 'Citation Explorer', href: '/education/citation-explorer/' },
+    { name: 'Dosing Calculator', href: '/dosing/' },
+    { name: 'Stack Builder', href: '/stacks/builder/' },
+  ]
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:py-10">
       <Script
@@ -75,7 +84,7 @@ export default function SearchPage() {
         </p>
         
         <div className="space-y-2">
-          <h2 className="text-xs font-bold uppercase tracking-wider text-muted font-semibold">Popular Searches</h2>
+          <h2 className="text-xs font-bold uppercase tracking-wider text-muted">Popular Searches</h2>
           <div className="flex flex-wrap gap-2">
             {popularSearches.map(item => (
               <Link key={item.name} href={item.href} className="rounded-full border border-brand-900/10 bg-white px-3 py-1.5 text-xs font-semibold text-ink hover:border-brand-700/20">
@@ -85,9 +94,9 @@ export default function SearchPage() {
           </div>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-3">
           <div className="space-y-2">
-            <h2 className="text-xs font-bold uppercase tracking-wider text-muted font-semibold">Browse by Goal</h2>
+            <h2 className="text-xs font-bold uppercase tracking-wider text-muted">Browse by Goal</h2>
             <ul className="space-y-1">
               {popularGoals.map(item => (
                 <li key={item.name}>
@@ -99,7 +108,7 @@ export default function SearchPage() {
             </ul>
           </div>
           <div className="space-y-2">
-            <h2 className="text-xs font-bold uppercase tracking-wider text-muted font-semibold">Browse by Category</h2>
+            <h2 className="text-xs font-bold uppercase tracking-wider text-muted">Browse by Category</h2>
             <ul className="space-y-1">
               <li>
                 <Link href="/herbs/" className="text-sm font-semibold text-brand-800 hover:underline">
@@ -111,6 +120,18 @@ export default function SearchPage() {
                   Compound & Nootropic Library ({COMPOUND_COUNT} Profiles)
                 </Link>
               </li>
+            </ul>
+          </div>
+          <div className="space-y-2">
+            <h2 className="text-xs font-bold uppercase tracking-wider text-muted">Research Tools</h2>
+            <ul className="space-y-1">
+              {researchTools.map(item => (
+                <li key={item.name}>
+                  <Link href={item.href} className="text-sm font-semibold text-brand-800 hover:underline">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
