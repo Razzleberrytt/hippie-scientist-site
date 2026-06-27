@@ -21,7 +21,7 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/safety-checker/',
 })
 
-type RuntimeRecord = Record<string, unknown>
+type RuntimeRecord = Record<string, any>
 type SafetyClientItem = {
   slug: string
   name: string
