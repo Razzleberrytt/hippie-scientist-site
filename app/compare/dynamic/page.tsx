@@ -12,7 +12,7 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/compare/dynamic/',
 })
 
-type RuntimeRecord = Record<string, unknown>
+type RuntimeRecord = Record<string, any>
 type CompareClientItem = {
   slug: string
   name: string
@@ -66,6 +66,9 @@ function canUseRecord(record: RuntimeRecord) {
 function toCompareClientItem(record: RuntimeRecord): CompareClientItem {
   const slug = firstText(record.slug)
   const name = firstText(record.displayName, record.name, record.compoundName, slug)
+  const mechanisms = toTextList(record.mechanisms)
+  const bestFor = toTextList(record.bestFor)
+  const bestForSnake = toTextList(record.best_for)
 
   return {
     slug,
@@ -78,8 +81,8 @@ function toCompareClientItem(record: RuntimeRecord): CompareClientItem {
     confidence: firstText(record.confidence, record.evidence_tier, record.evidenceLevel),
     safety: firstText(record.safety, record.safety_level, record.safetyNotes, record.safety_notes),
     safety_flags: toTextList(record.safety_flags),
-    mechanism: firstText(record.mechanism, toTextList(record.mechanisms)[0]),
-    mechanisms: toTextList(record.mechanisms),
+    mechanism: firstText(record.mechanism, mechanisms[0]),
+    mechanisms,
     pathways: toTextList(record.pathways),
     onset: firstText(record.onset),
     time_to_effect: firstText(record.time_to_effect),
@@ -88,8 +91,8 @@ function toCompareClientItem(record: RuntimeRecord): CompareClientItem {
     dose: firstText(record.dose, record.dosage),
     preparation: firstText(record.preparation, record.preparations),
     preparations: firstText(record.preparations, record.preparation),
-    best_for: toTextList(record.best_for).length ? toTextList(record.best_for) : firstText(record.bestFor, record.primary_effects),
-    bestFor: toTextList(record.bestFor).length ? toTextList(record.bestFor) : firstText(record.best_for, record.primary_effects),
+    best_for: bestForSnake.length ? bestForSnake : firstText(record.bestFor, record.primary_effects),
+    bestFor: bestFor.length ? bestFor : firstText(record.best_for, record.primary_effects),
   }
 }
 
