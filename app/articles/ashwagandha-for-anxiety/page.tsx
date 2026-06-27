@@ -122,11 +122,11 @@ export default function AshwagandhaForAnxietyPage() {
             Onset is slow &mdash; meaningful effects typically require 6&ndash;8 weeks of consistent
             use at 300&ndash;600&nbsp;mg/day of a standardized extract (KSM-66 or Sensoril). If you
             need faster relief for racing thoughts or situational anxiety,{' '}
-            <Link href="/articles/l-theanine-for-anxiety" className="text-primary underline font-semibold">L-theanine</Link>{' '}
+            <Link href="/articles/l-theanine" className="text-primary underline font-semibold">L-theanine</Link>{' '}
             (100&ndash;200&nbsp;mg) works within 30&ndash;60 minutes and is a cleaner first choice for
             acute anxiety. Ashwagandha is best reserved for chronic, stress-driven anxiety where you can
             commit to a multi-week course. See the{' '}
-            <Link href="/articles/ashwagandha-for-anxiety" className="text-primary underline font-semibold">ashwagandha article</Link>{' '}
+            <Link href="/articles/ashwagandha" className="text-primary underline font-semibold">ashwagandha article</Link>{' '}
             for the full evidence review and the{' '}
             <Link href="/articles/natural-anxiety-relief" className="text-primary underline font-semibold">natural anxiety relief hub</Link>{' '}
             for how it fits alongside other options.
@@ -244,10 +244,10 @@ export default function AshwagandhaForAnxietyPage() {
             <p>
               Many people use them together or at different times of day. See our comparison in the{' '}
               <Link href="/articles/l-theanine-for-sleep" className="text-primary underline">L-Theanine for Sleep</Link>, the umbrella{' '}
-              <Link href="/articles/l-theanine-for-anxiety" className="text-primary underline">L-Theanine article</Link>, and the{' '}
+              <Link href="/articles/l-theanine" className="text-primary underline">L-Theanine article</Link>, and the{' '}
               <Link href="/articles/natural-anxiety-relief" className="text-primary underline">Natural Anxiety Relief</Link>{' '}
               hub. For the full{' '}
-              <Link href="/articles/ashwagandha-for-anxiety" className="text-primary underline">ashwagandha evidence review</Link>, see the umbrella article.
+              <Link href="/articles/ashwagandha" className="text-primary underline">ashwagandha evidence review</Link>, see the umbrella article.
             </p>
           </div>
         </section>
@@ -393,11 +393,8 @@ export default function AshwagandhaForAnxietyPage() {
             <Link href="/articles/ashwagandha-for-sleep" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               Ashwagandha for Sleep
             </Link>
-            <Link href="/articles/sleep-stack-guide" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
-              Sleep Stack Guide
-            </Link>
-            <Link href="/articles/l-theanine-for-anxiety" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
-              L-Theanine for Anxiety
+            <Link href="/articles/l-theanine" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+              L-Theanine: Full Guide
             </Link>
             <Link href="/goals/anxiety" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               Anxiety Goal Hub
