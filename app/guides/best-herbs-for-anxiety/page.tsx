@@ -11,12 +11,12 @@ import RecommendationSection from '@/components/RecommendationSection'
 const PAGE_URL = `${SITE_URL}/guides/best-herbs-for-anxiety`
 
 export const metadata: Metadata = {
-  title: 'Best Herbs for Anxiety — Evidence-Based Guide',
+  title: 'Best Herbs for Anxiety: Ashwagandha, Passionflower, Lavender & More',
   description:
     'Evidence-graded review of the best herbs for anxiety: ashwagandha, kava, passionflower, lemon balm, valerian, and lavender. Mechanisms, dosing, safety, drug interactions, and decision framework.',
   alternates: { canonical: '/guides/best-herbs-for-anxiety/' },
   openGraph: {
-    title: 'Best Herbs for Anxiety — Evidence-Based Guide',
+    title: 'Best Herbs for Anxiety: Ashwagandha, Passionflower, Lavender & More',
     description:
       'Which herbs actually help with anxiety? Ashwagandha, kava, passionflower, lemon balm — evidence-graded with dosing, safety, and interaction warnings.',
     url: '/guides/best-herbs-for-anxiety',
@@ -30,29 +30,29 @@ const ANXIETY_HERBS = [
     mechanism: 'HPA axis regulation; cortisol reduction via withanolides; GABAergic modulation; anti-inflammatory effects on stress pathways',
     evidence: 'B — multiple RCTs show statistically significant reductions in perceived stress (PSS) and cortisol in stressed, non-clinical populations',
     dose: '300–600 mg standardized extract (≥5% withanolides) once or twice daily; effects emerge over 4–8 weeks',
-    safety: 'Generally safe; very rare hepatotoxicity at high doses; caution with thyroid medications and immunosuppressants',
+    safety: 'Generally well-tolerated; rare liver injury has been reported; use caution with thyroid medications, immunosuppressants, pregnancy, or autoimmune conditions',
     bestFor: 'Chronic stress-related anxiety, HPA dysregulation, generalized anxiety in healthy adults',
-    href: '/herbs/ashwagandha',
+    href: '/articles/ashwagandha',
     badge: 'Moderate–Strong',
-    interactions: 'Thyroid meds, sedatives, immunosuppressants',
+    interactions: 'Thyroid meds, sedatives, immunosuppressants, pregnancy/autoimmune caution',
   },
   {
     name: 'Kava (Piper methysticum)',
     mechanism: 'Kavalactones modulate GABA-A receptors; reduce limbic system excitability; non-sedating anxiolytic effect at moderate doses',
     evidence: 'B — Cochrane review (2003) found significant benefit for GAD; aqueous extracts safer than ethanolic',
     dose: '70–250 mg kavalactones per dose, 1–3× daily using aqueous (water-based) extract only',
-    safety: 'CAUTION — rare but serious hepatotoxicity risk with ethanolic/acetone extracts and daily high-dose use; avoid with alcohol, liver disease, medications metabolized by CYP1A2/2D6/3A4',
+    safety: 'CAUTION — rare but serious hepatotoxicity risk with ethanolic/acetone extracts and daily high-dose use; avoid with alcohol, liver disease, sedatives, or CYP1A2/2D6/3A4 medications',
     bestFor: 'Acute anxiety relief; social anxiety; short-term episodic use only',
     href: '/guides/kava',
     badge: 'Moderate (with significant safety caveats)',
-    interactions: 'Alcohol, benzodiazepines, antidepressants, hepatotoxic drugs',
+    interactions: 'Alcohol, benzodiazepines, antidepressants, hepatotoxic drugs, CYP-metabolized medications',
   },
   {
     name: 'Passionflower',
     mechanism: 'Increases brain GABA levels; mild MAOI activity; flavonoids (chrysin) have anxiolytic properties',
     evidence: 'C–B — small RCTs comparable to oxazepam for GAD; limited large studies',
     dose: '250–500 mg extract or 1–2 cups tea, taken 30–60 min before stressful events or at bedtime',
-    safety: 'Well-tolerated; mild sedation possible; use caution with sedatives and anticoagulants',
+    safety: 'Generally well-tolerated; mild sedation possible; use caution with sedatives and anticoagulants',
     bestFor: 'Mild to moderate anxiety; anxiety + sleep overlap; episodic situational anxiety',
     href: '/herbs/passionflower',
     badge: 'Emerging–Moderate',
@@ -63,18 +63,18 @@ const ANXIETY_HERBS = [
     mechanism: 'GABA-T inhibition (increases GABA); mild acetylcholinesterase inhibition; rosmarinic acid with anxiolytic effects',
     evidence: 'C — small positive RCTs for anxiety and mood; generally used in combination with valerian',
     dose: '300–600 mg standardized extract (≥5% rosmarinic acid); often combined with valerian',
-    safety: 'Very safe; mild sedation at high doses; may alter thyroid hormone levels with high long-term use',
+    safety: 'Generally low-risk at typical doses; mild sedation at high doses; use caution with thyroid conditions or thyroid medication',
     bestFor: 'Mild anxiety; anxiety + cognitive fog overlap; combination with valerian for sleep-anxiety',
     href: '/herbs/melissa-officinalis',
     badge: 'Emerging',
-    interactions: 'Thyroid medications (theoretical at high doses)',
+    interactions: 'Thyroid medications (theoretical at high doses), sedatives',
   },
   {
     name: 'Lavender (Silexan)',
     mechanism: 'Calcium channel modulation by linalool and linalool acetate; reduces 5-HT1A serotonin reuptake; limbic system effects',
     evidence: 'B — oral Silexan (80 mg lavender oil) has RCT evidence comparable to lorazepam 0.5 mg for GAD',
     dose: 'Oral Silexan 80 mg/day (standardized lavender oil capsules); 6–10 week trials',
-    safety: 'Safe orally at studied doses; avoid raw lavender oil orally (different composition)',
+    safety: 'Generally well-tolerated at studied oral Silexan doses; avoid ingesting raw lavender essential oil, which is a different preparation',
     bestFor: 'Generalized anxiety; when pharmaceutical anxiolytics are not appropriate',
     href: '/compounds/lavender',
     badge: 'Moderate',
@@ -159,10 +159,10 @@ export default function BestHerbsForAnxietyPage() {
     <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
         pageUrl={PAGE_URL}
-        headline="Best Herbs for Anxiety — Evidence-Based Guide"
+        headline="Best Herbs for Anxiety: Ashwagandha, Passionflower, Lavender & More"
         description="Evidence-graded guide to the best herbs for anxiety including ashwagandha, kava, passionflower, lemon balm, and lavender. Covers mechanisms, evidence quality, dosing, safety, and drug interactions."
         datePublished="2026-06-16"
-        dateModified="2026-06-16"
+        dateModified="2026-06-26"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides' },
@@ -179,6 +179,7 @@ export default function BestHerbsForAnxietyPage() {
           <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
             Best Herbs for Anxiety
           </h1>
+          <p className="mt-2 text-xs text-muted">Last updated June 26, 2026</p>
           <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
             The herbal anxiety market is enormous and mostly noise. A handful of plants have credible
             clinical evidence — but they work via different mechanisms, at different timescales, and
@@ -190,6 +191,15 @@ export default function BestHerbsForAnxietyPage() {
             <strong>Important:</strong> Herbs for anxiety are educational context, not a substitute for
             evaluation of an anxiety disorder. If symptoms significantly impair your functioning, speak
             with a healthcare provider. Drug interactions (especially kava) are real and serious.
+          </div>
+          <div className="mt-4 rounded-xl border border-brand-900/10 bg-brand-50 p-4 text-sm text-brand-950">
+            <strong>Fastest useful choice:</strong> for chronic stress-related anxiety, start with{' '}
+            <Link href="/articles/ashwagandha" className="font-semibold text-brand-800 hover:underline">ashwagandha</Link>;
+            for same-day calming, compare{' '}
+            <Link href="/herbs/passionflower" className="font-semibold text-brand-800 hover:underline">passionflower</Link>{' '}
+            or <Link href="/compounds/lavender" className="font-semibold text-brand-800 hover:underline">lavender/Silexan</Link>;
+            for higher-risk short-term use only, read the{' '}
+            <Link href="/guides/kava" className="font-semibold text-brand-800 hover:underline">kava safety guide</Link> first.
           </div>
         </section>
 
@@ -364,6 +374,7 @@ export default function BestHerbsForAnxietyPage() {
         {/* Related guides */}
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
           <Link href="/goals/anxiety" className="hover:text-brand-800">Anxiety goal hub →</Link>
+          <Link href="/articles/ashwagandha" className="hover:text-brand-800">Ashwagandha Evidence Guide →</Link>
           <Link href="/guides/natural-anxiolytics-beyond-ashwagandha" className="hover:text-brand-800">Anxiolytics Beyond Ashwagandha →</Link>
           <Link href="/guides/natural-alternatives-to-anxiety-medication" className="hover:text-brand-800">Natural Alternatives to Anxiety Meds →</Link>
           <Link href="/guides/kava" className="hover:text-brand-800">Kava Safety Guide →</Link>
