@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: P): Promise<Metadata> {
   return {
     title: `Compound Profiles & Research Library — Page ${n}`,
     alternates: {
-      canonical: `/compounds/page/${n}`,
+      canonical: `/compounds/page/${n}/`,
     },
   }
 }

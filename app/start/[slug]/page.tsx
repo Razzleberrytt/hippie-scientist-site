@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: StartRouteProps) {
   const pathway = getPathway(resolvedParams.slug)
 
   if (!pathway) {
-    return {}
+    return { title: 'Page Not Found', robots: { index: false, follow: true } }
   }
 
   return {
