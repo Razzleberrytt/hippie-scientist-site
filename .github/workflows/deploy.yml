@@ -124,6 +124,11 @@ jobs:
             exit 1
           fi
 
+          if [ ! -f "$STATIC_OUTPUT_DIR/3c4f9b2a7d1e6a8f0b5c9d3e7f2a1b6c.txt" ]; then
+            echo "❌ Missing required IndexNow key file in deploy output"
+            exit 1
+          fi
+
           echo "ℹ️ Top-level deploy files:"
           find "$STATIC_OUTPUT_DIR" -maxdepth 1 -type f -printf ' - %f\n' | sort
 
@@ -163,6 +168,11 @@ jobs:
             else
               echo "- out/index.html exists: no"
             fi
+            if [ -f "$STATIC_OUTPUT_DIR/3c4f9b2a7d1e6a8f0b5c9d3e7f2a1b6c.txt" ]; then
+              echo "- IndexNow key file copied: yes"
+            else
+              echo "- IndexNow key file copied: no"
+            fi
             if [ -f "public/_headers" ]; then
               if [ -f "$STATIC_OUTPUT_DIR/_headers" ]; then
                 echo "- _headers found and copied: yes"
@@ -190,3 +200,9 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_PAGES_PROJECT: ${{ secrets.CLOUDFLARE_PAGES_PROJECT }}
         run: npx --no-install wrangler pages deploy out --project-name "$CLOUDFLARE_PAGES_PROJECT" --branch "${DEPLOY_BRANCH:-main}" --commit-hash "${DEPLOY_SHA:-$GITHUB_SHA}"
+
+      - name: Notify IndexNow
+        continue-on-error: true
+        env:
+          NEXT_PUBLIC_SITE_URL: https://thehippiescientist.net
+        run: npm run indexnow:submit -- --sitemap="$STATIC_OUTPUT_DIR/sitemap.xml"
