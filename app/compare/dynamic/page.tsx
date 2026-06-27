@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
 import { buildPageMetadata } from '../../../src/lib/seo'
 import type { Metadata } from 'next'
@@ -70,7 +71,6 @@ function toCompareClientItem(record: RuntimeRecord): CompareClientItem {
   const mechanisms = toTextList(record.mechanisms)
   const bestFor = toTextList(record.bestFor)
   const bestForSnake = toTextList(record.best_for)
-
   return {
     slug,
     name,
@@ -99,36 +99,17 @@ function toCompareClientItem(record: RuntimeRecord): CompareClientItem {
 
 export default async function DynamicComparePage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
-
-  const herbs = rawHerbs
-    .filter(canUseRecord)
-    .map(toCompareClientItem)
-    .filter(item => item.slug)
-
-  const compounds = rawCompounds
-    .filter(canUseRecord)
-    .map(toCompareClientItem)
-    .filter(item => item.slug)
+  const herbs = rawHerbs.filter(canUseRecord).map(toCompareClientItem).filter(item => item.slug)
+  const compounds = rawCompounds.filter(canUseRecord).map(toCompareClientItem).filter(item => item.slug)
 
   return (
     <div className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
-      <AuthorityJsonLd
-        title="Dynamic Ingredient Comparison Matrix"
-        description="Side-by-side scientific comparison of herbs, compounds, and active extracts."
-        url="https://thehippiescientist.net/compare/dynamic/"
-        type="MedicalWebPage"
-      />
-
+      <AuthorityJsonLd title="Dynamic Ingredient Comparison Matrix" description="Side-by-side scientific comparison of herbs, compounds, and active extracts." url="https://thehippiescientist.net/compare/dynamic/" type="MedicalWebPage" />
       <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8'>
         <p className='eyebrow-label'>Scientific Tradeoff Auditor</p>
-        <h1 className='text-3xl font-bold tracking-tight text-ink sm:text-5xl mt-2'>
-          Dynamic Comparison Matrix
-        </h1>
-        <p className='mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg'>
-          Audit potential options by choosing any two botanical extracts or compounds from our database. Compare safety profiles, receptor targets, evidence certitude, and standard preparations in real-time.
-        </p>
+        <h1 className='text-3xl font-bold tracking-tight text-ink sm:text-5xl mt-2'>Dynamic Comparison Matrix</h1>
+        <p className='mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg'>Audit potential options by choosing any two botanical extracts or compounds from our database. Compare safety profiles, receptor targets, evidence certitude, and standard preparations in real-time.</p>
       </section>
-
       <DynamicComparerClient herbs={herbs} compounds={compounds} />
     </div>
   )
