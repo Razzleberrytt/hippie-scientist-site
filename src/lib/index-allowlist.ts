@@ -28,9 +28,7 @@ export const MONEY_ENTRY_ROUTES = [
   '/best-supplements-for-blood-pressure',
   '/best-supplements-for-gut-health',
   '/best-supplements-for-joint-support',
-  '/best-herbs-for-anxiety',
-  '/best-nootropics-for-focus',
-  '/best-adaptogens-for-stress',
+  '/best-magnesium-supplements-for-adhd',
 ] as const
 
 // Canonical (current-data) slugs. Curated index-allowlisted herb slugs.

@@ -12,7 +12,7 @@ import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeSlug } from '@/lib/slug-utils'
-import { faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, shouldIndexRoute, SITE_URL } from '../../../src/lib/seo'
+import { buildPageMetadata, faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, shouldIndexRoute, SITE_URL } from '../../../src/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import CompoundSourceHerbs from '@/components/seo/CompoundSourceHerbs'
 import ProfileTOC from '@/components/ui/ProfileTOC'
@@ -220,23 +220,18 @@ export async function generateMetadata({ params }: PageProps) {
   const canonicalSlug = redirectedCanonical || normalizedSlug
   const mdxPage = allCompoundMdxPages.find((page) => page.slug === canonicalSlug)
   if (mdxPage) {
-    return {
+    return buildPageMetadata({
       title: mdxPage.title,
-      description: mdxPage.metaDescription,
+      description: mdxPage.metaDescription || '',
+      path: `/compounds/${mdxPage.slug}`,
+      openGraphType: 'article',
       keywords: mdxPage.keywords,
-      alternates: { canonical: `${SITE_URL}/compounds/${mdxPage.slug}/` },
-      openGraph: {
-        title: mdxPage.title,
-        description: mdxPage.metaDescription,
-        type: 'article',
-        url: `${SITE_URL}/compounds/${mdxPage.slug}/`,
-      },
-    }
+    })
   }
 
   const compound = await getCompoundMetadataRecord(canonicalSlug)
 
-  if (!compound) return {}
+  if (!compound) return { title: 'Compound Not Found', robots: { index: false, follow: true } }
 
   const metadata = generateDetailMetadata(compound, 'compound')
   if (canonicalSlug !== normalizedSlug) {
