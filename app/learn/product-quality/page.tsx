@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { getHerbs, getCompounds } from '../../../src/lib/runtime-data'
+import type { RuntimeRecord } from '../../../src/types/content'
 import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
 import BuyGuideClient from '../../../src/components/sourcing/BuyGuideClient'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
@@ -12,7 +13,6 @@ export const metadata: Metadata = {
   alternates: { canonical: '/learn/product-quality/' },
 }
 
-type RuntimeRecord = Record<string, any>
 type BuyGuideClientItem = {
   slug: string
   name: string
