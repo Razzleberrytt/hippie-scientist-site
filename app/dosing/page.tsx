@@ -12,7 +12,7 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/dosing/',
 })
 
-type RuntimeRecord = Record<string, unknown>
+type RuntimeRecord = Record<string, any>
 type DosageClientItem = {
   slug: string
   name: string
