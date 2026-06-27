@@ -12,12 +12,12 @@ import EmailCapture from '@/components/EmailCapture'
 const PAGE_URL = `${SITE_URL}/guides/best-supplements-for-stress`
 
 export const metadata: Metadata = {
-  title: 'Best Supplements for Stress — Evidence-Based Guide',
+  title: 'Best Supplements for Stress: Ashwagandha, Rhodiola, Magnesium & More',
   description:
     'Evidence-graded review of the best stress supplements: ashwagandha, rhodiola, phosphatidylserine, magnesium, and L-theanine. Mechanisms, dosing, safety, and when each works.',
   alternates: { canonical: '/guides/best-supplements-for-stress/' },
   openGraph: {
-    title: 'Best Supplements for Stress — Evidence-Based Guide',
+    title: 'Best Supplements for Stress: Ashwagandha, Rhodiola, Magnesium & More',
     description:
       'Which supplements actually reduce stress? Ashwagandha, rhodiola, magnesium, phosphatidylserine — evidence-graded with dosing, safety, and stacking notes.',
     url: '/guides/best-supplements-for-stress',
@@ -31,9 +31,9 @@ const STRESS_SUPPLEMENTS = [
     mechanism: 'Withanolides regulate the HPA axis; reduce cortisol (measured) and DHEA-S ratios; GABAergic activity promotes relaxation; anti-inflammatory via NF-κB pathway',
     evidence: 'B–A — multiple double-blind RCTs; KSM-66 specifically shows significant reductions in serum cortisol and PSS scores in stressed adults',
     dose: '300–600 mg standardized extract (KSM-66 ≥5% withanolides or Sensoril ≥10%) — morning or evening; allow 4–8 weeks',
-    safety: 'Generally safe; rare hepatotoxicity at very high doses; caution with thyroid medications, immunosuppressants',
+    safety: 'Generally well-tolerated; rare liver injury has been reported; use caution with thyroid medications, immunosuppressants, pregnancy, or autoimmune conditions',
     bestFor: 'Chronic psychological stress; HPA dysregulation; cortisol-driven sleep disruption; sustained adaptogen strategy',
-    href: '/herbs/ashwagandha',
+    href: '/articles/ashwagandha',
     badge: 'Moderate–Strong',
   },
   {
@@ -51,7 +51,7 @@ const STRESS_SUPPLEMENTS = [
     mechanism: 'Structural phospholipid supporting neuronal membrane function; blunts cortisol response to exercise and psychological stress; modulates HPA signaling',
     evidence: 'B — RCTs show cortisol blunting and mood improvements under exercise/psychological stress; well-documented in exercise performance literature',
     dose: '100–400 mg/day (sunflower-derived preferred); effects build over 4–6 weeks',
-    safety: 'Excellent safety; choose sunflower-derived over bovine-derived; no major interactions',
+    safety: 'Generally well-tolerated; choose sunflower-derived over bovine-derived; use normal caution with medications or health conditions',
     bestFor: 'Exercise-induced stress; cortisol-sensitive individuals; cognitive stress response',
     href: '/compounds/phosphatidylserine',
     badge: 'Moderate',
@@ -61,7 +61,7 @@ const STRESS_SUPPLEMENTS = [
     mechanism: 'NMDA receptor antagonism reduces CNS excitability; supports GABAergic inhibition; cofactor for 300+ enzymatic reactions including cortisol synthesis and HPA regulation',
     evidence: 'B — magnesium deficiency (common in stressed populations) amplifies stress responses; supplementation in deficient individuals consistently reduces stress markers',
     dose: '200–400 mg elemental magnesium (glycinate form) in the evening; builds over weeks',
-    safety: 'Excellent safety; GI loose stools at high doses; adjust dose accordingly',
+    safety: 'Generally well-tolerated; GI loose stools at high doses; avoid high-dose magnesium in severe kidney disease unless supervised',
     bestFor: 'Stress + sleep overlap; muscle tension from stress; magnesium-insufficient individuals',
     href: '/compounds/magnesium-glycinate',
     badge: 'Moderate',
@@ -71,9 +71,9 @@ const STRESS_SUPPLEMENTS = [
     mechanism: 'Increases alpha brain wave activity; modulates GABA, glutamate, and glycine; reduces physiological stress arousal without causing sedation at typical doses',
     evidence: 'B — multiple RCTs showing reduced salivary cortisol, heart rate, and self-reported stress; acute and sustained effects',
     dose: '100–200 mg as needed or daily; can be combined with caffeine (2:1 theanine:caffeine ratio)',
-    safety: 'Excellent safety profile; no dependency; well-tolerated daily',
+    safety: 'Generally well-tolerated; use extra caution with sedatives, blood pressure medication, pregnancy/breastfeeding, or psychiatric medication',
     bestFor: 'Acute situational stress; stress-related cognitive impairment; daily background stress reduction',
-    href: '/compounds/l-theanine',
+    href: '/articles/l-theanine',
     badge: 'Moderate',
   },
 ]
@@ -91,10 +91,10 @@ export default function BestSupplementsForStressPage() {
     <>
       <StructuredData
         pageUrl={PAGE_URL}
-        headline="Best Supplements for Stress — Evidence-Based Guide"
+        headline="Best Supplements for Stress: Ashwagandha, Rhodiola, Magnesium & More"
         description="Evidence-graded guide to the best supplements for stress including ashwagandha, rhodiola, phosphatidylserine, magnesium, and L-theanine. Mechanisms, dosing, safety, and stacking."
         datePublished="2026-06-16"
-        dateModified="2026-06-16"
+        dateModified="2026-06-26"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides' },
@@ -111,6 +111,7 @@ export default function BestSupplementsForStressPage() {
           <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
             Best Supplements for Stress
           </h1>
+          <p className="mt-2 text-xs text-muted">Last updated June 26, 2026</p>
           <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
             Stress supplements are only useful when matched to the type of stress and the mechanism
             driving it. Chronic HPA dysregulation requires a different intervention than acute
@@ -118,6 +119,14 @@ export default function BestSupplementsForStressPage() {
             evidence-backed options with honest assessments of what each actually does — and when
             each is the better choice.
           </p>
+          <div className="mt-6 rounded-xl border border-brand-900/10 bg-brand-50 p-4 text-sm text-brand-950">
+            <strong>Fastest useful choice:</strong> for chronic daily stress, start with{' '}
+            <Link href="/articles/ashwagandha" className="font-semibold text-brand-800 hover:underline">ashwagandha</Link>;
+            for pressure and fatigue, compare{' '}
+            <Link href="/herbs/rhodiola" className="font-semibold text-brand-800 hover:underline">rhodiola</Link>;
+            for acute stress without sedation, start with{' '}
+            <Link href="/articles/l-theanine" className="font-semibold text-brand-800 hover:underline">L-theanine</Link>.
+          </div>
         </section>
 
         {/* Type of stress framework */}
@@ -126,11 +135,11 @@ export default function BestSupplementsForStressPage() {
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Choose by stress pattern</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {[
-              { type: 'Chronic daily stress / burnout', best: 'Ashwagandha (HPA regulation)', href: '/herbs/ashwagandha' },
+              { type: 'Chronic daily stress / burnout', best: 'Ashwagandha (HPA regulation)', href: '/articles/ashwagandha' },
               { type: 'Stress-impaired performance', best: 'Rhodiola (acute stress resilience)', href: '/herbs/rhodiola' },
               { type: 'Exercise-induced cortisol spike', best: 'Phosphatidylserine (blunts cortisol response)', href: '/compounds/phosphatidylserine' },
               { type: 'Stress + poor sleep', best: 'Magnesium Glycinate (evening)', href: '/compounds/magnesium-glycinate' },
-              { type: 'Acute situational anxiety/stress', best: 'L-Theanine (fast-acting, no sedation)', href: '/compounds/l-theanine' },
+              { type: 'Acute situational anxiety/stress', best: 'L-Theanine (fast-acting, no sedation)', href: '/articles/l-theanine' },
               { type: '"Wired but tired" pattern', best: 'Ashwagandha + Magnesium stack', href: '/guides/rhodiola-sleep-stack' },
             ].map((row) => (
               <div key={row.type} className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
@@ -196,6 +205,8 @@ export default function BestSupplementsForStressPage() {
         <EmailCapture location="guides-best-supplements-for-stress" className="mt-6" />
 
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
+          <Link href="/articles/ashwagandha" className="hover:text-brand-800">Ashwagandha Evidence Guide →</Link>
+          <Link href="/articles/l-theanine" className="hover:text-brand-800">L-Theanine for Acute Stress →</Link>
           <Link href="/guides/how-to-lower-cortisol-naturally" className="hover:text-brand-800">How to Lower Cortisol Naturally →</Link>
           <Link href="/compare/rhodiola-vs-ashwagandha" className="hover:text-brand-800">Rhodiola vs Ashwagandha →</Link>
           <Link href="/guides/rhodiola-complete-guide" className="hover:text-brand-800">Complete Rhodiola Guide →</Link>
