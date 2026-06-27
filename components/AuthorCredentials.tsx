@@ -32,12 +32,20 @@ export default function AuthorCredentials() {
           <p className="text-muted leading-relaxed max-w-2xl">
             <strong className="font-semibold text-ink">Editorial Process:</strong> We synthesize preclinical pharmacology, human clinical data, and source registry context while preserving uncertainty and avoiding commercial hype.
           </p>
-          <Link
-            href="/about"
-            className="font-bold text-brand-800 hover:text-brand-700 hover:underline transition self-start sm:self-center flex-shrink-0"
-          >
-            Read Editorial Standards &rarr;
-          </Link>
+          <div className="flex flex-wrap gap-3 sm:justify-end">
+            <Link
+              href="/about/"
+              className="font-bold text-brand-800 hover:text-brand-700 hover:underline transition self-start sm:self-center flex-shrink-0"
+            >
+              Read Editorial Standards &rarr;
+            </Link>
+            <Link
+              href="/author/"
+              className="font-bold text-brand-800 hover:text-brand-700 hover:underline transition self-start sm:self-center flex-shrink-0"
+            >
+              Meet the Author &rarr;
+            </Link>
+          </div>
         </div>
       </div>
     </section>
