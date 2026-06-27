@@ -25,6 +25,7 @@ import '@/styles/premium-surface-details.css'
 import '@/styles/accessibility-wcag-22.css'
 
 const ga4Id = process.env.NEXT_PUBLIC_GA4_ID?.trim() || ''
+const ahrefsAnalyticsKey = '5Gf2j5Wq0fzGEtXu5Dip0w'
 const HOME_TITLE = 'The Hippie Scientist | Supplement Research'
 
 // Reusable JSON-LD from central helper (WebSite + Organization for homepage)
@@ -60,6 +61,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           }}
         />
         <link rel="manifest" href="/manifest.json" />
+        <link rel="preconnect" href="https://analytics.ahrefs.com" />
+        <link rel="dns-prefetch" href="https://analytics.ahrefs.com" />
+        <script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key={ahrefsAnalyticsKey}
+          async
+        />
         {ga4Id && (
           <>
             <link rel="preconnect" href="https://www.googletagmanager.com" />
