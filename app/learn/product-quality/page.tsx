@@ -12,33 +12,101 @@ export const metadata: Metadata = {
   alternates: { canonical: '/learn/product-quality/' },
 }
 
+type RuntimeRecord = Record<string, unknown>
+type BuyGuideClientItem = {
+  slug: string
+  name: string
+  displayName: string
+  buying_criteria?: string[]
+  buyingCriteria?: string[]
+  amazon_affiliate_url?: string
+  amazonAffiliateUrl?: string
+  affiliate_url?: string
+  affiliateUrl?: string
+  affiliate_query?: string
+  affiliateQuery?: string
+  affiliate_label?: string
+  affiliateLabel?: string
+  standardization?: string
+  standardized_extract?: string
+  active_compounds?: string
+  best_for?: string[]
+  bestFor?: string[]
+}
+
+function asText(value: unknown) {
+  if (typeof value === 'string') return value.trim()
+  if (typeof value === 'number') return String(value)
+  return ''
+}
+
+function firstText(...values: unknown[]) {
+  return values.map(asText).find(Boolean) || ''
+}
+
+function toTextList(value: unknown) {
+  if (Array.isArray(value)) return value.map(asText).filter(Boolean).slice(0, 8)
+  const raw = asText(value)
+  return raw ? raw.split(/[;,\n]+/).map(item => item.trim()).filter(Boolean).slice(0, 8) : []
+}
+
+function canUseRecord(record: RuntimeRecord) {
+  if (isRestrictedRecord(record)) return false
+  try {
+    return getRuntimeVisibility(record).canRender
+  } catch {
+    return true
+  }
+}
+
+function toBuyGuideClientItem(record: RuntimeRecord): BuyGuideClientItem {
+  const slug = firstText(record.slug)
+  const name = firstText(record.displayName, record.name, record.compoundName, slug)
+  const buyingCriteria = toTextList(record.buying_criteria).length
+    ? toTextList(record.buying_criteria)
+    : toTextList(record.buyingCriteria)
+
+  return {
+    slug,
+    name,
+    displayName: name,
+    buying_criteria: buyingCriteria,
+    buyingCriteria,
+    amazon_affiliate_url: firstText(record.amazon_affiliate_url),
+    amazonAffiliateUrl: firstText(record.amazonAffiliateUrl),
+    affiliate_url: firstText(record.affiliate_url),
+    affiliateUrl: firstText(record.affiliateUrl),
+    affiliate_query: firstText(record.affiliate_query),
+    affiliateQuery: firstText(record.affiliateQuery),
+    affiliate_label: firstText(record.affiliate_label),
+    affiliateLabel: firstText(record.affiliateLabel),
+    standardization: firstText(record.standardization),
+    standardized_extract: firstText(record.standardized_extract),
+    active_compounds: firstText(record.active_compounds),
+    best_for: toTextList(record.best_for),
+    bestFor: toTextList(record.bestFor).length ? toTextList(record.bestFor) : toTextList(record.primary_effects),
+  }
+}
+
 export default async function ProductQualityPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs = rawHerbs.filter((herb: Record<string, unknown>) => {
-    if (isRestrictedRecord(herb)) return false
-    try {
-      return getRuntimeVisibility(herb).canRender
-    } catch {
-      return true
-    }
-  })
+  const herbs = rawHerbs
+    .filter(canUseRecord)
+    .map(toBuyGuideClientItem)
+    .filter(item => item.slug)
 
-  const compounds = rawCompounds.filter((compound: Record<string, unknown>) => {
-    if (isRestrictedRecord(compound)) return false
-    try {
-      return getRuntimeVisibility(compound).canRender
-    } catch {
-      return true
-    }
-  })
+  const compounds = rawCompounds
+    .filter(canUseRecord)
+    .map(toBuyGuideClientItem)
+    .filter(item => item.slug)
 
   return (
     <div className='mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10'>
       <AuthorityJsonLd
         title="Supplement Product Quality Guide"
         description="Evaluate standardized extracts, transparent labels, third-party testing, and quality checklists before purchasing supplements."
-        url="https://thehippiescientist.net/learn/product-quality"
+        url="https://thehippiescientist.net/learn/product-quality/"
         type="MedicalWebPage"
       />
 
