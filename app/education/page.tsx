@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Neuroscience and Neuropharmacology Education',
     description:
       'Explore education on neurochemistry, cognition, stress biology, recovery systems, and psychoactive neuroscience.',
-    url: '/education',
+    url: '/education/',
   },
   twitter: {
     card: 'summary_large_image',
@@ -27,28 +27,28 @@ const supernodes = [
     title: 'Stress and Recovery Biology',
     description:
       'Educational exploration of stress neurobiology, burnout systems, recovery-oriented neuropharmacology, sleep continuity, fatigue systems, and nervous-system resilience.',
-    href: '/education/how-stress-affects-the-brain',
+    href: '/education/how-stress-affects-the-brain/',
     category: 'Recovery Neuroscience',
   },
   {
     title: 'Cognition and Neuroplasticity',
     description:
       'Explore memory formation, neuroplasticity, focus continuity, executive-function systems, learning adaptation, and cognition-oriented neuroscience.',
-    href: '/education/how-learning-affects-neuroplasticity',
+    href: '/education/how-learning-affects-neuroplasticity/',
     category: 'Cognition Systems',
   },
   {
     title: 'Psychoactive Education',
     description:
       'Systems-oriented psychoactive education covering altered states, contextual neurobiology, emotional processing, set and setting, and harm-reduction framing.',
-    href: '/education/understanding-altered-states',
+    href: '/education/understanding-altered-states/',
     category: 'Contextual Neurobiology',
   },
   {
     title: 'Adaptogens and Stress Resilience',
     description:
       'Educational exploration of adaptogens, stress-response physiology, neuroendocrine adaptation, burnout systems, and resilience biology.',
-    href: '/education/what-are-adaptogens',
+    href: '/education/what-are-adaptogens/',
     category: 'Stress Physiology',
   },
 ]
@@ -56,80 +56,107 @@ const supernodes = [
 const foundational = [
   {
     title: 'Evidence Literacy: Clinical Trial Design',
-    href: '/education/evidence-literacy',
+    href: '/education/study-design-snapshot/',
+  },
+  {
+    title: 'How to Read Scientific Studies',
+    href: '/education/how-to-read-scientific-studies/',
   },
   {
     title: 'How Neurotransmitters Work',
-    href: '/education/how-neurotransmitters-work',
+    href: '/education/how-neurotransmitters-work/',
   },
   {
     title: 'How Receptors Work',
-    href: '/education/how-receptors-work',
+    href: '/education/how-receptors-work/',
   },
   {
     title: 'Why Neurochemistry Is Complex',
-    href: '/education/why-neurochemistry-is-complex',
+    href: '/education/why-neurochemistry-is-complex/',
   },
   {
     title: 'Evidence Hierarchy',
-    href: '/education/evidence-hierarchy',
+    href: '/education/evidence-hierarchy/',
   },
 ]
 
 const cognition = [
   {
     title: 'How Focus and Motivation Work',
-    href: '/education/how-focus-and-motivation-work',
+    href: '/education/how-focus-and-motivation-work/',
   },
   {
     title: 'How Memory Formation Works',
-    href: '/education/how-memory-formation-works',
+    href: '/education/how-memory-formation-works/',
   },
   {
     title: 'How Learning Affects Neuroplasticity',
-    href: '/education/how-learning-affects-neuroplasticity',
+    href: '/education/how-learning-affects-neuroplasticity/',
   },
   {
     title: 'What Is a Nootropic?',
-    href: '/education/what-is-a-nootropic',
+    href: '/education/what-is-a-nootropic/',
   },
 ]
 
 const recovery = [
   {
     title: 'How Sleep Affects Neurochemistry',
-    href: '/education/how-sleep-affects-neurochemistry',
+    href: '/education/how-sleep-affects-neurochemistry/',
   },
   {
     title: 'How the Brain Recovers From Fatigue',
-    href: '/education/how-the-brain-recovers-from-fatigue',
+    href: '/education/how-the-brain-recovers-from-fatigue/',
   },
   {
     title: 'What Is Neuroinflammation?',
-    href: '/education/what-is-neuroinflammation',
+    href: '/education/what-is-neuroinflammation/',
   },
   {
     title: 'How Emotional Regulation Works',
-    href: '/education/how-emotional-regulation-works',
+    href: '/education/how-emotional-regulation-works/',
   },
 ]
 
 const psychoactive = [
   {
     title: 'Understanding Altered States',
-    href: '/education/understanding-altered-states',
+    href: '/education/understanding-altered-states/',
   },
   {
-    title: 'How Set and Setting Work',
-    href: '/education/why-set-and-setting-matter',
+    title: 'How Set and Setting Matter',
+    href: '/education/why-set-and-setting-matter/',
   },
   {
     title: 'Psychoactive Substances Overview',
-    href: '/education/understanding-altered-states',
+    href: '/novel-psychoactive-substances/',
   },
   {
     title: 'Psychoactive Education Hub',
-    href: '/psychoactive',
+    href: '/psychoactive/',
+  },
+]
+
+const researchTools = [
+  {
+    title: 'Scientific Evidence Citation Explorer',
+    href: '/education/citation-explorer/',
+  },
+  {
+    title: 'Interactive Supplement Efficacy Modeler',
+    href: '/education/efficacy-model/',
+  },
+  {
+    title: 'Biological Pathway Connectivity Explorer',
+    href: '/education/explorer/',
+  },
+  {
+    title: 'Research Methodology',
+    href: '/education/research-methodology/',
+  },
+  {
+    title: 'Safety and Educational Disclaimers',
+    href: '/education/safety-and-disclaimers/',
   },
 ]
 
@@ -183,7 +210,7 @@ export default function EducationHubPage() {
       <AuthorityJsonLd
         title='Neuroscience and Neuropharmacology Education'
         description='Evidence-informed educational ecosystem covering neurochemistry, cognition systems, stress biology, recovery neuropharmacology, psychoactive education, and systems-oriented neuroscience.'
-        url='https://thehippiescientist.net/education'
+        url='https://thehippiescientist.net/education/'
         type='CollectionPage'
       />
 
@@ -241,6 +268,12 @@ export default function EducationHubPage() {
         title='Psychoactive and Altered-State Education'
         description='Systems-oriented psychoactive education focused on perception, contextual neurobiology, altered states, emotional intensity, and harm-reduction awareness.'
         items={psychoactive}
+      />
+
+      <Section
+        title='Research Tools and Safety Pages'
+        description='Methodology, citation, modeling, pathway, and safety pages that should be reachable from the main education hub instead of sitting isolated.'
+        items={researchTools}
       />
 
       <section className='card-premium p-8 space-y-6'>
