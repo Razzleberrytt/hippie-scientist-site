@@ -112,11 +112,11 @@ export default function Page() {
             tea is one of the most reliable calming bedtime options with mild evidence. Pair either with
             dim light, no screens, and a consistent bedtime &mdash; the routine is what makes the herb land.
             See the{' '}
-            <Link href="/articles/l-theanine-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+            <Link href="/articles/l-theanine" className="font-semibold text-brand-700 hover:underline">
               full L-theanine guide
             </Link>{' '}
             and the{' '}
-            <Link href="/articles/ashwagandha-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+            <Link href="/articles/ashwagandha" className="font-semibold text-brand-700 hover:underline">
               ashwagandha guide
             </Link>{' '}
             for the deeper evidence reviews.
