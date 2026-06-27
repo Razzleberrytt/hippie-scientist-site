@@ -19,11 +19,74 @@ const deprecatedSlugs = new Set([
   'iron-ferritin-and-adhd', 'vitamin-d-and-adhd', 'zinc-and-adhd', 'magnesium-for-adhd', 'omega-3-and-adhd',
   'start', 'build'
 ])
+
+const redirectOnlyRoutes = new Set([
+  '/(public)/build',
+  '/build',
+  '/404',
+  '/start',
+  '/compare/ashwagandha-vs-rhodiola-for-stress',
+  '/compare/magnesium-glycinate-vs-l-threonate-for-sleep',
+  '/compounds/7-hydroxymitragynine',
+  '/compounds/mitragynine',
+  '/compounds/kratom',
+  '/compounds/phosphatidylserine',
+  '/compounds/curcumin',
+  '/compounds/l-glutamine',
+  '/focus-cluster/iron-ferritin-and-adhd',
+  '/focus-cluster/vitamin-d-and-adhd',
+  '/focus-cluster/zinc-and-adhd',
+  '/focus-cluster/magnesium-for-adhd',
+  '/focus-cluster/omega-3-and-adhd',
+  '/herbs/allium-sativum',
+  '/herbs/valeriana-officinalis',
+  '/herbs/hericium-erinaceus',
+  '/herbs/passiflora-incarnata',
+  '/herbs/piper-methysticum',
+  '/herbs/ganoderma-lucidum',
+  '/herbs/berberis-vulgaris',
+  '/herbs/berberis-aristata',
+  '/herbs/coptis-chinensis',
+  '/herbs/boswellia-carterii',
+  '/herbs/morus-alba',
+  '/herbs/phellodendron',
+  '/herbs/astragalus-membranaceus',
+  '/herbs/atractylodes-macrocephala',
+  '/herbs/angelica-sinensis',
+  '/herbs/angelica-root'
+])
+
+const paginatedRoutePrefixes = ['/herbs/page/', '/compounds/page/']
+
+function normalizeRoutePath(routePath) {
+  if (!routePath) return ''
+  const normalized = `/${String(routePath).trim()}`
+    .replace(/\/+/g, '/')
+    .replace(/\/index$/, '')
+    .replace(/\/$/, '')
+  return normalized || '/'
+}
+
+function getSlug(routePath) {
+  const normalized = normalizeRoutePath(routePath)
+  const segments = normalized.split('/').filter(Boolean)
+  return segments[segments.length - 1] || ''
+}
+
+function isExemptRoute(routePath) {
+  const normalized = normalizeRoutePath(routePath)
+  const slug = getSlug(normalized)
+  if (deprecatedSlugs.has(slug)) return true
+  if (redirectOnlyRoutes.has(normalized)) return true
+  if (normalized.includes('(') || normalized.includes(')')) return true
+  if (paginatedRoutePrefixes.some(prefix => normalized.startsWith(prefix))) return true
+  return false
+}
+
 const byTitle = new Map(), byDesc = new Map(), byCanonical = new Map()
 for (const r of routes) {
-  const routePath = r.route || r.path || ''
-  const slug = routePath.split('/').pop()
-  if (deprecatedSlugs.has(slug)) continue
+  const routePath = normalizeRoutePath(r.route || r.path || '')
+  if (isExemptRoute(routePath)) continue
 
   const title = (r.meta_title||'').trim(); const desc=(r.meta_description||'').trim(); const canonical=(r.canonical_url||r.url||'').trim()
   if (title) byTitle.set(title, [...(byTitle.get(title)||[]), routePath])
