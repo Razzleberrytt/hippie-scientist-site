@@ -54,6 +54,7 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
       { slug: 'valerian-vs-passionflower', label: 'Valerian vs Passionflower' },
       { slug: 'glycine-vs-melatonin', label: 'Glycine vs Melatonin' },
       { slug: 'melatonin-vs-l-theanine', label: 'Melatonin vs L-Theanine' },
+      { slug: 'l-theanine-vs-magnesium', label: 'L-Theanine vs Magnesium' },
     ],
   },
   {
