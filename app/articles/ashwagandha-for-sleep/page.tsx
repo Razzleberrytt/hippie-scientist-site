@@ -163,12 +163,12 @@ export default function AshwagandhaForSleepPage() {
             <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
               <strong>Ashwagandha is not the fastest useful choice for sleep &mdash; it requires 6&ndash;8 weeks of consistent use to build an effect.</strong>{' '}
               If you want faster sleep onset tonight, the more useful options are{' '}
-              <Link href="/articles/l-theanine-for-anxiety" className="font-semibold text-brand-700 hover:underline">L-theanine</Link>{' '}
+              <Link href="/articles/l-theanine" className="font-semibold text-brand-700 hover:underline">L-theanine</Link>{' '}
               (100&ndash;200&nbsp;mg, 30&ndash;60 minutes before bed) or melatonin (0.3&ndash;1&nbsp;mg,
               30&ndash;60 minutes before bed for circadian shift). Ashwagandha's strength is for
               stress-driven sleep problems where you can commit to a multi-week course &mdash; not as
               an acute sleep aid. See the{' '}
-              <Link href="/articles/ashwagandha-for-anxiety" className="font-semibold text-brand-700 hover:underline">full ashwagandha article</Link>{' '}
+              <Link href="/articles/ashwagandha" className="font-semibold text-brand-700 hover:underline">full ashwagandha article</Link>{' '}
               and the{' '}
               <Link href="/articles/best-herbs-for-sleep" className="font-semibold text-brand-700 hover:underline">best herbs for sleep hub</Link>.
             </p>
@@ -721,7 +721,7 @@ export default function AshwagandhaForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/ashwagandha-for-anxiety"
+                  href="/articles/ashwagandha"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -735,7 +735,7 @@ export default function AshwagandhaForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/l-theanine-for-anxiety"
+                  href="/articles/l-theanine"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">

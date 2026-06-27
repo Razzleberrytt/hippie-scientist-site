@@ -433,13 +433,13 @@ export default function CbdVsAshwagandhaForAnxietyPage() {
               Natural Anxiety Relief: Evidence-Based Approaches
             </Link>
             <Link
-              href="/articles/ashwagandha-for-anxiety"
+              href="/articles/ashwagandha"
               className="block p-4 border rounded-lg hover:bg-muted transition-colors"
             >
               Ashwagandha for Anxiety
             </Link>
             <Link
-              href="/articles/l-theanine-for-anxiety"
+              href="/articles/l-theanine"
               className="block p-4 border rounded-lg hover:bg-muted transition-colors"
             >
               L-Theanine for Anxiety

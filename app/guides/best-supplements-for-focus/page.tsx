@@ -134,7 +134,7 @@ export default function BestSupplementsForFocusPage() {
             taken 30–60 minutes before a focus session. L-theanine is the most consistently studied
             nootropic for reducing anxiety-driven mental noise without sedation; caffeine provides
             direct alerting. Together they blunt the jitters of caffeine alone. See the{' '}
-            <Link href="/articles/l-theanine-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+            <Link href="/articles/l-theanine" className="font-semibold text-brand-700 hover:underline">
               full L-theanine guide
             </Link>{' '}
             for dosing, mechanisms, and stacking notes.
@@ -198,6 +198,18 @@ export default function BestSupplementsForFocusPage() {
           </div>
         </section>
 
+        {/* Safety */}
+        <section className="rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6 shadow-sm">
+          <p className="eyebrow-label">Safety &amp; medication notes</p>
+          <h2 className="mt-2 text-xl font-semibold text-amber-900">Before you start</h2>
+          <ul className="mt-3 space-y-2 text-sm text-amber-900">
+            <li>• <strong>Pregnancy &amp; breastfeeding:</strong> safety data is limited for most nootropics — bacopa, rhodiola, and high-dose magnesium L-threonate are best avoided without clinician guidance.</li>
+            <li>• <strong>Medications:</strong> rhodiola may interact with antidepressants (SSRIs/MAOIs) and can trigger agitation in bipolar disorder; clear stimulant or caffeine combinations with your prescriber.</li>
+            <li>• <strong>Kidney disease:</strong> the kidneys clear magnesium — confirm dosing with a clinician before supplementing.</li>
+            <li>• Introduce one supplement at a time so you can tell what is working. These support focus; they are not a substitute for sleep, ADHD evaluation, or medical care.</li>
+          </ul>
+        </section>
+
         {lTheanineProducts && (
           <RecommendationSection products={lTheanineProducts.products} />
         )}
@@ -208,8 +220,8 @@ export default function BestSupplementsForFocusPage() {
           <Link href="/guides/focus-without-caffeine-crash" className="hover:text-brand-800">Focus Without the Caffeine Crash →</Link>
           <Link href="/guides/supplements-for-brain-fog-and-fatigue" className="hover:text-brand-800">Brain Fog & Fatigue →</Link>
           <Link href="/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus" className="hover:text-brand-800">Caffeine vs L-Theanine vs Bacopa →</Link>
-          <Link href="/articles/ashwagandha-for-anxiety" className="hover:text-brand-800">Ashwagandha Article →</Link>
-          <Link href="/articles/l-theanine-for-anxiety" className="hover:text-brand-800">L-Theanine Article →</Link>
+          <Link href="/articles/ashwagandha" className="hover:text-brand-800">Ashwagandha Article →</Link>
+          <Link href="/articles/l-theanine" className="hover:text-brand-800">L-Theanine Article →</Link>
           <Link href="/goals/focus" className="hover:text-brand-800">Focus Goal Hub →</Link>
           <Link href="/guides" className="hover:text-brand-800">All Guides →</Link>
         </nav>

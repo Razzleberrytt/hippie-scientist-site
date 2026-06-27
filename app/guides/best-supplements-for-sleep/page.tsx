@@ -165,7 +165,7 @@ export default function BestSupplementsForSleepPage() {
           </div>
           <div className="mt-4 rounded-xl border border-brand-900/10 bg-brand-50 p-4 text-sm text-brand-950">
             <strong>Fastest useful choice:</strong> for racing thoughts, start with{' '}
-            <Link href="/articles/l-theanine-for-anxiety" className="font-semibold text-brand-800 hover:underline">L-theanine</Link>;
+            <Link href="/articles/l-theanine" className="font-semibold text-brand-800 hover:underline">L-theanine</Link>;
             for muscle tension or night waking, start with{' '}
             <Link href="/compounds/magnesium-glycinate" className="font-semibold text-brand-800 hover:underline">magnesium glycinate</Link>;
             for jet lag or a shifted sleep schedule, start with low-dose{' '}
@@ -294,7 +294,7 @@ export default function BestSupplementsForSleepPage() {
 
         {/* Related */}
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
-          <Link href="/articles/l-theanine-for-anxiety" className="hover:text-brand-800">L-Theanine for Calm Sleep →</Link>
+          <Link href="/articles/l-theanine" className="hover:text-brand-800">L-Theanine for Calm Sleep →</Link>
           <Link href="/guides/magnesium-vs-melatonin" className="hover:text-brand-800">Magnesium vs Melatonin →</Link>
           <Link href="/compare/sleep-herbs-vs-melatonin" className="hover:text-brand-800">Sleep Herbs vs Melatonin →</Link>
           <Link href="/guides/magnesium-for-sleep" className="hover:text-brand-800">Magnesium for Sleep Guide →</Link>

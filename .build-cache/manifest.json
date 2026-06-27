@@ -1,1 +1,79 @@
-{}
+{
+  "build-runtime-from-workbook": {
+    "timestamp": "2026-06-27T03:51:53.231Z",
+    "inputHash": "9145b7f35d0f5952",
+    "configHash": "44136fa355b3678a",
+    "outputHash": "6f0540ba8d510d18",
+    "outputs": [
+      "public/data/**/*"
+    ]
+  },
+  "build-related-runtime-maps": {
+    "timestamp": "2026-06-27T03:51:55.799Z",
+    "inputHash": "6f0540ba8d510d18",
+    "configHash": "44136fa355b3678a",
+    "outputHash": "6f0540ba8d510d18",
+    "outputs": [
+      "public/data/related-maps.json"
+    ]
+  },
+  "build-runtime-summary-indexes": {
+    "timestamp": "2026-06-27T03:51:55.951Z",
+    "inputHash": "6f0540ba8d510d18",
+    "configHash": "44136fa355b3678a",
+    "outputHash": "6f0540ba8d510d18",
+    "outputs": [
+      "public/data/summary-indexes.json"
+    ]
+  },
+  "build-route-manifest": {
+    "timestamp": "2026-06-27T03:51:56.047Z",
+    "inputHash": "2b77db1e81ce2971",
+    "configHash": "44136fa355b3678a",
+    "outputHash": "6f0540ba8d510d18",
+    "outputs": [
+      "public/data/route-manifest.json"
+    ]
+  },
+  "build-internal-link-engine": {
+    "timestamp": "2026-06-27T03:52:03.650Z",
+    "inputHash": "9145b7f35d0f5952",
+    "configHash": "44136fa355b3678a",
+    "outputHash": "d60a5eef94627bfd",
+    "outputs": [
+      "public/data/runtime-maps/internal-link-map.json",
+      "public/data/runtime-maps/topic-clusters.json",
+      "docs/internal-link-map.md",
+      "docs/topic-clusters.md",
+      "docs/pages-needing-links.md"
+    ]
+  },
+  "build-sitemap-manifest": {
+    "timestamp": "2026-06-27T03:52:03.739Z",
+    "inputHash": "6f0540ba8d510d18",
+    "configHash": "44136fa355b3678a",
+    "outputHash": "e40703a6be19fbc3",
+    "outputs": [
+      "public/data/sitemap-manifest.json",
+      "public/sitemap.xml"
+    ]
+  },
+  "build-export-batches": {
+    "timestamp": "2026-06-27T03:52:03.821Z",
+    "inputHash": "6f0540ba8d510d18",
+    "configHash": "44136fa355b3678a",
+    "outputHash": "6f0540ba8d510d18",
+    "outputs": [
+      "public/data/export-batches/**/*"
+    ]
+  },
+  "build-semantic-snapshots": {
+    "timestamp": "2026-06-27T03:52:03.975Z",
+    "inputHash": "6f0540ba8d510d18",
+    "configHash": "44136fa355b3678a",
+    "outputHash": "6f0540ba8d510d18",
+    "outputs": [
+      "public/data/semantic-snapshots/**/*"
+    ]
+  }
+}

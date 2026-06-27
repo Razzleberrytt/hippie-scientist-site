@@ -4,22 +4,23 @@ Priority clusters used by the internal link engine.
 
 ## ADHD
 - Signals: adhd, attention deficit, hyperactivity, executive function, focus, dopamine, iron, zinc, vitamin d
-- Pages: 195
-- [The Hippie Scientist - Clinical Evidence & Safety for Herbs & Supplements](/) (static)
+- Pages: 196
+- [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
 - [Research Archive & Educational Articles](/articles) (static)
 - [Adhd Blood Tests](/articles/adhd-blood-tests) (article)
 - [Adhd Stack Guide](/articles/adhd-stack-guide) (article)
 - [Alpha Gpc And Adhd](/articles/alpha-gpc-and-adhd) (article)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
+- [Ashwagandha](/articles/ashwagandha) (article)
 - [Ashwagandha For Adhd](/articles/ashwagandha-for-adhd) (article)
-- [Ashwagandha For Anxiety](/articles/ashwagandha-for-anxiety) (article)
 - [Best Magnesium Supplement For Adhd](/articles/best-magnesium-supplement-for-adhd) (article)
 - [Best Supplements For Adhd](/articles/best-supplements-for-adhd) (article)
 - [Citicoline For Adhd](/articles/citicoline-for-adhd) (article)
 - [Citicoline Vs Alpha Gpc](/articles/citicoline-vs-alpha-gpc) (article)
 - [Iron Ferritin And Adhd](/articles/iron-ferritin-and-adhd) (article)
+- [L Theanine](/articles/l-theanine) (article)
 - [L Theanine For Adhd](/articles/l-theanine-for-adhd) (article)
-- [L Theanine For Anxiety](/articles/l-theanine-for-anxiety) (article)
+- [Complete L-Theanine Evidence Guide](/articles/l-theanine-for-anxiety) (article)
 - [L Theanine For Sleep](/articles/l-theanine-for-sleep) (article)
 - [Start with magnesium glycinate alone](/articles/l-theanine-magnesium-adhd-stack) (article)
 - [L Theanine Vs Caffeine For Focus](/articles/l-theanine-vs-caffeine-for-focus) (article)
@@ -35,29 +36,30 @@ Priority clusters used by the internal link engine.
 - [Sleep And Adhd](/articles/sleep-and-adhd) (article)
 - [Vitamin D And Adhd](/articles/vitamin-d-and-adhd) (article)
 - [Zinc And Adhd](/articles/zinc-and-adhd) (article)
-- [Best Magnesium Supplements for ADHD: Forms, Dose, and Buying Guide](/best-magnesium-supplements-for-adhd) (static)
+- [Best Magnesium Supplements for ADHD: Forms & Dose](/best-magnesium-supplements-for-adhd) (static)
 - [Best Supplements For Focus](/best-supplements-for-focus) (static)
-- [Herb & Supplement Comparison Center ${SEO_YEAR} | The Hippie Scientist](/compare) (static)
+- [Herb & Supplement Comparison Center ${SEO_YEAR}](/compare) (static)
 - [Caffeine vs L Theanine](/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus) (guide)
 - [Elderberry vs Vitamin D](/compare/elderberry-vs-vitamin-d) (guide)
 - [Magnesium vs Zinc](/compare/magnesium-vs-zinc) (guide)
 - [Vitamin C vs Zinc](/compare/vitamin-c-vs-zinc) (guide)
 - [Vitamin D vs Magnesium](/compare/vitamin-d-vs-magnesium) (guide)
 - [Vitamin D vs Vitamin D3](/compare/vitamin-d-vs-vitamin-d3) (guide)
-- [Vitamin D vs Vitamin K2](/compare/vitamin-d-vs-vitamin-k2) (guide)
 
 ## Anxiety
 - Signals: anxiety, anxious, calm, gaba, worry, nervous, relaxation
-- Pages: 815
-- [The Hippie Scientist - Clinical Evidence & Safety for Herbs & Supplements](/) (static)
+- Pages: 817
+- [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
 - [Research Archive & Educational Articles](/articles) (static)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
+- [Ashwagandha](/articles/ashwagandha) (article)
 - [Ashwagandha For Anxiety](/articles/ashwagandha-for-anxiety) (article)
 - [Ashwagandha Vs Magnesium For Sleep](/articles/ashwagandha-vs-magnesium-for-sleep) (article)
 - [Best Herbs For Sleep](/articles/best-herbs-for-sleep) (article)
 - [Best Magnesium Supplement For Adhd](/articles/best-magnesium-supplement-for-adhd) (article)
 - [Cbd Vs Ashwagandha For Anxiety](/articles/cbd-vs-ashwagandha-for-anxiety) (article)
-- [L Theanine For Anxiety](/articles/l-theanine-for-anxiety) (article)
+- [L Theanine](/articles/l-theanine) (article)
+- [Complete L-Theanine Evidence Guide](/articles/l-theanine-for-anxiety) (article)
 - [L Theanine For Calm](/articles/l-theanine-for-calm) (article)
 - [L Theanine For Sleep](/articles/l-theanine-for-sleep) (article)
 - [Start with magnesium glycinate alone](/articles/l-theanine-magnesium-adhd-stack) (article)
@@ -66,7 +68,7 @@ Priority clusters used by the internal link engine.
 - [Magnesium Types For Sleep](/articles/magnesium-types-for-sleep) (article)
 - [Natural Anxiety Relief](/articles/natural-anxiety-relief) (article)
 - [Sleep Stack Guide](/articles/sleep-stack-guide) (article)
-- [Best Magnesium Supplements for ADHD: Forms, Dose, and Buying Guide](/best-magnesium-supplements-for-adhd) (static)
+- [Best Magnesium Supplements for ADHD: Forms & Dose](/best-magnesium-supplements-for-adhd) (static)
 - [Best Supplements for Sleep: Evidence-First Buyer Guide](/best-supplements-for-sleep) (static)
 - [Glycine vs Gaba](/compare/glycine-vs-gaba) (guide)
 - [L Theanine vs Gaba](/compare/l-theanine-vs-gaba) (guide)
@@ -87,21 +89,22 @@ Priority clusters used by the internal link engine.
 - [ajoene](/compounds/ajoene) (compound)
 - [albiflorin](/compounds/albiflorin) (compound)
 - [Alkylamides](/compounds/alkylamides) (compound)
-- [Allicin](/compounds/allicin) (compound)
-- [alpha-asarone](/compounds/alpha-asarone) (compound)
 
 ## Sleep
 - Signals: sleep, insomnia, melatonin, valerian, bedtime, circadian, night
-- Pages: 250
-- [The Hippie Scientist - Clinical Evidence & Safety for Herbs & Supplements](/) (static)
+- Pages: 253
+- [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
 - [Research Archive & Educational Articles](/articles) (static)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
+- [Ashwagandha](/articles/ashwagandha) (article)
 - [Ashwagandha For Anxiety](/articles/ashwagandha-for-anxiety) (article)
 - [Ashwagandha For Sleep](/articles/ashwagandha-for-sleep) (article)
 - [Ashwagandha Vs Magnesium For Sleep](/articles/ashwagandha-vs-magnesium-for-sleep) (article)
 - [Best Herbs For Sleep](/articles/best-herbs-for-sleep) (article)
 - [Best Magnesium For Sleep](/articles/best-magnesium-for-sleep) (article)
 - [Best Magnesium Supplement For Adhd](/articles/best-magnesium-supplement-for-adhd) (article)
+- [L Theanine](/articles/l-theanine) (article)
+- [Complete L-Theanine Evidence Guide](/articles/l-theanine-for-anxiety) (article)
 - [L Theanine For Sleep](/articles/l-theanine-for-sleep) (article)
 - [Start with magnesium glycinate alone](/articles/l-theanine-magnesium-adhd-stack) (article)
 - [L Theanine Without Caffeine](/articles/l-theanine-without-caffeine) (article)
@@ -115,9 +118,9 @@ Priority clusters used by the internal link engine.
 - [Sleep Best Supplements](/articles/sleep-best-supplements) (article)
 - [Sleep Stack Guide](/articles/sleep-stack-guide) (article)
 - [Sleep Stack Magnesium Melatonin](/articles/sleep-stack-magnesium-melatonin) (article)
-- [Best Magnesium Supplements for ADHD: Forms, Dose, and Buying Guide](/best-magnesium-supplements-for-adhd) (static)
+- [Best Magnesium Supplements for ADHD: Forms & Dose](/best-magnesium-supplements-for-adhd) (static)
 - [Best Supplements for Sleep: Evidence-First Buyer Guide](/best-supplements-for-sleep) (static)
-- [Herb & Supplement Comparison Center ${SEO_YEAR} | The Hippie Scientist](/compare) (static)
+- [Herb & Supplement Comparison Center ${SEO_YEAR}](/compare) (static)
 - [Apigenin vs Melatonin](/compare/apigenin-vs-melatonin) (guide)
 - [Ashwagandha Extract Ksm 66 vs Glycine Sleep](/compare/ashwagandha-extract-ksm-66-vs-glycine-sleep) (guide)
 - [Chamomile vs Valerian](/compare/chamomile-vs-valerian) (guide)
@@ -130,22 +133,21 @@ Priority clusters used by the internal link engine.
 - [Melatonin Extended Release vs Melatonin](/compare/melatonin-extended-release-vs-melatonin) (guide)
 - [Melatonin vs 5 Htp](/compare/melatonin-vs-5-htp) (guide)
 - [Melatonin vs L Theanine](/compare/melatonin-vs-l-theanine) (guide)
-- [Melatonin vs Magnesium](/compare/melatonin-vs-magnesium) (guide)
-- [Melatonin vs Valerian](/compare/melatonin-vs-valerian) (guide)
-- [Melatonin vs Valerian](/compare/melatonin-vs-valerian-vs-magnesium-for-sleep) (guide)
 
 ## Stress
 - Signals: stress, cortisol, adaptogen, burnout, hpa, resilience
-- Pages: 504
-- [The Hippie Scientist - Clinical Evidence & Safety for Herbs & Supplements](/) (static)
+- Pages: 506
+- [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
 - [Research Archive & Educational Articles](/articles) (static)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
+- [Ashwagandha](/articles/ashwagandha) (article)
 - [Ashwagandha For Anxiety](/articles/ashwagandha-for-anxiety) (article)
 - [Ashwagandha For Sleep](/articles/ashwagandha-for-sleep) (article)
 - [Ashwagandha Vs Magnesium For Sleep](/articles/ashwagandha-vs-magnesium-for-sleep) (article)
 - [Best Herbs For Sleep](/articles/best-herbs-for-sleep) (article)
 - [Cbd Vs Ashwagandha For Anxiety](/articles/cbd-vs-ashwagandha-for-anxiety) (article)
-- [L Theanine For Anxiety](/articles/l-theanine-for-anxiety) (article)
+- [L Theanine](/articles/l-theanine) (article)
+- [Complete L-Theanine Evidence Guide](/articles/l-theanine-for-anxiety) (article)
 - [L Theanine For Sleep](/articles/l-theanine-for-sleep) (article)
 - [L Theanine Without Caffeine](/articles/l-theanine-without-caffeine) (article)
 - [Magnesium Types For Sleep](/articles/magnesium-types-for-sleep) (article)
@@ -153,7 +155,7 @@ Priority clusters used by the internal link engine.
 - [Sleep Stack Guide](/articles/sleep-stack-guide) (article)
 - [Best Supplements for Sleep: Evidence-First Buyer Guide](/best-supplements-for-sleep) (static)
 - [Best Supplements For Stress](/best-supplements-for-stress) (static)
-- [Herb & Supplement Comparison Center ${SEO_YEAR} | The Hippie Scientist](/compare) (static)
+- [Herb & Supplement Comparison Center ${SEO_YEAR}](/compare) (static)
 - [Dynamic Ingredient Comparison Matrix](/compare/dynamic) (guide)
 - [acetylshikonin](/compounds/acetylshikonin) (compound)
 - [acteoside](/compounds/acteoside) (compound)
@@ -175,26 +177,25 @@ Priority clusters used by the internal link engine.
 - [aspalathin](/compounds/aspalathin) (compound)
 - [Astaxanthin](/compounds/astaxanthin) (compound)
 - [astragalin](/compounds/astragalin) (compound)
-- [astragaloside iv](/compounds/astragaloside-iv) (compound)
-- [aucubin](/compounds/aucubin) (compound)
 
 ## Focus
 - Signals: focus, attention, nootropic, cognition, productivity, caffeine, l-theanine
-- Pages: 699
-- [The Hippie Scientist - Clinical Evidence & Safety for Herbs & Supplements](/) (static)
+- Pages: 700
+- [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
 - [Research Archive & Educational Articles](/articles) (static)
 - [Adhd Blood Tests](/articles/adhd-blood-tests) (article)
 - [Adhd Stack Guide](/articles/adhd-stack-guide) (article)
 - [Alpha Gpc And Adhd](/articles/alpha-gpc-and-adhd) (article)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
+- [Ashwagandha](/articles/ashwagandha) (article)
 - [Ashwagandha For Adhd](/articles/ashwagandha-for-adhd) (article)
-- [Ashwagandha For Anxiety](/articles/ashwagandha-for-anxiety) (article)
 - [Best Supplements For Adhd](/articles/best-supplements-for-adhd) (article)
 - [Citicoline For Adhd](/articles/citicoline-for-adhd) (article)
 - [Citicoline Vs Alpha Gpc](/articles/citicoline-vs-alpha-gpc) (article)
 - [Iron Ferritin And Adhd](/articles/iron-ferritin-and-adhd) (article)
+- [L Theanine](/articles/l-theanine) (article)
 - [L Theanine For Adhd](/articles/l-theanine-for-adhd) (article)
-- [L Theanine For Anxiety](/articles/l-theanine-for-anxiety) (article)
+- [Complete L-Theanine Evidence Guide](/articles/l-theanine-for-anxiety) (article)
 - [L Theanine For Calm](/articles/l-theanine-for-calm) (article)
 - [L Theanine For Sleep](/articles/l-theanine-for-sleep) (article)
 - [Start with magnesium glycinate alone](/articles/l-theanine-magnesium-adhd-stack) (article)
@@ -212,19 +213,19 @@ Priority clusters used by the internal link engine.
 - [Sleep Stack Guide](/articles/sleep-stack-guide) (article)
 - [Vitamin D And Adhd](/articles/vitamin-d-and-adhd) (article)
 - [Zinc And Adhd](/articles/zinc-and-adhd) (article)
-- [Best Magnesium Supplements for ADHD: Forms, Dose, and Buying Guide](/best-magnesium-supplements-for-adhd) (static)
+- [Best Magnesium Supplements for ADHD: Forms & Dose](/best-magnesium-supplements-for-adhd) (static)
 - [Best Supplements For Focus](/best-supplements-for-focus) (static)
-- [Herb & Supplement Comparison Center ${SEO_YEAR} | The Hippie Scientist](/compare) (static)
+- [Herb & Supplement Comparison Center ${SEO_YEAR}](/compare) (static)
 - [Alpha Gpc vs Caffeine](/compare/alpha-gpc-vs-caffeine) (guide)
 - [Ashwagandha vs L Theanine](/compare/ashwagandha-vs-l-theanine) (guide)
 - [Ashwagandha vs L Theanine](/compare/ashwagandha-vs-l-theanine-vs-magnesium) (guide)
 - [Caffeine vs L Theanine](/compare/caffeine-vs-l-theanine) (guide)
 - [Caffeine vs L Theanine](/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus) (guide)
-- [Caffeine vs Theanine](/compare/caffeine-vs-theanine) (guide)
 
 ## Energy
 - Signals: energy, fatigue, stamina, mitochondria, atp, vitality, performance
-- Pages: 514
+- Pages: 515
+- [Ashwagandha](/articles/ashwagandha) (article)
 - [Best Magnesium Supplement For Adhd](/articles/best-magnesium-supplement-for-adhd) (article)
 - [11-keto-beta-boswellic acid](/compounds/11-keto-beta-boswellic-acid) (compound)
 - [23-epi-26-deoxyactein](/compounds/23-epi-26-deoxyactein) (compound)
@@ -264,7 +265,6 @@ Priority clusters used by the internal link engine.
 - [atractylenolide iii](/compounds/atractylenolide-iii) (compound)
 - [Bacopa extract standardized](/compounds/bacopa-extract-bacoside-standardized) (compound)
 - [baicalein](/compounds/baicalein) (compound)
-- [baicalin](/compounds/baicalin) (compound)
 
 ## Gut Health
 - Signals: gut, digestive, microbiome, probiotic, prebiotic, fiber, bloating
@@ -272,7 +272,7 @@ Priority clusters used by the internal link engine.
 - [Magnesium Glycinate Vs Citrate For Adhd](/articles/magnesium-glycinate-vs-citrate-for-adhd) (article)
 - [Magnesium Types For Sleep](/articles/magnesium-types-for-sleep) (article)
 - [Best Supplements For Gut Health](/best-supplements-for-gut-health) (static)
-- [Herb & Supplement Comparison Center ${SEO_YEAR} | The Hippie Scientist](/compare) (static)
+- [Herb & Supplement Comparison Center ${SEO_YEAR}](/compare) (static)
 - [Aloe Vera vs Probiotic Strain Bifidobacterium](/compare/aloe-vera-vs-probiotic-strain-bifidobacterium) (guide)
 - [Ginger vs Digestive Enzymes](/compare/ginger-vs-digestive-enzymes) (guide)
 - [Probiotic Strain Bifidobacterium vs Probiotic Multistrain](/compare/probiotic-strain-bifidobacterium-vs-probiotic-multistrain) (guide)
@@ -356,10 +356,11 @@ Priority clusters used by the internal link engine.
 
 ## Inflammation
 - Signals: inflammation, anti-inflammatory, nf-kb, cox, oxidative, immune
-- Pages: 512
+- Pages: 515
+- [Ashwagandha](/articles/ashwagandha) (article)
 - [Ashwagandha Vs Magnesium For Sleep](/articles/ashwagandha-vs-magnesium-for-sleep) (article)
 - [Best Supplements for Sleep: Evidence-First Buyer Guide](/best-supplements-for-sleep) (static)
-- [Herb & Supplement Comparison Center ${SEO_YEAR} | The Hippie Scientist](/compare) (static)
+- [Herb & Supplement Comparison Center ${SEO_YEAR}](/compare) (static)
 - [Alpha Lipoic Acid vs Fucoxanthin](/compare/alpha-lipoic-acid-vs-fucoxanthin) (guide)
 - [11-keto-beta-boswellic acid](/compounds/11-keto-beta-boswellic-acid) (compound)
 - [Acarbose](/compounds/acarbose) (compound)
@@ -396,7 +397,6 @@ Priority clusters used by the internal link engine.
 - [astragaloside iv](/compounds/astragaloside-iv) (compound)
 - [atractylenolide i](/compounds/atractylenolide-i) (compound)
 - [atractylenolide ii](/compounds/atractylenolide-ii) (compound)
-- [atractylenolide iii](/compounds/atractylenolide-iii) (compound)
 
 ## Metabolic Health
 - Signals: metabolic, glucose, insulin, blood sugar, lipid, weight, berberine
@@ -404,8 +404,8 @@ Priority clusters used by the internal link engine.
 - [Best Magnesium Supplement For Adhd](/articles/best-magnesium-supplement-for-adhd) (article)
 - [Magnesium Glycinate Vs Citrate For Adhd](/articles/magnesium-glycinate-vs-citrate-for-adhd) (article)
 - [Magnesium Types For Sleep](/articles/magnesium-types-for-sleep) (article)
-- [Best Magnesium Supplements for ADHD: Forms, Dose, and Buying Guide](/best-magnesium-supplements-for-adhd) (static)
-- [Herb & Supplement Comparison Center ${SEO_YEAR} | The Hippie Scientist](/compare) (static)
+- [Best Magnesium Supplements for ADHD: Forms & Dose](/best-magnesium-supplements-for-adhd) (static)
+- [Herb & Supplement Comparison Center ${SEO_YEAR}](/compare) (static)
 - [Alpha Lipoic Acid vs Berberine Hcl](/compare/alpha-lipoic-acid-vs-berberine-hcl) (guide)
 - [Artichoke Extract vs Berberine](/compare/artichoke-extract-vs-berberine) (guide)
 - [Artichoke Extract vs Berberine Hcl](/compare/artichoke-extract-vs-berberine-hcl) (guide)

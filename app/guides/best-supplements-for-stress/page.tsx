@@ -121,11 +121,11 @@ export default function BestSupplementsForStressPage() {
           </p>
           <div className="mt-6 rounded-xl border border-brand-900/10 bg-brand-50 p-4 text-sm text-brand-950">
             <strong>Fastest useful choice:</strong> for chronic daily stress, start with{' '}
-            <Link href="/articles/ashwagandha-for-anxiety" className="font-semibold text-brand-800 hover:underline">ashwagandha</Link>;
+            <Link href="/articles/ashwagandha" className="font-semibold text-brand-800 hover:underline">ashwagandha</Link>;
             for pressure and fatigue, compare{' '}
             <Link href="/herbs/rhodiola" className="font-semibold text-brand-800 hover:underline">rhodiola</Link>;
             for acute stress without sedation, start with{' '}
-            <Link href="/articles/l-theanine-for-anxiety" className="font-semibold text-brand-800 hover:underline">L-theanine</Link>.
+            <Link href="/articles/l-theanine" className="font-semibold text-brand-800 hover:underline">L-theanine</Link>.
           </div>
         </section>
 
@@ -205,8 +205,8 @@ export default function BestSupplementsForStressPage() {
         <EmailCapture location="guides-best-supplements-for-stress" className="mt-6" />
 
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
-          <Link href="/articles/ashwagandha-for-anxiety" className="hover:text-brand-800">Ashwagandha Evidence Guide →</Link>
-          <Link href="/articles/l-theanine-for-anxiety" className="hover:text-brand-800">L-Theanine for Acute Stress →</Link>
+          <Link href="/articles/ashwagandha" className="hover:text-brand-800">Ashwagandha Evidence Guide →</Link>
+          <Link href="/articles/l-theanine" className="hover:text-brand-800">L-Theanine for Acute Stress →</Link>
           <Link href="/guides/how-to-lower-cortisol-naturally" className="hover:text-brand-800">How to Lower Cortisol Naturally →</Link>
           <Link href="/compare/rhodiola-vs-ashwagandha" className="hover:text-brand-800">Rhodiola vs Ashwagandha →</Link>
           <Link href="/guides/rhodiola-complete-guide" className="hover:text-brand-800">Complete Rhodiola Guide →</Link>

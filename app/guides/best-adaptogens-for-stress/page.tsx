@@ -151,7 +151,7 @@ export default function BestAdaptogensForStressPage() {
               L-theanine
             </Link>
             . For the deep dive, see the{' '}
-            <Link href="/articles/ashwagandha-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+            <Link href="/articles/ashwagandha" className="font-semibold text-brand-700 hover:underline">
               ashwagandha article
             </Link>
             .
@@ -228,6 +228,19 @@ export default function BestAdaptogensForStressPage() {
           </ul>
         </section>
 
+        {/* Safety */}
+        <section className="rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6 shadow-sm">
+          <p className="eyebrow-label">Safety &amp; medication notes</p>
+          <h2 className="mt-2 text-xl font-semibold text-amber-900">Before you start an adaptogen</h2>
+          <ul className="mt-3 space-y-2 text-sm text-amber-900">
+            <li>• <strong>Pregnancy &amp; breastfeeding:</strong> avoid ashwagandha, and treat most adaptogens as not established as safe without clinician guidance.</li>
+            <li>• <strong>Ashwagandha:</strong> rare hepatotoxicity reported; caution with thyroid disease, autoimmune conditions, and immunosuppressants.</li>
+            <li>• <strong>Rhodiola:</strong> activating — may worsen insomnia or agitation, caution in bipolar disorder, and possible interaction with antidepressants.</li>
+            <li>• <strong>Eleuthero</strong> may raise blood pressure and interact with digoxin; <strong>schisandra</strong> can affect CYP3A4-metabolized drugs; <strong>holy basil</strong> may lower blood sugar.</li>
+            <li>• If you take medication for blood pressure, mood, thyroid, or blood sugar, confirm compatibility before starting.</li>
+          </ul>
+        </section>
+
         {ashwagandhaProducts && (
           <RecommendationSection products={ashwagandhaProducts.products} />
         )}
@@ -235,6 +248,7 @@ export default function BestAdaptogensForStressPage() {
         {/* Related */}
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
           <Link href="/goals/stress" className="hover:text-brand-800">Stress goal hub →</Link>
+          <Link href="/articles/ashwagandha" className="hover:text-brand-800">Ashwagandha Article →</Link>
           <Link href="/guides/best-supplements-for-stress" className="hover:text-brand-800">Best Supplements for Stress →</Link>
           <Link href="/guides/how-to-lower-cortisol-naturally" className="hover:text-brand-800">How to Lower Cortisol Naturally →</Link>
           <Link href="/compare/rhodiola-vs-ashwagandha" className="hover:text-brand-800">Rhodiola vs Ashwagandha →</Link>

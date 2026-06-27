@@ -170,15 +170,15 @@ export default function NaturalAnxietyReliefPage() {
               no dependency. It is a calming amino acid, not a sedative, and it stacks cleanly with
               magnesium or ashwagandha. For chronic stress-driven anxiety that builds over weeks,
               add{' '}
-              <Link href="/articles/ashwagandha-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+              <Link href="/articles/ashwagandha" className="font-semibold text-brand-700 hover:underline">
                 ashwagandha
               </Link>{' '}
               (KSM-66 or Sensoril, 300–600&nbsp;mg/day). See the{' '}
-              <Link href="/articles/l-theanine-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+              <Link href="/articles/l-theanine" className="font-semibold text-brand-700 hover:underline">
                 full L-theanine guide
               </Link>
               , the{' '}
-              <Link href="/articles/ashwagandha-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+              <Link href="/articles/ashwagandha" className="font-semibold text-brand-700 hover:underline">
                 ashwagandha guide
               </Link>
               , and the{' '}
@@ -278,10 +278,10 @@ export default function NaturalAnxietyReliefPage() {
                         <td className="py-3 pr-4 text-[#46574d]">Rare hepatotoxicity; avoid in pregnancy</td>
                         <td className="py-3">
                           <Link
-                            href="/articles/ashwagandha-for-sleep"
+                            href="/articles/ashwagandha"
                             className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                           >
-                            Sleep guide →
+                            Full guide →
                           </Link>
                         </td>
                       </tr>
@@ -293,10 +293,10 @@ export default function NaturalAnxietyReliefPage() {
                         <td className="py-3 pr-4 text-[#46574d]">Minimal; very well-tolerated</td>
                         <td className="py-3">
                           <Link
-                            href="/articles/l-theanine-for-sleep"
+                            href="/articles/l-theanine"
                             className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                           >
-                            Sleep guide →
+                            Full guide →
                           </Link>
                         </td>
                       </tr>
@@ -321,7 +321,14 @@ export default function NaturalAnxietyReliefPage() {
                         <td className="py-3 pr-4 text-[#46574d]">Limited</td>
                         <td className="py-3 pr-4 text-[#46574d]">Mild anxiety, anxiety-adjacent sleep difficulty</td>
                         <td className="py-3 pr-4 text-[#46574d]">Avoid with sedatives; caution in pregnancy</td>
-                        <td className="py-3 text-muted text-xs">Guide planned</td>
+                        <td className="py-3">
+                          <Link
+                            href="/guides/passionflower"
+                            className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
+                          >
+                            Full guide →
+                          </Link>
+                        </td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">5</td>
@@ -337,7 +344,14 @@ export default function NaturalAnxietyReliefPage() {
                         <td className="py-3 pr-4 text-[#46574d]">Moderate</td>
                         <td className="py-3 pr-4 text-[#46574d]">Generalized anxiety, acute anxiolytic effect</td>
                         <td className="py-3 pr-4 text-[#46574d]">Hepatotoxicity risk; avoid with alcohol/sedatives</td>
-                        <td className="py-3 text-muted text-xs">Guide planned</td>
+                        <td className="py-3">
+                          <Link
+                            href="/guides/kava"
+                            className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
+                          >
+                            Full guide →
+                          </Link>
+                        </td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-[#46574d]">7</td>
@@ -1167,27 +1181,36 @@ export default function NaturalAnxietyReliefPage() {
                     How to combine magnesium, ashwagandha, and L-theanine safely.
                   </p>
                 </Link>
-                <div className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 p-4">
+                <Link
+                  href="/articles/ashwagandha-for-anxiety"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Anxiety Cluster — Planned
+                    Anxiety Cluster
                   </p>
-                  <p className="font-semibold text-ink">Ashwagandha for Anxiety</p>
-                  <p className="mt-1 text-xs text-muted">Guide in development.</p>
-                </div>
-                <div className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 p-4">
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">Ashwagandha for Anxiety</p>
+                  <p className="mt-1 text-xs text-muted">Benefits, dosage, safety, and research review.</p>
+                </Link>
+                <Link
+                  href="/articles/l-theanine-for-anxiety"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Anxiety Cluster — Planned
+                    Anxiety Cluster
                   </p>
-                  <p className="font-semibold text-ink">L-Theanine for Anxiety</p>
-                  <p className="mt-1 text-xs text-muted">Guide in development.</p>
-                </div>
-                <div className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 p-4">
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">L-Theanine for Anxiety</p>
+                  <p className="mt-1 text-xs text-muted">Calm focus and racing thoughts without sedation.</p>
+                </Link>
+                <Link
+                  href="/articles/anxiety-stack-guide"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Anxiety Cluster — Planned
+                    Anxiety Cluster
                   </p>
-                  <p className="font-semibold text-ink">Anxiety Stack Guide</p>
-                  <p className="mt-1 text-xs text-muted">Guide in development.</p>
-                </div>
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">Anxiety Stack Guide</p>
+                  <p className="mt-1 text-xs text-muted">How to combine ashwagandha, L-theanine, and magnesium.</p>
+                </Link>
               </div>
             </div>
 
@@ -1353,15 +1376,24 @@ export default function NaturalAnxietyReliefPage() {
               Anxiety cluster
             </p>
             <div className="mt-3 space-y-2">
-              <span className="block text-sm font-medium text-muted">
-                Ashwagandha for Anxiety (planned)
-              </span>
-              <span className="block text-sm font-medium text-muted">
-                L-Theanine for Anxiety (planned)
-              </span>
-              <span className="block text-sm font-medium text-muted">
-                Anxiety Stack Guide (planned)
-              </span>
+              <Link
+                href="/articles/ashwagandha-for-anxiety"
+                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
+              >
+                Ashwagandha for anxiety →
+              </Link>
+              <Link
+                href="/articles/l-theanine-for-anxiety"
+                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
+              >
+                L-theanine for anxiety →
+              </Link>
+              <Link
+                href="/articles/anxiety-stack-guide"
+                className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
+              >
+                Anxiety stack guide →
+              </Link>
             </div>
           </div>
 

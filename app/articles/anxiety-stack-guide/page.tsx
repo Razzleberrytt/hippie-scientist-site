@@ -132,11 +132,11 @@ export default function AnxietyStackGuidePage() {
             safety profile. Adding magnesium (200–400&nbsp;mg/day, glycinate form) creates the most
             reliable beginner stack. Reserve ashwagandha for when you have a clear chronic-stress
             pattern and can commit to 6–8 weeks of daily use. See the{' '}
-            <Link href="/articles/l-theanine-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+            <Link href="/articles/l-theanine" className="font-semibold text-brand-700 hover:underline">
               full L-theanine guide
             </Link>{' '}
             and the{' '}
-            <Link href="/articles/ashwagandha-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+            <Link href="/articles/ashwagandha" className="font-semibold text-brand-700 hover:underline">
               ashwagandha guide
             </Link>
             .
@@ -165,8 +165,8 @@ export default function AnxietyStackGuidePage() {
               The three supplements most commonly discussed for anxiety support in this cluster are:
             </p>
             <ul>
-              <li><strong>Ashwagandha</strong> — Adaptogen with research on chronic stress and stress-related anxiety. See <Link href="/articles/ashwagandha-for-anxiety" className="text-primary underline">Ashwagandha for Anxiety</Link> or the umbrella <Link href="/articles/ashwagandha-for-anxiety" className="text-primary underline">Ashwagandha article</Link>.</li>
-              <li><strong>L-Theanine</strong> — Amino acid from tea that may promote calm focus and relaxation without heavy sedation. See <Link href="/articles/l-theanine-for-anxiety" className="text-primary underline">L-Theanine for Anxiety</Link> or the umbrella <Link href="/articles/l-theanine-for-anxiety" className="text-primary underline">L-Theanine article</Link>.</li>
+              <li><strong>Ashwagandha</strong> — Adaptogen with research on chronic stress and stress-related anxiety. See <Link href="/articles/ashwagandha" className="text-primary underline">Ashwagandha for Anxiety</Link> or the umbrella <Link href="/articles/ashwagandha" className="text-primary underline">Ashwagandha article</Link>.</li>
+              <li><strong>L-Theanine</strong> — Amino acid from tea that may promote calm focus and relaxation without heavy sedation. See <Link href="/articles/l-theanine" className="text-primary underline">L-Theanine for Anxiety</Link> or the umbrella <Link href="/articles/l-theanine" className="text-primary underline">L-Theanine article</Link>.</li>
               <li><strong>Magnesium</strong> — Mineral involved in nervous system function and often used for physical tension and sleep support. See <Link href="/articles/magnesium-for-sleep" className="text-primary underline">Magnesium for Sleep</Link>.</li>
             </ul>
           </div>
@@ -398,11 +398,11 @@ export default function AnxietyStackGuidePage() {
             <Link href="/articles/natural-anxiety-relief" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               Natural Anxiety Relief: Evidence-Based Approaches
             </Link>
-            <Link href="/articles/ashwagandha-for-anxiety" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
-              Ashwagandha for Anxiety
+            <Link href="/articles/ashwagandha" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+              Ashwagandha: Full Guide
             </Link>
-            <Link href="/articles/l-theanine-for-anxiety" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
-              L-Theanine for Anxiety
+            <Link href="/articles/l-theanine" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+              L-Theanine: Full Guide
             </Link>
             <Link href="/articles/cbd-vs-ashwagandha-for-anxiety" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               CBD vs Ashwagandha for Anxiety
@@ -410,8 +410,8 @@ export default function AnxietyStackGuidePage() {
             <Link href="/articles/sleep-stack-guide" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               Sleep Stack Guide
             </Link>
-            <Link href="/articles/best-herbs-for-sleep" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
-              Best Herbs for Sleep
+            <Link href="/goals/anxiety" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+              Anxiety Goal Hub
             </Link>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">
@@ -428,25 +428,25 @@ export default function AnxietyStackGuidePage() {
           <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="border rounded-xl p-5">
               <h3 className="font-semibold mb-2">Ashwagandha</h3>
-              <a href={`${AFFILIATE_TAGS.amazon}?k=KSM-66+Ashwagandha+third+party+tested`} target="_blank" rel="noopener noreferrer" className="text-primary underline text-sm">
+              <a href={`https://www.amazon.com/s?k=KSM-66+ashwagandha+third+party+tested&tag=${AFFILIATE_TAGS.amazon}`} target="_blank" rel="noopener noreferrer sponsored" className="text-primary underline text-sm">
                 Search KSM-66 Ashwagandha →
               </a>
             </div>
             <div className="border rounded-xl p-5">
               <h3 className="font-semibold mb-2">Magnesium Glycinate</h3>
-              <a href={`${AFFILIATE_TAGS.amazon}?k=Magnesium+glycinate+third+party+tested`} target="_blank" rel="noopener noreferrer" className="text-primary underline text-sm">
+              <a href={`https://www.amazon.com/s?k=magnesium+glycinate+third+party+tested&tag=${AFFILIATE_TAGS.amazon}`} target="_blank" rel="noopener noreferrer sponsored" className="text-primary underline text-sm">
                 Search Magnesium Glycinate →
               </a>
             </div>
             <div className="border rounded-xl p-5">
               <h3 className="font-semibold mb-2">L-Theanine</h3>
-              <a href={`${AFFILIATE_TAGS.amazon}?k=L-Theanine+third+party+tested`} target="_blank" rel="noopener noreferrer" className="text-primary underline text-sm">
+              <a href={`https://www.amazon.com/s?k=l-theanine+third+party+tested&tag=${AFFILIATE_TAGS.amazon}`} target="_blank" rel="noopener noreferrer sponsored" className="text-primary underline text-sm">
                 Search L-Theanine →
               </a>
             </div>
             <div className="border rounded-xl p-5">
               <h3 className="font-semibold mb-2">Stress Support Supplements</h3>
-              <a href={`${AFFILIATE_TAGS.amazon}?k=stress+support+supplements`} target="_blank" rel="noopener noreferrer" className="text-primary underline text-sm">
+              <a href={`https://www.amazon.com/s?k=stress+support+supplements&tag=${AFFILIATE_TAGS.amazon}`} target="_blank" rel="noopener noreferrer sponsored" className="text-primary underline text-sm">
                 Browse options →
               </a>
             </div>

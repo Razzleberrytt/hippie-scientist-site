@@ -137,7 +137,7 @@ export default function LTheanineWithoutCaffeinePage() {
                 L-Theanine vs Caffeine for Focus
               </Link>
               . For the broader evidence review, see the{' '}
-              <Link href="/articles/l-theanine-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+              <Link href="/articles/l-theanine" className="font-semibold text-brand-700 hover:underline">
                 full L-theanine article
               </Link>
               .
