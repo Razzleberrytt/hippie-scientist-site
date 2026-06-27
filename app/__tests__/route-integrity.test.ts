@@ -97,11 +97,31 @@ describe('Route Integrity Test', () => {
       }
     }
 
-    // 4. Assert every href is valid (canonical route OR redirect source)
+    // 3b. Static App Router pages are the source of truth for non-data-driven
+    //     routes (e.g. /tools, /dosing, /stacks/builder, /education/*). The
+    //     route-manifest is a workbook-derived subset and the hardcoded list
+    //     above is not exhaustive, so resolve any remaining href against an
+    //     actual app/<path>/page.tsx file before flagging it as invalid.
+    const appDir = path.resolve(__dirname, '..')
+    const hasStaticPage = (normalizedHref: string): boolean => {
+      const clean = normalizedHref.replace(/^\/+|\/+$/g, '')
+      if (!clean) return true // root
+      if (clean.includes('[') || clean.includes(']')) return false
+      return (
+        fs.existsSync(path.join(appDir, clean, 'page.tsx')) ||
+        fs.existsSync(path.join(appDir, clean, 'page.ts'))
+      )
+    }
+
+    // 4. Assert every href is valid (canonical route OR redirect source OR static page)
     const invalidHrefs: string[] = []
     for (const href of hrefs) {
       const normalizedHref = href.split('?')[0]
-      if (!canonicalRoutes.has(normalizedHref) && !redirectSources.has(normalizedHref)) {
+      if (
+        !canonicalRoutes.has(normalizedHref) &&
+        !redirectSources.has(normalizedHref) &&
+        !hasStaticPage(normalizedHref)
+      ) {
         invalidHrefs.push(href)
       }
     }
