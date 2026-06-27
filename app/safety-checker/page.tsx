@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 import { getHerbs, getCompounds } from '../../src/lib/runtime-data'
+import type { RuntimeRecord } from '../../src/types/content'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { WizardSkeleton } from '@/components/skeletons'
@@ -21,7 +22,6 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/safety-checker/',
 })
 
-type RuntimeRecord = Record<string, any>
 type SafetyClientItem = {
   slug: string
   name: string
