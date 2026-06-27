@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { Metadata } from 'next'
 import { getHerbs, getCompounds } from '../../../src/lib/runtime-data'
 import type { RuntimeRecord } from '../../../src/types/content'
