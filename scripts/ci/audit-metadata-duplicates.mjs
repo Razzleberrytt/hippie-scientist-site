@@ -1,18 +1,20 @@
 import fs from 'node:fs'
 const manifestPath = 'public/data/runtime-manifests/route-manifest.json'
 const routes = JSON.parse(fs.readFileSync(manifestPath,'utf8'))
+const SITE_ORIGIN = 'https://thehippiescientist.net'
 const deprecatedSlugs = new Set([
-  'coq10', 'coenzyme-q10-ubiquinol', 'theanine', 'l-theanine-sleep', 'methyleugenol', 'bcaas',
+  'coq10', 'coenzyme-q10-ubiquinol', 'theanine', 'l-theanine-sleep', 'methyleugenol', 'methyl-eugenol', 'bcaas',
   'green-tea-egcg-isolated', 'green-tea-extract-egcg', 'probiotic-multistrain', 'probiotic-strain-bifidobacterium',
   'probiotic-strain-lactobacillus', 'probiotics-bifidobacterium', 'probiotics-lactobacillus', 'taurine-blend',
   'taurine-sleep', 'glycine-sleep', 'inositol-sleep', 'ashwagandha-extract-ksm-66', 'ashwagandha-root-extract',
   'garlic', 'garlic-extract', 'garlic-aged-extract', 'aged-garlic-extract', 'ginger', 'gingerol', 'gingerols',
   'valerian', 'valerian-extract-standardized', 'valerian-root-extract', 'lions-mane', 'passionflower',
   'passionflower-extract', 'passionflower-extract-standardized', 'kava', 'kavalactones', 'reishi', 'maca',
-  'maca-root-extract', 'elderberry', 'resveratrol', 'trans-resveratrol',
+  'maca-root-extract', 'elderberry', 'resveratrol', 'trans-resveratrol', 'glycyrrhizin-isolated',
   'allium-sativum', 'valeriana-officinalis', 'hericium-erinaceus', 'passiflora-incarnata', 'piper-methysticum', 'ganoderma-lucidum',
   'berberis-vulgaris', 'berberis-aristata', 'coptis-chinensis', 'boswellia-carterii', 'morus-alba', 'phellodendron',
   'astragalus-membranaceus', 'atractylodes-macrocephala', 'angelica-sinensis', 'angelica-root',
+  'ashwagandha-withania-somnifera', 'withania-somnifera', 'silybum-marianum',
   'nr', 'berberine-hcl',
   '7-hydroxymitragynine', 'mitragynine', 'kratom', 'phosphatidylserine', 'curcumin', 'l-glutamine',
   'ashwagandha-vs-rhodiola-for-stress', 'magnesium-glycinate-vs-l-threonate-for-sleep',
@@ -75,16 +77,37 @@ function normalizeRoutePath(routePath) {
   return normalized || '/'
 }
 
+function normalizeCanonicalPath(canonical) {
+  if (!canonical) return ''
+  try {
+    const url = new URL(String(canonical), SITE_ORIGIN)
+    return normalizeRoutePath(url.pathname)
+  } catch {
+    return normalizeRoutePath(String(canonical).replace(SITE_ORIGIN, ''))
+  }
+}
+
 function getSlug(routePath) {
   const normalized = normalizeRoutePath(routePath)
   const segments = normalized.split('/').filter(Boolean)
   return segments[segments.length - 1] || ''
 }
 
+function includesDeprecatedSlug(routePath) {
+  const normalized = normalizeRoutePath(routePath)
+  return [...deprecatedSlugs].some(slug => normalized.includes(slug))
+}
+
+function isSelfCanonicalRoute(routePath, canonical) {
+  if (!canonical) return true
+  return normalizeCanonicalPath(canonical) === normalizeRoutePath(routePath)
+}
+
 function isExemptRoute(routePath) {
   const normalized = normalizeRoutePath(routePath)
   const slug = getSlug(normalized)
   if (deprecatedSlugs.has(slug)) return true
+  if (includesDeprecatedSlug(normalized)) return true
   if (redirectOnlyRoutes.has(normalized)) return true
   if (normalized.includes('(') || normalized.includes(')')) return true
   if (exemptRoutePrefixes.some(prefix => normalized.startsWith(prefix))) return true
@@ -94,9 +117,11 @@ function isExemptRoute(routePath) {
 const byTitle = new Map(), byDesc = new Map(), byCanonical = new Map()
 for (const r of routes) {
   const routePath = normalizeRoutePath(r.route || r.path || '')
+  const canonical=(r.canonical_url||r.url||'').trim()
   if (isExemptRoute(routePath)) continue
+  if (!isSelfCanonicalRoute(routePath, canonical)) continue
 
-  const title = (r.meta_title||'').trim(); const desc=(r.meta_description||'').trim(); const canonical=(r.canonical_url||r.url||'').trim()
+  const title = (r.meta_title||'').trim(); const desc=(r.meta_description||'').trim()
   if (title) byTitle.set(title, [...(byTitle.get(title)||[]), routePath])
   if (desc) byDesc.set(desc, [...(byDesc.get(desc)||[]), routePath])
   if (canonical) byCanonical.set(canonical, [...(byCanonical.get(canonical)||[]), routePath])
