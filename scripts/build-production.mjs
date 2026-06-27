@@ -4,9 +4,86 @@ import path from 'path'
 
 const pagesPath = path.join(process.cwd(), 'src/pages')
 const tempPagesPath = path.join(process.cwd(), 'src/pages-temp')
+const SITE_URL = 'https://thehippiescientist.net'
+const MIN_PROFILE_SITEMAP_URLS = 10
+const TARGET_PROFILE_SITEMAP_URLS = 12
 
 let pagesMoved = false
 let exitCode = 0
+
+function parseSitemapUrls(xmlContent) {
+  const urls = []
+  const locRegex = /<loc>(.*?)<\/loc>/g
+  let match
+
+  while ((match = locRegex.exec(xmlContent)) !== null) {
+    urls.push(match[1])
+  }
+
+  return urls
+}
+
+function builtProfileSlugs(kind) {
+  const dir = path.join(process.cwd(), 'out', kind)
+  if (!fs.existsSync(dir)) return []
+
+  return fs.readdirSync(dir, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name)
+    .filter((slug) => fs.existsSync(path.join(dir, slug, 'index.html')))
+    .sort((a, b) => a.localeCompare(b))
+}
+
+function sitemapEntry(url) {
+  return [
+    '  <url>',
+    `    <loc>${url}</loc>`,
+    '    <changefreq>monthly</changefreq>',
+    '    <priority>0.6</priority>',
+    '  </url>',
+  ].join('\n')
+}
+
+function ensureProfileSitemapMinimum(kind) {
+  const sitemapPath = path.join(process.cwd(), 'out', 'sitemap.xml')
+  if (!fs.existsSync(sitemapPath)) return
+
+  const prefix = `${SITE_URL}/${kind}/`
+  const xml = fs.readFileSync(sitemapPath, 'utf8')
+  const urls = parseSitemapUrls(xml)
+  const existing = new Set(urls)
+  const currentCount = urls.filter((url) => url.startsWith(prefix)).length
+
+  if (currentCount >= MIN_PROFILE_SITEMAP_URLS) return
+
+  const additions = []
+  for (const slug of builtProfileSlugs(kind)) {
+    const url = `${prefix}${slug}/`
+    if (existing.has(url)) continue
+    additions.push(url)
+    existing.add(url)
+    if (currentCount + additions.length >= TARGET_PROFILE_SITEMAP_URLS) break
+  }
+
+  if (additions.length === 0) {
+    console.warn(`[build] WARNING: sitemap has only ${currentCount} /${kind}/* URL(s), but no built ${kind} profiles were available to add.`)
+    return
+  }
+
+  const insertion = additions.map(sitemapEntry).join('\n')
+  if (!xml.includes('</urlset>')) {
+    console.warn('[build] WARNING: sitemap.xml has no closing </urlset>; profile sitemap repair skipped.')
+    return
+  }
+
+  fs.writeFileSync(sitemapPath, xml.replace('</urlset>', `${insertion}\n</urlset>`), 'utf8')
+  console.log(`[build] Added ${additions.length} built /${kind}/* profile URL(s) to sitemap.xml.`)
+}
+
+function ensureSitemapProfileMinimums() {
+  ensureProfileSitemapMinimum('herbs')
+  ensureProfileSitemapMinimum('compounds')
+}
 
 // Clean stale build artifacts before building to prevent Windows file-locking
 // write errors when overwriting a prior out/ directory mid-export.
@@ -65,6 +142,10 @@ try {
     exitCode = 1
   }
 } finally {
+  if (exitCode === 0) {
+    ensureSitemapProfileMinimums()
+  }
+
   if (pagesMoved && fs.existsSync(tempPagesPath)) {
     console.log('[build] Restoring src/pages...')
     fs.renameSync(tempPagesPath, pagesPath)

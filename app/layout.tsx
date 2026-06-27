@@ -25,6 +25,7 @@ import '@/styles/premium-surface-details.css'
 import '@/styles/accessibility-wcag-22.css'
 
 const ga4Id = process.env.NEXT_PUBLIC_GA4_ID?.trim() || ''
+const clarityProjectId = process.env.NEXT_PUBLIC_CLARITY_ID?.trim() || 'xdse4p6zai'
 const HOME_TITLE = 'The Hippie Scientist | Supplement Research'
 
 // Reusable JSON-LD from central helper (WebSite + Organization for homepage)
@@ -60,6 +61,18 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           }}
         />
         <link rel="manifest" href="/manifest.json" />
+        {clarityProjectId && (
+          <script
+            type='text/javascript'
+            dangerouslySetInnerHTML={{
+              __html: `(function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "${clarityProjectId}");`,
+            }}
+          />
+        )}
         {ga4Id && (
           <>
             <link rel="preconnect" href="https://www.googletagmanager.com" />
