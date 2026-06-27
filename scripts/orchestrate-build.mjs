@@ -146,6 +146,11 @@ const steps = [
     description: 'Build Pagefind static search index (post-production; enables /search without server). Cross-plat script.',
   },
   {
+    name: 'ensure-sitemap-profile-minimums',
+    cmd: 'node scripts/ci/ensure-sitemap-profile-minimums.mjs',
+    description: 'Ensure sitemap.xml includes enough built herb and compound profile URLs for profile index coverage',
+  },
+  {
     name: 'validate-guide-faqs',
     cmd: 'node scripts/ci/validate-guide-faqs.mjs',
     description: 'Validate SEO guide FAQs for leaks, invalid markup, or formatting issues',
