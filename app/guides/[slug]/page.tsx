@@ -26,19 +26,19 @@ const GUIDE_SLUGS = [
 const RELATED_GUIDE_MAP: Record<string, RelatedArticle[]> = {
   ashwagandha: [
     {
-      href: "/guides/turmeric-curcumin",
+      href: "/guides/turmeric-curcumin/",
       title: "Turmeric & Curcumin Guide",
       description: "Anti-inflammatory evidence, bioavailability forms, and dosage comparison.",
       category: "stress",
     },
     {
-      href: "/guides/lions-mane",
+      href: "/guides/lions-mane/",
       title: "Lion's Mane Guide",
       description: "Cognitive support, NGF synthesis, and neuroregeneration evidence.",
       category: "focus",
     },
     {
-      href: "/guides/magnesium-for-sleep",
+      href: "/guides/magnesium-for-sleep/",
       title: "Magnesium for Sleep Guide",
       description: "Magnesium forms, dosage, and evidence for sleep and anxiety support.",
       category: "sleep",
@@ -46,19 +46,19 @@ const RELATED_GUIDE_MAP: Record<string, RelatedArticle[]> = {
   ],
   "lions-mane": [
     {
-      href: "/guides/ashwagandha",
+      href: "/guides/ashwagandha/",
       title: "Ashwagandha Guide",
       description: "Cortisol modulation, stress adaptation, and sleep quality evidence.",
       category: "stress",
     },
     {
-      href: "/guides/turmeric-curcumin",
+      href: "/guides/turmeric-curcumin/",
       title: "Turmeric & Curcumin Guide",
       description: "Anti-inflammatory and neuroprotective evidence with bioavailability context.",
       category: "stress",
     },
     {
-      href: "/guides/magnesium-for-sleep",
+      href: "/guides/magnesium-for-sleep/",
       title: "Magnesium for Sleep Guide",
       description: "Magnesium forms, dosage, and evidence for sleep and anxiety support.",
       category: "sleep",
@@ -87,7 +87,7 @@ export default async function GuidePage({ params }: Props) {
   if (!guide) notFound();
 
   const ga4Id = process.env.NEXT_PUBLIC_GA4_ID?.trim() || "";
-  const pageUrl = `${SITE_URL}/guides/${slug}`;
+  const pageUrl = `${SITE_URL}/guides/${slug}/`;
   const publishDate = guide.publishDate || "2024-01-01";
   const contentBlocks = guide.content
     .split(/\n{2,}/)
@@ -105,8 +105,8 @@ export default async function GuidePage({ params }: Props) {
         datePublished={publishDate}
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Guides", href: "/guides" },
-          { label: guide.title, href: `/guides/${slug}` },
+          { label: "Guides", href: "/guides/" },
+          { label: guide.title, href: `/guides/${slug}/` },
         ]}
       />
       {ga4Id && (
@@ -118,7 +118,7 @@ export default async function GuidePage({ params }: Props) {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('event', 'page_view', {
-                page_path: '/guides/${slug}',
+                page_path: '/guides/${slug}/',
                 page_title: '${guide.title.replace(/'/g, "\\'")}',
                 guide_slug: '${slug}',
                 guide_type: 'guide'
@@ -141,9 +141,9 @@ export default async function GuidePage({ params }: Props) {
           <RelatedArticles articles={relatedGuides} />
         )}
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700" aria-label="Guide support links">
-          <Link href="/guides" className="hover:text-brand-800">All guides</Link>
-          <Link href="/articles" className="hover:text-brand-800">Articles</Link>
-          <Link href="/safety-checker" className="hover:text-brand-800">Safety checker</Link>
+          <Link href="/guides/" className="hover:text-brand-800">All guides</Link>
+          <Link href="/articles/" className="hover:text-brand-800">Articles</Link>
+          <Link href="/safety-checker/" className="hover:text-brand-800">Safety checker</Link>
         </nav>
       </div>
     </ArticleLayout>

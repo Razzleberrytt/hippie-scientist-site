@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Supplement Guides — The Hippie Scientist',
     description:
       'The main guide library for choosing supplements by goal, comparing options, and checking safety tradeoffs before buying.',
-    url: '/guides',
+    url: '/guides/',
     type: 'website',
   },
   twitter: {
@@ -27,65 +27,94 @@ const GOAL_GUIDES = [
   {
     label: 'Anxiety',
     slug: 'anxiety',
-    goalHref: '/goals/anxiety',
+    goalHref: '/goals/anxiety/',
     description: 'Start here when the question is calm, worry, overthinking, or anxiety-support tradeoffs.',
     guides: [
-      { href: '/guides/best-herbs-for-anxiety', title: 'Best Herbs for Anxiety', meta: 'Herbal shortlist · 8 min' },
-      { href: '/guides/natural-anxiolytics-beyond-ashwagandha', title: 'Natural Anxiolytics Beyond Ashwagandha', meta: 'Alternatives · 7 min' },
-      { href: '/guides/best-supplements-for-overthinking', title: 'Best Supplements for Overthinking', meta: 'Calm thinking · 6 min' },
+      { href: '/guides/best-herbs-for-anxiety/', title: 'Best Herbs for Anxiety', meta: 'Herbal shortlist · 8 min' },
+      { href: '/guides/natural-anxiolytics-beyond-ashwagandha/', title: 'Natural Anxiolytics Beyond Ashwagandha', meta: 'Alternatives · 7 min' },
+      { href: '/guides/best-supplements-for-overthinking/', title: 'Best Supplements for Overthinking', meta: 'Calm thinking · 6 min' },
     ],
   },
   {
     label: 'Sleep',
     slug: 'sleep',
-    goalHref: '/goals/sleep',
+    goalHref: '/goals/sleep/',
     description: 'Use these when the problem is sleep onset, sleep quality, or choosing between common sleep aids.',
     guides: [
-      { href: '/guides/best-supplements-for-sleep', title: 'Best Supplements for Sleep', meta: 'Main guide · 10 min' },
-      { href: '/guides/best-natural-sleep-aids-that-work', title: 'Best Natural Sleep Aids That Work', meta: 'Shortlist · 8 min' },
-      { href: '/guides/magnesium-vs-melatonin', title: 'Magnesium vs Melatonin', meta: 'Comparison · 6 min' },
+      { href: '/guides/best-supplements-for-sleep/', title: 'Best Supplements for Sleep', meta: 'Main guide · 10 min' },
+      { href: '/guides/best-natural-sleep-aids-that-work/', title: 'Best Natural Sleep Aids That Work', meta: 'Shortlist · 8 min' },
+      { href: '/guides/magnesium-vs-melatonin/', title: 'Magnesium vs Melatonin', meta: 'Comparison · 6 min' },
+      { href: '/guides/magnesium-for-sleep/', title: 'Magnesium for Sleep', meta: 'Form guide · 7 min' },
     ],
   },
   {
     label: 'Stress',
     slug: 'stress',
-    goalHref: '/goals/stress',
+    goalHref: '/goals/stress/',
     description: 'For stress load, adaptogens, cortisol-adjacent claims, and calmer recovery decisions.',
     guides: [
-      { href: '/guides/best-supplements-for-stress', title: 'Best Supplements for Stress', meta: 'Main guide · 9 min' },
-      { href: '/guides/best-adaptogens-for-stress', title: 'Best Adaptogens for Stress', meta: 'Adaptogens · 8 min' },
-      { href: '/guides/how-to-lower-cortisol-naturally', title: 'How to Lower Cortisol Naturally', meta: 'Context · 8 min' },
+      { href: '/guides/best-supplements-for-stress/', title: 'Best Supplements for Stress', meta: 'Main guide · 9 min' },
+      { href: '/guides/best-adaptogens-for-stress/', title: 'Best Adaptogens for Stress', meta: 'Adaptogens · 8 min' },
+      { href: '/guides/how-to-lower-cortisol-naturally/', title: 'How to Lower Cortisol Naturally', meta: 'Context · 8 min' },
     ],
   },
   {
     label: 'Focus',
     slug: 'focus',
-    goalHref: '/goals/focus',
+    goalHref: '/goals/focus/',
     description: 'Use these for attention, ADHD-adjacent support, nootropics, and avoiding stimulant-heavy choices.',
     guides: [
-      { href: '/guides/best-supplements-for-focus', title: 'Best Supplements for Focus', meta: 'Main guide · 8 min' },
-      { href: '/guides/best-nootropics-for-focus', title: 'Best Nootropics for Focus', meta: 'Nootropics · 9 min' },
-      { href: '/guides/focus-without-caffeine-crash', title: 'Focus Without the Caffeine Crash', meta: 'Stimulant-light · 7 min' },
+      { href: '/guides/best-supplements-for-focus/', title: 'Best Supplements for Focus', meta: 'Main guide · 8 min' },
+      { href: '/guides/best-nootropics-for-focus/', title: 'Best Nootropics for Focus', meta: 'Nootropics · 9 min' },
+      { href: '/guides/focus-without-caffeine-crash/', title: 'Focus Without the Caffeine Crash', meta: 'Stimulant-light · 7 min' },
+      { href: '/best-magnesium-supplements-for-adhd/', title: 'Best Magnesium Supplements for ADHD', meta: 'Buying guide · 8 min' },
     ],
   },
 ]
 
 const COMPARISONS = [
-  { href: '/guides/magnesium-vs-melatonin', title: 'Magnesium vs Melatonin', subtitle: 'Relaxation support vs sleep-timing support' },
-  { href: '/guides/sleep-herbs-vs-melatonin', title: 'Sleep Herbs vs Melatonin', subtitle: 'Herbals vs hormone for sleep onset' },
-  { href: '/compare/rhodiola-vs-ashwagandha', title: 'Rhodiola vs Ashwagandha', subtitle: 'Performance adaptogen vs recovery adaptogen' },
-  { href: '/compare', title: 'Browse All Comparisons', subtitle: 'Full side-by-side comparison index' },
+  { href: '/guides/magnesium-vs-melatonin/', title: 'Magnesium vs Melatonin', subtitle: 'Relaxation support vs sleep-timing support' },
+  { href: '/guides/sleep-herbs-vs-melatonin/', title: 'Sleep Herbs vs Melatonin', subtitle: 'Herbals vs hormone for sleep onset' },
+  { href: '/compare/rhodiola-vs-ashwagandha/', title: 'Rhodiola vs Ashwagandha', subtitle: 'Performance adaptogen vs recovery adaptogen' },
+  { href: '/compare/', title: 'Browse All Comparisons', subtitle: 'Full side-by-side comparison index' },
+]
+
+const CORE_HERB_GUIDES = [
+  {
+    href: '/guides/ashwagandha/',
+    title: 'Ashwagandha Guide',
+    subtitle: 'Stress, sleep, anxiety, forms, and safety context.',
+    meta: 'Core guide · stress',
+  },
+  {
+    href: '/guides/lions-mane/',
+    title: "Lion's Mane Guide",
+    subtitle: 'Focus, cognitive support, mushroom forms, and evidence limits.',
+    meta: 'Core guide · focus',
+  },
+  {
+    href: '/guides/turmeric-curcumin/',
+    title: 'Turmeric & Curcumin Guide',
+    subtitle: 'Inflammation support, bioavailability, and product-quality tradeoffs.',
+    meta: 'Core guide · inflammation',
+  },
+  {
+    href: '/guides/supplements-for-brain-fog-and-fatigue/',
+    title: 'Supplements for Brain Fog and Fatigue',
+    subtitle: 'Bridge guide for fatigue, focus, recovery, and energy support.',
+    meta: 'Bridge guide · focus',
+  },
 ]
 
 const SAFETY_GUIDES = [
   {
-    href: '/guides/psychedelic-adjacent-herbs',
+    href: '/guides/psychedelic-adjacent-herbs/',
     title: 'Psychedelic-Adjacent Herbs',
     subtitle: 'Safety context for altered-state-adjacent herbs without romanticizing risky use.',
     meta: 'Safety · 10 min',
   },
   {
-    href: '/guides/kratom-7oh-withdrawal-management',
+    href: '/guides/kratom-7oh-withdrawal-management/',
     title: 'Kratom 7-OH Withdrawal Management',
     subtitle: 'Evidence-informed withdrawal education, symptom timelines, and conservative taper context.',
     meta: 'Harm reduction · 12 min',
@@ -93,17 +122,18 @@ const SAFETY_GUIDES = [
 ]
 
 const LIBRARY_MAP = [
-  { label: 'Goals', href: '/goals', description: 'Problem decision pages.' },
-  { label: 'Guides', href: '/guides', description: 'Practical choosing guides.' },
-  { label: 'Articles', href: '/articles', description: 'Research notes and education.' },
-  { label: 'Herbs & compounds', href: '/herbs', description: 'Reference database.' },
-  { label: 'Compare', href: '/compare', description: 'Direct side-by-side pages.' },
+  { label: 'Goals', href: '/goals/', description: 'Problem decision pages.' },
+  { label: 'Guides', href: '/guides/', description: 'Practical choosing guides.' },
+  { label: 'Articles', href: '/articles/', description: 'Research notes and education.' },
+  { label: 'Herbs & compounds', href: '/herbs/', description: 'Reference database.' },
+  { label: 'Compare', href: '/compare/', description: 'Direct side-by-side pages.' },
 ]
 
 function GuidesCollectionJsonLd() {
   const allGuideLinks = [
     ...GOAL_GUIDES.flatMap((goal) => goal.guides),
     ...COMPARISONS,
+    ...CORE_HERB_GUIDES,
     ...SAFETY_GUIDES,
   ]
   const graph = {
@@ -211,6 +241,25 @@ export default function GuidesPage() {
 
       <section className="space-y-4">
         <PremiumSectionHeader
+          eyebrow="Core guide links"
+          title="Do not leave useful guides isolated."
+          description="These supporting guides strengthen crawl paths into the practical library and keep older guide assets reachable from the main hub."
+        />
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {CORE_HERB_GUIDES.map((guide) => (
+            <PremiumLinkCard
+              key={guide.href}
+              href={guide.href}
+              eyebrow={guide.meta}
+              title={guide.title}
+              description={guide.subtitle}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <PremiumSectionHeader
           eyebrow="Compare"
           title="Head-to-head choosing guides."
           description="Use comparisons when you are deciding between two options and want mechanism, evidence, timing, and tradeoffs side by side."
@@ -250,7 +299,7 @@ export default function GuidesPage() {
 
       <PremiumCallout>
         Looking for deeper research notes, mechanisms, individual herb writeups, or education-heavy posts? Use the{' '}
-        <Link href="/articles" className="font-bold text-brand-800 underline underline-offset-4 dark:text-brand-100">
+        <Link href="/articles/" className="font-bold text-brand-800 underline underline-offset-4 dark:text-brand-100">
           articles archive
         </Link>
         . This page stays focused on practical choosing guides.

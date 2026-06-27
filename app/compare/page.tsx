@@ -20,7 +20,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: `Herb & Supplement Comparison Center ${SEO_YEAR}`,
   description:
     'Compare herbs and supplements side-by-side by evidence strength, mechanism, stimulation profile, safety, and dosing. Evidence-based decision support.',
-  path: '/compare',
+  path: '/compare/',
 })
 
 type CompareCategory = {
@@ -92,6 +92,7 @@ const popularComparisonPairs = [
   { label: 'Rhodiola vs Ashwagandha', href: '/compare/rhodiola-vs-ashwagandha/' },
   { label: 'Ashwagandha vs L-Theanine vs Magnesium', href: '/compare/ashwagandha-vs-l-theanine-vs-magnesium/' },
   { label: 'Caffeine vs L-Theanine vs Bacopa for Focus', href: '/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/' },
+  { label: 'Dynamic Ingredient Comparison Matrix', href: '/compare/dynamic/' },
 ]
 
 const guidanceCards = [
@@ -127,7 +128,7 @@ export default async function ComparePage() {
     }))
 
   const schemaGraph = buildCompareHubSchemaGraph({
-    path: '/compare',
+    path: '/compare/',
     title: `Compare Supplements Side by Side ${SEO_YEAR} – Evidence & Safety`,
     description: 'Compare herbs and supplements by evidence strength, mechanism, stimulation profile, safety, and dosing. Free research tool.',
     breadcrumbs: [
@@ -194,7 +195,7 @@ export default async function ComparePage() {
         <ul className="mt-4 grid gap-2 text-sm leading-6 text-muted sm:grid-cols-2">
           {popularComparisonPairs.map(pair => (
             <li key={pair.href}>
-              <a href={pair.href} className="font-semibold text-brand-800 hover:underline dark:text-brand-100 dark:hover:text-white">{pair.label}</a>
+              <Link href={pair.href} className="font-semibold text-brand-800 hover:underline dark:text-brand-100 dark:hover:text-white">{pair.label}</Link>
             </li>
           ))}
         </ul>
@@ -210,9 +211,12 @@ export default async function ComparePage() {
       <PremiumCard as="section" className="p-5">
         <p className="eyebrow-label">Decision next step</p>
         <h2 className="mt-2 text-xl font-semibold text-ink">Use comparisons to choose a safer path</h2>
-        <div className="mt-4 grid gap-3 text-sm leading-6 text-muted md:grid-cols-3">
+        <div className="mt-4 grid gap-3 text-sm leading-6 text-muted md:grid-cols-4">
           <Link href="/goals/" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">
             Start from your goal
+          </Link>
+          <Link href="/compare/dynamic/" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">
+            Open dynamic matrix
           </Link>
           <Link href="/safety-checker/" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">
             Check safety context
