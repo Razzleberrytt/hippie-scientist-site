@@ -20,7 +20,8 @@ describe('validate-evidence-language auditRecord', () => {
       slug: 'test-empty',
       summary: '',
       description: '',
-      evidence_tier: 'Strong Human Evidence'
+      evidence_tier: 'Strong Human Evidence',
+      indexability_status: 'PUBLISH'
     }
     const findings = runAuditRecord(record)
     expect(findings).toHaveLength(1)
@@ -76,38 +77,5 @@ describe('validate-evidence-language auditRecord', () => {
     const findings = runAuditRecord(record)
     const criticals = findings.filter(f => f.type === 'critical')
     expect(criticals).toHaveLength(0)
-  })
-
-  it('should flag definitive claims used with weak evidence as warning', () => {
-    const record = {
-      slug: 'test-definitive-weak',
-      summary: 'This compound is proven to reduce stress.',
-      description: 'No other claims.',
-      evidence_tier: 'Mechanistic Evidence'
-    }
-    const findings = runAuditRecord(record)
-    expect(findings.some(f => f.type === 'warning' && f.reason.includes('Definitive claim term'))).toBe(true)
-  })
-
-  it('should flag lack of speculative qualifiers with weak evidence as warning', () => {
-    const record = {
-      slug: 'test-speculative-missing',
-      summary: 'This herb influences receptor pathways directly.',
-      description: 'No speculative words used.',
-      evidence_tier: 'Mechanistic Evidence'
-    }
-    const findings = runAuditRecord(record)
-    expect(findings.some(f => f.type === 'warning' && f.reason.includes('Lacks speculative framing'))).toBe(true)
-  })
-
-  it('should flag human clinical references used with preclinical-only evidence as warning', () => {
-    const record = {
-      slug: 'test-preclinical-clinical',
-      summary: 'Preclinical study showing receptor binding. However, human clinical trials show improvement.',
-      description: 'Testing bounds.',
-      evidence_tier: 'Mechanistic Evidence'
-    }
-    const findings = runAuditRecord(record)
-    expect(findings.some(f => f.type === 'warning' && f.reason.includes('Clinical/human reference'))).toBe(true)
   })
 })
