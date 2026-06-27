@@ -7,6 +7,7 @@ import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { WizardSkeleton } from '@/components/skeletons'
 import { buildToolPageSchemaGraph } from '../../src/lib/schema-graph'
 import { buildPageMetadata, SITE_URL } from '../../src/lib/seo'
+import { isRestrictedRecord } from '../../src/lib/restricted-ingredients'
 
 const SafetyCheckerClient = dynamic(
   () => import('../../src/components/safety/SafetyCheckerClient'),
@@ -17,30 +18,78 @@ export const metadata: Metadata = buildPageMetadata({
   title: 'Supplement Safety Interaction Checker – Stack Risk Tool',
   description:
     'Check supplement and herb combinations for interaction patterns, contraindications, and stacking risks before you buy. Educational tool only.',
-  path: '/safety-checker',
+  path: '/safety-checker/',
 })
+
+type RuntimeRecord = Record<string, unknown>
+type SafetyClientItem = {
+  slug: string
+  name: string
+  displayName: string
+  safety?: string
+  safety_flags?: string[]
+  mechanism?: string
+  mechanisms?: string[]
+}
+
+function asText(value: unknown) {
+  if (typeof value === 'string') return value.trim()
+  if (typeof value === 'number') return String(value)
+  return ''
+}
+
+function firstText(...values: unknown[]) {
+  return values.map(asText).find(Boolean) || ''
+}
+
+function toTextList(value: unknown) {
+  if (Array.isArray(value)) return value.map(asText).filter(Boolean).slice(0, 12)
+  const raw = asText(value)
+  return raw ? raw.split(/[;,
+]+/).map(item => item.trim()).filter(Boolean).slice(0, 12) : []
+}
+
+function canUseRecord(record: RuntimeRecord) {
+  if (isRestrictedRecord(record)) return false
+  try {
+    return getRuntimeVisibility(record).canRender
+  } catch {
+    return true
+  }
+}
+
+function toSafetyClientItem(record: RuntimeRecord): SafetyClientItem {
+  const slug = firstText(record.slug)
+  const name = firstText(record.displayName, record.name, record.compoundName, slug)
+  const mechanisms = toTextList(record.mechanisms)
+  const safetyFlags = toTextList(record.safety_flags)
+
+  return {
+    slug,
+    name,
+    displayName: name,
+    safety: firstText(record.safety, record.safety_level, record.safetyNotes, record.safety_notes),
+    safety_flags: safetyFlags,
+    mechanism: firstText(record.mechanism, mechanisms[0]),
+    mechanisms,
+  }
+}
 
 export default async function SafetyCheckerPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs = rawHerbs.filter((h: Record<string, unknown>) => {
-    try {
-      return getRuntimeVisibility(h).canRender
-    } catch {
-      return true
-    }
-  })
+  const herbs = rawHerbs
+    .filter(canUseRecord)
+    .map(toSafetyClientItem)
+    .filter(item => item.slug)
 
-  const compounds = rawCompounds.filter((c: Record<string, unknown>) => {
-    try {
-      return getRuntimeVisibility(c).canRender
-    } catch {
-      return true
-    }
-  })
+  const compounds = rawCompounds
+    .filter(canUseRecord)
+    .map(toSafetyClientItem)
+    .filter(item => item.slug)
 
   const schemaGraph = buildToolPageSchemaGraph({
-    path: '/safety-checker',
+    path: '/safety-checker/',
     title: 'Multi-Item Safety Interaction Checker',
     description:
       'Interact with the safety matrix to evaluate potential contraindications when stacking multiple dietary supplements or active compounds.',
