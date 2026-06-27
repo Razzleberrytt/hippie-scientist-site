@@ -24,6 +24,9 @@ const redirectOnlyRoutes = new Set([
   '/(public)/build',
   '/build',
   '/404',
+  '/500',
+  '/education/explorer',
+  '/stacks/builder',
   '/start',
   '/compare/ashwagandha-vs-rhodiola-for-stress',
   '/compare/magnesium-glycinate-vs-l-threonate-for-sleep',
@@ -56,7 +59,12 @@ const redirectOnlyRoutes = new Set([
   '/herbs/angelica-root'
 ])
 
-const paginatedRoutePrefixes = ['/herbs/page/', '/compounds/page/']
+const exemptRoutePrefixes = [
+  '/blog/',
+  '/compounds/page/',
+  '/herbs/page/',
+  '/start/'
+]
 
 function normalizeRoutePath(routePath) {
   if (!routePath) return ''
@@ -79,7 +87,7 @@ function isExemptRoute(routePath) {
   if (deprecatedSlugs.has(slug)) return true
   if (redirectOnlyRoutes.has(normalized)) return true
   if (normalized.includes('(') || normalized.includes(')')) return true
-  if (paginatedRoutePrefixes.some(prefix => normalized.startsWith(prefix))) return true
+  if (exemptRoutePrefixes.some(prefix => normalized.startsWith(prefix))) return true
   return false
 }
 
