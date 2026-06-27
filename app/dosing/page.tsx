@@ -1,6 +1,7 @@
 import { buildPageMetadata } from '../../src/lib/seo'
 import type { Metadata } from 'next'
 import { getHerbs, getCompounds } from '../../src/lib/runtime-data'
+import type { RuntimeRecord } from '../../src/types/content'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import DosageCalculatorClient from '../../src/components/dosing/DosageCalculatorClient'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
@@ -12,7 +13,6 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/dosing/',
 })
 
-type RuntimeRecord = Record<string, any>
 type DosageClientItem = {
   slug: string
   name: string
