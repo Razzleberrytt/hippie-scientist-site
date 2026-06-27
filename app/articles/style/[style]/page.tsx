@@ -62,7 +62,7 @@ export async function generateMetadata({ params }: BlogStyleRouteProps): Promise
   const { style } = await params
   const group = getBlogStyleGroup(style)
 
-  if (!group) return {}
+  if (!group) return { title: 'Page Not Found', robots: { index: false, follow: true } }
 
   return buildPageMetadata({
     title: `${group.title} | Articles`,

@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: LearnRouteProps): Promise<Met
   return {
     title: compactMetaTitle(post.title),
     description: post.description,
-    alternates: { canonical: `/learn/${post.slug}` },
+    alternates: { canonical: `/learn/${post.slug}/` },
   }
 }
 

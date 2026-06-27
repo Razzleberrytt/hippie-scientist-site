@@ -125,7 +125,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return {
     title: namedStack?.title || (stack ? stack.title : 'Stack'),
     description: namedStack?.summary || stack?.summary || 'Evidence-based supplement stack.',
-    alternates: { canonical: `/stacks/${slug}` },
+    alternates: { canonical: `/stacks/${slug}/` },
   }
 }
 
