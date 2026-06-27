@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: '/learn/product-quality/' },
 }
 
-type RuntimeRecord = Record<string, unknown>
+type RuntimeRecord = Record<string, any>
 type BuyGuideClientItem = {
   slug: string
   name: string
