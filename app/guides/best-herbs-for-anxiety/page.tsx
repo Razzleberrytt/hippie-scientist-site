@@ -194,7 +194,7 @@ export default function BestHerbsForAnxietyPage() {
           </div>
           <div className="mt-4 rounded-xl border border-brand-900/10 bg-brand-50 p-4 text-sm text-brand-950">
             <strong>Fastest useful choice:</strong> for chronic stress-related anxiety, start with{' '}
-            <Link href="/articles/ashwagandha" className="font-semibold text-brand-800 hover:underline">ashwagandha</Link>;
+            <Link href="/articles/ashwagandha-for-anxiety" className="font-semibold text-brand-800 hover:underline">ashwagandha</Link>;
             for same-day calming, compare{' '}
             <Link href="/herbs/passionflower" className="font-semibold text-brand-800 hover:underline">passionflower</Link>{' '}
             or <Link href="/compounds/lavender" className="font-semibold text-brand-800 hover:underline">lavender/Silexan</Link>;
@@ -374,7 +374,7 @@ export default function BestHerbsForAnxietyPage() {
         {/* Related guides */}
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
           <Link href="/goals/anxiety" className="hover:text-brand-800">Anxiety goal hub →</Link>
-          <Link href="/articles/ashwagandha" className="hover:text-brand-800">Ashwagandha Evidence Guide →</Link>
+          <Link href="/articles/ashwagandha-for-anxiety" className="hover:text-brand-800">Ashwagandha Evidence Guide →</Link>
           <Link href="/guides/natural-anxiolytics-beyond-ashwagandha" className="hover:text-brand-800">Anxiolytics Beyond Ashwagandha →</Link>
           <Link href="/guides/natural-alternatives-to-anxiety-medication" className="hover:text-brand-800">Natural Alternatives to Anxiety Meds →</Link>
           <Link href="/guides/kava" className="hover:text-brand-800">Kava Safety Guide →</Link>

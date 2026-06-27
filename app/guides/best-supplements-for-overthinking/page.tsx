@@ -99,6 +99,26 @@ export default function Page() {
           </p>
         </section>
 
+        {/* Fastest useful choice */}
+        <section className="card-premium scroll-mt-20 space-y-3 border-brand-700/30 bg-brand-50/60 p-6">
+          <p className="eyebrow-label">Fastest useful choice</p>
+          <h2 className="text-xl font-semibold text-ink">If you only try one thing: L-theanine</h2>
+          <p className="text-muted">
+            <strong>L-theanine 100–200 mg is the fastest useful choice for overthinking</strong> —
+            effects typically within 30–60 minutes, no sedation, no dependency. It works by raising
+            calming alpha-wave activity and dialing down anxious mental chatter. If overthinking
+            peaks at night with physical tension, add{' '}
+            <Link href="/compounds/magnesium-glycinate" className="font-semibold text-brand-700 hover:underline">
+              magnesium glycinate
+            </Link>{' '}
+            in the evening. See the{' '}
+            <Link href="/articles/l-theanine-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+              full L-theanine guide
+            </Link>{' '}
+            for dosing and stacking notes.
+          </p>
+        </section>
+
         {/* Quick Answer */}
         <section id="quick-answer" className="card-premium scroll-mt-20 space-y-3 p-6">
           <h2 className="text-2xl font-semibold text-ink">Quick answer</h2>
@@ -219,10 +239,12 @@ export default function Page() {
         <section id="risks" className="scroll-mt-20 space-y-3 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6">
           <h2 className="text-xl font-semibold text-amber-900">Risks &amp; safety</h2>
           <ul className="space-y-2 text-sm text-amber-900">
-            <li>• This is educational guidance, not treatment. Persistent rumination, intrusive thoughts or low mood deserve a clinician&rsquo;s input.</li>
-            <li>• Ashwagandha needs caution with thyroid conditions, sedatives and in pregnancy; saffron should be used at modest doses and avoided in pregnancy.</li>
-            <li>• High-dose magnesium can loosen stools — lower the dose rather than stopping.</li>
-            <li>• If you take medication for anxiety, mood or sleep, confirm compatibility before adding supplements.</li>
+            <li>• This is educational guidance, not treatment. Persistent rumination, intrusive thoughts, panic attacks, or low mood deserve a clinician&rsquo;s input.</li>
+            <li>• <strong>Ashwagandha:</strong> avoid in pregnancy and breastfeeding; rare hepatotoxicity reported; caution with thyroid conditions, autoimmune disease, and immunosuppressants.</li>
+            <li>• <strong>Magnesium:</strong> caution with kidney disease (kidneys regulate excretion); high doses cause loose stools &mdash; lower the dose rather than stopping.</li>
+            <li>• <strong>Saffron:</strong> serotonergic activity &mdash; do not combine with SSRIs, SNRIs, or MAOIs without clinician guidance (serotonin syndrome risk); avoid high doses in pregnancy.</li>
+            <li>• <strong>Lemon balm:</strong> generally well-tolerated; caution with sedatives and thyroid medications.</li>
+            <li>• If you take medication for anxiety, mood, sleep, blood pressure, or thyroid, confirm compatibility before adding supplements.</li>
           </ul>
         </section>
 

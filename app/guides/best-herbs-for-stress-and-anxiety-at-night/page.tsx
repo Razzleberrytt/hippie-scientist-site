@@ -99,6 +99,30 @@ export default function Page() {
           </p>
         </section>
 
+        {/* Fastest useful choice */}
+        <section className="card-premium scroll-mt-20 space-y-3 border-brand-700/30 bg-brand-50/60 p-6">
+          <p className="eyebrow-label">Fastest useful choice</p>
+          <h2 className="text-xl font-semibold text-ink">If you only try one thing: passionflower tea or L-theanine</h2>
+          <p className="text-muted">
+            <strong>For racing thoughts at bedtime, L-theanine 100–200&nbsp;mg is the fastest useful choice</strong>{' '}
+            — effects within 30–60 minutes, no sedation, no dependency. For a gentler route,{' '}
+            <Link href="/herbs/passiflora-incarnata" className="font-semibold text-brand-700 hover:underline">
+              passionflower
+            </Link>{' '}
+            tea is one of the most reliable calming bedtime options with mild evidence. Pair either with
+            dim light, no screens, and a consistent bedtime &mdash; the routine is what makes the herb land.
+            See the{' '}
+            <Link href="/articles/l-theanine-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+              full L-theanine guide
+            </Link>{' '}
+            and the{' '}
+            <Link href="/articles/ashwagandha-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+              ashwagandha guide
+            </Link>{' '}
+            for the deeper evidence reviews.
+          </p>
+        </section>
+
         {/* Quick Answer */}
         <section id="quick-answer" className="card-premium scroll-mt-20 space-y-3 p-6">
           <h2 className="text-2xl font-semibold text-ink">Quick answer</h2>
@@ -237,10 +261,13 @@ export default function Page() {
         <section id="risks" className="scroll-mt-20 space-y-3 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6">
           <h2 className="text-xl font-semibold text-amber-900">Risks &amp; safety</h2>
           <ul className="space-y-2 text-sm text-amber-900">
-            <li>• Do not combine sedating herbs with alcohol, benzodiazepines, sleep medication or opioids.</li>
-            <li>• Avoid valerian, passionflower and ashwagandha in pregnancy or breastfeeding without clinical guidance; ashwagandha needs caution with thyroid conditions and medications.</li>
-            <li>• Herbs are educational support, not a treatment for diagnosed anxiety disorders or panic attacks.</li>
-            <li>• If nighttime anxiety is frequent, intense, or paired with low mood, talk to a clinician about evidence-based care.</li>
+            <li>• Do not combine sedating herbs (valerian, passionflower, magnolia) with alcohol, benzodiazepines, sleep medication, or opioids &mdash; additive CNS depression is a real safety risk.</li>
+            <li>• <strong>Ashwagandha:</strong> avoid in pregnancy and breastfeeding; rare hepatotoxicity reported; caution with thyroid conditions, autoimmune disease, and immunosuppressants.</li>
+            <li>• <strong>Valerian:</strong> avoid in pregnancy; do not combine with sedatives; short courses only.</li>
+            <li>• <strong>Passionflower:</strong> avoid in pregnancy (uterotonic activity in animal models); do not combine with prescription sedatives.</li>
+            <li>• <strong>Lemon balm:</strong> caution with sedatives and thyroid medications.</li>
+            <li>• Herbs are educational support, not a treatment for diagnosed anxiety disorders, panic disorder, PTSD, or OCD.</li>
+            <li>• If nighttime anxiety is frequent, intense, or paired with low mood, panic, or suicidal thoughts, contact a clinician &mdash; this is a mental health concern that supplements cannot address.</li>
           </ul>
         </section>
 

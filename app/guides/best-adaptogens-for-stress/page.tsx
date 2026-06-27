@@ -138,6 +138,26 @@ export default function BestAdaptogensForStressPage() {
           </div>
         </section>
 
+        {/* Fastest useful choice */}
+        <section className="rounded-[1.65rem] border border-brand-700/20 bg-brand-50/60 p-6 shadow-sm">
+          <p className="eyebrow-label">Fastest useful choice</p>
+          <h2 className="mt-2 text-xl font-semibold tracking-tight text-ink">If you only try one thing: ashwagandha</h2>
+          <p className="mt-3 text-sm leading-7 text-muted sm:text-base">
+            <strong>Ashwagandha (KSM-66 or Sensoril, 300–600&nbsp;mg/day) is the fastest useful choice among adaptogens for chronic stress</strong>{' '}
+            — meaning fastest in the sense of "lowest time-to-meaningful-benefit," not acute effect.
+            Allow 4–8 weeks of consistent daily use. It will not lower cortisol in an hour; that is
+            not how adaptogens work. If you need something for an acute stress spike, see{' '}
+            <Link href="/compounds/l-theanine" className="font-semibold text-brand-700 hover:underline">
+              L-theanine
+            </Link>
+            . For the deep dive, see the{' '}
+            <Link href="/articles/ashwagandha-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+              ashwagandha article
+            </Link>
+            .
+          </p>
+        </section>
+
         {/* Quick comparison */}
         <section id="glance" className="scroll-mt-20 space-y-4">
           <p className="eyebrow-label">Quick comparison</p>

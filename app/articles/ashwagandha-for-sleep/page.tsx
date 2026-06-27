@@ -154,6 +154,26 @@ export default function AshwagandhaForSleepPage() {
         {/* Main content */}
         <div className="space-y-6">
 
+          {/* Fastest useful choice */}
+          <section className="rounded-[1rem] border border-brand-700/20 bg-brand-50/60 p-6 shadow-sm sm:p-8">
+            <p className="eyebrow-label">Fastest useful choice</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+              If you only try one thing: melatonin or L-theanine (not ashwagandha)
+            </h2>
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <strong>Ashwagandha is not the fastest useful choice for sleep &mdash; it requires 6&ndash;8 weeks of consistent use to build an effect.</strong>{' '}
+              If you want faster sleep onset tonight, the more useful options are{' '}
+              <Link href="/articles/l-theanine-for-anxiety" className="font-semibold text-brand-700 hover:underline">L-theanine</Link>{' '}
+              (100&ndash;200&nbsp;mg, 30&ndash;60 minutes before bed) or melatonin (0.3&ndash;1&nbsp;mg,
+              30&ndash;60 minutes before bed for circadian shift). Ashwagandha's strength is for
+              stress-driven sleep problems where you can commit to a multi-week course &mdash; not as
+              an acute sleep aid. See the{' '}
+              <Link href="/articles/ashwagandha-for-anxiety" className="font-semibold text-brand-700 hover:underline">full ashwagandha article</Link>{' '}
+              and the{' '}
+              <Link href="/articles/best-herbs-for-sleep" className="font-semibold text-brand-700 hover:underline">best herbs for sleep hub</Link>.
+            </p>
+          </section>
+
           {/* Quick Verdict */}
           <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
             <p className="eyebrow-label">Quick Verdict</p>
@@ -475,12 +495,12 @@ export default function AshwagandhaForSleepPage() {
                     function; use with caution in autoimmune disease or on immunosuppressants.
                   </li>
                   <li>
-                    <strong>Pregnancy/lactation:</strong> Avoid. Animal studies show uterotonic
-                    effects; human safety data is absent.
+                    <strong>Pregnancy/lactation:</strong> Avoid. Animal studies show uterotonic effects; human safety data is insufficient.
                   </li>
                   <li>
                     <strong>Drug interactions:</strong> May potentiate sedatives, thyroid hormones,
-                    and immunosuppressants.
+                    and immunosuppressants. Limited data with SSRIs/SNRIs/MAOIs &mdash; consult a
+                    clinician before combining with psychiatric medications.
                   </li>
                 </ul>
               </SafetyNotice>
@@ -698,6 +718,48 @@ export default function AshwagandhaForSleepPage() {
                   </p>
                   <p className="mt-1 text-xs text-muted">
                     Evidence-based research notes on herbs, adaptogens, and supplements.
+                  </p>
+                </Link>
+                <Link
+                  href="/articles/ashwagandha-for-anxiety"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
+                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
+                    Umbrella Article
+                  </p>
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
+                    Ashwagandha: Full Article
+                  </p>
+                  <p className="mt-1 text-xs text-muted">
+                    Evidence review across sleep, anxiety, stress, and focus.
+                  </p>
+                </Link>
+                <Link
+                  href="/articles/l-theanine-for-anxiety"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
+                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
+                    Umbrella Article
+                  </p>
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
+                    L-Theanine: Full Article
+                  </p>
+                  <p className="mt-1 text-xs text-muted">
+                    Calm without sedation &mdash; useful as a faster sleep aid.
+                  </p>
+                </Link>
+                <Link
+                  href="/goals/sleep"
+                  className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
+                >
+                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
+                    Goal Hub
+                  </p>
+                  <p className="font-semibold text-ink transition group-hover:text-brand-700">
+                    Sleep Goal Hub
+                  </p>
+                  <p className="mt-1 text-xs text-muted">
+                    Compare all sleep supplements by evidence and use case.
                   </p>
                 </Link>
                 <Link

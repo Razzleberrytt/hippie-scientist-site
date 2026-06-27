@@ -122,6 +122,27 @@ export default function AnxietyStackGuidePage() {
           </ul>
         </div>
 
+        {/* Fastest useful choice */}
+        <section className="mb-12 rounded-[1rem] border border-brand-700/20 bg-brand-50/60 p-6 shadow-sm">
+          <p className="eyebrow-label">Fastest useful choice</p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">If you only try one thing: L-theanine alone</h2>
+          <p className="mt-3 text-base leading-7 text-muted">
+            <strong>L-theanine (100–200&nbsp;mg) alone is the fastest useful choice for anxiety stacks.</strong>{' '}
+            It works within 30–60 minutes, does not require stacking to be effective, and has a clean
+            safety profile. Adding magnesium (200–400&nbsp;mg/day, glycinate form) creates the most
+            reliable beginner stack. Reserve ashwagandha for when you have a clear chronic-stress
+            pattern and can commit to 6–8 weeks of daily use. See the{' '}
+            <Link href="/articles/l-theanine-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+              full L-theanine guide
+            </Link>{' '}
+            and the{' '}
+            <Link href="/articles/ashwagandha-for-anxiety" className="font-semibold text-brand-700 hover:underline">
+              ashwagandha guide
+            </Link>
+            .
+          </p>
+        </section>
+
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">What Is an Anxiety Stack?</h2>
           <div className="prose prose-lg max-w-none">
@@ -144,8 +165,8 @@ export default function AnxietyStackGuidePage() {
               The three supplements most commonly discussed for anxiety support in this cluster are:
             </p>
             <ul>
-              <li><strong>Ashwagandha</strong> — Adaptogen with research on chronic stress and stress-related anxiety. See <Link href="/articles/ashwagandha-for-anxiety" className="text-primary underline">Ashwagandha for Anxiety</Link>.</li>
-              <li><strong>L-Theanine</strong> — Amino acid from tea that may promote calm focus and relaxation without heavy sedation. See <Link href="/articles/l-theanine-for-anxiety" className="text-primary underline">L-Theanine for Anxiety</Link>.</li>
+              <li><strong>Ashwagandha</strong> — Adaptogen with research on chronic stress and stress-related anxiety. See <Link href="/articles/ashwagandha-for-anxiety" className="text-primary underline">Ashwagandha for Anxiety</Link> or the umbrella <Link href="/articles/ashwagandha-for-anxiety" className="text-primary underline">Ashwagandha article</Link>.</li>
+              <li><strong>L-Theanine</strong> — Amino acid from tea that may promote calm focus and relaxation without heavy sedation. See <Link href="/articles/l-theanine-for-anxiety" className="text-primary underline">L-Theanine for Anxiety</Link> or the umbrella <Link href="/articles/l-theanine-for-anxiety" className="text-primary underline">L-Theanine article</Link>.</li>
               <li><strong>Magnesium</strong> — Mineral involved in nervous system function and often used for physical tension and sleep support. See <Link href="/articles/magnesium-for-sleep" className="text-primary underline">Magnesium for Sleep</Link>.</li>
             </ul>
           </div>
@@ -325,11 +346,12 @@ export default function AnxietyStackGuidePage() {
 
           <SafetyNotice>
             <ul className="space-y-2">
-              <li>Combining multiple supplements increases the potential for additive effects or interactions.</li>
-              <li>Caution with sedatives, psychiatric medications, blood pressure medications, and thyroid medications.</li>
-              <li>Ashwagandha has specific cautions regarding thyroid function and autoimmune conditions.</li>
-              <li>Pregnancy and breastfeeding: Limited safety data for most of these supplements — consult a healthcare provider.</li>
-              <li>Severe anxiety, panic attacks, or suicidal thoughts require professional mental health support, not self-managed supplement stacks.</li>
+              <li>Combining multiple supplements increases the potential for additive effects, drug interactions, or side effects &mdash; introduce one supplement at a time.</li>
+              <li><strong>Ashwagandha:</strong> avoid in pregnancy and breastfeeding; rare hepatotoxicity reported; may affect thyroid hormone levels; caution with autoimmune disease and immunosuppressants.</li>
+              <li><strong>Magnesium:</strong> caution with kidney disease (kidneys regulate excretion); high doses cause loose stools &mdash; lower the dose rather than stopping.</li>
+              <li><strong>L-theanine:</strong> generally well-tolerated; some evidence of mild blood pressure reduction &mdash; caution with antihypertensives; do not combine with sedatives without medical supervision.</li>
+              <li>Caution with sedatives, psychiatric medications, SSRIs/SNRIs/MAOIs, blood pressure medications, and thyroid medications.</li>
+              <li>Severe anxiety, panic attacks, suicidal thoughts, or significant functional impairment require professional mental health support, not self-managed supplement stacks.</li>
             </ul>
           </SafetyNotice>
         </section>

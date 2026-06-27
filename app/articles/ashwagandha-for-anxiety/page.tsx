@@ -114,6 +114,25 @@ export default function AshwagandhaForAnxietyPage() {
           </p>
         </div>
 
+        {/* Fastest useful choice */}
+        <div className="mb-10 p-6 border border-brand-700/30 rounded-xl bg-brand-50/60">
+          <h2 className="text-2xl font-semibold mb-4">Fastest useful choice</h2>
+          <p className="text-muted-foreground">
+            <strong>Ashwagandha is not the fastest useful choice for anxiety.</strong>{' '}
+            Onset is slow &mdash; meaningful effects typically require 6&ndash;8 weeks of consistent
+            use at 300&ndash;600&nbsp;mg/day of a standardized extract (KSM-66 or Sensoril). If you
+            need faster relief for racing thoughts or situational anxiety,{' '}
+            <Link href="/articles/l-theanine-for-anxiety" className="text-primary underline font-semibold">L-theanine</Link>{' '}
+            (100&ndash;200&nbsp;mg) works within 30&ndash;60 minutes and is a cleaner first choice for
+            acute anxiety. Ashwagandha is best reserved for chronic, stress-driven anxiety where you can
+            commit to a multi-week course. See the{' '}
+            <Link href="/articles/ashwagandha-for-anxiety" className="text-primary underline font-semibold">ashwagandha article</Link>{' '}
+            for the full evidence review and the{' '}
+            <Link href="/articles/natural-anxiety-relief" className="text-primary underline font-semibold">natural anxiety relief hub</Link>{' '}
+            for how it fits alongside other options.
+          </p>
+        </div>
+
         {/* Quick Verdict */}
         <div className="mb-10 p-6 border rounded-xl bg-card">
           <h2 className="text-2xl font-semibold mb-4">Quick Verdict</h2>
@@ -224,8 +243,11 @@ export default function AshwagandhaForAnxietyPage() {
             </p>
             <p>
               Many people use them together or at different times of day. See our comparison in the{' '}
-              <Link href="/articles/l-theanine-for-sleep" className="text-primary underline">L-Theanine for Sleep</Link> and{' '}
-              <Link href="/articles/natural-anxiety-relief" className="text-primary underline">Natural Anxiety Relief</Link> articles.
+              <Link href="/articles/l-theanine-for-sleep" className="text-primary underline">L-Theanine for Sleep</Link>, the umbrella{' '}
+              <Link href="/articles/l-theanine-for-anxiety" className="text-primary underline">L-Theanine article</Link>, and the{' '}
+              <Link href="/articles/natural-anxiety-relief" className="text-primary underline">Natural Anxiety Relief</Link>{' '}
+              hub. For the full{' '}
+              <Link href="/articles/ashwagandha-for-anxiety" className="text-primary underline">ashwagandha evidence review</Link>, see the umbrella article.
             </p>
           </div>
         </section>
@@ -293,11 +315,10 @@ export default function AshwagandhaForAnxietyPage() {
                 <strong>Sedative medications or substances:</strong> Potential additive effects on drowsiness.
               </li>
               <li>
-                <strong>Psychiatric medications:</strong> Limited interaction data; consult a clinician before combining.
+                <strong>Psychiatric medications (SSRIs, SNRIs, MAOIs, benzodiazepines, lithium):</strong> Limited interaction data; ashwagandha may have additive sedative or serotonergic effects &mdash; consult a clinician before combining.
               </li>
               <li>
-                <strong>Liver safety:</strong> Rare case reports of liver injury have been noted with some herbal products.
-                Discontinue and seek medical attention if symptoms appear.
+                <strong>Liver safety:</strong> Rare case reports of hepatotoxicity have been noted with some ashwagandha products. Discontinue and seek medical attention if symptoms appear (jaundice, dark urine, severe fatigue, right-sided abdominal pain).
               </li>
               <li>
                 Always speak with a qualified healthcare provider before starting, especially if you have medical conditions or take medications.
@@ -374,6 +395,12 @@ export default function AshwagandhaForAnxietyPage() {
             </Link>
             <Link href="/articles/sleep-stack-guide" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               Sleep Stack Guide
+            </Link>
+            <Link href="/articles/l-theanine-for-anxiety" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+              L-Theanine for Anxiety
+            </Link>
+            <Link href="/goals/anxiety" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+              Anxiety Goal Hub
             </Link>
           </div>
         </section>
