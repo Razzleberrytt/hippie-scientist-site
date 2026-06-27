@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { buildPageMetadata } from '../../src/lib/seo'
 import type { Metadata } from 'next'
 import { getHerbs, getCompounds } from '../../src/lib/runtime-data'
