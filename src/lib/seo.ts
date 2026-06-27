@@ -1077,13 +1077,20 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
 
   const indexDecision = shouldIndexRoute(path, record)
 
-  // Per-profile social card image is produced by the file-based
-  // `opengraph-image.tsx` route convention (app/herbs/[slug]/opengraph-image.tsx
-  // and app/compounds/[slug]/opengraph-image.tsx), which Next emits as a static
-  // PNG at `<route>/opengraph-image.png`. Referencing that generated URL keeps
-  // og:image / twitter:image pointing at a real, branded image. The previous
-  // `/og/{type}/{slug}.png` path was never generated and resolved to a 404.
-  const profileOgImage = `${path}/opengraph-image.png`
+  // Social card image: use the shared default OG image (a real `.jpg` served with
+  // a correct `image/jpeg` content-type). This matches the homepage and
+  // focus-cluster article pattern, which are the project's known-good references.
+  //
+  // Note on the per-profile `opengraph-image.tsx` route convention: under static
+  // export Next emits those images as *extension-less* files
+  // (`out/herbs/<slug>/opengraph-image`, a PNG with no `.png` suffix). On
+  // Cloudflare Pages, extension-less files are served as `application/octet-stream`,
+  // and the global `X-Content-Type-Options: nosniff` header (public/_headers) then
+  // makes social crawlers reject them as images — the same reason `_headers` already
+  // pins `Content-Type` for `/data/*` and `/sitemap.xml`. Pointing at the branded
+  // route URL (with or without `.png`) therefore yields a broken card, so we use the
+  // reliable shared image until those routes get a content-type rule.
+  const profileOgImage = DEFAULT_OG_IMAGE
 
   return buildPageMetadata({
     title: meta.title,
