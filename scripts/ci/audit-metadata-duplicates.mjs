@@ -11,7 +11,13 @@ const deprecatedSlugs = new Set([
   'passionflower-extract', 'passionflower-extract-standardized', 'kava', 'kavalactones', 'reishi', 'maca',
   'maca-root-extract', 'elderberry', 'resveratrol', 'trans-resveratrol',
   'allium-sativum', 'valeriana-officinalis', 'hericium-erinaceus', 'passiflora-incarnata', 'piper-methysticum', 'ganoderma-lucidum',
-  'nr', 'berberine-hcl'
+  'berberis-vulgaris', 'berberis-aristata', 'coptis-chinensis', 'boswellia-carterii', 'morus-alba', 'phellodendron',
+  'astragalus-membranaceus', 'atractylodes-macrocephala', 'angelica-sinensis', 'angelica-root',
+  'nr', 'berberine-hcl',
+  '7-hydroxymitragynine', 'mitragynine', 'kratom', 'phosphatidylserine', 'curcumin', 'l-glutamine',
+  'ashwagandha-vs-rhodiola-for-stress', 'magnesium-glycinate-vs-l-threonate-for-sleep',
+  'iron-ferritin-and-adhd', 'vitamin-d-and-adhd', 'zinc-and-adhd', 'magnesium-for-adhd', 'omega-3-and-adhd',
+  'start', 'build'
 ])
 const byTitle = new Map(), byDesc = new Map(), byCanonical = new Map()
 for (const r of routes) {
