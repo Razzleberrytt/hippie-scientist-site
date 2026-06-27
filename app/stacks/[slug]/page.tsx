@@ -69,6 +69,14 @@ const formatGoal = (value?: string) =>
 
 const stackGoal = (stack: Record<string, unknown>) => stack?.goal_slug || stack?.goal || stack?.slug
 
+function stackMetadataDescription(slug: string, stack?: Record<string, unknown>, namedStack?: NamedStackDefinition) {
+  if (namedStack?.summary) return namedStack.summary
+  const summary = String(stack?.summary || '').trim()
+  if (summary && summary !== 'Evidence-based supplement stack.') return summary
+  const goal = formatGoal(String(stackGoal(stack || { slug }) || slug))
+  return `Evidence-based ${goal.toLowerCase()} supplement stack with role-based anchors, amplifiers, safety notes, and practical pairing logic.`
+}
+
 const groupByRole = (items: StackItemRecord[]): RoleGroups => {
   const groups: RoleGroups = { anchor: [], amplifier: [], support: [] }
   items.forEach(item => {
@@ -124,7 +132,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
   return {
     title: namedStack?.title || (stack ? stack.title : 'Stack'),
-    description: namedStack?.summary || stack?.summary || 'Evidence-based supplement stack.',
+    description: stackMetadataDescription(slug, stack, namedStack),
     alternates: { canonical: `/stacks/${slug}` },
   }
 }
@@ -138,222 +146,123 @@ export default async function StackPage({ params }: Params) {
 
   const displayTitle = namedStack?.title || stack.title
   const displaySummary = namedStack?.summary || stack.summary || 'Stack designed from available human evidence and mechanism support.'
-  const categoryLinks = categoryStackLinks[slug] || []
-  const items: StackItemRecord[] = [...(stack.compounds || stack.stack || [])]
-  const goal = formatGoal(String(stackGoal(stack) || ''))
 
-  if (categoryLinks.length > 0) {
-    const overviewListJsonLd = itemListJsonLd({
-      name: displayTitle,
-      path: `/stacks/${slug}`,
-      items: categoryLinks.map(item => ({
-        name: item.title,
-        url: `/stacks/${item.slug}`,
-      })),
-    })
-
-    const overviewBreadcrumbJsonLd = breadcrumbJsonLd([
+  const rawItems = Array.isArray(stack.items) ? (stack.items as StackItemRecord[]) : []
+  const records = await getUnifiedRuntimeRecords()
+  const herbSlugs = new Set(records.herbs.map(herb => herb.slug))
+  const roles = groupByRole(rawItems)
+  const jsonLd = [
+    breadcrumbJsonLd([
+      { name: 'Home', url: 'https://thehippiescientist.net/' },
       { name: 'Stacks', url: 'https://thehippiescientist.net/stacks' },
       { name: displayTitle, url: `https://thehippiescientist.net/stacks/${slug}` },
-    ])
-
-    return (
-      <div className="space-y-10">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(overviewListJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(overviewBreadcrumbJsonLd) }}
-        />
-        <Breadcrumbs
-          items={[
-            { label: 'Home', href: '/' },
-            { label: 'Stacks', href: '/stacks' },
-            { label: displayTitle },
-          ]}
-        />
-        <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
-          <p className="eyebrow-label">Stack Overview</p>
-          <h1 className="heading-premium text-ink">{displayTitle}</h1>
-          <p className="detail-reading max-w-3xl text-base text-[#46574d] sm:text-lg">
-            Use this category page to compare named protocols before opening the deeper stack detail.
-          </p>
-        </section>
-
-        <section className="grid gap-4 md:grid-cols-3">
-          {categoryLinks.map((item) => (
-            <Link
-              key={item.slug}
-              href={`/stacks/${item.slug}`}
-              className="card-premium p-6 transition hover:border-brand-700/20 hover:bg-white hover:shadow-sm"
-            >
-              <p className="eyebrow-label">Named stack</p>
-              <h2 className="mt-2 text-xl font-semibold text-ink">{item.title}</h2>
-              <p className="mt-3 text-sm leading-7 text-muted">{item.description}</p>
-              <span className="mt-4 inline-flex text-sm font-bold text-brand-800">Open protocol -&gt;</span>
-            </Link>
-          ))}
-        </section>
-
-        <section className="compact-section section-rhythm-compact">
-          <p className="eyebrow-label">{goal} ingredients</p>
-          <h2 className="compact-heading">Category-level stack components</h2>
-          <div className="mt-5 grid gap-3 sm:grid-cols-3">
-            {items.map((item, index) => (
-              <article key={`${item.compound || item.name || index}`} className="rounded-2xl border border-brand-900/10 bg-white/70 p-4">
-                <h3 className="text-sm font-semibold text-ink">{String(item.compound || item.name || 'Stack component')}</h3>
-                <p className="mt-2 text-xs leading-5 text-muted">{String(item.rationale || item.role || 'Review the named protocol for context.')}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-      </div>
-    )
-  }
-
-  const { herbRecords, allRecords } = await getUnifiedRuntimeRecords()
-  const herbSlugs = new Set<string>(herbRecords.map((h: Record<string, unknown>) => String(h.slug || '')))
-
-  const groups = groupByRole(items)
-  const relatedRecords = items.map(item => stackItemToRecord(item, herbSlugs)).filter((record) => record.slug)
-
-  const stackListJsonLd = itemListJsonLd({
-    name: displayTitle,
-    path: `/stacks/${slug}`,
-    items: relatedRecords.map(item => ({
-      name: item.name,
-      url: item.entityType === 'herb' ? `/herbs/${item.slug}` : `/compounds/${item.slug}`,
-    })),
-  })
-
-  const stackBreadcrumbJsonLd = breadcrumbJsonLd([
-    { name: 'Stacks', url: 'https://thehippiescientist.net/stacks' },
-    ...(namedStack
-      ? [{ name: formatGoal(namedStack.parentSlug), url: `https://thehippiescientist.net/stacks/${namedStack.parentSlug}` }]
-      : []),
-    { name: displayTitle, url: `https://thehippiescientist.net/stacks/${slug}` },
-  ])
-
-  // Helper to resolve affiliate fields for a stack item card
-  const getCardAffiliateProps = (item: StackItemRecord, entityType: 'herb' | 'compound') => {
-    const itemSlug = resolveStackItemSlug(item)
-    const record = (allRecords as Record<string, unknown>[]).find(r => r.slug === itemSlug)
-    if (!record) return {}
-    const shopLinks = getAffiliateShopLinks(record, String(record.name || itemSlug), entityType)
-    const primary = shopLinks.find(l => l.url)
-    return primary ? { affiliateUrl: primary.url, affiliateLabel: primary.label } : {}
-  }
+    ]),
+    itemListJsonLd(
+      displayTitle,
+      rawItems.map((item, index) => ({
+        name: String(item.compound || item.name || `Stack item ${index + 1}`),
+        url: `https://thehippiescientist.net/${herbSlugs.has(resolveStackItemSlug(item)) ? 'herbs' : 'compounds'}/${resolveStackItemSlug(item)}`,
+      }))
+    ),
+  ]
+  const affiliateLinks = getAffiliateShopLinks()
 
   return (
-    <div className="space-y-12">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(stackListJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(stackBreadcrumbJsonLd) }}
-      />
-      <Breadcrumbs
-        items={[
-          { label: 'Home', href: '/' },
-          { label: 'Stacks', href: '/stacks' },
-          ...(namedStack
-            ? [{ label: formatGoal(namedStack.parentSlug), href: `/stacks/${namedStack.parentSlug}` }]
-            : []),
-          { label: displayTitle },
-        ]}
-      />
-      <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
-        <div className="space-y-5">
-          <p className="eyebrow-label">Semantic Stack</p>
-          <h1 className="heading-premium text-ink">{namedStack ? displayTitle : `Best Supplements for ${goal}`}</h1>
-          <p className="detail-reading max-w-3xl text-base text-[#46574d] sm:text-lg">
-            {displaySummary}
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {[stack.primary_effect, stack.time_to_effect, stack.evidence_level].filter(Boolean).map((signal: string) => (
-              <PathwayVisualChip key={signal} pathway={signal} />
-            ))}
-          </div>
-          <Link
-            href="#stack"
-            className="button-primary inline-flex rounded-full px-5 py-3 text-sm"
-          >
-            Open full stack ↓
-          </Link>
-          {namedStack ? (
-            <Link
-              href={`/stacks/${namedStack.parentSlug}`}
-              className="inline-flex rounded-full border border-brand-900/10 bg-white/70 px-5 py-3 text-sm font-semibold text-brand-900 transition hover:border-brand-700/30 hover:bg-white"
-            >
-              Back to {formatGoal(namedStack.parentSlug)} overview -&gt;
+    <main className="bg-slate-50 min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <section className="border-b bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+          <Breadcrumbs
+            items={[
+              { label: 'Home', href: '/' },
+              { label: 'Stacks', href: '/stacks' },
+              { label: displayTitle, href: `/stacks/${slug}` },
+            ]}
+          />
+          <p className="mt-6 text-xs font-semibold uppercase tracking-[0.24em] text-emerald-700">Evidence-based stack</p>
+          <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">{displayTitle}</h1>
+          <p className="mt-4 max-w-3xl text-lg text-slate-700">{displaySummary}</p>
+          <AuthorCredentials className="mt-6" />
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/stacks" className="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-emerald-500">
+              Browse all stacks
             </Link>
-          ) : null}
+            <Link href="/compare" className="rounded-full bg-slate-950 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800">
+              Compare stack items
+            </Link>
+          </div>
         </div>
       </section>
-
-      <section id="stack" className="grid gap-8 lg:grid-cols-3">
-        <div className="space-y-4">
-          <h2 className="text-lg font-bold text-ink">Anchor</h2>
-          {groups.anchor.map((item, i) => {
-            const itemSlug = resolveStackItemSlug(item)
-            const entityType = herbSlugs.has(itemSlug) ? 'herb' : 'compound'
-            const affProps = getCardAffiliateProps(item, entityType)
-            return <StackCard key={i} item={item} entityType={entityType} {...affProps} />
-          })}
+      <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="grid gap-6 lg:grid-cols-3">
+          <RoleColumn title="Anchor" items={roles.anchor} herbSlugs={herbSlugs} />
+          <RoleColumn title="Amplifier" items={roles.amplifier} herbSlugs={herbSlugs} />
+          <RoleColumn title="Support" items={roles.support} herbSlugs={herbSlugs} />
         </div>
-
-        <div className="space-y-4">
-          <h2 className="text-lg font-bold text-ink">Amplifier</h2>
-          {groups.amplifier.map((item, i) => {
-            const itemSlug = resolveStackItemSlug(item)
-            const entityType = herbSlugs.has(itemSlug) ? 'herb' : 'compound'
-            const affProps = getCardAffiliateProps(item, entityType)
-            return <StackCard key={i} item={item} entityType={entityType} {...affProps} />
-          })}
-        </div>
-
-        <div className="space-y-4">
-          <h2 className="text-lg font-bold text-ink">Support</h2>
-          {groups.support.map((item, i) => {
-            const itemSlug = resolveStackItemSlug(item)
-            const entityType = herbSlugs.has(itemSlug) ? 'herb' : 'compound'
-            const affProps = getCardAffiliateProps(item, entityType)
-            return <StackCard key={i} item={item} entityType={entityType} {...affProps} />
-          })}
-        </div>
+        {categoryStackLinks[slug]?.length ? (
+          <section className="mt-10 rounded-3xl border border-emerald-100 bg-white p-6 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-700">Named protocols</p>
+            <h2 className="mt-2 text-2xl font-bold text-slate-950">Specific {formatGoal(slug)} stack templates</h2>
+            <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {categoryStackLinks[slug].map(link => (
+                <Link key={link.slug} href={`/stacks/${link.slug}`} className="rounded-2xl border border-slate-200 bg-slate-50 p-4 hover:border-emerald-300 hover:bg-emerald-50">
+                  <h3 className="font-semibold text-slate-950">{link.title}</h3>
+                  <p className="mt-2 text-sm text-slate-600">{link.description}</p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        ) : null}
+        <section className="mt-10 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h2 className="text-2xl font-bold text-slate-950">How this stack is organized</h2>
+          <p className="mt-3 text-slate-700">Anchors are the main intervention, amplifiers are conditional add-ons, and support items cover gaps, tolerance, or timing. Always check interactions before combining supplements.</p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/safety-checker" className="rounded-full bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700">Check safety</Link>
+            <Link href="/dosing" className="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-emerald-500">Review dosing</Link>
+          </div>
+        </section>
+        {affiliateLinks.length ? (
+          <section className="mt-10 rounded-3xl border border-amber-200 bg-amber-50 p-6">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">Quality sourcing</p>
+            <h2 className="mt-2 text-2xl font-bold text-slate-950">Shop cautiously</h2>
+            <p className="mt-2 text-slate-700">Prefer third-party testing, transparent labels, and single-ingredient products when building stacks.</p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              {affiliateLinks.slice(0, 4).map(link => (
+                <a key={link.href} href={link.href} rel="nofollow sponsored" className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm hover:bg-amber-100">
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </section>
+        ) : null}
       </section>
+    </main>
+  )
+}
 
-      <section className="compact-section section-rhythm-compact">
-        <div className="space-y-2">
-          <p className="eyebrow-label">Stack Decision Context</p>
-          <h2 className="compact-heading">Routine-level context matters.</h2>
-          <p className="compact-copy">
-            Stack exploration should account for overlap, timing, tolerance, evidence maturity, and user-specific safety context rather than simply combining popular ingredients.
-          </p>
-        </div>
-        <table className="mt-4 w-full text-sm">
-          <tbody>
-            <tr className="border-b border-brand-900/10">
-              <td className="py-2 text-muted">Primary effect</td>
-              <td className="py-2 text-ink">{stack.primary_effect || 'Varies by user'}</td>
-            </tr>
-            <tr className="border-b border-brand-900/10">
-              <td className="py-2 text-muted">Time to effect</td>
-              <td className="py-2 text-ink">{stack.time_to_effect || 'Varies'}</td>
-            </tr>
-            <tr>
-              <td className="py-2 text-muted">Evidence level</td>
-              <td className="py-2 text-ink">{stack.evidence_level || 'Mixed'}</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-
-      <AuthorCredentials />
-    </div>
+function RoleColumn({ title, items, herbSlugs }: { title: string; items: StackItemRecord[]; herbSlugs: Set<string> }) {
+  return (
+    <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
+      <h2 className="text-xl font-bold text-slate-950">{title}</h2>
+      <div className="mt-4 space-y-4">
+        {items.length ? items.map((item, index) => {
+          const record = stackItemToRecord(item, herbSlugs)
+          return (
+            <div key={`${record.slug}-${index}`} className="rounded-2xl border border-slate-100 bg-slate-50 p-4">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <h3 className="font-semibold text-slate-950">{record.displayName}</h3>
+                  <p className="mt-1 text-sm text-slate-600">{String(item.rationale || 'Mechanism-informed support item.')}</p>
+                </div>
+                <PathwayVisualChip record={record} />
+              </div>
+              <Link href={`/${record.entityType === 'herb' ? 'herbs' : 'compounds'}/${record.slug}`} className="mt-3 inline-flex text-sm font-semibold text-emerald-700 hover:text-emerald-800">
+                View profile →
+              </Link>
+            </div>
+          )
+        }) : <p className="text-sm text-slate-600">No items currently assigned to this role.</p>}
+      </div>
+    </section>
   )
 }
