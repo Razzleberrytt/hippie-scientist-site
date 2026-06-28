@@ -132,7 +132,7 @@ async function listPageFiles(dir = path.join(ROOT, 'app')) {
 
 function staticRouteFromPageFile(file) {
   const relative = path.relative(path.join(ROOT, 'app'), file).replace(/\\/g, '/')
-  const parts = relative.split('/').slice(0, -1)
+  const parts = relative.split('/').slice(0, -1).filter((part) => !/^\(.*\)$/.test(part))
   if (parts.some((part) => part.startsWith('['))) return ''
   return normalizeRoute(`/${parts.join('/')}`)
 }
