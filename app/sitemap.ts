@@ -754,7 +754,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogPosts = readJsonArray<{slug: string; title: string; date: string}>('data/blog/posts.json');
   blogPosts.forEach((post) => {
     if (!post.slug) return;
-    addRoute(`/blog/${post.slug}`, 'monthly', 0.75, post.date ? new Date(post.date) : undefined);
+    addRoute(`/blog/${post.slug}`, 'monthly', 0.75, post.date || undefined);
   });
 
   // Pull any extra from comprehensive route-manifest (covers additional /compare index, ecosystems etc not already listed)
