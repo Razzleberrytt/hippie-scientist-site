@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getHomepageFreshness } from '@/lib/freshness'
+import blogPosts from '@/data/blog/posts.json'
 
 type SectionHeaderProps = { title: string; subtitle?: string; as?: 'h2' | 'h3' }
 
@@ -239,6 +240,48 @@ export default function HomepageV2() {
             <Link href='/methodology/' className='text-brand-700 transition hover:text-brand-800'>
               Read the evidence methodology →
             </Link>
+          </div>
+        </section>
+
+        {/* Latest from the Blog */}
+        <section className='rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm sm:p-6'>
+          <div className='mb-5 flex items-end justify-between gap-4'>
+            <SectionHeader
+              title='Latest from the blog'
+              subtitle='Deep dives into adaptogens, nootropics, and evidence-based plant medicine.'
+              as='h2'
+            />
+            <Link href='/articles/' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
+              All articles →
+            </Link>
+          </div>
+          <div className='grid gap-4 sm:grid-cols-3'>
+            {blogPosts
+              .filter((p: any) => p.date)
+              .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
+              .slice(0, 3)
+              .map((post: any) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}/`}
+                  className='group flex flex-col gap-3 rounded-[0.85rem] border border-brand-900/10 bg-white/60 p-4 transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-md dark:bg-[var(--surface-card)]'
+                >
+                  <div>
+                    <span className='text-xs font-medium text-brand-500'>
+                      {post.date ? new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : ''}
+                    </span>
+                    <h3 className='mt-2 text-base font-bold leading-snug text-ink group-hover:text-brand-700 transition-colors line-clamp-2'>
+                      {post.title}
+                    </h3>
+                    <p className='mt-2 text-sm leading-6 text-muted line-clamp-2'>
+                      {(post.excerpt || '').replace('>- ', '')}
+                    </p>
+                  </div>
+                  <span className='mt-auto text-sm font-bold text-brand-700 group-hover:translate-x-1 transition-transform'>
+                    Read article →
+                  </span>
+                </Link>
+              ))}
           </div>
         </section>
 
