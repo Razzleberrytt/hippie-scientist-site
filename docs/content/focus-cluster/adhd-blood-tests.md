@@ -79,7 +79,7 @@ Iron is essential for dopamine synthesis, myelination, and energy metabolism in 
 
 **Safety notes**: Do not supplement with iron without documented low stores and medical supervision. Excess iron can cause gastrointestinal distress and, in severe cases, organ damage.
 
-**Related article**: [Iron/Ferritin and ADHD](/focus-cluster/iron-ferritin-and-adhd)
+**Related article**: [Iron/Ferritin and ADHD](/articles/iron-ferritin-and-adhd/)
 
 ### Vitamin D
 
@@ -93,7 +93,7 @@ Vitamin D receptors are present throughout the brain and influence neuroinflamma
 
 **Safety notes**: High-dose, long-term supplementation without monitoring can lead to hypercalcemia. Work with a clinician to determine appropriate dosing and duration.
 
-**Related article**: [Vitamin D and ADHD](/focus-cluster/vitamin-d-and-adhd)
+**Related article**: [Vitamin D and ADHD](/articles/vitamin-d-and-adhd/)
 
 ### Zinc
 
@@ -105,7 +105,7 @@ Zinc participates in neurotransmitter metabolism, antioxidant defense, and gene 
 
 **Safety notes**: Chronic high-dose zinc interferes with copper absorption and can cause copper deficiency. Balance is important.
 
-**Related article**: [Zinc and ADHD](/focus-cluster/zinc-and-adhd)
+**Related article**: [Zinc and ADHD](/articles/zinc-and-adhd/)
 
 ### Magnesium
 
@@ -119,7 +119,7 @@ Evidence specifically linking magnesium status to ADHD symptom severity is weake
 
 **Safety notes**: Magnesium supplements are generally well tolerated but can cause diarrhea at higher doses. People with kidney impairment need medical supervision.
 
-**Related article**: [Magnesium for ADHD](/focus-cluster/magnesium-for-adhd)
+**Related article**: [Magnesium for ADHD](/articles/magnesium-for-adhd/)
 
 ### Thyroid Testing
 
@@ -149,7 +149,7 @@ hs-CRP or other inflammatory markers can help interpret ferritin (which rises wi
 
 The Omega-3 Index (percentage of EPA+DHA in red blood cell membranes) reflects long-term omega-3 status. While omega-3 supplementation has been studied extensively in ADHD, routine testing of the index is not standard practice. It may be useful when considering high-dose fish oil or when dietary intake of fatty fish is very low.
 
-**Related article**: [Omega-3 and ADHD](/focus-cluster/omega-3-and-adhd)
+**Related article**: [Omega-3 and ADHD](/articles/omega-3-and-adhd/)
 
 ### Lead Testing
 
@@ -233,17 +233,17 @@ An abnormal result (for example, ferritin 18 ng/mL or 25-OH D 14 ng/mL) identifi
 
 ## Related Articles
 
-- [Best Supplements for ADHD](/focus-cluster/best-supplements-for-adhd)
-- [ADHD Stack Guide](/focus-cluster/adhd-stack-guide)
-- [Nutrient Deficiencies and ADHD](/focus-cluster/nutrient-deficiencies-and-adhd)
-- [Iron/Ferritin and ADHD](/focus-cluster/iron-ferritin-and-adhd)
-- [Vitamin D and ADHD](/focus-cluster/vitamin-d-and-adhd)
-- [Zinc and ADHD](/focus-cluster/zinc-and-adhd)
-- [Magnesium for ADHD](/focus-cluster/magnesium-for-adhd)
-- [Omega-3 and ADHD](/focus-cluster/omega-3-and-adhd)
-- [Sleep and ADHD](/focus-cluster/sleep-and-adhd)
-- [Melatonin for ADHD Sleep](/focus-cluster/melatonin-for-adhd-sleep)
-- [L-Theanine for ADHD](/focus-cluster/l-theanine-for-adhd)
+- [Best Supplements for ADHD](/articles/best-supplements-for-adhd/)
+- [ADHD Stack Guide](/articles/adhd-stack-guide/)
+- [Nutrient Deficiencies and ADHD](/articles/nutrient-deficiencies-and-adhd/)
+- [Iron/Ferritin and ADHD](/articles/iron-ferritin-and-adhd/)
+- [Vitamin D and ADHD](/articles/vitamin-d-and-adhd/)
+- [Zinc and ADHD](/articles/zinc-and-adhd/)
+- [Magnesium for ADHD](/articles/magnesium-for-adhd/)
+- [Omega-3 and ADHD](/articles/omega-3-and-adhd/)
+- [Sleep and ADHD](/articles/sleep-and-adhd/)
+- [Melatonin for ADHD Sleep](/articles/melatonin-for-adhd-sleep/)
+- [L-Theanine for ADHD](/articles/l-theanine-for-adhd/)
 
 ## FAQ
 
