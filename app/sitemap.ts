@@ -221,7 +221,10 @@ function checkRouteFileEligibility(normalizedRoute: string): boolean {
   // Root route is always eligible
   if (!clean) return true;
 
-  const possiblePaths = [
+  // Build candidate page/layout paths in priority order — most specific first.
+  // Next.js resolves a URL to the first matching route, so we only need to
+  // check the file that would actually serve the request.
+  const possiblePaths: string[] = [
     path.join(process.cwd(), 'app', clean, 'page.tsx'),
     path.join(process.cwd(), 'app', clean, 'page.ts'),
     path.join(process.cwd(), 'app', clean, 'layout.tsx'),
@@ -229,37 +232,79 @@ function checkRouteFileEligibility(normalizedRoute: string): boolean {
   ];
   const segments = clean.split('/').filter(Boolean);
   if (segments.length > 1) {
-    possiblePaths.push(
-      path.join(process.cwd(), 'app', ...segments.slice(0, -1), '[slug]', 'page.tsx'),
-      path.join(process.cwd(), 'app', ...segments.slice(0, -1), '[slug]', 'page.ts'),
-    );
-  }
-
-  let fileFound = false;
-  for (const filePath of possiblePaths) {
-    if (existsSync(filePath)) {
-      fileFound = true;
-      try {
-        const content = readFileSync(filePath, 'utf8');
-        if (/robots\s*:\s*["'][^"']*noindex/i.test(content) || /robots\s*:\s*\{\s*index\s*:\s*false/i.test(content)) {
-          return false;
+    // Look for a dynamic-segment catch-all page (any paramName: [slug],
+    // [goal], [style], [page], etc.) in the parent directory. This mirrors
+    // Next.js routing, which resolves any `[xxx]` segment as a catch-all
+    // for the parent path.
+    const parentDir = path.join(process.cwd(), 'app', ...segments.slice(0, -1))
+    try {
+      for (const entry of readdirSync(parentDir, { withFileTypes: true })) {
+        if (!entry.isDirectory()) continue
+        if (/^\[[^\]]+\]$/.test(entry.name)) {
+          possiblePaths.push(
+            path.join(parentDir, entry.name, 'page.tsx'),
+            path.join(parentDir, entry.name, 'page.ts'),
+          )
         }
-        const canonicalMatch = content.match(/canonical\s*:\s*['"]([^'"]+)['"]/);
-        if (canonicalMatch) {
-          const canonicalVal = canonicalMatch[1];
-          const normCanonical = normalizeRoutePath(canonicalVal);
-          if (normCanonical !== normalizedRoute) {
-            return false;
-          }
-        }
-      } catch {
-        // Safe fallback
       }
+    } catch {
+      // Safe fallback: directory unreadable; possiblePaths already covers
+      // specific + [slug] candidates.
+      possiblePaths.push(
+        path.join(process.cwd(), 'app', ...segments.slice(0, -1), '[slug]', 'page.tsx'),
+        path.join(process.cwd(), 'app', ...segments.slice(0, -1), '[slug]', 'page.ts'),
+      )
     }
   }
 
-  // Routes with no matching page file should not be included in the sitemap
-  return fileFound;
+  // Find the first matching file — that is the one Next.js would serve for
+  // this URL. A `[slug]` catch-all is only reached when no specific page file
+  // exists for the slug, so checking it as an additional source of noindex /
+  // canonical signals (the old behavior) produced false positives from the
+  // catch-all's "not found" / "deprecated" early-return branches, which
+  // silently dropped every slug routed through that catch-all from the
+  // sitemap.
+  let servedFile: string | null = null;
+  for (const filePath of possiblePaths) {
+    if (existsSync(filePath)) {
+      servedFile = filePath;
+      break;
+    }
+  }
+  if (!servedFile) return false;
+
+  // Skip the source-level robots/canonical regex checks for dynamic-segment
+  // catch-alls (e.g. `[slug]`, `[goal]`, `[style]`, `[page]`). Those files
+  // handle many slugs and embed a `robots: { index: false, follow: true }`
+  // literal in their "not found" early-return branch — which is correct
+  // runtime behavior for unknown slugs but should not filter every slug they
+  // handle out of the sitemap. Runtime gating is enforced separately by
+  // `shouldIndexRoute()` / `getSitemapLastModified()` in `addRoute()`.
+  if (/\[[^\]]+\]/.test(servedFile)) {
+    return true;
+  }
+
+  try {
+    const content = readFileSync(servedFile, 'utf8');
+    if (
+      /robots\s*:\s*["'][^"']*noindex/i.test(content) ||
+      /robots\s*:\s*\{\s*index\s*:\s*false/i.test(content)
+    ) {
+      return false;
+    }
+    const canonicalMatch = content.match(/canonical\s*:\s*['"]([^'"]+)['"]/);
+    if (canonicalMatch) {
+      const canonicalVal = canonicalMatch[1];
+      const normCanonical = normalizeRoutePath(canonicalVal);
+      if (normCanonical !== normalizedRoute) {
+        return false;
+      }
+    }
+  } catch {
+    // Safe fallback: treat as eligible when the file exists but can't be read.
+  }
+
+  return true;
 }
 
 function isAllowedRouteManifestEntry(routeStr: string): boolean {
