@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getHomepageFreshness } from '@/lib/freshness'
 import blogPosts from '@/data/blog/posts.json'
+import { sortPostsNewestFirst, truncateText, formatDate, type BlogPost } from '@/lib/blog-index'
 
 type SectionHeaderProps = { title: string; subtitle?: string; as?: 'h2' | 'h3' }
 
@@ -256,11 +257,9 @@ export default function HomepageV2() {
             </Link>
           </div>
           <div className='grid gap-4 sm:grid-cols-3'>
-            {blogPosts
-              .filter((p: any) => p.date)
-              .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
+            {sortPostsNewestFirst(blogPosts as BlogPost[])
               .slice(0, 3)
-              .map((post: any) => (
+              .map((post: BlogPost) => (
                 <Link
                   key={post.slug}
                   href={`/blog/${post.slug}/`}
@@ -268,13 +267,13 @@ export default function HomepageV2() {
                 >
                   <div>
                     <span className='text-xs font-medium text-brand-500'>
-                      {post.date ? new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : ''}
+                      {formatDate(post.date)}
                     </span>
                     <h3 className='mt-2 text-base font-bold leading-snug text-ink group-hover:text-brand-700 transition-colors line-clamp-2'>
                       {post.title}
                     </h3>
                     <p className='mt-2 text-sm leading-6 text-muted line-clamp-2'>
-                      {(post.excerpt || '').replace('>- ', '')}
+                      {truncateText(post.excerpt, 120)}
                     </p>
                   </div>
                   <span className='mt-auto text-sm font-bold text-brand-700 group-hover:translate-x-1 transition-transform'>
