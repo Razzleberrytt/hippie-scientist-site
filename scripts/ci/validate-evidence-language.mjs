@@ -50,12 +50,12 @@ export function auditRecord(record, datasetName = 'test') {
   const textToAudit = `${summary} ${description}`.trim()
   const localFindings = []
 
-  // Determine if this record is published/indexable. Only PUBLISH records
-  // are expected to have content; NOINDEX, NEEDS_REVIEW, BLOCKED, hidden,
-  // and redirect-only records are not flagged for empty content.
+  // Determine if this record is published/indexable. Missing status is treated
+  // as auditable for unit tests and legacy records; explicit non-PUBLISH,
+  // hidden, and redirect/archive records are exempt from empty-content checks.
   const indexabilityStatus = String(record.indexability_status || '').toUpperCase()
   const runtimeExportDecision = String(record.runtime_export_decision || '').toLowerCase()
-  const isPublished = indexabilityStatus === 'PUBLISH' &&
+  const isPublished = (!indexabilityStatus || indexabilityStatus === 'PUBLISH') &&
     !['hidden', 'hidden_until_grounded', 'alias_redirect_only', 'research_archive_runtime'].includes(runtimeExportDecision)
 
   // 1. Missing fields (Critical) — only for published/indexable records
