@@ -95,7 +95,7 @@ export default function SleepHerbsVsMelatoninPage() {
           <Link href="/guides/magnesium-vs-melatonin" className="text-brand-700 hover:text-brand-800 hover:underline">
             Magnesium vs Melatonin Guide →
           </Link>
-          <Link href="/best-supplements-for-sleep" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/best-supplements-for-sleep/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Browse Sleep Supplements →
           </Link>
         </div>
@@ -173,10 +173,10 @@ export default function SleepHerbsVsMelatoninPage() {
           Hormones and sedating botanicals interact with your nervous system. Melatonin should be kept at physiological doses (0.3mg to 1mg) to prevent receptor desensitization and grogginess. Botanical options like Valerian or Lemon Balm should be evaluated for potential polypharmacy interactions if you are already taking clinical sleep medications.
         </p>
         <div className="mt-4 flex gap-3">
-          <Link href="/compare" className="text-xs font-bold text-amber-900 hover:text-amber-950 hover:underline">
+          <Link href="/compare/" className="text-xs font-bold text-amber-900 hover:text-amber-950 hover:underline">
             Side-by-Side Compare Tool →
           </Link>
-          <Link href="/safety-checker" className="text-xs font-bold text-amber-900 hover:text-amber-950 hover:underline">
+          <Link href="/safety-checker/" className="text-xs font-bold text-amber-900 hover:text-amber-950 hover:underline">
             Interactive Safety Checker →
           </Link>
         </div>

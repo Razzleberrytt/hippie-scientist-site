@@ -491,6 +491,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const sitemapEntries: MetadataRoute.Sitemap = [
     route(normalizeSitemapUrl('/'), 'weekly', 1.0),
     route(normalizeSitemapUrl('/about'), 'yearly', 0.6),
+    route(normalizeSitemapUrl('/author'), 'yearly', 0.6),
+    route(normalizeSitemapUrl('/search'), 'monthly', 0.6),
     route(normalizeSitemapUrl('/contact'), 'yearly', 0.5),
     route(normalizeSitemapUrl('/faq'), 'monthly', 0.7),
     route(normalizeSitemapUrl('/methodology'), 'yearly', 0.6),
@@ -738,6 +740,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'best-supplements-for-gut-health',
     'best-supplements-for-joint-support',
     'best-magnesium-supplements-for-adhd',
+    'natural-testosterone-boosters',
+    'best-herbs-for-anxiety',
+    'herbs-for-sleep',
+    'best-nootropics-for-focus',
+    'best-adaptogens-for-stress',
   ];
   topPages.forEach((p) => {
     addRoute(`/${p}`, 'monthly', 0.6);

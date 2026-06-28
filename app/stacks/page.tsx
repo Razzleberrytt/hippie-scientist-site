@@ -148,7 +148,7 @@ export default function StacksPage() {
             <h2 className="mt-1 text-3xl font-black text-ink">Stack library</h2>
             <p className="mt-1 text-sm text-muted">Each stack shows the actual pattern before the click.</p>
           </div>
-          <Link href="/goals" className="text-sm font-black text-emerald-700 hover:text-emerald-900">Explore goal guides →</Link>
+          <Link href="/goals/" className="text-sm font-black text-emerald-700 hover:text-emerald-900">Explore goal guides →</Link>
         </div>
 
         {remaining.length > 0 ? (

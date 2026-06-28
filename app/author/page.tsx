@@ -24,13 +24,13 @@ export default function AuthorPage() {
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
-            href="/about"
+            href="/about/"
             className="rounded-full bg-brand-800 px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-900"
           >
             Editorial standards
           </Link>
           <Link
-            href="/herbs"
+            href="/herbs/"
             className="rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50"
           >
             Herb library
@@ -116,7 +116,7 @@ export default function AuthorPage() {
           Found an error, outdated citation, or evidence summary that overstates what the data supports? Please reach out. Corrections improve the resource for everyone and are taken seriously.
         </p>
         <Link
-          href="/contact"
+          href="/contact/"
           className="inline-block rounded-full border border-brand-900/20 px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50"
         >
           Send a correction →
@@ -125,15 +125,15 @@ export default function AuthorPage() {
 
       {/* Navigation */}
       <nav aria-label="Content links" className="flex flex-wrap gap-3 text-sm">
-        <Link href="/herbs" className="text-brand-800 hover:underline font-semibold">Herb library</Link>
+        <Link href="/herbs/" className="text-brand-800 hover:underline font-semibold">Herb library</Link>
         <span className="text-muted">·</span>
-        <Link href="/compounds" className="text-brand-800 hover:underline font-semibold">Compound library</Link>
+        <Link href="/compounds/" className="text-brand-800 hover:underline font-semibold">Compound library</Link>
         <span className="text-muted">·</span>
-        <Link href="/goals" className="text-brand-800 hover:underline font-semibold">Goal guides</Link>
+        <Link href="/goals/" className="text-brand-800 hover:underline font-semibold">Goal guides</Link>
         <span className="text-muted">·</span>
-        <Link href="/about" className="text-brand-800 hover:underline font-semibold">About</Link>
+        <Link href="/about/" className="text-brand-800 hover:underline font-semibold">About</Link>
         <span className="text-muted">·</span>
-        <Link href="/disclaimer" className="text-brand-800 hover:underline font-semibold">Disclaimer</Link>
+        <Link href="/disclaimer/" className="text-brand-800 hover:underline font-semibold">Disclaimer</Link>
       </nav>
     </div>
   )

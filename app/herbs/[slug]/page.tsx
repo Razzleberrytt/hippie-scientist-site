@@ -486,7 +486,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
         <div className="flex-1 min-w-0 space-y-10">
           {/* Header Breadcrumb - use only common name, not scientific name */}
       <nav className="flex items-center gap-2 text-xs text-muted">
-        <Link href="/herbs" className="transition hover:text-ink">Herbs</Link>
+        <Link href="/herbs/" className="transition hover:text-ink">Herbs</Link>
         <span>/</span>
         <span className="text-ink font-medium">{displayName}</span>
       </nav>
@@ -860,10 +860,10 @@ export default async function HerbDetailPage({ params }: PageProps) {
       <AuthorCredentials />
 
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between">
-        <Link href="/herbs" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">
+        <Link href="/herbs/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">
           ← Back to herbs library
         </Link>
-        <Link href="/safety-checker" className="text-sm font-bold text-brand-800 hover:underline">
+        <Link href="/safety-checker/" className="text-sm font-bold text-brand-800 hover:underline">
           Safety checker →
         </Link>
       </div>

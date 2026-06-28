@@ -250,7 +250,7 @@ export default async function EducationArticlePage({ params }: Props) {
 
       {/* Footer / Navigation */}
       <footer className="flex justify-between items-center pt-4 border-t border-brand-900/10" aria-label="Education article navigation">
-        <Link href="/education" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
+        <Link href="/education/" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
           ← Back to Education Index
         </Link>
       </footer>

@@ -48,8 +48,8 @@ export default function StudyDesignSnapshotHubPage() {
           and tucks the &ldquo;why&rdquo; — trial design and limitations — into an optional,
           expandable panel. The same component is embeddable inside our structured education
           content. For the full methodology guide, see{' '}
-          <Link href="/education/evidence-literacy" className="font-semibold text-brand-700 hover:text-brand-800">
-            Evidence Literacy
+          <Link href="/education/evidence-hierarchy" className="font-semibold text-brand-700 hover:text-brand-800">
+            Evidence Hierarchy
           </Link>
           .
         </p>

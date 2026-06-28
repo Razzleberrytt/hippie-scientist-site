@@ -473,7 +473,7 @@ export default function BerberineVsMetforminPage() {
         <Link href="/compare/berberine-vs-psyllium" className="chip-readable">Berberine vs Psyllium</Link>
         <Link href="/goals/gut-health" className="chip-readable">Gut Health Goals</Link>
         <Link href="/goals/fat-loss" className="chip-readable">Fat Loss Goals</Link>
-        <Link href="/compare" className="chip-readable">All Comparisons</Link>
+        <Link href="/compare/" className="chip-readable">All Comparisons</Link>
       </div>
     </div>
   )

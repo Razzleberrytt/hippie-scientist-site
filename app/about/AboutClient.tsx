@@ -64,21 +64,21 @@ export default function AboutClient() {
 
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
-                href="/herbs"
+                href="/herbs/"
                 className="rounded-full bg-brand-800 px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-900"
               >
                 Explore herbs
               </Link>
 
               <Link
-                href="/compounds"
+                href="/compounds/"
                 className="rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50"
               >
                 Explore compounds
               </Link>
 
               <Link
-                href="/goals"
+                href="/goals/"
                 className="rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50"
               >
                 Browse by goals

@@ -149,7 +149,7 @@ export default function BestSupplementsForSleepPage() {
           </h1>
           <p className="mt-2 text-xs text-muted">
             Written and reviewed by{' '}
-            <Link href="/author" className="font-medium text-brand-700 hover:underline">Will Thomas</Link>
+            <Link href="/author/" className="font-medium text-brand-700 hover:underline">Will Thomas</Link>
             {' '}· Last updated June 26, 2026
           </p>
           <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
@@ -298,8 +298,8 @@ export default function BestSupplementsForSleepPage() {
           <Link href="/guides/magnesium-vs-melatonin" className="hover:text-brand-800">Magnesium vs Melatonin →</Link>
           <Link href="/compare/sleep-herbs-vs-melatonin" className="hover:text-brand-800">Sleep Herbs vs Melatonin →</Link>
           <Link href="/guides/magnesium-for-sleep" className="hover:text-brand-800">Magnesium for Sleep Guide →</Link>
-          <Link href="/compare/magnesium-glycinate-vs-l-threonate-for-sleep" className="hover:text-brand-800">Glycinate vs L-Threonate →</Link>
-          <Link href="/guides" className="hover:text-brand-800">All Guides →</Link>
+          <Link href="/compare/magnesium-glycinate-vs-magnesium-threonate" className="hover:text-brand-800">Glycinate vs L-Threonate →</Link>
+          <Link href="/guides/" className="hover:text-brand-800">All Guides →</Link>
         </nav>
       </div>
       </ArticleLayout>

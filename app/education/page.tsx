@@ -160,6 +160,81 @@ const researchTools = [
   },
 ]
 
+const neurotransmitters = [
+  { title: 'Dopamine', href: '/education/dopamine/' },
+  { title: 'Serotonin', href: '/education/serotonin/' },
+  { title: 'GABA Pathway', href: '/education/gaba/' },
+  { title: 'Glutamate', href: '/education/glutamate/' },
+  { title: 'Cholinergic System', href: '/education/cholinergic-system/' },
+  { title: 'GABA vs Serotonin', href: '/education/gaba-vs-serotonin/' },
+  { title: 'Evidence Levels', href: '/education/evidence-levels/' },
+  { title: 'What Is Neuropharmacology?', href: '/education/what-is-neuropharmacology/' },
+]
+
+const researchLiteracy = [
+  { title: 'Why Human Trials Matter', href: '/education/why-human-trials-matter/' },
+  { title: 'Why Studies Conflict', href: '/education/why-studies-conflict/' },
+  { title: 'Why Neuroscience Is Difficult', href: '/education/why-neuroscience-is-difficult/' },
+  { title: 'Why Individual Variability Matters', href: '/education/why-individual-variability-matters/' },
+  { title: 'Why Online Supplement Claims Spread', href: '/education/why-online-supplement-claims-spread/' },
+  { title: 'Common Neurochemistry Myths', href: '/education/common-neurochemistry-myths/' },
+  { title: 'Scientific but Human Neuroscience', href: '/education/scientific-but-human-neuroscience/' },
+  { title: 'Understanding Individual Variability', href: '/education/understanding-individual-variability/' },
+]
+
+const psychoactivePlants = [
+  { title: 'What Are Psychoactive Herbs?', href: '/education/what-are-psychoactive-herbs/' },
+  { title: 'What Is an Entheogen?', href: '/education/what-is-an-entheogen/' },
+  { title: 'How Psychoactive Plants Affect the Brain', href: '/education/how-psychoactive-plants-affect-the-brain/' },
+  { title: 'How Psychoactive Substances Affect Perception', href: '/education/how-psychoactive-substances-affect-perception/' },
+  { title: 'How Herbal Psychoactives Differ from Pharmaceuticals', href: '/education/how-herbal-psychoactives-differ-from-pharmaceuticals/' },
+]
+
+const burnoutFatigue = [
+  { title: 'Why Burnout Affects Cognition', href: '/education/why-burnout-affects-cognition/' },
+  { title: 'Stress and Cognition Continuity', href: '/education/stress-and-cognition-continuity/' },
+  { title: 'Cognitive Resilience Systems', href: '/education/cognitive-resilience-systems/' },
+  { title: 'Emotional Amplification Systems', href: '/education/emotional-amplification-systems/' },
+  { title: 'Why Fatigue Is Biologically Complex', href: '/education/why-fatigue-is-biologically-complex/' },
+]
+
+const variabilityAndContext = [
+  { title: 'Understanding Placebo and Expectancy', href: '/education/understanding-placebo-and-expectancy/' },
+  { title: 'Placebo and Context Effects', href: '/education/placebo-and-context-effects/' },
+  { title: 'What Is Anxiety Neurochemistry?', href: '/education/what-is-anxiety-neurochemistry/' },
+  { title: 'Why Overstimulation Impairs Focus', href: '/education/why-overstimulation-impairs-focus/' },
+  { title: 'Why Calm Focus Differs from Stimulation', href: '/education/why-calm-focus-differs-from-stimulation/' },
+  { title: 'Why Sleep Matters for Mental Health', href: '/education/why-sleep-matters-for-mental-health/' },
+  { title: 'Why Sleep Changes Emotional Regulation', href: '/education/why-sleep-changes-emotional-regulation/' },
+  { title: 'Neuroscience Glossary', href: '/education/neuroscience-glossary/' },
+  { title: 'Inflammation and the Brain', href: '/education/inflammation/' },
+]
+
+function CompactSection({
+  title,
+  items,
+}: {
+  title: string
+  items: { title: string; href: string }[]
+}) {
+  return (
+    <section className='space-y-4'>
+      <h2 className='text-xl font-semibold tracking-tight text-ink'>{title}</h2>
+      <div className='grid gap-2 sm:grid-cols-2 lg:grid-cols-3'>
+        {items.map(item => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className='rounded-xl border border-brand-900/10 bg-white/70 px-4 py-3 text-sm font-medium text-brand-800 transition hover:border-brand-700/20 hover:bg-brand-50/30'
+          >
+            {item.title} →
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
+}
+
 function Section({
   title,
   description,
@@ -275,6 +350,21 @@ export default function EducationHubPage() {
         description='Methodology, citation, modeling, pathway, and safety pages that should be reachable from the main education hub instead of sitting isolated.'
         items={researchTools}
       />
+
+      <section className='space-y-10'>
+        <div className='space-y-2'>
+          <p className='eyebrow-label'>Complete Topic Index</p>
+          <h2 className='text-3xl font-semibold tracking-tight text-ink'>All Education Topics</h2>
+          <p className='text-base leading-8 text-[#46574d] max-w-3xl'>
+            Explore the full depth of the educational ecosystem — neurotransmitter pathways, research literacy, psychoactive plant science, burnout biology, individual variability, and reference pages.
+          </p>
+        </div>
+        <CompactSection title='Neurotransmitter Pathways' items={neurotransmitters} />
+        <CompactSection title='Research Literacy and Evidence Limitations' items={researchLiteracy} />
+        <CompactSection title='Psychoactive Plant Science' items={psychoactivePlants} />
+        <CompactSection title='Burnout, Fatigue, and Resilience' items={burnoutFatigue} />
+        <CompactSection title='Context, Variability, and Applied Topics' items={variabilityAndContext} />
+      </section>
 
       <section className='card-premium p-8 space-y-6'>
         <div className='space-y-3 max-w-3xl'>

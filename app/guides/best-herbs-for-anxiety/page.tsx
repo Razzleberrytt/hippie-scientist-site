@@ -379,7 +379,7 @@ export default function BestHerbsForAnxietyPage() {
           <Link href="/guides/natural-alternatives-to-anxiety-medication" className="hover:text-brand-800">Natural Alternatives to Anxiety Meds →</Link>
           <Link href="/guides/kava" className="hover:text-brand-800">Kava Safety Guide →</Link>
           <Link href="/guides/best-supplements-for-overthinking" className="hover:text-brand-800">Supplements for Overthinking →</Link>
-          <Link href="/guides" className="hover:text-brand-800">All Guides →</Link>
+          <Link href="/guides/" className="hover:text-brand-800">All Guides →</Link>
         </nav>
       </div>
     </ArticleLayout>

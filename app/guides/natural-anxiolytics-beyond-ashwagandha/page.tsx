@@ -178,10 +178,10 @@ export default function NaturalAnxiolyticsPage() {
           Always review your personal contraindications, potential drug-supplement interactions, and consult with a qualified medical professional before introducing new supplements.
         </p>
         <div className="mt-4 flex gap-3">
-          <Link href="/compare" className="text-xs font-bold text-amber-900 hover:text-amber-950 hover:underline">
+          <Link href="/compare/" className="text-xs font-bold text-amber-900 hover:text-amber-950 hover:underline">
             Side-by-Side Compare Tool →
           </Link>
-          <Link href="/safety-checker" className="text-xs font-bold text-amber-900 hover:text-amber-950 hover:underline">
+          <Link href="/safety-checker/" className="text-xs font-bold text-amber-900 hover:text-amber-950 hover:underline">
             Interactive Safety Checker →
           </Link>
         </div>

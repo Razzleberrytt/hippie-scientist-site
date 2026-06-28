@@ -40,7 +40,7 @@ export function AdhdCtaDashboard({ currentSlug }: { currentSlug: string }) {
       <h3 className="text-base font-bold text-ink">Next Steps &amp; Practical Resources</h3>
       <p className="mt-1 text-sm text-muted">Review these guides to translate evidence into safe, personalized actions.</p>
       <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <Link href="/compare" className="flex flex-col justify-between rounded-lg border border-brand-900/10 bg-white/50 p-4 transition hover:border-brand-700/20 hover:bg-brand-50/10">
+        <Link href="/compare/" className="flex flex-col justify-between rounded-lg border border-brand-900/10 bg-white/50 p-4 transition hover:border-brand-700/20 hover:bg-brand-50/10">
           <div>
             <p className="text-[0.68rem] font-bold uppercase tracking-wider text-brand-700">Database</p>
             <h4 className="mt-1 text-sm font-bold text-ink">Compare Options</h4>
@@ -50,7 +50,7 @@ export function AdhdCtaDashboard({ currentSlug }: { currentSlug: string }) {
         </Link>
         
         {currentSlug !== 'adhd-stack-guide' ? (
-          <Link href="/articles/adhd-stack-guide" className="flex flex-col justify-between rounded-lg border border-brand-900/10 bg-white/50 p-4 transition hover:border-brand-700/20 hover:bg-brand-50/10">
+          <Link href="/articles/adhd-stack-guide/" className="flex flex-col justify-between rounded-lg border border-brand-900/10 bg-white/50 p-4 transition hover:border-brand-700/20 hover:bg-brand-50/10">
             <div>
               <p className="text-[0.68rem] font-bold uppercase tracking-wider text-brand-700">Formulation</p>
               <h4 className="mt-1 text-sm font-bold text-ink">Read the Stack Guide</h4>
@@ -59,7 +59,7 @@ export function AdhdCtaDashboard({ currentSlug }: { currentSlug: string }) {
             <span className="mt-3 text-xs font-semibold text-brand-700 inline-flex items-center gap-1">View Stack Guide →</span>
           </Link>
         ) : (
-          <Link href="/articles/best-supplements-for-adhd" className="flex flex-col justify-between rounded-lg border border-brand-900/10 bg-white/50 p-4 transition hover:border-brand-700/20 hover:bg-brand-50/10">
+          <Link href="/articles/best-supplements-for-adhd/" className="flex flex-col justify-between rounded-lg border border-brand-900/10 bg-white/50 p-4 transition hover:border-brand-700/20 hover:bg-brand-50/10">
             <div>
               <p className="text-[0.68rem] font-bold uppercase tracking-wider text-brand-700">Directory</p>
               <h4 className="mt-1 text-sm font-bold text-ink">Best Supplements</h4>
@@ -69,7 +69,7 @@ export function AdhdCtaDashboard({ currentSlug }: { currentSlug: string }) {
           </Link>
         )}
 
-        <Link href="/safety-checker" className="flex flex-col justify-between rounded-lg border border-brand-900/10 bg-white/50 p-4 transition hover:border-brand-700/20 hover:bg-brand-50/10">
+        <Link href="/safety-checker/" className="flex flex-col justify-between rounded-lg border border-brand-900/10 bg-white/50 p-4 transition hover:border-brand-700/20 hover:bg-brand-50/10">
           <div>
             <p className="text-[0.68rem] font-bold uppercase tracking-wider text-brand-700">Safety First</p>
             <h4 className="mt-1 text-sm font-bold text-ink">Check Safety Notes</h4>

@@ -86,7 +86,7 @@ export default function Page() {
           </h1>
           <p className="mt-2 text-xs text-muted">
             Written and reviewed by{' '}
-            <Link href="/author" className="font-medium text-brand-700 hover:underline">Will Thomas</Link>
+            <Link href="/author/" className="font-medium text-brand-700 hover:underline">Will Thomas</Link>
             {' '}· Last updated June 2026
           </p>
           <p className="detail-reading mt-4 text-muted">

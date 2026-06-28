@@ -413,13 +413,11 @@ export function generateSeoEntryMetadata(route: string): Metadata {
   const isGeneratedGuideRoute = route.startsWith('guides/')
     && !indexableGuidePages.some((item) => item.route === route)
 
-  const slug = route.startsWith('guides/') ? route.replace('guides/', '') : route
-
   let meta = buildPageMetadata({
     title: page.title,
     description: page.intro,
     path: `/${canonicalRoute}`,
-    image: `/og/guides/${slug}.png`,
+    image: '/og-default.jpg',
     openGraphType: 'article',
   })
   if (isGeneratedGuideRoute) {
@@ -483,7 +481,7 @@ export async function SeoEntryPage({ route }: { route: string }) {
           <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{page.intro}</p>
           <div className="mt-5 flex flex-wrap gap-3">
             <Link href={`/goals/${goal.slug}`} className="rounded-full bg-emerald-300 px-4 py-2 text-sm font-bold text-black hover:bg-emerald-200">View ranked picks</Link>
-            <Link href="/compounds" className="rounded-full border border-brand-900/10 px-4 py-2 text-sm font-semibold text-ink hover:bg-brand-50">Browse compounds</Link>
+            <Link href="/compounds/" className="rounded-full border border-brand-900/10 px-4 py-2 text-sm font-semibold text-ink hover:bg-brand-50">Browse compounds</Link>
           </div>
         </section>
       </div>

@@ -349,10 +349,10 @@ export default function AdhdSupplementsHub() {
           No supplement diagnoses, treats, cures, or prevents ADHD. Always discuss any changes with a qualified healthcare provider. This is especially critical when starting supplements in children, during pregnancy or breastfeeding, or if prescription ADHD stimulants or other medications are currently in use.
         </p>
         <div className="pt-2 flex gap-3 text-xs font-bold text-amber-900">
-          <Link href="/safety-checker" className="hover:text-amber-950 hover:underline">
+          <Link href="/safety-checker/" className="hover:text-amber-950 hover:underline">
             Open Safety Checker →
           </Link>
-          <Link href="/compare" className="hover:text-amber-950 hover:underline">
+          <Link href="/compare/" className="hover:text-amber-950 hover:underline">
             Side-by-Side Comparison Tool →
           </Link>
         </div>

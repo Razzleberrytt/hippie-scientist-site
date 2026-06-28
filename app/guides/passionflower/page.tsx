@@ -250,8 +250,8 @@ export default function PassionflowerGuidePage() {
 
       {/* Bottom nav */}
       <div className="flex flex-wrap gap-4 border-t border-brand-900/10 pt-6 text-sm">
-        <Link href="/guides" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">← All Guides</Link>
-        <Link href="/herbs" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">Herb Library →</Link>
+        <Link href="/guides/" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">← All Guides</Link>
+        <Link href="/herbs/" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">Herb Library →</Link>
       </div>
 
       </div>{/* end space-y-8 */}

@@ -236,7 +236,7 @@ export function GlobalSearchModal() {
                 <span>↑↓ navigate</span>
                 <span>↵ open</span>
                 <Link
-                  href="/search"
+                  href="/search/"
                   onClick={close}
                   className="font-semibold text-brand-700 hover:text-brand-900"
                 >

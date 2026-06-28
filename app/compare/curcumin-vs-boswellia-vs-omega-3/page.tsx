@@ -243,7 +243,7 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
           </ul>
           <p>
             Stacking all three compounds the bleeding caution. Review interactions on the{' '}
-            <Link href="/safety-checker" className="font-semibold text-emerald-700 hover:underline">safety checker</Link>{' '}
+            <Link href="/safety-checker/" className="font-semibold text-emerald-700 hover:underline">safety checker</Link>{' '}
             and with a qualified clinician before combining.
           </p>
         </div>

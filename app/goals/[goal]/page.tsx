@@ -664,13 +664,13 @@ export default async function GoalDecisionPage({
           full profile or speaking with a qualified clinician.
         </p>
         <div className="mt-4 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
-          <Link href="/methodology" className="text-brand-800 hover:text-brand-700 hover:underline">
+          <Link href="/methodology/" className="text-brand-800 hover:text-brand-700 hover:underline">
             Research methodology →
           </Link>
-          <Link href="/education/evidence-hierarchy" className="text-brand-800 hover:text-brand-700 hover:underline">
+          <Link href="/education/evidence-hierarchy/" className="text-brand-800 hover:text-brand-700 hover:underline">
             Evidence hierarchy →
           </Link>
-          <Link href="/disclaimer" className="text-brand-800 hover:text-brand-700 hover:underline">
+          <Link href="/disclaimer/" className="text-brand-800 hover:text-brand-700 hover:underline">
             Disclaimer →
           </Link>
         </div>

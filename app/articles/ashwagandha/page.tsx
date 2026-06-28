@@ -104,7 +104,7 @@ export default function AshwagandhaArticlePage() {
 
       {/* Breadcrumb */}
       <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
-        <Link href="/articles" className="transition hover:text-ink">
+        <Link href="/articles/" className="transition hover:text-ink">
           Articles
         </Link>
         <span>/</span>
@@ -139,7 +139,7 @@ export default function AshwagandhaArticlePage() {
 
         <p className="mt-2 text-sm text-muted">
           By{' '}
-          <Link href="/about" rel="author" className="font-medium text-ink hover:underline">
+          <Link href="/about/" rel="author" className="font-medium text-ink hover:underline">
             {AUTHOR}
           </Link>
         </p>
@@ -1005,7 +1005,7 @@ export default function AshwagandhaArticlePage() {
                 Stress goal hub →
               </Link>
               <Link
-                href="/articles"
+                href="/articles/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 All articles →
@@ -1016,7 +1016,7 @@ export default function AshwagandhaArticlePage() {
       </div>
 
       <div className="mt-8">
-        <Link href="/articles" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
+        <Link href="/articles/" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
           ← Back to Articles
         </Link>
       </div>

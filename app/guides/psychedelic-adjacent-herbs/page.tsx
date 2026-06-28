@@ -66,7 +66,7 @@ export default function PsychedelicAdjacentHerbsPage() {
           <Link href="/compare/kanna-vs-ssris" className="text-brand-700 hover:text-brand-800 hover:underline">
             Kanna vs SSRIs Compare →
           </Link>
-          <Link href="/disclaimer" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/disclaimer/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Safety Disclaimer →
           </Link>
         </div>
@@ -135,10 +135,10 @@ export default function PsychedelicAdjacentHerbsPage() {
           These pages are for educational and harm reduction purposes only. The Hippie Scientist does not advocate for the use of unregulated or illegal substances. Always review clinical contraindications and consult with a licensed physician before introducing any botanical supplements into your lifestyle.
         </p>
         <div className="mt-4 flex gap-3">
-          <Link href="/compare" className="text-xs font-bold text-amber-900 hover:text-amber-950 hover:underline">
+          <Link href="/compare/" className="text-xs font-bold text-amber-900 hover:text-amber-950 hover:underline">
             Side-by-Side Compare Tool →
           </Link>
-          <Link href="/safety-checker" className="text-xs font-bold text-amber-900 hover:text-amber-950 hover:underline">
+          <Link href="/safety-checker/" className="text-xs font-bold text-amber-900 hover:text-amber-950 hover:underline">
             Interactive Safety Checker →
           </Link>
         </div>

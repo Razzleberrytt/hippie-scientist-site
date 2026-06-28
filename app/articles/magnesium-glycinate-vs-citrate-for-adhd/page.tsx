@@ -81,7 +81,7 @@ export default function MagnesiumGlycinateCitrateAdhdPage() {
 
       {/* Breadcrumb */}
       <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
-        <Link href="/articles" className="transition hover:text-ink">Articles</Link>
+        <Link href="/articles/" className="transition hover:text-ink">Articles</Link>
         <span>/</span>
         <span className="text-ink line-clamp-1">{TITLE}</span>
       </nav>
@@ -107,7 +107,7 @@ export default function MagnesiumGlycinateCitrateAdhdPage() {
         </h1>
         <p className="mt-2 text-sm text-muted">
           By{' '}
-          <Link href="/about" rel="author" className="font-medium text-ink hover:underline">
+          <Link href="/about/" rel="author" className="font-medium text-ink hover:underline">
             {AUTHOR}
           </Link>
         </p>
@@ -488,7 +488,7 @@ export default function MagnesiumGlycinateCitrateAdhdPage() {
       </div>
 
       <div className="mt-8">
-        <Link href="/articles" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
+        <Link href="/articles/" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
           ← Back to Articles
         </Link>
       </div>

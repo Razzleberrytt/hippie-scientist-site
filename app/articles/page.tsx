@@ -197,7 +197,7 @@ function CategoryFilterBar({ active }: { active: string }) {
   return (
     <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filter by category">
       <Link
-        href="/articles"
+        href="/articles/"
         className={`rounded-full border px-3 py-1 text-xs font-semibold transition ${!active ? 'border-brand-700/25 bg-brand-50 text-brand-900 dark:border-white/15 dark:bg-white/10 dark:text-brand-50' : 'border-brand-900/10 bg-white/80 text-muted hover:border-brand-700/20 dark:border-white/10 dark:bg-white/5 dark:text-brand-100'}`}
       >
         All notes
@@ -312,13 +312,13 @@ export default async function BlogPage({
         <p className="mt-2 text-sm font-semibold text-muted">{count} archive items available</p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
-            href="/guides"
+            href="/guides/"
             className="inline-flex min-h-11 items-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white shadow-sm hover:bg-brand-900 dark:bg-brand-200 dark:text-brand-950 dark:hover:bg-brand-100"
           >
             Use practical guides
           </Link>
           <Link
-            href="/goals"
+            href="/goals/"
             className="inline-flex min-h-11 items-center rounded-full border border-brand-900/15 bg-white/80 px-5 py-2.5 text-sm font-bold text-brand-900 shadow-sm hover:bg-white dark:border-white/15 dark:bg-white/5 dark:text-brand-50 dark:hover:bg-white/10"
           >
             Browse goals
@@ -348,7 +348,7 @@ export default async function BlogPage({
 
         {pageItems.length === 0 ? (
           <div className="card-premium p-6 text-sm text-muted">
-            No archive items in this filter. <Link href="/articles" className="font-semibold text-brand-800 dark:text-brand-100">View all</Link>.
+            No archive items in this filter. <Link href="/articles/" className="font-semibold text-brand-800 dark:text-brand-100">View all</Link>.
           </div>
         ) : (
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">

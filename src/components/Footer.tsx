@@ -11,31 +11,31 @@ import { PUBLIC_ROUTES } from '../lib/public-routes'
 const exploreLinks = [
   { href: PUBLIC_ROUTES.herbs, label: 'Herb Database' },
   { href: PUBLIC_ROUTES.compounds, label: 'Compounds' },
-  { href: '/stacks', label: 'Stacks' },
-  { href: '/compare', label: 'Compare' },
+  { href: '/stacks/', label: 'Stacks' },
+  { href: '/compare/', label: 'Compare' },
   { href: PUBLIC_ROUTES.guides, label: 'Guides' },
   { href: PUBLIC_ROUTES.articles, label: 'Articles' },
-  { href: '/education', label: 'Learn the Science' },
-  { href: '/search', label: 'Search' },
-  { href: '/goals', label: 'Goals' },
+  { href: '/education/', label: 'Learn the Science' },
+  { href: '/search/', label: 'Search' },
+  { href: PUBLIC_ROUTES.goals, label: 'Goals' },
 ]
 
 const priorityGoalLinks = [
-  { href: '/goals/sleep', label: 'Sleep' },
-  { href: '/goals/stress', label: 'Stress' },
-  { href: '/goals/anxiety', label: 'Anxiety' },
-  { href: '/goals/focus', label: 'Focus' },
+  { href: '/goals/sleep/', label: 'Sleep' },
+  { href: '/goals/stress/', label: 'Stress' },
+  { href: '/goals/anxiety/', label: 'Anxiety' },
+  { href: '/goals/focus/', label: 'Focus' },
 ]
 
 const safetyLinks = [
-  { href: '/methodology', label: 'Methodology' },
+  { href: '/methodology/', label: 'Methodology' },
   { href: PUBLIC_ROUTES.disclaimer, label: 'Disclaimer' },
   { href: PUBLIC_ROUTES.contact, label: 'Contact' },
 ]
 
 const legalLinks = [
   { href: PUBLIC_ROUTES.privacy, label: 'Privacy Policy' },
-  { href: '/affiliate-disclosure', label: 'Affiliate Disclosure' },
+  { href: '/affiliate-disclosure/', label: 'Affiliate Disclosure' },
   { href: '/sitemap.xml', label: 'Sitemap' },
 ]
 
