@@ -349,7 +349,9 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /compounds/mitragynine-pseudoindoxyl/ /articles/mitragynine-pseudoindoxyl/ 301
 /compounds/7-oh-vs-mgm-15-vs-mitragynine-pseudoindoxyl /novel-psychoactive-substances/7-hydroxymitragynine-vs-mgm-15-vs-mitragynine-pseudoindoxyl/ 301
 /compounds/7-oh-vs-mgm-15-vs-mitragynine-pseudoindoxyl/ /novel-psychoactive-substances/7-hydroxymitragynine-vs-mgm-15-vs-mitragynine-pseudoindoxyl/ 301
-/focus-cluster/* /:splat 301
+/focus-cluster/* /articles/:splat 301
+/focus-cluster /articles/ 301
+/focus-cluster/ /articles/ 301
 # Compare URL cleanup: l-threonate URL slug doesn't parse cleanly; redirect to data-accurate slug
 /compare/magnesium-glycinate-vs-l-threonate-for-sleep /compare/magnesium-glycinate-vs-magnesium-threonate/ 301
 /compare/magnesium-glycinate-vs-l-threonate-for-sleep/ /compare/magnesium-glycinate-vs-magnesium-threonate/ 301
