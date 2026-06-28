@@ -20,11 +20,12 @@
  * 7. build-route-manifest (route discovery)
  * 8. build-internal-link-engine (semantic internal links)
  * 9. build-sitemap-manifest (SEO sitemap)
- * 9. build-export-batches (batch optimization)
- * 10. build-semantic-snapshots (snapshot generation)
- * 11. build-production (next build)
- * 12. repair-static-blog-h1s (legacy static blog heading repair)
- * 13. build-pagefind (static search index)
+ * 10. build-export-batches (batch optimization)
+ * 11. build-semantic-snapshots (snapshot generation)
+ * 12. build-production (next build)
+ * 13. repair-static-blog-h1s (legacy static blog heading repair)
+ * 14. build-pagefind (static search index)
+ * 15. ensure-sitemap-profile-minimums (profile sitemap validation coverage)
  *
  * Time estimate: ~40-55s (instead of ~180s with full validation)
  * Savings: ~125s by deferring non-critical checks to npm run build:qa
@@ -141,6 +142,13 @@ const steps = [
     cmd: 'npm run build:pagefind',
     inputs: ['out/**/*'],
     outputs: ['out/pagefind/**/*'],
+  },
+  {
+    name: 'ensure-sitemap-profile-minimums',
+    cmd: 'node scripts/ci/ensure-sitemap-profile-minimums.mjs',
+    inputs: ['out/sitemap.xml', 'out/herbs/**/*', 'out/compounds/**/*', 'scripts/ci/ensure-sitemap-profile-minimums.mjs'],
+    outputs: ['out/sitemap.xml'],
+    cacheable: false,
   },
 ]
 
