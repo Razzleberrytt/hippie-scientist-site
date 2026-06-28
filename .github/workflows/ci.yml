@@ -16,6 +16,7 @@ permissions:
 jobs:
   quality-gate:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
 
     steps:
       - name: Checkout
@@ -118,6 +119,3 @@ jobs:
           echo "## CI quality gate" >> "$GITHUB_STEP_SUMMARY"
           echo "- Purpose: enforce lint, typecheck, workbook/data correctness, build verification, and security audit" >> "$GITHUB_STEP_SUMMARY"
           echo "- Branch/ref: $GITHUB_REF" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Key commands: npm ci; npm run check:node; npm run validate:workbook-source; npm run validate:static-export; npm run routes:inventory; npm run lint; npm run typecheck; npm run data:build; npm run data:validate; npm run guard:source-of-truth; npm run build:deploy; npm run verify:output; npm run audit:seo-reports; npm run validate:route-seo; npm run audit:high" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Artifacts: seo-audit-reports; npm-audit-after" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
