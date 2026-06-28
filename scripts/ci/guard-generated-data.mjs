@@ -4,12 +4,17 @@
  *
  * This is a preflight/CI notice. Direct edits to public/data and to the
  * workbook are allowed; if public/data/*.json files were hand-edited without
- * touching a recognized source/build path, it prints a non-blocking notice
- * suggesting (but not requiring) the workbook/build route.
+ * touching a recognized source/build path, it prints a notice suggesting the
+ * workbook/build route.
  *
  * Conservative / safe:
- * - Legitimate changes produced by running the build scripts are allowed
- *   *if* the PR/commit also touches at least one recognized source/build file.
+ * - Legitimate committed changes produced by running the build scripts are
+ *   allowed *if* the PR/commit also touches at least one recognized source/build file.
+ * - In CI, this guard only inspects committed diffs. It intentionally ignores
+ *   working-tree dirt because `check:full` runs after build steps that regenerate
+ *   public/data artifacts.
+ * - Locally, working-tree checks remain enabled by default so manual edits can
+ *   be caught before commit.
  * - Does not inspect content diffs (would be fragile); only presence of changes.
  * - Does not block changes that touch BOTH data outputs AND build sources.
  *
@@ -28,18 +33,15 @@
  *   node scripts/ci/guard-generated-data.mjs
  *   npm run guard:generated-data
  *
- * In CI (GitHub Actions example):
- *   - name: Guard generated data
- *     run: node scripts/ci/guard-generated-data.mjs
- *     # runs on pull_request / push to main
- *
- * Exit 0 = always (advisory only; prints a notice for direct data edits)
+ * Exit 0 = no suspicious direct data edits detected
  */
 
 import { execSync, spawnSync } from 'node:child_process'
 import process from 'node:process'
 
 const REPO_ROOT = process.cwd()
+const IS_CI = String(process.env.CI || '').toLowerCase() === 'true' || Boolean(process.env.GITHUB_ACTIONS)
+const INCLUDE_WORKTREE = !IS_CI || String(process.env.GUARD_GENERATED_DATA_INCLUDE_WORKTREE || '').toLowerCase() === 'true'
 
 // Recognized "source of change" paths/globs. If any of these are touched
 // in the same diff as public/data, we allow the data change (build produced it).
@@ -149,8 +151,15 @@ function getChangedFiles(base) {
       // ignore
     }
   }
+
+  if (!INCLUDE_WORKTREE) {
+    return Array.from(files)
+  }
+
   try {
-    // Working tree (uncommitted manual edits, new files, etc.) — catches local direct edits before commit
+    // Local working tree (uncommitted manual edits, new files, etc.) — catches
+    // direct edits before commit. Disabled in CI because this guard runs after
+    // build steps that legitimately regenerate public/data outputs.
     const statusOut = execSync('git status --porcelain --untracked-files=all', {
       cwd: REPO_ROOT,
       encoding: 'utf8',
