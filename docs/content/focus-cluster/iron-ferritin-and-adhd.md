@@ -517,15 +517,15 @@ Larger RCTs with baseline stratification, objective outcomes (sleep studies, exe
 
 ## Related Articles
 
-- [Zinc and ADHD](/articles/zinc-and-adhd)
-- [Magnesium for ADHD](/articles/magnesium-for-adhd)
-- [Omega-3 and ADHD](/articles/omega-3-and-adhd)
-- [Vitamin D and ADHD](/articles/vitamin-d-and-adhd)
-- [Citicoline vs Alpha-GPC](/articles/citicoline-vs-alpha-gpc)
-- [L-Tyrosine and ADHD](/articles/l-tyrosine-and-adhd)
-- [ADHD Stack Guide](/articles/adhd-stack-guide)
-- [Best Supplements for ADHD](/articles/best-supplements-for-adhd)
-- [Nutrient Deficiencies and ADHD](/articles/nutrient-deficiencies-and-adhd)
+- [Zinc and ADHD](/articles/zinc-and-adhd/)
+- [Magnesium for ADHD](/articles/magnesium-for-adhd/)
+- [Omega-3 and ADHD](/articles/omega-3-and-adhd/)
+- [Vitamin D and ADHD](/articles/vitamin-d-and-adhd/)
+- [Citicoline vs Alpha-GPC](/articles/citicoline-vs-alpha-gpc/)
+- [L-Tyrosine and ADHD](/articles/l-tyrosine-and-adhd/)
+- [ADHD Stack Guide](/articles/adhd-stack-guide/)
+- [Best Supplements for ADHD](/articles/best-supplements-for-adhd/)
+- [Nutrient Deficiencies and ADHD](/articles/nutrient-deficiencies-and-adhd/)
 
 ## Quick Facts
 

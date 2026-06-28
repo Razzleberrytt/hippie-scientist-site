@@ -219,8 +219,8 @@ const faqs = [
 
 const relatedLinks = [
   { href: '/goals/sleep', label: 'Sleep goal guide', note: 'Ranked decision support by sleep problem.' },
-  { href: '/articles/best-herbs-for-sleep', label: 'Best herbs for sleep', note: 'Herbal options and traditional sleep support.' },
-  { href: '/articles/magnesium-types-for-sleep', label: 'Magnesium types for sleep', note: 'Glycinate, citrate, threonate, and label details.' },
+  { href: '/articles/best-herbs-for-sleep/', label: 'Best herbs for sleep', note: 'Herbal options and traditional sleep support.' },
+  { href: '/articles/magnesium-types-for-sleep/', label: 'Magnesium types for sleep', note: 'Glycinate, citrate, threonate, and label details.' },
   { href: '/articles/sleep-stack-guide', label: 'Sleep stack guide', note: 'How to think about combining options cautiously.' },
   { href: '/compare/sleep-herbs-vs-melatonin', label: 'Sleep herbs vs melatonin', note: 'Timing signal versus calming support.' },
   { href: '/guides/magnesium-vs-melatonin', label: 'Magnesium vs melatonin', note: 'Direct comparison for two popular options.' },

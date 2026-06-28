@@ -56,7 +56,7 @@ L-tyrosine crosses the blood-brain barrier and can be converted to L-DOPA, then 
 
 The strongest practical rationale is demand support. Under acute stress, sleep deprivation, or heavy cognitive load, catecholamine turnover can increase. Supplemental L-tyrosine may help preserve performance when precursor availability becomes limiting.
 
-The key caution is that ADHD is not caused by too little tyrosine. ADHD involves complex signaling, receptor sensitivity, transporter function, sleep, environment, learning demands, emotion regulation, and executive habits. More precursor does not guarantee better signaling. Readers who want the broader model can start with [how focus and motivation work](/education/how-focus-and-motivation-work).
+The key caution is that ADHD is not caused by too little tyrosine. ADHD involves complex signaling, receptor sensitivity, transporter function, sleep, environment, learning demands, emotion regulation, and executive habits. More precursor does not guarantee better signaling. Readers who want the broader model can start with [how focus and motivation work](/education/how-focus-and-motivation-work/).
 
 ## What the Evidence Says About ADHD
 

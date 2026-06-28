@@ -482,12 +482,12 @@ export default function BestMagnesiumForAdhdPage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Related Articles</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {[
-                  ['/articles/magnesium-for-adhd', 'ADHD Cluster', 'Magnesium for ADHD', 'Full evidence review.'],
-                  ['/articles/best-supplements-for-adhd', 'Cornerstone', 'Best Supplements for ADHD', 'Evidence-ranked guide.'],
+                  ['/articles/magnesium-for-adhd/', 'ADHD Cluster', 'Magnesium for ADHD', 'Full evidence review.'],
+                  ['/articles/best-supplements-for-adhd/', 'Cornerstone', 'Best Supplements for ADHD', 'Evidence-ranked guide.'],
                   ['/articles/magnesium-glycinate-vs-citrate-for-adhd', 'ADHD Cluster', 'Glycinate vs Citrate for ADHD', 'Form comparison.'],
                   ['/articles/l-theanine-magnesium-adhd-stack', 'Stack Guide', 'L-Theanine + Magnesium Stack', 'How to combine the two.'],
-                  ['/articles/sleep-and-adhd', 'Sleep + ADHD', 'Sleep and ADHD', 'Why sleep is critical in ADHD.'],
-                  ['/articles/adhd-stack-guide', 'ADHD Cluster', 'ADHD Stack Guide', 'Full supplement stacking guide.'],
+                  ['/articles/sleep-and-adhd/', 'Sleep + ADHD', 'Sleep and ADHD', 'Why sleep is critical in ADHD.'],
+                  ['/articles/adhd-stack-guide/', 'ADHD Cluster', 'ADHD Stack Guide', 'Full supplement stacking guide.'],
                 ].map(([href, eyebrow, label, desc]) => (
                   <Link key={href as string} href={href as string}
                     className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30">
@@ -538,10 +538,10 @@ export default function BestMagnesiumForAdhdPage() {
             <p className="text-[10px] font-bold uppercase tracking-wider text-muted">ADHD cluster</p>
             <div className="mt-3 space-y-2">
               {[
-                ['/articles/best-supplements-for-adhd', 'Best supplements for ADHD →'],
-                ['/articles/magnesium-for-adhd', 'Magnesium for ADHD →'],
+                ['/articles/best-supplements-for-adhd/', 'Best supplements for ADHD →'],
+                ['/articles/magnesium-for-adhd/', 'Magnesium for ADHD →'],
                 ['/articles/l-theanine-magnesium-adhd-stack', 'L-Theanine + Magnesium Stack →'],
-                ['/articles/adhd-stack-guide', 'ADHD stack guide →'],
+                ['/articles/adhd-stack-guide/', 'ADHD stack guide →'],
                 ['/goals/focus', 'Focus goal hub →'],
               ].map(([href, label]) => (
                 <Link key={href as string} href={href as string}

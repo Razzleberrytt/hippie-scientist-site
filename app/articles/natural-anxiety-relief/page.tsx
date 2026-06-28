@@ -361,7 +361,7 @@ export default function NaturalAnxietyReliefPage() {
                         <td className="py-3 pr-4 text-[#46574d]">Sedation; avoid with CNS depressants</td>
                         <td className="py-3">
                           <Link
-                            href="/articles/best-herbs-for-sleep"
+                            href="/articles/best-herbs-for-sleep/"
                             className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                           >
                             Sleep hub →
@@ -525,7 +525,7 @@ export default function NaturalAnxietyReliefPage() {
                   </p>
                   <p>
                     <Link
-                      href="/articles/l-theanine-for-sleep"
+                      href="/articles/l-theanine-for-sleep/"
                       className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                     >
                       Related: L-Theanine for Sleep →
@@ -844,7 +844,7 @@ export default function NaturalAnxietyReliefPage() {
               </p>
               <div className="grid gap-3 sm:grid-cols-2">
                 <Link
-                  href="/articles/best-herbs-for-sleep"
+                  href="/articles/best-herbs-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4 transition hover:border-brand-700/30"
                 >
                   <p className="font-semibold text-ink transition group-hover:text-brand-700">
@@ -866,7 +866,7 @@ export default function NaturalAnxietyReliefPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/l-theanine-for-sleep"
+                  href="/articles/l-theanine-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4 transition hover:border-brand-700/30"
                 >
                   <p className="font-semibold text-ink transition group-hover:text-brand-700">
@@ -1111,7 +1111,7 @@ export default function NaturalAnxietyReliefPage() {
               </h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 <Link
-                  href="/articles/best-herbs-for-sleep"
+                  href="/articles/best-herbs-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1140,7 +1140,7 @@ export default function NaturalAnxietyReliefPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/l-theanine-for-sleep"
+                  href="/articles/l-theanine-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1404,7 +1404,7 @@ export default function NaturalAnxietyReliefPage() {
             </p>
             <div className="mt-3 space-y-2">
               <Link
-                href="/articles/best-herbs-for-sleep"
+                href="/articles/best-herbs-for-sleep/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Best herbs for sleep →

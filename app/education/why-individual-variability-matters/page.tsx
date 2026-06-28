@@ -46,7 +46,7 @@ const faqs = [
 
 const relatedSystems = [
   { href: '/education/why-online-supplement-claims-spread', title: 'Online Supplement Claims' },
-  { href: '/education/why-fatigue-is-biologically-complex', title: 'Fatigue Complexity' },
+  { href: '/education/why-fatigue-is-biologically-complex/', title: 'Fatigue Complexity' },
   { href: '/education/why-overstimulation-impairs-focus', title: 'Overstimulation and Focus' },
   { href: '/education/how-stress-affects-the-brain', title: 'Stress and the Brain' },
 ]

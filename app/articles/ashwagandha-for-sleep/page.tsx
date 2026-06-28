@@ -170,7 +170,7 @@ export default function AshwagandhaForSleepPage() {
               an acute sleep aid. See the{' '}
               <Link href="/articles/ashwagandha" className="font-semibold text-brand-700 hover:underline">full ashwagandha article</Link>{' '}
               and the{' '}
-              <Link href="/articles/best-herbs-for-sleep" className="font-semibold text-brand-700 hover:underline">best herbs for sleep hub</Link>.
+              <Link href="/articles/best-herbs-for-sleep/" className="font-semibold text-brand-700 hover:underline">best herbs for sleep hub</Link>.
             </p>
           </section>
 
@@ -617,7 +617,7 @@ export default function AshwagandhaForSleepPage() {
               </h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 <Link
-                  href="/articles/best-herbs-for-sleep"
+                  href="/articles/best-herbs-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -692,7 +692,7 @@ export default function AshwagandhaForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/l-theanine-for-sleep"
+                  href="/articles/l-theanine-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">

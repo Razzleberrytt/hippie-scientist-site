@@ -538,7 +538,7 @@ export default function LTheanineForSleepPage() {
                 </Link>{' '}
                 and the{' '}
                 <Link
-                  href="/articles/magnesium-types-for-sleep"
+                  href="/articles/magnesium-types-for-sleep/"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   Magnesium Types for Sleep guide
@@ -995,7 +995,7 @@ export default function LTheanineForSleepPage() {
               </h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 <Link
-                  href="/articles/best-herbs-for-sleep"
+                  href="/articles/best-herbs-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1025,7 +1025,7 @@ export default function LTheanineForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/magnesium-types-for-sleep"
+                  href="/articles/magnesium-types-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1114,7 +1114,7 @@ export default function LTheanineForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/sleep-and-adhd"
+                  href="/articles/sleep-and-adhd/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1316,7 +1316,7 @@ export default function LTheanineForSleepPage() {
             </p>
             <div className="mt-3 space-y-2">
               <Link
-                href="/articles/best-herbs-for-sleep"
+                href="/articles/best-herbs-for-sleep/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Best herbs for sleep →
@@ -1328,7 +1328,7 @@ export default function LTheanineForSleepPage() {
                 Magnesium for sleep →
               </Link>
               <Link
-                href="/articles/magnesium-types-for-sleep"
+                href="/articles/magnesium-types-for-sleep/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Magnesium types for sleep →

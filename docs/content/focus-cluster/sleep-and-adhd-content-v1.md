@@ -154,7 +154,7 @@ Magnesium is involved in GABA activity and muscle relaxation, and some individua
 
 Evidence specifically linking magnesium supplementation to improved sleep in ADHD populations is more limited than for melatonin. Some studies suggest benefits for sleep in broader populations or when deficiency is present. Individual response varies.
 
-Evidence Grade: Preliminary to Moderate for sleep support; stronger when baseline status is low. To understand how different chemical forms of magnesium affect sleep architecture and target neuromuscular relaxation, see our comprehensive guide on [Magnesium Types for Sleep](/articles/magnesium-types-for-sleep).
+Evidence Grade: Preliminary to Moderate for sleep support; stronger when baseline status is low. To understand how different chemical forms of magnesium affect sleep architecture and target neuromuscular relaxation, see our comprehensive guide on [Magnesium Types for Sleep](/articles/magnesium-types-for-sleep/).
 
 TODO: Verify relevant magnesium sleep studies in ADHD or related populations.
 
@@ -164,7 +164,7 @@ L-Theanine promotes alpha brain wave activity associated with relaxed wakefulnes
 
 L-Theanine is generally well tolerated and may support sleep through reduced bedtime arousal. It is sometimes used alone or in combination with other calming supports.
 
-Evidence Grade: Moderate in one pediatric ADHD sleep study. For a deep dive into how L-theanine promotes relaxation without sedation, read our guide on [L-Theanine for Sleep](/articles/l-theanine-for-sleep).
+Evidence Grade: Moderate in one pediatric ADHD sleep study. For a deep dive into how L-theanine promotes relaxation without sedation, read our guide on [L-Theanine for Sleep](/articles/l-theanine-for-sleep/).
 
 TODO: Verify Lyon 2011 sleep RCT details: n, dose, outcomes.
 
@@ -174,7 +174,7 @@ Ashwagandha is an adaptogen studied for stress reduction and cortisol modulation
 
 Direct high-quality evidence in ADHD sleep specifically remains limited. Benefits, when observed, are typically described as modest and related to stress reduction rather than direct sleep architecture changes.
 
-Evidence Grade: Preliminary for ADHD-specific sleep; Moderate for stress and sleep in broader populations. For a broader review of natural sleep supports, including ashwagandha and other calming botanicals, read our guide on [Best Herbs for Sleep](/articles/best-herbs-for-sleep).
+Evidence Grade: Preliminary for ADHD-specific sleep; Moderate for stress and sleep in broader populations. For a broader review of natural sleep supports, including ashwagandha and other calming botanicals, read our guide on [Best Herbs for Sleep](/articles/best-herbs-for-sleep/).
 
 TODO: Verify ashwagandha sleep/stress trials and ADHD-specific evidence gap.
 

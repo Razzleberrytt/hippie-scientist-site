@@ -110,7 +110,7 @@ function getRelatedFocusAdhdLinks(slug: string): RelatedLink[] {
       articleLink('l-theanine-vs-caffeine-for-focus', 'L-Theanine vs Caffeine for Focus', 'Focus comparison'),
       articleLink('l-theanine-for-adhd', 'L-Theanine for ADHD', 'Calm focus'),
       articleLink('omega-3-and-adhd', 'Omega-3 and ADHD', 'Evidence guide'),
-      routeLink('/education/cholinergic-system', 'Cholinergic System', 'Mechanism guide'),
+      routeLink('/education/cholinergic-system/', 'Cholinergic System', 'Mechanism guide'),
     )
 
     return dedupeRelatedLinks(curatedLinks, `/articles/${slug}/`)

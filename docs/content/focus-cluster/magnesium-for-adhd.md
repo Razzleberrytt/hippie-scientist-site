@@ -98,7 +98,7 @@ Track sleep, irritability, restlessness, and focus for at least 4 weeks before d
 
 Omega-3 has stronger meta-analysis support for reducing hyperactivity. Magnesium may be more helpful when sleep or emotional regulation is the primary concern. The two can be used together safely for most people.
 
-See our guide: [Omega-3 for ADHD](/omega-3-for-adhd) and the broader comparison in [Best Supplements for ADHD](/best-supplements-for-adhd).
+See our guide: [Omega-3 for ADHD](/omega-3-for-adhd/) and the broader comparison in [Best Supplements for ADHD](/best-supplements-for-adhd/).
 
 ## Magnesium and L-Theanine
 

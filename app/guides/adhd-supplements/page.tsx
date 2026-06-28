@@ -39,13 +39,13 @@ const FAQS = [
 ]
 
 const NUTRIENT_GUIDE = [
-  ['Omega-3', 'Tier A / Moderate', 'Low fish intake or low omega-3 status; modest hyperactivity signal', '/articles/omega-3-and-adhd'],
-  ['Iron / ferritin', 'Tier A when deficient', 'Low ferritin or iron stores confirmed by testing', '/articles/iron-ferritin-and-adhd'],
+  ['Omega-3', 'Tier A / Moderate', 'Low fish intake or low omega-3 status; modest hyperactivity signal', '/articles/omega-3-and-adhd/'],
+  ['Iron / ferritin', 'Tier A when deficient', 'Low ferritin or iron stores confirmed by testing', '/articles/iron-ferritin-and-adhd/'],
   ['Magnesium', 'Tier B / context-dependent', 'Sleep, tension, low intake, or documented low status', '/articles/best-magnesium-supplement-for-adhd'],
-  ['Zinc', 'Tier B-C', 'Low intake or measured low status; mixed supplementation trials', '/articles/zinc-and-adhd'],
+  ['Zinc', 'Tier B-C', 'Low intake or measured low status; mixed supplementation trials', '/articles/zinc-and-adhd/'],
   ['L-theanine', 'Tier C', 'Calm focus, caffeine sensitivity, or bedtime arousal', '/articles/l-theanine-for-adhd'],
-  ['Saffron', 'Tier C / promising', 'Interesting early trials, but not first-line and quality varies', '/articles/best-supplements-for-adhd'],
-  ['Bacopa', 'Tier D for ADHD', 'Memory evidence does not automatically translate to ADHD', '/articles/best-supplements-for-adhd'],
+  ['Saffron', 'Tier C / promising', 'Interesting early trials, but not first-line and quality varies', '/articles/best-supplements-for-adhd/'],
+  ['Bacopa', 'Tier D for ADHD', 'Memory evidence does not automatically translate to ADHD', '/articles/best-supplements-for-adhd/'],
 ] as const
 
 const GUIDE_REFERENCES = [
@@ -126,10 +126,10 @@ export default function AdhdSupplementsHub() {
           Navigating natural support for focus, hyperactivity, sleep, and emotional dysregulation can be overwhelming. Rather than relying on marketing claims, this guide organizes the clinical research on common ADHD supplements using a clear hierarchy of evidence.
         </p>
         <div className="mt-6 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
-          <Link href="/articles/best-supplements-for-adhd" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/articles/best-supplements-for-adhd/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Read Pillar Review →
           </Link>
-          <Link href="/articles/adhd-stack-guide" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/articles/adhd-stack-guide/" className="text-brand-700 hover:text-brand-800 hover:underline">
             View Stack Builder Guide →
           </Link>
         </div>
@@ -294,19 +294,19 @@ export default function AdhdSupplementsHub() {
           <div className="rounded-xl border border-brand-900/5 bg-brand-50/30 p-4">
             <h3 className="font-semibold text-ink text-sm">L-Theanine for Calm</h3>
             <p className="mt-1.5 text-xs text-muted leading-relaxed">
-              Promotes alpha brain wave activity to quiet a racing mind at bedtime. Learn more in our guide on <Link href="/articles/l-theanine-for-sleep" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">L-Theanine for Sleep</Link>.
+              Promotes alpha brain wave activity to quiet a racing mind at bedtime. Learn more in our guide on <Link href="/articles/l-theanine-for-sleep/" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">L-Theanine for Sleep</Link>.
             </p>
           </div>
           <div className="rounded-xl border border-brand-900/5 bg-brand-50/30 p-4">
             <h3 className="font-semibold text-ink text-sm">Magnesium Selection</h3>
             <p className="mt-1.5 text-xs text-muted leading-relaxed">
-              Supports neuromuscular relaxation and GABA. It is vital to prioritize deficiency testing. Compare forms in our guide on <Link href="/articles/magnesium-types-for-sleep" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">Magnesium Types for Sleep</Link>.
+              Supports neuromuscular relaxation and GABA. It is vital to prioritize deficiency testing. Compare forms in our guide on <Link href="/articles/magnesium-types-for-sleep/" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">Magnesium Types for Sleep</Link>.
             </p>
           </div>
           <div className="rounded-xl border border-brand-900/5 bg-brand-50/30 p-4">
             <h3 className="font-semibold text-ink text-sm">Botanical Sleep Support</h3>
             <p className="mt-1.5 text-xs text-muted leading-relaxed">
-              Herbs like chamomile, lemon balm, or valerian are commonly used for general relaxation. Explore the research in <Link href="/articles/best-herbs-for-sleep" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">Best Herbs for Sleep</Link>.
+              Herbs like chamomile, lemon balm, or valerian are commonly used for general relaxation. Explore the research in <Link href="/articles/best-herbs-for-sleep/" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">Best Herbs for Sleep</Link>.
             </p>
           </div>
         </div>

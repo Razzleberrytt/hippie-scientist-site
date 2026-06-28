@@ -160,27 +160,27 @@ const FOCUS_CLUSTER_KEYWORDS = /\b(adhd|attention|focus|concentration|cognition|
 export const focusClusterSeeAlsoLinks: FocusClusterLink[] = [
   {
     title: 'Best Supplements for ADHD',
-    href: '/best-supplements-for-adhd',
+    href: '/best-supplements-for-adhd/',
     description: 'Cluster overview for ADHD-adjacent supplement questions.',
   },
   {
     title: 'Omega-3 for ADHD',
-    href: '/omega-3-for-adhd',
+    href: '/omega-3-for-adhd/',
     description: 'EPA/DHA context for attention-support research.',
   },
   {
     title: 'Magnesium for ADHD',
-    href: '/magnesium-for-adhd',
+    href: '/magnesium-for-adhd/',
     description: 'Magnesium status, sleep, and focus-adjacent framing.',
   },
   {
     title: 'L-Theanine for ADHD',
-    href: '/l-theanine-for-adhd',
+    href: '/l-theanine-for-adhd/',
     description: 'Calm-focus positioning without stimulant claims.',
   },
   {
     title: 'Citicoline vs Alpha-GPC',
-    href: '/citicoline-vs-alpha-gpc',
+    href: '/citicoline-vs-alpha-gpc/',
     description: 'Choline donor comparison for focus stacks.',
   },
   {

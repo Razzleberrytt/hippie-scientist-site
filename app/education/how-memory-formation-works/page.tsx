@@ -36,7 +36,7 @@ const relatedSystems = [
     title: 'Sleep Neurochemistry',
   },
   {
-    href: '/education/how-focus-and-motivation-work',
+    href: '/education/how-focus-and-motivation-work/',
     title: 'Focus and Motivation',
   },
   {
@@ -44,7 +44,7 @@ const relatedSystems = [
     title: 'Glutamate Pathway',
   },
   {
-    href: '/education/cholinergic-system',
+    href: '/education/cholinergic-system/',
     title: 'Cholinergic System',
   },
 ]

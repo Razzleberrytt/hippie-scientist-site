@@ -243,7 +243,7 @@ export default function AshwagandhaForAnxietyPage() {
             </p>
             <p>
               Many people use them together or at different times of day. See our comparison in the{' '}
-              <Link href="/articles/l-theanine-for-sleep" className="text-primary underline">L-Theanine for Sleep</Link>, the umbrella{' '}
+              <Link href="/articles/l-theanine-for-sleep/" className="text-primary underline">L-Theanine for Sleep</Link>, the umbrella{' '}
               <Link href="/articles/l-theanine" className="text-primary underline">L-Theanine article</Link>, and the{' '}
               <Link href="/articles/natural-anxiety-relief" className="text-primary underline">Natural Anxiety Relief</Link>{' '}
               hub. For the full{' '}
@@ -267,7 +267,7 @@ export default function AshwagandhaForAnxietyPage() {
             <p>
               See related content:{' '}
               <Link href="/articles/magnesium-for-sleep" className="text-primary underline">Magnesium for Sleep</Link> and{' '}
-              <Link href="/articles/best-herbs-for-sleep" className="text-primary underline">Best Herbs for Sleep</Link>.
+              <Link href="/articles/best-herbs-for-sleep/" className="text-primary underline">Best Herbs for Sleep</Link>.
             </p>
           </div>
         </section>

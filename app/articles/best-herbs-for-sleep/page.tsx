@@ -271,7 +271,7 @@ export default function BestHerbsForSleepPage() {
                         <td className="py-3 pr-4 text-[#46574d]">100–200 mg, 30–60 min before bed</td>
                         <td className="py-3 text-xs">
                           <Link
-                            href="/articles/l-theanine-for-sleep"
+                            href="/articles/l-theanine-for-sleep/"
                             className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                           >
                             Full guide →
@@ -833,7 +833,7 @@ export default function BestHerbsForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/l-theanine-for-sleep"
+                  href="/articles/l-theanine-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -848,7 +848,7 @@ export default function BestHerbsForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/magnesium-types-for-sleep"
+                  href="/articles/magnesium-types-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -908,7 +908,7 @@ export default function BestHerbsForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/sleep-and-adhd"
+                  href="/articles/sleep-and-adhd/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">

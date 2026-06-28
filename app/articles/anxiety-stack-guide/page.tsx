@@ -270,7 +270,7 @@ export default function AnxietyStackGuidePage() {
               This is a more comprehensive stack that addresses chronic stress (ashwagandha), mental tension (L-theanine), and physical relaxation/sleep (magnesium). It is best suited for people whose anxiety significantly impacts sleep.
             </p>
             <p>
-              See also: <Link href="/articles/sleep-stack-guide" className="text-primary underline">Sleep Stack Guide</Link> and <Link href="/articles/best-herbs-for-sleep" className="text-primary underline">Best Herbs for Sleep</Link>.
+              See also: <Link href="/articles/sleep-stack-guide" className="text-primary underline">Sleep Stack Guide</Link> and <Link href="/articles/best-herbs-for-sleep/" className="text-primary underline">Best Herbs for Sleep</Link>.
             </p>
           </div>
         </section>

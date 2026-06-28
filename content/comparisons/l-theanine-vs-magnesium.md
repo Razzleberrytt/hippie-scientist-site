@@ -5,7 +5,7 @@
 **Evidence grade:** L-Theanine for calm focus — B | Magnesium for anxiety/calm — B-C  
 **Verdict:** L-theanine is the better acute calm-focus tool. Magnesium is the better systemic baseline support. They work through overlapping but complementary mechanisms and stack well — particularly for sleep. The choice depends more on what you're optimizing for than on which compound is "better."
 
-**Related guides:** [Full L-theanine evidence guide](/articles/l-theanine) · [L-theanine for anxiety](/articles/l-theanine-for-anxiety) · [L-theanine for sleep](/articles/l-theanine-for-sleep) · [Magnesium for sleep](/guides/magnesium-for-sleep)
+**Related guides:** [Full L-theanine evidence guide](/articles/l-theanine/) · [L-theanine for anxiety](/articles/l-theanine-for-anxiety/) · [L-theanine for sleep](/articles/l-theanine-for-sleep/) · [Magnesium for sleep](/guides/magnesium-for-sleep/)
 
 ---
 

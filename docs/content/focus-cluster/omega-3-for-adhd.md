@@ -126,7 +126,7 @@ Skip or use caution if you have:
 
 Omega-3 has stronger and more consistent evidence than most other single supplements for hyperactivity. It compares favorably with magnesium for overall support and works well alongside L-theanine for calm focus.
 
-It is not a replacement for stimulant medication. Effects are smaller and more gradual. For a broader comparison, see our guide: [Best Supplements for ADHD](/best-supplements-for-adhd).
+It is not a replacement for stimulant medication. Effects are smaller and more gradual. For a broader comparison, see our guide: [Best Supplements for ADHD](/best-supplements-for-adhd/).
 
 ## Beginner Protocol
 

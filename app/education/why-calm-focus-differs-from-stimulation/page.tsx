@@ -48,7 +48,7 @@ const relatedSystems = [
   { href: '/compare/rhodiola-vs-ashwagandha', title: 'Rhodiola vs Ashwagandha' },
   { href: '/goals/focus', title: 'Non-Stimulant Focus' },
   { href: '/education/why-overstimulation-impairs-focus', title: 'Overstimulation and Focus' },
-  { href: '/education/how-focus-and-motivation-work', title: 'Focus and Motivation' },
+  { href: '/education/how-focus-and-motivation-work/', title: 'Focus and Motivation' },
 ]
 
 export default function WhyCalmFocusDiffersFromStimulationPage() {

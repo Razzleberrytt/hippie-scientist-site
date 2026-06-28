@@ -108,11 +108,11 @@ references:
 
 ## Introduction
 
-Kava (*Piper methysticum*) is a South Pacific botanical best known for producing calm, sociability, and body relaxation without the same pharmacological profile as alcohol or benzodiazepines. Its active chemistry is dominated by kavalactones, a group of lipophilic compounds that includes kavain, dihydrokavain, methysticin, dihydromethysticin, yangonin, and desmethoxyyangonin. In practical supplement language, kava sits in the fast-acting calming-herb category: more acute than [ashwagandha](/articles/ashwagandha), heavier than [L-theanine](/articles/l-theanine), and more assertive than [passionflower](/articles/passionflower).
+Kava (*Piper methysticum*) is a South Pacific botanical best known for producing calm, sociability, and body relaxation without the same pharmacological profile as alcohol or benzodiazepines. Its active chemistry is dominated by kavalactones, a group of lipophilic compounds that includes kavain, dihydrokavain, methysticin, dihydromethysticin, yangonin, and desmethoxyyangonin. In practical supplement language, kava sits in the fast-acting calming-herb category: more acute than [ashwagandha](/articles/ashwagandha/), heavier than [L-theanine](/articles/l-theanine/), and more assertive than [passionflower](/articles/passionflower/).
 
-The strongest modern use case is short-term relief of nervous tension, especially when the target is situational [anxiety](/education/what-is-anxiety-neurochemistry), social stress, or evening hyperarousal. Kava is sometimes discussed as a [sleep](/education/why-sleep-matters-for-mental-health) aid, but the better framing is narrower: it may help sleep when anxiety, muscle tension, or social overstimulation is the reason someone cannot downshift. It is not a clean substitute for melatonin, magnesium, or behavioral insomnia care.
+The strongest modern use case is short-term relief of nervous tension, especially when the target is situational [anxiety](/education/what-is-anxiety-neurochemistry/), social stress, or evening hyperarousal. Kava is sometimes discussed as a [sleep](/education/why-sleep-matters-for-mental-health/) aid, but the better framing is narrower: it may help sleep when anxiety, muscle tension, or social overstimulation is the reason someone cannot downshift. It is not a clean substitute for melatonin, magnesium, or behavioral insomnia care.
 
-This review covers the pharmacology, human trials, safety concerns, and comparison points that matter when choosing between kava, ashwagandha, L-theanine, passionflower, and related mood herbs such as [kanna](/articles/kanna-mood-focus).
+This review covers the pharmacology, human trials, safety concerns, and comparison points that matter when choosing between kava, ashwagandha, L-theanine, passionflower, and related mood herbs such as [kanna](/articles/kanna-mood-focus/).
 
 ---
 
@@ -142,7 +142,7 @@ Preparation matters. Traditional kava is made by macerating root material in wat
 
 Kava is usually described as GABAergic, but that shorthand needs precision. The 2016 kavain receptor paper (PMID 27332705) supports the idea that kavain can potentiate GABAA receptors. That does not mean kava behaves exactly like a benzodiazepine. Kava does not map neatly onto one receptor or one drug class, and whole-root preparations contain multiple kavalactones with overlapping effects.
 
-The subjective result is a pattern many users describe as relaxed muscles, lower threat tone, and reduced mental urgency. For people comparing kava with [L-theanine](/articles/l-theanine), this is the central difference: theanine often preserves crisp alertness, while kava is more likely to create a body-heavy relaxation state.
+The subjective result is a pattern many users describe as relaxed muscles, lower threat tone, and reduced mental urgency. For people comparing kava with [L-theanine](/articles/l-theanine/), this is the central difference: theanine often preserves crisp alertness, while kava is more likely to create a body-heavy relaxation state.
 
 ### Ion Channels, Monoamines, and CYP Enzymes
 
@@ -182,7 +182,7 @@ This trial changes the tone of any honest kava review. Kava may be useful for si
 
 The internet-based kava and valerian trial (PMID 16010204) tested kava and valerian for anxiety and insomnia in a remote randomized design. It is relevant because it reflects common real-world use: people often reach for calming botanicals when anxiety and sleep problems overlap. The results were not strong enough to make kava a primary insomnia supplement.
 
-For sleep-oriented readers, the better comparison is with [passionflower](/articles/passionflower), magnesium glycinate, valerian, or low-dose melatonin depending on the sleep problem. Kava belongs in the "downshift anxiety and tension" lane, not the "fix sleep architecture" lane.
+For sleep-oriented readers, the better comparison is with [passionflower](/articles/passionflower/), magnesium glycinate, valerian, or low-dose melatonin depending on the sleep problem. Kava belongs in the "downshift anxiety and tension" lane, not the "fix sleep architecture" lane.
 
 ---
 
@@ -191,9 +191,9 @@ For sleep-oriented readers, the better comparison is with [passionflower](/artic
 | Option | Best fit | Onset | Main feel | Evidence posture | Key cautions |
 |---|---|---|---|---|---|
 | Kava | Situational anxiety, social tension, muscle-heavy stress, evening decompression | Often acute, roughly 20-60 minutes | Body relaxation, calm sociability, possible sedation | Mixed but meaningful short-term anxiety evidence; negative larger GAD trial | Liver disease, alcohol, sedatives, hepatotoxic drugs, driving |
-| [Ashwagandha](/articles/ashwagandha) | Chronic stress load, cortisol-linked anxiety, stress-related sleep disruption | Slower, often weeks | Calming adaptogen, less acute | Multiple stress and sleep RCTs for standardized extracts | Pregnancy, thyroid disease, rare liver injury signals |
-| [L-Theanine](/articles/l-theanine) | Calm focus, caffeine smoothing, anxious rumination without sedation | Acute, often 30-60 minutes | Relaxed alertness | Human EEG and cognition literature; anxiety evidence is more indirect | Usually low risk, but can stack with sedatives in sensitive users |
-| [Passionflower](/articles/passionflower) | Gentle nighttime anxiety, mild sleep-onset support, benzodiazepine-sparing conversations | Acute to same evening | Soft calming, less forceful than kava | Smaller human trial base, plausible GABA-related mechanism | Sedative stacking, pregnancy caution, procedure/anesthesia caution |
+| [Ashwagandha](/articles/ashwagandha/) | Chronic stress load, cortisol-linked anxiety, stress-related sleep disruption | Slower, often weeks | Calming adaptogen, less acute | Multiple stress and sleep RCTs for standardized extracts | Pregnancy, thyroid disease, rare liver injury signals |
+| [L-Theanine](/articles/l-theanine/) | Calm focus, caffeine smoothing, anxious rumination without sedation | Acute, often 30-60 minutes | Relaxed alertness | Human EEG and cognition literature; anxiety evidence is more indirect | Usually low risk, but can stack with sedatives in sensitive users |
+| [Passionflower](/articles/passionflower/) | Gentle nighttime anxiety, mild sleep-onset support, benzodiazepine-sparing conversations | Acute to same evening | Soft calming, less forceful than kava | Smaller human trial base, plausible GABA-related mechanism | Sedative stacking, pregnancy caution, procedure/anesthesia caution |
 
 The practical decision is straightforward. Choose kava when the desired effect is quick decompression and body relaxation, and when liver and medication screening is clean. Choose ashwagandha when the problem is chronic stress physiology. Choose L-theanine when focus must remain intact. Choose passionflower when a gentler nighttime option is more appropriate.
 
@@ -253,7 +253,7 @@ L-theanine is the least sedating of the group and may be easier to combine cauti
 
 Kava is one of the most pharmacologically distinctive calming botanicals. It has plausible GABAA-related mechanisms, short-term human anxiety evidence, and a long traditional-use history, but it also has a liver-safety controversy and a larger negative GAD trial that prevent overconfident claims.
 
-Use kava as an intermittent, screened, product-quality-dependent anxiolytic rather than as a daily default supplement. For chronic stress, start the comparison with [ashwagandha](/articles/ashwagandha). For calm focus, start with [L-theanine](/articles/l-theanine). For gentler nighttime support, start with [passionflower](/articles/passionflower). For serotonergic mood-lift questions, keep [kanna](/articles/kanna-mood-focus) in a separate category because its risk profile and mechanism are different.
+Use kava as an intermittent, screened, product-quality-dependent anxiolytic rather than as a daily default supplement. For chronic stress, start the comparison with [ashwagandha](/articles/ashwagandha/). For calm focus, start with [L-theanine](/articles/l-theanine/). For gentler nighttime support, start with [passionflower](/articles/passionflower/). For serotonergic mood-lift questions, keep [kanna](/articles/kanna-mood-focus/) in a separate category because its risk profile and mechanism are different.
 
 ---
 

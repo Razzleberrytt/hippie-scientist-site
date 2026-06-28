@@ -36,7 +36,7 @@ const relatedSystems = [
     title: 'Memory Formation',
   },
   {
-    href: '/education/how-focus-and-motivation-work',
+    href: '/education/how-focus-and-motivation-work/',
     title: 'Focus and Motivation',
   },
   {

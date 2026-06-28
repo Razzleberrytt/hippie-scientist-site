@@ -75,7 +75,7 @@ const relatedArticles = [
     description: 'Better fit when sleep, muscle tension, or magnesium status is the main issue.',
   },
   {
-    href: '/articles/l-theanine-for-sleep',
+    href: '/articles/l-theanine-for-sleep/',
     title: 'L-Theanine for Sleep',
     description: 'A focused sleep page for wired-at-night and racing-thought use cases.',
   },
@@ -263,7 +263,7 @@ export default function LTheanineForAnxietyPage() {
             </p>
             <p>
               For sleep-specific context, read{' '}
-              <Link href="/articles/l-theanine-for-sleep" className="text-primary underline">
+              <Link href="/articles/l-theanine-for-sleep/" className="text-primary underline">
                 L-Theanine for Sleep
               </Link>
               {' '}and{' '}

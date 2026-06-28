@@ -154,7 +154,7 @@ TODO: Verify stress/anxiety study claims and physiological markers.
 
 ### Effects on Sleep Quality
 
-The Lyon 2011 study in boys with ADHD provides the most direct evidence for L-theanine improving objective sleep quality. Participants showed improvements in sleep efficiency and reduced awakenings with 400 mg daily over six weeks. These findings suggest L-theanine may be particularly relevant for ADHD-related sleep difficulties involving bedtime arousal or fragmented sleep. For a detailed breakdown of how L-theanine promotes relaxation without sedation and improves overall sleep quality, see our guide on [L-Theanine for Sleep](/articles/l-theanine-for-sleep).
+The Lyon 2011 study in boys with ADHD provides the most direct evidence for L-theanine improving objective sleep quality. Participants showed improvements in sleep efficiency and reduced awakenings with 400 mg daily over six weeks. These findings suggest L-theanine may be particularly relevant for ADHD-related sleep difficulties involving bedtime arousal or fragmented sleep. For a detailed breakdown of how L-theanine promotes relaxation without sedation and improves overall sleep quality, see our guide on [L-Theanine for Sleep](/articles/l-theanine-for-sleep/).
 
 Evidence Grade: Moderate in one pediatric ADHD trial.
 

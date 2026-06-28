@@ -740,11 +740,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'best-supplements-for-gut-health',
     'best-supplements-for-joint-support',
     'best-magnesium-supplements-for-adhd',
-    'natural-testosterone-boosters',
-    'best-herbs-for-anxiety',
-    'herbs-for-sleep',
-    'best-nootropics-for-focus',
-    'best-adaptogens-for-stress',
   ];
   topPages.forEach((p) => {
     addRoute(`/${p}`, 'monthly', 0.6);

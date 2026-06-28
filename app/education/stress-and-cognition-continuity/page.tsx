@@ -54,7 +54,7 @@ const relatedSystems = [
     title: 'Recovery-Oriented Productivity',
   },
   {
-    href: '/education/why-fatigue-is-biologically-complex',
+    href: '/education/why-fatigue-is-biologically-complex/',
     title: 'Fatigue Complexity',
   },
   {

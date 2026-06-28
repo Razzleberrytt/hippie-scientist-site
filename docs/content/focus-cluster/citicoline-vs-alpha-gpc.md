@@ -135,7 +135,7 @@ Omega-3 has stronger evidence for modest reductions in hyperactivity. Magnesium 
 
 These choline supplements sit lower in the evidence hierarchy for ADHD symptoms compared with the top-tier options in the main cluster guide. They are best viewed as optional add-ons for specific cognitive support goals.
 
-See: [Best Supplements for ADHD](/best-supplements-for-adhd), [Omega-3 for ADHD](/omega-3-for-adhd), [Magnesium for ADHD](/magnesium-for-adhd), and [L-Theanine for ADHD](/l-theanine-for-adhd).
+See: [Best Supplements for ADHD](/best-supplements-for-adhd/), [Omega-3 for ADHD](/omega-3-for-adhd/), [Magnesium for ADHD](/magnesium-for-adhd/), and [L-Theanine for ADHD](/l-theanine-for-adhd/).
 
 ## Beginner Protocol
 

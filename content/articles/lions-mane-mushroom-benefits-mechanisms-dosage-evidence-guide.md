@@ -546,10 +546,10 @@ Verdict: These are different tools. L-theanine is for acute calm focus. Lion's M
 
 ## Related Articles
 
-- [Lion's Mane mechanisms and clinical evidence](/articles/lions-mane)
-- [Ginkgo Biloba evidence guide](/articles/ginkgo-biloba)
-- [L-Theanine calm-focus guide](/articles/l-theanine)
-- [Bacopa Monnieri memory evidence guide](/articles/bacopa-monnieri)
+- [Lion's Mane mechanisms and clinical evidence](/articles/lions-mane/)
+- [Ginkgo Biloba evidence guide](/articles/ginkgo-biloba/)
+- [L-Theanine calm-focus guide](/articles/l-theanine/)
+- [Bacopa Monnieri memory evidence guide](/articles/bacopa-monnieri/)
 ## Sources Cited
 
 1. Mori K, Inatomi S, Ouchi K, Azumi Y, Tuchida T. Yamabushitake and mild cognitive impairment. PMID: 18844328.

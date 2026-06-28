@@ -25,7 +25,7 @@ const systems = [
   },
   {
     title: 'Cholinergic Systems',
-    href: '/education/cholinergic-system',
+    href: '/education/cholinergic-system/',
   },
 ]
 

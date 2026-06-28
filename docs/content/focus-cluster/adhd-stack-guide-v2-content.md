@@ -168,7 +168,7 @@ TODO: Verify Kahathuduwa 2020 ADHD crossover study details.
 
 ### Sleep-Focused Stack Example
 
-A conservative sleep-focused approach might begin with foundational sleep hygiene and circadian strategies, then add one targeted support such as appropriately timed melatonin if sleep onset remains difficult. Magnesium or L-theanine could be considered next if additional calming support appears needed, with systematic tracking of sleep onset, quality, and next-day function. Multiple additions should occur sequentially rather than simultaneously. For a comprehensive overview of how sleep issues present in ADHD and behavioral strategies to manage them, read our full guide on [Sleep and ADHD](/articles/sleep-and-adhd).
+A conservative sleep-focused approach might begin with foundational sleep hygiene and circadian strategies, then add one targeted support such as appropriately timed melatonin if sleep onset remains difficult. Magnesium or L-theanine could be considered next if additional calming support appears needed, with systematic tracking of sleep onset, quality, and next-day function. Multiple additions should occur sequentially rather than simultaneously. For a comprehensive overview of how sleep issues present in ADHD and behavioral strategies to manage them, read our full guide on [Sleep and ADHD](/articles/sleep-and-adhd/).
 
 ### Focus-Focused Stack Example
 

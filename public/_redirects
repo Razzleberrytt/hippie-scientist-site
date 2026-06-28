@@ -35,7 +35,7 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /herbs-for-sleep /articles/best-herbs-for-sleep/ 301
 /best-nootropics-for-focus /guides/best-nootropics-for-focus/ 301
 /best-adaptogens-for-stress /guides/best-adaptogens-for-stress/ 301
-/natural-testosterone-boosters /guides/natural-testosterone-boosters/ 301
+/natural-testosterone-boosters /goals/testosterone-support/ 301
 /comparisons/rhodiola-vs-ashwagandha /compare/rhodiola-vs-ashwagandha/ 301
 /compare/ashwagandha-vs-rhodiola /compare/rhodiola-vs-ashwagandha/ 301
 /compare/ashwagandha-vs-rhodiola-for-stress /compare/rhodiola-vs-ashwagandha/ 301
@@ -65,8 +65,8 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /start/stress-support /goals/stress/ 301
 /start/cognitive-support /goals/focus/ 301
 /start/recovery-support /goals/recovery/ 301
-/best/fat-loss /guides/best-supplements-for-fat-loss/ 301
-/best/testosterone /guides/natural-testosterone-boosters/ 301
+/best/fat-loss /best-supplements-for-fat-loss/ 301
+/best/testosterone /goals/testosterone-support/ 301
 /best/brain-fog /guides/supplements-for-brain-fog-and-fatigue/ 301
 /best/best-supplements-for-focus /guides/best-supplements-for-focus/ 301
 /best/non-melatonin-sleep /guides/best-supplements-for-sleep/ 301
@@ -129,8 +129,8 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /compounds/rhodiola-rosea/ /herbs/rhodiola/ 301
 /compounds/tart-cherry /goals/recovery/ 301
 /compounds/tart-cherry/ /goals/recovery/ 301
-/herbs/green-tea-extract-egcg /compounds/green-tea-extract/ 301
-/herbs/green-tea-extract-egcg/ /compounds/green-tea-extract/ 301
+/herbs/green-tea-extract-egcg /compounds/egcg-caffeine/ 301
+/herbs/green-tea-extract-egcg/ /compounds/egcg-caffeine/ 301
 /guides/herbs-for-sleep /articles/best-herbs-for-sleep/ 301
 /guides/herbs-for-sleep/ /articles/best-herbs-for-sleep/ 301
 /guides/best-supplements-for-blood-pressure-support /best-supplements-for-blood-pressure/ 301
@@ -142,8 +142,8 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /compounds/l-theanine-sleep /compounds/l-theanine/ 301
 /compounds/methyleugenol /compounds/methyl-eugenol/ 301
 /compounds/bcaas /compounds/bcaa/ 301
-/compounds/green-tea-egcg-isolated /compounds/green-tea-extract/ 301
-/compounds/green-tea-extract-egcg /compounds/green-tea-extract/ 301
+/compounds/green-tea-egcg-isolated /compounds/egcg-caffeine/ 301
+/compounds/green-tea-extract-egcg /compounds/egcg-caffeine/ 301
 /compounds/probiotic-multistrain /compounds/probiotics/ 301
 /compounds/probiotic-strain-bifidobacterium /compounds/probiotics/ 301
 /compounds/probiotic-strain-lactobacillus /compounds/probiotics/ 301
@@ -377,8 +377,8 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /compounds/mangifera-indica/ /herbs/mangifera-indica/ 301
 /compounds/coffee-cherry /herbs/coffea-arabica/ 301
 /compounds/coffee-cherry/ /herbs/coffea-arabica/ 301
-/compounds/epigallocatechin-gallate /compounds/green-tea-extract/ 301
-/compounds/epigallocatechin-gallate/ /compounds/green-tea-extract/ 301
+/compounds/epigallocatechin-gallate /compounds/egcg-caffeine/ 301
+/compounds/epigallocatechin-gallate/ /compounds/egcg-caffeine/ 301
 
 # GSC 404 remediation — single-compound /stacks/ URLs
 /stacks/alpha-gpc /compounds/alpha-gpc/ 301

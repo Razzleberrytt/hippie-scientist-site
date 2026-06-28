@@ -308,7 +308,7 @@ export default function LTheanineArticlePage() {
                       <td className="p-4 text-brand-700 font-medium">Moderate</td>
                       <td className="p-4 text-muted">30–60 min</td>
                       <td className="p-4">
-                        <Link href="/articles/l-theanine-for-sleep" className="text-brand-700 hover:underline font-medium">
+                        <Link href="/articles/l-theanine-for-sleep/" className="text-brand-700 hover:underline font-medium">
                           L-theanine for sleep →
                         </Link>
                       </td>
@@ -343,7 +343,7 @@ export default function LTheanineArticlePage() {
                   anxiety deep-dive
                 </Link>
                 . If sleep is primary, see{' '}
-                <Link href="/articles/l-theanine-for-sleep" className="font-semibold text-brand-700 hover:underline">
+                <Link href="/articles/l-theanine-for-sleep/" className="font-semibold text-brand-700 hover:underline">
                   L-theanine for sleep
                 </Link>
                 . If you want a stack that combines L-theanine with magnesium, see the{' '}
@@ -661,7 +661,7 @@ export default function LTheanineArticlePage() {
                   <p className="mt-1 text-xs leading-5 text-[#46574d]">
                     For sleep: L-theanine quiets racing thoughts; melatonin signals circadian
                     onset. Different mechanisms — complementary. See{' '}
-                    <Link href="/articles/l-theanine-for-sleep" className="font-semibold text-brand-700 hover:underline">
+                    <Link href="/articles/l-theanine-for-sleep/" className="font-semibold text-brand-700 hover:underline">
                       L-theanine for sleep
                     </Link>
                     .
@@ -720,7 +720,7 @@ export default function LTheanineArticlePage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/l-theanine-for-sleep"
+                  href="/articles/l-theanine-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -979,7 +979,7 @@ export default function LTheanineArticlePage() {
                 L-theanine for anxiety →
               </Link>
               <Link
-                href="/articles/l-theanine-for-sleep"
+                href="/articles/l-theanine-for-sleep/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 L-theanine for sleep →

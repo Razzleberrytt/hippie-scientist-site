@@ -348,7 +348,7 @@ export const seoEntryExpansions: Record<string, CuratedExpansion> = {
     ],
     evidenceRows: [
       { name: 'Zinc', tier: 'Deficiency-dependent', bestFor: 'Men with low zinc status, not those already replete', dose: 'Correct intake toward the RDA; avoid high-dose self-stacking', safety: 'High-dose zinc impairs copper status and can cause GI effects.', href: '/compounds/zinc' },
-      { name: 'Vitamin D', tier: 'Deficiency-dependent', bestFor: 'Men with low vitamin D status', dose: 'Replace to a normal level based on testing, not megadosing', safety: 'Excess can cause hypercalcemia; dose to lab status.', href: '/compounds/vitamin-d' },
+      { name: 'Vitamin D', tier: 'Deficiency-dependent', bestFor: 'Men with low vitamin D status', dose: 'Replace to a normal level based on testing, not megadosing', safety: 'Excess can cause hypercalcemia; dose to lab status.', href: '/compounds/vitamin-d/' },
       { name: 'Ashwagandha', tier: 'Preliminary / mixed', bestFor: 'Stress- and sleep-linked context; some small trials show modest testosterone changes', dose: '300-600 mg/day standardized root extract', safety: 'Avoid in pregnancy; review thyroid, autoimmune, liver, and sedative context.', href: '/herbs/ashwagandha' },
       { name: 'Magnesium', tier: 'Context dependent', bestFor: 'Low intake and active men, mostly an indirect/supportive role', dose: '200-400 mg elemental magnesium/day', safety: 'Kidney disease and medication spacing matter.', href: '/compounds/magnesium' },
       { name: 'Maca', tier: 'Libido, not testosterone', bestFor: 'Subjective libido experiments — it does not reliably raise testosterone', dose: 'Commonly 1.5-3 g/day', safety: 'Generally well tolerated; quality and processing vary.', href: '/herbs/maca' },

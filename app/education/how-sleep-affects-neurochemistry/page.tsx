@@ -32,7 +32,7 @@ const sections = [
 
 const related = [
   {
-    href: '/education/cholinergic-system',
+    href: '/education/cholinergic-system/',
     title: 'Cholinergic System',
   },
   {

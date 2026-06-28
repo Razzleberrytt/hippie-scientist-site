@@ -102,13 +102,13 @@ Start with a lower dose, such as 100–200 mg, to assess tolerance. Effects on c
 
 L-theanine is an amino acid that provides more acute support for calm focus and sleep onset. Magnesium is a mineral that offers broader baseline support for sleep, muscle relaxation, and emotional regulation when status is low. They can be used together safely and often complement each other.
 
-See our guide: [Magnesium for ADHD](/magnesium-for-adhd).
+See our guide: [Magnesium for ADHD](/magnesium-for-adhd/).
 
 ## L-Theanine vs Omega-3
 
 Omega-3 fatty acids have stronger meta-analysis support for modest reductions in hyperactivity. L-theanine tends to produce more noticeable acute effects on calm focus and sleep onset for some people. The two can be used together.
 
-See our guides: [Omega-3 for ADHD](/omega-3-for-adhd) and [Best Supplements for ADHD](/best-supplements-for-adhd).
+See our guides: [Omega-3 for ADHD](/omega-3-for-adhd/) and [Best Supplements for ADHD](/best-supplements-for-adhd/).
 
 ## Side Effects and Safety
 

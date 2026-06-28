@@ -52,7 +52,7 @@ const systems = [
     title: 'Cholinergic Systems',
     description:
       'Associated with dreaming, cognition, memory, and REM-related mechanisms.',
-    href: '/education/cholinergic-system',
+    href: '/education/cholinergic-system/',
   },
 ]
 

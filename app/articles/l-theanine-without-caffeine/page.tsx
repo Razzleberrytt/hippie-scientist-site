@@ -470,12 +470,12 @@ export default function LTheanineWithoutCaffeinePage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Related Articles</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {[
-                  ['/articles/best-supplements-for-adhd', 'Cornerstone', 'Best Supplements for ADHD', 'Full evidence-ranked guide.'],
+                  ['/articles/best-supplements-for-adhd/', 'Cornerstone', 'Best Supplements for ADHD', 'Full evidence-ranked guide.'],
                   ['/articles/l-theanine-for-adhd', 'ADHD Cluster', 'L-Theanine for ADHD', 'Full evidence review including sleep.'],
                   ['/articles/l-theanine-vs-caffeine-for-focus', 'ADHD Cluster', 'L-Theanine vs Caffeine', 'Direct comparison for focus.'],
                   ['/articles/l-theanine-magnesium-adhd-stack', 'Stack Guide', 'L-Theanine + Magnesium Stack', 'Combine for broader ADHD support.'],
-                  ['/articles/l-theanine-for-sleep', 'Sleep Cluster', 'L-Theanine for Sleep', 'Nighttime calm without caffeine.'],
-                  ['/articles/adhd-stack-guide', 'ADHD Cluster', 'ADHD Stack Guide', 'Building a safe ADHD supplement stack.'],
+                  ['/articles/l-theanine-for-sleep/', 'Sleep Cluster', 'L-Theanine for Sleep', 'Nighttime calm without caffeine.'],
+                  ['/articles/adhd-stack-guide/', 'ADHD Cluster', 'ADHD Stack Guide', 'Building a safe ADHD supplement stack.'],
                   ['/articles/ashwagandha', 'Umbrella', 'Ashwagandha Article', 'Full evidence review across stress, anxiety, sleep, and focus.'],
                   ['/articles/ashwagandha-for-adhd', 'ADHD Cluster', 'Ashwagandha for ADHD', 'Chronic stress and focus support.'],
                   ['/goals/focus', 'Goal Hub', 'Focus Goal Hub', 'Compare all focus supplements.'],
@@ -532,11 +532,11 @@ export default function LTheanineWithoutCaffeinePage() {
             <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Focus + ADHD cluster</p>
             <div className="mt-3 space-y-2">
               {[
-                ['/articles/best-supplements-for-adhd', 'Best supplements for ADHD →'],
+                ['/articles/best-supplements-for-adhd/', 'Best supplements for ADHD →'],
                 ['/articles/l-theanine-for-adhd', 'L-Theanine for ADHD →'],
                 ['/articles/l-theanine-vs-caffeine-for-focus', 'L-Theanine vs Caffeine →'],
-                ['/articles/adhd-stack-guide', 'ADHD stack guide →'],
-                ['/articles/l-theanine-for-sleep', 'L-Theanine for sleep →'],
+                ['/articles/adhd-stack-guide/', 'ADHD stack guide →'],
+                ['/articles/l-theanine-for-sleep/', 'L-Theanine for sleep →'],
                 ['/goals/focus', 'Focus goal hub →'],
               ].map(([href, label]) => (
                 <Link key={href as string} href={href as string}

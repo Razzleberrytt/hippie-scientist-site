@@ -133,7 +133,7 @@ export function AdhdComparisonCard({ slug }: { slug: string }) {
       { label: 'Minerals (Iron, Zinc, Mg)', text: 'Direct co-factors for dopamine and norepinephrine synthesis. Crucial to test baseline levels rather than supplementing blindly.' },
       { label: 'Decision Logic', text: 'Omega-3s can be supplemented conservatively based on dietary gap; minerals like iron and zinc should be verified via blood labs first.' },
     ]
-    compareLink = '/best-supplements-for-adhd'
+    compareLink = '/best-supplements-for-adhd/'
   } else if (slug === 'l-theanine-vs-caffeine-for-focus') {
     cardTitle = 'Comparison: Caffeine vs. L-Theanine'
     cardDesc = 'Caffeine provides rapid, direct stimulation, while L-Theanine supports calm alpha-wave activity to smooth out neurotransmitter spikes.'
@@ -241,7 +241,7 @@ export function AdhdInlineCta({ type }: { type: 'start-here' | 'checklist' | 'st
   } else if (type === 'stack') {
     title = 'ADHD Stack Guide'
     text = 'Building a supplement stack? Read the ADHD Stack Guide to avoid overlapping ingredients and unrealistic expectations.'
-    href = '/articles/adhd-stack-guide'
+    href = '/articles/adhd-stack-guide/'
     buttonText = 'Read Stack Guide'
     badgeText = 'Safer Stacking'
   }

@@ -889,7 +889,7 @@ export default function MagnesiumTypesForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/best-herbs-for-sleep"
+                  href="/articles/best-herbs-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -949,7 +949,7 @@ export default function MagnesiumTypesForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/l-theanine-for-sleep"
+                  href="/articles/l-theanine-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -964,7 +964,7 @@ export default function MagnesiumTypesForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/magnesium-for-adhd"
+                  href="/articles/magnesium-for-adhd/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -978,7 +978,7 @@ export default function MagnesiumTypesForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/sleep-and-adhd"
+                  href="/articles/sleep-and-adhd/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1140,7 +1140,7 @@ export default function MagnesiumTypesForSleepPage() {
                 Magnesium for sleep →
               </Link>
               <Link
-                href="/articles/best-herbs-for-sleep"
+                href="/articles/best-herbs-for-sleep/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Best herbs for sleep →
