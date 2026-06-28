@@ -92,6 +92,12 @@ export default [
     },
   },
   {
+    files: ['app/sitemap.ts'],
+    rules: {
+      'no-useless-escape': 'off',
+    },
+  },
+  {
     files: ['app/blog/**/*.{js,jsx,ts,tsx}'],
     rules: {
       '@typescript-eslint/no-explicit-any': 'error',
