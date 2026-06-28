@@ -751,11 +751,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
 
-  // Add static blog posts (public/blog/<slug>/index.html)
-  const blogPosts = readJsonArray<{slug: string; title: string; date: string}>('data/blog/posts.json');
+  // Add static blog posts (public/blog/<slug>/index.html) — uses blogPosts from line 480
   blogPosts.forEach((post) => {
     if (!post.slug) return;
-    addRoute(`/blog/${post.slug}`, 'monthly', 0.75, post.date || undefined);
+    addRoute(`/blog/${post.slug}`, 'monthly', 0.75, post.date || post.lastUpdated || undefined);
   });
 
   // Pull any extra from comprehensive route-manifest (covers additional /compare index, ecosystems etc not already listed)
