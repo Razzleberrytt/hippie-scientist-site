@@ -210,7 +210,7 @@ export default function BestSupplementsForStressPage() {
           <Link href="/guides/how-to-lower-cortisol-naturally" className="hover:text-brand-800">How to Lower Cortisol Naturally →</Link>
           <Link href="/compare/rhodiola-vs-ashwagandha" className="hover:text-brand-800">Rhodiola vs Ashwagandha →</Link>
           <Link href="/guides/rhodiola-complete-guide" className="hover:text-brand-800">Complete Rhodiola Guide →</Link>
-          <Link href="/guides" className="hover:text-brand-800">All Guides →</Link>
+          <Link href="/guides/" className="hover:text-brand-800">All Guides →</Link>
         </nav>
       </div>
       </ArticleLayout>

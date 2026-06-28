@@ -25,7 +25,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: 'Best Supplements for Sleep: Evidence-First Buyer Guide',
   description: DESCRIPTION,
   path: PATH,
-  image: '/og/guides/best-supplements-for-sleep.png',
+  image: '/og-default.jpg',
   openGraphType: 'article',
 })
 
@@ -297,7 +297,7 @@ export default function BestSupplementsForSleepPage() {
       <nav className="flex items-center gap-2 text-sm text-muted" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-ink">Home</Link>
         <span>/</span>
-        <Link href="/guides" className="hover:text-ink">Guides</Link>
+        <Link href="/guides/" className="hover:text-ink">Guides</Link>
         <span>/</span>
         <span className="line-clamp-1 text-ink">{TITLE}</span>
       </nav>
@@ -320,7 +320,7 @@ export default function BestSupplementsForSleepPage() {
               Compare supplements
             </a>
             <Link
-              href="/goals/sleep"
+              href="/goals/sleep/"
               className="rounded-full border border-brand-900/10 bg-white/80 px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-brand-700/30"
             >
               Open sleep goal guide
@@ -455,7 +455,7 @@ export default function BestSupplementsForSleepPage() {
             ))}
           </ul>
           <p className="mt-4 text-sm leading-7 text-[#46574d]">
-            See the full <Link href="/methodology" className="font-semibold text-brand-700 hover:underline">methodology</Link> for
+            See the full <Link href="/methodology/" className="font-semibold text-brand-700 hover:underline">methodology</Link> for
             how evidence, safety, and product-quality signals are handled across the site.
           </p>
         </section>
@@ -493,7 +493,7 @@ export default function BestSupplementsForSleepPage() {
           ))}
         </div>
         <p className="mt-4 text-sm leading-7 text-red-950/85">
-          Review the <Link href="/disclaimer" className="font-semibold text-red-900 hover:underline">medical disclaimer</Link> and
+          Review the <Link href="/disclaimer/" className="font-semibold text-red-900 hover:underline">medical disclaimer</Link> and
           involve a qualified clinician for persistent insomnia, sleep apnea symptoms, complex medication
           use, pregnancy, breastfeeding, children, or chronic disease.
         </p>

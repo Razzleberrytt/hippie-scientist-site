@@ -341,9 +341,9 @@ function CompoundMdxPage({ page }: { page: (typeof allCompoundMdxPages)[number] 
         <footer className="mt-8 rounded-[0.9rem] border border-amber-700/20 bg-amber-50/80 p-4 text-sm leading-6 text-[#5b4a2c]">
           Educational disclaimer: this page is for evidence review and harm-reduction context only. It is not medical advice, legal advice, sourcing guidance, or a recommendation to use any opioid-acting kratom derivative.
           <div className="mt-3 flex flex-wrap gap-4 font-semibold text-brand-800">
-            <Link href="/compounds" className="hover:underline">Compounds library</Link>
+            <Link href="/compounds/" className="hover:underline">Compounds library</Link>
             <Link href="/articles/7-hydroxymitragynine" className="hover:underline">7-OH article</Link>
-            <Link href="/safety-checker" className="hover:underline">Safety checker</Link>
+            <Link href="/safety-checker/" className="hover:underline">Safety checker</Link>
           </div>
         </footer>
       </article>
@@ -1201,10 +1201,10 @@ export default async function CompoundPage({ params }: PageProps) {
         <AuthorCredentials />
 
         <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between">
-          <Link href="/compounds" className="inline-flex rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-ink transition hover:bg-sand-50">
+          <Link href="/compounds/" className="inline-flex rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-ink transition hover:bg-sand-50">
             ← Back to compounds library
           </Link>
-          <Link href="/safety-checker" className="text-sm font-bold text-brand-800 hover:underline">
+          <Link href="/safety-checker/" className="text-sm font-bold text-brand-800 hover:underline">
             Safety checker →
           </Link>
         </div>

@@ -585,7 +585,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
             label: 'Comparison',
             title: 'Magnesium Glycinate vs L-Threonate for Sleep',
             description: 'When the more expensive threonate form is worth it — sleep vs cognition positioning.',
-            href: '/compare/magnesium-glycinate-vs-l-threonate-for-sleep',
+            href: '/compare/magnesium-glycinate-vs-magnesium-threonate',
           },
           {
             type: 'guide',
@@ -629,11 +629,11 @@ export default function SleepHerbsVsMelatoninComparePage() {
 
       <div className="flex flex-wrap gap-3">
         <Link href="/compare/l-theanine-vs-magnesium" className="chip-readable">L-Theanine vs Magnesium</Link>
-        <Link href="/compare/magnesium-glycinate-vs-l-threonate-for-sleep" className="chip-readable">Magnesium Glycinate vs L-Threonate</Link>
+        <Link href="/compare/magnesium-glycinate-vs-magnesium-threonate" className="chip-readable">Magnesium Glycinate vs L-Threonate</Link>
         <Link href="/compare/magnesium-glycinate-vs-magnesium-oxide" className="chip-readable">Magnesium Glycinate vs Oxide</Link>
         <Link href="/goals/sleep" className="chip-readable">Sleep Goals</Link>
         <Link href="/education/gaba" className="chip-readable">GABA Pathway</Link>
-        <Link href="/compare" className="chip-readable">All Comparisons</Link>
+        <Link href="/compare/" className="chip-readable">All Comparisons</Link>
       </div>
     </div>
   )

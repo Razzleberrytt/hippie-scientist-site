@@ -223,7 +223,7 @@ export default function BestSupplementsForFocusPage() {
           <Link href="/articles/ashwagandha" className="hover:text-brand-800">Ashwagandha Article →</Link>
           <Link href="/articles/l-theanine" className="hover:text-brand-800">L-Theanine Article →</Link>
           <Link href="/goals/focus" className="hover:text-brand-800">Focus Goal Hub →</Link>
-          <Link href="/guides" className="hover:text-brand-800">All Guides →</Link>
+          <Link href="/guides/" className="hover:text-brand-800">All Guides →</Link>
         </nav>
       </div>
       </ArticleLayout>

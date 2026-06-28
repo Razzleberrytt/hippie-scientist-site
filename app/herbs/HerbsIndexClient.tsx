@@ -386,7 +386,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
               <p className="eyebrow-label">Search and filter</p>
               <h2 id="herb-search-heading" className="compact-heading">Start with the question you need answered.</h2>
             </div>
-            <Link href="/goals" className="w-fit text-sm font-bold text-brand-800 transition hover:text-brand-900">Browse all goals →</Link>
+            <Link href="/goals/" className="w-fit text-sm font-bold text-brand-800 transition hover:text-brand-900">Browse all goals →</Link>
           </div>
 
           <form action="/herbs" className="mt-3 grid gap-2 sm:grid-cols-[1fr_auto]">
@@ -435,7 +435,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
 
           {hasActiveFilters && (
             <div className="pt-1">
-              <Link href="/herbs" className="text-xs font-semibold text-brand-800 underline-offset-2 hover:underline">
+              <Link href="/herbs/" className="text-xs font-semibold text-brand-800 underline-offset-2 hover:underline">
                 Clear all filters
               </Link>
             </div>

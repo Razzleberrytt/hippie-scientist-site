@@ -382,13 +382,13 @@ export default function TurmericCurcuminGuidePage() {
       {/* Bottom nav */}
       <div className="flex flex-wrap gap-4 border-t border-brand-900/10 pt-6 text-sm">
         <Link
-          href="/guides"
+          href="/guides/"
           className="font-medium text-brand-700 hover:text-brand-800 hover:underline"
         >
           ← All Guides
         </Link>
         <Link
-          href="/herbs"
+          href="/herbs/"
           className="font-medium text-brand-700 hover:text-brand-800 hover:underline"
         >
           Herb Library →

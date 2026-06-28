@@ -125,8 +125,8 @@ export default async function NovelPsychoactiveSubstanceArticlePage({ params }: 
       <footer className="mt-8 rounded-[0.9rem] border border-amber-700/20 bg-amber-50/80 p-4 text-sm leading-6 text-[#5b4a2c]">
         Educational disclaimer: this page is for evidence review and harm-reduction context only. It is not medical advice, legal advice, sourcing guidance, dosing guidance, or a recommendation to use any novel psychoactive substance.
         <div className="mt-3 flex flex-wrap gap-4 font-semibold text-brand-800">
-          <Link href="/novel-psychoactive-substances" className="hover:underline">NPS section</Link>
-          <Link href="/safety-checker" className="hover:underline">Safety checker</Link>
+          <Link href="/novel-psychoactive-substances/" className="hover:underline">NPS section</Link>
+          <Link href="/safety-checker/" className="hover:underline">Safety checker</Link>
         </div>
       </footer>
     </article>

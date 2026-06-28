@@ -380,7 +380,7 @@ export default function FocusAdhdArticlePage({ slug }: { slug: string }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
-        <Link href="/articles" className="transition hover:text-ink">Articles</Link>
+        <Link href="/articles/" className="transition hover:text-ink">Articles</Link>
         <span>/</span>
         <span className="line-clamp-1 text-ink">{article.title}</span>
       </nav>
@@ -433,13 +433,13 @@ export default function FocusAdhdArticlePage({ slug }: { slug: string }) {
           <h2 className="text-lg font-semibold tracking-tight text-ink">Related Sleep &amp; Calm Guides</h2>
           <p className="text-xs text-muted mt-1">For general sleep research and comparative guides on these ingredients:</p>
           <div className="mt-3 grid gap-2 sm:grid-cols-3">
-            <Link href="/articles/l-theanine-for-sleep" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">
+            <Link href="/articles/l-theanine-for-sleep/" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">
               L-Theanine for Sleep →
             </Link>
-            <Link href="/articles/magnesium-types-for-sleep" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">
+            <Link href="/articles/magnesium-types-for-sleep/" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">
               Magnesium Types for Sleep →
             </Link>
-            <Link href="/articles/best-herbs-for-sleep" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">
+            <Link href="/articles/best-herbs-for-sleep/" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">
               Best Herbs for Sleep →
             </Link>
           </div>
@@ -459,7 +459,7 @@ export default function FocusAdhdArticlePage({ slug }: { slug: string }) {
       </section>
 
       <div className="mt-8">
-        <Link href="/articles" className="text-sm font-semibold text-brand-700 hover:text-brand-800">Back to Articles</Link>
+        <Link href="/articles/" className="text-sm font-semibold text-brand-700 hover:text-brand-800">Back to Articles</Link>
       </div>
     </article>
   )

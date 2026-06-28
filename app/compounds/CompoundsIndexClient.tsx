@@ -347,7 +347,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
               <p className="eyebrow-label">Search and filter</p>
               <h2 id="compound-search-heading" className="compact-heading">Start with the question you need answered.</h2>
             </div>
-            <Link href="/herbs" className="w-fit text-sm font-bold text-brand-800 transition hover:text-brand-900">Browse herb sources →</Link>
+            <Link href="/herbs/" className="w-fit text-sm font-bold text-brand-800 transition hover:text-brand-900">Browse herb sources →</Link>
           </div>
 
           <form action="/compounds" className="mt-3 grid gap-2 sm:grid-cols-[1fr_auto]">

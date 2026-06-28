@@ -21,7 +21,7 @@ export default function EvidenceBadge({
 
   return (
     <Link
-      href="/education/evidence-levels"
+      href="/education/evidence-levels/"
       title={tooltip}
       aria-label={`${label}. ${tooltip}`}
       className={`${decisionStatusBadgeClass} ${evidenceToneClasses(tone)} ${className}`}

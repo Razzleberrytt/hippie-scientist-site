@@ -252,7 +252,7 @@ export default function ElderberryGuidePage() {
             <p className="mt-1 text-sm font-semibold text-ink">Passionflower</p>
             <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">Evidence for anxiety and sleep, with safety and dosing context.</p>
           </Link>
-          <Link href="/herbs" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
+          <Link href="/herbs/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Library</p>
             <p className="mt-1 text-sm font-semibold text-ink">Herb Library</p>
             <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">Browse full herb profiles with mechanism maps and safety data.</p>
@@ -262,8 +262,8 @@ export default function ElderberryGuidePage() {
 
       {/* Bottom nav */}
       <div className="flex flex-wrap gap-4 border-t border-brand-900/10 pt-6 text-sm">
-        <Link href="/guides" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">← All Guides</Link>
-        <Link href="/herbs" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">Herb Library →</Link>
+        <Link href="/guides/" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">← All Guides</Link>
+        <Link href="/herbs/" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">Herb Library →</Link>
       </div>
       </div>{/* end space-y-8 */}
     </ArticleLayout>
