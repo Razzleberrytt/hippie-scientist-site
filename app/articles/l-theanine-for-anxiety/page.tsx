@@ -330,7 +330,7 @@ export default function LTheanineForAnxietyPage() {
             <div className="border rounded-xl p-5">
               <h3 className="font-semibold mb-2">L-Theanine 100 mg</h3>
               <a
-                href={`${AFFILIATE_TAGS.amazon}?k=L-Theanine+100+mg+third+party+tested`}
+                href={`https://www.amazon.com/s?k=L-Theanine+100+mg+third+party+tested&tag=${AFFILIATE_TAGS.amazon}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary underline text-sm"
@@ -341,7 +341,7 @@ export default function LTheanineForAnxietyPage() {
             <div className="border rounded-xl p-5">
               <h3 className="font-semibold mb-2">L-Theanine 200 mg</h3>
               <a
-                href={`${AFFILIATE_TAGS.amazon}?k=L-Theanine+200+mg+third+party+tested`}
+                href={`https://www.amazon.com/s?k=L-Theanine+200+mg+third+party+tested&tag=${AFFILIATE_TAGS.amazon}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary underline text-sm"
@@ -352,7 +352,7 @@ export default function LTheanineForAnxietyPage() {
             <div className="border rounded-xl p-5">
               <h3 className="font-semibold mb-2">Stress Support Supplements</h3>
               <a
-                href={`${AFFILIATE_TAGS.amazon}?k=stress+support+supplements`}
+                href={`https://www.amazon.com/s?k=stress+support+supplements&tag=${AFFILIATE_TAGS.amazon}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary underline text-sm"
