@@ -349,6 +349,12 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /compounds/mitragynine-pseudoindoxyl/ /articles/mitragynine-pseudoindoxyl/ 301
 /compounds/7-oh-vs-mgm-15-vs-mitragynine-pseudoindoxyl /novel-psychoactive-substances/7-hydroxymitragynine-vs-mgm-15-vs-mitragynine-pseudoindoxyl/ 301
 /compounds/7-oh-vs-mgm-15-vs-mitragynine-pseudoindoxyl/ /novel-psychoactive-substances/7-hydroxymitragynine-vs-mgm-15-vs-mitragynine-pseudoindoxyl/ 301
+/compounds/kratom /articles/natural-compounds-research-clusters/ 301
+/compounds/kratom/ /articles/natural-compounds-research-clusters/ 301
+/compounds/curcumin /herbs/curcumin/ 301
+/compounds/curcumin/ /herbs/curcumin/ 301
+/compounds/phosphatidylserine /compounds/ 301
+/compounds/phosphatidylserine/ /compounds/ 301
 /focus-cluster/* /articles/:splat 301
 /focus-cluster /articles/ 301
 /focus-cluster/ /articles/ 301
