@@ -150,7 +150,7 @@ export const seoEntryExpansions: Record<string, CuratedExpansion> = {
       { name: 'Peppermint oil', tier: 'Moderate for IBS symptoms', bestFor: 'IBS-style cramping, bloating, and discomfort', dose: 'Enteric-coated capsules per label before meals', safety: 'Can worsen reflux; avoid with gallbladder disease unless cleared.' },
       { name: 'Digestive enzymes', tier: 'Specific-use only', bestFor: 'Lactase for lactose or targeted enzymes for known triggers', dose: 'Taken with the trigger meal', safety: 'Broad enzyme blends are often over-marketed.' },
       { name: 'Ginger', tier: 'Preliminary to moderate', bestFor: 'Nausea or motility-adjacent discomfort', dose: '500-1,000 mg/day or food/tea equivalent', safety: 'Caution with anticoagulants or surgery context.', href: '/herbs/ginger' },
-      { name: 'Zinc carnosine / L-glutamine', tier: 'Preliminary', bestFor: 'Barrier-support interest, not general gut-health claims', dose: 'Product and context dependent', safety: 'Use clinician guidance for IBD, ulcers, or complex GI disease.', href: '/compounds/l-glutamine' },
+      { name: 'Zinc carnosine / L-glutamine', tier: 'Preliminary', bestFor: 'Barrier-support interest, not general gut-health claims', dose: 'Product and context dependent', safety: 'Use clinician guidance for IBD, ulcers, or complex GI disease.', href: '/compounds/glutamine' },
     ],
     comparisonRows: [
       { scenario: 'Constipation or irregularity', firstChoice: 'Psyllium or another soluble fiber', why: 'Most practical first-line supplement category when tolerated.' },
