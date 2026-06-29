@@ -97,6 +97,11 @@ export const mainNavigation: NavigationItem[] = [
     href: '/safety-checker',
     description: 'Interaction checker and safety context for herbs and supplements',
   },
+  {
+    label: 'Evidence',
+    href: '/evidence-report',
+    description: 'Evidence report, lookup tool, and infographics',
+  },
 ]
 
 /**
@@ -240,6 +245,21 @@ export const routeLabels: Record<string, RouteMetadata> = {
     description: 'Research tools',
     parent: '/',
   },
+  '/evidence-report': {
+    label: 'Evidence Report',
+    description: 'State of Supplement Evidence 2026 — analysis of 816 peer-reviewed studies',
+    parent: '/',
+  },
+  '/evidence-checker': {
+    label: 'Evidence Lookup',
+    description: 'Search 557 compounds by clinical evidence grade (A-F)',
+    parent: '/',
+  },
+  '/infographics': {
+    label: 'Infographics',
+    description: 'Free evidence-based supplement infographics with embed codes',
+    parent: '/',
+  },
   '/education': {
     label: 'Guides',
     description: 'Educational resources (redirects to /guides)',
@@ -267,6 +287,9 @@ export const footerLinks = {
     // Add social links as needed
   ],
   meta: [
+    { label: 'Evidence Report', href: '/evidence-report' },
+    { label: 'Evidence Lookup', href: '/evidence-checker' },
+    { label: 'Infographics', href: '/infographics' },
     { label: 'Sitemap', href: '/sitemap.xml' },
     { label: 'RSS', href: '/rss.xml' },
   ],

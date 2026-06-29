@@ -242,6 +242,29 @@ export default function HomepageV2() {
           </div>
         </section>
 
+        {/* Evidence Tools */}
+        <section className='rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm sm:p-6'>
+          <div className='max-w-3xl space-y-2'>
+            <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-700'>Evidence Tools</p>
+            <h2 className='text-xl font-semibold tracking-tight text-ink sm:text-2xl'>Explore the data behind the claims</h2>
+            <p className='text-sm leading-6 text-muted sm:text-base'>Free tools and reports based on analysis of 816 peer-reviewed studies across 557 compounds.</p>
+          </div>
+          <div className='mt-5 grid gap-3 sm:grid-cols-3'>
+            <Link href='/evidence-report/' className='block rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4 transition hover:border-brand-700/20 hover:bg-brand-50 dark:bg-[var(--surface-subtle)]'>
+              <h3 className='text-sm font-bold text-ink'>Evidence Report 2026</h3>
+              <p className='mt-1 text-sm leading-6 text-muted'>Which supplements actually have human evidence? See the state of the research.</p>
+            </Link>
+            <Link href='/evidence-checker/' className='block rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4 transition hover:border-brand-700/20 hover:bg-brand-50 dark:bg-[var(--surface-subtle)]'>
+              <h3 className='text-sm font-bold text-ink'>Evidence Lookup</h3>
+              <p className='mt-1 text-sm leading-6 text-muted'>Search 557 compounds by A-F clinical evidence grade.</p>
+            </Link>
+            <Link href='/infographics/' className='block rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4 transition hover:border-brand-700/20 hover:bg-brand-50 dark:bg-[var(--surface-subtle)]'>
+              <h3 className='text-sm font-bold text-ink'>Free Infographics</h3>
+              <p className='mt-1 text-sm leading-6 text-muted'>Evidence-based visuals — free to share and embed with attribution.</p>
+            </Link>
+          </div>
+        </section>
+
       </div>
     </div>
   )
