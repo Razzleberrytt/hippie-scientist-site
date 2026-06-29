@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { buildPageMetadata } from '../../src/lib/seo'
+import Image from 'next/image'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Supplement Evidence Infographics — Free to Share',
@@ -37,10 +38,13 @@ export default function InfographicsPage() {
       <section className="max-w-4xl space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Sleep Supplements: Evidence vs Hype</h2>
         <div className="card-premium p-4">
-          <img 
-            src="/infographics/sleep-supplements-evidence.png" 
+          <Image
+            src="/infographics/sleep-supplements-evidence.png"
             alt="Sleep Supplements Evidence vs Hype infographic showing evidence grades for melatonin, magnesium, valerian, ashwagandha, L-theanine, and glycine based on 816 peer-reviewed studies"
+            width={600}
+            height={800}
             className="w-full rounded-xl border border-brand-900/10"
+            unoptimized
           />
         </div>
         <details className="card-premium p-4 cursor-pointer">
@@ -55,10 +59,13 @@ export default function InfographicsPage() {
       <section className="max-w-4xl space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">ADHD Supplements: What the Research Actually Shows</h2>
         <div className="card-premium p-4">
-          <img 
-            src="/infographics/adhd-supplements-evidence.png" 
+          <Image
+            src="/infographics/adhd-supplements-evidence.png"
             alt="ADHD Supplements evidence infographic showing clinical trial strength for Omega-3, Magnesium, Zinc, L-Theanine, Citicoline, Iron, and Vitamin D based on 816 peer-reviewed studies"
+            width={600}
+            height={800}
             className="w-full rounded-xl border border-brand-900/10"
+            unoptimized
           />
         </div>
         <details className="card-premium p-4 cursor-pointer">
