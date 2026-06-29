@@ -11,6 +11,14 @@ type Compound = {
   evidence_tier: string
 }
 
+type RawCompound = {
+  slug?: string
+  name?: string
+  summary?: string
+  evidence_grade?: string
+  evidence_tier?: string
+}
+
 const TIER_COLORS: Record<string, string> = {
   'Strong Human Evidence': 'bg-emerald-50 border-emerald-200 text-emerald-800',
   'Moderate Human Evidence': 'bg-lime-50 border-lime-200 text-lime-800',
@@ -35,10 +43,10 @@ export default function EvidenceCheckerPage() {
   useEffect(() => {
     fetch('/data/compounds.json')
       .then(res => res.json())
-      .then((data: any[]) => {
+      .then((data: RawCompound[]) => {
         const mapped: Compound[] = data
-          .filter((c: any) => c.name && c.evidence_grade)
-          .map((c: any) => ({
+          .filter((c: RawCompound) => c.name && c.evidence_grade)
+          .map((c: RawCompound) => ({
             slug: c.slug,
             name: c.name,
             summary: c.summary || '',
