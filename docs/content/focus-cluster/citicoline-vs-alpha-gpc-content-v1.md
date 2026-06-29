@@ -38,6 +38,8 @@ Citicoline vs Alpha-GPC: Which Choline Supplement Is Better for Focus and Cognit
 
 ### Introduction
 
+**TL;DR:** Citicoline has preliminary evidence for ADHD at 250–500 mg/day, particularly for attention and impulse control. Alpha-GPC may aid focus through choline pathways but lacks ADHD-specific trials. Neither replaces medication. Start with citicoline first and assess at 4 weeks. Both are generally well-tolerated.
+
 Choline is an essential nutrient that serves as a precursor for the neurotransmitter acetylcholine and for phosphatidylcholine, a key component of cell membranes. Two popular supplemental forms — Citicoline (CDP-choline) and Alpha-GPC — are frequently discussed for supporting focus, memory, and overall cognitive function.
 
 Both compounds increase choline availability in the brain, but they differ in their additional mechanisms, absorption profiles, and the body of research supporting their use. This article provides a direct, evidence-first comparison across attention, memory, executive function, and relevant populations including ADHD, healthy adults, and older adults.
