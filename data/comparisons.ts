@@ -29,8 +29,8 @@ export const supplementComparisons: ComparisonConfig[] = [
   },
   {
     slug: 'berberine-vs-inositol',
-    title: 'Berberine vs Inositol',
-    summary: 'Berberine is usually framed around metabolic markers, while inositol is often compared for insulin signaling and hormone-related metabolic contexts.',
+    title: 'Berberine vs Inositol: Blood Sugar & Metabolic Health Comparison',
+    summary: 'Berberine vs Inositol — evidence-based comparison for blood sugar, insulin sensitivity, and metabolic health. Covers mechanisms, dosing, safety, and which has stronger human trial data.',
     a: { label: 'Berberine', candidates: ['berberine'] },
     b: { label: 'Inositol', candidates: ['inositol', 'myo-inositol', 'd-chiro-inositol'] },
   },
@@ -57,8 +57,8 @@ export const supplementComparisons: ComparisonConfig[] = [
   },
   {
     slug: 'magnesium-vs-melatonin',
-    title: 'Magnesium vs Melatonin',
-    summary: 'Magnesium is better framed as deficiency, relaxation, or muscle-context support, while melatonin is more directly tied to sleep timing and circadian signaling.',
+    title: 'Magnesium vs Melatonin: Sleep Quality & Timing Comparison',
+    summary: 'Magnesium vs Melatonin for sleep — magnesium supports staying asleep and relaxation long-term, while melatonin helps with falling asleep and circadian reset. Compare dosing, safety, and which fits your sleep goals.',
     a: { label: 'Magnesium', candidates: ['magnesium', 'magnesium-glycinate', 'magnesium-threonate', 'magnesium-citrate'] },
     b: { label: 'Melatonin', candidates: ['melatonin'] },
   },
