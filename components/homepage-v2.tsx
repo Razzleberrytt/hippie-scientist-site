@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { getHomepageFreshness } from '@/lib/freshness'
+import rawPosts from '@/data/blog/posts.json'
+import { sortPostsNewestFirst, formatDate, truncateText } from '@/lib/blog-index'
 
 type SectionHeaderProps = { title: string; subtitle?: string; as?: 'h2' | 'h3' }
 
@@ -239,6 +241,43 @@ export default function HomepageV2() {
             <Link href='/methodology/' className='text-brand-700 transition hover:text-brand-800'>
               Read the evidence methodology →
             </Link>
+          </div>
+        </section>
+
+        {/* Latest from the Blog */}
+        <section className='rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm sm:p-6'>
+          <div className='mb-5 flex items-end justify-between gap-4'>
+            <SectionHeader
+              title='Latest from the blog'
+              subtitle='Deep dives into adaptogens, nootropics, and evidence-based plant medicine.'
+              as='h2'
+            />
+          </div>
+          <div className='grid gap-4 sm:grid-cols-3'>
+            {sortPostsNewestFirst(rawPosts as Parameters<typeof sortPostsNewestFirst>[0])
+              .slice(0, 3)
+              .map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}/`}
+                  className='group flex flex-col gap-3 rounded-[0.85rem] border border-brand-900/10 bg-white/60 p-4 transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-md dark:bg-[var(--surface-card)]'
+                >
+                  <div>
+                    <span className='text-xs font-medium text-brand-500'>
+                      {formatDate((post as Record<string,string>).date)}
+                    </span>
+                    <h3 className='mt-2 text-base font-bold leading-snug text-ink group-hover:text-brand-700 transition-colors line-clamp-2'>
+                      {post.title}
+                    </h3>
+                    <p className='mt-2 text-sm leading-6 text-muted line-clamp-2'>
+                      {truncateText((post as Record<string,string>).excerpt, 120)}
+                    </p>
+                  </div>
+                  <span className='mt-auto text-sm font-bold text-brand-700 group-hover:translate-x-1 transition-transform'>
+                    Read article →
+                  </span>
+                </Link>
+              ))}
           </div>
         </section>
 
