@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-25T17:25:44.521Z",
+  "generatedAt": "2026-06-30T18:23:22.700Z",
   "dataDir": "public/data",
   "removedSingularDirs": [],
   "trimmedSummaries": {
@@ -73,7 +73,6 @@
       "creatine-hcl",
       "creatine-monohydrate",
       "curcumin-phytosome",
-      "curcumin-piperine",
       "d-chiro-inositol",
       "d-ribose",
       "demethoxycurcumin",
@@ -163,15 +162,50 @@
     "herbs": {
       "records": 290,
       "detailFiles": 287,
-      "indexable": 223,
+      "indexable": 228,
       "needsReview": 32
     },
     "compounds": {
       "records": 557,
       "detailFiles": 557,
-      "indexable": 13,
-      "needsReview": 107
+      "indexable": 15,
+      "needsReview": 106
     }
+  },
+  "curatedAllowlist": {
+    "herbs": [
+      "ashwagandha",
+      "bacopa",
+      "black-cohosh",
+      "black-seed",
+      "ginger",
+      "ginkgo-biloba",
+      "melissa-officinalis",
+      "momordica-charantia",
+      "peppermint",
+      "piper-methysticum",
+      "rhodiola",
+      "saffron",
+      "turmeric",
+      "valerian"
+    ],
+    "compounds": [
+      "acetyl-l-carnitine",
+      "alpha-gpc",
+      "berberine",
+      "caffeine",
+      "cdp-choline",
+      "coenzyme-q10",
+      "curcumin-piperine",
+      "epigallocatechin-gallate-egcg",
+      "huperzine-a",
+      "l-theanine",
+      "l-tyrosine",
+      "magnesium",
+      "n-acetylcysteine",
+      "omega-3",
+      "phosphatidylcholine"
+    ]
   },
   "skipped": []
 }

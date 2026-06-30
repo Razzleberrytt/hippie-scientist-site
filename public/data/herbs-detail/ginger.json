@@ -55,10 +55,10 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
-    "reason": ""
+    "reason": "curated_allowlist"
   },
   "evidence": {
     "reviewStatus": "sourced",
@@ -69,5 +69,8 @@
       "31151279"
     ]
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true
 }

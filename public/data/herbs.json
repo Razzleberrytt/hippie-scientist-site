@@ -102,7 +102,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "agarikon",
@@ -202,7 +214,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "ajwain",
@@ -295,7 +319,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "aloe-vera",
@@ -413,7 +449,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "panax-quinquefolius",
@@ -513,7 +561,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "american-yellow-lotus",
@@ -604,9 +664,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 88,
     "indexability_reasons": [
       "effect-present",
@@ -617,12 +677,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "andrographis-paniculata",
@@ -729,7 +802,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "anemarrhena-asphodeloides",
@@ -852,7 +937,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "angelica-archangelica",
@@ -963,7 +1060,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "angelica-dahurica",
@@ -1070,7 +1179,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "angelica-pubescens",
@@ -1154,9 +1275,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
@@ -1167,12 +1288,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "angelica-root",
@@ -1266,7 +1400,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "angelica-sinensis",
@@ -1384,7 +1530,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "anise-hyssop",
@@ -1482,7 +1640,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "arjuna",
@@ -1609,7 +1779,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "artemisia-absinthium",
@@ -1711,7 +1893,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "artemisia-annua",
@@ -1831,7 +2025,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "artemisia-capillaris",
@@ -1941,7 +2147,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "artichoke",
@@ -2053,7 +2271,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "ashitaba",
@@ -2159,7 +2389,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "ashoka",
@@ -2260,12 +2502,24 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "withania-somnifera",
     "name": "Ashwagandha",
-    "summary": "",
+    "summary": "No summary available yet.",
     "description": "",
     "effects": [
       "Stress Response",
@@ -2376,7 +2630,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "ashwagandha",
@@ -2487,12 +2753,25 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "curated_allowlist"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": "curated_allowlist"
+    }
   },
   {
     "slug": "panax-ginseng",
@@ -2583,9 +2862,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
@@ -2596,12 +2875,25 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "astragalus",
@@ -2715,7 +3007,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "astragalus-membranaceus",
@@ -2848,7 +3152,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "atractylodes",
@@ -2946,7 +3262,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "atractylodes-macrocephala",
@@ -3057,7 +3385,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "bacopa",
@@ -3161,12 +3501,25 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "curated_allowlist"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": "curated_allowlist"
+    }
   },
   {
     "slug": "bael",
@@ -3266,7 +3619,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "lagerstroemia-speciosa",
@@ -3373,7 +3738,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "bayberry",
@@ -3476,7 +3853,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "berberis",
@@ -3614,7 +4003,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "berberis-vulgaris",
@@ -3731,7 +4132,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "momordica-charantia",
@@ -3821,17 +4234,30 @@
     "summary_quality": "",
     "runtime_export_decision": "hidden_until_grounded",
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NOINDEX",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
     "indexability_score": 0,
     "indexability_reasons": [
-      "noindex-decision:hidden_until_grounded"
+      "noindex-decision:hidden_until_grounded",
+      "curated_allowlist"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": "curated_allowlist"
+    }
   },
   {
     "slug": "black-cohosh",
@@ -3920,17 +4346,30 @@
     "summary_quality": "",
     "runtime_export_decision": "hidden_until_grounded",
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NOINDEX",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
     "indexability_score": 0,
     "indexability_reasons": [
-      "noindex-decision:hidden_until_grounded"
+      "noindex-decision:hidden_until_grounded",
+      "curated_allowlist"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": "curated_allowlist"
+    }
   },
   {
     "slug": "piper-nigrum",
@@ -4025,7 +4464,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "black-seed",
@@ -4143,12 +4594,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "curated_allowlist"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": "curated_allowlist"
+    }
   },
   {
     "slug": "black-tea",
@@ -4274,7 +4738,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "blue-lotus",
@@ -4371,7 +4847,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "blueberry",
@@ -4483,9 +4971,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
@@ -4496,12 +4984,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "boldo",
@@ -4595,7 +5096,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "boswellia-serrata",
@@ -4686,7 +5199,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "boswellia-carterii",
@@ -4771,9 +5296,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
@@ -4784,12 +5309,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "brassica-juncea",
@@ -4895,7 +5433,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "brassica-oleracea",
@@ -5001,7 +5551,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "buckwheat",
@@ -5132,7 +5694,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "bupleurum",
@@ -5227,9 +5801,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
@@ -5240,12 +5814,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "bupleurum-falcatum",
@@ -5351,7 +5938,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "burdock",
@@ -5448,7 +6047,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "butterbur",
@@ -5526,9 +6137,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 88,
     "indexability_reasons": [
       "effect-present",
@@ -5539,12 +6150,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "theobroma-cacao",
@@ -5647,7 +6271,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "calamus",
@@ -5745,7 +6381,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "calendula",
@@ -5853,7 +6501,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "eschscholzia-californica",
@@ -5943,7 +6603,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "capsicum-annuum",
@@ -6043,12 +6715,24 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "capsicum-frutescens",
     "name": "Capsicum Frutescens",
-    "summary": "",
+    "summary": "No summary available yet.",
     "description": "",
     "effects": [
       "Cognition",
@@ -6130,7 +6814,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "caraway",
@@ -6223,7 +6919,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "elettaria-cardamomum",
@@ -6325,7 +7033,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "carob",
@@ -6424,7 +7144,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "cassia-alata",
@@ -6509,9 +7241,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 88,
     "indexability_reasons": [
       "effect-present",
@@ -6522,12 +7254,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "cat-s-claw",
@@ -6628,7 +7373,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "catuba",
@@ -6713,9 +7470,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
@@ -6726,12 +7483,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "cayenne",
@@ -6810,9 +7580,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 88,
     "indexability_reasons": [
       "effect-present",
@@ -6823,12 +7593,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "celastrus-paniculatus",
@@ -6955,7 +7738,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "chaga",
@@ -7070,7 +7865,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "matricaria-chamomilla",
@@ -7161,7 +7968,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "chinese-skullcap",
@@ -7284,7 +8103,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "chuanxiong",
@@ -7391,7 +8222,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "cichorium-intybus",
@@ -7506,7 +8349,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "cinnamomum-verum",
@@ -7606,7 +8461,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "cissus",
@@ -7709,7 +8576,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "cistanche",
@@ -7807,7 +8686,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "cistanche-deserticola",
@@ -7922,12 +8813,24 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "citicoline",
     "name": "Citicoline",
-    "summary": "",
+    "summary": "No summary available yet.",
     "description": "",
     "effects": [
       "Mitochondrial Health",
@@ -8021,7 +8924,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "citrus-bergamia",
@@ -8152,7 +9067,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "citrus-sinensis",
@@ -8270,7 +9197,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "clove",
@@ -8368,7 +9307,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "cnidium-monnieri",
@@ -8465,7 +9416,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "codonopsis",
@@ -8546,9 +9509,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
@@ -8559,12 +9522,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "coffea-arabica",
@@ -8665,7 +9641,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "coffee-cherry",
@@ -8792,7 +9780,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "coleus-forskohlii",
@@ -8872,9 +9872,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 88,
     "indexability_reasons": [
       "effect-present",
@@ -8885,12 +9885,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "commiphora-mukul",
@@ -9012,7 +10025,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "coptis",
@@ -9134,7 +10159,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "coptis-chinensis",
@@ -9251,7 +10288,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "cordyceps-sinensis",
@@ -9358,7 +10407,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "coriandrum-sativum",
@@ -9483,7 +10544,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "cornus-officinalis",
@@ -9601,7 +10674,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "corydalis",
@@ -9701,7 +10786,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "cranberry",
@@ -9797,7 +10894,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "crocus-sativus",
@@ -9913,7 +11022,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "curcuma-wenyujin",
@@ -10009,7 +11130,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "curcuma-zedoaria",
@@ -10114,7 +11247,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "curcumin",
@@ -10219,7 +11364,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "curry-leaf",
@@ -10325,7 +11482,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "cyclea-peltata",
@@ -10430,7 +11599,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "cymbopogon-citratus",
@@ -10542,7 +11723,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "damiana",
@@ -10641,7 +11834,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "dandelion",
@@ -10756,7 +11961,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "danshen",
@@ -10854,7 +12071,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "daphne-odora",
@@ -10957,7 +12186,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "dendrobium",
@@ -11055,7 +12296,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "dong-quai",
@@ -11165,7 +12418,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "echinacea-purpurea",
@@ -11263,7 +12528,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "elderberry",
@@ -11362,7 +12639,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "elecampane",
@@ -11457,7 +12746,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "elephantopus-scaber",
@@ -11544,9 +12845,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
@@ -11557,12 +12858,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "eleuthero",
@@ -11681,7 +12995,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "embelia-ribes",
@@ -11781,7 +13107,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "epimedium",
@@ -11894,7 +13232,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "epimedium-brevicornum",
@@ -12010,7 +13360,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "eucalyptus",
@@ -12109,7 +13471,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "eucommia",
@@ -12207,7 +13581,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "evening-primrose",
@@ -12288,7 +13674,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "fennel",
@@ -12394,7 +13792,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "trigonella-foenum-graecum",
@@ -12501,7 +13911,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "feverfew",
@@ -12614,7 +14036,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "ficus-carica",
@@ -12727,7 +14161,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "fingerroot",
@@ -12835,7 +14281,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "fraxinus-rhynchophylla",
@@ -12952,7 +14410,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "galangal",
@@ -13046,7 +14516,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "garcinia-indica",
@@ -13161,7 +14643,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "garcinia-mangostana",
@@ -13272,7 +14766,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "allium-sativum",
@@ -13383,7 +14889,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "garlic",
@@ -13500,7 +15018,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "gastrodia",
@@ -13603,7 +15133,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "ginger",
@@ -13693,9 +15235,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
     "indexability_score": 73,
     "indexability_reasons": [
       "effect-coverage",
@@ -13706,12 +15248,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-quality-missing",
-      "summary-too-thin"
+      "summary-too-thin",
+      "curated_allowlist"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": "curated_allowlist"
+    }
   },
   {
     "slug": "ginkgo-biloba",
@@ -13805,12 +15360,25 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-quality-missing",
-      "summary-too-thin"
+      "summary-too-thin",
+      "curated_allowlist"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": "curated_allowlist"
+    }
   },
   {
     "slug": "glycyrrhiza-glabra",
@@ -13912,7 +15480,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "goldenseal",
@@ -14024,7 +15604,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "gotu-kola",
@@ -14122,9 +15714,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
@@ -14135,12 +15727,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "vitis-vinifera",
@@ -14261,7 +15866,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "grapefruit",
@@ -14345,9 +15962,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 88,
     "indexability_reasons": [
       "effect-present",
@@ -14358,12 +15975,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "camellia-sinensis",
@@ -14483,7 +16113,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "green-tea-extract",
@@ -14582,7 +16224,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "guarana",
@@ -14691,7 +16345,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "guayusa",
@@ -14800,7 +16466,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "gudmar",
@@ -14910,7 +16588,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "gymnema-sylvestre",
@@ -15010,7 +16700,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "harpagophytum-procumbens",
@@ -15115,7 +16817,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "crataegus-monogyna",
@@ -15206,7 +16920,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "hibiscus-sabdariffa",
@@ -15288,9 +17014,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
@@ -15301,12 +17027,25 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "holy-basil",
@@ -15430,7 +17169,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "holy-basil-purple",
@@ -15528,9 +17279,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
@@ -15541,12 +17292,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "holy-basil-seed",
@@ -15626,9 +17390,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 88,
     "indexability_reasons": [
       "effect-present",
@@ -15639,12 +17403,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "honeysuckle",
@@ -15751,7 +17528,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "hops",
@@ -15848,7 +17637,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "horse-chestnut",
@@ -15955,7 +17756,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "houttuynia",
@@ -16055,7 +17868,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "huperzia-serrata",
@@ -16156,7 +17981,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "hypericum-perforatum",
@@ -16262,7 +18099,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "berberis-aristata",
@@ -16357,9 +18206,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
@@ -16370,12 +18219,25 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "isatis",
@@ -16473,7 +18335,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "japanese-knotweed",
@@ -16604,7 +18478,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "jatamansi",
@@ -16703,7 +18589,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "jujube",
@@ -16809,7 +18707,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "juniper",
@@ -16907,7 +18817,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "kanna",
@@ -17015,7 +18937,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "piper-methysticum",
@@ -17096,17 +19030,30 @@
     "summary_quality": "",
     "runtime_export_decision": "hidden_until_grounded",
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NOINDEX",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
     "indexability_score": 0,
     "indexability_reasons": [
-      "noindex-decision:hidden_until_grounded"
+      "noindex-decision:hidden_until_grounded",
+      "curated_allowlist"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": "curated_allowlist"
+    }
   },
   {
     "slug": "kuding-tea",
@@ -17197,9 +19144,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
@@ -17210,12 +19157,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "kudzu",
@@ -17330,7 +19290,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "tyrosine",
@@ -17443,7 +19415,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "lavandula-angustifolia",
@@ -17535,7 +19519,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "lawsonia-inermis",
@@ -17635,7 +19631,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "melissa-officinalis",
@@ -17744,12 +19752,25 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "curated_allowlist"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": "curated_allowlist"
+    }
   },
   {
     "slug": "lemon-verbena",
@@ -17852,7 +19873,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "lemongrass",
@@ -17940,9 +19973,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
@@ -17953,12 +19986,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "licorice",
@@ -18069,7 +20115,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "ligusticum-chuanxiong",
@@ -18185,7 +20243,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "hericium-erinaceus",
@@ -18276,7 +20346,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "lions-mane",
@@ -18371,7 +20453,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "lithospermum-erythrorhizon",
@@ -18476,7 +20570,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "longan",
@@ -18579,7 +20685,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "luo-han-guo",
@@ -18686,7 +20804,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "maca",
@@ -18791,7 +20921,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "magnolia-officinalis",
@@ -18895,7 +21037,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "maitake-d-fraction",
@@ -19002,7 +21156,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "mangifera-indica",
@@ -19131,7 +21297,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "mangosteen",
@@ -19234,7 +21412,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "maral-root",
@@ -19332,7 +21522,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "marshmallow",
@@ -19413,9 +21615,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
@@ -19426,12 +21628,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "milk-oats",
@@ -19507,9 +21722,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 88,
     "indexability_reasons": [
       "effect-present",
@@ -19520,12 +21735,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "silybum-marianum",
@@ -19635,7 +21863,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "milk-thistle",
@@ -19746,7 +21986,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "morinda-citrifolia",
@@ -19875,7 +22127,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "moringa",
@@ -20011,7 +22275,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "morus-alba",
@@ -20127,7 +22403,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "mucuna",
@@ -20252,7 +22540,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "mugwort",
@@ -20348,7 +22648,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "muira-puama",
@@ -20443,7 +22755,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "mulberry-leaf",
@@ -20559,7 +22883,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "myristica-fragrans",
@@ -20655,7 +22991,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "myrtle",
@@ -20762,7 +23110,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "neem",
@@ -20873,7 +23233,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "nelumbo-nucifera",
@@ -20996,7 +23368,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "nettle-root",
@@ -21089,7 +23473,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "nigella-sativa",
@@ -21222,7 +23618,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "noni",
@@ -21330,7 +23738,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "notoginseng",
@@ -21437,7 +23857,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "oatstraw",
@@ -21517,9 +23949,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
@@ -21530,12 +23962,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "ocimum-basilicum",
@@ -21666,7 +24111,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "ocotea-odorifera",
@@ -21760,7 +24217,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "olea-europaea",
@@ -21887,7 +24356,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "ophiopogon",
@@ -21982,7 +24463,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "orange-peel",
@@ -22099,7 +24592,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "oregano",
@@ -22204,7 +24709,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "paeonia-lactiflora",
@@ -22318,7 +24835,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "paeonia-suffruticosa",
@@ -22438,7 +24967,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "papaya-leaf",
@@ -22545,7 +25086,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "parsley",
@@ -22663,7 +25216,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "passiflora-incarnata",
@@ -22762,7 +25327,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "pastinaca-sativa",
@@ -22863,7 +25440,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "pau-d-arco",
@@ -22963,7 +25552,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "peppermint",
@@ -23046,9 +25647,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
     "indexability_score": 68,
     "indexability_reasons": [
       "effect-present",
@@ -23059,12 +25660,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-quality-missing",
-      "summary-too-thin"
+      "summary-too-thin",
+      "curated_allowlist"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": "curated_allowlist"
+    }
   },
   {
     "slug": "perilla",
@@ -23162,7 +25776,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "phellodendron",
@@ -23283,7 +25909,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "phellodendron-amurense",
@@ -23405,7 +26043,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "phosphatidylserine",
@@ -23515,7 +26165,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "piper-longum",
@@ -23634,7 +26296,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "plantago-lanceolata",
@@ -23741,7 +26415,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "plantago-major",
@@ -23848,7 +26534,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "plumbago-zeylanica",
@@ -23958,7 +26656,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "polygala",
@@ -24061,7 +26771,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "pomegranate",
@@ -24182,7 +26904,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "poria",
@@ -24292,7 +27026,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "psoralea-corylifolia",
@@ -24413,7 +27159,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "psyllium",
@@ -24527,7 +27285,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "pueraria-lobata",
@@ -24644,7 +27414,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "pueraria-mirifica",
@@ -24739,7 +27521,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "punarnava",
@@ -24836,7 +27630,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "quercetin",
@@ -24953,7 +27759,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "raspberry-leaf",
@@ -25064,7 +27882,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "red-clover",
@@ -25176,7 +28006,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "rehmannia-glutinosa",
@@ -25291,7 +28133,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "rehmannia-prepared",
@@ -25376,9 +28230,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 88,
     "indexability_reasons": [
       "effect-present",
@@ -25389,12 +28243,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "ganoderma-lucidum",
@@ -25489,7 +28356,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "reishi",
@@ -25581,9 +28460,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 88,
     "indexability_reasons": [
       "effect-present",
@@ -25594,12 +28473,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "resveratrol",
@@ -25722,7 +28614,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "rheum-palmatum",
@@ -25824,7 +28728,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "rhodiola",
@@ -25929,12 +28845,25 @@
       "profile-status:top50_authority_patched",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "curated_allowlist"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": "curated_allowlist"
+    }
   },
   {
     "slug": "rice-bran",
@@ -26063,7 +28992,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "rooibos",
@@ -26179,7 +29120,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "rose-hips",
@@ -26290,7 +29243,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "roselle-seed",
@@ -26397,7 +29362,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "rosemary",
@@ -26526,7 +29503,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "saffron",
@@ -26636,12 +29625,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "curated_allowlist"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": "curated_allowlist"
+    }
   },
   {
     "slug": "sage",
@@ -26776,7 +29778,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "salacia-reticulata",
@@ -26876,7 +29890,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "salvia-miltiorrhiza",
@@ -26977,7 +30003,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "saw-palmetto",
@@ -27074,7 +30112,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "schisandra",
@@ -27184,7 +30234,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "schisandra-berry",
@@ -27286,7 +30348,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "schisandra-chinensis",
@@ -27397,7 +30471,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "scutellaria-baicalensis",
@@ -27530,7 +30616,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "selaginella-tamariscina",
@@ -27635,7 +30733,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "serenoa-repens",
@@ -27751,7 +30861,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "shankhpushpi",
@@ -27854,7 +30976,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "shatavari",
@@ -27941,9 +31075,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
@@ -27954,12 +31088,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "scutellaria-lateriflora",
@@ -28050,7 +31197,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "sophora-alopecuroides",
@@ -28152,7 +31311,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "sophora-flavescens",
@@ -28267,7 +31438,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "soursop",
@@ -28365,7 +31548,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "soybean",
@@ -28486,7 +31681,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "st-johns-wort",
@@ -28588,7 +31795,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "stellera-chamaejasme",
@@ -28690,7 +31909,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "stephania-cepharantha",
@@ -28792,7 +32023,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "stephania-japonica",
@@ -28899,7 +32142,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "stephania-tetrandra",
@@ -29006,7 +32261,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "suma",
@@ -29105,7 +32372,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "syzygium-aromaticum",
@@ -29217,7 +32496,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "tamarind",
@@ -29323,7 +32614,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "artemisia-dracunculus",
@@ -29415,7 +32718,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "terminalia-arjuna",
@@ -29511,7 +32826,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "thunder-god-vine",
@@ -29628,7 +32955,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "thyme",
@@ -29741,7 +33080,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "tongkat-ali",
@@ -29848,7 +33199,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "tribulus-terrestris",
@@ -29926,9 +33289,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
@@ -29939,12 +33302,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "tripterygium-wilfordii",
@@ -30061,7 +33437,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "turkey-tail",
@@ -30158,7 +33546,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "turmeric",
@@ -30276,12 +33676,25 @@
       "profile-status:near_complete",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "curated_allowlist"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": "curated_allowlist"
+    }
   },
   {
     "slug": "valeriana-officinalis",
@@ -30381,7 +33794,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "valerian",
@@ -30477,12 +33902,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "curated_allowlist"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": "curated_allowlist"
+    }
   },
   {
     "slug": "verbena-officinalis",
@@ -30590,7 +34028,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "white-peony",
@@ -30697,7 +34147,19 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": true,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   },
   {
     "slug": "wild-yam",
@@ -30784,9 +34246,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
@@ -30797,12 +34259,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-present",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "wormwood",
@@ -30890,9 +34365,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 88,
     "indexability_reasons": [
       "effect-present",
@@ -30903,12 +34378,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "yarrow",
@@ -30987,9 +34475,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
@@ -31000,12 +34488,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "yerba-mate",
@@ -31113,9 +34614,9 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
+    "robots": "noindex,follow",
+    "sitemap_included": false,
+    "indexability_status": "NEEDS_REVIEW",
     "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
@@ -31126,12 +34627,25 @@
       "profile-status:partial",
       "safety-context",
       "summary-depth",
-      "summary-quality-missing"
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "needs_review",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
+    }
   },
   {
     "slug": "yohimbe",
@@ -31234,6 +34748,18 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Generally well tolerated for most users.",
+    "sources": [],
+    "governance": {
+      "reviewStatus": "approved",
+      "legalRisk": "none",
+      "medicalRisk": "low",
+      "monetizationAllowed": true,
+      "indexingAllowed": false,
+      "recommendationAllowed": true,
+      "requiresHumanReview": false,
+      "reason": ""
+    }
   }
 ]

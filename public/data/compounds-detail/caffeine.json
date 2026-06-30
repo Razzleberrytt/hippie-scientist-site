@@ -27,7 +27,7 @@
     "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
-    "reason": ""
+    "reason": "curated_allowlist"
   },
   "evidence": {
     "reviewStatus": "needs_review",

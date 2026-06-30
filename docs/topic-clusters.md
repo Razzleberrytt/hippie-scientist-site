@@ -4,7 +4,7 @@ Priority clusters used by the internal link engine.
 
 ## ADHD
 - Signals: adhd, attention deficit, hyperactivity, executive function, focus, dopamine, iron, zinc, vitamin d
-- Pages: 196
+- Pages: 198
 - [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
 - [Research Archive & Educational Articles](/articles) (static)
 - [Adhd Blood Tests](/articles/adhd-blood-tests) (article)
@@ -48,7 +48,7 @@ Priority clusters used by the internal link engine.
 
 ## Anxiety
 - Signals: anxiety, anxious, calm, gaba, worry, nervous, relaxation
-- Pages: 817
+- Pages: 818
 - [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
 - [Research Archive & Educational Articles](/articles) (static)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
@@ -92,7 +92,7 @@ Priority clusters used by the internal link engine.
 
 ## Sleep
 - Signals: sleep, insomnia, melatonin, valerian, bedtime, circadian, night
-- Pages: 253
+- Pages: 255
 - [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
 - [Research Archive & Educational Articles](/articles) (static)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
@@ -136,7 +136,7 @@ Priority clusters used by the internal link engine.
 
 ## Stress
 - Signals: stress, cortisol, adaptogen, burnout, hpa, resilience
-- Pages: 506
+- Pages: 507
 - [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
 - [Research Archive & Educational Articles](/articles) (static)
 - [Anxiety Stack Guide](/articles/anxiety-stack-guide) (article)
@@ -180,7 +180,7 @@ Priority clusters used by the internal link engine.
 
 ## Focus
 - Signals: focus, attention, nootropic, cognition, productivity, caffeine, l-theanine
-- Pages: 700
+- Pages: 701
 - [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
 - [Research Archive & Educational Articles](/articles) (static)
 - [Adhd Blood Tests](/articles/adhd-blood-tests) (article)
@@ -224,7 +224,7 @@ Priority clusters used by the internal link engine.
 
 ## Energy
 - Signals: energy, fatigue, stamina, mitochondria, atp, vitality, performance
-- Pages: 515
+- Pages: 516
 - [Ashwagandha](/articles/ashwagandha) (article)
 - [Best Magnesium Supplement For Adhd](/articles/best-magnesium-supplement-for-adhd) (article)
 - [11-keto-beta-boswellic acid](/compounds/11-keto-beta-boswellic-acid) (compound)
@@ -356,7 +356,7 @@ Priority clusters used by the internal link engine.
 
 ## Inflammation
 - Signals: inflammation, anti-inflammatory, nf-kb, cox, oxidative, immune
-- Pages: 515
+- Pages: 517
 - [Ashwagandha](/articles/ashwagandha) (article)
 - [Ashwagandha Vs Magnesium For Sleep](/articles/ashwagandha-vs-magnesium-for-sleep) (article)
 - [Best Supplements for Sleep: Evidence-First Buyer Guide](/best-supplements-for-sleep) (static)
@@ -400,7 +400,7 @@ Priority clusters used by the internal link engine.
 
 ## Metabolic Health
 - Signals: metabolic, glucose, insulin, blood sugar, lipid, weight, berberine
-- Pages: 336
+- Pages: 337
 - [Best Magnesium Supplement For Adhd](/articles/best-magnesium-supplement-for-adhd) (article)
 - [Magnesium Glycinate Vs Citrate For Adhd](/articles/magnesium-glycinate-vs-citrate-for-adhd) (article)
 - [Magnesium Types For Sleep](/articles/magnesium-types-for-sleep) (article)
