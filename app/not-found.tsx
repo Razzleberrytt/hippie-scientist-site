@@ -40,21 +40,21 @@ export default function NotFound() {
             href='/herbs'
             className='button-secondary px-5 py-3 text-sm'
           >
-            Explore herbs
+            Herbs
           </Link>
 
           <Link
-            href='/compounds'
+            href='/articles'
             className='button-secondary px-5 py-3 text-sm'
           >
-            Explore compounds
+            Articles
           </Link>
 
           <Link
             href='/goals'
             className='button-secondary px-5 py-3 text-sm'
           >
-            Browse goals
+            Goals
           </Link>
         </div>
       </div>
