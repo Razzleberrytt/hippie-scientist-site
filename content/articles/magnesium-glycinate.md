@@ -4,6 +4,7 @@ title: "Magnesium Glycinate: Sleep, Stress, and Anxiety — Mechanisms and Clini
 description: "A comprehensive, evidence-graded review of magnesium glycinate covering GABA receptor modulation, NMDA antagonism, sleep latency RCTs, and why chelated forms outperform oxide in clinical settings."
 date: '2026-06-06'
 author: Will
+category: Anxiety & Sleep
 keywords:
   - magnesium glycinate
   - magnesium and sleep

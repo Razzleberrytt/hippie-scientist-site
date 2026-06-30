@@ -4,6 +4,7 @@ title: "Kava (Piper methysticum): Anxiety, Sleep, Kavalactones, and Safety - Cli
 description: "A research-graded review of kava covering kavalactone mechanisms, anxiety trials, sleep-adjacent use, liver safety, dosing context, and comparisons with ashwagandha, L-theanine, and passionflower."
 date: '2026-06-08'
 author: Will
+category: Anxiety & Sleep
 keywords:
   - kava
   - piper methysticum

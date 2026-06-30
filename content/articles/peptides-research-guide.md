@@ -4,6 +4,7 @@ title: "Peptides: What the Research Actually Shows — Mechanisms, Clinical Evid
 description: "A comprehensive, evidence-graded review of bioactive peptides covering growth hormone secretagogues, collagen peptides, BPC-157, thymosin beta-4, and more — with citations from PubMed, NIH, and peer-reviewed clinical trials."
 date: '2026-06-08'
 author: Will
+category: Research
 keywords:
   - peptides
   - bioactive peptides

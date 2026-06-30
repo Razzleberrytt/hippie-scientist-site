@@ -4,6 +4,7 @@ title: "Valerian Root: GABA Agonism, Sleep Quality RCTs, and Herb-Drug Interacti
 description: "An evidence-graded review of valerian root (Valeriana officinalis) covering valerenic acid GABA-A receptor activity, sleep quality meta-analyses, dosing standards, and clinically important drug interactions."
 date: '2026-06-06'
 author: Will
+category: Anxiety & Sleep
 keywords:
   - valerian root
   - valeriana officinalis

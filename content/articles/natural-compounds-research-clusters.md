@@ -4,6 +4,7 @@ title: "Natural Compounds Research Clusters: Biosynthetic Gene Clusters, Chemica
 description: "An evidence-based deep dive into biosynthetic gene clusters (BGCs) and cheminformatic space mapping, showing how genome mining and chemical clustering are transforming natural product supplement discovery."
 date: '2026-06-10'
 author: Will
+category: Research
 keywords:
   - natural compounds clusters
   - biosynthetic gene clusters

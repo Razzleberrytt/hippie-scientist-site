@@ -4,6 +4,7 @@ title: "NAC (N-Acetyl Cysteine): Glutathione Pathway, Lung Function, and Oxidati
 description: "A research-graded review of N-Acetyl Cysteine covering glutathione synthesis, mucolytic mechanisms, COPD and respiratory RCTs, oxidative stress reduction, and psychiatric applications."
 date: '2026-06-06'
 author: Will
+category: General
 keywords:
   - NAC
   - N-acetyl cysteine
