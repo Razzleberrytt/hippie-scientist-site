@@ -400,6 +400,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
   const goalLinks = getGoalsForEntity(normalizedSlug)
 
+
   const comparisonLinks = comparisonRecords
     .filter((record: RuntimeRecord) => record?.slug)
     .map((record: RuntimeRecord) => {
