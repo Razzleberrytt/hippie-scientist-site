@@ -216,7 +216,7 @@ export default function HomepageV2() {
             <div className='grid gap-3 sm:grid-cols-3'>
               {trustSignals.map((signal) => (
                 <div key={signal.n} className='flex gap-4 rounded-[0.85rem] border border-brand-900/10 bg-white/60 p-4 dark:bg-[var(--surface-card)] dark:text-[var(--text-secondary)]'>
-                  <span className='mt-0.5 shrink-0 font-mono text-[0.65rem] font-bold tracking-widest text-brand-400'>{signal.n}</span>
+                  <span className='mt-0.5 shrink-0 font-mono text-xs font-bold tracking-widest text-brand-400'>{signal.n}</span>
                   <div>
                     <p className='text-sm font-semibold text-ink'>{signal.label}</p>
                     <p className='mt-1 text-sm leading-6 text-muted'>{signal.body}</p>

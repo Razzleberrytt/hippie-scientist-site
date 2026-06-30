@@ -73,7 +73,7 @@ export default function Footer() {
         <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4'>
           <div>
             <p className='font-display text-lg italic text-white'>The Hippie Scientist</p>
-            <p className='mt-1.5 text-[0.7rem] uppercase tracking-[0.14em] text-white/45'>
+            <p className='mt-1.5 text-xs uppercase tracking-[0.14em] text-white/55'>
               Evidence-first botanical research. Not medical advice.
             </p>
             <div className='mt-4 flex flex-wrap items-center gap-x-2 text-xs text-white/50'>

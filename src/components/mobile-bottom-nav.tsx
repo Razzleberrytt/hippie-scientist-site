@@ -59,7 +59,7 @@ export default function MobileBottomNav() {
               }`}
             >
               <Icon aria-hidden="true" className="h-5 w-5" strokeWidth={active ? 2.45 : 2.1} />
-              <span className={`max-w-full whitespace-nowrap text-[0.66rem] leading-none ${active ? 'font-semibold' : 'font-medium'}`}>
+              <span className={`max-w-full whitespace-nowrap text-xs leading-none ${active ? 'font-semibold' : 'font-medium'}`}>
                 {item.label}
               </span>
             </Link>
