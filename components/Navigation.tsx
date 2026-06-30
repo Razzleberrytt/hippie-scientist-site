@@ -118,6 +118,7 @@ export function Navigation() {
             aria-modal="true"
             aria-label="Mobile navigation menu"
             className="fixed inset-y-0 right-0 z-50 w-72 overflow-y-auto border-l border-brand-900/10 bg-white px-4 py-6 shadow-xl dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)]"
+            style={{ height: '100dvh' }}
           >
             <div className="mb-6 flex items-center justify-between">
               <Link href="/" onClick={closeMobile} className="font-display text-lg font-semibold text-ink">
