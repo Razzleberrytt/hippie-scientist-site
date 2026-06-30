@@ -1,50 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0">
 <channel>
-  <title>The Hippie Scientist Blog</title>
-  <link>https://thehippiescientist.net/blog</link>
-  <description>Psychoactive botany, safety, and DIY blend guides</description>
+  <title>The Hippie Scientist</title>
+  <link>https://thehippiescientist.net/articles</link>
+  <description>Evidence-based herbal supplement research, safety, and practical guides</description>
   <language>en</language>
-  <lastBuildDate>Sun, 26 Apr 2026 19:44:15 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 30 Jun 2026 14:30:18 GMT</lastBuildDate>
   
     <item>
-      <title><![CDATA[Extraction 101 — Skullcap]]></title>
-      <link>https://thehippiescientist.net/blog/2026-03-21-extraction-101-skullcap</link>
-      <guid>https://thehippiescientist.net/blog/2026-03-21-extraction-101-skullcap</guid>
-      <pubDate>Sat, 21 Mar 2026 00:00:00 GMT</pubDate>
-      <description><![CDATA[A practical extraction note for Scutellaria lateriflora (American skullcap), with emphasis on preparation choices and conservative use. Summary Skullcap is traditionally prepared as tea, tincture, or…]]></description>
+      <title><![CDATA[Berberine: AMPK Activation, Metabolic Health, and Clinical Evidence]]></title>
+      <link>https://thehippiescientist.net/articles/berberine</link>
+      <guid>https://thehippiescientist.net/articles/berberine</guid>
+      <pubDate>Tue, 30 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A rigorous, evidence-graded review of berberine covering AMPK mechanism, glucose metabolism trials, lipid effects, weight outcomes, drug interactions, and the 'nature's Ozempic' narrative.]]></description>
     </item>
 
     <item>
-      <title><![CDATA[Pharmacology Basics — Rhodiola]]></title>
-      <link>https://thehippiescientist.net/blog/2026-03-20-pharmacology-basics-rhodiola</link>
-      <guid>https://thehippiescientist.net/blog/2026-03-20-pharmacology-basics-rhodiola</guid>
-      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
-      <description><![CDATA[Daily notes on Passionflower with attention to active compounds like Beta-caryophyllene and safe practice. Highlights Context and traditional notes Quick pharmacology snapshot Practical prep and safe…]]></description>
+      <title><![CDATA[Creatine for Brain Health: Evidence for Cognition, Mood, and Aging]]></title>
+      <link>https://thehippiescientist.net/articles/creatine-brain-health</link>
+      <guid>https://thehippiescientist.net/articles/creatine-brain-health</guid>
+      <pubDate>Tue, 30 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[Creatine is no longer just a gym supplement. Emerging evidence suggests benefits for cognitive function, mental fatigue, brain energy metabolism, and healthy aging. Here's what the research shows.]]></description>
     </item>
 
     <item>
-      <title><![CDATA[Pharmacology Basics — Passionflower]]></title>
-      <link>https://thehippiescientist.net/blog/2026-03-19-pharmacology-basics-passionflower</link>
-      <guid>https://thehippiescientist.net/blog/2026-03-19-pharmacology-basics-passionflower</guid>
-      <pubDate>Thu, 19 Mar 2026 00:00:00 GMT</pubDate>
-      <description><![CDATA[Daily notes on Valerian with attention to active compounds like Hordenine and safe practice. Highlights Context and traditional notes Quick pharmacology snapshot Practical prep and safety pointers Fu…]]></description>
+      <title><![CDATA[Functional Mushrooms 101: Reishi, Cordyceps, Chaga, and Turkey Tail]]></title>
+      <link>https://thehippiescientist.net/articles/functional-mushrooms-guide</link>
+      <guid>https://thehippiescientist.net/articles/functional-mushrooms-guide</guid>
+      <pubDate>Tue, 30 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A practical, evidence-graded overview of four major functional mushrooms beyond Lion's Mane — covering mechanisms, key clinical findings, when to use each, and how to choose quality supplements.]]></description>
     </item>
 
     <item>
-      <title><![CDATA[Research Digest — Passionflower]]></title>
-      <link>https://thehippiescientist.net/blog/2026-03-18-research-digest-passionflower</link>
-      <guid>https://thehippiescientist.net/blog/2026-03-18-research-digest-passionflower</guid>
-      <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
-      <description><![CDATA[Can’t sleep because your body is tired but your mind is still racing? Passionflower is often a better fit for that pattern than stronger “knock-you-out” options. What people misunderstand It’s not a…]]></description>
+      <title><![CDATA[How to Choose a Quality Supplement: Testing, Labels, and Red Flags]]></title>
+      <link>https://thehippiescientist.net/articles/how-to-choose-supplement-quality</link>
+      <guid>https://thehippiescientist.net/articles/how-to-choose-supplement-quality</guid>
+      <pubDate>Tue, 30 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A practical guide to evaluating supplement quality — third-party certifications (USP, NSF, ConsumerLab), label reading, red flags, and how to avoid adulterated or mislabeled products.]]></description>
     </item>
 
     <item>
-      <title><![CDATA[Traditional Use — Ashwagandha]]></title>
-      <link>https://thehippiescientist.net/blog/2026-03-17-traditional-use-ashwagandha</link>
-      <guid>https://thehippiescientist.net/blog/2026-03-17-traditional-use-ashwagandha</guid>
-      <pubDate>Tue, 17 Mar 2026 00:00:00 GMT</pubDate>
-      <description><![CDATA[Daily notes on Ashwagandha with attention to withanolides, traditional context, and safe practice. Highlights Context and traditional notes Quick pharmacology snapshot Practical prep and safety point…]]></description>
+      <title><![CDATA[Lion's Mane vs Stimulants for ADHD: What the Evidence Shows]]></title>
+      <link>https://thehippiescientist.net/articles/lions-mane-vs-stimulants-adhd</link>
+      <guid>https://thehippiescientist.net/articles/lions-mane-vs-stimulants-adhd</guid>
+      <pubDate>Tue, 30 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[An honest, evidence-graded comparison of Lion's Mane mushroom and prescription stimulants (Adderall, Vyvanse, Ritalin) for ADHD. Covering mechanisms, clinical evidence, side effect profiles, and the critical differences between a dietary supplement and FDA-approved medications.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Mushroom Coffee: Benefits, Science, and Brand Guide]]></title>
+      <link>https://thehippiescientist.net/articles/mushroom-coffee-benefits-review</link>
+      <guid>https://thehippiescientist.net/articles/mushroom-coffee-benefits-review</guid>
+      <pubDate>Tue, 30 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[An evidence-based look at mushroom coffee — what the science says about lion's mane, chaga, reishi, and cordyceps in coffee, whether the benefits are real, and how to evaluate brands.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Saffron for Depression: What the Clinical Evidence Shows]]></title>
+      <link>https://thehippiescientist.net/articles/saffron-depression-evidence</link>
+      <guid>https://thehippiescientist.net/articles/saffron-depression-evidence</guid>
+      <pubDate>Tue, 30 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[An evidence-graded review of saffron (Crocus sativus) for depression — clinical trial outcomes compared to placebo and antidepressants, mechanisms, dosing, and safety.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Adaptogenic Compounds: Clinical Evidence for HPA Axis and Stress]]></title>
+      <link>https://thehippiescientist.net/articles/adaptogenic-natural-compounds</link>
+      <guid>https://thehippiescientist.net/articles/adaptogenic-natural-compounds</guid>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[An evidence-based review of adaptogenic natural compounds covering Ashwagandha, Rhodiola, Ginseng, Tulsi, and more—with clinical trial data on HPA axis regulation, cortisol, and stress resilience.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[The Entourage Effect in Herbal Supplements: Evidence Review]]></title>
+      <link>https://thehippiescientist.net/articles/entourage-effect-herbal-supplements</link>
+      <guid>https://thehippiescientist.net/articles/entourage-effect-herbal-supplements</guid>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A skeptical, evidence-based guide to the entourage effect in natural compounds, including full-spectrum extracts, phytochemical synergy, clinical evidence, stacking logic, and safety limits.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Natural Compounds: Biosynthetic Gene Clusters and Drug Discovery]]></title>
+      <link>https://thehippiescientist.net/articles/natural-compounds-research-clusters</link>
+      <guid>https://thehippiescientist.net/articles/natural-compounds-research-clusters</guid>
+      <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[An evidence-based deep dive into biosynthetic gene clusters (BGCs) and cheminformatic space mapping, showing how genome mining and chemical clustering are transforming natural product supplement discovery.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Elderberry for Colds and Flu: Clinical Evidence Review]]></title>
+      <link>https://thehippiescientist.net/articles/elderberry</link>
+      <guid>https://thehippiescientist.net/articles/elderberry</guid>
+      <pubDate>Mon, 08 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[Evidence-based review of elderberry for upper respiratory infections, including clinical trials, systematic reviews, safety profile, quality considerations, and practical harm reduction guidance.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Kava for Anxiety and Sleep: Evidence, Safety, and Kavalactones]]></title>
+      <link>https://thehippiescientist.net/articles/kava</link>
+      <guid>https://thehippiescientist.net/articles/kava</guid>
+      <pubDate>Mon, 08 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A research-graded review of kava covering kavalactone mechanisms, anxiety trials, sleep-adjacent use, liver safety, dosing context, and comparisons with ashwagandha, L-theanine, and passionflower.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Lion's Mane Mushroom: Benefits, Mechanisms, and Evidence Guide]]></title>
+      <link>https://thehippiescientist.net/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide</link>
+      <guid>https://thehippiescientist.net/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide</guid>
+      <pubDate>Mon, 08 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A practical evidence-based guide to Lion's Mane mushroom, including mechanisms, dosage, safety, cognitive evidence, mood data, nerve regeneration research, and realistic expectations.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Peptides: What the Research Shows — Mechanisms and Clinical Evidence]]></title>
+      <link>https://thehippiescientist.net/articles/peptides-research-guide</link>
+      <guid>https://thehippiescientist.net/articles/peptides-research-guide</guid>
+      <pubDate>Mon, 08 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A comprehensive, evidence-graded review of bioactive peptides covering growth hormone secretagogues, collagen peptides, BPC-157, thymosin beta-4, and more — with citations from PubMed, NIH, and peer-reviewed clinical trials.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Ashwagandha: Stress, Cortisol, and Anxiety — Clinical Evidence]]></title>
+      <link>https://thehippiescientist.net/articles/ashwagandha</link>
+      <guid>https://thehippiescientist.net/articles/ashwagandha</guid>
+      <pubDate>Sat, 06 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A thorough, evidence-graded review of ashwagandha covering withanolide mechanisms, HPA axis modulation, cortisol reduction studies, menopausal anxiety RCTs, and dosage standards.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Bacopa Monnieri: Memory, Focus, and Neurotransmitter Support]]></title>
+      <link>https://thehippiescientist.net/articles/bacopa-monnieri</link>
+      <guid>https://thehippiescientist.net/articles/bacopa-monnieri</guid>
+      <pubDate>Sat, 06 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A research-graded review of Bacopa monnieri (Brahmi) covering bacosides mechanisms, acetylcholinesterase activity, serotonin modulation, and RCT evidence in older adults and healthy populations.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Ginkgo Biloba: Cerebral Blood Flow, Cognition, and Aging]]></title>
+      <link>https://thehippiescientist.net/articles/ginkgo-biloba</link>
+      <guid>https://thehippiescientist.net/articles/ginkgo-biloba</guid>
+      <pubDate>Sat, 06 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A research-graded review of Ginkgo biloba (EGb 761) covering flavonol and terpene mechanisms, cerebrovascular effects, dementia RCTs, and the large GEM trial's nuanced findings on aging and cognition.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[L-Theanine: Calm Focus, Anxiety, Sleep, and Caffeine — Evidence Guide]]></title>
+      <link>https://thehippiescientist.net/articles/l-theanine</link>
+      <guid>https://thehippiescientist.net/articles/l-theanine</guid>
+      <pubDate>Sat, 06 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A practical evidence guide to L-theanine for calm focus, caffeine jitters, stress, anxiety, and sleep, including dosing, safety, and when magnesium or ashwagandha may be a better fit.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Lion's Mane Mushroom: Mechanisms, Clinical Evidence, and Practical Use]]></title>
+      <link>https://thehippiescientist.net/articles/lions-mane</link>
+      <guid>https://thehippiescientist.net/articles/lions-mane</guid>
+      <pubDate>Sat, 06 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A thorough, evidence-graded review of Hericium erinaceus — covering NGF and BDNF pathways, clinical trial outcomes in mild cognitive impairment, effective dosage ranges, and safety considerations.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Magnesium Glycinate: Sleep, Stress, and Anxiety — Evidence Review]]></title>
+      <link>https://thehippiescientist.net/articles/magnesium-glycinate</link>
+      <guid>https://thehippiescientist.net/articles/magnesium-glycinate</guid>
+      <pubDate>Sat, 06 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A comprehensive, evidence-graded review of magnesium glycinate covering GABA receptor modulation, NMDA antagonism, sleep latency RCTs, and why chelated forms outperform oxide in clinical settings.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[NAC (N-Acetyl Cysteine): Glutathione, Lung Health, and Psychiatry]]></title>
+      <link>https://thehippiescientist.net/articles/nac</link>
+      <guid>https://thehippiescientist.net/articles/nac</guid>
+      <pubDate>Sat, 06 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A research-graded review of N-Acetyl Cysteine covering glutathione synthesis, mucolytic mechanisms, COPD and respiratory RCTs, oxidative stress reduction, and psychiatric applications.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Passionflower: GABAergic Action, Anxiety RCTs, and Sleep Quality]]></title>
+      <link>https://thehippiescientist.net/articles/passionflower</link>
+      <guid>https://thehippiescientist.net/articles/passionflower</guid>
+      <pubDate>Sat, 06 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A research-graded review of Passiflora incarnata covering chrysin and benzoflavone mechanisms, GABA-A receptor activity, anxiety RCTs, and sleep quality evidence from controlled trials.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Rhodiola Rosea: Adaptogen Mechanisms, Fatigue, and Cortisol]]></title>
+      <link>https://thehippiescientist.net/articles/rhodiola-rosea</link>
+      <guid>https://thehippiescientist.net/articles/rhodiola-rosea</guid>
+      <pubDate>Sat, 06 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[A research-graded review of Rhodiola rosea covering adaptogenic mechanisms, salidroside and rosavin pharmacology, fatigue and burnout RCTs, HPA axis modulation, and dosage standards.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[Valerian Root: GABA, Sleep Quality, and Herb-Drug Interactions]]></title>
+      <link>https://thehippiescientist.net/articles/valerian-root</link>
+      <guid>https://thehippiescientist.net/articles/valerian-root</guid>
+      <pubDate>Sat, 06 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[An evidence-graded review of valerian root (Valeriana officinalis) covering valerenic acid GABA-A receptor activity, sleep quality meta-analyses, dosing standards, and clinically important drug interactions.]]></description>
+    </item>
+
+    <item>
+      <title><![CDATA[2C-B: Mechanism, Effects, and Harm Reduction]]></title>
+      <link>https://thehippiescientist.net/blog/2c-b-effects</link>
+      <guid>https://thehippiescientist.net/blog/2c-b-effects</guid>
+      <pubDate>Wed, 03 Jun 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[2C-B is a Schedule I synthetic phenethylamine with limited human safety data; this reference summarizes known pharmacology, reported effects, and harm-reduction constraints without endorsing use.]]></description>
     </item>
 
     <item>
@@ -52,7 +212,7 @@
       <link>https://thehippiescientist.net/blog/rhodiola-vs-ashwagandha</link>
       <guid>https://thehippiescientist.net/blog/rhodiola-vs-ashwagandha</guid>
       <pubDate>Mon, 20 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[Rhodiola (Rhodiola rosea) and ashwagandha (Withania somnifera) are two of the most popular adaptogens for stress resilience. While both herbs modulate the hypothalamic-pituitary-adrenal (HPA) axis, t…]]></description>
+      <description><![CDATA[>- A comparative guide to choosing between rhodiola and ashwagandha based on stress patterns, energy, and constitution.]]></description>
     </item>
 
     <item>
@@ -60,7 +220,7 @@
       <link>https://thehippiescientist.net/blog/kava-safety-kavalactones</link>
       <guid>https://thehippiescientist.net/blog/kava-safety-kavalactones</guid>
       <pubDate>Sat, 18 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[Kava (Piper methysticum) carries a dual reputation: a beloved ceremonial relaxant in the South Pacific and a controversial herb in Western regulatory circles. This article examines how kavalactone ch…]]></description>
+      <description><![CDATA[>- Understanding how preparation methods influence the safety profile of kava and what current evidence says about hepatotoxicity.]]></description>
     </item>
 
     <item>
@@ -68,7 +228,7 @@
       <link>https://thehippiescientist.net/blog/cacao-theobromine-stimulant</link>
       <guid>https://thehippiescientist.net/blog/cacao-theobromine-stimulant</guid>
       <pubDate>Wed, 15 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[Cacao ceremonies and morning cacao tonics are surging in popularity as people seek alternatives to coffee. Theobromine-rich cacao offers a smoother stimulant experience that supports focus, heart ope…]]></description>
+      <description><![CDATA[>- Exploring how ceremonial cacao delivers uplift through theobromine, polyphenols, and mindful preparation.]]></description>
     </item>
 
     <item>
@@ -76,7 +236,7 @@
       <link>https://thehippiescientist.net/blog/blue-lotus-aporphines</link>
       <guid>https://thehippiescientist.net/blog/blue-lotus-aporphines</guid>
       <pubDate>Tue, 14 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[Blue lotus (Nymphaea caerulea) evokes images of ancient Egyptian rites and tranquil pools. Today, herbal enthusiasts infuse its petals in tea, wine, or tinctures for serene evenings. The key to under…]]></description>
+      <description><![CDATA[>- How Nymphaea caerulea’s alkaloids shape its calming, dreamy reputation and what to know before steeping petals.]]></description>
     </item>
 
     <item>
@@ -84,15 +244,15 @@
       <link>https://thehippiescientist.net/blog/nightly-blend-guide</link>
       <guid>https://thehippiescientist.net/blog/nightly-blend-guide</guid>
       <pubDate>Mon, 13 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[Creating a nightly herb blend can transform bedtime from a scramble into a nourishing ritual. Instead of chasing complex formulas, start with a thoughtful foundation that aligns with your constitutio…]]></description>
+      <description><![CDATA[>- A step-by-step framework for crafting a calming bedtime herbal blend with adaptogens, nervines, and aromatics.]]></description>
     </item>
 
     <item>
-      <title><![CDATA[Lion's Mane and BDNF: What the Evidence Shows]]></title>
+      <title><![CDATA[Lion''s Mane and BDNF: What the Evidence Shows]]></title>
       <link>https://thehippiescientist.net/blog/lions-mane-bdnf</link>
       <guid>https://thehippiescientist.net/blog/lions-mane-bdnf</guid>
       <pubDate>Sun, 12 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[Lion’s mane mushroom (Hericium erinaceus) has become synonymous with brain health in modern herbal circles. Central to its reputation is brain-derived neurotrophic factor (BDNF), a signaling protein…]]></description>
+      <description><![CDATA[>- Reviewing how Hericium erinaceus extracts may influence brain-derived neurotrophic factor and cognitive resilience.]]></description>
     </item>
 
     <item>
@@ -100,7 +260,7 @@
       <link>https://thehippiescientist.net/blog/yerba-mate-vs-green-tea</link>
       <guid>https://thehippiescientist.net/blog/yerba-mate-vs-green-tea</guid>
       <pubDate>Sat, 11 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[Yerba mate and green tea share a reputation for steady energy, yet their chemistry and cultural contexts diverge. Mate gourds clink in South American plazas, while Japanese tea ceremonies unfold with…]]></description>
+      <description><![CDATA[>- How two classic infusions deliver different energy arcs and how to choose for mood, focus, and ritual.]]></description>
     </item>
 
     <item>
@@ -108,7 +268,7 @@
       <link>https://thehippiescientist.net/blog/kanna-mood-focus</link>
       <guid>https://thehippiescientist.net/blog/kanna-mood-focus</guid>
       <pubDate>Fri, 10 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[Kanna, or Sceletium tortuosum, has long been chewed, smoked, and brewed across southern Africa for its calming lift. Today the succulent is finding a new audience among people who want gentle emotion…]]></description>
+      <description><![CDATA[>- How traditional Sceletium extracts may lift mood and sharpen attention without overstimulation.]]></description>
     </item>
 
     <item>
@@ -116,7 +276,7 @@
       <link>https://thehippiescientist.net/blog/reishi-sleep-immunity</link>
       <guid>https://thehippiescientist.net/blog/reishi-sleep-immunity</guid>
       <pubDate>Thu, 09 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[Reishi (Ganoderma lucidum) is revered as the “mushroom of immortality” in East Asian traditions. Modern research explores its beta-glucans, triterpenes, and polysaccharides for immune modulation and…]]></description>
+      <description><![CDATA[>- Reviewing Ganoderma lucidum research on nervous system balance, immune modulation, and nighttime rest.]]></description>
     </item>
 
     <item>
@@ -124,7 +284,7 @@
       <link>https://thehippiescientist.net/blog/mugwort-dreaming-tradition</link>
       <guid>https://thehippiescientist.net/blog/mugwort-dreaming-tradition</guid>
       <pubDate>Wed, 08 May 2024 00:00:00 GMT</pubDate>
-      <description><![CDATA[Mugwort (Artemisia vulgaris) has woven itself into dream lore across Europe, Asia, and North America. Herbalists burn it as smudge, tuck sprigs under pillows, or sip it as bedtime tea to stimulate vi…]]></description>
+      <description><![CDATA[>- Evaluating Artemisia vulgaris for dream work, lucid practices, and the modern sleep cycle.]]></description>
     </item>
 </channel>
 </rss>
