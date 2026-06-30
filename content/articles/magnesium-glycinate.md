@@ -279,6 +279,29 @@ Key dietary sources of magnesium include dark leafy greens (spinach ~78 mg per 1
 
 ---
 
+## What to Expect: A Realistic Timeline
+
+| Timeframe | What You Might Notice | What You Probably Won't |
+|-----------|----------------------|--------------------------|
+| **Night 1** | Some people feel mildly relaxed ~1 hour after taking. May fall asleep slightly faster. | No dramatic change in sleep architecture or anxiety yet. |
+| **Week 1** | Sleep onset may improve. Less muscle tension at night. Mild GI effects (loose stool) if dose is too high — reduce dose if this happens. | Anxiety during the day may not shift yet. |
+| **Week 2–4** | Sleep quality consolidates. Fewer nighttime awakenings. Morning anxiety may decrease. Those with genuine magnesium deficiency see the biggest changes here. | Won't resolve severe insomnia on its own. Won't replace sleep hygiene. |
+| **Month 2+** | Effects plateau. Some people taper to a lower maintenance dose. Those combining with L-theanine or ashwagandha may notice synergistic effects. | Effects won't keep increasing. It's correcting a deficiency, not optimizing indefinitely. |
+
+**If you feel nothing after 4 weeks:** you may not be magnesium deficient. Consider whether your issue is behavioral (sleep hygiene, caffeine timing, screen use) rather than nutritional. Magnesium works best when there's an actual deficiency to correct.
+
+## Real Talk: What Magnesium Glycinate Actually Feels Like
+
+Magnesium glycinate is subtle — more like a gentle nudge toward relaxation than a shove into sleep. People who benefit describe it as:
+
+- "I still need to wind down, but once I'm in bed, I actually stay asleep"
+- "My jaw isn't clenched when I wake up anymore"
+- "That 3 AM anxious awakening stopped happening"
+
+It is NOT a sleeping pill. It won't override caffeine, stress, or a racing mind. What it does: provides the physiological conditions for relaxation (GABA function, muscle relaxation, cortisol regulation). Whether you relax is still partly up to you.
+
+---
+
 ## Side Effects and Contraindications Summary
 
 **Common (>1%):** Loose stool at higher doses; mild GI cramping with rapid dose escalation.

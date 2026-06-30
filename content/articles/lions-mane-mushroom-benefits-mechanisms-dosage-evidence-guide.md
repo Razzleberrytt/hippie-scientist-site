@@ -488,6 +488,22 @@ Verdict: Ginkgo has a broader human trial base. Lion's Mane has a more distincti
 
 Verdict: These are different tools. L-theanine is for acute calm focus. Lion's Mane is a longer-term experiment.
 
+## Real Talk: What Lion's Mane Actually Feels Like
+
+Lion's Mane is one of the most subtle supplements people take. Unlike caffeine (which you definitely feel) or ashwagandha (which many people notice within weeks), Lion's Mane operates in the background.
+
+**What users who benefit typically report:**
+- "I didn't notice anything dramatic, but after a month I realized I wasn't forgetting words mid-sentence anymore"
+- "My thinking feels clearer — not faster, just less foggy"
+- "I dream more vividly" (this is commonly reported, though not studied)
+
+**What it absolutely does NOT feel like:**
+- A stimulant (no energy boost, no jitters)
+- Adderall or Ritalin (no acute focus enhancement)
+- A psychedelic or psychoactive mushroom (zero perceptual effects)
+
+The best way to assess whether Lion's Mane is doing anything: track a specific cognitive metric before and after 8 weeks. Examples: number of times you lose your train of thought in meetings, word-finding difficulty, or a standardized cognitive test app score.
+
 ## Decision Framework: Should You Take Lion's Mane?
 
 ### Yes, consider Lion's Mane if you:

@@ -292,6 +292,38 @@ Most clinical trials run 8-12 weeks. If stress symptoms have improved, consider 
 
 ---
 
+## What to Expect: A Realistic Timeline
+
+This is what people who benefit from ashwagandha typically report. Your experience may differ.
+
+| Timeframe | What You Might Notice | What You Probably Won't |
+|-----------|----------------------|--------------------------|
+| **Days 1–3** | Subtle evening calm after dosing. Maybe slightly easier to fall asleep. | No change in daytime stress or anxiety. |
+| **Week 1–2** | Sleep quality may improve. Morning grogginess common at first — try evening-only dosing. | No significant change in baseline anxiety or cortisol yet. |
+| **Week 3–4** | Stress starts feeling less overwhelming. The "edge" comes off. Cortisol begins dropping in responders. Minor GI side effects (if any) usually resolve by now. | Cognitive focus or energy may not change yet. |
+| **Week 6–8** | This is where trials show measurable effects. Anxiety scores drop. Sleep consolidates. You may notice you're less reactive to stressors. Testosterone effects (in men) may become measurable. | Still not a sedative. Won't prevent acute panic. Won't replace therapy or lifestyle changes. |
+| **Week 8+** | Effects plateau for most people. Some cycle off (2–4 weeks) to reassess baseline. Long-term users report sustained stress resilience without tolerance. | Effects won't keep increasing indefinitely. |
+
+**If you feel nothing after 8 weeks at 600 mg/day:** ashwagandha probably isn't the right adaptogen for you. Consider rhodiola (if fatigue-dominant) or magnesium + L-theanine (if sleep-dominant). Not every supplement works for every person.
+
+## Real Talk: What Ashwagandha Actually Feels Like
+
+Ashwagandha is subtle. It doesn't produce a noticeable "high" or sedation. People who benefit describe it as:
+
+- "I still get stressed, but it doesn't wreck my day anymore"
+- "I fall asleep faster and don't wake up at 3 AM"
+- "My baseline anxiety is lower — things that used to trigger me don't"
+
+It is NOT:
+- An acute anti-anxiety medication (no immediate relief from panic)
+- A sleeping pill (won't knock you out)
+- A stimulant (won't increase focus directly)
+- A replacement for addressing the source of your stress
+
+The people who get the most from ashwagandha are those with chronic, background-level stress — not acute crises. If you're looking for immediate relief from a panic attack, this isn't the tool. If you're looking to lower your baseline stress over weeks, it might be.
+
+---
+
 ## Safety and Interactions
 
 The practical safety question is not "is ashwagandha natural?" but "does this person have a thyroid, liver, pregnancy, medication, or sedation context that changes the risk-benefit calculation?"
