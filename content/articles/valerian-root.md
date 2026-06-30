@@ -457,3 +457,9 @@ For mild-to-moderate insomnia — particularly sleep onset difficulty in otherwi
 | 16 | Becker A et al. | GABA-transaminase inhibition by valerenic acid and related compounds | Planta Med | 2014 | [24680954](https://pubmed.ncbi.nlm.nih.gov/24680954/) |
 | 17 | Morin CM et al. | Valerian-hops combination and diphenhydramine for treating insomnia | Sleep | 2005 | [16335330](https://pubmed.ncbi.nlm.nih.gov/16335330/) |
 | 18 | Müller SF, Klement S | A combination of valerian and lemon balm is effective in the treatment of restlessness and dyssomnia in children | Phytomedicine | 2006 | [16867718](https://pubmed.ncbi.nlm.nih.gov/16867718/) |
+
+## Related Articles
+
+- [Kava: Anxiety and Sleep](/articles/kava)
+- [Passionflower: Anxiety and Sleep](/articles/passionflower)
+- [Magnesium Glycinate: Sleep and Stress](/articles/magnesium-glycinate)

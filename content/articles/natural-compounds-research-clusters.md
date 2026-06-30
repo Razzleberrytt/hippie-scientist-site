@@ -374,3 +374,9 @@ While bottlenecks in heterologous expression and regulatory safety must be addre
 - **Future Directions: AI, ML, and Next-Generation Discovery:** 405 words
 - **Conclusion:** 215 words
 - **Total Body Word Count:** 3910 words (excluding Frontmatter, Tables, and Bibliography)
+
+## Related Articles
+
+- [Functional Mushrooms 101](/articles/functional-mushrooms-guide)
+- [Peptides: Research Guide](/articles/peptides-research-guide)
+- [Adaptogenic Compounds: Clinical Evidence](/articles/adaptogenic-natural-compounds)

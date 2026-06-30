@@ -342,3 +342,10 @@ For individuals with MCI, a formal discussion with their neurologist about a tri
 | 12 | Docherty S et al. | Acute and chronic effects in young adults | Nutrients | 2023 | [38004235](https://pubmed.ncbi.nlm.nih.gov/38004235/) |
 | 13 | Docherty S et al. | Acute standardized extract effects in healthy younger adults | Nutrients | 2025 | [40276537](https://pubmed.ncbi.nlm.nih.gov/40276537/) |
 | 14 | Menon S et al. | Benefits, side effects, and uses: systematic review | Front Nutr | 2025 | [40959699](https://pubmed.ncbi.nlm.nih.gov/40959699/) |
+
+## Related Articles
+
+- [Lion's Mane vs Stimulants for ADHD](/articles/lions-mane-vs-stimulants-adhd)
+- [Functional Mushrooms 101](/articles/functional-mushrooms-guide)
+- [Bacopa Monnieri: Memory and Focus](/articles/bacopa-monnieri)
+- [Creatine for Brain Health](/articles/creatine-brain-health)

@@ -296,3 +296,9 @@ The remaining evidence gaps include larger and longer RCTs in diverse population
 | 10 | Janda K et al. | Passiflora incarnata in neuropsychiatric disorders: systematic review | Nutrients | 2020 | [33352740](https://pubmed.ncbi.nlm.nih.gov/33352740/) |
 | 11 | Dantas LP et al. | Passiflora incarnata for dental anxiety during periodontal treatment | J Dent (Shiraz) | 2014 | [24724122](https://pubmed.ncbi.nlm.nih.gov/24724122/) |
 | 12 | Cavalcante DR et al. | Passiflora incarnata and midazolam for dental extraction anxiety | Med Oral Patol Oral Cir Bucal | 2017 | [27918731](https://pubmed.ncbi.nlm.nih.gov/27918731/) |
+
+## Related Articles
+
+- [Kava: Anxiety and Sleep](/articles/kava)
+- [Valerian Root: Sleep Quality and GABA](/articles/valerian-root)
+- [Ashwagandha: Stress and Cortisol](/articles/ashwagandha)

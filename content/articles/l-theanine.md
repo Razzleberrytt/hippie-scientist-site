@@ -340,3 +340,9 @@ The page should not oversell it as an anxiety cure or a sleep cure. The stronges
 | 11 | Williams JL et al. | Theanine consumption, stress and anxiety in human clinical trials: systematic review | Plant Foods Hum Nutr | 2020 | [31758301](https://pubmed.ncbi.nlm.nih.gov/31758301/) |
 | 12 | Yoto A et al. | Effects of theanine on blood pressure response under stress | J Physiol Anthropol | 2012 | [22285321](https://pubmed.ncbi.nlm.nih.gov/22285321/) |
 | 13 | Hidese S et al. | L-theanine administration on stress-related symptoms and cognitive functions: RCT | Nutrients | 2019 | [31661839](https://pubmed.ncbi.nlm.nih.gov/31661839/) |
+
+## Related Articles
+
+- [Magnesium Glycinate: Sleep, Stress, and Anxiety](/articles/magnesium-glycinate)
+- [Ashwagandha: Stress, Cortisol, and Anxiety](/articles/ashwagandha)
+- [Creatine for Brain Health](/articles/creatine-brain-health)

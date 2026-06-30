@@ -500,3 +500,9 @@ For individuals navigating high cognitive demand, examination stress, physical e
 | 16 | Zhao G et al. | Rhodiola effects on thyroid hormone and antioxidant status in rats at high altitude | Zhongguo Zhong Yao Za Zhi | 2007 | [17570361](https://pubmed.ncbi.nlm.nih.gov/17570361/) |
 | 17 | van Diermen D et al. | SERT and NET inhibition by constituents of Rhodiola rosea | J Ethnopharmacol | 2009 | [18778739](https://pubmed.ncbi.nlm.nih.gov/18778739/) |
 | 18 | Sharma AK et al. | Withania somnifera extract in subclinical hypothyroidism (for comparison) | J Altern Complement Med | 2018 | [28829155](https://pubmed.ncbi.nlm.nih.gov/28829155/) |
+
+## Related Articles
+
+- [Ashwagandha: Stress, Cortisol, and Anxiety](/articles/ashwagandha)
+- [Saffron for Depression](/articles/saffron-depression-evidence)
+- [Adaptogenic Compounds: Clinical Evidence](/articles/adaptogenic-natural-compounds)

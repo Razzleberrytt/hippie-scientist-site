@@ -287,3 +287,9 @@ Emerging psychiatric evidence (schizophrenia negative symptoms, OCD spectrum, ad
 | 9 | Zheng JP et al. | PANTHEON: twice daily NAC 600 mg for COPD exacerbations | Lancet Respir Med | 2014 | [24621680](https://pubmed.ncbi.nlm.nih.gov/24621680/) |
 | 10 | Deepmala et al. | Clinical trials of NAC in psychiatry and neurology | Neurosci Biobehav Rev | 2015 | [25957927](https://pubmed.ncbi.nlm.nih.gov/25957927/) |
 | 11 | Green JL et al. | Oral and IV acetylcysteine for acetaminophen toxicity | West J Emerg Med | 2013 | [23687539](https://pubmed.ncbi.nlm.nih.gov/23687539/) |
+
+## Related Articles
+
+- [Berberine: The Evidence-Based Guide](/articles/berberine)
+- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)
+- [Creatine for Brain Health](/articles/creatine-brain-health)

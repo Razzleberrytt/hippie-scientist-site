@@ -493,3 +493,9 @@ Beyond cognition, the evidence for tinnitus (particularly with EGb 761 or stabil
 | 19 | Tian J, Liu Y, Chen K | Ginkgolic acid content of commercial Ginkgo biloba preparations | Phytomedicine | 2017 | [28090447](https://pubmed.ncbi.nlm.nih.gov/28090447/) |
 | 20 | Snitz BE et al. | GEM study: cognitive outcomes in the Ginkgo Evaluation of Memory trial | JAMA | 2009 | [19997049](https://pubmed.ncbi.nlm.nih.gov/19997049/) |
 | 21 | Napryeyenko O, Borzenko I | Ginkgo biloba extract in dementia: a systematic review | Arzneimittelforschung | 2007 | [17404918](https://pubmed.ncbi.nlm.nih.gov/17404918/) |
+
+## Related Articles
+
+- [Bacopa Monnieri: Memory and Focus](/articles/bacopa-monnieri)
+- [Lion's Mane: Mechanisms and Clinical Evidence](/articles/lions-mane)
+- [Creatine for Brain Health](/articles/creatine-brain-health)

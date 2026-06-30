@@ -419,3 +419,9 @@ The strongest fit is chronic stress with anxiety or stress-related sleep disrupt
 | 18 | Nobre AC et al. | L-theanine, a natural constituent in tea, and its effect on mental state | Asia Pac J Clin Nutr | 2008 | [18296328](https://pubmed.ncbi.nlm.nih.gov/18296328/) |
 | 19 | Boyle NB et al. | Effects of magnesium supplementation on subjective anxiety and stress | Nutrients | 2017 | [28445426](https://pubmed.ncbi.nlm.nih.gov/28445426/) |
 | 20 | Panossian A, Wikman G | Adaptogenic potential of a polyherbal natural health product | Altern Ther Health Med | 2010 | [20741222](https://pubmed.ncbi.nlm.nih.gov/20741222/) |
+
+## Related Articles
+
+- [Saffron for Depression: What the Evidence Shows](/articles/saffron-depression-evidence)
+- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)
+- [Creatine for Brain Health](/articles/creatine-brain-health)

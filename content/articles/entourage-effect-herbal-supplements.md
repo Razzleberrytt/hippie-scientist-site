@@ -304,3 +304,9 @@ The best decision framework is: identify the goal, prefer the form used in human
 - Future directions and research gaps: about 330 words
 - Conclusion: about 180 words
 - Total body word count: about 3,750 words, excluding frontmatter and references
+
+## Related Articles
+
+- [Functional Mushrooms 101](/articles/functional-mushrooms-guide)
+- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)
+- [Adaptogenic Compounds: Clinical Evidence](/articles/adaptogenic-natural-compounds)

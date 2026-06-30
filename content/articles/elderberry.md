@@ -232,3 +232,9 @@ Elderberry is a reasonable evidence-supported supportive option for short-term u
 5. Zakay-Rones Z, Thom E, Wollan T, Wadstein J. Oral elderberry extract for influenza A and B. PMID: 15080016.
 6. Macknin M, Saravanan S, Jacob V, et al. Elderberry extract outpatient influenza treatment trial. PMID: 32929634.
 7. Senica M, Stampar F, Veberic R, Mikulic-Petkovsek M. Phenolics and cyanogenic glycosides in *Sambucus nigra*. PMID: 27734518.
+
+## Related Articles
+
+- [Functional Mushrooms 101](/articles/functional-mushrooms-guide)
+- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)
+- [NAC: Glutathione and Lung Health](/articles/nac)

@@ -277,3 +277,9 @@ Use kava as an intermittent, screened, product-quality-dependent anxiolytic rath
 | 12 | Stevinson C et al. | Safety of kava extract in anxiety treatment | Drug Saf | 2002 | [11994028](https://pubmed.ncbi.nlm.nih.gov/11994028/) |
 | 13 | Teschke R | Kava hepatotoxicity: a clinical review | Ann Hepatol | 2010 | [20720265](https://pubmed.ncbi.nlm.nih.gov/20720265/) |
 | 14 | Norton SA, Ruze P | Kava dermopathy | J Am Acad Dermatol | 1994 | [8021378](https://pubmed.ncbi.nlm.nih.gov/8021378/) |
+
+## Related Articles
+
+- [Ashwagandha: Stress, Cortisol, and Anxiety](/articles/ashwagandha)
+- [Passionflower: Anxiety and Sleep](/articles/passionflower)
+- [Valerian Root: Sleep Quality and GABA](/articles/valerian-root)

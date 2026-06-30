@@ -472,3 +472,9 @@ Beyond sleep and anxiety, the expanding evidence base for magnesium in cardiovas
 | 16 | Castiglioni S et al. | Magnesium and bone: a review | Nutrients | 2013 | [23912327](https://pubmed.ncbi.nlm.nih.gov/23912327/) |
 | 17 | Uwitonze AM, Razzaque MS | Vitamin D and magnesium: a bidirectional relationship essential for human health | J Am Osteopath Assoc | 2018 | [29480918](https://pubmed.ncbi.nlm.nih.gov/29480918/) |
 | 18 | Lindberg JS et al. | Bioavailability of magnesium diglycinate vs magnesium oxide in patients with ileal resection | JPEN J Parenter Enteral Nutr | 1990 | [2407766](https://pubmed.ncbi.nlm.nih.gov/2407766/) |
+
+## Related Articles
+
+- [Ashwagandha: Stress, Cortisol, and Anxiety](/articles/ashwagandha)
+- [L-Theanine: Focus and Calm](/articles/l-theanine)
+- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)

@@ -300,3 +300,9 @@ Its profile positions Bacopa as a particularly strong choice for individuals pri
 | 10 | Benson S et al. | Acute Bacopa CDRI 08 on multitasking stress reactivity and mood | Phytother Res | 2014 | [23788517](https://pubmed.ncbi.nlm.nih.gov/23788517/) |
 | 11 | Kean JD et al. | Bacopa CDRI 08 in boys with inattention and hyperactivity | Phytother Res | 2022 | [35041248](https://pubmed.ncbi.nlm.nih.gov/35041248/) |
 | 12 | Basheer A et al. | Bacopa in Alzheimer disease: systematic review of RCTs | Interact J Med Res | 2022 | [35612544](https://pubmed.ncbi.nlm.nih.gov/35612544/) |
+
+## Related Articles
+
+- [Lion's Mane: Mechanisms and Clinical Evidence](/articles/lions-mane)
+- [Ginkgo Biloba: Cognition and Aging](/articles/ginkgo-biloba)
+- [Creatine for Brain Health](/articles/creatine-brain-health)
