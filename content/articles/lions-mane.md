@@ -3,6 +3,7 @@ slug: lions-mane
 title: "Lion's Mane Mushroom: Mechanisms, Clinical Evidence, and Practical Use"
 description: "A thorough, evidence-graded review of Hericium erinaceus — covering NGF and BDNF pathways, clinical trial outcomes in mild cognitive impairment, effective dosage ranges, and safety considerations."
 date: '2026-06-06'
+updatedAt: '2026-06-30'
 author: Will
 category: Cognitive health
 keywords:
