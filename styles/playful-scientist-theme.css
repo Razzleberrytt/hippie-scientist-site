@@ -1,0 +1,326 @@
+/*
+  Playful Scientist Theme — Wes Anderson meets lab equipment
+  Warm pastels, bold accents, flat colored cards, symmetrical compositions
+  Overrides the dark botanical theme with deliberate playfulness
+*/
+
+:root {
+  /* Core palette — warm lab */
+  --ps-bg: #fffaf5;
+  --ps-surface: #fff7ee;
+  --ps-surface-2: #fef0e0;
+  --ps-ink: #2d1810;
+  --ps-ink-muted: #6b4d3d;
+  
+  /* Bold accents — lab equipment colors */
+  --ps-coral: #e8614c;
+  --ps-mustard: #e8a838;
+  --ps-teal: #2d9d8c;
+  --ps-burgundy: #8b2d4a;
+  --ps-slate: #3d5066;
+  --ps-mint: #7ec8a0;
+  
+  /* Borders */
+  --ps-border: rgba(45, 24, 16, 0.12);
+  --ps-border-bold: rgba(45, 24, 16, 0.2);
+
+  /* Cards — flat, bold borders, no glass */
+  --ps-card-bg: #ffffff;
+  --ps-card-border: rgba(45, 24, 16, 0.1);
+  --ps-card-shadow: 0 4px 0 rgba(45, 24, 16, 0.06);
+  --ps-card-hover-shadow: 0 8px 0 rgba(45, 24, 16, 0.1);
+
+  /* Typography */
+  --ps-display: 'Work Sans', system-ui, sans-serif;
+  --ps-body: 'Work Sans', system-ui, sans-serif;
+  
+  /* Radii — deliberate, slightly squared */
+  --ps-radius-sm: 4px;
+  --ps-radius: 8px;
+  --ps-radius-lg: 12px;
+}
+
+/* Body background — warm off-white, no gradients */
+.ps-body {
+  background: var(--ps-bg);
+}
+
+/* Cards — flat, bold */
+.ps-card {
+  background: var(--ps-card-bg);
+  border: 2px solid var(--ps-card-border);
+  border-radius: var(--ps-radius-lg);
+  box-shadow: var(--ps-card-shadow);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.ps-card:hover {
+  box-shadow: var(--ps-card-hover-shadow);
+  transform: translateY(-2px);
+}
+
+/* Accent cards — colored left border */
+.ps-card-accent-coral {
+  border-left: 4px solid var(--ps-coral);
+}
+
+.ps-card-accent-teal {
+  border-left: 4px solid var(--ps-teal);
+}
+
+.ps-card-accent-mustard {
+  border-left: 4px solid var(--ps-mustard);
+}
+
+.ps-card-accent-burgundy {
+  border-left: 4px solid var(--ps-burgundy);
+}
+
+/* Buttons — bold, flat, no glow */
+.ps-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.75rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  border-radius: var(--ps-radius);
+  border: 2px solid var(--ps-ink);
+  background: var(--ps-ink);
+  color: #fff;
+  letter-spacing: 0.02em;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.ps-btn:hover {
+  background: var(--ps-coral);
+  border-color: var(--ps-coral);
+  transform: translateY(-1px);
+}
+
+.ps-btn-outline {
+  background: transparent;
+  color: var(--ps-ink);
+}
+
+.ps-btn-outline:hover {
+  background: var(--ps-ink);
+  color: #fff;
+  border-color: var(--ps-ink);
+}
+
+/* Tags / badges */
+.ps-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 1.5px solid var(--ps-border);
+  background: var(--ps-surface);
+  color: var(--ps-ink-muted);
+  letter-spacing: 0.03em;
+}
+
+/* Section headers */
+.ps-section-title {
+  font-family: var(--ps-display);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  line-height: 1.15;
+  color: var(--ps-ink);
+  letter-spacing: -0.02em;
+}
+
+.ps-section-subtitle {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.6;
+  color: var(--ps-ink-muted);
+  max-width: 36rem;
+}
+
+/* Hero — centered, bold, playful */
+.ps-hero {
+  text-align: center;
+  padding: clamp(3rem, 8vw, 6rem) 1.5rem;
+  background: 
+    linear-gradient(180deg, 
+      rgba(232, 168, 56, 0.08) 0%, 
+      rgba(126, 200, 160, 0.06) 50%,
+      rgba(232, 97, 76, 0.04) 100%
+    ),
+    var(--ps-bg);
+}
+
+.ps-hero-title {
+  font-family: var(--ps-display);
+  font-weight: 900;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  line-height: 1.05;
+  color: var(--ps-ink);
+  letter-spacing: -0.03em;
+  max-width: 14ch;
+  margin: 0 auto;
+}
+
+.ps-hero-subtitle {
+  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+  line-height: 1.6;
+  color: var(--ps-ink-muted);
+  max-width: 32rem;
+  margin: 1.25rem auto 0;
+}
+
+/* Lab equipment accent — decorative elements */
+.ps-lab-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin: 0 0.3em;
+  vertical-align: middle;
+}
+
+.ps-lab-dot-coral { background: var(--ps-coral); }
+.ps-lab-dot-mustard { background: var(--ps-mustard); }
+.ps-lab-dot-teal { background: var(--ps-teal); }
+.ps-lab-dot-burgundy { background: var(--ps-burgundy); }
+
+/* Section dividers — playful */
+.ps-divider {
+  height: 3px;
+  background: 
+    linear-gradient(90deg,
+      var(--ps-coral) 0%,
+      var(--ps-mustard) 33%,
+      var(--ps-teal) 66%,
+      var(--ps-burgundy) 100%
+    );
+  border: none;
+  margin: 2rem auto;
+  max-width: 12rem;
+}
+
+/* Goal cards — colored backgrounds */
+.ps-goal-card {
+  border-radius: var(--ps-radius-lg);
+  border: 2px solid var(--ps-border);
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: block;
+}
+
+.ps-goal-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(45, 24, 16, 0.08);
+}
+
+.ps-goal-card-sleep { background: #e8f0fb; border-color: #b8cfe0; }
+.ps-goal-card-stress { background: #edf6ee; border-color: #b8d4bc; }
+.ps-goal-card-anxiety { background: #f4effc; border-color: #d4c4e8; }
+.ps-goal-card-focus { background: #fef6e8; border-color: #e8d4a8; }
+
+/* ── Global overrides — extend playful theme to ALL pages ── */
+
+/* Cards — strip glass morphism, use flat style */
+.card-premium,
+.scientific-card,
+.library-card-premium,
+.surface-depth,
+.surface-subtle,
+.section-frame,
+.glass-card {
+  background: var(--ps-card-bg) !important;
+  border: 2px solid var(--ps-card-border) !important;
+  border-radius: var(--ps-radius-lg) !important;
+  box-shadow: var(--ps-card-shadow) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.card-premium::before,
+.scientific-card::before,
+.library-card-premium::before,
+.surface-depth::before,
+.section-frame::before,
+.glass-card::before {
+  display: none !important;
+}
+
+.card-premium:hover,
+.scientific-card:hover,
+.library-card-premium:hover {
+  box-shadow: var(--ps-card-hover-shadow) !important;
+  transform: translateY(-2px);
+}
+
+/* Body background — warm, no gradient */
+body {
+  background: var(--ps-bg) !important;
+}
+
+/* Hero sections — simpler */
+.hero-shell {
+  background: var(--ps-card-bg) !important;
+  border: 2px solid var(--ps-border) !important;
+  border-radius: var(--ps-radius-lg) !important;
+  box-shadow: var(--ps-card-shadow) !important;
+}
+
+.hero-shell::before {
+  display: none !important;
+}
+
+/* Buttons — bolder, flatter */
+a[class*="bg-brand-800"],
+a[class*="bg-brand-700"],
+button[class*="bg-brand-800"],
+button[class*="bg-brand-700"] {
+  background: var(--ps-ink) !important;
+  border-radius: var(--ps-radius) !important;
+  box-shadow: none !important;
+}
+
+a[class*="bg-brand-800"]:hover,
+a[class*="bg-brand-700"]:hover,
+button[class*="bg-brand-800"]:hover,
+button[class*="bg-brand-700"]:hover {
+  background: var(--ps-coral) !important;
+}
+
+/* Link colors — coral instead of green */
+a[class*="text-brand-700"],
+a[class*="text-brand-800"] {
+  color: var(--ps-coral) !important;
+}
+
+a[class*="text-brand-700"]:hover,
+a[class*="text-brand-800"]:hover {
+  color: var(--ps-ink) !important;
+}
+
+/* Section backgrounds — flat */
+.bg-brand-50\/40,
+.bg-brand-50\/50,
+.bg-brand-50\/60,
+.bg-emerald-50\/40,
+.bg-emerald-50\/60,
+.bg-emerald-50\/70 {
+  background: var(--ps-surface) !important;
+}
+
+/* Rounded borders — tighten up */
+.rounded-\[1rem\],
+.rounded-\[1\.25rem\],
+.rounded-\[1\.5rem\],
+.rounded-\[2rem\] {
+  border-radius: var(--ps-radius-lg) !important;
+}
+
+/* Tags and badges */
+.rounded-full {
+  border-radius: 9999px !important;
+}
