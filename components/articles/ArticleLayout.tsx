@@ -51,7 +51,7 @@ export default function ArticleLayout({
         </div>
         {toc && (
           <aside aria-label="Page navigation" className="hidden lg:block">
-            <div className="sticky top-20 rounded-xl border border-brand-900/10 bg-white/90 p-4 shadow-sm dark:border-brand-900/20 dark:bg-brand-950/60">
+            <div className="sticky top-20 rounded-xl border border-brand-800/10 bg-white/95 p-4 shadow-sm backdrop-blur dark:border-white/10 dark:bg-brand-950/60">
               {toc}
             </div>
           </aside>

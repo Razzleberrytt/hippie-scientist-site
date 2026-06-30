@@ -68,12 +68,12 @@ export default function Footer() {
   }
 
   return (
-    <footer className='mt-8 w-full border-t border-white/10 bg-[#07080F] px-4 py-12'>
+    <footer className='mt-8 w-full border-t border-white/10 bg-[#07080F] px-4 py-12 dark:bg-[#07080F]'>
       <div className='mx-auto w-full max-w-screen-lg'>
         <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4'>
           <div>
             <p className='font-display text-lg italic text-white'>The Hippie Scientist</p>
-            <p className='mt-1.5 text-xs uppercase tracking-[0.14em] text-white/55'>
+            <p className='mt-1.5 text-[0.8rem] tracking-[0.02em] text-white/55'>
               Evidence-first botanical research. Not medical advice.
             </p>
             <div className='mt-4 flex flex-wrap items-center gap-x-2 text-xs text-white/50'>
@@ -94,11 +94,11 @@ export default function Footer() {
           <NonEmpty>
             {exploreLinks.length > 0 && (
               <div>
-                <h3 className='section-label mb-3'>Explore</h3>
+                <h3 className='section-label mb-3 !text-white/60'>Explore</h3>
                 <ul className='space-y-2'>
                   {exploreLinks.map(link => (
                     <li key={link.href}>
-                      <Link className='text-sm text-white/70 transition-colors hover:text-white' to={link.href} prefetch={true}>
+                      <Link className='text-[0.85rem] text-white/65 transition-colors hover:text-white' to={link.href} prefetch={true}>
                         {link.label}
                       </Link>
                     </li>
@@ -111,11 +111,11 @@ export default function Footer() {
           <NonEmpty>
             {priorityGoalLinks.length > 0 && (
               <div>
-                <h3 className='section-label mb-3'>Popular Goals</h3>
+                <h3 className='section-label mb-3 !text-white/60'>Popular Goals</h3>
                 <ul className='space-y-2'>
                   {priorityGoalLinks.map(link => (
                     <li key={link.href}>
-                      <Link className='text-sm text-white/70 transition-colors hover:text-white' to={link.href} prefetch={true}>
+                      <Link className='text-[0.85rem] text-white/65 transition-colors hover:text-white' to={link.href} prefetch={true}>
                         {link.label}
                       </Link>
                     </li>
@@ -128,18 +128,18 @@ export default function Footer() {
           <NonEmpty>
             {safetyLinks.length > 0 && (
               <div>
-                <h3 className='section-label mb-3'>Safety</h3>
+                <h3 className='section-label mb-3 !text-white/60'>Safety</h3>
                 <ul className='space-y-2'>
                   {safetyLinks.map(link => (
                     <li key={link.href}>
-                      <Link className='text-sm text-white/70 transition-colors hover:text-white' to={link.href} prefetch={true}>
+                      <Link className='text-[0.85rem] text-white/65 transition-colors hover:text-white' to={link.href} prefetch={true}>
                         {link.label}
                       </Link>
                     </li>
                   ))}
                   <li>
                     <button
-                      className='text-sm text-white/70 transition-colors hover:text-white'
+                      className='text-[0.85rem] text-white/65 transition-colors hover:text-white'
                       type='button'
                       onClick={() => setOpen(true)}
                     >
@@ -154,11 +154,11 @@ export default function Footer() {
           <NonEmpty>
             {availableLegalLinks.length > 0 && (
               <div>
-                <h3 className='section-label mb-3'>Legal</h3>
+                <h3 className='section-label mb-3 !text-white/60'>Legal</h3>
                 <ul className='space-y-2'>
                   {availableLegalLinks.map(link => (
                     <li key={link.href}>
-                      <Link className='text-sm text-white/70 transition-colors hover:text-white' to={link.href} prefetch={true}>
+                      <Link className='text-[0.85rem] text-white/65 transition-colors hover:text-white' to={link.href} prefetch={true}>
                         {link.label}
                       </Link>
                     </li>
