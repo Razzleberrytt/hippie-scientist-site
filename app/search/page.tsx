@@ -40,10 +40,10 @@ export default function SearchPage() {
   ]
 
   const popularGoals = [
-    { name: 'Sleep Support', href: '/goals/sleep/' },
-    { name: 'Stress Resilience', href: '/goals/stress/' },
-    { name: 'Anxiety Support', href: '/goals/anxiety/' },
-    { name: 'Focus & Cognition', href: '/goals/focus/' },
+    { name: 'Sleep Support', href: '/guides/sleep/' },
+    { name: 'Stress Resilience', href: '/guides/anxiety/' },
+    { name: 'Anxiety Support', href: '/guides/anxiety/' },
+    { name: 'Focus & Cognition', href: '/guides/focus/' },
     { name: 'Fat Loss', href: '/goals/fat-loss/' },
     { name: 'Gut Health', href: '/goals/gut-health/' },
     { name: 'Joint Support', href: '/goals/joint-support/' },
@@ -53,8 +53,8 @@ export default function SearchPage() {
     { name: 'Safety Checker', href: '/safety-checker/' },
     { name: 'Compare Supplements', href: '/compare/' },
     { name: 'Research Tools Hub', href: '/tools/' },
-    { name: 'Citation Explorer', href: '/education/citation-explorer/' },
-    { name: 'Dosing Calculator', href: '/dosing/' },
+    { name: 'Citation Explorer', href: '/learn/citation-explorer/' },
+    { name: 'Dosing Calculator', href: '/info/info/dosing/' },
     { name: 'Stack Builder', href: '/stacks/builder/' },
   ]
 

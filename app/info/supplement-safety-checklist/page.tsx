@@ -8,7 +8,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: 'Free Evidence-Based Supplement Safety Checklist (PDF)',
   description:
     'Download-style safety checklist: medications, dose and form checks, stacking risks, and quality markers before buying supplements.',
-  path: '/supplement-safety-checklist',
+  path: '/info/supplement-safety-checklist',
 })
 
 export default function SupplementSafetyChecklistPage() {

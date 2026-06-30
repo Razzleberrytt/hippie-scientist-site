@@ -6,7 +6,7 @@ import EducationPageLayout from '@/components/layouts/EducationPageLayout'
 export const metadata: Metadata = buildPageMetadata({
   title: "What Is an Entheogen?",
   description: "Educational exploration of entheogens, ethnobotanical traditions, psychoactive neuropharmacology, and consciousness-oriented plant systems.",
-  path: "/education/what-is-an-entheogen/",
+  path: "/learn/what-is-an-entheogen/",
 })
 
 
@@ -16,11 +16,11 @@ const related = [
     title: 'Entheogens',
   },
   {
-    href: '/education/serotonin',
+    href: '/learn/serotonin',
     title: 'Serotonin Pathway',
   },
   {
-    href: '/education/what-is-neuropharmacology',
+    href: '/learn/what-is-neuropharmacology',
     title: 'Neuropharmacology',
   },
   {
@@ -35,7 +35,7 @@ export default function EntheogenEducationPage() {
       <AuthorityJsonLd
         title="What Is an Entheogen?"
         description="Educational exploration of entheogens, ethnobotanical traditions, psychoactive neuropharmacology, and consciousness-oriented plant systems."
-        url="https://thehippiescientist.net/education/what-is-an-entheogen"
+        url="https://thehippiescientist.net/learn/what-is-an-entheogen"
         type="Article"
       />
 

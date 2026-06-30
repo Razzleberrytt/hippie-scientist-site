@@ -74,7 +74,7 @@ export default function KavaVsAlcoholPage() {
             Harm Reduction
           </Link>
 
-          <Link href="/education/gaba" className="chip-readable">
+          <Link href="/learn/gaba" className="chip-readable">
             GABA Pathway
           </Link>
         </div>

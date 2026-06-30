@@ -11,7 +11,7 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Psychoactive Substances Affect Perception",
   description: "Educational exploration of psychoactive perception, neurochemical signaling, altered states, sensory processing, and neuropharmacology.",
-  path: "/education/how-psychoactive-substances-affect-perception/",
+  path: "/learn/how-psychoactive-substances-affect-perception/",
 })
 
 
@@ -21,14 +21,14 @@ export default function PsychoactivePerceptionPage() {
       <AuthorityJsonLd
         title="How Psychoactive Substances Affect Perception"
         description="Educational exploration of psychoactive perception, neurochemical signaling, altered states, sensory processing, and neuropharmacology."
-        url="https://thehippiescientist.net/education/how-psychoactive-substances-affect-perception"
+        url="https://thehippiescientist.net/learn/how-psychoactive-substances-affect-perception"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'How Psychoactive Substances Affect Perception' },
         ]}
       />

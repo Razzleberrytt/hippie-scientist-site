@@ -6,7 +6,7 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 export const metadata: Metadata = buildPageMetadata({
   title: "Cholinergic System",
   description: "Educational exploration of cholinergic signaling, dreaming systems, cognition pathways, memory mechanisms, and oneirogenic neuropharmacology.",
-  path: "/education/cholinergic-system/",
+  path: "/learn/cholinergic-system/",
 })
 
 
@@ -20,7 +20,7 @@ const systems = [
     title: 'Mugwort',
   },
   {
-    href: '/education/why-sleep-changes-emotional-regulation',
+    href: '/learn/why-sleep-changes-emotional-regulation',
     title: 'Sleep and Emotional Regulation',
   },
 ]
@@ -31,14 +31,14 @@ export default function CholinergicSystemPage() {
       <AuthorityJsonLd
         title="Cholinergic System"
         description="Educational exploration of cholinergic signaling, dreaming systems, cognition pathways, memory mechanisms, and oneirogenic neuropharmacology."
-        url="https://thehippiescientist.net/education/cholinergic-system"
+        url="https://thehippiescientist.net/learn/cholinergic-system"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Cholinergic System' },
         ]}
       />

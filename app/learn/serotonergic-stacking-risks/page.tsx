@@ -12,7 +12,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 const systems = [
   {
-    href: '/education/serotonin',
+    href: '/learn/serotonin',
     title: 'Serotonin Pathway',
   },
   {

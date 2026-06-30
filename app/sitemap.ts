@@ -346,11 +346,11 @@ function isAllowedRouteManifestEntry(routeStr: string): boolean {
 
   const allowedCoreStaticRoutes = new Set([
     '/',
-    '/about',
-    '/contact',
-    '/faq',
-    '/methodology',
-    '/evidence-digest',
+    '/info/about',
+    '/info/contact',
+    '/info/faq',
+    '/info/methodology',
+    '/evidence/evidence-digest',
     '/safety-checker',
     '/herbs',
     '/compounds',
@@ -361,10 +361,10 @@ function isAllowedRouteManifestEntry(routeStr: string): boolean {
     '/learn',
     '/compare',
     '/tools',
-    '/dosing',
-    '/affiliate-disclosure',
-    '/privacy',
-    '/disclaimer',
+    '/info/dosing',
+    '/info/affiliate-disclosure',
+    '/info/privacy',
+    '/info/disclaimer',
   ].map(normalizeRoutePath));
 
   if (allowedCoreStaticRoutes.has(normalized)) {
@@ -382,7 +382,7 @@ function isAllowedRouteManifestEntry(routeStr: string): boolean {
     return true;
   }
 
-  if (normalized.startsWith('/goals/') || normalized.startsWith('/stacks/') || normalized.startsWith('/guides/') || normalized.startsWith('/education/') || normalized.startsWith('/psychoactive/')) {
+  if (normalized.startsWith('/goals/') || normalized.startsWith('/stacks/') || normalized.startsWith('/guides/') || normalized.startsWith('/learn/') || normalized.startsWith('/psychoactive/')) {
     return true;
   }
 
@@ -484,21 +484,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const goalsData = goalsJson.length > 0 ? goalsJson : readTsGoalSlugs('data/goals.ts');
   const stacksData = readJsonArray<SitemapSourceItem>('public/data/stacks.json');
   const guidesData = readMdxRecords('content/guides');
-  const educationMdx = readMdxRecords('content/education');
+  const educationMdx = readMdxRecords('content/learn');
   const npsMdx = readMdxRecords('novel-psychoactive-substances');
   const npsIndex = npsMdx.find((page) => page.slug === 'index');
 
   const sitemapEntries: MetadataRoute.Sitemap = [
     route(normalizeSitemapUrl('/'), 'weekly', 1.0),
-    route(normalizeSitemapUrl('/about'), 'yearly', 0.6),
+    route(normalizeSitemapUrl('/info/about'), 'yearly', 0.6),
     route(normalizeSitemapUrl('/author'), 'yearly', 0.6),
     route(normalizeSitemapUrl('/search'), 'monthly', 0.6),
-    route(normalizeSitemapUrl('/contact'), 'yearly', 0.5),
-    route(normalizeSitemapUrl('/faq'), 'monthly', 0.7),
-    route(normalizeSitemapUrl('/methodology'), 'yearly', 0.6),
-    route(normalizeSitemapUrl('/evidence-digest'), 'weekly', 0.85),
+    route(normalizeSitemapUrl('/info/contact'), 'yearly', 0.5),
+    route(normalizeSitemapUrl('/info/faq'), 'monthly', 0.7),
+    route(normalizeSitemapUrl('/info/methodology'), 'yearly', 0.6),
+    route(normalizeSitemapUrl('/evidence/evidence-digest'), 'weekly', 0.85),
     route(normalizeSitemapUrl('/safety-checker'), 'monthly', 0.8),
-    route(normalizeSitemapUrl('/supplement-safety-checklist'), 'monthly', 0.8),
+    route(normalizeSitemapUrl('/info/supplement-safety-checklist'), 'monthly', 0.8),
     route(normalizeSitemapUrl('/herbs'), 'weekly', 0.8),
     route(normalizeSitemapUrl('/compounds'), 'weekly', 0.8),
     route(normalizeSitemapUrl('/articles'), 'daily', 0.8),
@@ -508,10 +508,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     route(normalizeSitemapUrl('/novel-psychoactive-substances'), 'monthly', 0.7, getSitemapLastModified(npsIndex)),
     route(normalizeSitemapUrl('/compare'), 'monthly', 0.7),
     route(normalizeSitemapUrl('/tools'), 'monthly', 0.6),
-    route(normalizeSitemapUrl('/dosing'), 'monthly', 0.6),
-    route(normalizeSitemapUrl('/affiliate-disclosure'), 'yearly', 0.5),
-    route(normalizeSitemapUrl('/privacy'), 'yearly', 0.4),
-    route(normalizeSitemapUrl('/disclaimer'), 'yearly', 0.4),
+    route(normalizeSitemapUrl('/info/dosing'), 'monthly', 0.6),
+    route(normalizeSitemapUrl('/info/affiliate-disclosure'), 'yearly', 0.5),
+    route(normalizeSitemapUrl('/info/privacy'), 'yearly', 0.4),
+    route(normalizeSitemapUrl('/info/disclaimer'), 'yearly', 0.4),
   ];
 
   const addRoute = (
@@ -697,14 +697,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   educationMdx.forEach((edu) => {
     if (!edu.slug) return;
     educationSlugs.add(edu.slug);
-    addRoute(`/education/${edu.slug}`, 'monthly', 0.6, undefined, edu);
+    addRoute(`/learn/${edu.slug}`, 'monthly', 0.6, undefined, edu);
   });
 
   // Add App Router education pages not covered by MDX
-  readAppGuidePageSlugs('app/education').forEach((edu) => {
+  readAppGuidePageSlugs('app/learn').forEach((edu) => {
     if (!edu.slug || educationSlugs.has(edu.slug)) return;
     educationSlugs.add(edu.slug);
-    addRoute(`/education/${edu.slug}`, 'monthly', 0.6, undefined, edu);
+    addRoute(`/learn/${edu.slug}`, 'monthly', 0.6, undefined, edu);
   });
 
   // Add App Router psychoactive pages

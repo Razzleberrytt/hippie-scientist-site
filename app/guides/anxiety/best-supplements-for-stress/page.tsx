@@ -34,7 +34,7 @@ const STRESS_SUPPLEMENTS = [
     dose: '300–600 mg standardized extract (KSM-66 ≥5% withanolides or Sensoril ≥10%) — morning or evening; allow 4–8 weeks',
     safety: 'Generally well-tolerated; rare liver injury has been reported; use caution with thyroid medications, immunosuppressants, pregnancy, or autoimmune conditions',
     bestFor: 'Chronic psychological stress; HPA dysregulation; cortisol-driven sleep disruption; sustained adaptogen strategy',
-    href: '/articles/ashwagandha',
+    href: '/guides/herbs/ashwagandha',
     badge: 'Moderate–Strong',
   },
   {
@@ -74,7 +74,7 @@ const STRESS_SUPPLEMENTS = [
     dose: '100–200 mg as needed or daily; can be combined with caffeine (2:1 theanine:caffeine ratio)',
     safety: 'Generally well-tolerated; use extra caution with sedatives, blood pressure medication, pregnancy/breastfeeding, or psychiatric medication',
     bestFor: 'Acute situational stress; stress-related cognitive impairment; daily background stress reduction',
-    href: '/articles/l-theanine',
+    href: '/guides/herbs/l-theanine',
     badge: 'Moderate',
   },
 ]
@@ -122,11 +122,11 @@ export default function BestSupplementsForStressPage() {
           </p>
           <div className="mt-6 rounded-xl border border-brand-900/10 bg-brand-50 p-4 text-sm text-brand-950">
             <strong>Fastest useful choice:</strong> for chronic daily stress, start with{' '}
-            <Link href="/articles/ashwagandha" className="font-semibold text-brand-800 hover:underline">ashwagandha</Link>;
+            <Link href="/guides/herbs/ashwagandha" className="font-semibold text-brand-800 hover:underline">ashwagandha</Link>;
             for pressure and fatigue, compare{' '}
             <Link href="/herbs/rhodiola" className="font-semibold text-brand-800 hover:underline">rhodiola</Link>;
             for acute stress without sedation, start with{' '}
-            <Link href="/articles/l-theanine" className="font-semibold text-brand-800 hover:underline">L-theanine</Link>.
+            <Link href="/guides/herbs/l-theanine" className="font-semibold text-brand-800 hover:underline">L-theanine</Link>.
           </div>
         </section>
 
@@ -136,11 +136,11 @@ export default function BestSupplementsForStressPage() {
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Choose by stress pattern</h2>
           <div className="grid gap-4 sm:grid-cols-2">
             {[
-              { type: 'Chronic daily stress / burnout', best: 'Ashwagandha (HPA regulation)', href: '/articles/ashwagandha' },
+              { type: 'Chronic daily stress / burnout', best: 'Ashwagandha (HPA regulation)', href: '/guides/herbs/ashwagandha' },
               { type: 'Stress-impaired performance', best: 'Rhodiola (acute stress resilience)', href: '/herbs/rhodiola' },
               { type: 'Exercise-induced cortisol spike', best: 'Phosphatidylserine (blunts cortisol response)', href: '/compounds/phosphatidylserine' },
               { type: 'Stress + poor sleep', best: 'Magnesium Glycinate (evening)', href: '/compounds/magnesium-glycinate' },
-              { type: 'Acute situational anxiety/stress', best: 'L-Theanine (fast-acting, no sedation)', href: '/articles/l-theanine' },
+              { type: 'Acute situational anxiety/stress', best: 'L-Theanine (fast-acting, no sedation)', href: '/guides/herbs/l-theanine' },
               { type: '"Wired but tired" pattern', best: 'Ashwagandha + Magnesium stack', href: '/guides/rhodiola-sleep-stack' },
             ].map((row) => (
               <div key={row.type} className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
@@ -206,10 +206,10 @@ export default function BestSupplementsForStressPage() {
         <EmailCapture location="guides-best-supplements-for-stress" className="mt-6" />
 
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
-          <Link href="/articles/ashwagandha" className="hover:text-brand-800">Ashwagandha Evidence Guide →</Link>
-          <Link href="/articles/l-theanine" className="hover:text-brand-800">L-Theanine for Acute Stress →</Link>
+          <Link href="/guides/herbs/ashwagandha" className="hover:text-brand-800">Ashwagandha Evidence Guide →</Link>
+          <Link href="/guides/herbs/l-theanine" className="hover:text-brand-800">L-Theanine for Acute Stress →</Link>
           <Link href="/guides/how-to-lower-cortisol-naturally" className="hover:text-brand-800">How to Lower Cortisol Naturally →</Link>
-          <Link href="/compare/rhodiola-vs-ashwagandha" className="hover:text-brand-800">Rhodiola vs Ashwagandha →</Link>
+          <Link href="/guides/compare/rhodiola-vs-ashwagandha" className="hover:text-brand-800">Rhodiola vs Ashwagandha →</Link>
           <Link href="/guides/rhodiola-complete-guide" className="hover:text-brand-800">Complete Rhodiola Guide →</Link>
           <Link href="/guides/" className="hover:text-brand-800">All Guides →</Link>
         </nav>

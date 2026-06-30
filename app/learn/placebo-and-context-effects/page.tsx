@@ -10,7 +10,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "Placebo and Context Effects",
   description: "Educational exploration of placebo effects, contextual neurobiology, expectation systems, and scientific complexity in neuroscience and health research.",
-  path: "/education/placebo-and-context-effects/",
+  path: "/learn/placebo-and-context-effects/",
 })
 
 
@@ -45,10 +45,10 @@ const faqs = [
 ]
 
 const relatedSystems = [
-  { href: '/education/why-neuroscience-is-difficult', title: 'Why Neuroscience Is Difficult' },
-  { href: '/education/why-studies-conflict', title: 'Why Studies Conflict' },
-  { href: '/education/why-individual-variability-matters', title: 'Individual Variability' },
-  { href: '/education/why-online-supplement-claims-spread', title: 'Mechanistic Hype and Claims' },
+  { href: '/learn/why-neuroscience-is-difficult', title: 'Why Neuroscience Is Difficult' },
+  { href: '/learn/why-studies-conflict', title: 'Why Studies Conflict' },
+  { href: '/learn/why-individual-variability-matters', title: 'Individual Variability' },
+  { href: '/learn/why-online-supplement-claims-spread', title: 'Mechanistic Hype and Claims' },
 ]
 
 export default function PlaceboAndContextEffectsPage() {
@@ -57,13 +57,13 @@ export default function PlaceboAndContextEffectsPage() {
       <AuthorityJsonLd
         title="Placebo and Context Effects"
         description="Educational exploration of placebo effects, contextual neurobiology, expectation systems, and scientific complexity in neuroscience and health research."
-        url="https://thehippiescientist.net/education/placebo-and-context-effects"
+        url="https://thehippiescientist.net/learn/placebo-and-context-effects"
         type="Article"
       />
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Placebo and Context Effects' },
         ]}
       />

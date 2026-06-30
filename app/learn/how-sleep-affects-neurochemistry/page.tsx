@@ -11,7 +11,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Sleep Affects Neurochemistry",
   description: "Educational exploration of sleep neurochemistry, REM systems, recovery continuity, nervous-system restoration, and dream-related signaling.",
-  path: "/education/how-sleep-affects-neurochemistry/",
+  path: "/learn/how-sleep-affects-neurochemistry/",
 })
 
 
@@ -32,15 +32,15 @@ const sections = [
 
 const related = [
   {
-    href: '/education/cholinergic-system',
+    href: '/learn/cholinergic-system',
     title: 'Cholinergic System',
   },
   {
-    href: '/education/gaba',
+    href: '/learn/gaba',
     title: 'GABA Pathway',
   },
   {
-    href: '/goals/sleep',
+    href: '/guides/sleep',
     title: 'Sleep Support',
   },
   {
@@ -55,14 +55,14 @@ export default function SleepNeurochemistryPage() {
       <AuthorityJsonLd
         title="How Sleep Affects Neurochemistry"
         description="Educational exploration of sleep neurochemistry, REM systems, recovery continuity, nervous-system restoration, and dream-related signaling."
-        url="https://thehippiescientist.net/education/how-sleep-affects-neurochemistry"
+        url="https://thehippiescientist.net/learn/how-sleep-affects-neurochemistry"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'How Sleep Affects Neurochemistry' },
         ]}
       />

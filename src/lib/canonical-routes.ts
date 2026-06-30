@@ -9,9 +9,9 @@ export const SEO_GUIDE_ROUTES = {
 } as const
 
 export const GOAL_ROUTES = {
-  sleep: '/goals/sleep',
-  stress: '/goals/stress',
-  focus: '/goals/focus',
+  sleep: '/guides/sleep',
+  stress: '/guides/anxiety',
+  focus: '/guides/focus',
   recovery: '/goals/recovery',
-  anxiety: '/goals/anxiety',
+  anxiety: '/guides/anxiety',
 } as const

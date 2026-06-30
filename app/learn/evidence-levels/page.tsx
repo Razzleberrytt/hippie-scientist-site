@@ -7,7 +7,7 @@ import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 export const metadata: Metadata = buildPageMetadata({
   title: "Understanding Evidence Levels",
   description: "Educational overview of evidence strength systems, human evidence prioritization, mechanistic evidence, and scientific interpretation methodology.",
-  path: "/education/evidence-levels/",
+  path: "/learn/evidence-levels/",
 })
 
 
@@ -45,14 +45,14 @@ export default function EvidenceLevelsPage() {
       <AuthorityJsonLd
         title="Understanding Evidence Levels"
         description="Educational overview of evidence strength systems, human evidence prioritization, mechanistic evidence, and scientific interpretation methodology."
-        url="https://thehippiescientist.net/education/evidence-levels"
+        url="https://thehippiescientist.net/learn/evidence-levels"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Evidence Levels' },
         ]}
       />

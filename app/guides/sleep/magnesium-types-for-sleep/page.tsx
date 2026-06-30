@@ -134,7 +134,7 @@ export default function MagnesiumTypesForSleepPage() {
 
         <p className="mt-2 text-sm text-muted">
           By{' '}
-          <Link href="/about/" rel="author" className="font-medium text-ink hover:underline">
+          <Link href="/info/info/about/" rel="author" className="font-medium text-ink hover:underline">
             {AUTHOR}
           </Link>
         </p>
@@ -874,7 +874,7 @@ export default function MagnesiumTypesForSleepPage() {
               </h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 <Link
-                  href="/articles/magnesium-for-sleep"
+                  href="/guides/sleep/magnesium-for-sleep"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -889,7 +889,7 @@ export default function MagnesiumTypesForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/best-herbs-for-sleep"
+                  href="/guides/sleep/best-herbs-for-sleep"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -904,7 +904,7 @@ export default function MagnesiumTypesForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/ashwagandha-for-sleep"
+                  href="/guides/sleep/ashwagandha-for-sleep"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -919,7 +919,7 @@ export default function MagnesiumTypesForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/ashwagandha-vs-magnesium-for-sleep"
+                  href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -934,7 +934,7 @@ export default function MagnesiumTypesForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/sleep-stack-guide"
+                  href="/guides/sleep/sleep-stack-guide"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -949,7 +949,7 @@ export default function MagnesiumTypesForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/l-theanine-for-sleep"
+                  href="/guides/sleep/l-theanine-for-sleep"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -964,7 +964,7 @@ export default function MagnesiumTypesForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/magnesium-for-adhd"
+                  href="/guides/adhd/magnesium-for-adhd"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -978,7 +978,7 @@ export default function MagnesiumTypesForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/sleep-and-adhd"
+                  href="/guides/adhd/sleep-and-adhd"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1134,19 +1134,19 @@ export default function MagnesiumTypesForSleepPage() {
             </p>
             <div className="mt-3 space-y-2">
               <Link
-                href="/articles/magnesium-for-sleep"
+                href="/guides/sleep/magnesium-for-sleep"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Magnesium for sleep →
               </Link>
               <Link
-                href="/articles/best-herbs-for-sleep"
+                href="/guides/sleep/best-herbs-for-sleep"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Best herbs for sleep →
               </Link>
               <Link
-                href="/articles/ashwagandha-for-sleep"
+                href="/guides/sleep/ashwagandha-for-sleep"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Ashwagandha for sleep →

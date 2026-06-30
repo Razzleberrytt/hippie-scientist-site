@@ -646,7 +646,7 @@ export function blogJsonLd(post: BlogJsonLdPost, path: string) {
     author: {
       '@type': 'Person',
       name: 'Will Thomas',
-      url: `${SITE_URL}/about/`,
+      url: `${SITE_URL}/info/info/about/`,
     },
     publisher: {
       '@type': 'Organization',

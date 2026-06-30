@@ -6,11 +6,11 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
-import RelatedEducationSystems from '@/components/education/related-education-systems'
+import RelatedEducationSystems from '@/components/learn/related-education-systems'
 export const metadata: Metadata = buildPageMetadata({
   title: "Scientific But Human Neuroscience",
   description: "Authority hub exploring scientific literacy, contextual neurobiology, sustainable cognition, recovery-oriented neuroscience, and emotionally mature evidence interpretation.",
-  path: "/education/scientific-but-human-neuroscience/",
+  path: "/learn/scientific-but-human-neuroscience/",
 })
 
 
@@ -46,27 +46,27 @@ const faqs = [
 
 const relatedSystems = [
   {
-    href: '/education/why-neuroscience-is-difficult',
+    href: '/learn/why-neuroscience-is-difficult',
     title: 'Why Neuroscience Is Difficult',
   },
   {
-    href: '/education/stress-and-cognition-continuity',
+    href: '/learn/stress-and-cognition-continuity',
     title: 'Stress and Cognition Continuity',
   },
   {
-    href: '/goals/focus',
+    href: '/guides/focus',
     title: 'Recovery-Oriented Cognition Systems',
   },
   {
-    href: '/education/why-online-supplement-claims-spread',
+    href: '/learn/why-online-supplement-claims-spread',
     title: 'Why Online Supplement Claims Spread',
   },
   {
-    href: '/education/placebo-and-context-effects',
+    href: '/learn/placebo-and-context-effects',
     title: 'Placebo and Context Effects',
   },
   {
-    href: '/education/why-individual-variability-matters',
+    href: '/learn/why-individual-variability-matters',
     title: 'Individual Variability',
   },
 ]
@@ -77,14 +77,14 @@ export default function ScientificButHumanNeurosciencePage() {
       <AuthorityJsonLd
         title='Scientific But Human Neuroscience'
         description='Authority hub exploring scientific literacy, contextual neurobiology, sustainable cognition, recovery-oriented neuroscience, and emotionally mature evidence interpretation.'
-        url='https://thehippiescientist.net/education/scientific-but-human-neuroscience'
+        url='https://thehippiescientist.net/learn/scientific-but-human-neuroscience'
         type='Article'
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Scientific But Human Neuroscience' },
         ]}
       />

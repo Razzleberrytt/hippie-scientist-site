@@ -8,7 +8,7 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 export const metadata: Metadata = buildPageMetadata({
   title: "Understanding Individual Variability",
   description: "Educational overview of individual variability, neurochemical diversity, stress systems, psychoactive responses, and systems biology.",
-  path: "/education/understanding-individual-variability/",
+  path: "/learn/understanding-individual-variability/",
 })
 
 
@@ -18,14 +18,14 @@ export default function IndividualVariabilityPage() {
       <AuthorityJsonLd
         title="Understanding Individual Variability"
         description="Educational overview of individual variability, neurochemical diversity, stress systems, psychoactive responses, and systems biology."
-        url="https://thehippiescientist.net/education/understanding-individual-variability"
+        url="https://thehippiescientist.net/learn/understanding-individual-variability"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Understanding Individual Variability' },
         ]}
       />

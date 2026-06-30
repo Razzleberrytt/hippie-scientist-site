@@ -10,7 +10,7 @@ export const GOAL_START_HERE_LINKS: Record<string, GoalStartHereLink[]> = {
     {
       role: 'Beginner guide',
       title: 'Best supplements for sleep',
-      href: '/articles/sleep-best-supplements/',
+      href: '/guides/sleep/sleep-best-supplements/',
       note: 'Start here if you want a plain-English overview before comparing individual options.',
     },
     {
@@ -34,13 +34,13 @@ export const GOAL_START_HERE_LINKS: Record<string, GoalStartHereLink[]> = {
     {
       role: 'Methodology',
       title: 'Evidence methodology',
-      href: '/methodology/',
+      href: '/info/info/methodology/',
       note: 'How the site separates clinical evidence, mechanism, and safety uncertainty.',
     },
     {
       role: 'Related article',
       title: 'Best magnesium for sleep',
-      href: '/articles/best-magnesium-for-sleep/',
+      href: '/guides/sleep/best-magnesium-for-sleep/',
       note: 'A practical buying and form-selection guide for magnesium-focused readers.',
     },
   ],
@@ -54,7 +54,7 @@ export const GOAL_START_HERE_LINKS: Record<string, GoalStartHereLink[]> = {
     {
       role: 'Comparison guide',
       title: 'Rhodiola vs ashwagandha',
-      href: '/compare/rhodiola-vs-ashwagandha/',
+      href: '/guides/guides/compare/rhodiola-vs-ashwagandha/',
       note: 'Best next read when choosing between calming resilience and fatigue support.',
     },
     {
@@ -72,7 +72,7 @@ export const GOAL_START_HERE_LINKS: Record<string, GoalStartHereLink[]> = {
     {
       role: 'Methodology',
       title: 'Evidence methodology',
-      href: '/methodology/',
+      href: '/info/info/methodology/',
       note: 'Use this to understand evidence grades before comparing adaptogens.',
     },
     {
@@ -110,7 +110,7 @@ export const GOAL_START_HERE_LINKS: Record<string, GoalStartHereLink[]> = {
     {
       role: 'Methodology',
       title: 'Evidence methodology',
-      href: '/methodology/',
+      href: '/info/info/methodology/',
       note: 'Review how evidence strength and safety caveats are separated.',
     },
     {
@@ -148,7 +148,7 @@ export const GOAL_START_HERE_LINKS: Record<string, GoalStartHereLink[]> = {
     {
       role: 'Methodology',
       title: 'Evidence methodology',
-      href: '/methodology/',
+      href: '/info/info/methodology/',
       note: 'Use this before comparing nootropic claims with different evidence tiers.',
     },
     {

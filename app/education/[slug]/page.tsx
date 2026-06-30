@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
-import { getEducationArticleBySlug, getAllEducationArticles, parseMdxBlocks } from '@/lib/education'
+import { getEducationArticleBySlug, getAllEducationArticles, parseMdxBlocks } from '@/lib/learn'
 import { buildPageMetadata, compactMetaTitle } from '../../../src/lib/seo'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import LastUpdatedBadge from '../../../src/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
-import TrialDesignInsight from '@/components/education/TrialDesignInsight'
-import EvidenceGradeRationale from '@/components/education/EvidenceGradeRationale'
+import TrialDesignInsight from '@/components/learn/TrialDesignInsight'
+import EvidenceGradeRationale from '@/components/learn/EvidenceGradeRationale'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildPageMetadata({
     title: compactMetaTitle(article.title),
     description: article.description,
-    path: `/education/${slug}`,
+    path: `/learn/${slug}`,
     openGraphType: 'article',
   })
 }
@@ -77,7 +77,7 @@ export default async function EducationArticlePage({ params }: Props) {
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: article.title },
         ]}
       />
@@ -250,7 +250,7 @@ export default async function EducationArticlePage({ params }: Props) {
 
       {/* Footer / Navigation */}
       <footer className="flex justify-between items-center pt-4 border-t border-brand-900/10" aria-label="Education article navigation">
-        <Link href="/education/" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
+        <Link href="/learn/" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
           ← Back to Education Index
         </Link>
       </footer>

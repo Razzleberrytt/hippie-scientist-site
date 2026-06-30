@@ -39,7 +39,7 @@ export default function EnhancedAuthorCredentials({
       ],
       process: 'Evidence Synthesis → Safety Review → Affiliate Audit → Publication',
       cta: 'About Our Editorial Process',
-      ctaHref: '/about',
+      ctaHref: '/info/about',
     },
     'goal-page': {
       title: 'Goal-Guided Recommendations',
@@ -63,7 +63,7 @@ export default function EnhancedAuthorCredentials({
       ],
       process: 'Literature Review → Hierarchy Mapping → Limitation Assessment → Publication',
       cta: 'Read Our Methodology',
-      ctaHref: '/methodology',
+      ctaHref: '/info/methodology',
     },
   }
 

@@ -7,7 +7,7 @@ import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 export const metadata: Metadata = buildPageMetadata({
   title: "Evidence Hierarchy",
   description: "Educational overview of evidence hierarchy, clinical trials, mechanistic evidence, ethnobotanical context, and scientific interpretation systems.",
-  path: "/education/evidence-hierarchy/",
+  path: "/learn/evidence-hierarchy/",
 })
 
 
@@ -17,14 +17,14 @@ export default function EvidenceHierarchyPage() {
       <AuthorityJsonLd
         title="Evidence Hierarchy"
         description="Educational overview of evidence hierarchy, clinical trials, mechanistic evidence, ethnobotanical context, and scientific interpretation systems."
-        url="https://thehippiescientist.net/education/evidence-hierarchy"
+        url="https://thehippiescientist.net/learn/evidence-hierarchy"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Evidence Hierarchy' },
         ]}
       />

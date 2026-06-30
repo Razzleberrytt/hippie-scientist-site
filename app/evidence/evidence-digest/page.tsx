@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Latest Human Evidence Updates | Evidence Digest',
   description:
     'Weekly summaries of new human clinical trials on adaptogens, biological compounds, and minerals, graded for evidence strength.',
-  alternates: { canonical: '/evidence-digest/' },
+  alternates: { canonical: '/evidence/evidence/evidence-digest/' },
 }
 
 type StudyUpdate = {
@@ -36,7 +36,7 @@ export default function EvidenceDigestPage() {
         {
           title: 'Efficacy of Ashwagandha Root Extract (KSM-66) on Sleep Quality parameters in Healthy Adults',
           ingredient: { name: 'Ashwagandha', href: '/herbs/ashwagandha' },
-          goal: { name: 'Sleep Support', href: '/goals/sleep' },
+          goal: { name: 'Sleep Support', href: '/guides/sleep' },
           grade: 'Strong',
           gradeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
           pmid: '32540634',
@@ -46,7 +46,7 @@ export default function EvidenceDigestPage() {
         {
           title: 'L-Theanine on Brain Alpha-Wave Activity and Cognitive Performance Under Stress',
           ingredient: { name: 'L-Theanine', href: '/compounds/l-theanine' },
-          goal: { name: 'Focus & Alertness', href: '/goals/focus' },
+          goal: { name: 'Focus & Alertness', href: '/guides/focus' },
           grade: 'Moderate',
           gradeColor: 'bg-blue-100 text-blue-800 border-blue-200',
           pmid: '31443482',
@@ -56,7 +56,7 @@ export default function EvidenceDigestPage() {
         {
           title: 'Magnesium Glycinate on Bedtime Muscle Relaxation and Subjective Sleep Disturbances',
           ingredient: { name: 'Magnesium Glycinate', href: '/compounds/magnesium-glycinate' },
-          goal: { name: 'Sleep Support', href: '/goals/sleep' },
+          goal: { name: 'Sleep Support', href: '/guides/sleep' },
           grade: 'Moderate',
           gradeColor: 'bg-blue-100 text-blue-800 border-blue-200',
           pmid: '33842104',
@@ -72,7 +72,7 @@ export default function EvidenceDigestPage() {
         {
           title: 'Rhodiola Rosea Extract on Mental Burnout and Salivary Cortisol Responses',
           ingredient: { name: 'Rhodiola', href: '/herbs/rhodiola' },
-          goal: { name: 'Stress & Fatigue', href: '/goals/stress' },
+          goal: { name: 'Stress & Fatigue', href: '/guides/anxiety' },
           grade: 'Moderate',
           gradeColor: 'bg-blue-100 text-blue-800 border-blue-200',
           pmid: '29324881',
@@ -82,7 +82,7 @@ export default function EvidenceDigestPage() {
         {
           title: 'Melatonin on Circadian Phase Shift Adjustment in Shift-Work Sleep Populations',
           ingredient: { name: 'Melatonin', href: '/compounds/melatonin' },
-          goal: { name: 'Sleep Support', href: '/goals/sleep' },
+          goal: { name: 'Sleep Support', href: '/guides/sleep' },
           grade: 'Strong',
           gradeColor: 'bg-emerald-100 text-emerald-800 border-emerald-200',
           pmid: '31048821',

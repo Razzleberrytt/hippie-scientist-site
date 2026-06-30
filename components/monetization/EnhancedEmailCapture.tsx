@@ -23,7 +23,7 @@ export function EnhancedEmailCapture({
   benefit2,
   benefit3,
   ctaLabel = 'Join the list',
-  action = '/newsletter/confirmed',
+  action = '/info/info/newsletter/confirmed',
   variant = 'expanded',
   location = 'email-capture',
   className = '',

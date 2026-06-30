@@ -113,11 +113,11 @@ export default function Page() {
             tea is one of the most reliable calming bedtime options with mild evidence. Pair either with
             dim light, no screens, and a consistent bedtime &mdash; the routine is what makes the herb land.
             See the{' '}
-            <Link href="/articles/l-theanine" className="font-semibold text-brand-700 hover:underline">
+            <Link href="/guides/herbs/l-theanine" className="font-semibold text-brand-700 hover:underline">
               full L-theanine guide
             </Link>{' '}
             and the{' '}
-            <Link href="/articles/ashwagandha" className="font-semibold text-brand-700 hover:underline">
+            <Link href="/guides/herbs/ashwagandha" className="font-semibold text-brand-700 hover:underline">
               ashwagandha guide
             </Link>{' '}
             for the deeper evidence reviews.
@@ -213,7 +213,7 @@ export default function Page() {
               The most clinically studied adaptogen for stress. By moderating the HPA axis and lowering
               cortisol, evening ashwagandha targets the root of stress-driven wakefulness rather than
               just sedating you. Allow 2–6 weeks of consistent use. Learn how it compares in{' '}
-              <Link href="/compare/rhodiola-vs-ashwagandha" className="font-medium text-brand-700 hover:underline">rhodiola vs ashwagandha</Link>{' '}
+              <Link href="/guides/compare/rhodiola-vs-ashwagandha" className="font-medium text-brand-700 hover:underline">rhodiola vs ashwagandha</Link>{' '}
               and our{' '}
               <Link href="/guides/how-to-lower-cortisol-naturally" className="font-medium text-brand-700 hover:underline">how to lower cortisol naturally</Link>{' '}
               guide.
@@ -300,7 +300,7 @@ export default function Page() {
             <Link href="/guides/how-to-lower-cortisol-naturally" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">How to Lower Cortisol Naturally →</Link>
             <Link href="/guides/natural-anxiolytics-beyond-ashwagandha" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Natural Anxiolytics Beyond Ashwagandha →</Link>
             <Link href="/compare/ashwagandha-vs-l-theanine-vs-magnesium" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Ashwagandha vs L-theanine vs Magnesium →</Link>
-            <Link href="/goals/anxiety" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Anxiety Guides →</Link>
+            <Link href="/guides/anxiety" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Anxiety Guides →</Link>
           </div>
         </section>
       </div>

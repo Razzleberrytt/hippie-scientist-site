@@ -11,7 +11,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Learning Affects Neuroplasticity",
   description: "Educational exploration of neuroplasticity, learning systems, cognition continuity, recovery biology, and adaptive nervous-system signaling.",
-  path: "/education/how-learning-affects-neuroplasticity/",
+  path: "/learn/how-learning-affects-neuroplasticity/",
 })
 
 
@@ -32,19 +32,19 @@ const mechanisms = [
 
 const relatedSystems = [
   {
-    href: '/education/how-memory-formation-works',
+    href: '/learn/how-memory-formation-works',
     title: 'Memory Formation',
   },
   {
-    href: '/education/how-focus-and-motivation-work',
+    href: '/learn/how-focus-and-motivation-work',
     title: 'Focus and Motivation',
   },
   {
-    href: '/education/how-sleep-affects-neurochemistry',
+    href: '/learn/how-sleep-affects-neurochemistry',
     title: 'Sleep Neurochemistry',
   },
   {
-    href: '/education/glutamate',
+    href: '/learn/glutamate',
     title: 'Glutamate Pathway',
   },
 ]
@@ -73,7 +73,7 @@ export default function NeuroplasticityEducationPage() {
       <AuthorityJsonLd
         title="How Learning Affects Neuroplasticity"
         description="Educational exploration of neuroplasticity, learning systems, cognition continuity, recovery biology, and adaptive nervous-system signaling."
-        url="https://thehippiescientist.net/education/how-learning-affects-neuroplasticity"
+        url="https://thehippiescientist.net/learn/how-learning-affects-neuroplasticity"
         type="Article"
         faqItems={faqItems}
       />
@@ -81,7 +81,7 @@ export default function NeuroplasticityEducationPage() {
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'How Learning Affects Neuroplasticity' },
         ]}
       />

@@ -47,9 +47,9 @@ const configs: Record<'gaba' | 'dopamine' | 'inflammation', PathwayConfig> = {
       { title: 'Mechanism overlap', body: 'GABA labels are discovery signals; profile evidence and safety details remain necessary for interpreting any specific herb or compound.' },
     ],
     related: [
-      { label: 'Dopamine', href: '/education/dopamine', description: 'Motivation, focus, reward, and cognition-adjacent neurotransmitter signals.' },
-      { label: 'Stress', href: '/goals/stress', description: 'Goal guide for cortisol, adaptation, anxiety, and stress-resilience context.' },
-      { label: 'Sleep', href: '/goals/sleep', description: 'Decision guide for sleep quality, nighttime relaxation, and circadian support.' },
+      { label: 'Dopamine', href: '/learn/dopamine', description: 'Motivation, focus, reward, and cognition-adjacent neurotransmitter signals.' },
+      { label: 'Stress', href: '/guides/anxiety', description: 'Goal guide for cortisol, adaptation, anxiety, and stress-resilience context.' },
+      { label: 'Sleep', href: '/guides/sleep', description: 'Decision guide for sleep quality, nighttime relaxation, and circadian support.' },
       { label: 'Recovery', href: '/goals/recovery', description: 'Recovery-adjacent inflammation, repair, mobility, and oxidative-stress context.' },
     ],
   },
@@ -65,9 +65,9 @@ const configs: Record<'gaba' | 'dopamine' | 'inflammation', PathwayConfig> = {
       { title: 'Mechanism overlap', body: 'The page is a relationship map, not a claim that every associated profile changes dopamine in humans.' },
     ],
     related: [
-      { label: 'GABA', href: '/education/gaba', description: 'Calming and inhibitory signaling that often frames sleep and relaxation context.' },
-      { label: 'Inflammation', href: '/education/inflammation', description: 'Immune and oxidative-stress signals that can intersect with brain-health research.' },
-      { label: 'Focus', href: '/goals/focus', description: 'Decision guide for attention, brain fog, and cognitive-support supplements.' },
+      { label: 'GABA', href: '/learn/gaba', description: 'Calming and inhibitory signaling that often frames sleep and relaxation context.' },
+      { label: 'Inflammation', href: '/learn/inflammation', description: 'Immune and oxidative-stress signals that can intersect with brain-health research.' },
+      { label: 'Focus', href: '/guides/focus', description: 'Decision guide for attention, brain fog, and cognitive-support supplements.' },
     ],
   },
   inflammation: {
@@ -82,8 +82,8 @@ const configs: Record<'gaba' | 'dopamine' | 'inflammation', PathwayConfig> = {
       { title: 'Mechanism overlap', body: 'Inflammatory-pathway labels support discovery and comparison; clinical relevance depends on each profile’s evidence maturity.' },
     ],
     related: [
-      { label: 'GABA', href: '/education/gaba', description: 'Neurotransmitter and sleep-adjacent signals with calming pathway context.' },
-      { label: 'Dopamine', href: '/education/dopamine', description: 'Motivation, focus, and cognition-adjacent neurotransmitter context.' },
+      { label: 'GABA', href: '/learn/gaba', description: 'Neurotransmitter and sleep-adjacent signals with calming pathway context.' },
+      { label: 'Dopamine', href: '/learn/dopamine', description: 'Motivation, focus, and cognition-adjacent neurotransmitter context.' },
       { label: 'Joint support', href: '/goals/joint-support', description: 'Goal guide for mobility and inflammation-adjacent supplement decisions.' },
     ],
   },
@@ -161,7 +161,7 @@ export function generatePathwayMetadata(pathway: PathwaySlug): Metadata {
   return buildPageMetadata({
     title: `${config.title} | The Hippie Scientist`,
     description: config.summary,
-    path: `/education/${config.slug}`,
+    path: `/learn/${config.slug}`,
     openGraphType: 'website',
   })
 }
@@ -189,7 +189,7 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
   const authorityAnchors = getAuthorityAnchorRecords(relatedRecords, 4) as unknown as RuntimeRecord[]
   const mechanisms = unique([...relatedRecords.flatMap(getMechanisms), ...ecosystemSignals]).slice(0, 12)
   const effects = unique(relatedRecords.flatMap(getEffects)).slice(0, 12)
-  const supportedRelated = config.related.filter((item) => item.href.startsWith('/education/') || item.href.startsWith('/goals/') || item.href.startsWith('/guides/'))
+  const supportedRelated = config.related.filter((item) => item.href.startsWith('/learn/') || item.href.startsWith('/goals/') || item.href.startsWith('/guides/'))
 
   return (
     <div className="mx-auto max-w-6xl space-y-10 px-4 py-10">
@@ -319,7 +319,7 @@ export function CompactRelatedPathways({ record }: { record: RuntimeRecord }) {
 
       <div className="mt-4 flex flex-wrap gap-2">
         {pathways.map((pathway) => (
-          <Link key={pathway} href={`/education/${pathway}`} className="chip-readable transition hover:border-brand-700/30 hover:bg-white/70">
+          <Link key={pathway} href={`/learn/${pathway}`} className="chip-readable transition hover:border-brand-700/30 hover:bg-white/70">
             {getPathwayLabel(pathway)}
           </Link>
         ))}

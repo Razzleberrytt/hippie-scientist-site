@@ -9,25 +9,25 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Sleep Matters for Mental Health",
   description: "Educational exploration of sleep continuity, emotional regulation, cognition recovery, stress systems, and mental-health-related neurochemistry.",
-  path: "/education/why-sleep-matters-for-mental-health/",
+  path: "/learn/why-sleep-matters-for-mental-health/",
 })
 
 
 const relatedSystems = [
   {
-    href: '/education/how-sleep-affects-neurochemistry',
+    href: '/learn/how-sleep-affects-neurochemistry',
     title: 'Sleep Neurochemistry',
   },
   {
-    href: '/education/how-emotional-regulation-works',
+    href: '/learn/how-emotional-regulation-works',
     title: 'Emotional Regulation',
   },
   {
-    href: '/education/how-stress-affects-the-brain',
+    href: '/learn/how-stress-affects-the-brain',
     title: 'Stress and the Brain',
   },
   {
-    href: '/goals/sleep',
+    href: '/guides/sleep',
     title: 'Sleep Support',
   },
 ]
@@ -38,14 +38,14 @@ export default function SleepMentalHealthPage() {
       <AuthorityJsonLd
         title="Why Sleep Matters for Mental Health"
         description="Educational exploration of sleep continuity, emotional regulation, cognition recovery, stress systems, and mental-health-related neurochemistry."
-        url="https://thehippiescientist.net/education/why-sleep-matters-for-mental-health"
+        url="https://thehippiescientist.net/learn/why-sleep-matters-for-mental-health"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Why Sleep Matters for Mental Health' },
         ]}
       />

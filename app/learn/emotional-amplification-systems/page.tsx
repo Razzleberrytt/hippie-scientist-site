@@ -10,7 +10,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "Emotional Amplification Systems",
   description: "Educational exploration of emotional salience, contextual neurobiology, stress physiology, perception systems, and subjective emotional experiences.",
-  path: "/education/emotional-amplification-systems/",
+  path: "/learn/emotional-amplification-systems/",
 })
 
 
@@ -45,10 +45,10 @@ const faqs = [
 ]
 
 const relatedSystems = [
-  { href: '/education/why-set-and-setting-matter', title: 'Why Set and Setting Matter' },
-  { href: '/education/placebo-and-context-effects', title: 'Placebo and Context Effects' },
-  { href: '/education/why-individual-variability-matters', title: 'Individual Variability' },
-  { href: '/education/why-neuroscience-is-difficult', title: 'Why Neuroscience Is Difficult' },
+  { href: '/learn/why-set-and-setting-matter', title: 'Why Set and Setting Matter' },
+  { href: '/learn/placebo-and-context-effects', title: 'Placebo and Context Effects' },
+  { href: '/learn/why-individual-variability-matters', title: 'Individual Variability' },
+  { href: '/learn/why-neuroscience-is-difficult', title: 'Why Neuroscience Is Difficult' },
 ]
 
 export default function EmotionalAmplificationSystemsPage() {
@@ -57,13 +57,13 @@ export default function EmotionalAmplificationSystemsPage() {
       <AuthorityJsonLd
         title="Emotional Amplification Systems"
         description="Educational exploration of emotional salience, contextual neurobiology, stress physiology, perception systems, and subjective emotional experiences."
-        url="https://thehippiescientist.net/education/emotional-amplification-systems"
+        url="https://thehippiescientist.net/learn/emotional-amplification-systems"
         type="Article"
       />
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Emotional Amplification Systems' },
         ]}
       />

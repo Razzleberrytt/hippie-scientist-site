@@ -62,7 +62,7 @@ export default function EvidenceMeterDetail({ data }: Props) {
         Evidence ratings are editorial assessments based on available published research. They are
         not medical recommendations.{' '}
         <Link
-          href="/education/evidence-hierarchy/"
+          href="/learn/evidence-hierarchy/"
           className="font-semibold text-brand-700 underline underline-offset-2 hover:text-brand-800 focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-700 dark:text-brand-100 dark:hover:text-white"
         >
           How we rate evidence →

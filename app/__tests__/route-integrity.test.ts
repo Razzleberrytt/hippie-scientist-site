@@ -98,7 +98,7 @@ describe('Route Integrity Test', () => {
     }
 
     // 3b. Static App Router pages are the source of truth for non-data-driven
-    //     routes (e.g. /tools, /dosing, /stacks/builder, /education/*). The
+    //     routes (e.g. /tools, /info/dosing, /stacks/builder, /learn/*). The
     //     route-manifest is a workbook-derived subset and the hardcoded list
     //     above is not exhaustive, so resolve any remaining href against an
     //     actual app/<path>/page.tsx file before flagging it as invalid.

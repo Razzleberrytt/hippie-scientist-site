@@ -74,7 +74,7 @@ export default function GoalClusterArticlePage({ slug }: GoalClusterArticlePageP
         <span aria-hidden="true">/</span>
         <Link href="/articles/" className="hover:text-brand-700 hover:underline">Articles</Link>
         <span aria-hidden="true">/</span>
-        <Link href="/goals/sleep/" className="hover:text-brand-700 hover:underline">Sleep</Link>
+        <Link href="/guides/sleep/" className="hover:text-brand-700 hover:underline">Sleep</Link>
       </nav>
 
       <article className="space-y-8">
@@ -194,13 +194,13 @@ export default function GoalClusterArticlePage({ slug }: GoalClusterArticlePageP
             <p className="mt-2 text-sm leading-7 text-muted">{content.cta.body}</p>
             <div className="mt-4 flex flex-wrap gap-3">
               <Link
-                href="/supplement-safety-checklist/"
+                href="/info/info/supplement-safety-checklist/"
                 className="inline-flex min-h-11 items-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-900"
               >
                 Get the safety checklist
               </Link>
               <Link
-                href="/goals/sleep/"
+                href="/guides/sleep/"
                 className="inline-flex min-h-11 items-center rounded-full border border-brand-900/10 bg-white px-5 py-2.5 text-sm font-bold text-ink hover:bg-brand-50"
               >
                 Compare sleep options
@@ -232,13 +232,13 @@ export default function GoalClusterArticlePage({ slug }: GoalClusterArticlePageP
             ))}
           </div>
           <div className="mt-5 flex flex-wrap gap-3 text-sm font-semibold">
-            <Link href="/goals/sleep/" className="text-brand-800 hover:text-brand-700 hover:underline">
+            <Link href="/guides/sleep/" className="text-brand-800 hover:text-brand-700 hover:underline">
               Sleep goal hub →
             </Link>
-            <Link href="/articles/magnesium-for-adhd/" className="text-brand-800 hover:text-brand-700 hover:underline">
+            <Link href="/guides/adhd/magnesium-for-adhd/" className="text-brand-800 hover:text-brand-700 hover:underline">
               ADHD-adjacent magnesium guide →
             </Link>
-            <Link href="/articles/l-theanine-for-adhd/" className="text-brand-800 hover:text-brand-700 hover:underline">
+            <Link href="/guides/adhd/l-theanine-for-adhd/" className="text-brand-800 hover:text-brand-700 hover:underline">
               L-theanine and focus guide →
             </Link>
           </div>

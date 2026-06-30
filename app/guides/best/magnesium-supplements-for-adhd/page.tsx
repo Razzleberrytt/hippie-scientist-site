@@ -122,10 +122,10 @@ export default function BestMagnesiumSupplementsForAdhdPage() {
           magnesium for sleep, tension, or possible deficiency context, which form is least likely to waste money?
         </p>
         <div className='mt-6 flex flex-wrap gap-3'>
-          <Link href='/goals/focus/' className='rounded-full bg-brand-950 px-5 py-3 text-sm font-bold text-white hover:bg-brand-900'>
+          <Link href='/guides/focus/' className='rounded-full bg-brand-950 px-5 py-3 text-sm font-bold text-white hover:bg-brand-900'>
             Compare focus options
           </Link>
-          <Link href='/supplement-safety-checklist/' className='rounded-full border border-brand-900/10 bg-white px-5 py-3 text-sm font-bold text-ink hover:bg-brand-50'>
+          <Link href='/info/info/supplement-safety-checklist/' className='rounded-full border border-brand-900/10 bg-white px-5 py-3 text-sm font-bold text-ink hover:bg-brand-50'>
             Get the safety checklist
           </Link>
         </div>
@@ -145,7 +145,7 @@ export default function BestMagnesiumSupplementsForAdhdPage() {
         <p className='mt-3 max-w-3xl text-sm leading-7 text-muted'>
           This page is the product-roundup version of the magnesium-for-ADHD question. For the deeper
           form-by-form evidence review, see{' '}
-          <Link href='/articles/best-magnesium-supplement-for-adhd/' className='font-semibold text-brand-700 hover:underline'>
+          <Link href='/guides/adhd/best-magnesium-supplement-for-adhd/' className='font-semibold text-brand-700 hover:underline'>
             the full ADHD magnesium form guide
           </Link>
           .
@@ -299,11 +299,11 @@ export default function BestMagnesiumSupplementsForAdhdPage() {
         <h2 className='text-2xl font-semibold text-ink'>Related reading</h2>
         <div className='mt-4 grid gap-3 sm:grid-cols-3'>
           {[
-            ['/articles/best-magnesium-supplement-for-adhd/', 'Full magnesium form guide'],
-            ['/articles/magnesium-glycinate-vs-citrate-for-adhd/', 'Glycinate vs citrate for ADHD'],
-            ['/articles/magnesium-for-adhd/', 'Magnesium for ADHD evidence review'],
+            ['/guides/adhd/best-magnesium-supplement-for-adhd/', 'Full magnesium form guide'],
+            ['/guides/adhd/magnesium-glycinate-vs-citrate-for-adhd/', 'Glycinate vs citrate for ADHD'],
+            ['/guides/adhd/magnesium-for-adhd/', 'Magnesium for ADHD evidence review'],
             ['/compounds/magnesium/', 'Magnesium compound profile'],
-            ['/articles/best-supplements-for-adhd/', 'Best supplements for ADHD'],
+            ['/guides/adhd/best-supplements-for-adhd/', 'Best supplements for ADHD'],
             ['/guides/adhd-supplements/', 'ADHD supplements hub'],
           ].map(([href, label]) => (
             <Link key={href} href={href} className='rounded-2xl border border-brand-900/10 bg-white p-4 text-sm font-semibold text-brand-800 hover:bg-brand-50'>

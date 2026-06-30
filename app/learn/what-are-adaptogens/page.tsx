@@ -7,22 +7,22 @@ import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
-import RelatedEducationSystems from '@/components/education/related-education-systems'
+import RelatedEducationSystems from '@/components/learn/related-education-systems'
 export const metadata: Metadata = buildPageMetadata({
   title: "What Are Adaptogens?",
   description: "Educational introduction to adaptogens, stress-response systems, nervous-system regulation, and evidence-informed adaptogenic neuropharmacology.",
-  path: "/education/what-are-adaptogens/",
+  path: "/learn/what-are-adaptogens/",
 })
 
 
 const systems = [
   {
-    href: '/goals/stress',
+    href: '/guides/anxiety',
     title: 'Stress Regulation',
     description: 'Educational exploration of stress-response continuity, nervous-system resilience, and recovery biology.',
   },
   {
-    href: '/goals/stress',
+    href: '/guides/anxiety',
     title: 'Burnout Recovery',
     description: 'Recovery-oriented protocol ecosystem focused on fatigue, emotional regulation, and resilience.',
   },
@@ -32,7 +32,7 @@ const systems = [
     description: 'Adaptogenic herb frequently explored for stress resilience, fatigue systems, and cognition continuity.',
   },
   {
-    href: '/education/cognitive-resilience-systems',
+    href: '/learn/cognitive-resilience-systems',
     title: 'Cognitive Resilience Systems',
     description: 'Authority hub exploring sustainable cognition, attentional resilience, and recovery continuity.',
   },
@@ -77,14 +77,14 @@ export default function AdaptogensEducationPage() {
       <AuthorityJsonLd
         title='What Are Adaptogens?'
         description='Educational introduction to adaptogens, stress-response systems, nervous-system regulation, and evidence-informed adaptogenic neuropharmacology.'
-        url='https://thehippiescientist.net/education/what-are-adaptogens'
+        url='https://thehippiescientist.net/learn/what-are-adaptogens'
         type='Article'
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'What Are Adaptogens?' },
         ]}
       />

@@ -7,22 +7,22 @@ import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
-import RelatedEducationSystems from '@/components/education/related-education-systems'
+import RelatedEducationSystems from '@/components/learn/related-education-systems'
 export const metadata: Metadata = buildPageMetadata({
   title: "What Is a Nootropic?",
   description: "Educational introduction to nootropics, cognition-oriented compounds, focus systems, neuropharmacology, and cognitive support.",
-  path: "/education/what-is-a-nootropic/",
+  path: "/learn/what-is-a-nootropic/",
 })
 
 
 const systems = [
   {
-    href: '/goals/focus',
+    href: '/guides/focus',
     title: 'Non-Stimulant Focus',
     description: 'Recovery-oriented focus systems emphasizing attentional continuity and calm cognition.',
   },
   {
-    href: '/education/dopamine',
+    href: '/learn/dopamine',
     title: 'Dopamine Pathway',
     description: 'Educational exploration of motivational signaling, salience systems, and neuropharmacology.',
   },
@@ -32,7 +32,7 @@ const systems = [
     description: 'Evidence-informed calm-focus compound frequently discussed in cognition-support ecosystems.',
   },
   {
-    href: '/education/scientific-but-human-neuroscience',
+    href: '/learn/scientific-but-human-neuroscience',
     title: 'Scientific But Human Neuroscience',
     description: 'Contextual neuroscience framework emphasizing sustainable cognition and emotional complexity.',
   },
@@ -77,7 +77,7 @@ export default function NootropicEducationPage() {
       <AuthorityJsonLd
         title='What Is a Nootropic?'
         description='Educational introduction to nootropics, cognition-oriented compounds, focus systems, neuropharmacology, and cognitive support.'
-        url='https://thehippiescientist.net/education/what-is-a-nootropic'
+        url='https://thehippiescientist.net/learn/what-is-a-nootropic'
         type='Article'
         faqItems={faqItems}
       />

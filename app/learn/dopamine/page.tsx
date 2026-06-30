@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Dopamine Pathway Education',
   description:
     'Explore educational content on dopaminergic signaling, focus, motivation, reward systems, and related herbs and compounds.',
-  alternates: { canonical: '/education/dopamine/' },
+  alternates: { canonical: '/learn/dopamine/' },
 }
 
 const profiles = [
@@ -24,7 +24,7 @@ const profiles = [
     title: 'Mucuna Pruriens',
   },
   {
-    href: '/education/why-calm-focus-differs-from-stimulation',
+    href: '/learn/why-calm-focus-differs-from-stimulation',
     title: 'Calm Focus vs Stimulation',
   },
 ]
@@ -35,14 +35,14 @@ export default function DopaminePathwayPage() {
       <AuthorityJsonLd
         title="Dopamine Pathway"
         description="Educational overview of dopaminergic signaling, motivation systems, cognition, reward processing, and focus-related neuropharmacology."
-        url="https://thehippiescientist.net/education/dopamine"
+        url="https://thehippiescientist.net/learn/dopamine"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Dopamine' },
         ]}
       />

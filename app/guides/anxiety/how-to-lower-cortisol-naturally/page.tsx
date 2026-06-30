@@ -195,7 +195,7 @@ export default function Page() {
               stressed adults across randomized trials. Typical dose is 300–600&nbsp;mg of a standardized
               extract, given 4–8 weeks. It is the closest thing to a direct cortisol-lowering supplement —
               see how it stacks up in{' '}
-              <Link href="/compare/rhodiola-vs-ashwagandha" className="font-medium text-brand-700 hover:underline">rhodiola vs ashwagandha</Link>.
+              <Link href="/guides/compare/rhodiola-vs-ashwagandha" className="font-medium text-brand-700 hover:underline">rhodiola vs ashwagandha</Link>.
             </p>
           </article>
 
@@ -278,8 +278,8 @@ export default function Page() {
             <Link href="/guides/best-adaptogens-for-stress" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Adaptogens for Stress →</Link>
             <Link href="/guides/best-herbs-for-stress-and-anxiety-at-night" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Stress &amp; Anxiety at Night →</Link>
             <Link href="/guides/rhodiola-complete-guide" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Complete Rhodiola Guide →</Link>
-            <Link href="/compare/rhodiola-vs-ashwagandha" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Rhodiola vs Ashwagandha →</Link>
-            <Link href="/goals/stress" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Stress Guides →</Link>
+            <Link href="/guides/compare/rhodiola-vs-ashwagandha" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Rhodiola vs Ashwagandha →</Link>
+            <Link href="/guides/anxiety" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Stress Guides →</Link>
           </div>
         </section>
       </div>

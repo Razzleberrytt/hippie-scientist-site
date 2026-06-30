@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     'The Hippie Scientist is an educational resource only. Nothing on this site is medical advice, diagnosis, or treatment. Always consult a professional.',
   alternates: {
-    canonical: '/disclaimer/',
+    canonical: '/info/info/disclaimer/',
   },
   robots: {
     index: true,
@@ -114,7 +114,7 @@ export default function DisclaimerPage() {
 
           <div className='mt-4 space-y-3'>
             <Link
-              href='/about'
+              href='/info/about'
               className='block rounded-2xl border border-brand-900/10 px-4 py-4 transition hover:bg-stone-50/50 hover:border-brand-900/20'
             >
               <p className='text-sm font-semibold text-ink'>About</p>
@@ -124,7 +124,7 @@ export default function DisclaimerPage() {
             </Link>
 
             <Link
-              href='/contact'
+              href='/info/contact'
               className='block rounded-2xl border border-brand-900/10 px-4 py-4 transition hover:bg-stone-50/50 hover:border-brand-900/20'
             >
               <p className='text-sm font-semibold text-ink'>Contact</p>

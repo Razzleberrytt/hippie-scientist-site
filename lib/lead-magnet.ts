@@ -13,7 +13,7 @@ export const safetyChecklistLeadMagnet: LeadMagnetAsset = {
   title: 'Get the Safety Checklist: 5 Questions to Ask Before Taking Any Supplement',
   description:
     'A printable supplement safety workflow covering medications, dose and form, stacking risk, product quality, and when to ask a clinician.',
-  href: '/supplement-safety-checklist',
+  href: '/info/supplement-safety-checklist',
   format: 'html',
   ctaLabel: 'Get the free checklist',
   privacyNote:

@@ -7,7 +7,7 @@ import path from 'node:path'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Supplement Evidence Lookup — Search 557 Compounds by Clinical Trial Grade',
   description: 'Search our database of 557 herbs and compounds for evidence grades (A-F) based on 816 peer-reviewed studies. See which supplements have real human evidence vs marketing claims.',
-  path: '/evidence-checker/',
+  path: '/evidence/evidence/evidence-checker/',
 })
 
 interface Compound {
@@ -122,7 +122,7 @@ export default function EvidenceCheckerPage() {
           <p><strong>Grade D:</strong> Only mechanistic/animal data. No human trials.</p>
           <p><strong>Grade F:</strong> Human trials show no benefit.</p>
           <div className="pt-2">
-            <Link href="/methodology/" className="text-sm font-bold text-brand-700 transition hover:text-brand-800">
+            <Link href="/info/info/methodology/" className="text-sm font-bold text-brand-700 transition hover:text-brand-800">
               Full methodology →
             </Link>
           </div>

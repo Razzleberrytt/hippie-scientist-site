@@ -134,7 +134,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
 
         <p className="mt-2 text-sm text-muted">
           By{' '}
-          <Link href="/about/" rel="author" className="font-medium text-ink hover:underline">
+          <Link href="/info/info/about/" rel="author" className="font-medium text-ink hover:underline">
             {AUTHOR}
           </Link>
         </p>
@@ -333,7 +333,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                 For the full clinical evidence review, mechanisms, and dosage protocols for
                 ashwagandha as a sleep supplement, see the{' '}
                 <Link
-                  href="/articles/ashwagandha-for-sleep"
+                  href="/guides/sleep/ashwagandha-for-sleep"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   Ashwagandha for Sleep article
@@ -390,14 +390,14 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
               <p className="mt-4 text-sm text-muted">
                 For a full breakdown of each magnesium form and dosage protocols, see the{' '}
                 <Link
-                  href="/articles/magnesium-for-sleep"
+                  href="/guides/sleep/magnesium-for-sleep"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   Magnesium for Sleep article
                 </Link>{' '}
                 and the{' '}
                 <Link
-                  href="/articles/magnesium-types-for-sleep"
+                  href="/guides/sleep/magnesium-types-for-sleep"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   Magnesium Types for Sleep guide
@@ -804,7 +804,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
               </h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 <Link
-                  href="/articles/ashwagandha-for-sleep"
+                  href="/guides/sleep/ashwagandha-for-sleep"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -819,7 +819,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/magnesium-for-sleep"
+                  href="/guides/sleep/magnesium-for-sleep"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -834,7 +834,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/magnesium-types-for-sleep"
+                  href="/guides/sleep/magnesium-types-for-sleep"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -849,7 +849,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/best-herbs-for-sleep"
+                  href="/guides/sleep/best-herbs-for-sleep"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -864,7 +864,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/l-theanine-for-sleep"
+                  href="/guides/sleep/l-theanine-for-sleep"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -879,7 +879,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/sleep-stack-guide"
+                  href="/guides/sleep/sleep-stack-guide"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1031,14 +1031,14 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                 Ashwagandha safety references are shared
                 with the{' '}
                 <Link
-                  href="/articles/ashwagandha-for-sleep"
+                  href="/guides/sleep/ashwagandha-for-sleep"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   Ashwagandha for Sleep article
                 </Link>
                 . Magnesium safety references are shared with the{' '}
                 <Link
-                  href="/articles/magnesium-for-sleep"
+                  href="/guides/sleep/magnesium-for-sleep"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   Magnesium for Sleep article
@@ -1104,25 +1104,25 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
             </p>
             <div className="mt-3 space-y-2">
               <Link
-                href="/articles/ashwagandha-for-sleep"
+                href="/guides/sleep/ashwagandha-for-sleep"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Ashwagandha for sleep →
               </Link>
               <Link
-                href="/articles/magnesium-for-sleep"
+                href="/guides/sleep/magnesium-for-sleep"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Magnesium for sleep →
               </Link>
               <Link
-                href="/articles/magnesium-types-for-sleep"
+                href="/guides/sleep/magnesium-types-for-sleep"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Magnesium types for sleep →
               </Link>
               <Link
-                href="/articles/best-herbs-for-sleep"
+                href="/guides/sleep/best-herbs-for-sleep"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Best herbs for sleep →

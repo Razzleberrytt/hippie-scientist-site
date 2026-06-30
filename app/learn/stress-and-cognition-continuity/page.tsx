@@ -6,11 +6,11 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
-import RelatedEducationSystems from '@/components/education/related-education-systems'
+import RelatedEducationSystems from '@/components/learn/related-education-systems'
 export const metadata: Metadata = buildPageMetadata({
   title: "Stress and Cognition Continuity",
   description: "Educational exploration of stress physiology, recovery continuity, attentional resilience, and sustainable cognition systems.",
-  path: "/education/stress-and-cognition-continuity/",
+  path: "/learn/stress-and-cognition-continuity/",
 })
 
 
@@ -46,19 +46,19 @@ const faqs = [
 
 const relatedSystems = [
   {
-    href: '/goals/stress',
+    href: '/guides/anxiety',
     title: 'Burnout Recovery',
   },
   {
-    href: '/goals/stress',
+    href: '/guides/anxiety',
     title: 'Recovery-Oriented Productivity',
   },
   {
-    href: '/education/why-fatigue-is-biologically-complex',
+    href: '/learn/why-fatigue-is-biologically-complex',
     title: 'Fatigue Complexity',
   },
   {
-    href: '/goals/focus',
+    href: '/guides/focus',
     title: 'Recovery-Oriented Cognition Systems',
   },
 ]
@@ -69,14 +69,14 @@ export default function StressAndCognitionContinuityPage() {
       <AuthorityJsonLd
         title='Stress and Cognition Continuity'
         description='Educational exploration of stress physiology, recovery continuity, attentional resilience, and sustainable cognition systems.'
-        url='https://thehippiescientist.net/education/stress-and-cognition-continuity'
+        url='https://thehippiescientist.net/learn/stress-and-cognition-continuity'
         type='Article'
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Stress and Cognition Continuity' },
         ]}
       />

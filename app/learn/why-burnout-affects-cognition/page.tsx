@@ -10,7 +10,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Burnout Affects Cognition",
   description: "Educational exploration of burnout, stress exhaustion, recovery biology, attentional fatigue, and sustainable cognition systems.",
-  path: "/education/why-burnout-affects-cognition/",
+  path: "/learn/why-burnout-affects-cognition/",
 })
 
 
@@ -30,10 +30,10 @@ const systems = [
 ]
 
 const relatedSystems = [
-  { href: '/goals/stress', title: 'Burnout Recovery' },
-  { href: '/education/how-the-brain-recovers-from-fatigue', title: 'Fatigue Recovery' },
-  { href: '/education/how-sleep-affects-neurochemistry', title: 'Sleep and Neurochemistry' },
-  { href: '/education/why-fatigue-is-biologically-complex', title: 'Fatigue Complexity' },
+  { href: '/guides/anxiety', title: 'Burnout Recovery' },
+  { href: '/learn/how-the-brain-recovers-from-fatigue', title: 'Fatigue Recovery' },
+  { href: '/learn/how-sleep-affects-neurochemistry', title: 'Sleep and Neurochemistry' },
+  { href: '/learn/why-fatigue-is-biologically-complex', title: 'Fatigue Complexity' },
 ]
 
 export default function WhyBurnoutAffectsCognitionPage() {
@@ -42,13 +42,13 @@ export default function WhyBurnoutAffectsCognitionPage() {
       <AuthorityJsonLd
         title="Why Burnout Affects Cognition"
         description="Educational exploration of burnout, stress exhaustion, recovery biology, attentional fatigue, and sustainable cognition systems."
-        url="https://thehippiescientist.net/education/why-burnout-affects-cognition"
+        url="https://thehippiescientist.net/learn/why-burnout-affects-cognition"
         type="Article"
       />
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Why Burnout Affects Cognition' },
         ]}
       />

@@ -21,7 +21,7 @@ export default function ConsentBanner() {
         <div className='flex items-center justify-between gap-2'>
           <p className='min-w-0 truncate leading-tight text-white/75'>
             We use privacy-friendly analytics.{' '}
-            <Link className='underline' to='/privacy'>
+            <Link className='underline' to='/info/privacy'>
               Privacy
             </Link>
             .

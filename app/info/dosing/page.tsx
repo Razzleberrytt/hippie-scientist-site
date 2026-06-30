@@ -2,14 +2,14 @@ import { buildPageMetadata } from '../../src/lib/seo'
 import type { Metadata } from 'next'
 import { getHerbs, getCompounds } from '../../src/lib/runtime-data'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
-import DosageCalculatorClient from '../../src/components/dosing/DosageCalculatorClient'
+import DosageCalculatorClient from '../../src/components/info/info/dosing/DosageCalculatorClient'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import { isRestrictedRecord } from '../../src/lib/restricted-ingredients'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Dynamic Dosage & Active Molecular Yield Calculator',
   description: 'Compute conservative educational supplement dosing ranges based on body weight and extract concentration. Calculate active chemical yields and cycle notes.',
-  path: '/dosing/',
+  path: '/info/info/dosing/',
 })
 
 export default async function DosingPage() {
@@ -38,7 +38,7 @@ export default async function DosingPage() {
       <AuthorityJsonLd
         title="Dynamic Dosage & Active Molecular Yield Calculator"
         description="Calculate personalized dosing ranges and active marker compounds for cognitive and physical supplements."
-        url="https://thehippiescientist.net/dosing"
+        url="https://thehippiescientist.net/info/dosing"
         type="MedicalWebPage"
       />
 

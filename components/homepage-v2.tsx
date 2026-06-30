@@ -58,7 +58,7 @@ const trustSignals = [
 
 const comparisonLinks = [
   { href: '/guides/compare/melatonin-vs-magnesium/', title: 'Melatonin vs magnesium' },
-  { href: '/guides/compare/rhodiola-vs-ashwagandha/', title: 'Rhodiola vs ashwagandha' },
+  { href: '/guides/guides/guides/compare/rhodiola-vs-ashwagandha/', title: 'Rhodiola vs ashwagandha' },
   { href: '/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/', title: 'Ashwagandha vs L-theanine vs magnesium' },
   { href: '/guides/compare/berberine-vs-metformin/', title: 'Berberine vs metformin' },
 ]
@@ -70,7 +70,7 @@ const toolLinks = [
     description: 'Screen supplement combinations for overlapping cautions before stacking.',
   },
   {
-    href: '/supplement-safety-checklist/',
+    href: '/info/info/supplement-safety-checklist/',
     title: 'Supplement safety checklist',
     description: 'Use five safety questions before comparing products or buying.',
   },
@@ -267,7 +267,7 @@ export default function HomepageV2() {
             </div>
           </div>
           <div className='mt-5 text-sm font-bold'>
-            <Link href='/methodology/' className='text-brand-700 transition hover:text-brand-800'>
+            <Link href='/info/info/methodology/' className='text-brand-700 transition hover:text-brand-800'>
               Read the evidence methodology →
             </Link>
           </div>

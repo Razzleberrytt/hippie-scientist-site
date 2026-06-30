@@ -23,7 +23,7 @@ const guidedFlows = [
     category: 'adaptive traversal',
   },
   {
-    href: '/education/how-learning-affects-neuroplasticity',
+    href: '/learn/how-learning-affects-neuroplasticity',
     title: 'Understand neuroplasticity progression',
     description:
       'Explore connected educational systems focused on adaptation, resilience, learning pathways, and continuity-aware cognition.',

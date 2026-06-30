@@ -9,7 +9,7 @@ import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Receptors Work",
   description: "Educational overview of receptor systems, signaling pathways, neuropharmacology, neurotransmitter interactions, and psychoactive mechanisms.",
-  path: "/education/how-receptors-work/",
+  path: "/learn/how-receptors-work/",
 })
 
 
@@ -38,14 +38,14 @@ export default function ReceptorsPage() {
       <AuthorityJsonLd
         title="How Receptors Work"
         description="Educational overview of receptor systems, signaling pathways, neuropharmacology, neurotransmitter interactions, and psychoactive mechanisms."
-        url="https://thehippiescientist.net/education/how-receptors-work"
+        url="https://thehippiescientist.net/learn/how-receptors-work"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'How Receptors Work' },
         ]}
       />

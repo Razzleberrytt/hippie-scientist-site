@@ -6,28 +6,28 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 export const metadata: Metadata = buildPageMetadata({
   title: "What Is Anxiety Neurochemistry?",
   description: "Educational overview of anxiety-related neurochemistry, stress signaling, calming systems, emotional processing, and nervous-system regulation.",
-  path: "/education/what-is-anxiety-neurochemistry/",
+  path: "/learn/what-is-anxiety-neurochemistry/",
 })
 
 
 const systems = [
   {
-    href: '/education/gaba',
+    href: '/learn/gaba',
     title: 'GABA Pathway',
     description: 'Calming inhibitory signaling systems associated with nervous-system regulation and relaxation.',
   },
   {
-    href: '/education/serotonin',
+    href: '/learn/serotonin',
     title: 'Serotonin Pathway',
     description: 'Mood-regulation systems associated with emotional processing and stress-related neuropharmacology.',
   },
   {
-    href: '/goals/stress',
+    href: '/guides/anxiety',
     title: 'Stress Regulation',
     description: 'Recovery-oriented educational protocol focused on stress systems and nervous-system stabilization.',
   },
   {
-    href: '/goals/anxiety',
+    href: '/guides/anxiety',
     title: 'Non-Sedating Calm',
     description: 'Educational calm-focus discovery system emphasizing stress-aware neuropharmacology.',
   },
@@ -39,14 +39,14 @@ export default function AnxietyNeurochemistryPage() {
       <AuthorityJsonLd
         title="What Is Anxiety Neurochemistry?"
         description="Educational overview of anxiety-related neurochemistry, stress signaling, calming systems, emotional processing, and nervous-system regulation."
-        url="https://thehippiescientist.net/education/what-is-anxiety-neurochemistry"
+        url="https://thehippiescientist.net/learn/what-is-anxiety-neurochemistry"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'What Is Anxiety Neurochemistry?' },
         ]}
       />

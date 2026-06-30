@@ -9,10 +9,10 @@ export const PUBLIC_ROUTES = {
   articles: '/articles/',
   guides: '/guides/',
   learning: '/learn/',
-  about: '/about/',
-  contact: '/contact/',
-  privacy: '/privacy/',
-  disclaimer: '/disclaimer/',
+  about: '/info/info/about/',
+  contact: '/info/info/contact/',
+  privacy: '/info/info/privacy/',
+  disclaimer: '/info/info/disclaimer/',
 } as const
 
 export type PublicRouteKey = keyof typeof PUBLIC_ROUTES

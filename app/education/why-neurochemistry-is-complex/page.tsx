@@ -10,7 +10,7 @@ import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Neurochemistry Is Complex",
   description: "Educational overview of systems biology, pathway interaction, receptor complexity, neuropharmacology, and scientific uncertainty.",
-  path: "/education/why-neurochemistry-is-complex/",
+  path: "/learn/why-neurochemistry-is-complex/",
 })
 
 
@@ -20,14 +20,14 @@ export default function NeurochemistryComplexityPage() {
       <AuthorityJsonLd
         title="Why Neurochemistry Is Complex"
         description="Educational overview of systems biology, pathway interaction, receptor complexity, neuropharmacology, and scientific uncertainty."
-        url="https://thehippiescientist.net/education/why-neurochemistry-is-complex"
+        url="https://thehippiescientist.net/learn/why-neurochemistry-is-complex"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Why Neurochemistry Is Complex' },
         ]}
       />

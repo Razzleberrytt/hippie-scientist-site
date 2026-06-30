@@ -15,6 +15,6 @@ export const beginnerJourneys = [
     slug: 'understanding-adaptogens',
     title: 'Understanding adaptogens',
     description: 'Compare stress-response compounds through evidence, stimulation, recovery context, and tolerability.',
-    routes: ['/stress-supplements', '/ecosystems/stress', '/compare/rhodiola-vs-ashwagandha'],
+    routes: ['/stress-supplements', '/ecosystems/stress', '/guides/compare/rhodiola-vs-ashwagandha'],
   },
 ]

@@ -7,7 +7,7 @@ import EvidenceSection from '@/components/evidence/EvidenceSection'
 export const metadata: Metadata = buildPageMetadata({
   title: "Research Methodology",
   description: "Educational overview of evidence standards, human trials, mechanistic evidence, neuropharmacology interpretation, and scientific methodology.",
-  path: "/education/research-methodology/",
+  path: "/learn/research-methodology/",
 })
 
 
@@ -17,14 +17,14 @@ export default function ResearchMethodologyPage() {
       <AuthorityJsonLd
         title="Research Methodology"
         description="Educational overview of evidence standards, human trials, mechanistic evidence, neuropharmacology interpretation, and scientific methodology."
-        url="https://thehippiescientist.net/education/research-methodology"
+        url="https://thehippiescientist.net/learn/research-methodology"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Research Methodology' },
         ]}
       />
@@ -88,7 +88,7 @@ export default function ResearchMethodologyPage() {
         </div>
 
         <div className="flex flex-wrap gap-3">
-          <Link href="/education/what-is-neuropharmacology" className="chip-readable">
+          <Link href="/learn/what-is-neuropharmacology" className="chip-readable">
             Neuropharmacology
           </Link>
 
@@ -96,7 +96,7 @@ export default function ResearchMethodologyPage() {
             Harm Reduction
           </Link>
 
-          <Link href="/education/how-herbal-psychoactives-differ-from-pharmaceuticals" className="chip-readable">
+          <Link href="/learn/how-herbal-psychoactives-differ-from-pharmaceuticals" className="chip-readable">
             Herbal vs Pharmaceutical Systems
           </Link>
         </div>

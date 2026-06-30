@@ -110,7 +110,7 @@ function getRelatedFocusAdhdLinks(slug: string): RelatedLink[] {
       articleLink('l-theanine-vs-caffeine-for-focus', 'L-Theanine vs Caffeine for Focus', 'Focus comparison'),
       articleLink('l-theanine-for-adhd', 'L-Theanine for ADHD', 'Calm focus'),
       articleLink('omega-3-and-adhd', 'Omega-3 and ADHD', 'Evidence guide'),
-      routeLink('/education/cholinergic-system', 'Cholinergic System', 'Mechanism guide'),
+      routeLink('/learn/cholinergic-system', 'Cholinergic System', 'Mechanism guide'),
     )
 
     return dedupeRelatedLinks(curatedLinks, `/articles/${slug}/`)
@@ -148,9 +148,9 @@ function getRelatedFocusAdhdLinks(slug: string): RelatedLink[] {
       // Phase 3a: new stack + form pages
       articleLink('l-theanine-magnesium-adhd-stack', 'L-Theanine + Magnesium Stack', 'Stack guide'),
       articleLink('l-theanine-without-caffeine', 'L-Theanine Without Caffeine', 'Caffeine-free focus'),
-      routeLink('/articles/l-theanine-for-sleep/', 'L-Theanine for Sleep', 'Sleep guide'),
-      routeLink('/articles/magnesium-types-for-sleep/', 'Magnesium Types for Sleep', 'Sleep guide'),
-      routeLink('/articles/best-herbs-for-sleep/', 'Best Herbs for Sleep', 'Sleep guide'),
+      routeLink('/guides/sleep/l-theanine-for-sleep/', 'L-Theanine for Sleep', 'Sleep guide'),
+      routeLink('/guides/sleep/magnesium-types-for-sleep/', 'Magnesium Types for Sleep', 'Sleep guide'),
+      routeLink('/guides/sleep/best-herbs-for-sleep/', 'Best Herbs for Sleep', 'Sleep guide'),
     )
   } else if (cognitiveFocusArticleSlugs.has(slug)) {
     addRelatedLinks(
@@ -433,13 +433,13 @@ export default function FocusAdhdArticlePage({ slug }: { slug: string }) {
           <h2 className="text-lg font-semibold tracking-tight text-ink">Related Sleep &amp; Calm Guides</h2>
           <p className="text-xs text-muted mt-1">For general sleep research and comparative guides on these ingredients:</p>
           <div className="mt-3 grid gap-2 sm:grid-cols-3">
-            <Link href="/articles/l-theanine-for-sleep/" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">
+            <Link href="/guides/sleep/l-theanine-for-sleep/" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">
               L-Theanine for Sleep →
             </Link>
-            <Link href="/articles/magnesium-types-for-sleep/" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">
+            <Link href="/guides/sleep/magnesium-types-for-sleep/" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">
               Magnesium Types for Sleep →
             </Link>
-            <Link href="/articles/best-herbs-for-sleep/" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">
+            <Link href="/guides/sleep/best-herbs-for-sleep/" className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 px-3 py-2 text-sm font-semibold text-brand-800 hover:border-brand-900/20 hover:bg-white transition">
               Best Herbs for Sleep →
             </Link>
           </div>

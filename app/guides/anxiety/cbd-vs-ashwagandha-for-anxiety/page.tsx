@@ -59,7 +59,7 @@ const FAQS = [
 export default function CbdVsAshwagandhaForAnxietyPage() {
   const pageBreadcrumb = breadcrumbJsonLd([
     { name: 'Home', url: 'https://thehippiescientist.net' },
-    { name: 'Anxiety', url: 'https://thehippiescientist.net/articles/natural-anxiety-relief' },
+    { name: 'Anxiety', url: 'https://thehippiescientist.net/guides/anxiety/natural-anxiety-relief' },
     { name: TITLE, url: `https://thehippiescientist.net/articles/${SLUG}` },
   ])
 
@@ -427,37 +427,37 @@ export default function CbdVsAshwagandhaForAnxietyPage() {
           <h2 className="text-3xl font-semibold mb-6">Related Articles</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Link
-              href="/articles/natural-anxiety-relief"
+              href="/guides/anxiety/natural-anxiety-relief"
               className="block p-4 border rounded-lg hover:bg-muted transition-colors"
             >
               Natural Anxiety Relief: Evidence-Based Approaches
             </Link>
             <Link
-              href="/articles/ashwagandha"
+              href="/guides/herbs/ashwagandha"
               className="block p-4 border rounded-lg hover:bg-muted transition-colors"
             >
               Ashwagandha for Anxiety
             </Link>
             <Link
-              href="/articles/l-theanine"
+              href="/guides/herbs/l-theanine"
               className="block p-4 border rounded-lg hover:bg-muted transition-colors"
             >
               L-Theanine for Anxiety
             </Link>
             <Link
-              href="/articles/anxiety-stack-guide"
+              href="/guides/anxiety/anxiety-stack-guide"
               className="block p-4 border rounded-lg hover:bg-muted transition-colors"
             >
               Anxiety Stack Guide
             </Link>
             <Link
-              href="/articles/ashwagandha-for-sleep"
+              href="/guides/sleep/ashwagandha-for-sleep"
               className="block p-4 border rounded-lg hover:bg-muted transition-colors"
             >
               Ashwagandha for Sleep
             </Link>
             <Link
-              href="/articles/sleep-stack-guide"
+              href="/guides/sleep/sleep-stack-guide"
               className="block p-4 border rounded-lg hover:bg-muted transition-colors"
             >
               Sleep Stack Guide

@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: BlogRouteProps) {
 
   return {
     ...meta,
-    authors: [{ name: 'Will', url: 'https://thehippiescientist.net/about' }],
+    authors: [{ name: 'Will', url: 'https://thehippiescientist.net/info/about' }],
     alternates: { canonical: path },
     robots: shouldNoindexBlogPost(post) ? { index: false, follow: true } : undefined,
   }
@@ -137,7 +137,7 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
         <h1 className="mt-4 heading-premium max-w-4xl">{post.title}</h1>
         <p className="mt-3 text-sm text-muted">
           By{' '}
-          <Link href="/about/" rel="author" className="font-medium text-ink hover:underline">
+          <Link href="/info/info/about/" rel="author" className="font-medium text-ink hover:underline">
             Will
           </Link>
         </p>

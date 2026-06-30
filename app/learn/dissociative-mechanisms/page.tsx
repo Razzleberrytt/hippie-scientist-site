@@ -12,11 +12,11 @@ export const metadata: Metadata = buildPageMetadata({
 
 const systems = [
   {
-    href: '/education/glutamate',
+    href: '/learn/glutamate',
     title: 'Glutamate Pathway',
   },
   {
-    href: '/education/what-is-neuropharmacology',
+    href: '/learn/what-is-neuropharmacology',
     title: 'Neuropharmacology',
   },
   {

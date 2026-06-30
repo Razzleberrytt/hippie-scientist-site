@@ -10,7 +10,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Calm Focus Differs From Stimulation",
   description: "Educational exploration of calm focus, stimulation tradeoffs, attentional continuity, emotional regulation, and sustainable cognition systems.",
-  path: "/education/why-calm-focus-differs-from-stimulation/",
+  path: "/learn/why-calm-focus-differs-from-stimulation/",
 })
 
 
@@ -45,10 +45,10 @@ const faqs = [
 ]
 
 const relatedSystems = [
-  { href: '/compare/rhodiola-vs-ashwagandha', title: 'Rhodiola vs Ashwagandha' },
-  { href: '/goals/focus', title: 'Non-Stimulant Focus' },
-  { href: '/education/why-overstimulation-impairs-focus', title: 'Overstimulation and Focus' },
-  { href: '/education/how-focus-and-motivation-work', title: 'Focus and Motivation' },
+  { href: '/guides/compare/rhodiola-vs-ashwagandha', title: 'Rhodiola vs Ashwagandha' },
+  { href: '/guides/focus', title: 'Non-Stimulant Focus' },
+  { href: '/learn/why-overstimulation-impairs-focus', title: 'Overstimulation and Focus' },
+  { href: '/learn/how-focus-and-motivation-work', title: 'Focus and Motivation' },
 ]
 
 export default function WhyCalmFocusDiffersFromStimulationPage() {
@@ -57,13 +57,13 @@ export default function WhyCalmFocusDiffersFromStimulationPage() {
       <AuthorityJsonLd
         title="Why Calm Focus Differs From Stimulation"
         description="Educational exploration of calm focus, stimulation tradeoffs, attentional continuity, emotional regulation, and sustainable cognition systems."
-        url="https://thehippiescientist.net/education/why-calm-focus-differs-from-stimulation"
+        url="https://thehippiescientist.net/learn/why-calm-focus-differs-from-stimulation"
         type="Article"
       />
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Why Calm Focus Differs From Stimulation' },
         ]}
       />

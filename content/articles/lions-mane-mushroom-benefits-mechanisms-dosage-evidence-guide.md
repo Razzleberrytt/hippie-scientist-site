@@ -570,7 +570,7 @@ The best way to assess whether Lion's Mane is doing anything: track a specific c
 
 - [Lion's Mane mechanisms and clinical evidence](/articles/lions-mane)
 - [Ginkgo Biloba evidence guide](/articles/ginkgo-biloba)
-- [L-Theanine calm-focus guide](/articles/l-theanine)
+- [L-Theanine calm-focus guide](/guides/herbs/l-theanine)
 - [Bacopa Monnieri memory evidence guide](/articles/bacopa-monnieri)
 ## Sources Cited
 

@@ -15,27 +15,27 @@ const exploreLinks = [
   { href: '/compare/', label: 'Compare' },
   { href: PUBLIC_ROUTES.guides, label: 'Guides' },
   { href: PUBLIC_ROUTES.articles, label: 'Articles' },
-  { href: '/education/', label: 'Learn the Science' },
+  { href: '/learn/', label: 'Learn the Science' },
   { href: '/search/', label: 'Search' },
   { href: PUBLIC_ROUTES.goals, label: 'Goals' },
 ]
 
 const priorityGoalLinks = [
-  { href: '/goals/sleep/', label: 'Sleep' },
-  { href: '/goals/stress/', label: 'Stress' },
-  { href: '/goals/anxiety/', label: 'Anxiety' },
-  { href: '/goals/focus/', label: 'Focus' },
+  { href: '/guides/sleep/', label: 'Sleep' },
+  { href: '/guides/anxiety/', label: 'Stress' },
+  { href: '/guides/anxiety/', label: 'Anxiety' },
+  { href: '/guides/focus/', label: 'Focus' },
 ]
 
 const safetyLinks = [
-  { href: '/methodology/', label: 'Methodology' },
+  { href: '/info/info/methodology/', label: 'Methodology' },
   { href: PUBLIC_ROUTES.disclaimer, label: 'Disclaimer' },
   { href: PUBLIC_ROUTES.contact, label: 'Contact' },
 ]
 
 const legalLinks = [
   { href: PUBLIC_ROUTES.privacy, label: 'Privacy Policy' },
-  { href: '/affiliate-disclosure/', label: 'Affiliate Disclosure' },
+  { href: '/info/info/affiliate-disclosure/', label: 'Affiliate Disclosure' },
   { href: '/sitemap.xml', label: 'Sitemap' },
 ]
 

@@ -10,7 +10,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Sleep Changes Emotional Regulation",
   description: "Educational exploration of sleep continuity, emotional regulation, stress resilience, recovery biology, and nervous-system restoration.",
-  path: "/education/why-sleep-changes-emotional-regulation/",
+  path: "/learn/why-sleep-changes-emotional-regulation/",
 })
 
 
@@ -45,10 +45,10 @@ const faqs = [
 ]
 
 const relatedSystems = [
-  { href: '/education/how-sleep-affects-neurochemistry', title: 'Sleep and Neurochemistry' },
-  { href: '/education/why-burnout-affects-cognition', title: 'Burnout and Cognition' },
-  { href: '/education/how-emotional-regulation-works', title: 'Emotional Regulation' },
-  { href: '/goals/stress', title: 'Burnout Recovery' },
+  { href: '/learn/how-sleep-affects-neurochemistry', title: 'Sleep and Neurochemistry' },
+  { href: '/learn/why-burnout-affects-cognition', title: 'Burnout and Cognition' },
+  { href: '/learn/how-emotional-regulation-works', title: 'Emotional Regulation' },
+  { href: '/guides/anxiety', title: 'Burnout Recovery' },
 ]
 
 export default function WhySleepChangesEmotionalRegulationPage() {
@@ -57,13 +57,13 @@ export default function WhySleepChangesEmotionalRegulationPage() {
       <AuthorityJsonLd
         title="Why Sleep Changes Emotional Regulation"
         description="Educational exploration of sleep continuity, emotional regulation, stress resilience, recovery biology, and nervous-system restoration."
-        url="https://thehippiescientist.net/education/why-sleep-changes-emotional-regulation"
+        url="https://thehippiescientist.net/learn/why-sleep-changes-emotional-regulation"
         type="Article"
       />
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Why Sleep Changes Emotional Regulation' },
         ]}
       />

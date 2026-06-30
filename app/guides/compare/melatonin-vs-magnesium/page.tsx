@@ -73,7 +73,7 @@ export default function MelatoninVsMagnesiumPage() {
         </p>
 
         <div className="flex flex-wrap gap-3">
-          <Link href="/goals/sleep/" className="chip-readable">
+          <Link href="/guides/sleep/" className="chip-readable">
             Sleep Goal Hub
           </Link>
           <Link href="/compare/" className="chip-readable">

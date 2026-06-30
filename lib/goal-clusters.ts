@@ -49,7 +49,7 @@ export const goalClusters: GoalCluster[] = [
     title: 'Sleep Supplement Guides',
     description:
       'Evidence-first guides for sleep quality, sleep onset, calming supplements, and conservative stacking decisions.',
-    goalHref: '/goals/sleep/',
+    goalHref: '/guides/sleep/',
     articles: [
       makeArticle(
         'sleep',
@@ -118,7 +118,7 @@ export const goalClusters: GoalCluster[] = [
     category: 'mood',
     title: 'Mood and Anxiety Supplement Guides',
     description: 'Evidence-first guides for everyday anxiety support, calming stacks, and stress-adjacent supplement decisions.',
-    goalHref: '/goals/anxiety/',
+    goalHref: '/guides/anxiety/',
     articles: [
       makeArticle(
         'mood',
@@ -178,7 +178,7 @@ export const goalClusters: GoalCluster[] = [
     category: 'memory',
     title: 'Focus and Cognition Supplement Guides',
     description: 'Evidence-first guides for focus, ADHD-adjacent support, calm stimulation, and nootropic decision-making.',
-    goalHref: '/goals/focus/',
+    goalHref: '/guides/focus/',
     articles: [
       makeArticle(
         'memory',

@@ -45,9 +45,9 @@ export const scientificCollections: ScientificCollection[] = [
     chips: ['GABA signaling', 'Sleep quality', 'Relaxation', 'Circadian context', 'Nighttime recovery'],
     related: [
       { title: 'Adaptogens for Stress', href: '/guides/best-adaptogens-for-stress', description: 'Stress and resilience records with adaptogenic or cortisol-adjacent signals.' },
-      { title: 'GABA Pathways', href: '/education/gaba', description: 'Pathway hub for GABA, inhibitory tone, relaxation, and sleep-adjacent records.' },
+      { title: 'GABA Pathways', href: '/learn/gaba', description: 'Pathway hub for GABA, inhibitory tone, relaxation, and sleep-adjacent records.' },
       { title: 'Recovery Support', href: '/goals/recovery', description: 'Recovery and repair signals that overlap with sleep quality and nighttime restoration.' },
-      { title: 'Relaxation Mechanisms', href: '/goals/sleep', description: 'Broader semantic navigation for calming and sleep-support discovery.' },
+      { title: 'Relaxation Mechanisms', href: '/guides/sleep', description: 'Broader semantic navigation for calming and sleep-support discovery.' },
     ],
   },
   {
@@ -61,8 +61,8 @@ export const scientificCollections: ScientificCollection[] = [
     description: 'Herbs and compounds with workbook signals around stress, cortisol, adaptogenic use, anxiety, calm, or resilience. Inclusion reflects semantic and evidence-context overlap, not a promise of clinical effect.',
     chips: ['Cortisol context', 'Adaptogenic language', 'Stress resilience', 'Calming support', 'HPA-axis adjacency'],
     related: [
-      { title: 'Best-Studied Sleep Compounds', href: '/goals/sleep', description: 'Sleep and relaxation records that often overlap with stress physiology.' },
-      { title: 'GABA Pathways', href: '/education/gaba', description: 'Calming pathway records related to inhibitory tone and relaxation.' },
+      { title: 'Best-Studied Sleep Compounds', href: '/guides/sleep', description: 'Sleep and relaxation records that often overlap with stress physiology.' },
+      { title: 'GABA Pathways', href: '/learn/gaba', description: 'Calming pathway records related to inhibitory tone and relaxation.' },
       { title: 'Stress Goal Guide', href: '/best-supplements-for-stress', description: 'Intent-oriented stress support navigation from the goal layer.' },
       { title: 'Natural Anxiolytics', href: '/guides/natural-anxiolytics-beyond-ashwagandha', description: 'Broader harm-aware discovery for calming botanicals beyond one headline herb.' },
     ],
@@ -78,9 +78,9 @@ export const scientificCollections: ScientificCollection[] = [
     description: 'A cognition-focused collection for records with acetylcholine, cholinergic, memory, focus, or neuro-related workbook signals. The page organizes mechanism-adjacent discovery without asserting unsupported nootropic outcomes.',
     chips: ['Acetylcholine', 'Memory', 'Focus', 'Neuro signaling', 'Cognition'],
     related: [
-      { title: 'Dopamine Pathways', href: '/education/dopamine', description: 'Cognition and attention records with dopaminergic or motivation-adjacent signals.' },
+      { title: 'Dopamine Pathways', href: '/learn/dopamine', description: 'Cognition and attention records with dopaminergic or motivation-adjacent signals.' },
       { title: 'Focus Supplements', href: '/best-supplements-for-focus', description: 'Intent entry page for focus-oriented supplement discovery.' },
-      { title: 'Cognition Compounds', href: '/goals/focus', description: 'Goal-oriented discovery for cognition, attention, and memory signals.' },
+      { title: 'Cognition Compounds', href: '/guides/focus', description: 'Goal-oriented discovery for cognition, attention, and memory signals.' },
       { title: 'Brain Fog Guide', href: '/guides/supplements-for-brain-fog-and-fatigue', description: 'Decision-oriented discovery for cognitive clarity intent.' },
     ],
   },
@@ -95,7 +95,7 @@ export const scientificCollections: ScientificCollection[] = [
     description: 'Herbs and related compounds with inflammation, antioxidant, cytokine, oxidative-stress, or immune signals plus stronger evidence labeling when available in the runtime payload. This remains an evidence-organizing page, not a treatment ranking.',
     chips: ['Inflammation', 'Antioxidant systems', 'Cytokine context', 'Oxidative stress', 'Immune signaling'],
     related: [
-      { title: 'Inflammation Pathways', href: '/education/inflammation', description: 'Pathway hub for inflammatory, immune, oxidative, and antioxidant records.' },
+      { title: 'Inflammation Pathways', href: '/learn/inflammation', description: 'Pathway hub for inflammatory, immune, oxidative, and antioxidant records.' },
       { title: 'Recovery Support', href: '/goals/recovery', description: 'Recovery signals that can overlap with inflammatory and oxidative-stress context.' },
       { title: 'Joint Support Supplements', href: '/best-supplements-for-joint-support', description: 'Intent entry page for joint-support discovery.' },
       { title: 'Gut Health Supplements', href: '/best-supplements-for-gut-health', description: 'Adjacent discovery for immune and inflammation-adjacent wellness intent.' },

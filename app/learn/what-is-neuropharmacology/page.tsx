@@ -6,25 +6,25 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 export const metadata: Metadata = buildPageMetadata({
   title: "What Is Neuropharmacology?",
   description: "Educational introduction to neuropharmacology, psychoactive mechanisms, signaling pathways, and ethnobotanical neurochemistry.",
-  path: "/education/what-is-neuropharmacology/",
+  path: "/learn/what-is-neuropharmacology/",
 })
 
 
 const systems = [
   {
-    href: '/education/serotonin',
+    href: '/learn/serotonin',
     title: 'Serotonin Pathway',
   },
   {
-    href: '/education/dopamine',
+    href: '/learn/dopamine',
     title: 'Dopamine Pathway',
   },
   {
-    href: '/education/gaba',
+    href: '/learn/gaba',
     title: 'GABA Pathway',
   },
   {
-    href: '/education/glutamate',
+    href: '/learn/glutamate',
     title: 'Glutamate Pathway',
   },
 ]
@@ -35,14 +35,14 @@ export default function NeuropharmacologyPage() {
       <AuthorityJsonLd
         title="What Is Neuropharmacology?"
         description="Educational introduction to neuropharmacology, psychoactive mechanisms, signaling pathways, and ethnobotanical neurochemistry."
-        url="https://thehippiescientist.net/education/what-is-neuropharmacology"
+        url="https://thehippiescientist.net/learn/what-is-neuropharmacology"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'What Is Neuropharmacology?' },
         ]}
       />

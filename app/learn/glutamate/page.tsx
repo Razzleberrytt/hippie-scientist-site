@@ -6,7 +6,7 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 export const metadata: Metadata = buildPageMetadata({
   title: "Glutamate Pathway",
   description: "Educational exploration of glutamatergic signaling, excitatory neurochemistry, dissociative mechanisms, and psychoactive neuropharmacology.",
-  path: "/education/glutamate/",
+  path: "/learn/glutamate/",
 })
 
 
@@ -16,11 +16,11 @@ const systems = [
     title: 'Dissociative Mechanisms',
   },
   {
-    href: '/education/what-is-neuropharmacology',
+    href: '/learn/what-is-neuropharmacology',
     title: 'Neuropharmacology',
   },
   {
-    href: '/education/gaba',
+    href: '/learn/gaba',
     title: 'GABA Pathway',
   },
 ]
@@ -31,14 +31,14 @@ export default function GlutamatePathwayPage() {
       <AuthorityJsonLd
         title="Glutamate Pathway"
         description="Educational exploration of glutamatergic signaling, excitatory neurochemistry, dissociative mechanisms, and psychoactive neuropharmacology."
-        url="https://thehippiescientist.net/education/glutamate"
+        url="https://thehippiescientist.net/learn/glutamate"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Glutamate' },
         ]}
       />

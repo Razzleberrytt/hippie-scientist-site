@@ -10,7 +10,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Individual Variability Matters",
   description: "Educational exploration of contextual neurobiology, human variability, stress physiology, recovery biology, and scientific uncertainty.",
-  path: "/education/why-individual-variability-matters/",
+  path: "/learn/why-individual-variability-matters/",
 })
 
 
@@ -45,10 +45,10 @@ const faqs = [
 ]
 
 const relatedSystems = [
-  { href: '/education/why-online-supplement-claims-spread', title: 'Online Supplement Claims' },
-  { href: '/education/why-fatigue-is-biologically-complex', title: 'Fatigue Complexity' },
-  { href: '/education/why-overstimulation-impairs-focus', title: 'Overstimulation and Focus' },
-  { href: '/education/how-stress-affects-the-brain', title: 'Stress and the Brain' },
+  { href: '/learn/why-online-supplement-claims-spread', title: 'Online Supplement Claims' },
+  { href: '/learn/why-fatigue-is-biologically-complex', title: 'Fatigue Complexity' },
+  { href: '/learn/why-overstimulation-impairs-focus', title: 'Overstimulation and Focus' },
+  { href: '/learn/how-stress-affects-the-brain', title: 'Stress and the Brain' },
 ]
 
 export default function WhyIndividualVariabilityMattersPage() {
@@ -57,13 +57,13 @@ export default function WhyIndividualVariabilityMattersPage() {
       <AuthorityJsonLd
         title="Why Individual Variability Matters"
         description="Educational exploration of contextual neurobiology, human variability, stress physiology, recovery biology, and scientific uncertainty."
-        url="https://thehippiescientist.net/education/why-individual-variability-matters"
+        url="https://thehippiescientist.net/learn/why-individual-variability-matters"
         type="Article"
       />
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Why Individual Variability Matters' },
         ]}
       />

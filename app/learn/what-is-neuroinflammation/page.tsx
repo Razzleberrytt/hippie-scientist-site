@@ -11,7 +11,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "What Is Neuroinflammation?",
   description: "Educational exploration of neuroinflammation, stress-response biology, nervous-system signaling, cognition systems, and recovery-oriented neuropharmacology.",
-  path: "/education/what-is-neuroinflammation/",
+  path: "/learn/what-is-neuroinflammation/",
 })
 
 
@@ -32,19 +32,19 @@ const sections = [
 
 const relatedSystems = [
   {
-    href: '/goals/stress',
+    href: '/guides/anxiety',
     title: 'Burnout Recovery',
   },
   {
-    href: '/goals/stress',
+    href: '/guides/anxiety',
     title: 'Stress Regulation',
   },
   {
-    href: '/education/what-are-adaptogens',
+    href: '/learn/what-are-adaptogens',
     title: 'Adaptogens',
   },
   {
-    href: '/education/glutamate',
+    href: '/learn/glutamate',
     title: 'Glutamate Pathway',
   },
 ]
@@ -73,14 +73,14 @@ export default function NeuroinflammationEducationPage() {
       <AuthorityJsonLd
         title="What Is Neuroinflammation?"
         description="Educational exploration of neuroinflammation, stress-response biology, nervous-system signaling, cognition systems, and recovery-oriented neuropharmacology."
-        url="https://thehippiescientist.net/education/what-is-neuroinflammation"
+        url="https://thehippiescientist.net/learn/what-is-neuroinflammation"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'What Is Neuroinflammation?' },
         ]}
       />

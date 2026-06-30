@@ -105,7 +105,7 @@ export default function LTheanineMagnesiumAdhdStackPage() {
         </h1>
         <p className="mt-2 text-sm text-muted">
           By{' '}
-          <Link href="/about/" rel="author" className="font-medium text-ink hover:underline">
+          <Link href="/info/info/about/" rel="author" className="font-medium text-ink hover:underline">
             {AUTHOR}
           </Link>
         </p>
@@ -389,14 +389,14 @@ export default function LTheanineMagnesiumAdhdStackPage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Related Articles</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {[
-                  ['/articles/best-supplements-for-adhd', 'Cornerstone', 'Best Supplements for ADHD', 'Full evidence-ranked guide.'],
-                  ['/articles/magnesium-for-adhd', 'ADHD Cluster', 'Magnesium for ADHD', 'Evidence review of magnesium for ADHD.'],
-                  ['/articles/l-theanine-for-adhd', 'ADHD Cluster', 'L-Theanine for ADHD', 'Evidence review of L-theanine for ADHD.'],
-                  ['/articles/magnesium-glycinate-vs-citrate-for-adhd', 'ADHD Cluster', 'Glycinate vs Citrate for ADHD', 'Which magnesium form works best.'],
-                  ['/articles/best-magnesium-supplement-for-adhd', 'Buying Guide', 'Best Magnesium for ADHD', 'Which product to buy first.'],
-                  ['/articles/adhd-stack-guide', 'Stack Guide', 'ADHD Stack Guide', 'Full supplement stacking guide for ADHD.'],
-                  ['/articles/sleep-and-adhd', 'Sleep + ADHD', 'Sleep and ADHD', 'Why sleep matters so much in ADHD.'],
-                  ['/goals/focus', 'Goal Hub', 'Focus Goal Hub', 'Compare all focus supplements.'],
+                  ['/guides/adhd/best-supplements-for-adhd', 'Cornerstone', 'Best Supplements for ADHD', 'Full evidence-ranked guide.'],
+                  ['/guides/adhd/magnesium-for-adhd', 'ADHD Cluster', 'Magnesium for ADHD', 'Evidence review of magnesium for ADHD.'],
+                  ['/guides/adhd/l-theanine-for-adhd', 'ADHD Cluster', 'L-Theanine for ADHD', 'Evidence review of L-theanine for ADHD.'],
+                  ['/guides/adhd/magnesium-glycinate-vs-citrate-for-adhd', 'ADHD Cluster', 'Glycinate vs Citrate for ADHD', 'Which magnesium form works best.'],
+                  ['/guides/adhd/best-magnesium-supplement-for-adhd', 'Buying Guide', 'Best Magnesium for ADHD', 'Which product to buy first.'],
+                  ['/guides/adhd/adhd-stack-guide', 'Stack Guide', 'ADHD Stack Guide', 'Full supplement stacking guide for ADHD.'],
+                  ['/guides/adhd/sleep-and-adhd', 'Sleep + ADHD', 'Sleep and ADHD', 'Why sleep matters so much in ADHD.'],
+                  ['/guides/focus', 'Goal Hub', 'Focus Goal Hub', 'Compare all focus supplements.'],
                 ].map(([href, eyebrow, label, desc]) => (
                   <Link key={href as string} href={href as string}
                     className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30">
@@ -448,10 +448,10 @@ export default function LTheanineMagnesiumAdhdStackPage() {
             <p className="text-[10px] font-bold uppercase tracking-wider text-muted">ADHD cluster</p>
             <div className="mt-3 space-y-2">
               {[
-                ['/articles/best-supplements-for-adhd', 'Best supplements for ADHD →'],
-                ['/articles/magnesium-for-adhd', 'Magnesium for ADHD →'],
-                ['/articles/l-theanine-for-adhd', 'L-Theanine for ADHD →'],
-                ['/articles/adhd-stack-guide', 'ADHD stack guide →'],
+                ['/guides/adhd/best-supplements-for-adhd', 'Best supplements for ADHD →'],
+                ['/guides/adhd/magnesium-for-adhd', 'Magnesium for ADHD →'],
+                ['/guides/adhd/l-theanine-for-adhd', 'L-Theanine for ADHD →'],
+                ['/guides/adhd/adhd-stack-guide', 'ADHD stack guide →'],
                 ['/guides/adhd-supplements', 'ADHD supplements guide →'],
               ].map(([href, label]) => (
                 <Link key={href as string} href={href as string}

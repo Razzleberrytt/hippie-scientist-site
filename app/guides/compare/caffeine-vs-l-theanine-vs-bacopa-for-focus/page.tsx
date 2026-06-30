@@ -293,7 +293,7 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
             label: 'Guide',
             title: 'Focus Decisions',
             description: 'A comprehensive guide comparing focus options by onset speed, form, and dropdown risk.',
-            href: '/goals/focus',
+            href: '/guides/focus',
           },
         ]}
       />

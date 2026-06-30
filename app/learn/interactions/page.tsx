@@ -20,11 +20,11 @@ const systems = [
     title: 'Serotonergic Risks',
   },
   {
-    href: '/education/serotonin',
+    href: '/learn/serotonin',
     title: 'Serotonin Pathway',
   },
   {
-    href: '/education/gaba',
+    href: '/learn/gaba',
     title: 'GABA Pathway',
   },
 ]

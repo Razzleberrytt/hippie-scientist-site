@@ -7,7 +7,7 @@ import FaqJsonLd from '@/components/seo/FaqJsonLd'
 export const metadata: Metadata = buildPageMetadata({
   title: "What Are Psychoactive Herbs?",
   description: "Educational overview of psychoactive herbs, neuropharmacology, mechanisms, pathways, and harm reduction.",
-  path: "/education/what-are-psychoactive-herbs/",
+  path: "/learn/what-are-psychoactive-herbs/",
 })
 
 
@@ -34,25 +34,25 @@ const systems = [
     title: 'GABAergic Systems',
     description:
       'Associated with calming, relaxation, sedation, and nervous-system downregulation.',
-    href: '/education/gaba',
+    href: '/learn/gaba',
   },
   {
     title: 'Serotonergic Systems',
     description:
       'Associated with mood regulation, emotional processing, perception, and cognition.',
-    href: '/education/serotonin',
+    href: '/learn/serotonin',
   },
   {
     title: 'Dopaminergic Systems',
     description:
       'Associated with motivation, reward processing, focus, and behavioral drive.',
-    href: '/education/dopamine',
+    href: '/learn/dopamine',
   },
   {
     title: 'Cholinergic Systems',
     description:
       'Associated with dreaming, cognition, memory, and REM-related mechanisms.',
-    href: '/education/cholinergic-system',
+    href: '/learn/cholinergic-system',
   },
 ]
 
@@ -62,7 +62,7 @@ export default function WhatArePsychoactiveHerbsPage() {
       <AuthorityJsonLd
         title="What Are Psychoactive Herbs?"
         description="Educational overview of psychoactive herbs, neuropharmacology, mechanisms, pathways, and harm reduction."
-        url="https://thehippiescientist.net/education/what-are-psychoactive-herbs"
+        url="https://thehippiescientist.net/learn/what-are-psychoactive-herbs"
         type="Article"
         breadcrumbs={[
           {
@@ -71,11 +71,11 @@ export default function WhatArePsychoactiveHerbsPage() {
           },
           {
             name: 'Education',
-            url: 'https://thehippiescientist.net/education',
+            url: 'https://thehippiescientist.net/learn',
           },
           {
             name: 'What Are Psychoactive Herbs?',
-            url: 'https://thehippiescientist.net/education/what-are-psychoactive-herbs',
+            url: 'https://thehippiescientist.net/learn/what-are-psychoactive-herbs',
           },
         ]}
       />
@@ -90,7 +90,7 @@ export default function WhatArePsychoactiveHerbsPage() {
           },
           {
             label: 'Education',
-            href: '/education',
+            href: '/learn',
           },
           {
             label: 'What Are Psychoactive Herbs?',

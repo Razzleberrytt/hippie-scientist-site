@@ -7,7 +7,7 @@ import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 export const metadata: Metadata = buildPageMetadata({
   title: "Safety and Educational Disclaimers",
   description: "Educational overview of safety considerations, psychoactive risks, evidence limitations, and responsible interpretation principles.",
-  path: "/education/safety-and-disclaimers/",
+  path: "/learn/safety-and-disclaimers/",
 })
 
 
@@ -17,14 +17,14 @@ export default function SafetyAndDisclaimersPage() {
       <AuthorityJsonLd
         title="Safety and Educational Disclaimers"
         description="Educational overview of safety considerations, psychoactive risks, evidence limitations, and responsible interpretation principles."
-        url="https://thehippiescientist.net/education/safety-and-disclaimers"
+        url="https://thehippiescientist.net/learn/safety-and-disclaimers"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Safety and Disclaimers' },
         ]}
       />

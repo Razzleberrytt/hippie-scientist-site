@@ -11,7 +11,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Stress Affects the Brain",
   description: "Educational exploration of stress neurochemistry, emotional regulation, nervous-system signaling, sleep continuity, and recovery-oriented neuropharmacology.",
-  path: "/education/how-stress-affects-the-brain/",
+  path: "/learn/how-stress-affects-the-brain/",
 })
 
 
@@ -32,19 +32,19 @@ const mechanisms = [
 
 const related = [
   {
-    href: '/goals/stress',
+    href: '/guides/anxiety',
     title: 'Stress Regulation',
   },
   {
-    href: '/goals/stress',
+    href: '/guides/anxiety',
     title: 'Burnout Recovery',
   },
   {
-    href: '/education/what-is-neuroinflammation',
+    href: '/learn/what-is-neuroinflammation',
     title: 'Neuroinflammation',
   },
   {
-    href: '/education/what-are-adaptogens',
+    href: '/learn/what-are-adaptogens',
     title: 'Adaptogens',
   },
 ]
@@ -55,14 +55,14 @@ export default function StressBrainEducationPage() {
       <AuthorityJsonLd
         title="How Stress Affects the Brain"
         description="Educational exploration of stress neurochemistry, emotional regulation, nervous-system signaling, sleep continuity, and recovery-oriented neuropharmacology."
-        url="https://thehippiescientist.net/education/how-stress-affects-the-brain"
+        url="https://thehippiescientist.net/learn/how-stress-affects-the-brain"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'How Stress Affects the Brain' },
         ]}
       />

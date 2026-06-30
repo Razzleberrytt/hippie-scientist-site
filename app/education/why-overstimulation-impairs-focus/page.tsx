@@ -10,7 +10,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Overstimulation Impairs Focus",
   description: "Educational exploration of overstimulation, hyperarousal, attentional fragmentation, stress physiology, and sustainable cognition systems.",
-  path: "/education/why-overstimulation-impairs-focus/",
+  path: "/learn/why-overstimulation-impairs-focus/",
 })
 
 
@@ -45,10 +45,10 @@ const faqs = [
 ]
 
 const relatedSystems = [
-  { href: '/compare/rhodiola-vs-ashwagandha', title: 'Rhodiola vs Ashwagandha' },
-  { href: '/goals/focus', title: 'Non-Stimulant Focus' },
-  { href: '/education/how-focus-and-motivation-work', title: 'Focus and Motivation' },
-  { href: '/education/why-burnout-affects-cognition', title: 'Burnout and Cognition' },
+  { href: '/guides/compare/rhodiola-vs-ashwagandha', title: 'Rhodiola vs Ashwagandha' },
+  { href: '/guides/focus', title: 'Non-Stimulant Focus' },
+  { href: '/learn/how-focus-and-motivation-work', title: 'Focus and Motivation' },
+  { href: '/learn/why-burnout-affects-cognition', title: 'Burnout and Cognition' },
 ]
 
 export default function WhyOverstimulationImpairsFocusPage() {
@@ -57,13 +57,13 @@ export default function WhyOverstimulationImpairsFocusPage() {
       <AuthorityJsonLd
         title="Why Overstimulation Impairs Focus"
         description="Educational exploration of overstimulation, hyperarousal, attentional fragmentation, stress physiology, and sustainable cognition systems."
-        url="https://thehippiescientist.net/education/why-overstimulation-impairs-focus"
+        url="https://thehippiescientist.net/learn/why-overstimulation-impairs-focus"
         type="Article"
       />
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Why Overstimulation Impairs Focus' },
         ]}
       />

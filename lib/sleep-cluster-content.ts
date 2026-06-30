@@ -197,7 +197,7 @@ export const sleepArticleContent: Record<string, SleepArticleContent> = {
         dose: '100-300 mg elemental magnesium in the evening',
         bestFor: 'Tension, low intake, sleep quality support',
         caution: 'Kidney disease, diarrhea-prone users, medication spacing',
-        href: '/articles/magnesium-for-sleep/',
+        href: '/guides/sleep/magnesium-for-sleep/',
       },
       {
         name: 'Melatonin',
@@ -205,7 +205,7 @@ export const sleepArticleContent: Record<string, SleepArticleContent> = {
         dose: '0.3-3 mg near bedtime; lower is often enough',
         bestFor: 'Delayed sleep timing, jet lag style schedule issues',
         caution: 'Next-day grogginess, pregnancy, seizure disorders, sedatives',
-        href: '/articles/melatonin-vs-valerian/',
+        href: '/guides/herbs/melatonin-vs-valerian/',
       },
       {
         name: 'L-Theanine',
@@ -213,7 +213,7 @@ export const sleepArticleContent: Record<string, SleepArticleContent> = {
         dose: '100-200 mg when relaxation is the goal',
         bestFor: 'Evening calm without heavy sedation',
         caution: 'May add to blood-pressure-lowering or sedating regimens',
-        href: '/articles/l-theanine-for-calm/',
+        href: '/guides/anxiety/l-theanine-for-calm/',
       },
       {
         name: 'Valerian',
@@ -221,7 +221,7 @@ export const sleepArticleContent: Record<string, SleepArticleContent> = {
         dose: 'Varies by extract; label-dependent',
         bestFor: 'Users who tolerate herbs and accept uncertainty',
         caution: 'Sedatives, alcohol, pregnancy, liver concerns',
-        href: '/articles/melatonin-vs-valerian/',
+        href: '/guides/herbs/melatonin-vs-valerian/',
       },
     ],
     sections: [

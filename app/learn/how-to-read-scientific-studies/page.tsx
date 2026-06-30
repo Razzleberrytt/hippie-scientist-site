@@ -8,7 +8,7 @@ import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 export const metadata: Metadata = buildPageMetadata({
   title: "How to Read Scientific Studies",
   description: "Educational overview of scientific interpretation, evidence quality, human trials, mechanistic evidence, and research limitations.",
-  path: "/education/how-to-read-scientific-studies/",
+  path: "/learn/how-to-read-scientific-studies/",
 })
 
 
@@ -18,14 +18,14 @@ export default function ReadScientificStudiesPage() {
       <AuthorityJsonLd
         title="How to Read Scientific Studies"
         description="Educational overview of scientific interpretation, evidence quality, human trials, mechanistic evidence, and research limitations."
-        url="https://thehippiescientist.net/education/how-to-read-scientific-studies"
+        url="https://thehippiescientist.net/learn/how-to-read-scientific-studies"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'How to Read Scientific Studies' },
         ]}
       />

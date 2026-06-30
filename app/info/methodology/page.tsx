@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'How We Grade Evidence & Methodology',
   description:
     'Detailed review of The Hippie Scientist evidence grading levels, Conflict of Interest policy, conservative framing rules, and editorial credentials.',
-  alternates: { canonical: '/methodology/' },
+  alternates: { canonical: '/info/info/methodology/' },
 }
 
 export default function MethodologyPage() {
@@ -48,13 +48,13 @@ export default function MethodologyPage() {
   ]
 
   const schemaGraph = buildToolPageSchemaGraph({
-    path: '/methodology',
+    path: '/info/methodology',
     title: 'How We Grade Evidence & Methodology',
     description:
       'Detailed review of The Hippie Scientist evidence grading levels, conflict-of-interest policy, conservative framing rules, and editorial credentials.',
     breadcrumbs: [
       { name: 'Home', url: `${SITE_URL}/` },
-      { name: 'Methodology', url: `${SITE_URL}/methodology/` },
+      { name: 'Methodology', url: `${SITE_URL}/info/info/methodology/` },
     ],
     faqQuestions: [
       {
@@ -149,10 +149,10 @@ export default function MethodologyPage() {
           Our editorial grades are set solely by our research team based on peer-reviewed literature. While we use affiliate links to support our hosting costs, product placement has zero impact on evidence grades, safety warnings, or brand reviews. If an ingredient carries risk or fails clinical standards, we state it plainly.
         </p>
         <div className='pt-2 flex flex-wrap gap-4'>
-          <Link href='/affiliate-disclosure' className='text-sm font-semibold text-emerald-800 hover:underline'>
+          <Link href='/info/affiliate-disclosure' className='text-sm font-semibold text-emerald-800 hover:underline'>
             Affiliate Disclosure →
           </Link>
-          <Link href='/disclaimer' className='text-sm font-semibold text-emerald-800 hover:underline'>
+          <Link href='/info/disclaimer' className='text-sm font-semibold text-emerald-800 hover:underline'>
             Medical Disclaimer →
           </Link>
         </div>

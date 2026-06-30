@@ -10,7 +10,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Neuroscience Is Difficult",
   description: "Educational exploration of biological complexity, contextual neurobiology, human variability, and scientific limitations in neuroscience research.",
-  path: "/education/why-neuroscience-is-difficult/",
+  path: "/learn/why-neuroscience-is-difficult/",
 })
 
 
@@ -45,10 +45,10 @@ const faqs = [
 ]
 
 const relatedSystems = [
-  { href: '/education/why-studies-conflict', title: 'Why Studies Conflict' },
-  { href: '/education/why-individual-variability-matters', title: 'Individual Variability' },
-  { href: '/education/why-online-supplement-claims-spread', title: 'Mechanistic Hype and Claims' },
-  { href: '/education/why-studies-conflict', title: 'Translational Limitations' },
+  { href: '/learn/why-studies-conflict', title: 'Why Studies Conflict' },
+  { href: '/learn/why-individual-variability-matters', title: 'Individual Variability' },
+  { href: '/learn/why-online-supplement-claims-spread', title: 'Mechanistic Hype and Claims' },
+  { href: '/learn/why-studies-conflict', title: 'Translational Limitations' },
 ]
 
 export default function WhyNeuroscienceIsDifficultPage() {
@@ -57,13 +57,13 @@ export default function WhyNeuroscienceIsDifficultPage() {
       <AuthorityJsonLd
         title="Why Neuroscience Is Difficult"
         description="Educational exploration of biological complexity, contextual neurobiology, human variability, and scientific limitations in neuroscience research."
-        url="https://thehippiescientist.net/education/why-neuroscience-is-difficult"
+        url="https://thehippiescientist.net/learn/why-neuroscience-is-difficult"
         type="Article"
       />
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Why Neuroscience Is Difficult' },
         ]}
       />

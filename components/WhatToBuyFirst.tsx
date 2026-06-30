@@ -194,7 +194,7 @@ export default function WhatToBuyFirst({
         only link products we&apos;ve reviewed. Always read the profile and consult a clinician
         before use.{' '}
         <Link
-          href="/disclaimer/"
+          href="/info/info/disclaimer/"
           className="font-semibold text-brand-700 hover:text-brand-800 hover:underline focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-700 dark:text-brand-100 dark:hover:text-white"
         >
           Full disclaimer →

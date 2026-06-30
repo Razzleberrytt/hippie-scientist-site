@@ -257,7 +257,7 @@ export default function Page() {
             <Link href="/guides/supplements-for-brain-fog-and-fatigue" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Supplements for Brain Fog &amp; Fatigue →</Link>
             <Link href="/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Caffeine vs L-theanine vs Bacopa →</Link>
             <Link href="/compounds/l-theanine" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">L-theanine Profile →</Link>
-            <Link href="/goals/focus" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Focus Guides →</Link>
+            <Link href="/guides/focus" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Focus Guides →</Link>
           </div>
         </section>
       </div>

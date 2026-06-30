@@ -11,7 +11,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "How the Brain Recovers From Fatigue",
   description: "Educational exploration of fatigue recovery, nervous-system restoration, stress signaling, sleep continuity, and recovery-oriented neuropharmacology.",
-  path: "/education/how-the-brain-recovers-from-fatigue/",
+  path: "/learn/how-the-brain-recovers-from-fatigue/",
 })
 
 
@@ -32,19 +32,19 @@ const systems = [
 
 const related = [
   {
-    href: '/goals/stress',
+    href: '/guides/anxiety',
     title: 'Burnout Recovery',
   },
   {
-    href: '/education/what-is-neuroinflammation',
+    href: '/learn/what-is-neuroinflammation',
     title: 'Neuroinflammation',
   },
   {
-    href: '/education/how-sleep-affects-neurochemistry',
+    href: '/learn/how-sleep-affects-neurochemistry',
     title: 'Sleep Neurochemistry',
   },
   {
-    href: '/education/how-stress-affects-the-brain',
+    href: '/learn/how-stress-affects-the-brain',
     title: 'Stress and the Brain',
   },
 ]
@@ -55,14 +55,14 @@ export default function FatigueRecoveryPage() {
       <AuthorityJsonLd
         title="How the Brain Recovers From Fatigue"
         description="Educational exploration of fatigue recovery, nervous-system restoration, stress signaling, sleep continuity, and recovery-oriented neuropharmacology."
-        url="https://thehippiescientist.net/education/how-the-brain-recovers-from-fatigue"
+        url="https://thehippiescientist.net/learn/how-the-brain-recovers-from-fatigue"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'How the Brain Recovers From Fatigue' },
         ]}
       />

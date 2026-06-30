@@ -12,7 +12,7 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Rhodiola vs Ashwagandha for Stress & Fatigue',
   description: 'Evidence-informed comparison of rhodiola and ashwagandha for stress resilience, fatigue, sleep-adjacent tradeoffs, and product selection.',
-  path: '/compare/rhodiola-vs-ashwagandha/',
+  path: '/guides/guides/compare/rhodiola-vs-ashwagandha/',
   openGraphType: 'article',
 })
 
@@ -27,7 +27,7 @@ export default function RhodiolaVsAshwagandhaComparePage() {
       <AuthorityJsonLd
         title="Rhodiola vs Ashwagandha for Stress & Fatigue"
         description="Evidence-informed comparison of rhodiola and ashwagandha for stress resilience, fatigue, sleep-adjacent tradeoffs, and product selection."
-        url="https://thehippiescientist.net/compare/rhodiola-vs-ashwagandha"
+        url="https://thehippiescientist.net/guides/compare/rhodiola-vs-ashwagandha"
         type="Article"
       />
 

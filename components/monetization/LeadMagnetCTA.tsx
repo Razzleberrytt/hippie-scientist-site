@@ -9,7 +9,7 @@ type LeadMagnetCTAProps = {
 
 export function LeadMagnetCTA({
   goal = 'default',
-  href = '/free-guide',
+  href = '/info/free-guide',
   className = '',
 }: LeadMagnetCTAProps) {
   const leadMagnet = getLeadMagnet(goal)

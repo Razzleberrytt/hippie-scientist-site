@@ -7,7 +7,7 @@ import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 export const metadata: Metadata = buildPageMetadata({
   title: "Understanding Placebo and Expectancy",
   description: "Educational exploration of placebo effects, expectancy systems, perception, neurochemistry, and scientific interpretation.",
-  path: "/education/understanding-placebo-and-expectancy/",
+  path: "/learn/understanding-placebo-and-expectancy/",
 })
 
 
@@ -17,14 +17,14 @@ export default function PlaceboExpectancyPage() {
       <AuthorityJsonLd
         title="Understanding Placebo and Expectancy"
         description="Educational exploration of placebo effects, expectancy systems, perception, neurochemistry, and scientific interpretation."
-        url="https://thehippiescientist.net/education/understanding-placebo-and-expectancy"
+        url="https://thehippiescientist.net/learn/understanding-placebo-and-expectancy"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Placebo and Expectancy' },
         ]}
       />

@@ -140,7 +140,7 @@ export default function EvidenceReportPage() {
         <section className="text-center">
           <p className="text-muted">
             This data is updated annually. Full methodology at{' '}
-            <Link href="/methodology/" className="font-medium text-brand-700 hover:text-brand-800">/methodology</Link>.
+            <Link href="/info/info/methodology/" className="font-medium text-brand-700 hover:text-brand-800">/info/methodology</Link>.
             Read the full report:{' '}
             <Link href="/articles/state-of-supplement-evidence-2026/" className="font-medium text-brand-700 hover:text-brand-800">
               State of Supplement Evidence 2026

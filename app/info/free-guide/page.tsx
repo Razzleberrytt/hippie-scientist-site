@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Free Supplement Decision Guide',
   description:
     'Get a free evidence-aware supplement decision guide for sleep, stress, focus, brain fog, fatigue, and calming support.',
-  alternates: { canonical: '/free-guide/' },
+  alternates: { canonical: '/info/info/free-guide/' },
 }
 
 export default function FreeGuidePage() {
@@ -63,8 +63,8 @@ export default function FreeGuidePage() {
           dose and form checks, stacking risk prompts, and quality markers before buying.
         </p>
         <div className='mt-4 flex flex-wrap gap-4'>
-          <Link href='/methodology' className='text-sm font-medium text-emerald-700 hover:underline'>Methodology</Link>
-          <Link href='/affiliate-disclosure' className='text-sm font-medium text-emerald-700 hover:underline'>Affiliate disclosure</Link>
+          <Link href='/info/methodology' className='text-sm font-medium text-emerald-700 hover:underline'>Methodology</Link>
+          <Link href='/info/affiliate-disclosure' className='text-sm font-medium text-emerald-700 hover:underline'>Affiliate disclosure</Link>
         </div>
       </section>
     </div>

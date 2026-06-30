@@ -304,12 +304,12 @@ const browsePaths = [
   },
   {
     label: 'Sleep & recovery',
-    href: '/goals/sleep',
+    href: '/guides/sleep',
     description: 'Wind-down support, sleep quality, and next-day fit.',
   },
   {
     label: 'Focus & cognition',
-    href: '/goals/focus',
+    href: '/guides/focus',
     description: 'Attention, fatigue, and non-jittery support paths.',
   },
 ]

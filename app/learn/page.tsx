@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 }
 
 import { learnPosts } from './data'
-import EducationSupernodeGrid from '@/components/education/education-supernode-grid'
+import EducationSupernodeGrid from '@/components/learn/learn-supernode-grid'
 
 const educationHubs = [
   {
@@ -31,11 +31,11 @@ const educationHubs = [
   },
   {
     title: 'Adaptogens without hype',
-    href: '/education/what-are-adaptogens',
+    href: '/learn/what-are-adaptogens',
   },
   {
     title: 'Cognitive stack basics',
-    href: '/education/what-is-a-nootropic',
+    href: '/learn/what-is-a-nootropic',
   },
 ]
 
@@ -49,19 +49,19 @@ const startHereCards = [
   {
     title: 'Learn how to read evidence',
     body: 'Use the glossary and evidence guides to check study quality, dosing context, and what is still uncertain.',
-    href: '/education/what-are-adaptogens',
+    href: '/learn/what-are-adaptogens',
     cta: 'Learn how to read evidence',
   },
   {
     title: 'Understand safety and tradeoffs',
     body: 'Supplement effects vary between individuals. Review medications, sensitivity, sleep impact, and product quality before trying anything.',
-    href: '/education/what-are-adaptogens',
+    href: '/learn/what-are-adaptogens',
     cta: 'Understand safety and tradeoffs',
   },
   {
     title: 'Compare before stacking',
     body: 'Compare single herbs and compounds first, then build a stack only when each piece has a clear purpose.',
-    href: '/education/what-is-a-nootropic',
+    href: '/learn/what-is-a-nootropic',
     cta: 'Compare before stacking',
   },
 ]
@@ -71,21 +71,21 @@ const supernodes = [
     title: 'Stress Neurobiology',
     description:
       'Plain-language education on stress physiology, burnout patterns, nervous-system regulation, and recovery-oriented cognition.',
-    href: '/goals/stress',
+    href: '/guides/anxiety',
     category: 'Recovery Neuroscience',
   },
   {
     title: 'Neuroplasticity and Learning',
     description:
       'How memory, attention, repetition, sleep, and adaptation shape learning over time without reducing everything to hype.',
-    href: '/education/what-is-a-nootropic',
+    href: '/learn/what-is-a-nootropic',
     category: 'Cognition Systems',
   },
   {
     title: 'Adaptogens and Recovery',
     description:
       'A careful look at adaptogens, stress signaling, fatigue, resilience claims, and where the evidence still has limits.',
-    href: '/education/what-are-adaptogens',
+    href: '/learn/what-are-adaptogens',
     category: 'Stress Physiology',
   },
   {

@@ -89,7 +89,7 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
 const popularComparisonPairs = [
   { label: 'Melatonin vs Magnesium', href: '/compare/melatonin-vs-magnesium/' },
   { label: 'Sleep herbs vs Melatonin', href: '/compare/sleep-herbs-vs-melatonin/' },
-  { label: 'Rhodiola vs Ashwagandha', href: '/compare/rhodiola-vs-ashwagandha/' },
+  { label: 'Rhodiola vs Ashwagandha', href: '/guides/guides/compare/rhodiola-vs-ashwagandha/' },
   { label: 'Ashwagandha vs L-Theanine vs Magnesium', href: '/compare/ashwagandha-vs-l-theanine-vs-magnesium/' },
   { label: 'Caffeine vs L-Theanine vs Bacopa for Focus', href: '/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/' },
   { label: 'Dynamic Ingredient Comparison Matrix', href: '/compare/dynamic/' },

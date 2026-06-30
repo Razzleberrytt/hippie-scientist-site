@@ -6,7 +6,7 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 export const metadata: Metadata = buildPageMetadata({
   title: "GABA vs Serotonin",
   description: "Educational comparison of GABAergic and serotonergic systems, calming pathways, mood regulation, and psychoactive neuropharmacology.",
-  path: "/education/gaba-vs-serotonin/",
+  path: "/learn/gaba-vs-serotonin/",
 })
 
 
@@ -16,14 +16,14 @@ export default function GabaVsSerotoninPage() {
       <AuthorityJsonLd
         title="GABA vs Serotonin"
         description="Educational comparison of GABAergic and serotonergic systems, calming pathways, mood regulation, and psychoactive neuropharmacology."
-        url="https://thehippiescientist.net/education/gaba-vs-serotonin"
+        url="https://thehippiescientist.net/learn/gaba-vs-serotonin"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'GABA vs Serotonin' },
         ]}
       />
@@ -45,7 +45,7 @@ export default function GabaVsSerotoninPage() {
             Associated with inhibitory signaling, nervous-system downregulation, relaxation, calming effects, and sleep-supportive mechanisms.
           </p>
           <div className="flex flex-wrap gap-2">
-            <Link href="/education/gaba" className="chip-readable">GABA Pathway</Link>
+            <Link href="/learn/gaba" className="chip-readable">GABA Pathway</Link>
             <Link href="/psychoactive/calming" className="chip-readable">Calming Psychoactives</Link>
           </div>
         </div>
@@ -56,7 +56,7 @@ export default function GabaVsSerotoninPage() {
             Associated with mood regulation, emotional processing, perception, cognition, and certain psychoactive or entheogenic mechanisms.
           </p>
           <div className="flex flex-wrap gap-2">
-            <Link href="/education/serotonin" className="chip-readable">Serotonin Pathway</Link>
+            <Link href="/learn/serotonin" className="chip-readable">Serotonin Pathway</Link>
             <Link href="/psychoactive/calming" className="chip-readable">Mood Elevation</Link>
           </div>
         </div>

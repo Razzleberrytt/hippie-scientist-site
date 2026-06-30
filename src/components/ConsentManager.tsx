@@ -131,7 +131,7 @@ export default function ConsentManager({ open, onClose }: Props) {
           >
             Accept
           </button>
-          <Link to="/privacy" className="ml-auto underline text-white/70 hover:text-cyan-300">
+          <Link to="/info/privacy" className="ml-auto underline text-white/70 hover:text-cyan-300">
             Privacy Policy
           </Link>
         </div>

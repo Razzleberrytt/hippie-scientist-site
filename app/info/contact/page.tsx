@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     'Get in touch with The Hippie Scientist — submit corrections, feedback, partnership inquiries, or research questions for our evidence-focused site.',
   alternates: {
-    canonical: '/contact/',
+    canonical: '/info/info/contact/',
   },
   robots: {
     index: true,
@@ -83,7 +83,7 @@ export default function ContactPage() {
           <p className='eyebrow-label'>Explore</p>
 
           <div className='mt-4 space-y-3'>
-            <Link href='/about' className='compact-card block transition motion-safe:hover:-translate-y-0.5'>
+            <Link href='/info/about' className='compact-card block transition motion-safe:hover:-translate-y-0.5'>
               <p className='text-sm font-semibold text-ink'>About</p>
               <p className='mt-1 text-sm leading-6 text-ink/65'>Learn how the project approaches evidence and semantic exploration.</p>
             </Link>

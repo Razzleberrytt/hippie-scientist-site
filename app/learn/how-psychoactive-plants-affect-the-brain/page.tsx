@@ -6,26 +6,26 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Psychoactive Plants Affect the Brain",
   description: "Educational exploration of psychoactive neuropharmacology, signaling systems, pathways, and ethnobotanical mechanisms.",
-  path: "/education/how-psychoactive-plants-affect-the-brain/",
+  path: "/learn/how-psychoactive-plants-affect-the-brain/",
 })
 
 
 const systems = [
   {
     title: 'GABAergic Systems',
-    href: '/education/gaba',
+    href: '/learn/gaba',
   },
   {
     title: 'Serotonergic Systems',
-    href: '/education/serotonin',
+    href: '/learn/serotonin',
   },
   {
     title: 'Dopaminergic Systems',
-    href: '/education/dopamine',
+    href: '/learn/dopamine',
   },
   {
     title: 'Cholinergic Systems',
-    href: '/education/cholinergic-system',
+    href: '/learn/cholinergic-system',
   },
 ]
 
@@ -35,14 +35,14 @@ export default function PsychoactiveBrainPage() {
       <AuthorityJsonLd
         title="How Psychoactive Plants Affect the Brain"
         description="Educational exploration of psychoactive neuropharmacology, signaling systems, pathways, and ethnobotanical mechanisms."
-        url="https://thehippiescientist.net/education/how-psychoactive-plants-affect-the-brain"
+        url="https://thehippiescientist.net/learn/how-psychoactive-plants-affect-the-brain"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'How Psychoactive Plants Affect the Brain' },
         ]}
       />

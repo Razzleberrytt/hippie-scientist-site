@@ -529,7 +529,7 @@ export function buildFocusClusterBreadcrumb(args: {
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
       { '@type': 'ListItem', position: 2, name: 'Goals', item: `${SITE_URL}/goals/` },
-      { '@type': 'ListItem', position: 3, name: 'Focus', item: `${SITE_URL}/goals/focus/` },
+      { '@type': 'ListItem', position: 3, name: 'Focus', item: `${SITE_URL}/guides/focus/` },
       { '@type': 'ListItem', position: 4, name: 'Focus & ADHD cluster', item: `${SITE_URL}/best-supplements-for-adhd/` },
       { '@type': 'ListItem', position: 5, name: args.currentName, item: currentUrl },
     ],

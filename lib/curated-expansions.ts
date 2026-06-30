@@ -106,8 +106,8 @@ export const seoEntryExpansions: Record<string, CuratedExpansion> = {
       'Penalize stacks that hide caffeine, stack cholinergics, or ignore anxiety and sleep context.',
     ],
     evidenceRows: [
-      { name: 'Caffeine + L-theanine', tier: 'Moderate for acute attention', bestFor: 'Fast focus with fewer jitters than caffeine alone', dose: '50-100 mg caffeine + 100-200 mg theanine', safety: 'Avoid late day; caution with anxiety, BP, stimulants.', href: '/articles/l-theanine-vs-caffeine-for-focus' },
-      { name: 'Citicoline', tier: 'Preliminary to moderate', bestFor: 'Choline support and mental effort', dose: '250-500 mg/day', safety: 'Headache or GI effects in some users.', href: '/articles/citicoline-vs-alpha-gpc' },
+      { name: 'Caffeine + L-theanine', tier: 'Moderate for acute attention', bestFor: 'Fast focus with fewer jitters than caffeine alone', dose: '50-100 mg caffeine + 100-200 mg theanine', safety: 'Avoid late day; caution with anxiety, BP, stimulants.', href: '/guides/focus/l-theanine-vs-caffeine-for-focus' },
+      { name: 'Citicoline', tier: 'Preliminary to moderate', bestFor: 'Choline support and mental effort', dose: '250-500 mg/day', safety: 'Headache or GI effects in some users.', href: '/guides/adhd/citicoline-vs-alpha-gpc' },
       { name: 'Alpha-GPC', tier: 'Preliminary', bestFor: 'Choline-focused stacks', dose: '300-600 mg/day', safety: 'Do not stack multiple cholinergics aggressively.' },
       { name: "Lion's mane", tier: 'Preliminary', bestFor: 'Longer-horizon cognition and neurotrophic interest', dose: '500-1,000 mg extract/day or label-standardized equivalent', safety: 'Mushroom allergy and product quality matter.', href: '/herbs/lions-mane' },
       { name: 'Bacopa', tier: 'Moderate for memory, not acute focus', bestFor: 'Memory support over 8-12 weeks', dose: '300 mg/day standardized bacosides', safety: 'GI upset and sedation are common deal-breakers.' },
@@ -239,7 +239,7 @@ export const seoEntryExpansions: Record<string, CuratedExpansion> = {
       { scenario: 'Product promises to replace medication', firstChoice: 'Skip the claim', why: 'No supplement matches prescribed antihypertensive therapy, and stopping medication can be dangerous.' },
     ],
     safetyNotes: [
-      'Supplements are not a substitute for prescribed blood-pressure treatment, monitoring, or evaluation of underlying causes — never stop or change medication on your own. See /disclaimer.',
+      'Supplements are not a substitute for prescribed blood-pressure treatment, monitoring, or evaluation of underlying causes — never stop or change medication on your own. See /info/disclaimer.',
       'Potassium supplements can cause dangerous high potassium with kidney disease, ACE inhibitors, ARBs, or potassium-sparing diuretics; get potassium from food unless a clinician directs otherwise.',
       'Very high (≥180/120) or symptomatic blood pressure — chest pain, severe headache, vision changes, shortness of breath — is a medical emergency, not a supplement decision.',
       'Garlic and omega-3 can add to bleeding risk; CoQ10 may affect warfarin; tell your clinician and pharmacist about every supplement before combining.',
@@ -252,7 +252,7 @@ export const seoEntryExpansions: Record<string, CuratedExpansion> = {
       'Set a realistic expectation: small adjunct effects at best, and re-measure blood pressure over weeks rather than chasing day-to-day numbers.',
     ],
     references: [
-      { label: 'NHLBI — DASH Eating Plan', href: 'https://www.nhlbi.nih.gov/education/dash-eating-plan' },
+      { label: 'NHLBI — DASH Eating Plan', href: 'https://www.nhlbi.nih.gov/learn/dash-eating-plan' },
       { label: 'MedlinePlus — High Blood Pressure (health topic)', href: 'https://medlineplus.gov/highbloodpressure.html' },
       { label: 'NIH ODS — Potassium fact sheet (health professional)', href: 'https://ods.od.nih.gov/factsheets/Potassium-HealthProfessional/' },
       { label: 'NIH ODS — Magnesium fact sheet (health professional)', href: 'https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/' },
@@ -267,9 +267,9 @@ export const seoEntryExpansions: Record<string, CuratedExpansion> = {
       'Penalize proprietary blends that hide caffeine, stack multiple cholinergics, or ignore anxiety and sleep cost.',
     ],
     evidenceRows: [
-      { name: 'Caffeine + L-theanine', tier: 'Moderate for acute attention', bestFor: 'Fast, same-day focus with fewer jitters than caffeine alone', dose: '50-100 mg caffeine + 100-200 mg L-theanine', safety: 'Avoid late-day dosing; caution with anxiety, blood pressure, and other stimulants.', href: '/articles/l-theanine-vs-caffeine-for-focus' },
+      { name: 'Caffeine + L-theanine', tier: 'Moderate for acute attention', bestFor: 'Fast, same-day focus with fewer jitters than caffeine alone', dose: '50-100 mg caffeine + 100-200 mg L-theanine', safety: 'Avoid late-day dosing; caution with anxiety, blood pressure, and other stimulants.', href: '/guides/focus/l-theanine-vs-caffeine-for-focus' },
       { name: 'L-theanine (alone)', tier: 'Preliminary to moderate', bestFor: 'Calm-focus and taking the edge off caffeine or stress', dose: '100-200 mg as needed', safety: 'Usually gentle; can add to sedating effects in sensitive users.', href: '/compounds/l-theanine' },
-      { name: 'Citicoline (CDP-choline)', tier: 'Preliminary to moderate', bestFor: 'Choline support, attention, and mental effort', dose: '250-500 mg/day', safety: 'Headache or GI effects in some users; do not stack multiple cholinergics aggressively.', href: '/articles/citicoline-vs-alpha-gpc' },
+      { name: 'Citicoline (CDP-choline)', tier: 'Preliminary to moderate', bestFor: 'Choline support, attention, and mental effort', dose: '250-500 mg/day', safety: 'Headache or GI effects in some users; do not stack multiple cholinergics aggressively.', href: '/guides/adhd/citicoline-vs-alpha-gpc' },
       { name: 'Alpha-GPC', tier: 'Preliminary', bestFor: 'Choline-focused stacks and effort-based tasks', dose: '300-600 mg/day', safety: 'Avoid combining several high-dose choline sources at once.', href: '/compounds/alpha-gpc' },
       { name: 'Bacopa monnieri', tier: 'Moderate for memory, not acute focus', bestFor: 'Memory and speed-of-attention over 8-12 weeks', dose: '300 mg/day standardized bacosides', safety: 'GI upset and mild sedation are common deal-breakers; effects build slowly.' },
       { name: "Lion's mane", tier: 'Preliminary', bestFor: 'Longer-horizon cognition experiments, not acute stimulation', dose: '500-1,000 mg extract/day or label-standardized equivalent', safety: 'Mushroom allergy and product quality matter; expect subtle effects.', href: '/herbs/lions-mane' },

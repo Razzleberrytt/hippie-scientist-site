@@ -2,28 +2,28 @@ import Link from 'next/link'
 
 const explorationFlows = [
   {
-    href: '/education/why-calm-focus-differs-from-stimulation',
+    href: '/learn/why-calm-focus-differs-from-stimulation',
     title: 'Explore calm focus systems',
     description:
       'Discover adaptive pathways related to focus, regulation, resilience, and recovery-oriented cognition.',
     label: 'guided exploration',
   },
   {
-    href: '/education/how-the-brain-recovers-from-fatigue',
+    href: '/learn/how-the-brain-recovers-from-fatigue',
     title: 'Understand recovery neuroscience',
     description:
       'Navigate educational ecosystems related to overstimulation recovery, nervous system restoration, and adaptive balance.',
     label: 'continuity pathway',
   },
   {
-    href: '/education/how-learning-affects-neuroplasticity',
+    href: '/learn/how-learning-affects-neuroplasticity',
     title: 'Learn neuroplasticity pathways',
     description:
       'Explore interconnected systems related to adaptation, learning, resilience, and cognitive flexibility.',
     label: 'foundational ecosystem',
   },
   {
-    href: '/education/how-sleep-affects-neurochemistry',
+    href: '/learn/how-sleep-affects-neurochemistry',
     title: 'Follow sleep continuity systems',
     description:
       'Investigate semantic continuity pathways related to sleep architecture, calm signaling, and recovery support.',

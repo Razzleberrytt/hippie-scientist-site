@@ -19,7 +19,7 @@ export default function EducationPageLayout({
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: breadcrumb || title },
         ]}
       />

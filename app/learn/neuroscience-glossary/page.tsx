@@ -7,7 +7,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "Neuroscience Glossary",
   description: "Educational glossary exploring contextual neurobiology, recovery continuity, emotional salience, attentional resilience, and sustainable cognition systems.",
-  path: "/education/neuroscience-glossary/",
+  path: "/learn/neuroscience-glossary/",
 })
 
 
@@ -46,19 +46,19 @@ const glossaryTerms = [
 
 const relatedSystems = [
   {
-    href: '/education/scientific-but-human-neuroscience',
+    href: '/learn/scientific-but-human-neuroscience',
     title: 'Scientific But Human Neuroscience',
   },
   {
-    href: '/education/cognitive-resilience-systems',
+    href: '/learn/cognitive-resilience-systems',
     title: 'Cognitive Resilience Systems',
   },
   {
-    href: '/education/why-neuroscience-is-difficult',
+    href: '/learn/why-neuroscience-is-difficult',
     title: 'Why Neuroscience Is Difficult',
   },
   {
-    href: '/education/stress-and-cognition-continuity',
+    href: '/learn/stress-and-cognition-continuity',
     title: 'Stress and Cognition Continuity',
   },
 ]
@@ -69,7 +69,7 @@ export default function NeuroscienceGlossaryPage() {
       <AuthorityJsonLd
         title="Neuroscience Glossary"
         description="Educational glossary exploring contextual neurobiology, recovery continuity, emotional salience, attentional resilience, and sustainable cognition systems."
-        url="https://thehippiescientist.net/education/neuroscience-glossary"
+        url="https://thehippiescientist.net/learn/neuroscience-glossary"
         type="Article"
       />
 

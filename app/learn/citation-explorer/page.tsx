@@ -5,7 +5,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 export const metadata: Metadata = {
   title: 'Scientific Evidence Citation Explorer',
   description: 'Explore the scientific studies, clinical trials, and research papers backing the mechanisms and claims on The Hippie Scientist.',
-  alternates: { canonical: '/education/citation-explorer/' },
+  alternates: { canonical: '/learn/citation-explorer/' },
 }
 
 export default function CitationExplorerPage() {
@@ -14,7 +14,7 @@ export default function CitationExplorerPage() {
       <AuthorityJsonLd
         title="Scientific Evidence Citation Explorer"
         description="Verify scientific citations, clinical trials, and GRADE evidence levels behind botanical monograph claims."
-        url="https://thehippiescientist.net/education/citation-explorer"
+        url="https://thehippiescientist.net/learn/citation-explorer"
         type="MedicalWebPage"
       />
 
@@ -42,7 +42,7 @@ export default function CitationExplorerPage() {
           </div>
         </div>
         <div className="pt-4 text-center border-t border-slate-100">
-          <Link href="/education/evidence-hierarchy" className="text-emerald-700 font-semibold hover:underline">
+          <Link href="/learn/evidence-hierarchy" className="text-emerald-700 font-semibold hover:underline">
             Read Evidence Hierarchy Manual →
           </Link>
         </div>

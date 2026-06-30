@@ -67,7 +67,7 @@ export default function PsychedelicAdjacentHerbsPage() {
           <Link href="/compare/kanna-vs-ssris" className="text-brand-700 hover:text-brand-800 hover:underline">
             Kanna vs SSRIs Compare →
           </Link>
-          <Link href="/disclaimer/" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/info/info/disclaimer/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Safety Disclaimer →
           </Link>
         </div>

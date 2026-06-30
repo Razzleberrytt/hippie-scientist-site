@@ -379,6 +379,6 @@ To navigate the adaptogen market safely, consumers must choose standardized, ful
 
 ## Related Articles
 
-- [Ashwagandha: Stress and Cortisol](/articles/ashwagandha)
+- [Ashwagandha: Stress and Cortisol](/guides/herbs/ashwagandha)
 - [Rhodiola Rosea: Fatigue and Cortisol](/articles/rhodiola-rosea)
 - [Functional Mushrooms 101](/articles/functional-mushrooms-guide)

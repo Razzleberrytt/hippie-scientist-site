@@ -30,9 +30,9 @@ describe('monetization infrastructure', () => {
   })
 
   it('renders internal links without external rel attributes', () => {
-    render(<AffiliateLink href='/methodology'>Methodology</AffiliateLink>)
+    render(<AffiliateLink href='/info/methodology'>Methodology</AffiliateLink>)
 
-    const link = screen.getByRole('link', { name: /methodology/i })
+    const link = screen.getByRole('link', { name: /info/info/methodology/i })
 
     expect(link).not.toHaveAttribute('target')
     expect(link).not.toHaveAttribute('rel')

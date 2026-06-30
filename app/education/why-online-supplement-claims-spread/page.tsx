@@ -10,7 +10,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Online Supplement Claims Spread",
   description: "Educational exploration of mechanistic hype, simplified neuroscience, contextual variability, and scientific uncertainty in supplement discourse.",
-  path: "/education/why-online-supplement-claims-spread/",
+  path: "/learn/why-online-supplement-claims-spread/",
 })
 
 
@@ -45,10 +45,10 @@ const faqs = [
 ]
 
 const relatedSystems = [
-  { href: '/education/why-individual-variability-matters', title: 'Individual Variability' },
-  { href: '/education/why-human-trials-matter', title: 'Human vs Mechanistic Evidence' },
-  { href: '/education/why-studies-conflict', title: 'Translational Limitations' },
-  { href: '/education/why-neuroscience-is-difficult', title: 'Why Neuroscience Is Complicated' },
+  { href: '/learn/why-individual-variability-matters', title: 'Individual Variability' },
+  { href: '/learn/why-human-trials-matter', title: 'Human vs Mechanistic Evidence' },
+  { href: '/learn/why-studies-conflict', title: 'Translational Limitations' },
+  { href: '/learn/why-neuroscience-is-difficult', title: 'Why Neuroscience Is Complicated' },
 ]
 
 export default function WhyOnlineSupplementClaimsSpreadPage() {
@@ -57,13 +57,13 @@ export default function WhyOnlineSupplementClaimsSpreadPage() {
       <AuthorityJsonLd
         title="Why Online Supplement Claims Spread"
         description="Educational exploration of mechanistic hype, simplified neuroscience, contextual variability, and scientific uncertainty in supplement discourse."
-        url="https://thehippiescientist.net/education/why-online-supplement-claims-spread"
+        url="https://thehippiescientist.net/learn/why-online-supplement-claims-spread"
         type="Article"
       />
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Why Online Supplement Claims Spread' },
         ]}
       />

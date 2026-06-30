@@ -8,7 +8,7 @@ import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Human Trials Matter",
   description: "Educational overview of human clinical evidence, translational limitations, mechanistic research, and evidence-informed scientific interpretation.",
-  path: "/education/why-human-trials-matter/",
+  path: "/learn/why-human-trials-matter/",
 })
 
 
@@ -18,14 +18,14 @@ export default function HumanTrialsMatterPage() {
       <AuthorityJsonLd
         title="Why Human Trials Matter"
         description="Educational overview of human clinical evidence, translational limitations, mechanistic research, and evidence-informed scientific interpretation."
-        url="https://thehippiescientist.net/education/why-human-trials-matter"
+        url="https://thehippiescientist.net/learn/why-human-trials-matter"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Why Human Trials Matter' },
         ]}
       />

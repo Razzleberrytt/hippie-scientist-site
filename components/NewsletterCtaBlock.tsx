@@ -14,7 +14,7 @@ type NewsletterCtaBlockProps = {
 export default function NewsletterCtaBlock({
   title = 'Read the newsletter archive',
   description = 'Short evidence-first notes on supplement safety, sourcing, and research interpretation.',
-  href = '/newsletter',
+  href = '/info/newsletter',
   ctaLabel = 'Open newsletter',
   location = 'newsletter-cta',
 }: NewsletterCtaBlockProps) {

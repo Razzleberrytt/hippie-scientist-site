@@ -77,7 +77,7 @@ export default function StructuredData({
       author: {
         '@type': 'Person',
         name: authorName,
-        url: `${SITE_URL}/about/`,
+        url: `${SITE_URL}/info/info/about/`,
       },
       publisher: {
         '@type': 'Organization',
@@ -109,7 +109,7 @@ export default function StructuredData({
       author: {
         '@type': 'Person',
         name: authorName,
-        url: `${SITE_URL}/about/`,
+        url: `${SITE_URL}/info/info/about/`,
       },
       publisher: {
         '@type': 'Organization',

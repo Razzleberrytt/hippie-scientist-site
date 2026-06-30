@@ -125,7 +125,7 @@ L-theanine is most useful when the reader wants **calm focus without feeling sed
 | Onset | Usually 30-60 minutes |
 | Best caffeine pairing | 100 mg L-theanine with 50-100 mg caffeine as a simple starting point |
 | Main limitation | Not a complete anxiety, ADHD, or insomnia treatment by itself |
-| Better alternatives when chronic stress is primary | Compare [Ashwagandha](/articles/ashwagandha) for longer-term stress support |
+| Better alternatives when chronic stress is primary | Compare [Ashwagandha](/guides/herbs/ashwagandha) for longer-term stress support |
 | Better alternatives when sleep architecture is primary | Compare [Magnesium for Sleep](/guides/magnesium-for-sleep) |
 
 ---
@@ -134,7 +134,7 @@ L-theanine is most useful when the reader wants **calm focus without feeling sed
 
 This guide is for readers comparing natural options for **focus, stress, anxiety, and sleep**. Start here if the main problem is feeling overstimulated, tense, or mentally busy while still needing to function.
 
-If the main problem is acute anxiety, read [L-Theanine for Anxiety](/articles/l-theanine-for-anxiety). If the main problem is ADHD-style focus and sleep disruption, compare [L-Theanine for ADHD](/articles/l-theanine-for-adhd). If the main problem is relaxed alertness during the day, read [L-Theanine for Calm](/articles/l-theanine-for-calm). If the reader is deciding between two supplements, compare [L-Theanine vs. Magnesium](/compare/l-theanine-vs-magnesium).
+If the main problem is acute anxiety, read [L-Theanine for Anxiety](/guides/anxiety/l-theanine-for-anxiety). If the main problem is ADHD-style focus and sleep disruption, compare [L-Theanine for ADHD](/guides/adhd/l-theanine-for-adhd). If the main problem is relaxed alertness during the day, read [L-Theanine for Calm](/guides/anxiety/l-theanine-for-calm). If the reader is deciding between two supplements, compare [L-Theanine vs. Magnesium](/compare/l-theanine-vs-magnesium).
 
 ---
 
@@ -199,7 +199,7 @@ The key positioning is this:
 - Weak fit: panic disorder, severe generalized anxiety, trauma-driven anxiety, or anxiety requiring medication changes.
 - Best reader framing: "may help take the edge off while keeping you clear-headed."
 
-For a more anxiety-specific page, internally route readers to [L-Theanine for Anxiety](/articles/l-theanine-for-anxiety).
+For a more anxiety-specific page, internally route readers to [L-Theanine for Anxiety](/guides/anxiety/l-theanine-for-anxiety).
 
 ---
 
@@ -217,7 +217,7 @@ Practical evening protocol:
 | Wired but tired | 200 mg 30-60 minutes before bed |
 | Persistent stress-related sleep issue | Consider whether magnesium, sleep schedule, caffeine timing, or anxiety support matter more |
 
-For deeper sleep-content routing, compare [Magnesium for Sleep](/guides/magnesium-for-sleep) and [Best Magnesium for Sleep](/articles/best-magnesium-for-sleep).
+For deeper sleep-content routing, compare [Magnesium for Sleep](/guides/magnesium-for-sleep) and [Best Magnesium for Sleep](/guides/sleep/best-magnesium-for-sleep).
 
 ---
 
@@ -349,5 +349,5 @@ The page should not oversell it as an anxiety cure or a sleep cure. The stronges
 ## Related Articles
 
 - [Magnesium Glycinate: Sleep, Stress, and Anxiety](/articles/magnesium-glycinate)
-- [Ashwagandha: Stress, Cortisol, and Anxiety](/articles/ashwagandha)
+- [Ashwagandha: Stress, Cortisol, and Anxiety](/guides/herbs/ashwagandha)
 - [Creatine for Brain Health](/articles/creatine-brain-health)

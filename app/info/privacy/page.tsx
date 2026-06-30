@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     'Privacy policy for The Hippie Scientist — how we handle data, cookies, and any affiliate links on this site, written in clear plain English.',
   alternates: {
-    canonical: '/privacy/',
+    canonical: '/info/info/privacy/',
   },
   robots: {
     index: true,
@@ -88,7 +88,7 @@ export default function PrivacyPage() {
             <div>
               <h3 className='text-lg font-bold text-ink mb-1'>4. Email Subscriptions</h3>
               <p>
-                If you subscribe to Research Notes via the footer email form, your email address is transmitted to Mailchimp (an Intuit company) and stored there. We use it only to send evidence summaries and occasional long-form research notes. You can unsubscribe at any time via the link in any email we send. We do not sell or share your email address with other parties. Mailchimp's privacy practices are governed by <a href='https://www.intuit.com/privacy/statement/' className='text-emerald-700 hover:underline' rel='noopener noreferrer' target='_blank'>their own privacy statement</a>.
+                If you subscribe to Research Notes via the footer email form, your email address is transmitted to Mailchimp (an Intuit company) and stored there. We use it only to send evidence summaries and occasional long-form research notes. You can unsubscribe at any time via the link in any email we send. We do not sell or share your email address with other parties. Mailchimp's privacy practices are governed by <a href='https://www.intuit.com/info/info/privacy/statement/' className='text-emerald-700 hover:underline' rel='noopener noreferrer' target='_blank'>their own privacy statement</a>.
               </p>
             </div>
 
@@ -105,17 +105,17 @@ export default function PrivacyPage() {
           <p className='eyebrow-label'>Related pages</p>
 
           <div className='mt-4 space-y-3'>
-            <Link href='/about' className='compact-card block transition motion-safe:hover:-translate-y-0.5'>
+            <Link href='/info/about' className='compact-card block transition motion-safe:hover:-translate-y-0.5'>
               <p className='text-sm font-semibold text-ink'>About</p>
               <p className='mt-1 text-sm leading-6 text-ink/65'>Learn what the project is for.</p>
             </Link>
 
-            <Link href='/contact' className='compact-card block transition motion-safe:hover:-translate-y-0.5'>
+            <Link href='/info/contact' className='compact-card block transition motion-safe:hover:-translate-y-0.5'>
               <p className='text-sm font-semibold text-ink'>Contact</p>
               <p className='mt-1 text-sm leading-6 text-ink/65'>Send corrections, feedback, or questions.</p>
             </Link>
 
-            <Link href='/disclaimer' className='compact-card block transition motion-safe:hover:-translate-y-0.5'>
+            <Link href='/info/disclaimer' className='compact-card block transition motion-safe:hover:-translate-y-0.5'>
               <p className='text-sm font-semibold text-ink'>Disclaimer</p>
               <p className='mt-1 text-sm leading-6 text-ink/65'>Read the educational and medical disclaimer.</p>
             </Link>

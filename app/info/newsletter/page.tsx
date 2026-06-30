@@ -5,7 +5,7 @@ import EmailCapture from '../../components/EmailCapture'
 export const metadata: Metadata = {
   title: 'Newsletter Archive',
   description: 'Static archive for The Hippie Scientist newsletter notes on supplement safety, evidence, and sourcing.',
-  alternates: { canonical: '/newsletter/' },
+  alternates: { canonical: '/info/info/newsletter/' },
 }
 
 const archiveItems = [
@@ -50,7 +50,7 @@ export default function NewsletterArchivePage() {
         location='newsletter-archive'
       />
 
-      <Link href='/supplement-safety-checklist' className='inline-flex rounded-full border border-brand-900/10 bg-white px-5 py-3 text-sm font-semibold text-brand-800 transition hover:bg-brand-50'>
+      <Link href='/info/supplement-safety-checklist' className='inline-flex rounded-full border border-brand-900/10 bg-white px-5 py-3 text-sm font-semibold text-brand-800 transition hover:bg-brand-50'>
         Get the safety checklist
       </Link>
     </div>

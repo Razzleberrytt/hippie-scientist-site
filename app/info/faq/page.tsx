@@ -6,7 +6,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: 'FAQ',
   description:
     'Frequently asked questions about The Hippie Scientist and how to use the site. Evidence-based answers on herbs, compounds, and research methodology.',
-  path: '/faq',
+  path: '/info/faq',
 })
 
 const faqs = [
@@ -53,12 +53,12 @@ const faqs = [
 ]
 
 const faqLd = faqPageJsonLd({
-  pagePath: '/faq',
+  pagePath: '/info/faq',
   questions: faqs.map(f => ({ question: f.question, answer: f.answer })),
 })
 const breadcrumbLd = breadcrumbJsonLd([
   { name: 'Home', url: SITE_URL },
-  { name: 'FAQ', url: `${SITE_URL}/faq/` },
+  { name: 'FAQ', url: `${SITE_URL}/info/info/faq/` },
 ])
 
 export default function FaqPage() {
@@ -82,21 +82,21 @@ export default function FaqPage() {
 
         <div className='mt-6 flex flex-wrap gap-3'>
           <Link
-            href='/about'
+            href='/info/about'
             className='rounded-full bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 shadow-sm'
           >
             Read About
           </Link>
 
           <Link
-            href='/contact'
+            href='/info/contact'
             className='rounded-full border border-stone-200 px-5 py-3 text-sm font-semibold text-stone-700 transition hover:bg-stone-50 hover:text-stone-900'
           >
             Contact
           </Link>
 
           <Link
-            href='/disclaimer'
+            href='/info/disclaimer'
             className='rounded-full border border-stone-200 px-5 py-3 text-sm font-semibold text-stone-700 transition hover:bg-stone-50 hover:text-stone-900'
           >
             Disclaimer

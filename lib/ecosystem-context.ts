@@ -13,7 +13,7 @@ export const topicClusters: TopicCluster[] = [
   {
     slug: 'inflammation',
     label: 'Inflammation',
-    href: '/education/inflammation',
+    href: '/learn/inflammation',
     description: 'Immune signaling, cytokine language, recovery, mobility, and oxidative-stress relationships.',
     systems: ['Immune tone', 'Cytokines', 'Recovery'],
     keywords: ['inflammation', 'inflammatory', 'cytokine', 'immune', 'joint', 'recovery'],
@@ -21,7 +21,7 @@ export const topicClusters: TopicCluster[] = [
   {
     slug: 'cognition',
     label: 'Cognition',
-    href: '/goals/focus',
+    href: '/guides/focus',
     description: 'Attention, memory, mental clarity, fatigue resistance, and neurotransmitter-adjacent research.',
     systems: ['Attention', 'Memory', 'Neurotransmitters'],
     keywords: ['cognition', 'focus', 'memory', 'attention', 'nootropic', 'clarity'],
@@ -61,7 +61,7 @@ export const topicClusters: TopicCluster[] = [
   {
     slug: 'oxidative-stress',
     label: 'Oxidative stress',
-    href: '/education/inflammation',
+    href: '/learn/inflammation',
     description: 'Antioxidant response, redox balance, inflammation overlap, and tissue-stress research language.',
     systems: ['Redox balance', 'Antioxidant response', 'Tissue stress'],
     keywords: ['oxidative', 'antioxidant', 'redox', 'ros', 'free radical'],
@@ -69,7 +69,7 @@ export const topicClusters: TopicCluster[] = [
   {
     slug: 'sleep',
     label: 'Sleep',
-    href: '/goals/sleep',
+    href: '/guides/sleep',
     description: 'Latency, sleep quality, relaxation, circadian context, and nighttime recovery overlap.',
     systems: ['Sleep quality', 'Circadian context', 'Relaxation'],
     keywords: ['sleep', 'circadian', 'melatonin', 'night', 'insomnia'],
@@ -77,7 +77,7 @@ export const topicClusters: TopicCluster[] = [
   {
     slug: 'neurobiology',
     label: 'Neurobiology',
-    href: '/education/dopamine',
+    href: '/learn/dopamine',
     description: 'Neurotransmitter systems, mood-adjacent signals, cognition, calm, and arousal regulation.',
     systems: ['Dopamine', 'GABA', 'Arousal'],
     keywords: ['neuro', 'dopamine', 'gaba', 'serotonin', 'brain', 'mood'],

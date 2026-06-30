@@ -113,7 +113,7 @@ export default function Page() {
               magnesium glycinate
             </Link>{' '}
             in the evening. See the{' '}
-            <Link href="/articles/l-theanine" className="font-semibold text-brand-700 hover:underline">
+            <Link href="/guides/herbs/l-theanine" className="font-semibold text-brand-700 hover:underline">
               full L-theanine guide
             </Link>{' '}
             for dosing and stacking notes.
@@ -277,7 +277,7 @@ export default function Page() {
             <Link href="/guides/best-herbs-for-stress-and-anxiety-at-night" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Stress &amp; Anxiety at Night →</Link>
             <Link href="/guides/how-to-lower-cortisol-naturally" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">How to Lower Cortisol Naturally →</Link>
             <Link href="/compare/ashwagandha-vs-l-theanine-vs-magnesium" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Ashwagandha vs L-theanine vs Magnesium →</Link>
-            <Link href="/goals/anxiety" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Anxiety Guides →</Link>
+            <Link href="/guides/anxiety" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Anxiety Guides →</Link>
           </div>
         </section>
       </div>

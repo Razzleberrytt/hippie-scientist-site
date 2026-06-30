@@ -15,7 +15,7 @@ export default function ScrollEngagementPrompt({
   storageKey,
   headline = 'Free supplement safety checklist',
   description = 'Evidence-based steps to review medications, dose, form, and stacking risk before you buy.',
-  ctaHref = '/supplement-safety-checklist',
+  ctaHref = '/info/supplement-safety-checklist',
   ctaLabel = 'Get the checklist',
 }: ScrollEngagementPromptProps) {
   const [visible, setVisible] = useState(false)

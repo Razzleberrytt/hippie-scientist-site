@@ -46,7 +46,7 @@ export type MdxBlock =
       content: string
     }
 
-const educationDir = path.join(process.cwd(), 'content/education')
+const educationDir = path.join(process.cwd(), 'content/learn')
 
 export function getEducationArticleBySlug(slug: string): EducationArticle | null {
   const filePath = path.join(educationDir, `${slug}.mdx`)
@@ -313,12 +313,12 @@ export function parseMdxBlocks(raw: string): MdxBlock[] {
 // Search-index education registry
 //
 // Separate from the article renderer above: this powers global search by
-// pairing every `app/education/*` route with optional `content/education/*`
+// pairing every `app/learn/*` route with optional `content/learn/*`
 // frontmatter so the whole education surface is searchable. Consumed at build
 // time by `scripts/data/build-search-index.mjs`.
 // ---------------------------------------------------------------------------
 
-const educationRoutesDir = path.join(process.cwd(), 'app/education')
+const educationRoutesDir = path.join(process.cwd(), 'app/learn')
 
 export interface EducationDoc {
   slug: string
@@ -434,7 +434,7 @@ export function getAllEducationDocs(): EducationDoc[] {
         relatedHerbs: md?.relatedHerbs ?? [],
         relatedCompounds: md?.relatedCompounds ?? [],
         readingTime: md?.readingTime ?? '',
-        href: `/education/${slug}`,
+        href: `/learn/${slug}`,
         excerpt: md?.excerpt ?? '',
       }
     })

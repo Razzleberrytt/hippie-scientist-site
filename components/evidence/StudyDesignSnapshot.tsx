@@ -4,7 +4,7 @@ import type { ReactNode } from 'react'
  * StudyDesignSnapshot
  *
  * A reusable, accessible evidence-transparency block designed for clean
- * embedding inside structured `content/education/` MDX files (and any server or
+ * embedding inside structured `content/learn/` MDX files (and any server or
  * client page). It keeps the practical takeaway prominent while tucking the
  * "why" — grade rationale, clinical trial design factors, and limitations —
  * into a native, keyboard-accessible disclosure that also works without JS.

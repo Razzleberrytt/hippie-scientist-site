@@ -23,7 +23,7 @@ describe('revenue deployment placements', () => {
   })
 
   test('rhodiola versus ashwagandha comparison page includes disclosure, recommendations, and capture', () => {
-    const page = source('app/compare/rhodiola-vs-ashwagandha/page.tsx')
+    const page = source('app/guides/guides/compare/rhodiola-vs-ashwagandha/page.tsx')
 
     expect(page).toContain('AffiliateDisclosure')
     expect(page).toContain('EmailCapture')

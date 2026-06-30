@@ -18,7 +18,7 @@ export default function Disclaimer({ className = '' }: DisclaimerProps) {
       </p>
       <p className='mt-2 text-amber-950/85 dark:text-amber-50/85'>
         Learn how we evaluate confidence, safety, and intensity on the{' '}
-        <Link to='/methodology' className='font-semibold text-amber-950 underline decoration-dotted underline-offset-4 dark:text-amber-50'>
+        <Link to='/info/methodology' className='font-semibold text-amber-950 underline decoration-dotted underline-offset-4 dark:text-amber-50'>
           methodology page
         </Link>
         .

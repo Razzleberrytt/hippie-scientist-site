@@ -104,7 +104,7 @@ export default function LTheanineWithoutCaffeinePage() {
         </h1>
         <p className="mt-2 text-sm text-muted">
           By{' '}
-          <Link href="/about/" rel="author" className="font-medium text-ink hover:underline">
+          <Link href="/info/info/about/" rel="author" className="font-medium text-ink hover:underline">
             {AUTHOR}
           </Link>
         </p>
@@ -133,11 +133,11 @@ export default function LTheanineWithoutCaffeinePage() {
               stimulant-free ADHD focus.</strong> Effects within 30–60 minutes, no crash, no sleep
               disruption, no dependency. If 100&nbsp;mg is not enough, increase to 200&nbsp;mg before
               considering other compounds. For comparison with the caffeine combination, see{' '}
-              <Link href="/articles/l-theanine-vs-caffeine-for-focus" className="font-semibold text-brand-700 hover:underline">
+              <Link href="/guides/focus/l-theanine-vs-caffeine-for-focus" className="font-semibold text-brand-700 hover:underline">
                 L-Theanine vs Caffeine for Focus
               </Link>
               . For the broader evidence review, see the{' '}
-              <Link href="/articles/l-theanine" className="font-semibold text-brand-700 hover:underline">
+              <Link href="/guides/herbs/l-theanine" className="font-semibold text-brand-700 hover:underline">
                 full L-theanine article
               </Link>
               .
@@ -289,7 +289,7 @@ export default function LTheanineWithoutCaffeinePage() {
               </p>
               <p className="mt-3 text-sm text-muted">
                 For the full comparison, see{' '}
-                <Link href="/articles/l-theanine-vs-caffeine-for-focus"
+                <Link href="/guides/focus/l-theanine-vs-caffeine-for-focus"
                   className="font-semibold text-brand-700 hover:underline">
                   L-Theanine vs Caffeine for Focus
                 </Link>.
@@ -470,15 +470,15 @@ export default function LTheanineWithoutCaffeinePage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Related Articles</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {[
-                  ['/articles/best-supplements-for-adhd', 'Cornerstone', 'Best Supplements for ADHD', 'Full evidence-ranked guide.'],
-                  ['/articles/l-theanine-for-adhd', 'ADHD Cluster', 'L-Theanine for ADHD', 'Full evidence review including sleep.'],
-                  ['/articles/l-theanine-vs-caffeine-for-focus', 'ADHD Cluster', 'L-Theanine vs Caffeine', 'Direct comparison for focus.'],
-                  ['/articles/l-theanine-magnesium-adhd-stack', 'Stack Guide', 'L-Theanine + Magnesium Stack', 'Combine for broader ADHD support.'],
-                  ['/articles/l-theanine-for-sleep', 'Sleep Cluster', 'L-Theanine for Sleep', 'Nighttime calm without caffeine.'],
-                  ['/articles/adhd-stack-guide', 'ADHD Cluster', 'ADHD Stack Guide', 'Building a safe ADHD supplement stack.'],
-                  ['/articles/ashwagandha', 'Umbrella', 'Ashwagandha Article', 'Full evidence review across stress, anxiety, sleep, and focus.'],
-                  ['/articles/ashwagandha-for-adhd', 'ADHD Cluster', 'Ashwagandha for ADHD', 'Chronic stress and focus support.'],
-                  ['/goals/focus', 'Goal Hub', 'Focus Goal Hub', 'Compare all focus supplements.'],
+                  ['/guides/adhd/best-supplements-for-adhd', 'Cornerstone', 'Best Supplements for ADHD', 'Full evidence-ranked guide.'],
+                  ['/guides/adhd/l-theanine-for-adhd', 'ADHD Cluster', 'L-Theanine for ADHD', 'Full evidence review including sleep.'],
+                  ['/guides/focus/l-theanine-vs-caffeine-for-focus', 'ADHD Cluster', 'L-Theanine vs Caffeine', 'Direct comparison for focus.'],
+                  ['/guides/adhd/l-theanine-magnesium-adhd-stack', 'Stack Guide', 'L-Theanine + Magnesium Stack', 'Combine for broader ADHD support.'],
+                  ['/guides/sleep/l-theanine-for-sleep', 'Sleep Cluster', 'L-Theanine for Sleep', 'Nighttime calm without caffeine.'],
+                  ['/guides/adhd/adhd-stack-guide', 'ADHD Cluster', 'ADHD Stack Guide', 'Building a safe ADHD supplement stack.'],
+                  ['/guides/herbs/ashwagandha', 'Umbrella', 'Ashwagandha Article', 'Full evidence review across stress, anxiety, sleep, and focus.'],
+                  ['/guides/adhd/ashwagandha-for-adhd', 'ADHD Cluster', 'Ashwagandha for ADHD', 'Chronic stress and focus support.'],
+                  ['/guides/focus', 'Goal Hub', 'Focus Goal Hub', 'Compare all focus supplements.'],
                 ].map(([href, eyebrow, label, desc]) => (
                   <Link key={href as string} href={href as string}
                     className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30">
@@ -532,12 +532,12 @@ export default function LTheanineWithoutCaffeinePage() {
             <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Focus + ADHD cluster</p>
             <div className="mt-3 space-y-2">
               {[
-                ['/articles/best-supplements-for-adhd', 'Best supplements for ADHD →'],
-                ['/articles/l-theanine-for-adhd', 'L-Theanine for ADHD →'],
-                ['/articles/l-theanine-vs-caffeine-for-focus', 'L-Theanine vs Caffeine →'],
-                ['/articles/adhd-stack-guide', 'ADHD stack guide →'],
-                ['/articles/l-theanine-for-sleep', 'L-Theanine for sleep →'],
-                ['/goals/focus', 'Focus goal hub →'],
+                ['/guides/adhd/best-supplements-for-adhd', 'Best supplements for ADHD →'],
+                ['/guides/adhd/l-theanine-for-adhd', 'L-Theanine for ADHD →'],
+                ['/guides/focus/l-theanine-vs-caffeine-for-focus', 'L-Theanine vs Caffeine →'],
+                ['/guides/adhd/adhd-stack-guide', 'ADHD stack guide →'],
+                ['/guides/sleep/l-theanine-for-sleep', 'L-Theanine for sleep →'],
+                ['/guides/focus', 'Focus goal hub →'],
               ].map(([href, label]) => (
                 <Link key={href as string} href={href as string}
                   className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline">

@@ -166,6 +166,6 @@ If you're considering saffron for depression: it should not replace prescribed t
 | 5 | Moshiri E et al. | Crocus sativus stigma: efficacy compared to placebo | Phytomedicine | 2006 | [17160410](https://pubmed.ncbi.nlm.nih.gov/17160410/) |
 ## Related Articles
 
-- [Ashwagandha: Stress, Sleep & the Evidence](/articles/ashwagandha)
+- [Ashwagandha: Stress, Sleep & the Evidence](/guides/herbs/ashwagandha)
 - [Creatine for Brain Health](/articles/creatine-brain-health)
 - [Lion's Mane: What the Science Actually Says](/articles/lions-mane)

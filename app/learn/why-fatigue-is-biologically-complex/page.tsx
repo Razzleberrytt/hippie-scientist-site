@@ -10,7 +10,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Fatigue Is Biologically Complex",
   description: "Educational exploration of fatigue systems, recovery biology, stress physiology, burnout-oriented neurobiology, and cognition sustainability.",
-  path: "/education/why-fatigue-is-biologically-complex/",
+  path: "/learn/why-fatigue-is-biologically-complex/",
 })
 
 
@@ -45,10 +45,10 @@ const faqs = [
 ]
 
 const relatedSystems = [
-  { href: '/education/how-the-brain-recovers-from-fatigue', title: 'Fatigue Recovery' },
-  { href: '/education/why-burnout-affects-cognition', title: 'Burnout and Cognition' },
-  { href: '/goals/stress', title: 'Burnout Recovery' },
-  { href: '/education/how-sleep-affects-neurochemistry', title: 'Sleep and Neurochemistry' },
+  { href: '/learn/how-the-brain-recovers-from-fatigue', title: 'Fatigue Recovery' },
+  { href: '/learn/why-burnout-affects-cognition', title: 'Burnout and Cognition' },
+  { href: '/guides/anxiety', title: 'Burnout Recovery' },
+  { href: '/learn/how-sleep-affects-neurochemistry', title: 'Sleep and Neurochemistry' },
 ]
 
 export default function WhyFatigueIsBiologicallyComplexPage() {
@@ -57,14 +57,14 @@ export default function WhyFatigueIsBiologicallyComplexPage() {
       <AuthorityJsonLd
         title="Why Fatigue Is Biologically Complex"
         description="Educational exploration of fatigue systems, recovery biology, stress physiology, burnout-oriented neurobiology, and cognition sustainability."
-        url="https://thehippiescientist.net/education/why-fatigue-is-biologically-complex"
+        url="https://thehippiescientist.net/learn/why-fatigue-is-biologically-complex"
         type="Article"
         faqItems={faqs}
       />
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Why Fatigue Is Biologically Complex' },
         ]}
       />

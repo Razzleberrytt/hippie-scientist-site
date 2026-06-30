@@ -11,7 +11,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "Understanding Altered States",
   description: "Educational exploration of altered states, perception-oriented neurobiology, emotional processing, psychoactive context, and systems-oriented neuroscience.",
-  path: "/education/understanding-altered-states/",
+  path: "/learn/understanding-altered-states/",
 })
 
 
@@ -32,7 +32,7 @@ const mechanisms = [
 
 const relatedSystems = [
   {
-    href: '/education/why-set-and-setting-matter',
+    href: '/learn/why-set-and-setting-matter',
     title: 'Set and Setting',
   },
   {
@@ -40,11 +40,11 @@ const relatedSystems = [
     title: 'Psychoactive Education',
   },
   {
-    href: '/education/how-emotional-regulation-works',
+    href: '/learn/how-emotional-regulation-works',
     title: 'Emotional Regulation',
   },
   {
-    href: '/education/how-stress-affects-the-brain',
+    href: '/learn/how-stress-affects-the-brain',
     title: 'Stress Neurobiology',
   },
 ]
@@ -73,7 +73,7 @@ export default function AlteredStatesEducationPage() {
       <AuthorityJsonLd
         title="Understanding Altered States"
         description="Educational exploration of altered states, perception-oriented neurobiology, emotional processing, psychoactive context, and systems-oriented neuroscience."
-        url="https://thehippiescientist.net/education/understanding-altered-states"
+        url="https://thehippiescientist.net/learn/understanding-altered-states"
         type="Article"
         faqItems={faqItems}
       />
@@ -81,7 +81,7 @@ export default function AlteredStatesEducationPage() {
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Understanding Altered States' },
         ]}
       />

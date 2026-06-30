@@ -6,11 +6,11 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
-import RelatedEducationSystems from '@/components/education/related-education-systems'
+import RelatedEducationSystems from '@/components/learn/related-education-systems'
 export const metadata: Metadata = buildPageMetadata({
   title: "Cognitive Resilience Systems",
   description: "Authority hub exploring attentional resilience, recovery continuity, stress regulation, contextual neurobiology, and sustainable cognition systems.",
-  path: "/education/cognitive-resilience-systems/",
+  path: "/learn/cognitive-resilience-systems/",
 })
 
 
@@ -46,23 +46,23 @@ const faqs = [
 
 const relatedSystems = [
   {
-    href: '/education/stress-and-cognition-continuity',
+    href: '/learn/stress-and-cognition-continuity',
     title: 'Stress and Cognition Continuity',
   },
   {
-    href: '/goals/focus',
+    href: '/guides/focus',
     title: 'Recovery-Oriented Cognition Systems',
   },
   {
-    href: '/goals/focus',
+    href: '/guides/focus',
     title: 'Non-Stimulant Focus Stabilization',
   },
   {
-    href: '/education/scientific-but-human-neuroscience',
+    href: '/learn/scientific-but-human-neuroscience',
     title: 'Scientific But Human Neuroscience',
   },
   {
-    href: '/goals/stress',
+    href: '/guides/anxiety',
     title: 'Burnout Recovery',
   },
 ]
@@ -73,14 +73,14 @@ export default function CognitiveResilienceSystemsPage() {
       <AuthorityJsonLd
         title='Cognitive Resilience Systems'
         description='Authority hub exploring attentional resilience, recovery continuity, stress regulation, contextual neurobiology, and sustainable cognition systems.'
-        url='https://thehippiescientist.net/education/cognitive-resilience-systems'
+        url='https://thehippiescientist.net/learn/cognitive-resilience-systems'
         type='Article'
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Cognitive Resilience Systems' },
         ]}
       />

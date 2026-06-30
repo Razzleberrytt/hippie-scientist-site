@@ -10,7 +10,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Set and Setting Matter",
   description: "Educational exploration of set and setting, contextual neurobiology, emotional regulation, environmental influence, and subjective experiences.",
-  path: "/education/why-set-and-setting-matter/",
+  path: "/learn/why-set-and-setting-matter/",
 })
 
 
@@ -45,10 +45,10 @@ const faqs = [
 ]
 
 const relatedSystems = [
-  { href: '/education/placebo-and-context-effects', title: 'Placebo and Context Effects' },
-  { href: '/education/why-individual-variability-matters', title: 'Individual Variability' },
-  { href: '/education/why-neuroscience-is-difficult', title: 'Why Neuroscience Is Difficult' },
-  { href: '/education/understanding-altered-states', title: 'Understanding Altered States' },
+  { href: '/learn/placebo-and-context-effects', title: 'Placebo and Context Effects' },
+  { href: '/learn/why-individual-variability-matters', title: 'Individual Variability' },
+  { href: '/learn/why-neuroscience-is-difficult', title: 'Why Neuroscience Is Difficult' },
+  { href: '/learn/understanding-altered-states', title: 'Understanding Altered States' },
 ]
 
 export default function WhySetAndSettingMatterPage() {
@@ -57,14 +57,14 @@ export default function WhySetAndSettingMatterPage() {
       <AuthorityJsonLd
         title="Why Set and Setting Matter"
         description="Educational exploration of set and setting, contextual neurobiology, emotional regulation, environmental influence, and subjective experiences."
-        url="https://thehippiescientist.net/education/why-set-and-setting-matter"
+        url="https://thehippiescientist.net/learn/why-set-and-setting-matter"
         type="Article"
         faqItems={faqs}
       />
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Why Set and Setting Matter' },
         ]}
       />

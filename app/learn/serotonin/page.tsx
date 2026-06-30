@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Serotonin Pathway Education',
   description:
     'Learn about serotonergic signaling, mood regulation, emotional processing, and herbs and compounds associated with the serotonin pathway.',
-  alternates: { canonical: '/education/serotonin/' },
+  alternates: { canonical: '/learn/serotonin/' },
 }
 
 const profiles = [
@@ -39,14 +39,14 @@ export default function SerotoninPathwayPage() {
       <AuthorityJsonLd
         title="Serotonin Pathway"
         description="Educational overview of serotonergic signaling, mood regulation, psychoactive neuropharmacology, and related herbs and compounds."
-        url="https://thehippiescientist.net/education/serotonin"
+        url="https://thehippiescientist.net/learn/serotonin"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Serotonin' },
         ]}
       />

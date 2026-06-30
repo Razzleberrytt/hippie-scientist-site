@@ -42,8 +42,8 @@ export function Navigation() {
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/'
     if (href === '/guides') return pathname === '/guides' || pathname.startsWith('/guides/')
-    if (href === '/learn') return pathname === '/learn' || pathname.startsWith('/learn/') || pathname === '/education' || pathname.startsWith('/education/') || pathname.startsWith('/novel-psychoactive-substances')
-    if (href === '/safety-checker') return pathname === '/safety-checker' || pathname.startsWith('/evidence/') || pathname.startsWith('/info/dosing') || pathname.startsWith('/info/supplement-safety-checklist')
+    if (href === '/learn') return pathname === '/learn' || pathname.startsWith('/learn/') || pathname === '/learn' || pathname.startsWith('/learn/') || pathname.startsWith('/novel-psychoactive-substances')
+    if (href === '/safety-checker') return pathname === '/safety-checker' || pathname.startsWith('/evidence/') || pathname.startsWith('/info/info/dosing') || pathname.startsWith('/info/info/supplement-safety-checklist')
     return pathname === href || pathname.startsWith(href + '/')
   }
 

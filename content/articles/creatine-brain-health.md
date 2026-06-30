@@ -170,4 +170,4 @@ At $10–20/month with an excellent safety profile, creatine monohydrate is one 
 
 - [Lion's Mane vs Stimulants for ADHD](/articles/lions-mane-vs-stimulants-adhd)
 - [Saffron for Depression](/articles/saffron-depression-evidence)
-- [Ashwagandha: Stress, Sleep & the Evidence](/articles/ashwagandha)
+- [Ashwagandha: Stress, Sleep & the Evidence](/guides/herbs/ashwagandha)

@@ -292,7 +292,7 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
             label: 'Guide',
             title: 'Stress Resilience',
             description: 'How to map your stress pattern (wired vs. tired) to select the right adaptogen.',
-            href: '/goals/stress',
+            href: '/guides/anxiety',
           },
         ]}
       />

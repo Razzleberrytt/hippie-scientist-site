@@ -42,7 +42,7 @@ const SLEEP_SUPPLEMENTS = [
     dose: '100–200 mg taken 30–60 min before bed; often stacked with magnesium',
     safety: 'Generally well-tolerated; use extra caution with sedatives, blood pressure medication, pregnancy/breastfeeding, or psychiatric medication',
     bestFor: 'Racing thoughts, anxiety-driven wakefulness, improving sleep quality',
-    href: '/articles/l-theanine',
+    href: '/guides/herbs/l-theanine',
     badge: 'Moderate',
   },
   {
@@ -166,7 +166,7 @@ export default function BestSupplementsForSleepPage() {
           </div>
           <div className="mt-4 rounded-xl border border-brand-900/10 bg-brand-50 p-4 text-sm text-brand-950">
             <strong>Fastest useful choice:</strong> for racing thoughts, start with{' '}
-            <Link href="/articles/l-theanine" className="font-semibold text-brand-800 hover:underline">L-theanine</Link>;
+            <Link href="/guides/herbs/l-theanine" className="font-semibold text-brand-800 hover:underline">L-theanine</Link>;
             for muscle tension or night waking, start with{' '}
             <Link href="/compounds/magnesium-glycinate" className="font-semibold text-brand-800 hover:underline">magnesium glycinate</Link>;
             for jet lag or a shifted sleep schedule, start with low-dose{' '}
@@ -188,7 +188,7 @@ export default function BestSupplementsForSleepPage() {
             {[
               { problem: 'Trouble falling asleep', suggestion: 'Melatonin (low dose) + L-Theanine', href: '/compounds/melatonin' },
               { problem: 'Waking during the night', suggestion: 'Magnesium Glycinate + Ashwagandha (if stress-driven)', href: '/compounds/magnesium-glycinate' },
-              { problem: 'Racing thoughts at bedtime', suggestion: 'L-Theanine + Passionflower', href: '/articles/l-theanine' },
+              { problem: 'Racing thoughts at bedtime', suggestion: 'L-Theanine + Passionflower', href: '/guides/herbs/l-theanine' },
               { problem: '"Wired but tired" / cortisol issues', suggestion: 'Ashwagandha (long-term) + Magnesium', href: '/herbs/ashwagandha' },
               { problem: 'Jet lag or shift work', suggestion: 'Melatonin (timed precisely to destination)', href: '/compounds/melatonin' },
               { problem: 'Muscle tension / physical restlessness', suggestion: 'Magnesium Glycinate (evening)', href: '/compounds/magnesium-glycinate' },
@@ -295,7 +295,7 @@ export default function BestSupplementsForSleepPage() {
 
         {/* Related */}
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
-          <Link href="/articles/l-theanine" className="hover:text-brand-800">L-Theanine for Calm Sleep →</Link>
+          <Link href="/guides/herbs/l-theanine" className="hover:text-brand-800">L-Theanine for Calm Sleep →</Link>
           <Link href="/guides/magnesium-vs-melatonin" className="hover:text-brand-800">Magnesium vs Melatonin →</Link>
           <Link href="/compare/sleep-herbs-vs-melatonin" className="hover:text-brand-800">Sleep Herbs vs Melatonin →</Link>
           <Link href="/guides/magnesium-for-sleep" className="hover:text-brand-800">Magnesium for Sleep Guide →</Link>

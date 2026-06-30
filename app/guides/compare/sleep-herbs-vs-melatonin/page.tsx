@@ -599,21 +599,21 @@ export default function SleepHerbsVsMelatoninComparePage() {
             label: 'Goal Guide',
             title: 'Sleep Goals',
             description: 'Map your sleep issue to the right supplement — onset, depth, anxiety, or recovery.',
-            href: '/goals/sleep',
+            href: '/guides/sleep',
           },
           {
             type: 'guide',
             label: 'Education',
             title: 'GABA Pathway',
             description: 'How GABA works, why it matters for calm and sleep, and which supplements modulate it.',
-            href: '/education/gaba',
+            href: '/learn/gaba',
           },
           {
             type: 'guide',
             label: 'Education',
             title: 'How Sleep Affects Neurochemistry',
             description: 'The biology of why sleep deprivation impairs cognition, mood, and recovery.',
-            href: '/education/how-sleep-affects-neurochemistry',
+            href: '/learn/how-sleep-affects-neurochemistry',
           },
         ]}
       />
@@ -631,8 +631,8 @@ export default function SleepHerbsVsMelatoninComparePage() {
         <Link href="/compare/l-theanine-vs-magnesium" className="chip-readable">L-Theanine vs Magnesium</Link>
         <Link href="/compare/magnesium-glycinate-vs-magnesium-threonate" className="chip-readable">Magnesium Glycinate vs L-Threonate</Link>
         <Link href="/compare/magnesium-glycinate-vs-magnesium-oxide" className="chip-readable">Magnesium Glycinate vs Oxide</Link>
-        <Link href="/goals/sleep" className="chip-readable">Sleep Goals</Link>
-        <Link href="/education/gaba" className="chip-readable">GABA Pathway</Link>
+        <Link href="/guides/sleep" className="chip-readable">Sleep Goals</Link>
+        <Link href="/learn/gaba" className="chip-readable">GABA Pathway</Link>
         <Link href="/compare/" className="chip-readable">All Comparisons</Link>
       </div>
     </div>

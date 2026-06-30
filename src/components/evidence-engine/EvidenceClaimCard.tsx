@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import EvidenceSafetyNotes from './EvidenceSafetyNotes'
 import EvidenceSourceList from './EvidenceSourceList'
-import TrialDesignInsight from '@/components/education/TrialDesignInsight'
+import TrialDesignInsight from '@/components/learn/TrialDesignInsight'
 import {
   getConfidenceDisplay,
   type EvidenceEngineClaim,

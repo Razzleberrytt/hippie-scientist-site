@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: 'Study Design Snapshots: Reading an Evidence Grade',
   description:
     'How evidence grades are assigned and which clinical trial design factors matter — shown through embeddable Study Design Snapshots that keep the practical takeaway prominent.',
-  alternates: { canonical: '/education/study-design-snapshot/' },
+  alternates: { canonical: '/learn/study-design-snapshot/' },
   openGraph: {
     title: 'Study Design Snapshots: Reading an Evidence Grade',
     description:
       'How evidence grades are assigned and which clinical trial design factors matter, shown through embeddable Study Design Snapshots.',
-    url: '/education/study-design-snapshot/',
+    url: '/learn/study-design-snapshot/',
     images: ['/og-default.jpg'],
   },
 }
@@ -24,14 +24,14 @@ export default function StudyDesignSnapshotHubPage() {
       <AuthorityJsonLd
         title="Study Design Snapshots: Reading an Evidence Grade"
         description="How evidence grades are assigned and which clinical trial design factors matter, shown through embeddable Study Design Snapshots."
-        url="https://thehippiescientist.net/education/study-design-snapshot"
+        url="https://thehippiescientist.net/learn/study-design-snapshot"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Study Design Snapshots' },
         ]}
       />
@@ -49,7 +49,7 @@ export default function StudyDesignSnapshotHubPage() {
           and tucks the &ldquo;why&rdquo; — trial design and limitations — into an optional,
           expandable panel. The same component is embeddable inside our structured education
           content. For the full methodology guide, see{' '}
-          <Link href="/education/evidence-hierarchy" className="font-semibold text-brand-700 hover:text-brand-800">
+          <Link href="/learn/evidence-hierarchy" className="font-semibold text-brand-700 hover:text-brand-800">
             Evidence Hierarchy
           </Link>
           .

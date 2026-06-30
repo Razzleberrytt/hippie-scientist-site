@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'GABA Pathway Education',
   description:
     'Learn about GABAergic signaling, calming neurochemistry, inhibitory neurotransmission, sleep-related pathways, and related herbs and compounds.',
-  alternates: { canonical: '/education/gaba/' },
+  alternates: { canonical: '/learn/gaba/' },
 }
 
 const faqItems = [
@@ -62,7 +62,7 @@ export default function GabaPathwayPage() {
       <AuthorityJsonLd
         title="GABA Pathway"
         description="Educational overview of GABAergic signaling, calming neuropharmacology, inhibitory neurotransmission, and related herbs and compounds."
-        url="https://thehippiescientist.net/education/gaba"
+        url="https://thehippiescientist.net/learn/gaba"
         type="Article"
         breadcrumbs={[
           {
@@ -71,11 +71,11 @@ export default function GabaPathwayPage() {
           },
           {
             name: 'Education',
-            url: 'https://thehippiescientist.net/education',
+            url: 'https://thehippiescientist.net/learn',
           },
           {
             name: 'GABA',
-            url: 'https://thehippiescientist.net/education/gaba',
+            url: 'https://thehippiescientist.net/learn/gaba',
           },
         ]}
       />
@@ -90,7 +90,7 @@ export default function GabaPathwayPage() {
           },
           {
             label: 'Education',
-            href: '/education',
+            href: '/learn',
           },
           {
             label: 'GABA',
@@ -161,7 +161,7 @@ export default function GabaPathwayPage() {
 
         <div className="flex flex-wrap gap-3">
           <Link
-            href="/education/gaba-vs-serotonin"
+            href="/learn/gaba-vs-serotonin"
             className="chip-readable hover:bg-white transition"
           >
             GABA vs Serotonin

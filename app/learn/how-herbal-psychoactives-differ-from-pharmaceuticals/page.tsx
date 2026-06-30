@@ -6,13 +6,13 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Herbal Psychoactives Differ From Pharmaceuticals",
   description: "Educational exploration of herbal psychoactives, pharmaceutical systems, neuropharmacology, ethnobotany, and careful comparison.",
-  path: "/education/how-herbal-psychoactives-differ-from-pharmaceuticals/",
+  path: "/learn/how-herbal-psychoactives-differ-from-pharmaceuticals/",
 })
 
 
 const systems = [
   {
-    href: '/education/what-is-neuropharmacology',
+    href: '/learn/what-is-neuropharmacology',
     title: 'Neuropharmacology',
   },
   {
@@ -24,7 +24,7 @@ const systems = [
     title: 'Kanna vs SSRIs',
   },
   {
-    href: '/education/serotonin',
+    href: '/learn/serotonin',
     title: 'Serotonin Pathway',
   },
 ]
@@ -35,14 +35,14 @@ export default function HerbalVsPharmaPage() {
       <AuthorityJsonLd
         title="How Herbal Psychoactives Differ From Pharmaceuticals"
         description="Educational exploration of herbal psychoactives, pharmaceutical systems, neuropharmacology, ethnobotany, and careful comparison."
-        url="https://thehippiescientist.net/education/how-herbal-psychoactives-differ-from-pharmaceuticals"
+        url="https://thehippiescientist.net/learn/how-herbal-psychoactives-differ-from-pharmaceuticals"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Herbal Psychoactives vs Pharmaceuticals' },
         ]}
       />

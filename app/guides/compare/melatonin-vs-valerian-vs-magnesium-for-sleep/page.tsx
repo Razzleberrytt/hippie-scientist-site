@@ -293,7 +293,7 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
             label: 'Guide',
             title: 'Sleep Decisions',
             description: 'A comprehensive decision guide comparing sleep aids by onset speed and risk.',
-            href: '/goals/sleep',
+            href: '/guides/sleep',
           },
         ]}
       />

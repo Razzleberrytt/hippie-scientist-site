@@ -159,7 +159,7 @@ This report is based on our internal database of 816 peer-reviewed studies acros
 - **D (Preliminary):** Animal studies, cell studies, single small pilot trial
 - **Traditional:** Historical use documented; no modern clinical trials identified
 
-Each study is graded on design quality (RCT > controlled > observational > case report), sample size, replication status, and funding source independence. The full methodology is documented at `/methodology`.
+Each study is graded on design quality (RCT > controlled > observational > case report), sample size, replication status, and funding source independence. The full methodology is documented at `/info/methodology`.
 
 ---
 
@@ -169,5 +169,5 @@ Each study is graded on design quality (RCT > controlled > observational > case 
 
 - [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)
 - [Adaptogenic Compounds: Clinical Evidence](/articles/adaptogenic-natural-compounds)
-- [Ashwagandha: Stress, Cortisol, and Anxiety](/articles/ashwagandha)
+- [Ashwagandha: Stress, Cortisol, and Anxiety](/guides/herbs/ashwagandha)
 - [Berberine: AMPK Activation and Metabolic Health](/articles/berberine)

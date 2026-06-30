@@ -11,7 +11,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Focus and Motivation Work",
   description: "Educational exploration of focus neurochemistry, motivation signaling, cognition systems, calm productivity, and stress-aware neuropharmacology.",
-  path: "/education/how-focus-and-motivation-work/",
+  path: "/learn/how-focus-and-motivation-work/",
 })
 
 
@@ -32,19 +32,19 @@ const systems = [
 
 const related = [
   {
-    href: '/education/dopamine',
+    href: '/learn/dopamine',
     title: 'Dopamine Pathway',
   },
   {
-    href: '/goals/focus',
+    href: '/guides/focus',
     title: 'Non-Stimulant Focus',
   },
   {
-    href: '/education/what-is-a-nootropic',
+    href: '/learn/what-is-a-nootropic',
     title: 'What Is a Nootropic?',
   },
   {
-    href: '/goals/focus',
+    href: '/guides/focus',
     title: 'Non-Sedating Calm',
   },
 ]
@@ -55,14 +55,14 @@ export default function FocusMotivationPage() {
       <AuthorityJsonLd
         title="How Focus and Motivation Work"
         description="Educational exploration of focus neurochemistry, motivation signaling, cognition systems, calm productivity, and stress-aware neuropharmacology."
-        url="https://thehippiescientist.net/education/how-focus-and-motivation-work"
+        url="https://thehippiescientist.net/learn/how-focus-and-motivation-work"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'How Focus and Motivation Work' },
         ]}
       />

@@ -1,9 +1,9 @@
 # Educational content layer
 
 Markdown files in this directory power the **structured educational content
-layer** that feeds global search (and can feed the `/education/*` routes).
+layer** that feeds global search (and can feed the `/learn/*` routes).
 
-Every directory under `app/education/*` is automatically searchable using a
+Every directory under `app/learn/*` is automatically searchable using a
 titleized fallback. Adding a matching `<slug>.md` here **enriches** that entry
 with a real summary, facets, and a body excerpt — which dramatically improves
 how findable the page is.
@@ -12,7 +12,7 @@ how findable the page is.
 
 ```yaml
 ---
-slug: how-stress-affects-the-brain   # must match the app/education/<slug> route
+slug: how-stress-affects-the-brain   # must match the app/learn/<slug> route
 title: How Stress Affects the Brain  # falls back to a titleized slug
 summary: One-to-two sentence plain-language description (shown in results).
 category: Stress Physiology           # grouping label
@@ -72,7 +72,7 @@ import is needed:
 - `<StudyDesignSnapshot>` — keeps a practical takeaway prominent and tucks the
   grade rationale, trial design factors, and limitations into an optional,
   accessible disclosure. Live examples on the
-  [Study Design Snapshot hub](../../app/education/study-design-snapshot/page.tsx).
+  [Study Design Snapshot hub](../../app/learn/study-design-snapshot/page.tsx).
 - `<EvidenceSummaryCard>`, `<ResearchLimitations>`, `<MisconceptionCallout>`,
   `<SafetyNotice>`.
 

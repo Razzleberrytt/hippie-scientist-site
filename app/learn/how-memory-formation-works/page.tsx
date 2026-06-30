@@ -11,7 +11,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Memory Formation Works",
   description: "Educational exploration of memory formation, cognition continuity, sleep-dependent consolidation, emotional salience, and neuropharmacology.",
-  path: "/education/how-memory-formation-works/",
+  path: "/learn/how-memory-formation-works/",
 })
 
 
@@ -32,19 +32,19 @@ const mechanisms = [
 
 const relatedSystems = [
   {
-    href: '/education/how-sleep-affects-neurochemistry',
+    href: '/learn/how-sleep-affects-neurochemistry',
     title: 'Sleep Neurochemistry',
   },
   {
-    href: '/education/how-focus-and-motivation-work',
+    href: '/learn/how-focus-and-motivation-work',
     title: 'Focus and Motivation',
   },
   {
-    href: '/education/glutamate',
+    href: '/learn/glutamate',
     title: 'Glutamate Pathway',
   },
   {
-    href: '/education/cholinergic-system',
+    href: '/learn/cholinergic-system',
     title: 'Cholinergic System',
   },
 ]
@@ -73,7 +73,7 @@ export default function MemoryFormationEducationPage() {
       <AuthorityJsonLd
         title="How Memory Formation Works"
         description="Educational exploration of memory formation, cognition continuity, sleep-dependent consolidation, emotional salience, and neuropharmacology."
-        url="https://thehippiescientist.net/education/how-memory-formation-works"
+        url="https://thehippiescientist.net/learn/how-memory-formation-works"
         type="Article"
         faqItems={faqItems}
       />
@@ -81,7 +81,7 @@ export default function MemoryFormationEducationPage() {
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'How Memory Formation Works' },
         ]}
       />

@@ -10,28 +10,28 @@ import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Neurotransmitters Work",
   description: "Educational overview of neurotransmitters, signaling systems, neuropharmacology, pathway interactions, and nervous-system communication.",
-  path: "/education/how-neurotransmitters-work/",
+  path: "/learn/how-neurotransmitters-work/",
 })
 
 
 const pathways = [
   {
-    href: '/education/serotonin',
+    href: '/learn/serotonin',
     title: 'Serotonin Pathway',
     description: 'Mood-related signaling systems associated with emotional regulation, stress adaptation, appetite, sleep continuity, and psychoactive neuropharmacology.',
   },
   {
-    href: '/education/dopamine',
+    href: '/learn/dopamine',
     title: 'Dopamine Pathway',
     description: 'Motivation and cognition-oriented systems associated with reward signaling, behavioral reinforcement, novelty processing, and attention continuity.',
   },
   {
-    href: '/education/gaba',
+    href: '/learn/gaba',
     title: 'GABA Pathway',
     description: 'Calming inhibitory signaling systems associated with nervous-system downregulation, relaxation, sedation pathways, and sleep continuity.',
   },
   {
-    href: '/education/glutamate',
+    href: '/learn/glutamate',
     title: 'Glutamate Pathway',
     description: 'Excitatory signaling systems associated with learning, neuroplasticity, cognition, memory formation, and altered-state neuropharmacology.',
   },
@@ -43,7 +43,7 @@ export default function NeurotransmittersPage() {
       <AuthorityJsonLd
         title="How Neurotransmitters Work"
         description="Educational overview of neurotransmitters, signaling systems, neuropharmacology, pathway interactions, and nervous-system communication."
-        url="https://thehippiescientist.net/education/how-neurotransmitters-work"
+        url="https://thehippiescientist.net/learn/how-neurotransmitters-work"
         type="Article"
       />
 

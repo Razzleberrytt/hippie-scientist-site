@@ -10,7 +10,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Studies Conflict",
   description: "Educational exploration of scientific uncertainty, human variability, study design differences, and biological complexity in neuroscience and health research.",
-  path: "/education/why-studies-conflict/",
+  path: "/learn/why-studies-conflict/",
 })
 
 
@@ -45,10 +45,10 @@ const faqs = [
 ]
 
 const relatedSystems = [
-  { href: '/education/why-individual-variability-matters', title: 'Individual Variability' },
-  { href: '/education/why-online-supplement-claims-spread', title: 'Mechanistic Hype and Claims' },
-  { href: '/education/why-human-trials-matter', title: 'Human vs Mechanistic Evidence' },
-  { href: '/education/why-studies-conflict', title: 'Translational Limitations' },
+  { href: '/learn/why-individual-variability-matters', title: 'Individual Variability' },
+  { href: '/learn/why-online-supplement-claims-spread', title: 'Mechanistic Hype and Claims' },
+  { href: '/learn/why-human-trials-matter', title: 'Human vs Mechanistic Evidence' },
+  { href: '/learn/why-studies-conflict', title: 'Translational Limitations' },
 ]
 
 export default function WhyStudiesConflictPage() {
@@ -57,7 +57,7 @@ export default function WhyStudiesConflictPage() {
       <AuthorityJsonLd
         title="Why Studies Conflict"
         description="Educational exploration of scientific uncertainty, human variability, study design differences, and biological complexity in neuroscience and health research."
-        url="https://thehippiescientist.net/education/why-studies-conflict"
+        url="https://thehippiescientist.net/learn/why-studies-conflict"
         type="Article"
         faqItems={faqs}
       />

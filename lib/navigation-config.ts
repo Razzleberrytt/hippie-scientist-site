@@ -107,10 +107,10 @@ export const mainNavigation: NavigationItem[] = [
     description: 'Safety checkers, evidence lookup, and practical resources',
     children: [
       { label: 'Safety Checker', href: '/safety-checker', description: 'Herb-drug interaction and contraindication lookup' },
-      { label: 'Evidence Lookup', href: '/evidence/evidence-checker', description: 'Search compounds by clinical evidence grade' },
-      { label: 'Evidence Report', href: '/evidence/evidence-report', description: 'State of Supplement Evidence — annual research review' },
-      { label: 'Dosing Guide', href: '/info/dosing', description: 'Bioavailability, timing, and stacking guidelines' },
-      { label: 'Supplement Checklist', href: '/info/supplement-safety-checklist', description: 'What to verify before buying any supplement' },
+      { label: 'Evidence Lookup', href: '/evidence/evidence/evidence-checker', description: 'Search compounds by clinical evidence grade' },
+      { label: 'Evidence Report', href: '/evidence/evidence/evidence-report', description: 'State of Supplement Evidence — annual research review' },
+      { label: 'Dosing Guide', href: '/info/info/dosing', description: 'Bioavailability, timing, and stacking guidelines' },
+      { label: 'Supplement Checklist', href: '/info/info/supplement-safety-checklist', description: 'What to verify before buying any supplement' },
     ],
   },
 ]
@@ -256,27 +256,27 @@ export const routeLabels: Record<string, RouteMetadata> = {
     description: 'Research tools',
     parent: '/',
   },
-  '/evidence-report': {
+  '/evidence/evidence-report': {
     label: 'Evidence Report',
     description: 'State of Supplement Evidence 2026 — analysis of 816 peer-reviewed studies',
     parent: '/',
   },
-  '/evidence-checker': {
+  '/evidence/evidence-checker': {
     label: 'Evidence Lookup',
     description: 'Search 557 compounds by clinical evidence grade (A-F)',
     parent: '/',
   },
-  '/infographics': {
+  '/info/infographics': {
     label: 'Infographics',
     description: 'Free evidence-based supplement infographics with embed codes',
     parent: '/',
   },
-  '/education': {
+  '/learn': {
     label: 'Guides',
     description: 'Educational resources (redirects to /guides)',
     parent: '/',
   },
-  '/education/[slug]': {
+  '/learn/[slug]': {
     label: 'Guide',
     description: 'Supplement guide (redirects to /guides/[slug])',
     parent: '/guides',
@@ -290,17 +290,17 @@ export const routeLabels: Record<string, RouteMetadata> = {
  */
 export const footerLinks = {
   legal: [
-    { label: 'Privacy Policy', href: '/privacy' },
-    { label: 'Disclaimer', href: '/disclaimer' },
-    { label: 'Affiliate Disclosure', href: '/affiliate-disclosure' },
+    { label: 'Privacy Policy', href: '/info/privacy' },
+    { label: 'Disclaimer', href: '/info/disclaimer' },
+    { label: 'Affiliate Disclosure', href: '/info/affiliate-disclosure' },
   ],
   social: [
     // Add social links as needed
   ],
   meta: [
-    { label: 'Evidence Report', href: '/evidence-report' },
-    { label: 'Evidence Lookup', href: '/evidence-checker' },
-    { label: 'Infographics', href: '/infographics' },
+    { label: 'Evidence Report', href: '/evidence/evidence-report' },
+    { label: 'Evidence Lookup', href: '/evidence/evidence-checker' },
+    { label: 'Infographics', href: '/info/infographics' },
     { label: 'Sitemap', href: '/sitemap.xml' },
     { label: 'RSS', href: '/rss.xml' },
   ],

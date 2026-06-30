@@ -292,7 +292,7 @@ export default function Page() {
             <Link href="/guides/best-herbs-for-stress-and-anxiety-at-night" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Stress &amp; Anxiety at Night →</Link>
             <Link href="/compare/melatonin-vs-valerian-vs-magnesium-for-sleep" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Melatonin vs Valerian vs Magnesium →</Link>
             <Link href="/compare/sleep-herbs-vs-melatonin" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Sleep Herbs vs Melatonin →</Link>
-            <Link href="/goals/sleep" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Sleep Guides →</Link>
+            <Link href="/guides/sleep" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Sleep Guides →</Link>
           </div>
         </section>
       </div>

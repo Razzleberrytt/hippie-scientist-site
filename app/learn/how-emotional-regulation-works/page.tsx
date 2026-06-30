@@ -11,7 +11,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Emotional Regulation Works",
   description: "Educational exploration of emotional regulation neurochemistry, stress signaling, mood systems, recovery continuity, and nervous-system balance.",
-  path: "/education/how-emotional-regulation-works/",
+  path: "/learn/how-emotional-regulation-works/",
 })
 
 
@@ -32,19 +32,19 @@ const systems = [
 
 const related = [
   {
-    href: '/education/serotonin',
+    href: '/learn/serotonin',
     title: 'Serotonin Pathway',
   },
   {
-    href: '/education/gaba',
+    href: '/learn/gaba',
     title: 'GABA Pathway',
   },
   {
-    href: '/goals/stress',
+    href: '/guides/anxiety',
     title: 'Stress Regulation',
   },
   {
-    href: '/education/what-is-anxiety-neurochemistry',
+    href: '/learn/what-is-anxiety-neurochemistry',
     title: 'Anxiety Neurochemistry',
   },
 ]
@@ -55,14 +55,14 @@ export default function EmotionalRegulationPage() {
       <AuthorityJsonLd
         title="How Emotional Regulation Works"
         description="Educational exploration of emotional regulation neurochemistry, stress signaling, mood systems, recovery continuity, and nervous-system balance."
-        url="https://thehippiescientist.net/education/how-emotional-regulation-works"
+        url="https://thehippiescientist.net/learn/how-emotional-regulation-works"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'How Emotional Regulation Works' },
         ]}
       />

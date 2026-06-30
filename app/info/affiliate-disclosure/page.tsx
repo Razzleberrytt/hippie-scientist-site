@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Affiliate Disclosure',
   description:
     'How The Hippie Scientist uses affiliate links while keeping editorial independence, safety context, and evidence uncertainty visible.',
-  alternates: { canonical: '/affiliate-disclosure/' },
+  alternates: { canonical: '/info/info/affiliate-disclosure/' },
 }
 
 export default function AffiliateDisclosurePage() {
@@ -38,9 +38,9 @@ export default function AffiliateDisclosurePage() {
       <section className='card-premium p-6'>
         <h2 className='text-xl font-semibold text-ink'>Related trust pages</h2>
         <div className='mt-4 flex flex-wrap gap-4'>
-          <Link href='/methodology' className='text-sm font-medium text-emerald-700 hover:underline'>Methodology</Link>
-          <Link href='/free-guide' className='text-sm font-medium text-emerald-700 hover:underline'>Free guide</Link>
-          <Link href='/about' className='text-sm font-medium text-emerald-700 hover:underline'>About</Link>
+          <Link href='/info/methodology' className='text-sm font-medium text-emerald-700 hover:underline'>Methodology</Link>
+          <Link href='/info/free-guide' className='text-sm font-medium text-emerald-700 hover:underline'>Free guide</Link>
+          <Link href='/info/about' className='text-sm font-medium text-emerald-700 hover:underline'>About</Link>
         </div>
       </section>
     </div>

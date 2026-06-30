@@ -8,7 +8,7 @@ import SafetyNotice from '@/components/evidence/SafetyNotice'
 export const metadata: Metadata = buildPageMetadata({
   title: "Common Neurochemistry Myths",
   description: "Educational overview of common neurochemistry misconceptions, oversimplified neurotransmitter narratives, and evidence-informed scientific interpretation.",
-  path: "/education/common-neurochemistry-myths/",
+  path: "/learn/common-neurochemistry-myths/",
 })
 
 
@@ -36,14 +36,14 @@ export default function NeurochemistryMythsPage() {
       <AuthorityJsonLd
         title="Common Neurochemistry Myths"
         description="Educational overview of common neurochemistry misconceptions, oversimplified neurotransmitter narratives, and evidence-informed scientific interpretation."
-        url="https://thehippiescientist.net/education/common-neurochemistry-myths"
+        url="https://thehippiescientist.net/learn/common-neurochemistry-myths"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Education', href: '/education' },
+          { label: 'Education', href: '/learn' },
           { label: 'Common Neurochemistry Myths' },
         ]}
       />

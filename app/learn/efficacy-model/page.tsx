@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
-import EfficacyModelerClient from '../../../src/components/education/EfficacyModelerClient'
+import EfficacyModelerClient from '../../../src/components/learn/EfficacyModelerClient'
 
 export const metadata: Metadata = {
   title: 'Supplement Efficacy & Pharmacokinetics Modeler',
   description:
     'Simulate absorption onset, peak action, half-life clearance timelines, and cumulative build-up curves for herbs and compounds.',
-  alternates: { canonical: '/education/efficacy-model/' },
+  alternates: { canonical: '/learn/efficacy-model/' },
 }
 
 export default function EfficacyModelPage() {
@@ -16,7 +16,7 @@ export default function EfficacyModelPage() {
       <AuthorityJsonLd
         title='Interactive Supplement Efficacy Modeler & Pharmacokinetics Visualizer'
         description='Simulate pharmacokinetic timeline curves, including absorption onset, peak action, clearance half-lives, and cumulative build-up patterns for key herbs and compounds.'
-        url='https://thehippiescientist.net/education/efficacy-model'
+        url='https://thehippiescientist.net/learn/efficacy-model'
         type='MedicalWebPage'
       />
 

@@ -24,7 +24,7 @@ const topics = [
     title: 'GABAergic Safety',
   },
   {
-    href: '/education/what-are-psychoactive-herbs',
+    href: '/learn/what-are-psychoactive-herbs',
     title: 'Psychoactive Education',
   },
 ]

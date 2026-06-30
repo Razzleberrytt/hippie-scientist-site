@@ -132,7 +132,7 @@ const discoveryFilters: IntentPrompt[] = [
 
 const crossContentLinks: { goals: DiscoveryLink[]; compare: DiscoveryLink[]; learn: DiscoveryLink[] } = {
   goals: [
-    { label: 'Sleep support goals', href: '/goals/sleep-support', description: 'Start with outcome constraints before profile selection.' },
+    { label: 'Sleep support goals', href: '/guides/sleep-support', description: 'Start with outcome constraints before profile selection.' },
     { label: 'Non-stimulant focus goals', href: '/goals/non-stimulant-focus', description: 'Build focus plans with lower stimulation load.' },
   ],
   compare: [
@@ -140,8 +140,8 @@ const crossContentLinks: { goals: DiscoveryLink[]; compare: DiscoveryLink[]; lea
     { label: 'L-theanine vs magnesium', href: '/compare/l-theanine-vs-magnesium', description: 'Compare calming support styles with practical tradeoffs.' },
   ],
   learn: [
-    { label: 'Evidence levels', href: '/education/evidence-levels', description: 'Understand what confidence labels do and do not mean.' },
-    { label: 'Safety and disclaimers', href: '/education/safety-and-disclaimers', description: 'Beginner-first safety framing and scope limits.' },
+    { label: 'Evidence levels', href: '/learn/evidence-levels', description: 'Understand what confidence labels do and do not mean.' },
+    { label: 'Safety and disclaimers', href: '/learn/safety-and-disclaimers', description: 'Beginner-first safety framing and scope limits.' },
   ],
 }
 
