@@ -57,10 +57,10 @@ const trustSignals = [
 ]
 
 const comparisonLinks = [
-  { href: '/compare/melatonin-vs-magnesium/', title: 'Melatonin vs magnesium' },
-  { href: '/compare/rhodiola-vs-ashwagandha/', title: 'Rhodiola vs ashwagandha' },
-  { href: '/compare/l-theanine-vs-magnesium/', title: 'L-theanine vs magnesium' },
-  { href: '/compare/berberine-vs-metformin/', title: 'Berberine vs metformin' },
+  { href: '/guides/compare/melatonin-vs-magnesium/', title: 'Melatonin vs magnesium' },
+  { href: '/guides/compare/rhodiola-vs-ashwagandha/', title: 'Rhodiola vs ashwagandha' },
+  { href: '/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/', title: 'Ashwagandha vs L-theanine vs magnesium' },
+  { href: '/guides/compare/berberine-vs-metformin/', title: 'Berberine vs metformin' },
 ]
 
 const toolLinks = [

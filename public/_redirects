@@ -732,3 +732,39 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /compare /guides/compare/ 301
 /compare/ /guides/compare/ 301
 /compare/* /guides/compare/:splat 301
+
+# Utility pages → /info/ (2026-06-30)
+/about /info/about/ 301
+/about/ /info/about/ 301
+/affiliate-disclosure /info/affiliate-disclosure/ 301
+/affiliate-disclosure/ /info/affiliate-disclosure/ 301
+/author /info/author/ 301
+/author/ /info/author/ 301
+/contact /info/contact/ 301
+/contact/ /info/contact/ 301
+/disclaimer /info/disclaimer/ 301
+/disclaimer/ /info/disclaimer/ 301
+/dosing /info/dosing/ 301
+/dosing/ /info/dosing/ 301
+/faq /info/faq/ 301
+/faq/ /info/faq/ 301
+/free-guide /info/free-guide/ 301
+/free-guide/ /info/free-guide/ 301
+/infographics /info/infographics/ 301
+/infographics/ /info/infographics/ 301
+/methodology /info/methodology/ 301
+/methodology/ /info/methodology/ 301
+/newsletter /info/newsletter/ 301
+/newsletter/ /info/newsletter/ 301
+/privacy /info/privacy/ 301
+/privacy/ /info/privacy/ 301
+/supplement-safety-checklist /info/supplement-safety-checklist/ 301
+/supplement-safety-checklist/ /info/supplement-safety-checklist/ 301
+
+# Evidence pages → /evidence/ (2026-06-30)
+/evidence-checker /evidence/evidence-checker/ 301
+/evidence-checker/ /evidence/evidence-checker/ 301
+/evidence-digest /evidence/evidence-digest/ 301
+/evidence-digest/ /evidence/evidence-digest/ 301
+/evidence-report /evidence/evidence-report/ 301
+/evidence-report/ /evidence/evidence-report/ 301
