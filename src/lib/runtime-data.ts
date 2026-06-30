@@ -256,3 +256,28 @@ export const getFeaturedCompounds = cache(async (): Promise<RuntimeRecord[]> => 
     return []
   }
 })
+
+// --- Interaction data loaders ---
+import type {
+  InteractionEdgesBySlug,
+  RiskTagsBySlug,
+  SlugEntityTypeMap,
+} from '@/types/interactions'
+
+export const getInteractionEdges = cache(async () => {
+  return readJsonFile('interaction_edges.json') as Promise<InteractionEdgesBySlug>
+})
+
+export const getEntityRiskTags = cache(async () => {
+  return readJsonFile('entity_risk_tags.json') as Promise<RiskTagsBySlug>
+})
+
+// Resolves which route (/herbs/[slug] vs /compounds/[slug]) a given partner
+// slug belongs to, so interaction-edge links never point at the wrong path.
+export const getSlugEntityTypeMap = cache(async (): Promise<SlugEntityTypeMap> => {
+  const { herbs, compounds } = await getUnifiedRuntimeRecords()
+  const map: SlugEntityTypeMap = {}
+  for (const h of herbs) map[h.slug] = 'herb'
+  for (const c of compounds) map[c.slug] = 'compound'
+  return map
+})

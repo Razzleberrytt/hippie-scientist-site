@@ -1,7 +1,8 @@
 import { notFound, redirect } from 'next/navigation'
 import Link from 'next/link'
 import { allCompoundMdxPages } from '../../../.content-collections/generated'
-import { getCompoundBySlug } from '../../../src/lib/runtime-data'
+import { getCompoundBySlug, getInteractionEdges, getSlugEntityTypeMap } from '../../../src/lib/runtime-data'
+import { InteractionWarnings } from '../../../src/components/InteractionWarnings'
 import { getCompoundMetadataRecord } from '../../../src/lib/runtime-metadata-cache'
 import { getUnifiedRuntimeRecords } from '../../../src/lib/runtime-record-index'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
@@ -600,6 +601,12 @@ export default async function CompoundPage({ params }: PageProps) {
   const compound = await getCompoundBySlug(normalizedSlug)
   const freshness = getProfileFreshness(normalizedSlug)
 
+  const [interactionEdgesMap, slugTypeMap] = await Promise.all([
+    getInteractionEdges(),
+    getSlugEntityTypeMap(),
+  ])
+  const interactionEdges = interactionEdgesMap[normalizedSlug] ?? []
+
   if (!compound || !getRuntimeVisibility(compound).canRender) {
     notFound()
   }
@@ -817,6 +824,7 @@ export default async function CompoundPage({ params }: PageProps) {
           {[
             { label: 'Quick Stats', href: '#quick-stats' },
             { label: 'Safety', href: '#safety' },
+            ...(interactionEdges.length > 0 ? [{ label: 'Interactions', href: '#interactions' }] : []),
             { label: 'Evidence', href: '#evidence-summary' },
             ...(mechanismHints.length > 0 ? [{ label: 'Mechanisms', href: '#mechanisms' }] : []),
             { label: 'Compare', href: '#compare' },
@@ -958,6 +966,10 @@ export default async function CompoundPage({ params }: PageProps) {
           <h2 className="text-lg font-bold text-ink">Safety &amp; Cautions</h2>
           <p className="text-sm leading-6 text-amber-900">{safetySummary}</p>
         </section>
+
+        {interactionEdges.length > 0 && (
+          <InteractionWarnings edges={interactionEdges} slugTypeMap={slugTypeMap} />
+        )}
 
         {/* Section 3: Evidence Summary */}
         <section id="evidence" className="card-premium scroll-mt-24 p-4 sm:p-5 space-y-4">

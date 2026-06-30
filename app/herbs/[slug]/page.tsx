@@ -16,6 +16,8 @@ import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import HerbSchemaGenerator from '../../../src/components/herb-profile/SchemaGenerator'
 import HerbCompoundLinks from '@/components/seo/HerbCompoundLinks'
 import ProfileTOC from '@/components/ui/ProfileTOC'
+import { getInteractionEdges, getSlugEntityTypeMap } from '../../../src/lib/runtime-data'
+import { InteractionWarnings } from '../../../src/components/InteractionWarnings'
 import { getClusterSeeAlso, buildProfileSchemaGraphWithCluster } from '@/lib/cluster-linking'
 import SeeAlsoCluster from '@/components/SeeAlsoCluster'
 import { getGoalsForEntity } from '../../../src/lib/goal-hub-links'
@@ -308,6 +310,12 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const sourceSlug = HERB_CANONICAL_SOURCE_ALIASES[normalizedSlug] || normalizedSlug
   const herbRaw = await getHerbBySlug(sourceSlug)
 
+  const [interactionEdgesMap, slugTypeMap] = await Promise.all([
+    getInteractionEdges(),
+    getSlugEntityTypeMap(),
+  ])
+  const interactionEdges = interactionEdgesMap[sourceSlug] ?? []
+
   if (!herbRaw || !getRuntimeVisibility(herbRaw).canRender) {
     notFound()
   }
@@ -514,6 +522,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
         {[
           { label: 'Quick Stats', href: '#quick-stats' },
           { label: 'Safety', href: '#safety' },
+          ...(interactionEdges.length > 0 ? [{ label: 'Interactions', href: '#interactions' }] : []),
           { label: 'Evidence', href: '#evidence' },
           ...(mechanisms.length > 0 ? [{ label: 'Mechanisms', href: '#mechanisms' }] : []),
           { label: 'Compare', href: '#compare' },
@@ -657,6 +666,10 @@ export default async function HerbDetailPage({ params }: PageProps) {
           </div>
         )}
       </section>
+
+      {interactionEdges.length > 0 && (
+        <InteractionWarnings edges={interactionEdges} slugTypeMap={slugTypeMap} />
+      )}
 
       {/* Section 3: Evidence Summary */}
       <section id="evidence" className="card-premium scroll-mt-24 p-4 sm:p-5 space-y-4">
