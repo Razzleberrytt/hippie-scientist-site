@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { getHomepageFreshness } from '@/lib/freshness'
 
 type SectionHeaderProps = { title: string; subtitle?: string; as?: 'h2' | 'h3' }
 
@@ -91,12 +90,6 @@ function SectionHeader({ title, subtitle, as: HeadingTag = 'h2' }: SectionHeader
 }
 
 export default function HomepageV2() {
-  const { lastReviewed, citationCount } = getHomepageFreshness()
-  const formattedDate = new Date(lastReviewed).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
 
   return (
     <div className='overflow-x-clip bg-[var(--bg)]'>
