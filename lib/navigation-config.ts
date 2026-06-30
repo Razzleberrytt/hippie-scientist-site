@@ -78,34 +78,33 @@ export const mainNavigation: NavigationItem[] = [
     description: 'Active compounds, mechanisms, and evidence summaries',
   },
   {
-    label: 'Goals',
-    href: '/goals',
-    description: 'Goal-based decision guides for sleep, stress, focus, anxiety, and more',
-  },
-  {
     label: 'Guides',
     href: '/guides',
-    description: 'Goal-oriented supplement guides for sleep, stress, focus, and more',
+    description: 'Evidence-based guides organized by topic',
+    children: [
+      { label: 'ADHD', href: '/guides/adhd', description: 'ADHD supplement guides and research' },
+      { label: 'Sleep', href: '/guides/sleep', description: 'Sleep improvement and supplement guides' },
+      { label: 'Anxiety & Stress', href: '/guides/anxiety', description: 'Anxiety and stress management guides' },
+      { label: 'Focus', href: '/guides/focus', description: 'Focus, cognition, and nootropic guides' },
+      { label: 'Herb Profiles', href: '/guides/herbs', description: 'Deep dives on individual herbs' },
+      { label: 'Comparisons', href: '/compare', description: 'Side-by-side supplement comparisons' },
+      { label: 'Best Supplements', href: '/guides/best', description: 'Best supplements for specific needs' },
+    ],
   },
   {
-    label: 'Articles',
-    href: '/articles',
-    description: 'Evidence reviews, mechanism deep-dives, and research notes on herbs and supplements',
+    label: 'Learn',
+    href: '/learn',
+    description: 'Neuroscience, psychopharmacology, and evidence literacy',
   },
   {
-    label: 'Compare',
-    href: '/compare',
-    description: 'Side-by-side supplement and compound comparisons',
+    label: 'NPS',
+    href: '/novel-psychoactive-substances',
+    description: 'Novel psychoactive substances — harm reduction and pharmacology',
   },
   {
     label: 'Safety',
     href: '/safety-checker',
     description: 'Interaction checker and safety context for herbs and supplements',
-  },
-  {
-    label: 'Evidence',
-    href: '/evidence-report',
-    description: 'Evidence report, lookup tool, and infographics',
   },
 ]
 

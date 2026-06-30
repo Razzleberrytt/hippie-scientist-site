@@ -1,0 +1,3322 @@
+[
+  {
+    "slug": "fucoxanthin",
+    "path": "public/data/compounds-detail/fucoxanthin.json",
+    "name": "Fucoxanthin",
+    "desc": "Fucoxanthin is tracked for May increase thermogenesis via UCP1 activation and fat oxidation pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 224,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "forskolin",
+    "path": "public/data/compounds-detail/forskolin.json",
+    "name": "forskolin",
+    "desc": "Diterpene from Coleus known for direct adenylyl cyclase activation.",
+    "desc_len": 67,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "nicotinamide-riboside",
+    "path": "public/data/compounds-detail/nicotinamide-riboside.json",
+    "name": "Nicotinamide riboside",
+    "desc": "Nicotinamide riboside is tracked for Acts as an NAD+ precursor affecting cellular energy metabolism and sirtuin-linked pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 251,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "emodin",
+    "path": "public/data/compounds-detail/emodin.json",
+    "name": "emodin",
+    "desc": "Anthraquinone reported from rhubarb with NF-\u03baB and MAPK pathway activity.",
+    "desc_len": 73,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "horsetail",
+    "path": "public/data/compounds-detail/horsetail.json",
+    "name": "Horsetail",
+    "desc": "Equisetum arvense botanical traditionally used for connective tissue and urinary support; evidence is weak.",
+    "desc_len": 107,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "gingerols",
+    "path": "public/data/compounds-detail/gingerols.json",
+    "name": "Gingerols",
+    "desc": "Active ginger fraction associated with COX-2/PGE2 modulation and osteoarthritis pain trial evidence through standardized extracts.",
+    "desc_len": 130,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "zinc-carnosine",
+    "path": "public/data/compounds-detail/zinc-carnosine.json",
+    "name": "Zinc Carnosine",
+    "desc": "Improves gastric mucosal healing and reduces ulcer symptoms.",
+    "desc_len": 60,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "indirubin",
+    "path": "public/data/compounds-detail/indirubin.json",
+    "name": "indirubin",
+    "desc": "Bis-indole alkaloid pigment known from indigo-yielding plants and studied for kinase-targeted activity.",
+    "desc_len": 103,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "matcha",
+    "path": "public/data/compounds-detail/matcha.json",
+    "name": "Matcha",
+    "desc": "Matcha is best framed as a conservative research profile with mechanistic evidence and a focus on Mitochondrial Health; Exercise Performance; Energy Metabolism. Current workbook signals support mechanistic context around limited source-backed mechanism signals, not treatment claims.",
+    "desc_len": 283,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "methysticin",
+    "path": "public/data/compounds-detail/methysticin.json",
+    "name": "methysticin",
+    "desc": "Kavalactone reported with GABAergic and monoamine-related activity.",
+    "desc_len": 67,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "taurine-blend",
+    "path": "public/data/compounds-detail/taurine-blend.json",
+    "name": "Taurine Blend",
+    "desc": "Taurine-containing performance or hydration formulation context.",
+    "desc_len": 64,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "mesembrenone",
+    "path": "public/data/compounds-detail/mesembrenone.json",
+    "name": "mesembrenone",
+    "desc": "Kanna alkaloid closely related to mesembrine and associated with serotonin-reuptake and PDE4 effects.",
+    "desc_len": 101,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "l-citrulline",
+    "path": "public/data/compounds-detail/l-citrulline.json",
+    "name": "L-Citrulline",
+    "desc": "Improves endothelial function and may enhance exercise performance.",
+    "desc_len": 67,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "bcaa",
+    "path": "public/data/compounds-detail/bcaa.json",
+    "name": "BCAA",
+    "desc": "Human evidence for BCAA benefits is inconsistent and often inferior to complete protein or EAA contexts; authority status is insufficient for broad claims.",
+    "desc_len": 155,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "icariin",
+    "path": "public/data/compounds-detail/icariin.json",
+    "name": "icariin",
+    "desc": "icariin is tracked for Inhibits PDE5 increasing nitric oxide signaling with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 194,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "carnitine-l-tartrate",
+    "path": "public/data/compounds-detail/carnitine-l-tartrate.json",
+    "name": "Carnitine L Tartrate",
+    "desc": "",
+    "desc_len": 0,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "bisabolol",
+    "path": "public/data/compounds-detail/bisabolol.json",
+    "name": "bisabolol",
+    "desc": "Sesquiterpene alcohol associated with inflammatory pathway control.",
+    "desc_len": 67,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "raspberry-ketones",
+    "path": "public/data/compounds-detail/raspberry-ketones.json",
+    "name": "Raspberry Ketones",
+    "desc": "Human evidence is insufficient for fat-loss claims; existing data are primarily animal or in vitro and not clinically translatable.",
+    "desc_len": 131,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "eaa-blend",
+    "path": "public/data/compounds-detail/eaa-blend.json",
+    "name": "EAA Blend",
+    "desc": "Evidence depends on blend composition, leucine dose, protein intake, age, and training status; no formulation-independent authority citation selected.",
+    "desc_len": 150,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "omega-3-epa",
+    "path": "public/data/compounds-detail/omega-3-epa.json",
+    "name": "Omega-3 EPA",
+    "desc": "High-dose EPA significantly reduces major cardiovascular events.",
+    "desc_len": 64,
+    "mechanisms": 5,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "ashitaba-extract",
+    "path": "public/data/compounds-detail/ashitaba-extract.json",
+    "name": "Ashitaba Extract",
+    "desc": "Human evidence is insufficient for metabolic, cardiovascular, or longevity claims.",
+    "desc_len": 82,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "lithium-orotate",
+    "path": "public/data/compounds-detail/lithium-orotate.json",
+    "name": "Lithium Orotate",
+    "desc": "Supplemental lithium salt with mechanisms extrapolated from pharmaceutical lithium, not directly proven for this form.",
+    "desc_len": 118,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "pau-darco",
+    "path": "public/data/compounds-detail/pau-darco.json",
+    "name": "Pau d'Arco",
+    "desc": "Tabebuia/Handroanthus botanical containing lapachol and beta-lapachone; product identity and dosing are poorly standardized.",
+    "desc_len": 124,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "withanolide-a",
+    "path": "public/data/compounds-detail/withanolide-a.json",
+    "name": "withanolide a",
+    "desc": "Withanolide from ashwagandha associated with neuroactive pathway modulation.",
+    "desc_len": 76,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "silybin",
+    "path": "public/data/compounds-detail/silybin.json",
+    "name": "silybin",
+    "desc": "Major flavonolignan component of silymarin known for hepatoprotective signaling.",
+    "desc_len": 80,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "valerian-root-extract",
+    "path": "public/data/compounds-detail/valerian-root-extract.json",
+    "name": "Valerian Root Extract",
+    "desc": "Valerian Root Extract is tracked for Enhances GABA signaling by inhibiting breakdown and increasing receptor activity with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 241,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "sodium-bicarbonate",
+    "path": "public/data/compounds-detail/sodium-bicarbonate.json",
+    "name": "sodium bicarbonate",
+    "desc": "Human evidence supports sodium bicarbonate for high-intensity exercise performance, particularly repeated or sustained efforts where acidosis contributes to fatigue.",
+    "desc_len": 165,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "timosaponin-aiii",
+    "path": "public/data/compounds-detail/timosaponin-aiii.json",
+    "name": "timosaponin aiii",
+    "desc": "Steroidal saponin associated with survival and apoptotic signaling.",
+    "desc_len": 67,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "capsaicin",
+    "path": "public/data/compounds-detail/capsaicin.json",
+    "name": "Capsaicin",
+    "desc": "Capsaicin is cataloged as a capsaicinoid. Reported mechanism notes: Primary TRPV1 activation (human-supported); additional mechanisms (preclinical).",
+    "desc_len": 148,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "hericenones",
+    "path": "public/data/compounds-detail/hericenones.json",
+    "name": "hericenones",
+    "desc": "Aromatic compounds from lion's mane fruiting body linked to neurotrophic signaling.",
+    "desc_len": 83,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "fos",
+    "path": "public/data/compounds-detail/fos.json",
+    "name": "Fructooligosaccharides",
+    "desc": "Fructooligosaccharides is tracked for Fermentable oligosaccharides selectively increase beneficial gut bacteria and SCFA production with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 255,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "methyleugenol",
+    "path": "public/data/compounds-detail/methyleugenol.json",
+    "name": "methyleugenol",
+    "desc": "Phenylpropene associated with sensory and inhibitory neurotransmission pathways.",
+    "desc_len": 80,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "lycopene",
+    "path": "public/data/compounds-detail/lycopene.json",
+    "name": "Lycopene",
+    "desc": "Lycopene is best framed as a conservative research profile with mechanistic evidence and a focus on Cognition; Cardiovascular Health. Current workbook signals support mechanistic context around Oxidative Stress Modulation; Vascular Function Support, not treatment claims.",
+    "desc_len": 271,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "calcium-d-glucarate",
+    "path": "public/data/compounds-detail/calcium-d-glucarate.json",
+    "name": "calcium d-glucarate",
+    "desc": "calcium d-glucarate is tracked for Inhibits beta-glucuronidase affecting detoxification pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 220,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "gelatin",
+    "path": "public/data/compounds-detail/gelatin.json",
+    "name": "Gelatin",
+    "desc": "Denatured collagen protein that provides collagen-related amino acids.",
+    "desc_len": 70,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "burdock-root",
+    "path": "public/data/compounds-detail/burdock-root.json",
+    "name": "Burdock Root",
+    "desc": "Arctium lappa root used traditionally with insufficient clinical validation.",
+    "desc_len": 76,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "pygeum",
+    "path": "public/data/compounds-detail/pygeum.json",
+    "name": "Pygeum",
+    "desc": "Prunus africana bark extract containing phytosterols and anti-inflammatory constituents.",
+    "desc_len": 88,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "inositol-sleep",
+    "path": "public/data/compounds-detail/inositol-sleep.json",
+    "name": "Inositol Sleep/Anxiety Context",
+    "desc": "Use-context row for myo-inositol in anxiety/sleep formulations.",
+    "desc_len": 63,
+    "mechanisms": 5,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "d-aspartic-acid",
+    "path": "public/data/compounds-detail/d-aspartic-acid.json",
+    "name": "D Aspartic Acid",
+    "desc": "Human evidence does not consistently support testosterone enhancement in trained men; claims should remain conditional and population-specific.",
+    "desc_len": 143,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "probiotics",
+    "path": "public/data/compounds-detail/probiotics.json",
+    "name": "Probiotics",
+    "desc": "Certain strains reduce antibiotic-associated diarrhea and IBS symptoms.",
+    "desc_len": 71,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "arjunolic-acid",
+    "path": "public/data/compounds-detail/arjunolic-acid.json",
+    "name": "arjunolic acid",
+    "desc": "Triterpenoid from Terminalia arjuna associated with cardioprotective effects.",
+    "desc_len": 77,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "vitamin-a",
+    "path": "public/data/compounds-detail/vitamin-a.json",
+    "name": "Vitamin A",
+    "desc": "Essential for vision and immune function; excess causes toxicity.",
+    "desc_len": 65,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "menthol",
+    "path": "public/data/compounds-detail/menthol.json",
+    "name": "Menthol",
+    "desc": "Menthol is cataloged as a monoterpene. Reported mechanism notes: Smooth muscle relaxation via calcium channel modulation; TRPM8 activation.",
+    "desc_len": 139,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "curdione",
+    "path": "public/data/compounds-detail/curdione.json",
+    "name": "curdione",
+    "desc": "Curcuma sesquiterpenoid linked to survival and apoptotic pathways.",
+    "desc_len": 66,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "serrapeptase",
+    "path": "public/data/compounds-detail/serrapeptase.json",
+    "name": "Serrapeptase",
+    "desc": "Proteolytic enzyme also known as serratiopeptidase; evidence quality remains limited.",
+    "desc_len": 85,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "gurmarin",
+    "path": "public/data/compounds-detail/gurmarin.json",
+    "name": "gurmarin",
+    "desc": "Peptide constituent associated with sweet-signal blocking and glycemic effects.",
+    "desc_len": 79,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "zinc",
+    "path": "public/data/compounds-detail/zinc.json",
+    "name": "Zinc",
+    "desc": "Zinc supports immune; deficiency; skin with high confidence in this merged decision layer.",
+    "desc_len": 90,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "nattokinase",
+    "path": "public/data/compounds-detail/nattokinase.json",
+    "name": "Nattokinase",
+    "desc": "Fibrinolytic enzyme from fermented soybeans with effects on fibrin and coagulation markers.",
+    "desc_len": 91,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "pqq",
+    "path": "public/data/compounds-detail/pqq.json",
+    "name": "PQQ",
+    "desc": "PQQ is cataloged as redox cofactor. Reported mechanisms: redox cycling; possible mitochondrial biogenesis via PGC-1\u03b1 (preclinical).",
+    "desc_len": 131,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "vitamin-c",
+    "path": "public/data/compounds-detail/vitamin-c.json",
+    "name": "Vitamin C",
+    "desc": "Does not prevent colds in general population but may reduce duration.",
+    "desc_len": 69,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "commipheric-acid",
+    "path": "public/data/compounds-detail/commipheric-acid.json",
+    "name": "commipheric acid",
+    "desc": "Guggul triterpenoid linked to lipid-signaling and inflammatory control.",
+    "desc_len": 71,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "hawthorn",
+    "path": "public/data/compounds-detail/hawthorn.json",
+    "name": "Hawthorn",
+    "desc": "Improves symptoms and exercise tolerance in mild heart failure.",
+    "desc_len": 63,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "orotic-acid",
+    "path": "public/data/compounds-detail/orotic-acid.json",
+    "name": "Orotic Acid",
+    "desc": "Intermediate in pyrimidine biosynthesis.",
+    "desc_len": 40,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "hmb",
+    "path": "public/data/compounds-detail/hmb.json",
+    "name": "HMB",
+    "desc": "HMB supports muscle preservation; strength; recovery with moderate confidence in this merged decision layer.",
+    "desc_len": 108,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "magnesium-citrate",
+    "path": "public/data/compounds-detail/magnesium-citrate.json",
+    "name": "magnesium citrate",
+    "desc": "Improves magnesium status and supports cardiovascular health.",
+    "desc_len": 61,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "inulin",
+    "path": "public/data/compounds-detail/inulin.json",
+    "name": "Inulin",
+    "desc": "Inulin supports prebiotic; gut microbiome; regularity with moderate confidence in this merged decision layer.",
+    "desc_len": 109,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "policosanol",
+    "path": "public/data/compounds-detail/policosanol.json",
+    "name": "Policosanol",
+    "desc": "Human evidence for policosanol is inconsistent; early positive trials have not been reliably replicated in independent studies.",
+    "desc_len": 127,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "deoxyelephantopin",
+    "path": "public/data/compounds-detail/deoxyelephantopin.json",
+    "name": "deoxyelephantopin",
+    "desc": "Sesquiterpene lactone linked to inflammatory and apoptotic signaling.",
+    "desc_len": 69,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "linalool",
+    "path": "public/data/compounds-detail/linalool.json",
+    "name": "linalool",
+    "desc": "Monoterpene alcohol linked to GABA-A and calcium-channel related effects.",
+    "desc_len": 73,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "ginsenoside-rg1",
+    "path": "public/data/compounds-detail/ginsenoside-rg1.json",
+    "name": "ginsenoside rg1",
+    "desc": "Major ginsenoside associated with neurovascular and survival signaling.",
+    "desc_len": 71,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "oxyresveratrol",
+    "path": "public/data/compounds-detail/oxyresveratrol.json",
+    "name": "oxyresveratrol",
+    "desc": "Mulberry stilbene linked to carbohydrate-processing and signaling effects.",
+    "desc_len": 74,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "artemisinin-b",
+    "path": "public/data/compounds-detail/artemisinin-b.json",
+    "name": "artemisinin b",
+    "desc": "Artemisia metabolite associated with redox-related signaling.",
+    "desc_len": 61,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "silydianin",
+    "path": "public/data/compounds-detail/silydianin.json",
+    "name": "silydianin",
+    "desc": "Minor flavonolignan from milk thistle associated with liver-protective effects.",
+    "desc_len": 79,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "oregon-grape-root",
+    "path": "public/data/compounds-detail/oregon-grape-root.json",
+    "name": "Oregon Grape Root",
+    "desc": "Mahonia aquifolium root containing berberine and related alkaloids.",
+    "desc_len": 67,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "melatonin",
+    "path": "public/data/compounds-detail/melatonin.json",
+    "name": "Melatonin",
+    "desc": "Melatonin supports sleep onset; circadian rhythm; jet lag with high confidence in this merged decision layer.",
+    "desc_len": 109,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "tanshinone-iia",
+    "path": "public/data/compounds-detail/tanshinone-iia.json",
+    "name": "Tanshinone IIA",
+    "desc": "Diterpene quinone from Salvia miltiorrhiza; human evidence is complicated by IV preparations and TCM combinations.",
+    "desc_len": 114,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "olive-leaf-extract",
+    "path": "public/data/compounds-detail/olive-leaf-extract.json",
+    "name": "Olive Leaf Extract",
+    "desc": "Olive leaf extract reduces blood pressure comparably to low-dose captopril.",
+    "desc_len": 75,
+    "mechanisms": 5,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "omega-3-dha-dominant",
+    "path": "public/data/compounds-detail/omega-3-dha-dominant.json",
+    "name": "Omega-3 DHA-Dominant",
+    "desc": "DHA supports brain development and may modestly benefit cognition.",
+    "desc_len": 66,
+    "mechanisms": 5,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "boswellia-akba-standardized",
+    "path": "public/data/compounds-detail/boswellia-akba-standardized.json",
+    "name": "Boswellia AKBA standardized",
+    "desc": "Boswellia AKBA standardized supports joint; inflammation; pain with moderate-high confidence in this merged decision layer.",
+    "desc_len": 123,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "mesembrine",
+    "path": "public/data/compounds-detail/mesembrine.json",
+    "name": "mesembrine",
+    "desc": "Major Kanna alkaloid best known for serotonin-reuptake and PDE4-related activity.",
+    "desc_len": 81,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "cacao",
+    "path": "public/data/compounds-detail/cacao.json",
+    "name": "Cacao",
+    "desc": "Cacao is cataloged as flavanol/theobromine botanical. Reported mechanisms: flavanols increase nitric oxide/endothelial function; theobromine CNS effects.",
+    "desc_len": 153,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "iron",
+    "path": "public/data/compounds-detail/iron.json",
+    "name": "Iron",
+    "desc": "Corrects iron deficiency anemia effectively.",
+    "desc_len": 44,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "probiotic-strain-lactobacillus",
+    "path": "public/data/compounds-detail/probiotic-strain-lactobacillus.json",
+    "name": "Lactobacillus Probiotic",
+    "desc": "Lactobacillus Probiotic supports gut; diarrhea; IBS with moderate confidence in this merged decision layer.",
+    "desc_len": 107,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "glycinate-magnesium-complex",
+    "path": "public/data/compounds-detail/glycinate-magnesium-complex.json",
+    "name": "Glycinate Magnesium Complex",
+    "desc": "Glycinate Magnesium Complex is best framed as a conservative research profile with mechanistic evidence and a focus on Sleep; Cognition; Stress Response; Neurobiology. Current workbook signals support mechanistic context around Neurotransmitter Modulation; Stress Response Modulation, not treatment claims.",
+    "desc_len": 306,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "ginkgolides",
+    "path": "public/data/compounds-detail/ginkgolides.json",
+    "name": "Ginkgolides",
+    "desc": "Diterpene lactone fraction from Ginkgo biloba; ginkgolide B is a well-known PAF antagonist, but compound-specific human outcome data remain limited.",
+    "desc_len": 148,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "bacoside-a",
+    "path": "public/data/compounds-detail/bacoside-a.json",
+    "name": "bacoside a",
+    "desc": "Bacopa saponin fraction associated with cognitive signaling support.",
+    "desc_len": 68,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "gallocatechin",
+    "path": "public/data/compounds-detail/gallocatechin.json",
+    "name": "gallocatechin",
+    "desc": "Catechin derivative present in tea with antioxidant signaling activity.",
+    "desc_len": 71,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "columbin",
+    "path": "public/data/compounds-detail/columbin.json",
+    "name": "columbin",
+    "desc": "Diterpenoid from Tinospora cordifolia linked to anti-inflammatory activity.",
+    "desc_len": 75,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "vitamin-d3-k2",
+    "path": "public/data/compounds-detail/vitamin-d3-k2.json",
+    "name": "Vitamin D3 + K2",
+    "desc": "Combination nutrient formulation pairing cholecalciferol with menaquinones.",
+    "desc_len": 75,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "methylliberine",
+    "path": "public/data/compounds-detail/methylliberine.json",
+    "name": "Methylliberine",
+    "desc": "Purine alkaloid related to caffeine/theacrine; early human PK data but limited efficacy trials.",
+    "desc_len": 95,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "lavender-extract",
+    "path": "public/data/compounds-detail/lavender-extract.json",
+    "name": "Lavender Extract",
+    "desc": "Lavender Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Sleep; Stress Response; Neurobiology. Current workbook signals support mechanistic context around Neurotransmitter Modulation; Stress Response Modulation, not treatment claims.",
+    "desc_len": 284,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "bilberry-extract",
+    "path": "public/data/compounds-detail/bilberry-extract.json",
+    "name": "Bilberry Extract",
+    "desc": "Bilberry Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Stress Response. Current workbook signals support mechanistic context around Oxidative Stress Modulation; Stress Response Modulation, not treatment claims.",
+    "desc_len": 263,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "fadogia-agrestis",
+    "path": "public/data/compounds-detail/fadogia-agrestis.json",
+    "name": "Fadogia Agrestis",
+    "desc": "Fadogia agrestis has no reliable human testosterone trial evidence; available testosterone claims come mainly from animal studies, including animal safety signals, so it should remain avoid/research-only rather than promoted.",
+    "desc_len": 225,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "gymnemic-acid",
+    "path": "public/data/compounds-detail/gymnemic-acid.json",
+    "name": "gymnemic acid",
+    "desc": "Triterpenoid saponin complex from gymnema linked to intestinal glucose handling.",
+    "desc_len": 80,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "saccharomyces-boulardii",
+    "path": "public/data/compounds-detail/saccharomyces-boulardii.json",
+    "name": "Saccharomyces boulardii",
+    "desc": "Saccharomyces boulardii supports diarrhea; gut; antibiotic-associated diarrhea with high confidence in this merged decision layer.",
+    "desc_len": 130,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "garcinol",
+    "path": "public/data/compounds-detail/garcinol.json",
+    "name": "garcinol",
+    "desc": "Polyisoprenylated benzophenone linked to inflammatory and epigenetic signaling.",
+    "desc_len": 79,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "marshmallow-root",
+    "path": "public/data/compounds-detail/marshmallow-root.json",
+    "name": "Marshmallow Root",
+    "desc": "Althaea officinalis root traditionally used as a demulcent.",
+    "desc_len": 59,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "uracil",
+    "path": "public/data/compounds-detail/uracil.json",
+    "name": "Uracil",
+    "desc": "RNA pyrimidine base involved in nucleic acid metabolism.",
+    "desc_len": 56,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "huperzine-b",
+    "path": "public/data/compounds-detail/huperzine-b.json",
+    "name": "huperzine b",
+    "desc": "Minor huperzine alkaloid linked to cholinergic support pathways.",
+    "desc_len": 64,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "paeoniflorin",
+    "path": "public/data/compounds-detail/paeoniflorin.json",
+    "name": "paeoniflorin",
+    "desc": "Monoterpene glycoside associated with inflammatory and survival pathway effects.",
+    "desc_len": 80,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "kavain",
+    "path": "public/data/compounds-detail/kavain.json",
+    "name": "kavain",
+    "desc": "Major kavalactone with calming and channel-modulating pharmacology.",
+    "desc_len": 67,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "ononin",
+    "path": "public/data/compounds-detail/ononin.json",
+    "name": "ononin",
+    "desc": "Isoflavone glycoside tied to receptor-level estrogenic signaling.",
+    "desc_len": 65,
+    "mechanisms": 5,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "celastrol",
+    "path": "public/data/compounds-detail/celastrol.json",
+    "name": "celastrol",
+    "desc": "Quinone methide triterpenoid linked to HSP90 inhibition and NF-\u03baB suppression.",
+    "desc_len": 78,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "fat-burner-proprietary-blend",
+    "path": "public/data/compounds-detail/fat-burner-proprietary-blend.json",
+    "name": "Fat-Burner Proprietary Blend",
+    "desc": "Proprietary fat-burner blends are not evidence-clean because ingredient doses are hidden; safety and efficacy should be judged only from transparent, ingredient-specific human evidence.",
+    "desc_len": 185,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "turkesterone",
+    "path": "public/data/compounds-detail/turkesterone.json",
+    "name": "turkesterone",
+    "desc": "turkesterone is tracked for ecdysteroid that may enhance protein synthesis via estrogen receptor beta activation with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 236,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "plumbagin",
+    "path": "public/data/compounds-detail/plumbagin.json",
+    "name": "plumbagin",
+    "desc": "Naphthoquinone associated with inflammatory and redox-signaling effects.",
+    "desc_len": 72,
+    "mechanisms": 5,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "probiotic-multistrain",
+    "path": "public/data/compounds-detail/probiotic-multistrain.json",
+    "name": "Probiotic Multistrain",
+    "desc": "Probiotic Multistrain is tracked for Modulates gut microbiota composition, pathogen colonization resistance, epithelial barrier function, and immune signaling with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed.",
+    "desc_len": 256,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "ginkgo-biloba-extract",
+    "path": "public/data/compounds-detail/ginkgo-biloba-extract.json",
+    "name": "Ginkgo Biloba Extract",
+    "desc": "Modest improvement in cognitive function in dementia.",
+    "desc_len": 53,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "banaba-leaf-extract",
+    "path": "public/data/compounds-detail/banaba-leaf-extract.json",
+    "name": "Banaba Leaf Extract",
+    "desc": "Banaba Leaf Extract is tracked for Corosolic acid-containing extracts may affect glucose transport and insulin signaling; mechanism-only pending stronger human with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed.",
+    "desc_len": 257,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "methylfolate",
+    "path": "public/data/compounds-detail/methylfolate.json",
+    "name": "Methylfolate",
+    "desc": "Adjunctive L-methylfolate improves depressive symptoms in some patients.",
+    "desc_len": 72,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "myristicin",
+    "path": "public/data/compounds-detail/myristicin.json",
+    "name": "myristicin",
+    "desc": "Nutmeg phenylpropene linked to monoamine and cholinergic pathway effects.",
+    "desc_len": 73,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "trimethylglycine",
+    "path": "public/data/compounds-detail/trimethylglycine.json",
+    "name": "Trimethylglycine",
+    "desc": "Betaine compound involved in homocysteine remethylation to methionine.",
+    "desc_len": 70,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "valine",
+    "path": "public/data/compounds-detail/valine.json",
+    "name": "Valine",
+    "desc": "Valine supports muscle metabolism but no strong independent ergogenic effect.",
+    "desc_len": 77,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "momordicoside-k",
+    "path": "public/data/compounds-detail/momordicoside-k.json",
+    "name": "momordicoside k",
+    "desc": "Bitter melon cucurbitane glycoside linked to metabolic signaling.",
+    "desc_len": 65,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "selenium",
+    "path": "public/data/compounds-detail/selenium.json",
+    "name": "Selenium",
+    "desc": "No consistent benefit in cancer prevention; essential for deficiency.",
+    "desc_len": 69,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "mangiferin-aglycone",
+    "path": "public/data/compounds-detail/mangiferin-aglycone.json",
+    "name": "mangiferin aglycone",
+    "desc": "Xanthone-related metabolite linked to metabolic and redox-responsive pathways.",
+    "desc_len": 78,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "ashwagandha-root-extract",
+    "path": "public/data/compounds-detail/ashwagandha-root-extract.json",
+    "name": "Ashwagandha Root Extract",
+    "desc": "Reduces stress, cortisol levels, and anxiety scores.",
+    "desc_len": 52,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "schisandra-extract",
+    "path": "public/data/compounds-detail/schisandra-extract.json",
+    "name": "Schisandra Extract",
+    "desc": "Human evidence is insufficient for stress, liver, or performance authority claims without verified clinical citation.",
+    "desc_len": 117,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "proline",
+    "path": "public/data/compounds-detail/proline.json",
+    "name": "proline",
+    "desc": "proline is tracked for involved in collagen synthesis and connective tissue repair; key amino acid in collagen synthesis supporting connective with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is.",
+    "desc_len": 258,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "garcinia-cambogia-extract",
+    "path": "public/data/compounds-detail/garcinia-cambogia-extract.json",
+    "name": "Garcinia Cambogia Extract",
+    "desc": "Garcinia Cambogia Extract is tracked for Hydroxycitric acid inhibits ATP citrate lyase reducing lipogenesis with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 231,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "chromium-picolinate",
+    "path": "public/data/compounds-detail/chromium-picolinate.json",
+    "name": "chromium picolinate",
+    "desc": "chromium picolinate is tracked for Enhances insulin receptor signaling and glucose uptake with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 213,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "inositol",
+    "path": "public/data/compounds-detail/inositol.json",
+    "name": "Inositol",
+    "desc": "Improves insulin sensitivity and ovulatory function in PCOS.",
+    "desc_len": 60,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "leucine",
+    "path": "public/data/compounds-detail/leucine.json",
+    "name": "Leucine",
+    "desc": "Leucine stimulates muscle protein synthesis via mTOR activation.",
+    "desc_len": 64,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "isoleucine",
+    "path": "public/data/compounds-detail/isoleucine.json",
+    "name": "Isoleucine",
+    "desc": "Isoleucine contributes to glucose uptake and muscle metabolism, but isolated effects are less studied.",
+    "desc_len": 102,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "uva-ursi",
+    "path": "public/data/compounds-detail/uva-ursi.json",
+    "name": "Uva Ursi",
+    "desc": "Arctostaphylos uva-ursi botanical containing arbutin, a hydroquinone precursor.",
+    "desc_len": 79,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "columbamine",
+    "path": "public/data/compounds-detail/columbamine.json",
+    "name": "columbamine",
+    "desc": "Berberine-family alkaloid linked to metabolic regulation pathways.",
+    "desc_len": 66,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "eleutheroside-e",
+    "path": "public/data/compounds-detail/eleutheroside-e.json",
+    "name": "eleutheroside e",
+    "desc": "Lignan glycoside from Eleuthero linked to endurance and stress adaptation.",
+    "desc_len": 74,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "serine",
+    "path": "public/data/compounds-detail/serine.json",
+    "name": "serine",
+    "desc": "serine is tracked for supports phosphatidylserine synthesis and neuronal membrane function; supports neuronal membrane synthesis and with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 256,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "ginsenoside-rb1",
+    "path": "public/data/compounds-detail/ginsenoside-rb1.json",
+    "name": "ginsenoside rb1",
+    "desc": "Major ginsenoside with neuroprotective and metabolic signaling effects.",
+    "desc_len": 71,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "phenylalanine",
+    "path": "public/data/compounds-detail/phenylalanine.json",
+    "name": "Phenylalanine",
+    "desc": "Phenylalanine supports mood; focus; amino acid with low-moderate confidence in this merged decision layer.",
+    "desc_len": 106,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "puerarin",
+    "path": "public/data/compounds-detail/puerarin.json",
+    "name": "puerarin",
+    "desc": "Major kudzu isoflavone linked to metabolic and estrogen-related signaling.",
+    "desc_len": 74,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "eleutheroside-b",
+    "path": "public/data/compounds-detail/eleutheroside-b.json",
+    "name": "eleutheroside b",
+    "desc": "Phenylpropanoid glycoside from Eleuthero associated with adaptogenic effects.",
+    "desc_len": 77,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "cryptotanshinone",
+    "path": "public/data/compounds-detail/cryptotanshinone.json",
+    "name": "cryptotanshinone",
+    "desc": "Abietane diterpene from Salvia miltiorrhiza with anticancer properties.",
+    "desc_len": 71,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "curcumol",
+    "path": "public/data/compounds-detail/curcumol.json",
+    "name": "curcumol",
+    "desc": "Sesquiterpenoid from zedoary associated with inflammatory pathway modulation.",
+    "desc_len": 77,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "cbg",
+    "path": "public/data/compounds-detail/cbg.json",
+    "name": "CBG",
+    "desc": "CBG is cataloged as phytocannabinoid. Reported mechanisms: weak CB1/CB2 interaction; alpha-2 adrenergic and TRP channel activity preclinical.",
+    "desc_len": 141,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "allicin",
+    "path": "public/data/compounds-detail/allicin.json",
+    "name": "Allicin",
+    "desc": "Allicin is cataloged as a organosulfur compound. Reported mechanism notes: Primary mechanism (preclinical); unstable in humans.",
+    "desc_len": 127,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "uc-ii-collagen",
+    "path": "public/data/compounds-detail/uc-ii-collagen.json",
+    "name": "Uc Ii Collagen",
+    "desc": "Uc Ii Collagen is tracked for May induce oral tolerance to type II collagen and reduce immune-mediated cartilage inflammation with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 249,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "proanthocyanidins",
+    "path": "public/data/compounds-detail/proanthocyanidins.json",
+    "name": "Proanthocyanidins",
+    "desc": "Proanthocyanidins is cataloged as a polyphenols. Reported mechanism notes: Primary inhibition of bacterial adhesion (human-supported via extracts); additional mechanisms (preclinical).",
+    "desc_len": 184,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "mangiferin",
+    "path": "public/data/compounds-detail/mangiferin.json",
+    "name": "mangiferin",
+    "desc": "Xanthone glucoside linked to metabolic and redox-responsive signaling.",
+    "desc_len": 70,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "rosmarinic-acid",
+    "path": "public/data/compounds-detail/rosmarinic-acid.json",
+    "name": "rosmarinic acid",
+    "desc": "Polyphenol in rosemary and lemon balm with anti-inflammatory properties.",
+    "desc_len": 72,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "glutathione",
+    "path": "public/data/compounds-detail/glutathione.json",
+    "name": "Glutathione",
+    "desc": "May increase body glutathione levels; limited clinical outcomes.",
+    "desc_len": 64,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "tryptophan",
+    "path": "public/data/compounds-detail/tryptophan.json",
+    "name": "Tryptophan",
+    "desc": "Essential amino acid precursor to serotonin and melatonin.",
+    "desc_len": 58,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "diosmin",
+    "path": "public/data/compounds-detail/diosmin.json",
+    "name": "diosmin",
+    "desc": "Human RCT evidence supports diosmin for improving symptoms of chronic venous insufficiency and hemorrhoidal disease.",
+    "desc_len": 116,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "shogaol",
+    "path": "public/data/compounds-detail/shogaol.json",
+    "name": "shogaol",
+    "desc": "shogaol is tracked for Modulates inflammatory pathways via NF-kB inhibition with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 199,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "d-mannose",
+    "path": "public/data/compounds-detail/d-mannose.json",
+    "name": "D-Mannose",
+    "desc": "D-Mannose supports urinary tract; UTI prevention context with moderate confidence in this merged decision layer.",
+    "desc_len": 112,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "fukinolic-acid",
+    "path": "public/data/compounds-detail/fukinolic-acid.json",
+    "name": "Fukinolic acid",
+    "desc": "Fukinolic acid is tracked for Added as site-safe referenced entity during workbook readiness pass; limited with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 230,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "adenosine",
+    "path": "public/data/compounds-detail/adenosine.json",
+    "name": "Adenosine",
+    "desc": "Adenosine receptor agonist used clinically by IV route for cardiac conduction effects; not a general oral supplement intervention.",
+    "desc_len": 130,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "deglycyrrhizinated-licorice",
+    "path": "public/data/compounds-detail/deglycyrrhizinated-licorice.json",
+    "name": "Deglycyrrhizinated Licorice",
+    "desc": "Licorice preparation with glycyrrhizin removed, intended for mucosal support.",
+    "desc_len": 77,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "magnesium-oxide",
+    "path": "public/data/compounds-detail/magnesium-oxide.json",
+    "name": "Magnesium Oxide",
+    "desc": "Magnesium oxide has lower bioavailability compared to other forms.",
+    "desc_len": 66,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "protodioscin",
+    "path": "public/data/compounds-detail/protodioscin.json",
+    "name": "Protodioscin",
+    "desc": "Protodioscin is cataloged as a steroidal saponin. Reported mechanism notes: Primary mechanism (preclinical); not supported in humans.",
+    "desc_len": 133,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "corosolic-acid",
+    "path": "public/data/compounds-detail/corosolic-acid.json",
+    "name": "corosolic acid",
+    "desc": "Triterpenoid associated with glucose disposal and metabolic signaling.",
+    "desc_len": 70,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "betaine-hcl",
+    "path": "public/data/compounds-detail/betaine-hcl.json",
+    "name": "Betaine HCl",
+    "desc": "Hydrochloride salt of betaine used for gastric-acid support; evidence is mostly physiologic rather than clinical.",
+    "desc_len": 113,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "cimifugoside",
+    "path": "public/data/compounds-detail/cimifugoside.json",
+    "name": "Cimifugoside",
+    "desc": "Cimifugoside is tracked for Added as site-safe referenced entity during workbook readiness pass; limited with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 228,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "american-ginseng-extract",
+    "path": "public/data/compounds-detail/american-ginseng-extract.json",
+    "name": "American Ginseng Extract",
+    "desc": "American Ginseng Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Mitochondrial Health; Metabolic Health; Energy Metabolism. Current workbook signals support mechanistic context around Metabolic Regulation; Glucose Metabolism Support, not treatment claims.",
+    "desc_len": 306,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "glycyrrhizin",
+    "path": "public/data/compounds-detail/glycyrrhizin.json",
+    "name": "Glycyrrhizin",
+    "desc": "Triterpene saponin from licorice with HMGB1 and NF-\u03baB pathway activity.",
+    "desc_len": 71,
+    "mechanisms": 5,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "eleuthero-extract",
+    "path": "public/data/compounds-detail/eleuthero-extract.json",
+    "name": "Eleuthero Extract",
+    "desc": "Evidence for fatigue or stress adaptation is insufficient for authority status without verified RCT support.",
+    "desc_len": 108,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "pregnenolone",
+    "path": "public/data/compounds-detail/pregnenolone.json",
+    "name": "Pregnenolone",
+    "desc": "Pregnenolone is a neurosteroid precursor with limited human trial evidence in mood, substance-use, and psychiatric contexts; it should be framed as experimental rather than a general cognition or hormone-optimization supplement.",
+    "desc_len": 228,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "rhodiola-extract-shr5",
+    "path": "public/data/compounds-detail/rhodiola-extract-shr5.json",
+    "name": "Rhodiola Extract SHR-5",
+    "desc": "Stress-fatigue context with extract-level evidence limits.",
+    "desc_len": 58,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "iodine",
+    "path": "public/data/compounds-detail/iodine.json",
+    "name": "Iodine",
+    "desc": "Prevents iodine deficiency disorders and supports thyroid hormone production.",
+    "desc_len": 77,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "hcg-diet",
+    "path": "public/data/compounds-detail/hcg-diet.json",
+    "name": "HCG Diet",
+    "desc": "HCG should not be promoted for weight loss: FDA warns against HCG weight-loss products, and clinical evidence shows weight loss comes from severe calorie restriction rather than HCG.",
+    "desc_len": 182,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "glycyrrhetinic-acid",
+    "path": "public/data/compounds-detail/glycyrrhetinic-acid.json",
+    "name": "glycyrrhetinic acid",
+    "desc": "Triterpenoid metabolite of glycyrrhizin associated with inflammatory signaling modulation.",
+    "desc_len": 90,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "macamides",
+    "path": "public/data/compounds-detail/macamides.json",
+    "name": "Macamides",
+    "desc": "Macamides is a fatty acid amides associated with maca. Evidence level: mixed.",
+    "desc_len": 77,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "tyrosol",
+    "path": "public/data/compounds-detail/tyrosol.json",
+    "name": "tyrosol",
+    "desc": "Simple phenolic alcohol linked to antioxidant-response and survival signaling.",
+    "desc_len": 78,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "choline",
+    "path": "public/data/compounds-detail/choline.json",
+    "name": "Choline",
+    "desc": "Essential for liver function, brain development, and neurotransmission.",
+    "desc_len": 71,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "mulberroside-a",
+    "path": "public/data/compounds-detail/mulberroside-a.json",
+    "name": "mulberroside a",
+    "desc": "Mulberry stilbene glycoside associated with postprandial glycemic control.",
+    "desc_len": 74,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "calcium",
+    "path": "public/data/compounds-detail/calcium.json",
+    "name": "Calcium",
+    "desc": "Supports bone mineral density; modest fracture prevention.",
+    "desc_len": 58,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "shilajit",
+    "path": "public/data/compounds-detail/shilajit.json",
+    "name": "Shilajit",
+    "desc": "Shilajit is cataloged as mineral pitch / fulvic acid complex. Reported mechanisms: fulvic acid; possible mitochondrial effects preclinical.",
+    "desc_len": 139,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "mct-oil",
+    "path": "public/data/compounds-detail/mct-oil.json",
+    "name": "MCT Oil",
+    "desc": "MCT Oil is best framed as a conservative research profile with mechanistic evidence and a focus on Mitochondrial Health; Metabolic Health; Energy Metabolism. Current workbook signals support mechanistic context around Metabolic Regulation; Lipid Metabolism Support, not treatment claims.",
+    "desc_len": 287,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "magnesium-threonate",
+    "path": "public/data/compounds-detail/magnesium-threonate.json",
+    "name": "Magnesium Threonate",
+    "desc": "Human evidence for magnesium exists broadly, but L-threonate-specific cognitive or sleep claims lack strong verified RCT support.",
+    "desc_len": 129,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "dim",
+    "path": "public/data/compounds-detail/dim.json",
+    "name": "diindolylmethane",
+    "desc": "diindolylmethane is tracked for Modu lates estrogen metabolism via CYP1A1 and CYP1B1 pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 217,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "boron",
+    "path": "public/data/compounds-detail/boron.json",
+    "name": "Boron",
+    "desc": "Boron is cataloged as trace element. Reported mechanisms: may influence bone metabolism and steroid hormone regulation; calcium/vitamin D metabolism effects.",
+    "desc_len": 157,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "willow-bark-extract",
+    "path": "public/data/compounds-detail/willow-bark-extract.json",
+    "name": "Willow Bark Extract",
+    "desc": "Willow Bark Extract is tracked for Contains salicin, metabolized to salicylate compounds that affect prostaglandin-mediated pain pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is.",
+    "desc_len": 253,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "green-tea-extract-egcg",
+    "path": "public/data/compounds-detail/green-tea-extract-egcg.json",
+    "name": "Green tea extract / EGCG",
+    "desc": "Green tea extract / EGCG supports metabolic; polyphenols; fat oxidation with moderate confidence in this merged decision layer.",
+    "desc_len": 127,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "ursodeoxycholic-acid",
+    "path": "public/data/compounds-detail/ursodeoxycholic-acid.json",
+    "name": "Ursodeoxycholic Acid",
+    "desc": "Hydrophilic bile acid used clinically to improve bile flow and reduce cholestatic liver injury.",
+    "desc_len": 95,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "peppermint-oil",
+    "path": "public/data/compounds-detail/peppermint-oil.json",
+    "name": "Peppermint Oil",
+    "desc": "Peppermint Oil supports IBS; abdominal pain; digestion with high confidence in this merged decision layer.",
+    "desc_len": 106,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "paeonol",
+    "path": "public/data/compounds-detail/paeonol.json",
+    "name": "paeonol",
+    "desc": "Phenolic ketone associated with inflammatory and antioxidant-response signaling.",
+    "desc_len": 80,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "hydroxytyrosol",
+    "path": "public/data/compounds-detail/hydroxytyrosol.json",
+    "name": "hydroxytyrosol",
+    "desc": "Olive phenolic metabolite linked to Nrf2 activation and PI3K/Akt signaling.",
+    "desc_len": 75,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "farnesol",
+    "path": "public/data/compounds-detail/farnesol.json",
+    "name": "farnesol",
+    "desc": "Sesquiterpene alcohol linked to lipid-signaling and pathway modulation.",
+    "desc_len": 71,
+    "mechanisms": 5,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "chondroitin",
+    "path": "public/data/compounds-detail/chondroitin.json",
+    "name": "Chondroitin",
+    "desc": "Chondroitin supports joint health; osteoarthritis; cartilage with moderate confidence in this merged decision layer.",
+    "desc_len": 116,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "mucuna-pruriens",
+    "path": "public/data/compounds-detail/mucuna-pruriens.json",
+    "name": "Mucuna pruriens",
+    "desc": "Mucuna pruriens supports dopamine; mood; movement with moderate confidence in this merged decision layer.",
+    "desc_len": 105,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "d-chiro-inositol",
+    "path": "public/data/compounds-detail/d-chiro-inositol.json",
+    "name": "D-Chiro Inositol",
+    "desc": "May improve insulin sensitivity and ovulation; limited evidence.",
+    "desc_len": 64,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "asiatic-acid",
+    "path": "public/data/compounds-detail/asiatic-acid.json",
+    "name": "asiatic acid",
+    "desc": "Triterpenoid aglycone associated with tissue repair and inflammatory pathway effects.",
+    "desc_len": 85,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "epicatechin-gallate",
+    "path": "public/data/compounds-detail/epicatechin-gallate.json",
+    "name": "epicatechin gallate",
+    "desc": "Gallated catechin from tea with anti-inflammatory signaling effects.",
+    "desc_len": 68,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "artemisinin",
+    "path": "public/data/compounds-detail/artemisinin.json",
+    "name": "artemisinin",
+    "desc": "Sesquiterpene lactone endoperoxide linked to redox and survival pathway effects.",
+    "desc_len": 80,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "devils-claw",
+    "path": "public/data/compounds-detail/devils-claw.json",
+    "name": "Devils Claw Extract",
+    "desc": "Devils Claw Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Inflammation. Current workbook signals support mechanistic context around Inflammatory Signaling Modulation, not treatment claims.",
+    "desc_len": 241,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "atractylenolide-ii",
+    "path": "public/data/compounds-detail/atractylenolide-ii.json",
+    "name": "atractylenolide ii",
+    "desc": "Atractylodes lactone linked to inflammatory signaling control.",
+    "desc_len": 62,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "beta-caryophyllene",
+    "path": "public/data/compounds-detail/beta-caryophyllene.json",
+    "name": "beta-caryophyllene",
+    "desc": "Sesquiterpene linked to cannabinoid-receptor and inflammatory signaling.",
+    "desc_len": 72,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "morroniside",
+    "path": "public/data/compounds-detail/morroniside.json",
+    "name": "morroniside",
+    "desc": "Morroniside is a Cornus iridoid with cytoprotective pathway activity.",
+    "desc_len": 69,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "folic-acid",
+    "path": "public/data/compounds-detail/folic-acid.json",
+    "name": "Folic Acid",
+    "desc": "Reduces risk of neural tube defects in pregnancy.",
+    "desc_len": 49,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "zinc-picolinate",
+    "path": "public/data/compounds-detail/zinc-picolinate.json",
+    "name": "Zinc Picolinate",
+    "desc": "Zinc salt/formulation used for mineral supplementation.",
+    "desc_len": 55,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "omega-3-epa-dominant",
+    "path": "public/data/compounds-detail/omega-3-epa-dominant.json",
+    "name": "Omega-3 EPA-Dominant",
+    "desc": "EPA-focused omega-3 formulation.",
+    "desc_len": 32,
+    "mechanisms": 5,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "iberogast",
+    "path": "public/data/compounds-detail/iberogast.json",
+    "name": "Iberogast",
+    "desc": "Iberogast is best framed as a conservative research profile with mechanistic evidence and a focus on Digestive Health. Current workbook signals support mechanistic context around limited source-backed mechanism signals, not treatment claims.",
+    "desc_len": 241,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "coconut-water-powder",
+    "path": "public/data/compounds-detail/coconut-water-powder.json",
+    "name": "Coconut Water Powder",
+    "desc": "Dehydrated coconut water electrolyte/carbohydrate product.",
+    "desc_len": 58,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "madecassic-acid",
+    "path": "public/data/compounds-detail/madecassic-acid.json",
+    "name": "madecassic acid",
+    "desc": "Centella triterpenoid associated with matrix-remodeling and survival signaling.",
+    "desc_len": 79,
+    "mechanisms": 5,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "slippery-elm",
+    "path": "public/data/compounds-detail/slippery-elm.json",
+    "name": "Slippery Elm",
+    "desc": "Ulmus rubra bark preparation with demulcent mucilage.",
+    "desc_len": 53,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "epigallocatechin",
+    "path": "public/data/compounds-detail/epigallocatechin.json",
+    "name": "epigallocatechin",
+    "desc": "Tea catechin involved in redox regulation and cell signaling.",
+    "desc_len": 61,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "electrolytes-potassium",
+    "path": "public/data/compounds-detail/electrolytes-potassium.json",
+    "name": "Potassium electrolytes",
+    "desc": "Potassium electrolytes supports electrolytes; blood pressure; muscle with high confidence in this merged decision layer.",
+    "desc_len": 120,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "agaricus-blazei",
+    "path": "public/data/compounds-detail/agaricus-blazei.json",
+    "name": "Agaricus blazei",
+    "desc": "Beta-glucan-containing mushroom with small human studies and limited outcomes evidence.",
+    "desc_len": 87,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "gingerol",
+    "path": "public/data/compounds-detail/gingerol.json",
+    "name": "gingerol",
+    "desc": "gingerol is tracked for Inhibits COX-2 and reduces prostaglandin synthesis with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 198,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "atractylenolide-iii",
+    "path": "public/data/compounds-detail/atractylenolide-iii.json",
+    "name": "atractylenolide iii",
+    "desc": "Sesquiterpene lactone associated with immune and cytoprotective pathways.",
+    "desc_len": 73,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "ginsenosides",
+    "path": "public/data/compounds-detail/ginsenosides.json",
+    "name": "Ginsenosides",
+    "desc": "Ginsenosides is cataloged as a triterpenoid saponins. Reported mechanism notes: Primary mechanism (preclinical); limited human validation via extracts.",
+    "desc_len": 151,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "theaflavin",
+    "path": "public/data/compounds-detail/theaflavin.json",
+    "name": "theaflavin",
+    "desc": "Oxidative black tea polyphenol associated with NF-\u03baB and MAPK pathway effects.",
+    "desc_len": 78,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "stigmasterol",
+    "path": "public/data/compounds-detail/stigmasterol.json",
+    "name": "stigmasterol",
+    "desc": "Phytosterol linked to receptor-level lipid signaling and pathway modulation.",
+    "desc_len": 76,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "23-epi-26-deoxyactein",
+    "path": "public/data/compounds-detail/23-epi-26-deoxyactein.json",
+    "name": "23-epi-26-deoxyactein",
+    "desc": "23-epi-26-deoxyactein is tracked for Added as site-safe referenced entity during workbook readiness pass; limited with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 237,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "curcumin-piperine",
+    "path": "public/data/compounds-detail/curcumin-piperine.json",
+    "name": "Curcumin + piperine",
+    "desc": "Curcumin + piperine supports joint; inflammation; bioavailability with moderate-high confidence in this merged decision layer.",
+    "desc_len": 126,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "hyperforin",
+    "path": "public/data/compounds-detail/hyperforin.json",
+    "name": "Hyperforin",
+    "desc": "Hyperforin is a St. John's wort phloroglucinol known for TRPC6 and neurotransmitter effects.",
+    "desc_len": 92,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "catuaba",
+    "path": "public/data/compounds-detail/catuaba.json",
+    "name": "Catuaba",
+    "desc": "Botanical category applied to Erythroxylum/Trichilia species with poorly standardized constituents.",
+    "desc_len": 99,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "silibinin",
+    "path": "public/data/compounds-detail/silibinin.json",
+    "name": "silibinin",
+    "desc": "Major flavonolignan of milk thistle with STAT3 and PI3K/Akt pathway activity.",
+    "desc_len": 77,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "anandamide",
+    "path": "public/data/compounds-detail/anandamide.json",
+    "name": "Anandamide",
+    "desc": "Anandamide is cataloged as endocannabinoid. Reported mechanisms: endogenous CB1 agonism; FAAH degradation.",
+    "desc_len": 106,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "5-htp",
+    "path": "public/data/compounds-detail/5-htp.json",
+    "name": "5-HTP",
+    "desc": "Serotonin-precursor support for mood-adjacent sleep; avoid casual use with serotonergic medications.",
+    "desc_len": 100,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "acarbose",
+    "path": "public/data/compounds-detail/acarbose.json",
+    "name": "Acarbose",
+    "desc": "Acarbose is tracked for Inhibits intestinal alpha-glucosidases, delaying carbohydrate digestion and postprandial glucose absorption with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 255,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "erinacines",
+    "path": "public/data/compounds-detail/erinacines.json",
+    "name": "erinacines",
+    "desc": "Cyathane diterpenoids from lion's mane mycelium studied for nerve growth factor and neurotrophic signaling.",
+    "desc_len": 107,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "verbascoside",
+    "path": "public/data/compounds-detail/verbascoside.json",
+    "name": "verbascoside",
+    "desc": "Also known as acteoside; linked to inflammatory signaling control.",
+    "desc_len": 66,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "betaine-anhydrous",
+    "path": "public/data/compounds-detail/betaine-anhydrous.json",
+    "name": "Betaine anhydrous",
+    "desc": "Betaine anhydrous supports methylation; performance; homocysteine with moderate confidence in this merged decision layer.",
+    "desc_len": 121,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "betaine",
+    "path": "public/data/compounds-detail/betaine.json",
+    "name": "Betaine",
+    "desc": "Betaine is best framed as a conservative research profile with mechanistic evidence and a focus on general biological context. Current workbook signals support mechanistic context around limited source-backed mechanism signals, not treatment claims.",
+    "desc_len": 249,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "vitamin-k2",
+    "path": "public/data/compounds-detail/vitamin-k2.json",
+    "name": "Vitamin K2",
+    "desc": "May improve bone mineral density and reduce vascular calcification.",
+    "desc_len": 67,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "safranal",
+    "path": "public/data/compounds-detail/safranal.json",
+    "name": "safranal",
+    "desc": "Monoterpene aldehyde from saffron contributing to aroma and neuroactive effects.",
+    "desc_len": 80,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "schisandrins",
+    "path": "public/data/compounds-detail/schisandrins.json",
+    "name": "Schisandrins",
+    "desc": "Schisandrins is cataloged as a lignans. Reported mechanism notes: Primary mechanism (preclinical); minimal human validation.",
+    "desc_len": 124,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "shilajit-extract",
+    "path": "public/data/compounds-detail/shilajit-extract.json",
+    "name": "Shilajit Extract",
+    "desc": "Shilajit Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Mitochondrial Health; Hormonal Health; Energy Metabolism. Current workbook signals support mechanistic context around Mitochondrial Support; Hormonal Signaling Context, not treatment claims.",
+    "desc_len": 298,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "bcaas",
+    "path": "public/data/compounds-detail/bcaas.json",
+    "name": "Bcaas",
+    "desc": "BCAAs may reduce muscle soreness but limited effect on performance.",
+    "desc_len": 67,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "electrolytes-magnesium-blend",
+    "path": "public/data/compounds-detail/electrolytes-magnesium-blend.json",
+    "name": "Electrolytes - Magnesium Blend",
+    "desc": "Blend of magnesium salts used for electrolyte and deficiency contexts.",
+    "desc_len": 70,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "cordyceps-militaris",
+    "path": "public/data/compounds-detail/cordyceps-militaris.json",
+    "name": "cordyceps militaris",
+    "desc": "cordyceps militaris is tracked for Increases ATP production and oxygen utilization with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 206,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "beta-elemene",
+    "path": "public/data/compounds-detail/beta-elemene.json",
+    "name": "beta-elemene",
+    "desc": "Sesquiterpene hydrocarbon associated with survival and apoptotic signaling.",
+    "desc_len": 75,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "punicalagin",
+    "path": "public/data/compounds-detail/punicalagin.json",
+    "name": "punicalagin",
+    "desc": "Major ellagitannin from pomegranate with strong polyphenolic bioactivity.",
+    "desc_len": 73,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "gaba",
+    "path": "public/data/compounds-detail/gaba.json",
+    "name": "GABA Oral",
+    "desc": "Limited evidence for stress reduction.",
+    "desc_len": 38,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "estrogen-balance-stack",
+    "path": "public/data/compounds-detail/estrogen-balance-stack.json",
+    "name": "Estrogen Balance Stack",
+    "desc": "Estrogen Balance Stack is best framed as a conservative research profile with mechanistic evidence and a focus on Hormonal Health. Current workbook signals support mechanistic context around Hormonal Signaling Context, not treatment claims.",
+    "desc_len": 240,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "hypericin",
+    "path": "public/data/compounds-detail/hypericin.json",
+    "name": "hypericin",
+    "desc": "Hypericin is a napthodianthrone marker from St. John's wort with photodynamic signaling effects.",
+    "desc_len": 96,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "kotalanol",
+    "path": "public/data/compounds-detail/kotalanol.json",
+    "name": "kotalanol",
+    "desc": "Thiosugar sulfonium constituent from Salacia known for intestinal alpha-glucosidase inhibition.",
+    "desc_len": 95,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "melatonin-extended-release",
+    "path": "public/data/compounds-detail/melatonin-extended-release.json",
+    "name": "Extended-release melatonin",
+    "desc": "Extended-release melatonin supports sleep maintenance; circadian rhythm with moderate-high confidence in this merged decision layer.",
+    "desc_len": 132,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "dhea",
+    "path": "public/data/compounds-detail/dhea.json",
+    "name": "DHEA",
+    "desc": "DHEA is a steroid precursor used in some clinical and supplement contexts; benefits are population-specific and safety requires hormonal caution.",
+    "desc_len": 145,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "eaa-essential-amino-acids",
+    "path": "public/data/compounds-detail/eaa-essential-amino-acids.json",
+    "name": "Eaa Essential Amino Acids",
+    "desc": "EAAs stimulate muscle protein synthesis effectively.",
+    "desc_len": 52,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "l-theanine-sleep",
+    "path": "public/data/compounds-detail/l-theanine-sleep.json",
+    "name": "L-Theanine Sleep Use",
+    "desc": "Use-context row for L-theanine in sleep formulations.",
+    "desc_len": 53,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "grape-seed-extract",
+    "path": "public/data/compounds-detail/grape-seed-extract.json",
+    "name": "Grape Seed Extract",
+    "desc": "Reduces systolic and diastolic blood pressure modestly.",
+    "desc_len": 55,
+    "mechanisms": 5,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "protein-whey-isolate",
+    "path": "public/data/compounds-detail/protein-whey-isolate.json",
+    "name": "Whey protein isolate",
+    "desc": "Whey protein isolate supports muscle; protein; recovery with high confidence in this merged decision layer.",
+    "desc_len": 107,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "silica",
+    "path": "public/data/compounds-detail/silica.json",
+    "name": "Silica",
+    "desc": "Silicon-related nutrient involved in collagen synthesis and bone formation biology.",
+    "desc_len": 83,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "calycosin",
+    "path": "public/data/compounds-detail/calycosin.json",
+    "name": "calycosin",
+    "desc": "Isoflavonoid from Astragalus associated with estrogenic and survival signaling.",
+    "desc_len": 79,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "bisdemethoxycurcumin",
+    "path": "public/data/compounds-detail/bisdemethoxycurcumin.json",
+    "name": "bisdemethoxycurcumin",
+    "desc": "Curcuminoid linked to inflammatory pathway suppression and redox signaling.",
+    "desc_len": 75,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "hawthorn-extract",
+    "path": "public/data/compounds-detail/hawthorn-extract.json",
+    "name": "Hawthorn Extract",
+    "desc": "Hawthorn Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Cardiovascular Health. Current workbook signals support mechanistic context around Vascular Function Support, not treatment claims.",
+    "desc_len": 239,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "chromium",
+    "path": "public/data/compounds-detail/chromium.json",
+    "name": "Chromium",
+    "desc": "Chromium is cataloged as essential trace mineral. Reported mechanisms: proposed insulin-signaling support via chromodulin; glucose metabolism effects.",
+    "desc_len": 150,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "magnesium-glycinate",
+    "path": "public/data/compounds-detail/magnesium-glycinate.json",
+    "name": "Magnesium glycinate",
+    "desc": "Chelated magnesium option for relaxation and repletion contexts.",
+    "desc_len": 64,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "d-ribose",
+    "path": "public/data/compounds-detail/d-ribose.json",
+    "name": "D-Ribose",
+    "desc": "Sugar component used in nucleotide and ATP-related metabolism.",
+    "desc_len": 62,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "papain",
+    "path": "public/data/compounds-detail/papain.json",
+    "name": "Papain",
+    "desc": "Proteolytic enzyme from papaya latex used in enzyme blends; clinical support is sparse.",
+    "desc_len": 87,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "bromelain",
+    "path": "public/data/compounds-detail/bromelain.json",
+    "name": "Bromelain",
+    "desc": "Bromelain supports sinus; inflammation; digestion with low confidence in this merged decision layer.",
+    "desc_len": 100,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "sulforaphane",
+    "path": "public/data/compounds-detail/sulforaphane.json",
+    "name": "Sulforaphane",
+    "desc": "May support detoxification enzymes and reduce oxidative stress.",
+    "desc_len": 63,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "naringenin",
+    "path": "public/data/compounds-detail/naringenin.json",
+    "name": "naringenin",
+    "desc": "Citrus flavanone reported to influence AMPK and PI3K/Akt signaling.",
+    "desc_len": 67,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "nicotine",
+    "path": "public/data/compounds-detail/nicotine.json",
+    "name": "nicotine",
+    "desc": "Canonical tobacco alkaloid with strong nicotinic and neurotransmitter pathway activity.",
+    "desc_len": 87,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "crocin",
+    "path": "public/data/compounds-detail/crocin.json",
+    "name": "crocin",
+    "desc": "Saffron carotenoid glycoside reported to influence PI3K/Akt and MAPK signaling.",
+    "desc_len": 79,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "probiotics-lactobacillus",
+    "path": "public/data/compounds-detail/probiotics-lactobacillus.json",
+    "name": "Probiotics - Lactobacillus spp.",
+    "desc": "Category row for Lactobacillus strains; effects are strain-, dose-, and indication-specific.",
+    "desc_len": 92,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "tetrandrine",
+    "path": "public/data/compounds-detail/tetrandrine.json",
+    "name": "tetrandrine",
+    "desc": "Bisbenzylisoquinoline alkaloid known for calcium-channel-related and NF-\u03baB pathway activity.",
+    "desc_len": 92,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "copper",
+    "path": "public/data/compounds-detail/copper.json",
+    "name": "Copper",
+    "desc": "Copper is cataloged as essential trace mineral. Reported mechanisms: cofactor for cytochrome c oxidase and superoxide dismutase; supports iron metabolism.",
+    "desc_len": 154,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "elephantopin",
+    "path": "public/data/compounds-detail/elephantopin.json",
+    "name": "elephantopin",
+    "desc": "Sesquiterpene lactone associated with inflammatory signaling control.",
+    "desc_len": 69,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "boswellia",
+    "path": "public/data/compounds-detail/boswellia.json",
+    "name": "Boswellia",
+    "desc": "Boswellia is cataloged as boswellic acid botanical. Reported mechanisms: 5-lipoxygenase inhibition; leukotriene reduction.",
+    "desc_len": 122,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "ginkgolide-b",
+    "path": "public/data/compounds-detail/ginkgolide-b.json",
+    "name": "ginkgolide b",
+    "desc": "Terpene lactone from Ginkgo biloba affecting platelet activating factor.",
+    "desc_len": 72,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "diosgenin",
+    "path": "public/data/compounds-detail/diosgenin.json",
+    "name": "diosgenin",
+    "desc": "Steroidal sapogenin broadly associated with endocrine and metabolic signaling.",
+    "desc_len": 78,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "folate",
+    "path": "public/data/compounds-detail/folate.json",
+    "name": "Folate",
+    "desc": "Vitamin B9 family involved in DNA synthesis, repair, and methylation-related one-carbon metabolism.",
+    "desc_len": 99,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "thujone",
+    "path": "public/data/compounds-detail/thujone.json",
+    "name": "thujone",
+    "desc": "Monoterpene ketone associated with GABAergic and sensory signaling.",
+    "desc_len": 67,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "glutamine",
+    "path": "public/data/compounds-detail/glutamine.json",
+    "name": "Glutamine",
+    "desc": "May improve gut barrier function in critical illness and some GI disorders.",
+    "desc_len": 75,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "mangostin",
+    "path": "public/data/compounds-detail/mangostin.json",
+    "name": "mangostin",
+    "desc": "Xanthone associated with inflammatory and survival pathway effects.",
+    "desc_len": 67,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "l-arginine",
+    "path": "public/data/compounds-detail/l-arginine.json",
+    "name": "arginine",
+    "desc": "Improves endothelial function but inconsistent outcomes.",
+    "desc_len": 56,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "resistant-starch",
+    "path": "public/data/compounds-detail/resistant-starch.json",
+    "name": "Resistant Starch",
+    "desc": "Resistant Starch supports gut microbiome; insulin sensitivity; satiety with moderate confidence in this merged decision layer.",
+    "desc_len": 126,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "graviola",
+    "path": "public/data/compounds-detail/graviola.json",
+    "name": "Graviola Annona muricata",
+    "desc": "Annona muricata botanical containing acetogenins such as annonacin; preclinical cytotoxicity does not translate to proven clinical benefit.",
+    "desc_len": 139,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "lumbrokinase",
+    "path": "public/data/compounds-detail/lumbrokinase.json",
+    "name": "Lumbrokinase",
+    "desc": "Earthworm-derived fibrinolytic enzyme preparation with limited clinical evidence.",
+    "desc_len": 81,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "schisandrin-b",
+    "path": "public/data/compounds-detail/schisandrin-b.json",
+    "name": "schisandrin b",
+    "desc": "Lignan from Schisandra with hepatoprotective and redox-modulating actions.",
+    "desc_len": 74,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "sodium",
+    "path": "public/data/compounds-detail/sodium.json",
+    "name": "Sodium",
+    "desc": "Excess sodium intake increases blood pressure and cardiovascular risk.",
+    "desc_len": 70,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "boswellic-acids",
+    "path": "public/data/compounds-detail/boswellic-acids.json",
+    "name": "boswellic acids",
+    "desc": "boswellic acids is tracked for Inhibits 5-lipoxygenase reducing leukotriene synthesis with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 209,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "phosphatidic-acid",
+    "path": "public/data/compounds-detail/phosphatidic-acid.json",
+    "name": "phosphatidic acid",
+    "desc": "phosphatidic acid is tracked for Activates mTOR signaling promoting muscle protein synthesis with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 216,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "dietary-nitrates",
+    "path": "public/data/compounds-detail/dietary-nitrates.json",
+    "name": "Dietary Nitrates",
+    "desc": "Nitrate compounds from vegetables or formulated sources.",
+    "desc_len": 56,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "lemon-balm-extract",
+    "path": "public/data/compounds-detail/lemon-balm-extract.json",
+    "name": "Lemon Balm Extract",
+    "desc": "Lemon Balm Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Sleep; Cognition; Stress Response; Neurobiology. Current workbook signals support mechanistic context around Neurotransmitter Modulation; Stress Response Modulation, not treatment claims.",
+    "desc_len": 297,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "electrolytes-sodium",
+    "path": "public/data/compounds-detail/electrolytes-sodium.json",
+    "name": "Sodium electrolytes",
+    "desc": "Sodium electrolytes supports hydration; endurance; electrolytes with high confidence in this merged decision layer.",
+    "desc_len": 115,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "vitamin-e",
+    "path": "public/data/compounds-detail/vitamin-e.json",
+    "name": "Vitamin E",
+    "desc": "No mortality benefit; high doses may increase risk.",
+    "desc_len": 51,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "beta-ecdysterone",
+    "path": "public/data/compounds-detail/beta-ecdysterone.json",
+    "name": "beta-ecdysterone",
+    "desc": "beta-ecdysterone is tracked for Activates protein synthesis via PI3K/Akt pathway with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 204,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "electrolyte-mix",
+    "path": "public/data/compounds-detail/electrolyte-mix.json",
+    "name": "Electrolyte Mix",
+    "desc": "Electrolyte solutions improve hydration and performance during prolonged exercise.",
+    "desc_len": 82,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "glycerol",
+    "path": "public/data/compounds-detail/glycerol.json",
+    "name": "Glycerol",
+    "desc": "Osmolyte used in pre-hydration protocols.",
+    "desc_len": 41,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "niacin",
+    "path": "public/data/compounds-detail/niacin.json",
+    "name": "Niacin",
+    "desc": "Improves lipid profile but no added cardiovascular benefit with statins.",
+    "desc_len": 72,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "creatine-hcl",
+    "path": "public/data/compounds-detail/creatine-hcl.json",
+    "name": "Creatine HCl",
+    "desc": "Creatine monohydrate has strong evidence, but creatine HCl should not inherit formulation-specific authority without direct comparative human evidence.",
+    "desc_len": 151,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "asiaticoside",
+    "path": "public/data/compounds-detail/asiaticoside.json",
+    "name": "asiaticoside",
+    "desc": "Centella triterpene glycoside linked to wound and matrix signaling pathways.",
+    "desc_len": 76,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "embelin",
+    "path": "public/data/compounds-detail/embelin.json",
+    "name": "embelin",
+    "desc": "Benzoquinone compound linked to apoptotic and inflammatory signaling.",
+    "desc_len": 69,
+    "mechanisms": 5,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "matrine",
+    "path": "public/data/compounds-detail/matrine.json",
+    "name": "matrine",
+    "desc": "Quinolizidine alkaloid from Sophora species commonly linked to PI3K/Akt and NF-\u03baB pathway effects.",
+    "desc_len": 98,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "glucosamine",
+    "path": "public/data/compounds-detail/glucosamine.json",
+    "name": "Glucosamine",
+    "desc": "Glucosamine supports joint health; osteoarthritis; cartilage with moderate confidence in this merged decision layer.",
+    "desc_len": 116,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "morin",
+    "path": "public/data/compounds-detail/morin.json",
+    "name": "morin",
+    "desc": "Flavonol associated with inflammatory and cell-survival pathway modulation.",
+    "desc_len": 75,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "levodopa",
+    "path": "public/data/compounds-detail/levodopa.json",
+    "name": "Levodopa",
+    "desc": "Oral pharmaceutical dopamine precursor used clinically for Parkinson's disease; Mucuna-related evidence should be kept attribution-specific.",
+    "desc_len": 140,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "hyaluronic-acid",
+    "path": "public/data/compounds-detail/hyaluronic-acid.json",
+    "name": "Hyaluronic Acid",
+    "desc": "Hyaluronic Acid supports skin hydration; joints; lubrication with moderate confidence in this merged decision layer.",
+    "desc_len": 116,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "cepharanthine",
+    "path": "public/data/compounds-detail/cepharanthine.json",
+    "name": "cepharanthine",
+    "desc": "Bisbenzylisoquinoline alkaloid associated with NF-\u03baB suppression and PI3K/Akt pathway effects.",
+    "desc_len": 94,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "albiflorin",
+    "path": "public/data/compounds-detail/albiflorin.json",
+    "name": "albiflorin",
+    "desc": "Paeonia glycoside linked to neurotransmitter and signaling pathway effects.",
+    "desc_len": 75,
+    "mechanisms": 5,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "exogenous-ketones",
+    "path": "public/data/compounds-detail/exogenous-ketones.json",
+    "name": "exogenous ketones",
+    "desc": "exogenous ketones is tracked for Elevate blood ketone levels providing alternative fuel substrate with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 221,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "passionflower-extract-standardized",
+    "path": "public/data/compounds-detail/passionflower-extract-standardized.json",
+    "name": "Passionflower Extract Standardized",
+    "desc": "Passiflora incarnata extract, often flavonoid/vitexin-focused.",
+    "desc_len": 62,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "saikosaponin-a",
+    "path": "public/data/compounds-detail/saikosaponin-a.json",
+    "name": "saikosaponin a",
+    "desc": "Triterpene saponin from Bupleurum with NF-\u03baB and PI3K/Akt pathway activity.",
+    "desc_len": 75,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "rosin",
+    "path": "public/data/compounds-detail/rosin.json",
+    "name": "rosin",
+    "desc": "Rhodiola phenylpropanoid linked to adaptive cellular signaling.",
+    "desc_len": 63,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "glycine",
+    "path": "public/data/compounds-detail/glycine.json",
+    "name": "Glycine",
+    "desc": "Simple bedtime amino-acid support for sleep quality and relaxation.",
+    "desc_len": 67,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "lawsone",
+    "path": "public/data/compounds-detail/lawsone.json",
+    "name": "lawsone",
+    "desc": "Naphthoquinone pigment linked to inflammatory signaling control.",
+    "desc_len": 64,
+    "mechanisms": 5,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "valerian-extract-standardized",
+    "path": "public/data/compounds-detail/valerian-extract-standardized.json",
+    "name": "Valerian Extract Standardized",
+    "desc": "Standardized Valeriana officinalis extract, usually valerenic-acid focused.",
+    "desc_len": 75,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "bicarbonate",
+    "path": "public/data/compounds-detail/bicarbonate.json",
+    "name": "Bicarbonate",
+    "desc": "Improves high-intensity exercise performance.",
+    "desc_len": 45,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "acetylshikonin",
+    "path": "public/data/compounds-detail/acetylshikonin.json",
+    "name": "acetylshikonin",
+    "desc": "Shikonin derivative linked to inflammatory and apoptotic signaling.",
+    "desc_len": 67,
+    "mechanisms": 5,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "safrole",
+    "path": "public/data/compounds-detail/safrole.json",
+    "name": "safrole",
+    "desc": "Phenylpropene associated with sensory and signaling pathway activity.",
+    "desc_len": 69,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "l-norvaline",
+    "path": "public/data/compounds-detail/l-norvaline.json",
+    "name": "L Norvaline",
+    "desc": "L Norvaline is best framed as a conservative research profile with mechanistic evidence and a focus on general biological context. Current workbook signals support mechanistic context around limited source-backed mechanism signals, not treatment claims.",
+    "desc_len": 253,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "schisandrin",
+    "path": "public/data/compounds-detail/schisandrin.json",
+    "name": "schisandrin",
+    "desc": "Lignan from Schisandra associated with Nrf2 activation and PI3K/Akt signaling.",
+    "desc_len": 78,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "pycnogenol",
+    "path": "public/data/compounds-detail/pycnogenol.json",
+    "name": "Pycnogenol",
+    "desc": "Improves endothelial function and reduces blood pressure.",
+    "desc_len": 57,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "yohimbine",
+    "path": "public/data/compounds-detail/yohimbine.json",
+    "name": "Yohimbine",
+    "desc": "Yohimbine is tracked for Alpha-2 adrenergic receptor antagonist increasing sympathetic activity and norepinephrine release with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "desc_len": 246,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "madecassoside",
+    "path": "public/data/compounds-detail/madecassoside.json",
+    "name": "madecassoside",
+    "desc": "Centella triterpene glycoside associated with inflammatory and tissue-repair signaling.",
+    "desc_len": 87,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "testosterone-support-stack",
+    "path": "public/data/compounds-detail/testosterone-support-stack.json",
+    "name": "Testosterone Support Stack",
+    "desc": "Testosterone Support Stack is best framed as a conservative research profile with mechanistic evidence and a focus on Exercise Performance; Hormonal Health. Current workbook signals support mechanistic context around Hormonal Signaling Context, not treatment claims.",
+    "desc_len": 266,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "nerolidol",
+    "path": "public/data/compounds-detail/nerolidol.json",
+    "name": "nerolidol",
+    "desc": "Sesquiterpene alcohol associated with calming and cytoprotective signaling.",
+    "desc_len": 75,
+    "mechanisms": 5,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "acteoside",
+    "path": "public/data/compounds-detail/acteoside.json",
+    "name": "acteoside",
+    "desc": "Phenylethanoid glycoside with inflammatory pathway modulation.",
+    "desc_len": 62,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "betaine-nitrate",
+    "path": "public/data/compounds-detail/betaine-nitrate.json",
+    "name": "Betaine Nitrate",
+    "desc": "Combination compound/formulation pairing betaine with nitrate.",
+    "desc_len": 62,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "methylcobalamin",
+    "path": "public/data/compounds-detail/methylcobalamin.json",
+    "name": "Methylcobalamin",
+    "desc": "Active cobalamin form used in methionine synthase and methylation pathways.",
+    "desc_len": 75,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "creatine-beta-alanine",
+    "path": "public/data/compounds-detail/creatine-beta-alanine.json",
+    "name": "Creatine + Beta-Alanine",
+    "desc": "Creatine plus beta-alanine is a performance-oriented combination: creatine supports repeated high-intensity ATP regeneration, while beta-alanine raises muscle carnosine for buffering during hard efforts.",
+    "desc_len": 203,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "galantamine",
+    "path": "public/data/compounds-detail/galantamine.json",
+    "name": "Galantamine",
+    "desc": "Galantamine is best framed as a conservative research profile with mechanistic evidence and a focus on Cognition. Current workbook signals support mechanistic context around Neurotransmitter Modulation, not treatment claims.",
+    "desc_len": 224,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "chamazulene",
+    "path": "public/data/compounds-detail/chamazulene.json",
+    "name": "chamazulene",
+    "desc": "Aromatic azulene derivative linked to inflammatory mediator modulation.",
+    "desc_len": 71,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "daidzin",
+    "path": "public/data/compounds-detail/daidzin.json",
+    "name": "daidzin",
+    "desc": "Isoflavone glycoside associated with hormone-related and glycemic effects.",
+    "desc_len": 74,
+    "mechanisms": 5,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "lagerstroemin",
+    "path": "public/data/compounds-detail/lagerstroemin.json",
+    "name": "lagerstroemin",
+    "desc": "Ellagitannin linked to glucose transport and metabolic regulation.",
+    "desc_len": 66,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "taurine",
+    "path": "public/data/compounds-detail/taurine.json",
+    "name": "Taurine",
+    "desc": "Calm/supportive amino-acid context; sleep claims should stay limited.",
+    "desc_len": 69,
+    "mechanisms": 5,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "potassium",
+    "path": "public/data/compounds-detail/potassium.json",
+    "name": "Potassium",
+    "desc": "Potassium supports electrolytes; blood pressure; muscle with high confidence in this merged decision layer.",
+    "desc_len": 107,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "dandelion-root",
+    "path": "public/data/compounds-detail/dandelion-root.json",
+    "name": "Dandelion Root",
+    "desc": "Taraxacum officinale root with mostly traditional/preclinical support.",
+    "desc_len": 70,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "testosterone-boosters-generic",
+    "path": "public/data/compounds-detail/testosterone-boosters-generic.json",
+    "name": "Testosterone Boosters Generic",
+    "desc": "Generic testosterone-booster blends should not be treated as evidence-based; claims must be evaluated ingredient by ingredient, and many products have unsupported claims or dosing below evidence-based levels.",
+    "desc_len": 208,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "daphnetin",
+    "path": "public/data/compounds-detail/daphnetin.json",
+    "name": "daphnetin",
+    "desc": "Coumarin derivative reported with JAK/STAT and NF-\u03baB inhibitory activity.",
+    "desc_len": 73,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "actein",
+    "path": "public/data/compounds-detail/actein.json",
+    "name": "Actein",
+    "desc": "Actein is cataloged as a triterpene glycoside. Reported mechanism notes: Primary mechanism (preclinical); mechanism unclear.",
+    "desc_len": 124,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "nutmeg",
+    "path": "public/data/compounds-detail/nutmeg.json",
+    "name": "Nutmeg Myristica fragrans",
+    "desc": "Culinary spice with myristicin/elemicin content; high-dose exposure is associated with delirium-like toxicity.",
+    "desc_len": 110,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "coconut-oil",
+    "path": "public/data/compounds-detail/coconut-oil.json",
+    "name": "Coconut Oil",
+    "desc": "Coconut Oil is tracked for Contains saturated fatty acids and medium-chain fatty acid fractions; effects depend on comparator fat and dietary context with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human.",
+    "desc_len": 253,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "crocetin",
+    "path": "public/data/compounds-detail/crocetin.json",
+    "name": "crocetin",
+    "desc": "Saffron carotenoid aglycone linked to PI3K/Akt and Nrf2 pathway activity.",
+    "desc_len": 73,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "astragaloside-iv",
+    "path": "public/data/compounds-detail/astragaloside-iv.json",
+    "name": "astragaloside iv",
+    "desc": "Astragalus saponin linked to metabolic signaling and tissue-protective pathways.",
+    "desc_len": 80,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "wild-dagga",
+    "path": "public/data/compounds-detail/wild-dagga.json",
+    "name": "Wild Dagga Leonotis leonurus",
+    "desc": "Ethnobotanical Leonotis species with sparse pharmacological literature and no robust human trials.",
+    "desc_len": 98,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "maca-root-extract",
+    "path": "public/data/compounds-detail/maca-root-extract.json",
+    "name": "Maca Root Extract",
+    "desc": "Maca Root Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Hormonal Health. Current workbook signals support mechanistic context around Hormonal Signaling Context, not treatment claims.",
+    "desc_len": 235,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "elemicin",
+    "path": "public/data/compounds-detail/elemicin.json",
+    "name": "elemicin",
+    "desc": "Phenylpropene associated with monoamine-related and sensory signaling.",
+    "desc_len": 70,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "cobalamin",
+    "path": "public/data/compounds-detail/cobalamin.json",
+    "name": "vitamin b12",
+    "desc": "Corrects deficiency and prevents anemia and neuropathy.",
+    "desc_len": 55,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "acetyl-11-keto-beta-boswellic-acid",
+    "path": "public/data/compounds-detail/acetyl-11-keto-beta-boswellic-acid.json",
+    "name": "acetyl-11-keto-beta-boswellic acid",
+    "desc": "AKBA-type boswellic acid widely used as a core Boswellia marker compound.",
+    "desc_len": 73,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "oleuropein",
+    "path": "public/data/compounds-detail/oleuropein.json",
+    "name": "oleuropein",
+    "desc": "Olive secoiridoid associated with NF-\u03baB and AMPK pathway modulation.",
+    "desc_len": 68,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "atractylenolide-i",
+    "path": "public/data/compounds-detail/atractylenolide-i.json",
+    "name": "atractylenolide i",
+    "desc": "Sesquiterpene lactone associated with immune and survival signaling.",
+    "desc_len": 68,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "glycine-sleep",
+    "path": "public/data/compounds-detail/glycine-sleep.json",
+    "name": "Glycine Sleep Use",
+    "desc": "Sleep-context row for glycine rather than a separate base compound.",
+    "desc_len": 67,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "bacoside-b",
+    "path": "public/data/compounds-detail/bacoside-b.json",
+    "name": "bacoside b",
+    "desc": "Bacopa saponin fraction linked to cognition-related signaling.",
+    "desc_len": 62,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "passionflower-extract",
+    "path": "public/data/compounds-detail/passionflower-extract.json",
+    "name": "Passionflower Extract",
+    "desc": "Passionflower Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Sleep; Stress Response; Neurobiology. Current workbook signals support mechanistic context around Neurotransmitter Modulation; Stress Response Modulation, not treatment claims.",
+    "desc_len": 289,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "astragalin",
+    "path": "public/data/compounds-detail/astragalin.json",
+    "name": "astragalin",
+    "desc": "Flavonoid glycoside associated with inflammatory pathway control.",
+    "desc_len": 65,
+    "mechanisms": 6,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "electrolyte-blend",
+    "path": "public/data/compounds-detail/electrolyte-blend.json",
+    "name": "Electrolyte Blend",
+    "desc": "Electrolyte blends are most useful for rehydration when sweat loss, heat exposure, diarrhea, vomiting, or prolonged exercise increases sodium and fluid needs; they should not be treated as a fat-loss or energy shortcut.",
+    "desc_len": 219,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "taurine-sleep",
+    "path": "public/data/compounds-detail/taurine-sleep.json",
+    "name": "Taurine Sleep Context",
+    "desc": "Use-context row for taurine in sleep formulations.",
+    "desc_len": 50,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "indole-3-carbinol",
+    "path": "public/data/compounds-detail/indole-3-carbinol.json",
+    "name": "Indole-3-carbinol",
+    "desc": "Indole-3-carbinol is cataloged as a indole compound. Reported mechanism notes: Modulates estrogen metabolism (human-supported via downstream metabolites such as DIM formed in vivo); additional mechanisms (preclinical).",
+    "desc_len": 218,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "vitamin-d",
+    "path": "public/data/compounds-detail/vitamin-d.json",
+    "name": "Vitamin D",
+    "desc": "Vitamin D supports bone; deficiency; immune with high confidence in this merged decision layer.",
+    "desc_len": 95,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "yellow-dock",
+    "path": "public/data/compounds-detail/yellow-dock.json",
+    "name": "Yellow Dock",
+    "desc": "Rumex crispus root with insufficient clinical evidence and GI/oxalate cautions.",
+    "desc_len": 79,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "cinnamon-extract",
+    "path": "public/data/compounds-detail/cinnamon-extract.json",
+    "name": "Cinnamon extract",
+    "desc": "Cinnamon extract supports glucose; metabolic with moderate confidence in this merged decision layer.",
+    "desc_len": 100,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "theacrine",
+    "path": "public/data/compounds-detail/theacrine.json",
+    "name": "Theacrine",
+    "desc": "Caffeine-like purine alkaloid that may affect adenosine and dopamine signaling; human evidence is limited.",
+    "desc_len": 106,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "cordyceps",
+    "path": "public/data/compounds-detail/cordyceps.json",
+    "name": "Cordyceps",
+    "desc": "Cordyceps supports exercise; fatigue; immunity with low confidence in this merged decision layer.",
+    "desc_len": 97,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "collagen-peptides",
+    "path": "public/data/compounds-detail/collagen-peptides.json",
+    "name": "Collagen Peptides",
+    "desc": "Collagen Peptides supports skin; joints; connective tissue with moderate confidence in this merged decision layer.",
+    "desc_len": 114,
+    "mechanisms": 1,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "piperine",
+    "path": "public/data/compounds-detail/piperine.json",
+    "name": "Piperine",
+    "desc": "Alkaloid from black pepper enhancing bioavailability.",
+    "desc_len": 53,
+    "mechanisms": 2,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "alpha-mangostin",
+    "path": "public/data/compounds-detail/alpha-mangostin.json",
+    "name": "alpha-mangostin",
+    "desc": "Major mangosteen xanthone with inflammatory and apoptotic signaling activity.",
+    "desc_len": 77,
+    "mechanisms": 4,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  },
+  {
+    "slug": "methyl-eugenol",
+    "path": "public/data/compounds-detail/methyl-eugenol.json",
+    "name": "methyl eugenol",
+    "desc": "Phenylpropanoid present in aromatic herbs with sensory and neuroactive effects.",
+    "desc_len": 79,
+    "mechanisms": 3,
+    "safety": "Generally well tolerated for most users.",
+    "safety_len": 40
+  }
+]
