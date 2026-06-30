@@ -30,26 +30,26 @@ type EvidenceBadgeProps = {
 const BADGE_STYLES: Record<string, string> = {
   'Human Evidence': 'border-emerald-800/15 bg-emerald-50/80 text-emerald-900',
   'Mechanism-Mapped': 'border-blue-800/15 bg-blue-50/70 text-blue-900',
-  'Preliminary evidence': 'border-amber-800/20 bg-amber-50/80 text-amber-900',
+  'Preliminary evidence': 'border-amber-900/25 bg-amber-50/80 text-amber-950',
   'Traditional use': 'border-stone-700/15 bg-stone-100/70 text-stone-800',
   'Strong evidence': 'border-emerald-800/15 bg-emerald-50/80 text-emerald-900',
   'Moderate evidence': 'border-blue-800/15 bg-blue-50/70 text-blue-900',
-  'Limited evidence': 'border-amber-800/20 bg-amber-50/80 text-amber-900',
-  'Mixed evidence': 'border-violet-800/15 bg-violet-50/70 text-violet-900',
+  'Limited evidence': 'border-amber-900/25 bg-amber-50/80 text-amber-950',
+  'Mixed evidence': 'border-violet-800/20 bg-violet-50/70 text-violet-950',
   'Insufficient evidence': 'border-slate-500/20 bg-slate-50 text-slate-700',
   'Needs review': 'border-slate-500/20 bg-slate-50 text-slate-700',
   'Mechanistic Focus': 'border-blue-800/15 bg-blue-50/70 text-blue-900',
   'Interaction-Aware': 'border-rose-800/15 bg-rose-50/75 text-rose-900',
-  'Safety-Sensitive': 'border-amber-800/20 bg-amber-50/80 text-amber-900',
+  'Safety-Sensitive': 'border-amber-900/25 bg-amber-50/80 text-amber-950',
   'Generally well tolerated': 'border-teal-800/15 bg-teal-50/75 text-teal-900',
 }
 
 export function EvidenceBadge({ label, className = '' }: EvidenceBadgeProps) {
-  const style = BADGE_STYLES[label] || 'border-brand-900/10 bg-white/70 text-[#46574d]'
+  const style = BADGE_STYLES[label] || 'border-brand-900/10 bg-white/70 text-[#3d4f43]'
 
   return (
     <span
-      className={`${decisionStatusBadgeClass} max-w-full break-words ${style} ${className}`}
+      className={`${decisionStatusBadgeClass} ${style} ${className}`}
     >
       {label}
     </span>
@@ -89,7 +89,7 @@ export function EvidenceBadgeGroup({
         <EvidenceBadge
           key={badge}
           label={badge}
-          className={compact ? 'min-h-7 px-2.5 py-0.5 text-[0.69rem]' : ''}
+          className={compact ? 'min-h-6 px-2 py-0.5 text-[0.72rem]' : ''}
         />
       ))}
     </div>

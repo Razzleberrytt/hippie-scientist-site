@@ -514,11 +514,11 @@ html.dark ::selection {
   .eyebrow-label,
   .identity-kicker,
   .identity-meta {
-    @apply uppercase leading-none;
+    @apply leading-none;
   }
 
   .eyebrow-label {
-    @apply text-[0.68rem] font-bold tracking-[0.13em] text-brand-700;
+    @apply text-[0.78rem] font-semibold tracking-[0.03em] text-brand-700;
   }
 
   .surface-subtle {
@@ -1096,11 +1096,11 @@ html.dark :is(
   }
 
   .identity-kicker {
-    @apply rounded-full border border-brand-900/10 bg-white/75 px-2.5 py-1 text-[0.68rem] font-bold tracking-[0.14em] text-brand-800;
+    @apply rounded-full border border-brand-900/10 bg-white/75 px-3 py-1 text-[0.78rem] font-semibold tracking-[0.03em] text-brand-800;
   }
 
   .identity-meta {
-    @apply text-xs font-semibold tracking-[0.14em] text-[#64766b];
+    @apply text-[0.8rem] font-medium tracking-[0.02em] text-[#5c6d62];
   }
 
   .pull-quote-science {

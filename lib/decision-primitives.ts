@@ -29,10 +29,10 @@ export type DecisionSafetyTone = 'ok' | 'caution' | 'interaction' | 'review' | '
 export type DecisionEvidenceTone = 'strong' | 'moderate' | 'limited' | 'mixed' | 'preliminary' | 'traditional' | 'insufficient' | 'review'
 
 export const decisionBadgeClass =
-  'inline-flex min-h-6 max-w-full items-center rounded-full border px-2 py-0.5 text-[0.68rem] font-semibold leading-snug break-words'
+  'inline-flex min-h-7 max-w-full items-center rounded-full border px-2.5 py-1 text-[0.8rem] font-semibold leading-snug break-words'
 
 export const decisionStatusBadgeClass =
-  `${decisionBadgeClass} text-[0.72rem] uppercase tracking-[0.08em]`
+  `${decisionBadgeClass} tracking-[0.02em]`
 
 export const decisionChipClass =
   'inline-flex min-h-6 max-w-full items-center rounded-full border border-brand-900/10 bg-[var(--surface-subtle)] px-2 py-0.5 text-[0.68rem] font-semibold leading-snug text-[var(--text-muted)] break-words'
