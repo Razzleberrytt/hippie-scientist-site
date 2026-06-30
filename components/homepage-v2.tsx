@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import { getHomepageFreshness } from '@/lib/freshness'
 
-type SectionHeaderProps = { title: string; subtitle?: string; as?: 'h2' | 'h3' }
-
 const heroGoals = [
   {
     slug: 'sleep',
@@ -80,15 +78,6 @@ const toolLinks = [
     description: 'Open the site tools built for safety, dosing, and practical comparison.',
   },
 ]
-
-function SectionHeader({ title, subtitle, as: HeadingTag = 'h2' }: SectionHeaderProps) {
-  return (
-    <div className='max-w-3xl space-y-2'>
-      <HeadingTag className='text-xl font-semibold tracking-tight text-ink sm:text-2xl'>{title}</HeadingTag>
-      {subtitle ? <p className='text-sm leading-6 text-muted sm:text-base'>{subtitle}</p> : null}
-    </div>
-  )
-}
 
 export default function HomepageV2() {
   const { lastReviewed, citationCount } = getHomepageFreshness()
