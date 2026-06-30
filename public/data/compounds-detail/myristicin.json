@@ -3,12 +3,16 @@
   "slug": "myristicin",
   "name": "myristicin",
   "summary": "Nutmeg phenylpropene linked to monoamine and cholinergic pathway effects.",
-  "description": "Nutmeg phenylpropene linked to monoamine and cholinergic pathway effects.",
+  "description": "Nutmeg phenylpropene linked to monoamine and cholinergic pathway modulation, relevant for signaling changes that could affect mood, arousal, and cognition.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
     "Neurotransmitter Modulation",
-    "Cellular Protection"
+    "Cholinergic Neurotransmission Modulation",
+    "Monoamine Signaling Modulation",
+    "Cellular Protection",
+    "Receptor-Level Neurotransmitter Modulation",
+    "MAO Inhibition Activity",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -22,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -33,8 +37,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

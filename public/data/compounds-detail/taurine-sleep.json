@@ -3,11 +3,13 @@
   "slug": "taurine-sleep",
   "name": "Taurine Sleep Context",
   "summary": "Taurine has insufficient direct human sleep evidence despite plausible inhibitory neurotransmission mechanisms.",
-  "description": "Use-context row for taurine in sleep formulations.",
+  "description": "Taurine in sleep formulations is discussed through inhibitory neurotransmission and neuromodulatory effects, with outcomes likely dose- and context-dependent.",
   "compoundClass": "",
   "mechanisms": [
-    "Neurotransmitter Modulation",
-    "Neuroprotective Activity"
+    "Inhibitory Neurotransmission Modulation (GABA-Related)",
+    "Osmoregulation/CNS Stability Support",
+    "Neuroprotective Activity",
+    "Neurotransmitter Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

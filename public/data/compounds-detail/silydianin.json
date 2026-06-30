@@ -3,13 +3,16 @@
   "slug": "silydianin",
   "name": "silydianin",
   "summary": "Minor flavonolignan from milk thistle associated with liver-protective effects.",
-  "description": "Minor flavonolignan from milk thistle associated with liver-protective effects.",
+  "description": "Silydianin, a milk thistle flavonolignan, is linked to hepatic protection by limiting oxidative injury and supporting detoxification responses.",
   "compoundClass": "",
   "mechanisms": [
-    "Oxidative Stress Modulation",
+    "Hepatoprotection",
+    "Nrf2 Activation",
     "Mitochondrial Support",
     "Stress Response Modulation",
-    "Nrf2 Activation"
+    "Oxidative Stress Modulation",
+    "Antioxidant Enzyme Induction",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +37,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

@@ -3,13 +3,17 @@
   "slug": "dietary-nitrates",
   "name": "Dietary Nitrates",
   "summary": "Dietary nitrates have moderate evidence for blood pressure reduction and improved exercise efficiency.",
-  "description": "Nitrate compounds from vegetables or formulated sources.",
+  "description": "Dietary nitrates from vegetables convert to nitric oxide metabolites, supporting vasodilation and oxygen utilization; ergogenic and BP effects depend on baseline nitrate status.",
   "compoundClass": "",
   "mechanisms": [
-    "Oxidative Stress Modulation",
+    "Endothelial Function Support",
+    "Nitric Oxide Bioavailability Increase",
     "Mitochondrial Support",
+    "Oxidative Stress Modulation",
     "Vascular Function Support",
-    "Endothelial Function Support"
+    "Vasodilation",
+    "Mitochondrial Respiratory Efficiency Modulation",
+    "Blood Pressure Reduction"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +27,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -33,5 +37,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

@@ -3,14 +3,18 @@
   "slug": "acetylshikonin",
   "name": "acetylshikonin",
   "summary": "Shikonin derivative linked to inflammatory and apoptotic signaling.",
-  "description": "Shikonin derivative linked to inflammatory and apoptotic signaling.",
+  "description": "Acetylshikonin is a shikonin derivative; evidence supports modulation of inflammatory pathways and apoptosis-related signaling, informing mechanistic anti-inflammation context.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
+    "MAPK Signaling Modulation",
+    "Apoptosis Signaling Modulation",
+    "Nrf2 Activation",
     "Mitochondrial Support",
     "NF-kB Modulation",
-    "Nrf2 Activation"
+    "Caspase Activation",
+    "Oxidative Stress Modulation",
+    "Inflammatory Signaling Modulation",
+    "NF-kB Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -24,7 +28,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -35,8 +39,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

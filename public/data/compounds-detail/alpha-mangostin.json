@@ -3,13 +3,15 @@
   "slug": "alpha-mangostin",
   "name": "alpha-mangostin",
   "summary": "Major mangosteen xanthone with inflammatory and apoptotic signaling activity.",
-  "description": "Major mangosteen xanthone with inflammatory and apoptotic signaling activity.",
+  "description": "Alpha-mangostin, a mangosteen xanthone, shows anti-inflammatory and pro-apoptotic pathway activity that could affect immune signaling and cell survival; evidence varies.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
     "Immune Signaling Modulation",
-    "NF-kB Modulation"
+    "NF-kB Modulation",
+    "NF-\u03baB Pathway Inhibition",
+    "Oxidative Stress Modulation",
+    "Apoptosis Signaling Induction",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +36,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

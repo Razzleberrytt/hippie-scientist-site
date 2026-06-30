@@ -3,12 +3,15 @@
   "slug": "stigmasterol",
   "name": "stigmasterol",
   "summary": "Phytosterol linked to receptor-level lipid signaling and pathway modulation.",
-  "description": "Phytosterol linked to receptor-level lipid signaling and pathway modulation.",
+  "description": "Stigmasterol (phytosterol) is framed around sterol-level receptor interactions that can influence lipid signaling and downstream pathway activation.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
     "Metabolic Regulation",
+    "LXR/Farnesoid X Receptor Modulation",
     "Cellular Protection",
+    "Sterol-Mediated Signaling",
+    "Membrane Lipid Raft Modulation",
+    "Inflammatory Signaling Modulation",
     "Lipid Metabolism Support"
   ],
   "targets": [],
@@ -23,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +37,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

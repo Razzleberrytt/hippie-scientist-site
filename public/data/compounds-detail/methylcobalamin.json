@@ -3,12 +3,15 @@
   "slug": "methylcobalamin",
   "name": "Methylcobalamin",
   "summary": "Active vitamin B12 form established for B12 deficiency correction.",
-  "description": "Active cobalamin form used in methionine synthase and methylation pathways.",
+  "description": "Methylcobalamin (active vitamin B12) supports methionine synthase and homocysteine remethylation, connecting to methylation capacity relevant to cellular function.",
   "compoundClass": "",
   "mechanisms": [
+    "Methionine Synthase Activation",
     "methionine synthase cofactor",
+    "Homocysteine Remethylation",
     "methylation support",
-    "myelin-related B12 physiology"
+    "myelin-related B12 physiology",
+    "Methylation Cycle Support"
   ],
   "targets": [],
   "pathways": [],
@@ -22,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,5 +35,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

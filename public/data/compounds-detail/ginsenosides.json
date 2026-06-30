@@ -7,7 +7,9 @@
   "compoundClass": "",
   "mechanisms": [
     "Vascular Function Support",
-    "Stress Response Modulation"
+    "Inflammatory Signaling Modulation",
+    "Stress Response Modulation",
+    "PI3K/Akt Pathway Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

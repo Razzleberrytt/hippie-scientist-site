@@ -3,13 +3,17 @@
   "slug": "bisabolol",
   "name": "bisabolol",
   "summary": "Sesquiterpene alcohol associated with inflammatory pathway control.",
-  "description": "Sesquiterpene alcohol associated with inflammatory pathway control.",
+  "description": "Bisabolol is associated with controlling inflammatory signaling and may reduce cytokine-driven cascades relevant to skin and systemic inflammatory processes.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
+    "Cytokine Release Suppression",
+    "COX/LOX Pathway Modulation",
     "Neurotransmitter Modulation",
     "Cellular Protection",
-    "NF-kB Modulation"
+    "NF-kB Modulation",
+    "NF-kB Signaling Inhibition",
+    "Antioxidant Enzyme Upregulation",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +27,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +38,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

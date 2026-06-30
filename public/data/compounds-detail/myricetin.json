@@ -2,8 +2,8 @@
   "id": "myricetin",
   "slug": "myricetin",
   "name": "myricetin",
-  "summary": "Polyhydroxylated flavonol reported from tea and berry sources with MAPK and NF-κB pathway activity.",
-  "description": "Polyhydroxylated flavonol reported from tea and berry sources with MAPK and NF-κB pathway activity.",
+  "summary": "Polyhydroxylated flavonol reported from tea and berry sources with MAPK and NF-\u03baB pathway activity.",
+  "description": "Polyhydroxylated flavonol reported from tea and berry sources with MAPK and NF-\u03baB pathway activity.",
   "compoundClass": "",
   "mechanisms": [
     "Inflammatory Signaling Modulation",
@@ -25,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -35,5 +35,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

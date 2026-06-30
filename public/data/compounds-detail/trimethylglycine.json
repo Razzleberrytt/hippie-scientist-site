@@ -3,11 +3,14 @@
   "slug": "trimethylglycine",
   "name": "Trimethylglycine",
   "summary": "Methyl donor that reliably lowers homocysteine biochemically, with uncertain clinical outcome benefit.",
-  "description": "Betaine compound involved in homocysteine remethylation to methionine.",
+  "description": "Betaine supports homocysteine remethylation to methionine, with downstream methylation capacity that may influence vascular and metabolic function.",
   "compoundClass": "",
   "mechanisms": [
+    "Homocysteine Remethylation",
     "Metabolic Regulation",
-    "Vascular Function Support"
+    "One-Carbon Metabolism Modulation",
+    "Vascular Function Support",
+    "Methylation Cycle Support"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

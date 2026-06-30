@@ -2,8 +2,8 @@
   "id": "thymoquinone",
   "slug": "thymoquinone",
   "name": "thymoquinone",
-  "summary": "Quinone constituent of Nigella sativa with reported NF-κB suppression and Nrf2 signaling support.",
-  "description": "Quinone constituent of Nigella sativa with reported NF-κB suppression and Nrf2 signaling support.",
+  "summary": "Quinone constituent of Nigella sativa with reported NF-\u03baB suppression and Nrf2 signaling support.",
+  "description": "Quinone constituent of Nigella sativa with reported NF-\u03baB suppression and Nrf2 signaling support.",
   "compoundClass": "",
   "mechanisms": [
     "Inflammatory Signaling Modulation",
@@ -25,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +36,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

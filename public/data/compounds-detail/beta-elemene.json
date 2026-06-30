@@ -3,12 +3,15 @@
   "slug": "beta-elemene",
   "name": "beta-elemene",
   "summary": "Sesquiterpene hydrocarbon associated with survival and apoptotic signaling.",
-  "description": "Sesquiterpene hydrocarbon associated with survival and apoptotic signaling.",
+  "description": "Beta-elemene is a sesquiterpene linked in research to stress-response and cell-death signaling, relevant to apoptosis regulators in preclinical cancer biology contexts.",
   "compoundClass": "",
   "mechanisms": [
+    "Apoptotic Pathway Modulation",
+    "Cell Cycle/Stress Response Regulation",
     "Inflammatory Signaling Modulation",
     "Neurotransmitter Modulation",
-    "Cellular Protection"
+    "Cellular Protection",
+    "Survival Signaling Interference"
   ],
   "targets": [],
   "pathways": [],
@@ -22,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -33,8 +36,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

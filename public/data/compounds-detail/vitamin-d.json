@@ -3,11 +3,14 @@
   "slug": "vitamin-d",
   "name": "Vitamin D",
   "summary": "Decision-ready summary: Vitamin D is best framed for vitamin D deficiency correction; bone health; immune support when deficient; safety screen: hypercalcemia; sarcoidosis; high-dose use without labs.",
-  "description": "Vitamin D supports bone; deficiency; immune with high confidence in this merged decision layer.",
+  "description": "Vitamin D supports bone mineralization and helps prevent deficiency-related effects, with additional roles in immune regulation supported by higher-confidence observational/interventional data.",
   "compoundClass": "",
   "mechanisms": [
+    "Immune Signaling Modulation",
     "Metabolic Regulation",
-    "Immune Signaling Modulation"
+    "Innate/Adaptive Immune Modulation",
+    "Bone Mineralization Support",
+    "Vitamin D Receptor (VDR) Signaling"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

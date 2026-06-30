@@ -3,13 +3,16 @@
   "slug": "columbamine",
   "name": "columbamine",
   "summary": "Berberine-family alkaloid linked to metabolic regulation pathways.",
-  "description": "Berberine-family alkaloid linked to metabolic regulation pathways.",
+  "description": "Columbamine, a berberine-family alkaloid, is linked to metabolic regulation pathways that may influence glucose and lipid handling through signaling modulation.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
+    "AMPK Pathway Activation",
     "Metabolic Regulation",
+    "Mitochondrial Function Modulation",
     "AMPK Signaling",
-    "NF-kB Modulation"
+    "Glucose Uptake or Transport Regulation",
+    "NF-kB Modulation",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +37,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

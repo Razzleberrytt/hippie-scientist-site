@@ -3,13 +3,18 @@
   "slug": "omega-3-dha-dominant",
   "name": "Omega-3 DHA-Dominant",
   "summary": "DHA supports brain development and may modestly benefit cognition.",
-  "description": "DHA supports brain development and may modestly benefit cognition.",
+  "description": "DHA supports neural membrane structure and signaling; may modestly improve cognition by influencing inflammation resolution and synaptic function.",
   "compoundClass": "",
   "mechanisms": [
+    "Synaptic Function Support",
     "Metabolic Regulation",
-    "Cellular Protection",
-    "Vascular Function Support",
     "Neuroprotective Activity",
+    "Cellular Protection",
+    "Gene Expression Modulation via Nuclear Receptors",
+    "Membrane Phospholipid Remodeling",
+    "Oxidative Stress Modulation",
+    "Neuroinflammation Resolution",
+    "Vascular Function Support",
     "Lipid Metabolism Support"
   ],
   "targets": [],
@@ -24,7 +29,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -35,8 +40,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

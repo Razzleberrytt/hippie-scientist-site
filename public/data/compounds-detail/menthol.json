@@ -3,10 +3,13 @@
   "slug": "menthol",
   "name": "Menthol",
   "summary": "Menthol is a monoterpene associated with peppermint. Evidence level: moderate.",
-  "description": "Menthol is cataloged as a monoterpene. Reported mechanism notes: Smooth muscle relaxation via calcium channel modulation; TRPM8 activation.",
+  "description": "Menthol can relax airway and smooth muscle signaling by modulating ion channels and activating temperature-sensing TRPM8, influencing perceived airflow and discomfort.",
   "compoundClass": "",
   "mechanisms": [
-    "Stress Response Modulation"
+    "Stress Response Modulation",
+    "Smooth Muscle Relaxation",
+    "Calcium Channel Modulation",
+    "TRPM8 Activation"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

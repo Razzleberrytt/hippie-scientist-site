@@ -6,8 +6,10 @@
   "description": "Proprietary fat-burner blends are not evidence-clean because ingredient doses are hidden; safety and efficacy should be judged only from transparent, ingredient-specific human evidence.",
   "compoundClass": "",
   "mechanisms": [
+    "Thermogenesis / Appetite Modulation (Depends on Ingredients)",
     "variable and undisclosed",
-    "no unified mechanism can be validated for a proprietary blend category"
+    "no unified mechanism can be validated for a proprietary blend category",
+    "Energy Metabolism Claims (Evidence Limited)"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

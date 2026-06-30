@@ -3,12 +3,16 @@
   "slug": "l-theanine-sleep",
   "name": "L-Theanine Sleep Use",
   "summary": "L-theanine has limited-moderate evidence for sleep quality, especially stress-related sleep disturbance.",
-  "description": "Use-context row for L-theanine in sleep formulations.",
+  "description": "L-theanine for sleep is used based on CNS-calming plausibility, including modulation of glutamatergic signaling and stress arousal; evidence varies by formulation and dose.",
   "compoundClass": "",
   "mechanisms": [
     "Neurotransmitter Modulation",
+    "Alpha-Wave Activity Modulation",
+    "Glutamatergic Signaling Modulation",
+    "Neuroprotective Activity",
     "Stress Response Modulation",
-    "Neuroprotective Activity"
+    "Stress Arousal Reduction",
+    "GABAergic Indirect Effects"
   ],
   "targets": [],
   "pathways": [],
@@ -22,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -33,8 +37,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

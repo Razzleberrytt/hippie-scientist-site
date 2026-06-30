@@ -3,10 +3,13 @@
   "slug": "betaine-anhydrous",
   "name": "Betaine anhydrous",
   "summary": "Decision-ready summary: Betaine anhydrous is best framed for homocysteine reduction; methylation support; power output context; safety screen: kidney disease; elevated LDL concern in some users.",
-  "description": "Betaine anhydrous supports methylation; performance; homocysteine with moderate confidence in this merged decision layer.",
+  "description": "Betaine anhydrous is used for methyl-donor biology, potentially influencing homocysteine metabolism via betaine-mediated remethylation and hepatic nutrient handling.",
   "compoundClass": "",
   "mechanisms": [
-    "Vascular Function Support"
+    "Vascular Function Support",
+    "Hepatic Transmethylation Support",
+    "Homocysteine Remethylation Enhancement",
+    "One-Carbon Metabolism (Methyl Donor) Support"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

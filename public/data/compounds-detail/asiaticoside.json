@@ -3,11 +3,14 @@
   "slug": "asiaticoside",
   "name": "asiaticoside",
   "summary": "Centella triterpene glycoside linked to wound and matrix signaling pathways.",
-  "description": "Centella triterpene glycoside linked to wound and matrix signaling pathways.",
+  "description": "Asiaticoside from Centella is linked to wound healing and extracellular matrix remodeling, with pathway activity relevant to repair signaling in preclinical studies.",
   "compoundClass": "",
   "mechanisms": [
+    "Extracellular Matrix Remodeling",
+    "TGF-\u03b2 Pathway Modulation",
+    "NF-kB Modulation",
     "Inflammatory Signaling Modulation",
-    "NF-kB Modulation"
+    "Wound Healing Signaling"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

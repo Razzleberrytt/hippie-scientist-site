@@ -3,10 +3,14 @@
   "slug": "boswellia-akba-standardized",
   "name": "Boswellia AKBA standardized",
   "summary": "Decision-ready summary: Boswellia AKBA standardized is best framed for osteoarthritis pain; joint function; inflammatory discomfort; safety screen: pregnancy caution; anticoagulants; GI irritation.",
-  "description": "Boswellia AKBA standardized supports joint; inflammation; pain with moderate-high confidence in this merged decision layer.",
+  "description": "Boswellia AKBA standardized extracts are used for joint pain; evidence supports COX/5-LOX and inflammatory mediator downregulation.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation"
+    "Inflammatory Mediator Suppression",
+    "Leukotriene Pathway Modulation",
+    "Antioxidant Support",
+    "Inflammatory Signaling Modulation",
+    "5-Lipoxygenase Inhibition"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -31,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

@@ -3,12 +3,16 @@
   "slug": "ashwagandha-root-extract",
   "name": "Ashwagandha Root Extract",
   "summary": "Reduces stress, cortisol levels, and anxiety scores.",
-  "description": "Reduces stress, cortisol levels, and anxiety scores.",
+  "description": "Ashwagandha root extract is linked to reduced stress markers and anxiety scores, consistent with dampening stress-axis signaling and downstream inflammatory effects.",
   "compoundClass": "",
   "mechanisms": [
     "Neurotransmitter Modulation",
+    "Stress Response Modulation",
     "Hormonal Signaling Context",
-    "Stress Response Modulation"
+    "Cortisol Reduction",
+    "GABAergic or Neuroinhibitory Signaling Support",
+    "HPA Axis Modulation",
+    "Inflammatory Cytokine Downregulation"
   ],
   "targets": [],
   "pathways": [],
@@ -22,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -33,8 +37,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

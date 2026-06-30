@@ -3,11 +3,14 @@
   "slug": "schisandrins",
   "name": "Schisandrins",
   "summary": "Schisandrins is a lignans associated with schisandra. Evidence level: mixed.",
-  "description": "Schisandrins is cataloged as a lignans. Reported mechanism notes: Primary mechanism (preclinical); minimal human validation.",
+  "description": "Schisandrins are lignans from Schisandra with preclinical evidence for hepatoprotective and stress-response signaling, but limited direct human validation for specific benefits.",
   "compoundClass": "",
   "mechanisms": [
+    "Nrf2/ARE Antioxidant Pathway Activation",
+    "Stress Response Modulation",
     "Oxidative Stress Modulation",
-    "Stress Response Modulation"
+    "Hepatic Stress-Response Modulation",
+    "Mitochondrial Function Support"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

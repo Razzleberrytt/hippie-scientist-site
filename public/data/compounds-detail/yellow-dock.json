@@ -3,9 +3,12 @@
   "slug": "yellow-dock",
   "name": "Yellow Dock",
   "summary": "Yellow dock contains anthraquinone compounds and has traditional laxative use, but robust human evidence is lacking.",
-  "description": "Rumex crispus root with insufficient clinical evidence and GI/oxalate cautions.",
+  "description": "Yellow dock (Rumex crispus) has insufficient clinical evidence for benefits claimed in supplements; GI effects and potential oxalate considerations warrant caution.",
   "compoundClass": "",
   "mechanisms": [
+    "Oxalate-Related Risk Considerations",
+    "Cathartic/Laxative Activity (Rhubarb-Related Compounds)",
+    "GI Motility Modulation",
     "anthraquinone-related laxative effects (traditional/preclinical)"
   ],
   "targets": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

@@ -3,15 +3,20 @@
   "slug": "morroniside",
   "name": "morroniside",
   "summary": "Morroniside is a Cornus iridoid with cytoprotective pathway activity.",
-  "description": "Morroniside is a Cornus iridoid with cytoprotective pathway activity.",
+  "description": "Morroniside (Cornus iridoid) is associated with cytoprotective regulation of stress-response pathways relevant to inflammation and cell survival.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
+    "Immune Signaling Modulation",
+    "ER Stress Reduction",
     "Metabolic Regulation",
+    "Nrf2/ARE Pathway Activation",
+    "Anti-Apoptotic Signaling",
     "Cellular Protection",
-    "Immune Signaling Modulation"
+    "Mitochondrial Support",
+    "Inflammatory Pathway Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Protective Effects",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +30,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +41,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

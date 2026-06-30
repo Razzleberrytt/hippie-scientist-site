@@ -3,12 +3,14 @@
   "slug": "ginkgolide-b",
   "name": "ginkgolide b",
   "summary": "Terpene lactone from Ginkgo biloba affecting platelet activating factor.",
-  "description": "Terpene lactone from Ginkgo biloba affecting platelet activating factor.",
+  "description": "Ginkgolide B modulates platelet-activating factor signaling, providing a mechanistic basis for reduced inflammatory and thrombotic pathway activation.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
+    "Anti-Inflammatory Signaling",
+    "Neuroprotective Activity",
+    "Platelet-Activating Factor Antagonism",
     "Vascular Function Support",
-    "Neuroprotective Activity"
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -22,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -33,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

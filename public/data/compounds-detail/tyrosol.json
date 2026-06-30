@@ -3,15 +3,19 @@
   "slug": "tyrosol",
   "name": "tyrosol",
   "summary": "Simple phenolic alcohol linked to antioxidant-response and survival signaling.",
-  "description": "Simple phenolic alcohol linked to antioxidant-response and survival signaling.",
+  "description": "Tyrosol is a circulating olive-derived phenolic alcohol that supports antioxidant-response programs (Nrf2-related) and promotes stress-adaptive survival signaling.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
+    "Nrf2 Pathway Activation",
     "Metabolic Regulation",
+    "Anti-Inflammatory Signaling Modulation",
+    "Mitochondrial Support",
+    "NF-kB Modulation",
+    "PI3K/Akt Survival Signaling",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Protection",
     "Vascular Function Support",
-    "NF-kB Modulation"
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +29,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +40,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

@@ -6,8 +6,10 @@
   "description": "Pregnenolone is a neurosteroid precursor with limited human trial evidence in mood, substance-use, and psychiatric contexts; it should be framed as experimental rather than a general cognition or hormone-optimization supplement.",
   "compoundClass": "",
   "mechanisms": [
-    "Neurotransmitter Modulation",
-    "Hormonal Signaling Context"
+    "GABA-A and NMDA-Related Neurotransmission (Proposed)",
+    "Neurosteroid Biosynthesis Modulation",
+    "Hormonal Signaling Context",
+    "Neurotransmitter Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

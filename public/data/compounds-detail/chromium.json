@@ -3,11 +3,13 @@
   "slug": "chromium",
   "name": "Chromium",
   "summary": "Chromium entry from SciSpace evidence pass. Evidence level: mixed.",
-  "description": "Chromium is cataloged as essential trace mineral. Reported mechanisms: proposed insulin-signaling support via chromodulin; glucose metabolism effects.",
+  "description": "Essential trace mineral; proposed insulin-signal amplification via chromodulin-related effects, which may influence glucose handling and metabolic homeostasis.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
-    "Glucose Metabolism Support"
+    "Glucose Metabolism Modulation",
+    "Glucose Metabolism Support",
+    "Insulin Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

@@ -3,15 +3,20 @@
   "slug": "paeonol",
   "name": "paeonol",
   "summary": "Phenolic ketone associated with inflammatory and antioxidant-response signaling.",
-  "description": "Phenolic ketone associated with inflammatory and antioxidant-response signaling.",
+  "description": "Paeonol is a phenolic compound with antioxidant and anti-inflammatory signaling potential, influencing stress-response pathways relevant to inflammatory cytokine regulation.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
+    "Anti-Inflammatory Cytokine Regulation",
+    "Nrf2 Pathway Activation",
     "Immune Signaling Modulation",
+    "MAPK Signaling Modulation",
+    "NF-\u03baB Signaling Modulation",
+    "Nrf2 Activation",
+    "Mitochondrial Support",
     "NF-kB Modulation",
-    "Nrf2 Activation"
+    "Apoptosis Inhibition",
+    "Oxidative Stress Modulation",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +30,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +41,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

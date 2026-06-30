@@ -6,7 +6,9 @@
   "description": "23-epi-26-deoxyactein is tracked for Added as site-safe referenced entity during workbook readiness pass; limited with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
   "compoundClass": "",
   "mechanisms": [
-    "general phytochemical signaling"
+    "Anti-Inflammatory Signaling Modulation",
+    "general phytochemical signaling",
+    "Antioxidant Defense Activation"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +32,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

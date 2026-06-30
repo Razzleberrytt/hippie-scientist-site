@@ -3,11 +3,14 @@
   "slug": "theacrine",
   "name": "Theacrine",
   "summary": "Theacrine is a purine alkaloid related to caffeine with limited short-term human evidence for energy and mood effects. Evidence remains small-study and supplement-context only.",
-  "description": "Caffeine-like purine alkaloid that may affect adenosine and dopamine signaling; human evidence is limited.",
+  "description": "Theacrine is a caffeine-like purine alkaloid that may alter arousal and energy via adenosine and dopamine pathways; human data remain limited.",
   "compoundClass": "",
   "mechanisms": [
     "Neurotransmitter Modulation",
-    "Vascular Function Support"
+    "Dopamine Signaling Modulation",
+    "Vascular Function Support",
+    "Neurotransmitter Release Modulation",
+    "Adenosine Receptor Antagonism"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

@@ -3,11 +3,14 @@
   "slug": "lithium-orotate",
   "name": "Lithium Orotate",
   "summary": "Lithium orotate provides lithium ions, but robust human evidence for this salt form is lacking. Safety concerns should be framed from lithium's narrow therapeutic window and kidney/thyroid risk.",
-  "description": "Supplemental lithium salt with mechanisms extrapolated from pharmaceutical lithium, not directly proven for this form.",
+  "description": "Lithium orotate is a lithium salt whose mechanisms are mainly extrapolated from pharmaceutical lithium; specific evidence for this form/dosing is limited.",
   "compoundClass": "",
   "mechanisms": [
-    "Hormonal Signaling Context",
-    "Neuroprotective Activity"
+    "Inositol Monophosphatase Inhibition",
+    "Neuroprotective Signaling Support",
+    "GSK-3 Inhibition (Lithium-Linked)",
+    "Neuroprotective Activity",
+    "Hormonal Signaling Context"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

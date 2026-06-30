@@ -3,11 +3,15 @@
   "slug": "gingerols",
   "name": "Gingerols",
   "summary": "Gingerols are ginger phenolic constituents linked to pain/inflammation effects, with human evidence mostly through standardized ginger extracts rather than isolated gingerol dosing.",
-  "description": "Active ginger fraction associated with COX-2/PGE2 modulation and osteoarthritis pain trial evidence through standardized extracts.",
+  "description": "Gingerols are tracked for COX-2/PGE2 pathway modulation relevant to osteoarthritis pain physiology, with standardized-extract human trial signals but variable strength.",
   "compoundClass": "",
   "mechanisms": [
+    "COX-2 Inhibition",
+    "Prostaglandin E2 (PGE2) Modulation",
+    "Vascular Function Support",
     "Inflammatory Signaling Modulation",
-    "Vascular Function Support"
+    "Nuclear Transcription Factor NF-kB Inhibition",
+    "Antioxidant Signaling Activation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +36,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

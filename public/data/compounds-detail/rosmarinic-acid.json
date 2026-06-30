@@ -3,15 +3,19 @@
   "slug": "rosmarinic-acid",
   "name": "rosmarinic acid",
   "summary": "Rosmarinic acid is a caffeic-acid ester abundant in rosemary, lemon balm, perilla, and other Lamiaceae herbs. It is most convincing as an anti-inflammatory and mast-cell-modulating compound, but isolated-compound human evidence remains thin.",
-  "description": "Polyphenol in rosemary and lemon balm with anti-inflammatory properties.",
+  "description": "Rosmarinic acid, a rosemary/lemon balm polyphenol, is positioned as an anti-inflammatory mediator that may reduce inflammatory signaling and oxidative stress.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
+    "COX-2 and LOX Modulation (Preclinical)",
     "Neurotransmitter Modulation",
+    "Antioxidant Activity",
+    "NF-kB Inhibition",
+    "Nrf2 Activation",
+    "Mitochondrial Support",
     "NF-kB Modulation",
-    "Nrf2 Activation"
+    "Oxidative Stress Modulation",
+    "Cytokine Signaling Downregulation",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +29,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +40,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

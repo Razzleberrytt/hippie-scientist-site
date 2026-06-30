@@ -3,14 +3,16 @@
   "slug": "embelin",
   "name": "embelin",
   "summary": "Benzoquinone compound linked to apoptotic and inflammatory signaling.",
-  "description": "Benzoquinone compound linked to apoptotic and inflammatory signaling.",
+  "description": "Embelin (benzoquinone-like) is associated with pro-apoptotic and anti-inflammatory signaling in experimental models; human clinical relevance is still uncertain.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
+    "Apoptosis Induction",
+    "Nrf2 Activation",
     "Mitochondrial Support",
     "NF-kB Modulation",
-    "Nrf2 Activation"
+    "Oxidative Stress Modulation",
+    "NF-kB Signaling Inhibition",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -24,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -35,8 +37,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

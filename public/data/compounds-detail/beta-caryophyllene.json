@@ -3,13 +3,16 @@
   "slug": "beta-caryophyllene",
   "name": "beta-caryophyllene",
   "summary": "Sesquiterpene linked to cannabinoid-receptor and inflammatory signaling.",
-  "description": "Sesquiterpene linked to cannabinoid-receptor and inflammatory signaling.",
+  "description": "Beta-caryophyllene, a dietary sesquiterpene, is framed around CB2-linked immunomodulation and downstream reductions in pro-inflammatory signaling.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
+    "Cytokine Production Modulation",
     "Neurotransmitter Modulation",
     "Cellular Protection",
-    "NF-kB Modulation"
+    "NF-kB Modulation",
+    "NF-kB Pathway Downregulation",
+    "CB2 Receptor Agonism",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +37,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

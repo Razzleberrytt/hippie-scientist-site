@@ -3,14 +3,17 @@
   "slug": "albiflorin",
   "name": "albiflorin",
   "summary": "Paeonia glycoside linked to neurotransmitter and signaling pathway effects.",
-  "description": "Paeonia glycoside linked to neurotransmitter and signaling pathway effects.",
+  "description": "Albiflorin is a Paeonia glycoside studied for neurotransmitter-related and broader signaling effects; translational claims should reflect evidence strength by indication.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Neurotransmitter Modulation",
     "Immune Signaling Modulation",
-    "NF-kB Modulation"
+    "Neuroprotective Signaling",
+    "Neurotransmitter Modulation",
+    "NF-kB Modulation",
+    "Oxidative Stress Modulation",
+    "Neurotransmitter Pathway Modulation",
+    "Inflammatory Signaling Modulation",
+    "Signal Transduction Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -24,7 +27,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -35,8 +38,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

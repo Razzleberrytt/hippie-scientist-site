@@ -3,10 +3,12 @@
   "slug": "bromelain",
   "name": "Bromelain",
   "summary": "Decision-ready summary: Bromelain is best framed for sinus inflammation context; post-exercise soreness context; protein digestion support; safety screen: pineapple allergy; anticoagulants; planned surgery.",
-  "description": "Bromelain supports sinus; inflammation; digestion with low confidence in this merged decision layer.",
+  "description": "Bromelain is a proteolytic mixture with mechanistic interest in inflammatory mediators and digestion support; evidence strength varies by outcome.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation"
+    "Inflammatory Signaling Modulation",
+    "Proteolytic Digestion Enhancement",
+    "Inflammatory Mediator Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,8 +33,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

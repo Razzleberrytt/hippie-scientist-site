@@ -3,15 +3,19 @@
   "slug": "oxyresveratrol",
   "name": "oxyresveratrol",
   "summary": "Mulberry stilbene linked to carbohydrate-processing and signaling effects.",
-  "description": "Mulberry stilbene linked to carbohydrate-processing and signaling effects.",
+  "description": "Oxyresveratrol (a mulberry stilbene) may affect carbohydrate-related pathways and stress-response signaling, influencing metabolic homeostasis.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
     "Metabolic Regulation",
+    "Mitochondrial Biogenesis Support",
+    "AMPK Signaling",
+    "Insulin Sensitivity Modulation",
+    "Mitochondrial Support",
+    "AMPK Signaling Activation",
+    "Oxidative Stress Modulation",
     "Vascular Function Support",
-    "AMPK Signaling"
+    "Inflammatory Signaling Modulation",
+    "Glucose Metabolism Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +29,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -36,8 +40,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

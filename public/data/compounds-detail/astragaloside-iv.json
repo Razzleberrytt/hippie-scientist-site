@@ -3,15 +3,21 @@
   "slug": "astragaloside-iv",
   "name": "astragaloside iv",
   "summary": "Astragalus saponin linked to metabolic signaling and tissue-protective pathways.",
-  "description": "Astragalus saponin linked to metabolic signaling and tissue-protective pathways.",
+  "description": "Astragaloside IV is an Astragalus saponin investigated for metabolic and tissue-protective signaling; most mechanistic support is preclinical.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
-    "Metabolic Regulation",
+    "AMPK Signaling Activation (Evidence-Dependent)",
+    "Tissue Repair/Regeneration Signaling",
     "Immune Signaling Modulation",
-    "AMPK Signaling"
+    "Nrf2-Mediated Cytoprotection",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "PI3K-Akt Survival Signaling",
+    "Mitochondrial Support",
+    "Oxidative Stress Modulation",
+    "Inflammatory Signaling Modulation",
+    "Mitochondrial Function Support",
+    "Anti-Inflammatory Pathway Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +31,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +42,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

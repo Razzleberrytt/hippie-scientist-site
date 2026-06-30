@@ -3,10 +3,12 @@
   "slug": "marshmallow-root",
   "name": "Marshmallow Root",
   "summary": "Marshmallow root is a mucilage-rich botanical with insufficient clinical evidence but plausible demulcent effects for mucosal irritation.",
-  "description": "Althaea officinalis root traditionally used as a demulcent.",
+  "description": "Marshmallow root (Althaea officinalis) contains demulcent polysaccharides that can soothe mucosal surfaces and support symptom relief contexts.",
   "compoundClass": "",
   "mechanisms": [
     "mucilage barrier formation",
+    "Mucosal Protective Coating",
+    "Mucilage-Mediated Demulcent Action",
     "mucosal coating"
   ],
   "targets": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

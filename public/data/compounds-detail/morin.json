@@ -3,15 +3,17 @@
   "slug": "morin",
   "name": "morin",
   "summary": "Flavonol associated with inflammatory and cell-survival pathway modulation.",
-  "description": "Flavonol associated with inflammatory and cell-survival pathway modulation.",
+  "description": "Morin is a flavonol associated with anti-inflammatory and cell-survival pathway effects; mechanistic signals include redox control and apoptosis regulation.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
+    "Immune Signaling Modulation",
     "Metabolic Regulation",
+    "Cell Survival Pathway Activation",
+    "Mitochondrial Support",
+    "Oxidative Stress Modulation",
+    "Apoptosis Regulation",
     "Vascular Function Support",
-    "Immune Signaling Modulation"
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +27,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +38,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

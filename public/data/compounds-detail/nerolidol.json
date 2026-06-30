@@ -3,14 +3,19 @@
   "slug": "nerolidol",
   "name": "nerolidol",
   "summary": "Sesquiterpene alcohol associated with calming and cytoprotective signaling.",
-  "description": "Sesquiterpene alcohol associated with calming and cytoprotective signaling.",
+  "description": "Nerolidol is a sesquiterpene alcohol with mechanistic links to calming and cytoprotective signaling, relevant to stress/inflammation reduction pathways.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
+    "Neurotransmission Modulation",
     "Neurotransmitter Modulation",
+    "Anti-Inflammatory Signaling Modulation",
+    "Neuroprotective Activity",
     "Cellular Protection",
+    "Apoptosis Inhibition",
     "Stress Response Modulation",
-    "Neuroprotective Activity"
+    "Oxidative Stress Modulation",
+    "Inflammatory Signaling Modulation",
+    "Mitochondrial Function Support"
   ],
   "targets": [],
   "pathways": [],
@@ -24,7 +29,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -35,8 +40,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

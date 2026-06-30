@@ -3,14 +3,19 @@
   "slug": "madecassic-acid",
   "name": "madecassic acid",
   "summary": "Centella triterpenoid associated with matrix-remodeling and survival signaling.",
-  "description": "Centella triterpenoid associated with matrix-remodeling and survival signaling.",
+  "description": "Madecassic acid from Centella is framed around matrix remodeling and cytoprotective survival signaling relevant to tissue repair responses.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Metabolic Regulation",
     "Immune Signaling Modulation",
+    "Nrf2/ARE Activation",
+    "Anti-Inflammatory Signaling",
+    "Metabolic Regulation",
     "AMPK Signaling",
-    "NF-kB Modulation"
+    "NF-kB Modulation",
+    "Cell Survival Signaling",
+    "MMP Regulation",
+    "Inflammatory Signaling Modulation",
+    "TGF-\u03b2/SMAD Pathway Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -24,7 +29,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -35,8 +40,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

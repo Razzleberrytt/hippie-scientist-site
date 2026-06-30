@@ -3,11 +3,13 @@
   "slug": "atractylenolide-ii",
   "name": "atractylenolide ii",
   "summary": "Atractylodes lactone linked to inflammatory signaling control.",
-  "description": "Atractylodes lactone linked to inflammatory signaling control.",
+  "description": "Atractylenolide II from Atractylodes lactone class, linked to dampening inflammatory signaling cascades that can drive cytokine output.",
   "compoundClass": "",
   "mechanisms": [
+    "NF-kB Modulation",
     "Inflammatory Signaling Modulation",
-    "NF-kB Modulation"
+    "NF-kB Pathway Downregulation",
+    "Cytokine Expression Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

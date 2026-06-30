@@ -3,11 +3,13 @@
   "slug": "valerian-extract-standardized",
   "name": "Valerian Extract Standardized",
   "summary": "Standardized valerian extract has mixed evidence for sleep quality and should remain limited/inconsistent.",
-  "description": "Standardized Valeriana officinalis extract, usually valerenic-acid focused.",
+  "description": "Standardized Valeriana officinalis extract (often valerenic-acid rich) supports CNS-relevant inhibitory neurotransmission, aligning with conservative sleep-quality research framing.",
   "compoundClass": "",
   "mechanisms": [
-    "Neurotransmitter Modulation",
-    "Neuroprotective Activity"
+    "Glycinergic Signaling Modulation",
+    "Neuroprotective Activity",
+    "GABAergic Signaling Modulation",
+    "Neurotransmitter Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

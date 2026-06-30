@@ -3,10 +3,13 @@
   "slug": "adenosine",
   "name": "Adenosine",
   "summary": "Adenosine receptor agonist used clinically by IV route for cardiac conduction effects; not a general oral supplement intervention.",
-  "description": "Adenosine receptor agonist used clinically by IV route for cardiac conduction effects; not a general oral supplement intervention.",
+  "description": "Adenosine is a clinically used receptor agonist for IV cardiac conduction effects; it is not comparable to general oral supplement interventions.",
   "compoundClass": "",
   "mechanisms": [
-    "Vascular Function Support"
+    "Vascular Function Support",
+    "Adenosine Receptor Agonism (A1/A2)",
+    "Cardiac Conduction Slowing",
+    "Coronary Vasodilation (Physiologic)"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

@@ -6,8 +6,12 @@
   "description": "icariin is tracked for Inhibits PDE5 increasing nitric oxide signaling with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
   "compoundClass": "",
   "mechanisms": [
+    "Angiogenic Pathway Modulation",
+    "Endothelial Function Support",
+    "Nitric Oxide Signaling Enhancement",
+    "cGMP-Mediated Vasodilation",
     "Vascular Function Support",
-    "Endothelial Function Support"
+    "PDE5 Inhibition"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +35,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

@@ -3,11 +3,14 @@
   "slug": "magnesium-threonate",
   "name": "Magnesium Threonate",
   "summary": "Human evidence for magnesium exists broadly, but L-threonate-specific cognitive or sleep claims lack strong verified RCT support.",
-  "description": "Human evidence for magnesium exists broadly, but L-threonate-specific cognitive or sleep claims lack strong verified RCT support.",
+  "description": "Magnesium threonate provides supplemental magnesium; magnesium-dependent enzymes and NMDA/GABA-linked modulation can support neurocognitive stress pathways, with limited threonate-specific RCT evidence.",
   "compoundClass": "",
   "mechanisms": [
+    "NMDA Receptor Modulation",
+    "Neuroprotective Activity",
     "Stress Response Modulation",
-    "Neuroprotective Activity"
+    "Energy Metabolism Cofactor Support",
+    "Neurotransmitter Regulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

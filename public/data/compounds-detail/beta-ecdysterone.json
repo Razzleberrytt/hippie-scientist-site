@@ -6,7 +6,10 @@
   "description": "beta-ecdysterone is tracked for Activates protein synthesis via PI3K/Akt pathway with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
   "compoundClass": "",
   "mechanisms": [
-    "Activates protein synthesis via PI3K/Akt pathway"
+    "Protein Synthesis Stimulation",
+    "Activates protein synthesis via PI3K/Akt pathway",
+    "Muscle Hypertrophy Signaling",
+    "PI3K/Akt Pathway Activation"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

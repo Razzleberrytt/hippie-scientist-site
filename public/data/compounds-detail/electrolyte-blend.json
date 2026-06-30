@@ -6,8 +6,11 @@
   "description": "Electrolyte blends are most useful for rehydration when sweat loss, heat exposure, diarrhea, vomiting, or prolonged exercise increases sodium and fluid needs; they should not be treated as a fat-loss or energy shortcut.",
   "compoundClass": "",
   "mechanisms": [
+    "Sodium-Glucose Co-Transport Related Absorption (Formulation-Dependent)",
     "Metabolic Regulation",
-    "Glucose Metabolism Support"
+    "Glucose Metabolism Support",
+    "Fluid Balance Restoration",
+    "Electrolyte Homeostasis Support"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

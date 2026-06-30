@@ -3,12 +3,14 @@
   "slug": "atractylenolide-i",
   "name": "atractylenolide i",
   "summary": "Sesquiterpene lactone associated with immune and survival signaling.",
-  "description": "Sesquiterpene lactone associated with immune and survival signaling.",
+  "description": "Atractylenolide I, a sesquiterpene lactone, is investigated for immune and survival-related signaling, with evidence largely derived from cell and animal studies.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
     "Immune Signaling Modulation",
-    "NF-kB Modulation"
+    "Cell Survival Pathway Activation",
+    "Inflammatory Pathway Downregulation",
+    "NF-kB Modulation",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -22,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -33,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

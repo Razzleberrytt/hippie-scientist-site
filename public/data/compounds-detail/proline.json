@@ -6,7 +6,10 @@
   "description": "proline is tracked for involved in collagen synthesis and connective tissue repair; key amino acid in collagen synthesis supporting connective with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation"
+    "Extracellular Matrix Remodeling",
+    "Inflammatory Signaling Modulation",
+    "Collagen Biosynthesis Support",
+    "TGF-\u03b2 Pathway Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

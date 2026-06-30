@@ -2,8 +2,8 @@
   "id": "luteolin",
   "slug": "luteolin",
   "name": "luteolin",
-  "summary": "Flavone associated with thyme and artichoke, commonly linked to NF-κB and MAPK signaling.",
-  "description": "Flavone associated with thyme and artichoke, commonly linked to NF-κB and MAPK signaling.",
+  "summary": "Flavone associated with thyme and artichoke, commonly linked to NF-\u03baB and MAPK signaling.",
+  "description": "Flavone associated with thyme and artichoke, commonly linked to NF-\u03baB and MAPK signaling.",
   "compoundClass": "",
   "mechanisms": [
     "Inflammatory Signaling Modulation",
@@ -25,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +36,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

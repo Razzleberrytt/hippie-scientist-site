@@ -3,11 +3,13 @@
   "slug": "glycerol",
   "name": "Glycerol",
   "summary": "Glycerol can increase fluid retention in hyperhydration protocols, but performance benefits are mixed.",
-  "description": "Osmolyte used in pre-hydration protocols.",
+  "description": "Glycerol is used as an osmolyte in pre-hydration to increase total body water and improve fluid retention; benefits are largely protocol-dependent.",
   "compoundClass": "",
   "mechanisms": [
+    "osmotic fluid retention",
     "increases total body water",
-    "osmotic fluid retention"
+    "Plasma Volume Expansion",
+    "Osmolyte-Induced Water Retention"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

@@ -3,10 +3,12 @@
   "slug": "raspberry-ketones",
   "name": "Raspberry Ketones",
   "summary": "Human evidence is insufficient for fat-loss claims; existing data are primarily animal or in vitro and not clinically translatable.",
-  "description": "Human evidence is insufficient for fat-loss claims; existing data are primarily animal or in vitro and not clinically translatable.",
+  "description": "Raspberry ketones are tracked with limited translational support; fat-loss claims lack strong human evidence and existing findings are mostly preclinical.",
   "compoundClass": "",
   "mechanisms": [
-    "Metabolic Regulation"
+    "Metabolic Regulation",
+    "Adipogenesis Signaling Modulation",
+    "AMPK Pathway Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +32,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

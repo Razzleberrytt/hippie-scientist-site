@@ -3,10 +3,13 @@
   "slug": "eaa-blend",
   "name": "EAA Blend",
   "summary": "Evidence depends on blend composition, leucine dose, protein intake, age, and training status; no formulation-independent authority citation selected.",
-  "description": "Evidence depends on blend composition, leucine dose, protein intake, age, and training status; no formulation-independent authority citation selected.",
+  "description": "EAA blend effects depend on exact amino-acid ratios, leucine content, protein background, and training state; evidence is formulation- and context-dependent.",
   "compoundClass": "",
   "mechanisms": [
-    "mTOR Signaling"
+    "Muscle Protein Synthesis Stimulation",
+    "mTOR Signaling",
+    "mTORC1 Activation",
+    "Nitrogen Balance Support"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

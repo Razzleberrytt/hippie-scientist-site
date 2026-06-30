@@ -3,13 +3,17 @@
   "slug": "safranal",
   "name": "safranal",
   "summary": "Monoterpene aldehyde from saffron contributing to aroma and neuroactive effects.",
-  "description": "Monoterpene aldehyde from saffron contributing to aroma and neuroactive effects.",
+  "description": "Safranal is a saffron-derived monoterpene aldehyde; mechanistic interest centers on CNS-relevant receptor modulation and antioxidant effects that may affect neuroactive signaling.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
+    "GABAergic Modulation",
     "Neurotransmitter Modulation",
+    "Aromatic Aldehyde Neuroactivity",
+    "Neuroprotective Activity",
     "Cellular Protection",
-    "Neuroprotective Activity"
+    "Serotonergic/Cholinergic Pathway Effects",
+    "Oxidative Stress Modulation",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +27,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +38,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

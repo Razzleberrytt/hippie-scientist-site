@@ -6,8 +6,11 @@
   "description": "Fucoxanthin is tracked for May increase thermogenesis via UCP1 activation and fat oxidation pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
   "compoundClass": "",
   "mechanisms": [
+    "AMPK Pathway Activation",
     "Metabolic Regulation",
-    "Glucose Metabolism Support"
+    "Glucose Metabolism Support",
+    "Uncoupling Protein 1 Activation",
+    "Fatty Acid Oxidation Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

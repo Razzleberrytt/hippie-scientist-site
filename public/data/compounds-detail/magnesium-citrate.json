@@ -3,10 +3,13 @@
   "slug": "magnesium-citrate",
   "name": "magnesium citrate",
   "summary": "Improves magnesium status and supports cardiovascular health.",
-  "description": "Improves magnesium status and supports cardiovascular health.",
+  "description": "Magnesium citrate improves magnesium status, which can affect vascular tone and metabolism; relevant to cardiovascular risk factors and muscle function.",
   "compoundClass": "",
   "mechanisms": [
+    "Electrolyte Repletion",
     "Metabolic Regulation",
+    "Vascular Smooth Muscle Relaxation",
+    "Insulin Sensitivity Support",
     "Vascular Function Support"
   ],
   "targets": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

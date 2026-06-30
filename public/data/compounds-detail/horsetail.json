@@ -3,11 +3,14 @@
   "slug": "horsetail",
   "name": "Horsetail",
   "summary": "Horsetail is a silica-containing botanical with insufficient human clinical evidence and safety concerns with prolonged use.",
-  "description": "Equisetum arvense botanical traditionally used for connective tissue and urinary support; evidence is weak.",
+  "description": "Horsetail (Equisetum arvense) is used traditionally for connective/urinary support, but mechanistic support is limited and clinical evidence remains weak.",
   "compoundClass": "",
   "mechanisms": [
-    "silica provision",
-    "flavonoid-related effects"
+    "Collagen Synthesis Pathway Support",
+    "Diuretic/Urinary Tract Effect",
+    "flavonoid-related effects",
+    "Antioxidant Enzyme Induction",
+    "silica provision"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

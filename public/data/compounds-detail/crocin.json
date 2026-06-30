@@ -3,15 +3,18 @@
   "slug": "crocin",
   "name": "crocin",
   "summary": "Saffron carotenoid glycoside reported to influence PI3K/Akt and MAPK signaling.",
-  "description": "Saffron carotenoid glycoside reported to influence PI3K/Akt and MAPK signaling.",
+  "description": "Saffron carotenoid glycoside linked to signaling effects including PI3K/Akt and MAPK modulation, consistent with anti-inflammatory and cell-protective models.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
+    "PI3K/Akt Pathway Modulation",
+    "MAPK Pathway Modulation",
     "Neurotransmitter Modulation",
+    "Anti-Inflammatory Signaling",
+    "Mitochondrial Support",
     "Stress Response Modulation",
-    "NF-kB Modulation"
+    "NF-kB Modulation",
+    "Oxidative Stress Modulation",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +28,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +39,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

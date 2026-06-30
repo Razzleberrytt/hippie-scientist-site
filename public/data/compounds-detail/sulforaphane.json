@@ -3,15 +3,18 @@
   "slug": "sulforaphane",
   "name": "Sulforaphane",
   "summary": "May support detoxification enzymes and reduce oxidative stress.",
-  "description": "May support detoxification enzymes and reduce oxidative stress.",
+  "description": "Sulforaphane activates detoxification and antioxidant programs, with downstream reductions in oxidative stress signaling relevant to chronic disease risk.",
   "compoundClass": "",
   "mechanisms": [
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
+    "Nrf2 Pathway Activation",
     "Metabolic Regulation",
-    "Stress Response Modulation",
     "Neuroprotective Activity",
-    "Nrf2 Activation"
+    "Nrf2 Activation",
+    "Mitochondrial Support",
+    "Stress Response Modulation",
+    "Phase II Detoxification Enzyme Induction",
+    "Oxidative Stress Modulation",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +28,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -35,5 +38,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

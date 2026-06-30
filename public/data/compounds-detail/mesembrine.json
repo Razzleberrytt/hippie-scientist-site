@@ -3,10 +3,12 @@
   "slug": "mesembrine",
   "name": "mesembrine",
   "summary": "Major Kanna alkaloid best known for serotonin-reuptake and PDE4-related activity.",
-  "description": "Major Kanna alkaloid best known for serotonin-reuptake and PDE4-related activity.",
+  "description": "Mesembrine is a kanna alkaloid with serotonergic and PDE4-related activity; may affect mood-related signaling and cAMP-dependent pathways.",
   "compoundClass": "",
   "mechanisms": [
+    "PDE4 Inhibition",
     "Inflammatory Signaling Modulation",
+    "Serotonin Reuptake Inhibition",
     "Neurotransmitter Modulation"
   ],
   "targets": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

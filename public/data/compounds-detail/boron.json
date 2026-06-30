@@ -3,11 +3,14 @@
   "slug": "boron",
   "name": "Boron",
   "summary": "Boron entry from SciSpace evidence pass. Evidence level: low.",
-  "description": "Boron is cataloged as trace element. Reported mechanisms: may influence bone metabolism and steroid hormone regulation; calcium/vitamin D metabolism effects.",
+  "description": "Boron is a trace element implicated in bone and steroid biology; it may influence markers tied to mineral homeostasis and vitamin D/calcium-related regulation.",
   "compoundClass": "",
   "mechanisms": [
+    "Bone Metabolism Support",
     "Metabolic Regulation",
-    "Hormonal Signaling Context"
+    "Steroid Hormone Regulation",
+    "Hormonal Signaling Context",
+    "Vitamin D Metabolism Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

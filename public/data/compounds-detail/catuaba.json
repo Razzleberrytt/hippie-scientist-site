@@ -3,9 +3,11 @@
   "slug": "catuaba",
   "name": "Catuaba",
   "summary": "Catuaba has limited preclinical CNS research and no robust human clinical evidence.",
-  "description": "Botanical category applied to Erythroxylum/Trichilia species with poorly standardized constituents.",
+  "description": "Catuaba is a botanical category with poorly standardized constituents; mechanistic mapping is limited, so evidence should be treated as heterogeneous.",
   "compoundClass": "",
   "mechanisms": [
+    "CNS Stimulatory/Anxiolytic Signaling (Proposed)",
+    "Neurotransmitter Modulation (Uncertain)",
     "Neurotransmitter Modulation"
   ],
   "targets": [],
@@ -20,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +32,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

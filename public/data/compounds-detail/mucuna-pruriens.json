@@ -3,9 +3,11 @@
   "slug": "mucuna-pruriens",
   "name": "Mucuna pruriens",
   "summary": "Decision-ready summary: Mucuna pruriens is best framed for dopamine precursor support; Parkinsonian context; mood/motivation context; safety screen: psychosis/bipolar risk; levodopa medications; MAOIs.",
-  "description": "Mucuna pruriens supports dopamine; mood; movement with moderate confidence in this merged decision layer.",
+  "description": "Mucuna pruriens contains bioactive constituents that support dopaminergic tone, which can plausibly affect mood, motor control, and neurochemical signaling relevant to movement symptoms.",
   "compoundClass": "",
   "mechanisms": [
+    "Neurotransmitter Biosynthesis Support",
+    "Dopamine Receptor Signaling",
     "Neurotransmitter Modulation"
   ],
   "targets": [],
@@ -20,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +32,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

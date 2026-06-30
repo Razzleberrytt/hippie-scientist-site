@@ -2,14 +2,18 @@
   "id": "saikosaponin-a",
   "slug": "saikosaponin-a",
   "name": "saikosaponin a",
-  "summary": "Triterpene saponin from Bupleurum with NF-κB and PI3K/Akt pathway activity.",
-  "description": "Triterpene saponin from Bupleurum with NF-κB and PI3K/Akt pathway activity.",
+  "summary": "Triterpene saponin from Bupleurum with NF-\u03baB and PI3K/Akt pathway activity.",
+  "description": "Bupleurum saikosaponin A is a triterpene saponin; evidence links it to NF-\u03baB and PI3K/Akt pathway regulation relevant to anti-inflammatory signaling.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
     "Immune Signaling Modulation",
+    "PI3K/Akt Signaling Modulation",
     "Stress Response Modulation",
-    "NF-kB Modulation"
+    "NF-kB Modulation",
+    "Apoptosis Regulation",
+    "Anti-Inflammatory Cytokine Modulation",
+    "Inflammatory Signaling Modulation",
+    "NF-kB Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +27,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +38,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

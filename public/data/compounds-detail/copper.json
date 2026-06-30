@@ -3,11 +3,14 @@
   "slug": "copper",
   "name": "Copper",
   "summary": "Copper entry from SciSpace evidence pass. Evidence level: deficiency-only.",
-  "description": "Copper is cataloged as essential trace mineral. Reported mechanisms: cofactor for cytochrome c oxidase and superoxide dismutase; supports iron metabolism.",
+  "description": "Essential trace mineral; cofactor roles for cuproenzymes support mitochondrial electron transport and antioxidant defenses, with downstream effects on iron handling.",
   "compoundClass": "",
   "mechanisms": [
+    "Iron Metabolism Support",
+    "Metabolic Regulation",
+    "Superoxide Dismutase Cofactor Activity",
     "Oxidative Stress Modulation",
-    "Metabolic Regulation"
+    "Cytochrome c Oxidase Cofactor Activity"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

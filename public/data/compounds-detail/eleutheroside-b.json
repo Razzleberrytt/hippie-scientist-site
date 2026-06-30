@@ -3,15 +3,20 @@
   "slug": "eleutheroside-b",
   "name": "eleutheroside b",
   "summary": "Phenylpropanoid glycoside from Eleuthero associated with adaptogenic effects.",
-  "description": "Phenylpropanoid glycoside from Eleuthero associated with adaptogenic effects.",
+  "description": "Eleutheroside B from Eleuthero is associated with adaptogenic effects, with preclinical links to oxidative stress buffering and neuroendocrine resilience.",
   "compoundClass": "",
   "mechanisms": [
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
-    "Metabolic Regulation",
     "Immune Signaling Modulation",
+    "Neuroprotective Signaling",
+    "Metabolic Regulation",
+    "Nrf2/ARE Pathway Activation",
+    "AMPK Signaling",
+    "Mitochondrial Support",
     "Stress Response Modulation",
-    "AMPK Signaling"
+    "Oxidative Stress Modulation",
+    "Inflammatory Signaling Modulation",
+    "Mitochondrial Function Support",
+    "HPA Axis Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +30,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +41,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

@@ -3,15 +3,20 @@
   "slug": "schisandrin",
   "name": "schisandrin",
   "summary": "Lignan from Schisandra associated with Nrf2 activation and PI3K/Akt signaling.",
-  "description": "Lignan from Schisandra associated with Nrf2 activation and PI3K/Akt signaling.",
+  "description": "Schisandrin lignans are associated with Nrf2-driven cytoprotection and PI3K/Akt pathway regulation, relevant to stress adaptation and inflammation control.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
     "Immune Signaling Modulation",
+    "PI3K/Akt Signaling Modulation",
+    "Mitochondrial Protective Signaling",
+    "Nrf2/ARE Pathway Activation",
+    "Nrf2 Activation",
+    "Mitochondrial Support",
     "Stress Response Modulation",
-    "Nrf2 Activation"
+    "Oxidative Stress Modulation",
+    "Apoptosis Regulation",
+    "Anti-Inflammatory Cytokine Modulation",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +30,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +41,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

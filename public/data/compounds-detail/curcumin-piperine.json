@@ -3,10 +3,12 @@
   "slug": "curcumin-piperine",
   "name": "Curcumin + piperine",
   "summary": "Decision-ready summary: Curcumin + piperine is best framed for osteoarthritis pain; inflammation markers; bioavailability-enhanced curcumin use; safety screen: drug-interaction sensitive medications; anticoagulants; gallbladder disease.",
-  "description": "Curcumin + piperine supports joint; inflammation; bioavailability with moderate-high confidence in this merged decision layer.",
+  "description": "Curcumin + piperine is used to support joint and inflammation-linked signaling, with piperine primarily improving curcumin systemic availability.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation"
+    "COX-2/Prostaglandin Suppression",
+    "Inflammatory Signaling Modulation",
+    "NF-kB Pathway Inhibition"
   ],
   "targets": [],
   "pathways": [],
@@ -16,14 +18,14 @@
   "evidenceLevel": "",
   "relatedCompounds": [],
   "governance": {
-    "reviewStatus": "approved",
+    "reviewStatus": "needs_review",
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
     "indexingAllowed": true,
     "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": "curated_allowlist"
+    "requiresHumanReview": true,
+    "reason": "missing_record_level_sources"
   },
   "evidence": {
     "reviewStatus": "needs_review",
@@ -33,6 +35,6 @@
   "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
-  "sitemap_included": true,
+  "sitemap_included": false,
   "indexability_reasons": []
 }

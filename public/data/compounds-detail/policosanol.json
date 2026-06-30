@@ -3,11 +3,14 @@
   "slug": "policosanol",
   "name": "Policosanol",
   "summary": "Human evidence for policosanol is inconsistent; early positive trials have not been reliably replicated in independent studies.",
-  "description": "Human evidence for policosanol is inconsistent; early positive trials have not been reliably replicated in independent studies.",
+  "description": "Policosanol has inconsistent clinical signals; any proposed benefits likely relate to lipid metabolism and oxidative pathways but replication is lacking.",
   "compoundClass": "",
   "mechanisms": [
+    "Endothelial Function Support",
+    "Lipid Metabolism Support",
     "Metabolic Regulation",
-    "Lipid Metabolism Support"
+    "Oxidative Stress Modulation",
+    "Cholesterol Synthesis Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

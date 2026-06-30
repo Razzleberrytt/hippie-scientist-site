@@ -3,10 +3,13 @@
   "slug": "bcaa",
   "name": "BCAA",
   "summary": "Human evidence for BCAA benefits is inconsistent and often inferior to complete protein or EAA contexts; authority status is insufficient for broad claims.",
-  "description": "Human evidence for BCAA benefits is inconsistent and often inferior to complete protein or EAA contexts; authority status is insufficient for broad claims.",
+  "description": "BCAA claims are inconsistent across studies and typically less robust than total protein or EAA approaches; benefits may depend on baseline diet, age, and training.",
   "compoundClass": "",
   "mechanisms": [
-    "mTOR Signaling"
+    "mTOR Signaling",
+    "Leucine-Dependent Anabolic Signaling",
+    "mTOR Signaling Activation",
+    "Protein Synthesis Support"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

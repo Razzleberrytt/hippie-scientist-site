@@ -3,10 +3,13 @@
   "slug": "folic-acid",
   "name": "Folic Acid",
   "summary": "Reduces risk of neural tube defects in pregnancy.",
-  "description": "Reduces risk of neural tube defects in pregnancy.",
+  "description": "Folic acid reduces neural tube defect risk by supporting one-carbon metabolism essential for DNA synthesis and early embryonic cell division.",
   "compoundClass": "",
   "mechanisms": [
-    "general phytochemical signaling"
+    "general phytochemical signaling",
+    "Methylation Cycle Normalization",
+    "One-Carbon Metabolism Support",
+    "DNA Synthesis Support"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

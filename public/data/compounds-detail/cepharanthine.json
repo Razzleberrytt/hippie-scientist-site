@@ -2,12 +2,15 @@
   "id": "cepharanthine",
   "slug": "cepharanthine",
   "name": "cepharanthine",
-  "summary": "Bisbenzylisoquinoline alkaloid associated with NF-κB suppression and PI3K/Akt pathway effects.",
-  "description": "Bisbenzylisoquinoline alkaloid associated with NF-κB suppression and PI3K/Akt pathway effects.",
+  "summary": "Bisbenzylisoquinoline alkaloid associated with NF-\u03baB suppression and PI3K/Akt pathway effects.",
+  "description": "Cepharanthine is linked to NF-\u03baB suppression and PI3K/Akt pathway effects in preclinical studies, motivating investigation while limiting direct clinical inference.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "NF-kB Modulation"
+    "PI3K/Akt Pathway Modulation",
+    "NF-kB Modulation",
+    "Anti-Inflammatory Effects",
+    "NF-kB Signaling Inhibition",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

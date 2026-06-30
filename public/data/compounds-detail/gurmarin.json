@@ -3,11 +3,14 @@
   "slug": "gurmarin",
   "name": "gurmarin",
   "summary": "Peptide constituent associated with sweet-signal blocking and glycemic effects.",
-  "description": "Peptide constituent associated with sweet-signal blocking and glycemic effects.",
+  "description": "Gurmarin is a sweet-signal inhibitor peptide that may reduce sweet taste transduction and could influence glycemic responses via taste-receptor-linked pathways.",
   "compoundClass": "",
   "mechanisms": [
+    "Sweet Taste Receptor Signaling Inhibition",
     "Metabolic Regulation",
-    "Glucose Metabolism Support"
+    "Glucose Metabolism Support",
+    "Taste-Enteroendocrine Signaling Effects",
+    "Glycemic Response Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

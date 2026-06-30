@@ -3,10 +3,13 @@
   "slug": "serrapeptase",
   "name": "Serrapeptase",
   "summary": "Serrapeptase is a proteolytic enzyme with low-quality human evidence for inflammation and pain outcomes.",
-  "description": "Proteolytic enzyme also known as serratiopeptidase; evidence quality remains limited.",
+  "description": "Serrapeptase (serratiopeptidase) is a proteolytic enzyme studied for limited anti-inflammatory and fibrinolytic-related effects; clinical quality remains constrained.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation"
+    "Fibrinolysis-Related Effects",
+    "Inflammatory Signaling Modulation",
+    "Proteolytic Activity",
+    "Inflammatory Mediator Processing"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

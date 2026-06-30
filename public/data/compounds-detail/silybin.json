@@ -3,12 +3,16 @@
   "slug": "silybin",
   "name": "silybin",
   "summary": "Major flavonolignan component of silymarin known for hepatoprotective signaling.",
-  "description": "Major flavonolignan component of silymarin known for hepatoprotective signaling.",
+  "description": "Silybin is a main silymarin flavonolignan studied for hepatoprotective signaling, including modulation of oxidative stress, inflammation, and pro-survival pathways.",
   "compoundClass": "",
   "mechanisms": [
-    "Oxidative Stress Modulation",
+    "Membrane Stabilization",
+    "Hepatoprotective Nrf2 Activation",
+    "Antioxidant/ROS Scavenging",
+    "Nrf2 Activation",
     "Mitochondrial Support",
-    "Nrf2 Activation"
+    "Oxidative Stress Modulation",
+    "NF-kB Signaling Inhibition"
   ],
   "targets": [],
   "pathways": [],
@@ -22,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -33,8 +37,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

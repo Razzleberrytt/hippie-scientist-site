@@ -3,10 +3,13 @@
   "slug": "protodioscin",
   "name": "Protodioscin",
   "summary": "Protodioscin is a steroidal saponin associated with tribulus. Evidence level: mixed.",
-  "description": "Protodioscin is cataloged as a steroidal saponin. Reported mechanism notes: Primary mechanism (preclinical); not supported in humans.",
+  "description": "Protodioscin is a steroidal saponin with primarily preclinical mechanistic interest; human evidence for proposed effects is currently limited.",
   "compoundClass": "",
   "mechanisms": [
-    "Hormonal Signaling Context"
+    "Steroidogenesis Modulation (Preclinical)",
+    "Hormonal Signaling Context",
+    "Estrogen Receptor-Related Effects (Proposed)",
+    "Anti-Inflammatory Activity (Preclinical)"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

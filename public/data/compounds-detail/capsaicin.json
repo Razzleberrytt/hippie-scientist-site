@@ -3,11 +3,15 @@
   "slug": "capsaicin",
   "name": "Capsaicin",
   "summary": "Capsaicin is a capsaicinoid associated with chili peppers. Evidence level: moderate.",
-  "description": "Capsaicin is cataloged as a capsaicinoid. Reported mechanism notes: Primary TRPV1 activation (human-supported); additional mechanisms (preclinical).",
+  "description": "Capsaicin activates TRPV1, driving afferent signaling that can alter pain perception and energy-related pathways. Human support is strongest for TRPV1 effects.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Metabolic Regulation"
+    "Metabolic Regulation",
+    "Neurogenic Inflammation Modulation",
+    "TRPV1 Activation",
+    "Sensory Nerve Desensitization",
+    "Pain Signal Transmission Modulation",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +36,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

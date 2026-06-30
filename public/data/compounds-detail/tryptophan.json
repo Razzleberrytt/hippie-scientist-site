@@ -3,9 +3,12 @@
   "slug": "tryptophan",
   "name": "Tryptophan",
   "summary": "L-tryptophan has moderate evidence for modest sleep latency reduction.",
-  "description": "Essential amino acid precursor to serotonin and melatonin.",
+  "description": "Tryptophan is an essential amino-acid precursor feeding serotonin and melatonin synthesis, relevant to sleep-wake regulation and mood biology.",
   "compoundClass": "",
   "mechanisms": [
+    "Serotonin Biosynthesis Support",
+    "Indoleamine Pathway Modulation (Physiologic)",
+    "Melatonin Biosynthesis Support",
     "Neurotransmitter Modulation"
   ],
   "targets": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

@@ -3,13 +3,16 @@
   "slug": "paeoniflorin",
   "name": "paeoniflorin",
   "summary": "Monoterpene glycoside associated with inflammatory and survival pathway effects.",
-  "description": "Monoterpene glycoside associated with inflammatory and survival pathway effects.",
+  "description": "Paeoniflorin is a paeony-derived glycoside associated with anti-inflammatory and survival pathway modulation, relevant to stress-activated signaling.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
     "Immune Signaling Modulation",
-    "NF-kB Modulation"
+    "Inflammatory Cytokine Suppression",
+    "Cell Survival Pathway Activation",
+    "NF-kB Modulation",
+    "Oxidative Stress Modulation",
+    "NF-\u03baB Pathway Modulation",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +37,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

@@ -3,13 +3,16 @@
   "slug": "rosin",
   "name": "rosin",
   "summary": "Rhodiola phenylpropanoid linked to adaptive cellular signaling.",
-  "description": "Rhodiola phenylpropanoid linked to adaptive cellular signaling.",
+  "description": "Rhodiola phenylpropanoid-linked rosin is positioned as an adaptive-signaling constituent, with potential relevance to stress-response and cellular resilience pathways.",
   "compoundClass": "",
   "mechanisms": [
-    "Oxidative Stress Modulation",
+    "Stress-Response Signaling",
+    "Autophagy Modulation",
     "Metabolic Regulation",
+    "AMPK Signaling",
     "Stress Response Modulation",
-    "AMPK Signaling"
+    "Oxidative Stress Modulation",
+    "Mitochondrial Function Support"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +37,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

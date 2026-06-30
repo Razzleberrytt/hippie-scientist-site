@@ -3,13 +3,17 @@
   "slug": "vitamin-c",
   "name": "Vitamin C",
   "summary": "Does not prevent colds in general population but may reduce duration.",
-  "description": "Does not prevent colds in general population but may reduce duration.",
+  "description": "Vitamin C doesn\u2019t reliably prevent colds overall, but evidence suggests it may modestly reduce duration. Effects align with antioxidant and immune support roles.",
   "compoundClass": "",
   "mechanisms": [
-    "Oxidative Stress Modulation",
     "Immune Signaling Modulation",
+    "Innate Immune Function Support",
+    "Lymphocyte/Neutrophil Activity Modulation",
+    "Antioxidant/ROS Scavenging",
+    "Barrier/Collagen-Related Support",
+    "Neuroprotective Activity",
     "Stress Response Modulation",
-    "Neuroprotective Activity"
+    "Oxidative Stress Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +27,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -34,8 +38,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

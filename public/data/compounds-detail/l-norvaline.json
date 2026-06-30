@@ -6,7 +6,9 @@
   "description": "L Norvaline is best framed as a conservative research profile with mechanistic evidence and a focus on general biological context. Current workbook signals support mechanistic context around limited source-backed mechanism signals, not treatment claims.",
   "compoundClass": "",
   "mechanisms": [
+    "Amino Acid Transport/Metabolism Modulation",
     "Proposed arginase inhibition could theoretically increase arginine availability",
+    "mTOR Signaling Modulation",
     "mechanism-only and not human-confirmed."
   ],
   "targets": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

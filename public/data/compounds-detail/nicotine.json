@@ -3,10 +3,12 @@
   "slug": "nicotine",
   "name": "nicotine",
   "summary": "Canonical tobacco alkaloid with strong nicotinic and neurotransmitter pathway activity.",
-  "description": "Canonical tobacco alkaloid with strong nicotinic and neurotransmitter pathway activity.",
+  "description": "Tobacco alkaloid with well-characterized nicotinic receptor activity; effects propagate through neurotransmitter circuits and autonomic signaling.",
   "compoundClass": "",
   "mechanisms": [
+    "Neurotransmitter Release Modulation",
     "Inflammatory Signaling Modulation",
+    "Nicotinic Acetylcholine Receptor Agonism",
     "Neurotransmitter Modulation"
   ],
   "targets": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

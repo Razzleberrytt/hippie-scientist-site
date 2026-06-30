@@ -3,11 +3,13 @@
   "slug": "methylliberine",
   "name": "Methylliberine",
   "summary": "Purine alkaloid related to caffeine/theacrine; early human PK data but limited efficacy trials.",
-  "description": "Purine alkaloid related to caffeine/theacrine; early human PK data but limited efficacy trials.",
+  "description": "Methylliberine is a purine alkaloid structurally related to stimulant methylxanthines; early PK exists, but efficacy evidence remains limited.",
   "compoundClass": "",
   "mechanisms": [
-    "Neurotransmitter Modulation",
-    "Vascular Function Support"
+    "Vascular Function Support",
+    "Caffeine-Alike CNS Stimulation",
+    "Adenosine Receptor Antagonism",
+    "Neurotransmitter Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

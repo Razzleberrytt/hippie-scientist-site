@@ -3,14 +3,17 @@
   "slug": "lawsone",
   "name": "lawsone",
   "summary": "Naphthoquinone pigment linked to inflammatory signaling control.",
-  "description": "Naphthoquinone pigment linked to inflammatory signaling control.",
+  "description": "Lawsone (2-hydroxy-1,4-naphthoquinone) is a bioactive quinone pigment; it\u2019s mechanistically framed around controlling redox-driven inflammatory signaling.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
+    "MAPK Signaling Modulation",
+    "Nrf2/ARE Pathway Activation",
+    "Nrf2 Activation",
     "Mitochondrial Support",
     "NF-kB Modulation",
-    "Nrf2 Activation"
+    "Oxidative Stress Modulation",
+    "Inflammatory Signaling Modulation",
+    "NF-kB Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -24,7 +27,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -35,8 +38,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

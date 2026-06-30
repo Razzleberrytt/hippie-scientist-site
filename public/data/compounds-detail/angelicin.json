@@ -3,7 +3,7 @@
   "slug": "angelicin",
   "name": "angelicin",
   "summary": "Angelicin is a furocoumarin associated with photosensitizing pharmacology and occasional discussion in skin and bone research. The evidence base is primarily mechanistic, with efficacy claims constrained by limited human data and safety context.",
-  "description": "Angular furocoumarin reported from Psoralea/Angelica with NF-κB and MAPK pathway activity.",
+  "description": "Angular furocoumarin reported from Psoralea/Angelica with NF-\u03baB and MAPK pathway activity.",
   "compoundClass": "",
   "mechanisms": [
     "Inflammatory Signaling Modulation",
@@ -23,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

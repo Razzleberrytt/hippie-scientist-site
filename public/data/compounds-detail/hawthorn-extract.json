@@ -6,7 +6,9 @@
   "description": "Hawthorn Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Cardiovascular Health. Current workbook signals support mechanistic context around Vascular Function Support, not treatment claims.",
   "compoundClass": "",
   "mechanisms": [
-    "Vascular Function Support"
+    "Vascular Function Support",
+    "Cardiac Contractility Signaling",
+    "Endothelial Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +32,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

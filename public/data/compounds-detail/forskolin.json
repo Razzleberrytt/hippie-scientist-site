@@ -3,10 +3,13 @@
   "slug": "forskolin",
   "name": "forskolin",
   "summary": "Diterpene from Coleus known for direct adenylyl cyclase activation.",
-  "description": "Diterpene from Coleus known for direct adenylyl cyclase activation.",
+  "description": "Forskolin, a diterpene from Coleus, is known for direct adenylyl cyclase activation, raising intracellular cAMP and shifting downstream metabolic signals.",
   "compoundClass": "",
   "mechanisms": [
-    "Metabolic Regulation"
+    "Metabolic Regulation",
+    "Adenylyl Cyclase Activation",
+    "cAMP-Dependent Kinase Signaling",
+    "Calcium Mobilization Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

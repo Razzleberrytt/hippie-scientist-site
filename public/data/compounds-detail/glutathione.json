@@ -3,10 +3,12 @@
   "slug": "glutathione",
   "name": "Glutathione",
   "summary": "May increase body glutathione levels; limited clinical outcomes.",
-  "description": "May increase body glutathione levels; limited clinical outcomes.",
+  "description": "Glutathione is a key intracellular redox buffer; supplementation may raise systemic availability, but human outcome benefits appear limited and context-dependent.",
   "compoundClass": "",
   "mechanisms": [
-    "Oxidative Stress Modulation"
+    "Glutathione-Dependent Detoxification Support",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Redox Regulation (Proposed)"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +32,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

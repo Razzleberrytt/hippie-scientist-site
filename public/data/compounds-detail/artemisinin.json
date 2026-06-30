@@ -3,10 +3,13 @@
   "slug": "artemisinin",
   "name": "artemisinin",
   "summary": "Sesquiterpene lactone endoperoxide linked to redox and survival pathway effects.",
-  "description": "Sesquiterpene lactone endoperoxide linked to redox and survival pathway effects.",
+  "description": "Artemisinin\u2019s endoperoxide chemistry is associated with redox-active effects and downstream survival/apoptosis signaling, relevant for stress-response biology more than general tonics.",
   "compoundClass": "",
   "mechanisms": [
-    "Oxidative Stress Modulation"
+    "Oxidative Stress Modulation",
+    "Hemoglobin/Haem-Associated Activation",
+    "Parasite/Cell Death via Protein Damage",
+    "Redox Cycling"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

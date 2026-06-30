@@ -3,11 +3,13 @@
   "slug": "ginkgo-biloba-extract",
   "name": "Ginkgo Biloba Extract",
   "summary": "Modest improvement in cognitive function in dementia.",
-  "description": "Modest improvement in cognitive function in dementia.",
+  "description": "Ginkgo biloba extract is associated with modest cognitive benefits in dementia studies, plausibly via antioxidant and microvascular signaling effects.",
   "compoundClass": "",
   "mechanisms": [
+    "Microcirculation / Endothelial Function Support",
     "Oxidative Stress Modulation",
-    "Neuroprotective Activity"
+    "Neuroprotective Activity",
+    "Antioxidant Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

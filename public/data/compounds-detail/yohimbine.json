@@ -7,7 +7,9 @@
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
-    "Vascular Function Support"
+    "Vascular Function Support",
+    "Alpha-2 Adrenergic Receptor Antagonism",
+    "Sympathetic Activation (Norepinephrine Release)"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

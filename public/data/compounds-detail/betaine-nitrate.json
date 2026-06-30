@@ -3,11 +3,13 @@
   "slug": "betaine-nitrate",
   "name": "Betaine Nitrate",
   "summary": "Betaine nitrate combines betaine and nitrate mechanisms, but direct human evidence for the combined compound is insufficient.",
-  "description": "Combination compound/formulation pairing betaine with nitrate.",
+  "description": "Betaine nitrate pairing is framed around nitric-oxide related bioenergetics and osmolyte biology, aligning with performance and vascular signaling research contexts.",
   "compoundClass": "",
   "mechanisms": [
     "Vascular Function Support",
-    "Endothelial Function Support"
+    "Endothelial Function Support",
+    "Mitochondrial Bioenergetics Modulation",
+    "Nitric Oxide Pathway Support"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

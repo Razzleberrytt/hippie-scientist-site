@@ -3,10 +3,12 @@
   "slug": "methylfolate",
   "name": "Methylfolate",
   "summary": "Adjunctive L-methylfolate improves depressive symptoms in some patients.",
-  "description": "Adjunctive L-methylfolate improves depressive symptoms in some patients.",
+  "description": "Methylfolate (L-5-MTHF) is an active folate form used as a mood adjunct in some populations, consistent with one-carbon metabolism and neurotransmitter support.",
   "compoundClass": "",
   "mechanisms": [
-    "Metabolic Regulation"
+    "Metabolic Regulation",
+    "One-Carbon Metabolism Support",
+    "Methylation Pathway Regulation"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +32,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

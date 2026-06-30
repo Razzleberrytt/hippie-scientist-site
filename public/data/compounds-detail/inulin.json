@@ -3,10 +3,13 @@
   "slug": "inulin",
   "name": "Inulin",
   "summary": "Decision-ready summary: Inulin is best framed for prebiotic support; stool frequency; microbiome diversity context; safety screen: IBS/FODMAP sensitivity; bloating-prone users.",
-  "description": "Inulin supports prebiotic; gut microbiome; regularity with moderate confidence in this merged decision layer.",
+  "description": "Inulin acts as a fermentable prebiotic substrate, supporting beneficial gut microbes that produce SCFAs linked to metabolic and immune regulation.",
   "compoundClass": "",
   "mechanisms": [
+    "Short-Chain Fatty Acid Production",
     "Metabolic Regulation",
+    "Gut Microbiome Modulation",
+    "Improved Bowel Motility",
     "Lipid Metabolism Support"
   ],
   "targets": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

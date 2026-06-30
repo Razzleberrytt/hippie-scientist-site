@@ -3,10 +3,13 @@
   "slug": "potassium",
   "name": "Potassium",
   "summary": "Decision-ready summary: Potassium is best framed for potassium deficiency; blood pressure support; electrolyte balance; safety screen: kidney disease; ACE inhibitors/ARBs; potassium-sparing diuretics.",
-  "description": "Potassium supports electrolytes; blood pressure; muscle with high confidence in this merged decision layer.",
+  "description": "Potassium supports electrolyte balance for normal blood pressure regulation and neuromuscular function; evidence is strongest for deficiency correction and blood pressure outcomes.",
   "compoundClass": "",
   "mechanisms": [
     "Cellular Protection",
+    "Neuromuscular Excitability Regulation",
+    "Renin-Angiotensin-Aldosterone Axis Modulation",
+    "Electrolyte Balance Support",
     "Vascular Function Support"
   ],
   "targets": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

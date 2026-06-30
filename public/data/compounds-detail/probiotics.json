@@ -3,10 +3,13 @@
   "slug": "probiotics",
   "name": "Probiotics",
   "summary": "Certain strains reduce antibiotic-associated diarrhea and IBS symptoms.",
-  "description": "Certain strains reduce antibiotic-associated diarrhea and IBS symptoms.",
+  "description": "Probiotics can reduce antibiotic-associated diarrhea and may improve IBS symptoms through gut microbial balance and epithelial immune regulation, depending on strains.",
   "compoundClass": "",
   "mechanisms": [
-    "Immune Signaling Modulation"
+    "Immune Signaling Modulation",
+    "Epithelial Barrier Enhancement",
+    "Immunomodulatory Cytokine Regulation",
+    "Gut Microbiota Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -31,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

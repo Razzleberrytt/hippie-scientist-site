@@ -3,10 +3,12 @@
   "slug": "oregon-grape-root",
   "name": "Oregon Grape Root",
   "summary": "Oregon grape has moderate topical evidence for psoriasis, while oral use remains poorly supported.",
-  "description": "Mahonia aquifolium root containing berberine and related alkaloids.",
+  "description": "Oregon grape root (Mahonia aquifolium) contains berberine-family alkaloids; these can modulate antimicrobial, metabolic, and inflammatory pathways.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation"
+    "AMPK Activation",
+    "Inflammatory Signaling Modulation",
+    "Antimicrobial Activity"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,8 +33,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

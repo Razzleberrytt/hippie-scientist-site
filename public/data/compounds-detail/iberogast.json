@@ -6,7 +6,9 @@
   "description": "Iberogast is best framed as a conservative research profile with mechanistic evidence and a focus on Digestive Health. Current workbook signals support mechanistic context around limited source-backed mechanism signals, not treatment claims.",
   "compoundClass": "",
   "mechanisms": [
-    "general phytochemical signaling"
+    "general phytochemical signaling",
+    "Gastrointestinal Transit/Secretion Modulation",
+    "Smooth Muscle Spasm Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,8 +33,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

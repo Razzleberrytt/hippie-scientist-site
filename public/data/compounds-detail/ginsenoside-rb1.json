@@ -3,15 +3,21 @@
   "slug": "ginsenoside-rb1",
   "name": "ginsenoside rb1",
   "summary": "Major ginsenoside with neuroprotective and metabolic signaling effects.",
-  "description": "Major ginsenoside with neuroprotective and metabolic signaling effects.",
+  "description": "Ginsenoside RB1 is a major ginsenoside with neuroprotective and metabolic signaling relevance, aligning with antioxidant, anti-inflammatory, and stress-response pathways.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
-    "Metabolic Regulation",
+    "Neurotransmitter System Modulation",
     "Neurotransmitter Modulation",
-    "Vascular Function Support"
+    "Metabolic Regulation",
+    "Nrf2/ARE Pathway Activation",
+    "Mitochondrial Support",
+    "Apoptosis Signaling Inhibition",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Protection",
+    "Glucose Metabolism Regulation",
+    "Anti-Inflammatory Cytokine Modulation",
+    "Vascular Function Support",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +31,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -35,5 +41,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

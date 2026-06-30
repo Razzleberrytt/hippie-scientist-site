@@ -6,8 +6,11 @@
   "description": "Indole-3-carbinol is cataloged as a indole compound. Reported mechanism notes: Modulates estrogen metabolism (human-supported via downstream metabolites such as DIM formed in vivo); additional mechanisms (preclinical).",
   "compoundClass": "",
   "mechanisms": [
+    "Phase I/II Detoxification Enzyme Regulation (Preclinical)",
+    "Estrogen Metabolism Modulation (Human-Supported via DIM)",
     "Metabolic Regulation",
-    "Hormonal Signaling Context"
+    "Hormonal Signaling Context",
+    "AhR Pathway Activation (Investigational)"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

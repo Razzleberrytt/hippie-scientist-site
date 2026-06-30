@@ -3,12 +3,16 @@
   "slug": "choline",
   "name": "Choline",
   "summary": "Essential for liver function, brain development, and neurotransmission.",
-  "description": "Essential for liver function, brain development, and neurotransmission.",
+  "description": "Choline is a required nutrient for membrane synthesis and acetylcholine production; it supports liver lipid handling and neurodevelopmental signaling pathways.",
   "compoundClass": "",
   "mechanisms": [
-    "Metabolic Regulation",
+    "Methylation Capacity Support",
     "Neurotransmitter Modulation",
+    "Metabolic Regulation",
+    "Acetylcholine Synthesis",
+    "Hepatoprotection via VLDL Metabolism",
     "Neuroprotective Activity",
+    "Membrane Phospholipid Biosynthesis",
     "Lipid Metabolism Support"
   ],
   "targets": [],
@@ -23,7 +27,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -33,5 +37,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

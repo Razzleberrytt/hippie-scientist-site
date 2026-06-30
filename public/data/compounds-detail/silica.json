@@ -3,10 +3,13 @@
   "slug": "silica",
   "name": "Silica",
   "summary": "Bioavailable silicon forms such as orthosilicic acid have limited evidence for bone and connective tissue support.",
-  "description": "Silicon-related nutrient involved in collagen synthesis and bone formation biology.",
+  "description": "Silica is a silicon-related nutrient linked to connective tissue biology, with proposed roles in collagen-related pathways and mineralization processes relevant to bone strength.",
   "compoundClass": "",
   "mechanisms": [
-    "Metabolic Regulation"
+    "Metabolic Regulation",
+    "Connective Tissue Structural Modulation",
+    "Bone Mineralization Pathway Support",
+    "Collagen Crosslinking/Matrix Support"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

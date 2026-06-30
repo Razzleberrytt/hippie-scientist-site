@@ -3,11 +3,14 @@
   "slug": "niacin",
   "name": "Niacin",
   "summary": "Improves lipid profile but no added cardiovascular benefit with statins.",
-  "description": "Improves lipid profile but no added cardiovascular benefit with statins.",
+  "description": "Niacin can improve lipid parameters, but add-on cardiovascular benefit is limited when combined with statins; effects are mainly surrogate-driven.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
+    "HDL Increase",
     "Vascular Function Support",
+    "Lipid Profile Improvement",
+    "Hepatic Triglyceride Reduction",
     "Lipid Metabolism Support"
   ],
   "targets": [],
@@ -22,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,5 +35,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

@@ -3,15 +3,20 @@
   "slug": "bacoside-b",
   "name": "bacoside b",
   "summary": "Bacopa saponin fraction linked to cognition-related signaling.",
-  "description": "Bacopa saponin fraction linked to cognition-related signaling.",
+  "description": "Bacoside B from Bacopa is linked to cognition-relevant signaling; mechanistic studies emphasize neuroplasticity and stress-resilience rather than guaranteed clinical benefit.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Metabolic Regulation",
-    "Neurotransmitter Modulation",
-    "Cellular Protection",
     "Immune Signaling Modulation",
-    "Neuroprotective Activity"
+    "Anti-Inflammatory Signaling",
+    "Neurotransmitter Modulation",
+    "Metabolic Regulation",
+    "Synaptic Plasticity Enhancement",
+    "Neuroprotective Activity",
+    "Cellular Protection",
+    "Oxidative Stress Modulation",
+    "Cholinergic System Support (Investigational)",
+    "Inflammatory Signaling Modulation",
+    "Neurotrophic Signaling Support"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +30,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +41,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

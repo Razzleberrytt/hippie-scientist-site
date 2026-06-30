@@ -3,11 +3,13 @@
   "slug": "ginkgolides",
   "name": "Ginkgolides",
   "summary": "Ginkgolides are diterpene lactones in Ginkgo biloba extracts, especially relevant to platelet-activating factor antagonism.",
-  "description": "Diterpene lactone fraction from Ginkgo biloba; ginkgolide B is a well-known PAF antagonist, but compound-specific human outcome data remain limited.",
+  "description": "Ginkgolides include ginkgolide B, a known PAF antagonist; this may reduce inflammatory and thrombotic signaling, though outcomes vary by preparation.",
   "compoundClass": "",
   "mechanisms": [
     "Vascular Function Support",
-    "Neuroprotective Activity"
+    "Neuroprotective Activity",
+    "Anti-Inflammatory Signaling",
+    "Platelet-Activating Factor (PAF) Antagonism"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

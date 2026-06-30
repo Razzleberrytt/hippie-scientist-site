@@ -3,14 +3,17 @@
   "slug": "commipheric-acid",
   "name": "commipheric acid",
   "summary": "Guggul triterpenoid linked to lipid-signaling and inflammatory control.",
-  "description": "Guggul triterpenoid linked to lipid-signaling and inflammatory control.",
+  "description": "Guggul triterpenoid linked to lipid signaling and inflammatory control; may influence nuclear receptor pathways relevant to atherosclerosis risk.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Metabolic Regulation",
+    "Nuclear Receptor Modulation",
     "Immune Signaling Modulation",
+    "Metabolic Regulation",
     "AMPK Signaling",
     "NF-kB Modulation",
+    "Antioxidant Support",
+    "Inflammatory Signaling Modulation",
+    "Lipid Metabolism Modulation",
     "Lipid Metabolism Support"
   ],
   "targets": [],
@@ -25,7 +28,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +39,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

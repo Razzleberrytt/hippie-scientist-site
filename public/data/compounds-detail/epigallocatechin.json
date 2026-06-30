@@ -3,15 +3,21 @@
   "slug": "epigallocatechin",
   "name": "epigallocatechin",
   "summary": "Tea catechin involved in redox regulation and cell signaling.",
-  "description": "Tea catechin involved in redox regulation and cell signaling.",
+  "description": "Epigallocatechin (EGC) is a tea polyphenol that supports redox regulation and can influence key cell-signaling pathways tied to inflammation.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
+    "Cell Cycle/Apoptosis Regulation",
+    "Nrf2/ARE Activation",
+    "MAPK Pathway Modulation",
     "Metabolic Regulation",
+    "AMPK Signaling",
+    "Antioxidant/Redox Modulation",
+    "Mitochondrial Support",
+    "NF-kB Pathway Modulation",
+    "Oxidative Stress Modulation",
+    "Mitochondrial Protective Effects",
     "Vascular Function Support",
-    "AMPK Signaling"
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +31,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -35,5 +41,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

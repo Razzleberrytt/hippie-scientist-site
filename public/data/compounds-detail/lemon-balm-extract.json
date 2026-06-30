@@ -6,8 +6,11 @@
   "description": "Lemon Balm Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Sleep; Cognition; Stress Response; Neurobiology. Current workbook signals support mechanistic context around Neurotransmitter Modulation; Stress Response Modulation, not treatment claims.",
   "compoundClass": "",
   "mechanisms": [
+    "GABAergic Modulation",
     "Neurotransmitter Modulation",
-    "Stress Response Modulation"
+    "Stress Response Modulation",
+    "Cholinergic Signaling Modulation",
+    "Neurotransmitter Release Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

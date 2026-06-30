@@ -3,14 +3,19 @@
   "slug": "ononin",
   "name": "ononin",
   "summary": "Isoflavone glycoside tied to receptor-level estrogenic signaling.",
-  "description": "Isoflavone glycoside tied to receptor-level estrogenic signaling.",
+  "description": "Ononin is an isoflavone glycoside linked to estrogen receptor-level signaling, potentially affecting gene transcription in hormone-responsive pathways.",
   "compoundClass": "",
   "mechanisms": [
-    "Oxidative Stress Modulation",
     "Metabolic Regulation",
-    "Hormonal Signaling Context",
     "AMPK Signaling",
-    "Glucose Metabolism Support"
+    "Endocrine Gene Transcription Modulation",
+    "Glucose Metabolism Support",
+    "Antioxidant / Redox Modulation",
+    "Oxidative Stress Modulation",
+    "Hormonal Signaling Context",
+    "Estrogen Receptor Modulation",
+    "Inflammatory Signaling Modulation",
+    "ER\u03b2 Selective Signaling (Context Dependent)"
   ],
   "targets": [],
   "pathways": [],
@@ -24,7 +29,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -35,8 +40,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

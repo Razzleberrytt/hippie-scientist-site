@@ -6,7 +6,10 @@
   "description": "chromium picolinate is tracked for Enhances insulin receptor signaling and glucose uptake with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
   "compoundClass": "",
   "mechanisms": [
+    "Insulin Receptor Signaling Enhancement",
+    "Glucose Uptake Augmentation",
     "Metabolic Regulation",
+    "Insulin Sensitivity Modulation",
     "Glucose Metabolism Support"
   ],
   "targets": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

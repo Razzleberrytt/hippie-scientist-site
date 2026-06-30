@@ -3,11 +3,14 @@
   "slug": "zinc",
   "name": "Zinc",
   "summary": "Decision-ready summary: Zinc is best framed for zinc deficiency; immune support; wound healing support; safety screen: copper deficiency risk with high-dose chronic use; nausea.",
-  "description": "Zinc supports immune; deficiency; skin with high confidence in this merged decision layer.",
+  "description": "Zinc supports immune competence and epithelial function; benefits are most reliable when correcting deficiency. Excess zinc can disrupt copper balance.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Immune Signaling Modulation"
+    "Immune Signaling Modulation",
+    "Enzyme Cofactor Activity",
+    "Oxidative Stress Modulation",
+    "Immune Function Support",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

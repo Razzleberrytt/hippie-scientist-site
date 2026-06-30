@@ -3,15 +3,17 @@
   "slug": "gallocatechin",
   "name": "gallocatechin",
   "summary": "Catechin derivative present in tea with antioxidant signaling activity.",
-  "description": "Catechin derivative present in tea with antioxidant signaling activity.",
+  "description": "Tea catechin (gallocatechin) associated with antioxidant signaling and potential neurovascular relevance through redox-dependent pathway effects.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
+    "Nrf2 Pathway Activation",
+    "Endothelial Function Support",
     "Metabolic Regulation",
+    "AMPK Signaling",
+    "Mitochondrial Support",
+    "Oxidative Stress Modulation",
     "Vascular Function Support",
-    "AMPK Signaling"
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +27,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -35,5 +37,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

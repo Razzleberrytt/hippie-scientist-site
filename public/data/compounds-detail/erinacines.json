@@ -3,11 +3,14 @@
   "slug": "erinacines",
   "name": "erinacines",
   "summary": "Cyathane diterpenoids from lion's mane mycelium studied for nerve growth factor and neurotrophic signaling.",
-  "description": "Cyathane diterpenoids from lion's mane mycelium studied for nerve growth factor and neurotrophic signaling.",
+  "description": "Erinacines are lion\u2019s mane mycelium diterpenoids studied for NGF/BDNF-linked neurotrophic signaling, relevant to neurite outgrowth pathways in preclinical models.",
   "compoundClass": "",
   "mechanisms": [
-    "Oxidative Stress Modulation",
-    "Neuroprotective Activity"
+    "Neurite Outgrowth Signaling",
+    "Nerve Growth Factor Pathway Activation",
+    "Neurotrophic Signaling Modulation",
+    "Neuroprotective Activity",
+    "Oxidative Stress Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

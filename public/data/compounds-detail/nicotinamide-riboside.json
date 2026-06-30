@@ -6,7 +6,11 @@
   "description": "Nicotinamide riboside is tracked for Acts as an NAD+ precursor affecting cellular energy metabolism and sirtuin-linked pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
   "compoundClass": "",
   "mechanisms": [
-    "SIRT1 Signaling"
+    "SIRT1 Signaling",
+    "Mitochondrial Function Support",
+    "Sirtuin Pathway Modulation",
+    "Redox Homeostasis Modulation",
+    "NAD+ Biosynthesis Enhancement"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

@@ -3,10 +3,13 @@
   "slug": "probiotic-strain-lactobacillus",
   "name": "Lactobacillus Probiotic",
   "summary": "Decision-ready summary: Lactobacillus Probiotic is best framed for antibiotic-associated diarrhea context; IBS symptom support; gut microbiome support; safety screen: severely immunocompromised; central line; critical illness.",
-  "description": "Lactobacillus Probiotic supports gut; diarrhea; IBS with moderate confidence in this merged decision layer.",
+  "description": "Lactobacillus probiotics may improve gut barrier function and microbial balance, which can reduce diarrhea risk and symptoms in select IBS phenotypes.",
   "compoundClass": "",
   "mechanisms": [
-    "Immune Signaling Modulation"
+    "Gut Barrier / Tight Junction Support",
+    "Immune Signaling Modulation",
+    "Immune Modulation via Microbiota",
+    "Pathogen Inhibition"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -31,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

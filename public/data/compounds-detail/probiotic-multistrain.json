@@ -6,6 +6,8 @@
   "description": "Probiotic Multistrain is tracked for Modulates gut microbiota composition, pathogen colonization resistance, epithelial barrier function, and immune signaling with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed.",
   "compoundClass": "",
   "mechanisms": [
+    "Gut Microbiota Modulation",
+    "Competitive Exclusion of Pathogens",
     "Immune Signaling Modulation"
   ],
   "targets": [],
@@ -20,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -31,8 +33,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

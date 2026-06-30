@@ -3,10 +3,13 @@
   "slug": "zinc-carnosine",
   "name": "Zinc Carnosine",
   "summary": "Improves gastric mucosal healing and reduces ulcer symptoms.",
-  "description": "Improves gastric mucosal healing and reduces ulcer symptoms.",
+  "description": "Zinc carnosine is tracked for supporting gastric mucosal repair and reducing ulcer symptoms by stabilizing protective barrier processes and dampening injurious signaling.",
   "compoundClass": "",
   "mechanisms": [
-    "Oxidative Stress Modulation"
+    "Gastric Mucosal Protection",
+    "Oxidative Stress Modulation",
+    "Inflammatory Signaling Modulation",
+    "Cytoprotective Effects"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

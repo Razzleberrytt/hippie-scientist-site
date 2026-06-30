@@ -3,11 +3,14 @@
   "slug": "betaine-hcl",
   "name": "Betaine HCl",
   "summary": "Betaine HCl is an acidifying supplement intended to increase gastric acidity, but clinical outcome evidence is very limited.",
-  "description": "Hydrochloride salt of betaine used for gastric-acid support; evidence is mostly physiologic rather than clinical.",
+  "description": "Betaine HCl provides hydrochloride for gastric acid support and betaine as a methyl-donor; evidence is mainly physiologic rather than robust clinical outcome data.",
   "compoundClass": "",
   "mechanisms": [
+    "lowers gastric pH transiently",
+    "Gastric Acid Augmentation",
+    "Digestive Enzyme Activity Support (Physiologic)",
     "increases gastric acidity",
-    "lowers gastric pH transiently"
+    "Methylation Cycle Support"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

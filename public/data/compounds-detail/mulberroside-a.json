@@ -3,11 +3,14 @@
   "slug": "mulberroside-a",
   "name": "mulberroside a",
   "summary": "Mulberry stilbene glycoside associated with postprandial glycemic control.",
-  "description": "Mulberry stilbene glycoside associated with postprandial glycemic control.",
+  "description": "Mulberroside A (mulberry stilbene glycoside) is associated with postprandial glucose modulation, potentially via carbohydrate digestion/absorption and metabolic signaling.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
-    "Glucose Metabolism Support"
+    "AMPK Signaling Modulation",
+    "Glycemic Regulation",
+    "Glucose Metabolism Support",
+    "Intestinal Carbohydrate Uptake Inhibition"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

@@ -3,11 +3,13 @@
   "slug": "eleuthero-extract",
   "name": "Eleuthero Extract",
   "summary": "Evidence for fatigue or stress adaptation is insufficient for authority status without verified RCT support.",
-  "description": "Evidence for fatigue or stress adaptation is insufficient for authority status without verified RCT support.",
+  "description": "Eleuthero extract is often discussed for stress adaptation, but clinical support for fatigue/stress outcomes is insufficient for high-confidence recommendations without RCT-backed endpoints.",
   "compoundClass": "",
   "mechanisms": [
+    "Stress Response Modulation",
     "Immune Signaling Modulation",
-    "Stress Response Modulation"
+    "Neuroendocrine Signaling Modulation (Preclinical)",
+    "Adaptogen-Related Stress Response Modulation (Proposed)"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

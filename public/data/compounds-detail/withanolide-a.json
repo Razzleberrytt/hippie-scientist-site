@@ -3,13 +3,17 @@
   "slug": "withanolide-a",
   "name": "withanolide a",
   "summary": "Withanolide from ashwagandha associated with neuroactive pathway modulation.",
-  "description": "Withanolide from ashwagandha associated with neuroactive pathway modulation.",
+  "description": "Withanolide A is tracked for neuroactive pathway modulation, potentially influencing excitatory/inhibitory balance and stress-response signaling in preclinical studies.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
     "Neurotransmitter Modulation",
+    "Stress-Response Signaling Modulation",
+    "Anti-Inflammatory Signaling Modulation",
     "Stress Response Modulation",
-    "NF-kB Modulation"
+    "NF-kB Modulation",
+    "Neuroprotective Signaling Activation",
+    "Neurotransmitter Pathway Modulation",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +27,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +38,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

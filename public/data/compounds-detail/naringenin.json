@@ -3,15 +3,19 @@
   "slug": "naringenin",
   "name": "naringenin",
   "summary": "Citrus flavanone reported to influence AMPK and PI3K/Akt signaling.",
-  "description": "Citrus flavanone reported to influence AMPK and PI3K/Akt signaling.",
+  "description": "Citrus flavanone reported to influence metabolic kinase signaling, including AMPK and PI3K/Akt, with potential effects on glucose and inflammation.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
+    "AMPK Pathway Activation",
+    "PI3K/Akt Pathway Modulation",
+    "Anti-Inflammatory Signaling",
     "Metabolic Regulation",
+    "AMPK Signaling",
+    "Mitochondrial Support",
+    "Oxidative Stress Modulation",
     "Vascular Function Support",
-    "AMPK Signaling"
+    "Inflammatory Signaling Modulation",
+    "Glucose Metabolism Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +29,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +40,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

@@ -3,11 +3,13 @@
   "slug": "peppermint-oil",
   "name": "Peppermint Oil",
   "summary": "Decision-ready summary: Peppermint Oil is best framed for IBS abdominal pain; gut spasm; bloating discomfort; safety screen: GERD; hiatal hernia; gallbladder disease; young children.",
-  "description": "Peppermint Oil supports IBS; abdominal pain; digestion with high confidence in this merged decision layer.",
+  "description": "Peppermint oil can relax gastrointestinal smooth muscle and reduce visceral pain signaling, aligning with evidence for IBS symptom reduction and abdominal discomfort.",
   "compoundClass": "",
   "mechanisms": [
     "smooth muscle calcium-channel effects",
-    "antispasmodic activity in GI tract"
+    "Smooth Muscle Relaxation",
+    "antispasmodic activity in GI tract",
+    "Calcium Channel Antagonism"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

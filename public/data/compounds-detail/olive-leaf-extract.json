@@ -3,14 +3,18 @@
   "slug": "olive-leaf-extract",
   "name": "Olive Leaf Extract",
   "summary": "Olive leaf extract reduces blood pressure comparably to low-dose captopril.",
-  "description": "Olive leaf extract reduces blood pressure comparably to low-dose captopril.",
+  "description": "Olive leaf extract lowers blood pressure with effects on vascular tone and endothelial function; human comparisons suggest clinically relevant antihypertensive activity.",
   "compoundClass": "",
   "mechanisms": [
+    "Endothelial Function Support",
+    "Inflammatory Signaling Modulation",
+    "Neuroprotective Activity",
+    "ACE Inhibition (Potential)",
+    "Endothelial Nitric Oxide Modulation",
+    "Stress Response Modulation",
     "Oxidative Stress Modulation",
     "Vascular Function Support",
-    "Stress Response Modulation",
-    "Neuroprotective Activity",
-    "Endothelial Function Support"
+    "Vasodilation"
   ],
   "targets": [],
   "pathways": [],
@@ -24,7 +28,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,5 +38,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

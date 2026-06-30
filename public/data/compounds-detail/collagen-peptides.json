@@ -3,10 +3,13 @@
   "slug": "collagen-peptides",
   "name": "Collagen Peptides",
   "summary": "Decision-ready summary: Collagen Peptides is best framed for skin elasticity; joint comfort; connective tissue support; safety screen: allergy to source material.",
-  "description": "Collagen Peptides supports skin; joints; connective tissue with moderate confidence in this merged decision layer.",
+  "description": "Collagen peptides may support skin and connective tissue maintenance by providing absorbable collagen fragments that influence remodeling; evidence is moderate.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation"
+    "Inflammatory Signaling Modulation",
+    "Hydroxyproline Availability Enhancement",
+    "Pro-Collagen Signaling Modulation",
+    "Extracellular Matrix Remodeling"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -31,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

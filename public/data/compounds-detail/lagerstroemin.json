@@ -3,11 +3,13 @@
   "slug": "lagerstroemin",
   "name": "lagerstroemin",
   "summary": "Ellagitannin linked to glucose transport and metabolic regulation.",
-  "description": "Ellagitannin linked to glucose transport and metabolic regulation.",
+  "description": "Lagerstroemin (ellagitannin class) is associated with glucose transport and metabolic signaling, framing potential relevance to post-prandial glycemic regulation.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
-    "Glucose Metabolism Support"
+    "Glucose Transporter Modulation",
+    "Glucose Metabolism Support",
+    "Insulin Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

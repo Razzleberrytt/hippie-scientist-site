@@ -6,6 +6,9 @@
   "description": "cordyceps militaris is tracked for Increases ATP production and oxygen utilization with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
   "compoundClass": "",
   "mechanisms": [
+    "Mitochondrial Energy Metabolism Support",
+    "Oxygen Utilization/Respiratory Efficiency Modulation",
+    "ATP Production Enhancement",
     "Mitochondrial Support"
   ],
   "targets": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

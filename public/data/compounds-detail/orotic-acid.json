@@ -3,10 +3,13 @@
   "slug": "orotic-acid",
   "name": "Orotic Acid",
   "summary": "Pyrimidine synthesis intermediate with insufficient therapeutic evidence and animal toxicity concerns at high doses.",
-  "description": "Intermediate in pyrimidine biosynthesis.",
+  "description": "Orotic acid is an upstream pyrimidine intermediate; it supports nucleotide biosynthesis required for DNA/RNA synthesis and cell growth.",
   "compoundClass": "",
   "mechanisms": [
-    "pyrimidine synthesis intermediate"
+    "pyrimidine synthesis intermediate",
+    "Pyrimidine Biosynthesis Support",
+    "Nucleotide Metabolism Modulation",
+    "Cell Proliferation Pathway Support"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

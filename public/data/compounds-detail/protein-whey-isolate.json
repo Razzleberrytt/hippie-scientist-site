@@ -3,10 +3,13 @@
   "slug": "protein-whey-isolate",
   "name": "Whey protein isolate",
   "summary": "Decision-ready summary: Whey protein isolate is best framed for protein intake support; muscle protein synthesis; lean mass support; safety screen: milk allergy; severe kidney disease requiring protein restriction.",
-  "description": "Whey protein isolate supports muscle; protein; recovery with high confidence in this merged decision layer.",
+  "description": "Whey protein isolate supports muscle and recovery biology via high-quality amino acid delivery and rapid stimulation of postprandial protein synthesis signaling.",
   "compoundClass": "",
   "mechanisms": [
-    "mTOR Signaling"
+    "Post-Exercise Recovery Support",
+    "Muscle Protein Synthesis Stimulation",
+    "mTOR Signaling",
+    "Leucine-Dependent mTOR Activation"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -31,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

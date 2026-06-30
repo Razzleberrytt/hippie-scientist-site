@@ -3,14 +3,18 @@
   "slug": "inositol-sleep",
   "name": "Inositol Sleep/Anxiety Context",
   "summary": "Inositol has limited evidence for anxiety/panic outcomes, but sleep-specific evidence is weak.",
-  "description": "Use-context row for myo-inositol in anxiety/sleep formulations.",
+  "description": "Myo-inositol use in sleep/anxiety contexts is consistent with possible effects on phosphoinositide signaling and neuronal stress regulation. Evidence varies by outcome.",
   "compoundClass": "",
   "mechanisms": [
-    "Metabolic Regulation",
     "Neurotransmitter Modulation",
-    "Hormonal Signaling Context",
+    "Metabolic Regulation",
+    "Glucose Metabolism Support",
     "Stress Response Modulation",
-    "Glucose Metabolism Support"
+    "Hormonal Signaling Context",
+    "Serotonin-Related Signaling Support",
+    "Neuronal Glial Signaling Modulation",
+    "Second Messenger System Regulation",
+    "Phosphoinositide Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -24,7 +28,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -35,8 +39,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

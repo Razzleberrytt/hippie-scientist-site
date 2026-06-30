@@ -3,11 +3,13 @@
   "slug": "anandamide",
   "name": "Anandamide",
   "summary": "Anandamide entry from SciSpace evidence pass. Evidence level: physiological role established.",
-  "description": "Anandamide is cataloged as endocannabinoid. Reported mechanisms: endogenous CB1 agonism; FAAH degradation.",
+  "description": "Anandamide is an endocannabinoid; its relevance centers on CB1-linked modulation of inflammatory and neural signaling, shaped by FAAH activity.",
   "compoundClass": "",
   "mechanisms": [
     "endogenous CB1 agonism",
-    "FAAH degradation"
+    "FAAH Inhibition/Endocannabinoid Degradation Modulation",
+    "FAAH degradation",
+    "CB1 Receptor Agonism"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

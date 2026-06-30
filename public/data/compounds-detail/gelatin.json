@@ -3,10 +3,13 @@
   "slug": "gelatin",
   "name": "Gelatin",
   "summary": "Gelatin is denatured collagen with limited direct clinical evidence compared with hydrolyzed collagen peptides.",
-  "description": "Denatured collagen protein that provides collagen-related amino acids.",
+  "description": "Gelatin provides collagen-derived peptides and amino acids that may support protein turnover and connective tissue matrix maintenance, depending on digestion and dose.",
   "compoundClass": "",
   "mechanisms": [
-    "collagen amino acid provision"
+    "collagen amino acid provision",
+    "Protein/Nutrient Supply (Collagen Peptides)",
+    "Amino Acid Availability Enhancement",
+    "Connective Tissue Matrix Support"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

@@ -3,11 +3,15 @@
   "slug": "diosmin",
   "name": "diosmin",
   "summary": "Human RCT evidence supports diosmin for improving symptoms of chronic venous insufficiency and hemorrhoidal disease.",
-  "description": "Human RCT evidence supports diosmin for improving symptoms of chronic venous insufficiency and hemorrhoidal disease.",
+  "description": "Diosmin has human RCT support for chronic venous insufficiency and hemorrhoids, consistent with effects on venous tone, microcirculation, and inflammatory mediators.",
   "compoundClass": "",
   "mechanisms": [
+    "Microcirculation Support",
+    "Inflammatory Mediator Modulation",
+    "Venotonic Effects",
+    "Vascular Function Support",
     "Inflammatory Signaling Modulation",
-    "Vascular Function Support"
+    "Capillary Permeability Reduction"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +35,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

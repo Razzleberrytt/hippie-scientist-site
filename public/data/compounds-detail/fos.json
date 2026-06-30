@@ -6,7 +6,10 @@
   "description": "Fructooligosaccharides is tracked for Fermentable oligosaccharides selectively increase beneficial gut bacteria and SCFA production with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
   "compoundClass": "",
   "mechanisms": [
-    "general phytochemical signaling"
+    "general phytochemical signaling",
+    "Gut Barrier/Immune Signaling Modulation",
+    "Prebiotic Fermentation",
+    "Short-Chain Fatty Acid Production"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

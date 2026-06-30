@@ -3,11 +3,14 @@
   "slug": "piperine",
   "name": "Piperine",
   "summary": "Piperine is the major pungent alkaloid of black pepper and a well-known bioavailability enhancer. Human evidence is strongest for pharmacokinetic interaction effects rather than broad stand-alone therapeutic outcomes.",
-  "description": "Alkaloid from black pepper enhancing bioavailability.",
+  "description": "Piperine from black pepper can enhance absorption and exposure of co-administered compounds by affecting intestinal metabolism and transport; effects vary.",
   "compoundClass": "",
   "mechanisms": [
+    "Metabolic Regulation",
+    "Inhibition of Drug-Metabolizing Enzymes",
     "Inflammatory Signaling Modulation",
-    "Metabolic Regulation"
+    "Bioavailability Enhancement via P-gp Modulation",
+    "Inhibition of Intestinal Efflux Transporters"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

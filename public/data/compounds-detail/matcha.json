@@ -6,6 +6,9 @@
   "description": "Matcha is best framed as a conservative research profile with mechanistic evidence and a focus on Mitochondrial Health; Exercise Performance; Energy Metabolism. Current workbook signals support mechanistic context around limited source-backed mechanism signals, not treatment claims.",
   "compoundClass": "",
   "mechanisms": [
+    "Reactive Oxygen Species (ROS) Scavenging",
+    "Mitochondrial Biogenesis Support",
+    "AMPK Pathway Activation",
     "Provides caffeine"
   ],
   "targets": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

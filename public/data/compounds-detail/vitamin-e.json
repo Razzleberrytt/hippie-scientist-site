@@ -3,14 +3,18 @@
   "slug": "vitamin-e",
   "name": "Vitamin E",
   "summary": "No mortality benefit; high doses may increase risk.",
-  "description": "No mortality benefit; high doses may increase risk.",
+  "description": "Vitamin E is primarily an antioxidant nutrient; mortality and disease outcomes have not shown consistent benefit, and high-dose safety signals warrant caution.",
   "compoundClass": "",
   "mechanisms": [
-    "Oxidative Stress Modulation",
+    "Gene Expression Regulation (Antioxidant Response)",
     "Metabolic Regulation",
+    "Antioxidant Activity",
     "Cellular Protection",
-    "Vascular Function Support",
     "Stress Response Modulation",
+    "Oxidative Stress Modulation",
+    "Redox Signaling Modulation",
+    "Lipid Peroxidation Inhibition",
+    "Vascular Function Support",
     "Lipid Metabolism Support"
   ],
   "targets": [],
@@ -25,7 +29,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -35,5 +39,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

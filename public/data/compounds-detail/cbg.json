@@ -3,10 +3,15 @@
   "slug": "cbg",
   "name": "CBG",
   "summary": "CBG entry from SciSpace evidence pass. Evidence level: preclinical.",
-  "description": "CBG is cataloged as phytocannabinoid. Reported mechanisms: weak CB1/CB2 interaction; alpha-2 adrenergic and TRP channel activity preclinical.",
+  "description": "CBG (cannabigerol) is cataloged as a phytocannabinoid; preclinical activity includes weak CB1/CB2 interactions plus alpha-2 adrenergic and TRP channel effects.",
   "compoundClass": "",
   "mechanisms": [
+    "Weak CB1 Receptor Interaction",
+    "Weak CB2 Receptor Interaction",
+    "Alpha-2 Adrenergic Receptor Modulation",
+    "TRP Channel Modulation",
     "weak CB1/CB2 interaction",
+    "Neurotransmitter Release Modulation",
     "alpha-2 adrenergic and TRP channel activity preclinical"
   ],
   "targets": [],
@@ -21,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +36,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

@@ -3,15 +3,20 @@
   "slug": "timosaponin-aiii",
   "name": "timosaponin aiii",
   "summary": "Steroidal saponin associated with survival and apoptotic signaling.",
-  "description": "Steroidal saponin associated with survival and apoptotic signaling.",
+  "description": "Timosaponin AIII is linked to stress-response and apoptosis regulation in preclinical models. Mechanistic signals include survival pathway modulation.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Metabolic Regulation",
-    "Cellular Protection",
-    "Vascular Function Support",
     "Immune Signaling Modulation",
-    "AMPK Signaling"
+    "Cell Cycle/Proliferation Signaling",
+    "Mitochondrial Dysfunction Signaling",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "Apoptotic Signaling Modulation",
+    "Cellular Protection",
+    "Survival Pathway Regulation",
+    "Vascular Function Support",
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Response Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +30,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +41,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

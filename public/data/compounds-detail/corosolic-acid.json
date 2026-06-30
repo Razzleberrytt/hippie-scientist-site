@@ -3,15 +3,21 @@
   "slug": "corosolic-acid",
   "name": "corosolic acid",
   "summary": "Triterpenoid associated with glucose disposal and metabolic signaling.",
-  "description": "Triterpenoid associated with glucose disposal and metabolic signaling.",
+  "description": "Corosolic acid is a triterpenoid linked to glucose disposal pathways and insulin-signal-related mechanisms, often supported by mechanistic/preclinical work.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Metabolic Regulation",
+    "Anti-Inflammatory Signaling (Preclinical)",
     "Immune Signaling Modulation",
+    "Insulin Signaling Modulation",
+    "Glucose Transporter Regulation (Preclinical)",
+    "Metabolic Regulation",
+    "AMPK Activation",
     "AMPK Signaling",
+    "Glucose Metabolism Support",
     "NF-kB Modulation",
-    "Glucose Metabolism Support"
+    "Oxidative Stress Modulation",
+    "Inflammatory Signaling Modulation",
+    "Mitochondrial Function Support"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +31,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +42,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

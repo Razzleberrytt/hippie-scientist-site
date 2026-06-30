@@ -3,14 +3,18 @@
   "slug": "grape-seed-extract",
   "name": "Grape Seed Extract",
   "summary": "Reduces systolic and diastolic blood pressure modestly.",
-  "description": "Reduces systolic and diastolic blood pressure modestly.",
+  "description": "Grape seed extract is evaluated for modest blood pressure effects, plausibly via endothelial nitric-oxide bioavailability and vasoprotective polyphenol activity.",
   "compoundClass": "",
   "mechanisms": [
-    "Oxidative Stress Modulation",
-    "Vascular Function Support",
-    "Stress Response Modulation",
+    "Endothelial Function Support",
+    "Vascular Smooth Muscle Relaxation Support",
+    "ACE/Angiotensin Signaling Effects",
+    "Anti-Inflammatory Signaling Modulation",
     "Neuroprotective Activity",
-    "Endothelial Function Support"
+    "Endothelial Nitric Oxide Modulation",
+    "Stress Response Modulation",
+    "Oxidative Stress Modulation",
+    "Vascular Function Support"
   ],
   "targets": [],
   "pathways": [],
@@ -24,7 +28,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,5 +38,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

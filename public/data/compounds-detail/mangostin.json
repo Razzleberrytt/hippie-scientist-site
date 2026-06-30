@@ -3,13 +3,16 @@
   "slug": "mangostin",
   "name": "mangostin",
   "summary": "Xanthone associated with inflammatory and survival pathway effects.",
-  "description": "Xanthone associated with inflammatory and survival pathway effects.",
+  "description": "Mangosteen-derived xanthone associated with anti-inflammatory and pro-survival signaling effects, including oxidative stress attenuation mechanisms.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
     "Immune Signaling Modulation",
-    "NF-kB Modulation"
+    "PI3K/Akt Pathway Modulation",
+    "Anti-Inflammatory Signaling",
+    "NF-kB Modulation",
+    "Oxidative Stress Modulation",
+    "Apoptosis Regulation",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +37,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

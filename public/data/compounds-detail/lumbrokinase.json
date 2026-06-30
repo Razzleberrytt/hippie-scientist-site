@@ -3,11 +3,14 @@
   "slug": "lumbrokinase",
   "name": "Lumbrokinase",
   "summary": "Lumbrokinase refers to fibrinolytic enzymes from earthworms with limited, region-specific human evidence, mainly as a stroke-recovery adjunct.",
-  "description": "Earthworm-derived fibrinolytic enzyme preparation with limited clinical evidence.",
+  "description": "Earthworm-derived fibrinolytic enzyme mixture aimed at thrombus breakdown; clinical support remains limited, so outcomes should be considered hypothesis-driven.",
   "compoundClass": "",
   "mechanisms": [
-    "fibrinolysis",
-    "clot degradation"
+    "clot degradation",
+    "Fibrinolysis Enhancement",
+    "Platelet Function Modulation",
+    "Protease Activity Modulation",
+    "fibrinolysis"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

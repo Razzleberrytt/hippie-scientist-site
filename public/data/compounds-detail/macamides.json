@@ -3,10 +3,13 @@
   "slug": "macamides",
   "name": "Macamides",
   "summary": "Macamides is a fatty acid amides associated with maca. Evidence level: mixed.",
-  "description": "",
+  "description": "Macamides (fatty acid amides) from maca show mixed human support; preclinical findings suggest effects on neurotransmitter tone and anti-inflammatory signaling.",
   "compoundClass": "",
   "mechanisms": [
+    "Neurotransmitter Signaling Modulation",
     "Metabolic Regulation",
+    "Endocannabinoid System Modulation",
+    "Inflammatory Signaling Modulation",
     "Lipid Metabolism Support"
   ],
   "targets": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

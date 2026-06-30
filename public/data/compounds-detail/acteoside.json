@@ -3,15 +3,20 @@
   "slug": "acteoside",
   "name": "acteoside",
   "summary": "Phenylethanoid glycoside with inflammatory pathway modulation.",
-  "description": "Phenylethanoid glycoside with inflammatory pathway modulation.",
+  "description": "Acteoside (phenylethanoid glycoside) is framed around controlling inflammatory signaling and stress responses, supporting cytoprotective relevance in oxidative/redox contexts.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
+    "MAPK Signaling Modulation",
     "Immune Signaling Modulation",
+    "Nrf2/ARE Pathway Activation",
     "Neuroprotective Activity",
-    "NF-kB Modulation"
+    "Mitochondrial Support",
+    "NF-kB Modulation",
+    "COX Inhibition",
+    "Oxidative Stress Modulation",
+    "Apoptosis Regulation",
+    "Inflammatory Signaling Modulation",
+    "NF-kB Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +30,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +41,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

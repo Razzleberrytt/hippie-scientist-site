@@ -3,11 +3,14 @@
   "slug": "d-mannose",
   "name": "D-Mannose",
   "summary": "Decision-ready summary: D-Mannose is best framed for recurrent UTI prevention context; urinary tract adhesion support; safety screen: diabetes medication review; active UTI needs medical care.",
-  "description": "D-Mannose supports urinary tract; UTI prevention context with moderate confidence in this merged decision layer.",
+  "description": "D-mannose may reduce urinary pathogens\u2019 ability to adhere to uroepithelium, aligning with UTI prevention use; clinical confidence varies across studies.",
   "compoundClass": "",
   "mechanisms": [
+    "Prevents bacterial adhesion (E. coli) to urinary tract epithelium.",
+    "Anti-Adhesion Activity",
+    "Uropathogen Binding Reduction",
     "mannose-mediated bacterial adhesion interference",
-    "Prevents bacterial adhesion (E. coli) to urinary tract epithelium."
+    "Uroepithelial Protection"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

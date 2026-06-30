@@ -3,10 +3,12 @@
   "slug": "iodine",
   "name": "Iodine",
   "summary": "Prevents iodine deficiency disorders and supports thyroid hormone production.",
-  "description": "Prevents iodine deficiency disorders and supports thyroid hormone production.",
+  "description": "Iodine prevents deficiency-related thyroid dysfunction and supports thyroid hormone synthesis, which in turn regulates metabolic rate and growth-related biology.",
   "compoundClass": "",
   "mechanisms": [
-    "Hormonal Signaling Context"
+    "Iodine-Dependent Thyroid Function Maintenance",
+    "Hormonal Signaling Context",
+    "Thyroid Hormone Synthesis Support"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +32,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

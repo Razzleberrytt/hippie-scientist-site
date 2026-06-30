@@ -3,12 +3,17 @@
   "slug": "punicalagin",
   "name": "punicalagin",
   "summary": "Major ellagitannin from pomegranate with strong polyphenolic bioactivity.",
-  "description": "Major ellagitannin from pomegranate with strong polyphenolic bioactivity.",
+  "description": "Punicalagin, a pomegranate ellagitannin, is supported by strong polyphenol bioactivity, with plausible effects on inflammation, antioxidant defenses, and vascular function.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
+    "COX/LOX Pathway Modulation",
+    "Nrf2/ARE Antioxidant Pathway Activation",
+    "Anti-Inflammatory Signaling Modulation",
+    "NF-kB Modulation",
+    "Vascular Endothelial Function Support",
     "Oxidative Stress Modulation",
-    "NF-kB Modulation"
+    "Antioxidant Enzyme Upregulation",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -22,7 +27,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -33,8 +38,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

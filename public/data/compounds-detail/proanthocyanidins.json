@@ -7,6 +7,9 @@
   "compoundClass": "",
   "mechanisms": [
     "Primary inhibition of bacterial adhesion (human-supported via extracts)",
+    "Anti-Adhesion Activity",
+    "Inflammatory Signaling Modulation (Preclinical)",
+    "Antioxidant Activity",
     "additional mechanisms (preclinical)"
   ],
   "targets": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

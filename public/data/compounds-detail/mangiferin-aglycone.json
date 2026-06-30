@@ -3,15 +3,19 @@
   "slug": "mangiferin-aglycone",
   "name": "mangiferin aglycone",
   "summary": "Xanthone-related metabolite linked to metabolic and redox-responsive pathways.",
-  "description": "Xanthone-related metabolite linked to metabolic and redox-responsive pathways.",
+  "description": "Mangiferin aglycone is a redox-active xanthone-related metabolite that may engage metabolic and oxidative stress-responsive signaling networks.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
-    "Metabolic Regulation",
     "Immune Signaling Modulation",
-    "AMPK Signaling"
+    "AMPK Pathway Activation",
+    "Metabolic Regulation",
+    "Nrf2/ARE Pathway Activation",
+    "AMPK Signaling",
+    "Mitochondrial Support",
+    "Oxidative Stress Modulation",
+    "Glucose Metabolism Regulation",
+    "Inflammatory Signaling Modulation",
+    "Mitochondrial Function Support"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +29,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +40,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

@@ -3,15 +3,21 @@
   "slug": "curdione",
   "name": "curdione",
   "summary": "Curcuma sesquiterpenoid linked to survival and apoptotic pathways.",
-  "description": "Curcuma sesquiterpenoid linked to survival and apoptotic pathways.",
+  "description": "Curdione is linked to survival and apoptotic pathway regulation in preclinical models, with effects that may involve mitochondrial stress and stress-response signaling.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
-    "Metabolic Regulation",
     "Immune Signaling Modulation",
-    "AMPK Signaling"
+    "Mitochondrial Dysfunction Signaling",
+    "Metabolic Regulation",
+    "NF-\u03baB/Inflammation Pathway Modulation",
+    "AMPK Signaling",
+    "Apoptotic Signaling Modulation",
+    "Mitochondrial Support",
+    "Oxidative Stress Modulation",
+    "Survival Pathway Regulation",
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Response Modulation",
+    "Cell Death Pathway Activation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +31,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +42,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

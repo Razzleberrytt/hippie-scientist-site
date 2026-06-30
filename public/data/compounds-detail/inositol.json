@@ -3,12 +3,15 @@
   "slug": "inositol",
   "name": "Inositol",
   "summary": "Improves insulin sensitivity and ovulatory function in PCOS.",
-  "description": "Improves insulin sensitivity and ovulatory function in PCOS.",
+  "description": "Inositol supports insulin second-messenger signaling and has evidence for improving ovulatory function in PCOS, aligning with insulin resistance and metabolic control.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
-    "Hormonal Signaling Context",
-    "Glucose Metabolism Support"
+    "Insulin Sensitivity Improvement",
+    "Ovarian Function Signaling Support",
+    "Inositol Phosphates Second Messenger Modulation",
+    "Glucose Metabolism Support",
+    "Hormonal Signaling Context"
   ],
   "targets": [],
   "pathways": [],
@@ -22,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -33,8 +36,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

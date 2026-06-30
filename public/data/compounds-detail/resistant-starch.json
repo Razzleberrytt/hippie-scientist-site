@@ -3,11 +3,13 @@
   "slug": "resistant-starch",
   "name": "Resistant Starch",
   "summary": "Decision-ready summary: Resistant Starch is best framed for gut microbiome support; insulin sensitivity context; satiety support; safety screen: IBS/FODMAP sensitivity; bloating-prone users.",
-  "description": "Resistant Starch supports gut microbiome; insulin sensitivity; satiety with moderate confidence in this merged decision layer.",
+  "description": "Resistant starch is fermented by gut microbes to produce SCFAs, which can influence insulin signaling, satiety signaling, and microbiome stability.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
-    "Glucose Metabolism Support"
+    "Gut Microbiome Modulation",
+    "Glucose Metabolism Support",
+    "SCFA-Mediated Metabolic Signaling"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

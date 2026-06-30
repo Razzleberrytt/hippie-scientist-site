@@ -3,11 +3,14 @@
   "slug": "actein",
   "name": "Actein",
   "summary": "Actein is a triterpene glycoside associated with black cohosh. Evidence level: mixed.",
-  "description": "Actein is cataloged as a triterpene glycoside. Reported mechanism notes: Primary mechanism (preclinical); mechanism unclear.",
+  "description": "Actein is cataloged as a triterpene glycoside with mostly preclinical mechanism notes; evidence quality is limited and direct clinical relevance remains unclear.",
   "compoundClass": "",
   "mechanisms": [
     "Primary mechanism (preclinical)",
-    "mechanism unclear"
+    "mechanism unclear",
+    "Inflammatory Pathway Modulation",
+    "Primary Preclinical Activity (Unspecified)",
+    "Cell Stress Response Signaling (Evidence-Limited)"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

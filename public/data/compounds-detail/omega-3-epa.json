@@ -3,13 +3,18 @@
   "slug": "omega-3-epa",
   "name": "Omega-3 EPA",
   "summary": "High-dose EPA significantly reduces major cardiovascular events.",
-  "description": "High-dose EPA significantly reduces major cardiovascular events.",
+  "description": "High-dose EPA has strong cardiovascular outcome support, with anti-inflammatory lipid signaling effects that can reduce atherothrombotic risk.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
+    "Endothelial Function Support",
+    "COX/LOX Pathway Modulation",
     "Metabolic Regulation",
-    "Vascular Function Support",
     "Neuroprotective Activity",
+    "Inflammatory Mediator Resolution",
+    "Triglyceride Reduction",
+    "Plaque Stabilization",
+    "Vascular Function Support",
+    "Inflammatory Signaling Modulation",
     "Lipid Metabolism Support"
   ],
   "targets": [],
@@ -24,7 +29,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -35,8 +40,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

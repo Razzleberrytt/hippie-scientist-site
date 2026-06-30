@@ -3,12 +3,16 @@
   "slug": "vitamin-k2",
   "name": "Vitamin K2",
   "summary": "May improve bone mineral density and reduce vascular calcification.",
-  "description": "May improve bone mineral density and reduce vascular calcification.",
+  "description": "Vitamin K2 supports gamma-carboxylation of bone and vascular proteins (e.g., osteocalcin), plausibly impacting bone mineralization and calcification risk through clotting-independent roles.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
+    "Osteocalcin Activation",
     "Metabolic Regulation",
-    "Vascular Function Support"
+    "Inhibition of Vascular Calcification",
+    "Bone Mineralization Support",
+    "Gamma-Carboxylation of Proteins",
+    "Vascular Function Support",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -22,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,5 +36,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

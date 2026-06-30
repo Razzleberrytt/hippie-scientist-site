@@ -3,11 +3,14 @@
   "slug": "cobalamin",
   "name": "vitamin b12",
   "summary": "Corrects deficiency and prevents anemia and neuropathy.",
-  "description": "Corrects deficiency and prevents anemia and neuropathy.",
+  "description": "Vitamin B12 (cobalamin) prevents and treats deficiency-related anemia and neuropathy, primarily via cofactor roles in DNA synthesis and myelin maintenance.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
-    "Glucose Metabolism Support"
+    "Homocysteine Metabolism Normalization",
+    "Glucose Metabolism Support",
+    "Myelin Maintenance Support",
+    "Cofactor for DNA Synthesis (Methylmalonyl-CoA Pathway)"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

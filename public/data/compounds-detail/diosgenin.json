@@ -3,12 +3,16 @@
   "slug": "diosgenin",
   "name": "diosgenin",
   "summary": "Steroidal sapogenin broadly associated with endocrine and metabolic signaling.",
-  "description": "Steroidal sapogenin broadly associated with endocrine and metabolic signaling.",
+  "description": "Diosgenin, a steroidal sapogenin, is broadly associated with hormone- and metabolism-related signaling that may intersect with insulin sensitivity and inflammation.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Metabolic Regulation",
     "Immune Signaling Modulation",
+    "Anti-Inflammatory Signaling",
+    "Metabolic Regulation",
+    "Nuclear Receptor Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Inflammatory Signaling Modulation",
+    "Glucose Homeostasis Support",
     "Lipid Metabolism Support"
   ],
   "targets": [],
@@ -23,7 +27,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +38,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

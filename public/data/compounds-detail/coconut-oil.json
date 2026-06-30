@@ -6,7 +6,10 @@
   "description": "Coconut Oil is tracked for Contains saturated fatty acids and medium-chain fatty acid fractions; effects depend on comparator fat and dietary context with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human.",
   "compoundClass": "",
   "mechanisms": [
+    "Fatty Acid Composition-Dependent Metabolic Effects",
+    "Ketone-Related Metabolic Signaling (MCT-Driven)",
     "Vascular Function Support",
+    "Lipid Profile Modulation (Comparator-Dependent)",
     "Lipid Metabolism Support"
   ],
   "targets": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

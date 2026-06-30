@@ -3,11 +3,13 @@
   "slug": "tanshinone-iia",
   "name": "Tanshinone IIA",
   "summary": "Tanshinone IIA is a Salvia miltiorrhiza diterpene with cardiovascular mechanistic relevance, but oral isolated human RCT evidence remains unresolved.",
-  "description": "Diterpene quinone from Salvia miltiorrhiza; human evidence is complicated by IV preparations and TCM combinations.",
+  "description": "Tanshinone IIA is a Salvia-derived quinone studied for cardiometabolic and vascular signaling; human interpretation is complicated by formulations.",
   "compoundClass": "",
   "mechanisms": [
     "Vascular Function Support",
-    "Endothelial Function Support"
+    "Endothelial Function Support",
+    "Nrf2/Antioxidant Pathway Activation",
+    "Anti-Inflammatory Signaling"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

@@ -6,7 +6,9 @@
   "description": "Devils Claw Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Inflammation. Current workbook signals support mechanistic context around Inflammatory Signaling Modulation, not treatment claims.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation"
+    "Inflammatory Signaling Modulation",
+    "COX/LOX Pathway Modulation",
+    "Bradykinin/Analgesic Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,8 +33,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

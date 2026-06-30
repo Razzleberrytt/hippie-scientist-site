@@ -3,13 +3,18 @@
   "slug": "farnesol",
   "name": "farnesol",
   "summary": "Sesquiterpene alcohol linked to lipid-signaling and pathway modulation.",
-  "description": "Sesquiterpene alcohol linked to lipid-signaling and pathway modulation.",
+  "description": "Farnesol is a sesquiterpene alcohol that can influence lipid-linked signaling and redox balance; these pathway effects may relate to inflammation and cellular stress responses.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Metabolic Regulation",
+    "PI3K/Akt Signaling Modulation",
     "Neurotransmitter Modulation",
+    "Metabolic Regulation",
+    "Mitochondrial Function Modulation",
+    "NF-\u03baB Signaling Modulation",
     "Cellular Protection",
+    "Oxidative Stress Modulation",
+    "Lipid Signaling Modulation",
+    "Inflammatory Signaling Modulation",
     "Lipid Metabolism Support"
   ],
   "targets": [],
@@ -24,7 +29,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -35,8 +40,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

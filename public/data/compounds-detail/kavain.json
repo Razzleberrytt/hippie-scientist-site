@@ -3,13 +3,16 @@
   "slug": "kavain",
   "name": "kavain",
   "summary": "Major kavalactone with calming and channel-modulating pharmacology.",
-  "description": "Major kavalactone with calming and channel-modulating pharmacology.",
+  "description": "Kavain (major kavalactone) shows calming-relevant CNS pharmacology, including ion channel modulation that can influence stress and arousal regulation.",
   "compoundClass": "",
   "mechanisms": [
-    "Oxidative Stress Modulation",
+    "GABAergic Neurotransmission Modulation",
+    "CNS Depressant-Like Effects",
     "Neurotransmitter Modulation",
+    "Neuroprotective Activity",
     "Stress Response Modulation",
-    "Neuroprotective Activity"
+    "Oxidative Stress Modulation",
+    "Ion Channel Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +37,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

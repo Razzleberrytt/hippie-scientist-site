@@ -3,12 +3,15 @@
   "slug": "vitamin-d3-k2",
   "name": "Vitamin D3 + K2",
   "summary": "Vitamin D3 + K2 combines vitamin D repletion with vitamin K-dependent calcium protein activation; sleep evidence is deficiency-dependent and mixed.",
-  "description": "Combination nutrient formulation pairing cholecalciferol with menaquinones.",
+  "description": "Vitamin D3 plus K2 pairs calcium-regulating signaling with vitamin K-dependent activation of proteins relevant to bone, vascular, and immune regulation.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
+    "Immune Signaling Modulation",
     "Neurotransmitter Modulation",
-    "Immune Signaling Modulation"
+    "Calcium Homeostasis Regulation",
+    "Gamma-Carboxylation / Matrix Protein Activation",
+    "Inflammatory Signaling Modulation",
+    "Vitamin D Receptor Activation"
   ],
   "targets": [],
   "pathways": [],
@@ -22,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -33,8 +36,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

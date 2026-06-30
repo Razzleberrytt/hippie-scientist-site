@@ -3,9 +3,12 @@
   "slug": "bcaas",
   "name": "Bcaas",
   "summary": "BCAAs may reduce muscle soreness but limited effect on performance.",
-  "description": "BCAAs may reduce muscle soreness but limited effect on performance.",
+  "description": "BCAAs (leucine/isoleucine/valine) are assessed for reducing muscle soreness mainly via mTOR-related protein signaling and potential attenuation of exercise-induced damage.",
   "compoundClass": "",
   "mechanisms": [
+    "Muscle Damage/Recovery Modulation",
+    "Branched-Chain Amino Acid Metabolic Signaling",
+    "mTOR Activation (Protein Synthesis Signaling)",
     "Provide substrates for muscle metabolism."
   ],
   "targets": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

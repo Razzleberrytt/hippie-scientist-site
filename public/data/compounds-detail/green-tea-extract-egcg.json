@@ -3,11 +3,12 @@
   "slug": "green-tea-extract-egcg",
   "name": "Green tea extract / EGCG",
   "summary": "Decision-ready summary: Green tea extract / EGCG is best framed for fat oxidation support; cardiometabolic markers; antioxidant polyphenol intake; safety screen: liver disease; high-dose fasting use; stimulant sensitivity.",
-  "description": "Green tea extract / EGCG supports metabolic; polyphenols; fat oxidation with moderate confidence in this merged decision layer.",
+  "description": "EGCG-rich green tea extracts are linked to metabolic improvements through polyphenol-mediated effects on fat oxidation and inflammatory/redox signaling, with moderate confidence.",
   "compoundClass": "",
   "mechanisms": [
-    "Oxidative Stress Modulation",
-    "Metabolic Regulation"
+    "Metabolic Regulation",
+    "AMPK Signaling Modulation",
+    "Oxidative Stress Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +33,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

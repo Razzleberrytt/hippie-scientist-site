@@ -3,11 +3,14 @@
   "slug": "graviola",
   "name": "Graviola Annona muricata",
   "summary": "Graviola is safety-concerning due to annonaceous acetogenins and neurotoxicity signals; no clinical efficacy evidence supports therapeutic use.",
-  "description": "Annona muricata botanical containing acetogenins such as annonacin; preclinical cytotoxicity does not translate to proven clinical benefit.",
+  "description": "Annona muricata botanical containing acetogenins (e.g., annonacin) with preclinical cytotoxicity; human efficacy is unproven and not evidence-linked to benefit.",
   "compoundClass": "",
   "mechanisms": [
+    "Cytotoxicity Induction",
+    "Neuroprotective Activity",
     "Mitochondrial Support",
-    "Neuroprotective Activity"
+    "Oxidative Stress Modulation",
+    "Mitochondrial Complex I Inhibition"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

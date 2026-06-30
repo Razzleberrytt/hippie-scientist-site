@@ -3,10 +3,13 @@
   "slug": "calcium",
   "name": "Calcium",
   "summary": "Supports bone mineral density; modest fracture prevention.",
-  "description": "Supports bone mineral density; modest fracture prevention.",
+  "description": "Calcium supports bone mineralization and remodeling; adequate intake helps maintain skeletal integrity and may modestly influence fracture risk through hormonal/metabolic effects.",
   "compoundClass": "",
   "mechanisms": [
-    "Vascular Function Support"
+    "Vascular Function Support",
+    "Parathyroid Hormone Modulation",
+    "Vitamin D Synergy",
+    "Bone Mineralization Support"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

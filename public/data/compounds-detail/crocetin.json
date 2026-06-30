@@ -3,15 +3,20 @@
   "slug": "crocetin",
   "name": "crocetin",
   "summary": "Saffron carotenoid aglycone linked to PI3K/Akt and Nrf2 pathway activity.",
-  "description": "Saffron carotenoid aglycone linked to PI3K/Akt and Nrf2 pathway activity.",
+  "description": "Crocetin, a saffron carotenoid aglycone, is linked in mechanistic studies to PI3K/Akt and Nrf2 pathway activity, suggesting antioxidant and stress-response relevance.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
+    "Nrf2-Mediated Antioxidant Response",
+    "Anti-Inflammatory Signaling",
     "Metabolic Regulation",
+    "Mitochondrial Support",
+    "Stress Response Modulation",
+    "Oxidative Stress Modulation",
     "Vascular Function Support",
-    "Stress Response Modulation"
+    "Inflammatory Signaling Modulation",
+    "Mitochondrial Stress Response Modulation",
+    "PI3K-Akt Signaling Modulation",
+    "Cell Survival Pathway Regulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +30,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +41,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

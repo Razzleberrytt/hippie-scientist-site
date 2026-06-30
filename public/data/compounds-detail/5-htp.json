@@ -3,11 +3,13 @@
   "slug": "5-htp",
   "name": "5-HTP",
   "summary": "5-HTP may support sleep onset or mood context through serotonin precursor pathways, but use is highly interaction-dependent.",
-  "description": "Serotonin-precursor support for mood-adjacent sleep; avoid casual use with serotonergic medications.",
+  "description": "5-HTP supports serotonin synthesis for mood-adjacent sleep outcomes, but requires caution due to serotonergic medication interaction risk.",
   "compoundClass": "",
   "mechanisms": [
-    "Neurotransmitter Modulation",
-    "Neuroprotective Activity"
+    "Serotonin Biosynthesis Support",
+    "Descending Serotonergic Pathway Modulation",
+    "Neuroprotective Activity",
+    "Neurotransmitter Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

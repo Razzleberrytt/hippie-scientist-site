@@ -3,15 +3,19 @@
   "slug": "verbascoside",
   "name": "verbascoside",
   "summary": "Also known as acteoside; linked to inflammatory signaling control.",
-  "description": "Also known as acteoside; linked to inflammatory signaling control.",
+  "description": "Verbascoside (acteoside) is a phenylethanoid glycoside linked to dampening inflammatory signaling and oxidative stress, supporting plausibility for anti-inflammatory pathway modulation.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
     "Immune Signaling Modulation",
+    "COX-2 Pathway Modulation",
+    "Antioxidant Enzyme Support",
+    "NF-\u03baB Signaling Modulation",
     "Neuroprotective Activity",
-    "NF-kB Modulation"
+    "Mitochondrial Support",
+    "NF-kB Modulation",
+    "Oxidative Stress Modulation",
+    "Inflammatory Signaling Modulation",
+    "Inflammatory Cytokine Downregulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +29,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +40,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

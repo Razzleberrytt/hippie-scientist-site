@@ -3,11 +3,13 @@
   "slug": "cacao",
   "name": "Cacao",
   "summary": "Cacao entry from SciSpace evidence pass. Evidence level: moderate.",
-  "description": "Cacao is cataloged as flavanol/theobromine botanical. Reported mechanisms: flavanols increase nitric oxide/endothelial function; theobromine CNS effects.",
+  "description": "Cacao provides flavanols and theobromine; flavanols may improve endothelial function via nitric oxide signaling, while theobromine influences CNS arousal.",
   "compoundClass": "",
   "mechanisms": [
     "Vascular Function Support",
-    "Endothelial Function Support"
+    "Endothelial Function Support",
+    "Phosphodiesterase Inhibition (Theobromine)",
+    "Endothelial Nitric Oxide Signaling"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

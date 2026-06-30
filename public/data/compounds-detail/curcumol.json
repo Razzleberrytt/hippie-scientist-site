@@ -3,15 +3,20 @@
   "slug": "curcumol",
   "name": "curcumol",
   "summary": "Sesquiterpenoid from zedoary associated with inflammatory pathway modulation.",
-  "description": "Sesquiterpenoid from zedoary associated with inflammatory pathway modulation.",
+  "description": "Curcumol, a sesquiterpenoid from zedoary, is associated with inflammatory pathway modulation and related oxidative signaling effects relevant to chronic inflammation.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
-    "Metabolic Regulation",
     "Immune Signaling Modulation",
-    "AMPK Signaling"
+    "COX-2 Expression Modulation",
+    "MAPK Pathway Modulation",
+    "Metabolic Regulation",
+    "Inflammasome Signaling Suppression",
+    "AMPK Signaling",
+    "Mitochondrial Support",
+    "NF-\u03baB Pathway Inhibition",
+    "Oxidative Stress Modulation",
+    "JAK/STAT Pathway Modulation",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +30,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +41,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

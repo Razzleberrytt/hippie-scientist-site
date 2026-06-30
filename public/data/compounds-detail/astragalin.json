@@ -3,15 +3,20 @@
   "slug": "astragalin",
   "name": "astragalin",
   "summary": "Flavonoid glycoside associated with inflammatory pathway control.",
-  "description": "Flavonoid glycoside associated with inflammatory pathway control.",
+  "description": "Astragalin (flavonoid glycoside) is investigated for inflammatory pathway control, often via suppression of signaling cascades that drive cytokine production.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
+    "COX-2 Inhibition (Investigational)",
+    "Immune Signaling Modulation",
+    "NF-KappaB Pathway Inhibition",
     "Metabolic Regulation",
+    "MAPK Signaling Modulation (Investigational)",
+    "Anti-Inflammatory Cytokine Downregulation",
+    "Mitochondrial Support",
+    "NLRP3 Inflammasome Modulation (Evidence-Dependent)",
+    "Oxidative Stress Modulation",
     "Vascular Function Support",
-    "Immune Signaling Modulation"
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +30,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +41,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

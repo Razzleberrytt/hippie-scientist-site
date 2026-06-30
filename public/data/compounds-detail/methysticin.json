@@ -3,12 +3,16 @@
   "slug": "methysticin",
   "name": "methysticin",
   "summary": "Kavalactone reported with GABAergic and monoamine-related activity.",
-  "description": "Kavalactone reported with GABAergic and monoamine-related activity.",
+  "description": "Methysticin (kavalactone) is tracked for GABAergic and monoamine-related activity that can plausibly modulate anxiolytic and stress-response neural signaling.",
   "compoundClass": "",
   "mechanisms": [
+    "Monoamine Transporter Modulation",
     "Neurotransmitter Modulation",
+    "Neuroprotective Activity",
     "Stress Response Modulation",
-    "Neuroprotective Activity"
+    "Anxiolytic Neural Signaling",
+    "GABA-A Receptor Modulation",
+    "MAO Inhibition"
   ],
   "targets": [],
   "pathways": [],
@@ -22,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -33,8 +37,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

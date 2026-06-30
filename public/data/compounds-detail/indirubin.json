@@ -3,9 +3,13 @@
   "slug": "indirubin",
   "name": "indirubin",
   "summary": "Bis-indole alkaloid pigment known from indigo-yielding plants and studied for kinase-targeted activity.",
-  "description": "Bis-indole alkaloid pigment known from indigo-yielding plants and studied for kinase-targeted activity.",
+  "description": "Indirubin is a bis-indole pigment from indigo-related plants and is studied for kinase-targeted bioactivity that can affect cell-cycle and signaling cascades.",
   "compoundClass": "",
   "mechanisms": [
+    "Cyclin-Dependent Kinase Modulation",
+    "GSK-3 Inhibition",
+    "Kinase Inhibition",
+    "Cell Cycle Regulation",
     "Vascular Function Support"
   ],
   "targets": [],
@@ -20,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

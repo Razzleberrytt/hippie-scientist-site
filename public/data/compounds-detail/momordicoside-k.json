@@ -3,15 +3,21 @@
   "slug": "momordicoside-k",
   "name": "momordicoside k",
   "summary": "Bitter melon cucurbitane glycoside linked to metabolic signaling.",
-  "description": "Bitter melon cucurbitane glycoside linked to metabolic signaling.",
+  "description": "Bitter melon cucurbitane glycoside linked to metabolic signaling; preclinical activity suggests effects on glucose handling and inflammatory tone.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Metabolic Regulation",
-    "Cellular Protection",
-    "Vascular Function Support",
     "Immune Signaling Modulation",
-    "AMPK Signaling"
+    "AMPK Pathway Activation",
+    "Insulin Signaling Modulation",
+    "GLUT4 Expression Modulation",
+    "Metabolic Regulation",
+    "AMPK Signaling",
+    "Bile Acid or Gut Metabolite Signaling",
+    "Inflammatory Cytokine Suppression",
+    "Cellular Protection",
+    "Oxidative Stress Modulation",
+    "Vascular Function Support",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +31,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +42,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

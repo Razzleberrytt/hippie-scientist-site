@@ -3,10 +3,13 @@
   "slug": "eaa-essential-amino-acids",
   "name": "Eaa Essential Amino Acids",
   "summary": "EAAs stimulate muscle protein synthesis effectively.",
-  "description": "EAAs stimulate muscle protein synthesis effectively.",
+  "description": "EAA blends are assessed for muscle-building biology, mainly via leucine-dependent mTOR signaling and stimulation of translation initiation after resistance exercise.",
   "compoundClass": "",
   "mechanisms": [
-    "mTOR Signaling"
+    "Muscle Protein Synthesis Stimulation",
+    "mTOR Signaling",
+    "mTOR Pathway Activation",
+    "Translation Initiation Support"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

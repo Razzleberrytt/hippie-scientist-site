@@ -3,11 +3,13 @@
   "slug": "ursodeoxycholic-acid",
   "name": "Ursodeoxycholic Acid",
   "summary": "Ursodeoxycholic acid (UDCA/ursodiol) is an approved hydrophilic bile acid therapy for cholestatic liver disease. Evidence is strong but disease-specific, especially primary biliary cholangitis.",
-  "description": "Hydrophilic bile acid used clinically to improve bile flow and reduce cholestatic liver injury.",
+  "description": "Ursodeoxycholic acid (UDCA) is a clinically used bile acid that improves bile flow and reduces cholestatic injury through cytoprotective bile acid signaling.",
   "compoundClass": "",
   "mechanisms": [
+    "Stress Response Modulation",
     "Oxidative Stress Modulation",
-    "Stress Response Modulation"
+    "Bile Flow Improvement",
+    "Cholestatic Liver Injury Reduction"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

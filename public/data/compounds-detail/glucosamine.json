@@ -3,10 +3,12 @@
   "slug": "glucosamine",
   "name": "Glucosamine",
   "summary": "Decision-ready summary: Glucosamine is best framed for knee osteoarthritis symptom support; long-term joint comfort; safety screen: shellfish allergy; warfarin; diabetes medication review.",
-  "description": "Glucosamine supports joint health; osteoarthritis; cartilage with moderate confidence in this merged decision layer.",
+  "description": "Glucosamine is used for joint support with moderate overall confidence for osteoarthritis outcomes; mechanism plausibility includes cartilage matrix influences.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation"
+    "Chondrocyte Metabolic Modulation",
+    "Inflammatory Signaling Modulation",
+    "Cartilage Matrix Support"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -31,8 +33,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

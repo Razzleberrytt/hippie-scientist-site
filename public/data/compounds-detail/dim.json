@@ -6,8 +6,11 @@
   "description": "diindolylmethane is tracked for Modu lates estrogen metabolism via CYP1A1 and CYP1B1 pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
   "compoundClass": "",
   "mechanisms": [
+    "Estrogen Metabolite Profile Modulation",
     "Metabolic Regulation",
-    "Hormonal Signaling Context"
+    "Hormonal Signaling Context",
+    "CYP1B1 Modulation",
+    "CYP1A1 Induction"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

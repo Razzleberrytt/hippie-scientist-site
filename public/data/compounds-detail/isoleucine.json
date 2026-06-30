@@ -3,11 +3,14 @@
   "slug": "isoleucine",
   "name": "Isoleucine",
   "summary": "Isoleucine contributes to glucose uptake and muscle metabolism, but isolated effects are less studied.",
-  "description": "Isoleucine contributes to glucose uptake and muscle metabolism, but isolated effects are less studied.",
+  "description": "Isoleucine contributes to glucose handling and muscle metabolism, with effects plausibly mediated through amino-acid sensors, though isolated benefits are less studied.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
-    "Glucose Metabolism Support"
+    "Glucose Uptake Support",
+    "Amino Acid Sensor Modulation",
+    "Glucose Metabolism Support",
+    "Muscle Protein Turnover Support"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

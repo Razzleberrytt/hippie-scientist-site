@@ -2,8 +2,8 @@
   "id": "ellagic-acid",
   "slug": "ellagic-acid",
   "name": "ellagic acid",
-  "summary": "Polyphenolic acid associated with pomegranate and berry sources, linked to Nrf2 and NF-κB signaling.",
-  "description": "Polyphenolic acid associated with pomegranate and berry sources, linked to Nrf2 and NF-κB signaling.",
+  "summary": "Polyphenolic acid associated with pomegranate and berry sources, linked to Nrf2 and NF-\u03baB signaling.",
+  "description": "Polyphenolic acid associated with pomegranate and berry sources, linked to Nrf2 and NF-\u03baB signaling.",
   "compoundClass": "",
   "mechanisms": [
     "Inflammatory Signaling Modulation",
@@ -25,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +36,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

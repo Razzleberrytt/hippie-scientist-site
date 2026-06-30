@@ -2,8 +2,8 @@
   "id": "scopoletin",
   "slug": "scopoletin",
   "name": "scopoletin",
-  "summary": "Coumarin constituent associated with NF-κB suppression and calcium-channel-related activity.",
-  "description": "Coumarin constituent associated with NF-κB suppression and calcium-channel-related activity.",
+  "summary": "Coumarin constituent associated with NF-\u03baB suppression and calcium-channel-related activity.",
+  "description": "Coumarin constituent associated with NF-\u03baB suppression and calcium-channel-related activity.",
   "compoundClass": "",
   "mechanisms": [
     "Inflammatory Signaling Modulation",
@@ -23,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

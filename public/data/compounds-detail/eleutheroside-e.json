@@ -3,15 +3,20 @@
   "slug": "eleutheroside-e",
   "name": "eleutheroside e",
   "summary": "Lignan glycoside from Eleuthero linked to endurance and stress adaptation.",
-  "description": "Lignan glycoside from Eleuthero linked to endurance and stress adaptation.",
+  "description": "Eleutheroside E is a lignan glycoside from Eleuthero; preclinical signaling suggests roles in endurance-related metabolism and stress-adaptation circuits.",
   "compoundClass": "",
   "mechanisms": [
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
+    "AMPK Pathway Activation",
     "Metabolic Regulation",
-    "Stress Response Modulation",
+    "Mitochondrial Biogenesis Support",
     "AMPK Signaling",
-    "Nrf2 Activation"
+    "Neuroendocrine Adaptation",
+    "Nrf2 Activation",
+    "Mitochondrial Support",
+    "Stress Response Modulation",
+    "Oxidative Stress Modulation",
+    "Inflammatory Signaling Modulation",
+    "HPA Axis Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +30,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -36,8 +41,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

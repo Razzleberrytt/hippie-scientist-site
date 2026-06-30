@@ -2,16 +2,22 @@
   "id": "theaflavin",
   "slug": "theaflavin",
   "name": "theaflavin",
-  "summary": "Oxidative black tea polyphenol associated with NF-κB and MAPK pathway effects.",
-  "description": "Oxidative black tea polyphenol associated with NF-κB and MAPK pathway effects.",
+  "summary": "Oxidative black tea polyphenol associated with NF-\u03baB and MAPK pathway effects.",
+  "description": "Theaflavins from black tea are linked to oxidative stress control and modulation of NF-\u03baB and MAPK pathways tied to inflammatory responses.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
+    "Nrf2/ARE Activation",
+    "MAPK Pathway Modulation",
     "Metabolic Regulation",
+    "AMPK Signaling",
+    "Antioxidant/Redox Modulation",
+    "Mitochondrial Support",
+    "NF-kB Pathway Modulation",
+    "Oxidative Stress Modulation",
+    "Apoptosis Regulation",
     "Vascular Function Support",
-    "AMPK Signaling"
+    "Inflammatory Signaling Modulation",
+    "Inflammatory Cytokine Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +31,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -35,5 +41,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

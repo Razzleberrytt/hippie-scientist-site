@@ -3,10 +3,13 @@
   "slug": "hyaluronic-acid",
   "name": "Hyaluronic Acid",
   "summary": "Hyaluronic Acid supports skin hydration; joints; lubrication with moderate confidence in this merged decision layer.",
-  "description": "Hyaluronic Acid supports skin hydration; joints; lubrication with moderate confidence in this merged decision layer.",
+  "description": "Hyaluronic acid supports tissue hydration and joint lubrication; evidence-informed use focuses on symptom-support contexts rather than disease reversal claims.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation"
+    "Tissue Hydration Support",
+    "Inflammatory Signaling Modulation",
+    "Viscosupplementation",
+    "Anti-Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

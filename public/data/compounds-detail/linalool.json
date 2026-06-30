@@ -3,13 +3,16 @@
   "slug": "linalool",
   "name": "linalool",
   "summary": "Monoterpene alcohol linked to GABA-A and calcium-channel related effects.",
-  "description": "Monoterpene alcohol linked to GABA-A and calcium-channel related effects.",
+  "description": "Linalool is a monoterpene alcohol that may modulate inhibitory neurotransmission and neuronal excitability via receptor and ion-channel related actions.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Neurotransmitter Modulation",
     "Immune Signaling Modulation",
-    "Neuroprotective Activity"
+    "Neurotransmitter Modulation",
+    "Neuroprotective Activity",
+    "Calcium Channel Modulation",
+    "GABA-A Receptor Modulation",
+    "Inflammatory Signaling Modulation",
+    "Neuronal Excitability Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +37,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

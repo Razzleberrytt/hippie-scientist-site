@@ -3,13 +3,16 @@
   "slug": "atractylenolide-iii",
   "name": "atractylenolide iii",
   "summary": "Sesquiterpene lactone associated with immune and cytoprotective pathways.",
-  "description": "Sesquiterpene lactone associated with immune and cytoprotective pathways.",
+  "description": "Atractylenolide III (sesquiterpene lactone) is associated with immune-related modulation and cytoprotective signaling that may influence inflammatory tone.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Cellular Protection",
     "Immune Signaling Modulation",
-    "NF-kB Modulation"
+    "Immune Pathway Regulation",
+    "Nrf2/ARE Activation",
+    "Anti-Apoptotic Signaling",
+    "Cellular Protection",
+    "NF-kB Modulation",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +37,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

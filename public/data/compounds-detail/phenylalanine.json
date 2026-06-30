@@ -3,9 +3,12 @@
   "slug": "phenylalanine",
   "name": "Phenylalanine",
   "summary": "Decision-ready summary: Phenylalanine is best framed for catecholamine precursor support; mood/focus context; safety screen: phenylketonuria; MAO inhibitors; pregnancy high-dose caution.",
-  "description": "Phenylalanine supports mood; focus; amino acid with low-moderate confidence in this merged decision layer.",
+  "description": "Phenylalanine can contribute to neurotransmitter precursor availability and is tracked for mood and focus effects with low-to-moderate overall confidence.",
   "compoundClass": "",
   "mechanisms": [
+    "Amino Acid Precursor for Monoamines",
+    "Tryptophan Metabolism Competition",
+    "Dopamine/Biogenic Amine Synthesis Support",
     "Neurotransmitter Modulation"
   ],
   "targets": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

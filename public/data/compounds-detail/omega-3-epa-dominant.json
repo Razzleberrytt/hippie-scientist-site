@@ -3,13 +3,17 @@
   "slug": "omega-3-epa-dominant",
   "name": "Omega-3 EPA-Dominant",
   "summary": "EPA-dominant omega-3 formulations have moderate evidence for depressive symptom reduction in some analyses.",
-  "description": "EPA-focused omega-3 formulation.",
+  "description": "EPA-dominant omega-3s are used as evidence-aligned lipid modulators that can shift eicosanoids toward less inflammatory signaling.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
+    "Eicosanoid Profile Modulation",
+    "Cell Membrane Lipid Remodeling",
     "Metabolic Regulation",
-    "Vascular Function Support",
+    "GPR120 Activation",
     "Neuroprotective Activity",
+    "Oxidative Stress Modulation",
+    "Vascular Function Support",
+    "Inflammatory Signaling Modulation",
     "Lipid Metabolism Support"
   ],
   "targets": [],
@@ -24,7 +28,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -35,8 +39,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

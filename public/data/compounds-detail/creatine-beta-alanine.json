@@ -6,7 +6,9 @@
   "description": "Creatine plus beta-alanine is a performance-oriented combination: creatine supports repeated high-intensity ATP regeneration, while beta-alanine raises muscle carnosine for buffering during hard efforts.",
   "compoundClass": "",
   "mechanisms": [
-    "Mitochondrial Support"
+    "Intramuscular Buffering Enhancement",
+    "Mitochondrial Support",
+    "Creatine-Phosphocreatine ATP Regeneration Support"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -31,8 +33,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

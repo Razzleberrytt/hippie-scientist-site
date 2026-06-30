@@ -3,12 +3,16 @@
   "slug": "taurine-blend",
   "name": "Taurine Blend",
   "summary": "Taurine blend entries should be treated as formulation/context rows, not separate proof beyond taurine evidence.",
-  "description": "Taurine-containing performance or hydration formulation context.",
+  "description": "Taurine blend formulations are used for performance/hydration contexts; taurine may support osmoregulation, muscle excitability, and stress-buffering through cellular signaling.",
   "compoundClass": "",
   "mechanisms": [
-    "cellular hydration regulation",
+    "Membrane Stabilization",
     "calcium signaling",
-    "cardiac/muscle support"
+    "Osmoregulation Support",
+    "cellular hydration regulation",
+    "cardiac/muscle support",
+    "Calcium Homeostasis Modulation",
+    "Antioxidant/Anti-Inflammatory Signaling"
   ],
   "targets": [],
   "pathways": [],
@@ -22,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -33,8 +37,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

@@ -3,11 +3,14 @@
   "slug": "l-citrulline",
   "name": "L-Citrulline",
   "summary": "Improves endothelial function and may enhance exercise performance.",
-  "description": "Improves endothelial function and may enhance exercise performance.",
+  "description": "L-citrulline is tracked for improving endothelial function via nitric-oxide pathway support, which may translate into exercise performance changes in some cohorts.",
   "compoundClass": "",
   "mechanisms": [
-    "Vascular Function Support",
-    "Endothelial Function Support"
+    "Endothelial Function Support",
+    "Arginine Recycling Support",
+    "Nitric Oxide (NO) Production Enhancement",
+    "Vasodilation Signaling",
+    "Vascular Function Support"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

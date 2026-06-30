@@ -3,12 +3,16 @@
   "slug": "passionflower-extract-standardized",
   "name": "Passionflower Extract Standardized",
   "summary": "Standardized passionflower extract has limited human evidence for modest sleep/anxiety benefit.",
-  "description": "Passiflora incarnata extract, often flavonoid/vitexin-focused.",
+  "description": "Passiflora incarnata extract standardized for flavonoids (e.g., vitexin/related) with CNS-relevant modulation of inhibitory tone, informing sleep/anxiety research framing.",
   "compoundClass": "",
   "mechanisms": [
     "Neurotransmitter Modulation",
+    "Neuroprotective Activity",
     "Stress Response Modulation",
-    "Neuroprotective Activity"
+    "Adenosine Receptor Modulation",
+    "Estrogen Receptor Modulation",
+    "Monoamine Reuptake Inhibition",
+    "GABAergic Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -22,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,5 +36,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

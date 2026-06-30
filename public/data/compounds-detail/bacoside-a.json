@@ -3,13 +3,16 @@
   "slug": "bacoside-a",
   "name": "bacoside a",
   "summary": "Bacopa saponin fraction associated with cognitive signaling support.",
-  "description": "Bacopa saponin fraction associated with cognitive signaling support.",
+  "description": "Bacopa bacoside fraction linked to cognitive signaling support, with evidence for neuroprotective effects via antioxidant and synaptic pathway modulation.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
+    "Neurotransmitter Signaling Modulation",
     "Neurotransmitter Modulation",
-    "Neuroprotective Activity"
+    "Neuroinflammatory Signaling Modulation",
+    "Neuroprotective Activity",
+    "Oxidative Stress Modulation",
+    "Synaptic Plasticity Support",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +37,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

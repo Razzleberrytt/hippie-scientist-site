@@ -3,10 +3,13 @@
   "slug": "hmb",
   "name": "HMB",
   "summary": "Decision-ready summary: HMB is best framed for muscle preservation during training stress; older adult lean-mass support; recovery context; safety screen: serious kidney disease review.",
-  "description": "HMB supports muscle preservation; strength; recovery with moderate confidence in this merged decision layer.",
+  "description": "HMB supports muscle protein balance during training stress; proposed actions target protein breakdown pathways and recovery signaling.",
   "compoundClass": "",
   "mechanisms": [
+    "mTOR Signaling Modulation",
+    "Proteolysis Reduction",
     "Stress Response Modulation",
+    "Muscle Recovery Support",
     "mTOR Signaling"
   ],
   "targets": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

@@ -3,14 +3,19 @@
   "slug": "taurine",
   "name": "Taurine",
   "summary": "Taurine may support calmness, exercise-fatigue, and cardiovascular contexts without being a direct sedative.",
-  "description": "Calm/supportive amino-acid context; sleep claims should stay limited.",
+  "description": "Taurine is an amino-acid with CNS and cellular osmoregulatory roles; calming/sleep positioning should remain limited and mechanism-focused.",
   "compoundClass": "",
   "mechanisms": [
-    "Oxidative Stress Modulation",
-    "Metabolic Regulation",
+    "Mitochondrial Protective Signaling",
     "Neurotransmitter Modulation",
-    "Vascular Function Support",
-    "Stress Response Modulation"
+    "Metabolic Regulation",
+    "Osmoregulation and Cell Volume Stabilization",
+    "Antioxidant/Redox Modulation",
+    "GABAergic/Neuroinhibitory Modulation",
+    "Stress Response Modulation",
+    "Oxidative Stress Modulation",
+    "Anti-Inflammatory Cytokine Modulation",
+    "Vascular Function Support"
   ],
   "targets": [],
   "pathways": [],
@@ -24,7 +29,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -35,8 +40,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

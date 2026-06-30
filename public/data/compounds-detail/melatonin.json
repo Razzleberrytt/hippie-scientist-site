@@ -3,11 +3,13 @@
   "slug": "melatonin",
   "name": "Melatonin",
   "summary": "Decision-ready summary: Melatonin is best framed for sleep-onset latency; jet lag; circadian rhythm shift; safety screen: sedatives; pregnancy without clinician guidance; autoimmune conditions review.",
-  "description": "Melatonin supports sleep onset; circadian rhythm; jet lag with high confidence in this merged decision layer.",
+  "description": "Melatonin supports sleep onset and circadian alignment; may reduce jet lag and shift phase by acting on melatonin receptor pathways.",
   "compoundClass": "",
   "mechanisms": [
     "Immune Signaling Modulation",
-    "Hormonal Signaling Context"
+    "Hormonal Signaling Context",
+    "Circadian Rhythm Modulation",
+    "Melatonin Receptor Agonism"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

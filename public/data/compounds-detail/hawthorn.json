@@ -3,13 +3,16 @@
   "slug": "hawthorn",
   "name": "Hawthorn",
   "summary": "Improves symptoms and exercise tolerance in mild heart failure.",
-  "description": "Improves symptoms and exercise tolerance in mild heart failure.",
+  "description": "Hawthorn is used for mild heart failure symptoms; evidence suggests effects on cardiac contractility, autonomic tone, and circulation.",
   "compoundClass": "",
   "mechanisms": [
+    "Autonomic Tone Modulation",
+    "Neuroprotective Activity",
+    "Stress Response Modulation",
     "Oxidative Stress Modulation",
     "Vascular Function Support",
-    "Stress Response Modulation",
-    "Neuroprotective Activity"
+    "Vasodilation",
+    "Cardiac Contractility Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +26,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -33,5 +36,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

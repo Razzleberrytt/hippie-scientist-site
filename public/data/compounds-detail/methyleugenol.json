@@ -3,13 +3,17 @@
   "slug": "methyleugenol",
   "name": "methyleugenol",
   "summary": "Phenylpropene associated with sensory and inhibitory neurotransmission pathways.",
-  "description": "Phenylpropene associated with sensory and inhibitory neurotransmission pathways.",
+  "description": "Methyleugenol is a phenylpropene with reported effects on sensory and CNS-related pathways in experimental work. Human relevance is uncertain.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
     "Neurotransmitter Modulation",
+    "Neuroprotective Activity",
     "Cellular Protection",
-    "Neuroprotective Activity"
+    "Monoamine-Related Signaling",
+    "Sensory Pathway Modulation",
+    "Ion Channel Modulation",
+    "Inflammatory Signaling Modulation",
+    "GABAergic/Neuroinhibitory Signaling"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +27,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -34,8 +38,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

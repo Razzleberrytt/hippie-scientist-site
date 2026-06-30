@@ -3,11 +3,12 @@
   "slug": "madecassoside",
   "name": "madecassoside",
   "summary": "Centella triterpene glycoside associated with inflammatory and tissue-repair signaling.",
-  "description": "Centella triterpene glycoside associated with inflammatory and tissue-repair signaling.",
+  "description": "Madecassoside (Centella constituent) is linked to anti-inflammatory signaling and tissue-repair responses, supporting mechanistic context for wound-healing research.",
   "compoundClass": "",
   "mechanisms": [
+    "NF-kB Modulation",
     "Inflammatory Signaling Modulation",
-    "NF-kB Modulation"
+    "Tissue Repair/Collagen Signaling"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +33,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

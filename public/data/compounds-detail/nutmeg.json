@@ -3,10 +3,13 @@
   "slug": "nutmeg",
   "name": "Nutmeg Myristica fragrans",
   "summary": "Nutmeg has no established therapeutic evidence as a psychoactive agent and is primarily relevant to toxicity at high intake.",
-  "description": "Culinary spice with myristicin/elemicin content; high-dose exposure is associated with delirium-like toxicity.",
+  "description": "Nutmeg contains myristicin/elemicin; high intake can produce neurotoxic, delirium-like effects, so mechanistic discussion emphasizes harm risk rather than benefit.",
   "compoundClass": "",
   "mechanisms": [
-    "Neuroprotective Activity"
+    "Monoamine-Related Signaling (Hallucinogen-Linked)",
+    "Neurotoxicity Risk at High Doses",
+    "Neuroprotective Activity",
+    "CNS Receptor Modulation (Evidence-Limited)"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

@@ -3,15 +3,20 @@
   "slug": "ginsenoside-rg1",
   "name": "ginsenoside rg1",
   "summary": "Major ginsenoside associated with neurovascular and survival signaling.",
-  "description": "Major ginsenoside associated with neurovascular and survival signaling.",
+  "description": "Ginsenoside Rg1 is a major ginsenoside linked to neurovascular protection and pro-survival signaling; plausibly relevant for stress resilience.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
+    "Anti-Inflammatory Signaling",
     "Metabolic Regulation",
+    "Neuroprotective Activity",
+    "Mitochondrial Support",
+    "Neuroprotection via Survival Signaling",
+    "Oxidative Stress Modulation",
     "Vascular Function Support",
-    "Neuroprotective Activity"
+    "Inflammatory Signaling Modulation",
+    "Mitochondrial Function Support",
+    "Angiogenesis Modulation",
+    "Neurotransmitter Regulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +30,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -35,5 +40,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

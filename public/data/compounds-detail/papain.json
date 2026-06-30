@@ -3,10 +3,12 @@
   "slug": "papain",
   "name": "Papain",
   "summary": "Papain is a papaya-derived proteolytic enzyme with insufficient modern clinical evidence for digestive or therapeutic outcomes.",
-  "description": "Proteolytic enzyme from papaya latex used in enzyme blends; clinical support is sparse.",
+  "description": "Papain is a proteolytic enzyme used in blends; mechanistic emphasis is protease-driven breakdown of proteins that may alter GI digestion burden.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation"
+    "Inflammatory Signaling Modulation",
+    "Proteolytic Digestion Enhancement",
+    "Digestive Enzyme Activity"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,8 +33,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

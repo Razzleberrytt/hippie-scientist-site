@@ -3,11 +3,13 @@
   "slug": "artemisinin-b",
   "name": "artemisinin b",
   "summary": "Artemisia metabolite associated with redox-related signaling.",
-  "description": "Artemisia metabolite associated with redox-related signaling.",
+  "description": "Artemisinin B is associated with redox-active stress signaling; may generate oxidative intermediates that trigger downstream defense/apoptosis pathways.",
   "compoundClass": "",
   "mechanisms": [
     "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation"
+    "Apoptotic Pathway Activation",
+    "Oxidative Stress Modulation",
+    "Redox Cycling / Oxidative Stress"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

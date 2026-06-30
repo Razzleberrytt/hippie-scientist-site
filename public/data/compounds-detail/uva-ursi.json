@@ -3,10 +3,13 @@
   "slug": "uva-ursi",
   "name": "Uva Ursi",
   "summary": "Uva ursi has limited evidence for urinary symptoms and meaningful safety concerns from arbutin/hydroquinone exposure.",
-  "description": "Arctostaphylos uva-ursi botanical containing arbutin, a hydroquinone precursor.",
+  "description": "Uva ursi contains arbutin, a hydroquinone precursor; it is mechanistically relevant to urinary antimicrobial activity and urinary tract effects.",
   "compoundClass": "",
   "mechanisms": [
-    "Neuroprotective Activity"
+    "Anti-Quorum or Redox Effects",
+    "Arbutin-Driven Hydroquinone Formation",
+    "Neuroprotective Activity",
+    "Urinary Tract Antimicrobial Activity"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

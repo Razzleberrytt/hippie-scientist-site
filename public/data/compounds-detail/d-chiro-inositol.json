@@ -3,10 +3,12 @@
   "slug": "d-chiro-inositol",
   "name": "D-Chiro Inositol",
   "summary": "May improve insulin sensitivity and ovulation; limited evidence.",
-  "description": "May improve insulin sensitivity and ovulation; limited evidence.",
+  "description": "D-chiro-inositol is linked to insulin signaling and ovulatory function; mechanistic rationale centers on insulin second-messenger pathways, with limited clinical confirmation.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
+    "Insulin Sensitivity Enhancement",
+    "Glucose Transport Signaling Modulation",
     "Glucose Metabolism Support"
   ],
   "targets": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

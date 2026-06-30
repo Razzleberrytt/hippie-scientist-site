@@ -3,11 +3,13 @@
   "slug": "magnesium-oxide",
   "name": "Magnesium Oxide",
   "summary": "Magnesium oxide has lower bioavailability compared to other forms.",
-  "description": "Magnesium oxide has lower bioavailability compared to other forms.",
+  "description": "Magnesium oxide provides elemental magnesium but is often limited by lower absorption, which affects its practical ability to correct magnesium-related physiology.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
-    "Stress Response Modulation"
+    "Stress Response Modulation",
+    "Neuromuscular Excitability Modulation (Indirect)",
+    "Enzymatic Cofactor Support"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

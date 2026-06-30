@@ -3,11 +3,13 @@
   "slug": "carnitine-l-tartrate",
   "name": "Carnitine L Tartrate",
   "summary": "",
-  "description": "",
+  "description": "Carnitine L-tartrate is tracked for supporting fatty-acid transport into mitochondria, potentially improving energetic efficiency during exercise and oxidative stress handling.",
   "compoundClass": "",
   "mechanisms": [
+    "Stress Response Modulation",
     "Oxidative Stress Modulation",
-    "Stress Response Modulation"
+    "Mitochondrial Fatty Acid Transport Support",
+    "Mitochondrial Beta-Oxidation Support"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -32,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

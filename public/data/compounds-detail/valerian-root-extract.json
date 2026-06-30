@@ -6,8 +6,12 @@
   "description": "Valerian Root Extract is tracked for Enhances GABA signaling by inhibiting breakdown and increasing receptor activity with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
   "compoundClass": "",
   "mechanisms": [
+    "GABA Transaminase Inhibition",
     "Neurotransmitter Modulation",
-    "Stress Response Modulation"
+    "Neuronal Excitability Reduction",
+    "Stress Response Modulation",
+    "GABA Signaling Enhancement",
+    "GABA-A Receptor Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +36,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

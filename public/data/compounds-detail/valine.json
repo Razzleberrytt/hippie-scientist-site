@@ -3,10 +3,13 @@
   "slug": "valine",
   "name": "Valine",
   "summary": "Valine supports muscle metabolism but no strong independent ergogenic effect.",
-  "description": "Valine supports muscle metabolism but no strong independent ergogenic effect.",
+  "description": "Valine is a branched-chain amino acid used for muscle metabolism and anaplerotic energy routing, though clear independent ergogenic effects are limited.",
   "compoundClass": "",
   "mechanisms": [
-    "Substrate in muscle protein synthesis and energy production."
+    "Substrate in muscle protein synthesis and energy production.",
+    "Muscle Protein Turnover Support",
+    "Glucose Sparing via Amino Acid Catabolism",
+    "mTOR Signaling Support"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

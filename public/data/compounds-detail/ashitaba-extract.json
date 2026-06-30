@@ -3,11 +3,14 @@
   "slug": "ashitaba-extract",
   "name": "Ashitaba Extract",
   "summary": "Human evidence is insufficient for metabolic, cardiovascular, or longevity claims.",
-  "description": "Human evidence is insufficient for metabolic, cardiovascular, or longevity claims.",
+  "description": "Ashitaba extract is used for metabolic and longevity interests, but human evidence remains insufficient and effects are not consistently demonstrated across endpoints.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
-    "Vascular Function Support"
+    "Antioxidant Enzyme Induction",
+    "Vascular Function Support",
+    "Inflammatory Signaling Modulation",
+    "Mitochondrial Stress Response Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +34,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

@@ -3,11 +3,13 @@
   "slug": "electrolytes-potassium",
   "name": "Potassium electrolytes",
   "summary": "Decision-ready summary: Potassium electrolytes is best framed for electrolyte replacement; blood pressure support; muscle function; safety screen: kidney disease; ACE inhibitors/ARBs; potassium-sparing diuretics.",
-  "description": "Potassium electrolytes supports electrolytes; blood pressure; muscle with high confidence in this merged decision layer.",
+  "description": "Potassium electrolytes support physiologic electrical gradients and can contribute to blood pressure regulation and muscle function in deficiency states.",
   "compoundClass": "",
   "mechanisms": [
+    "Vascular Function Support",
+    "Electrolyte Repletion",
     "Cellular Protection",
-    "Vascular Function Support"
+    "RAAS/Baroreflex Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -32,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

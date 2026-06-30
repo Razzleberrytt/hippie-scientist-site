@@ -3,11 +3,13 @@
   "slug": "iron",
   "name": "Iron",
   "summary": "Corrects iron deficiency anemia effectively.",
-  "description": "Corrects iron deficiency anemia effectively.",
+  "description": "Iron corrects deficiency anemia by replenishing hemoglobin iron; it enables oxygen transport and supports essential enzymatic processes.",
   "compoundClass": "",
   "mechanisms": [
-    "Mitochondrial Support",
-    "Metabolic Regulation"
+    "Metabolic Regulation",
+    "Erythropoiesis Support",
+    "Hemoglobin Synthesis Support",
+    "Mitochondrial Support"
   ],
   "targets": [],
   "pathways": [],
@@ -21,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -31,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

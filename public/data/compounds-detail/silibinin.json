@@ -3,15 +3,21 @@
   "slug": "silibinin",
   "name": "silibinin",
   "summary": "Major flavonolignan of milk thistle with STAT3 and PI3K/Akt pathway activity.",
-  "description": "Major flavonolignan of milk thistle with STAT3 and PI3K/Akt pathway activity.",
+  "description": "Silibinin from milk thistle is tied to STAT3 and PI3K/Akt pathway modulation, relevant to inflammation control and survival signaling balance.",
   "compoundClass": "",
   "mechanisms": [
-    "Inflammatory Signaling Modulation",
-    "Oxidative Stress Modulation",
-    "Mitochondrial Support",
     "Immune Signaling Modulation",
+    "PI3K/Akt Pathway Modulation",
+    "Antioxidant/Redox Modulation",
+    "Mitochondrial Support",
     "Stress Response Modulation",
-    "NF-kB Modulation"
+    "NF-kB Modulation",
+    "NF-kB Pathway Modulation",
+    "Oxidative Stress Modulation",
+    "STAT3 Pathway Inhibition",
+    "Apoptosis Regulation",
+    "Anti-Inflammatory Cytokine Modulation",
+    "Inflammatory Signaling Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +31,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -35,5 +41,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

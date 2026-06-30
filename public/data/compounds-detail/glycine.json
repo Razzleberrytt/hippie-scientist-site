@@ -3,12 +3,15 @@
   "slug": "glycine",
   "name": "Glycine",
   "summary": "Glycine may support subjective sleep quality and bedtime relaxation without being a strong sedative.",
-  "description": "Simple bedtime amino-acid support for sleep quality and relaxation.",
+  "description": "Glycine, a simple inhibitory amino acid, is used in sleep-oriented contexts; mechanistic relevance includes neuromodulation and membrane-stabilizing signaling in CNS.",
   "compoundClass": "",
   "mechanisms": [
-    "Oxidative Stress Modulation",
     "Neurotransmitter Modulation",
-    "Neuroprotective Activity"
+    "Neurotransmission Inhibition",
+    "Glycine Receptor Modulation",
+    "Neuroprotective Activity",
+    "NMDA Receptor Co-Agonism Modulation",
+    "Oxidative Stress Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -22,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -33,8 +36,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

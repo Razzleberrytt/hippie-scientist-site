@@ -3,10 +3,13 @@
   "slug": "kotalanol",
   "name": "kotalanol",
   "summary": "Thiosugar sulfonium constituent from Salacia known for intestinal alpha-glucosidase inhibition.",
-  "description": "Thiosugar sulfonium constituent from Salacia known for intestinal alpha-glucosidase inhibition.",
+  "description": "Kotalanol is a Salacia thiosugar sulfonium studied for inhibiting intestinal alpha-glucosidases, potentially reducing dietary carbohydrate conversion to absorbable monosaccharides.",
   "compoundClass": "",
   "mechanisms": [
-    "alpha-glucosidase inhibition"
+    "Carbohydrate Digestion Inhibition",
+    "alpha-glucosidase inhibition",
+    "Intestinal Alpha-Glucosidase Inhibition",
+    "Postprandial Glycemic Response Blunting"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -30,5 +33,7 @@
     "sourceCount": 0,
     "sourceIds": []
   },
-  "claimMap": []
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow"
 }

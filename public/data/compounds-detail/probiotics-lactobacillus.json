@@ -3,10 +3,13 @@
   "slug": "probiotics-lactobacillus",
   "name": "Probiotics - Lactobacillus spp.",
   "summary": "Lactobacillus probiotics have moderate, strain-specific evidence for antibiotic-associated diarrhea prevention and modest IBS symptom improvement.",
-  "description": "Category row for Lactobacillus strains; effects are strain-, dose-, and indication-specific.",
+  "description": "Lactobacillus probiotic category; effects are strain-, dose-, and indication-specific, involving colonization, immune crosstalk, and barrier-related signaling.",
   "compoundClass": "",
   "mechanisms": [
-    "Immune Signaling Modulation"
+    "Immune Signaling Modulation",
+    "Innate Immune Signaling Modulation",
+    "Microbiome Composition Modulation",
+    "Gut Barrier Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -31,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

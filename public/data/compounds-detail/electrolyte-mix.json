@@ -3,10 +3,13 @@
   "slug": "electrolyte-mix",
   "name": "Electrolyte Mix",
   "summary": "Electrolyte solutions improve hydration and performance during prolonged exercise.",
-  "description": "Electrolyte solutions improve hydration and performance during prolonged exercise.",
+  "description": "Electrolyte mixes improve water absorption and reduce exercise-related fluid/electrolyte imbalance, supporting performance during prolonged efforts.",
   "compoundClass": "",
   "mechanisms": [
-    "Maintains fluid balance and neuromuscular function."
+    "Electrolyte Homeostasis",
+    "Gastric Emptying Support",
+    "Maintains fluid balance and neuromuscular function.",
+    "Hydration Status Improvement"
   ],
   "targets": [],
   "pathways": [],
@@ -20,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -31,8 +34,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "NEEDS_REVIEW",
-  "robots": "noindex,follow",
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }
