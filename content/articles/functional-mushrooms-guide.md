@@ -213,3 +213,8 @@ None of these are "magic bullets." The people who benefit most are those using t
 | 6 | Tang W et al. | Reishi effects on fatigue and quality of life | J Altern Complement Med | 2005 | [16261513](https://pubmed.ncbi.nlm.nih.gov/16261513/) |
 | 7 | Park YK et al. | Chaga mushroom inhibits oxidative DNA damage | Nutr Res | 2004 | [15536277](https://pubmed.ncbi.nlm.nih.gov/15536277/) |
 | 8 | Torkelson CJ et al. | Turkey tail and immune function in breast cancer | ISRN Oncol | 2012 | [23137720](https://pubmed.ncbi.nlm.nih.gov/23137720/) |
+## Related Articles
+
+- [Lion's Mane: What the Science Actually Says](/articles/lions-mane)
+- [Mushroom Coffee: Benefits and What to Look For](/articles/mushroom-coffee-benefits-review)
+- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)

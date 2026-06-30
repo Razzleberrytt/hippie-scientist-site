@@ -159,3 +159,8 @@ If you're considering saffron for depression: it should not replace prescribed t
 | 3 | Akhondzadeh Basti A et al. | Crocus sativus vs fluoxetine in depression | Prog Neuropsychopharmacol Biol Psychiatry | 2007 | [17207132](https://pubmed.ncbi.nlm.nih.gov/17207132/) |
 | 4 | Shafiee M et al. | Saffron for depression: updated meta-analysis | J Affect Disord | 2019 | [31013804](https://pubmed.ncbi.nlm.nih.gov/31013804/) |
 | 5 | Moshiri E et al. | Crocus sativus stigma: efficacy compared to placebo | Phytomedicine | 2006 | [17160410](https://pubmed.ncbi.nlm.nih.gov/17160410/) |
+## Related Articles
+
+- [Ashwagandha: Stress, Sleep & the Evidence](/articles/ashwagandha)
+- [Creatine for Brain Health](/articles/creatine-brain-health)
+- [Lion's Mane: What the Science Actually Says](/articles/lions-mane)

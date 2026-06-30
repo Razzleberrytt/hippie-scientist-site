@@ -165,3 +165,8 @@ If you have diagnosed ADHD and are considering changing your treatment, discuss 
 | 5 | Chang Z et al. | Stimulant medication for ADHD and risk of substance use problems | JAMA Psychiatry | 2014 | [24933448](https://pubmed.ncbi.nlm.nih.gov/24933448/) |
 | 6 | Friedman M | Hericium erinaceus: edible mushroom with medicinal values | J Agric Food Chem | 2015 | [26244378](https://pubmed.ncbi.nlm.nih.gov/26244378/) |
 | 7 | Cortese S | Comparative efficacy and tolerability of ADHD medications | N Engl J Med | 2019 | [31449929](https://pubmed.ncbi.nlm.nih.gov/31449929/) |
+## Related Articles
+
+- [Lion's Mane: Mechanisms, Clinical Evidence, and Practical Use](/articles/lions-mane)
+- [Creatine for Brain Health](/articles/creatine-brain-health)
+- [Saffron for Depression: What the Evidence Shows](/articles/saffron-depression-evidence)

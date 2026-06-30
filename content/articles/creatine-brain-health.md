@@ -161,3 +161,8 @@ At $10–20/month with an excellent safety profile, creatine monohydrate is one 
 | 4 | Lyoo IK et al. | Creatine supplementation in women with MDD | Am J Psychiatry | 2012 | [22864431](https://pubmed.ncbi.nlm.nih.gov/22864431/) |
 | 5 | Dolan E et al. | Creatine effects on brain creatine, cognition, and TBI | Sports Med | 2019 | [30552842](https://pubmed.ncbi.nlm.nih.gov/30552842/) |
 | 6 | McMorris T et al. | Creatine and cognitive performance in young adults | Psychopharmacology | 2007 | [18059623](https://pubmed.ncbi.nlm.nih.gov/18059623/) |
+## Related Articles
+
+- [Lion's Mane vs Stimulants for ADHD](/articles/lions-mane-vs-stimulants-adhd)
+- [Saffron for Depression](/articles/saffron-depression-evidence)
+- [Ashwagandha: Stress, Sleep & the Evidence](/articles/ashwagandha)

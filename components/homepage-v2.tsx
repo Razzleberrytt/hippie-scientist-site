@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import articlesData from '@/data/articles/articles.json'
 
 type SectionHeaderProps = { title: string; subtitle?: string; as?: 'h2' | 'h3' }
 
@@ -90,6 +91,11 @@ function SectionHeader({ title, subtitle, as: HeadingTag = 'h2' }: SectionHeader
 }
 
 export default function HomepageV2() {
+  const articles = Array.isArray(articlesData) ? articlesData : (articlesData as any).articles || []
+  const featuredArticles = articles
+    .filter((a: any) => a.date && a.published !== false)
+    .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .slice(0, 6)
 
   return (
     <div className='overflow-x-clip bg-[var(--bg)]'>
@@ -197,6 +203,48 @@ export default function HomepageV2() {
               ))}
           </div>
         </section>
+
+        {/* Featured Articles */}
+        {featuredArticles.length > 0 && (
+          <section className='space-y-4'>
+            <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
+              <SectionHeader
+                title='Latest research'
+                subtitle='Evidence reviews, mechanism deep-dives, and practical guides — updated regularly.'
+                as='h2'
+              />
+              <Link href='/articles/' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
+                Browse all articles →
+              </Link>
+            </div>
+            <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+              {featuredArticles.map((article: any) => (
+                <Link
+                  key={article.slug}
+                  href={`/articles/${article.slug}/`}
+                  className='group flex flex-col gap-3 rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm transition-all duration-200 hover:border-brand-700/20 hover:shadow-md dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]'
+                >
+                  <div className='flex items-center gap-2'>
+                    {article.category && (
+                      <span className='rounded-full border border-brand-900/10 bg-brand-50 px-2.5 py-0.5 text-[0.72rem] font-medium text-brand-700 dark:bg-[var(--surface-subtle)] dark:text-[var(--text-secondary)]'>
+                        {article.category}
+                      </span>
+                    )}
+                    {article.readingTime && (
+                      <span className='text-[0.72rem] text-muted'>{article.readingTime}</span>
+                    )}
+                  </div>
+                  <h3 className='text-base font-semibold leading-snug text-ink group-hover:text-brand-800 dark:group-hover:text-[var(--text-primary)]'>
+                    {article.title}
+                  </h3>
+                  {article.excerpt && (
+                    <p className='line-clamp-2 text-sm leading-6 text-muted'>{article.excerpt}</p>
+                  )}
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Trust */}
         <section className='rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm sm:p-6'>

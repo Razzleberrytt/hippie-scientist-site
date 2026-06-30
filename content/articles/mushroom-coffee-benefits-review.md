@@ -153,3 +153,8 @@ If you enjoy the taste and the ritual, and you appreciate the lower-caffeine ene
 | 3 | Heckman MA et al. | Caffeine in foods: a comprehensive review | J Food Sci | 2010 | [20236949](https://pubmed.ncbi.nlm.nih.gov/20236949/) |
 | 4 | Park YK et al. | Chaga mushroom inhibits oxidative DNA damage | Nutr Res | 2004 | [15536277](https://pubmed.ncbi.nlm.nih.gov/15536277/) |
 | 5 | Tang W et al. | Reishi effects on fatigue and quality of life | J Altern Complement Med | 2005 | [16261513](https://pubmed.ncbi.nlm.nih.gov/16261513/) |
+## Related Articles
+
+- [Functional Mushrooms 101](/articles/functional-mushrooms-guide)
+- [Lion's Mane: What the Science Actually Says](/articles/lions-mane)
+- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)

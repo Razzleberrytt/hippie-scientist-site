@@ -248,3 +248,8 @@ Berberine is one of the more extensively studied botanical compounds in the meta
 | 12 | Hernandez AV et al. | Impact of berberine on lipoprotein, triglyceride and safety marker concentrations | J Diet Suppl | 2023 | [37183391](https://pubmed.ncbi.nlm.nih.gov/37183391/) |
 | 13 | Liu YT et al. | Pharmacokinetics of berberine in conventional and pseudo germ-free rats | Drug Metab Dispos | 2010 | [19995853](https://pubmed.ncbi.nlm.nih.gov/19995853/) |
 | 14 | Abushammala I | Tacrolimus and herbs interactions: a review | Pharmazie | 2021 | [34620272](https://pubmed.ncbi.nlm.nih.gov/34620272/) |
+
+## Related Articles
+
+- [Functional Mushrooms 101: Reishi, Cordyceps, Chaga, Turkey Tail](/articles/functional-mushrooms-guide)
+- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)

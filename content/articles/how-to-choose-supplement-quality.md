@@ -176,3 +176,8 @@ Spending an extra $10–15/month for a certified product over a generic one is n
 | 3 | Mody S et al. | Content and potency of commercial ashwagandha supplements | J Diet Suppl | 2021 | [34031757](https://pubmed.ncbi.nlm.nih.gov/34031757/) |
 | 4 | FDA | Dietary supplements guidance documents | FDA.gov | 2025 | — |
 | 5 | Consumer Reports | Turmeric and echinacea supplement testing | Consumer Reports | 2023 | — |
+## Related Articles
+
+- [Berberine: The Evidence-Based Guide](/articles/berberine)
+- [Functional Mushrooms 101](/articles/functional-mushrooms-guide)
+- [Mushroom Coffee: Benefits and What to Look For](/articles/mushroom-coffee-benefits-review)
