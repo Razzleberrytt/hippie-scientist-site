@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     description:
       'Explore education on neurochemistry, cognition, stress biology, recovery systems, and psychoactive neuroscience.',
     url: '/education/',
+    images: ['/og-default.jpg'],
   },
   twitter: {
     card: 'summary_large_image',

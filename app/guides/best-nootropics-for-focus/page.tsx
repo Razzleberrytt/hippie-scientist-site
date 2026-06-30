@@ -20,8 +20,9 @@ export const metadata: Metadata = {
     title: 'Best Nootropics for Focus — Evidence-Based Guide (2026)',
     description:
       'Which nootropics actually improve focus? Evidence-graded review of L-theanine + caffeine, citicoline, bacopa monnieri, lion\'s mane, rhodiola, and more.',
-    url: '/guides/best-nootropics-for-focus',
+    url: '/guides/best-nootropics-for-focus/',
     type: 'article',
+    images: ['/og-default.jpg'],
   },
 }
 

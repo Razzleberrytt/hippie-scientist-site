@@ -20,8 +20,9 @@ export const metadata: Metadata = {
     title: 'Best Herbs for Stress and Anxiety at Night — Calm-Down Guide',
     description:
       'Calming herbs for evening stress and racing thoughts, matched to how nighttime anxiety actually shows up — with a practical wind-down routine, dosing and safety.',
-    url: '/guides/best-herbs-for-stress-and-anxiety-at-night',
+    url: '/guides/best-herbs-for-stress-and-anxiety-at-night/',
     type: 'article',
+    images: ['/og-default.jpg'],
   },
 }
 
@@ -106,7 +107,7 @@ export default function Page() {
           <p className="text-muted">
             <strong>For racing thoughts at bedtime, L-theanine 100–200&nbsp;mg is the fastest useful choice</strong>{' '}
             — effects within 30–60 minutes, no sedation, no dependency. For a gentler route,{' '}
-            <Link href="/herbs/passiflora-incarnata" className="font-semibold text-brand-700 hover:underline">
+            <Link href="/herbs/passionflower/" className="font-semibold text-brand-700 hover:underline">
               passionflower
             </Link>{' '}
             tea is one of the most reliable calming bedtime options with mild evidence. Pair either with
@@ -160,7 +161,7 @@ export default function Page() {
               { pattern: 'Racing thoughts you cannot switch off', pick: 'L-theanine, then passionflower', href: '/compounds/l-theanine' },
               { pattern: '"Wired but tired" — stress hormones high', pick: 'Ashwagandha in the evening', href: '/herbs/ashwagandha' },
               { pattern: 'Restless, tense, mild worry', pick: 'Lemon balm or magnolia bark', href: '/herbs/melissa-officinalis' },
-              { pattern: 'Anxiety plus trouble staying asleep', pick: 'Passionflower + magnesium', href: '/herbs/passiflora-incarnata' },
+              { pattern: 'Anxiety plus trouble staying asleep', pick: 'Passionflower + magnesium', href: '/herbs/passionflower/' },
               { pattern: 'Occasional, situational restlessness', pick: 'Valerian (short course)', href: '/herbs/valerian' },
               { pattern: 'Stress carried over from the whole day', pick: 'Magnesium glycinate base', href: '/compounds/magnesium-glycinate' },
             ].map((row) => (
@@ -181,7 +182,7 @@ export default function Page() {
 
           <article className="card-premium p-6">
             <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/herbs/passiflora-incarnata" className="hover:underline">Passionflower</Link>
+              <Link href="/herbs/passionflower/" className="hover:underline">Passionflower</Link>
             </h3>
             <p className="mt-3 text-sm text-muted">
               Passionflower raises GABA activity and has small but encouraging trials for anxiety and

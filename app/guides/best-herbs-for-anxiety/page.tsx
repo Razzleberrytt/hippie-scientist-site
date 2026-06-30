@@ -19,8 +19,9 @@ export const metadata: Metadata = {
     title: 'Best Herbs for Anxiety: Ashwagandha, Passionflower, Lavender & More',
     description:
       'Which herbs actually help with anxiety? Ashwagandha, kava, passionflower, lemon balm — evidence-graded with dosing, safety, and interaction warnings.',
-    url: '/guides/best-herbs-for-anxiety',
+    url: '/guides/best-herbs-for-anxiety/',
     type: 'article',
+    images: ['/og-default.jpg'],
   },
 }
 

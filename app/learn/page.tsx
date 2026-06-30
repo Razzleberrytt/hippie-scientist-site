@@ -10,7 +10,8 @@ export const metadata: Metadata = {
     title: 'Supplement Stack Guides — The Hippie Scientist',
     description:
       'Practical supplement stack guides covering evidence, safety, dosing, and buying criteria for cognition, stress, sleep, and more.',
-    url: '/guides',
+    url: '/guides/',
+    images: ['/og-default.jpg'],
   },
   twitter: {
     card: 'summary_large_image',

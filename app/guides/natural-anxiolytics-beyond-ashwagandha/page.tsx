@@ -14,7 +14,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Natural Anxiolytics Beyond Ashwagandha',
     description: 'Compare calming botanicals and acute calm-support options like L-Theanine, Kava, and Kanna. Evidence-first, safety-aware analysis.',
-    url: '/guides/natural-anxiolytics-beyond-ashwagandha',
+    url: '/guides/natural-anxiolytics-beyond-ashwagandha/',
+    images: ['/og-default.jpg'],
   },
   twitter: {
     card: 'summary_large_image',

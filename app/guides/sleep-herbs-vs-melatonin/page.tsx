@@ -14,7 +14,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Sleep Herbs vs Melatonin',
     description: 'Understand the difference between melatonin (circadian timing) and calming sleep herbs (Magnesium, L-Theanine, Valerian) for sleep routines.',
-    url: '/guides/sleep-herbs-vs-melatonin',
+    url: '/guides/sleep-herbs-vs-melatonin/',
+    images: ['/og-default.jpg'],
   },
   twitter: {
     card: 'summary_large_image',

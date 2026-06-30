@@ -18,8 +18,9 @@ export const metadata: Metadata = {
     title: 'Best Adaptogens for Stress — Evidence-Based Guide',
     description:
       'Which adaptogens actually work for stress? Ashwagandha, rhodiola, eleuthero, schisandra — evidence-graded with honest assessments of mechanisms, dosing, and safety.',
-    url: '/guides/best-adaptogens-for-stress',
+    url: '/guides/best-adaptogens-for-stress/',
     type: 'article',
+    images: ['/og-default.jpg'],
   },
 }
 

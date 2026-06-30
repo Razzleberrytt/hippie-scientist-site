@@ -10,7 +10,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Psychedelic-Adjacent Herbs & Harm Reduction',
     description: 'Evidence-informed harm reduction guide for traditional, ritual, and dream-adjacent botanicals like Blue Lotus and Kanna.',
-    url: '/guides/psychedelic-adjacent-herbs',
+    url: '/guides/psychedelic-adjacent-herbs/',
+    images: ['/og-default.jpg'],
   },
   twitter: {
     card: 'summary_large_image',

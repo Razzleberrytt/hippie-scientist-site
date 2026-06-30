@@ -20,8 +20,9 @@ export const metadata: Metadata = {
     title: 'Best Supplements for Stress: Ashwagandha, Rhodiola, Magnesium & More',
     description:
       'Which supplements actually reduce stress? Ashwagandha, rhodiola, magnesium, phosphatidylserine — evidence-graded with dosing, safety, and stacking notes.',
-    url: '/guides/best-supplements-for-stress',
+    url: '/guides/best-supplements-for-stress/',
     type: 'article',
+    images: ['/og-default.jpg'],
   },
 }
 

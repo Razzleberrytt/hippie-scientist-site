@@ -14,6 +14,7 @@ export const metadata: Metadata = {
       'The main guide library for choosing supplements by goal, comparing options, and checking safety tradeoffs before buying.',
     url: '/guides/',
     type: 'website',
+    images: ['/og-default.jpg'],
   },
   twitter: {
     card: 'summary_large_image',

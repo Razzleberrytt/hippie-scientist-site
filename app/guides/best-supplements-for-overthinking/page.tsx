@@ -20,8 +20,9 @@ export const metadata: Metadata = {
     title: 'Best Supplements for Overthinking & a Racing Mind',
     description:
       'Supplements that genuinely help quiet a racing mind — matched to whether your overthinking is anxiety, stress overload or poor sleep, with dosing and safety.',
-    url: '/guides/best-supplements-for-overthinking',
+    url: '/guides/best-supplements-for-overthinking/',
     type: 'article',
+    images: ['/og-default.jpg'],
   },
 }
 

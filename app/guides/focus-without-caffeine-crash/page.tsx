@@ -20,8 +20,9 @@ export const metadata: Metadata = {
     title: 'Focus Without the Caffeine Crash — A Practical Guide',
     description:
       'How to get steady, all-day focus without the caffeine crash — the L-theanine stack, calmer nootropics, and the timing habits that prevent the slump.',
-    url: '/guides/focus-without-caffeine-crash',
+    url: '/guides/focus-without-caffeine-crash/',
     type: 'article',
+    images: ['/og-default.jpg'],
   },
 }
 

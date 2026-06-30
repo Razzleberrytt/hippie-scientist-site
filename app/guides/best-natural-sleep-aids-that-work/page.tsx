@@ -20,8 +20,9 @@ export const metadata: Metadata = {
     title: 'Best Natural Sleep Aids That Actually Work (Evidence-Based)',
     description:
       'An honest, evidence-graded look at the natural sleep aids worth your time — and the ones that are mostly marketing. Matched to your sleep problem, with dosing and safety.',
-    url: '/guides/best-natural-sleep-aids-that-work',
+    url: '/guides/best-natural-sleep-aids-that-work/',
     type: 'article',
+    images: ['/og-default.jpg'],
   },
 }
 
@@ -143,7 +144,7 @@ export default function Page() {
               { problem: 'Waking through the night / muscle tension', pick: 'Magnesium glycinate', href: '/compounds/magnesium-glycinate' },
               { problem: '"Wired but tired", stress-driven', pick: 'Ashwagandha (evening) + magnesium', href: '/herbs/ashwagandha' },
               { problem: 'Mild, occasional insomnia', pick: 'Valerian or lemon balm', href: '/herbs/valerian' },
-              { problem: 'Anxiety-linked wakefulness', pick: 'Passionflower + L-theanine', href: '/herbs/passiflora-incarnata' },
+              { problem: 'Anxiety-linked wakefulness', pick: 'Passionflower + L-theanine', href: '/herbs/passionflower/' },
             ].map((row) => (
               <Link key={row.problem} href={row.href} className="card-premium block p-5 transition hover:border-brand-700/40">
                 <p className="text-xs font-semibold uppercase tracking-wider text-muted">If your problem is</p>
@@ -227,7 +228,7 @@ export default function Page() {
 
             <article className="card-premium p-6">
               <h3 className="text-xl font-semibold text-brand-800">
-                <Link href="/herbs/passiflora-incarnata" className="hover:underline">Passionflower &amp; lemon balm</Link>{' '}
+                <Link href="/herbs/passionflower/" className="hover:underline">Passionflower &amp; lemon balm</Link>{' '}
                 <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">Grade C · Gentle</span>
               </h3>
               <p className="mt-3 text-sm text-muted">

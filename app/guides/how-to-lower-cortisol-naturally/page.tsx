@@ -20,8 +20,9 @@ export const metadata: Metadata = {
     title: 'How to Lower Cortisol Naturally — Evidence-Based Guide',
     description:
       'How to lower cortisol naturally — the lifestyle levers that matter most plus the best-supported adaptogenic herbs, with dosing context and safety.',
-    url: '/guides/how-to-lower-cortisol-naturally',
+    url: '/guides/how-to-lower-cortisol-naturally/',
     type: 'article',
+    images: ['/og-default.jpg'],
   },
 }
 

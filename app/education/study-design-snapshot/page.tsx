@@ -13,7 +13,8 @@ export const metadata: Metadata = {
     title: 'Study Design Snapshots: Reading an Evidence Grade',
     description:
       'How evidence grades are assigned and which clinical trial design factors matter, shown through embeddable Study Design Snapshots.',
-    url: '/education/study-design-snapshot',
+    url: '/education/study-design-snapshot/',
+    images: ['/og-default.jpg'],
   },
 }
 

@@ -34,7 +34,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: metaTitle,
       description: page.metaDescription,
       type: 'article',
-      url: `${SITE_URL}/novel-psychoactive-substances/${page.slug}/`,
+      url: `${SITE_URL
+    images: ['/og-default.jpg'],}/novel-psychoactive-substances/${page.slug}/`,
     },
   }
 }

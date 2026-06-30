@@ -18,8 +18,9 @@ export const metadata: Metadata = {
     title: 'Best Supplements for Sleep: Magnesium, Melatonin, L-Theanine & More',
     description:
       'Which sleep supplements actually work? Magnesium, melatonin, L-theanine, valerian, ashwagandha — evidence-graded with dosing, safety, and stacking notes.',
-    url: '/guides/best-supplements-for-sleep',
+    url: '/guides/best-supplements-for-sleep/',
     type: 'article',
+    images: ['/og-default.jpg'],
   },
 }
 

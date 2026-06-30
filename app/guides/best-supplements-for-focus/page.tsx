@@ -18,8 +18,9 @@ export const metadata: Metadata = {
     title: 'Best Supplements for Focus — Evidence-Based Guide',
     description:
       'Which supplements improve focus? L-theanine, citicoline, bacopa, rhodiola, creatine — evidence-graded with dosing, safety, and stacking recommendations.',
-    url: '/guides/best-supplements-for-focus',
+    url: '/guides/best-supplements-for-focus/',
     type: 'article',
+    images: ['/og-default.jpg'],
   },
 }
 
