@@ -321,14 +321,14 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
             label: 'Guide',
             title: 'Pain Support Decisions',
             description: 'The full decision guide comparing pain options by mechanism, onset, and risk.',
-            href: '/goals/pain',
+            href: '/guides/sleep',
           },
           {
             type: 'guide',
             label: 'Guide',
             title: 'Inflammation Support Decisions',
             description: 'Compare inflammation options by evidence grade, timing, and safety boundaries.',
-            href: '/goals/inflammation',
+            href: '/guides/anxiety',
           },
         ]}
       />

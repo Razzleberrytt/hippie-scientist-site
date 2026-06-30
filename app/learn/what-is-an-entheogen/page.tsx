@@ -12,7 +12,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 const related = [
   {
-    href: '/psychoactive/entheogens',
+    href: '/learn/entheogens',
     title: 'Entheogens',
   },
   {
@@ -24,7 +24,7 @@ const related = [
     title: 'Neuropharmacology',
   },
   {
-    href: '/psychoactive/harm-reduction',
+    href: '/learn/harm-reduction',
     title: 'Harm Reduction',
   },
 ]

@@ -440,21 +440,21 @@ export default function BerberineVsMetforminPage() {
             label: 'Goal Guide',
             title: 'Gut Health & Metabolic Goals',
             description: 'Map your metabolic goal to the right compounds — insulin resistance, lipids, gut health, or fat loss.',
-            href: '/goals/gut-health',
+            href: '/guides/best/supplements-for-gut-health',
           },
           {
             type: 'guide',
             label: 'Education',
             title: 'AMPK Mechanism',
             description: "How AMPK works as the body's energy sensor and why it's a target for both berberine and metformin.",
-            href: '/goals/fat-loss',
+            href: '/guides/best/supplements-for-fat-loss',
           },
           {
             type: 'guide',
             label: 'Stack',
             title: 'Metabolic Support Stack',
             description: 'Evidence-guided protocol for blood sugar management, insulin sensitivity, and metabolic health.',
-            href: '/goals/fat-loss',
+            href: '/guides/best/supplements-for-fat-loss',
           },
         ]}
       />
@@ -471,8 +471,8 @@ export default function BerberineVsMetforminPage() {
       <div className="flex flex-wrap gap-3">
         <Link href="/compare/berberine-vs-inositol" className="chip-readable">Berberine vs Inositol</Link>
         <Link href="/compare/berberine-vs-psyllium" className="chip-readable">Berberine vs Psyllium</Link>
-        <Link href="/goals/gut-health" className="chip-readable">Gut Health Goals</Link>
-        <Link href="/goals/fat-loss" className="chip-readable">Fat Loss Goals</Link>
+        <Link href="/guides/best/supplements-for-gut-health" className="chip-readable">Gut Health Goals</Link>
+        <Link href="/guides/best/supplements-for-fat-loss" className="chip-readable">Fat Loss Goals</Link>
         <Link href="/compare/" className="chip-readable">All Comparisons</Link>
       </div>
     </div>

@@ -12,7 +12,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 const systems = [
   {
-    href: '/psychoactive/dream-herbs',
+    href: '/learn/dream-herbs',
     title: 'Dream Herbs',
   },
   {
