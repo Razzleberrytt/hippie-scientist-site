@@ -70,41 +70,36 @@ export const mainNavigation: NavigationItem[] = [
   {
     label: 'Herbs',
     href: '/herbs',
-    description: 'Browse the full herb database with evidence-graded profiles',
+    description: 'Evidence-graded herb profiles with safety, dosing, and mechanism data',
   },
   {
     label: 'Compounds',
     href: '/compounds',
-    description: 'Active compounds, mechanisms, and evidence summaries',
+    description: '557 active compounds with pharmacology and evidence summaries',
   },
   {
     label: 'Guides',
     href: '/guides',
-    description: 'Evidence-based guides organized by topic',
+    description: 'Evidence-based guides organized by health topic',
     children: [
-      { label: 'ADHD', href: '/guides/adhd', description: 'ADHD supplement guides and research' },
-      { label: 'Sleep', href: '/guides/sleep', description: 'Sleep improvement and supplement guides' },
-      { label: 'Anxiety & Stress', href: '/guides/anxiety', description: 'Anxiety and stress management guides' },
-      { label: 'Focus', href: '/guides/focus', description: 'Focus, cognition, and nootropic guides' },
-      { label: 'Herb Profiles', href: '/guides/herbs', description: 'Deep dives on individual herbs' },
-      { label: 'Comparisons', href: '/compare', description: 'Side-by-side supplement comparisons' },
-      { label: 'Best Supplements', href: '/guides/best', description: 'Best supplements for specific needs' },
+      { label: 'ADHD', href: '/guides/adhd', description: 'ADHD supplements, mechanisms, and research' },
+      { label: 'Sleep', href: '/guides/sleep', description: 'Sleep improvement and natural sleep aid guides' },
+      { label: 'Anxiety & Stress', href: '/guides/anxiety', description: 'Anxiety relief, adaptogens, and stress management' },
+      { label: 'Focus & Cognition', href: '/guides/focus', description: 'Nootropics, focus, and cognitive enhancement' },
+      { label: 'Herb Profiles', href: '/guides/herbs', description: 'Deep dives on individual herbs and botanicals' },
+      { label: 'Comparisons', href: '/guides/compare', description: 'Side-by-side supplement and compound comparisons' },
+      { label: 'Best Supplements', href: '/guides/best', description: 'Curated best-supplement guides for specific needs' },
     ],
   },
   {
     label: 'Learn',
     href: '/learn',
-    description: 'Neuroscience, psychopharmacology, and evidence literacy',
-  },
-  {
-    label: 'NPS',
-    href: '/novel-psychoactive-substances',
-    description: 'Novel psychoactive substances — harm reduction and pharmacology',
+    description: 'Neuroscience, psychopharmacology, evidence literacy, and psychoactive substance education',
   },
   {
     label: 'Safety',
     href: '/safety-checker',
-    description: 'Interaction checker and safety context for herbs and supplements',
+    description: 'Herb-drug interaction checker and safety guidelines',
   },
 ]
 

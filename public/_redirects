@@ -696,3 +696,39 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /education/why-human-trials-matter/ /learn/why-human-trials-matter/ 301
 /education/why-individual-variability-matters /learn/why-individual-variability-matters/ 301
 /education/why-individual-variability-matters/ /learn/why-individual-variability-matters/ 301
+
+# Dead sections → /guides/ (2026-06-30)
+/goals /guides/ 301
+/goals/ /guides/ 301
+/goals/* /guides/:splat 301
+/stacks /guides/ 301
+/stacks/ /guides/ 301
+/stacks/* /guides/:splat 301
+/start /guides/ 301
+/start/ /guides/ 301
+/start/* /guides/:splat 301
+/tools /guides/ 301
+/tools/ /guides/ 301
+
+# Articles → /guides/ (2026-06-30)
+/articles /guides/ 301
+/articles/ /guides/ 301
+/articles/* /guides/:splat 301
+/research-notes /guides/ 301
+/research-notes/ /guides/ 301
+/research-notes/* /guides/:splat 301
+/learn /learn/ 301
+/blog /learn/ 301
+/blog/ /learn/ 301
+
+# Psychoactive → /learn/ (2026-06-30)
+/psychoactive /learn/ 301
+/psychoactive/ /learn/ 301
+/psychoactive/* /learn/:splat 301
+
+# Education moved to /learn/ (redirects already added above)
+
+# Compare moved to /guides/compare/ (2026-06-30)
+/compare /guides/compare/ 301
+/compare/ /guides/compare/ 301
+/compare/* /guides/compare/:splat 301
