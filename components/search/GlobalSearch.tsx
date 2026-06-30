@@ -21,7 +21,7 @@ function FacetGroup({ title, options, selected, onToggle, limit }: FacetGroupPro
   if (shown.length === 0) return null
   return (
     <fieldset className="space-y-2">
-      <legend className="text-xs font-bold uppercase tracking-wider text-brand-800">{title}</legend>
+      <legend className="text-[0.78rem] font-semibold tracking-[0.02em] text-brand-800">{title}</legend>
       <div className="flex flex-wrap gap-1.5">
         {shown.map((option) => (
           <FilterChip
@@ -136,7 +136,7 @@ export default function GlobalSearch() {
             />
 
             <fieldset className="space-y-2 border-t border-brand-900/10 pt-4">
-              <legend className="text-xs font-bold uppercase tracking-wider text-brand-800">
+              <legend className="text-[0.78rem] font-semibold tracking-[0.02em] text-brand-800">
                 Safety considerations
               </legend>
               <div className="flex flex-wrap gap-1.5">
@@ -235,7 +235,7 @@ export default function GlobalSearch() {
                       {doc.tags.slice(0, 3).map((tag) => (
                         <span
                           key={tag}
-                          className="rounded-full bg-brand-50 px-2 py-0.5 text-[11px] font-medium text-brand-800"
+                          className="rounded-full bg-brand-50 px-2 py-0.5 text-[0.72rem] font-medium text-brand-800"
                         >
                           {tag}
                         </span>

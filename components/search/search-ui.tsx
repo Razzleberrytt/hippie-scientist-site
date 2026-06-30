@@ -25,7 +25,7 @@ const SAFETY_STYLES: Record<SafetySignal, string> = {
 }
 
 const BADGE_BASE =
-  'inline-flex items-center rounded-full border px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide'
+  'inline-flex items-center rounded-full border px-2 py-0.5 text-[0.75rem] font-semibold leading-snug'
 
 export function TypeBadge({ type }: { type: SearchContentType }) {
   return <span className={clsx(BADGE_BASE, TYPE_STYLES[type])}>{type}</span>
@@ -62,7 +62,7 @@ export function FilterChip({ label, count, active, onClick }: FilterChipProps) {
       onClick={onClick}
       aria-pressed={active}
       className={clsx(
-        'inline-flex min-h-11 items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40',
+        'inline-flex min-h-10 items-center gap-1.5 rounded-full border px-3 py-1.5 text-[0.8rem] font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40',
         active
           ? 'border-brand-800 bg-brand-800 text-white shadow-sm dark:border-brand-600 dark:bg-brand-600 dark:text-[#07150c]'
           : 'border-brand-900/10 bg-white text-[#33443a] hover:border-brand-700/25 hover:text-brand-800 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-secondary)] dark:hover:border-[var(--border-strong)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]',
@@ -72,7 +72,7 @@ export function FilterChip({ label, count, active, onClick }: FilterChipProps) {
       {typeof count === 'number' && (
         <span
           className={clsx(
-            'rounded-full px-1.5 text-[10px] font-bold tabular-nums',
+            'rounded-full px-1.5 text-[0.7rem] font-semibold tabular-nums',
             active ? 'bg-white/20 text-white dark:text-[#07150c]' : 'bg-brand-50 text-brand-700 dark:bg-[var(--surface-subtle)] dark:text-brand-700',
           )}
         >
