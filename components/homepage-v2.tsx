@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { getHomepageFreshness } from '@/lib/freshness'
 
 const heroGoals = [
   {
@@ -80,12 +79,6 @@ const toolLinks = [
 ]
 
 export default function HomepageV2() {
-  const { lastReviewed, citationCount } = getHomepageFreshness()
-  const formattedDate = new Date(lastReviewed).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  })
 
   return (
     <div className='overflow-x-clip ps-body'>
