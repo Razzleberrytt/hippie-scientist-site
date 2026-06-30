@@ -4,7 +4,7 @@ title: "Lion's Mane Mushroom: Benefits, Mechanisms, Dosage & Evidence-Based Guid
 description: "A practical evidence-based guide to Lion's Mane mushroom, including mechanisms, dosage, safety, cognitive evidence, mood data, nerve regeneration research, and realistic expectations."
 date: '2026-06-08'
 author: Will
-category: nootropics
+category: Cognitive health
 evidence_grade: mixed-human-evidence
 herb: "Lion's Mane"
 scientific_name: "Hericium erinaceus"

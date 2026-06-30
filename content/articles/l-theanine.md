@@ -5,7 +5,7 @@ description: "A practical evidence guide to L-theanine for calm focus, caffeine 
 date: '2026-06-06'
 updatedAt: '2026-06-26'
 author: Will
-category: Focus and calm
+category: Anxiety & Sleep
 evidence_grade: Moderate
 keywords:
   - l-theanine
