@@ -1,4 +1,7 @@
 import Link from 'next/link'
+import { getHomepageFreshness } from '@/lib/freshness'
+
+type SectionHeaderProps = { title: string; subtitle?: string; as?: 'h2' | 'h3' }
 
 const heroGoals = [
   {
@@ -78,83 +81,89 @@ const toolLinks = [
   },
 ]
 
+function SectionHeader({ title, subtitle, as: HeadingTag = 'h2' }: SectionHeaderProps) {
+  return (
+    <div className='max-w-3xl space-y-2'>
+      <HeadingTag className='text-xl font-semibold tracking-tight text-ink sm:text-2xl'>{title}</HeadingTag>
+      {subtitle ? <p className='text-sm leading-6 text-muted sm:text-base'>{subtitle}</p> : null}
+    </div>
+  )
+}
+
 export default function HomepageV2() {
+  const { lastReviewed, citationCount } = getHomepageFreshness()
+  const formattedDate = new Date(lastReviewed).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })
 
   return (
-    <div className='overflow-x-clip'>
+    <div className='overflow-x-clip bg-[var(--bg)]'>
       <div className='mx-auto max-w-6xl space-y-8 px-4 pb-12 pt-4 sm:px-6 sm:space-y-10 sm:pb-16 sm:pt-6 lg:px-8'>
 
         {/* ── Hero ─────────────────────────────────────────────── */}
-        <section className='ps-hero'>
-          <div className='mx-auto max-w-3xl'>
-            <h1 className='ps-hero-title'>
-              Herbs & supplements,<br />
-              <span style={{color: 'var(--ps-coral)'}}>actually</span> explained.
-            </h1>
-            <p className='ps-hero-subtitle'>
-              Evidence-based guides for sleep, stress, anxiety, and focus — with human clinical trial data, not marketing claims.
-            </p>
+        <section className='relative overflow-hidden rounded-[1.5rem] border border-brand-900/10 bg-gradient-to-br from-white via-[#fafdf6] to-[#f2f8ed] px-6 py-10 shadow-md sm:px-10 sm:py-16 dark:from-[#1a3028] dark:via-[#162a20] dark:to-[#0f2419]'>
+          <div className='relative mx-auto max-w-4xl'>
+            <div className='flex flex-col items-center text-center'>
+              <h1 className='font-display text-[2.5rem] font-bold leading-[1.05] tracking-[-0.04em] text-ink break-words sm:text-5xl md:text-6xl'>
+                Herbs & supplements,<br />actually explained.
+              </h1>
+              <p className='mt-5 max-w-2xl text-sm font-medium leading-7 text-muted sm:text-base sm:leading-8'>
+                Evidence-based guides for sleep, stress, anxiety, and focus. 816 peer-reviewed studies, 557 compounds, zero marketing fluff.
+              </p>
 
-            <div className='mt-6 flex flex-wrap items-center justify-center gap-3 text-sm font-semibold'>
-              <span className='ps-tag'>
-                <span className='ps-lab-dot ps-lab-dot-coral' />
-                816 studies cited
-              </span>
-              <span className='ps-tag'>
-                <span className='ps-lab-dot ps-lab-dot-teal' />
-                557 compounds profiled
-              </span>
-              <Link href='/methodology/' className='ps-tag hover:border-[var(--ps-ink)] transition-colors'>
-                <span className='ps-lab-dot ps-lab-dot-mustard' />
-                How we grade evidence
-              </Link>
-            </div>
-
-            <div className='mt-8'>
-              <Link href='#choose-a-path' className='ps-btn'>
-                Browse by health goal
-              </Link>
-              <Link href='/evidence-report/' className='ps-btn ps-btn-outline ml-3'>
-                Read the evidence report
-              </Link>
+              <div className='mt-6 flex w-full max-w-sm flex-col'>
+                <Link
+                  href='#choose-a-path'
+                  className='rounded-full bg-brand-800 px-6 py-3.5 text-sm font-bold text-white shadow-[0_4px_14px_rgba(11,29,20,0.22)] transition-all duration-200 motion-safe:hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-[0_8px_20px_rgba(11,29,20,0.28)] active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 text-center'
+                >
+                  Browse by Health Goal
+                </Link>
+              </div>
             </div>
           </div>
-          <hr className='ps-divider' />
         </section>
 
         {/* Comparisons and tools */}
         <section className='grid gap-4 lg:grid-cols-[1fr_0.9fr]'>
-          <div className='ps-card ps-card-accent-coral p-5 sm:p-6'>
-            <h2 className='ps-section-title' style={{fontSize: 'clamp(1.2rem, 3vw, 1.5rem)'}}>Compare before you choose</h2>
-            <p className='mt-2 text-[var(--ps-ink-muted)] text-sm leading-6'>Side-by-side pages help answer the high-intent questions people search before buying or stacking.</p>
+          <div className='rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm sm:p-6 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]'>
+            <SectionHeader
+              title='Compare before you choose'
+              subtitle='Side-by-side pages help answer the high-intent questions people search before buying or stacking.'
+              as='h2'
+            />
             <div className='mt-5 grid gap-2 sm:grid-cols-2'>
               {comparisonLinks.map((comparison) => (
                 <Link
                   key={comparison.href}
                   href={comparison.href}
-                  className='block rounded-lg border-2 border-[var(--ps-border)] bg-[var(--ps-surface)] px-4 py-3 text-sm font-bold text-[var(--ps-ink)] transition hover:border-[var(--ps-coral)] hover:bg-white'
+                  className='rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 px-4 py-3 text-sm font-bold text-brand-800 transition hover:border-brand-700/20 hover:bg-brand-50 dark:bg-[var(--surface-subtle)]'
                 >
                   {comparison.title} →
                 </Link>
               ))}
             </div>
-            <Link href='/compare/' className='mt-5 inline-flex text-sm font-bold text-[var(--ps-coral)] transition hover:text-[var(--ps-ink)]'>
+            <Link href='/compare/' className='mt-5 inline-flex text-sm font-bold text-brand-700 transition hover:text-brand-800'>
               Browse all comparisons →
             </Link>
           </div>
 
-          <div className='ps-card ps-card-accent-teal p-5 sm:p-6'>
-            <h2 className='ps-section-title' style={{fontSize: 'clamp(1.2rem, 3vw, 1.5rem)'}}>Use the safety tools</h2>
-            <p className='mt-2 text-[var(--ps-ink-muted)] text-sm leading-6'>The fastest win is avoiding mismatched products, risky stacks, and unclear supplement forms.</p>
+          <div className='rounded-[1rem] border border-emerald-800/15 bg-emerald-50/70 p-5 shadow-sm sm:p-6 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]'>
+            <SectionHeader
+              title='Use the safety tools'
+              subtitle='The fastest win is avoiding mismatched products, risky stacks, and unclear supplement forms.'
+              as='h2'
+            />
             <div className='mt-5 space-y-3'>
               {toolLinks.map((tool) => (
                 <Link
                   key={tool.href}
                   href={tool.href}
-                  className='block rounded-lg border-2 border-[var(--ps-border)] bg-[var(--ps-surface)] p-4 transition hover:border-[var(--ps-teal)] hover:bg-white'
+                  className='block rounded-[0.75rem] border border-emerald-900/10 bg-white/80 p-4 transition hover:border-emerald-700/20 hover:bg-white dark:bg-[var(--surface-subtle)]'
                 >
-                  <h3 className='text-sm font-bold text-[var(--ps-ink)]'>{tool.title}</h3>
-                  <p className='mt-1 text-sm leading-6 text-[var(--ps-ink-muted)]'>{tool.description}</p>
+                  <h3 className='text-sm font-bold text-ink'>{tool.title}</h3>
+                  <p className='mt-1 text-sm leading-6 text-muted'>{tool.description}</p>
                 </Link>
               ))}
             </div>
@@ -164,11 +173,12 @@ export default function HomepageV2() {
         {/* Goal Pathways */}
         <section id='choose-a-path' className='scroll-mt-24 space-y-4'>
           <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
-            <div>
-              <h2 className='ps-section-title' style={{fontSize: 'clamp(1.2rem, 3vw, 1.5rem)'}}>Choose one path</h2>
-              <p className='mt-1 text-sm leading-6 text-[var(--ps-ink-muted)]'>Most visitors should start here. Pick the outcome you care about, then compare options inside that guide.</p>
-            </div>
-            <Link href='/goals/' className='text-sm font-bold text-[var(--ps-coral)] transition hover:text-[var(--ps-ink)] shrink-0'>
+            <SectionHeader
+              title='Choose one path'
+              subtitle='Most visitors should start here. Pick the outcome you care about, then compare options inside that guide.'
+              as='h2'
+            />
+            <Link href='/goals/' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
               View all goals →
             </Link>
           </div>
@@ -178,16 +188,16 @@ export default function HomepageV2() {
                 <Link
                   key={hGoal.slug}
                   href={`/goals/${hGoal.slug}/`}
-                  className={`ps-goal-card ps-goal-card-${hGoal.slug}`}
+                  className={`group flex min-h-48 flex-col justify-between rounded-[1.25rem] border bg-gradient-to-br ${hGoal.bg} p-5 shadow-sm transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)] dark:from-[var(--surface-card)] dark:to-[var(--surface-card)]`}
                 >
                   <div>
                     <span className='mb-3 block text-2xl' aria-hidden='true'>{hGoal.icon}</span>
-                    <h3 className='text-xl font-extrabold text-[var(--ps-ink)] tracking-tight'>
+                    <h3 className={`text-2xl font-bold tracking-tight ${hGoal.accent} dark:text-[var(--text-primary)]`}>
                       {hGoal.title}
                     </h3>
-                    <p className='mt-2 text-sm leading-6 text-[var(--ps-ink-muted)]'>{hGoal.prompt}</p>
+                    <p className='mt-3 text-sm font-medium leading-6 text-prose-soft dark:text-[var(--text-secondary)]'>{hGoal.prompt}</p>
                   </div>
-                  <span className='mt-5 inline-flex items-center text-sm font-bold text-[var(--ps-coral)] transition group-hover:translate-x-1'>
+                  <span className='mt-5 inline-flex text-sm font-bold text-brand-700 transition group-hover:translate-x-1 group-hover:text-brand-800'>
                     Start with {hGoal.title} <span aria-hidden='true' className='ml-1'>→</span>
                   </span>
                 </Link>
@@ -196,49 +206,28 @@ export default function HomepageV2() {
         </section>
 
         {/* Trust */}
-        <section className='ps-card p-5 sm:p-6'>
+        <section className='rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm sm:p-6'>
           <div className='grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start'>
-            <div>
-              <h2 className='ps-section-title' style={{fontSize: 'clamp(1.2rem, 3vw, 1.5rem)'}}>Why trust the guide?</h2>
-              <p className='mt-2 text-[var(--ps-ink-muted)] text-sm leading-6'>The site is built for cautious decisions: what has human evidence, what is only plausible, and what needs safety review before use.</p>
-            </div>
+            <SectionHeader
+              title='Why trust the guide?'
+              subtitle='The site is built for cautious decisions: what has human evidence, what is only plausible, and what needs safety review before use.'
+              as='h2'
+            />
             <div className='grid gap-3 sm:grid-cols-3'>
-              {trustSignals.map((signal, i) => (
-                <div key={signal.n} className='ps-card p-4' style={{borderLeftColor: ['var(--ps-coral)', 'var(--ps-teal)', 'var(--ps-mustard)'][i], borderLeftWidth: 4}}>
-                  <span className='block font-mono text-[0.65rem] font-bold tracking-widest text-[var(--ps-ink-muted)]'>{signal.n}</span>
+              {trustSignals.map((signal) => (
+                <div key={signal.n} className='flex gap-4 rounded-[0.85rem] border border-brand-900/10 bg-white/60 p-4 dark:bg-[var(--surface-card)] dark:text-[var(--text-secondary)]'>
+                  <span className='mt-0.5 shrink-0 font-mono text-[0.65rem] font-bold tracking-widest text-brand-400'>{signal.n}</span>
                   <div>
-                    <p className='text-sm font-semibold text-[var(--ps-ink)]'>{signal.label}</p>
-                    <p className='mt-1 text-sm leading-6 text-[var(--ps-ink-muted)]'>{signal.body}</p>
+                    <p className='text-sm font-semibold text-ink'>{signal.label}</p>
+                    <p className='mt-1 text-sm leading-6 text-muted'>{signal.body}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
           <div className='mt-5 text-sm font-bold'>
-            <Link href='/methodology/' className='text-[var(--ps-coral)] transition hover:text-[var(--ps-ink)]'>
+            <Link href='/methodology/' className='text-brand-700 transition hover:text-brand-800'>
               Read the evidence methodology →
-            </Link>
-          </div>
-        </section>
-
-        {/* Evidence Tools */}
-        <section className='ps-card ps-card-accent-mustard p-5 sm:p-6'>
-          <div className='max-w-3xl space-y-2'>
-            <h2 className='ps-section-title' style={{fontSize: 'clamp(1.2rem, 3vw, 1.5rem)'}}>Explore the data behind the claims</h2>
-            <p className='text-sm leading-6 text-[var(--ps-ink-muted)]'>Free tools and reports based on analysis of 816 peer-reviewed studies across 557 compounds.</p>
-          </div>
-          <div className='mt-5 grid gap-3 sm:grid-cols-3'>
-            <Link href='/evidence-report/' className='ps-card p-4 transition hover:border-[var(--ps-mustard)]'>
-              <h3 className='text-sm font-bold text-[var(--ps-ink)]'>Evidence Report 2026</h3>
-              <p className='mt-1 text-sm leading-6 text-[var(--ps-ink-muted)]'>Which supplements actually have human evidence? See the state of the research.</p>
-            </Link>
-            <Link href='/evidence-checker/' className='ps-card p-4 transition hover:border-[var(--ps-teal)]'>
-              <h3 className='text-sm font-bold text-[var(--ps-ink)]'>Evidence Lookup</h3>
-              <p className='mt-1 text-sm leading-6 text-[var(--ps-ink-muted)]'>Search 557 compounds by A-F clinical evidence grade.</p>
-            </Link>
-            <Link href='/infographics/' className='ps-card p-4 transition hover:border-[var(--ps-coral)]'>
-              <h3 className='text-sm font-bold text-[var(--ps-ink)]'>Free Infographics</h3>
-              <p className='mt-1 text-sm leading-6 text-[var(--ps-ink-muted)]'>Evidence-based visuals — free to share and embed with attribution.</p>
             </Link>
           </div>
         </section>
