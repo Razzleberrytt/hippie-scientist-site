@@ -16,6 +16,7 @@ import { COMPOUND_RUNTIME_FIELDS } from '../../config/runtime-compound-fields.mj
 import { scoreIndexability } from './indexability-policy.mjs'
 import { validateEvidenceEnginePayload } from './evidence-engine-validation.mjs'
 import { getEvidenceEngineGoalConfigs, normalizeEvidenceProblemKey } from './evidence-engine-goals.mjs'
+import { deriveInteractionData, validate as validateInteractionData } from './build-interaction-data.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -788,6 +789,11 @@ async function main() {
     const entityRows = read(wb, SHEETS.entityMaster)
     herbRows = entityRows.filter((r) => !clean(r.entity_type) || clean(r.entity_type).toLowerCase() === 'herb')
     compoundRows = entityRows.filter((r) => clean(r.entity_type).toLowerCase() === 'compound')
+    const interactionData = deriveInteractionData(entityRows)
+    validateInteractionData(interactionData)
+    fs.writeFileSync(path.join(outDir, 'interaction_edges.json'), JSON.stringify(interactionData.edgesBySlug), 'utf8')
+    fs.writeFileSync(path.join(outDir, 'entity_risk_tags.json'), JSON.stringify(interactionData.tagsBySlug), 'utf8')
+    console.log(`[data] wrote interaction_edges.json (${interactionData.edges.length} edges) + entity_risk_tags.json (${interactionData.tags.length} tags)`)
   } else {
     herbRows = read(wb, SHEETS.herbs)
     compoundRows = read(wb, SHEETS.compounds)
