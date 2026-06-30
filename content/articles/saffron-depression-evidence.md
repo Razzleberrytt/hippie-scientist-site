@@ -60,6 +60,11 @@ references:
     url: "https://pubmed.ncbi.nlm.nih.gov/17160410/"
 ---
 
+
+## TL;DR
+
+**Saffron (30 mg/day) produced antidepressant effects comparable to fluoxetine in multiple head-to-head trials.** Effect sizes are large (Cohen's d ≈1.4 vs placebo), but most trials are from a single research group and need independent replication. Best for: mild-to-moderate depression as an adjunct or alternative. Quality matters enormously — saffron is frequently adulterated. Evidence grade: Moderate (promising but not yet definitive). **Full trial breakdown below.**
+
 ## Why Saffron?
 
 Saffron (*Crocus sativus*) is the world's most expensive spice by weight — the dried stigmas of a crocus flower, hand-harvested at roughly 150,000 flowers per kilogram. It has been used in traditional Persian medicine for centuries as a mood elevator, and in the last two decades, a growing body of clinical research has tested it against both placebo and prescription antidepressants.

@@ -111,6 +111,11 @@ references:
     url: "https://pubmed.ncbi.nlm.nih.gov/15531889/"
 ---
 
+
+## TL;DR
+
+**Berberine activates AMPK — the body's metabolic master switch — to improve glucose metabolism and lipid profiles.** Multiple RCTs show 1,000–1,500 mg/day reduces HbA1c by ~0.6% and LDL by ~22 mg/dL. Best for: blood sugar support, modest weight management. Not 'nature's Ozempic' — operates through completely different mechanisms. Evidence grade: Moderate-high for glucose; moderate for lipids and weight. Drug interactions are significant — check before combining with prescriptions. **Full evidence breakdown below.**
+
 ## What Is Berberine?
 
 Berberine is a bright yellow isoquinoline alkaloid extracted from the roots, rhizomes, and bark of several plants, including *Berberis aristata* (tree turmeric), *Hydrastis canadensis* (goldenseal), *Coptis chinensis* (Chinese goldthread), and *Berberis vulgaris* (barberry). It has been used in Traditional Chinese Medicine and Ayurveda for centuries, primarily for gastrointestinal infections and as an antimicrobial agent.

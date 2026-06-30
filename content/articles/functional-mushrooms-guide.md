@@ -80,6 +80,11 @@ references:
     url: "https://pubmed.ncbi.nlm.nih.gov/23137720/"
 ---
 
+
+## TL;DR
+
+**Functional mushrooms each have distinct evidence profiles: Reishi for sleep and immunity, Cordyceps for exercise performance, Chaga for antioxidants (highest ORAC of any food), Turkey Tail for immune modulation (approved cancer adjuvant in Japan).** All share beta-glucans as the primary active compound. Evidence ranges from moderate (Reishi, Cordyceps) to preliminary (Chaga, Turkey Tail for general wellness). **Full guide below.**
+
 ## What Are Functional Mushrooms?
 
 Functional mushrooms are fungi valued for health benefits beyond basic nutrition — they contain bioactive compounds including beta-glucans, triterpenoids, polysaccharides, and antioxidants that have been studied for immune modulation, stress adaptation, cognitive support, and physical performance. They are distinct from psychedelic mushrooms and from culinary mushrooms (though many are edible).

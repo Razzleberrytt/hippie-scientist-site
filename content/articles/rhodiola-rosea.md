@@ -124,6 +124,11 @@ references:
     url: "https://pubmed.ncbi.nlm.nih.gov/18778739/"
 ---
 
+
+## TL;DR
+
+**Rhodiola rosea is a stimulating adaptogen — best for fatigue-dominant stress rather than anxiety.** Human trials show 200–600 mg/day reduces mental fatigue and improves cognitive performance under stress. Best for: burnout, brain fog, physical fatigue. Not ideal for anxiety or sleep — it's mildly stimulating. Evidence grade: Moderate for fatigue and cognitive performance. **Full evidence below.**
+
 ## Introduction
 
 Rhodiola rosea — known as golden root, Arctic root, or rose root — is a succulent perennial native to the high-altitude regions of Arctic Siberia, central Asia, and Scandinavia. It belongs to a distinct category of adaptogens characterized as **stimulating adaptogens**: unlike ashwagandha or valerian, which produce calming and sedative effects, rhodiola provides energy and mental performance support under conditions of fatigue and stress, with documented performance benefits in conditions where ashwagandha would likely be neutral or mildly sedating.

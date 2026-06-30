@@ -151,6 +151,11 @@ references:
     url: "https://pubmed.ncbi.nlm.nih.gov/28445426/"
 ---
 
+
+## TL;DR
+
+**Ashwagandha is the most studied adaptogen for stress.** Multiple RCTs show 300–600 mg/day of standardized root extract reduces cortisol, perceived stress, and anxiety over 6–8 weeks. Best for: chronic stress with anxiety or sleep disruption. Not a quick fix — effects build over weeks. Evidence grade: Moderate-high for stress; moderate for anxiety and sleep. **Full evidence breakdown below.**
+
 ## Quick Answer
 
 Ashwagandha (*Withania somnifera*) is most worth considering when the main problem is chronic stress with anxiety, tension, or sleep-onset difficulty. Human randomized trials generally use standardized root extracts and show improvements in stress scales, anxiety measures, cortisol, and sleep quality over weeks rather than days.

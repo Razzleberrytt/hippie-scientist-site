@@ -61,6 +61,11 @@ references:
     url: "https://www.consumerreports.org/supplements/"
 ---
 
+
+## TL;DR
+
+**Look for USP, NSF, or ConsumerLab certification — these are the only independent verifications that what's on the label is in the bottle.** 'Lab tested' without specifying the lab is meaningless. 'GMP certified' verifies the facility, not the product. Mushroom supplements need beta-glucan disclosure >25%. Proprietary blends hide individual doses. **Full checklist and red flags below.**
+
 ## The Problem: What's on the Label Isn't Always in the Bottle
 
 The supplement industry in the United States operates under the Dietary Supplement Health and Education Act of 1994 (DSHEA), which regulates supplements as a subcategory of food — not as drugs. This means:

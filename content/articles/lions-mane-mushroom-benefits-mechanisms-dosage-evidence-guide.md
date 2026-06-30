@@ -101,6 +101,11 @@ references:
 
 Evidence note: Lion's Mane has human trials, but the strongest claims remain narrow: mild cognitive impairment, early cognitive decline, and preliminary mood or stress signals. Treat broader nerve-regeneration and nootropic claims as mechanistic or early-stage unless a human trial directly supports them.
 
+
+## TL;DR
+
+**Lion's Mane stimulates Nerve Growth Factor (NGF), supporting brain cell health and cognitive function.** Human trials show improved cognitive scores in mild cognitive impairment at 750 mg–1 g/day for 8–16 weeks. Best for: cognitive aging support, mental clarity. Not a stimulant — effects are gradual and subtle. Evidence grade: Moderate for cognition; preliminary for mood. No ADHD-specific trials exist. **Full clinical evidence below.**
+
 ## Quick Facts
 
 | Detail | Information |

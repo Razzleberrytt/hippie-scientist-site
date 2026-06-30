@@ -125,6 +125,11 @@ references:
     url: "https://pubmed.ncbi.nlm.nih.gov/2407766/"
 ---
 
+
+## TL;DR
+
+**Magnesium glycinate is the best-studied magnesium form for sleep and stress.** Human trials show improved sleep quality, reduced anxiety, and lower cortisol at 200–400 mg elemental magnesium before bed. Best for: stress-related insomnia, muscle tension, magnesium deficiency. Better absorbed and less laxative than citrate. Evidence grade: Moderate for sleep and anxiety. **Full evidence below.**
+
 ## Introduction
 
 Magnesium is the fourth most abundant mineral in the human body and is a required cofactor for more than 300 enzymatic reactions — yet surveys consistently find that between 50 and 60 percent of adults in the United States do not meet the recommended daily intake. This widespread insufficiency has consequences that span neurology, endocrinology, and sleep medicine, because magnesium occupies a unique position at the intersection of several signaling systems that regulate arousal, stress response, and anxious affect.

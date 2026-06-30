@@ -108,6 +108,11 @@ references:
     url: "https://pubmed.ncbi.nlm.nih.gov/31661839/"
 ---
 
+
+## TL;DR
+
+**L-Theanine promotes calm focus without sedation — the 'alert relaxation' found in green tea.** Human trials show 200–400 mg reduces anxiety, improves focus under stress, and smooths caffeine's jittery edge. Best for: daytime calm, focus + caffeine stacking, mild anxiety. Effects are felt within 30–60 minutes. Evidence grade: Moderate for anxiety and focus. **Full evidence below.**
+
 ## Quick Answer
 
 L-theanine is most useful when the reader wants **calm focus without feeling sedated**. Its highest-ROI use case is pairing it with caffeine to improve attention while reducing the rough edges of caffeine, especially jitters, tension, or overstimulation. It is also a reasonable option for short-term stress reactivity and sleep-onset problems driven by racing thoughts.

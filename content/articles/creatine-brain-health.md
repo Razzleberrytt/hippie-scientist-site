@@ -66,6 +66,11 @@ references:
     url: "https://pubmed.ncbi.nlm.nih.gov/18059623/"
 ---
 
+
+## TL;DR
+
+**Creatine isn't just for muscles — it fuels brain energy metabolism.** Studies show 5 g/day improves cognitive performance under sleep deprivation, mental fatigue, and aging. Best for: brain fog during stress, cognitive aging, women augmenting depression treatment. Not a stimulant — effects build over 2–4 weeks. Evidence grade: Moderate for cognition under stress; preliminary for mood. **Full evidence below.**
+
 ## Creatine Is Not Just for Muscles
 
 Creatine is best known as a gym supplement — and for good reason. It's one of the most extensively studied and consistently effective ergogenic aids, with hundreds of trials confirming it improves strength, power, and muscle mass when combined with resistance training.

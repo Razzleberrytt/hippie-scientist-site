@@ -61,6 +61,11 @@ references:
     url: "https://pubmed.ncbi.nlm.nih.gov/16261513/"
 ---
 
+
+## TL;DR
+
+**Mushroom coffee is a lower-caffeine alternative with plausible but modest functional benefits.** At typical blend doses (250–500 mg mushroom extract per serving), you're getting roughly half the studied dose for most effects. Best for: reducing caffeine intake while adding beta-glucans and antioxidants. Not a replacement for therapeutic mushroom supplements at studied doses. **Full brand guide and evidence below.**
+
 ## What Is Mushroom Coffee?
 
 Mushroom coffee is a blend of regular coffee (or a coffee alternative) with powdered extracts of functional mushrooms — most commonly lion's mane, chaga, reishi, and cordyceps. It emerged as a wellness trend around 2020–2021 and has grown rapidly since, with the functional mushroom beverage category reaching $642 million in sales (SPINS 2023 data, 19.5% year-over-year growth).
