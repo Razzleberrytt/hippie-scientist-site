@@ -81,7 +81,7 @@ const toolLinks = [
 export default function HomepageV2() {
 
   return (
-    <div className='overflow-x-clip ps-body'>
+    <div className='overflow-x-clip'>
       <div className='mx-auto max-w-6xl space-y-8 px-4 pb-12 pt-4 sm:px-6 sm:space-y-10 sm:pb-16 sm:pt-6 lg:px-8'>
 
         {/* ── Hero ─────────────────────────────────────────────── */}
