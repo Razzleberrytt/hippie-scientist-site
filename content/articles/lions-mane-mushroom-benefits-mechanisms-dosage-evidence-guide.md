@@ -1,6 +1,6 @@
 ---
 slug: lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide
-title: "Lion's Mane Mushroom: Benefits, Mechanisms, Dosage & Evidence-Based Guide"
+title: "Lion's Mane Mushroom: Benefits, Mechanisms, and Evidence Guide"
 description: "A practical evidence-based guide to Lion's Mane mushroom, including mechanisms, dosage, safety, cognitive evidence, mood data, nerve regeneration research, and realistic expectations."
 date: '2026-06-08'
 author: Will

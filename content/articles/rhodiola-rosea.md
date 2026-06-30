@@ -1,8 +1,9 @@
 ---
 slug: rhodiola-rosea
-title: "Rhodiola Rosea: Adaptogen Mechanisms, Fatigue RCTs, and Cortisol Pathways"
+title: "Rhodiola Rosea: Adaptogen Mechanisms, Fatigue, and Cortisol"
 description: "A research-graded review of Rhodiola rosea covering adaptogenic mechanisms, salidroside and rosavin pharmacology, fatigue and burnout RCTs, HPA axis modulation, and dosage standards."
 date: '2026-06-06'
+updatedAt: '2026-06-30'
 author: Will
 category: Adaptogens
 keywords:

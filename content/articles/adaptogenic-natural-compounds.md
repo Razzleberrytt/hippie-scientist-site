@@ -1,9 +1,10 @@
 ---
 slug: adaptogenic-natural-compounds
-title: "Adaptogenic Natural Compounds: Clinical Evidence for HPA Axis Modulation, Stress Resilience, and Wellness Applications"
+title: "Adaptogenic Compounds: Clinical Evidence for HPA Axis and Stress"
 description: "An evidence-based review of adaptogenic natural compounds covering Ashwagandha, Rhodiola, Ginseng, Tulsi, and more—with clinical trial data on HPA axis regulation, cortisol, and stress resilience."
 category: Adaptogens
 date: '2026-06-10'
+updatedAt: '2026-06-30'
 author: Will
 keywords:
   - adaptogens evidence

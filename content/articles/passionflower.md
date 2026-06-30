@@ -1,8 +1,9 @@
 ---
 slug: passionflower
-title: "Passionflower: GABAergic Action, Anxiety RCTs, and Sleep Quality Evidence"
+title: "Passionflower: GABAergic Action, Anxiety RCTs, and Sleep Quality"
 description: "A research-graded review of Passiflora incarnata covering chrysin and benzoflavone mechanisms, GABA-A receptor activity, anxiety RCTs, and sleep quality evidence from controlled trials."
 date: '2026-06-06'
+updatedAt: '2026-06-30'
 author: Will
 category: Anxiety & Sleep
 keywords:

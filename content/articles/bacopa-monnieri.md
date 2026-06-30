@@ -1,8 +1,9 @@
 ---
 slug: bacopa-monnieri
-title: "Bacopa Monnieri: Neurotransmitter Support, Memory RCTs, and Learning Enhancement"
+title: "Bacopa Monnieri: Memory, Focus, and Neurotransmitter Support"
 description: "A research-graded review of Bacopa monnieri (Brahmi) covering bacosides mechanisms, acetylcholinesterase activity, serotonin modulation, and RCT evidence in older adults and healthy populations."
 date: '2026-06-06'
+updatedAt: '2026-06-30'
 author: Will
 category: Cognitive health
 keywords:

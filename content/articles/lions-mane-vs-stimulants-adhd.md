@@ -1,6 +1,6 @@
 ---
 slug: lions-mane-vs-stimulants-adhd
-title: "Lion's Mane vs Prescription Stimulants for ADHD: What the Evidence Actually Shows"
+title: "Lion's Mane vs Stimulants for ADHD: What the Evidence Shows"
 description: "An honest, evidence-graded comparison of Lion's Mane mushroom and prescription stimulants (Adderall, Vyvanse, Ritalin) for ADHD. Covering mechanisms, clinical evidence, side effect profiles, and the critical differences between a dietary supplement and FDA-approved medications."
 date: '2026-06-30'
 updatedAt: '2026-06-30'

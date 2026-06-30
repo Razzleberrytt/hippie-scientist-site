@@ -1,8 +1,9 @@
 ---
 slug: ginkgo-biloba
-title: "Ginkgo Biloba: Cerebral Blood Flow, Neuroprotection, and Aging Cognition — Mechanisms and RCT Evidence"
+title: "Ginkgo Biloba: Cerebral Blood Flow, Cognition, and Aging"
 description: "A research-graded review of Ginkgo biloba (EGb 761) covering flavonol and terpene mechanisms, cerebrovascular effects, dementia RCTs, and the large GEM trial's nuanced findings on aging and cognition."
 date: '2026-06-06'
+updatedAt: '2026-06-30'
 author: Will
 category: Cognitive health
 keywords:

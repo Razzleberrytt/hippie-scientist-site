@@ -1,6 +1,6 @@
 ---
 slug: mushroom-coffee-benefits-review
-title: "Mushroom Coffee: Benefits, Science, and What to Look For"
+title: "Mushroom Coffee: Benefits, Science, and Brand Guide"
 description: "An evidence-based look at mushroom coffee — what the science says about lion's mane, chaga, reishi, and cordyceps in coffee, whether the benefits are real, and how to evaluate brands."
 date: '2026-06-30'
 updatedAt: '2026-06-30'

@@ -1,6 +1,6 @@
 ---
 slug: functional-mushrooms-guide
-title: "Functional Mushrooms 101: Reishi, Cordyceps, Chaga, and Turkey Tail — Evidence and Practical Use"
+title: "Functional Mushrooms 101: Reishi, Cordyceps, Chaga, and Turkey Tail"
 description: "A practical, evidence-graded overview of four major functional mushrooms beyond Lion's Mane — covering mechanisms, key clinical findings, when to use each, and how to choose quality supplements."
 date: '2026-06-30'
 updatedAt: '2026-06-30'

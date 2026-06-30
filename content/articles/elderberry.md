@@ -1,8 +1,9 @@
 ---
 slug: elderberry
-title: "Elderberry (Sambucus nigra) for Colds and Flu: Clinical Evidence and Practical Guidance"
+title: "Elderberry for Colds and Flu: Clinical Evidence Review"
 description: "Evidence-based review of elderberry for upper respiratory infections, including clinical trials, systematic reviews, safety profile, quality considerations, and practical harm reduction guidance."
 date: '2026-06-08'
+updatedAt: '2026-06-30'
 author: Will
 category: Immune health
 keywords:

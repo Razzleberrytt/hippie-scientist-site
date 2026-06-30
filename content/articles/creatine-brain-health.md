@@ -1,6 +1,6 @@
 ---
 slug: creatine-brain-health
-title: "Creatine for Brain Health: Beyond the Gym — Evidence for Cognition, Mood, and Aging"
+title: "Creatine for Brain Health: Evidence for Cognition, Mood, and Aging"
 description: "Creatine is no longer just a gym supplement. Emerging evidence suggests benefits for cognitive function, mental fatigue, brain energy metabolism, and healthy aging. Here's what the research shows."
 date: '2026-06-30'
 updatedAt: '2026-06-30'

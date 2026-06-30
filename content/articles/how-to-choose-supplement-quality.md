@@ -1,6 +1,6 @@
 ---
 slug: how-to-choose-supplement-quality
-title: "How to Choose a Quality Herbal Supplement: Third-Party Testing, Labels, and Red Flags"
+title: "How to Choose a Quality Supplement: Testing, Labels, and Red Flags"
 description: "A practical guide to evaluating supplement quality — third-party certifications (USP, NSF, ConsumerLab), label reading, red flags, and how to avoid adulterated or mislabeled products."
 date: '2026-06-30'
 updatedAt: '2026-06-30'

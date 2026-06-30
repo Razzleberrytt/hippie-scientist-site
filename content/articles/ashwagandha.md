@@ -1,6 +1,6 @@
 ---
 slug: ashwagandha
-title: "Ashwagandha (Withania somnifera): Stress, Cortisol, and Anxiety — Mechanisms and Clinical Evidence"
+title: "Ashwagandha: Stress, Cortisol, and Anxiety — Clinical Evidence"
 description: "A thorough, evidence-graded review of ashwagandha covering withanolide mechanisms, HPA axis modulation, cortisol reduction studies, menopausal anxiety RCTs, and dosage standards."
 date: '2026-06-06'
 updatedAt: '2026-06-19'
