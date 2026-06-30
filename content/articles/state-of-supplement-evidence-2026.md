@@ -29,7 +29,17 @@ faqs:
     answer: "Of the 816 studies catalogued in our database, approximately 15% provide strong evidence (Grade A: multiple large, independent RCTs with consistent results). Another 25% provide moderate evidence (Grade B: smaller RCTs or single large trials). The remaining 60% provide limited, preliminary, or traditional-use evidence only. This doesn't mean those supplements don't work — it means they haven't been rigorously studied yet."
   - question: "Which supplement has the strongest evidence?"
     answer: "Creatine monohydrate has by far the strongest evidence base — hundreds of RCTs confirming efficacy for strength, power, and muscle mass, with emerging data for brain health and depression. Among botanicals, ashwagandha has the most consistent clinical trial data for stress reduction, and berberine has the most replicated metabolic effects. But 'strongest evidence' depends on the specific outcome you're measuring."
-references: []
+references:
+  - title: "DNA barcoding detects contamination and substitution in North American herbal products"
+    authors: "Newmaster SG, Grguric M, Shanmughanandhan D, Ramalingam S, Ragupathy S"
+    year: "2013"
+    pmid: "24132220"
+    url: "https://pubmed.ncbi.nlm.nih.gov/24132220/"
+  - title: "Variability in potency among commercial preparations of berberine"
+    authors: "Funk RS, Singh RK, Winefield RD, Kandel SE, Ruisinger JF, Moriarty PM, Backes JM"
+    year: "2018"
+    pmid: "28792254"
+    url: "https://pubmed.ncbi.nlm.nih.gov/28792254/"
 ---
 
 ## TL;DR
