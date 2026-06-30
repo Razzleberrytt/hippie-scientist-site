@@ -96,7 +96,7 @@ export default function AdaptogensEducationPage() {
           What Are Adaptogens?
         </h1>
 
-        <p className='text-lg leading-8 text-[#46574d]'>
+        <p className='text-lg leading-8 text-muted'>
           Adaptogens are herbs and compounds associated with stress-response
           regulation, nervous-system resilience, fatigue recovery,
           neuroendocrine adaptation, emotional-processing continuity, and
@@ -131,7 +131,7 @@ export default function AdaptogensEducationPage() {
               {mechanism.title}
             </h2>
 
-            <p className='text-sm leading-7 text-[#46574d]'>
+            <p className='text-sm leading-7 text-muted'>
               {mechanism.body}
             </p>
           </div>
@@ -146,7 +146,7 @@ export default function AdaptogensEducationPage() {
             Adaptogens intersect with broader resilience biology
           </h2>
 
-          <p className='text-base leading-8 text-[#46574d]'>
+          <p className='text-base leading-8 text-muted'>
             Modern adaptogen discussions frequently overlap with
             neuroinflammation research, mitochondrial stress adaptation,
             autonomic nervous-system flexibility, sleep restoration, fatigue
@@ -187,7 +187,7 @@ export default function AdaptogensEducationPage() {
                 {item.question}
               </h3>
 
-              <p className='text-sm leading-7 text-[#46574d]'>
+              <p className='text-sm leading-7 text-muted'>
                 {item.answer}
               </p>
             </div>

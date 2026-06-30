@@ -50,7 +50,7 @@ export default function DreamHerbsPage() {
           Dream Herbs
         </h1>
 
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Educational exploration of oneirogenic herbs, dreaming systems, REM-related pathways, and psychoactive ethnobotanical traditions associated with dream vividness and altered dream states.
         </p>
       </section>

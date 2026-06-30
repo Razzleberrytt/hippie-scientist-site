@@ -29,7 +29,7 @@ export function SemanticHubIntro({ sections }: { sections: MicroSection[] }) {
       {strongSections.map((section) => (
         <article key={section.title} className="surface-subtle rounded-2xl border border-brand-900/10 p-5">
           <p className="eyebrow-label">{section.title}</p>
-          <p className="mt-3 text-sm leading-7 text-[#46574d]">{section.body}</p>
+          <p className="mt-3 text-sm leading-7 text-muted">{section.body}</p>
         </article>
       ))}
     </section>
@@ -104,7 +104,7 @@ export function EcosystemPanelGrid({ title, eyebrow = 'Ecosystem context', panel
             <div className="space-y-3">
               <p className="identity-kicker">{panel.eyebrow}</p>
               <h3 className="text-lg font-semibold leading-7 text-ink">{panel.title}</h3>
-              <p className="text-sm leading-7 text-[#46574d]">{panel.body}</p>
+              <p className="text-sm leading-7 text-muted">{panel.body}</p>
               {panel.signals?.length ? (
                 <div className="flex flex-wrap gap-2 pt-1">
                   {panel.signals.filter(Boolean).slice(0, 4).map((signal) => (

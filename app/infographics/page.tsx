@@ -28,7 +28,7 @@ export default function InfographicsPage() {
         <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">
           Free Supplement Evidence Infographics
         </h1>
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Download or embed these evidence-based infographics on your site. 
           Free to share with attribution — help people find the data, not the marketing.
         </p>
@@ -49,7 +49,7 @@ export default function InfographicsPage() {
         </div>
         <details className="card-premium p-4 cursor-pointer">
           <summary className="text-sm font-semibold text-ink">Embed code — copy and paste</summary>
-          <pre className="mt-3 text-xs leading-relaxed bg-surface-subtle p-3 rounded-lg overflow-x-auto text-[#46574d]">
+          <pre className="mt-3 text-xs leading-relaxed bg-surface-subtle p-3 rounded-lg overflow-x-auto text-muted">
 {infoGraphicEmbedCode('sleep-supplements-evidence', 600, 800, 'Sleep Supplements Evidence vs Hype — The Hippie Scientist')}
           </pre>
         </details>
@@ -70,7 +70,7 @@ export default function InfographicsPage() {
         </div>
         <details className="card-premium p-4 cursor-pointer">
           <summary className="text-sm font-semibold text-ink">Embed code — copy and paste</summary>
-          <pre className="mt-3 text-xs leading-relaxed bg-surface-subtle p-3 rounded-lg overflow-x-auto text-[#46574d]">
+          <pre className="mt-3 text-xs leading-relaxed bg-surface-subtle p-3 rounded-lg overflow-x-auto text-muted">
 {infoGraphicEmbedCode('adhd-supplements-evidence', 600, 800, 'ADHD Supplements Evidence Levels — The Hippie Scientist')}
           </pre>
         </details>
@@ -79,7 +79,7 @@ export default function InfographicsPage() {
       {/* How to use */}
       <section className="max-w-4xl card-premium p-6 space-y-4">
         <h2 className="text-xl font-semibold text-ink">How to use these infographics</h2>
-        <div className="space-y-3 text-sm leading-7 text-[#46574d]">
+        <div className="space-y-3 text-sm leading-7 text-muted">
           <p><strong>Bloggers & journalists:</strong> Copy the embed code above and paste into your article HTML. The image links back to our evidence report.</p>
           <p><strong>Social media:</strong> Download the image and share on Instagram, Twitter, Pinterest, or TikTok. Tag @HippieScientist.</p>
           <p><strong>Health practitioners:</strong> Print and display in your office or share as a patient handout.</p>

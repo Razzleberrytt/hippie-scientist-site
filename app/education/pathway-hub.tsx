@@ -142,7 +142,7 @@ function RecordCard({ record, href, type }: { record: RuntimeRecord; href: strin
             {name}
           </h3>
 
-          <p className="mt-3 line-clamp-3 text-sm leading-7 text-[#46574d]">
+          <p className="mt-3 line-clamp-3 text-sm leading-7 text-muted">
             {summary}
           </p>
         </div>
@@ -199,7 +199,7 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
 
           <h1 className="heading-premium text-ink">{config.title}</h1>
 
-          <p className="detail-reading text-lg text-[#46574d]">{config.summary}</p>
+          <p className="detail-reading text-lg text-muted">{config.summary}</p>
 
           <div className="flex flex-wrap gap-2">
             {config.clusters.map((cluster) => (
@@ -226,7 +226,7 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
           <div className="mt-4 flex flex-wrap gap-2">
             {mechanisms.length > 0 ? mechanisms.map((mechanism) => (
               <span key={mechanism} className="chip-readable">{mechanism}</span>
-            )) : <p className="text-sm leading-7 text-[#46574d]">Mechanism chips appear when matching records expose pathway signals.</p>}
+            )) : <p className="text-sm leading-7 text-muted">Mechanism chips appear when matching records expose pathway signals.</p>}
           </div>
         </div>
 
@@ -235,7 +235,7 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
           <div className="mt-4 flex flex-wrap gap-2">
             {effects.length > 0 ? effects.map((effect) => (
               <span key={effect} className="chip-readable">{effect}</span>
-            )) : <p className="text-sm leading-7 text-[#46574d]">Effect chips appear when matching records expose associated-effect signals.</p>}
+            )) : <p className="text-sm leading-7 text-muted">Effect chips appear when matching records expose associated-effect signals.</p>}
           </div>
         </div>
       </section>
@@ -245,7 +245,7 @@ export async function PathwayHub({ pathway }: { pathway: PathwaySlug }) {
           <div className="space-y-2">
             <p className="eyebrow-label">Authority supernodes</p>
             <h2 className="text-2xl font-semibold tracking-tight text-ink">High-density anchors for this pathway</h2>
-            <p className="text-sm leading-7 text-[#46574d]">These profiles provide semantic navigation centers for the pathway without implying that all adjacent records share the same clinical evidence.</p>
+            <p className="text-sm leading-7 text-muted">These profiles provide semantic navigation centers for the pathway without implying that all adjacent records share the same clinical evidence.</p>
           </div>
           <div className="mt-4 flex flex-wrap gap-3">
             {authorityAnchors.map((record: RuntimeRecord) => (

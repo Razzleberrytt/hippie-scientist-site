@@ -138,7 +138,7 @@ export default function AshwagandhaForSleepPage() {
           <LastUpdatedBadge date={DATE} label="Last updated" />
         </div>
 
-        <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">{DESCRIPTION}</p>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
       </section>
 
       {/* Affiliate disclosure */}
@@ -160,7 +160,7 @@ export default function AshwagandhaForSleepPage() {
             <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
               If you only try one thing: melatonin or L-theanine (not ashwagandha)
             </h2>
-            <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
               <strong>Ashwagandha is not the fastest useful choice for sleep &mdash; it requires 6&ndash;8 weeks of consistent use to build an effect.</strong>{' '}
               If you want faster sleep onset tonight, the more useful options are{' '}
               <Link href="/articles/l-theanine" className="font-semibold text-brand-700 hover:underline">L-theanine</Link>{' '}
@@ -180,14 +180,14 @@ export default function AshwagandhaForSleepPage() {
             <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
               Does Ashwagandha Help With Sleep?
             </h2>
-            <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
               <strong>Probably yes, especially for stress-driven poor sleep.</strong> Multiple
               randomized controlled trials show ashwagandha root extract (300–600&nbsp;mg/day,
               standardized KSM-66 or Sensoril) improves sleep quality scores, sleep onset latency,
               and morning alertness versus placebo over 6–10 weeks. The effect is most consistent in
               adults with elevated perceived stress — the populations studied most often.
             </p>
-            <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
               It does not act as a direct sedative. Ashwagandha works indirectly — primarily by
               blunting the cortisol and adrenergic stress response that keeps the nervous system
               activated at night — rather than by inducing sedation. That makes it useful for
@@ -201,13 +201,13 @@ export default function AshwagandhaForSleepPage() {
             {/* Introduction */}
             <div id="introduction">
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">Introduction</h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Ashwagandha (<em>Withania somnifera</em>) is one of the most studied adaptogens in
                 evidence-based supplement research. While it is best known for stress and anxiety
                 reduction, a growing body of clinical research specifically examines its effects on
                 sleep — and the results are consistently positive across several independent trials.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 This article reviews the current clinical evidence, proposes mechanisms, outlines
                 dosing protocols used in trials, compares ashwagandha to competing sleep
                 supplements, and flags the safety considerations that matter most for long-term use.
@@ -229,25 +229,25 @@ export default function AshwagandhaForSleepPage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 What Is Ashwagandha?
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 <em>Withania somnifera</em> is a small shrub in the Solanaceae (nightshade) family,
                 native to India, North Africa, and the Mediterranean. In Ayurvedic medicine it is
                 classified as a <em>rasayana</em> — a rejuvenating herb used to promote longevity,
                 vitality, and resistance to disease.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 The species name <em>somnifera</em> means &ldquo;sleep-inducing&rdquo; in Latin —
                 the plant was historically used as a sedative tonic. Modern research confirms a
                 genuine sleep benefit, though the mechanism is more nuanced than simple sedation.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 Key active constituents include withanolides (steroidal lactones), withaferin A, and
                 alkaloids. Commercial extracts are typically standardized to withanolide content
                 (≥5%) and come in two clinically dominant patented forms:{' '}
                 <strong>KSM-66</strong> (full-spectrum root extract, Ixoreal Biomed) and{' '}
                 <strong>Sensoril</strong> (root and leaf extract, Natreon).
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 For a complete breakdown of chemistry, evidence, and uses beyond sleep, see the{' '}
                 <Link
                   href="/herbs/ashwagandha"
@@ -266,7 +266,7 @@ export default function AshwagandhaForSleepPage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 How Ashwagandha May Affect Sleep
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Several convergent mechanisms have been proposed, based on preclinical data and
                 plausible inference from human trial outcomes:
               </p>
@@ -274,7 +274,7 @@ export default function AshwagandhaForSleepPage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 1. HPA Axis Modulation (Cortisol Reduction)
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Ashwagandha consistently reduces morning serum cortisol in stressed adults across
                 multiple RCTs. Elevated cortisol at night is a primary driver of hyperarousal-type
                 insomnia. By blunting the HPA axis stress response, ashwagandha may reduce the
@@ -284,7 +284,7 @@ export default function AshwagandhaForSleepPage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 2. GABA-A Receptor Activity
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Withaferin A and related withanolides have demonstrated GABA-A receptor binding
                 activity in vitro and in animal models. GABA-A agonism is the mechanism of
                 benzodiazepines and many common sleep aids. The magnitude of this effect in humans
@@ -294,7 +294,7 @@ export default function AshwagandhaForSleepPage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 3. Triethylene Glycol (TEG) Content
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 A 2017 study (Kaushik et al.) isolated triethylene glycol from ashwagandha leaves
                 and found it induced significant non-REM sleep in mice. TEG content varies by plant
                 part (leaves vs. root) and extraction method, which may partially explain
@@ -304,7 +304,7 @@ export default function AshwagandhaForSleepPage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 4. Sympathetic Nervous System Downregulation
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Ashwagandha is associated with reduced markers of sympathetic activation (improved
                 heart rate variability, lower serum adrenaline in some studies). Nighttime
                 sympathetic activation is a core feature of stress-related insomnia; reducing it
@@ -328,7 +328,7 @@ export default function AshwagandhaForSleepPage() {
                 safetyProfile="Generally well-tolerated at 300–600 mg/day for 8–12 weeks. Rare hepatotoxicity cases reported in post-market surveillance. Contraindicated in pregnancy. Potential thyroid interactions at therapeutic doses."
               />
 
-              <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-[#46574d]">
+              <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-muted">
                 <p className="font-semibold text-ink">Key trials reviewed:</p>
                 <ul className="mt-2 ml-5 space-y-1 list-disc">
                   <li>
@@ -386,21 +386,21 @@ export default function AshwagandhaForSleepPage() {
                     <tbody className="divide-y divide-brand-900/5">
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">KSM-66</td>
-                        <td className="py-3 pr-4 text-[#46574d]">300–600 mg</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Evening or split (AM/PM)</td>
-                        <td className="py-3 text-[#46574d]">6–12 weeks</td>
+                        <td className="py-3 pr-4 text-muted">300–600 mg</td>
+                        <td className="py-3 pr-4 text-muted">Evening or split (AM/PM)</td>
+                        <td className="py-3 text-muted">6–12 weeks</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Sensoril</td>
-                        <td className="py-3 pr-4 text-[#46574d]">125–250 mg</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Evening</td>
-                        <td className="py-3 text-[#46574d]">8–12 weeks</td>
+                        <td className="py-3 pr-4 text-muted">125–250 mg</td>
+                        <td className="py-3 pr-4 text-muted">Evening</td>
+                        <td className="py-3 text-muted">8–12 weeks</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Root powder</td>
-                        <td className="py-3 pr-4 text-[#46574d]">3–6 g</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Evening (milk or water)</td>
-                        <td className="py-3 text-[#46574d]">Traditional — variable</td>
+                        <td className="py-3 pr-4 text-muted">3–6 g</td>
+                        <td className="py-3 pr-4 text-muted">Evening (milk or water)</td>
+                        <td className="py-3 text-muted">Traditional — variable</td>
                       </tr>
                     </tbody>
                   </table>
@@ -420,7 +420,7 @@ export default function AshwagandhaForSleepPage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Affiliate Product Recommendations
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 These products use the extract forms and dose ranges studied in the clinical trials
                 reviewed above. Affiliate links support this site at no additional cost to you.
               </p>
@@ -430,7 +430,7 @@ export default function AshwagandhaForSleepPage() {
                     Best for: Stress-Driven Sleep Issues
                   </p>
                   <p className="font-semibold text-ink">KSM-66 Ashwagandha Extract</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Patented full-spectrum root extract. Most-studied form for sleep quality. Look
                     for ≥300 mg per capsule, standardized to ≥5% withanolides.
                   </p>
@@ -448,7 +448,7 @@ export default function AshwagandhaForSleepPage() {
                     Best for: Lower Dose / Sensitive Users
                   </p>
                   <p className="font-semibold text-ink">Sensoril Ashwagandha Extract</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Root and leaf extract with strong clinical backing at lower mg doses. Well-suited
                     for sensitive individuals or stacking protocols.
                   </p>
@@ -545,33 +545,33 @@ export default function AshwagandhaForSleepPage() {
                   <tbody className="divide-y divide-brand-900/5">
                     <tr className="align-top">
                       <td className="py-3 pr-4 font-medium text-ink">Ashwagandha</td>
-                      <td className="py-3 pr-4 text-[#46574d]">HPA axis, cortisol, GABA-A</td>
-                      <td className="py-3 pr-4 text-[#46574d]">Stress-driven poor sleep</td>
-                      <td className="py-3 text-[#46574d]">Moderate (multiple RCTs)</td>
+                      <td className="py-3 pr-4 text-muted">HPA axis, cortisol, GABA-A</td>
+                      <td className="py-3 pr-4 text-muted">Stress-driven poor sleep</td>
+                      <td className="py-3 text-muted">Moderate (multiple RCTs)</td>
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-4 font-medium text-ink">Melatonin</td>
-                      <td className="py-3 pr-4 text-[#46574d]">MT1/MT2 receptor agonist</td>
-                      <td className="py-3 pr-4 text-[#46574d]">Circadian disruption, jet lag</td>
-                      <td className="py-3 text-[#46574d]">Strong (extensive RCTs)</td>
+                      <td className="py-3 pr-4 text-muted">MT1/MT2 receptor agonist</td>
+                      <td className="py-3 pr-4 text-muted">Circadian disruption, jet lag</td>
+                      <td className="py-3 text-muted">Strong (extensive RCTs)</td>
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-4 font-medium text-ink">Magnesium glycinate</td>
-                      <td className="py-3 pr-4 text-[#46574d]">NMDA antagonism, GABA support</td>
-                      <td className="py-3 pr-4 text-[#46574d]">Muscle tension, deficiency</td>
-                      <td className="py-3 text-[#46574d]">Moderate</td>
+                      <td className="py-3 pr-4 text-muted">NMDA antagonism, GABA support</td>
+                      <td className="py-3 pr-4 text-muted">Muscle tension, deficiency</td>
+                      <td className="py-3 text-muted">Moderate</td>
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-4 font-medium text-ink">Valerian</td>
-                      <td className="py-3 pr-4 text-[#46574d]">GABA-A agonism</td>
-                      <td className="py-3 pr-4 text-[#46574d]">Sleep onset latency</td>
-                      <td className="py-3 text-[#46574d]">Mixed / weak</td>
+                      <td className="py-3 pr-4 text-muted">GABA-A agonism</td>
+                      <td className="py-3 pr-4 text-muted">Sleep onset latency</td>
+                      <td className="py-3 text-muted">Mixed / weak</td>
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-4 font-medium text-ink">L-theanine</td>
-                      <td className="py-3 pr-4 text-[#46574d]">Alpha-wave promotion, relaxation</td>
-                      <td className="py-3 pr-4 text-[#46574d]">Anxiety-driven arousal</td>
-                      <td className="py-3 text-[#46574d]">Limited–moderate</td>
+                      <td className="py-3 pr-4 text-muted">Alpha-wave promotion, relaxation</td>
+                      <td className="py-3 pr-4 text-muted">Anxiety-driven arousal</td>
+                      <td className="py-3 text-muted">Limited–moderate</td>
                     </tr>
                   </tbody>
                 </table>
@@ -602,7 +602,7 @@ export default function AshwagandhaForSleepPage() {
                     className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4"
                   >
                     <h3 className="font-semibold text-ink">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-7 text-[#46574d]">{faq.answer}</p>
+                    <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
                   </div>
                 ))}
               </div>

@@ -82,7 +82,7 @@ function InsightCard({ eyebrow, title, body }: { eyebrow: string; title: string;
       <p className="eyebrow-label">{eyebrow}</p>
       <h3 className="mt-2 max-w-none text-xl font-semibold tracking-tight text-ink">{cleanTitle}</h3>
       {showBody ? (
-        <p className="mt-3 text-sm leading-7 text-[#46574d]">{cleanBody}</p>
+        <p className="mt-3 text-sm leading-7 text-muted">{cleanBody}</p>
       ) : null}
     </article>
   )
@@ -167,7 +167,7 @@ export default function AuthorityProfileShell({ model, record }: { model: Author
               <article key={item.outcome} className="rounded-[1.25rem] border border-brand-900/10 bg-white/75 p-4 shadow-sm">
                 <h4 className="max-w-none text-base font-semibold tracking-tight text-ink">{item.outcome}</h4>
                 {isDuplicateTitleBody(item.outcome, item.guidance) ? null : (
-                  <p className="mt-2 text-sm leading-6 text-[#46574d]">{item.guidance}</p>
+                  <p className="mt-2 text-sm leading-6 text-muted">{item.guidance}</p>
                 )}
               </article>
             ))}
@@ -188,7 +188,7 @@ export default function AuthorityProfileShell({ model, record }: { model: Author
             <div>
               <p className="eyebrow-label">Human evidence read</p>
               <h3 className="mt-2 max-w-none text-2xl font-semibold tracking-tight text-ink">{humanEvidence.interpretation}</h3>
-              <p className="mt-3 text-sm leading-7 text-[#46574d]">{humanEvidence.summary}</p>
+              <p className="mt-3 text-sm leading-7 text-muted">{humanEvidence.summary}</p>
             </div>
             <span className="rounded-2xl border border-brand-900/10 bg-brand-50/60 px-4 py-3 text-sm font-semibold text-ink">
               evidence weight {humanEvidence.evidenceWeight}

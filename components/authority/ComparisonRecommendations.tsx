@@ -70,7 +70,7 @@ export default function ComparisonRecommendations({
                 </h3>
 
                 {isRenderableText(item.rationale) && !isDuplicateTitleBody(item.title, item.rationale) ? (
-                  <p className="text-sm leading-7 text-[#46574d]">
+                  <p className="text-sm leading-7 text-muted">
                     {item.rationale}
                   </p>
                 ) : null}

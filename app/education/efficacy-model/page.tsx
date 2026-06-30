@@ -26,7 +26,7 @@ export default function EfficacyModelPage() {
         <h1 className='text-4xl font-bold tracking-tight text-ink sm:text-5xl lg:text-6xl'>
           Interactive Efficacy Modeler
         </h1>
-        <p className='text-base leading-8 text-[#46574d] text-reading'>
+        <p className='text-base leading-8 text-muted text-reading'>
           Model pharmacokinetic curves, onset timings, peak impact intervals, and elimination half-lives. Adjust supplement dosages below to simulate biological thresholds and resolve verified sourcing channels.
         </p>
       </section>

@@ -38,7 +38,7 @@ export default function PlaceboExpectancyPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Placebo and expectancy systems may influence perception, symptom interpretation, emotional processing, subjective experience, and reported outcomes within scientific studies.
         </p>
 

@@ -76,7 +76,7 @@ export default function WhyStudiesConflictPage() {
         {systems.map((system) => (
           <div key={system.title} className="card-premium p-6 space-y-4">
             <h2 className="text-2xl font-semibold tracking-tight text-ink">{system.title}</h2>
-            <p className="text-sm leading-7 text-[#46574d]">{system.body}</p>
+            <p className="text-sm leading-7 text-muted">{system.body}</p>
           </div>
         ))}
       </section>
@@ -91,7 +91,7 @@ export default function WhyStudiesConflictPage() {
           {faqs.map((faq) => (
             <div key={faq.question} className="card-premium p-6 space-y-3">
               <h3 className="text-xl font-semibold tracking-tight text-ink">{faq.question}</h3>
-              <p className="text-sm leading-7 text-[#46574d]">{faq.answer}</p>
+              <p className="text-sm leading-7 text-muted">{faq.answer}</p>
             </div>
           ))}
         </div>

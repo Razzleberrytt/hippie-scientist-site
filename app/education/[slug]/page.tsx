@@ -104,7 +104,7 @@ export default async function EducationArticlePage({ params }: Props) {
         </div>
 
         {article.description && (
-          <p className="mt-4 text-base leading-7 text-[#46574d]">
+          <p className="mt-4 text-base leading-7 text-muted">
             {article.description}
           </p>
         )}
@@ -166,7 +166,7 @@ export default async function EducationArticlePage({ params }: Props) {
                 {block.items.map((item, j) => (
                   <li
                     key={j}
-                    className="text-sm leading-7 text-[#46574d]"
+                    className="text-sm leading-7 text-muted"
                     dangerouslySetInnerHTML={{ __html: inlineFormat(item) }}
                   />
                 ))}
@@ -208,7 +208,7 @@ export default async function EducationArticlePage({ params }: Props) {
                             ) : (
                               <td
                                 key={cIndex}
-                                className="py-3 pr-4 leading-6 text-[#46574d]"
+                                className="py-3 pr-4 leading-6 text-muted"
                                 dangerouslySetInnerHTML={{ __html: inlineFormat(cell) }}
                               />
                             )
@@ -241,7 +241,7 @@ export default async function EducationArticlePage({ params }: Props) {
           return (
             <p
               key={index}
-              className="text-sm leading-[1.8] text-[#46574d]"
+              className="text-sm leading-[1.8] text-muted"
               dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }}
             />
           )

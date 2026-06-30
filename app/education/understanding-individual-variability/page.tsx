@@ -39,7 +39,7 @@ export default function IndividualVariabilityPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Human responses to herbs, compounds, psychoactive systems, sleep disruption, stress burden, and neurochemical modulation may vary substantially across individuals.
         </p>
 

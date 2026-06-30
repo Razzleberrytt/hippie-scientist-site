@@ -177,7 +177,7 @@ export default async function StackPage({ params }: Params) {
         <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
           <p className="eyebrow-label">Stack Overview</p>
           <h1 className="heading-premium text-ink">{displayTitle}</h1>
-          <p className="detail-reading max-w-3xl text-base text-[#46574d] sm:text-lg">
+          <p className="detail-reading max-w-3xl text-base text-muted sm:text-lg">
             Use this category page to compare named protocols before opening the deeper stack detail.
           </p>
         </section>
@@ -270,7 +270,7 @@ export default async function StackPage({ params }: Params) {
         <div className="space-y-5">
           <p className="eyebrow-label">Semantic Stack</p>
           <h1 className="heading-premium text-ink">{namedStack ? displayTitle : `Best Supplements for ${goal}`}</h1>
-          <p className="detail-reading max-w-3xl text-base text-[#46574d] sm:text-lg">
+          <p className="detail-reading max-w-3xl text-base text-muted sm:text-lg">
             {displaySummary}
           </p>
           <div className="flex flex-wrap gap-2">

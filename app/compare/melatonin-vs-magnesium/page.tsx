@@ -36,7 +36,7 @@ export default function MelatoninVsMagnesiumPage() {
           Melatonin vs Magnesium for Sleep: Which Works Better?
         </h1>
 
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Melatonin and magnesium are two of the most commonly used sleep supplements, but they work through completely different mechanisms. This guide compares the evidence, practical dosing, and safety trade-offs.
         </p>
       </section>
@@ -44,7 +44,7 @@ export default function MelatoninVsMagnesiumPage() {
       <section className="grid gap-6 md:grid-cols-2">
         <div className="card-premium p-6 space-y-4">
           <h2 className="text-2xl font-semibold">Melatonin</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             Melatonin helps you fall asleep faster. Best for short-term use, jet lag, and circadian rhythm shifts. Typical dose: 0.5-5 mg, 30 min before bed.
           </p>
           <Link href="/compounds/melatonin" className="chip-readable">
@@ -54,7 +54,7 @@ export default function MelatoninVsMagnesiumPage() {
 
         <div className="card-premium p-6 space-y-4">
           <h2 className="text-2xl font-semibold">Magnesium (Glycinate)</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             Magnesium glycinate helps you stay asleep and supports deeper rest. Safer for long-term nightly use. Typical dose: 200-400 mg, 1-2 hours before bed.
           </p>
           <Link href="/compounds/magnesium-glycinate" className="chip-readable">
@@ -68,7 +68,7 @@ export default function MelatoninVsMagnesiumPage() {
           When to choose which
         </h2>
 
-        <p className="text-sm leading-7 text-[#46574d]">
+        <p className="text-sm leading-7 text-muted">
           Choose melatonin for sleep-onset issues and jet lag. Choose magnesium for sleep maintenance, restless legs, and long-term nightly use. Both can be taken together with staggered timing.
         </p>
 

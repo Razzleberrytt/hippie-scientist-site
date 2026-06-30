@@ -76,7 +76,7 @@ export default function FatigueRecoveryPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Fatigue recovery involves interconnected neurochemical, hormonal, behavioral, and physiological systems associated with stress adaptation, sleep continuity, cognition recovery, emotional regulation, metabolic restoration, and nervous-system resilience.
         </p>
 
@@ -105,7 +105,7 @@ export default function FatigueRecoveryPage() {
               {system.title}
             </h2>
 
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               {system.body}
             </p>
           </div>

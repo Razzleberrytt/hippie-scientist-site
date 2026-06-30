@@ -184,7 +184,7 @@ export default function GlobalSearch() {
         </div>
 
         <div className="flex items-center justify-between gap-3">
-          <p className="text-sm text-[#5f6f66]" aria-live="polite" aria-atomic="true">
+          <p className="text-sm text-muted" aria-live="polite" aria-atomic="true">
             {!search.ready
               ? 'Loading search…'
               : `${search.results.length} result${search.results.length === 1 ? '' : 's'}` +
@@ -192,14 +192,14 @@ export default function GlobalSearch() {
                 (search.activeFilters ? ` · ${search.activeFilters} filter${search.activeFilters === 1 ? '' : 's'}` : '')}
           </p>
           {search.totalIndexed > 0 && (
-            <span className="hidden text-xs text-[#7b887f] sm:inline">
+            <span className="hidden text-xs text-muted sm:inline">
               {search.totalIndexed} entries indexed
             </span>
           )}
         </div>
 
         {search.ready && search.results.length === 0 ? (
-          <div className="rounded-2xl border border-brand-900/10 bg-white/85 p-6 text-sm leading-6 text-[#46574d]">
+          <div className="rounded-2xl border border-brand-900/10 bg-white/85 p-6 text-sm leading-6 text-muted">
             No matches. Try a broader term (sleep, stress, focus) or clear filters.
           </div>
         ) : (
@@ -228,7 +228,7 @@ export default function GlobalSearch() {
                   </div>
                   <h3 className="text-lg font-semibold leading-tight text-ink">{doc.title}</h3>
                   {doc.summary && (
-                    <p className="line-clamp-2 text-sm leading-6 text-[#46574d]">{doc.summary}</p>
+                    <p className="line-clamp-2 text-sm leading-6 text-muted">{doc.summary}</p>
                   )}
                   {doc.tags.length > 0 && (
                     <div className="mt-auto flex flex-wrap gap-1 pt-1">

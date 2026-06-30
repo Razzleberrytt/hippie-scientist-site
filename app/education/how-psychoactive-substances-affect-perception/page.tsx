@@ -42,7 +42,7 @@ export default function PsychoactivePerceptionPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Psychoactive substances may influence perception through interactions with signaling systems associated with sensory processing, emotional interpretation, cognition, altered states, memory integration, and neurochemical modulation.
         </p>
 

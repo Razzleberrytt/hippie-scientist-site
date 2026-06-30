@@ -501,7 +501,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
             </h1>
             {botanicalName ? <p className="text-sm italic text-muted">{botanicalName}</p> : null}
           </div>
-          <p className="text-base leading-7 text-[#46574d]">{briefSummary}</p>
+          <p className="text-base leading-7 text-muted">{briefSummary}</p>
           <div className="mt-3 flex flex-wrap items-center gap-3">
             <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
             <EvidenceScoreBadge record={herbRecord} />

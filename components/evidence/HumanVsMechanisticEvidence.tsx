@@ -31,7 +31,7 @@ export default function HumanVsMechanisticEvidence() {
           Human Evidence vs Mechanistic Evidence
         </h2>
 
-        <p className="text-base leading-8 text-[#46574d]">
+        <p className="text-base leading-8 text-muted">
           Neuroscience and neuropharmacology discussions frequently combine human evidence, mechanistic models, animal studies, and theoretical biological explanations. Educational interpretation should distinguish between evidence types rather than treating all findings as equally predictive.
         </p>
       </div>
@@ -46,7 +46,7 @@ export default function HumanVsMechanisticEvidence() {
               {comparison.title}
             </h3>
 
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               {comparison.description}
             </p>
           </div>
@@ -58,7 +58,7 @@ export default function HumanVsMechanisticEvidence() {
           Why mechanistic hype spreads online
         </h3>
 
-        <p className="text-sm leading-7 text-[#46574d]">
+        <p className="text-sm leading-7 text-muted">
           Statements like “boosts dopamine,” “increases neuroplasticity,” or “activates receptors” are often presented online as proof of dramatic cognitive or psychological outcomes. In reality, human neurobiology involves interacting systems, contextual variables, biological constraints, and substantial uncertainty regarding real-world effects.
         </p>
       </div>

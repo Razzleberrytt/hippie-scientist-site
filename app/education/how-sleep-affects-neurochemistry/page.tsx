@@ -76,7 +76,7 @@ export default function SleepNeurochemistryPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Sleep-related neurochemistry involves interconnected systems associated with nervous-system restoration, cognition recovery, emotional regulation, hormonal signaling, REM architecture, memory consolidation, and dream-state processing.
         </p>
 
@@ -105,7 +105,7 @@ export default function SleepNeurochemistryPage() {
               {section.title}
             </h2>
 
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               {section.body}
             </p>
           </div>

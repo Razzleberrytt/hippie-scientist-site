@@ -86,7 +86,7 @@ export default async function HerbsPage() {
               className="block rounded-[0.85rem] border border-brand-900/10 bg-white/80 p-4 shadow-sm"
             >
               <h2 className="text-base font-semibold tracking-tight text-ink">{getHerbName(herb)}</h2>
-              <p className="mt-2 text-sm leading-6 text-[#46574d]">
+              <p className="mt-2 text-sm leading-6 text-muted">
                 {String(herb.summary || herb.description || 'Herb profile with evidence, mechanism, and safety context.')}
               </p>
             </Link>

@@ -38,7 +38,7 @@ export default function ResearchMethodologyPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           The Hippie Scientist prioritizes conservative, educational interpretation grounded in human evidence, neuropharmacology, systems biology, and transparent research limitations.
         </p>
 

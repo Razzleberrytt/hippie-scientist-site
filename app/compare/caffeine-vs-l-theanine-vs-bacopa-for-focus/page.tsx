@@ -44,7 +44,7 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
         <h1 className="text-5xl font-bold tracking-tight text-ink">
           Caffeine vs L-Theanine vs Bacopa: Which Supports Your Cognitive Pattern?
         </h1>
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           If you are looking to boost focus, these three options work on completely different timelines.
           <strong> Caffeine</strong> provides rapid, stimulating alertness but can trigger jitters.
           <strong> L-Theanine</strong> promotes calm concentration and is commonly paired with caffeine to smooth its stimulant side effects.
@@ -60,7 +60,7 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
               Acute Stimulant
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-ink">Caffeine</h2>
-            <p className="text-sm leading-7 text-[#46574d] mt-2">
+            <p className="text-sm leading-7 text-muted mt-2">
               Best for immediate alertness and physical energy. It acts rapidly by blocking adenosine receptors, but can lead to tolerance, crashes, and sleep disruptions if used late in the day.
             </p>
           </div>
@@ -77,7 +77,7 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
               Relaxed Attention
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-ink">L-Theanine</h2>
-            <p className="text-sm leading-7 text-[#46574d] mt-2">
+            <p className="text-sm leading-7 text-muted mt-2">
               Best for calming overstimulation. It blocks glutamate receptors, generating alpha-wave activity to provide alert relaxation. It works within 30–90 minutes and is commonly paired with caffeine.
             </p>
           </div>
@@ -94,7 +94,7 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
               Long-Term Nootropic
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-ink">Bacopa Monnieri</h2>
-            <p className="text-sm leading-7 text-[#46574d] mt-2">
+            <p className="text-sm leading-7 text-muted mt-2">
               Best for cumulative memory consolidation and learning. It works over 4–12 weeks of daily use by promoting synaptic growth and modulating acetylcholine systems.
             </p>
           </div>
@@ -120,7 +120,7 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
                 <th className="py-3 pr-4 font-bold uppercase tracking-wider text-xs">Bacopa Monnieri</th>
               </tr>
             </thead>
-            <tbody className="text-[#46574d] divide-y divide-black/5">
+            <tbody className="text-muted divide-y divide-black/5">
               <tr>
                 <td className="py-3.5 pr-4 font-semibold text-ink">Primary Fit</td>
                 <td className="py-3.5 pr-4">Acute vigilance, sleep deprivation, physical endurance</td>
@@ -179,7 +179,7 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
         <div className="card-premium p-6 space-y-3">
           <p className="eyebrow-label">Scenario 1</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">The Acute Deadline</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             If you need to stay alert for an immediate exam or task under mild sleep debt,
             <strong> Caffeine</strong> provides the strongest and fastest boost. Keep in mind that
             overuse or late-day consumption can ruin subsequent recovery cycles, creating a fatigue loop.
@@ -188,7 +188,7 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
         <div className="card-premium p-6 space-y-3">
           <p className="eyebrow-label">Scenario 2</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">The Focused Synergy</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             If you love the focus caffeine provides but hate the racing heart rate and physical jitters,
             <strong> L-Theanine</strong> is the perfect partner. Studies suggest a 2:1 ratio (e.g. 200 mg L-theanine
             to 100 mg caffeine) optimizes attention while buffering stimulant side effects.
@@ -197,7 +197,7 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
         <div className="card-premium p-6 space-y-3">
           <p className="eyebrow-label">Scenario 3</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Steady Memory Building</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             If you want to boost learning rate or recall over a long-term project (such as learning a language
             or studying for licensing exams), <strong> Bacopa Monnieri</strong> is the target. It will not give
             immediate stimulation, so do not expect it to act like caffeine.
@@ -209,7 +209,7 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
       <section className="card-premium p-6 space-y-5 max-w-4xl border-l-4 border-rose-500 bg-rose-50/10">
         <p className="text-xs font-bold uppercase tracking-wider text-rose-900">Safety &amp; Clinical Cautions</p>
         <h2 className="text-2xl font-bold tracking-tight text-ink">Understanding Cognitive Stimulant Risks</h2>
-        <div className="space-y-4 text-sm leading-relaxed text-[#46574d]">
+        <div className="space-y-4 text-sm leading-relaxed text-muted">
           <p>
             Do not assume cognitive enhancers are without side effects or drug interactions:
           </p>
@@ -231,7 +231,7 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
       <section className="card-premium p-6 space-y-4 max-w-4xl">
         <p className="eyebrow-label">FAQ</p>
         <h2 className="text-3xl font-semibold tracking-tight text-ink">Common Questions</h2>
-        <div className="space-y-4 text-sm leading-7 text-[#46574d]">
+        <div className="space-y-4 text-sm leading-7 text-muted">
           <div>
             <h3 className="text-lg font-semibold text-ink">How should I schedule my bacopa doses?</h3>
             <p>

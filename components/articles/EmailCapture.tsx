@@ -51,7 +51,7 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
   }
 
   const isLoading = state === 'loading'
-  const statusClassName = state === 'error' ? 'text-sm leading-6 text-red-700' : 'text-sm leading-6 text-[#46574d]'
+  const statusClassName = state === 'error' ? 'text-sm leading-6 text-red-700' : 'text-sm leading-6 text-muted'
 
   return (
     <aside className="my-10 rounded-3xl border border-brand-900/10 bg-brand-50/70 p-5 shadow-sm sm:p-7" aria-labelledby={titleId}>
@@ -60,11 +60,11 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
         <h2 id={titleId} className="font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
           {title}
         </h2>
-        <p className="max-w-2xl text-base leading-7 text-[#46574d]">{description}</p>
+        <p className="max-w-2xl text-base leading-7 text-muted">{description}</p>
       </div>
 
       {state === 'success' ? (
-        <div className="mt-6 rounded-2xl border border-brand-900/10 bg-white p-4 text-sm leading-6 text-[#46574d]">
+        <div className="mt-6 rounded-2xl border border-brand-900/10 bg-white p-4 text-sm leading-6 text-muted">
           <p className="font-semibold text-ink">{message}</p>
           <a className="mt-3 inline-flex rounded-full bg-brand-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-brand-800" href={CHECKLIST_URL}>
             Open the ADHD checklist

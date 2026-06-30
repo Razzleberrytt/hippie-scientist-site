@@ -211,7 +211,7 @@ function SectionHeader({ kicker, title, children }: { kicker: string; title: str
     <div className="space-y-2">
       <p className="eyebrow-label">{kicker}</p>
       <h2 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{title}</h2>
-      {children ? <div className="text-sm leading-6 text-[#46574d]">{children}</div> : null}
+      {children ? <div className="text-sm leading-6 text-muted">{children}</div> : null}
     </div>
   )
 }
@@ -227,7 +227,7 @@ export function AshwagandhaStressClaim() {
         <div className="mt-5 space-y-3">
           <p className="eyebrow-label">Evidence Engine proof of concept</p>
           <h2 className="max-w-[26ch] text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{claim.statement}</h2>
-          <p className="max-w-3xl text-base leading-7 text-[#46574d]">A claim-level view for one practical question: does the evidence justify considering ashwagandha for perceived stress?</p>
+          <p className="max-w-3xl text-base leading-7 text-muted">A claim-level view for one practical question: does the evidence justify considering ashwagandha for perceived stress?</p>
         </div>
         <dl className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {[
@@ -249,7 +249,7 @@ export function AshwagandhaStressClaim() {
         <SectionHeader kicker="Bottom line" title="Promising, short-term, and not universal" />
         <div className="mt-4 grid gap-3">
           {claim.bottomLine.map(item => (
-            <p key={item} className="rounded-xl border border-brand-900/10 bg-white/80 p-3 text-sm leading-6 text-[#46574d]">{item}</p>
+            <p key={item} className="rounded-xl border border-brand-900/10 bg-white/80 p-3 text-sm leading-6 text-muted">{item}</p>
           ))}
         </div>
       </section>
@@ -262,7 +262,7 @@ export function AshwagandhaStressClaim() {
           {decisionStates.map(item => (
             <div key={item.state} className={`rounded-xl border p-4 ${item.active ? 'border-emerald-700/25 bg-emerald-50/80' : 'border-brand-900/10 bg-white/75'}`}>
               <p className={`text-sm font-bold ${item.active ? 'text-emerald-900' : 'text-ink'}`}>{item.active ? '✓ ' : ''}{item.state}</p>
-              <p className="mt-2 text-sm leading-6 text-[#46574d]">{item.note}</p>
+              <p className="mt-2 text-sm leading-6 text-muted">{item.note}</p>
             </div>
           ))}
         </div>
@@ -278,7 +278,7 @@ export function AshwagandhaStressClaim() {
                 <span className="font-mono text-sm tracking-wider text-emerald-800" aria-label={`${item.level} evidence indicator`}>{item.indicator}</span>
               </div>
               <p className="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-muted">{item.level}</p>
-              <p className="mt-2 text-sm leading-6 text-[#46574d]">{item.explanation}</p>
+              <p className="mt-2 text-sm leading-6 text-muted">{item.explanation}</p>
             </div>
           ))}
         </div>
@@ -293,7 +293,7 @@ export function AshwagandhaStressClaim() {
                 {['Year', 'Type', 'Population', 'Sample', 'Duration', 'Result', 'Relevance'].map(heading => <th key={heading} className="px-3 py-3 font-semibold">{heading}</th>)}
               </tr>
             </thead>
-            <tbody className="text-[#46574d]">
+            <tbody className="text-muted">
               {supportingStudies.map(study => (
                 <tr key={`${study.year}-${study.sampleSize}`} className="border-b border-brand-900/10 last:border-0">
                   <td className="px-3 py-3 font-semibold text-ink">{study.year}</td>
@@ -336,7 +336,7 @@ export function AshwagandhaStressClaim() {
       <section className="card-premium p-4 sm:p-5">
         <SectionHeader kicker="What we still do not know" title="The limits are part of the claim" />
         <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-          {unknowns.map(item => <li key={item} className="rounded-xl border border-brand-900/10 bg-white/80 p-3 text-sm leading-6 text-[#46574d]">{item}</li>)}
+          {unknowns.map(item => <li key={item} className="rounded-xl border border-brand-900/10 bg-white/80 p-3 text-sm leading-6 text-muted">{item}</li>)}
         </ul>
       </section>
 
@@ -347,9 +347,9 @@ export function AshwagandhaStressClaim() {
             <article key={source.citation} className="rounded-xl border border-brand-900/10 bg-white/80 p-4">
               <h3 className="max-w-none text-base font-semibold text-ink"><a href={source.href} className="hover:underline">{source.citation}</a></h3>
               <dl className="mt-3 grid gap-2 text-sm sm:grid-cols-3">
-                <div><dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Study type</dt><dd className="mt-1 text-[#46574d]">{source.studyType}</dd></div>
-                <div><dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Relationship</dt><dd className="mt-1 text-[#46574d]">{source.relationship}</dd></div>
-                <div><dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Extraction note</dt><dd className="mt-1 text-[#46574d]">{source.note}</dd></div>
+                <div><dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Study type</dt><dd className="mt-1 text-muted">{source.studyType}</dd></div>
+                <div><dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Relationship</dt><dd className="mt-1 text-muted">{source.relationship}</dd></div>
+                <div><dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Extraction note</dt><dd className="mt-1 text-muted">{source.note}</dd></div>
               </dl>
             </article>
           ))}
@@ -362,7 +362,7 @@ export function AshwagandhaStressClaim() {
           {nextDecisions.map(item => (
             <Link key={item.href} href={item.href} className="rounded-xl border border-brand-900/10 bg-white/80 p-4 hover:border-emerald-700/20 hover:bg-emerald-50/60">
               <span className="text-sm font-semibold text-ink">{item.label}</span>
-              <span className="mt-2 block text-sm leading-6 text-[#46574d]">{item.note}</span>
+              <span className="mt-2 block text-sm leading-6 text-muted">{item.note}</span>
             </Link>
           ))}
         </div>

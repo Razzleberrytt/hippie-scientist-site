@@ -41,7 +41,7 @@ export default function NeurochemistryComplexityPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Neurochemical systems are highly interconnected and cannot usually be reduced to simplistic “more serotonin” or “more dopamine” explanations. Emotional regulation, cognition, sleep continuity, stress adaptation, psychoactive perception, motivation systems, and nervous-system resilience involve overlapping biological networks rather than isolated pathways.
         </p>
 

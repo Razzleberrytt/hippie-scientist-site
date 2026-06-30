@@ -82,7 +82,7 @@ export default function NeuroscienceGlossaryPage() {
         {glossaryTerms.map((item) => (
           <div key={item.term} className="card-premium p-6 space-y-3">
             <h2 className="text-2xl font-semibold tracking-tight text-ink">{item.term}</h2>
-            <p className="text-sm leading-7 text-[#46574d]">{item.definition}</p>
+            <p className="text-sm leading-7 text-muted">{item.definition}</p>
           </div>
         ))}
       </section>

@@ -76,7 +76,7 @@ export default function FocusMotivationPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Focus and motivation involve interconnected neurochemical, behavioral, psychological, and environmental systems associated with cognition continuity, behavioral drive, emotional regulation, stress adaptation, attention regulation, and nervous-system balance.
         </p>
 
@@ -105,7 +105,7 @@ export default function FocusMotivationPage() {
               {system.title}
             </h2>
 
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               {system.body}
             </p>
           </div>

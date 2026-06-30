@@ -107,7 +107,7 @@ export default function GabaPathwayPage() {
           </h1>
         </div>
 
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           GABA (gamma-aminobutyric acid) is one of the primary inhibitory neurotransmitter systems involved in nervous-system downregulation, relaxation, stress modulation, and sleep-related signaling.
         </p>
 
@@ -124,7 +124,7 @@ export default function GabaPathwayPage() {
             Why inhibitory signaling matters
           </h2>
 
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             GABAergic signaling helps regulate excitatory nervous-system activity. Educational discussions around calming herbs, sedation, stress regulation, and sleep often intersect with inhibitory pathway systems.
           </p>
         </div>
@@ -141,7 +141,7 @@ export default function GabaPathwayPage() {
                   {profile.title}
                 </h3>
 
-                <p className="text-sm leading-7 text-[#46574d]">
+                <p className="text-sm leading-7 text-muted">
                   {profile.description}
                 </p>
               </div>

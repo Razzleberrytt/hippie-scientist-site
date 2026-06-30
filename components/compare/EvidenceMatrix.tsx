@@ -215,7 +215,7 @@ export default function EvidenceMatrix({
               </th>
             </tr>
           </thead>
-          <tbody className="text-[#46574d]">
+          <tbody className="text-muted">
             {visibleRows.map((row) => (
               <tr key={row.outcome} className="border-b border-black/5 align-top last:border-0">
                 <th

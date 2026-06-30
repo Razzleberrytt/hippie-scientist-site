@@ -68,7 +68,7 @@ export default function KannaVsSSRIsPage() {
           Kanna vs SSRIs
         </h1>
 
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Educational comparison of kanna and SSRI-related serotonergic systems through the lens of emotional processing, mood regulation, psychoactive neuropharmacology, and safety awareness.
         </p>
       </section>
@@ -81,7 +81,7 @@ export default function KannaVsSSRIsPage() {
             Kanna
           </h2>
 
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             Traditionally used psychoactive ethnobotanical associated with emotional regulation, stress modulation, and serotonergic mechanisms.
           </p>
 
@@ -97,7 +97,7 @@ export default function KannaVsSSRIsPage() {
             SSRIs
           </h2>
 
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             Selective serotonin reuptake inhibitors are prescription medications associated with serotonergic modulation and mood-related neuropharmacology.
           </p>
         </div>
@@ -110,7 +110,7 @@ export default function KannaVsSSRIsPage() {
           Safety and serotonergic considerations
         </h2>
 
-        <p className="text-sm leading-7 text-[#46574d]">
+        <p className="text-sm leading-7 text-muted">
           Serotonergic substances may interact with medications, mood systems, emotional-processing pathways, and stress-response signaling. Educational comparison should prioritize conservative interpretation and interaction awareness.
         </p>
 

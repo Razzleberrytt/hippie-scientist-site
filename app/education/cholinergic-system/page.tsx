@@ -50,7 +50,7 @@ export default function CholinergicSystemPage() {
           Cholinergic System
         </h1>
 
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Educational exploration of cholinergic signaling systems involved in cognition, memory pathways, REM architecture, dreaming systems, and oneirogenic neuropharmacology.
         </p>
 

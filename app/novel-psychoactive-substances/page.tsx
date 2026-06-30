@@ -42,7 +42,7 @@ export default function NovelPsychoactiveSubstancesIndexPage() {
         <h1 className="mt-3 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
           {sectionPage.title}
         </h1>
-        <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">
+        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">
           {sectionPage.metaDescription}
         </p>
         <time dateTime={sectionPage.lastUpdated} className="mt-4 block text-sm text-muted">
@@ -74,7 +74,7 @@ export default function NovelPsychoactiveSubstancesIndexPage() {
               </time>
             </div>
             <h2 className="mt-3 text-lg font-bold leading-snug text-ink">{page.title}</h2>
-            <p className="mt-2 text-sm leading-6 text-[#46574d]">{page.metaDescription}</p>
+            <p className="mt-2 text-sm leading-6 text-muted">{page.metaDescription}</p>
           </Link>
         ))}
       </section>

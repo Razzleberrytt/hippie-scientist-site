@@ -60,7 +60,7 @@ export default function AnxietyNeurochemistryPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Anxiety-related neurochemistry involves multiple interacting systems associated with stress signaling, emotional regulation, nervous-system arousal, cognition, sleep continuity, and environmental adaptation.
         </p>
 
@@ -83,7 +83,7 @@ export default function AnxietyNeurochemistryPage() {
                 {system.title}
               </h2>
 
-              <p className="text-sm leading-7 text-[#46574d]">
+              <p className="text-sm leading-7 text-muted">
                 {system.description}
               </p>
             </div>

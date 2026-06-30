@@ -95,7 +95,7 @@ export default function AlteredStatesEducationPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Altered states involve changes in perception, cognition continuity, emotional intensity, sensory interpretation, awareness, and consciousness-related experience associated with complex psychological, neurochemical, environmental, and physiological interactions.
         </p>
 
@@ -124,7 +124,7 @@ export default function AlteredStatesEducationPage() {
               {mechanism.title}
             </h2>
 
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               {mechanism.body}
             </p>
           </div>
@@ -139,7 +139,7 @@ export default function AlteredStatesEducationPage() {
             Altered experiences are highly context dependent
           </h2>
 
-          <p className="text-base leading-8 text-[#46574d]">
+          <p className="text-base leading-8 text-muted">
             Emotional state, stress burden, environment, social support, prior expectations, trauma exposure, sleep continuity, sensory conditions, and nervous-system resilience may all influence altered-state experiences and interpretation.
           </p>
         </div>
@@ -150,7 +150,7 @@ export default function AlteredStatesEducationPage() {
               Commonly discussed altered-state systems
             </h3>
 
-            <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
+            <ul className="space-y-2 text-sm leading-7 text-muted">
               <li>• Sensory-processing modulation</li>
               <li>• Emotional salience systems</li>
               <li>• Contextual interpretation</li>
@@ -164,7 +164,7 @@ export default function AlteredStatesEducationPage() {
               Major evidence limitations
             </h3>
 
-            <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
+            <ul className="space-y-2 text-sm leading-7 text-muted">
               <li>• Subjective variability</li>
               <li>• Difficult blinding conditions</li>
               <li>• Small clinical trial sizes</li>
@@ -204,7 +204,7 @@ export default function AlteredStatesEducationPage() {
                 {item.question}
               </h3>
 
-              <p className="text-sm leading-7 text-[#46574d]">
+              <p className="text-sm leading-7 text-muted">
                 {item.answer}
               </p>
             </div>

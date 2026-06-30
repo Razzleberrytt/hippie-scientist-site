@@ -59,7 +59,7 @@ export default function ReceptorsPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Receptors are specialized signaling structures associated with how neurotransmitters, compounds, herbs, medications, and psychoactive substances influence neurochemical communication systems. Different receptor families may influence emotional regulation, stress adaptation, cognition, sedation pathways, sensory interpretation, and altered states.
         </p>
 
@@ -87,7 +87,7 @@ export default function ReceptorsPage() {
               {system.title}
             </h2>
 
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               {system.description}
             </p>
           </div>

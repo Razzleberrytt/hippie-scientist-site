@@ -69,11 +69,11 @@ export default function EvidenceStrengthBlock({
       </div>
 
       {/* Confidence explanation text */}
-      <p className="text-sm leading-6 text-[#46574d]">{ev.explanation}</p>
+      <p className="text-sm leading-6 text-muted">{ev.explanation}</p>
 
       {/* Research profile line */}
       {(researchMaturity || researchStyle) && (
-        <p className="text-sm leading-6 text-[#46574d]">
+        <p className="text-sm leading-6 text-muted">
           {displayName} is categorized as{' '}
           <strong>{researchMaturity?.toLowerCase()}</strong>
           {researchStyle ? (
@@ -116,7 +116,7 @@ export default function EvidenceStrengthBlock({
           {/* eslint-disable-next-line jsx-a11y/no-redundant-roles -- explicit list role restores semantics dropped by Safari/VoiceOver when list-style is removed */}
           <ul className="mt-2 space-y-1.5 pl-4" role="list">
             {evidenceLimitations.map((item) => (
-              <li key={item} className="flex items-start gap-2 text-xs text-[#46574d]">
+              <li key={item} className="flex items-start gap-2 text-xs text-muted">
                 <span aria-hidden="true" className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-amber-400" />
                 {item}
               </li>

@@ -114,7 +114,7 @@ export default function MagnesiumGlycinateCitrateAdhdPage() {
         <div className="mt-3">
           <LastUpdatedBadge date={DATE} label="Last updated" />
         </div>
-        <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">{DESCRIPTION}</p>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
       </section>
 
       {/* Disclosure */}
@@ -141,7 +141,7 @@ export default function MagnesiumGlycinateCitrateAdhdPage() {
                 ['Both forms help correct magnesium deficiency', 'Deficiency is more common in ADHD and correcting it may reduce hyperactivation and support sleep.'],
                 ['Neither is a primary ADHD treatment', 'Evidence for direct ADHD symptom improvement is strongest in deficient populations — not as a standalone stimulant replacement.'],
               ].map(([bold, rest]) => (
-                <li key={bold as string} className="flex gap-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+                <li key={bold as string} className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
                   <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
                   <span><strong>{bold as string}.</strong> {rest as string}</span>
                 </li>
@@ -156,21 +156,21 @@ export default function MagnesiumGlycinateCitrateAdhdPage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Why the Form of Magnesium Matters for ADHD
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Not all magnesium supplements deliver the same amount of usable magnesium to your cells.
                 Bioavailability — how much is absorbed in the gut and reaches tissues — varies significantly
                 by form. For ADHD specifically, additional factors matter: whether the chelating agent has
                 its own neurological effect (glycine does), how the supplement affects digestion, and
                 whether the timing suits sleep support.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 <strong>Magnesium glycinate</strong> is magnesium chelated to glycine, an amino acid that
                 acts as an inhibitory neurotransmitter in the central nervous system. Glycine itself has
                 evidence for sleep quality support and may add a calming effect beyond what magnesium alone
                 provides — making glycinate a natural fit for ADHD-related sleep difficulties and evening
                 calming support.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 <strong>Magnesium citrate</strong> is magnesium bound to citric acid. It has good
                 bioavailability and is substantially cheaper than glycinate, but the citrate form has
                 a stronger osmotic effect in the gut — meaning it draws water into the intestines, which
@@ -187,14 +187,14 @@ export default function MagnesiumGlycinateCitrateAdhdPage() {
                 How Magnesium Works in the Brain
               </h2>
               <PathwayDiagram data={pathwayDiagrams['magnesium-adhd']} />
-              <p className="mt-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-4 text-[1.01rem] leading-[1.85] text-muted">
                 Magnesium&apos;s primary role in neural excitability is as a voltage-dependent blocker of
                 NMDA receptors — the &ldquo;volume knob&rdquo; for excitatory signaling in the brain. When
                 magnesium levels are adequate, NMDA receptors require stronger signals to activate, which
                 reduces neural hyperactivation. This is particularly relevant for ADHD, where
                 hyperactivation and sensory overload are common presentations.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 Magnesium also supports GABA activity (the brain&apos;s primary inhibitory
                 neurotransmitter), which contributes to its calming and sleep-supporting properties. GABA
                 dysregulation is implicated in anxiety and sleep problems commonly co-occurring with ADHD.
@@ -247,8 +247,8 @@ export default function MagnesiumGlycinateCitrateAdhdPage() {
                     ].map(([factor, glycinate, citrate]) => (
                       <tr key={factor as string} className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">{factor}</td>
-                        <td className="py-3 pr-4 text-[#46574d]">{glycinate}</td>
-                        <td className="py-3 text-[#46574d]">{citrate}</td>
+                        <td className="py-3 pr-4 text-muted">{glycinate}</td>
+                        <td className="py-3 text-muted">{citrate}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -285,9 +285,9 @@ export default function MagnesiumGlycinateCitrateAdhdPage() {
                       ].map(([use, form, dose, timing]) => (
                         <tr key={use as string} className="align-top">
                           <td className="py-3 pr-4 font-medium text-ink">{use}</td>
-                          <td className="py-3 pr-4 text-[#46574d]">{form}</td>
-                          <td className="py-3 pr-4 text-[#46574d]">{dose}</td>
-                          <td className="py-3 text-[#46574d]">{timing}</td>
+                          <td className="py-3 pr-4 text-muted">{form}</td>
+                          <td className="py-3 pr-4 text-muted">{dose}</td>
+                          <td className="py-3 text-muted">{timing}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -308,7 +308,7 @@ export default function MagnesiumGlycinateCitrateAdhdPage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Product Recommendations
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 These links reflect forms and dose ranges consistent with the evidence reviewed.
                 Affiliate links support this site at no additional cost to you.
               </p>
@@ -346,7 +346,7 @@ export default function MagnesiumGlycinateCitrateAdhdPage() {
                   <div key={name} className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
                     <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">{eyebrow}</p>
                     <p className="font-semibold text-ink">{name}</p>
-                    <p className="mt-1 text-xs leading-5 text-[#46574d]">{desc}</p>
+                    <p className="mt-1 text-xs leading-5 text-muted">{desc}</p>
                     <a
                       href={`https://www.amazon.com/s?k=${query}&tag=${AFFILIATE_TAGS.amazon}`}
                       target="_blank"
@@ -394,7 +394,7 @@ export default function MagnesiumGlycinateCitrateAdhdPage() {
                 {FAQS.map((faq, i) => (
                   <div key={i} className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4">
                     <h3 className="font-semibold text-ink">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-7 text-[#46574d]">{faq.answer}</p>
+                    <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
                   </div>
                 ))}
               </div>

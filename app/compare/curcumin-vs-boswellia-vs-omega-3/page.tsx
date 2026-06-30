@@ -44,7 +44,7 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
         <h1 className="text-5xl font-bold tracking-tight text-ink">
           Curcumin vs Boswellia vs Omega-3: Which Fits Your Inflammatory Pain?
         </h1>
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           These three are the most studied natural options for inflammatory and joint discomfort, and they
           work through different routes.
           <strong> Curcumin</strong> broadly dampens inflammatory signaling (NF-κB, COX-2).
@@ -63,7 +63,7 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
               Broad Anti-Inflammatory
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-ink">Curcumin</h2>
-            <p className="text-sm leading-7 text-[#46574d] mt-2">
+            <p className="text-sm leading-7 text-muted mt-2">
               Best for inflammatory joint discomfort with the strongest human trial base of the three.
               Absorption is poor on its own — look for bioavailability-enhanced forms (phytosome, or paired
               with piperine). Typically reviewed over 1–4 weeks.
@@ -82,7 +82,7 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
               5-LOX Pathway
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-ink">Boswellia</h2>
-            <p className="text-sm leading-7 text-[#46574d] mt-2">
+            <p className="text-sm leading-7 text-muted mt-2">
               Best for knee and mobility-related joint pain. Its boswellic acids (notably AKBA) inhibit the
               5-lipoxygenase pathway, a different inflammatory route than curcumin — which is why the two are
               often stacked. Look for AKBA-standardized extracts.
@@ -101,7 +101,7 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
               Baseline Lipid Shift
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-ink">Omega-3 (EPA/DHA)</h2>
-            <p className="text-sm leading-7 text-[#46574d] mt-2">
+            <p className="text-sm leading-7 text-muted mt-2">
               Best for systemic, low-grade inflammation tied to an inflammatory dietary pattern. It works
               slowly by changing the raw materials your body uses to build inflammatory and pro-resolving
               signals. The longest timeline of the three (weeks to months).
@@ -129,7 +129,7 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
                 <th className="py-3 pr-4 font-bold uppercase tracking-wider text-xs">Omega-3 (EPA/DHA)</th>
               </tr>
             </thead>
-            <tbody className="text-[#46574d] divide-y divide-black/5">
+            <tbody className="text-muted divide-y divide-black/5">
               <tr>
                 <td className="py-3.5 pr-4 font-semibold text-ink">Primary Fit</td>
                 <td className="py-3.5 pr-4">Inflammatory joint discomfort, broad inflammatory load</td>
@@ -188,7 +188,7 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
         <div className="card-premium p-6 space-y-3">
           <p className="eyebrow-label">Scenario 1</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Inflammatory Joint Pain</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             If your discomfort is clearly joint-centered with an inflammatory component, <strong>curcumin</strong>
             has the most supportive human trial data, much of it in osteoarthritis-adjacent pain. Choose a
             bioavailability-enhanced form — plain turmeric powder is poorly absorbed and unlikely to reach
@@ -198,7 +198,7 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
         <div className="card-premium p-6 space-y-3">
           <p className="eyebrow-label">Scenario 2</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Hitting a Different Pathway</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             If curcumin alone has plateaued, <strong>boswellia</strong> targets the separate 5-LOX leukotriene
             route. Because the mechanisms differ, the two are frequently combined — but add one at a time so
             you can tell which is actually helping before stacking.
@@ -207,7 +207,7 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
         <div className="card-premium p-6 space-y-3">
           <p className="eyebrow-label">Scenario 3</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Whole-Body Baseline</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             If your inflammation is systemic and lifestyle-linked rather than one painful joint,
             <strong> omega-3</strong> is the foundational play. Expect a slow build — it changes baseline lipid
             chemistry over weeks, so judge it on a 2-month horizon, not by day-three relief.
@@ -219,7 +219,7 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
       <section className="card-premium p-6 space-y-5 max-w-4xl border-l-4 border-rose-500 bg-rose-50/10">
         <p className="text-xs font-bold uppercase tracking-wider text-rose-900">Safety &amp; Clinical Cautions</p>
         <h2 className="text-2xl font-bold tracking-tight text-ink">Important Physiological Limits</h2>
-        <div className="space-y-4 text-sm leading-relaxed text-[#46574d]">
+        <div className="space-y-4 text-sm leading-relaxed text-muted">
           <p>
             All three carry a shared bleeding-risk theme. This matters most if you take anticoagulants or have
             surgery coming up:
@@ -253,7 +253,7 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
       <section className="card-premium p-6 space-y-4 max-w-4xl">
         <p className="eyebrow-label">FAQ</p>
         <h2 className="text-3xl font-semibold tracking-tight text-ink">Common Questions</h2>
-        <div className="space-y-4 text-sm leading-7 text-[#46574d]">
+        <div className="space-y-4 text-sm leading-7 text-muted">
           <div>
             <h3 className="text-lg font-semibold text-ink">Can I take curcumin and boswellia together?</h3>
             <p>

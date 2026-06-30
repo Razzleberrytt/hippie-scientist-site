@@ -50,7 +50,7 @@ export default function DissociativeMechanismsPage() {
           Dissociative Mechanisms
         </h1>
 
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Educational exploration of dissociative neuropharmacology, glutamatergic systems, altered-state mechanisms, excitatory signaling, and psychoactive ethnobotany.
         </p>
       </section>

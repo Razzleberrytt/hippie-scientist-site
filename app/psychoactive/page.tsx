@@ -97,7 +97,7 @@ export default function PsychoactiveHubPage() {
           </h1>
         </div>
 
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Educational exploration of psychoactive herbs, ethnobotany, neuropharmacology, mechanism systems, and harm reduction through an evidence-informed semantic discovery architecture.
         </p>
 
@@ -120,7 +120,7 @@ export default function PsychoactiveHubPage() {
                 {category.title}
               </h2>
 
-              <p className="text-sm leading-7 text-[#46574d]">
+              <p className="text-sm leading-7 text-muted">
                 {category.description}
               </p>
             </div>
@@ -136,7 +136,7 @@ export default function PsychoactiveHubPage() {
             Psychoactive Education Systems
           </h2>
 
-          <p className="max-w-3xl text-sm leading-7 text-[#46574d]">
+          <p className="max-w-3xl text-sm leading-7 text-muted">
             Educational explainers focused on mechanisms, pathways, neuropharmacology, ethnobotany, and harm reduction.
           </p>
         </div>

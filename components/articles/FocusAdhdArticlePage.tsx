@@ -310,7 +310,7 @@ function MarkdownBody({ body, slug }: { body: string; slug: string }) {
           const List = block.type
           blockEl = (
             <List key={index} className={`ml-5 space-y-1.5 ${block.type === 'ul' ? 'list-disc' : 'list-decimal'}`}>
-              {block.items.map((item, itemIndex) => <li key={itemIndex} className="leading-7 text-[#46574d]" dangerouslySetInnerHTML={{ __html: inlineFormat(item) }} />)}
+              {block.items.map((item, itemIndex) => <li key={itemIndex} className="leading-7 text-muted" dangerouslySetInnerHTML={{ __html: inlineFormat(item) }} />)}
             </List>
           )
         } else if (block.type === 'table') {
@@ -325,7 +325,7 @@ function MarkdownBody({ body, slug }: { body: string; slug: string }) {
                 <tbody className="divide-y divide-brand-900/5">
                   {block.rows.map((row, rowIndex) => (
                     <tr key={rowIndex}>
-                      {row.map((cell, cellIndex) => <td key={cellIndex} className="py-3 pr-4 leading-6 text-[#46574d]" dangerouslySetInnerHTML={{ __html: inlineFormat(cell) }} />)}
+                      {row.map((cell, cellIndex) => <td key={cellIndex} className="py-3 pr-4 leading-6 text-muted" dangerouslySetInnerHTML={{ __html: inlineFormat(cell) }} />)}
                     </tr>
                   ))}
                 </tbody>
@@ -333,7 +333,7 @@ function MarkdownBody({ body, slug }: { body: string; slug: string }) {
             </ResponsiveTable>
           )
         } else if (block.type === 'p') {
-          blockEl = <p key={index} className="text-[1.01rem] leading-[1.85] text-[#46574d]" dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }} />
+          blockEl = <p key={index} className="text-[1.01rem] leading-[1.85] text-muted" dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }} />
         }
 
         if (blockEl) {
@@ -393,7 +393,7 @@ export default function FocusAdhdArticlePage({ slug }: { slug: string }) {
         </div>
         <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">{article.title}</h1>
         <div className="mt-3"><LastUpdatedBadge date={article.date} label="Last updated" /></div>
-        <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">{article.description}</p>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{article.description}</p>
 
         <StartHereBox currentSlug={slug} />
       </section>

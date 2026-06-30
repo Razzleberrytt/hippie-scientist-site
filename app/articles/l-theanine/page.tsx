@@ -148,7 +148,7 @@ export default function LTheanineArticlePage() {
           <LastUpdatedBadge date={DATE} label="Last updated" />
         </div>
 
-        <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">{DESCRIPTION}</p>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
       </section>
 
       {/* Affiliate disclosure */}
@@ -170,7 +170,7 @@ export default function LTheanineArticlePage() {
             <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
               If you only try one thing: 100 mg L-theanine alone
             </h2>
-            <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
               <strong>L-theanine 100 mg alone is itself the fastest useful choice for calm focus,
               racing thoughts, and caffeine smoothing.</strong> Effects within 30–60 minutes, no
               sedation, no dependency, nootropic without overstimulation. If 100 mg is not enough,
@@ -190,14 +190,14 @@ export default function LTheanineArticlePage() {
             <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
               Does L-Theanine Work?
             </h2>
-            <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
               <strong>Yes — for calm focus, anxiety-driven racing thoughts, and caffeine
               smoothing.</strong> L-theanine reliably increases alpha-wave activity (the calm-focus
               brainwave pattern) within 30–60 minutes and consistently reduces subjective stress in
               acute settings. The L-theanine + caffeine combination is one of the most replicated
               nootropic stacks in cognitive research.
             </p>
-            <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
               For chronic stress load, anxiety disorders, or mood-related conditions, L-theanine is
               supportive but not a primary intervention — pair it with ashwagandha, magnesium, or
               appropriate clinical care depending on what you are addressing. L-theanine is a fast,
@@ -212,14 +212,14 @@ export default function LTheanineArticlePage() {
             {/* Introduction */}
             <div id="introduction">
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">Introduction</h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 L-theanine is one of the most consistently studied natural compounds for calm focus
                 and acute anxiety reduction. Found naturally in tea leaves (and originally
                 identified in green tea in 1949), it has become a staple of the nootropics community
                 and is increasingly studied in clinical research for anxiety, sleep, ADHD, and
                 cardiovascular outcomes.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 This article is the umbrella guide — covering everything you need to know in one
                 place, with deep-dive links to each condition-specific article. Whether you are
                 considering L-theanine for focus, anxiety, sleep, or ADHD, this hub will help you
@@ -234,7 +234,7 @@ export default function LTheanineArticlePage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 What Is L-Theanine?
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 L-theanine (γ-glutamylethylamide) is a non-proteinogenic amino acid analogue of
                 glutamate and glutamine. It is found naturally in tea (<em>Camellia sinensis</em>),
                 particularly green tea, where it constitutes 1–2% of the dry leaf weight. The
@@ -242,14 +242,14 @@ export default function LTheanineArticlePage() {
                 state that tea drinkers report, often called &ldquo;alert calm&rdquo; or
                 &ldquo;focused relaxation.&rdquo;
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 It is structurally similar to glutamate (an excitatory neurotransmitter) and is
                 thought to work partly through modulation of glutamate receptors. It also promotes
                 GABA (the brain&rsquo;s main inhibitory neurotransmitter), dopamine, and serotonin
                 release in moderation. Critically, it does not produce sedation, dependency, or
                 tolerance buildup.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 For a complete breakdown of chemistry, mechanisms, and research across all uses,
                 see the{' '}
                 <Link href="/compounds/l-theanine" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">
@@ -266,7 +266,7 @@ export default function LTheanineArticlePage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 What L-Theanine Is Used For
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 L-theanine has been studied across several outcomes with varying evidence strength.
                 Use this section to see whether L-theanine is right for your specific goal.
               </p>
@@ -335,7 +335,7 @@ export default function LTheanineArticlePage() {
                 </table>
               </div>
 
-              <p className="mt-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-4 text-[1.01rem] leading-[1.85] text-muted">
                 For most readers, the right entry point is the calm focus / caffeine smoothing
                 evidence — that is the strongest and most consistent body of research. If your
                 primary goal is anxiety, see the{' '}
@@ -365,7 +365,7 @@ export default function LTheanineArticlePage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 How L-Theanine Works
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Several convergent mechanisms have been proposed, based on EEG studies, neuroimaging,
                 and pharmacological inference:
               </p>
@@ -373,7 +373,7 @@ export default function LTheanineArticlePage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 1. Alpha Waves: The &ldquo;Calm Focus&rdquo; Brainwave
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Alpha waves (8–12 Hz) are the neural oscillation pattern associated with calm,
                 relaxed wakefulness — the &ldquo;flow state&rdquo; precursor. L-theanine consistently
                 increases alpha-wave power in EEG studies within 30–60 minutes of ingestion, making
@@ -383,7 +383,7 @@ export default function LTheanineArticlePage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 2. Glutamate / GABA Modulation
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 L-theanine has structural similarity to glutamate and may modulate AMPA, NMDA, and
                 kainate receptors to reduce excitatory tone. It also appears to support GABA
                 activity, the brain&rsquo;s primary inhibitory neurotransmitter. The net effect is a
@@ -393,7 +393,7 @@ export default function LTheanineArticlePage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 3. Serotonin &amp; Dopamine Modulation (Modest)
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Some evidence suggests L-theanine modestly increases serotonin and dopamine
                 release. The effect is gentler and more variable than alpha-wave changes. This may
                 contribute to the well-being and mood-stabilizing effects some users report.
@@ -402,7 +402,7 @@ export default function LTheanineArticlePage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 4. What L-Theanine Does NOT Do
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 L-theanine does not meaningfully increase dopamine or norepinephrine — the
                 catecholamines central to stimulant ADHD medication efficacy. It is not a stimulant.
                 It does not block adenosine receptors (caffeine does this). Its mechanism is calming
@@ -427,7 +427,7 @@ export default function LTheanineArticlePage() {
                 safetyProfile="Generally well-tolerated at 100–400 mg/day. FDA GRAS for use in foods. Mild blood pressure reduction at higher chronic doses. Caution with antihypertensives and sedatives. Limited data in pregnancy."
               />
 
-              <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-[#46574d]">
+              <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-muted">
                 <p className="font-semibold text-ink">Key trials reviewed:</p>
                 <ul className="mt-2 ml-5 space-y-1 list-disc">
                   <li>Williams et al. (2019) — L-theanine + caffeine cognitive performance meta-analysis</li>
@@ -476,27 +476,27 @@ export default function LTheanineArticlePage() {
                     <tbody className="divide-y divide-brand-900/5">
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Calm focus / day</td>
-                        <td className="py-3 pr-4 text-[#46574d]">100–200 mg</td>
-                        <td className="py-3 pr-4 text-[#46574d]">30–60 min before task</td>
-                        <td className="py-3 text-[#46574d]">As needed</td>
+                        <td className="py-3 pr-4 text-muted">100–200 mg</td>
+                        <td className="py-3 pr-4 text-muted">30–60 min before task</td>
+                        <td className="py-3 text-muted">As needed</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Caffeine smoothing</td>
-                        <td className="py-3 pr-4 text-[#46574d]">100–200 mg (+ 50–100 mg caffeine)</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Together with coffee/tea</td>
-                        <td className="py-3 text-[#46574d]">Per caffeine dose</td>
+                        <td className="py-3 pr-4 text-muted">100–200 mg (+ 50–100 mg caffeine)</td>
+                        <td className="py-3 pr-4 text-muted">Together with coffee/tea</td>
+                        <td className="py-3 text-muted">Per caffeine dose</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Sleep support</td>
-                        <td className="py-3 pr-4 text-[#46574d]">200–400 mg</td>
-                        <td className="py-3 pr-4 text-[#46574d]">30–60 min before bed</td>
-                        <td className="py-3 text-[#46574d]">Nightly as needed</td>
+                        <td className="py-3 pr-4 text-muted">200–400 mg</td>
+                        <td className="py-3 pr-4 text-muted">30–60 min before bed</td>
+                        <td className="py-3 text-muted">Nightly as needed</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Acute anxiety</td>
-                        <td className="py-3 pr-4 text-[#46574d]">200–400 mg</td>
-                        <td className="py-3 pr-4 text-[#46574d]">At onset of symptoms</td>
-                        <td className="py-3 text-[#46574d]">As needed</td>
+                        <td className="py-3 pr-4 text-muted">200–400 mg</td>
+                        <td className="py-3 pr-4 text-muted">At onset of symptoms</td>
+                        <td className="py-3 text-muted">As needed</td>
                       </tr>
                     </tbody>
                   </table>
@@ -516,7 +516,7 @@ export default function LTheanineArticlePage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Affiliate Product Recommendations
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 These products use plain L-theanine (no blends) at doses matching the protocols
                 reviewed above. Affiliate links support this site at no additional cost to you.
               </p>
@@ -526,7 +526,7 @@ export default function LTheanineArticlePage() {
                     Best for: Calm Focus
                   </p>
                   <p className="font-semibold text-ink">Suntheanine&reg; L-Theanine 200 mg</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Pure L-isomer theanine (the bioactive form). Most-studied branded version.
                     Single-ingredient capsules at a research-supported dose.
                   </p>
@@ -544,7 +544,7 @@ export default function LTheanineArticlePage() {
                     Best for: Caffeine Pairing
                   </p>
                   <p className="font-semibold text-ink">L-Theanine + Caffeine Stack</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Pre-combined 2:1 L-theanine + caffeine stack for focus without jitters. Convenient
                     single-capsule alternative to drinking tea.
                   </p>
@@ -616,7 +616,7 @@ export default function LTheanineArticlePage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Stacking L-Theanine With Other Supplements
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 L-theanine pairs well with several other supplements because it works acutely on
                 calming while they cover the baseline (chronic stress, sleep support, muscle
                 tension). Common stacks:
@@ -625,7 +625,7 @@ export default function LTheanineArticlePage() {
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
                   <p className="font-semibold text-ink">L-Theanine + Caffeine</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     100–200 mg L-theanine with 50–100 mg caffeine (2:1 ratio). The most-studied
                     nootropic stack — calm focus without jitters. See{' '}
                     <Link href="/articles/l-theanine-vs-caffeine-for-focus" className="font-semibold text-brand-700 hover:underline">
@@ -636,7 +636,7 @@ export default function LTheanineArticlePage() {
                 </div>
                 <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
                   <p className="font-semibold text-ink">L-Theanine + Magnesium glycinate</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Acute calming (L-theanine) plus evening muscle tension and nervous-system
                     support (magnesium). See the{' '}
                     <Link href="/articles/l-theanine-magnesium-adhd-stack" className="font-semibold text-brand-700 hover:underline">
@@ -647,7 +647,7 @@ export default function LTheanineArticlePage() {
                 </div>
                 <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
                   <p className="font-semibold text-ink">L-Theanine + Ashwagandha</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Acute calm focus (L-theanine) plus chronic stress baseline regulation
                     (ashwagandha). See the{' '}
                     <Link href="/articles/ashwagandha" className="font-semibold text-brand-700 hover:underline">
@@ -658,7 +658,7 @@ export default function LTheanineArticlePage() {
                 </div>
                 <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
                   <p className="font-semibold text-ink">L-Theanine + Melatonin</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     For sleep: L-theanine quiets racing thoughts; melatonin signals circadian
                     onset. Different mechanisms — complementary. See{' '}
                     <Link href="/articles/l-theanine-for-sleep" className="font-semibold text-brand-700 hover:underline">
@@ -668,7 +668,7 @@ export default function LTheanineArticlePage() {
                   </p>
                 </div>
               </div>
-              <p className="mt-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-4 text-[1.01rem] leading-[1.85] text-muted">
                 Introduce one supplement at a time so you can isolate what is helping (or causing
                 side effects). Allow 1–2 weeks between additions. L-theanine is one of the safer
                 starting points because it acts acutely and you can usually tell within an hour
@@ -690,7 +690,7 @@ export default function LTheanineArticlePage() {
                     className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4"
                   >
                     <h3 className="font-semibold text-ink">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-7 text-[#46574d]">{faq.answer}</p>
+                    <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
                   </div>
                 ))}
               </div>

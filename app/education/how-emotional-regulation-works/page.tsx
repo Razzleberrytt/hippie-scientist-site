@@ -76,7 +76,7 @@ export default function EmotionalRegulationPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Emotional regulation involves interconnected neurochemical, behavioral, psychological, and environmental systems associated with mood continuity, stress adaptation, cognition, nervous-system resilience, emotional processing, and recovery signaling.
         </p>
 
@@ -105,7 +105,7 @@ export default function EmotionalRegulationPage() {
               {system.title}
             </h2>
 
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               {system.body}
             </p>
           </div>

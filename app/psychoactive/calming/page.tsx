@@ -54,7 +54,7 @@ export default function CalmingPsychoactivesPage() {
           Calming Psychoactives
         </h1>
 
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Educational exploration of calming psychoactive herbs, inhibitory signaling systems, stress-response modulation, and GABA-oriented neuropharmacology.
         </p>
       </section>

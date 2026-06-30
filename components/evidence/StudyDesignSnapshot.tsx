@@ -166,7 +166,7 @@ export default function StudyDesignSnapshot({
                 <p className="text-xs font-bold uppercase tracking-wider text-[#5c6b63]">
                   Why this grade
                 </p>
-                <p className="text-sm leading-7 text-[#46574d]">{gradeRationale}</p>
+                <p className="text-sm leading-7 text-muted">{gradeRationale}</p>
               </div>
             ) : null}
 
@@ -200,7 +200,7 @@ export default function StudyDesignSnapshot({
                   {limitations.map((limitation) => (
                     <li
                       key={limitation}
-                      className="flex gap-2 text-sm leading-6 text-[#46574d]"
+                      className="flex gap-2 text-sm leading-6 text-muted"
                     >
                       <span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-500" />
                       <span>{limitation}</span>
@@ -210,7 +210,7 @@ export default function StudyDesignSnapshot({
               </div>
             ) : null}
 
-            {context ? <p className="text-sm leading-7 text-[#46574d]">{context}</p> : null}
+            {context ? <p className="text-sm leading-7 text-muted">{context}</p> : null}
 
             {sources && sources.length > 0 ? (
               <p className="text-xs leading-6 text-[#6b7a72]">

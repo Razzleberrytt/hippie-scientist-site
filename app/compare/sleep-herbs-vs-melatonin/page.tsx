@@ -47,7 +47,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
         <h1 className="text-5xl font-bold tracking-tight text-ink">
           Sleep Herbs vs Melatonin: Choosing the Right Tool for Your Sleep Problem
         </h1>
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Melatonin signals timing — it tells your brain it is night. Magnesium, L-theanine, and valerian
           work differently: they relax muscles, quiet mental chatter, and support GABA pathways.
           The question is not which one is "best" — it is which matches the reason you are not sleeping.
@@ -74,7 +74,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
         <div className="card-premium p-6 space-y-4">
           <p className="eyebrow-label">Hormone · Circadian Timing</p>
           <h2 className="text-3xl font-semibold tracking-tight text-ink">Melatonin</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             Melatonin is produced by the pineal gland in response to darkness. It signals to the body
             that it is time to sleep — it shifts the circadian window, not the depth or quality of sleep
             directly. It is best supported by evidence for jet lag, shift work, and delayed sleep phase
@@ -87,7 +87,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
         <div className="card-premium p-6 space-y-4">
           <p className="eyebrow-label">Essential Mineral · Systemic</p>
           <h2 className="text-3xl font-semibold tracking-tight text-ink">Magnesium</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             Magnesium is involved in GABA receptor modulation, NMDA channel blocking, melatonin
             synthesis co-factor activity, and HPA axis regulation. It works systemically over days
             to weeks — not as an acute sleep aid but as a foundational mineral for sleep quality and
@@ -100,7 +100,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
         <div className="card-premium p-6 space-y-4">
           <p className="eyebrow-label">Amino Acid · Acute Acting</p>
           <h2 className="text-3xl font-semibold tracking-tight text-ink">L-Theanine</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             L-theanine is a glutamate analog found in green tea. It increases alpha-wave brain activity
             (relaxed alertness), modulates excitatory glutamate receptors, and promotes GABA — quieting
             a racing mind without causing sedation. Onset is 30–60 minutes. It is particularly useful
@@ -113,7 +113,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
         <div className="card-premium p-6 space-y-4">
           <p className="eyebrow-label">Botanical Herb · Mild Sedative</p>
           <h2 className="text-3xl font-semibold tracking-tight text-ink">Valerian Root</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             Valerian root (Valeriana officinalis) increases GABA availability by inhibiting its
             degradation and reuptake. It has a long traditional history for situational insomnia and
             nervous tension. Human trial evidence is inconsistent — systematic reviews show mixed results,
@@ -139,7 +139,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
                 <th className="py-3 pr-3 font-semibold">Valerian</th>
               </tr>
             </thead>
-            <tbody className="text-[#46574d]">
+            <tbody className="text-muted">
               <tr className="border-b border-black/10">
                 <td className="py-3 pr-3 font-medium text-ink">Can't fall asleep (shifted schedule / jet lag)</td>
                 <td className="py-3 pr-3">✓ Primary choice — Grade A for circadian</td>
@@ -195,7 +195,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="card-premium p-6 space-y-3">
             <h3 className="text-xl font-semibold text-ink">Melatonin</h3>
-            <ul className="text-sm leading-7 text-[#46574d] space-y-2">
+            <ul className="text-sm leading-7 text-muted space-y-2">
               <li><strong className="text-ink">MT1/MT2 receptor agonism:</strong> Binds melatonin receptors in the suprachiasmatic nucleus — shifts the circadian clock signal toward sleep</li>
               <li><strong className="text-ink">Not a sedative:</strong> Does not cause sedation or hypnotic GABA activity at physiological doses — it signals timing, not depth</li>
               <li><strong className="text-ink">Dose matters critically:</strong> Most commercial products contain 3–10 mg, far above the physiological 0.3–1 mg range shown to be effective without causing receptor desensitization or morning grogginess</li>
@@ -205,7 +205,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
 
           <div className="card-premium p-6 space-y-3">
             <h3 className="text-xl font-semibold text-ink">Magnesium</h3>
-            <ul className="text-sm leading-7 text-[#46574d] space-y-2">
+            <ul className="text-sm leading-7 text-muted space-y-2">
               <li><strong className="text-ink">NMDA voltage block:</strong> Mg²⁺ is an endogenous blocker of NMDA ion channels — prevents glutamate over-excitation that keeps the nervous system aroused</li>
               <li><strong className="text-ink">GABA co-factor:</strong> Required for GABA receptor function and GABA synthesis; deficiency reduces GABAergic tone</li>
               <li><strong className="text-ink">Melatonin co-factor:</strong> Required for pineal serotonin → melatonin conversion — magnesium deficiency can reduce endogenous melatonin output</li>
@@ -215,7 +215,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
 
           <div className="card-premium p-6 space-y-3">
             <h3 className="text-xl font-semibold text-ink">L-Theanine</h3>
-            <ul className="text-sm leading-7 text-[#46574d] space-y-2">
+            <ul className="text-sm leading-7 text-muted space-y-2">
               <li><strong className="text-ink">Glutamate receptor modulation:</strong> Structurally similar to glutamate; competes at AMPA, kainate, and NMDA receptor binding sites — reduces excitatory tone acutely</li>
               <li><strong className="text-ink">Alpha-wave induction:</strong> EEG studies consistently show significant alpha-wave increase within 45 minutes — the electrophysiological signature of calm alertness, helpful for transitioning to sleep</li>
               <li><strong className="text-ink">GABA promotion:</strong> Increases GABA levels; mechanism not fully characterized but replicated across multiple studies</li>
@@ -225,7 +225,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
 
           <div className="card-premium p-6 space-y-3">
             <h3 className="text-xl font-semibold text-ink">Valerian Root</h3>
-            <ul className="text-sm leading-7 text-[#46574d] space-y-2">
+            <ul className="text-sm leading-7 text-muted space-y-2">
               <li><strong className="text-ink">GABA reuptake inhibition:</strong> Valerenic acid inhibits GABA transaminase and GABA reuptake, increasing synaptic GABA availability</li>
               <li><strong className="text-ink">GABA-A partial agonism:</strong> Some evidence for direct GABA-A receptor binding at low efficacy — a mild benzodiazepine-adjacent mechanism without the potency or dependency risk</li>
               <li><strong className="text-ink">Adenosine pathway:</strong> May also interact with adenosine receptors involved in sleep pressure accumulation — less well characterized</li>
@@ -234,7 +234,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
           </div>
         </div>
 
-        <div className="rounded-2xl bg-stone-50 border border-stone-200 p-5 text-sm leading-7 text-[#46574d]">
+        <div className="rounded-2xl bg-stone-50 border border-stone-200 p-5 text-sm leading-7 text-muted">
           <p className="font-semibold text-ink">The core distinction</p>
           <p className="mt-2">
             Melatonin is a timing signal. It does not relax you — it tells your brain it is night.
@@ -251,7 +251,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
         <p className="eyebrow-label">Evidence</p>
         <h2 className="text-3xl font-semibold tracking-tight text-ink">What the research shows</h2>
 
-        <div className="space-y-6 text-sm leading-7 text-[#46574d]">
+        <div className="space-y-6 text-sm leading-7 text-muted">
           <div>
             <div className="flex items-center gap-2 mb-2">
               <span className="rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-bold text-green-800">Grade A</span>
@@ -292,7 +292,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
                 Review of magnesium in health and disease. Confirms melatonin synthesis co-factor role
                 and GABAergic mechanisms; contextualizes widespread population insufficiency.
               </li>
-              <li className="text-xs text-[#46574d]/70">
+              <li className="text-xs text-muted/70">
                 Grade B–C rationale: Mechanistically compelling and directionally consistent, but most
                 trials are in deficient or elderly populations. Evidence for non-deficient healthy adults
                 is weaker. Effects build over weeks — not an acute sleep intervention.
@@ -339,7 +339,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
                 Combination products may perform better than valerian alone — the hops component adds
                 complementary mechanisms.
               </li>
-              <li className="text-xs text-[#46574d]/70">
+              <li className="text-xs text-muted/70">
                 Grade C rationale: Mechanistically plausible, traditionally supported, but human RCT
                 evidence is inconsistent across studies, with variable standardization and small effect
                 sizes in better-designed trials.
@@ -354,7 +354,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
         <div className="card-premium p-6 space-y-3">
           <p className="eyebrow-label">Dosing</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Melatonin</h2>
-          <ul className="text-sm leading-7 text-[#46574d] space-y-2">
+          <ul className="text-sm leading-7 text-muted space-y-2">
             <li><strong className="text-ink">Physiological dose:</strong> 0.3–1 mg — this is the dose that mimics natural pineal output and has the strongest circadian evidence</li>
             <li><strong className="text-ink">Common commercial dose:</strong> 3–10 mg — effective but often more than necessary; increases risk of next-morning grogginess and receptor desensitization</li>
             <li><strong className="text-ink">Timing:</strong> 30–60 minutes before desired sleep time; for jet lag, match destination local sleep schedule</li>
@@ -366,7 +366,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
         <div className="card-premium p-6 space-y-3">
           <p className="eyebrow-label">Dosing</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Magnesium Glycinate</h2>
-          <ul className="text-sm leading-7 text-[#46574d] space-y-2">
+          <ul className="text-sm leading-7 text-muted space-y-2">
             <li><strong className="text-ink">Sleep/anxiety:</strong> 200–400 mg elemental magnesium (check label — elemental content is lower than total capsule weight)</li>
             <li><strong className="text-ink">Timing:</strong> 30–60 minutes before bed for sleep use</li>
             <li><strong className="text-ink">Start low:</strong> 100–200 mg elemental to assess GI tolerance; increase over 1–2 weeks</li>
@@ -379,7 +379,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
         <div className="card-premium p-6 space-y-3">
           <p className="eyebrow-label">Dosing</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">L-Theanine</h2>
-          <ul className="text-sm leading-7 text-[#46574d] space-y-2">
+          <ul className="text-sm leading-7 text-muted space-y-2">
             <li><strong className="text-ink">Sleep onset:</strong> 100–400 mg, 30–60 minutes before bed; lower end (100–200 mg) is often sufficient</li>
             <li><strong className="text-ink">Hidese et al. dose:</strong> 200 mg/day was effective for sleep quality improvements</li>
             <li><strong className="text-ink">Tolerance:</strong> No evidence of tolerance or dependency; can be used as-needed or daily</li>
@@ -391,7 +391,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
         <div className="card-premium p-6 space-y-3">
           <p className="eyebrow-label">Dosing</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Valerian Root</h2>
-          <ul className="text-sm leading-7 text-[#46574d] space-y-2">
+          <ul className="text-sm leading-7 text-muted space-y-2">
             <li><strong className="text-ink">Standard dose range:</strong> 300–600 mg of valerian root extract, 30–60 minutes before bed</li>
             <li><strong className="text-ink">Standardization:</strong> Look for products standardized to 0.8% valerenic acid; unstandardized root powder results are highly variable</li>
             <li><strong className="text-ink">Short-term use:</strong> Most trials ran 4–6 weeks; long-term safety data beyond this window is limited</li>
@@ -409,7 +409,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="space-y-3">
             <h3 className="text-lg font-semibold text-ink">Melatonin</h3>
-            <ul className="text-sm leading-7 text-[#46574d] space-y-2">
+            <ul className="text-sm leading-7 text-muted space-y-2">
               <li><strong className="text-ink">Dose is the main concern.</strong> High commercial doses (5–10 mg) cause next-morning grogginess and may suppress pineal output with chronic use. Keep to 0.3–1 mg when possible.</li>
               <li><strong className="text-ink">Children and adolescents:</strong> Use only under clinical guidance — melatonin affects reproductive and developmental hormones and the long-term pediatric data is limited.</li>
               <li><strong className="text-ink">Autoimmune conditions:</strong> Melatonin has immune-modulating effects; use with caution if managing an autoimmune condition or taking immunosuppressants.</li>
@@ -419,7 +419,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
 
           <div className="space-y-3">
             <h3 className="text-lg font-semibold text-ink">Magnesium</h3>
-            <ul className="text-sm leading-7 text-[#46574d] space-y-2">
+            <ul className="text-sm leading-7 text-muted space-y-2">
               <li><strong className="text-ink">Kidney disease: key contraindication.</strong> Magnesium is renally cleared; CKD patients cannot excrete excess and are at risk for hypermagnesemia. Do not supplement without clinician clearance.</li>
               <li><strong className="text-ink">Medication spacing:</strong> Space 2+ hours from quinolone antibiotics, tetracyclines, bisphosphonates, and levothyroxine — magnesium reduces their absorption.</li>
               <li><strong className="text-ink">GI effects:</strong> Glycinate is unlikely to cause diarrhea at typical doses. Avoid oxide and citrate in higher doses.</li>
@@ -428,7 +428,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
 
           <div className="space-y-3">
             <h3 className="text-lg font-semibold text-ink">L-Theanine</h3>
-            <ul className="text-sm leading-7 text-[#46574d] space-y-2">
+            <ul className="text-sm leading-7 text-muted space-y-2">
               <li><strong className="text-ink">Excellent safety profile.</strong> GRAS status; no significant adverse events at clinical doses.</li>
               <li><strong className="text-ink">Additive GABAergic effect:</strong> May mildly potentiate benzodiazepines, alcohol, or other GABAergic drugs — unlikely to be problematic at typical doses but worth noting.</li>
               <li><strong className="text-ink">Prescription sleep medications:</strong> Avoid combining high-dose L-theanine with zolpidem, eszopiclone, or similar drugs without medical guidance.</li>
@@ -437,7 +437,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
 
           <div className="space-y-3">
             <h3 className="text-lg font-semibold text-ink">Valerian Root</h3>
-            <ul className="text-sm leading-7 text-[#46574d] space-y-2">
+            <ul className="text-sm leading-7 text-muted space-y-2">
               <li><strong className="text-ink">Drug interactions:</strong> GABAergic mechanism means additive potential with benzodiazepines, alcohol, barbiturates, and central nervous system depressants. Do not combine with prescription sleep medications without medical oversight.</li>
               <li><strong className="text-ink">Liver:</strong> Rare case reports of hepatotoxicity; mechanism unclear. Avoid prolonged high-dose use or if you have underlying liver disease.</li>
               <li><strong className="text-ink">Surgery:</strong> Discontinue 2+ weeks before elective surgery due to CNS depressant interaction risk with anesthesia.</li>
@@ -456,7 +456,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
           <div className="card-premium p-5 space-y-3">
             <p className="eyebrow-label">Best Evidence Stack</p>
             <h3 className="text-xl font-semibold text-ink">L-Theanine + Magnesium Glycinate</h3>
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               The most evidence-supported natural sleep combination. L-theanine (100–200 mg) quiets
               racing thoughts at sleep onset; magnesium glycinate (200–300 mg elemental) supports
               sleep depth, melatonin synthesis, and physical relaxation over consistent use. They address
@@ -467,7 +467,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
           <div className="card-premium p-5 space-y-3">
             <p className="eyebrow-label">Circadian Reset Stack</p>
             <h3 className="text-xl font-semibold text-ink">Low-dose Melatonin + L-Theanine</h3>
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               For jet lag, delayed schedule, or shift work patterns: melatonin (0.3–1 mg) shifts the
               circadian signal; L-theanine (100–200 mg) helps quiet the mind that may still be running
               at full alertness when the schedule says it should be sleeping. Useful when the problem
@@ -478,7 +478,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
           <div className="card-premium p-5 space-y-3">
             <p className="eyebrow-label">Foundational Sleep Protocol</p>
             <h3 className="text-xl font-semibold text-ink">Daily Magnesium + As-needed L-Theanine</h3>
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               Magnesium glycinate daily (long-term sleep architecture and HPA axis support). L-theanine
               reserved for nights when mental chatter is the specific barrier — high-stress periods,
               before important events, or when anxiety is elevated. This uses each compound at its
@@ -489,7 +489,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
           <div className="card-premium p-5 space-y-3">
             <p className="eyebrow-label">What to Avoid</p>
             <h3 className="text-xl font-semibold text-ink">Do not stack without clinician guidance</h3>
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               Do not combine valerian or L-theanine with prescription benzodiazepines, zolpidem,
               eszopiclone, or similar sleep medications without medical oversight. The additive GABAergic
               effect may be clinically meaningful. Report all supplement use to your prescriber — supplements
@@ -504,7 +504,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
         <p className="eyebrow-label">FAQ</p>
         <h2 className="text-3xl font-semibold tracking-tight text-ink">Common questions</h2>
 
-        <div className="space-y-5 text-sm leading-7 text-[#46574d]">
+        <div className="space-y-5 text-sm leading-7 text-muted">
           <div>
             <h3 className="text-lg font-semibold text-ink">Is melatonin better than magnesium for sleep?</h3>
             <p>

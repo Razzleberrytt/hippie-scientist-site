@@ -58,7 +58,7 @@ export default function SerotoninPathwayPage() {
           Serotonin Pathway
         </h1>
 
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Educational exploration of serotonergic signaling systems involved in mood regulation, emotional processing, cognition, stress response, and psychoactive neuropharmacology.
         </p>
       </section>
@@ -77,7 +77,7 @@ export default function SerotoninPathwayPage() {
                 {profile.title}
               </h2>
 
-              <p className="text-sm leading-7 text-[#46574d]">
+              <p className="text-sm leading-7 text-muted">
                 {profile.description}
               </p>
             </div>

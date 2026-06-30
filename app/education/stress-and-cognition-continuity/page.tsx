@@ -89,7 +89,7 @@ export default function StressAndCognitionContinuityPage() {
           </h1>
         </div>
 
-        <p className='text-xl leading-9 text-[#46574d]'>
+        <p className='text-xl leading-9 text-muted'>
           Human cognition may depend heavily on stress regulation, recovery
           continuity, emotional stability, sleep quality, nervous-system
           resilience, and contextual neurobiology rather than isolated
@@ -112,7 +112,7 @@ export default function StressAndCognitionContinuityPage() {
               {system.title}
             </h2>
 
-            <p className='text-sm leading-7 text-[#46574d]'>
+            <p className='text-sm leading-7 text-muted'>
               {system.body}
             </p>
           </div>
@@ -137,7 +137,7 @@ export default function StressAndCognitionContinuityPage() {
                 {faq.question}
               </h3>
 
-              <p className='text-sm leading-7 text-[#46574d]'>
+              <p className='text-sm leading-7 text-muted'>
                 {faq.answer}
               </p>
             </div>

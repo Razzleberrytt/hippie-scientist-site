@@ -103,7 +103,7 @@ export default function ToolsPage() {
         <h1 className="mt-2 max-w-3xl font-display text-3xl font-semibold tracking-tight text-ink sm:text-5xl">
           Research Tools
         </h1>
-        <p className="mt-2 max-w-2xl text-sm leading-6 text-[#46574d]">
+        <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
           Interactive tools for navigating herb and compound evidence without the guesswork.
         </p>
       </section>
@@ -130,7 +130,7 @@ export default function ToolsPage() {
                   </span>
                   <h3 className="text-base font-semibold tracking-tight text-ink group-hover:text-brand-800">{tool.title}</h3>
                 </div>
-                <p className="mt-2 flex-1 text-sm leading-6 text-[#46574d]">{tool.description}</p>
+                <p className="mt-2 flex-1 text-sm leading-6 text-muted">{tool.description}</p>
                 <span className="mt-3 inline-flex text-xs font-semibold text-brand-800 group-hover:underline">Open tool →</span>
               </Link>
             )
@@ -154,13 +154,13 @@ export default function ToolsPage() {
                 className="flex h-full flex-col rounded-[0.85rem] border border-brand-900/10 bg-white/60 p-4 opacity-80"
               >
                 <div className="flex items-center gap-3">
-                  <span className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-brand-900/10 bg-white text-[#5f6f66]">
+                  <span className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-brand-900/10 bg-white text-muted">
                     <Icon aria-hidden={true} className="h-4 w-4" />
                   </span>
                   <h3 className="text-base font-semibold tracking-tight text-ink">{tool.title}</h3>
                 </div>
-                <p className="mt-2 flex-1 text-sm leading-6 text-[#5f6f66]">{tool.description}</p>
-                <span className="mt-3 inline-flex text-xs font-semibold uppercase tracking-wider text-[#5f6f66]">Coming soon</span>
+                <p className="mt-2 flex-1 text-sm leading-6 text-muted">{tool.description}</p>
+                <span className="mt-3 inline-flex text-xs font-semibold uppercase tracking-wider text-muted">Coming soon</span>
               </div>
             )
           })}

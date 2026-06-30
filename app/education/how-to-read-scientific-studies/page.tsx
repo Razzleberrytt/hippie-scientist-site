@@ -39,7 +39,7 @@ export default function ReadScientificStudiesPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Scientific interpretation involves evaluating evidence quality, study design, population size, limitations, reproducibility, mechanistic plausibility, and clinical relevance.
         </p>
 

@@ -98,7 +98,7 @@ export default function EvidenceLegend({
         <p className="text-[10px] font-bold uppercase tracking-wider text-muted">
           Evidence Strength Scale — How We Rate Research
         </p>
-        <p className="mt-1.5 text-xs leading-5 text-[#5f6f66]">
+        <p className="mt-1.5 text-xs leading-5 text-muted">
           Each rating reflects the quality, quantity, and human relevance of available clinical
           research. Ratings are assigned to specific outcomes (e.g., &ldquo;sleep quality&rdquo;)
           — not compounds overall.
@@ -145,7 +145,7 @@ export default function EvidenceLegend({
                   />
                 </div>
 
-                <div className="mt-2 grid gap-1 text-[11px] text-[#46574d] sm:grid-cols-2">
+                <div className="mt-2 grid gap-1 text-[11px] text-muted sm:grid-cols-2">
                   <p>
                     <span className="font-semibold text-ink">What it means: </span>
                     {row.what}

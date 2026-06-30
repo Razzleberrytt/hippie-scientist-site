@@ -54,7 +54,7 @@ export default function SerotonergicRisksPage() {
           Serotonergic Stacking Risks
         </h1>
 
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Educational overview of serotonergic overlap, interaction awareness, psychoactive safety considerations, and conservative neurochemical harm-reduction principles.
         </p>
 

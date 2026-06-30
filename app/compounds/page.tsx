@@ -34,10 +34,10 @@ export default async function CompoundsPage() {
         <h1 className="mt-2 max-w-3xl font-display text-3xl font-semibold tracking-tight text-ink sm:text-5xl">
           Compound Library
         </h1>
-        <p className="mt-2 max-w-2xl text-sm leading-6 text-[#46574d]">
+        <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
           Mechanism, evidence strength, and safety context for bioactive molecules and supplement constituents.
         </p>
-        <p className="mt-2 text-sm font-semibold text-[#46574d]">Browsing {allCompounds.length} compounds</p>
+        <p className="mt-2 text-sm font-semibold text-muted">Browsing {allCompounds.length} compounds</p>
       </section>
 
       {/* SEO-crawlable index (hidden from visual users, served to Googlebot) */}

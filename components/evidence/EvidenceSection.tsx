@@ -33,7 +33,7 @@ export default function EvidenceSection({
           {title}
         </h2>
 
-        <p className="text-base leading-8 text-[#46574d]">
+        <p className="text-base leading-8 text-muted">
           {summary}
         </p>
       </div>

@@ -44,7 +44,7 @@ export default function RhodiolaVsAshwagandhaComparePage() {
         <h1 className="text-5xl font-bold tracking-tight text-ink">
           Rhodiola vs Ashwagandha: Which Fits Your Stress Pattern?
         </h1>
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Rhodiola is usually the better fit for fatigue-heavy, overextended days.
           Ashwagandha is usually the better fit for longer-running stress load and evening unwind support.
         </p>
@@ -56,7 +56,7 @@ export default function RhodiolaVsAshwagandhaComparePage() {
         <article className="card-premium p-6 space-y-4">
           <p className="eyebrow-label">Fatigue-forward</p>
           <h2 className="text-3xl font-semibold tracking-tight text-ink">Rhodiola</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             Better for mental fatigue, stress resilience, and daytime output when you do not want a sedating option.
           </p>
           <Link href="/herbs/rhodiola" className="chip-readable text-xs font-bold">Explore Rhodiola →</Link>
@@ -65,7 +65,7 @@ export default function RhodiolaVsAshwagandhaComparePage() {
         <article className="card-premium p-6 space-y-4">
           <p className="eyebrow-label">Stress-load forward</p>
           <h2 className="text-3xl font-semibold tracking-tight text-ink">Ashwagandha</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             Better for steady stress support, evening settling, and routines where calm matters more than activation.
           </p>
           <Link href="/herbs/ashwagandha" className="chip-readable text-xs font-bold">Explore Ashwagandha →</Link>

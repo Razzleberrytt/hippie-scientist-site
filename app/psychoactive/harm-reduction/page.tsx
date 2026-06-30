@@ -54,7 +54,7 @@ export default function HarmReductionPage() {
           Psychoactive Harm Reduction
         </h1>
 
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Educational harm-reduction exploration focused on interaction awareness, neurochemical safety, pathway overlap, psychoactive ethnobotany, and conservative evidence-informed interpretation.
         </p>
 

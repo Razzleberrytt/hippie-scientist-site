@@ -91,7 +91,7 @@ export default function NeurotransmittersPage() {
                   {pathway.title}
                 </h3>
 
-                <p className="text-sm leading-7 text-[#46574d]">
+                <p className="text-sm leading-7 text-muted">
                   {pathway.description}
                 </p>
               </div>

@@ -59,7 +59,7 @@ export default function SleepMentalHealthPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Sleep continuity is closely associated with emotional regulation, cognition recovery, stress adaptation, nervous-system restoration, and mental-health-related neurochemistry.
         </p>
 

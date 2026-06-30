@@ -113,7 +113,7 @@ export function ResultRow({ doc, active, id, onHover, onSelect }: ResultRowProps
           <EvidenceBadge grade={doc.evidenceGrade} />
         </span>
         {doc.summary && (
-          <span className="line-clamp-1 text-xs leading-5 text-[#5f6f66]">{doc.summary}</span>
+          <span className="line-clamp-1 text-xs leading-5 text-muted">{doc.summary}</span>
         )}
       </button>
     </li>

@@ -76,7 +76,7 @@ export default function StressBrainEducationPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Stress-related neurobiology involves interconnected signaling systems associated with emotional regulation, vigilance, cognition continuity, inflammatory signaling, nervous-system activation, hormonal adaptation, sleep recovery, and physiological resilience.
         </p>
 
@@ -105,7 +105,7 @@ export default function StressBrainEducationPage() {
               {mechanism.title}
             </h2>
 
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               {mechanism.body}
             </p>
           </div>

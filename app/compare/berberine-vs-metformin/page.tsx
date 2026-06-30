@@ -42,7 +42,7 @@ export default function BerberineVsMetforminPage() {
         <h1 className="text-5xl font-bold tracking-tight text-ink">
           Berberine vs Metformin: Is "Nature's Metformin" Actually Comparable?
         </h1>
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Both activate AMPK, both reduce hepatic glucose production, and short-term RCTs show
           comparable glycemic outcomes. But metformin has 60+ years of population-scale safety data
           and proven cardiovascular outcomes. Berberine is a legitimate OTC metabolic support option —
@@ -65,7 +65,7 @@ export default function BerberineVsMetforminPage() {
         <div className="card-premium p-6 space-y-4">
           <p className="eyebrow-label">Plant Alkaloid · OTC</p>
           <h2 className="text-3xl font-semibold tracking-tight text-ink">Berberine</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             Isoquinoline alkaloid found in barberry, goldenseal, and Oregon grape. Primary action:
             AMPK activation — the same upstream target as metformin. Also modulates the gut microbiome,
             inhibits PTP1B, and upregulates GLUT4. Available OTC; typically dosed 500mg three times daily.
@@ -76,7 +76,7 @@ export default function BerberineVsMetforminPage() {
         <div className="card-premium p-6 space-y-4">
           <p className="eyebrow-label">Biguanide · Prescription</p>
           <h2 className="text-3xl font-semibold tracking-tight text-ink">Metformin</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             First-line pharmacological treatment for type 2 diabetes since the 1990s. Reduces hepatic
             gluconeogenesis via AMPK and mitochondrial Complex I inhibition. Backed by landmark trials
             including the UKPDS, with proven cardiovascular outcome data over decades.
@@ -98,7 +98,7 @@ export default function BerberineVsMetforminPage() {
                 <th className="py-3 pr-4 font-semibold">Metformin</th>
               </tr>
             </thead>
-            <tbody className="text-[#46574d]">
+            <tbody className="text-muted">
               <tr className="border-b border-black/10">
                 <td className="py-3 pr-4 font-medium text-ink">Primary mechanism</td>
                 <td className="py-3 pr-4">AMPK activation, gut microbiome, GLUT4 upregulation</td>
@@ -147,7 +147,7 @@ export default function BerberineVsMetforminPage() {
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="card-premium p-6 space-y-3">
             <h3 className="text-xl font-semibold text-ink">Berberine</h3>
-            <ul className="text-sm leading-7 text-[#46574d] space-y-2 list-none">
+            <ul className="text-sm leading-7 text-muted space-y-2 list-none">
               <li><strong className="text-ink">AMPK activation:</strong> reduces hepatic glucose output, increases peripheral uptake</li>
               <li><strong className="text-ink">GLUT4 upregulation:</strong> promotes glucose transport into muscle cells independently of insulin</li>
               <li><strong className="text-ink">PTP1B inhibition:</strong> increases insulin receptor sensitivity</li>
@@ -159,7 +159,7 @@ export default function BerberineVsMetforminPage() {
 
           <div className="card-premium p-6 space-y-3">
             <h3 className="text-xl font-semibold text-ink">Metformin</h3>
-            <ul className="text-sm leading-7 text-[#46574d] space-y-2 list-none">
+            <ul className="text-sm leading-7 text-muted space-y-2 list-none">
               <li><strong className="text-ink">Mitochondrial Complex I inhibition:</strong> increases AMP:ATP ratio → AMPK activation</li>
               <li><strong className="text-ink">Hepatic gluconeogenesis suppression:</strong> primary glucose-lowering mechanism</li>
               <li><strong className="text-ink">Improved peripheral insulin sensitivity:</strong> independent of weight loss</li>
@@ -191,7 +191,7 @@ export default function BerberineVsMetforminPage() {
               <span className="rounded-full bg-green-100 px-2.5 py-0.5 text-xs font-bold text-green-800">Grade B</span>
               <h3 className="text-lg font-semibold text-ink">Berberine for glycemic control</h3>
             </div>
-            <ul className="text-sm leading-7 text-[#46574d] space-y-3">
+            <ul className="text-sm leading-7 text-muted space-y-3">
               <li>
                 <strong className="text-ink">Zhang et al. 2008</strong> (J Clin Endocrinol Metab, PMID: 18397984):
                 Berberine 500mg 3×/day vs metformin 500mg 3×/day in newly diagnosed T2D patients (n=116) over
@@ -208,7 +208,7 @@ export default function BerberineVsMetforminPage() {
                 Berberine comparable to oral hypoglycemics including metformin for HbA1c and fasting glucose
                 in short-term (≤3 month) comparisons. Significant heterogeneity across studies.
               </li>
-              <li className="text-xs text-[#46574d]/70">
+              <li className="text-xs text-muted/70">
                 Grade B rationale: Multiple RCTs with significant results, but limited by smaller sample sizes,
                 shorter durations (&lt;3 months), predominantly Chinese study populations, and absence of
                 long-term cardiovascular or mortality endpoint data.
@@ -221,7 +221,7 @@ export default function BerberineVsMetforminPage() {
               <span className="rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-bold text-blue-800">Grade A</span>
               <h3 className="text-lg font-semibold text-ink">Metformin for T2D</h3>
             </div>
-            <ul className="text-sm leading-7 text-[#46574d] space-y-3">
+            <ul className="text-sm leading-7 text-muted space-y-3">
               <li>
                 <strong className="text-ink">UKPDS 34 (1998)</strong> (Lancet, PMID: 9742977):
                 Landmark 10-year trial in overweight T2D patients. Metformin reduced diabetes-related
@@ -243,7 +243,7 @@ export default function BerberineVsMetforminPage() {
         <div className="card-premium p-6 space-y-3">
           <p className="eyebrow-label">Dosing</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Berberine</h2>
-          <ul className="text-sm leading-7 text-[#46574d] space-y-1">
+          <ul className="text-sm leading-7 text-muted space-y-1">
             <li><strong className="text-ink">Standard dose:</strong> 500mg with each main meal (1,500mg/day)</li>
             <li><strong className="text-ink">Start low:</strong> 250mg 2×/day for 1–2 weeks to assess GI tolerance</li>
             <li><strong className="text-ink">Half-life:</strong> ~4–5 hours — split dosing is essential for sustained coverage</li>
@@ -255,7 +255,7 @@ export default function BerberineVsMetforminPage() {
         <div className="card-premium p-6 space-y-3">
           <p className="eyebrow-label">Dosing</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Metformin</h2>
-          <ul className="text-sm leading-7 text-[#46574d] space-y-1">
+          <ul className="text-sm leading-7 text-muted space-y-1">
             <li><strong className="text-ink">Typical range:</strong> 500–2,000mg/day; titrated by prescriber</li>
             <li><strong className="text-ink">Starting:</strong> 500mg once or twice daily with meals; titrated up monthly</li>
             <li><strong className="text-ink">Extended-release (ER):</strong> Significantly reduces GI side effects; often preferred</li>
@@ -272,7 +272,7 @@ export default function BerberineVsMetforminPage() {
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="space-y-3">
             <h3 className="text-lg font-semibold text-ink">Berberine cautions</h3>
-            <ul className="text-sm leading-7 text-[#46574d] space-y-2">
+            <ul className="text-sm leading-7 text-muted space-y-2">
               <li><strong className="text-ink">Drug interactions (significant):</strong> Berberine inhibits CYP3A4 and CYP2D6. Clinically relevant interactions with cyclosporine, some statins (simvastatin, lovastatin), antiarrhythmics, anticoagulants, and certain antidepressants. Review all medications before use.</li>
               <li><strong className="text-ink">Hypoglycemia risk:</strong> Can potentiate insulin or sulfonylurea effect. If taking diabetes medications, do not add berberine without clinician oversight.</li>
               <li><strong className="text-ink">Pregnancy: Contraindicated.</strong> Berberine crosses the placenta; may cause neonatal jaundice; animal reproductive toxicity data. Do not use in pregnancy or while breastfeeding.</li>
@@ -283,7 +283,7 @@ export default function BerberineVsMetforminPage() {
 
           <div className="space-y-3">
             <h3 className="text-lg font-semibold text-ink">Metformin cautions</h3>
-            <ul className="text-sm leading-7 text-[#46574d] space-y-2">
+            <ul className="text-sm leading-7 text-muted space-y-2">
               <li><strong className="text-ink">Renal impairment:</strong> Metformin is contraindicated with eGFR &lt;30 mL/min. Dose reduction needed for eGFR 30–45. Lactic acidosis risk (rare but serious) is highest with renal impairment.</li>
               <li><strong className="text-ink">Vitamin B12 depletion:</strong> Long-term metformin use reduces B12 absorption in 10–30% of patients. Annual monitoring recommended; supplement if needed.</li>
               <li><strong className="text-ink">Contrast procedures:</strong> Hold metformin before and 48 hours after iodinated contrast dye procedures.</li>
@@ -313,7 +313,7 @@ export default function BerberineVsMetforminPage() {
           <div className="card-premium p-5 space-y-3">
             <p className="eyebrow-label">Metabolic Support Stack</p>
             <h3 className="text-xl font-semibold text-ink">Berberine + Inositol</h3>
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               Commonly used for insulin resistance and PCOS. Overlapping insulin-sensitizing mechanisms.
               Myo-inositol + D-chiro-inositol combination has human trial support for PCOS specifically.
               Berberine adds AMPK/gut axis support.
@@ -323,7 +323,7 @@ export default function BerberineVsMetforminPage() {
           <div className="card-premium p-5 space-y-3">
             <p className="eyebrow-label">Gut Health Stack</p>
             <h3 className="text-xl font-semibold text-ink">Berberine + Psyllium</h3>
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               Berberine's gut microbiome effects may complement psyllium's prebiotic and cholesterol-lowering
               actions. Both have evidence for lipid support. Timing note: space psyllium from other supplements
               by 1–2 hours to avoid absorption interference.
@@ -333,7 +333,7 @@ export default function BerberineVsMetforminPage() {
           <div className="card-premium p-5 space-y-3">
             <p className="eyebrow-label">Metformin Add-On</p>
             <h3 className="text-xl font-semibold text-ink">Metformin + B12</h3>
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               If you're on long-term metformin, routine B12 monitoring and supplementation is warranted.
               Methylcobalamin 500–1,000mcg daily is commonly recommended. This is evidence-based standard
               practice, not optional optimization.
@@ -341,7 +341,7 @@ export default function BerberineVsMetforminPage() {
           </div>
         </div>
 
-        <div className="rounded-2xl bg-stone-50 border border-stone-200 p-5 text-sm leading-7 text-[#46574d]">
+        <div className="rounded-2xl bg-stone-50 border border-stone-200 p-5 text-sm leading-7 text-muted">
           <p className="font-semibold text-ink">Berberine + Metformin combination</p>
           <p className="mt-2">
             Some small trials have studied berberine as an add-on to metformin, with additive glycemic effects.
@@ -356,7 +356,7 @@ export default function BerberineVsMetforminPage() {
         <p className="eyebrow-label">FAQ</p>
         <h2 className="text-3xl font-semibold tracking-tight text-ink">Common questions</h2>
 
-        <div className="space-y-5 text-sm leading-7 text-[#46574d]">
+        <div className="space-y-5 text-sm leading-7 text-muted">
           <div>
             <h3 className="text-lg font-semibold text-ink">Is berberine as effective as metformin for blood sugar?</h3>
             <p>

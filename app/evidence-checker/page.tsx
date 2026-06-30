@@ -65,7 +65,7 @@ export default function EvidenceCheckerPage() {
         <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">
           Supplement Evidence Lookup
         </h1>
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Browse {total} compounds by their clinical evidence grade — from strong human trials (Grade A) 
           to mechanism-only data (Grade D). Grades are based on analysis of 816 peer-reviewed studies.
         </p>
@@ -115,7 +115,7 @@ export default function EvidenceCheckerPage() {
       {/* Legend */}
       <section className="max-w-3xl card-premium p-6 space-y-4">
         <h2 className="text-xl font-semibold text-ink">Evidence Grade Guide</h2>
-        <div className="space-y-2 text-sm leading-7 text-[#46574d]">
+        <div className="space-y-2 text-sm leading-7 text-muted">
           <p><strong>Grade A:</strong> Multiple high-quality RCTs with consistent findings.</p>
           <p><strong>Grade B:</strong> Several RCTs with generally positive findings.</p>
           <p><strong>Grade C:</strong> Limited human trials or mixed results.</p>

@@ -308,7 +308,7 @@ export default function BestSupplementsForSleepPage() {
           <h1 className="mt-3 font-display text-4xl font-bold leading-tight tracking-tight text-ink sm:text-5xl">
             Best Supplements for Sleep
           </h1>
-          <p className="mt-4 max-w-3xl text-base leading-8 text-[#46574d] sm:text-lg">
+          <p className="mt-4 max-w-3xl text-base leading-8 text-muted sm:text-lg">
             Compare options by sleep problem, timing, evidence context, grogginess risk, and safety
             before choosing a product or building a stack.
           </p>
@@ -339,7 +339,7 @@ export default function BestSupplementsForSleepPage() {
             <div key={item.problem} className="rounded-[0.85rem] border border-brand-900/10 bg-white/80 p-4">
               <h3 className="text-sm font-bold text-ink">{item.problem}</h3>
               <p className="mt-2 text-sm font-semibold text-brand-800">{item.fit}</p>
-              <p className="mt-2 text-sm leading-6 text-[#46574d]">{item.note}</p>
+              <p className="mt-2 text-sm leading-6 text-muted">{item.note}</p>
             </div>
           ))}
         </div>
@@ -351,7 +351,7 @@ export default function BestSupplementsForSleepPage() {
           <h2 id="ranked-supplements" className="mt-2 text-3xl font-semibold tracking-tight text-ink">
             Sleep supplements worth comparing first
           </h2>
-          <p className="mt-3 text-sm leading-7 text-[#46574d]">
+          <p className="mt-3 text-sm leading-7 text-muted">
             Rankings favor practical fit, human evidence, safety, and clear product-quality criteria.
             They are not promises that a supplement will treat insomnia or replace medical care.
           </p>
@@ -369,7 +369,7 @@ export default function BestSupplementsForSleepPage() {
                   Read next
                 </Link>
               </div>
-              <dl className="mt-5 grid gap-4 text-sm leading-6 text-[#46574d]">
+              <dl className="mt-5 grid gap-4 text-sm leading-6 text-muted">
                 <div>
                   <dt className="font-bold text-ink">Best for</dt>
                   <dd className="mt-1">{item.bestFor}</dd>
@@ -423,11 +423,11 @@ export default function BestSupplementsForSleepPage() {
                 {supplements.map((item) => (
                   <tr key={item.name} className="align-top">
                     <td className="px-4 py-4 font-semibold text-ink">{item.name}</td>
-                    <td className="px-4 py-4 text-[#46574d]">{item.bestFor}</td>
-                    <td className="px-4 py-4 text-[#46574d]">{item.timing}</td>
-                    <td className="px-4 py-4 text-[#46574d]">{item.evidence}</td>
-                    <td className="px-4 py-4 text-[#46574d]">{item.grogginess}</td>
-                    <td className="px-4 py-4 text-[#46574d]">{item.safety}</td>
+                    <td className="px-4 py-4 text-muted">{item.bestFor}</td>
+                    <td className="px-4 py-4 text-muted">{item.timing}</td>
+                    <td className="px-4 py-4 text-muted">{item.evidence}</td>
+                    <td className="px-4 py-4 text-muted">{item.grogginess}</td>
+                    <td className="px-4 py-4 text-muted">{item.safety}</td>
                     <td className="px-4 py-4">
                       <Link href={item.href} className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">
                         {item.readNext}
@@ -447,14 +447,14 @@ export default function BestSupplementsForSleepPage() {
           <h2 id="ranking-method" className="mt-2 text-2xl font-semibold tracking-tight text-ink">
             How we ranked these
           </h2>
-          <ul className="mt-4 grid gap-3 text-sm leading-6 text-[#46574d] sm:grid-cols-2">
+          <ul className="mt-4 grid gap-3 text-sm leading-6 text-muted sm:grid-cols-2">
             {rankingCriteria.map((item) => (
               <li key={item} className="rounded-[0.85rem] border border-brand-900/10 bg-brand-50/50 p-4">
                 {item}
               </li>
             ))}
           </ul>
-          <p className="mt-4 text-sm leading-7 text-[#46574d]">
+          <p className="mt-4 text-sm leading-7 text-muted">
             See the full <Link href="/methodology/" className="font-semibold text-brand-700 hover:underline">methodology</Link> for
             how evidence, safety, and product-quality signals are handled across the site.
           </p>
@@ -519,7 +519,7 @@ export default function BestSupplementsForSleepPage() {
           {faqs.map((faq) => (
             <div key={faq.question} className="rounded-[0.85rem] border border-brand-900/10 bg-brand-50/40 p-4">
               <h3 className="font-semibold text-ink">{faq.question}</h3>
-              <p className="mt-2 text-sm leading-7 text-[#46574d]">{faq.answer}</p>
+              <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
             </div>
           ))}
         </div>
@@ -538,7 +538,7 @@ export default function BestSupplementsForSleepPage() {
               className="rounded-[0.85rem] border border-brand-900/10 bg-white/80 p-4 transition hover:border-brand-700/30"
             >
               <span className="font-semibold text-ink">{item.label}</span>
-              <span className="mt-2 block text-xs leading-5 text-[#46574d]">{item.note}</span>
+              <span className="mt-2 block text-xs leading-5 text-muted">{item.note}</span>
             </Link>
           ))}
         </div>

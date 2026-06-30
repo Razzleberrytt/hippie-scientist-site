@@ -57,7 +57,7 @@ export default function WhyBurnoutAffectsCognitionPage() {
           <p className="eyebrow-label">Recovery-Oriented Neuroscience</p>
           <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">Why Burnout Affects Cognition</h1>
         </div>
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Burnout-related cognition changes may involve substantially more than low motivation. Stress physiology, emotional exhaustion, sleep disruption, recovery-system strain, and nervous-system overload may all influence cognition continuity and attentional resilience.
         </p>
       </section>
@@ -72,7 +72,7 @@ export default function WhyBurnoutAffectsCognitionPage() {
         {systems.map((system) => (
           <div key={system.title} className="card-premium p-6 space-y-4">
             <h2 className="text-2xl font-semibold tracking-tight text-ink">{system.title}</h2>
-            <p className="text-sm leading-7 text-[#46574d]">{system.body}</p>
+            <p className="text-sm leading-7 text-muted">{system.body}</p>
           </div>
         ))}
       </section>

@@ -93,7 +93,7 @@ export default function CognitiveResilienceSystemsPage() {
           </h1>
         </div>
 
-        <p className='text-xl leading-9 text-[#46574d]'>
+        <p className='text-xl leading-9 text-muted'>
           Sustainable cognition may depend heavily on recovery continuity,
           emotional regulation, stress resilience, attentional flexibility,
           nervous-system restoration, and contextual neurobiology rather than
@@ -116,7 +116,7 @@ export default function CognitiveResilienceSystemsPage() {
               {system.title}
             </h2>
 
-            <p className='text-sm leading-7 text-[#46574d]'>
+            <p className='text-sm leading-7 text-muted'>
               {system.body}
             </p>
           </div>
@@ -141,7 +141,7 @@ export default function CognitiveResilienceSystemsPage() {
                 {faq.question}
               </h3>
 
-              <p className='text-sm leading-7 text-[#46574d]'>
+              <p className='text-sm leading-7 text-muted'>
                 {faq.answer}
               </p>
             </div>

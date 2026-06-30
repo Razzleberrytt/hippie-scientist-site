@@ -57,7 +57,7 @@ export default function NeurochemistryMythsPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Online neurochemistry discussions are often oversimplified into rigid “chemical imbalance” narratives that fail to reflect the complexity of real-world neuroscience, systems biology, and human variability.
         </p>
 
@@ -73,7 +73,7 @@ export default function NeurochemistryMythsPage() {
               {myth.title}
             </h2>
 
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               {myth.explanation}
             </p>
           </div>

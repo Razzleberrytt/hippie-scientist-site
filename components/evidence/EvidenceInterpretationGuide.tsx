@@ -37,7 +37,7 @@ export default function EvidenceInterpretationGuide({
           {title}
         </h2>
 
-        <p className="text-base leading-8 text-[#46574d]">
+        <p className="text-base leading-8 text-muted">
           Neuroscience and neuropharmacology research are biologically complex. Educational interpretation should consider evidence quality, mechanistic limitations, contextual variability, study design, and translational uncertainty rather than relying on simplified optimization narratives.
         </p>
       </div>
@@ -52,7 +52,7 @@ export default function EvidenceInterpretationGuide({
               {level.title}
             </h3>
 
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               {level.description}
             </p>
           </div>
@@ -64,7 +64,7 @@ export default function EvidenceInterpretationGuide({
           Why oversimplified neuroscience spreads easily online
         </h3>
 
-        <p className="text-sm leading-7 text-[#46574d]">
+        <p className="text-sm leading-7 text-muted">
           Simplistic explanations involving single neurotransmitters, “brain hacks,” or deterministic optimization frameworks are often easier to market and easier to understand than systems-oriented neuroscience. However, human cognition, emotional regulation, recovery biology, and psychoactive experiences generally involve interacting biological, psychological, environmental, and contextual systems.
         </p>
       </div>

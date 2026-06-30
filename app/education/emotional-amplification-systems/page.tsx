@@ -74,7 +74,7 @@ export default function EmotionalAmplificationSystemsPage() {
           <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">Emotional Amplification Systems</h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Human emotional experiences may involve substantially more than isolated neurotransmitter activity. Emotional salience systems, stress physiology, perception processes, environmental context, attentional focus, and nervous-system sensitivity may all influence emotional intensity and subjective experiences.
         </p>
       </section>
@@ -91,7 +91,7 @@ export default function EmotionalAmplificationSystemsPage() {
         {systems.map((system) => (
           <div key={system.title} className="card-premium p-6 space-y-4">
             <h2 className="text-2xl font-semibold tracking-tight text-ink">{system.title}</h2>
-            <p className="text-sm leading-7 text-[#46574d]">{system.body}</p>
+            <p className="text-sm leading-7 text-muted">{system.body}</p>
           </div>
         ))}
       </section>
@@ -109,7 +109,7 @@ export default function EmotionalAmplificationSystemsPage() {
           {faqs.map((faq) => (
             <div key={faq.question} className="card-premium p-6 space-y-3">
               <h3 className="text-xl font-semibold tracking-tight text-ink">{faq.question}</h3>
-              <p className="text-sm leading-7 text-[#46574d]">{faq.answer}</p>
+              <p className="text-sm leading-7 text-muted">{faq.answer}</p>
             </div>
           ))}
         </div>

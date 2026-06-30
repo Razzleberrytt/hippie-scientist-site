@@ -112,7 +112,7 @@ export default function LTheanineMagnesiumAdhdStackPage() {
         <div className="mt-3">
           <LastUpdatedBadge date={DATE} label="Last updated" />
         </div>
-        <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">{DESCRIPTION}</p>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
       </section>
 
       {/* Disclosure */}
@@ -138,7 +138,7 @@ export default function LTheanineMagnesiumAdhdStackPage() {
                 ['Best evidence is for individual components', 'Direct combination trials in ADHD are limited. Individual evidence for each compound is more robust.'],
                 ['Start one at a time — always', 'Introduce supplements separately over 1–2 weeks each to identify what works and attribute any effects correctly.'],
               ].map(([bold, rest]) => (
-                <li key={bold as string} className="flex gap-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+                <li key={bold as string} className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
                   <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
                   <span><strong>{bold as string}.</strong> {rest as string}</span>
                 </li>
@@ -152,15 +152,15 @@ export default function LTheanineMagnesiumAdhdStackPage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Why Combine These Two for ADHD?
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 ADHD often involves hyperactivation across multiple dimensions: mental (racing thoughts,
                 difficulty quieting the mind), physical (motor restlessness), and neurochemical (imbalanced
                 excitatory/inhibitory signaling). A single supplement is unlikely to address all of these.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 L-theanine and magnesium together cover more of this territory than either alone:
               </p>
-              <ul className="mt-3 ml-5 space-y-1 list-disc text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <ul className="mt-3 ml-5 space-y-1 list-disc text-[1.01rem] leading-[1.85] text-muted">
                 <li>L-theanine for mental calm, alpha-wave induction, and reducing stress-driven mental arousal</li>
                 <li>Magnesium for neural excitability regulation (NMDA), muscle relaxation, GABA support, and sleep architecture</li>
                 <li>Both are non-stimulant, non-sedative at typical doses — appropriate for use alongside ADHD medication</li>
@@ -174,7 +174,7 @@ export default function LTheanineMagnesiumAdhdStackPage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 How Each Works — Separate Pathways
               </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
                 These two pathways are distinct — they don&apos;t share primary receptors or neurotransmitters,
                 which is why combining them is additive rather than redundant.
               </p>
@@ -217,8 +217,8 @@ export default function LTheanineMagnesiumAdhdStackPage() {
                     ].map(([challenge, lt, mg]) => (
                       <tr key={challenge as string} className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">{challenge}</td>
-                        <td className="py-3 pr-4 text-[#46574d]">{lt}</td>
-                        <td className="py-3 text-[#46574d]">{mg}</td>
+                        <td className="py-3 pr-4 text-muted">{lt}</td>
+                        <td className="py-3 text-muted">{mg}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -262,7 +262,7 @@ export default function LTheanineMagnesiumAdhdStackPage() {
                     </span>
                     <div>
                       <p className="font-semibold text-ink">{title}</p>
-                      <p className="mt-1 text-sm leading-6 text-[#46574d]">{body}</p>
+                      <p className="mt-1 text-sm leading-6 text-muted">{body}</p>
                     </div>
                   </div>
                 ))}
@@ -288,9 +288,9 @@ export default function LTheanineMagnesiumAdhdStackPage() {
                       ].map(([supp, dose, timing, notes]) => (
                         <tr key={supp as string} className="align-top">
                           <td className="py-3 pr-4 font-medium text-ink">{supp}</td>
-                          <td className="py-3 pr-4 text-[#46574d]">{dose}</td>
-                          <td className="py-3 pr-4 text-[#46574d]">{timing}</td>
-                          <td className="py-3 text-[#46574d]">{notes}</td>
+                          <td className="py-3 pr-4 text-muted">{dose}</td>
+                          <td className="py-3 pr-4 text-muted">{timing}</td>
+                          <td className="py-3 text-muted">{notes}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -331,7 +331,7 @@ export default function LTheanineMagnesiumAdhdStackPage() {
                   <div key={name} className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
                     <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">{eyebrow}</p>
                     <p className="font-semibold text-ink">{name}</p>
-                    <p className="mt-1 text-xs leading-5 text-[#46574d]">{desc}</p>
+                    <p className="mt-1 text-xs leading-5 text-muted">{desc}</p>
                     <a
                       href={`https://www.amazon.com/s?k=${query}&tag=${AFFILIATE_TAGS.amazon}`}
                       target="_blank"
@@ -377,7 +377,7 @@ export default function LTheanineMagnesiumAdhdStackPage() {
                 {FAQS.map((faq, i) => (
                   <div key={i} className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4">
                     <h3 className="font-semibold text-ink">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-7 text-[#46574d]">{faq.answer}</p>
+                    <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
                   </div>
                 ))}
               </div>

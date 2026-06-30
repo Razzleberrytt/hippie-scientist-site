@@ -33,7 +33,7 @@ export default function GabaVsSerotoninPage() {
         <h1 className="text-4xl font-bold tracking-tight text-ink">
           GABA vs Serotonin
         </h1>
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           GABAergic and serotonergic systems influence very different aspects of neurochemistry, mood regulation, stress response, perception, and consciousness.
         </p>
       </section>
@@ -41,7 +41,7 @@ export default function GabaVsSerotoninPage() {
       <section className="grid gap-6 lg:grid-cols-2">
         <div className="card-premium p-6 space-y-4">
           <h2 className="text-2xl font-semibold">GABAergic Systems</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             Associated with inhibitory signaling, nervous-system downregulation, relaxation, calming effects, and sleep-supportive mechanisms.
           </p>
           <div className="flex flex-wrap gap-2">
@@ -52,7 +52,7 @@ export default function GabaVsSerotoninPage() {
 
         <div className="card-premium p-6 space-y-4">
           <h2 className="text-2xl font-semibold">Serotonergic Systems</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             Associated with mood regulation, emotional processing, perception, cognition, and certain psychoactive or entheogenic mechanisms.
           </p>
           <div className="flex flex-wrap gap-2">

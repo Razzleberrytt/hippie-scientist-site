@@ -253,7 +253,7 @@ function Section({
           {title}
         </h2>
 
-        <p className='text-base leading-8 text-[#46574d]'>
+        <p className='text-base leading-8 text-muted'>
           {description}
         </p>
       </div>
@@ -298,7 +298,7 @@ export default function EducationHubPage() {
           </h1>
         </div>
 
-        <div className='space-y-5 text-lg leading-9 text-[#46574d] max-w-4xl'>
+        <div className='space-y-5 text-lg leading-9 text-muted max-w-4xl'>
           <p>
             The Hippie Scientist educational ecosystem explores neurochemistry,
             cognition systems, stress neurobiology, psychoactive education,
@@ -355,7 +355,7 @@ export default function EducationHubPage() {
         <div className='space-y-2'>
           <p className='eyebrow-label'>Complete Topic Index</p>
           <h2 className='text-3xl font-semibold tracking-tight text-ink'>All Education Topics</h2>
-          <p className='text-base leading-8 text-[#46574d] max-w-3xl'>
+          <p className='text-base leading-8 text-muted max-w-3xl'>
             Explore the full depth of the educational ecosystem — neurotransmitter pathways, research literacy, psychoactive plant science, burnout biology, individual variability, and reference pages.
           </p>
         </div>
@@ -374,7 +374,7 @@ export default function EducationHubPage() {
             Scientific nuance over oversimplification
           </h2>
 
-          <p className='text-base leading-8 text-[#46574d]'>
+          <p className='text-base leading-8 text-muted'>
             Many neuroscience and supplement discussions online reduce complex
             biological systems into simplistic narratives involving single
             neurotransmitters, deterministic optimization frameworks, or
@@ -388,7 +388,7 @@ export default function EducationHubPage() {
           <div className='rounded-3xl border border-black/5 bg-white/60 p-6 space-y-3'>
             <h3 className='text-xl font-semibold text-ink'>Evidence Aware</h3>
 
-            <p className='text-sm leading-7 text-[#46574d]'>
+            <p className='text-sm leading-7 text-muted'>
               Human evidence, mechanistic limitations, translational
               uncertainty, and biological variability are emphasized throughout
               the platform.
@@ -398,7 +398,7 @@ export default function EducationHubPage() {
           <div className='rounded-3xl border border-black/5 bg-white/60 p-6 space-y-3'>
             <h3 className='text-xl font-semibold text-ink'>Systems Oriented</h3>
 
-            <p className='text-sm leading-7 text-[#46574d]'>
+            <p className='text-sm leading-7 text-muted'>
               Stress biology, cognition systems, sleep recovery, emotional
               regulation, neuropharmacology, and environmental context are
               treated as interacting systems.
@@ -408,7 +408,7 @@ export default function EducationHubPage() {
           <div className='rounded-3xl border border-black/5 bg-white/60 p-6 space-y-3'>
             <h3 className='text-xl font-semibold text-ink'>Anti-Hype</h3>
 
-            <p className='text-sm leading-7 text-[#46574d]'>
+            <p className='text-sm leading-7 text-muted'>
               Educational content avoids sensationalized optimization narratives,
               simplistic neurotransmitter explanations, and exaggerated
               psychoactive claims.

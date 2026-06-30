@@ -54,7 +54,7 @@ export default function PsychoactiveBrainPage() {
           How Psychoactive Plants Affect the Brain
         </h1>
 
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Psychoactive plants may influence mood, perception, stress response, dreaming, cognition, sleep, and emotional processing through interaction with neurochemical signaling systems.
         </p>
       </section>

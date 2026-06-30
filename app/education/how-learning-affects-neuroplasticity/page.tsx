@@ -95,7 +95,7 @@ export default function NeuroplasticityEducationPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Neuroplasticity involves adaptive nervous-system processes associated with learning continuity, memory formation, sensory integration, attentional regulation, cognition resilience, behavioral adaptation, and environmental interaction.
         </p>
 
@@ -124,7 +124,7 @@ export default function NeuroplasticityEducationPage() {
               {mechanism.title}
             </h2>
 
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               {mechanism.body}
             </p>
           </div>
@@ -139,7 +139,7 @@ export default function NeuroplasticityEducationPage() {
             Neuroplasticity depends on recovery-oriented learning systems
           </h2>
 
-          <p className="text-base leading-8 text-[#46574d]">
+          <p className="text-base leading-8 text-muted">
             Learning quality and adaptive cognition may be influenced by sleep continuity, stress resilience, attentional filtering, emotional salience, recovery biology, environmental context, repetition systems, and nervous-system flexibility.
           </p>
         </div>
@@ -150,7 +150,7 @@ export default function NeuroplasticityEducationPage() {
               Commonly discussed adaptive systems
             </h3>
 
-            <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
+            <ul className="space-y-2 text-sm leading-7 text-muted">
               <li>• Learning reinforcement systems</li>
               <li>• Sleep-dependent consolidation</li>
               <li>• Attention and cognition continuity</li>
@@ -164,7 +164,7 @@ export default function NeuroplasticityEducationPage() {
               Major evidence limitations
             </h3>
 
-            <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
+            <ul className="space-y-2 text-sm leading-7 text-muted">
               <li>• Human adaptation complexity</li>
               <li>• Mechanistic oversimplification risk</li>
               <li>• Individual variability</li>
@@ -204,7 +204,7 @@ export default function NeuroplasticityEducationPage() {
                 {item.question}
               </h3>
 
-              <p className="text-sm leading-7 text-[#46574d]">
+              <p className="text-sm leading-7 text-muted">
                 {item.answer}
               </p>
             </div>

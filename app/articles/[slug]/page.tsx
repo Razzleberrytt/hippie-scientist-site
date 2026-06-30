@@ -163,7 +163,7 @@ function MdxArticlePage({ article }: { article: (typeof mdxArticles)[number] }) 
           {article.title}
         </h1>
 
-        <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">
+        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">
           {article.description}
         </p>
 
@@ -179,7 +179,7 @@ function MdxArticlePage({ article }: { article: (typeof mdxArticles)[number] }) 
       </header>
 
       <div className="mt-6 rounded-[1rem] border border-brand-900/10 bg-[var(--surface-card)] p-6 shadow-sm sm:p-8">
-        <div className="content-prose max-w-none [&>*]:max-w-reading [&_blockquote]:max-w-reading [&_blockquote]:rounded-r-lg [&_blockquote]:border-l-4 [&_blockquote]:border-brand-700/40 [&_blockquote]:bg-brand-50/60 [&_blockquote]:py-3 [&_blockquote]:pl-5 [&_blockquote]:pr-4 [&_h2]:mt-10 [&_h2]:text-2xl [&_h3]:mt-7 [&_h3]:text-xl [&_ol]:list-decimal [&_table]:w-full [&_table]:text-sm [&_td]:border-t [&_td]:border-brand-900/10 [&_td]:py-3 [&_td]:pr-4 [&_th]:border-b [&_th]:border-brand-900/10 [&_th]:pb-2 [&_th]:pr-4 [&_th]:text-left [&_ul]:list-disc">
+        <div className="content-prose max-w-none [&>*]:max-w-reading [&_blockquote]:max-w-reading [&_blockquote]:rounded-r-lg [&_blockquote]:border-l-4 [&_blockquote]:border-brand-700/40 [&_blockquote]:bg-brand-50/60 [&_blockquote]:py-3 [&_blockquote]:pl-5 [&_blockquote]:pr-4 [&_h2]:mt-10 [&_h2]:text-2xl [&_h3]:mt-7 [&_h3]:text-xl [&_ol]:list-decimal [&_table]:overflow-x-auto [&_table]:block [&_table]:max-w-full [&_td]:border-t [&_td]:border-brand-900/10 [&_td]:py-3 [&_td]:pr-4 [&_th]:border-b [&_th]:border-brand-900/10 [&_th]:pb-2 [&_th]:pr-4 [&_th]:text-left [&_ul]:list-disc">
           <ArticleMdx code={article.body} />
         </div>
       </div>
@@ -379,7 +379,7 @@ function ArticleBody({ content }: { content: string }) {
           return (
             <div key={i} className="my-6">
               <ResponsiveTable label="Article comparison table" className="article-table">
-                <table className="min-w-[680px] w-full text-sm">
+                <div className="overflow-x-auto -mx-4 px-4"><table className="w-full text-sm">
                   <thead>
                     <tr className="border-b border-brand-900/10">
                       {block.headers.map((header, j) => (
@@ -430,7 +430,7 @@ function ReferencesTable({ refs }: { refs: ArticleReference[] }) {
     <section className="mt-10 rounded-[1rem] border border-brand-900/10 bg-[var(--surface-card)] p-5 shadow-sm sm:p-6">
       <h2 className="mb-4 text-lg font-semibold tracking-tight text-ink">References</h2>
       <ResponsiveTable label="Article references table" className="article-table">
-        <table className="min-w-[760px] w-full text-sm">
+        <div className="overflow-x-auto -mx-4 px-4"><table className="w-full text-sm">
           <caption className="sr-only">References cited in this article</caption>
           <thead>
             <tr className="border-b border-brand-900/10">

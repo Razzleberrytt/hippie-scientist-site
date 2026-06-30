@@ -23,7 +23,7 @@ export default function TranslationalLimitationsCard({
           {title}
         </h2>
 
-        <p className="text-base leading-8 text-[#46574d]">
+        <p className="text-base leading-8 text-muted">
           Translational limitations refer to the challenges involved in applying mechanistic or early-stage scientific findings to complex real-world human outcomes. Neuroscience, cognition systems, emotional regulation, and neuropharmacology are influenced by interacting biological, behavioral, environmental, and psychological factors.
         </p>
       </div>
@@ -34,7 +34,7 @@ export default function TranslationalLimitationsCard({
             key={example}
             className="rounded-3xl border border-black/5 bg-white/60 p-6"
           >
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               {example}
             </p>
           </div>
@@ -46,7 +46,7 @@ export default function TranslationalLimitationsCard({
           Why this matters for neuroscience education
         </h3>
 
-        <p className="text-sm leading-7 text-[#46574d]">
+        <p className="text-sm leading-7 text-muted">
           Online neuroscience discussions frequently present preliminary mechanistic findings as definitive proof of cognitive enhancement, emotional transformation, or psychoactive outcomes. Systems-oriented scientific interpretation instead requires caution regarding uncertainty, variability, evidence quality, and real-world complexity.
         </p>
       </div>

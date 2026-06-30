@@ -327,7 +327,7 @@ function CompoundMdxPage({ page }: { page: (typeof allCompoundMdxPages)[number] 
             {page.title}
           </h1>
 
-          <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">
+          <p className="mt-4 max-w-3xl text-base leading-7 text-muted">
             {page.metaDescription}
           </p>
         </header>

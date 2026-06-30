@@ -153,43 +153,43 @@ export default function CbdVsAshwagandhaForAnxietyPage() {
               <tbody className="divide-y divide-brand-900/5">
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Primary mechanism</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Endocannabinoid system; possible serotonin receptor interaction</td>
-                  <td className="py-3 text-[#46574d]">HPA axis modulation; possible GABA-A interaction; adaptogenic</td>
+                  <td className="py-3 pr-4 text-muted">Endocannabinoid system; possible serotonin receptor interaction</td>
+                  <td className="py-3 text-muted">HPA axis modulation; possible GABA-A interaction; adaptogenic</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Onset speed</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Minutes to hours (form-dependent)</td>
-                  <td className="py-3 text-[#46574d]">Weeks of daily use</td>
+                  <td className="py-3 pr-4 text-muted">Minutes to hours (form-dependent)</td>
+                  <td className="py-3 text-muted">Weeks of daily use</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Human trial evidence for anxiety</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Limited; growing; inconsistent study designs</td>
-                  <td className="py-3 text-[#46574d]">Moderate; more trials in stressed populations</td>
+                  <td className="py-3 pr-4 text-muted">Limited; growing; inconsistent study designs</td>
+                  <td className="py-3 text-muted">Moderate; more trials in stressed populations</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Legal status</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Varies by jurisdiction and source</td>
-                  <td className="py-3 text-[#46574d]">Legal dietary supplement in most jurisdictions</td>
+                  <td className="py-3 pr-4 text-muted">Varies by jurisdiction and source</td>
+                  <td className="py-3 text-muted">Legal dietary supplement in most jurisdictions</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Drug test risk</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Yes, especially full-spectrum products</td>
-                  <td className="py-3 text-[#46574d]">No</td>
+                  <td className="py-3 pr-4 text-muted">Yes, especially full-spectrum products</td>
+                  <td className="py-3 text-muted">No</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Drug interactions</td>
-                  <td className="py-3 pr-4 text-[#46574d]">CYP enzyme inhibition — significant risk with many medications</td>
-                  <td className="py-3 text-[#46574d]">Lower risk; caution with sedatives, thyroid meds</td>
+                  <td className="py-3 pr-4 text-muted">CYP enzyme inhibition — significant risk with many medications</td>
+                  <td className="py-3 text-muted">Lower risk; caution with sedatives, thyroid meds</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Cost (typical monthly)</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Often higher, especially quality products</td>
-                  <td className="py-3 text-[#46574d]">Generally lower for standardized extracts</td>
+                  <td className="py-3 pr-4 text-muted">Often higher, especially quality products</td>
+                  <td className="py-3 text-muted">Generally lower for standardized extracts</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Regulation quality control</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Inconsistent; significant mislabeling documented</td>
-                  <td className="py-3 text-[#46574d]">Supplement-grade; third-party testing advisable</td>
+                  <td className="py-3 pr-4 text-muted">Inconsistent; significant mislabeling documented</td>
+                  <td className="py-3 text-muted">Supplement-grade; third-party testing advisable</td>
                 </tr>
               </tbody>
             </table>
@@ -329,33 +329,33 @@ export default function CbdVsAshwagandhaForAnxietyPage() {
               <tbody className="divide-y divide-brand-900/5">
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Chronic stress-driven anxiety</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Ashwagandha</td>
-                  <td className="py-3 text-[#46574d]">More evidence in this specific population</td>
+                  <td className="py-3 pr-4 text-muted">Ashwagandha</td>
+                  <td className="py-3 text-muted">More evidence in this specific population</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">On multiple medications</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Consult clinician before either; CBD has higher interaction risk</td>
-                  <td className="py-3 text-[#46574d]">CYP interaction risk with CBD is significant</td>
+                  <td className="py-3 pr-4 text-muted">Consult clinician before either; CBD has higher interaction risk</td>
+                  <td className="py-3 text-muted">CYP interaction risk with CBD is significant</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Subject to drug testing</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Ashwagandha</td>
-                  <td className="py-3 text-[#46574d]">CBD carries real drug-test risk</td>
+                  <td className="py-3 pr-4 text-muted">Ashwagandha</td>
+                  <td className="py-3 text-muted">CBD carries real drug-test risk</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Thyroid or autoimmune condition</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Consult clinician before ashwagandha</td>
-                  <td className="py-3 text-[#46574d]">Ashwagandha has thyroid/immune cautions</td>
+                  <td className="py-3 pr-4 text-muted">Consult clinician before ashwagandha</td>
+                  <td className="py-3 text-muted">Ashwagandha has thyroid/immune cautions</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Pregnancy or breastfeeding</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Avoid both; consult a healthcare provider</td>
-                  <td className="py-3 text-[#46574d]">Insufficient safety data for either</td>
+                  <td className="py-3 pr-4 text-muted">Avoid both; consult a healthcare provider</td>
+                  <td className="py-3 text-muted">Insufficient safety data for either</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Budget-conscious</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Ashwagandha</td>
-                  <td className="py-3 text-[#46574d]">Quality standardized extracts are generally less expensive</td>
+                  <td className="py-3 pr-4 text-muted">Ashwagandha</td>
+                  <td className="py-3 text-muted">Quality standardized extracts are generally less expensive</td>
                 </tr>
               </tbody>
             </table>

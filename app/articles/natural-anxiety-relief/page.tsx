@@ -143,7 +143,7 @@ export default function NaturalAnxietyReliefPage() {
           <LastUpdatedBadge date={DATE} label="Last updated" />
         </div>
 
-        <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">{DESCRIPTION}</p>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
       </section>
 
       {/* Affiliate disclosure */}
@@ -164,7 +164,7 @@ export default function NaturalAnxietyReliefPage() {
             <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
               If you only try one thing: L-theanine
             </h2>
-            <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
               <strong>L-theanine (100–200 mg) is the fastest useful choice for situational or
               racing-thought anxiety.</strong> Effects typically within 30–60 minutes, no sedation,
               no dependency. It is a calming amino acid, not a sedative, and it stacks cleanly with
@@ -195,7 +195,7 @@ export default function NaturalAnxietyReliefPage() {
             <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
               Which Anxiety Supplement Should You Start With?
             </h2>
-            <div className="mt-3 space-y-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+            <div className="mt-3 space-y-3 text-[1.01rem] leading-[1.85] text-muted">
               <p>
                 <strong>Best for stress-driven anxiety: Ashwagandha.</strong> The strongest
                 clinical evidence among natural supplements for chronic, stress-related anxiety.
@@ -237,7 +237,7 @@ export default function NaturalAnxietyReliefPage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Anxiety Supplements Ranked by Evidence
               </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
                 The table below ranks the most commonly used herbs and supplements for anxiety by
                 quality of human clinical evidence, anxiety-specific outcomes, safety profile, and
                 practical usefulness. Rankings are based on available evidence as of the date of
@@ -273,9 +273,9 @@ export default function NaturalAnxietyReliefPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">1</td>
                         <td className="py-3 pr-4 font-medium text-ink">Ashwagandha</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Moderate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Chronic stress-driven anxiety, cortisol reduction</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Rare hepatotoxicity; avoid in pregnancy</td>
+                        <td className="py-3 pr-4 text-muted">Moderate</td>
+                        <td className="py-3 pr-4 text-muted">Chronic stress-driven anxiety, cortisol reduction</td>
+                        <td className="py-3 pr-4 text-muted">Rare hepatotoxicity; avoid in pregnancy</td>
                         <td className="py-3">
                           <Link
                             href="/articles/ashwagandha"
@@ -288,9 +288,9 @@ export default function NaturalAnxietyReliefPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">2</td>
                         <td className="py-3 pr-4 font-medium text-ink">L-Theanine</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Limited–Moderate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Mild anxiety, racing thoughts, situational stress</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Minimal; very well-tolerated</td>
+                        <td className="py-3 pr-4 text-muted">Limited–Moderate</td>
+                        <td className="py-3 pr-4 text-muted">Mild anxiety, racing thoughts, situational stress</td>
+                        <td className="py-3 pr-4 text-muted">Minimal; very well-tolerated</td>
                         <td className="py-3">
                           <Link
                             href="/articles/l-theanine"
@@ -303,9 +303,9 @@ export default function NaturalAnxietyReliefPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">3</td>
                         <td className="py-3 pr-4 font-medium text-ink">Magnesium</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Limited</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Nervous system baseline support, muscle tension</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Kidney disease; GI upset at high doses</td>
+                        <td className="py-3 pr-4 text-muted">Limited</td>
+                        <td className="py-3 pr-4 text-muted">Nervous system baseline support, muscle tension</td>
+                        <td className="py-3 pr-4 text-muted">Kidney disease; GI upset at high doses</td>
                         <td className="py-3">
                           <Link
                             href="/articles/magnesium-for-sleep"
@@ -318,9 +318,9 @@ export default function NaturalAnxietyReliefPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">4</td>
                         <td className="py-3 pr-4 font-medium text-ink">Passionflower</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Limited</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Mild anxiety, anxiety-adjacent sleep difficulty</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Avoid with sedatives; caution in pregnancy</td>
+                        <td className="py-3 pr-4 text-muted">Limited</td>
+                        <td className="py-3 pr-4 text-muted">Mild anxiety, anxiety-adjacent sleep difficulty</td>
+                        <td className="py-3 pr-4 text-muted">Avoid with sedatives; caution in pregnancy</td>
                         <td className="py-3">
                           <Link
                             href="/guides/passionflower"
@@ -333,17 +333,17 @@ export default function NaturalAnxietyReliefPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">5</td>
                         <td className="py-3 pr-4 font-medium text-ink">Saffron</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Limited–Moderate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Mood/anxiety overlap, mild depression</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Serotonergic activity; caution with SSRIs</td>
+                        <td className="py-3 pr-4 text-muted">Limited–Moderate</td>
+                        <td className="py-3 pr-4 text-muted">Mood/anxiety overlap, mild depression</td>
+                        <td className="py-3 pr-4 text-muted">Serotonergic activity; caution with SSRIs</td>
                         <td className="py-3 text-muted text-xs">Guide planned</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">6</td>
                         <td className="py-3 pr-4 font-medium text-ink">Kava</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Moderate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Generalized anxiety, acute anxiolytic effect</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Hepatotoxicity risk; avoid with alcohol/sedatives</td>
+                        <td className="py-3 pr-4 text-muted">Moderate</td>
+                        <td className="py-3 pr-4 text-muted">Generalized anxiety, acute anxiolytic effect</td>
+                        <td className="py-3 pr-4 text-muted">Hepatotoxicity risk; avoid with alcohol/sedatives</td>
                         <td className="py-3">
                           <Link
                             href="/guides/kava"
@@ -354,11 +354,11 @@ export default function NaturalAnxietyReliefPage() {
                         </td>
                       </tr>
                       <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-[#46574d]">7</td>
+                        <td className="py-3 pr-3 font-bold text-muted">7</td>
                         <td className="py-3 pr-4 font-medium text-ink">Valerian</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Mixed / weak</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Anxiety-adjacent insomnia, mild sedation</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Sedation; avoid with CNS depressants</td>
+                        <td className="py-3 pr-4 text-muted">Mixed / weak</td>
+                        <td className="py-3 pr-4 text-muted">Anxiety-adjacent insomnia, mild sedation</td>
+                        <td className="py-3 pr-4 text-muted">Sedation; avoid with CNS depressants</td>
                         <td className="py-3">
                           <Link
                             href="/articles/best-herbs-for-sleep"
@@ -369,11 +369,11 @@ export default function NaturalAnxietyReliefPage() {
                         </td>
                       </tr>
                       <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-[#46574d]">8</td>
+                        <td className="py-3 pr-3 font-bold text-muted">8</td>
                         <td className="py-3 pr-4 font-medium text-ink">CBD</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Limited (preliminary)</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Stress, social anxiety (small trials)</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Drug interactions; quality variation</td>
+                        <td className="py-3 pr-4 text-muted">Limited (preliminary)</td>
+                        <td className="py-3 pr-4 text-muted">Stress, social anxiety (small trials)</td>
+                        <td className="py-3 pr-4 text-muted">Drug interactions; quality variation</td>
                         <td className="py-3 text-muted text-xs">Guide planned</td>
                       </tr>
                     </tbody>
@@ -389,11 +389,11 @@ export default function NaturalAnxietyReliefPage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 How We Ranked These Options
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Rankings are not based on popularity, traditional reputation, or marketing claims.
                 The criteria used, in rough order of weight:
               </p>
-              <ul className="mt-3 ml-5 space-y-2 list-disc text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <ul className="mt-3 ml-5 space-y-2 list-disc text-[1.01rem] leading-[1.85] text-muted">
                 <li>
                   <strong>Human clinical evidence</strong> — randomized controlled trials using
                   validated anxiety outcome measures (GAD-7, HAM-A, STAI, PSS). Animal and in
@@ -449,7 +449,7 @@ export default function NaturalAnxietyReliefPage() {
                   mechanisticEvidence="HPA axis modulation with cortisol reduction well-documented in human trials. Sympathetic nervous system downregulation. GABA-A receptor binding activity in vitro. Reduces physiological markers of stress arousal."
                   safetyProfile="Generally well-tolerated at 300–600 mg/day for up to 12 weeks. Rare hepatotoxicity cases reported. Contraindicated in pregnancy. Potential thyroid and autoimmune interactions."
                 />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
                   <p>
                     <strong>How it may help anxiety:</strong> Ashwagandha reduces cortisol via
                     HPA axis modulation and dampens sympathetic nervous system activation. It
@@ -499,7 +499,7 @@ export default function NaturalAnxietyReliefPage() {
                   mechanisticEvidence="Promotes alpha-wave brain activity associated with calm wakefulness. Modulates glutamate and GABA signaling. May blunt cortisol response to acute stressors. Does not produce sedation at standard doses."
                   safetyProfile="Very well-tolerated. No significant drug interactions reported at standard doses (100–200 mg). Long-term safety data limited but no serious adverse events identified."
                 />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
                   <p>
                     <strong>How it may help anxiety:</strong> L-theanine, an amino acid found
                     in green tea, increases alpha-wave brain activity associated with calm,
@@ -548,7 +548,7 @@ export default function NaturalAnxietyReliefPage() {
                   mechanisticEvidence="NMDA receptor antagonism reduces excitatory glutamatergic tone. GABA-A potentiation supports inhibitory signaling. Involved in HPA axis stress regulation. Magnesium deficiency is associated with increased neuronal excitability."
                   safetyProfile="Generally well-tolerated at 200–400 mg elemental/day. GI upset at higher doses. Kidney disease requires caution. Magnesium glycinate is best-tolerated form."
                 />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
                   <p>
                     <strong>How it may help anxiety:</strong> Magnesium is involved in nervous
                     system regulation through NMDA receptor antagonism and GABA-A potentiation.
@@ -596,7 +596,7 @@ export default function NaturalAnxietyReliefPage() {
                   mechanisticEvidence="Chrysin and related flavonoids may bind GABA-A receptors. Preclinical evidence for anxiolytic and mild sedative effects. Human mechanistic data is sparse."
                   safetyProfile="Generally well-tolerated at standard doses. Sedation at higher doses. Avoid with prescription sedatives. Not recommended in pregnancy."
                 />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
                   <p>
                     <strong>How it may help anxiety:</strong> Passionflower contains flavonoids
                     including chrysin that may modulate GABA-A receptors, producing mild
@@ -635,7 +635,7 @@ export default function NaturalAnxietyReliefPage() {
                   mechanisticEvidence="Kavalactones modulate GABA-A receptors, dopamine signaling, and sodium channel activity. Mechanism is distinct from benzodiazepines despite functional overlap. Well-characterized pharmacology."
                   safetyProfile="Meaningful hepatotoxicity risk — multiple case reports of serious liver injury, including cases requiring transplant. Absolutely contraindicated with alcohol and sedatives. Banned in several countries. Requires responsible, time-limited use."
                 />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
                   <p>
                     <strong>How it may help anxiety:</strong> Kava has among the strongest
                     evidence of any herbal anxiolytic. Kavalactones produce meaningful anxiolytic
@@ -677,7 +677,7 @@ export default function NaturalAnxietyReliefPage() {
                   mechanisticEvidence="Crocin and safranal modulate serotonin reuptake and receptor activity. Antioxidant and neuroprotective properties. BDNF-modulating effects in preclinical models."
                   safetyProfile="Generally well-tolerated at 30 mg/day. Serotonergic activity — do not combine with SSRIs or MAOIs without clinician guidance (serotonin syndrome risk). Not recommended in pregnancy at high doses."
                 />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
                   <p>
                     <strong>How it may help anxiety:</strong> Saffron&apos;s active constituents
                     (crocin, safranal) modulate serotonin signaling, which may secondarily
@@ -710,14 +710,14 @@ export default function NaturalAnxietyReliefPage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Which Should You Try First?
               </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
                 The most useful framework is to match the supplement to your anxiety pattern and
                 primary symptoms:
               </p>
               <div className="space-y-3 rounded-[1rem] border border-brand-900/10 bg-brand-50/40 p-5">
                 <div className="flex gap-3">
                   <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+                  <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>Chronic stress + poor sleep:</strong> Start with{' '}
                     <Link href="/articles/ashwagandha-for-sleep" className="font-semibold text-brand-700 hover:underline">
                       ashwagandha
@@ -731,7 +731,7 @@ export default function NaturalAnxietyReliefPage() {
                 </div>
                 <div className="flex gap-3">
                   <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+                  <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>Racing thoughts + caffeine sensitivity:</strong> Try L-theanine
                     (100–200 mg). Works within an hour. Can be taken during the day without
                     impairing focus.
@@ -739,7 +739,7 @@ export default function NaturalAnxietyReliefPage() {
                 </div>
                 <div className="flex gap-3">
                   <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+                  <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>Muscle tension + sleep overlap:</strong>{' '}
                     <Link href="/articles/magnesium-for-sleep" className="font-semibold text-brand-700 hover:underline">
                       Magnesium glycinate
@@ -750,7 +750,7 @@ export default function NaturalAnxietyReliefPage() {
                 </div>
                 <div className="flex gap-3">
                   <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+                  <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>Gentle herbal option preferred:</strong> Passionflower (250–500 mg
                     extract or tea) is one of the gentler options with some supporting evidence
                     and good tolerability.
@@ -758,7 +758,7 @@ export default function NaturalAnxietyReliefPage() {
                 </div>
                 <div className="flex gap-3">
                   <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+                  <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>Stronger traditional anxiolytic, informed about risks:</strong>{' '}
                     Kava has the strongest acute anxiolytic effect among herbal options, but the
                     liver toxicity risk is real and should be taken seriously. Requires informed,
@@ -767,7 +767,7 @@ export default function NaturalAnxietyReliefPage() {
                 </div>
                 <div className="flex gap-3">
                   <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+                  <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>Mood and anxiety overlap:</strong> Saffron (30 mg/day standardized)
                     may be relevant if low mood is alongside anxiety — but requires caution with
                     serotonergic medications.
@@ -783,7 +783,7 @@ export default function NaturalAnxietyReliefPage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 What Not To Do
               </h2>
-              <ul className="ml-5 space-y-3 list-disc text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <ul className="ml-5 space-y-3 list-disc text-[1.01rem] leading-[1.85] text-muted">
                 <li>
                   <strong>Do not combine multiple calming supplements at once.</strong> You will
                   not know what is helping or causing side effects. Introduce one at a time over
@@ -829,14 +829,14 @@ export default function NaturalAnxietyReliefPage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Anxiety and Sleep: The Overlap
               </h2>
-              <p className="mb-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mb-3 text-[1.01rem] leading-[1.85] text-muted">
                 Anxiety and poor sleep reinforce each other. Anxiety activates the sympathetic
                 nervous system, raises cortisol, and produces hyperarousal that directly impairs
                 sleep. Poor sleep, in turn, increases reactivity to stress and makes anxiety
                 symptoms worse the following day. This bidirectional relationship means that
                 improving one often improves the other.
               </p>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
                 Several supplements covered in this guide — ashwagandha, L-theanine, magnesium,
                 and passionflower — have evidence for both anxiety and sleep benefits, often
                 through overlapping mechanisms. If your anxiety is closely linked to poor sleep,
@@ -965,7 +965,7 @@ export default function NaturalAnxietyReliefPage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Where to Buy
               </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
                 The affiliate links below search for products consistent with the extract forms
                 and dose ranges discussed in this guide. We earn a small commission at no
                 additional cost to you.
@@ -976,7 +976,7 @@ export default function NaturalAnxietyReliefPage() {
                     Stress-Driven Anxiety
                   </p>
                   <p className="font-semibold text-ink">KSM-66 Ashwagandha</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Patented full-spectrum root extract. Most-studied form for anxiety and stress.
                     Look for ≥300 mg per capsule, standardized to ≥5% withanolides.
                   </p>
@@ -994,7 +994,7 @@ export default function NaturalAnxietyReliefPage() {
                     Racing Thoughts / Situational Stress
                   </p>
                   <p className="font-semibold text-ink">L-Theanine</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Pure L-theanine, 100–200 mg per capsule. Look for third-party tested products.
                     Suntheanine is a well-studied branded form.
                   </p>
@@ -1012,7 +1012,7 @@ export default function NaturalAnxietyReliefPage() {
                     Baseline Nervous System Support
                   </p>
                   <p className="font-semibold text-ink">Magnesium Glycinate</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Best-tolerated magnesium form for anxiety and sleep. Look for products
                     listing elemental magnesium content (aim for 200–400 mg elemental/day).
                   </p>
@@ -1030,7 +1030,7 @@ export default function NaturalAnxietyReliefPage() {
                     Gentle Herbal Option
                   </p>
                   <p className="font-semibold text-ink">Passionflower</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Available as tea or standardized extract. Look for passionflower extract
                     products with clear standardization, or loose-leaf tea.
                   </p>
@@ -1048,7 +1048,7 @@ export default function NaturalAnxietyReliefPage() {
                     Mood / Anxiety Overlap
                   </p>
                   <p className="font-semibold text-ink">Saffron Extract</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Look for 30 mg/day standardized saffron extract (e.g., Safr&apos;Inside or
                     affron). Do not combine with antidepressants without medical guidance.
                   </p>
@@ -1066,7 +1066,7 @@ export default function NaturalAnxietyReliefPage() {
                     Traditional Anxiolytic (Informed Use)
                   </p>
                   <p className="font-semibold text-ink">Kava Extract</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Noble kava varieties only. Avoid tudei kava. Never combine with alcohol or
                     sedatives. Use short-term only with physician disclosure.
                   </p>
@@ -1096,7 +1096,7 @@ export default function NaturalAnxietyReliefPage() {
                     className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4"
                   >
                     <h3 className="font-semibold text-ink">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-7 text-[#46574d]">{faq.answer}</p>
+                    <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
                   </div>
                 ))}
               </div>
@@ -1240,7 +1240,7 @@ export default function NaturalAnxietyReliefPage() {
                   <tbody className="divide-y divide-brand-900/5">
                     <tr className="align-top">
                       <td className="py-3 pr-3 font-medium text-ink">Ashwagandha anxiety evidence</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Chandrasekhar et al. 2012; Pratte et al. 2014; anxiety scale RCTs
                       </td>
                       <td className="py-3 text-muted text-xs">
@@ -1249,7 +1249,7 @@ export default function NaturalAnxietyReliefPage() {
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-3 font-medium text-ink">L-theanine anxiety / stress evidence</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Alpha-wave promotion trials; acute stress response studies
                       </td>
                       <td className="py-3 text-muted text-xs">
@@ -1258,7 +1258,7 @@ export default function NaturalAnxietyReliefPage() {
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-3 font-medium text-ink">Magnesium anxiety evidence</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Boyle et al. 2017 meta-analysis; magnesium deficiency and neuronal excitability studies
                       </td>
                       <td className="py-3 text-muted text-xs">
@@ -1267,7 +1267,7 @@ export default function NaturalAnxietyReliefPage() {
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-3 font-medium text-ink">Passionflower anxiety evidence</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Pre-procedural anxiety RCTs; GAD comparison trials
                       </td>
                       <td className="py-3 text-muted text-xs">
@@ -1276,7 +1276,7 @@ export default function NaturalAnxietyReliefPage() {
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-3 font-medium text-ink">Kava anxiety evidence</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Pittler &amp; Ernst meta-analysis; HAM-A outcome RCTs
                       </td>
                       <td className="py-3 text-muted text-xs">
@@ -1285,7 +1285,7 @@ export default function NaturalAnxietyReliefPage() {
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-3 font-medium text-ink">Saffron anxiety evidence</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Lopresti &amp; Drummond 2014; mood/anxiety overlap RCTs
                       </td>
                       <td className="py-3 text-muted text-xs">
@@ -1294,7 +1294,7 @@ export default function NaturalAnxietyReliefPage() {
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-3 font-medium text-ink">CBD anxiety evidence</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Blessing et al. 2015 review; social anxiety fMRI studies
                       </td>
                       <td className="py-3 text-muted text-xs">
@@ -1303,7 +1303,7 @@ export default function NaturalAnxietyReliefPage() {
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-3 font-medium text-ink">Safety / interactions evidence</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Kava hepatotoxicity case series; ashwagandha DILI reports; saffron-SSRI interaction data
                       </td>
                       <td className="py-3 text-muted text-xs">

@@ -72,7 +72,7 @@ export default function WhyOverstimulationImpairsFocusPage() {
           <p className="eyebrow-label">Sustainable Cognition Systems</p>
           <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">Why Overstimulation Impairs Focus</h1>
         </div>
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Sustainable cognition continuity may involve substantially more than increasing stimulation intensity. Hyperarousal, emotional reactivity, stress physiology, sleep disruption, and nervous-system overload may impair attentional stability and recovery-oriented cognition systems.
         </p>
         <p className="text-base leading-8 text-[#5c6b63]">
@@ -90,7 +90,7 @@ export default function WhyOverstimulationImpairsFocusPage() {
         {mechanisms.map((mechanism) => (
           <div key={mechanism.title} className="card-premium p-6 space-y-4">
             <h2 className="text-2xl font-semibold tracking-tight text-ink">{mechanism.title}</h2>
-            <p className="text-sm leading-7 text-[#46574d]">{mechanism.body}</p>
+            <p className="text-sm leading-7 text-muted">{mechanism.body}</p>
           </div>
         ))}
       </section>
@@ -105,7 +105,7 @@ export default function WhyOverstimulationImpairsFocusPage() {
           {faqs.map((faq) => (
             <div key={faq.question} className="card-premium p-6 space-y-3">
               <h3 className="text-xl font-semibold tracking-tight text-ink">{faq.question}</h3>
-              <p className="text-sm leading-7 text-[#46574d]">{faq.answer}</p>
+              <p className="text-sm leading-7 text-muted">{faq.answer}</p>
             </div>
           ))}
         </div>

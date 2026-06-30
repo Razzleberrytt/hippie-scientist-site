@@ -50,7 +50,7 @@ export default function GlutamatePathwayPage() {
           Glutamate Pathway
         </h1>
 
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Educational exploration of excitatory signaling systems, glutamatergic neurochemistry, dissociative mechanisms, cognition pathways, and psychoactive neuropharmacology.
         </p>
 

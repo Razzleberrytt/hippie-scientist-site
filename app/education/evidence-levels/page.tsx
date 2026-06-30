@@ -66,7 +66,7 @@ export default function EvidenceLevelsPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Educational evidence systems help contextualize how strongly a claim is supported by human trials, mechanistic neuropharmacology, ethnobotanical history, or preliminary scientific evidence.
         </p>
       </section>
@@ -76,7 +76,7 @@ export default function EvidenceLevelsPage() {
           <div key={item.level} className="card-premium p-6 space-y-5">
             <EvidenceBadge level={item.level} />
 
-            <p className="text-base leading-8 text-[#46574d]">
+            <p className="text-base leading-8 text-muted">
               {item.description}
             </p>
           </div>

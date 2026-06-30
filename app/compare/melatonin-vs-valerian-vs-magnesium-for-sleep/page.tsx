@@ -44,7 +44,7 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
         <h1 className="text-5xl font-bold tracking-tight text-ink">
           Melatonin vs Valerian vs Magnesium: Which Supports Your Sleep Pattern?
         </h1>
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           If you struggle to fall asleep, these three common bedtime choices target entirely different aspects of sleep.
           <strong> Melatonin</strong> acts as a circadian timing signal to shift when you feel tired.
           <strong> Valerian root</strong> is a traditional herb targeting GABA pathways to reduce sleep latency over weeks.
@@ -60,7 +60,7 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
               Circadian Signal
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-ink">Melatonin</h2>
-            <p className="text-sm leading-7 text-[#46574d] mt-2">
+            <p className="text-sm leading-7 text-muted mt-2">
               Best for sleep timing shifts, jet lag, or shift work. It is a hormone, not a sedative, and is most effective when taken in low doses (0.3–3 mg) 30–60 minutes before your desired bedtime.
             </p>
           </div>
@@ -77,7 +77,7 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
               GABAergic Herb
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-ink">Valerian Root</h2>
-            <p className="text-sm leading-7 text-[#46574d] mt-2">
+            <p className="text-sm leading-7 text-muted mt-2">
               Best for mild bedtime restlessness. It is a traditional relaxing root extract that works by modulating GABA-A receptors, showing cumulative benefit over 2–4 weeks.
             </p>
           </div>
@@ -94,7 +94,7 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
               Physical Relaxant
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-ink">Magnesium</h2>
-            <p className="text-sm leading-7 text-[#46574d] mt-2">
+            <p className="text-sm leading-7 text-muted mt-2">
               Best for physical tension, cramps, and nightly wind-down routines. Highly bioavailable forms like magnesium glycinate also deliver glycine, supporting neurochemical quieting.
             </p>
           </div>
@@ -120,7 +120,7 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
                 <th className="py-3 pr-4 font-bold uppercase tracking-wider text-xs">Magnesium (Glycinate)</th>
               </tr>
             </thead>
-            <tbody className="text-[#46574d] divide-y divide-black/5">
+            <tbody className="text-muted divide-y divide-black/5">
               <tr>
                 <td className="py-3.5 pr-4 font-semibold text-ink">Primary Fit</td>
                 <td className="py-3.5 pr-4">Shifted sleep schedule, jet lag, late-night sleep onset</td>
@@ -179,7 +179,7 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
         <div className="card-premium p-6 space-y-3">
           <p className="eyebrow-label">Scenario 1</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">The Circadian Desync</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             If you lie awake for hours staring at the ceiling because you are simply not tired until 3:00 AM,
             <strong> Melatonin</strong> is the primary intervention. Start with low, physiological doses (e.g. 0.3 mg)
             to avoid the heavy morning grogginess caused by typical megadose retail tablets.
@@ -188,7 +188,7 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
         <div className="card-premium p-6 space-y-3">
           <p className="eyebrow-label">Scenario 2</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Traditional Herbal Sleep</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             If you want a natural herbal alternative to pharmaceutical sleep aids, <strong> Valerian root</strong>
             has long historical usage. Keep in mind that clinical trials show its benefits are cumulative;
             taking a single dose on an irregular basis is unlikely to provide significant relief.
@@ -197,7 +197,7 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
         <div className="card-premium p-6 space-y-3">
           <p className="eyebrow-label">Scenario 3</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Physical &amp; Tension Wind-Down</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             If you struggle to fall asleep because your body feels tense, tight, or you experience evening muscle soreness,
             <strong> Magnesium glycinate</strong> supports natural muscle relaxation and baseline GABA levels
             without altering your sleep hormones directly.
@@ -209,7 +209,7 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
       <section className="card-premium p-6 space-y-5 max-w-4xl border-l-4 border-rose-500 bg-rose-50/10">
         <p className="text-xs font-bold uppercase tracking-wider text-rose-900">Safety &amp; Clinical Cautions</p>
         <h2 className="text-2xl font-bold tracking-tight text-ink">Important Physiological Limits</h2>
-        <div className="space-y-4 text-sm leading-relaxed text-[#46574d]">
+        <div className="space-y-4 text-sm leading-relaxed text-muted">
           <p>
             Do not treat these options as risk-free just because they are sold over-the-counter:
           </p>
@@ -231,7 +231,7 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
       <section className="card-premium p-6 space-y-4 max-w-4xl">
         <p className="eyebrow-label">FAQ</p>
         <h2 className="text-3xl font-semibold tracking-tight text-ink">Common Questions</h2>
-        <div className="space-y-4 text-sm leading-7 text-[#46574d]">
+        <div className="space-y-4 text-sm leading-7 text-muted">
           <div>
             <h3 className="text-lg font-semibold text-ink">Why does melatonin cause morning grogginess?</h3>
             <p>

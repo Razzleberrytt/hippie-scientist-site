@@ -205,7 +205,7 @@ function StatCard({ value, label }: { value: number; label: string }) {
   return (
     <div className="min-w-0 rounded-[0.8rem] border border-brand-900/10 bg-white/80 p-2.5 shadow-sm sm:p-3">
       <p className="text-xl font-semibold tracking-tight text-ink sm:text-2xl">{value}</p>
-      <p className="mt-0.5 text-[0.62rem] font-bold uppercase leading-snug tracking-[0.1em] text-[#5f6f66]">{label}</p>
+      <p className="mt-0.5 text-[0.62rem] font-bold uppercase leading-snug tracking-[0.1em] text-muted">{label}</p>
     </div>
   )
 }
@@ -325,7 +325,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
               <h2 className="max-w-[18ch] text-balance font-display text-2xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-4xl">
                 Explore compound profiles
               </h2>
-              <p className="max-w-2xl text-sm leading-6 text-[#46574d]">
+              <p className="max-w-2xl text-sm leading-6 text-muted">
                 Scan bioactive molecules by practical context first, then compare evidence, mechanism hints, and caution notes where source data supports them.
               </p>
             </div>
@@ -391,7 +391,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
                 className="group rounded-[0.75rem] border border-brand-900/10 bg-white/85 p-2.5 shadow-sm transition hover:border-brand-700/20 hover:bg-white"
               >
                 <h3 className="text-base font-semibold tracking-tight text-ink transition group-hover:text-brand-800">{path.label}</h3>
-                <p className="mt-1 text-sm leading-5 text-[#46574d]">{path.description}</p>
+                <p className="mt-1 text-sm leading-5 text-muted">{path.description}</p>
               </Link>
             ))}
           </div>
@@ -410,7 +410,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
                     <p className="eyebrow-label">Start here</p>
                     <h2 className="compact-heading">High-signal starting points.</h2>
                   </div>
-                  <p className="max-w-md text-sm leading-6 text-[#5f6f66]">
+                  <p className="max-w-md text-sm leading-6 text-muted">
                     Sorted by evidence, safety, and profile readiness.
                   </p>
                 </div>
@@ -434,7 +434,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
                       {hasActiveFilters ? 'Profiles matching your scan.' : 'Browse every published compound profile.'}
                     </h2>
                   </div>
-                  <span className="inline-flex w-fit rounded-full border border-brand-900/10 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#5f6f66]">
+                  <span className="inline-flex w-fit rounded-full border border-brand-900/10 bg-white/70 px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-muted">
                     {hasActiveFilters ? visibleCompounds.length : paginated ? compounds.length : totalProfiles} profiles
                   </span>
                 </div>
@@ -449,7 +449,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
               </section>
             ) : null}
             {paginated && !hasActiveFilters && totalPages > 1 ? (
-              <p className="text-sm text-[#5f6f66]">Showing page {page} of {totalPages}. Use previous/next links above for crawl-safe navigation.</p>
+              <p className="text-sm text-muted">Showing page {page} of {totalPages}. Use previous/next links above for crawl-safe navigation.</p>
             ) : null}
           </>
         )}

@@ -33,7 +33,7 @@ export function DecisionEmptyState({
         <h2 className="compact-heading">{title}</h2>
         <p className="text-sm leading-6 text-prose-soft sm:text-base">{description}</p>
         {currentScan ? (
-          <p className="text-sm leading-6 text-[#5f6f66]">Current scan: {currentScan}</p>
+          <p className="text-sm leading-6 text-muted">Current scan: {currentScan}</p>
         ) : null}
       </div>
 

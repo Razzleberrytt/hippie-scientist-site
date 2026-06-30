@@ -45,7 +45,7 @@ export default async function CompoundsPageN({ params }: P) {
         <h1 className="mt-2 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
           Compound Profiles &amp; Research Library — Page {p.currentPage}
         </h1>
-        <p className="mt-2 max-w-2xl text-sm leading-6 text-[#46574d]">
+        <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
           Browse evidence, mechanism, and safety summaries for published compound profiles.
         </p>
       </header>

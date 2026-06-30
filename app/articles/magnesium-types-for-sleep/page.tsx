@@ -143,7 +143,7 @@ export default function MagnesiumTypesForSleepPage() {
           <LastUpdatedBadge date={DATE} label="Last updated" />
         </div>
 
-        <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">{DESCRIPTION}</p>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
       </section>
 
       {/* Affiliate disclosure */}
@@ -165,7 +165,7 @@ export default function MagnesiumTypesForSleepPage() {
             <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
               Which Magnesium Type Is Best for Sleep?
             </h2>
-            <div className="mt-3 space-y-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+            <div className="mt-3 space-y-3 text-[1.01rem] leading-[1.85] text-muted">
               <p>
                 <strong>Best overall for sleep: Magnesium glycinate.</strong> High bioavailability,
                 excellent GI tolerance, and the glycine co-carrier provides an additive calming
@@ -207,7 +207,7 @@ export default function MagnesiumTypesForSleepPage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Magnesium Forms Compared
               </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
                 The table below summarises the six most commonly discussed magnesium forms for
                 sleep applications. Bioavailability rankings are relative — exact absorption
                 percentages vary by individual, dose, and food intake and are approximate estimates.
@@ -244,57 +244,57 @@ export default function MagnesiumTypesForSleepPage() {
                     <tbody className="divide-y divide-brand-900/5">
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Glycinate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Sleep, relaxation, general</td>
-                        <td className="py-3 pr-4 text-[#46574d]">★★★★★</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Excellent</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Moderate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Higher cost than oxide</td>
+                        <td className="py-3 pr-4 text-muted">Sleep, relaxation, general</td>
+                        <td className="py-3 pr-4 text-muted">★★★★★</td>
+                        <td className="py-3 pr-4 text-muted">Excellent</td>
+                        <td className="py-3 pr-4 text-muted">Moderate</td>
+                        <td className="py-3 pr-4 text-muted">Higher cost than oxide</td>
                         <td className="py-3 text-brand-700 font-semibold">Best overall pick</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Threonate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Sleep + cognition</td>
-                        <td className="py-3 pr-4 text-[#46574d]">★★★★☆</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Good</td>
-                        <td className="py-3 pr-4 text-[#46574d]">High</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Expensive; limited trial data</td>
-                        <td className="py-3 text-[#46574d]">Premium option</td>
+                        <td className="py-3 pr-4 text-muted">Sleep + cognition</td>
+                        <td className="py-3 pr-4 text-muted">★★★★☆</td>
+                        <td className="py-3 pr-4 text-muted">Good</td>
+                        <td className="py-3 pr-4 text-muted">High</td>
+                        <td className="py-3 pr-4 text-muted">Expensive; limited trial data</td>
+                        <td className="py-3 text-muted">Premium option</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Citrate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Constipation + sleep overlap</td>
-                        <td className="py-3 pr-4 text-[#46574d]">★★★☆☆</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Moderate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Low–Moderate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Laxative effect at high doses</td>
-                        <td className="py-3 text-[#46574d]">If constipation overlaps</td>
+                        <td className="py-3 pr-4 text-muted">Constipation + sleep overlap</td>
+                        <td className="py-3 pr-4 text-muted">★★★☆☆</td>
+                        <td className="py-3 pr-4 text-muted">Moderate</td>
+                        <td className="py-3 pr-4 text-muted">Low–Moderate</td>
+                        <td className="py-3 pr-4 text-muted">Laxative effect at high doses</td>
+                        <td className="py-3 text-muted">If constipation overlaps</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Oxide</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Laxative use; cheap repletion</td>
-                        <td className="py-3 pr-4 text-[#46574d]">★☆☆☆☆</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Poor at higher doses</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Very low</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Low absorption; GI effects</td>
-                        <td className="py-3 text-[#46574d]">Not recommended for sleep</td>
+                        <td className="py-3 pr-4 text-muted">Laxative use; cheap repletion</td>
+                        <td className="py-3 pr-4 text-muted">★☆☆☆☆</td>
+                        <td className="py-3 pr-4 text-muted">Poor at higher doses</td>
+                        <td className="py-3 pr-4 text-muted">Very low</td>
+                        <td className="py-3 pr-4 text-muted">Low absorption; GI effects</td>
+                        <td className="py-3 text-muted">Not recommended for sleep</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Malate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Muscle fatigue overlap</td>
-                        <td className="py-3 pr-4 text-[#46574d]">★★★☆☆</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Good</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Moderate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Limited direct sleep data</td>
-                        <td className="py-3 text-[#46574d]">If muscle fatigue overlaps</td>
+                        <td className="py-3 pr-4 text-muted">Muscle fatigue overlap</td>
+                        <td className="py-3 pr-4 text-muted">★★★☆☆</td>
+                        <td className="py-3 pr-4 text-muted">Good</td>
+                        <td className="py-3 pr-4 text-muted">Moderate</td>
+                        <td className="py-3 pr-4 text-muted">Limited direct sleep data</td>
+                        <td className="py-3 text-muted">If muscle fatigue overlaps</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Taurate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Calming, cardiometabolic</td>
-                        <td className="py-3 pr-4 text-[#46574d]">★★★☆☆</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Good</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Moderate–High</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Very limited human sleep data</td>
-                        <td className="py-3 text-[#46574d]">Niche/overlap use</td>
+                        <td className="py-3 pr-4 text-muted">Calming, cardiometabolic</td>
+                        <td className="py-3 pr-4 text-muted">★★★☆☆</td>
+                        <td className="py-3 pr-4 text-muted">Good</td>
+                        <td className="py-3 pr-4 text-muted">Moderate–High</td>
+                        <td className="py-3 pr-4 text-muted">Very limited human sleep data</td>
+                        <td className="py-3 text-muted">Niche/overlap use</td>
                       </tr>
                     </tbody>
                   </table>
@@ -309,7 +309,7 @@ export default function MagnesiumTypesForSleepPage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Why Magnesium Form Matters
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Magnesium is a mineral — it cannot exist as a supplement on its own. It must be
                 bound to a carrier molecule (a salt or amino acid) to be stable and absorbable.
                 That carrier molecule determines four things that matter for sleep applications:
@@ -318,7 +318,7 @@ export default function MagnesiumTypesForSleepPage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 1. Elemental Magnesium Content
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 A &quot;500 mg magnesium&quot; label almost never means 500 mg of actual magnesium.
                 It refers to the total weight of the magnesium salt compound. For example,
                 magnesium oxide has a high percentage of elemental magnesium by weight (~60%)
@@ -332,7 +332,7 @@ export default function MagnesiumTypesForSleepPage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 2. Absorption Differences
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Not all magnesium is absorbed equally. Organic salts (glycinate, malate, citrate,
                 threonate) are generally better absorbed than inorganic forms (oxide, carbonate).
                 The exact absorption percentages vary by form, dose, individual magnesium status,
@@ -344,7 +344,7 @@ export default function MagnesiumTypesForSleepPage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 3. GI Tolerance
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Poorly absorbed magnesium stays in the gut and draws water osmotically — this is
                 how magnesium oxide works as a laxative. Magnesium citrate has a similar but
                 weaker effect at typical doses. Glycinate, malate, and threonate are absorbed more
@@ -356,7 +356,7 @@ export default function MagnesiumTypesForSleepPage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 4. Secondary Effects from the Carrier
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 The bound molecule is not inert — it exerts its own biological effects. Glycine
                 is an inhibitory amino acid and independent sleep-promoting agent. Taurine has
                 calming and cardiovascular properties. Malate (malic acid) is a Krebs cycle
@@ -382,7 +382,7 @@ export default function MagnesiumTypesForSleepPage() {
                 safetyProfile="Excellent tolerability. Lowest GI side effect risk among magnesium forms at standard doses. Well-suited for daily use."
               />
 
-              <div className="mt-5 space-y-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <div className="mt-5 space-y-3 text-[1.01rem] leading-[1.85] text-muted">
                 <p>
                   Magnesium glycinate is magnesium bound to glycine — an amino acid that acts as
                   an inhibitory neurotransmitter in the central nervous system. This gives
@@ -438,7 +438,7 @@ export default function MagnesiumTypesForSleepPage() {
                 safetyProfile="Generally well-tolerated. Good GI tolerability. Headaches and vivid dreams reported anecdotally in some users during initial use. Higher price point limits broad use."
               />
 
-              <div className="mt-5 space-y-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <div className="mt-5 space-y-3 text-[1.01rem] leading-[1.85] text-muted">
                 <p>
                   Magnesium L-threonate was developed by researchers at MIT and is commonly sold
                   under the Magtein™ brand name. The key theoretical advantage is that the
@@ -488,25 +488,25 @@ export default function MagnesiumTypesForSleepPage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Deep Dive: Magnesium Citrate
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Magnesium citrate is one of the most widely available and affordable &quot;quality&quot;
                 magnesium forms — meaningfully better absorbed than oxide and considerably cheaper
                 than glycinate or threonate. It is a reasonable general-purpose magnesium
                 supplement.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 <strong>For sleep specifically:</strong> Citrate lacks the glycine co-mechanism
                 that makes glycinate particularly well-suited for sleep. The laxative effect at
                 moderate-to-high doses can be disruptive for sleep if GI symptoms occur overnight.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 <strong>When citrate is the better choice:</strong> If constipation overlaps with
                 your sleep goals — or if you simply want an affordable magnesium with reasonable
                 absorption for general repletion — citrate is practical. Start at 150–200 mg
                 elemental and increase gradually to avoid GI effects. Take with food and in the
                 evening if using for sleep.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 <strong>Not ideal as a default sleep form:</strong> For someone whose sole goal
                 is improved sleep quality, glycinate is the better first choice. The laxative
                 downside of citrate at doses needed for meaningful magnesium repletion is
@@ -521,25 +521,25 @@ export default function MagnesiumTypesForSleepPage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Deep Dive: Magnesium Oxide
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Magnesium oxide is the cheapest and most common magnesium form — it is the
                 default in budget multivitamins and the primary active ingredient in most OTC
                 laxative products. High elemental magnesium content by weight (~60%) makes it
                 attractive on paper.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 In practice, absorption of magnesium oxide is substantially lower than organic
                 forms. Most of the dose passes through the gastrointestinal tract largely
                 unabsorbed, drawing water into the colon — hence its effectiveness as a laxative.
                 A high on-label milligram count can be misleading if the form is poorly absorbed.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 <strong>For sleep:</strong> Not recommended as a primary sleep supplement. The
                 small amount of magnesium that is absorbed may provide minor general benefits, but
                 the GI side effects at doses needed for meaningful systemic magnesium delivery
                 make it a poor choice for nightly use aimed at sleep improvement.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 <strong>Where it is useful:</strong> Short-term constipation relief. Budget-only
                 situations where any magnesium form is better than none. Not for sleep-first
                 supplementation goals.
@@ -557,19 +557,19 @@ export default function MagnesiumTypesForSleepPage() {
               <h3 className="mt-4 mb-2 text-xl font-semibold tracking-tight text-ink">
                 Magnesium Malate
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Magnesium malate combines magnesium with malic acid — a Krebs cycle intermediate
                 involved in ATP synthesis and energy metabolism. It is sometimes used in the
                 context of fibromyalgia, chronic fatigue, and muscle pain, where both magnesium
                 deficiency and malic acid may play overlapping roles.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 <strong>Sleep fit:</strong> If your sleep difficulty overlaps significantly with
                 muscle pain, fatigue, or fibromyalgia-like symptoms, malate may be a better fit
                 than glycinate due to the malic acid component addressing the metabolic overlap.
                 Direct sleep-specific RCT evidence for malate is limited compared to glycinate.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 <strong>Evidence caveat:</strong> Most malate trial data comes from fibromyalgia
                 and fatigue contexts, not sleep outcome studies. The sleep benefit is largely
                 inferred from magnesium&apos;s general sleep mechanisms plus reduced muscle pain
@@ -579,19 +579,19 @@ export default function MagnesiumTypesForSleepPage() {
               <h3 className="mt-6 mb-2 text-xl font-semibold tracking-tight text-ink">
                 Magnesium Taurate
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Magnesium taurate combines magnesium with taurine — a semi-essential amino acid
                 with calming, GABA-modulating, and cardiometabolic properties. Taurine has been
                 studied for anxiety reduction, blood pressure regulation, and cardiac function.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 <strong>Sleep fit:</strong> The taurine component&apos;s calming and GABA-supportive
                 properties are theoretically complementary to magnesium&apos;s sleep mechanisms.
                 Direct sleep RCT evidence for magnesium taurate is very limited. It is a
                 reasonable niche consideration for people with cardiovascular or anxiety overlap
                 alongside sleep goals.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 <strong>Evidence caveat:</strong> Do not confuse mechanistic plausibility with
                 clinical evidence. Taurate&apos;s theoretical advantages are not yet backed by
                 adequate sleep-specific human RCTs. No direct sleep-specific PMID for taurate has been identified in the source registry.
@@ -631,33 +631,33 @@ export default function MagnesiumTypesForSleepPage() {
                     <tbody className="divide-y divide-brand-900/5">
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Glycinate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">
+                        <td className="py-3 pr-4 text-muted">
                           200–400 mg
                         </td>
-                        <td className="py-3 pr-4 text-[#46574d]">30–60 min before bed</td>
-                        <td className="py-3 text-[#46574d]">Start low; most recommended form for sleep</td>
+                        <td className="py-3 pr-4 text-muted">30–60 min before bed</td>
+                        <td className="py-3 text-muted">Start low; most recommended form for sleep</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Threonate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">
+                        <td className="py-3 pr-4 text-muted">
                           ~144 mg (per typical Magtein™ label)
                         </td>
-                        <td className="py-3 pr-4 text-[#46574d]">Evening; follow product label</td>
-                        <td className="py-3 text-[#46574d]">Product-specific dosing; check elemental Mg on label</td>
+                        <td className="py-3 pr-4 text-muted">Evening; follow product label</td>
+                        <td className="py-3 text-muted">Product-specific dosing; check elemental Mg on label</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Citrate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">200–350 mg</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Evening, with food</td>
-                        <td className="py-3 text-[#46574d]">Higher doses may cause loose stools; split if needed</td>
+                        <td className="py-3 pr-4 text-muted">200–350 mg</td>
+                        <td className="py-3 pr-4 text-muted">Evening, with food</td>
+                        <td className="py-3 text-muted">Higher doses may cause loose stools; split if needed</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Malate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">
+                        <td className="py-3 pr-4 text-muted">
                           200–400 mg
                         </td>
-                        <td className="py-3 pr-4 text-[#46574d]">Evening; can split dose</td>
-                        <td className="py-3 text-[#46574d]">Often used twice daily in fatigue protocols</td>
+                        <td className="py-3 pr-4 text-muted">Evening; can split dose</td>
+                        <td className="py-3 text-muted">Often used twice daily in fatigue protocols</td>
                       </tr>
                     </tbody>
                   </table>
@@ -670,7 +670,7 @@ export default function MagnesiumTypesForSleepPage() {
                 </p>
               </div>
 
-              <div className="mt-5 space-y-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <div className="mt-5 space-y-3 text-[1.01rem] leading-[1.85] text-muted">
                 <p>
                   <strong>Start low, titrate up.</strong> Begin with 100–200 mg elemental and
                   increase over 1–2 weeks. This identifies your personal GI tolerance threshold
@@ -752,13 +752,13 @@ export default function MagnesiumTypesForSleepPage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Which Type Should You Buy?
               </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
                 Use this decision framework to match your situation to the most appropriate form:
               </p>
               <div className="space-y-3 rounded-[1rem] border border-brand-900/10 bg-brand-50/40 p-5">
                 <div className="flex gap-3">
                   <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+                  <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>If you just want sleep support:</strong>{' '}
                     <a
                       href={`https://www.amazon.com/s?k=magnesium+glycinate+sleep&tag=${AFFILIATE_TAGS.amazon}`}
@@ -773,7 +773,7 @@ export default function MagnesiumTypesForSleepPage() {
                 </div>
                 <div className="flex gap-3">
                   <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+                  <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>If budget is no issue and cognition also matters:</strong>{' '}
                     <a
                       href={`https://www.amazon.com/s?k=magnesium+l-threonate+magtein&tag=${AFFILIATE_TAGS.amazon}`}
@@ -789,7 +789,7 @@ export default function MagnesiumTypesForSleepPage() {
                 </div>
                 <div className="flex gap-3">
                   <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+                  <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>If constipation also matters:</strong>{' '}
                     <a
                       href={`https://www.amazon.com/s?k=magnesium+citrate+supplement&tag=${AFFILIATE_TAGS.amazon}`}
@@ -804,7 +804,7 @@ export default function MagnesiumTypesForSleepPage() {
                 </div>
                 <div className="flex gap-3">
                   <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+                  <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>If cheapest option only:</strong>{' '}
                     Magnesium oxide is widely available and inexpensive. It delivers some systemic
                     magnesium even with low absorption, but is not ideal for sleep-specific use —
@@ -813,7 +813,7 @@ export default function MagnesiumTypesForSleepPage() {
                 </div>
                 <div className="flex gap-3">
                   <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+                  <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>If muscle fatigue overlaps:</strong>{' '}
                     <a
                       href={`https://www.amazon.com/s?k=magnesium+malate+supplement&tag=${AFFILIATE_TAGS.amazon}`}
@@ -828,7 +828,7 @@ export default function MagnesiumTypesForSleepPage() {
                 </div>
                 <div className="flex gap-3">
                   <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+                  <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>If calming/cardiometabolic overlap matters:</strong>{' '}
                     <a
                       href={`https://www.amazon.com/s?k=magnesium+taurate+supplement&tag=${AFFILIATE_TAGS.amazon}`}
@@ -859,7 +859,7 @@ export default function MagnesiumTypesForSleepPage() {
                     className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4"
                   >
                     <h3 className="font-semibold text-ink">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-7 text-[#46574d]">{faq.answer}</p>
+                    <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
                   </div>
                 ))}
               </div>
@@ -1020,7 +1020,7 @@ export default function MagnesiumTypesForSleepPage() {
                   <tbody className="divide-y divide-brand-900/5">
                     <tr className="align-top">
                       <td className="py-3 pr-4 font-medium text-ink">Magnesium glycinate evidence</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Abbasi et al. 2012 (Mg sleep RCT); Held et al. 2002; Nielsen et al. 2010
                       </td>
                       <td className="py-3 text-muted text-xs">
@@ -1029,7 +1029,7 @@ export default function MagnesiumTypesForSleepPage() {
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-4 font-medium text-ink">Glycine sleep evidence</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Yamadera et al. 2007 (glycine and subjective sleep quality)
                       </td>
                       <td className="py-3 text-muted text-xs">
@@ -1038,7 +1038,7 @@ export default function MagnesiumTypesForSleepPage() {
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-4 font-medium text-ink">Magnesium threonate / Magtein evidence</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Slutsky et al. 2010 (brain Mg elevation); human threonate cognition/sleep trials
                       </td>
                       <td className="py-3 text-muted text-xs">
@@ -1047,7 +1047,7 @@ export default function MagnesiumTypesForSleepPage() {
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-4 font-medium text-ink">Magnesium citrate evidence</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Comparative bioavailability studies; Mg citrate vs oxide absorption trials
                       </td>
                       <td className="py-3 text-muted text-xs">
@@ -1056,7 +1056,7 @@ export default function MagnesiumTypesForSleepPage() {
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-4 font-medium text-ink">Magnesium safety / upper intake</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         NIH Office of Dietary Supplements Mg fact sheet; IOM Dietary Reference Intakes
                       </td>
                       <td className="py-3 text-muted text-xs">
@@ -1065,7 +1065,7 @@ export default function MagnesiumTypesForSleepPage() {
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-4 font-medium text-ink">Elemental magnesium label guidance</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         FDA supplement labelling regulations; form-specific elemental content tables
                       </td>
                       <td className="py-3 text-muted text-xs">

@@ -36,7 +36,7 @@ export default function EducationSupernodeGrid({
         </h2>
 
         {description ? (
-          <p className='text-base leading-8 text-[#46574d]'>
+          <p className='text-base leading-8 text-muted'>
             {description}
           </p>
         ) : null}
@@ -58,7 +58,7 @@ export default function EducationSupernodeGrid({
                 {item.title}
               </h3>
 
-              <p className='text-sm leading-7 text-[#46574d]'>
+              <p className='text-sm leading-7 text-muted'>
                 {item.description}
               </p>
             </div>

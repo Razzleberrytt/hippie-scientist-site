@@ -38,7 +38,7 @@ export default function EvidenceHierarchyPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Evidence hierarchy systems help contextualize how strongly different types of scientific evidence support educational interpretation, neuropharmacology claims, and recovery-oriented discussions.
         </p>
       </section>

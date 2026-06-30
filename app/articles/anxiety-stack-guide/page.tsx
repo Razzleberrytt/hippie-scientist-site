@@ -190,43 +190,43 @@ export default function AnxietyStackGuidePage() {
               <tbody className="divide-y divide-brand-900/5">
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Beginner Stack</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Magnesium</td>
-                  <td className="py-3 pr-4 text-[#46574d]">General stress support, low complexity</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Low</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Low</td>
-                  <td className="py-3 text-[#46574d]">Mild GI upset in some forms</td>
+                  <td className="py-3 pr-4 text-muted">Magnesium</td>
+                  <td className="py-3 pr-4 text-muted">General stress support, low complexity</td>
+                  <td className="py-3 pr-4 text-muted">Low</td>
+                  <td className="py-3 pr-4 text-muted">Low</td>
+                  <td className="py-3 text-muted">Mild GI upset in some forms</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Stress Stack</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Ashwagandha + Magnesium</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Chronic stress, daily foundational support</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Medium</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Medium</td>
-                  <td className="py-3 text-[#46574d]">Ashwagandha cautions (thyroid, autoimmune)</td>
+                  <td className="py-3 pr-4 text-muted">Ashwagandha + Magnesium</td>
+                  <td className="py-3 pr-4 text-muted">Chronic stress, daily foundational support</td>
+                  <td className="py-3 pr-4 text-muted">Medium</td>
+                  <td className="py-3 pr-4 text-muted">Medium</td>
+                  <td className="py-3 text-muted">Ashwagandha cautions (thyroid, autoimmune)</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Racing Thoughts Stack</td>
-                  <td className="py-3 pr-4 text-[#46574d]">L-Theanine + Magnesium</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Mental tension, calm focus</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Low–Medium</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Low–Medium</td>
-                  <td className="py-3 text-[#46574d]">Generally well tolerated</td>
+                  <td className="py-3 pr-4 text-muted">L-Theanine + Magnesium</td>
+                  <td className="py-3 pr-4 text-muted">Mental tension, calm focus</td>
+                  <td className="py-3 pr-4 text-muted">Low–Medium</td>
+                  <td className="py-3 pr-4 text-muted">Low–Medium</td>
+                  <td className="py-3 text-muted">Generally well tolerated</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Anxiety + Sleep Stack</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Ashwagandha + Magnesium + L-Theanine</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Stress + sleep overlap</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Medium–High</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Medium</td>
-                  <td className="py-3 text-[#46574d]">More variables to monitor</td>
+                  <td className="py-3 pr-4 text-muted">Ashwagandha + Magnesium + L-Theanine</td>
+                  <td className="py-3 pr-4 text-muted">Stress + sleep overlap</td>
+                  <td className="py-3 pr-4 text-muted">Medium–High</td>
+                  <td className="py-3 pr-4 text-muted">Medium</td>
+                  <td className="py-3 text-muted">More variables to monitor</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Full Stack</td>
-                  <td className="py-3 pr-4 text-[#46574d]">All three + others</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Comprehensive (not for beginners)</td>
-                  <td className="py-3 pr-4 text-[#46574d]">High</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Higher</td>
-                  <td className="py-3 text-[#46574d]">Highest risk of over-supplementation</td>
+                  <td className="py-3 pr-4 text-muted">All three + others</td>
+                  <td className="py-3 pr-4 text-muted">Comprehensive (not for beginners)</td>
+                  <td className="py-3 pr-4 text-muted">High</td>
+                  <td className="py-3 pr-4 text-muted">Higher</td>
+                  <td className="py-3 text-muted">Highest risk of over-supplementation</td>
                 </tr>
               </tbody>
             </table>
@@ -290,18 +290,18 @@ export default function AnxietyStackGuidePage() {
               <tbody className="divide-y divide-brand-900/5">
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Morning</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Ashwagandha (some prefer), L-Theanine (with or without caffeine)</td>
-                  <td className="py-3 text-[#46574d]">Timing is flexible; most evidence does not specify strict time-of-day requirements. Some prefer ashwagandha with meals to reduce GI upset.</td>
+                  <td className="py-3 pr-4 text-muted">Ashwagandha (some prefer), L-Theanine (with or without caffeine)</td>
+                  <td className="py-3 text-muted">Timing is flexible; most evidence does not specify strict time-of-day requirements. Some prefer ashwagandha with meals to reduce GI upset.</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Afternoon</td>
-                  <td className="py-3 pr-4 text-[#46574d]">L-Theanine (for calm focus)</td>
-                  <td className="py-3 text-[#46574d]">Useful during high-stress periods</td>
+                  <td className="py-3 pr-4 text-muted">L-Theanine (for calm focus)</td>
+                  <td className="py-3 text-muted">Useful during high-stress periods</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Evening</td>
-                  <td className="py-3 pr-4 text-[#46574d]">Magnesium, Ashwagandha (some prefer), L-Theanine</td>
-                  <td className="py-3 text-[#46574d]">Support relaxation and sleep quality</td>
+                  <td className="py-3 pr-4 text-muted">Magnesium, Ashwagandha (some prefer), L-Theanine</td>
+                  <td className="py-3 text-muted">Support relaxation and sleep quality</td>
                 </tr>
               </tbody>
             </table>
@@ -323,18 +323,18 @@ export default function AnxietyStackGuidePage() {
               <tbody className="divide-y divide-brand-900/5">
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Ashwagandha (standardized extract)</td>
-                  <td className="py-3 pr-4 text-[#46574d]">300–600 mg/day (standardized extract)</td>
-                  <td className="py-3 text-[#46574d]">Often taken once or twice daily</td>
+                  <td className="py-3 pr-4 text-muted">300–600 mg/day (standardized extract)</td>
+                  <td className="py-3 text-muted">Often taken once or twice daily</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">L-Theanine</td>
-                  <td className="py-3 pr-4 text-[#46574d]">100–200 mg per dose, 100–400 mg/day</td>
-                  <td className="py-3 text-[#46574d]">Often 100–200 mg per dose</td>
+                  <td className="py-3 pr-4 text-muted">100–200 mg per dose, 100–400 mg/day</td>
+                  <td className="py-3 text-muted">Often 100–200 mg per dose</td>
                 </tr>
                 <tr className="align-top">
                   <td className="py-3 pr-4 font-medium text-ink">Magnesium (glycinate/bisglycinate)</td>
-                  <td className="py-3 pr-4 text-[#46574d]">200–400 mg elemental magnesium/day</td>
-                  <td className="py-3 text-[#46574d]">Split doses may improve tolerability</td>
+                  <td className="py-3 pr-4 text-muted">200–400 mg elemental magnesium/day</td>
+                  <td className="py-3 text-muted">Split doses may improve tolerability</td>
                 </tr>
               </tbody>
             </table>

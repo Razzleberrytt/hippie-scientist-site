@@ -54,7 +54,7 @@ export default function HerbalVsPharmaPage() {
           How Herbal Psychoactives Differ From Pharmaceuticals
         </h1>
 
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Educational exploration of herbal psychoactives, ethnobotanical systems, pharmaceutical neuropharmacology, pathway overlap, and evidence-informed interpretation.
         </p>
 

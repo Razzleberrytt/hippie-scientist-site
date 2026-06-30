@@ -107,7 +107,7 @@ export default function WhatArePsychoactiveHerbsPage() {
           </h1>
         </div>
 
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Psychoactive herbs are plants containing compounds capable of influencing neurochemical systems involved in mood, cognition, stress response, dreaming, relaxation, arousal, or consciousness.
         </p>
 
@@ -124,7 +124,7 @@ export default function WhatArePsychoactiveHerbsPage() {
             Psychoactive mechanism systems
           </h2>
 
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             Psychoactive herbs may interact with multiple pathway systems simultaneously. Educational pathway exploration helps contextualize mechanisms, safety considerations, and semantic relationships.
           </p>
         </div>
@@ -141,7 +141,7 @@ export default function WhatArePsychoactiveHerbsPage() {
                   {system.title}
                 </h3>
 
-                <p className="text-sm leading-7 text-[#46574d]">
+                <p className="text-sm leading-7 text-muted">
                   {system.description}
                 </p>
               </div>
@@ -159,7 +159,7 @@ export default function WhatArePsychoactiveHerbsPage() {
           </h2>
         </div>
 
-        <p className="text-sm leading-7 text-[#46574d] max-w-3xl">
+        <p className="text-sm leading-7 text-muted max-w-3xl">
           Psychoactive substances may interact with medications, mental health conditions, sleep systems, serotonergic signaling, GABAergic systems, and cardiovascular pathways. Educational exploration should always prioritize conservative interpretation, safety awareness, and evidence quality.
         </p>
 

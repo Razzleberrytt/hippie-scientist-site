@@ -44,7 +44,7 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
         <h1 className="text-5xl font-bold tracking-tight text-ink">
           Ashwagandha vs L-Theanine vs Magnesium: Which Fits Your Stress Pattern?
         </h1>
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Choosing between these three popular options depends on your specific stress presentation.
           Ashwagandha is an adaptogen suited for chronic, daily tension. L-Theanine is an amino acid that excels at acute, situational stress.
           Magnesium glycinate is a mineral that addresses baseline physical relaxation and evening recovery.
@@ -59,7 +59,7 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
               Daily Adaptogen
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-ink">Ashwagandha</h2>
-            <p className="text-sm leading-7 text-[#46574d] mt-2">
+            <p className="text-sm leading-7 text-muted mt-2">
               Best for chronic, ongoing cortisol-driven stress. It requires consistent daily use over 2–8 weeks to show noticeable effects on subjective anxiety scales.
             </p>
           </div>
@@ -76,7 +76,7 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
               Acute Stress Buffer
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-ink">L-Theanine</h2>
-            <p className="text-sm leading-7 text-[#46574d] mt-2">
+            <p className="text-sm leading-7 text-muted mt-2">
               Best for acute, situational stress (such as presentations or exams) or racing thoughts. It promotes alpha-wave brain activity, taking effect within 30–90 minutes.
             </p>
           </div>
@@ -93,7 +93,7 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
               Baseline Relaxation
             </p>
             <h2 className="text-3xl font-semibold tracking-tight text-ink">Magnesium</h2>
-            <p className="text-sm leading-7 text-[#46574d] mt-2">
+            <p className="text-sm leading-7 text-muted mt-2">
               Best for physical muscle tension and baseline recovery. Using magnesium glycinate in the evening supports sleep wind-down and addresses dietary mineral gaps.
             </p>
           </div>
@@ -119,7 +119,7 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
                 <th className="py-3 pr-4 font-bold uppercase tracking-wider text-xs">Magnesium (Glycinate)</th>
               </tr>
             </thead>
-            <tbody className="text-[#46574d] divide-y divide-black/5">
+            <tbody className="text-muted divide-y divide-black/5">
               <tr>
                 <td className="py-3.5 pr-4 font-semibold text-ink">Primary Fit</td>
                 <td className="py-3.5 pr-4">Chronic, generalized stress &amp; cortisol regulation</td>
@@ -178,7 +178,7 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
         <div className="card-premium p-6 space-y-3">
           <p className="eyebrow-label">Scenario 1</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">The Wired-Tired Pattern</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             If your stress manifests as ongoing, physical and mental exhaustion paired with high evening tension,
             <strong> Ashwagandha</strong> is generally the more targeted option. It aims to support baseline adaptation,
             but you must monitor for rare side effects like emotional blunting (anhedonia).
@@ -187,7 +187,7 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
         <div className="card-premium p-6 space-y-3">
           <p className="eyebrow-label">Scenario 2</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Acute Performance Jitters</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             If you need calm focus during a demanding meeting or to take the edge off caffeine consumption,
             <strong> L-Theanine</strong> is the ideal choice. It crosses the blood-brain barrier rapidly to
             increase alpha-wave activity without inducing grogginess.
@@ -196,7 +196,7 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
         <div className="card-premium p-6 space-y-3">
           <p className="eyebrow-label">Scenario 3</p>
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Physical &amp; Evening Tension</h2>
-          <p className="text-sm leading-7 text-[#46574d]">
+          <p className="text-sm leading-7 text-muted">
             If your stress triggers muscle tightness, jaw-clenching, or sleep-onset disruption,
             <strong> Magnesium glycinate</strong> provides the double benefit of glycine (a calming neurotransmitter)
             paired with highly absorbable elemental magnesium.
@@ -208,7 +208,7 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
       <section className="card-premium p-6 space-y-5 max-w-4xl border-l-4 border-rose-500 bg-rose-50/10">
         <p className="text-xs font-bold uppercase tracking-wider text-rose-900">Safety &amp; Clinical Cautions</p>
         <h2 className="text-2xl font-bold tracking-tight text-ink">Understanding the Physiological Boundaries</h2>
-        <div className="space-y-4 text-sm leading-relaxed text-[#46574d]">
+        <div className="space-y-4 text-sm leading-relaxed text-muted">
           <p>
             While all three compounds are widely available, they have active physiological targets and must be approached with caution:
           </p>
@@ -230,7 +230,7 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
       <section className="card-premium p-6 space-y-4 max-w-4xl">
         <p className="eyebrow-label">FAQ</p>
         <h2 className="text-3xl font-semibold tracking-tight text-ink">Common Questions</h2>
-        <div className="space-y-4 text-sm leading-7 text-[#46574d]">
+        <div className="space-y-4 text-sm leading-7 text-muted">
           <div>
             <h3 className="text-lg font-semibold text-ink">Can I take all three together?</h3>
             <p>

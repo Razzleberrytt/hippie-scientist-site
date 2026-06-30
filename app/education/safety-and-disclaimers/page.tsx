@@ -38,7 +38,7 @@ export default function SafetyAndDisclaimersPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Educational neuropharmacology, ethnobotanical exploration, psychoactive systems, and recovery-oriented discussions require conservative interpretation, safety awareness, and transparent evidence limitations.
         </p>
       </section>

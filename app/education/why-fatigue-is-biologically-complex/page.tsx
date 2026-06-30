@@ -73,7 +73,7 @@ export default function WhyFatigueIsBiologicallyComplexPage() {
           <p className="eyebrow-label">Recovery-Oriented Neuroscience</p>
           <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">Why Fatigue Is Biologically Complex</h1>
         </div>
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Fatigue may involve substantially more than low energy or reduced motivation. Recovery biology, stress physiology, emotional regulation, sleep continuity, nervous-system strain, and burnout-oriented neurobiology may all influence fatigue systems and cognition sustainability.
         </p>
       </section>
@@ -88,7 +88,7 @@ export default function WhyFatigueIsBiologicallyComplexPage() {
         {systems.map((system) => (
           <div key={system.title} className="card-premium p-6 space-y-4">
             <h2 className="text-2xl font-semibold tracking-tight text-ink">{system.title}</h2>
-            <p className="text-sm leading-7 text-[#46574d]">{system.body}</p>
+            <p className="text-sm leading-7 text-muted">{system.body}</p>
           </div>
         ))}
       </section>
@@ -103,7 +103,7 @@ export default function WhyFatigueIsBiologicallyComplexPage() {
           {faqs.map((faq) => (
             <div key={faq.question} className="card-premium p-6 space-y-3">
               <h3 className="text-xl font-semibold tracking-tight text-ink">{faq.question}</h3>
-              <p className="text-sm leading-7 text-[#46574d]">{faq.answer}</p>
+              <p className="text-sm leading-7 text-muted">{faq.answer}</p>
             </div>
           ))}
         </div>

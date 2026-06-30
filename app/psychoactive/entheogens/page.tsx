@@ -46,7 +46,7 @@ export default function EntheogensPage() {
           Entheogens
         </h1>
 
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Educational exploration of consciousness-oriented ethnobotany, ceremonial traditions, serotonergic systems, and psychoactive neuropharmacology.
         </p>
       </section>

@@ -21,7 +21,7 @@ export default function ProductCriteriaBox({
       <h3 className="mt-1 text-base font-bold text-ink">{title}</h3>
       <ul className="mt-3 space-y-2">
         {criteria.map((item, i) => (
-          <li key={i} className="flex items-start gap-2.5 text-sm leading-relaxed text-[#46574d]">
+          <li key={i} className="flex items-start gap-2.5 text-sm leading-relaxed text-muted">
             <span className="mt-0.5 shrink-0 font-bold text-brand-700" aria-hidden="true">✓</span>
             <span>{item}</span>
           </li>
@@ -32,7 +32,7 @@ export default function ProductCriteriaBox({
           <p className="text-[0.68rem] font-bold uppercase tracking-wider text-red-700/80">Avoid</p>
           <ul className="mt-2 space-y-2">
             {avoidList.map((item, i) => (
-              <li key={i} className="flex items-start gap-2.5 text-sm leading-relaxed text-[#46574d]">
+              <li key={i} className="flex items-start gap-2.5 text-sm leading-relaxed text-muted">
                 <span className="mt-0.5 shrink-0 font-bold text-red-600/70" aria-hidden="true">✗</span>
                 <span>{item}</span>
               </li>

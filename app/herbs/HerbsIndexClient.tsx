@@ -364,7 +364,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
               <h2 className="max-w-[18ch] text-balance font-display text-2xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-4xl">
                 Herbal research library
               </h2>
-              <p className="max-w-2xl text-sm leading-6 text-[#46574d]">
+              <p className="max-w-2xl text-sm leading-6 text-muted">
                 Scan by practical context first, then compare evidence, timing, and caution notes where source data supports them.
               </p>
             </div>
@@ -415,7 +415,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
           />
 
           <div className="mt-2">
-            <div className="mb-1.5 text-xs font-bold uppercase tracking-[0.12em] text-[#5f6f66]">Evidence level</div>
+            <div className="mb-1.5 text-xs font-bold uppercase tracking-[0.12em] text-muted">Evidence level</div>
             <div className="flex flex-wrap gap-2">
               {EVIDENCE_FILTER_OPTIONS.map(opt => {
                 const href = buildEvidenceHref(opt.value, query, activeFilter)
@@ -458,7 +458,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
                 className="group rounded-[0.75rem] border border-brand-900/10 bg-[var(--surface-card)] p-2.5 shadow-sm transition hover:border-brand-700/20 hover:bg-[var(--surface-card-strong)]"
               >
                 <h3 className="text-base font-semibold tracking-tight text-ink transition group-hover:text-brand-800">{path.label}</h3>
-                <p className="mt-1 text-sm leading-5 text-[#46574d]">{path.description}</p>
+                <p className="mt-1 text-sm leading-5 text-muted">{path.description}</p>
               </Link>
             ))}
           </div>
@@ -477,7 +477,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
                     <p className="eyebrow-label">Start here</p>
                     <h2 className="compact-heading">High-signal starting points.</h2>
                   </div>
-                  <p className="max-w-md text-sm leading-6 text-[#5f6f66]">
+                  <p className="max-w-md text-sm leading-6 text-muted">
                     Sorted by evidence signals, profile readiness, and practical browse value—not by promised outcomes.
                   </p>
                 </div>
@@ -512,7 +512,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
               </section>
             ) : null}
             {paginated && !hasActiveFilters && totalPages > 1 ? (
-              <p className="text-sm text-[#5f6f66]">Showing page {page} of {totalPages}. Use previous/next links above for crawl-safe navigation.</p>
+              <p className="text-sm text-muted">Showing page {page} of {totalPages}. Use previous/next links above for crawl-safe navigation.</p>
             ) : null}
           </>
         )}

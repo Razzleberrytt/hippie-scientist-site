@@ -143,7 +143,7 @@ export default function SleepStackGuidePage() {
           <LastUpdatedBadge date={DATE} label="Last updated" />
         </div>
 
-        <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">{DESCRIPTION}</p>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
       </section>
 
       {/* Affiliate disclosure */}
@@ -166,28 +166,28 @@ export default function SleepStackGuidePage() {
               Which Sleep Stack Should You Build?
             </h2>
             <ul className="mt-4 space-y-2">
-              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
                 <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
                 <span>
                   <strong>Best simple starting stack:</strong> magnesium glycinate alone — the
                   lowest-complexity, best-characterised starting point for most people.
                 </span>
               </li>
-              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
                 <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
                 <span>
                   <strong>Best relaxation stack:</strong> magnesium glycinate + L-theanine — physical
                   and mental relaxation support from complementary mechanisms.
                 </span>
               </li>
-              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
                 <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
                 <span>
                   <strong>Best stress-driven sleep stack:</strong> ashwagandha + magnesium — stress
                   adaptation over weeks combined with baseline physical relaxation support.
                 </span>
               </li>
-              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
                 <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
                 <span>
                   <strong>Best full stack:</strong> magnesium + L-theanine + ashwagandha — three
@@ -195,7 +195,7 @@ export default function SleepStackGuidePage() {
                   one at a time.
                 </span>
               </li>
-              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
                 <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
                 <span>
                   <strong>Best beginner approach:</strong> start one supplement at a time. Assess
@@ -204,7 +204,7 @@ export default function SleepStackGuidePage() {
                 </span>
               </li>
             </ul>
-            <div className="mt-4 rounded-[0.75rem] border border-amber-300/60 bg-amber-50/60 px-4 py-3 text-sm leading-6 text-[#46574d]">
+            <div className="mt-4 rounded-[0.75rem] border border-amber-300/60 bg-amber-50/60 px-4 py-3 text-sm leading-6 text-muted">
               <strong className="text-ink">Important:</strong> Do not combine multiple sleep aids,
               prescription sedatives, or alcohol without clinician guidance. Natural supplements can
               produce additive CNS effects and carry real interaction risks.
@@ -219,14 +219,14 @@ export default function SleepStackGuidePage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 What Is a Sleep Stack?
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 A supplement stack is a combination of supplements chosen for complementary
                 mechanisms — each addressing a different aspect of the same problem. A sleep stack
                 is designed to improve sleep quality, promote relaxation, and support consistent
                 sleep onset, using supplements that work through distinct pathways rather than
                 redundant ones.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 A well-designed sleep stack starts from a specific problem: Are you unable to
                 fall asleep because of physical tension? Racing thoughts? Chronic stress that has
                 degraded sleep quality over months? The supplements in a good stack are matched to
@@ -236,14 +236,14 @@ export default function SleepStackGuidePage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 What a Sleep Stack Should Not Be
               </h3>
-              <ul className="mt-2 ml-5 space-y-1 list-disc text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <ul className="mt-2 ml-5 space-y-1 list-disc text-[1.01rem] leading-[1.85] text-muted">
                 <li>A grab-bag of everything labelled &ldquo;sleep support&rdquo;</li>
                 <li>A method to avoid evaluating your sleep hygiene or circadian patterns</li>
                 <li>A substitute for clinical evaluation of persistent insomnia or sleep apnea</li>
                 <li>A way to combine multiple sedating agents without understanding the risks</li>
               </ul>
 
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 Natural does not mean risk-free. Supplements can interact with medications,
                 produce additive sedative effects when combined, and carry real contraindications
                 in specific populations. This guide treats that seriously.
@@ -257,7 +257,7 @@ export default function SleepStackGuidePage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 The Core 3-Ingredient Sleep Stack
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 The most widely discussed natural sleep stack combines three supplements with
                 non-overlapping primary mechanisms:
               </p>
@@ -265,7 +265,7 @@ export default function SleepStackGuidePage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 Magnesium Glycinate — Physical Relaxation
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Magnesium is an essential mineral involved in hundreds of enzymatic processes,
                 including NMDA receptor regulation, GABA activity, melatonin synthesis, and muscle
                 relaxation. The glycinate form is chelated with glycine (itself calming) and is
@@ -294,7 +294,7 @@ export default function SleepStackGuidePage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 L-Theanine — Mental Relaxation
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 L-theanine is an amino acid from tea leaves that promotes alpha-wave brain activity
                 — the relaxed-wakefulness state associated with easing into sleep. It is not a
                 direct sedative; it quiets mental arousal rather than producing heavy drowsiness.
@@ -315,7 +315,7 @@ export default function SleepStackGuidePage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 Ashwagandha — Stress Adaptation
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Ashwagandha (<em>Withania somnifera</em>) is an adaptogen — a compound that
                 modulates the body&apos;s stress response over time. Its primary mechanism is
                 HPA axis regulation and cortisol normalisation over 6–8 weeks of consistent use.
@@ -359,7 +359,7 @@ export default function SleepStackGuidePage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Stack Comparison Table
               </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
                 Which stack is right for your specific situation? Use this table to match your
                 primary sleep barrier to the appropriate starting point.
               </p>
@@ -391,73 +391,73 @@ export default function SleepStackGuidePage() {
                   <tbody className="divide-y divide-brand-900/5">
                     <tr className="align-top">
                       <td className="py-3 pr-4 font-medium text-ink">Beginner Stack</td>
-                      <td className="py-3 pr-4 text-[#46574d]">Magnesium glycinate</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">Magnesium glycinate</td>
+                      <td className="py-3 pr-4 text-muted">
                         General sleep quality, physical tension, first supplement trial
                       </td>
-                      <td className="py-3 pr-4 text-[#46574d]">Very low</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">Very low</td>
+                      <td className="py-3 pr-4 text-muted">
                         Kidney disease; GI loose stools at high dose
                       </td>
-                      <td className="py-3 text-[#46574d]">Best starting point for most people</td>
+                      <td className="py-3 text-muted">Best starting point for most people</td>
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-4 font-medium text-ink">Relaxation Stack</td>
-                      <td className="py-3 pr-4 text-[#46574d]">Magnesium glycinate + L-theanine</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">Magnesium glycinate + L-theanine</td>
+                      <td className="py-3 pr-4 text-muted">
                         Racing thoughts + body tension; stress-driven sleep onset delay
                       </td>
-                      <td className="py-3 pr-4 text-[#46574d]">Low</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">Low</td>
+                      <td className="py-3 pr-4 text-muted">
                         Avoid caffeine-containing L-theanine at night; introduce separately
                       </td>
-                      <td className="py-3 text-[#46574d]">
+                      <td className="py-3 text-muted">
                         Good second step after trialling magnesium
                       </td>
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-4 font-medium text-ink">Stress Stack</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Ashwagandha (KSM-66 or Sensoril) + magnesium glycinate
                       </td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Chronic stress as primary sleep driver; requires 6–8 week trial
                       </td>
-                      <td className="py-3 pr-4 text-[#46574d]">Moderate</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">Moderate</td>
+                      <td className="py-3 pr-4 text-muted">
                         Avoid in pregnancy; thyroid / autoimmune conditions; introduce separately
                       </td>
-                      <td className="py-3 text-[#46574d]">
+                      <td className="py-3 text-muted">
                         Best when stress is clearly the root cause
                       </td>
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-4 font-medium text-ink">Full Stack</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Magnesium glycinate + L-theanine + ashwagandha
                       </td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Stress + racing thoughts + physical tension; not a first-step approach
                       </td>
-                      <td className="py-3 pr-4 text-[#46574d]">Moderate–high</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">Moderate–high</td>
+                      <td className="py-3 pr-4 text-muted">
                         Must introduce one at a time; all individual cautions apply
                       </td>
-                      <td className="py-3 text-[#46574d]">
+                      <td className="py-3 text-muted">
                         Only after trialling each ingredient individually
                       </td>
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-4 font-medium text-ink text-red-700">Avoid Stack</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Multiple sedating herbs + alcohol / prescription sedatives
                       </td>
-                      <td className="py-3 pr-4 text-[#46574d]">—</td>
-                      <td className="py-3 pr-4 text-[#46574d]">—</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">—</td>
+                      <td className="py-3 pr-4 text-muted">—</td>
+                      <td className="py-3 pr-4 text-muted">
                         Additive CNS depression; unpredictable effects; do not combine
                       </td>
-                      <td className="py-3 text-[#46574d]">Do not use</td>
+                      <td className="py-3 text-muted">Do not use</td>
                     </tr>
                   </tbody>
                 </table>
@@ -471,16 +471,16 @@ export default function SleepStackGuidePage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Beginner Stack: Magnesium Glycinate Alone
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Starting with a single supplement is almost always smarter than starting with
                 three. A one-supplement trial tells you clearly whether that supplement is helping,
                 doing nothing, or causing side effects. With three supplements introduced
                 simultaneously, you get none of that information.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 Magnesium glycinate is the most reasonable first choice for most people because:
               </p>
-              <ul className="mt-2 ml-5 space-y-1 list-disc text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <ul className="mt-2 ml-5 space-y-1 list-disc text-[1.01rem] leading-[1.85] text-muted">
                 <li>
                   Magnesium deficiency or suboptimal status is common in Western diets, making
                   supplementation broadly applicable.
@@ -503,7 +503,7 @@ export default function SleepStackGuidePage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 Who Should Start Here
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Anyone new to sleep supplements, anyone with general poor sleep quality without
                 a strong stress or mental arousal component, and anyone who wants the simplest
                 possible approach with the best safety dataset. Kidney disease is the primary
@@ -514,7 +514,7 @@ export default function SleepStackGuidePage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 When to Add L-Theanine
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 After 1–2 weeks on magnesium glycinate alone, if physical tension has improved
                 but racing thoughts or mental arousal at bedtime remain the primary barrier,
                 L-theanine is a reasonable next addition. See the{' '}
@@ -532,7 +532,7 @@ export default function SleepStackGuidePage() {
                   Beginner Stack — Magnesium Glycinate
                 </p>
                 <p className="font-semibold text-ink">Magnesium Glycinate for Sleep</p>
-                <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                <p className="mt-1 text-xs leading-5 text-muted">
                   Well-absorbed form. Low GI impact. Standard starting point for most sleep
                   supplement trials. Look for products with elemental magnesium clearly labelled —
                   not oxide, sulfate, or carbonate.
@@ -555,22 +555,22 @@ export default function SleepStackGuidePage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Relaxation Stack: Magnesium + L-Theanine
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 The magnesium + L-theanine combination targets two complementary dimensions of
                 pre-sleep arousal: physical relaxation (magnesium) and mental relaxation
                 (L-theanine). This is a reasonable stack for someone whose sleep difficulty
                 involves both body tension and a mind that will not quieten.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 Direct combination trial evidence for magnesium + L-theanine specifically has
                 not been identified in the source registry. The stack rationale
                 rests on complementary mechanisms and an absence of known adverse interactions
                 rather than head-to-head combination data.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 Practical notes for this combination:
               </p>
-              <ul className="mt-2 ml-5 space-y-1 list-disc text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <ul className="mt-2 ml-5 space-y-1 list-disc text-[1.01rem] leading-[1.85] text-muted">
                 <li>Start at the lower end of both dose ranges.</li>
                 <li>
                   Ensure your L-theanine product is <strong>caffeine-free</strong>. Many
@@ -589,7 +589,7 @@ export default function SleepStackGuidePage() {
                     Relaxation Stack — Magnesium
                   </p>
                   <p className="font-semibold text-ink">Magnesium Glycinate</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Physical relaxation, muscle tension, NMDA/GABA support. Best-tolerated oral
                     magnesium form for sleep use.
                   </p>
@@ -607,7 +607,7 @@ export default function SleepStackGuidePage() {
                     Relaxation Stack — L-Theanine
                   </p>
                   <p className="font-semibold text-ink">L-Theanine 100–200 mg (Caffeine-Free)</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Mental relaxation, alpha-wave support. Verify that no caffeine is present in
                     the product before buying for nighttime use.
                   </p>
@@ -630,17 +630,17 @@ export default function SleepStackGuidePage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Stress Stack: Ashwagandha + Magnesium
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 The ashwagandha + magnesium combination targets stress adaptation (ashwagandha)
                 alongside baseline physical relaxation (magnesium). This stack is better suited
                 for people whose poor sleep is clearly driven by chronic stress — elevated evening
                 cortisol, persistent anxiety, prolonged periods of overload — rather than
                 situational or acute tension.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 Key considerations for this combination:
               </p>
-              <ul className="mt-2 ml-5 space-y-1 list-disc text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <ul className="mt-2 ml-5 space-y-1 list-disc text-[1.01rem] leading-[1.85] text-muted">
                 <li>
                   <strong>Ashwagandha takes weeks.</strong> Its effects on sleep quality typically
                   emerge at 6–8 weeks of consistent daily use. Do not evaluate it on a few
@@ -673,7 +673,7 @@ export default function SleepStackGuidePage() {
                     Stress Stack — Ashwagandha (KSM-66)
                   </p>
                   <p className="font-semibold text-ink">KSM-66 Ashwagandha</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Standardised root extract used in the majority of sleep and stress trials.
                     Requires 6–8 weeks of consistent use. Avoid in pregnancy; check thyroid
                     interaction if relevant.
@@ -692,7 +692,7 @@ export default function SleepStackGuidePage() {
                     Stress Stack — Ashwagandha (Sensoril)
                   </p>
                   <p className="font-semibold text-ink">Sensoril Ashwagandha</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Root and leaf extract standardised for withanolide content. Used in stress and
                     sleep RCTs. An alternative to KSM-66 with a slightly different extract profile.
                   </p>
@@ -715,17 +715,17 @@ export default function SleepStackGuidePage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Full Stack: Magnesium + L-Theanine + Ashwagandha
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 The full three-ingredient stack uses each supplement for a distinct role: magnesium
                 for physical relaxation, L-theanine for mental relaxation, and ashwagandha for
                 chronic stress adaptation. This makes theoretical sense — the three mechanisms are
                 genuinely non-overlapping and complementary.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 However, the full stack is not the best starting point for most people. Important
                 caveats:
               </p>
-              <ul className="mt-2 ml-5 space-y-1 list-disc text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <ul className="mt-2 ml-5 space-y-1 list-disc text-[1.01rem] leading-[1.85] text-muted">
                 <li>
                   Direct combination clinical trial evidence for all three ingredients together
                   has not been identified in the source registry — the stack rationale is mechanistic, not
@@ -745,7 +745,7 @@ export default function SleepStackGuidePage() {
                 </li>
               </ul>
 
-              <div className="mt-4 rounded-[0.75rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-[#46574d]">
+              <div className="mt-4 rounded-[0.75rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-muted">
                 <p className="font-semibold text-ink">Full stack — introduce one at a time:</p>
                 <ol className="mt-2 ml-5 space-y-1 list-decimal">
                   <li>Start magnesium glycinate. Trial for 1–2 weeks.</li>
@@ -765,7 +765,7 @@ export default function SleepStackGuidePage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Timing Guide
               </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
                 Different supplements in a sleep stack have different optimal timing windows based
                 on their mechanisms and the trial protocols used in their research.
               </p>
@@ -795,37 +795,37 @@ export default function SleepStackGuidePage() {
                     <tbody className="divide-y divide-brand-900/5">
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Magnesium glycinate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">
+                        <td className="py-3 pr-4 text-muted">
                           30–60 min before bed
                         </td>
-                        <td className="py-3 pr-4 text-[#46574d]">
+                        <td className="py-3 pr-4 text-muted">
                           Allows absorption and nervous system effect onset before sleep
                         </td>
-                        <td className="py-3 text-[#46574d]">
+                        <td className="py-3 text-muted">
                           Can be taken with a light snack if GI sensitivity is a concern
                         </td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">L-theanine</td>
-                        <td className="py-3 pr-4 text-[#46574d]">
+                        <td className="py-3 pr-4 text-muted">
                           30–60 min before bed
                         </td>
-                        <td className="py-3 pr-4 text-[#46574d]">
+                        <td className="py-3 pr-4 text-muted">
                           Alpha-wave effects observed within 30–60 min of ingestion in EEG studies
                         </td>
-                        <td className="py-3 text-[#46574d]">
+                        <td className="py-3 text-muted">
                           Caffeine-free only; can be taken 1–2 hours before bed for general wind-down
                         </td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Ashwagandha</td>
-                        <td className="py-3 pr-4 text-[#46574d]">
+                        <td className="py-3 pr-4 text-muted">
                           Evening with dinner or before bed
                         </td>
-                        <td className="py-3 pr-4 text-[#46574d]">
+                        <td className="py-3 pr-4 text-muted">
                           Acute timing is less critical — effects accumulate over weeks, not hours
                         </td>
-                        <td className="py-3 text-[#46574d]">
+                        <td className="py-3 text-muted">
                           Some trials used twice-daily dosing; follow product label or trial protocol
                         </td>
                       </tr>
@@ -833,13 +833,13 @@ export default function SleepStackGuidePage() {
                         <td className="py-3 pr-4 font-medium text-ink">
                           Melatonin (note — not part of core stack)
                         </td>
-                        <td className="py-3 pr-4 text-[#46574d]">
+                        <td className="py-3 pr-4 text-muted">
                           30–60 min before target sleep time
                         </td>
-                        <td className="py-3 pr-4 text-[#46574d]">
+                        <td className="py-3 pr-4 text-muted">
                           Circadian signal — timing relative to sleep onset is important
                         </td>
-                        <td className="py-3 text-[#46574d]">
+                        <td className="py-3 text-muted">
                           Not an herbal supplement; mechanism differs from the core stack
                           ingredients above
                         </td>
@@ -860,7 +860,7 @@ export default function SleepStackGuidePage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Dosing Guide
               </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
                 Use the lowest effective dose as your starting point. Higher doses do not
                 guarantee better results and increase the risk of side effects. All ranges below
                 reflect clinical trial data.
@@ -891,27 +891,27 @@ export default function SleepStackGuidePage() {
                     <tbody className="divide-y divide-brand-900/5">
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Magnesium glycinate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">
+                        <td className="py-3 pr-4 text-muted">
                           200–400 mg elemental magnesium
                         </td>
-                        <td className="py-3 pr-4 text-[#46574d]">Start at 200 mg elemental</td>
-                        <td className="py-3 text-[#46574d]">Consistent with published trial protocols</td>
+                        <td className="py-3 pr-4 text-muted">Start at 200 mg elemental</td>
+                        <td className="py-3 text-muted">Consistent with published trial protocols</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">L-theanine</td>
-                        <td className="py-3 pr-4 text-[#46574d]">
+                        <td className="py-3 pr-4 text-muted">
                           100–200 mg
                         </td>
-                        <td className="py-3 pr-4 text-[#46574d]">Start at 100 mg</td>
-                        <td className="py-3 text-[#46574d]">Consistent with published trial protocols</td>
+                        <td className="py-3 pr-4 text-muted">Start at 100 mg</td>
+                        <td className="py-3 text-muted">Consistent with published trial protocols</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Ashwagandha (KSM-66)</td>
-                        <td className="py-3 pr-4 text-[#46574d]">
+                        <td className="py-3 pr-4 text-muted">
                           300–600 mg standardised extract
                         </td>
-                        <td className="py-3 pr-4 text-[#46574d]">Start at 300 mg once daily</td>
-                        <td className="py-3 text-[#46574d]">Consistent with published trial protocols</td>
+                        <td className="py-3 pr-4 text-muted">Start at 300 mg once daily</td>
+                        <td className="py-3 text-muted">Consistent with published trial protocols</td>
                       </tr>
                     </tbody>
                   </table>
@@ -984,12 +984,12 @@ export default function SleepStackGuidePage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Safety Checklist Before You Try a Stack
               </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
                 If you answer yes to any of the following, consult a clinician before starting
                 any sleep supplement stack.
               </p>
               <div className="rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-5">
-                <ul className="space-y-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+                <ul className="space-y-3 text-[1.01rem] leading-[1.85] text-muted">
                   <li className="flex gap-2">
                     <span className="mt-1 flex-shrink-0 font-bold text-ink">□</span>
                     <span>
@@ -1046,7 +1046,7 @@ export default function SleepStackGuidePage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Buyer Guide
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 These product search links represent the forms, dose ranges, and combinations most
                 consistent with the evidence reviewed above. Affiliate links support this site at
                 no additional cost to you.
@@ -1057,7 +1057,7 @@ export default function SleepStackGuidePage() {
                     Beginner Stack
                   </p>
                   <p className="font-semibold text-ink">Magnesium Glycinate</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Well-absorbed, low GI impact. Check for clearly labelled elemental magnesium
                     content. Best starting point for most sleep supplement trials.
                   </p>
@@ -1075,7 +1075,7 @@ export default function SleepStackGuidePage() {
                     Relaxation Stack — L-Theanine
                   </p>
                   <p className="font-semibold text-ink">L-Theanine 100 mg</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Conservative starting dose. Caffeine-free only. Good for sensitive users or
                     first-time trial alongside magnesium.
                   </p>
@@ -1093,7 +1093,7 @@ export default function SleepStackGuidePage() {
                     Relaxation Stack — L-Theanine
                   </p>
                   <p className="font-semibold text-ink">L-Theanine 200 mg</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Standard dose used in most sleep and relaxation trials. Caffeine-free. Avoid
                     &ldquo;focus blend&rdquo; products with caffeine for nighttime use.
                   </p>
@@ -1111,7 +1111,7 @@ export default function SleepStackGuidePage() {
                     Stress Stack — KSM-66
                   </p>
                   <p className="font-semibold text-ink">KSM-66 Ashwagandha</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Standardised root extract. Used in most of the sleep and stress RCTs.
                     Commit to 6–8 weeks for a valid trial. Check for standardised withanolide
                     content.
@@ -1130,7 +1130,7 @@ export default function SleepStackGuidePage() {
                     Stress Stack — Sensoril
                   </p>
                   <p className="font-semibold text-ink">Sensoril Ashwagandha</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Root and leaf extract. Alternative standardised extract with a distinct
                     withanolide profile. Used in some stress and sleep studies.
                   </p>
@@ -1148,7 +1148,7 @@ export default function SleepStackGuidePage() {
                     Relaxation Stack — Combo
                   </p>
                   <p className="font-semibold text-ink">Magnesium + L-Theanine</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Combined physical and mental relaxation stack. Verify that the product is
                     caffeine-free, contains elemental magnesium and L-theanine at relevant doses,
                     and does not include added melatonin unless intended.
@@ -1167,7 +1167,7 @@ export default function SleepStackGuidePage() {
                     Full Stack — Caffeine-Free
                   </p>
                   <p className="font-semibold text-ink">Caffeine-Free Natural Sleep Stack</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Multi-ingredient formulas combining magnesium, L-theanine, and/or ashwagandha.
                     Always verify: (1) caffeine-free, (2) clinically relevant dose amounts per
                     serving, (3) standardised herbal extracts where applicable.
@@ -1192,7 +1192,7 @@ export default function SleepStackGuidePage() {
                 Decision Framework
               </h2>
               <div className="rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-5">
-                <ul className="space-y-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+                <ul className="space-y-3 text-[1.01rem] leading-[1.85] text-muted">
                   <li className="flex gap-3">
                     <span className="flex-shrink-0 font-bold text-ink">
                       Want the simplest approach:
@@ -1282,7 +1282,7 @@ export default function SleepStackGuidePage() {
                     className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4"
                   >
                     <h3 className="font-semibold text-ink">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-7 text-[#46574d]">{faq.answer}</p>
+                    <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
                   </div>
                 ))}
               </div>

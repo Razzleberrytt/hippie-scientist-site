@@ -18,7 +18,7 @@ export default function EvidenceReportPage() {
         <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">
           The State of Supplement Evidence
         </h1>
-        <p className="text-xl leading-8 text-[#46574d]">
+        <p className="text-xl leading-8 text-muted">
           We analyzed 816 peer-reviewed studies across 847 herbs and compounds to answer one question: which supplements have real human evidence behind them, and which are running on marketing?
         </p>
         <div className="flex flex-wrap gap-3 pt-2 text-sm text-muted">
@@ -34,15 +34,15 @@ export default function EvidenceReportPage() {
         <div className="grid gap-4 sm:grid-cols-3">
           <div className="card-premium p-5 text-center space-y-2">
             <p className="text-4xl font-bold text-brand-700">23%</p>
-            <p className="text-sm text-[#46574d]">of supplements have strong human clinical trial evidence</p>
+            <p className="text-sm text-muted">of supplements have strong human clinical trial evidence</p>
           </div>
           <div className="card-premium p-5 text-center space-y-2">
             <p className="text-4xl font-bold text-amber-600">41%</p>
-            <p className="text-sm text-[#46574d]">have only mechanistic or animal data — no human trials</p>
+            <p className="text-sm text-muted">have only mechanistic or animal data — no human trials</p>
           </div>
           <div className="card-premium p-5 text-center space-y-2">
             <p className="text-4xl font-bold text-red-500">36%</p>
-            <p className="text-sm text-[#46574d]">have mixed or insufficient evidence for their primary claims</p>
+            <p className="text-sm text-muted">have mixed or insufficient evidence for their primary claims</p>
           </div>
         </div>
       </section>
@@ -112,7 +112,7 @@ export default function EvidenceReportPage() {
       {/* Methodology */}
       <section className="max-w-4xl card-premium p-6 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">How We Grade Evidence</h2>
-        <div className="space-y-3 text-sm leading-7 text-[#46574d]">
+        <div className="space-y-3 text-sm leading-7 text-muted">
           <p><strong>Grade A:</strong> Multiple high-quality RCTs with consistent findings. Meta-analyses available. Clear mechanism of action.</p>
           <p><strong>Grade B:</strong> Several RCTs with generally positive findings. Some inconsistency or small sample sizes. Mechanism understood.</p>
           <p><strong>Grade C:</strong> Limited human trials, small samples, or mixed results. Mechanism plausible but not confirmed in humans.</p>
@@ -129,7 +129,7 @@ export default function EvidenceReportPage() {
       {/* CTA */}
       <section className="max-w-4xl card-premium p-6 text-center space-y-4">
         <h2 className="text-xl font-semibold text-ink">Look up any supplement's evidence grade</h2>
-        <p className="text-sm text-[#46574d]">Search our database of 847+ herbs and compounds for evidence grades, mechanisms, and safety data.</p>
+        <p className="text-sm text-muted">Search our database of 847+ herbs and compounds for evidence grades, mechanisms, and safety data.</p>
         <div className="flex flex-wrap justify-center gap-3">
           <Link href="/herbs/" className="rounded-full bg-brand-800 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-brand-700">
             Browse Herb Database →
@@ -194,7 +194,7 @@ function EvidenceCard({ name, category, grade, studies, note }: {
           Grade {grade}
         </span>
       </div>
-      <p className="text-sm leading-6 text-[#46574d]">{note}</p>
+      <p className="text-sm leading-6 text-muted">{note}</p>
     </div>
   )
 }

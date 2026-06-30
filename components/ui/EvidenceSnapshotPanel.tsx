@@ -42,7 +42,7 @@ export default function EvidenceSnapshotPanel({
         <div>
           <p className="eyebrow-label">Evidence snapshot</p>
           <h2 className="mt-0.5 text-base font-semibold tracking-tight text-ink">{title}</h2>
-          <p className="mt-0.5 text-xs leading-5 text-[#46574d]">{subtitle}</p>
+          <p className="mt-0.5 text-xs leading-5 text-muted">{subtitle}</p>
         </div>
         {badge ? (
           <span className="rounded-full bg-emerald-700/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-[0.14em] text-emerald-900">
@@ -55,7 +55,7 @@ export default function EvidenceSnapshotPanel({
         {primaryFields.map((field) => (
           <article key={field.label} className={`rounded-[0.7rem] border p-2.5 ${fieldToneClasses(field.tone)}`}>
             <h3 className="text-[0.66rem] font-bold uppercase tracking-[0.14em] text-muted">{field.label}</h3>
-            <p className="mt-1 text-sm leading-5 text-[#46574d]">{field.value}</p>
+            <p className="mt-1 text-sm leading-5 text-muted">{field.value}</p>
           </article>
         ))}
       </div>
@@ -67,7 +67,7 @@ export default function EvidenceSnapshotPanel({
             {secondaryFields.map((field) => (
               <article key={field.label} className={`rounded-[0.65rem] border p-2.5 ${fieldToneClasses(field.tone)}`}>
                 <h3 className="text-[0.66rem] font-bold uppercase tracking-[0.14em] text-muted">{field.label}</h3>
-                <p className="mt-1 text-sm leading-5 text-[#46574d]">{field.value}</p>
+                <p className="mt-1 text-sm leading-5 text-muted">{field.value}</p>
               </article>
             ))}
           </div>

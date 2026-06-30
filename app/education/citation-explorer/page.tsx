@@ -23,7 +23,7 @@ export default function CitationExplorerPage() {
         <h1 className="text-4xl font-bold tracking-tight text-ink sm:text-5xl">
           Scientific Citation Explorer
         </h1>
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           The Hippie Scientist operates under strict evidence-honesty standards. Every monograph claim maps to peer-reviewed human trials, RCTs, or metabolic pathway studies. Use this directory to check GRADE levels, sample sizes, and study parameters.
         </p>
       </section>
@@ -31,7 +31,7 @@ export default function CitationExplorerPage() {
       {/* Methodology Section */}
       <section className="rounded-3xl border border-brand-900/10 bg-white/90 p-6 shadow-sm space-y-4">
         <h2 className="text-xl font-bold text-ink">Our GRADE Certainty Guidelines</h2>
-        <div className="grid gap-6 sm:grid-cols-2 text-sm text-[#46574d]">
+        <div className="grid gap-6 sm:grid-cols-2 text-sm text-muted">
           <div className="space-y-2">
             <h3 className="font-semibold text-slate-800">High Certainty (GRADE A)</h3>
             <p className="leading-relaxed">Multiple robust, randomized controlled trials (RCTs) with consistent results, low risk of bias, and direct applicability to target populations.</p>

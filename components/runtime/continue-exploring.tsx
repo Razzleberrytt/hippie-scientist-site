@@ -56,7 +56,7 @@ export default function ContinueExploring({
               </h3>
 
               {item.description ? (
-                <p className='text-sm leading-7 text-[#46574d]'>
+                <p className='text-sm leading-7 text-muted'>
                   {item.description}
                 </p>
               ) : null}

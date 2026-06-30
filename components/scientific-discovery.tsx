@@ -39,7 +39,7 @@ export function ContentIdentityCard({ item }: { item: DiscoveryLink }) {
         {item.meta ? <span className="identity-meta">{item.meta}</span> : null}
       </div>
       <h3 className="mt-4 text-xl font-semibold tracking-tight text-ink group-hover:text-brand-800">{title}</h3>
-      <p className="mt-3 text-sm leading-7 text-[#46574d]">{description}</p>
+      <p className="mt-3 text-sm leading-7 text-muted">{description}</p>
     </Link>
   )
 }
@@ -63,7 +63,7 @@ export function SemanticBrowseModule({ eyebrow = 'Semantic discovery', title, de
           <p className="eyebrow-label">{eyebrow}</p>
           <h2 className="mt-3 max-w-2xl text-balance text-3xl font-semibold tracking-tight text-ink sm:text-4xl">{title}</h2>
         </div>
-        {description ? <p className="max-w-xl text-sm leading-7 text-[#46574d]">{description}</p> : null}
+        {description ? <p className="max-w-xl text-sm leading-7 text-muted">{description}</p> : null}
       </div>
 
       <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
@@ -74,7 +74,7 @@ export function SemanticBrowseModule({ eyebrow = 'Semantic discovery', title, de
               <span className="text-brand-800 transition group-hover:translate-x-0.5">→</span>
             </div>
             <h3 className="mt-4 text-lg font-semibold tracking-tight text-ink">{group.title}</h3>
-            <p className="mt-3 text-sm leading-7 text-[#46574d]">{group.description}</p>
+            <p className="mt-3 text-sm leading-7 text-muted">{group.description}</p>
           </Link>
         ))}
       </div>
@@ -92,7 +92,7 @@ export function ResearchContinuityBlock({ title = 'Continue researching', descri
       <div>
         <p className="eyebrow-label">Research continuity</p>
         <h3 className="mt-2 max-w-2xl text-2xl font-semibold tracking-tight text-ink">{title}</h3>
-        {description ? <p className="mt-2 text-sm leading-7 text-[#46574d]">{description}</p> : null}
+        {description ? <p className="mt-2 text-sm leading-7 text-muted">{description}</p> : null}
       </div>
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {visibleItems.map(item => <ContentIdentityCard key={item.href} item={item} />)}

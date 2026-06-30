@@ -50,7 +50,7 @@ export default function RelatedEducationSystems({
               </h3>
 
               {system.description ? (
-                <p className='text-sm leading-7 text-[#46574d]'>
+                <p className='text-sm leading-7 text-muted'>
                   {system.description}
                 </p>
               ) : null}

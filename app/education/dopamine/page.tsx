@@ -54,7 +54,7 @@ export default function DopaminePathwayPage() {
           Dopamine Pathway
         </h1>
 
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Educational exploration of motivation systems, reward signaling, focus regulation, behavioral drive, and dopaminergic neuropharmacology.
         </p>
       </section>

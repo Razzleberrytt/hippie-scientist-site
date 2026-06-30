@@ -40,7 +40,7 @@ export default function RelatedDiscoveryGroups({
             {group.description ? <p className="mt-1 text-xs leading-5 text-muted">{group.description}</p> : null}
             <div className="mt-3 space-y-2">
               {group.links.slice(0, 4).map((item) => (
-                <Link key={item.href} href={item.href} className="block text-sm text-[#46574d] underline-offset-4 hover:underline">
+                <Link key={item.href} href={item.href} className="block text-sm text-muted underline-offset-4 hover:underline">
                   {item.label}
                 </Link>
               ))}

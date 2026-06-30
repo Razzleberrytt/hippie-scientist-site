@@ -115,7 +115,7 @@ export default function NootropicEducationPage() {
               {mechanism.title}
             </h2>
 
-            <p className='text-sm leading-7 text-[#46574d]'>
+            <p className='text-sm leading-7 text-muted'>
               {mechanism.body}
             </p>
           </div>
@@ -130,7 +130,7 @@ export default function NootropicEducationPage() {
             Cognition involves tradeoffs and state-dependent performance
           </h2>
 
-          <p className='text-base leading-8 text-[#46574d]'>
+          <p className='text-base leading-8 text-muted'>
             Focus continuity, memory formation, productivity, motivation systems,
             and cognitive endurance are influenced by stress physiology,
             emotional regulation, recovery biology, sleep continuity,
@@ -172,7 +172,7 @@ export default function NootropicEducationPage() {
                 {item.question}
               </h3>
 
-              <p className='text-sm leading-7 text-[#46574d]'>
+              <p className='text-sm leading-7 text-muted'>
                 {item.answer}
               </p>
             </div>

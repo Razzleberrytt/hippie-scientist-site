@@ -143,7 +143,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
           <LastUpdatedBadge date={DATE} label="Last updated" />
         </div>
 
-        <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">{DESCRIPTION}</p>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
       </section>
 
       {/* Affiliate disclosure */}
@@ -166,7 +166,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
               Ashwagandha vs Magnesium: The Short Answer
             </h2>
             <ul className="mt-4 space-y-2">
-              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
                 <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
                 <span>
                   <strong>Choose magnesium</strong> if you want the simplest first sleep supplement
@@ -174,7 +174,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                   sleep quality.
                 </span>
               </li>
-              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
                 <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
                 <span>
                   <strong>Choose ashwagandha</strong> if stress is the main reason you cannot sleep
@@ -182,7 +182,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                   populations.
                 </span>
               </li>
-              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
                 <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
                 <span>
                   <strong>Consider both</strong> if stress and physical tension overlap — they work
@@ -190,7 +190,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                   healthy adults.
                 </span>
               </li>
-              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
                 <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
                 <span>
                   <strong>Do not start both on the same night</strong> if you want to know what
@@ -230,57 +230,57 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                     <tbody className="divide-y divide-brand-900/5">
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Best for</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Stress-driven poor sleep</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Tension, restlessness, deficiency</td>
-                        <td className="py-3 text-[#46574d]">Depends on your situation</td>
+                        <td className="py-3 pr-4 text-muted">Stress-driven poor sleep</td>
+                        <td className="py-3 pr-4 text-muted">Tension, restlessness, deficiency</td>
+                        <td className="py-3 text-muted">Depends on your situation</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Main mechanism</td>
-                        <td className="py-3 pr-4 text-[#46574d]">HPA axis, cortisol, GABA-A</td>
-                        <td className="py-3 pr-4 text-[#46574d]">NMDA antagonism, GABA support, melatonin pathway</td>
-                        <td className="py-3 text-[#46574d]">Different — complementary</td>
+                        <td className="py-3 pr-4 text-muted">HPA axis, cortisol, GABA-A</td>
+                        <td className="py-3 pr-4 text-muted">NMDA antagonism, GABA support, melatonin pathway</td>
+                        <td className="py-3 text-muted">Different — complementary</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Speed of effect</td>
-                        <td className="py-3 pr-4 text-[#46574d]">6–8 weeks (most trials)</td>
-                        <td className="py-3 pr-4 text-[#46574d]">1–4 weeks (some notice sooner)</td>
-                        <td className="py-3 text-[#46574d]">Magnesium (early onset possible)</td>
+                        <td className="py-3 pr-4 text-muted">6–8 weeks (most trials)</td>
+                        <td className="py-3 pr-4 text-muted">1–4 weeks (some notice sooner)</td>
+                        <td className="py-3 text-muted">Magnesium (early onset possible)</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Evidence strength</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Moderate (multiple RCTs in stressed adults)</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Limited–Moderate (smaller RCTs, older adults)</td>
-                        <td className="py-3 text-[#46574d]">Ashwagandha (for direct sleep outcomes)</td>
+                        <td className="py-3 pr-4 text-muted">Moderate (multiple RCTs in stressed adults)</td>
+                        <td className="py-3 pr-4 text-muted">Limited–Moderate (smaller RCTs, older adults)</td>
+                        <td className="py-3 text-muted">Ashwagandha (for direct sleep outcomes)</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Safety profile</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Good; rare hepatotoxicity, thyroid concerns</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Good; kidney disease caution, GI upset</td>
-                        <td className="py-3 text-[#46574d]">Magnesium (fewer contraindications)</td>
+                        <td className="py-3 pr-4 text-muted">Good; rare hepatotoxicity, thyroid concerns</td>
+                        <td className="py-3 pr-4 text-muted">Good; kidney disease caution, GI upset</td>
+                        <td className="py-3 text-muted">Magnesium (fewer contraindications)</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Cost</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Moderate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Lower</td>
-                        <td className="py-3 text-[#46574d]">Magnesium (typically cheaper)</td>
+                        <td className="py-3 pr-4 text-muted">Moderate</td>
+                        <td className="py-3 pr-4 text-muted">Lower</td>
+                        <td className="py-3 text-muted">Magnesium (typically cheaper)</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Best user</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Stressed adult with racing thoughts at night</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Anyone; especially with tension or deficiency</td>
-                        <td className="py-3 text-[#46574d]">Depends on root cause</td>
+                        <td className="py-3 pr-4 text-muted">Stressed adult with racing thoughts at night</td>
+                        <td className="py-3 pr-4 text-muted">Anyone; especially with tension or deficiency</td>
+                        <td className="py-3 text-muted">Depends on root cause</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Main drawback</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Slow onset; thyroid, pregnancy contraindications</td>
-                        <td className="py-3 pr-4 text-[#46574d]">GI upset at higher doses; kidney caution</td>
-                        <td className="py-3 text-[#46574d]">Manageable for most healthy adults</td>
+                        <td className="py-3 pr-4 text-muted">Slow onset; thyroid, pregnancy contraindications</td>
+                        <td className="py-3 pr-4 text-muted">GI upset at higher doses; kidney caution</td>
+                        <td className="py-3 text-muted">Manageable for most healthy adults</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Can combine?</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Yes, with magnesium</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Yes, with ashwagandha</td>
-                        <td className="py-3 text-[#46574d]">Yes — start one, then add second</td>
+                        <td className="py-3 pr-4 text-muted">Yes, with magnesium</td>
+                        <td className="py-3 pr-4 text-muted">Yes, with ashwagandha</td>
+                        <td className="py-3 text-muted">Yes — start one, then add second</td>
                       </tr>
                     </tbody>
                   </table>
@@ -295,7 +295,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 How Ashwagandha Works for Sleep
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Ashwagandha (<em>Withania somnifera</em>) is an adaptogenic herb with a specific
                 epithet — <em>somnifera</em> — that means &ldquo;sleep-inducing&rdquo; in Latin.
                 Despite this name, it does not act as a direct sedative. Its sleep benefit is
@@ -305,14 +305,14 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 Stress Adaptation and HPA Axis Modulation
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Ashwagandha is most consistently documented to reduce perceived stress and, in many
                 trials, morning serum cortisol. Elevated cortisol at night is a primary driver of
                 hyperarousal-type insomnia — the kind where the mind stays activated and sleep onset
                 is delayed despite physical tiredness. By modulating the HPA axis stress response,
                 ashwagandha may reduce the physiological barrier to sleep onset and maintenance.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 This mechanism makes ashwagandha most useful for people whose sleep is disrupted by
                 stress and cognitive arousal, rather than for people with primary insomnia unrelated
                 to stress.
@@ -321,7 +321,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 Relaxation Without Sedation
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Withanolides — the primary active constituents — have demonstrated GABA-A receptor
                 binding activity in preclinical studies. This may contribute to a mild relaxation
                 effect, though the magnitude at standard human doses is uncertain. Ashwagandha is
@@ -349,7 +349,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 How Magnesium Works for Sleep
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Magnesium is an essential mineral involved in over 300 enzymatic reactions. It
                 supports sleep through several neurological pathways, particularly by reducing
                 excitatory signaling and supporting the inhibitory systems that allow the nervous
@@ -359,7 +359,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 Nervous System Relaxation
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Magnesium ions block NMDA glutamate receptors, reducing excitatory
                 neurotransmission. It also supports GABA-A receptor activity — the same inhibitory
                 pathway targeted by common sleep medications. Together, these effects may lower
@@ -369,7 +369,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 Muscle Tension and Restlessness
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Magnesium plays a role in muscle relaxation by competing with calcium at
                 neuromuscular junctions. Muscle tension, cramps, or restless sensations at night
                 are frequently reported by people with suboptimal magnesium status. Supplementation
@@ -379,7 +379,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 Form Matters
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Magnesium glycinate is the most recommended form for sleep applications because the
                 glycine co-carrier has its own independent calming and sleep-promoting properties.
                 Magnesium L-threonate is used for its proposed CNS penetration, and magnesium
@@ -413,25 +413,25 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Which Works Faster?
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Speed of onset differs meaningfully between the two supplements, though individual
                 responses vary and neither should be evaluated on a single night.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 <strong>Magnesium</strong> may feel more immediate for some people — particularly
                 in the form of reduced physical tension or restlessness during the first days to
                 weeks of use. This is especially likely if low magnesium status is a contributing
                 factor. That said, consistent improvements in overall sleep quality are more
                 commonly reported after several weeks of daily use.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 <strong>Ashwagandha</strong> is typically evaluated over longer timeframes. Most
                 clinical trials measuring sleep outcomes report effects at 6–8 weeks, and some
                 only at 8–12 weeks. Expecting a notable effect in the first few nights is
                 unlikely. Adaptogens generally require sustained use before their regulatory
                 effects become apparent.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 Both supplements should be judged over consistent use rather than isolated nights.
                 Placebo responses and night-to-night sleep variability make single-night
                 assessments unreliable for any supplement.
@@ -543,20 +543,20 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Can You Take Ashwagandha and Magnesium Together?
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 For most healthy adults, combining ashwagandha and magnesium is generally
                 considered reasonable. They work through distinct primary mechanisms — ashwagandha
                 primarily through the HPA axis and stress-cortisol pathways, magnesium through
                 NMDA antagonism, GABA support, and mineral repletion. No significant adverse
                 interaction between the two is established in the literature.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 However, direct combination trials are limited. The evidence base for the specific
                 combination is thinner than for either supplement studied alone. Claims about
                 additive or synergistic sleep effects from taking both together are not
                 well-supported by clinical data at this time.
               </p>
-              <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-[#46574d]">
+              <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-muted">
                 <p className="font-semibold text-ink">Practical approach for combining:</p>
                 <ul className="mt-2 ml-5 space-y-1 list-disc">
                   <li>
@@ -586,7 +586,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Cost and Buying Guide
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 These products represent the extract forms and dose ranges most relevant to the
                 evidence reviewed in this article. Affiliate links support this site at no
                 additional cost to you.
@@ -597,7 +597,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                     Ashwagandha — Most Studied for Sleep
                   </p>
                   <p className="font-semibold text-ink">KSM-66 Ashwagandha Extract</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Patented full-spectrum root extract. The most-studied form for sleep quality
                     outcomes. Look for ≥300 mg per capsule, standardized to ≥5% withanolides.
                   </p>
@@ -615,7 +615,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                     Ashwagandha — Lower Dose / Sensitive Users
                   </p>
                   <p className="font-semibold text-ink">Sensoril Ashwagandha Extract</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Root and leaf extract with strong clinical backing at lower mg doses. Well-suited
                     for sensitive individuals or when stacking with magnesium.
                   </p>
@@ -633,7 +633,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                     Magnesium — Best for Sleep
                   </p>
                   <p className="font-semibold text-ink">Magnesium Glycinate</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     High bioavailability, gentle on the stomach, with glycine co-carrier that has
                     independent calming properties. Look for 200–400 mg elemental magnesium per
                     serving.
@@ -652,7 +652,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                     Magnesium — Sleep + Cognitive
                   </p>
                   <p className="font-semibold text-ink">Magnesium L-Threonate</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     CNS-targeted delivery, proposed to cross the blood-brain barrier more readily.
                     Higher price point than glycinate. Useful when cognitive benefits alongside
                     sleep are a goal.
@@ -677,7 +677,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                 Decision Framework
               </h2>
               <div className="rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-5">
-                <ul className="space-y-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+                <ul className="space-y-3 text-[1.01rem] leading-[1.85] text-muted">
                   <li className="flex gap-3">
                     <span className="flex-shrink-0 font-bold text-ink">If budget is tight:</span>
                     <span>
@@ -732,7 +732,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 What Not To Do
               </h2>
-              <ul className="space-y-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <ul className="space-y-3 text-[1.01rem] leading-[1.85] text-muted">
                 <li className="flex gap-2">
                   <span className="mt-1 flex-shrink-0 text-brand-700">✕</span>
                   <span>
@@ -789,7 +789,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                     className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4"
                   >
                     <h3 className="font-semibold text-ink">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-7 text-[#46574d]">{faq.answer}</p>
+                    <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
                   </div>
                 ))}
               </div>

@@ -54,7 +54,7 @@ export default function NeuropharmacologyPage() {
           What Is Neuropharmacology?
         </h1>
 
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Neuropharmacology is the study of how herbs, compounds, medications, and psychoactive substances interact with nervous-system signaling pathways.
         </p>
 

@@ -44,7 +44,7 @@ export default function EcosystemContinuityPanel({
         </h2>
 
         {isRenderableText(cleanDescription) && !isDuplicateTitleBody(cleanTitle, cleanDescription) ? (
-          <p className="max-w-3xl text-sm leading-7 text-[#46574d]">
+          <p className="max-w-3xl text-sm leading-7 text-muted">
             {cleanDescription}
           </p>
         ) : null}
@@ -64,7 +64,7 @@ export default function EcosystemContinuityPanel({
                 </p>
 
                 {isRenderableText(item.rationale) && !isDuplicateTitleBody(item.title, item.rationale) ? (
-                  <p className="text-sm leading-7 text-[#46574d]">
+                  <p className="text-sm leading-7 text-muted">
                     {item.rationale}
                   </p>
                 ) : null}

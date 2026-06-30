@@ -74,7 +74,7 @@ export default async function BeginnerPathwayPage({ params }: StartRouteProps) {
             {pathway.title}
           </h1>
 
-          <p className="detail-reading text-base text-[#46574d] sm:text-lg">
+          <p className="detail-reading text-base text-muted sm:text-lg">
             {pathway.description}
           </p>
 
@@ -117,7 +117,7 @@ export default async function BeginnerPathwayPage({ params }: StartRouteProps) {
             Start with practical comparisons instead of random stacking
           </h2>
 
-          <p className="detail-reading max-w-3xl text-[#46574d]">
+          <p className="detail-reading max-w-3xl text-muted">
             These profiles were selected because they represent useful beginner entry points with different stimulation levels, recovery orientations, and expectation timelines.
           </p>
         </div>
@@ -140,7 +140,7 @@ export default async function BeginnerPathwayPage({ params }: StartRouteProps) {
                   </h3>
                 </div>
 
-                <p className="text-sm leading-7 text-[#46574d]">
+                <p className="text-sm leading-7 text-muted">
                   Explore practical fit, realistic expectations, stimulation level, and adjacent comparison pathways before deciding what deserves deeper research.
                 </p>
               </div>
@@ -161,7 +161,7 @@ export default async function BeginnerPathwayPage({ params }: StartRouteProps) {
             </h2>
           </div>
 
-          <ul className="space-y-3 text-sm leading-7 text-[#46574d]">
+          <ul className="space-y-3 text-sm leading-7 text-muted">
             <li className="flex gap-3">
               <span className="mt-[0.7rem] h-1.5 w-1.5 shrink-0 rounded-full bg-brand-700/60" />
               <span>Compare stimulation level before comparing marketing claims.</span>

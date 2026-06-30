@@ -97,7 +97,7 @@ export default function ScientificButHumanNeurosciencePage() {
           </h1>
         </div>
 
-        <p className='text-xl leading-9 text-[#46574d]'>
+        <p className='text-xl leading-9 text-muted'>
           Human cognition and emotional experiences may emerge from complex interactions
           between stress physiology, emotional regulation, recovery biology,
           attentional systems, environmental context, nervous-system sensitivity, and
@@ -121,7 +121,7 @@ export default function ScientificButHumanNeurosciencePage() {
               {principle.title}
             </h2>
 
-            <p className='text-sm leading-7 text-[#46574d]'>
+            <p className='text-sm leading-7 text-muted'>
               {principle.body}
             </p>
           </div>
@@ -146,7 +146,7 @@ export default function ScientificButHumanNeurosciencePage() {
                 {faq.question}
               </h3>
 
-              <p className='text-sm leading-7 text-[#46574d]'>
+              <p className='text-sm leading-7 text-muted'>
                 {faq.answer}
               </p>
             </div>

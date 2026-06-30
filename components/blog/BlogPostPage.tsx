@@ -66,13 +66,13 @@ const renderBlock = (line: string, index: number) => {
 
   if (line.startsWith('- ')) {
     return (
-      <li key={index} className="ml-5 list-disc text-sm leading-7 text-[#46574d]">
+      <li key={index} className="ml-5 list-disc text-sm leading-7 text-muted">
         {line.replace(/^[-]\s+/, '').replace(/_/g, '')}
       </li>
     )
   }
 
-  return <p key={index} className="text-[1.02rem] leading-[1.86] text-[#46574d]">{line.replace(/_/g, '')}</p>
+  return <p key={index} className="text-[1.02rem] leading-[1.86] text-muted">{line.replace(/_/g, '')}</p>
 }
 
 export default async function BlogPostPage({ params }: BlogRouteProps) {
@@ -156,7 +156,7 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
           {relatedItems.length > 0 ? (
             <div className="mobile-reading-card">
               <p className="eyebrow-label">Related profiles</p>
-              <ul className="mt-4 space-y-3 text-sm leading-7 text-[#46574d]">
+              <ul className="mt-4 space-y-3 text-sm leading-7 text-muted">
                 {relatedItems.slice(0, 5).map((item) => (
                   <li key={item.href}>
                     <Link href={item.href} className="font-semibold text-brand-800 hover:underline">

@@ -72,7 +72,7 @@ export default function PlaceboAndContextEffectsPage() {
           <p className="eyebrow-label">Scientific Literacy Systems</p>
           <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">Placebo and Context Effects</h1>
         </div>
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Human experiences are shaped by substantially more than isolated biological mechanisms. Expectations, emotional regulation, stress physiology, environmental context, attentional systems, and contextual neurobiology may all influence subjective cognition and wellness experiences.
         </p>
       </section>
@@ -87,7 +87,7 @@ export default function PlaceboAndContextEffectsPage() {
         {systems.map((system) => (
           <div key={system.title} className="card-premium p-6 space-y-4">
             <h2 className="text-2xl font-semibold tracking-tight text-ink">{system.title}</h2>
-            <p className="text-sm leading-7 text-[#46574d]">{system.body}</p>
+            <p className="text-sm leading-7 text-muted">{system.body}</p>
           </div>
         ))}
       </section>
@@ -102,7 +102,7 @@ export default function PlaceboAndContextEffectsPage() {
           {faqs.map((faq) => (
             <div key={faq.question} className="card-premium p-6 space-y-3">
               <h3 className="text-xl font-semibold tracking-tight text-ink">{faq.question}</h3>
-              <p className="text-sm leading-7 text-[#46574d]">{faq.answer}</p>
+              <p className="text-sm leading-7 text-muted">{faq.answer}</p>
             </div>
           ))}
         </div>

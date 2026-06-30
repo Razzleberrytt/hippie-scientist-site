@@ -143,7 +143,7 @@ export default function BestHerbsForSleepPage() {
           <LastUpdatedBadge date={DATE} label="Last updated" />
         </div>
 
-        <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">{DESCRIPTION}</p>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
       </section>
 
       {/* Affiliate disclosure */}
@@ -164,7 +164,7 @@ export default function BestHerbsForSleepPage() {
             <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
               Which Sleep Herb Should You Start With?
             </h2>
-            <div className="mt-3 space-y-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+            <div className="mt-3 space-y-3 text-[1.01rem] leading-[1.85] text-muted">
               <p>
                 <strong>Best first choice overall: Magnesium glycinate.</strong> Broadly applicable,
                 low risk, plausible mechanism, and reasonable clinical support — the default starting
@@ -200,7 +200,7 @@ export default function BestHerbsForSleepPage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Evidence-Ranked Overview
               </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
                 The table below ranks the most commonly used herbs and supplements for sleep by
                 quality of human clinical evidence, practical usefulness, and safety profile.
                 Rankings are based on available evidence as of the date of this article — not
@@ -236,9 +236,9 @@ export default function BestHerbsForSleepPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">1</td>
                         <td className="py-3 pr-4 font-medium text-ink">Magnesium glycinate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Limited–Moderate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">General sleep quality, muscle tension, deficiency</td>
-                        <td className="py-3 pr-4 text-[#46574d]">200–400 mg elemental, 30–60 min before bed</td>
+                        <td className="py-3 pr-4 text-muted">Limited–Moderate</td>
+                        <td className="py-3 pr-4 text-muted">General sleep quality, muscle tension, deficiency</td>
+                        <td className="py-3 pr-4 text-muted">200–400 mg elemental, 30–60 min before bed</td>
                         <td className="py-3">
                           <Link
                             href="/articles/magnesium-for-sleep"
@@ -251,9 +251,9 @@ export default function BestHerbsForSleepPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">2</td>
                         <td className="py-3 pr-4 font-medium text-ink">Ashwagandha</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Moderate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Stress-driven poor sleep, cortisol, anxiety</td>
-                        <td className="py-3 pr-4 text-[#46574d]">300–600 mg/day (KSM-66 or Sensoril), evening</td>
+                        <td className="py-3 pr-4 text-muted">Moderate</td>
+                        <td className="py-3 pr-4 text-muted">Stress-driven poor sleep, cortisol, anxiety</td>
+                        <td className="py-3 pr-4 text-muted">300–600 mg/day (KSM-66 or Sensoril), evening</td>
                         <td className="py-3">
                           <Link
                             href="/articles/ashwagandha-for-sleep"
@@ -266,9 +266,9 @@ export default function BestHerbsForSleepPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">3</td>
                         <td className="py-3 pr-4 font-medium text-ink">L-Theanine</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Limited–Moderate</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Racing thoughts, anxious arousal at bedtime</td>
-                        <td className="py-3 pr-4 text-[#46574d]">100–200 mg, 30–60 min before bed</td>
+                        <td className="py-3 pr-4 text-muted">Limited–Moderate</td>
+                        <td className="py-3 pr-4 text-muted">Racing thoughts, anxious arousal at bedtime</td>
+                        <td className="py-3 pr-4 text-muted">100–200 mg, 30–60 min before bed</td>
                         <td className="py-3 text-xs">
                           <Link
                             href="/articles/l-theanine-for-sleep"
@@ -281,41 +281,41 @@ export default function BestHerbsForSleepPage() {
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">4</td>
                         <td className="py-3 pr-4 font-medium text-ink">Valerian root</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Mixed / weak</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Sleep onset latency, traditional sedation</td>
-                        <td className="py-3 pr-4 text-[#46574d]">300–600 mg, 30–60 min before bed</td>
+                        <td className="py-3 pr-4 text-muted">Mixed / weak</td>
+                        <td className="py-3 pr-4 text-muted">Sleep onset latency, traditional sedation</td>
+                        <td className="py-3 pr-4 text-muted">300–600 mg, 30–60 min before bed</td>
                         <td className="py-3 text-muted text-xs">Guide planned</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-3 font-bold text-brand-700">5</td>
                         <td className="py-3 pr-4 font-medium text-ink">Passionflower</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Limited</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Anxiety-adjacent sleep difficulty</td>
-                        <td className="py-3 pr-4 text-[#46574d]">250–500 mg extract or 1 cup tea, evening</td>
+                        <td className="py-3 pr-4 text-muted">Limited</td>
+                        <td className="py-3 pr-4 text-muted">Anxiety-adjacent sleep difficulty</td>
+                        <td className="py-3 pr-4 text-muted">250–500 mg extract or 1 cup tea, evening</td>
                         <td className="py-3 text-muted text-xs">Guide planned</td>
                       </tr>
                       <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-[#46574d]">6</td>
+                        <td className="py-3 pr-3 font-bold text-muted">6</td>
                         <td className="py-3 pr-4 font-medium text-ink">Chamomile</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Limited</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Mild relaxation, gentle sleep aid</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Tea or 200–400 mg extract, evening</td>
+                        <td className="py-3 pr-4 text-muted">Limited</td>
+                        <td className="py-3 pr-4 text-muted">Mild relaxation, gentle sleep aid</td>
+                        <td className="py-3 pr-4 text-muted">Tea or 200–400 mg extract, evening</td>
                         <td className="py-3 text-muted text-xs">Guide planned</td>
                       </tr>
                       <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-[#46574d]">7</td>
+                        <td className="py-3 pr-3 font-bold text-muted">7</td>
                         <td className="py-3 pr-4 font-medium text-ink">Lavender</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Limited (mostly aromatherapy)</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Relaxation, sleep environment</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Oral: Silexan 80 mg; aromatherapy: diffuser</td>
+                        <td className="py-3 pr-4 text-muted">Limited (mostly aromatherapy)</td>
+                        <td className="py-3 pr-4 text-muted">Relaxation, sleep environment</td>
+                        <td className="py-3 pr-4 text-muted">Oral: Silexan 80 mg; aromatherapy: diffuser</td>
                         <td className="py-3 text-muted text-xs">Guide planned</td>
                       </tr>
                       <tr className="align-top">
-                        <td className="py-3 pr-3 font-bold text-[#46574d]">8</td>
+                        <td className="py-3 pr-3 font-bold text-muted">8</td>
                         <td className="py-3 pr-4 font-medium text-ink">Hops</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Limited (often combined)</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Often used with valerian in formulas</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Typically in combination products</td>
+                        <td className="py-3 pr-4 text-muted">Limited (often combined)</td>
+                        <td className="py-3 pr-4 text-muted">Often used with valerian in formulas</td>
+                        <td className="py-3 pr-4 text-muted">Typically in combination products</td>
                         <td className="py-3 text-muted text-xs">Guide planned</td>
                       </tr>
                     </tbody>
@@ -331,11 +331,11 @@ export default function BestHerbsForSleepPage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 How We Ranked These Herbs
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Rankings are not based on popularity, traditional reputation, or marketing
                 prominence. The criteria used, in rough order of weight:
               </p>
-              <ul className="mt-3 ml-5 space-y-2 list-disc text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <ul className="mt-3 ml-5 space-y-2 list-disc text-[1.01rem] leading-[1.85] text-muted">
                 <li>
                   <strong>Human clinical evidence</strong> — randomized controlled trials in humans
                   using validated sleep outcome measures (PSQI, ISI, actigraphy, PSG). Animal and
@@ -389,7 +389,7 @@ export default function BestHerbsForSleepPage() {
                   mechanisticEvidence="NMDA antagonism reduces excitatory glutamatergic tone; GABA-A potentiation supports inhibitory signaling; melatonin synthesis pathway support. Glycine co-carrier has independent calming effects studied separately."
                   safetyProfile="Generally well-tolerated at 200–400 mg elemental/day. GI upset at higher doses or with lower-quality forms. Kidney disease requires caution."
                 />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
                   <p>
                     <strong>How it may help sleep:</strong> Magnesium blunts excitatory
                     neurotransmission (NMDA antagonism) and supports inhibitory signaling (GABA-A),
@@ -437,7 +437,7 @@ export default function BestHerbsForSleepPage() {
                   mechanisticEvidence="HPA axis modulation and cortisol reduction are well-documented in human trials. GABA-A binding activity demonstrated in vitro. TEG-mediated non-REM induction in animal models."
                   safetyProfile="Generally well-tolerated at 300–600 mg/day for up to 12 weeks. Rare hepatotoxicity cases reported. Contraindicated in pregnancy. Potential thyroid interactions."
                 />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
                   <p>
                     <strong>How it may help sleep:</strong> Ashwagandha reduces cortisol via HPA
                     axis modulation, dampens sympathetic nervous system activation, and may have
@@ -484,7 +484,7 @@ export default function BestHerbsForSleepPage() {
                   mechanisticEvidence="Promotes alpha-wave brain activity, modulates glutamate and GABA signaling, and may reduce cortisol response to stress. Does not bind GABA-A receptors directly — promotes calm rather than sedation."
                   safetyProfile="Very well-tolerated. No significant drug interactions reported at standard doses. Long-term safety data limited but no serious adverse events identified."
                 />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
                   <p>
                     <strong>How it may help sleep:</strong> L-theanine, an amino acid found in
                     green tea, promotes relaxed alertness by increasing alpha-wave brain activity.
@@ -524,7 +524,7 @@ export default function BestHerbsForSleepPage() {
                   mechanisticEvidence="Proposed GABA-A receptor agonism via valerenic acid; adenosine receptor activity; possible serotonin interaction. Mechanisms are plausible but not firmly established in human pharmacokinetic studies."
                   safetyProfile="Generally safe at standard doses for short-term use. Sedation and grogginess reported at higher doses. Rarely associated with hepatotoxicity in case reports. Not recommended in pregnancy."
                 />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
                   <p>
                     <strong>How it may help sleep:</strong> Valerian root may act as a mild
                     sedative via GABA-A agonism (similar in mechanism to benzodiazepines, but far
@@ -563,7 +563,7 @@ export default function BestHerbsForSleepPage() {
                   mechanisticEvidence="Chrysin and other flavonoids may bind GABA-A receptors. Preclinical evidence for anxiolytic and sedative effects. Human mechanistic data is sparse."
                   safetyProfile="Generally well-tolerated at standard doses. Sedation at higher doses. Avoid with prescription sedatives. Not recommended in pregnancy."
                 />
-                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+                <div className="mt-4 space-y-2 text-[1.01rem] leading-[1.85] text-muted">
                   <p>
                     <strong>How it may help sleep:</strong> Passionflower contains flavonoids
                     (including chrysin) that may modulate GABA-A receptors, producing mild
@@ -596,14 +596,14 @@ export default function BestHerbsForSleepPage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Which Should You Choose?
               </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
                 The most useful framework is to match the supplement to the primary driver of your
                 sleep difficulty:
               </p>
               <div className="space-y-3 rounded-[1rem] border border-brand-900/10 bg-brand-50/40 p-5">
                 <div className="flex gap-3">
                   <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+                  <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>If you want the simplest starting point with the broadest
                     applicability:</strong> try{' '}
                     <Link href="/articles/magnesium-for-sleep" className="font-semibold text-brand-700 hover:underline">
@@ -614,7 +614,7 @@ export default function BestHerbsForSleepPage() {
                 </div>
                 <div className="flex gap-3">
                   <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+                  <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>If stress is clearly the main sleep blocker</strong> — you find it hard
                     to wind down, your mind is active, or you notice elevated stress throughout the
                     day: try{' '}
@@ -626,7 +626,7 @@ export default function BestHerbsForSleepPage() {
                 </div>
                 <div className="flex gap-3">
                   <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+                  <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>If racing thoughts are the specific issue at bedtime:</strong> try
                     L-theanine (100–200 mg, 30–60 min before bed). It promotes calm without
                     sedation and works relatively quickly.
@@ -634,7 +634,7 @@ export default function BestHerbsForSleepPage() {
                 </div>
                 <div className="flex gap-3">
                   <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+                  <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>If you prefer a traditional sedative botanical:</strong> try valerian
                     root. Expect variable results — the evidence is mixed, but some people find it
                     reliably helpful.
@@ -642,7 +642,7 @@ export default function BestHerbsForSleepPage() {
                 </div>
                 <div className="flex gap-3">
                   <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
-                  <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+                  <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>If anxiety overlaps with your sleep difficulty and you want a
                     gentle option:</strong> passionflower is worth considering, particularly as a
                     tea before bed.
@@ -658,7 +658,7 @@ export default function BestHerbsForSleepPage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Combinations That Make Sense
               </h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
                 These are reasonable combinations based on different mechanisms and common
                 supplement stacking practice. Direct combination trials may be limited or absent —
                 the rationale is mechanistic complementarity and absence of known adverse
@@ -667,7 +667,7 @@ export default function BestHerbsForSleepPage() {
               <div className="space-y-4">
                 <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
                   <p className="font-semibold text-ink">Magnesium + Ashwagandha</p>
-                  <p className="mt-1 text-sm leading-6 text-[#46574d]">
+                  <p className="mt-1 text-sm leading-6 text-muted">
                     The most popular sleep stack. Magnesium addresses cellular relaxation
                     (NMDA, GABA), ashwagandha addresses the cortisol/stress axis. Complementary
                     mechanisms with no known adverse interaction. Well-suited for people with
@@ -676,7 +676,7 @@ export default function BestHerbsForSleepPage() {
                 </div>
                 <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
                   <p className="font-semibold text-ink">Magnesium + L-Theanine</p>
-                  <p className="mt-1 text-sm leading-6 text-[#46574d]">
+                  <p className="mt-1 text-sm leading-6 text-muted">
                     A gentle relaxation stack. Magnesium supports sleep architecture; L-theanine
                     reduces anxious arousal. Both are among the lowest-risk options and work via
                     different pathways. A reasonable choice for people who want to address both
@@ -685,7 +685,7 @@ export default function BestHerbsForSleepPage() {
                 </div>
                 <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
                   <p className="font-semibold text-ink">Ashwagandha + L-Theanine</p>
-                  <p className="mt-1 text-sm leading-6 text-[#46574d]">
+                  <p className="mt-1 text-sm leading-6 text-muted">
                     Both target anxiety and stress pathways via different mechanisms (HPA axis
                     vs alpha-wave promotion). Potentially additive for people with significant
                     stress-driven sleep disruption. L-theanine may provide faster relief while
@@ -694,7 +694,7 @@ export default function BestHerbsForSleepPage() {
                 </div>
                 <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
                   <p className="font-semibold text-ink">Magnesium + Ashwagandha + L-Theanine</p>
-                  <p className="mt-1 text-sm leading-6 text-[#46574d]">
+                  <p className="mt-1 text-sm leading-6 text-muted">
                     A comprehensive but still conservative sleep stack. Three different
                     mechanisms: cellular relaxation (Mg), HPA axis modulation (ashwagandha),
                     and anxious arousal reduction (L-theanine). No known adverse interactions
@@ -716,7 +716,7 @@ export default function BestHerbsForSleepPage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 What Not To Do
               </h2>
-              <ul className="ml-5 space-y-3 list-disc text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <ul className="ml-5 space-y-3 list-disc text-[1.01rem] leading-[1.85] text-muted">
                 <li>
                   <strong>Do not start 5 supplements at once.</strong> You will not know which one
                   is helping (or causing side effects). Introduce one at a time, assess for 2–4
@@ -938,7 +938,7 @@ export default function BestHerbsForSleepPage() {
                     className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4"
                   >
                     <h3 className="font-semibold text-ink">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-7 text-[#46574d]">{faq.answer}</p>
+                    <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
                   </div>
                 ))}
               </div>
@@ -970,7 +970,7 @@ export default function BestHerbsForSleepPage() {
                   <tbody className="divide-y divide-brand-900/5">
                     <tr className="align-top">
                       <td className="py-3 pr-3 font-medium text-ink">Magnesium sleep evidence</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Abbasi et al.; Nielsen et al.; Held et al.; Yamadera et al. (glycine)
                       </td>
                       <td className="py-3 text-muted text-xs">
@@ -979,7 +979,7 @@ export default function BestHerbsForSleepPage() {
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-3 font-medium text-ink">Ashwagandha sleep evidence</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Langade et al. 2019, 2021; Cheah et al. 2021; Deshpande et al. 2020
                       </td>
                       <td className="py-3 text-muted text-xs">
@@ -988,7 +988,7 @@ export default function BestHerbsForSleepPage() {
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-3 font-medium text-ink">L-theanine sleep evidence</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Alpha-wave promotion trials; anxiety/sleep overlap studies
                       </td>
                       <td className="py-3 text-muted text-xs">
@@ -997,7 +997,7 @@ export default function BestHerbsForSleepPage() {
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-3 font-medium text-ink">Valerian sleep evidence</td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Meta-analyses of valerian RCTs; valerenic acid mechanism studies
                       </td>
                       <td className="py-3 text-muted text-xs">
@@ -1008,7 +1008,7 @@ export default function BestHerbsForSleepPage() {
                       <td className="py-3 pr-3 font-medium text-ink">
                         Passionflower sleep evidence
                       </td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         Passionflower anxiety/sleep RCTs; chrysin GABA-A binding studies
                       </td>
                       <td className="py-3 text-muted text-xs">
@@ -1019,7 +1019,7 @@ export default function BestHerbsForSleepPage() {
                       <td className="py-3 pr-3 font-medium text-ink">
                         General sleep safety guidance
                       </td>
-                      <td className="py-3 pr-4 text-[#46574d]">
+                      <td className="py-3 pr-4 text-muted">
                         AASM guidelines; CBT-I evidence base; drug interaction references
                       </td>
                       <td className="py-3 text-muted text-xs">

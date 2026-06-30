@@ -75,7 +75,7 @@ export default function WhySetAndSettingMatterPage() {
           <h1 className="font-display text-3xl font-bold tracking-tight text-ink sm:text-4xl lg:text-5xl">Why Set and Setting Matter</h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Human experiences are influenced by substantially more than isolated biological mechanisms. Emotional state, environmental context, stress physiology, expectations, attentional systems, and nervous-system sensitivity may all shape subjective cognition and altered-state experiences.
         </p>
       </section>
@@ -92,7 +92,7 @@ export default function WhySetAndSettingMatterPage() {
         {systems.map((system) => (
           <div key={system.title} className="card-premium p-6 space-y-4">
             <h2 className="text-2xl font-semibold tracking-tight text-ink">{system.title}</h2>
-            <p className="text-sm leading-7 text-[#46574d]">{system.body}</p>
+            <p className="text-sm leading-7 text-muted">{system.body}</p>
           </div>
         ))}
       </section>
@@ -110,7 +110,7 @@ export default function WhySetAndSettingMatterPage() {
           {faqs.map((faq) => (
             <div key={faq.question} className="card-premium p-6 space-y-3">
               <h3 className="text-xl font-semibold tracking-tight text-ink">{faq.question}</h3>
-              <p className="text-sm leading-7 text-[#46574d]">{faq.answer}</p>
+              <p className="text-sm leading-7 text-muted">{faq.answer}</p>
             </div>
           ))}
         </div>

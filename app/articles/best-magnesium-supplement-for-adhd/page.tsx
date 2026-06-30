@@ -124,7 +124,7 @@ export default function BestMagnesiumForAdhdPage() {
         <div className="mt-3">
           <LastUpdatedBadge date={DATE} label="Last updated" />
         </div>
-        <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">{DESCRIPTION}</p>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
       </section>
 
       <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 px-5 py-3 text-xs leading-6 text-muted">
@@ -142,13 +142,13 @@ export default function BestMagnesiumForAdhdPage() {
             <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
               Magnesium Glycinate — The Best First Choice
             </h2>
-            <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
               For most adults and children with ADHD, <strong>magnesium glycinate</strong> is the best
               starting point. It has high bioavailability, excellent GI tolerability, and the glycine
               component adds mild calming support that aligns well with ADHD-related sleep difficulty and
               evening hyperactivation.
             </p>
-            <ul className="mt-3 ml-5 space-y-1 list-disc text-[1.01rem] leading-[1.85] text-[#46574d]">
+            <ul className="mt-3 ml-5 space-y-1 list-disc text-[1.01rem] leading-[1.85] text-muted">
               <li><strong>Target dose:</strong> 200–300 mg elemental magnesium before bed</li>
               <li><strong>When to take it:</strong> 30–60 minutes before sleep</li>
               <li><strong>What to look for on the label:</strong> &ldquo;Magnesium glycinate&rdquo; or &ldquo;magnesium bisglycinate&rdquo;; elemental magnesium listed in Supplement Facts</li>
@@ -171,7 +171,7 @@ export default function BestMagnesiumForAdhdPage() {
                 Why Magnesium for ADHD?
               </h2>
               <PathwayDiagram data={pathwayDiagrams['magnesium-adhd']} />
-              <p className="mt-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-4 text-[1.01rem] leading-[1.85] text-muted">
                 Magnesium plays a key role in regulating neural excitability via NMDA receptor blockade.
                 In ADHD, neural over-excitation contributes to hyperactivity, impulsivity, and difficulty
                 with emotional regulation. Magnesium deficiency — more common in ADHD than the general
@@ -187,7 +187,7 @@ export default function BestMagnesiumForAdhdPage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Magnesium + ADHD Evidence: What This Buying Guide Assumes
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Magnesium makes the most sense when there is low intake, a documented low level, sleep disruption,
                 muscle tension, or evening hyperarousal. It should not be framed as a standalone ADHD treatment.
                 Human ADHD research is mixed and often confounded by baseline nutrient status, so product choice
@@ -206,10 +206,10 @@ export default function BestMagnesiumForAdhdPage() {
                     {MAGNESIUM_EVIDENCE_ROWS.map(([form, verdict, fit, dose, safety]) => (
                       <tr key={form} className="align-top">
                         <td className="py-3 pr-4 font-semibold text-ink">{form}</td>
-                        <td className="py-3 pr-4 text-[#46574d]">{verdict}</td>
-                        <td className="py-3 pr-4 text-[#46574d]">{fit}</td>
-                        <td className="py-3 pr-4 text-[#46574d]">{dose}</td>
-                        <td className="py-3 text-[#46574d]">{safety}</td>
+                        <td className="py-3 pr-4 text-muted">{verdict}</td>
+                        <td className="py-3 pr-4 text-muted">{fit}</td>
+                        <td className="py-3 pr-4 text-muted">{dose}</td>
+                        <td className="py-3 text-muted">{safety}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -226,7 +226,7 @@ export default function BestMagnesiumForAdhdPage() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-[1rem] border border-brand-900/10 bg-brand-50/50 p-5">
                   <h3 className="font-semibold text-ink">Signs to discuss with a clinician</h3>
-                  <ul className="mt-2 ml-5 list-disc space-y-1.5 text-sm leading-6 text-[#46574d]">
+                  <ul className="mt-2 ml-5 list-disc space-y-1.5 text-sm leading-6 text-muted">
                     <li>Low dietary magnesium intake, restrictive diet, or frequent GI losses.</li>
                     <li>Muscle cramps, restless sleep, or tension that overlaps with low intake.</li>
                     <li>Medication, kidney, or GI history that changes mineral handling.</li>
@@ -304,7 +304,7 @@ export default function BestMagnesiumForAdhdPage() {
                           {verdict}
                         </span>
                       </div>
-                      <p className="mt-1 text-sm leading-6 text-[#46574d]">{desc}</p>
+                      <p className="mt-1 text-sm leading-6 text-muted">{desc}</p>
                       {rank !== '✕' && (
                         <a
                           href={`https://www.amazon.com/s?k=${query}&tag=${AFFILIATE_TAGS.amazon}`}
@@ -330,12 +330,12 @@ export default function BestMagnesiumForAdhdPage() {
               </h2>
               <div className="rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-5">
                 <p className="font-semibold text-ink">The most common labeling confusion:</p>
-                <p className="mt-2 text-sm leading-6 text-[#46574d]">
+                <p className="mt-2 text-sm leading-6 text-muted">
                   A product labeled &ldquo;Magnesium Glycinate 400mg&rdquo; does NOT mean you are getting
                   400mg of elemental magnesium. The 400mg is the weight of the entire compound (magnesium
                   + glycine). The actual elemental magnesium is typically <strong>60–80mg per tablet</strong>.
                 </p>
-                <p className="mt-3 text-sm leading-6 text-[#46574d]">
+                <p className="mt-3 text-sm leading-6 text-muted">
                   Always look at the <strong>Supplement Facts panel</strong> for the line that reads:
                   &ldquo;Magnesium [as magnesium glycinate] — Xmg&rdquo;. That &ldquo;Xmg&rdquo; is the
                   elemental dose. If you want 200mg elemental magnesium per day, you may need 3–4 tablets
@@ -360,9 +360,9 @@ export default function BestMagnesiumForAdhdPage() {
                     ].map(([form, pct, dose, gi]) => (
                       <tr key={form as string} className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">{form}</td>
-                        <td className="py-3 pr-4 text-[#46574d]">{pct}</td>
-                        <td className="py-3 pr-4 text-[#46574d]">{dose}</td>
-                        <td className="py-3 text-[#46574d]">{gi}</td>
+                        <td className="py-3 pr-4 text-muted">{pct}</td>
+                        <td className="py-3 pr-4 text-muted">{dose}</td>
+                        <td className="py-3 text-muted">{gi}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -375,7 +375,7 @@ export default function BestMagnesiumForAdhdPage() {
             {/* Products */}
             <div id="products">
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">Recommended Products</h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
                 These searches reflect the forms and dose ranges most consistent with the ADHD evidence
                 reviewed on this page. Prices and availability vary.
               </p>
@@ -413,7 +413,7 @@ export default function BestMagnesiumForAdhdPage() {
                   <div key={name} className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
                     <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">{eyebrow}</p>
                     <p className="font-semibold text-ink">{name}</p>
-                    <p className="mt-1 text-xs leading-5 text-[#46574d]">{desc}</p>
+                    <p className="mt-1 text-xs leading-5 text-muted">{desc}</p>
                     <a
                       href={`https://www.amazon.com/s?k=${query}&tag=${AFFILIATE_TAGS.amazon}`}
                       target="_blank"
@@ -470,7 +470,7 @@ export default function BestMagnesiumForAdhdPage() {
                 {FAQS.map((faq, i) => (
                   <div key={i} className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4">
                     <h3 className="font-semibold text-ink">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-7 text-[#46574d]">{faq.answer}</p>
+                    <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
                   </div>
                 ))}
               </div>

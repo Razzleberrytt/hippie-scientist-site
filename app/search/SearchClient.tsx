@@ -325,7 +325,7 @@ function ResultCard({ item }: { item: SearchItem }) {
           </h2>
         </div>
 
-        <p className="mt-2.5 line-clamp-2 text-[0.95rem] leading-6 text-[#46574d]">
+        <p className="mt-2.5 line-clamp-2 text-[0.95rem] leading-6 text-muted">
           {item.summary || 'A conservative profile with evidence, safety, and practical context.'}
         </p>
 
@@ -364,7 +364,7 @@ function GuidedDiscovery({ onSelect }: { onSelect: (query: string) => void }) {
         <div className="max-w-2xl space-y-2">
           <p className="eyebrow-label">Guided discovery</p>
           <h2 id="guided-discovery-heading" className="compact-heading">Start broad, then narrow only when useful.</h2>
-          <p className="text-sm leading-6 text-[#46574d]">
+          <p className="text-sm leading-6 text-muted">
             These entry points are orientation tools, not deterministic recommendations.
           </p>
         </div>
@@ -380,7 +380,7 @@ function GuidedDiscovery({ onSelect }: { onSelect: (query: string) => void }) {
             className="group rounded-xl border border-brand-900/10 bg-white/90 px-3 py-2.5 text-left transition hover:border-brand-700/20 hover:bg-white"
           >
             <span className="text-sm font-semibold tracking-tight text-ink transition group-hover:text-brand-800">{path.label}</span>
-            <span className="mt-1 block text-xs leading-5 text-[#46574d]">{path.description}</span>
+            <span className="mt-1 block text-xs leading-5 text-muted">{path.description}</span>
           </button>
         ))}
       </div>
@@ -394,7 +394,7 @@ function EmptySearchState({ onSelect, onReset }: { onSelect: (query: string) => 
       <div className="max-w-2xl space-y-3">
         <p className="eyebrow-label">No matching profiles</p>
         <h2 className="compact-heading">Try a broader discovery path.</h2>
-        <p className="text-sm leading-6 text-[#46574d] sm:text-base">
+        <p className="text-sm leading-6 text-muted sm:text-base">
           Search by goal, mechanism, compound class, or common supplement name. Evidence and safety labels stay conservative when source data is incomplete.
         </p>
       </div>
@@ -422,7 +422,7 @@ function EmptySearchState({ onSelect, onReset }: { onSelect: (query: string) => 
             {crossContentLinks.goals.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="text-sm font-semibold text-brand-800 hover:text-brand-900">{item.label} →</Link>
-                <p className="mt-0.5 text-xs leading-5 text-[#5f6f66]">{item.description}</p>
+                <p className="mt-0.5 text-xs leading-5 text-muted">{item.description}</p>
               </li>
             ))}
           </ul>
@@ -433,7 +433,7 @@ function EmptySearchState({ onSelect, onReset }: { onSelect: (query: string) => 
             {crossContentLinks.compare.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="text-sm font-semibold text-brand-800 hover:text-brand-900">{item.label} →</Link>
-                <p className="mt-0.5 text-xs leading-5 text-[#5f6f66]">{item.description}</p>
+                <p className="mt-0.5 text-xs leading-5 text-muted">{item.description}</p>
               </li>
             ))}
           </ul>
@@ -444,7 +444,7 @@ function EmptySearchState({ onSelect, onReset }: { onSelect: (query: string) => 
             {crossContentLinks.learn.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="text-sm font-semibold text-brand-800 hover:text-brand-900">{item.label} →</Link>
-                <p className="mt-0.5 text-xs leading-5 text-[#5f6f66]">{item.description}</p>
+                <p className="mt-0.5 text-xs leading-5 text-muted">{item.description}</p>
               </li>
             ))}
           </ul>
@@ -616,7 +616,7 @@ export default function SearchClient() {
                 <h1 id="search-heading" className="max-w-[13ch] text-balance">Search the library</h1>
               </div>
 
-              <p className="max-w-2xl text-base leading-7 text-[#46574d] sm:text-lg sm:leading-8">
+              <p className="max-w-2xl text-base leading-7 text-muted sm:text-lg sm:leading-8">
                 Search herbs and compounds by name, goal, mechanism, evidence signal, or safety context. Start broad, then use light filters only when they help.
               </p>
 
@@ -629,7 +629,7 @@ export default function SearchClient() {
                     className="rounded-xl border border-brand-900/10 bg-white/90 px-3 py-2.5 text-left transition hover:border-brand-700/20 hover:bg-white"
                   >
                     <p className="text-sm font-semibold text-ink">{intent.label}</p>
-                    <p className="mt-0.5 text-xs leading-5 text-[#5f6f66]">{intent.helper}</p>
+                    <p className="mt-0.5 text-xs leading-5 text-muted">{intent.helper}</p>
                   </button>
                 ))}
               </div>
@@ -695,7 +695,7 @@ export default function SearchClient() {
                       </button>
                     ))}
                   </div>
-                  <p className="text-sm leading-6 text-[#5f6f66]">
+                  <p className="text-sm leading-6 text-muted">
                     Filters are intentionally light: use profile type when you already know whether you want a botanical profile or a constituent profile.
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -786,13 +786,13 @@ export default function SearchClient() {
                 <h2 id="search-results-heading" className="compact-heading">
                   {hasActiveSearch ? 'Profiles matching your scan.' : 'High-confidence profiles to learn the pattern.'}
                 </h2>
-                <p className="text-sm leading-6 text-[#5f6f66]">
+                <p className="text-sm leading-6 text-muted">
                   {hasActiveSearch
                     ? 'Open a profile when the evidence and safety context look worth investigating further.'
                     : 'These are starting points sorted by discovery and authority signals, not promised outcomes.'}
                 </p>
               </div>
-              <span className="inline-flex w-fit rounded-full border border-brand-900/10 bg-white/70 px-3.5 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#5f6f66]">
+              <span className="inline-flex w-fit rounded-full border border-brand-900/10 bg-white/70 px-3.5 py-2 text-xs font-bold uppercase tracking-[0.16em] text-muted">
                 {resultLabel}
               </span>
             </div>
@@ -802,7 +802,7 @@ export default function SearchClient() {
             ) : (
               <div className="detail-stack">
                 {results.length > 0 && results.length < 4 ? (
-                  <div className="rounded-[1.2rem] border border-brand-900/10 bg-white/80 p-4 text-sm leading-6 text-[#46574d] shadow-sm">
+                  <div className="rounded-[1.2rem] border border-brand-900/10 bg-white/80 p-4 text-sm leading-6 text-muted shadow-sm">
                     Sparse match set. Try a broader term such as stress, sleep, focus, inflammation, or recovery if you want more profiles to compare.
                   </div>
                 ) : null}

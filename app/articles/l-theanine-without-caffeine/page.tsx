@@ -111,7 +111,7 @@ export default function LTheanineWithoutCaffeinePage() {
         <div className="mt-3">
           <LastUpdatedBadge date={DATE} label="Last updated" />
         </div>
-        <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">{DESCRIPTION}</p>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
       </section>
 
       <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 px-5 py-3 text-xs leading-6 text-muted">
@@ -128,7 +128,7 @@ export default function LTheanineWithoutCaffeinePage() {
             <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
               If you only try one thing: L-theanine 100 mg alone
             </h2>
-            <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
               <strong>L-theanine 100&nbsp;mg alone (no caffeine) is itself the fastest useful choice for
               stimulant-free ADHD focus.</strong> Effects within 30–60 minutes, no crash, no sleep
               disruption, no dependency. If 100&nbsp;mg is not enough, increase to 200&nbsp;mg before
@@ -157,7 +157,7 @@ export default function LTheanineWithoutCaffeinePage() {
                 ['Less effective for pure inattention without hyperactivation', 'If the main challenge is low dopamine / norepinephrine rather than mental hyperactivation, L-theanine\'s mechanism is a poor fit.'],
                 ['No crash, no sleep disruption', 'Unlike caffeine, L-theanine can be taken later in the day without disrupting sleep — and is also useful as a pre-sleep calm support.'],
               ].map(([bold, rest]) => (
-                <li key={bold as string} className="flex gap-2 text-[1.01rem] leading-[1.85] text-[#46574d]">
+                <li key={bold as string} className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
                   <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
                   <span><strong>{bold as string}.</strong> {rest as string}</span>
                 </li>
@@ -171,20 +171,20 @@ export default function LTheanineWithoutCaffeinePage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 What Is L-Theanine and Why Does It Matter for ADHD?
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 L-theanine is a non-protein amino acid found in tea leaves (<em>Camellia sinensis</em>).
                 It is the compound responsible for the calming quality of green tea that offsets green
                 tea&apos;s caffeine content — a natural calm + alertness combination that has been observed
                 for centuries.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 In the context of ADHD, L-theanine is interesting precisely because many people with
                 ADHD experience <strong>hyperactivation</strong> — a mental state of over-arousal that
                 paradoxically makes focus harder, not easier. The hyperactivated brain generates too much
                 &ldquo;noise&rdquo; (racing thoughts, anxiety, mental restlessness) to sustain a single
                 attentional thread. L-theanine&apos;s alpha-wave induction directly addresses this pattern.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 Importantly, this article focuses on <strong>L-theanine alone, without caffeine</strong>.
                 The caffeine+L-theanine combination is separately studied and has stronger evidence for
                 cognitive outcomes — but is not appropriate for people who cannot tolerate caffeine,
@@ -203,7 +203,7 @@ export default function LTheanineWithoutCaffeinePage() {
               <div className="mt-4 space-y-3">
                 <div className="rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4">
                   <p className="font-semibold text-ink">Alpha Waves: The &ldquo;Calm Focus&rdquo; Brainwave</p>
-                  <p className="mt-1 text-sm leading-6 text-[#46574d]">
+                  <p className="mt-1 text-sm leading-6 text-muted">
                     Alpha waves (8–12 Hz) are the neural oscillation pattern associated with calm, relaxed
                     wakefulness — the &ldquo;flow state&rdquo; precursor. L-theanine consistently increases
                     alpha-wave power in EEG studies within 30–60 minutes of ingestion, making it one of the
@@ -212,7 +212,7 @@ export default function LTheanineWithoutCaffeinePage() {
                 </div>
                 <div className="rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4">
                   <p className="font-semibold text-ink">Glutamate / GABA Modulation</p>
-                  <p className="mt-1 text-sm leading-6 text-[#46574d]">
+                  <p className="mt-1 text-sm leading-6 text-muted">
                     L-theanine has structural similarity to glutamate and may modulate AMPA, NMDA, and
                     kainate receptors to reduce excitatory tone. It also appears to support GABA activity,
                     the brain&apos;s primary inhibitory neurotransmitter. The net effect is a reduction in
@@ -221,7 +221,7 @@ export default function LTheanineWithoutCaffeinePage() {
                 </div>
                 <div className="rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4">
                   <p className="font-semibold text-ink">What L-Theanine Does NOT Do</p>
-                  <p className="mt-1 text-sm leading-6 text-[#46574d]">
+                  <p className="mt-1 text-sm leading-6 text-muted">
                     L-theanine does not meaningfully increase dopamine or norepinephrine — the
                     catecholamines central to stimulant ADHD medication efficacy. It is not a stimulant.
                     It does not block adenosine receptors (caffeine does this). Its mechanism is calming
@@ -275,14 +275,14 @@ export default function LTheanineWithoutCaffeinePage() {
                     ].map(([factor, solo, combo]) => (
                       <tr key={factor as string} className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">{factor}</td>
-                        <td className="py-3 pr-4 text-[#46574d]">{solo}</td>
-                        <td className="py-3 text-[#46574d]">{combo}</td>
+                        <td className="py-3 pr-4 text-muted">{solo}</td>
+                        <td className="py-3 text-muted">{combo}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
               </ResponsiveTable>
-              <p className="mt-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-4 text-[1.01rem] leading-[1.85] text-muted">
                 <strong>Use L-theanine alone if:</strong> you are caffeine-sensitive, prone to anxiety,
                 want a stimulant-free approach, need evening/late-day use, or are already on ADHD
                 stimulant medication.
@@ -321,9 +321,9 @@ export default function LTheanineWithoutCaffeinePage() {
                       ].map(([use, dose, timing, notes]) => (
                         <tr key={use as string} className="align-top">
                           <td className="py-3 pr-4 font-medium text-ink">{use}</td>
-                          <td className="py-3 pr-4 text-[#46574d]">{dose}</td>
-                          <td className="py-3 pr-4 text-[#46574d]">{timing}</td>
-                          <td className="py-3 text-[#46574d]">{notes}</td>
+                          <td className="py-3 pr-4 text-muted">{dose}</td>
+                          <td className="py-3 pr-4 text-muted">{timing}</td>
+                          <td className="py-3 text-muted">{notes}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -337,7 +337,7 @@ export default function LTheanineWithoutCaffeinePage() {
             {/* Products */}
             <div id="products">
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">Caffeine-Free L-Theanine Products</h2>
-              <p className="mb-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mb-4 text-[1.01rem] leading-[1.85] text-muted">
                 The key is choosing a <strong>standalone, caffeine-free</strong> product. Many &ldquo;focus
                 blend&rdquo; products combine L-theanine with caffeine — these are for daytime use only and
                 not appropriate if you want a stimulant-free approach.
@@ -369,7 +369,7 @@ export default function LTheanineWithoutCaffeinePage() {
                   <div key={name} className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
                     <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">{eyebrow}</p>
                     <p className="font-semibold text-ink">{name}</p>
-                    <p className="mt-1 text-xs leading-5 text-[#46574d]">{desc}</p>
+                    <p className="mt-1 text-xs leading-5 text-muted">{desc}</p>
                     <a
                       href={`https://www.amazon.com/s?k=${query}&tag=${AFFILIATE_TAGS.amazon}`}
                       target="_blank"
@@ -421,7 +421,7 @@ export default function LTheanineWithoutCaffeinePage() {
                 ].map(({ label, color, items }) => (
                   <div key={label} className={`rounded-[1rem] border p-4 ${color}`}>
                     <p className="text-[10px] font-bold uppercase tracking-wider text-muted">{label}</p>
-                    <ul className="mt-2 ml-5 space-y-1 list-disc text-sm leading-6 text-[#46574d]">
+                    <ul className="mt-2 ml-5 space-y-1 list-disc text-sm leading-6 text-muted">
                       {items.map((item) => <li key={item}>{item}</li>)}
                     </ul>
                   </div>
@@ -458,7 +458,7 @@ export default function LTheanineWithoutCaffeinePage() {
                 {FAQS.map((faq, i) => (
                   <div key={i} className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4">
                     <h3 className="font-semibold text-ink">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-7 text-[#46574d]">{faq.answer}</p>
+                    <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
                   </div>
                 ))}
               </div>

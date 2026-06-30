@@ -94,7 +94,7 @@ export default async function BlogStylePage({ params }: BlogStyleRouteProps) {
         <p className="eyebrow-label">{group.meta}</p>
         <h1 className="mt-2 heading-premium max-w-3xl">{group.title}</h1>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-muted-soft">{group.description}</p>
-        <p className="mt-2 text-sm font-semibold text-[#46574d]">{stylePosts.length} matching notes</p>
+        <p className="mt-2 text-sm font-semibold text-muted">{stylePosts.length} matching notes</p>
       </section>
 
       <section className="space-y-4">

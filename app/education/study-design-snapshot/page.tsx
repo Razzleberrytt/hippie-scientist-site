@@ -42,7 +42,7 @@ export default function StudyDesignSnapshotHubPage() {
             How to read an evidence grade
           </h1>
         </div>
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Every grade on this site is shorthand for the quality of the human evidence behind a
           claim. The <strong>Study Design Snapshot</strong> keeps the practical takeaway prominent
           and tucks the &ldquo;why&rdquo; — trial design and limitations — into an optional,

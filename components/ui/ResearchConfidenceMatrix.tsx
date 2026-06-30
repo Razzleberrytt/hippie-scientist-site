@@ -17,7 +17,7 @@ export default function ResearchConfidenceMatrix({ topics = [] }: { topics?: Top
           <p className="eyebrow-label">Topic confidence</p>
           <h3 className="mt-2 text-xl font-semibold tracking-tight text-ink">Research confidence matrix</h3>
         </div>
-        <p className="max-w-md text-sm leading-6 text-[#46574d]">Confidence is inferred only from recurring profile signals, evidence tier language, PubMed IDs, claims, and mechanisms.</p>
+        <p className="max-w-md text-sm leading-6 text-muted">Confidence is inferred only from recurring profile signals, evidence tier language, PubMed IDs, claims, and mechanisms.</p>
       </div>
 
       <div className="mt-5 grid gap-3">
@@ -29,7 +29,7 @@ export default function ResearchConfidenceMatrix({ topics = [] }: { topics?: Top
                 {item.confidence}
               </span>
             </div>
-            <p className="mt-2 text-sm leading-6 text-[#46574d]">{item.rationale}</p>
+            <p className="mt-2 text-sm leading-6 text-muted">{item.rationale}</p>
           </div>
         ))}
       </div>

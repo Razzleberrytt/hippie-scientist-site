@@ -148,7 +148,7 @@ export default function AshwagandhaArticlePage() {
           <LastUpdatedBadge date={DATE} label="Last updated" />
         </div>
 
-        <p className="mt-4 max-w-3xl text-base leading-7 text-[#46574d]">{DESCRIPTION}</p>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
       </section>
 
       {/* Affiliate disclosure */}
@@ -170,7 +170,7 @@ export default function AshwagandhaArticlePage() {
             <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
               When ashwagandha is the right choice (and when it is not)
             </h2>
-            <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
               <strong>Ashwagandha is the right choice for chronic, stress-driven symptoms</strong> —
               when stress has been elevated for weeks or months, when cortisol rhythms feel dysregulated,
               and when you can commit to a 6–8 week course of consistent daily use. It is <strong>not</strong>
@@ -178,7 +178,7 @@ export default function AshwagandhaArticlePage() {
               for racing thoughts; melatonin (0.3–1 mg) is faster for sleep onset; a behavioral breathwork
               protocol is faster than any supplement for an acute cortisol spike.
             </p>
-            <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
               Match the tool to the timeframe: ashwagandha for the baseline; faster tools for acute moments.
               See the{' '}
               <Link href="/articles/l-theanine" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">
@@ -194,7 +194,7 @@ export default function AshwagandhaArticlePage() {
             <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
               Does Ashwagandha Work?
             </h2>
-            <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
               <strong>Yes, for the use cases the evidence actually supports.</strong> Multiple
               randomized trials in chronically stressed adults show standardized ashwagandha extracts
               (300–600 mg/day of KSM-66 or Sensoril) meaningfully reduce perceived stress, lower
@@ -203,7 +203,7 @@ export default function AshwagandhaArticlePage() {
               for athletic performance and testosterone, modest. For acute anxiety or immediate
               calm, it does not work — that is not what adaptogens do.
             </p>
-            <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
               The honest summary: ashwagandha is a foundational, multi-week tool for chronic stress,
               not a rescue remedy. Use it when the goal is to lower the baseline, not silence a
               moment.
@@ -216,14 +216,14 @@ export default function AshwagandhaArticlePage() {
             {/* Introduction */}
             <div id="introduction">
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">Introduction</h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Ashwagandha (<em>Withania somnifera</em>) is the most clinically studied adaptogen in
                 modern supplement research. It is best known for stress and anxiety reduction, with
                 growing evidence for sleep, cognition, and metabolic health. This article is the
                 umbrella guide — covering everything you need to know in one place, with deep-dive
                 links to each condition-specific article.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 Whether you are considering ashwagandha for stress, anxiety, sleep, focus, or general
                 resilience, this hub will help you decide if it is right for you, what dose and form
                 to use, and what to expect over time. All claims are tied to primary studies or the{' '}
@@ -241,18 +241,18 @@ export default function AshwagandhaArticlePage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 What Is Ashwagandha?
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 <em>Withania somnifera</em> is a small shrub in the Solanaceae (nightshade) family,
                 native to India, North Africa, and the Mediterranean. In Ayurvedic medicine it is
                 classified as a <em>rasayana</em> — a rejuvenating herb used to promote longevity,
                 vitality, and resistance to disease.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 The species name <em>somnifera</em> means &ldquo;sleep-inducing&rdquo; in Latin — the
                 plant was historically used as a sedative tonic. Modern research confirms a genuine
                 sleep benefit, though the mechanism is more nuanced than simple sedation.
               </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 Key active constituents include withanolides (steroidal lactones), withaferin A, and
                 alkaloids. Commercial extracts are typically standardized to withanolide content (≥5%)
                 and come in two clinically dominant patented forms: <strong>KSM-66</strong> (full-spectrum
@@ -269,7 +269,7 @@ export default function AshwagandhaArticlePage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 What Ashwagandha Is Used For
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Ashwagandha has been studied across a wide range of outcomes. The strength of evidence
                 varies considerably. Use this section to see whether ashwagandha is right for your
                 specific goal.
@@ -339,7 +339,7 @@ export default function AshwagandhaArticlePage() {
                 </table>
               </div>
 
-              <p className="mt-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-4 text-[1.01rem] leading-[1.85] text-muted">
                 For most readers, the right entry point is the chronic stress / cortisol evidence —
                 that is the strongest and most consistent body of research, and it underlies the
                 benefits seen in anxiety and sleep. If your primary goal is sleep, see the{' '}
@@ -369,7 +369,7 @@ export default function AshwagandhaArticlePage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 How Ashwagandha Works
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Several convergent mechanisms have been proposed, based on preclinical data and
                 plausible inference from human trial outcomes:
               </p>
@@ -377,7 +377,7 @@ export default function AshwagandhaArticlePage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 1. HPA Axis Modulation (Cortisol Reduction)
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Ashwagandha consistently reduces morning serum cortisol in stressed adults across
                 multiple RCTs. Elevated cortisol is a primary driver of stress-related anxiety, sleep
                 disruption, and immune dysregulation. By blunting the HPA axis stress response,
@@ -387,7 +387,7 @@ export default function AshwagandhaArticlePage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 2. GABA-A Receptor Activity
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Withaferin A and related withanolides have demonstrated GABA-A receptor binding
                 activity in vitro and in animal models. GABA-A agonism is the mechanism of
                 benzodiazepines and many common anxiolytics. The magnitude of this effect in humans
@@ -397,7 +397,7 @@ export default function AshwagandhaArticlePage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 3. Thyroid Modulation
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Ashwagandha may modestly increase T3 and T4 thyroid hormone levels. This is part of
                 why some users report improved energy, and part of why it is contraindicated in
                 hyperthyroidism. People on thyroid medication should monitor levels carefully with
@@ -407,7 +407,7 @@ export default function AshwagandhaArticlePage() {
               <h3 className="mt-5 mb-1 text-xl font-semibold tracking-tight text-ink">
                 4. Anti-Inflammatory and Antioxidant Effects
               </h3>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Withanolides modulate NF-κB and other inflammatory signaling pathways. Chronic stress
                 is associated with low-grade inflammation; ashwagandha&rsquo;s anti-inflammatory
                 activity may be part of the mechanism behind subjective well-being improvements.
@@ -430,7 +430,7 @@ export default function AshwagandhaArticlePage() {
                 safetyProfile="Generally well-tolerated at 300–600 mg/day for 8–12 weeks. Rare hepatotoxicity cases reported. Contraindicated in pregnancy. Potential thyroid interactions at therapeutic doses. Caution with autoimmune disease and immunosuppressants."
               />
 
-              <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-[#46574d]">
+              <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 p-4 text-sm leading-7 text-muted">
                 <p className="font-semibold text-ink">Key trials reviewed:</p>
                 <ul className="mt-2 ml-5 space-y-1 list-disc">
                   <li>Chandrasekhar et al. (2012) — KSM-66, 600 mg/day, 8 weeks, n=64 (stress and anxiety)</li>
@@ -478,21 +478,21 @@ export default function AshwagandhaArticlePage() {
                     <tbody className="divide-y divide-brand-900/5">
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">KSM-66</td>
-                        <td className="py-3 pr-4 text-[#46574d]">300–600 mg</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Evening or split (AM/PM)</td>
-                        <td className="py-3 text-[#46574d]">6–12 weeks</td>
+                        <td className="py-3 pr-4 text-muted">300–600 mg</td>
+                        <td className="py-3 pr-4 text-muted">Evening or split (AM/PM)</td>
+                        <td className="py-3 text-muted">6–12 weeks</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Sensoril</td>
-                        <td className="py-3 pr-4 text-[#46574d]">125–250 mg</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Evening</td>
-                        <td className="py-3 text-[#46574d]">8–12 weeks</td>
+                        <td className="py-3 pr-4 text-muted">125–250 mg</td>
+                        <td className="py-3 pr-4 text-muted">Evening</td>
+                        <td className="py-3 text-muted">8–12 weeks</td>
                       </tr>
                       <tr className="align-top">
                         <td className="py-3 pr-4 font-medium text-ink">Root powder</td>
-                        <td className="py-3 pr-4 text-[#46574d]">3–6 g</td>
-                        <td className="py-3 pr-4 text-[#46574d]">Evening (milk or water)</td>
-                        <td className="py-3 text-[#46574d]">Traditional — variable</td>
+                        <td className="py-3 pr-4 text-muted">3–6 g</td>
+                        <td className="py-3 pr-4 text-muted">Evening (milk or water)</td>
+                        <td className="py-3 text-muted">Traditional — variable</td>
                       </tr>
                     </tbody>
                   </table>
@@ -512,7 +512,7 @@ export default function AshwagandhaArticlePage() {
               <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
                 Affiliate Product Recommendations
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 These products use the extract forms and dose ranges studied in the clinical trials
                 reviewed above. Affiliate links support this site at no additional cost to you.
               </p>
@@ -522,7 +522,7 @@ export default function AshwagandhaArticlePage() {
                     Best for: Stress &amp; Anxiety
                   </p>
                   <p className="font-semibold text-ink">KSM-66 Ashwagandha Extract</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Patented full-spectrum root extract. Most-studied form for stress and anxiety.
                     Look for ≥300 mg per capsule, standardized to ≥5% withanolides.
                   </p>
@@ -540,7 +540,7 @@ export default function AshwagandhaArticlePage() {
                     Best for: Sleep &amp; Lower Dose
                   </p>
                   <p className="font-semibold text-ink">Sensoril Ashwagandha Extract</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Root and leaf extract with strong clinical backing at lower mg doses. Well-suited
                     for sensitive individuals or sleep-specific protocols.
                   </p>
@@ -619,7 +619,7 @@ export default function AshwagandhaArticlePage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
                 Stacking Ashwagandha With Other Supplements
               </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="text-[1.01rem] leading-[1.85] text-muted">
                 Ashwagandha pairs well with several other supplements because it works on the
                 baseline (HPA axis, cortisol over weeks) while they cover the acute side (racing
                 thoughts, sleep onset, muscle tension). Common stacks:
@@ -628,7 +628,7 @@ export default function AshwagandhaArticlePage() {
               <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
                   <p className="font-semibold text-ink">Ashwagandha + L-theanine</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Foundational stress reduction (ashwagandha, weeks) plus acute calm focus
                     (L-theanine, 30–60 min). See{' '}
                     <Link href="/articles/l-theanine" className="font-semibold text-brand-700 hover:underline">
@@ -639,7 +639,7 @@ export default function AshwagandhaArticlePage() {
                 </div>
                 <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
                   <p className="font-semibold text-ink">Ashwagandha + Magnesium glycinate</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     Stress baseline (ashwagandha) plus evening relaxation and muscle tension
                     support (magnesium). Compare in{' '}
                     <Link href="/articles/ashwagandha-vs-magnesium-for-sleep" className="font-semibold text-brand-700 hover:underline">
@@ -650,20 +650,20 @@ export default function AshwagandhaArticlePage() {
                 </div>
                 <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
                   <p className="font-semibold text-ink">Ashwagandha + Rhodiola</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     HPA axis regulation (ashwagandha) plus acute stress resilience and
                     anti-fatigue (rhodiola). Best for high-demand performance periods.
                   </p>
                 </div>
                 <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
                   <p className="font-semibold text-ink">Ashwagandha + Melatonin</p>
-                  <p className="mt-1 text-xs leading-5 text-[#46574d]">
+                  <p className="mt-1 text-xs leading-5 text-muted">
                     For sleep: ashwagandha addresses stress-driven insomnia over weeks; melatonin
                     signals circadian onset acutely. Different mechanisms — complementary.
                   </p>
                 </div>
               </div>
-              <p className="mt-4 text-[1.01rem] leading-[1.85] text-[#46574d]">
+              <p className="mt-4 text-[1.01rem] leading-[1.85] text-muted">
                 Introduce one supplement at a time so you can isolate what is helping (or causing
                 side effects). Allow 1–2 weeks between additions.
               </p>
@@ -683,7 +683,7 @@ export default function AshwagandhaArticlePage() {
                     className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4"
                   >
                     <h3 className="font-semibold text-ink">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-7 text-[#46574d]">{faq.answer}</p>
+                    <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
                   </div>
                 ))}
               </div>

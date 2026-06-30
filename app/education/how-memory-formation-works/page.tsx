@@ -95,7 +95,7 @@ export default function MemoryFormationEducationPage() {
           </h1>
         </div>
 
-        <p className="text-xl leading-9 text-[#46574d]">
+        <p className="text-xl leading-9 text-muted">
           Memory formation involves interconnected systems associated with attentional regulation, emotional processing, sensory integration, sleep-dependent consolidation, cognition continuity, neuroplasticity, and nervous-system adaptation.
         </p>
 
@@ -124,7 +124,7 @@ export default function MemoryFormationEducationPage() {
               {mechanism.title}
             </h2>
 
-            <p className="text-sm leading-7 text-[#46574d]">
+            <p className="text-sm leading-7 text-muted">
               {mechanism.body}
             </p>
           </div>
@@ -139,7 +139,7 @@ export default function MemoryFormationEducationPage() {
             Memory depends on state-dependent cognition systems
           </h2>
 
-          <p className="text-base leading-8 text-[#46574d]">
+          <p className="text-base leading-8 text-muted">
             Learning quality, emotional intensity, sleep recovery, stress burden, attentional filtering, environmental context, and nervous-system resilience may all influence memory formation and retrieval outcomes.
           </p>
         </div>
@@ -150,7 +150,7 @@ export default function MemoryFormationEducationPage() {
               Commonly discussed memory systems
             </h3>
 
-            <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
+            <ul className="space-y-2 text-sm leading-7 text-muted">
               <li>• Executive-function continuity</li>
               <li>• Emotional salience systems</li>
               <li>• Sleep-dependent consolidation</li>
@@ -164,7 +164,7 @@ export default function MemoryFormationEducationPage() {
               Major evidence limitations
             </h3>
 
-            <ul className="space-y-2 text-sm leading-7 text-[#46574d]">
+            <ul className="space-y-2 text-sm leading-7 text-muted">
               <li>• Human cognition complexity</li>
               <li>• Subjective variability</li>
               <li>• Translational uncertainty</li>
@@ -204,7 +204,7 @@ export default function MemoryFormationEducationPage() {
                 {item.question}
               </h3>
 
-              <p className="text-sm leading-7 text-[#46574d]">
+              <p className="text-sm leading-7 text-muted">
                 {item.answer}
               </p>
             </div>

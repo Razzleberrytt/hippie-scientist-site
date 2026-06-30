@@ -55,7 +55,7 @@ export default function ProtocolRecommendations({
                 </h3>
 
                 {isRenderableText(item.summary) && !isDuplicateTitleBody(item.title, item.summary) ? (
-                  <p className="text-sm leading-7 text-[#46574d]">
+                  <p className="text-sm leading-7 text-muted">
                     {item.summary}
                   </p>
                 ) : null}

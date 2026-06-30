@@ -54,7 +54,7 @@ export default function PsychoactiveInteractionsPage() {
           Psychoactive Interactions
         </h1>
 
-        <p className="text-lg leading-8 text-[#46574d]">
+        <p className="text-lg leading-8 text-muted">
           Educational exploration of pathway overlap, neurochemical interactions, psychoactive safety systems, medication awareness, and conservative harm-reduction principles.
         </p>
 
