@@ -85,7 +85,12 @@ export const mainNavigation: NavigationItem[] = [
   {
     label: 'Guides',
     href: '/guides',
-    description: 'Problem-solving, high-intent, evergreen supplement guides with internal linking and evidence summaries',
+    description: 'Goal-oriented supplement guides for sleep, stress, focus, and more',
+  },
+  {
+    label: 'Articles',
+    href: '/articles',
+    description: 'Evidence reviews, mechanism deep-dives, and research notes on herbs and supplements',
   },
   {
     label: 'Compare',
@@ -186,30 +191,30 @@ export const routeLabels: Record<string, RouteMetadata> = {
     isDynamic: true,
   },
   '/blog': {
-    label: 'Research Notes',
-    description: 'Legacy research notes archive path',
-    parent: '/',
+    label: 'Blog',
+    description: 'Blog posts and updates',
+    parent: '/articles',
   },
   '/blog/[slug]': {
-    label: 'Research Note',
-    description: 'Legacy research note path',
+    label: 'Blog Post',
+    description: 'Blog post',
     parent: '/blog',
     isDynamic: true,
   },
   '/research-notes': {
-    label: 'Articles',
-    description: 'Legacy research notes archive path',
-    parent: '/',
+    label: 'Research Notes',
+    description: 'Redirects to Articles',
+    parent: '/articles',
   },
   '/research-notes/[slug]': {
-    label: 'Article',
-    description: 'Legacy research note detail path',
+    label: 'Research Note',
+    description: 'Redirects to article',
     parent: '/research-notes',
     isDynamic: true,
   },
   '/articles': {
     label: 'Articles',
-    description: 'Research notes, evidence reviews, regulatory updates, and editorial deep dives',
+    description: 'Evidence reviews, mechanism deep-dives, and research notes',
     parent: '/',
   },
   '/articles/[slug]': {
@@ -230,13 +235,13 @@ export const routeLabels: Record<string, RouteMetadata> = {
     isDynamic: true,
   },
   '/learn': {
-    label: 'Articles',
-    description: 'Educational articles and practical learning content',
+    label: 'Learn',
+    description: 'Redirects to Articles',
     parent: '/articles',
   },
   '/learn/[slug]': {
     label: 'Article',
-    description: 'Educational article',
+    description: 'Redirects to article',
     parent: '/articles',
     isDynamic: true,
   },
