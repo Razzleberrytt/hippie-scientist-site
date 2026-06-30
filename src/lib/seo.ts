@@ -586,6 +586,7 @@ export function organizationJsonLd() {
     name: SITE_NAME,
     url: SITE_URL,
     description: DEFAULT_DESCRIPTION,
+    image: `${SITE_URL}/og-default.jpg`,
     logo: {
       '@type': 'ImageObject',
       url: toAbsoluteUrl(LOGO_PATH),
@@ -721,7 +722,7 @@ export function herbJsonLd(herb: HerbJsonLdArgs) {
             ...(herb.safetyNotes ? { safetyWarnings: herb.safetyNotes } : {}),
           },
         }),
-    ...(herb.image ? { image: herb.image } : {}),
+    image: herb.image || `${SITE_URL}/og-default.jpg`,
   }
 }
 
@@ -788,6 +789,7 @@ export function compoundJsonLd(compound: CompoundJsonLdArgs) {
     isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
     medicalAudience: 'Consumer',
     aspect: ['treatment', 'safety', 'pharmacology', 'efficacy'],
+    image: `${SITE_URL}/og-default.jpg`,
     ...(compound.breadcrumbId ? { breadcrumb: { '@id': compound.breadcrumbId } } : {}),
     about: {
       '@type': compoundAboutType,

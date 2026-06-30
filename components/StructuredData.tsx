@@ -28,6 +28,7 @@ export interface StructuredDataProps {
   datePublished: string
   dateModified?: string
   authorName?: string
+  image?: string
   faqs?: FAQItem[]
   breadcrumbs?: BreadcrumbItem[]
   zone?: 'monetized' | 'harm-reduction'
@@ -51,6 +52,7 @@ export default function StructuredData({
   datePublished,
   dateModified,
   authorName = DEFAULT_AUTHOR,
+  image = `${SITE_URL}/og-default.jpg`,
   faqs,
   breadcrumbs,
   zone = 'harm-reduction',
@@ -68,6 +70,7 @@ export default function StructuredData({
       name: headline,
       headline,
       description,
+      image,
       url: pageUrl,
       datePublished,
       dateModified: dateModified ?? datePublished,
@@ -95,8 +98,10 @@ export default function StructuredData({
       '@context': 'https://schema.org',
       '@type': ['MedicalWebPage', 'Article'],
       '@id': `${pageUrl}#webpage`,
+      name: headline,
       headline,
       description,
+      image,
       url: pageUrl,
       datePublished,
       dateModified: dateModified ?? datePublished,

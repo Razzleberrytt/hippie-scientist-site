@@ -83,6 +83,7 @@ export function buildProfileSchemaGraph(args: ProfileSchemaGraphArgs) {
         ...stripSchemaContext(webpageRaw),
         '@id': webpageId,
         url: canonical,
+        image: `${SITE_URL}/og-default.jpg`,
         mainEntityOfPage: canonical,
         mainEntity: { '@id': `${canonical}#entity` },
         hasPart: { '@id': evidenceArticleId },
@@ -123,6 +124,7 @@ export function buildProfileSchemaGraph(args: ProfileSchemaGraphArgs) {
     description:
       description ||
       `Evidence, safety, and practical interpretation notes for ${entityName}.`,
+    image: `${SITE_URL}/og-default.jpg`,
     url: `${canonical}#evidence-summary`,
     isPartOf: { '@id': webpageId },
     mainEntityOfPage: { '@id': webpageId },
