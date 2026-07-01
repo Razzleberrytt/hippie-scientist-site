@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { SITE_URL } from '@/lib/seo'
+import { SITE_URL } from '@/src/lib/seo'
 
 export const metadata: Metadata = {
   title: 'ADHD Supplement Guides & Research',

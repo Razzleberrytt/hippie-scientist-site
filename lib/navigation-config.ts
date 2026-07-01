@@ -240,17 +240,6 @@ export const routeLabels: Record<string, RouteMetadata> = {
     parent: '/guides',
     isDynamic: true,
   },
-  '/learn': {
-    label: 'Learn',
-    description: 'Redirects to Articles',
-    parent: '/articles',
-  },
-  '/learn/[slug]': {
-    label: 'Article',
-    description: 'Redirects to article',
-    parent: '/articles',
-    isDynamic: true,
-  },
   '/tools': {
     label: 'Tools',
     description: 'Research tools',

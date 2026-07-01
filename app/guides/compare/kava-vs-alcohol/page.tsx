@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { buildPageMetadata } from '../../../src/lib/seo'
+import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Kava vs Alcohol',

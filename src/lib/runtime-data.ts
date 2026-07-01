@@ -263,7 +263,7 @@ import type {
   InteractionEdgesBySlug,
   RiskTagsBySlug,
   SlugEntityTypeMap,
-} from '@/types/interactions'
+} from '@/src/types/interactions'
 
 export const getInteractionEdges = cache(async () => {
   return readJsonFile('interaction_edges.json') as Promise<InteractionEdgesBySlug>

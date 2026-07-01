@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { SeoEntryPage, generateSeoEntryMetadata } from '../../seo-entry-pages';
+import { SeoEntryPage, generateSeoEntryMetadata } from '../../../seo-entry-pages';
 import StructuredData from '@/components/StructuredData';
 import { ArticleLayout, TableOfContents } from '@/components/articles';
 import type { Heading } from '@/components/articles';

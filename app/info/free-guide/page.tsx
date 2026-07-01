@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { SEO_GUIDE_ROUTES } from '../../src/lib/canonical-routes'
-import AffiliateDisclosure from '../../components/AffiliateDisclosure'
-import NewsletterSignup from '../../components/NewsletterSignup'
+import { SEO_GUIDE_ROUTES } from '../../../src/lib/canonical-routes'
+import AffiliateDisclosure from '../../../components/AffiliateDisclosure'
+import NewsletterSignup from '../../../components/NewsletterSignup'
 import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
 
 export const metadata: Metadata = {

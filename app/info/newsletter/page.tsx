@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import EmailCapture from '../../components/EmailCapture'
+import EmailCapture from '../../../components/EmailCapture'
 
 export const metadata: Metadata = {
   title: 'Newsletter Archive',

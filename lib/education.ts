@@ -46,7 +46,7 @@ export type MdxBlock =
       content: string
     }
 
-const educationDir = path.join(process.cwd(), 'content/learn')
+const educationDir = path.join(process.cwd(), 'content/education')
 
 export function getEducationArticleBySlug(slug: string): EducationArticle | null {
   const filePath = path.join(educationDir, `${slug}.mdx`)

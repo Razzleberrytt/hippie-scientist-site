@@ -1,8 +1,8 @@
-import { buildPageMetadata } from '../../../src/lib/seo'
+import { buildPageMetadata } from '../../../../src/lib/seo'
 import type { Metadata } from 'next'
-import { getHerbs, getCompounds } from '../../../src/lib/runtime-data'
-import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
-import DynamicComparerClient from '../../../src/components/compare/DynamicComparerClient'
+import { getHerbs, getCompounds } from '../../../../src/lib/runtime-data'
+import { getRuntimeVisibility } from '../../../../lib/runtime-visibility'
+import DynamicComparerClient from '../../../../src/components/compare/DynamicComparerClient'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 
 export const metadata: Metadata = buildPageMetadata({

@@ -7,7 +7,7 @@ const OUT2 = path.resolve('public/rss.xml')
 const BLOG_PATH = path.resolve('data/blog/posts.json')
 const ARTICLES_PATH = path.resolve('data/articles/articles.json')
 
-let posts = []
+const posts = []
 
 // Load blog posts
 try {

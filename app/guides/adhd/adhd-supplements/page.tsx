@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { buildPageMetadata } from '../../../src/lib/seo'
+import { buildPageMetadata } from '../../../../src/lib/seo'
 import { focusAdhdArticles } from '@/lib/focus-adhd-articles'
 import { AdhdInlineCta } from '@/components/articles/AdhdMonetizationWidgets'
 import { ArticleLayout, TableOfContents } from '@/components/articles'

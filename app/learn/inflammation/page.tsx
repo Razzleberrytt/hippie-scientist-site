@@ -1,4 +1,4 @@
-import { PathwayHub, generatePathwayMetadata } from '../pathway-hub'
+import { PathwayHub, generatePathwayMetadata } from '../../education/pathway-hub'
 
 export const metadata = generatePathwayMetadata('inflammation')
 
