@@ -56,6 +56,12 @@ async function main() {
   const workbookHerbSlugs = new Set()
   const workbookCompoundSlugs = new Set()
 
+  // Mirror build-runtime-from-workbook.mjs's own precedence exactly: once Entity_Master
+  // exists, it is the SOLE source for herb/compound rows and legacy sheets are ignored
+  // entirely (see its hasEntityMaster branch). A validator that unioned in legacy-sheet
+  // slugs regardless would treat a legacy-only slug as "safe" even though the real
+  // pipeline would drop it on the next data:build — recreating the exact silent
+  // JSON-only data-loss gap this check exists to catch.
   if (entityMasterSheet) {
     for (const row of sheetToRows(entityMasterSheet)) {
       const slug = clean(row.slug).toLowerCase()
@@ -64,17 +70,18 @@ async function main() {
       if (entityType === 'compound') workbookCompoundSlugs.add(slug)
       else workbookHerbSlugs.add(slug) // blank entity_type defaults to herb, matching build-runtime-from-workbook.mjs
     }
-  }
-  if (legacyHerbSheet) {
-    for (const row of sheetToRows(legacyHerbSheet)) {
-      const slug = clean(row.slug).toLowerCase()
-      if (slug) workbookHerbSlugs.add(slug)
+  } else {
+    if (legacyHerbSheet) {
+      for (const row of sheetToRows(legacyHerbSheet)) {
+        const slug = clean(row.slug).toLowerCase()
+        if (slug) workbookHerbSlugs.add(slug)
+      }
     }
-  }
-  if (legacyCompoundSheet) {
-    for (const row of sheetToRows(legacyCompoundSheet)) {
-      const slug = clean(row.slug).toLowerCase()
-      if (slug) workbookCompoundSlugs.add(slug)
+    if (legacyCompoundSheet) {
+      for (const row of sheetToRows(legacyCompoundSheet)) {
+        const slug = clean(row.slug).toLowerCase()
+        if (slug) workbookCompoundSlugs.add(slug)
+      }
     }
   }
 
