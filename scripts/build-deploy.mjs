@@ -38,14 +38,12 @@ import globPkg from 'glob'
 import { CacheManager } from './cache/build-cache-manager.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const { glob } = globPkg
-
 const cache = new CacheManager()
 const startTime = performance.now()
 
-async function outputPatternsPresent(patterns = []) {
+function outputPatternsPresent(patterns = []) {
   for (const pattern of patterns) {
-    const matches = await glob(path.join(process.cwd(), pattern), { absolute: true, nodir: false })
+    const matches = globPkg.sync(path.join(process.cwd(), pattern), { absolute: true, nodir: false })
     if (matches.length === 0) return false
   }
   return true
@@ -177,7 +175,7 @@ for (const step of steps) {
 
     if (shouldSkip) {
       const cachedResult = await cache.shouldRunStep(step.name, step.inputs || [])
-      const outputsPresent = await outputPatternsPresent(step.outputs || [])
+      const outputsPresent = outputPatternsPresent(step.outputs || [])
       if (!cachedResult && outputsPresent) {
         console.log(`[CACHED] ${((performance.now() - stepStart) / 1000).toFixed(2)}s`)
         executed.push({ ...step, cached: true, duration: 0 })
