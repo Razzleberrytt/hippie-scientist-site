@@ -9,18 +9,18 @@ import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 
-const PAGE_URL = `${SITE_URL}/guides/focus-without-caffeine-crash`
+const PAGE_URL = `${SITE_URL}/guides/focus/focus-without-caffeine-crash`
 
 export const metadata: Metadata = {
   title: 'Focus Without the Caffeine Crash — A Practical Guide',
   description:
     'Want steady focus without the afternoon crash? An evidence-informed guide to smoother cognition: the caffeine + L-theanine stack, calmer nootropics like rhodiola and bacopa, and the timing habits that prevent the slump in the first place.',
-  alternates: { canonical: '/guides/focus-without-caffeine-crash/' },
+  alternates: { canonical: '/guides/focus/focus-without-caffeine-crash/' },
   openGraph: {
     title: 'Focus Without the Caffeine Crash — A Practical Guide',
     description:
       'How to get steady, all-day focus without the caffeine crash — the L-theanine stack, calmer nootropics, and the timing habits that prevent the slump.',
-    url: '/guides/focus-without-caffeine-crash/',
+    url: '/guides/focus/focus-without-caffeine-crash/',
     type: 'article',
     images: ['/og-default.jpg'],
   },
@@ -74,7 +74,7 @@ export default function Page() {
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides' },
-          { label: 'Focus Without the Caffeine Crash', href: '/guides/focus-without-caffeine-crash' },
+          { label: 'Focus Without the Caffeine Crash', href: '/guides/focus/focus-without-caffeine-crash' },
         ]}
       />
 

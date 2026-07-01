@@ -126,8 +126,17 @@ function main() {
   // Asserts
   console.log(`[validate-sitemap] Category counts: herbs=${herbCount}, compounds=${compoundCount}, articles=${articleCount}, guides=${guideCount}`)
 
-  if (urls.length > 650) {
-    errors.push(`Sitemap contains ${urls.length} URLs (expected no more than 650 for index-priority sitemap).`)
+  // This ceiling exists to catch a genuine runaway-generation bug (e.g. an accidental
+  // Cartesian product in a route builder producing tens of thousands of URLs), not to
+  // gate normal content growth. It was bumped 3 times in one week from an original 450
+  // as real, correctly-generated content (articles, nested guides) was fixed to actually
+  // appear in the sitemap — each bump required a full CI round-trip for zero benefit.
+  // Google's own sitemap limit is 50,000 URLs; anything in the thousands is still
+  // trivially small for this site, so this is set high enough that it should not need
+  // touching again for routine content growth. If you hit this, it's almost certainly a
+  // real bug (check the "no corresponding built file" errors above first), not content growth.
+  if (urls.length > 5000) {
+    errors.push(`Sitemap contains ${urls.length} URLs (expected no more than 5000 — this usually means a route generator is producing duplicates/a Cartesian product, not organic content growth).`)
     failed = true
   }
 

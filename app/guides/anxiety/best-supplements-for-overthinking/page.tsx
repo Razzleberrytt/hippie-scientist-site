@@ -9,18 +9,18 @@ import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 
-const PAGE_URL = `${SITE_URL}/guides/best-supplements-for-overthinking`
+const PAGE_URL = `${SITE_URL}/guides/anxiety/best-supplements-for-overthinking`
 
 export const metadata: Metadata = {
   title: 'Best Supplements for Overthinking & a Racing Mind',
   description:
     'Stuck in mental loops? An evidence-informed guide to supplements for overthinking — L-theanine, magnesium, lemon balm, ashwagandha and saffron — matched to whether your overthinking is anxious, stress-driven or sleep-deprived.',
-  alternates: { canonical: '/guides/best-supplements-for-overthinking/' },
+  alternates: { canonical: '/guides/anxiety/best-supplements-for-overthinking/' },
   openGraph: {
     title: 'Best Supplements for Overthinking & a Racing Mind',
     description:
       'Supplements that genuinely help quiet a racing mind — matched to whether your overthinking is anxiety, stress overload or poor sleep, with dosing and safety.',
-    url: '/guides/best-supplements-for-overthinking/',
+    url: '/guides/anxiety/best-supplements-for-overthinking/',
     type: 'article',
     images: ['/og-default.jpg'],
   },
@@ -74,7 +74,7 @@ export default function Page() {
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides' },
-          { label: 'Best Supplements for Overthinking', href: '/guides/best-supplements-for-overthinking' },
+          { label: 'Best Supplements for Overthinking', href: '/guides/anxiety/best-supplements-for-overthinking' },
         ]}
       />
 

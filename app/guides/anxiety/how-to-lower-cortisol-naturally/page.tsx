@@ -9,18 +9,18 @@ import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 
-const PAGE_URL = `${SITE_URL}/guides/how-to-lower-cortisol-naturally`
+const PAGE_URL = `${SITE_URL}/guides/anxiety/how-to-lower-cortisol-naturally`
 
 export const metadata: Metadata = {
   title: 'How to Lower Cortisol Naturally — Evidence-Based Guide',
   description:
     'A practical, evidence-based guide to lowering cortisol naturally: how the stress hormone works, the lifestyle levers that move it most, and the herbs — ashwagandha, rhodiola, holy basil, magnesium — with the best support.',
-  alternates: { canonical: '/guides/how-to-lower-cortisol-naturally/' },
+  alternates: { canonical: '/guides/anxiety/how-to-lower-cortisol-naturally/' },
   openGraph: {
     title: 'How to Lower Cortisol Naturally — Evidence-Based Guide',
     description:
       'How to lower cortisol naturally — the lifestyle levers that matter most plus the best-supported adaptogenic herbs, with dosing context and safety.',
-    url: '/guides/how-to-lower-cortisol-naturally/',
+    url: '/guides/anxiety/how-to-lower-cortisol-naturally/',
     type: 'article',
     images: ['/og-default.jpg'],
   },
@@ -73,7 +73,7 @@ export default function Page() {
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides' },
-          { label: 'How to Lower Cortisol Naturally', href: '/guides/how-to-lower-cortisol-naturally' },
+          { label: 'How to Lower Cortisol Naturally', href: '/guides/anxiety/how-to-lower-cortisol-naturally' },
         ]}
       />
 
