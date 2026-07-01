@@ -34,12 +34,22 @@ import { execSync } from 'child_process'
 import { performance } from 'perf_hooks'
 import { fileURLToPath } from 'url'
 import path from 'path'
+import globPkg from 'glob'
 import { CacheManager } from './cache/build-cache-manager.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const { glob } = globPkg
 
 const cache = new CacheManager()
 const startTime = performance.now()
+
+async function outputPatternsPresent(patterns = []) {
+  for (const pattern of patterns) {
+    const matches = await glob(path.join(process.cwd(), pattern), { absolute: true, nodir: false })
+    if (matches.length === 0) return false
+  }
+  return true
+}
 
 const steps = [
   {
@@ -167,10 +177,14 @@ for (const step of steps) {
 
     if (shouldSkip) {
       const cachedResult = await cache.shouldRunStep(step.name, step.inputs || [])
-      if (!cachedResult) {
+      const outputsPresent = await outputPatternsPresent(step.outputs || [])
+      if (!cachedResult && outputsPresent) {
         console.log(`[CACHED] ${((performance.now() - stepStart) / 1000).toFixed(2)}s`)
         executed.push({ ...step, cached: true, duration: 0 })
         continue
+      }
+      if (!cachedResult && !outputsPresent) {
+        console.log('[CACHE OUTPUTS MISSING]')
       }
     }
 
