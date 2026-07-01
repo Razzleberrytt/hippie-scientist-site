@@ -435,9 +435,7 @@ function read(workbook, candidates, optional = false) {
 
 function profile(row, type, taxonomy) {
   const allowed = type === 'herb' ? HERB_RUNTIME_FIELDS : COMPOUND_RUNTIME_FIELDS
-  const runtimeSafety = type === 'herb'
-    ? compact(first(row, ['runtime_safety', 'runtime safety']))
-    : ''
+  const runtimeSafety = compact(first(row, ['runtime_safety', 'runtime safety']))
   const rawMechanisms = uniqueList([
     first(row, ['mechanisms', 'mechanism_of_action', 'mechanism of action', 'mechanism_summary']),
     first(row, ['mechanism', 'primary_mechanisms', 'primary mechanisms', 'canonical_pathways']),

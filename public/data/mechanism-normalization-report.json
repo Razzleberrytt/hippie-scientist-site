@@ -1,10 +1,10 @@
 {
   "reportVersion": 1,
   "canonicalMechanisms": 53,
-  "records": 847,
+  "records": 855,
   "fullyMappedRecords": 91,
   "partiallyMappedRecords": 702,
-  "unmappedRecords": 54,
+  "unmappedRecords": 62,
   "noRawMechanismRecords": 0,
   "unmappedMechanisms": [
     {
@@ -108,6 +108,30 @@
       "count": 3
     },
     {
+      "term": "Angiogenesis",
+      "count": 2
+    },
+    {
+      "term": "Central Appetite Regulation",
+      "count": 2
+    },
+    {
+      "term": "Glucose-Dependent Insulin Secretion",
+      "count": 2
+    },
+    {
+      "term": "Growth hormone axis",
+      "count": 2
+    },
+    {
+      "term": "IGF-1 signaling",
+      "count": 2
+    },
+    {
+      "term": "Incretin signaling",
+      "count": 2
+    },
+    {
       "term": "traditional cycle support",
       "count": 2
     },
@@ -125,6 +149,10 @@
     },
     {
       "term": "Acidifies gastric contents",
+      "count": 1
+    },
+    {
+      "term": "Actin (G-actin) Binding",
       "count": 1
     },
     {
@@ -152,7 +180,23 @@
       "count": 1
     },
     {
+      "term": "Angiogenesis Promotion (VEGFR2 Upregulation)",
+      "count": 1
+    },
+    {
+      "term": "Angiogenesis Support",
+      "count": 1
+    },
+    {
       "term": "anthraquinone-related laxative effects (traditional/preclinical)",
+      "count": 1
+    },
+    {
+      "term": "Anti-Fibrotic Signaling",
+      "count": 1
+    },
+    {
+      "term": "Anti-Inflammatory Cytokine Modulation",
       "count": 1
     },
     {
@@ -161,6 +205,14 @@
     },
     {
       "term": "antimicrobial/cytotoxic effects (preclinical)",
+      "count": 1
+    },
+    {
+      "term": "Antioxidant and Anti-Inflammatory Activity",
+      "count": 1
+    },
+    {
+      "term": "Antioxidant defense",
       "count": 1
     },
     {
@@ -200,7 +252,23 @@
       "count": 1
     },
     {
+      "term": "Cell migration",
+      "count": 1
+    },
+    {
+      "term": "Cell Migration Promotion",
+      "count": 1
+    },
+    {
       "term": "cellular hydration regulation",
+      "count": 1
+    },
+    {
+      "term": "Central melanocortin signaling",
+      "count": 1
+    },
+    {
+      "term": "Central Nervous System Arousal Pathway Activation",
       "count": 1
     },
     {
@@ -212,11 +280,35 @@
       "count": 1
     },
     {
+      "term": "Collagen and elastin remodeling",
+      "count": 1
+    },
+    {
+      "term": "Collagen and Elastin Synthesis Stimulation",
+      "count": 1
+    },
+    {
+      "term": "Copper Cofactor Delivery (Lysyl Oxidase and Superoxide Dismutase)",
+      "count": 1
+    },
+    {
       "term": "core body temperature reduction",
       "count": 1
     },
     {
+      "term": "DAC Albumin-Binding Half-Life Extension",
+      "count": 1
+    },
+    {
       "term": "demulcent support",
+      "count": 1
+    },
+    {
+      "term": "Downstream IGF-1 Elevation",
+      "count": 1
+    },
+    {
+      "term": "Dual GIP and GLP-1 Receptor Agonism",
       "count": 1
     },
     {
@@ -225,6 +317,10 @@
     },
     {
       "term": "FAAH degradation",
+      "count": 1
+    },
+    {
+      "term": "FAK-Paxillin Growth Factor Signaling",
       "count": 1
     },
     {
@@ -237,6 +333,22 @@
     },
     {
       "term": "flavonoid-related effects",
+      "count": 1
+    },
+    {
+      "term": "Ghrelin Receptor (GHS-R1a) Agonism",
+      "count": 1
+    },
+    {
+      "term": "GHRH Receptor Agonism",
+      "count": 1
+    },
+    {
+      "term": "GLP-1 Receptor Agonism",
+      "count": 1
+    },
+    {
+      "term": "Glucagon Suppression",
       "count": 1
     },
     {
@@ -292,6 +404,10 @@
       "count": 1
     },
     {
+      "term": "Melanocortin Receptor (MC3R/MC4R) Agonism",
+      "count": 1
+    },
+    {
       "term": "methionine synthase cofactor",
       "count": 1
     },
@@ -305,6 +421,10 @@
     },
     {
       "term": "mild choleretic/diuretic effects (preclinical/traditional)",
+      "count": 1
+    },
+    {
+      "term": "Minimal Cortisol/Prolactin Cross-Reactivity",
       "count": 1
     },
     {
@@ -333,6 +453,10 @@
     },
     {
       "term": "neuromuscular",
+      "count": 1
+    },
+    {
+      "term": "Nitric Oxide Pathway Modulation",
       "count": 1
     },
     {
@@ -380,6 +504,10 @@
       "count": 1
     },
     {
+      "term": "Selective Pulsatile GH Release",
+      "count": 1
+    },
+    {
       "term": "silica provision",
       "count": 1
     },
@@ -404,6 +532,10 @@
       "count": 1
     },
     {
+      "term": "Tissue repair signaling",
+      "count": 1
+    },
+    {
       "term": "TRPM8 receptor activation",
       "count": 1
     },
@@ -421,6 +553,10 @@
     },
     {
       "term": "weak CB1/CB2 interaction",
+      "count": 1
+    },
+    {
+      "term": "Wound-Healing Angiogenesis Support",
       "count": 1
     }
   ]

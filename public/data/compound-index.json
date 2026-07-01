@@ -2804,6 +2804,44 @@
     ]
   },
   {
+    "slug": "bpc-157",
+    "name": "BPC-157",
+    "summary": "BPC-157 is a synthetic 15-amino-acid peptide studied mainly in animal models for gut healing, tendon and ligament repair, and inflammation modulation; human clinical trial data is essentially absent and its FDA compounding status is unresolved pending a July 2026 PCAC review.",
+    "primary_effects": [
+      "Angiogenesis Promotion (VEGFR2 Upregulation)",
+      "Nitric Oxide Pathway Modulation",
+      "FAK-Paxillin Growth Factor Signaling",
+      "Anti-Inflammatory Cytokine Modulation"
+    ],
+    "effects": [
+      "Angiogenesis Promotion (VEGFR2 Upregulation)",
+      "Nitric Oxide Pathway Modulation",
+      "FAK-Paxillin Growth Factor Signaling",
+      "Anti-Inflammatory Cytokine Modulation"
+    ],
+    "evidence_grade": "preliminary",
+    "evidence_tier": "Mechanistic Evidence",
+    "profile_status": "commercial_ready",
+    "runtime_export_decision": "full_public_runtime",
+    "affiliate_ready": false,
+    "visibility_tier": "public",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
+    "indexability_reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  {
     "slug": "bromelain",
     "name": "Bromelain",
     "summary": "Decision-ready summary: Bromelain is best framed for sinus inflammation context; post-exercise soreness context; protein digestion support; safety screen: pineapple allergy; anticoagulants; planned surgery.",
@@ -3989,6 +4027,42 @@
     "indexability_score": 0,
     "indexability_reasons": [
       "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  {
+    "slug": "cjc-1295",
+    "name": "CJC-1295",
+    "summary": "CJC-1295 is a synthetic growth hormone releasing hormone (GHRH) analog engineered for a longer half-life than natural GHRH, commonly combined with Ipamorelin in gray-market protocols; its GH/IGF-1 mechanism has early pharmaceutical-development data behind it, but no FDA approval and an uncertain compounding pathway.",
+    "primary_effects": [
+      "GHRH Receptor Agonism",
+      "DAC Albumin-Binding Half-Life Extension",
+      "Downstream IGF-1 Elevation"
+    ],
+    "effects": [
+      "GHRH Receptor Agonism",
+      "DAC Albumin-Binding Half-Life Extension",
+      "Downstream IGF-1 Elevation"
+    ],
+    "evidence_grade": "preliminary",
+    "evidence_tier": "Mechanistic Evidence",
+    "profile_status": "commercial_ready",
+    "runtime_export_decision": "full_public_runtime",
+    "affiliate_ready": false,
+    "visibility_tier": "public",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
+    "indexability_reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
     ]
   },
   {
@@ -7058,6 +7132,44 @@
     ]
   },
   {
+    "slug": "ghk-cu",
+    "name": "GHK-Cu",
+    "summary": "GHK-Cu is a naturally occurring copper-binding tripeptide with a genuinely well-supported topical cosmetic evidence base — including human RCTs for skin firmness, fine lines, and wound healing — plus a separate, much less-evidenced injectable/RUO research-peptide use.",
+    "primary_effects": [
+      "Copper Cofactor Delivery (Lysyl Oxidase and Superoxide Dismutase)",
+      "Collagen and Elastin Synthesis Stimulation",
+      "Antioxidant and Anti-Inflammatory Activity",
+      "Wound-Healing Angiogenesis Support"
+    ],
+    "effects": [
+      "Copper Cofactor Delivery (Lysyl Oxidase and Superoxide Dismutase)",
+      "Collagen and Elastin Synthesis Stimulation",
+      "Antioxidant and Anti-Inflammatory Activity",
+      "Wound-Healing Angiogenesis Support"
+    ],
+    "evidence_grade": "b",
+    "evidence_tier": "Moderate Human Evidence",
+    "profile_status": "commercial_ready",
+    "runtime_export_decision": "full_public_runtime",
+    "affiliate_ready": false,
+    "visibility_tier": "public",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
+    "indexability_reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  {
     "slug": "gingerol",
     "name": "gingerol",
     "summary": "gingerol is tracked for Inhibits COX-2 and reduces prostaglandin synthesis with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
@@ -8740,6 +8852,42 @@
     "indexability_score": 0,
     "indexability_reasons": [
       "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  {
+    "slug": "ipamorelin",
+    "name": "Ipamorelin",
+    "summary": "Ipamorelin is a selective ghrelin-receptor agonist (growth hormone secretagogue) with more human clinical data than most peptides in this class, showing reliable dose-dependent GH release with minimal cortisol/prolactin cross-reactivity; downstream body-composition and sleep claims are more extrapolated than proven.",
+    "primary_effects": [
+      "Ghrelin Receptor (GHS-R1a) Agonism",
+      "Selective Pulsatile GH Release",
+      "Minimal Cortisol/Prolactin Cross-Reactivity"
+    ],
+    "effects": [
+      "Ghrelin Receptor (GHS-R1a) Agonism",
+      "Selective Pulsatile GH Release",
+      "Minimal Cortisol/Prolactin Cross-Reactivity"
+    ],
+    "evidence_grade": "moderate",
+    "evidence_tier": "Mechanistic Evidence",
+    "profile_status": "commercial_ready",
+    "runtime_export_decision": "full_public_runtime",
+    "affiliate_ready": false,
+    "visibility_tier": "public",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
+    "indexability_reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
     ]
   },
   {
@@ -13121,6 +13269,40 @@
     ]
   },
   {
+    "slug": "pt-141",
+    "name": "PT-141 (Bremelanotide)",
+    "summary": "PT-141 is the research-chemical name for bremelanotide, a melanocortin receptor agonist with an actual FDA-approved product (Vyleesi) for hypoactive sexual desire disorder in premenopausal women; most gray-market marketing (including to men, for erectile dysfunction) extends well beyond that narrow approved indication on much thinner evidence.",
+    "primary_effects": [
+      "Melanocortin Receptor (MC3R/MC4R) Agonism",
+      "Central Nervous System Arousal Pathway Activation"
+    ],
+    "effects": [
+      "Melanocortin Receptor (MC3R/MC4R) Agonism",
+      "Central Nervous System Arousal Pathway Activation"
+    ],
+    "evidence_grade": "moderate",
+    "evidence_tier": "Moderate Human Evidence",
+    "profile_status": "commercial_ready",
+    "runtime_export_decision": "full_public_runtime",
+    "affiliate_ready": false,
+    "visibility_tier": "public",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
+    "indexability_reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  {
     "slug": "pterostilbene",
     "name": "pterostilbene",
     "summary": "Dimethylated stilbene associated with berry and grape sources and linked to AMPK and PPAR signaling.",
@@ -14142,6 +14324,44 @@
     ]
   },
   {
+    "slug": "semaglutide",
+    "name": "Semaglutide",
+    "summary": "Semaglutide is a GLP-1 receptor agonist, FDA-approved as Ozempic, Wegovy, and Rybelsus, backed by a large multi-trial Phase 3 program spanning weight management, type 2 diabetes, cardiovascular risk reduction, and kidney outcomes — a categorically stronger evidence tier than the RUO peptides elsewhere in this series.",
+    "primary_effects": [
+      "GLP-1 Receptor Agonism",
+      "Glucose-Dependent Insulin Secretion",
+      "Glucagon Suppression",
+      "Central Appetite Regulation"
+    ],
+    "effects": [
+      "GLP-1 Receptor Agonism",
+      "Glucose-Dependent Insulin Secretion",
+      "Glucagon Suppression",
+      "Central Appetite Regulation"
+    ],
+    "evidence_grade": "a",
+    "evidence_tier": "Strong Human Evidence",
+    "profile_status": "commercial_ready",
+    "runtime_export_decision": "full_public_runtime",
+    "affiliate_ready": false,
+    "visibility_tier": "public",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
+    "indexability_reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  {
     "slug": "senkyunolide-a",
     "name": "senkyunolide a",
     "summary": "Phthalide derivative commonly reported from chuanxiong and Angelica with MAPK and ion-channel-linked activity.",
@@ -14868,6 +15088,44 @@
     ]
   },
   {
+    "slug": "tb-500",
+    "name": "TB-500",
+    "summary": "TB-500 is a synthetic fragment of thymosin beta-4 marketed for muscle recovery and connective-tissue repair; the underlying Tβ4 biology has real scientific grounding, but the synthetic fragment sold as TB-500 has thin direct human evidence and an unresolved FDA compounding status pending July 2026 PCAC review.",
+    "primary_effects": [
+      "Actin (G-actin) Binding",
+      "Cell Migration Promotion",
+      "Angiogenesis Support",
+      "Anti-Fibrotic Signaling"
+    ],
+    "effects": [
+      "Actin (G-actin) Binding",
+      "Cell Migration Promotion",
+      "Angiogenesis Support",
+      "Anti-Fibrotic Signaling"
+    ],
+    "evidence_grade": "preliminary",
+    "evidence_tier": "Mechanistic Evidence",
+    "profile_status": "commercial_ready",
+    "runtime_export_decision": "full_public_runtime",
+    "affiliate_ready": false,
+    "visibility_tier": "public",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
+    "indexability_reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
+    ]
+  },
+  {
     "slug": "testosterone-boosters-generic",
     "name": "Testosterone Boosters Generic",
     "summary": "Generic testosterone-booster blends should not be treated as evidence-based; claims must be evaluated ingredient by ingredient, and many products have unsupported claims or dosing below evidence-based levels.",
@@ -15187,6 +15445,42 @@
     "indexability_score": 0,
     "indexability_reasons": [
       "noindex-decision:hidden_until_grounded"
+    ]
+  },
+  {
+    "slug": "tirzepatide",
+    "name": "Tirzepatide",
+    "summary": "Tirzepatide is a dual GIP/GLP-1 receptor agonist, FDA-approved as Mounjaro and Zepbound, showing the largest average weight-loss effect of any approved obesity drug to date (up to ~22.5% body weight at 72 weeks in SURMOUNT-1) and superior HbA1c reduction versus semaglutide in a head-to-head trial.",
+    "primary_effects": [
+      "Dual GIP and GLP-1 Receptor Agonism",
+      "Glucose-Dependent Insulin Secretion",
+      "Central Appetite Regulation"
+    ],
+    "effects": [
+      "Dual GIP and GLP-1 Receptor Agonism",
+      "Glucose-Dependent Insulin Secretion",
+      "Central Appetite Regulation"
+    ],
+    "evidence_grade": "a",
+    "evidence_tier": "Strong Human Evidence",
+    "profile_status": "commercial_ready",
+    "runtime_export_decision": "full_public_runtime",
+    "affiliate_ready": false,
+    "visibility_tier": "public",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
+    "indexability_reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
     ]
   },
   {

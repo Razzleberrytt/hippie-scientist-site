@@ -102,6 +102,24 @@ function writeJson(filePath, value) {
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`)
 }
 
+// Compounds with real, editorially-reviewed content but a genuinely evolving legal/
+// regulatory situation (unapproved research peptides, off-label-marketed prescription
+// drugs). These don't fit either generic bucket: they aren't scheduled/controlled
+// substances (RESTRICTED_SLUGS) and forcing them through the curated-allowlist bypass
+// would incorrectly flip requiresHumanReview to false for content whose FDA status is
+// still an open question (e.g. the July 2026 PCAC review). Governance objects here are
+// hand-reviewed per compound rather than derived from the generic source-count heuristic.
+const MANUAL_GOVERNANCE_OVERRIDES = new Map([
+  ['bpc-157', { reviewStatus: 'needs_review', legalRisk: 'elevated', medicalRisk: 'moderate', monetizationAllowed: false, indexingAllowed: true, recommendationAllowed: false, requiresHumanReview: true, reason: 'unapproved_ruo_compound_pending_fda_review' }],
+  ['tb-500', { reviewStatus: 'needs_review', legalRisk: 'elevated', medicalRisk: 'moderate', monetizationAllowed: false, indexingAllowed: true, recommendationAllowed: false, requiresHumanReview: true, reason: 'unapproved_ruo_compound_pending_fda_review' }],
+  ['cjc-1295', { reviewStatus: 'needs_review', legalRisk: 'elevated', medicalRisk: 'moderate', monetizationAllowed: false, indexingAllowed: true, recommendationAllowed: false, requiresHumanReview: true, reason: 'unapproved_ruo_compound_pending_fda_review' }],
+  ['ipamorelin', { reviewStatus: 'needs_review', legalRisk: 'elevated', medicalRisk: 'moderate', monetizationAllowed: false, indexingAllowed: true, recommendationAllowed: false, requiresHumanReview: true, reason: 'unapproved_ruo_compound_pending_fda_review' }],
+  ['pt-141', { reviewStatus: 'needs_review', legalRisk: 'elevated', medicalRisk: 'moderate', monetizationAllowed: false, indexingAllowed: true, recommendationAllowed: false, requiresHumanReview: true, reason: 'unapproved_ruo_compound_pending_fda_review' }],
+  ['semaglutide', { reviewStatus: 'needs_review', legalRisk: 'low', medicalRisk: 'moderate', monetizationAllowed: false, indexingAllowed: true, recommendationAllowed: false, requiresHumanReview: true, reason: 'prescription_only_no_consumer_affiliate' }],
+  ['tirzepatide', { reviewStatus: 'needs_review', legalRisk: 'low', medicalRisk: 'moderate', monetizationAllowed: false, indexingAllowed: true, recommendationAllowed: false, requiresHumanReview: true, reason: 'prescription_only_no_consumer_affiliate' }],
+  ['ghk-cu', { reviewStatus: 'needs_review', legalRisk: 'none', medicalRisk: 'low', monetizationAllowed: true, indexingAllowed: true, recommendationAllowed: false, requiresHumanReview: true, reason: 'topical_cosmetic_pending_product_sourcing' }],
+])
+
 function listJsonFiles(dirPath) {
   if (!fs.existsSync(dirPath)) return []
   return fs.readdirSync(dirPath).filter((name) => name.endsWith('.json'))
@@ -253,16 +271,21 @@ function processKind(kind, listFile, detailDirName, report) {
     const isCuratedHerb = kind === 'herbs' && CURATED_HERB_SLUGS.has(slug) && !RESTRICTED_SLUGS.has(slug)
     const isCuratedCompound = kind === 'compounds' && CURATED_COMPOUND_SLUGS.has(slug) && !RESTRICTED_SLUGS.has(slug)
     const isCurated = isCuratedHerb || isCuratedCompound
+    const manualOverride = kind === 'compounds' ? MANUAL_GOVERNANCE_OVERRIDES.get(slug) : undefined
     const hasSources = (detailEntry && hasRealSources(detailEntry.record)) || hasRealSources(record) || isCurated
     const baseIndexable = isBaseIndexable(record) || isCurated
     const existingReasons = Array.isArray(record.indexability_reasons) ? record.indexability_reasons : []
     // Stable across re-runs: a record we previously downgraded still counts as "meant to
     // be indexable" even though its status is now NEEDS_REVIEW.
     const wasIndexable = baseIndexable || existingReasons.includes(DOWNGRADE_REASON)
-    const governance = buildGovernance({ slug, record, hasSources, baseIndexable, wasIndexable })
+    const governance = manualOverride || buildGovernance({ slug, record, hasSources, baseIndexable, wasIndexable })
 
     // 3. Enforce indexability consequences on the flat list record.
-    if (RESTRICTED_SLUGS.has(slug)) {
+    if (manualOverride) {
+      // Hand-reviewed compound: keep it indexed regardless of the record-level
+      // sources heuristic (its evidence is captured in the detail narrative, not a
+      // PMID bibliography). See MANUAL_GOVERNANCE_OVERRIDES above.
+    } else if (RESTRICTED_SLUGS.has(slug)) {
       applyIndexabilityState(record, 'BLOCKED')
       if (!record.indexability_reasons.includes('restricted_or_high_risk_compound')) {
         record.indexability_reasons.push('restricted_or_high_risk_compound')
@@ -278,7 +301,14 @@ function processKind(kind, listFile, detailDirName, report) {
 
     record.governance = governance
 
-    if (isCurated) {
+    if (manualOverride) {
+      record.indexability_status = 'PUBLISH'
+      record.robots = 'index,follow'
+      record.sitemap_included = true
+      if (!record.indexability_reasons.includes('manual_editorial_review')) {
+        record.indexability_reasons.push('manual_editorial_review')
+      }
+    } else if (isCurated) {
       record.indexability_status = 'PUBLISH'
       record.robots = 'index,follow'
       record.sitemap_included = true
@@ -304,10 +334,15 @@ function processKind(kind, listFile, detailDirName, report) {
       // sources by editorial, never machine-fabricated.
       if (!Array.isArray(detailEntry.record.claimMap)) detailEntry.record.claimMap = []
       // Mirror indexability decisions onto the detail record for runtime robots.
-      if (RESTRICTED_SLUGS.has(slug)) applyIndexabilityState(detailEntry.record, 'BLOCKED')
-      else if (wasIndexable && !hasSources && !isCurated) applyIndexabilityState(detailEntry.record, 'NEEDS_REVIEW')
+      if (manualOverride) {
+        // Keep indexed — see manualOverride handling on the flat record above.
+      } else if (RESTRICTED_SLUGS.has(slug)) {
+        applyIndexabilityState(detailEntry.record, 'BLOCKED')
+      } else if (wasIndexable && !hasSources && !isCurated) {
+        applyIndexabilityState(detailEntry.record, 'NEEDS_REVIEW')
+      }
 
-      if (isCurated) {
+      if (manualOverride || isCurated) {
         detailEntry.record.indexability_status = 'PUBLISH'
         detailEntry.record.robots = 'index,follow'
         detailEntry.record.sitemap_included = true
