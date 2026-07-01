@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import JsonLd from '@/components/seo/JsonLd'
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, compactMetaTitle } from '../../../../src/lib/seo'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
@@ -78,19 +79,10 @@ export default function AshwagandhaForAnxietyPage() {
   return (
     <>
       {/* JSON-LD Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageBreadcrumb) }}
-      />
+      <JsonLd schema={articleLd} />
+      <JsonLd schema={pageBreadcrumb} />
       {faqLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
-        />
+        <JsonLd schema={faqLd} />
       )}
 
       <div className="max-w-4xl mx-auto px-4 py-8">

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import JsonLd from '@/components/seo/JsonLd'
 import { buildPageMetadata, faqPageJsonLd, breadcrumbJsonLd, SITE_URL } from '../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -72,8 +73,8 @@ export default function FaqPage() {
         </h1>
 
         {/* Reusable Schema.org JSON-LD for FAQPage + BreadcrumbList (static export safe) */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+        <JsonLd schema={faqLd} />
+        <JsonLd schema={breadcrumbLd} />
 
         <p className='mt-4 max-w-3xl text-base leading-7 text-ink/80 sm:text-lg'>
           Quick answers about what The Hippie Scientist is, how to use it, and

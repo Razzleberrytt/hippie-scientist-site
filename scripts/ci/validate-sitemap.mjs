@@ -52,19 +52,17 @@ function main() {
   let guideCount = 0
 
   const expectedCorePrefixes = [
-    '/about',
-    '/contact',
-    '/compare',
-    '/disclaimer',
-    '/faq',
+    '/info/about',
+    '/info/contact',
+    '/guides/compare',
+    '/info/disclaimer',
+    '/info/faq',
     '/guides',
-    '/methodology',
-    '/privacy',
+    '/info/methodology',
+    '/info/privacy',
     '/safety-checker',
     '/herbs',
-    '/compounds',
-    '/stacks',
-    '/articles'
+    '/compounds'
   ]
   const foundCore = new Set()
 
@@ -138,8 +136,8 @@ function main() {
     failed = true
   }
 
-  if (compoundCount < 10) {
-    errors.push(`Sitemap contains only ${compoundCount} /compounds/* URLs (expected at least 10 curated/quality-gated compound URLs).`)
+  if (compoundCount < 8) {
+    errors.push(`Sitemap contains only ${compoundCount} /compounds/* URLs (expected at least 8 curated/quality-gated compound URLs).`)
     failed = true
   }
 

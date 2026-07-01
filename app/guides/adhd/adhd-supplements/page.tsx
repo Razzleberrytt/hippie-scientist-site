@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import JsonLd from '@/components/seo/JsonLd'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import { focusAdhdArticles } from '@/lib/focus-adhd-articles'
 import { AdhdInlineCta } from '@/components/articles/AdhdMonetizationWidgets'
@@ -131,14 +132,8 @@ export default function AdhdSupplementsHub() {
   return (
     <ArticleLayout toc={toc} zone="supplement">
     <div className="space-y-10">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd schema={collectionSchema} />
+      <JsonLd schema={faqSchema} />
 
       {/* Hero Header */}
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 sm:p-10 shadow-sm">

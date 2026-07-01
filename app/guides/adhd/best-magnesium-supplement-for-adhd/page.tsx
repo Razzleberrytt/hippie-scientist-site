@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import JsonLd from '@/components/seo/JsonLd'
 import type { Metadata } from 'next'
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, compactMetaTitle } from '../../../../src/lib/seo'
 import LastUpdatedBadge from '../../../../src/components/editorial/LastUpdatedBadge'
@@ -88,9 +89,9 @@ export default function BestMagnesiumForAdhdPage() {
 
   return (
     <article className="mx-auto max-w-5xl space-y-0 px-4 pb-20 pt-6 sm:px-6 lg:px-8">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
-      {faqLd && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />}
+      <JsonLd schema={articleLd} />
+      <JsonLd schema={breadcrumbLd} />
+      {faqLd && <JsonLd schema={faqLd} />}
 
       <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
         <Link href="/guides/" className="transition hover:text-ink">Articles</Link>

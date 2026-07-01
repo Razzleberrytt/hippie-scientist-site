@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import JsonLd from '@/components/seo/JsonLd'
 import {
   buildPageMetadata,
   blogJsonLd,
@@ -71,27 +72,12 @@ export default function AnxietyStackGuidePage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(blogJsonLd(post, `/articles/${slug}`))
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbJsonLd(breadcrumbs))
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqPageJsonLd({
+      <JsonLd schema={blogJsonLd(post, `/articles/${slug}`)} />
+      <JsonLd schema={breadcrumbJsonLd(breadcrumbs)} />
+      <JsonLd schema={faqPageJsonLd({
             pagePath: `/articles/${slug}`,
             questions: faqItems,
-          }))
-        }}
-      />
+          })} />
 
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="mb-8">

@@ -2,7 +2,7 @@
 import fs from 'node:fs';import path from 'node:path'
 import fsPromises from 'node:fs/promises'
 const root=process.cwd(), outDir=path.join(root,'out'); if(!fs.existsSync(outDir)){console.log('[audit-structured-data] SKIP: out/ not found. Run npm run build first.');process.exit(0)}
-const families=[['herbs','/herbs/'],['compounds','/compounds/'],['articles','/articles/'],['legacy-blog','/blog/'],['taxonomy','/blog/tags/'],['archives','/blog/categories/'],['homepage','/'],['ecosystem','/ecosystems/'],['protocols','/protocols/']]
+const families=[['herbs','/herbs/'],['compounds','/compounds/'],['guides','/guides/'],['learn','/learn/'],['info','/info/'],['legacy-blog','/blog/'],['homepage','/']]
 const required=['MedicalWebPage','Article','BlogPosting','BreadcrumbList','FAQPage','Organization','WebSite']
 const FULL_HTML_AUDIT = process.env.FULL_HTML_AUDIT === '1' || process.env.CI === 'true';
 let files=[]; const walk=d=>{for(const e of fs.readdirSync(d,{withFileTypes:true})){if(e.name==='_next') continue; const f=path.join(d,e.name);if(e.isDirectory())walk(f);else if(e.name.endsWith('.html'))files.push(f)}};walk(outDir)
@@ -10,16 +10,15 @@ let files=[]; const walk=d=>{for(const e of fs.readdirSync(d,{withFileTypes:true
 if (!FULL_HTML_AUDIT) {
   const criticalSubpaths = [
     '/index.html',
-    '/faq/index.html',
+    '/info/faq/index.html',
     '/herbs/index.html',
     '/compounds/index.html',
-    '/articles/index.html',
     '/guides/index.html',
     '/herbs/ashwagandha/index.html',
     '/compounds/l-theanine/index.html',
-    '/articles/best-supplements-for-adhd/index.html',
-    '/articles/adhd-stack-guide/index.html',
-    '/articles/2c-b-effects/index.html'
+    '/guides/adhd/adhd-supplements/index.html',
+    '/guides/anxiety/anxiety-stack-guide/index.html',
+    '/guides/other/healthy-dipping-tobacco-alternatives/index.html'
   ];
   files = files.filter(f => {
     const rel = '/' + path.relative(outDir, f).replace(/\\/g, '/');
@@ -44,8 +43,8 @@ const currentCompoundSlugs = new Set(
 const repChecks = [
   { route: '/herbs/ashwagandha', types: ['MedicalWebPage', 'BreadcrumbList'] },
   { route: '/compounds/l-theanine', types: ['MedicalWebPage', 'BreadcrumbList'] },
-  { route: '/articles/2c-b-effects', types: ['BlogPosting', 'BreadcrumbList', 'Article'] },
-  { route: '/faq', types: ['FAQPage', 'BreadcrumbList'] },
+  { route: '/guides/other/healthy-dipping-tobacco-alternatives', types: ['MedicalWebPage', 'BreadcrumbList', 'Article', 'FAQPage'] },
+  { route: '/info/faq', types: ['FAQPage', 'BreadcrumbList'] },
   { route: '/', types: ['WebSite', 'Organization'] },
 ]
 

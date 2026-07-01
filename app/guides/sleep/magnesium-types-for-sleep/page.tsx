@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import JsonLd from '@/components/seo/JsonLd'
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '../../../../src/lib/seo'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
@@ -82,19 +83,10 @@ export default function MagnesiumTypesForSleepPage() {
   return (
     <article className="mx-auto max-w-5xl space-y-0 px-4 pb-20 pt-6 sm:px-6 lg:px-8">
       {/* JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageBreadcrumb) }}
-      />
+      <JsonLd schema={articleLd} />
+      <JsonLd schema={pageBreadcrumb} />
       {faqLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
-        />
+        <JsonLd schema={faqLd} />
       )}
 
       {/* Breadcrumb */}
@@ -1110,8 +1102,8 @@ export default function MagnesiumTypesForSleepPage() {
                 ['#threonate', 'Threonate'],
                 ['#citrate', 'Citrate'],
                 ['#oxide', 'Oxide'],
-                ['#malate-taurate', 'Malate &amp; Taurate'],
-                ['#dosage-label-reading', 'Dosage &amp; Labels'],
+                ['#malate-taurate', 'Malate & Taurate'],
+                ['#dosage-label-reading', 'Dosage & Labels'],
                 ['#safety', 'Safety'],
                 ['#which-type', 'Which to Buy'],
                 ['#faq', 'FAQ'],
@@ -1120,9 +1112,7 @@ export default function MagnesiumTypesForSleepPage() {
                 <a
                   key={href}
                   href={href}
-                  className="block text-sm text-brand-700 hover:text-brand-800 hover:underline"
-                  dangerouslySetInnerHTML={{ __html: label }}
-                />
+                  className="block text-sm text-brand-700 hover:text-brand-800 hover:underline">{label}</a>
               ))}
             </nav>
           </div>
