@@ -1,0 +1,44 @@
+{
+  "id": "pt-141",
+  "slug": "pt-141",
+  "name": "PT-141 (Bremelanotide)",
+  "summary": "PT-141 is the research-chemical name for bremelanotide, a melanocortin receptor agonist with an actual FDA-approved product (Vyleesi) for hypoactive sexual desire disorder in premenopausal women; most gray-market marketing (including to men, for erectile dysfunction) extends well beyond that narrow approved indication on much thinner evidence.",
+  "description": "PT-141 is the research/gray-market name for bremelanotide, a melanocortin receptor (MC3R/MC4R) agonist that acts on central nervous system arousal pathways rather than the peripheral vascular mechanism used by PDE5 inhibitors like sildenafil. Bremelanotide is FDA-approved as Vyleesi for hypoactive sexual desire disorder (HSDD) in premenopausal women, based on Phase 3 trials showing modest but statistically significant improvements in desire. Earlier-phase trials explored it for male erectile dysfunction with mixed results; that use case was not the basis for approval and off-label/RUO marketing for it is not backed by the same trial data.",
+  "compoundClass": "Melanocortin receptor agonist peptide",
+  "mechanisms": [
+    "Melanocortin Receptor (MC3R/MC4R) Agonism",
+    "Central Nervous System Arousal Pathway Activation"
+  ],
+  "targets": [
+    "MC3R",
+    "MC4R"
+  ],
+  "pathways": [
+    "Central melanocortin signaling"
+  ],
+  "foundIn": [],
+  "bioavailability": "Subcutaneous injection (Vyleesi auto-injector for the FDA-approved indication); RUO product is typically self-injected subcutaneously.",
+  "safetyNotes": "Can transiently raise blood pressure (monitor with cardiovascular risk factors); nausea is common; repeated use can cause focal skin/mucosal hyperpigmentation. Off-label uses are far less evidenced than the approved HSDD indication.",
+  "evidenceLevel": "moderate",
+  "relatedCompounds": [],
+  "governance": {
+    "reviewStatus": "needs_review",
+    "legalRisk": "elevated",
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
+    "indexingAllowed": true,
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "unapproved_ruo_compound_pending_fda_review"
+  },
+  "evidence": {
+    "reviewStatus": "needs_review",
+    "sourceCount": 0,
+    "sourceIds": []
+  },
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": []
+}

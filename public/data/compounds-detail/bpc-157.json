@@ -1,0 +1,52 @@
+{
+  "id": "bpc-157",
+  "slug": "bpc-157",
+  "name": "BPC-157",
+  "summary": "BPC-157 is a synthetic 15-amino-acid peptide studied mainly in animal models for gut healing, tendon and ligament repair, and inflammation modulation; human clinical trial data is essentially absent and its FDA compounding status is unresolved pending a July 2026 PCAC review.",
+  "description": "BPC-157 (Body Protection Compound-157) is a synthetic peptide derived from a partial sequence found in human gastric juice, widely discussed in the recovery and longevity space for tendon, ligament, and gut-lining repair. Preclinical rodent and in vitro studies point to angiogenesis promotion, nitric oxide pathway modulation, and anti-inflammatory signaling, but almost no controlled human trial data exists. It is not FDA-approved as a finished drug product; products sold online are labeled research use only (RUO) and are not legally intended for human consumption.",
+  "compoundClass": "Synthetic peptide (gastric-derived sequence)",
+  "mechanisms": [
+    "Angiogenesis Promotion (VEGFR2 Upregulation)",
+    "Nitric Oxide Pathway Modulation",
+    "FAK-Paxillin Growth Factor Signaling",
+    "Anti-Inflammatory Cytokine Modulation"
+  ],
+  "targets": [
+    "VEGFR2",
+    "Nitric oxide pathway",
+    "FAK-paxillin pathway"
+  ],
+  "pathways": [
+    "Angiogenesis",
+    "Tissue repair signaling"
+  ],
+  "foundIn": [
+    "Human gastric juice (parent sequence)"
+  ],
+  "bioavailability": "Reported via subcutaneous injection or oral capsule in RUO products; oral bioavailability of the intact peptide is not well characterized in humans.",
+  "safetyNotes": "No large-scale human safety data exists. RUO-sourced product purity and sterility are not independently verified. Physician oversight is strongly recommended rather than self-directed use.",
+  "evidenceLevel": "preliminary",
+  "relatedCompounds": [
+    "tb-500"
+  ],
+  "governance": {
+    "reviewStatus": "needs_review",
+    "legalRisk": "elevated",
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
+    "indexingAllowed": true,
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "unapproved_ruo_compound_pending_fda_review"
+  },
+  "evidence": {
+    "reviewStatus": "needs_review",
+    "sourceCount": 0,
+    "sourceIds": []
+  },
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": []
+}

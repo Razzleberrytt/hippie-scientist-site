@@ -1,0 +1,48 @@
+{
+  "id": "ghk-cu",
+  "slug": "ghk-cu",
+  "name": "GHK-Cu",
+  "summary": "GHK-Cu is a naturally occurring copper-binding tripeptide with a genuinely well-supported topical cosmetic evidence base — including human RCTs for skin firmness, fine lines, and wound healing — plus a separate, much less-evidenced injectable/RUO research-peptide use.",
+  "description": "GHK-Cu (glycyl-L-histidyl-L-lysine, bound to copper) is a naturally occurring copper-binding tripeptide found in human plasma, saliva, and urine, whose concentration declines with age. Unlike most peptides in this series, GHK-Cu has a legitimate, well-established topical cosmetic market: multiple human clinical trials of topical formulations report improvements in fine lines, skin firmness/elasticity, and photodamage markers versus vehicle/placebo. It works by delivering copper as a cofactor for enzymes involved in collagen/elastin crosslinking and antioxidant defense, and by promoting angiogenesis and extracellular matrix remodeling in wound-healing models. A separate injectable/RUO systemic form is also marketed in the research-peptide space for broader anti-aging and tissue-repair claims, but that use case has a much thinner human evidence trail than the topical cosmetic literature.",
+  "compoundClass": "Copper-binding tripeptide",
+  "mechanisms": [
+    "Copper Cofactor Delivery (Lysyl Oxidase, Superoxide Dismutase)",
+    "Collagen and Elastin Synthesis Stimulation",
+    "Antioxidant and Anti-Inflammatory Activity",
+    "Wound-Healing Angiogenesis Support"
+  ],
+  "targets": [
+    "Copper-dependent enzymes (lysyl oxidase, superoxide dismutase)"
+  ],
+  "pathways": [
+    "Collagen and elastin remodeling",
+    "Antioxidant defense"
+  ],
+  "foundIn": [
+    "Human plasma, saliva, and urine (naturally occurring, declines with age)"
+  ],
+  "bioavailability": "Topical application (serums, creams) for cosmetic use, with minimal systemic absorption. Injectable/RUO systemic use has a separate, less-characterized pharmacokinetic profile.",
+  "safetyNotes": "Topical use is well-tolerated with occasional mild irritation. Injectable/systemic use has far less human safety data and should involve physician oversight, particularly for anyone with a copper-metabolism condition such as Wilson's disease.",
+  "evidenceLevel": "moderate",
+  "relatedCompounds": [],
+  "governance": {
+    "reviewStatus": "needs_review",
+    "legalRisk": "none",
+    "medicalRisk": "low",
+    "monetizationAllowed": true,
+    "indexingAllowed": true,
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "topical_cosmetic_pending_product_sourcing"
+  },
+  "evidence": {
+    "reviewStatus": "needs_review",
+    "sourceCount": 0,
+    "sourceIds": []
+  },
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": []
+}

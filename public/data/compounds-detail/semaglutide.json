@@ -1,0 +1,50 @@
+{
+  "id": "semaglutide",
+  "slug": "semaglutide",
+  "name": "Semaglutide",
+  "summary": "Semaglutide is a GLP-1 receptor agonist, FDA-approved as Ozempic, Wegovy, and Rybelsus, backed by a large multi-trial Phase 3 program spanning weight management, type 2 diabetes, cardiovascular risk reduction, and kidney outcomes — a categorically stronger evidence tier than the RUO peptides elsewhere in this series.",
+  "description": "Semaglutide is a GLP-1 (glucagon-like peptide-1) receptor agonist, FDA-approved under the brand names Ozempic (type 2 diabetes) and Wegovy (chronic weight management), with an oral form marketed as Rybelsus. It mimics the gut incretin hormone GLP-1: stimulating glucose-dependent insulin secretion, suppressing glucagon, delaying gastric emptying, and acting centrally on hypothalamic/brainstem receptors to reduce hunger signaling. The pivotal STEP trial program showed roughly 15% average body weight loss over 68 weeks at the 2.4mg/week dose, and the SELECT trial demonstrated reduced major adverse cardiovascular events in adults with cardiovascular disease and overweight/obesity.",
+  "compoundClass": "GLP-1 receptor agonist (prescription drug)",
+  "mechanisms": [
+    "GLP-1 Receptor Agonism",
+    "Glucose-Dependent Insulin Secretion",
+    "Glucagon Suppression",
+    "Central Appetite Regulation"
+  ],
+  "targets": [
+    "GLP-1 receptor"
+  ],
+  "pathways": [
+    "Incretin signaling",
+    "Glucose-dependent insulin secretion"
+  ],
+  "foundIn": [
+    "Synthetic analog of endogenous GLP-1 gut hormone"
+  ],
+  "bioavailability": "Subcutaneous injection (Ozempic/Wegovy) or oral tablet (Rybelsus); long elimination half-life (~1 week) supports once-weekly injectable dosing.",
+  "safetyNotes": "Boxed warning for thyroid C-cell tumor risk (contraindicated with personal/family MTC or MEN2 history); common GI side effects during titration; not for use in pregnancy.",
+  "evidenceLevel": "strong",
+  "relatedCompounds": [
+    "tirzepatide"
+  ],
+  "governance": {
+    "reviewStatus": "needs_review",
+    "legalRisk": "low",
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
+    "indexingAllowed": true,
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "prescription_only_no_consumer_affiliate"
+  },
+  "evidence": {
+    "reviewStatus": "needs_review",
+    "sourceCount": 0,
+    "sourceIds": []
+  },
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": []
+}

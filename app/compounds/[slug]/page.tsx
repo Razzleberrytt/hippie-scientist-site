@@ -38,8 +38,8 @@ import EvidenceMeter from '@/components/ui/EvidenceMeter'
 import ProfileEvidenceLens from '@/components/ui/ProfileEvidenceLens'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
-import EvidenceGradeRationale from '@/components/learn/EvidenceGradeRationale'
-import TrialDesignInsight from '@/components/learn/TrialDesignInsight'
+import EvidenceGradeRationale from '@/components/education/EvidenceGradeRationale'
+import TrialDesignInsight from '@/components/education/TrialDesignInsight'
 import { extractCitationsFromRecord } from '@/lib/citations'
 import EmailCapture from '../../../components/EmailCapture'
 import RecommendationSection from '../../../components/RecommendationSection'
@@ -184,6 +184,76 @@ const LEGAL_STATUS_WARNINGS: Record<string, { title: string; body: string; items
     title: 'FDA enforcement warning',
     body: 'The FDA has warned that over-the-counter HCG weight-loss products are illegal and unsupported, and HCG diet plans often pair the product with unsafe severe calorie restriction.',
     items: ['HCG is not approved for over-the-counter weight loss.', 'This profile is a warning-oriented reference, not a diet recommendation.'],
+    suppressAffiliate: true,
+  },
+  'bpc-157': {
+    title: 'Unapproved compound: FDA compounding status pending review',
+    body: 'BPC-157 is not FDA-approved as a finished drug product. It was removed from the FDA’s Category 2 restricted 503A bulk substances list on April 22, 2026, but that is not the same as approval — it sits in a regulatory gray zone pending the FDA Pharmacy Compounding Advisory Committee’s (PCAC) scheduled July 23–24, 2026 review.',
+    items: [
+      'Research-use-only (RUO) product is not legally intended for human consumption.',
+      'Human clinical trial data is essentially absent; this profile is not a self-treatment guide.',
+      'Banned year-round under WADA’s S0 category for competitive athletes.',
+    ],
+    suppressAffiliate: true,
+  },
+  'tb-500': {
+    title: 'Unapproved compound: FDA compounding status pending review',
+    body: 'TB-500 is not FDA-approved for human use. It was removed from the FDA’s Category 2 restricted 503A bulk substances list in April 2026, but remains in a regulatory gray zone pending the FDA Pharmacy Compounding Advisory Committee’s (PCAC) scheduled July 23, 2026 review.',
+    items: [
+      'Research-use-only (RUO) product is not legally intended for human consumption.',
+      'No completed human clinical trials exist for the synthetic TB-500 fragment specifically.',
+      'This profile is not a self-treatment guide.',
+    ],
+    suppressAffiliate: true,
+  },
+  'cjc-1295': {
+    title: 'Unapproved compound: FDA compounding status uncertain',
+    body: 'CJC-1295 is not FDA-approved for any human use. It was removed from the FDA’s Category 2 restricted 503A bulk substances list in April 2026 following withdrawal of its nomination, but was not moved to the approved Category 1 list and is not on the July 2026 FDA Pharmacy Compounding Advisory Committee (PCAC) review agenda.',
+    items: [
+      'Research-use-only (RUO) product is not legally intended for human consumption.',
+      'No long-term human safety or efficacy data exists for any dose or protocol.',
+      'This profile is not a self-treatment guide.',
+    ],
+    suppressAffiliate: true,
+  },
+  ipamorelin: {
+    title: 'Unapproved compound: FDA reclassification pending',
+    body: 'Ipamorelin is not FDA-approved as a finished drug product. It was named among peptides expected to move toward Category 1 (compoundable) status per the February 2026 HHS/FDA announcement, but formal Federal Register rulemaking confirming its final category had not yet published as of mid-2026.',
+    items: [
+      'No prescription form of Ipamorelin exists on the market; product is research-use-only (RUO) or physician-prescribed compounded where accessible.',
+      'Prohibited under WADA’s S2 category for competitive athletes.',
+      'This profile is not a self-treatment guide.',
+    ],
+    suppressAffiliate: true,
+  },
+  'pt-141': {
+    title: 'Approved drug exists, but research-chemical product is a separate category',
+    body: 'Bremelanotide is FDA-approved as Vyleesi, prescription-only, for hypoactive sexual desire disorder (HSDD) in premenopausal women specifically. PT-141 sold as a research chemical is a different regulatory category, not FDA-approved for any use outside that narrow indication, and is not legally intended for human consumption.',
+    items: [
+      'Off-label marketing (e.g., male sexual enhancement, general libido) is not backed by the trial data that supports the approved indication.',
+      'Can transiently raise blood pressure; relevant for anyone with cardiovascular risk factors.',
+      'This profile is not a self-treatment guide.',
+    ],
+    suppressAffiliate: true,
+  },
+  semaglutide: {
+    title: 'Prescription-only drug: no consumer sourcing',
+    body: 'Semaglutide is an FDA-approved prescription drug (Ozempic, Wegovy, Rybelsus), not a controlled substance, and is not sold as a research peptide. The FDA has determined semaglutide is no longer in shortage, which curtails bulk compounding — compounded access now generally requires individualized, physician-documented clinical necessity.',
+    items: [
+      'Legitimate access is prescription-only through a licensed pharmacy.',
+      'Carries a boxed warning for thyroid C-cell tumor risk; contraindicated with personal or family history of medullary thyroid carcinoma or MEN 2.',
+      'This profile is not a self-treatment guide or a substitute for a prescribing clinician.',
+    ],
+    suppressAffiliate: true,
+  },
+  tirzepatide: {
+    title: 'Prescription-only drug: no consumer sourcing',
+    body: 'Tirzepatide is an FDA-approved prescription drug (Mounjaro, Zepbound), not a controlled substance, and is not sold as a research peptide. As with semaglutide, the FDA has determined tirzepatide is no longer in shortage, which curtails bulk compounding — compounded access now generally requires individualized, physician-documented clinical necessity.',
+    items: [
+      'Legitimate access is prescription-only through a licensed pharmacy.',
+      'Carries the same boxed warning as semaglutide for thyroid C-cell tumor risk; same contraindications apply.',
+      'This profile is not a self-treatment guide or a substitute for a prescribing clinician.',
+    ],
     suppressAffiliate: true,
   },
 }

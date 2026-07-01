@@ -1,0 +1,47 @@
+{
+  "id": "ipamorelin",
+  "slug": "ipamorelin",
+  "name": "Ipamorelin",
+  "summary": "Ipamorelin is a selective ghrelin-receptor agonist (growth hormone secretagogue) with more human clinical data than most peptides in this class, showing reliable dose-dependent GH release with minimal cortisol/prolactin cross-reactivity; downstream body-composition and sleep claims are more extrapolated than proven.",
+  "description": "Ipamorelin is a synthetic pentapeptide classified as a growth-hormone secretagogue (GHS) — a selective ghrelin receptor (GHS-R1a) agonist that stimulates pulsatile pituitary GH release with relatively minimal effect on cortisol, prolactin, or appetite compared to older secretagogues like GHRP-6. It is often paired with CJC-1295 in combination protocols to produce a larger, more sustained GH pulse. Human studies from its 1990s-2000s pharmaceutical development (including postoperative-ileus research) confirm the core GH-release mechanism, though most sleep/recovery/anti-aging marketing claims are extrapolated from GH physiology rather than Ipamorelin-specific trials.",
+  "compoundClass": "Growth hormone secretagogue (ghrelin receptor agonist) peptide",
+  "mechanisms": [
+    "Ghrelin Receptor (GHS-R1a) Agonism",
+    "Selective Pulsatile GH Release",
+    "Minimal Cortisol/Prolactin Cross-Reactivity"
+  ],
+  "targets": [
+    "Ghrelin receptor (GHS-R1a)"
+  ],
+  "pathways": [
+    "Growth hormone axis",
+    "IGF-1 signaling"
+  ],
+  "foundIn": [],
+  "bioavailability": "Subcutaneous injection; short half-life consistent with mimicking the body's natural pulsatile GH release pattern.",
+  "safetyNotes": "No major safety signals in short-term human studies, but no long-term data exists. Theoretical concerns tied to GH-axis stimulation support physician-supervised rather than self-directed use.",
+  "evidenceLevel": "moderate",
+  "relatedCompounds": [
+    "cjc-1295"
+  ],
+  "governance": {
+    "reviewStatus": "needs_review",
+    "legalRisk": "elevated",
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
+    "indexingAllowed": true,
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "unapproved_ruo_compound_pending_fda_review"
+  },
+  "evidence": {
+    "reviewStatus": "needs_review",
+    "sourceCount": 0,
+    "sourceIds": []
+  },
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": []
+}

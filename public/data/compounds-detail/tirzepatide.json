@@ -1,0 +1,50 @@
+{
+  "id": "tirzepatide",
+  "slug": "tirzepatide",
+  "name": "Tirzepatide",
+  "summary": "Tirzepatide is a dual GIP/GLP-1 receptor agonist, FDA-approved as Mounjaro and Zepbound, showing the largest average weight-loss effect of any approved obesity drug to date (up to ~22.5% body weight at 72 weeks in SURMOUNT-1) and superior HbA1c reduction versus semaglutide in a head-to-head trial.",
+  "description": "Tirzepatide is a dual GIP (glucose-dependent insulinotropic polypeptide) and GLP-1 receptor agonist, FDA-approved under the brand names Mounjaro (type 2 diabetes) and Zepbound (chronic weight management) — the first approved drug in its dual-agonist class. The SURMOUNT trial program demonstrated up to ~22.5% average body weight loss at the highest studied dose over 72 weeks, and the SURPASS-2 head-to-head trial showed superior HbA1c reduction versus semaglutide. SURMOUNT-OSA also demonstrated significant improvement in obstructive sleep apnea severity, now reflected in its expanded approved use.",
+  "compoundClass": "Dual GIP/GLP-1 receptor agonist (prescription drug)",
+  "mechanisms": [
+    "Dual GIP and GLP-1 Receptor Agonism",
+    "Glucose-Dependent Insulin Secretion",
+    "Central Appetite Regulation"
+  ],
+  "targets": [
+    "GLP-1 receptor",
+    "GIP receptor"
+  ],
+  "pathways": [
+    "Incretin signaling",
+    "Glucose-dependent insulin secretion"
+  ],
+  "foundIn": [
+    "Synthetic analog of endogenous GLP-1 and GIP gut hormones"
+  ],
+  "bioavailability": "Subcutaneous injection (Mounjaro/Zepbound); long elimination half-life supports once-weekly dosing.",
+  "safetyNotes": "Boxed warning for thyroid C-cell tumor risk (same contraindication profile as semaglutide); common GI side effects during titration; not for use in pregnancy.",
+  "evidenceLevel": "strong",
+  "relatedCompounds": [
+    "semaglutide"
+  ],
+  "governance": {
+    "reviewStatus": "needs_review",
+    "legalRisk": "low",
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
+    "indexingAllowed": true,
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "prescription_only_no_consumer_affiliate"
+  },
+  "evidence": {
+    "reviewStatus": "needs_review",
+    "sourceCount": 0,
+    "sourceIds": []
+  },
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": []
+}
