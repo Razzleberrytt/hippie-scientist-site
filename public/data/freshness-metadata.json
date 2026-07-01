@@ -1,7 +1,7 @@
 {
   "homepage": {
     "lastReviewed": "2026-06-06",
-    "citationCount": 816
+    "citationCount": 819
   },
   "goals": {
     "pain": {
@@ -208,7 +208,7 @@
     },
     "black-cohosh": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 0
+      "citationCount": 3
     },
     "piper-nigrum": {
       "lastReviewed": "2026-06-06",
@@ -1598,6 +1598,10 @@
       "lastReviewed": "2026-06-06",
       "citationCount": 0
     },
+    "bpc-157": {
+      "lastReviewed": "2026-06-30",
+      "citationCount": 0
+    },
     "bromelain": {
       "lastReviewed": "2026-06-06",
       "citationCount": 1
@@ -1761,6 +1765,10 @@
     "citrulline-malate": {
       "lastReviewed": "2026-06-06",
       "citationCount": 1
+    },
+    "cjc-1295": {
+      "lastReviewed": "2026-06-30",
+      "citationCount": 0
     },
     "coconut-oil": {
       "lastReviewed": "2026-06-06",
@@ -2162,6 +2170,10 @@
       "lastReviewed": "2026-06-06",
       "citationCount": 0
     },
+    "ghk-cu": {
+      "lastReviewed": "2026-06-30",
+      "citationCount": 0
+    },
     "gingerol": {
       "lastReviewed": "2026-06-06",
       "citationCount": 0
@@ -2385,6 +2397,10 @@
     "iodine": {
       "lastReviewed": "2026-06-06",
       "citationCount": 1
+    },
+    "ipamorelin": {
+      "lastReviewed": "2026-06-30",
+      "citationCount": 0
     },
     "iron": {
       "lastReviewed": "2026-06-06",
@@ -2970,6 +2986,10 @@
       "lastReviewed": "2026-06-06",
       "citationCount": 1
     },
+    "pt-141": {
+      "lastReviewed": "2026-06-30",
+      "citationCount": 0
+    },
     "pterostilbene": {
       "lastReviewed": "2026-06-06",
       "citationCount": 0
@@ -3106,6 +3126,10 @@
       "lastReviewed": "2026-06-06",
       "citationCount": 1
     },
+    "semaglutide": {
+      "lastReviewed": "2026-06-30",
+      "citationCount": 0
+    },
     "senkyunolide-a": {
       "lastReviewed": "2026-06-06",
       "citationCount": 0
@@ -3210,6 +3234,10 @@
       "lastReviewed": "2026-06-06",
       "citationCount": 0
     },
+    "tb-500": {
+      "lastReviewed": "2026-06-30",
+      "citationCount": 0
+    },
     "testosterone-boosters-generic": {
       "lastReviewed": "2026-06-06",
       "citationCount": 0
@@ -3252,6 +3280,10 @@
     },
     "timosaponin-aiii": {
       "lastReviewed": "2026-06-06",
+      "citationCount": 0
+    },
+    "tirzepatide": {
+      "lastReviewed": "2026-06-30",
       "citationCount": 0
     },
     "trans-resveratrol": {

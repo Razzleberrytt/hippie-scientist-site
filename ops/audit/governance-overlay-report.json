@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T18:23:22.700Z",
+  "generatedAt": "2026-07-01T17:35:14.595Z",
   "dataDir": "public/data",
   "removedSingularDirs": [],
   "trimmedSummaries": {
@@ -166,10 +166,10 @@
       "needsReview": 32
     },
     "compounds": {
-      "records": 557,
-      "detailFiles": 557,
-      "indexable": 15,
-      "needsReview": 106
+      "records": 565,
+      "detailFiles": 565,
+      "indexable": 23,
+      "needsReview": 114
     }
   },
   "curatedAllowlist": {

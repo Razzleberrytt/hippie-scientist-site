@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T18:23:22.234Z",
+  "generatedAt": "2026-07-01T17:35:14.203Z",
   "source": {
     "workbookPath": "/home/user/hippie-scientist-site/data-sources/herb_monograph_master.xlsx",
     "workbook": "herb_monograph_master.xlsx"
@@ -7,10 +7,10 @@
   "output": "public/data",
   "counts": {
     "herbs": 290,
-    "compounds": 557,
+    "compounds": 565,
     "herbsSummary": 290,
-    "compoundsSummary": 557,
+    "compoundsSummary": 565,
     "herbDetails": 290,
-    "compoundDetails": 557
+    "compoundDetails": 565
   }
 }

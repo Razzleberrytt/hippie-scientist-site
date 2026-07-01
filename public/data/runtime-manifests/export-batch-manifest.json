@@ -1,1 +1,1 @@
-[{"batchIndex":0,"estimatedComplexity":925,"firstRoute":"/compounds/acetyl-l-carnitine","id":"batch-1","lastRoute":"/stacks","routeCount":232,"segments":["compare","compounds","goals","herbs","root","stacks"]}]
+[{"batchIndex":0,"estimatedComplexity":962,"firstRoute":"/compounds/acetyl-l-carnitine","id":"batch-1","lastRoute":"/herbs","routeCount":237,"segments":["compounds","herbs","root"]}]
