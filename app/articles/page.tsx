@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { allArticleMonographs } from '../../.content-collections/generated'
+import { allArticleMonographs, allBlogPosts } from '../../.content-collections/generated'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import { SITE_URL } from '../../src/lib/seo'
 
-const articlePages = [...allArticleMonographs].sort((a, b) =>
+const articlePages = [...allArticleMonographs, ...allBlogPosts].sort((a, b) =>
   b.lastUpdated.localeCompare(a.lastUpdated)
 )
 
@@ -54,9 +54,11 @@ export default function ArticlesIndexPage() {
               <span className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold uppercase tracking-wider text-muted">
                 {page.category}
               </span>
-              <span className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted">
-                Evidence: {page.evidenceGrade}
-              </span>
+              {page.evidenceGrade ? (
+                <span className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted">
+                  Evidence: {page.evidenceGrade}
+                </span>
+              ) : null}
               <time dateTime={page.lastUpdated} className="text-muted">
                 {page.lastUpdated}
               </time>

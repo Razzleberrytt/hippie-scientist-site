@@ -1,24 +1,26 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { allArticleMonographs } from '../../../.content-collections/generated'
+import { allArticleMonographs, allBlogPosts } from '../../../.content-collections/generated'
 
 import ArticleMdx from '@/components/articles/ArticleMdx'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import JsonLd from '@/components/seo/JsonLd'
 import { SITE_URL, compactMetaTitle } from '../../../src/lib/seo'
 
+const articlePages = [...allArticleMonographs, ...allBlogPosts]
+
 type PageProps = {
   params: Promise<{ slug: string }>
 }
 
 export function generateStaticParams() {
-  return allArticleMonographs.map((page) => ({ slug: page.slug }))
+  return articlePages.map((page) => ({ slug: page.slug }))
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
-  const page = allArticleMonographs.find((item) => item.slug === slug)
+  const page = articlePages.find((item) => item.slug === slug)
   if (!page) return { title: 'Page Not Found', robots: { index: false, follow: true } }
 
   const metaTitle = compactMetaTitle(page.title)
@@ -40,10 +42,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ArticleMonographPage({ params }: PageProps) {
   const { slug } = await params
-  const page = allArticleMonographs.find((item) => item.slug === slug)
+  const page = articlePages.find((item) => item.slug === slug)
   if (!page) notFound()
 
-  const relatedPages = allArticleMonographs.filter((item) => item.slug !== page.slug && item.category === page.category)
+  const relatedPages = articlePages.filter((item) => item.slug !== page.slug && item.category === page.category)
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -55,7 +57,9 @@ export default async function ArticleMonographPage({ params }: PageProps) {
     mainEntityOfPage: `${SITE_URL}/articles/${page.slug}/`,
     keywords: page.tags,
     articleSection: page.category,
-    additionalProperty: [{ '@type': 'PropertyValue', name: 'evidenceGrade', value: page.evidenceGrade }],
+    additionalProperty: page.evidenceGrade
+      ? [{ '@type': 'PropertyValue', name: 'evidenceGrade', value: page.evidenceGrade }]
+      : undefined,
     citation: page.references.map((ref) => ({
       '@type': 'ScholarlyArticle',
       headline: ref.title,
@@ -83,9 +87,11 @@ export default async function ArticleMonographPage({ params }: PageProps) {
           <span className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-bold uppercase tracking-wider text-muted">
             {page.category}
           </span>
-          <span className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted">
-            Evidence: {page.evidenceGrade}
-          </span>
+          {page.evidenceGrade ? (
+            <span className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted">
+              Evidence: {page.evidenceGrade}
+            </span>
+          ) : null}
           <time dateTime={page.lastUpdated} className="text-muted">
             Updated {page.lastUpdated}
           </time>

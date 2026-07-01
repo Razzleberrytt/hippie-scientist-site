@@ -3,9 +3,9 @@
  * Build the combined global search index.
  *
  * Reads the generated monograph summaries (herbs + compounds) and the
- * structured educational content layer (`content/education/*.md` enriched over
- * the route list in `app/education/*`), normalizes them into a single
- * `SearchDoc[]` shape, and writes `public/data/search-index.json`.
+ * structured educational content layer (the route list under `app/learn/*`),
+ * normalizes them into a single `SearchDoc[]` shape, and writes
+ * `public/data/search-index.json`.
  *
  * The output is a static artifact consumed client-side by the `/search` page
  * and the global command palette — keeping all `fs`/frontmatter work at build
@@ -202,7 +202,7 @@ function buildCompoundDocs() {
     .filter(Boolean)
 }
 
-const NON_ARTICLE_SLUGS = new Set(['explorer', 'citation-explorer', 'efficacy-model'])
+const NON_ARTICLE_SLUGS = new Set(['explorer', 'citation-explorer', 'efficacy-model', '[slug]'])
 
 function titleize(slug) {
   return slug
@@ -226,8 +226,8 @@ function toExcerpt(md, max = 320) {
 }
 
 function buildEducationDocs() {
-  const routesDir = path.join(ROOT, 'app/education')
-  const contentDir = path.join(ROOT, 'content/education')
+  const routesDir = path.join(ROOT, 'app/learn')
+  const contentDir = path.join(ROOT, 'content/learn')
 
   const slugs = new Set()
   if (fs.existsSync(routesDir)) {
@@ -268,7 +268,7 @@ function buildEducationDocs() {
         slug,
         type: 'Education',
         title,
-        href: `/education/${slug}/`,
+        href: `/learn/${slug}/`,
         summary,
         goals,
         pathways,

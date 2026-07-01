@@ -748,6 +748,35 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /education/why-human-trials-matter/ /learn/why-human-trials-matter/ 301
 /education/why-individual-variability-matters /learn/why-individual-variability-matters/ 301
 /education/why-individual-variability-matters/ /learn/why-individual-variability-matters/ 301
+/education/why-neurochemistry-is-complex /learn/why-neurochemistry-is-complex/ 301
+/education/why-neurochemistry-is-complex/ /learn/why-neurochemistry-is-complex/ 301
+/education/why-neuroscience-is-difficult /learn/why-neuroscience-is-difficult/ 301
+/education/why-neuroscience-is-difficult/ /learn/why-neuroscience-is-difficult/ 301
+/education/why-online-supplement-claims-spread /learn/why-online-supplement-claims-spread/ 301
+/education/why-online-supplement-claims-spread/ /learn/why-online-supplement-claims-spread/ 301
+/education/why-overstimulation-impairs-focus /learn/why-overstimulation-impairs-focus/ 301
+/education/why-overstimulation-impairs-focus/ /learn/why-overstimulation-impairs-focus/ 301
+/education/why-set-and-setting-matter /learn/why-set-and-setting-matter/ 301
+/education/why-set-and-setting-matter/ /learn/why-set-and-setting-matter/ 301
+/education/why-sleep-changes-emotional-regulation /learn/why-sleep-changes-emotional-regulation/ 301
+/education/why-sleep-changes-emotional-regulation/ /learn/why-sleep-changes-emotional-regulation/ 301
+/education/why-sleep-matters-for-mental-health /learn/why-sleep-matters-for-mental-health/ 301
+/education/why-sleep-matters-for-mental-health/ /learn/why-sleep-matters-for-mental-health/ 301
+/education/why-studies-conflict /learn/why-studies-conflict/ 301
+/education/why-studies-conflict/ /learn/why-studies-conflict/ 301
+/education/evidence-levels /learn/evidence-levels/ 301
+/education/evidence-levels/ /learn/evidence-levels/ 301
+/education/evidence-literacy /learn/evidence-literacy/ 301
+/education/evidence-literacy/ /learn/evidence-literacy/ 301
+/education/how-neurotransmitters-work /learn/how-neurotransmitters-work/ 301
+/education/how-neurotransmitters-work/ /learn/how-neurotransmitters-work/ 301
+/education/how-stress-affects-the-brain /learn/how-stress-affects-the-brain/ 301
+/education/how-stress-affects-the-brain/ /learn/how-stress-affects-the-brain/ 301
+/education/what-are-adaptogens /learn/what-are-adaptogens/ 301
+/education/what-are-adaptogens/ /learn/what-are-adaptogens/ 301
+/education /learn/ 301
+/education/ /learn/ 301
+/education/* /learn/:splat 301
 
 # Dead sections → /guides/ (2026-06-30)
 /goals /guides/ 301
