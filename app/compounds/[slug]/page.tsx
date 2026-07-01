@@ -987,6 +987,31 @@ export default async function CompoundPage({ params }: PageProps) {
           </section>
         ) : null}
 
+        {normalizedSlug === 'nicotine' ? (
+          <section className="rounded-2xl border border-amber-200 bg-white p-4 shadow-sm sm:p-5">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-amber-800">Tobacco replacement context</p>
+            <h2 className="mt-1 text-lg font-bold text-amber-950">Replacing dip is a cessation strategy, not a vascular-health shortcut</h2>
+            <p className="mt-2 text-sm leading-6 text-amber-900">
+              This nicotine profile explains the compound. For a practical, safety-first comparison of nicotine replacement therapy,
+              tobacco-free pouches, non-nicotine oral substitutes, and carotid artery risk context, read the dipping tobacco alternatives guide.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link
+                href="/guides/other/healthy-dipping-tobacco-alternatives/"
+                className="rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-bold text-amber-950 hover:bg-amber-100"
+              >
+                Healthy dip alternatives guide -&gt;
+              </Link>
+              <Link
+                href="/learn/product-quality/"
+                className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-brand-800 hover:bg-brand-50"
+              >
+                Product quality checklist -&gt;
+              </Link>
+            </div>
+          </section>
+        ) : null}
+
         <RegulatoryStatusSection compound={compound} />
 
         {/* Section 1: Quick Stats */}

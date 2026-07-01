@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { getHerbs, getCompounds } from '../../../src/lib/runtime-data'
 import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
 import BuyGuideClient from '../../../src/components/sourcing/BuyGuideClient'
@@ -76,6 +77,21 @@ export default async function ProductQualityPage() {
             Proprietary blends can hide under-dosed or over-stacked formulas. Favor transparent products with clear ingredient amounts.
           </p>
         </div>
+      </section>
+
+      <section className='rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-sm leading-7 text-amber-950'>
+        <p className='font-bold'>Tobacco replacement note:</p>
+        <p className='mt-1'>
+          Product quality is especially important when a product is used to replace a dependence-forming habit.
+          For dipping tobacco, compare regulated cessation aids, tobacco-free nicotine pouches, and non-nicotine
+          oral substitutes before assuming a pouch is healthy.
+        </p>
+        <Link
+          href='/guides/other/healthy-dipping-tobacco-alternatives/'
+          className='mt-3 inline-flex text-sm font-semibold text-amber-900 hover:underline'
+        >
+          Read the dipping tobacco alternatives guide -&gt;
+        </Link>
       </section>
 
       <BuyGuideClient herbs={herbs} compounds={compounds} />

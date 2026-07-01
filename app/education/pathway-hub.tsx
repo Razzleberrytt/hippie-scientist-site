@@ -85,6 +85,7 @@ const configs: Record<'gaba' | 'dopamine' | 'inflammation', PathwayConfig> = {
       { label: 'GABA', href: '/learn/gaba', description: 'Neurotransmitter and sleep-adjacent signals with calming pathway context.' },
       { label: 'Dopamine', href: '/learn/dopamine', description: 'Motivation, focus, and cognition-adjacent neurotransmitter context.' },
       { label: 'Joint support', href: '/guides/best/supplements-for-joint-support', description: 'Goal guide for mobility and inflammation-adjacent supplement decisions.' },
+      { label: 'Dipping tobacco alternatives', href: '/guides/other/healthy-dipping-tobacco-alternatives', description: 'Tobacco replacement and carotid artery inflammation context, framed conservatively.' },
     ],
   },
 }

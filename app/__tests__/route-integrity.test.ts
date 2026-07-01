@@ -56,10 +56,10 @@ describe('Route Integrity Test', () => {
       canonicalRoutes.add(`/goals/${goal.slug}/`)
     }
 
-    // 2d. Herb routes: enumerate public/data/herb-detail/*.json slugs.
+    // 2d. Herb routes: enumerate public/data/herbs-detail/*.json slugs.
     //     These are the actual source of truth served by app/herbs/[slug]/page.tsx.
     //     The route-manifest is a workbook-derived subset and does not list every herb.
-    const herbDetailDir = path.resolve(__dirname, '../../public/data/herb-detail')
+    const herbDetailDir = path.resolve(__dirname, '../../public/data/herbs-detail')
     if (fs.existsSync(herbDetailDir)) {
       for (const fileName of fs.readdirSync(herbDetailDir)) {
         if (fileName.endsWith('.json')) {
@@ -70,8 +70,8 @@ describe('Route Integrity Test', () => {
       }
     }
 
-    // 2e. Compound routes: enumerate public/data/compound-detail/*.json slugs.
-    const compoundDetailDir = path.resolve(__dirname, '../../public/data/compound-detail')
+    // 2e. Compound routes: enumerate public/data/compounds-detail/*.json slugs.
+    const compoundDetailDir = path.resolve(__dirname, '../../public/data/compounds-detail')
     if (fs.existsSync(compoundDetailDir)) {
       for (const fileName of fs.readdirSync(compoundDetailDir)) {
         if (fileName.endsWith('.json')) {

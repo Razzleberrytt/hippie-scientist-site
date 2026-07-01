@@ -7,18 +7,18 @@ describe('blog index model', () => {
     const hrefs = BLOG_STYLE_GROUPS.map((group) => group.href)
 
     expect(hrefs).toEqual([
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
-      undefined,
+      '/learn',
+      '/learn',
+      '/learn/safety-and-disclaimers',
+      '/learn/what-are-psychoactive-herbs',
+      '/learn/what-is-a-nootropic',
+      '/learn/product-quality',
     ])
     expect(hrefs).not.toContain('/articles')
   })
 
   it('treats hyphenated static article paths as safe internal hrefs', () => {
-    expect(isSafeInternalHref(undefined)).toBe(true)
+    expect(isSafeInternalHref('/learn/product-quality')).toBe(true)
   })
 
   it('infers article styles from typed post content', () => {
