@@ -88,20 +88,31 @@ function readAppArticlePageSlugs(relativePath: string): SitemapSourceItem[] {
   }
 }
 
-// Discovers App Router guide pages by scanning app/guides/ for subdirectories
-// that contain a page.tsx. This picks up custom guides without requiring a hardcoded list.
-function readAppGuidePageSlugs(relativePath: string): SitemapSourceItem[] {
-  const dirPath = path.join(process.cwd(), relativePath);
+// Discovers App Router guide pages by recursively scanning app/guides/ (and
+// similar route trees) for any nested directory that contains a page.tsx.
+// This picks up custom guides without requiring a hardcoded list. Recursion
+// is required because category folders like app/guides/other/ have no
+// page.tsx of their own — they only contain grandchild article directories
+// (e.g. app/guides/other/healthy-dipping-tobacco-alternatives/page.tsx) — a
+// single-level scan silently drops every article nested that way.
+function readAppGuidePageSlugs(relativePath: string, slugPrefix = ''): SitemapSourceItem[] {
+  const dirPath = path.join(process.cwd(), relativePath, slugPrefix);
   if (!existsSync(dirPath)) return [];
 
   try {
-    return readdirSync(dirPath, { withFileTypes: true })
-      .filter((entry) => {
-        if (!entry.isDirectory()) return false;
-        if (/^\[/.test(entry.name)) return false; // skip [slug] dynamic routes
-        return existsSync(path.join(dirPath, entry.name, 'page.tsx'));
-      })
-      .map((entry) => ({ slug: entry.name }));
+    return readdirSync(dirPath, { withFileTypes: true }).flatMap((entry) => {
+      if (!entry.isDirectory()) return [];
+      if (/^\[/.test(entry.name)) return []; // skip [slug] dynamic routes
+
+      const childSlug = slugPrefix ? `${slugPrefix}/${entry.name}` : entry.name;
+      const childDirPath = path.join(process.cwd(), relativePath, childSlug);
+      const ownPage = existsSync(path.join(childDirPath, 'page.tsx')) || existsSync(path.join(childDirPath, 'page.ts'));
+
+      return [
+        ...(ownPage ? [{ slug: childSlug }] : []),
+        ...readAppGuidePageSlugs(relativePath, childSlug),
+      ];
+    });
   } catch {
     return [];
   }
