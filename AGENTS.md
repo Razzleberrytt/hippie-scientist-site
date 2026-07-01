@@ -2,7 +2,7 @@
 
 ## Project guidance for coding agents
 
-- Keep routes like `/herbs/:slug`, `/compounds/:slug`, `/goals/:slug` stable; if you must rename or remove one, add a redirect in `public/_redirects` so links and SEO don't break.
+- Keep routes like `/herbs/:slug`, `/compounds/:slug`, `/guides/:cluster/:slug`, `/learn/:slug`, `/info/:slug`, and `/evidence/:slug` stable; if you must rename or remove one, add a redirect in `public/_redirects` so links and SEO don't break.
 - Prefer minimal, surgical changes.
 - Treat `/public/data` as a core publish target.
 - Validate slugs and required fields before writing JSON artifacts.
@@ -16,23 +16,29 @@
 
 ### Two-layer content model
 1. **Discovery layer** — entry pages and cluster guides that capture broader search intent and funnel users into the depth layer
-2. **Depth layer** — herb and compound detail pages, goal pages, comparison pages
+2. **Depth layer** — herb and compound monograph detail pages
 
 ### Discovery layer routes (stable; add a redirect if you change one)
-- `/natural-anxiolytics-beyond-ashwagandha` — anxiolytic herb cluster
-- `/sleep-herbs-vs-melatonin` — sleep supplement comparison cluster
-- `/psychedelic-adjacent-herbs` — harm-reduction herb cluster
-- `/goals/:slug` — goal-based decision guides
-- `/best-supplements-for-*` — SEO entry pages (see `app/seo-entry-pages.tsx`)
+- `/guides` — guide index
+- `/guides/adhd/*` — ADHD supplement and nutrient guides
+- `/guides/sleep/*` — sleep supplement and comparison guides
+- `/guides/anxiety/*` — anxiety, stress, adaptogen, and cortisol guides
+- `/guides/focus/*` — focus, nootropic, and caffeine-smoothing guides
+- `/guides/herbs/*` — editorial herb guide pages
+- `/guides/compare/*` — comparison hub and pairwise tradeoff pages
+- `/guides/best/*` — curated best-of guides
+- `/guides/other/*` — valid guides outside a primary cluster
+- `/learn/*`, `/info/*`, and `/evidence/*` — education, trust, and evidence utility pages
 
 ### Depth layer routes (stable; add a redirect if you change one)
 - `/herbs/:slug` — individual herb profiles
 - `/compounds/:slug` — individual compound profiles
-- `/stacks/:slug` — supplement stacks
+
+Older `/articles/*`, `/goals/*`, `/stacks/*`, top-level `/compare/*`, and top-level `/best-supplements-for-*` URLs should be treated as legacy compatibility/redirect surfaces unless explicitly reactivated. Prefer linking to the current `/guides/*` taxonomy. See `docs/site-organization.md`.
 
 ## Data pipeline
 - Primary source: `data-sources/herb_monograph_master.xlsx`. The workbook is editable — edit it to make broad/structured content changes, then run `npm run data:build`.
-- Generated JSON lives in `public/data/`. You may also edit these files directly to fix or patch content; CI no longer blocks direct edits (the guard is advisory only). For larger changes prefer the workbook so edits aren't lost on the next regeneration.
+- Generated JSON lives in `public/data/`. You may also edit these files directly to fix or patch content, but for larger changes prefer the workbook so edits are not lost on the next regeneration.
 - Run `npm run data:build` after workbook changes, before `npm run build`.
 
 ## Affiliate config
@@ -46,11 +52,8 @@
 - New pages may use `dark:` classes; keep light and dark variants in sync.
 
 ## Publication manifest
-- Build/update with:
-  - `node scripts/build-publication-manifest-from-workbook.mjs`
-- Verify:
-  - `public/data/publication-manifest.json`
-  - `counts.herbs_eligible > 0`
+- Build/update through `npm run data:build`.
+- Verify `public/data/publication-manifest.json` and `counts.herbs_eligible > 0`.
 
 ## Agent Enrichment and Patch Workflow
 

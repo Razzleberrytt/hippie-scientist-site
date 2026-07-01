@@ -52,6 +52,8 @@ import { isRestrictedRecord } from '../../../src/lib/restricted-ingredients'
 import PathwayDiagram from '@/components/PathwayDiagram'
 import { generatePathwayDiagram } from '@/lib/generate-pathway'
 import { herbProfileExpansions } from '@/lib/curated-expansions'
+import MonographHeroImage from '@/components/profile/MonographHeroImage'
+import { getMonographImage, toAbsoluteImageUrl } from '@/lib/monograph-images'
 
 
 type PageProps = {
@@ -397,6 +399,8 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const citations = extractCitationsFromRecord(herb)
   const pathwayDiagram = generatePathwayDiagram({ ...herb, name: displayName })
   const expansion = herbProfileExpansions[normalizedSlug]
+  const heroImage = getMonographImage('herb', normalizedSlug, herb as Record<string, unknown>)
+  const absoluteHeroImage = toAbsoluteImageUrl(heroImage.src, SITE_URL)
 
   const goalLinks = getGoalsForEntity(normalizedSlug)
 
@@ -480,7 +484,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
         slug={normalizedSlug}
         description={briefSummary}
         url={`${SITE_URL}/herbs/${normalizedSlug}/`}
-        image={`${SITE_URL}/og-default.jpg`}
+        image={absoluteHeroImage}
         dateReviewed={freshness.lastReviewed}
         evidenceGrade={evidenceStrength || undefined}
       />
@@ -501,8 +505,9 @@ export default async function HerbDetailPage({ params }: PageProps) {
       </nav>
 
       {/* Title Header */}
-      <div className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 sm:p-10 shadow-sm">
-        <header className="space-y-3">
+      <div className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-sm sm:p-8 lg:p-10">
+        <header className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-center">
+          <div className="space-y-3">
           <div className="space-y-1">
             <p className="eyebrow-label">Herb Profile</p>
             <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
@@ -515,6 +520,8 @@ export default async function HerbDetailPage({ params }: PageProps) {
             <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
             <EvidenceScoreBadge record={herbRecord} />
           </div>
+          </div>
+          <MonographHeroImage image={heroImage} label={displayName} eyebrow="Monograph visual" />
         </header>
       </div>
 

@@ -51,6 +51,8 @@ import { isRestrictedRecord } from '../../../src/lib/restricted-ingredients'
 import PathwayDiagram from '@/components/PathwayDiagram'
 import { generatePathwayDiagram } from '@/lib/generate-pathway'
 import ArticleMdx from '@/components/articles/ArticleMdx'
+import MonographHeroImage from '@/components/profile/MonographHeroImage'
+import { getMonographImage } from '@/lib/monograph-images'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -785,6 +787,7 @@ export default async function CompoundPage({ params }: PageProps) {
   const evidenceConsistency = text(compound.evidence_consistency)
   const evidenceRationale = text(compound.evidence_rationale || compound.evidence_summary || compound.summary)
   const trialDesignInsight = text(compound.trial_design_insight)
+  const heroImage = getMonographImage('compound', normalizedSlug, compound as Record<string, unknown>)
 
   const schemaGraph = buildProfileSchemaGraphWithCluster({
     kind: 'compound',
@@ -870,22 +873,25 @@ export default async function CompoundPage({ params }: PageProps) {
         />
 
         {/* Title Header */}
-        <div className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 sm:p-10 shadow-sm">
-          <header className="space-y-3">
-            <div className="space-y-1">
-              <p className="eyebrow-label">Compound Profile</p>
-              <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-                {displayName}
-              </h1>
-              {compound.compoundClass || compound.class ? (
-                <p className="text-sm italic text-muted">{compound.compoundClass || compound.class}</p>
-              ) : null}
+        <div className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-sm sm:p-8 lg:p-10">
+          <header className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-center">
+            <div className="space-y-3">
+              <div className="space-y-1">
+                <p className="eyebrow-label">Compound Profile</p>
+                <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                  {displayName}
+                </h1>
+                {compound.compoundClass || compound.class ? (
+                  <p className="text-sm italic text-muted">{compound.compoundClass || compound.class}</p>
+                ) : null}
+              </div>
+              <p className="text-base leading-7 text-muted">{quickSummary}</p>
+              <div className="mt-3 flex flex-wrap items-center gap-3">
+                <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
+                <EvidenceScoreBadge record={compound} />
+              </div>
             </div>
-            <p className="text-base leading-7 text-muted">{quickSummary}</p>
-            <div className="mt-3 flex flex-wrap items-center gap-3">
-              <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
-              <EvidenceScoreBadge record={compound} />
-            </div>
+            <MonographHeroImage image={heroImage} label={displayName} eyebrow="Monograph visual" />
           </header>
         </div>
 

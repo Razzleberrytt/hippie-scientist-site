@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" role="img" aria-label="Mineral monograph illustration">
+  <rect width="960" height="720" fill="#f7f3e8"/>
+  <circle cx="737" cy="148" r="178" fill="#d9ead3"/>
+  <path d="M255 534 383 212h234l118 322-241 116z" fill="#e7e0cf" stroke="#24563a" stroke-width="14" stroke-linejoin="round"/>
+  <path d="M383 212 494 650M617 212 494 650M255 534h480M383 212l-128 322M617 212l118 322" fill="none" stroke="#24563a" stroke-width="10" opacity=".38"/>
+  <path d="M364 463h272" stroke="#358f52" stroke-width="16" stroke-linecap="round"/>
+  <path d="M402 391h196" stroke="#358f52" stroke-width="16" stroke-linecap="round" opacity=".72"/>
+  <circle cx="206" cy="173" r="54" fill="#8abf82"/>
+  <circle cx="780" cy="503" r="42" fill="#358f52"/>
+</svg>

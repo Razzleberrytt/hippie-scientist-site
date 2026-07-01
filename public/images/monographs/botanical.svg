@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" role="img" aria-label="Botanical monograph illustration">
+  <rect width="960" height="720" fill="#f7f3e8"/>
+  <circle cx="760" cy="140" r="170" fill="#d9ead3"/>
+  <circle cx="190" cy="560" r="220" fill="#e9dcc8"/>
+  <path d="M485 594c-36-126-27-250 28-372" fill="none" stroke="#24563a" stroke-width="18" stroke-linecap="round"/>
+  <path d="M506 316c-96-72-176-92-240-61 35 72 111 98 228 78" fill="#358f52"/>
+  <path d="M525 395c116-54 197-52 244 5-57 61-138 64-244 11" fill="#4f9f68"/>
+  <path d="M507 494c-93-35-164-29-214 19 48 47 118 49 211 0" fill="#7baa6f"/>
+  <path d="M553 250c70-86 142-121 216-105-17 78-82 125-195 141" fill="#8abf82"/>
+  <path d="M302 612h366" stroke="#24563a" stroke-width="14" stroke-linecap="round"/>
+  <path d="M184 153h232" stroke="#24563a" stroke-width="10" stroke-linecap="round" opacity=".28"/>
+  <path d="M184 190h166" stroke="#24563a" stroke-width="10" stroke-linecap="round" opacity=".2"/>
+</svg>

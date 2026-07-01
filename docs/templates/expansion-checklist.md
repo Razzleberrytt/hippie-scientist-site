@@ -11,6 +11,7 @@
 ```md
 ### Expansion — `<route>`  (spec: docs/page-specs/<slug>.md)
 
+- [ ] Route and source-of-truth check
 - [ ] Introduction
 - [ ] How it works
 - [ ] Evidence summary
@@ -21,12 +22,14 @@
 - [ ] Affiliate placements
 - [ ] Schema
 - [ ] References
+- [ ] Static export and build checks
 ```
 
 ## What each box means (acceptance criteria)
 
 | Box | Passes when… | Hook into |
 |-----|--------------|-----------|
+| **Route and source-of-truth check** | Route is stable, slug is valid, redirects are added for renamed URLs, and workbook/public data source is clear. | `public/_redirects`, workbook, `public/data` |
 | **Introduction** | H1 + 2–3 sentence intro states the promise and selection method. | template §intro |
 | **How it works** | Mechanism / topic primer present. | `MechanismBox` |
 | **Evidence summary** | Each option carries an evidence tier (high/moderate/low). | `EvidenceSummaryBox`, `EvidenceMeter` |
@@ -37,6 +40,17 @@
 | **Affiliate placements** | Spec's placements present via `AFFILIATE_TAGS.amazon`; disclosure above first link; no hardcoded tags. | `RecommendedProduct`, `AffiliateDisclosure` |
 | **Schema** | All schema types from the spec emit valid JSON-LD. | `lib/schema.ts`, `FaqJsonLd`, `BreadcrumbSchema` |
 | **References** | Every efficacy claim cited; citation count ≥ 4. | template §references |
+| **Static export and build checks** | No API routes/middleware/server actions/runtime revalidation added; required checks pass. | `next.config.mjs`, `npm run check:fast`, `npm run build` |
+
+## Preflight
+
+- Identify the exact template: commercial, guide, comparison, herb authority, or
+  compound authority.
+- Open the generated page spec under `docs/page-specs/` and keep its route,
+  affiliate target, internal links, FAQ, and schema requirements visible while editing.
+- Confirm whether the change belongs in workbook data, `public/data`, structured
+  page data, or route code before editing.
+- Validate slugs and required fields before writing JSON artifacts.
 
 ## Per-phase exit gate
 
@@ -48,7 +62,11 @@ Per the roadmap, **re-measure after each phase** before moving on. Confirm again
 - [ ] Citations ≥ 4
 - [ ] Affiliate placements in target range
 - [ ] Internal links at target
-- [ ] Quality gate green: `npm run lint && npm run typecheck && npm run check`
+- [ ] Static export compatible: no server-only Next.js APIs introduced
+- [ ] Quality gate green:
+  - Template-only/doc change: `npm run typecheck`
+  - Content/data change: `npm run check:fast`
+  - Route/schema/affiliate change: `npm run build && npm run verify:output`
 
 ## Portfolio definition-of-done (all 25)
 

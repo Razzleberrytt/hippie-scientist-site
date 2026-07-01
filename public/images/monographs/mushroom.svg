@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" role="img" aria-label="Functional mushroom monograph illustration">
+  <rect width="960" height="720" fill="#f7f3e8"/>
+  <circle cx="734" cy="156" r="182" fill="#d9ead3"/>
+  <circle cx="238" cy="554" r="210" fill="#e9dcc8"/>
+  <path d="M287 349c40-141 157-208 302-169 83 22 143 83 174 169-83 45-166 67-249 67s-159-22-227-67z" fill="#8abf82" stroke="#24563a" stroke-width="14" stroke-linejoin="round"/>
+  <path d="M399 407c-9 92-31 154-68 187 75 34 177 34 257 0-36-42-58-103-65-187z" fill="#e7e0cf" stroke="#24563a" stroke-width="14" stroke-linejoin="round"/>
+  <path d="M393 296h1M508 255h1M626 323h1" stroke="#24563a" stroke-width="28" stroke-linecap="round"/>
+  <path d="M356 610h303" stroke="#24563a" stroke-width="14" stroke-linecap="round"/>
+</svg>

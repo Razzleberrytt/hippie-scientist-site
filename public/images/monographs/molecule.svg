@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 720" role="img" aria-label="Molecular monograph illustration">
+  <rect width="960" height="720" fill="#f7f3e8"/>
+  <circle cx="736" cy="158" r="188" fill="#d9ead3"/>
+  <circle cx="234" cy="556" r="212" fill="#e9dcc8"/>
+  <g fill="none" stroke="#24563a" stroke-width="14" stroke-linecap="round">
+    <path d="M311 386 442 310l135 78v154l-135 78-131-76z"/>
+    <path d="M442 310V156M577 388l132-78M577 542l132 78M311 544 178 620M311 386 178 310"/>
+  </g>
+  <g fill="#358f52" stroke="#24563a" stroke-width="8">
+    <circle cx="442" cy="310" r="42"/>
+    <circle cx="577" cy="388" r="42"/>
+    <circle cx="577" cy="542" r="42"/>
+    <circle cx="442" cy="620" r="42"/>
+    <circle cx="311" cy="544" r="42"/>
+    <circle cx="311" cy="386" r="42"/>
+    <circle cx="442" cy="156" r="34" fill="#8abf82"/>
+    <circle cx="709" cy="310" r="34" fill="#8abf82"/>
+    <circle cx="709" cy="620" r="34" fill="#8abf82"/>
+    <circle cx="178" cy="620" r="34" fill="#8abf82"/>
+    <circle cx="178" cy="310" r="34" fill="#8abf82"/>
+  </g>
+</svg>

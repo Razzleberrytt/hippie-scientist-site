@@ -163,70 +163,45 @@ export const routeLabels: Record<string, RouteMetadata> = {
     description: 'Interaction checker and safety context',
     parent: '/',
   },
-  '/goals': {
-    label: 'Goals',
-    description: 'Find remedies by health goals',
-    parent: '/',
+  '/guides/adhd': {
+    label: 'ADHD',
+    description: 'ADHD supplements, nutrient research, and treatment context',
+    parent: '/guides',
   },
-  '/goals/[slug]': {
-    label: 'Goal',
-    description: 'Remedies for a specific health goal',
-    parent: '/goals',
-    isDynamic: true,
+  '/guides/sleep': {
+    label: 'Sleep',
+    description: 'Natural sleep aids, melatonin alternatives, and sleep hygiene',
+    parent: '/guides',
   },
-  '/stacks': {
-    label: 'Stacks',
-    description: 'Curated supplement stacks',
-    parent: '/',
+  '/guides/anxiety': {
+    label: 'Anxiety & Stress',
+    description: 'Adaptogens, anxiolytics, and stress management strategies',
+    parent: '/guides',
   },
-  '/stacks/[slug]': {
-    label: 'Stack',
-    description: 'Curated supplement stack',
-    parent: '/stacks',
-    isDynamic: true,
+  '/guides/focus': {
+    label: 'Focus & Cognition',
+    description: 'Nootropics, focus stacks, and cognitive enhancement',
+    parent: '/guides',
   },
-  '/compare': {
+  '/guides/herbs': {
+    label: 'Herb Guides',
+    description: 'Deep dives on individual herbs and botanicals',
+    parent: '/guides',
+  },
+  '/guides/best': {
+    label: 'Best Supplements',
+    description: 'Curated supplement recommendations by need',
+    parent: '/guides',
+  },
+  '/guides/compare': {
     label: 'Compare',
     description: 'Side-by-side comparisons',
-    parent: '/',
+    parent: '/guides',
   },
   '/guides/compare/[slug]': {
     label: 'Comparison',
     description: 'Side-by-side comparison',
-    parent: '/compare',
-    isDynamic: true,
-  },
-  '/blog': {
-    label: 'Blog',
-    description: 'Blog posts and updates',
-    parent: '/articles',
-  },
-  '/blog/[slug]': {
-    label: 'Blog Post',
-    description: 'Blog post',
-    parent: '/blog',
-    isDynamic: true,
-  },
-  '/research-notes': {
-    label: 'Research Notes',
-    description: 'Redirects to Articles',
-    parent: '/articles',
-  },
-  '/research-notes/[slug]': {
-    label: 'Research Note',
-    description: 'Redirects to article',
-    parent: '/research-notes',
-    isDynamic: true,
-  },
-  '/articles': {
-    label: 'Articles',
-    description: 'Evidence reviews, mechanism deep-dives, and research notes',
-    parent: '/',
-  },
-  '/articles/[slug]': {
-    label: 'Article',
-    description: 'Research note or evidence review',
-    parent: '/articles',
+    parent: '/guides/compare',
     isDynamic: true,
   },
   '/guides': {
@@ -261,14 +236,14 @@ export const routeLabels: Record<string, RouteMetadata> = {
     parent: '/',
   },
   '/learn': {
-    label: 'Guides',
-    description: 'Educational resources (redirects to /guides)',
+    label: 'Learn',
+    description: 'Educational resources for evidence literacy and supplement decision-making',
     parent: '/',
   },
   '/learn/[slug]': {
-    label: 'Guide',
-    description: 'Supplement guide (redirects to /guides/[slug])',
-    parent: '/guides',
+    label: 'Learn',
+    description: 'Educational resource',
+    parent: '/learn',
     isDynamic: true,
   },
 }
