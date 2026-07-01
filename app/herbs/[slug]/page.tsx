@@ -275,6 +275,10 @@ function getTimeline(herb: Herb) {
   return cleanText(herb.time_to_effect || herb.onset || herb.timeline || herb.minimum_effective_dose)
 }
 
+function getDosingSummary(herb: Herb) {
+  return cleanText(herb.dosing || herb.dose || herb.dosage || herb.doseInfo || herb.minimum_effective_dose)
+}
+
 function getMechanisms(herb: Herb) {
   return cleanItems([herb.mechanisms, herb.primary_mechanisms, herb.pathways], 16)
 }
@@ -389,6 +393,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const safetyGroups = getSafetyDetailGroups(herb)
   const avoidIf = getAvoidIf(herb)
   const timeline = getTimeline(herb)
+  const dosingSummary = getDosingSummary(herb)
   const mechanisms = getMechanisms(herb)
   const evidenceLimitations = deriveEvidenceLimitations({ profile: herb })
   const topUses = getTopUses(herb)
@@ -474,6 +479,22 @@ export default async function HerbDetailPage({ params }: PageProps) {
     ? faqPageJsonLd({ pagePath: `/herbs/${normalizedSlug}/`, questions: faqCandidates })
     : null
 
+  const tocItems = [
+    { id: 'quick-stats', label: 'Quick stats' },
+    ...(expansion ? [{ id: 'editorial-review', label: 'Editorial review' }] : []),
+    { id: 'safety', label: 'Safety' },
+    ...(interactionEdges.length > 0 ? [{ id: 'interactions', label: 'Interactions' }] : []),
+    { id: 'evidence', label: 'Evidence' },
+    ...(dosingSummary || timeline ? [{ id: 'dosing', label: 'Dosing & timing' }] : []),
+    ...(pathwayDiagram ? [{ id: 'pathway', label: 'Pathway' }] : []),
+    ...(mechanisms.length > 0 ? [{ id: 'mechanisms', label: 'Mechanisms' }] : []),
+    { id: 'compounds', label: 'Compounds' },
+    ...(goalLinks.length > 0 ? [{ id: 'goals', label: 'Goal guides' }] : []),
+    ...(conditionLinks.length > 0 ? [{ id: 'conditions', label: 'Condition guides' }] : []),
+    { id: 'related', label: 'Related paths' },
+    { id: 'compare', label: 'Compare & sourcing' },
+  ]
+
 
   return (
     <div className="mx-auto max-w-4xl lg:max-w-6xl space-y-10 px-4 pb-28 pt-6">
@@ -525,19 +546,14 @@ export default async function HerbDetailPage({ params }: PageProps) {
         </header>
       </div>
 
+      <ProfileTOC items={tocItems} variant="mobile" />
+
       {/* Jump navigation — lets keyboard and screen-reader users reach sections directly */}
       <nav aria-label="Jump to profile sections" className="flex flex-wrap gap-2">
-        {[
-          { label: 'Quick Stats', href: '#quick-stats' },
-          { label: 'Safety', href: '#safety' },
-          ...(interactionEdges.length > 0 ? [{ label: 'Interactions', href: '#interactions' }] : []),
-          { label: 'Evidence', href: '#evidence' },
-          ...(mechanisms.length > 0 ? [{ label: 'Mechanisms', href: '#mechanisms' }] : []),
-          { label: 'Compare', href: '#compare' },
-        ].map(({ label, href }) => (
+        {tocItems.slice(0, 7).map(({ label, id }) => (
           <a
-            key={href}
-            href={href}
+            key={id}
+            href={`#${id}`}
             className="rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-3 py-1.5 text-xs font-semibold text-brand-800 transition-colors hover:bg-brand-50"
           >
             {label}
@@ -581,7 +597,13 @@ export default async function HerbDetailPage({ params }: PageProps) {
       {normalizedSlug === 'ashwagandha' && <AshwagandhaStressClaim />}
 
       {expansion ? (
-        <section className="card-premium p-4 sm:p-5 space-y-5">
+        <section id="editorial-review" className="card-premium scroll-mt-24 p-4 sm:p-5">
+          <details className="group" open>
+            <summary className="flex cursor-pointer items-center justify-between gap-4 text-lg font-bold text-ink select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:rounded">
+              <span>Expanded editorial review</span>
+              <span aria-hidden="true" className="text-brand-500 transition-transform group-open:rotate-180">v</span>
+            </summary>
+            <div className="mt-5 space-y-5 border-t border-brand-900/10 pt-5">
           <div className="space-y-2">
             <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Expanded editorial review</p>
             <h2 className="text-lg font-bold text-ink">What this profile is built to answer</h2>
@@ -654,29 +676,39 @@ export default async function HerbDetailPage({ params }: PageProps) {
               </ul>
             </div>
           </div>
+            </div>
+          </details>
         </section>
       ) : null}
 
       {/* Section 2: Safety */}
-      <section id="safety" className="rounded-2xl bg-amber-50/70 border border-amber-900/10 border-l-4 border-amber-500/60 p-4 sm:p-5 space-y-3">
+      <section id="safety" className="scroll-mt-24 rounded-2xl bg-amber-50/70 border border-amber-900/10 border-l-4 border-amber-500/60 p-4 sm:p-5 space-y-3">
         <h2 className="text-lg font-bold text-ink">Safety &amp; Cautions</h2>
         <p className="text-sm leading-6 text-amber-900">{safetySummary}</p>
         {safetyGroups.length > 0 && (
-          <div className="mt-4 grid gap-4 pt-3 border-t border-amber-900/10 sm:grid-cols-2">
-            {safetyGroups.map(group => (
-              <div key={group.title} className="space-y-1.5">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-amber-900 font-semibold">{group.title}</h3>
-                <ul className="space-y-1 text-xs text-amber-900">
-                  {group.items.map(item => <li key={item}>• {item}</li>)}
-                </ul>
-              </div>
-            ))}
-          </div>
+          <details className="group mt-4 border-t border-amber-900/10 pt-3">
+            <summary className="flex cursor-pointer items-center justify-between gap-3 text-sm font-bold text-amber-950 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700/40 focus-visible:rounded">
+              <span>Detailed safety fields</span>
+              <span aria-hidden="true" className="transition-transform group-open:rotate-180">v</span>
+            </summary>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              {safetyGroups.map(group => (
+                <div key={group.title} className="space-y-1.5">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-amber-900 font-semibold">{group.title}</h3>
+                  <ul className="space-y-1 text-xs text-amber-900">
+                    {group.items.map(item => <li key={item}>- {item}</li>)}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </details>
         )}
       </section>
 
       {interactionEdges.length > 0 && (
-        <InteractionWarnings edges={interactionEdges} slugTypeMap={slugTypeMap} />
+        <div id="interactions" className="scroll-mt-24">
+          <InteractionWarnings edges={interactionEdges} slugTypeMap={slugTypeMap} />
+        </div>
       )}
 
       {/* Section 3: Evidence Summary */}
@@ -693,6 +725,13 @@ export default async function HerbDetailPage({ params }: PageProps) {
           limitations={evidenceLimitations}
         />
 
+        {(herb.evidence_design_match && herb.evidence_risk_of_bias && herb.evidence_consistency) || herb.trial_design_insight ? (
+          <details className="group rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4">
+            <summary className="flex cursor-pointer items-center justify-between gap-3 text-sm font-bold text-ink select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:rounded">
+              <span>Study design details</span>
+              <span aria-hidden="true" className="text-brand-500 transition-transform group-open:rotate-180">v</span>
+            </summary>
+            <div className="mt-4 space-y-4 border-t border-brand-900/10 pt-4">
         {herb.evidence_design_match && herb.evidence_risk_of_bias && herb.evidence_consistency && (
           <EvidenceGradeRationale
             grade={herb.evidence_grade || 'C'}
@@ -712,19 +751,49 @@ export default async function HerbDetailPage({ params }: PageProps) {
             {herb.trial_design_insight as string}
           </TrialDesignInsight>
         )}
+            </div>
+          </details>
+        ) : null}
 
         <EvidenceGradeExplainer />
         <ShowMeTheStudies citations={citations} />
       </section>
 
+      {(dosingSummary || timeline) ? (
+        <section id="dosing" className="card-premium scroll-mt-24 p-4 sm:p-5 space-y-3">
+          <h2 className="text-lg font-bold text-ink">Dosing &amp; Timing</h2>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {dosingSummary ? (
+              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Dose guidance</p>
+                <p className="mt-1 text-sm leading-6 text-ink">{dosingSummary}</p>
+              </div>
+            ) : null}
+            {timeline ? (
+              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Timing / onset</p>
+                <p className="mt-1 text-sm leading-6 text-ink">{timeline}</p>
+              </div>
+            ) : null}
+          </div>
+        </section>
+      ) : null}
+
       {/* Section 3b: Mechanism Pathway Diagram */}
       {pathwayDiagram && (
-        <section className="card-premium p-4 sm:p-5 space-y-3">
-          <h2 className="text-lg font-bold text-ink">How {displayName} Works</h2>
-          <p className="text-xs text-muted leading-5">
-            Simplified mechanism pathway based on preclinical and pharmacological evidence. Does not confirm clinical efficacy.
-          </p>
-          <PathwayDiagram data={pathwayDiagram} />
+        <section id="pathway" className="card-premium scroll-mt-24 p-4 sm:p-5">
+          <details className="group">
+            <summary className="flex cursor-pointer items-center justify-between gap-4 text-lg font-bold text-ink select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:rounded">
+              <span>How {displayName} Works</span>
+              <span aria-hidden="true" className="text-brand-500 transition-transform group-open:rotate-180">v</span>
+            </summary>
+            <div className="mt-4 space-y-3 border-t border-brand-900/10 pt-4">
+              <p className="text-xs text-muted leading-5">
+                Simplified mechanism pathway based on preclinical and pharmacological evidence. Does not confirm clinical efficacy.
+              </p>
+              <PathwayDiagram data={pathwayDiagram} />
+            </div>
+          </details>
         </section>
       )}
 
@@ -756,10 +825,10 @@ export default async function HerbDetailPage({ params }: PageProps) {
       )}
 
       {/* Active compounds — internal links from the curated relationship map */}
-      <div id="compounds"><HerbCompoundLinks herbSlug={herb.slug} herbName={displayName} /></div>
+      <div id="compounds" className="scroll-mt-24"><HerbCompoundLinks herbSlug={herb.slug} herbName={displayName} /></div>
 
       {goalLinks.length > 0 ? (
-        <section className="rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4 sm:p-5">
+        <section id="goals" className="scroll-mt-24 rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4 sm:p-5">
           <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Goal guides</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {goalLinks.map((link) => (
@@ -776,7 +845,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       ) : null}
 
       {conditionLinks.length > 0 ? (
-        <section className="rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4 sm:p-5">
+        <section id="conditions" className="scroll-mt-24 rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4 sm:p-5">
           <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Condition guides</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => (
@@ -792,12 +861,14 @@ export default async function HerbDetailPage({ params }: PageProps) {
         </section>
       ) : null}
 
-      <SeeAlsoCluster slug={normalizedSlug} kind="herb" limit={6} />
+      <section id="related" className="scroll-mt-24 space-y-6">
+        <SeeAlsoCluster slug={normalizedSlug} kind="herb" limit={6} />
 
-      <RelatedDiscoveryGroups
-        title="Related research paths"
-        groups={internalLinkGroups}
-      />
+        <RelatedDiscoveryGroups
+          title="Related research paths"
+          groups={internalLinkGroups}
+        />
+      </section>
 
       {/* Section 5: Compare Nearby + CTA */}
       <section id="compare" className="card-premium p-4 sm:p-5 space-y-4">
@@ -826,17 +897,22 @@ export default async function HerbDetailPage({ params }: PageProps) {
               description={`Affiliate recommendations for ${displayName}. Review safety, dose, and product quality before buying.`}
               products={revenueProducts.products}
             />
-            <div className="rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-5 space-y-3 shadow-sm">
-              <h4 className="text-sm font-bold text-ink uppercase tracking-wider">Product Form &amp; Quality Guidelines</h4>
-              <p className="text-xs leading-relaxed text-muted">
-                When sourcing {displayName}, verify the label for:
-              </p>
-              <ul className="list-disc pl-5 text-xs text-muted space-y-1">
-                <li><strong>Standardized Extract:</strong> Confirm active content percentages on the supplement facts panel (e.g. standardized to specific marker compounds) rather than simple raw herb weights.</li>
-                <li><strong>Third-Party Testing:</strong> Look for independent purity labels (USP, NSF, ConsumerLab, or Eurofins) to ensure the product is free from heavy metals, solvents, and contaminants.</li>
-                <li><strong>Form Bioavailability:</strong> Ensure the form matches evidence-supported configurations (e.g. standardized active extracts like bacosides, withanolides, or curcuminoids) for optimal onset and digestion tolerance.</li>
-              </ul>
-            </div>
+            <details className="group rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-5 shadow-sm">
+              <summary className="flex cursor-pointer items-center justify-between gap-3 text-sm font-bold uppercase tracking-wider text-ink select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:rounded">
+                <span>Product Form &amp; Quality Guidelines</span>
+                <span aria-hidden="true" className="text-brand-500 transition-transform group-open:rotate-180">v</span>
+              </summary>
+              <div className="mt-3 border-t border-brand-900/10 pt-3">
+                <p className="text-xs leading-relaxed text-muted">
+                  When sourcing {displayName}, verify the label for:
+                </p>
+                <ul className="mt-2 list-disc pl-5 text-xs text-muted space-y-1">
+                  <li><strong>Standardized Extract:</strong> Confirm active content percentages on the supplement facts panel (e.g. standardized to specific marker compounds) rather than simple raw herb weights.</li>
+                  <li><strong>Third-Party Testing:</strong> Look for independent purity labels (USP, NSF, ConsumerLab, or Eurofins) to ensure the product is free from heavy metals, solvents, and contaminants.</li>
+                  <li><strong>Form Bioavailability:</strong> Ensure the form matches evidence-supported configurations (e.g. standardized active extracts like bacosides, withanolides, or curcuminoids) for optimal onset and digestion tolerance.</li>
+                </ul>
+              </div>
+            </details>
           </div>
         ) : null}
 
@@ -889,13 +965,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
         </Link>
       </div>
         </div>
-        <ProfileTOC items={[
-          { id: 'evidence',  label: 'Evidence'  },
-          { id: 'safety',    label: 'Safety'    },
-          { id: 'dosing',    label: 'Dosing'    },
-          { id: 'compounds', label: 'Compounds' },
-          { id: 'faq',       label: 'FAQ'       },
-        ]} />
+        <ProfileTOC items={tocItems} variant="desktop" />
       </div>
     </div>
   )
