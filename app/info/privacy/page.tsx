@@ -88,7 +88,7 @@ export default function PrivacyPage() {
             <div>
               <h3 className='text-lg font-bold text-ink mb-1'>4. Email Subscriptions</h3>
               <p>
-                If you subscribe to Research Notes via the footer email form, your email address is transmitted to Mailchimp (an Intuit company) and stored there. We use it only to send evidence summaries and occasional long-form research notes. You can unsubscribe at any time via the link in any email we send. We do not sell or share your email address with other parties. Mailchimp's privacy practices are governed by <a href='https://www.intuit.com/info/info/privacy/statement/' className='text-emerald-700 hover:underline' rel='noopener noreferrer' target='_blank'>their own privacy statement</a>.
+                If you subscribe to Research Notes via the footer email form, your email address is transmitted to Mailchimp (an Intuit company) and stored there. We use it only to send evidence summaries and occasional long-form research notes. You can unsubscribe at any time via the link in any email we send. We do not sell or share your email address with other parties. Mailchimp's privacy practices are governed by <a href='https://www.intuit.com/info/privacy/statement/' className='text-emerald-700 hover:underline' rel='noopener noreferrer' target='_blank'>their own privacy statement</a>.
               </p>
             </div>
 

@@ -13,7 +13,7 @@ import Link from 'next/link'
 const infoGraphicEmbedCode = (slug: string, width: number, height: number, alt: string) => 
   `<a href="https://thehippiescientist.net/evidence/evidence-report/">
   <img src="https://thehippiescientist.net/info/infographics/${slug}.png"
-       alt="${alt}" width="${width}" height="${height}" 
+       alt="${alt}" width="${width}" height="${height}"
        style="max-width:100%;height:auto;border:0" />
 </a>
 <p style="font-size:12px;color:#666">Data from 

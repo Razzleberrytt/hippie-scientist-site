@@ -96,8 +96,7 @@ export const mainNavigation: NavigationItem[] = [
     href: '/learn',
     description: 'Neuroscience, psychopharmacology, and evidence literacy',
     children: [
-      { label: 'How the Brain Works', href: '/learn', description: 'Neurochemistry, receptors, and brain systems explained' },
-      { label: 'Psychoactive Substances', href: '/learn', description: 'How herbs and compounds affect perception and cognition' },
+      { label: 'Neuroscience Basics', href: '/learn', description: 'Neurochemistry, receptors, and brain systems explained' },
       { label: 'Novel Psychoactives', href: '/novel-psychoactive-substances', description: 'Harm-reduction profiles for emerging substances' },
     ],
   },

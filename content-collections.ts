@@ -17,33 +17,92 @@ const mdxOptions = {
   remarkPlugins: [remarkGfm],
 }
 
+const articleFaqSchema = z.object({
+  question: z.string().min(1),
+  answer: z.string().min(1),
+})
+
 const articleMonographs = defineCollection({
   name: 'articleMonographs',
   directory: 'content/articles',
-  include: '**/*.mdx',
+  include: '**/*.{md,mdx}',
   schema: z.object({
     title: z.string().min(1),
     slug: z.string().regex(slugPattern),
     description: z.string().min(1),
     date: z.string().regex(isoDatePattern).optional(),
-    lastUpdated: z.string().regex(isoDatePattern),
+    lastUpdated: z.string().regex(isoDatePattern).optional(),
+    updatedAt: z.string().regex(isoDatePattern).optional(),
     category: z.string().min(1),
     tags: z.array(z.string()).default([]),
-    readingTime: z.union([z.string().min(1), z.number().int().positive()]),
-    evidenceGrade: z.string().min(1),
+    readingTime: z.union([z.string().min(1), z.number().int().positive()]).optional(),
+    evidenceGrade: z.string().min(1).optional(),
+    evidence_grade: z.string().min(1).optional(),
+    author: z.string().optional(),
+    faqs: z.array(articleFaqSchema).default([]),
     references: z.array(articleReferenceSchema).default([]),
     content: z.string(),
   }),
   transform: async (document, context) => {
-    const body = await compileMDX(context, document, mdxOptions)
+    // Plain-markdown articles (.md) may contain literal `<` (e.g. "<5% oral",
+    // "<1%") that MDX's JSX parser misreads as a malformed tag start. Escape
+    // any `<` not immediately followed by a tag-name character, `/`, or `!`
+    // so it renders as literal text instead of failing the MDX compile.
+    const sanitizedDocument = {
+      ...document,
+      content: document.content.replace(/<(?![a-zA-Z/!])/g, '&lt;'),
+    }
+    const body = await compileMDX(context, sanitizedDocument, mdxOptions)
+    const wordCount = document.content.split(/\s+/).filter(Boolean).length
+    const estimatedMinutes = Math.max(1, Math.round(wordCount / 200))
     const readingTime =
       typeof document.readingTime === 'number'
         ? `${document.readingTime} min read`
-        : document.readingTime
+        : document.readingTime || `${estimatedMinutes} min read`
+    const lastUpdated = document.lastUpdated ?? document.updatedAt ?? document.date ?? ''
+    const evidenceGrade = document.evidenceGrade ?? document.evidence_grade ?? ''
 
     return {
       ...document,
       readingTime,
+      lastUpdated,
+      evidenceGrade,
+      body,
+      url: `/articles/${document.slug}`,
+    }
+  },
+})
+
+const blogPosts = defineCollection({
+  name: 'blogPosts',
+  directory: 'content/blog',
+  include: '**/*.{md,mdx}',
+  schema: z.object({
+    title: z.string().min(1),
+    slug: z.string().regex(slugPattern),
+    excerpt: z.string().default(''),
+    date: z.string().regex(isoDatePattern).optional(),
+    tags: z.array(z.string()).default([]),
+    ai_assisted: z.boolean().optional(),
+    content: z.string(),
+  }),
+  transform: async (document, context) => {
+    const sanitizedDocument = {
+      ...document,
+      content: document.content.replace(/<(?![a-zA-Z/!])/g, '&lt;'),
+    }
+    const body = await compileMDX(context, sanitizedDocument, mdxOptions)
+    const wordCount = document.content.split(/\s+/).filter(Boolean).length
+    const estimatedMinutes = Math.max(1, Math.round(wordCount / 200))
+
+    return {
+      ...document,
+      description: document.excerpt,
+      lastUpdated: document.date ?? '',
+      category: 'Field Notes',
+      readingTime: `${estimatedMinutes} min read`,
+      evidenceGrade: '',
+      references: [],
       body,
       url: `/articles/${document.slug}`,
     }
@@ -115,5 +174,5 @@ const novelPsychoactiveSubstancePages = defineCollection({
 })
 
 export default defineConfig({
-  content: [articleMonographs, compoundMdxPages, novelPsychoactiveSubstancePages],
+  content: [articleMonographs, blogPosts, compoundMdxPages, novelPsychoactiveSubstancePages],
 })
