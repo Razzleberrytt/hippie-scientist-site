@@ -65,6 +65,13 @@ const SECTIONS = [
     color: 'border-l-purple-500',
     articles: ['Best for blood pressure', 'Best for fat loss', 'Best for joint support', 'Best for gut health'],
   },
+  {
+    title: 'Other & Harm Reduction',
+    href: '/guides/other/healthy-dipping-tobacco-alternatives/',
+    desc: 'Evidence-informed guides that sit outside the main goal clusters, including tobacco replacement, peptides, and psychoactive harm reduction.',
+    color: 'border-l-stone-500',
+    articles: ['Dipping tobacco alternatives', 'Kratom 7-OH withdrawal', 'Psychedelic-adjacent herbs', 'Brain fog and fatigue'],
+  },
 ]
 
 export default function GuidesHub() {
