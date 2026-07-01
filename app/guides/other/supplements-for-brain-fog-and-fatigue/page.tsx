@@ -42,7 +42,7 @@ export default function Page() {
         <div className='mt-4 flex flex-wrap gap-4'>
           <Link href='/guides/supplements-for-brain-fog-and-fatigue' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for brain fog</Link>
           <Link href='/guides/supplements-for-brain-fog-and-fatigue' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for fatigue</Link>
-          <Link href='/compare/creatine-vs-caffeine' className='text-sm font-medium text-emerald-700 hover:underline'>Creatine vs caffeine</Link>
+          <Link href='/guides/focus/best-nootropics-for-focus' className='text-sm font-medium text-emerald-700 hover:underline'>Creatine vs caffeine</Link>
         </div>
       </section>
     </ArticleLayout>

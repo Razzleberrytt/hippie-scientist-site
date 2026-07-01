@@ -72,7 +72,7 @@ export default function GoalClusterArticlePage({ slug }: GoalClusterArticlePageP
       <nav className="mb-6 flex flex-wrap gap-2 text-sm font-semibold text-brand-800" aria-label="Breadcrumb">
         <Link href="/" className="hover:text-brand-700 hover:underline">Home</Link>
         <span aria-hidden="true">/</span>
-        <Link href="/articles/" className="hover:text-brand-700 hover:underline">Articles</Link>
+        <Link href="/guides/" className="hover:text-brand-700 hover:underline">Articles</Link>
         <span aria-hidden="true">/</span>
         <Link href="/guides/sleep/" className="hover:text-brand-700 hover:underline">Sleep</Link>
       </nav>
@@ -194,7 +194,7 @@ export default function GoalClusterArticlePage({ slug }: GoalClusterArticlePageP
             <p className="mt-2 text-sm leading-7 text-muted">{content.cta.body}</p>
             <div className="mt-4 flex flex-wrap gap-3">
               <Link
-                href="/info/info/supplement-safety-checklist/"
+                href="/info/supplement-safety-checklist/"
                 className="inline-flex min-h-11 items-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-900"
               >
                 Get the safety checklist

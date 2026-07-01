@@ -232,7 +232,7 @@ export default function Page() {
               amplifies the stress response. L-theanine is the best acute tool, blunting cortisol and the
               feeling of stress within an hour without sedation. Together they cover the moment-to-moment
               side of stress while adaptogens work on the baseline. See{' '}
-              <Link href="/compare/ashwagandha-vs-l-theanine-vs-magnesium" className="font-medium text-brand-700 hover:underline">ashwagandha vs L-theanine vs magnesium</Link>.
+              <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium" className="font-medium text-brand-700 hover:underline">ashwagandha vs L-theanine vs magnesium</Link>.
             </p>
           </article>
         </section>
@@ -275,7 +275,7 @@ export default function Page() {
           <h2 className="text-2xl font-semibold text-ink">Related guides &amp; comparisons</h2>
           <div className="grid gap-3 sm:grid-cols-2">
             <Link href="/guides/best-supplements-for-stress" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Supplements for Stress →</Link>
-            <Link href="/guides/best-adaptogens-for-stress" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Adaptogens for Stress →</Link>
+            <Link href="/guides/anxiety/best-adaptogens-for-stress" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Adaptogens for Stress →</Link>
             <Link href="/guides/best-herbs-for-stress-and-anxiety-at-night" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Stress &amp; Anxiety at Night →</Link>
             <Link href="/guides/rhodiola-complete-guide" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Complete Rhodiola Guide →</Link>
             <Link href="/guides/compare/rhodiola-vs-ashwagandha" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Rhodiola vs Ashwagandha →</Link>

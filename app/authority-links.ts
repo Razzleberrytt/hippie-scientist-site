@@ -52,6 +52,6 @@ export const authorityHomeLinks = [
   { href: SEO_GUIDE_ROUTES.sleep, label: 'Best Supplements for Sleep' },
   { href: SEO_GUIDE_ROUTES.focus, label: 'Best Supplements for Focus' },
   { href: '/guides/compare/rhodiola-vs-ashwagandha', label: 'Rhodiola vs Ashwagandha' },
-  { href: '/stacks/sleep-recovery-stack', label: 'Sleep Recovery Stack' },
+  { href: '/guides/sleep/sleep-stack-guide', label: 'Sleep Recovery Stack' },
   { href: '/info/methodology', label: 'Safety Basics' },
 ]

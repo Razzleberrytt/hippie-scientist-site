@@ -18,16 +18,16 @@
     "description": "It is best framed as a culinary-medicinal seed with strong traditional GI positioning."
   },
   {
-    "slug": "aloe-vera",
-    "name": "Aloe Vera",
-    "title": "Aloe Vera | The Hippie Scientist",
-    "description": "Internal cross-linking supports Aloe Vera through compounds such as aloin."
-  },
-  {
     "slug": "panax-quinquefolius",
     "name": "American Ginseng",
     "title": "American Ginseng | The Hippie Scientist",
     "description": "Internal cross-linking supports American Ginseng through compounds such as ginsenosides (including rb1, rg1), rb2."
+  },
+  {
+    "slug": "american-yellow-lotus",
+    "name": "American Yellow Lotus",
+    "title": "American Yellow Lotus | The Hippie Scientist",
+    "description": "Internal cross-linking supports American Yellow Lotus through compounds such as nuciferine, roemerine, n-methylasimilobine."
   },
   {
     "slug": "andrographis-paniculata",
@@ -52,6 +52,12 @@
     "name": "Angelica Dahurica",
     "title": "Angelica Dahurica | The Hippie Scientist",
     "description": "Angelica dahurica lean monograph row enriched in bulk mode."
+  },
+  {
+    "slug": "angelica-pubescens",
+    "name": "Angelica Pubescens",
+    "title": "Angelica Pubescens | The Hippie Scientist",
+    "description": "Angelica pubescens lean monograph row enriched in bulk mode."
   },
   {
     "slug": "angelica-root",
@@ -120,6 +126,24 @@
     "description": "Ashwagandha is tracked for sleep,stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
+    "slug": "panax-ginseng",
+    "name": "Asian Ginseng",
+    "title": "Asian Ginseng | The Hippie Scientist",
+    "description": "Panax ginseng lean herb row for high-speed phytochemical ingestion."
+  },
+  {
+    "slug": "astragalus",
+    "name": "Astragalus",
+    "title": "Astragalus | The Hippie Scientist",
+    "description": "It is best framed around astragalosides and polysaccharides."
+  },
+  {
+    "slug": "astragalus-membranaceus",
+    "name": "Astragalus Membranaceus",
+    "title": "Astragalus Membranaceus | The Hippie Scientist",
+    "description": "Astragalus membranaceus contains Astragaloside IV and is linked here to PI3K/Akt modulation."
+  },
+  {
     "slug": "atractylodes",
     "name": "Atractylodes",
     "title": "Atractylodes | The Hippie Scientist",
@@ -168,10 +192,10 @@
     "description": "Berberis vulgaris lean herb row for high-speed phytochemical ingestion."
   },
   {
-    "slug": "momordica-charantia",
-    "name": "Bitter Melon",
-    "title": "Bitter Melon | The Hippie Scientist",
-    "description": "Contains charantin and polypeptide-p which lower blood glucose."
+    "slug": "piper-nigrum",
+    "name": "Black Pepper",
+    "title": "Black Pepper | The Hippie Scientist",
+    "description": "Piper nigrum contains Beta-caryophyllene and is linked here to CB2 receptor agonism."
   },
   {
     "slug": "black-seed",
@@ -186,10 +210,10 @@
     "description": "black tea is tracked for cognition,fat_loss,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
-    "slug": "blue-lotus",
-    "name": "Blue Lotus",
-    "title": "Blue Lotus | The Hippie Scientist",
-    "description": "blue lotus is tracked for sleep,stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
+    "slug": "blueberry",
+    "name": "Blueberry",
+    "title": "Blueberry | The Hippie Scientist",
+    "description": "blueberry is tracked for cognition,fat_loss,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "boldo",
@@ -202,6 +226,12 @@
     "name": "Boswellia",
     "title": "Boswellia | The Hippie Scientist",
     "description": "Boswellia serrata contains Boswellic acid and is linked here to 5-lipoxygenase inhibition."
+  },
+  {
+    "slug": "boswellia-carterii",
+    "name": "Boswellia Carterii",
+    "title": "Boswellia Carterii | The Hippie Scientist",
+    "description": "It is best framed around boswellic acids with 5-lipoxygenase relevance."
   },
   {
     "slug": "brassica-juncea",
@@ -222,6 +252,12 @@
     "description": "buckwheat is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
+    "slug": "bupleurum",
+    "name": "Bupleurum",
+    "title": "Bupleurum | The Hippie Scientist",
+    "description": "It should be framed conservatively because traditional-system context matters more than casual wellness claims."
+  },
+  {
     "slug": "bupleurum-falcatum",
     "name": "Bupleurum Falcatum",
     "title": "Bupleurum Falcatum | The Hippie Scientist",
@@ -232,6 +268,12 @@
     "name": "Burdock",
     "title": "Burdock | The Hippie Scientist",
     "description": "It is best framed as a traditional root botanical with modest modern evidence rather than a definitive detox herb."
+  },
+  {
+    "slug": "butterbur",
+    "name": "Butterbur",
+    "title": "Butterbur | The Hippie Scientist",
+    "description": "Butterbur is a sesquiterpene-rich herb usually discussed around standardized root extracts."
   },
   {
     "slug": "theobroma-cacao",
@@ -250,12 +292,6 @@
     "name": "Calendula",
     "title": "Calendula | The Hippie Scientist",
     "description": "It is best framed around topical and tissue-soothing use rather than overextended systemic claims."
-  },
-  {
-    "slug": "eschscholzia-californica",
-    "name": "California Poppy",
-    "title": "California Poppy | The Hippie Scientist",
-    "description": "California Poppy is tracked for sleep,stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "capsicum-annuum",
@@ -282,10 +318,28 @@
     "description": "It is best framed as a food-form legume pod with fiber and polyphenol relevance rather than strong pharmacologic action."
   },
   {
-    "slug": "cat-s-claw",
-    "name": "Cat's Claw",
-    "title": "Cat's Claw | The Hippie Scientist",
-    "description": "It is best framed around oxindole alkaloids with autoimmune and transplant-related caution."
+    "slug": "cassia-alata",
+    "name": "Cassia Alata",
+    "title": "Cassia Alata | The Hippie Scientist",
+    "description": "Internal cross-linking supports Cassia Alata through compounds such as aloe-emodin, chrysophanol."
+  },
+  {
+    "slug": "catuba",
+    "name": "Catuba",
+    "title": "Catuba | The Hippie Scientist",
+    "description": "It should be framed conservatively because traditional aphrodisiac narratives exceed modern evidence depth."
+  },
+  {
+    "slug": "cayenne",
+    "name": "Cayenne",
+    "title": "Cayenne | The Hippie Scientist",
+    "description": "Internal cross-linking supports Cayenne through compounds such as capsaicin, capsorubin, dihydrocapsaicin."
+  },
+  {
+    "slug": "celastrus-paniculatus",
+    "name": "Celastrus Paniculatus",
+    "title": "Celastrus Paniculatus | The Hippie Scientist",
+    "description": "Internal cross-linking supports Celastrus Paniculatus through compounds such as beta-amyrin, celastrine, lupeol."
   },
   {
     "slug": "matricaria-chamomilla",
@@ -360,6 +414,12 @@
     "description": "Cnidium monnieri lean monograph row enriched in bulk mode."
   },
   {
+    "slug": "codonopsis",
+    "name": "Codonopsis",
+    "title": "Codonopsis | The Hippie Scientist",
+    "description": "It is best framed as a gentler tonic-style root with modest modern evidence."
+  },
+  {
     "slug": "coffea-arabica",
     "name": "Coffee",
     "title": "Coffee | The Hippie Scientist",
@@ -370,6 +430,12 @@
     "name": "Coffee Cherry",
     "title": "Coffee Cherry | The Hippie Scientist",
     "description": "Internal cross-linking supports Coffee Cherry through compounds such as caffeine, trigonelline, cafestol."
+  },
+  {
+    "slug": "coleus-forskohlii",
+    "name": "Coleus Forskohlii",
+    "title": "Coleus Forskohlii | The Hippie Scientist",
+    "description": "Coleus forskohlii contains Forskolin and is linked here to adenylyl cyclase activation."
   },
   {
     "slug": "commiphora-mukul",
@@ -418,6 +484,12 @@
     "name": "Cranberry (Vaccinium macrocarpon)",
     "title": "Cranberry (Vaccinium macrocarpon) | The Hippie Scientist",
     "description": "It is best framed around proanthocyanidin-rich urinary-support positioning rather than broad antimicrobial claims."
+  },
+  {
+    "slug": "crocus-sativus",
+    "name": "Crocus Sativus",
+    "title": "Crocus Sativus | The Hippie Scientist",
+    "description": "Crocus sativus (Saffron) is a highly valued spice botanical containing crocin, crocetin, and safranal, with emerging evidence for mood support."
   },
   {
     "slug": "curcuma-wenyujin",
@@ -486,16 +558,22 @@
     "description": "dong quai is tracked for cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
-    "slug": "elderberry",
-    "name": "Elderberry",
-    "title": "Elderberry | The Hippie Scientist",
-    "description": "Internal cross-linking supports Elderberry through compounds such as sambunigrin."
-  },
-  {
     "slug": "elecampane",
     "name": "Elecampane",
     "title": "Elecampane | The Hippie Scientist",
     "description": "It is best framed as a bitter aromatic root with traditional bronchial relevance."
+  },
+  {
+    "slug": "elephantopus-scaber",
+    "name": "Elephantopus Scaber",
+    "title": "Elephantopus Scaber | The Hippie Scientist",
+    "description": "Elephantopus scaber contains Deoxyelephantopin and is linked here to NF-κB inhibition."
+  },
+  {
+    "slug": "eleuthero",
+    "name": "Eleuthero",
+    "title": "Eleuthero | The Hippie Scientist",
+    "description": "Eleuthero (Siberian ginseng) is an adaptogenic root used to support stress resilience and physical endurance. It modulates HPA axis activity and influences cortisol and catecholamine signaling. Human trials report reduced fatigue and improved cognitive performance under stress conditions, particularly in shift workers and athletes."
   },
   {
     "slug": "embelia-ribes",
@@ -528,10 +606,10 @@
     "description": "It is best framed conservatively because traditional tonic use is broader than modern evidence quality."
   },
   {
-    "slug": "evening-primrose",
-    "name": "Evening Primrose (Oenothera biennis)",
-    "title": "Evening Primrose (Oenothera biennis) | The Hippie Scientist",
-    "description": "Evening Primrose (Oenothera biennis) is tracked for mechanism-informed herb research in the workbook. Human-outcome claims should remain gated until source and dosage review are complete."
+    "slug": "fennel",
+    "name": "Fennel",
+    "title": "Fennel | The Hippie Scientist",
+    "description": "It is best handled as an aromatic seed botanical with traditional GI-support use and modest mechanistic confidence."
   },
   {
     "slug": "trigonella-foenum-graecum",
@@ -588,6 +666,12 @@
     "description": "Garlic is tracked for fat_loss,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
+    "slug": "gastrodia",
+    "name": "Gastrodia",
+    "title": "Gastrodia | The Hippie Scientist",
+    "description": "It should be framed conservatively because traditional neurologic use is broader than modern evidence."
+  },
+  {
     "slug": "ginkgo-biloba",
     "name": "Ginkgo",
     "title": "Ginkgo | The Hippie Scientist",
@@ -600,10 +684,22 @@
     "description": "Glycyrrhiza glabra (Licorice) is a traditional root botanical studied for gastrointestinal soothing and cortisol support."
   },
   {
-    "slug": "goldenseal",
-    "name": "Goldenseal",
-    "title": "Goldenseal | The Hippie Scientist",
-    "description": "Internal cross-linking supports Goldenseal through compounds such as berberine, hydrastine."
+    "slug": "gotu-kola",
+    "name": "Gotu Kola (Centella asiatica)",
+    "title": "Gotu Kola (Centella asiatica) | The Hippie Scientist",
+    "description": "Centella asiatica contains Asiatic acid and is linked here to PI3K/Akt modulation."
+  },
+  {
+    "slug": "vitis-vinifera",
+    "name": "Grape",
+    "title": "Grape | The Hippie Scientist",
+    "description": "Grape is tracked for stress,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
+  },
+  {
+    "slug": "grapefruit",
+    "name": "Grapefruit",
+    "title": "Grapefruit | The Hippie Scientist",
+    "description": "grapefruit is tracked for fat_loss,gut with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "camellia-sinensis",
@@ -616,12 +712,6 @@
     "name": "Green Tea Extract",
     "title": "Green Tea Extract | The Hippie Scientist",
     "description": "Green Tea Extract is tracked for fat_loss with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
-  },
-  {
-    "slug": "guarana",
-    "name": "Guarana",
-    "title": "Guarana | The Hippie Scientist",
-    "description": "guarana is tracked for cognition,energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "guayusa",
@@ -654,6 +744,24 @@
     "description": "It is best framed around procyanidins and flavonoids."
   },
   {
+    "slug": "hibiscus-sabdariffa",
+    "name": "Hibiscus",
+    "title": "Hibiscus | The Hippie Scientist",
+    "description": "Hibiscus is tracked for cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
+  },
+  {
+    "slug": "holy-basil-purple",
+    "name": "Holy Basil Purple",
+    "title": "Holy Basil Purple | The Hippie Scientist",
+    "description": "It should be framed similarly to tulsi while noting cultivar/form distinctions are secondary to constituent variability."
+  },
+  {
+    "slug": "holy-basil-seed",
+    "name": "Holy Basil Seed",
+    "title": "Holy Basil Seed | The Hippie Scientist",
+    "description": "It should be framed distinctly from holy basil leaf because fiber and mucilage drive different use-cases."
+  },
+  {
     "slug": "honeysuckle",
     "name": "Honeysuckle",
     "title": "Honeysuckle | The Hippie Scientist",
@@ -682,6 +790,18 @@
     "name": "Huperzia Serrata",
     "title": "Huperzia Serrata | The Hippie Scientist",
     "description": "Huperzia serrata contains Huperzine A and is linked here to acetylcholinesterase inhibition."
+  },
+  {
+    "slug": "hypericum-perforatum",
+    "name": "Hypericum Perforatum",
+    "title": "Hypericum Perforatum | The Hippie Scientist",
+    "description": "Hypericum perforatum contains Hyperforin and is linked here to TRPC6 channel modulation."
+  },
+  {
+    "slug": "berberis-aristata",
+    "name": "Indian Barberry",
+    "title": "Indian Barberry | The Hippie Scientist",
+    "description": "Indian Barberry is tracked for fat_loss,gut with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "isatis",
@@ -714,16 +834,22 @@
     "description": "It should be framed as an aromatic berry botanical with traditional GI and urinary relevance."
   },
   {
-    "slug": "piper-methysticum",
-    "name": "Kava",
-    "title": "Kava | The Hippie Scientist",
-    "description": "Kavalactones modulate GABA and ion channels producing anxiolytic effects."
+    "slug": "kuding-tea",
+    "name": "Kuding Tea",
+    "title": "Kuding Tea | The Hippie Scientist",
+    "description": "It should be framed as a bitter tea botanical with food-form relevance and modest modern evidence."
   },
   {
     "slug": "kudzu",
     "name": "Kudzu",
     "title": "Kudzu | The Hippie Scientist",
     "description": "kudzu is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
+  },
+  {
+    "slug": "tyrosine",
+    "name": "L-Tyrosine",
+    "title": "L-Tyrosine | The Hippie Scientist",
+    "description": "L-Tyrosine is tracked for stress,cognition,energy with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "lavandula-angustifolia",
@@ -748,6 +874,12 @@
     "name": "Lemon Verbena",
     "title": "Lemon Verbena | The Hippie Scientist",
     "description": "It is best framed as a gentle aromatic botanical with modest evidence and pleasant tolerability."
+  },
+  {
+    "slug": "lemongrass",
+    "name": "Lemongrass",
+    "title": "Lemongrass | The Hippie Scientist",
+    "description": "It is best framed as an aromatic culinary-medicinal grass with modest clinical depth."
   },
   {
     "slug": "licorice",
@@ -810,6 +942,24 @@
     "description": "It should be framed conservatively because broad anti-inflammatory and disease claims outrun the evidence."
   },
   {
+    "slug": "maral-root",
+    "name": "Maral Root",
+    "title": "Maral Root | The Hippie Scientist",
+    "description": "It is best framed carefully because ecdysteroid narratives often outpace evidence quality."
+  },
+  {
+    "slug": "marshmallow",
+    "name": "Marshmallow",
+    "title": "Marshmallow | The Hippie Scientist",
+    "description": "Internal cross-linking supports Marshmallow through compounds such as pectin."
+  },
+  {
+    "slug": "milk-oats",
+    "name": "Milk Oats",
+    "title": "Milk Oats | The Hippie Scientist",
+    "description": "They are best framed as a gentle traditional tonic rather than a strong acute intervention."
+  },
+  {
     "slug": "silybum-marianum",
     "name": "Milk Thistle",
     "title": "Milk Thistle | The Hippie Scientist",
@@ -840,6 +990,12 @@
     "description": "Morus alba contains Mulberroside A and is linked here to glucose absorption modulation."
   },
   {
+    "slug": "mucuna",
+    "name": "Mucuna",
+    "title": "Mucuna | The Hippie Scientist",
+    "description": "It is best framed around L-DOPA-rich seeds with clear neurologic and stimulation-related caution."
+  },
+  {
     "slug": "mugwort",
     "name": "Mugwort",
     "title": "Mugwort | The Hippie Scientist",
@@ -858,16 +1014,22 @@
     "description": "Myristica fragrans contains Elemicin and is linked here to monoamine oxidase inhibition."
   },
   {
+    "slug": "myrtle",
+    "name": "Myrtle",
+    "title": "Myrtle | The Hippie Scientist",
+    "description": "It is best framed as an aromatic Mediterranean leaf botanical with modest modern evidence."
+  },
+  {
     "slug": "neem",
     "name": "Neem",
     "title": "Neem | The Hippie Scientist",
     "description": "It should be framed carefully because topical, oral, and seed-oil contexts differ substantially in safety relevance."
   },
   {
-    "slug": "nettle-root",
-    "name": "Nettle Root",
-    "title": "Nettle Root | The Hippie Scientist",
-    "description": "It is best framed distinctly from nettle leaf."
+    "slug": "nelumbo-nucifera",
+    "name": "Nelumbo Nucifera",
+    "title": "Nelumbo Nucifera | The Hippie Scientist",
+    "description": "Nelumbo nucifera lean monograph row enriched in bulk mode."
   },
   {
     "slug": "nigella-sativa",
@@ -886,6 +1048,12 @@
     "name": "Notoginseng",
     "title": "Notoginseng | The Hippie Scientist",
     "description": "It is best framed as a saponin-rich Panax relative with specific vascular-support positioning."
+  },
+  {
+    "slug": "oatstraw",
+    "name": "Oatstraw",
+    "title": "Oatstraw | The Hippie Scientist",
+    "description": "It is best framed as a gentle nutritive herb with limited high-signal clinical depth."
   },
   {
     "slug": "ocimum-basilicum",
@@ -984,10 +1152,58 @@
     "description": "Phellodendron amurense lean herb row for high-speed phytochemical ingestion."
   },
   {
+    "slug": "phosphatidylserine",
+    "name": "Phosphatidylserine",
+    "title": "Phosphatidylserine | The Hippie Scientist",
+    "description": "Phosphatidylserine is tracked for stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
+  },
+  {
+    "slug": "piper-longum",
+    "name": "Piper Longum",
+    "title": "Piper Longum | The Hippie Scientist",
+    "description": "Minimum source-backed intake for Piper longum."
+  },
+  {
+    "slug": "plantago-lanceolata",
+    "name": "Plantago Lanceolata",
+    "title": "Plantago Lanceolata | The Hippie Scientist",
+    "description": "Plantago lanceolata contains Verbascoside and is linked here to NF-κB inhibition."
+  },
+  {
+    "slug": "plantago-major",
+    "name": "Plantago Major",
+    "title": "Plantago Major | The Hippie Scientist",
+    "description": "Plantago major contains Aucubin and is linked here to NF-κB inhibition."
+  },
+  {
+    "slug": "plumbago-zeylanica",
+    "name": "Plumbago Zeylanica",
+    "title": "Plumbago Zeylanica | The Hippie Scientist",
+    "description": "Plumbago zeylanica contains Plumbagin and is linked here to NF-κB inhibition."
+  },
+  {
+    "slug": "polygala",
+    "name": "Polygala",
+    "title": "Polygala | The Hippie Scientist",
+    "description": "It is best framed as a traditional nootropic-style root with limited modern clinical depth."
+  },
+  {
     "slug": "pomegranate",
     "name": "Pomegranate",
     "title": "Pomegranate | The Hippie Scientist",
     "description": "It is best framed as a polyphenol-rich fruit botanical with food-form relevance and moderate evidence."
+  },
+  {
+    "slug": "poria",
+    "name": "Poria",
+    "title": "Poria | The Hippie Scientist",
+    "description": "It is best framed as a traditional medicinal fungus with modest modern clinical depth."
+  },
+  {
+    "slug": "psoralea-corylifolia",
+    "name": "Psoralea Corylifolia",
+    "title": "Psoralea Corylifolia | The Hippie Scientist",
+    "description": "Psoralea corylifolia lean monograph row enriched in bulk mode."
   },
   {
     "slug": "psyllium",
@@ -1014,6 +1230,12 @@
     "description": "Internal cross-linking supports Punarnava through compounds such as punarnavine."
   },
   {
+    "slug": "quercetin",
+    "name": "Quercetin",
+    "title": "Quercetin | The Hippie Scientist",
+    "description": "Quercetin is tracked for stress,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
+  },
+  {
     "slug": "raspberry-leaf",
     "name": "Raspberry Leaf",
     "title": "Raspberry Leaf | The Hippie Scientist",
@@ -1026,16 +1248,40 @@
     "description": "It should be framed conservatively because endocrine-adjacent claims outrun the evidence in many product contexts."
   },
   {
-    "slug": "ganoderma-lucidum",
-    "name": "Reishi",
-    "title": "Reishi | The Hippie Scientist",
-    "description": "Reishi is tracked for energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
+    "slug": "rehmannia-glutinosa",
+    "name": "Rehmannia Glutinosa",
+    "title": "Rehmannia Glutinosa | The Hippie Scientist",
+    "description": "Rehmannia glutinosa contains Catalpol and is linked here to PI3K/Akt modulation."
+  },
+  {
+    "slug": "rehmannia-prepared",
+    "name": "Rehmannia Prepared",
+    "title": "Rehmannia Prepared | The Hippie Scientist",
+    "description": "It should be framed distinctly from raw rehmannia because processed-form use-cases differ materially."
+  },
+  {
+    "slug": "reishi",
+    "name": "Reishi (Ganoderma lucidum)",
+    "title": "Reishi (Ganoderma lucidum) | The Hippie Scientist",
+    "description": "Reishi (Ganoderma lucidum) is a medicinal mushroom used across East Asian traditions for immune regulation and adaptogenic support. Its beta-glucan polysaccharides and triterpenes (ganoderic acids) modulate innate and adaptive immunity, NK cell activity, and inflammatory signaling. Clinical evidence supports immunomodulatory effects; sleep and fatigue data are emerging."
   },
   {
     "slug": "resveratrol",
     "name": "Resveratrol",
     "title": "Resveratrol | The Hippie Scientist",
     "description": "Resveratrol is tracked for fat_loss,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
+  },
+  {
+    "slug": "rheum-palmatum",
+    "name": "Rheum Palmatum",
+    "title": "Rheum Palmatum | The Hippie Scientist",
+    "description": "Rheum palmatum (Turkish Rhubarb) is a root botanical containing emodin and rhein, used traditionally for digestive health."
+  },
+  {
+    "slug": "rhodiola",
+    "name": "Rhodiola",
+    "title": "Rhodiola | The Hippie Scientist",
+    "description": "Rhodiola may support stress-related fatigue and mental stamina; avoid framing it as a bedtime calming herb."
   },
   {
     "slug": "rice-bran",
@@ -1068,16 +1314,82 @@
     "description": "rosemary is tracked for cognition,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
+    "slug": "saffron",
+    "name": "Saffron",
+    "title": "Saffron | The Hippie Scientist",
+    "description": "Internal cross-linking supports Saffron through compounds such as picrocrocin, crocin, safranal."
+  },
+  {
+    "slug": "sage",
+    "name": "Sage",
+    "title": "Sage | The Hippie Scientist",
+    "description": "sage is tracked for stress,cognition,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
+  },
+  {
     "slug": "salacia-reticulata",
     "name": "Salacia",
     "title": "Salacia | The Hippie Scientist",
     "description": "Internal cross-linking supports Salacia through compounds such as mangiferin, kotalanol, salacinol."
   },
   {
-    "slug": "scutellaria-lateriflora",
-    "name": "Skullcap",
-    "title": "Skullcap | The Hippie Scientist",
-    "description": "Scutellaria lateriflora (American Skullcap) is an herb traditionally used for nervous tension, anxiety, and sleep support."
+    "slug": "schisandra",
+    "name": "Schisandra (Schisandra chinensis)",
+    "title": "Schisandra (Schisandra chinensis) | The Hippie Scientist",
+    "description": "Schisandra (Schisandra chinensis) is a five-flavor berry used in TCM as an adaptogen and liver tonic. Its primary lignans (schisandrin A/B/C) support hepatocyte detoxification via CYP450 modulation and exhibit antioxidant activity. Human data support mild stress reduction and liver enzyme normalization in hepatitis populations."
+  },
+  {
+    "slug": "schisandra-berry",
+    "name": "Schisandra Berry",
+    "title": "Schisandra Berry | The Hippie Scientist",
+    "description": "It is best framed specifically around berry lignans and traditional stress-support positioning."
+  },
+  {
+    "slug": "schisandra-chinensis",
+    "name": "Schisandra Chinensis",
+    "title": "Schisandra Chinensis | The Hippie Scientist",
+    "description": "Schisandra chinensis is an adaptogenic berry botanical rich in schisandrins, used to support stress resilience and cognitive focus."
+  },
+  {
+    "slug": "scutellaria-baicalensis",
+    "name": "Scutellaria Baicalensis",
+    "title": "Scutellaria Baicalensis | The Hippie Scientist",
+    "description": "Scutellaria baicalensis (Baical Skullcap) is a root botanical containing baicalin and baicalein, studied for sleep and relaxation."
+  },
+  {
+    "slug": "selaginella-tamariscina",
+    "name": "Selaginella Tamariscina",
+    "title": "Selaginella Tamariscina | The Hippie Scientist",
+    "description": "Minimum source-backed intake for ginkgetin and 5-lipoxygenase inhibition cluster completion."
+  },
+  {
+    "slug": "serenoa-repens",
+    "name": "Serenoa Repens",
+    "title": "Serenoa Repens | The Hippie Scientist",
+    "description": "Serenoa repens contains Beta-sitosterol and is linked here to PPAR activation."
+  },
+  {
+    "slug": "shankhpushpi",
+    "name": "Shankhpushpi",
+    "title": "Shankhpushpi | The Hippie Scientist",
+    "description": "It is best framed as a traditional cognitive-support herb with limited modern clinical depth."
+  },
+  {
+    "slug": "shatavari",
+    "name": "Shatavari",
+    "title": "Shatavari | The Hippie Scientist",
+    "description": "It is best framed around steroidal saponins with hormonal-context caution."
+  },
+  {
+    "slug": "sophora-alopecuroides",
+    "name": "Sophora Alopecuroides",
+    "title": "Sophora Alopecuroides | The Hippie Scientist",
+    "description": "Sophora alopecuroides lean monograph row enriched in bulk mode."
+  },
+  {
+    "slug": "sophora-flavescens",
+    "name": "Sophora Flavescens",
+    "title": "Sophora Flavescens | The Hippie Scientist",
+    "description": "Sophora flavescens lean monograph row enriched in bulk mode."
   },
   {
     "slug": "soursop",
@@ -1092,22 +1404,46 @@
     "description": "soybean is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
+    "slug": "stellera-chamaejasme",
+    "name": "Stellera Chamaejasme",
+    "title": "Stellera Chamaejasme | The Hippie Scientist",
+    "description": "Stellera chamaejasme lean monograph row enriched in bulk mode."
+  },
+  {
+    "slug": "stephania-cepharantha",
+    "name": "Stephania Cepharantha",
+    "title": "Stephania Cepharantha | The Hippie Scientist",
+    "description": "Stephania cepharantha lean monograph row enriched in bulk mode."
+  },
+  {
+    "slug": "stephania-japonica",
+    "name": "Stephania Japonica",
+    "title": "Stephania Japonica | The Hippie Scientist",
+    "description": "Stephania japonica lean monograph row enriched in bulk mode."
+  },
+  {
+    "slug": "stephania-tetrandra",
+    "name": "Stephania Tetrandra",
+    "title": "Stephania Tetrandra | The Hippie Scientist",
+    "description": "Stephania tetrandra lean monograph row enriched in bulk mode."
+  },
+  {
     "slug": "suma",
     "name": "Suma",
     "title": "Suma | The Hippie Scientist",
     "description": "It should be framed conservatively because traditional-use breadth exceeds evidence depth."
   },
   {
+    "slug": "syzygium-aromaticum",
+    "name": "Syzygium Aromaticum",
+    "title": "Syzygium Aromaticum | The Hippie Scientist",
+    "description": "Syzygium aromaticum (Clove) is an aromatic spice botanical rich in eugenol, studied for antioxidant and dental health support."
+  },
+  {
     "slug": "tamarind",
     "name": "Tamarind",
     "title": "Tamarind | The Hippie Scientist",
     "description": "It is best framed as a food-form fruit with digestive and polyphenol relevance."
-  },
-  {
-    "slug": "artemisia-dracunculus",
-    "name": "Tarragon",
-    "title": "Tarragon | The Hippie Scientist",
-    "description": "Tarragon is tracked for fat_loss with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
     "slug": "thunder-god-vine",
@@ -1122,16 +1458,28 @@
     "description": "thyme is tracked for sleep,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   },
   {
+    "slug": "tongkat-ali",
+    "name": "Tongkat Ali",
+    "title": "Tongkat Ali | The Hippie Scientist",
+    "description": "It is best framed as a bitter root extract with endocrine and stimulation-related caution."
+  },
+  {
+    "slug": "tribulus-terrestris",
+    "name": "Tribulus (Tribulus terrestris)",
+    "title": "Tribulus (Tribulus terrestris) | The Hippie Scientist",
+    "description": "Tribulus terrestris lean herb row for high-speed phytochemical ingestion."
+  },
+  {
     "slug": "tripterygium-wilfordii",
     "name": "Tripterygium Wilfordii",
     "title": "Tripterygium Wilfordii | The Hippie Scientist",
     "description": "Tripterygium wilfordii (Thunder God Vine) contains celastrol, studied for auto-immune and inflammatory regulation."
   },
   {
-    "slug": "turkey-tail",
-    "name": "Turkey Tail",
-    "title": "Turkey Tail | The Hippie Scientist",
-    "description": "Turkey Tail (Trametes versicolor) is a shelf mushroom yielding two extensively studied polysaccharopeptides: PSK (krestin) and PSP. These compounds stimulate NK cells, macrophages, and T-cell activity, and PSK is approved in Japan as an adjunct cancer immunotherapy. Human evidence for standalone immune support in healthy populations is limited but supportive."
+    "slug": "turmeric",
+    "name": "Turmeric (Curcuma longa)",
+    "title": "Turmeric (Curcuma longa) | The Hippie Scientist",
+    "description": "Curcuma longa contains Demethoxycurcumin and is linked here to NF-κB inhibition."
   },
   {
     "slug": "valeriana-officinalis",
@@ -1146,9 +1494,39 @@
     "description": "Valerian may support sleep onset and nighttime relaxation, with results varying by root preparation."
   },
   {
-    "slug": "yohimbe",
-    "name": "Yohimbe",
-    "title": "Yohimbe | The Hippie Scientist",
-    "description": "Yohimbe is represented here as a bark-derived monograph anchored to yohimbine, an alpha-2 adrenergic antagonist with sympathomimetic effects."
+    "slug": "verbena-officinalis",
+    "name": "Verbena Officinalis",
+    "title": "Verbena Officinalis | The Hippie Scientist",
+    "description": "Verbena officinalis contains Acteoside and is linked here to NF-κB inhibition."
+  },
+  {
+    "slug": "white-peony",
+    "name": "White Peony",
+    "title": "White Peony | The Hippie Scientist",
+    "description": "It is best framed as a paeoniflorin-rich root with traditional-system relevance."
+  },
+  {
+    "slug": "wild-yam",
+    "name": "Wild Yam",
+    "title": "Wild Yam | The Hippie Scientist",
+    "description": "Wild Yam lean herb row for high-speed phytochemical ingestion."
+  },
+  {
+    "slug": "wormwood",
+    "name": "Wormwood",
+    "title": "Wormwood | The Hippie Scientist",
+    "description": "Internal cross-linking supports Wormwood through compounds such as alpha-thujone, absinthin, beta-thujone."
+  },
+  {
+    "slug": "yarrow",
+    "name": "Yarrow",
+    "title": "Yarrow | The Hippie Scientist",
+    "description": "yarrow is tracked for inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
+  },
+  {
+    "slug": "yerba-mate",
+    "name": "Yerba Mate",
+    "title": "Yerba Mate | The Hippie Scientist",
+    "description": "yerba mate is tracked for fat_loss,energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context."
   }
 ]

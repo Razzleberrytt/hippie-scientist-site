@@ -25,7 +25,7 @@ function hrefForRecord(record: any) {
   if (record.entityType === 'herb') return `/herbs/${record.slug}`
   if (record.entityType === 'compound') return `/compounds/${record.slug}`
   if (record.entityType === 'stack') return `/stacks/${record.slug}`
-  if (record.entityType === 'compare') return `/compare/${record.slug}`
+  if (record.entityType === 'compare') return `/guides/compare/${record.slug}`
   return undefined
 }
 

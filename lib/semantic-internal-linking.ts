@@ -51,7 +51,7 @@ export function buildSemanticLinkSuggestions(source: Record<string, unknown>, ca
         type === 'stack'
           ? `/stacks/${candidate.slug}`
           : type === 'compare'
-            ? `/compare/${candidate.slug}`
+            ? `/guides/compare/${candidate.slug}`
             : type === 'ecosystem'
               ? `/supernodes/${candidate.slug}`
               : candidate?.entityType === 'herb'
@@ -68,7 +68,7 @@ export function buildSemanticLinkSuggestions(source: Record<string, unknown>, ca
     })
     .filter((item) => item.score > 0)
     // Never surface a comparison link unless that comparison page is built;
-    // an unbuilt /compare/ slug 404s under static export.
+    // an unbuilt /guides/compare/ slug 404s under static export.
     .filter((item) => item.type !== 'compare' || isBuiltComparisonSlug(text(item.href).replace(/^\/compare\//, '')))
     .sort((a, b) => b.score - a.score || a.label.localeCompare(b.label))
     .slice(0, limit)

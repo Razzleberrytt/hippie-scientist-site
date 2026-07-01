@@ -104,7 +104,7 @@ export default function LTheanineArticlePage() {
 
       {/* Breadcrumb */}
       <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
-        <Link href="/articles/" className="transition hover:text-ink">
+        <Link href="/guides/" className="transition hover:text-ink">
           Articles
         </Link>
         <span>/</span>
@@ -139,7 +139,7 @@ export default function LTheanineArticlePage() {
 
         <p className="mt-2 text-sm text-muted">
           By{' '}
-          <Link href="/info/info/about/" rel="author" className="font-medium text-ink hover:underline">
+          <Link href="/info/about/" rel="author" className="font-medium text-ink hover:underline">
             {AUTHOR}
           </Link>
         </p>
@@ -950,9 +950,9 @@ export default function LTheanineArticlePage() {
                 ['#uses', 'What It Is Used For'],
                 ['#mechanisms', 'How It Works'],
                 ['#evidence-summary', 'Evidence Summary'],
-                ['#dosage', 'Dosage &amp; Usage'],
+                ['#dosage', 'Dosage & Usage'],
                 ['#product-recommendations', 'Product Picks'],
-                ['#safety', 'Safety &amp; Side Effects'],
+                ['#safety', 'Safety & Side Effects'],
                 ['#stacking', 'Stacking'],
                 ['#faq', 'FAQ'],
                 ['#sources', 'Sources'],
@@ -961,8 +961,9 @@ export default function LTheanineArticlePage() {
                   key={href}
                   href={href}
                   className="block text-sm text-brand-700 hover:text-brand-800 hover:underline"
-                  dangerouslySetInnerHTML={{ __html: label }}
-                />
+                >
+                  {label}
+                </a>
               ))}
             </nav>
           </div>
@@ -1015,7 +1016,7 @@ export default function LTheanineArticlePage() {
                 Focus goal hub →
               </Link>
               <Link
-                href="/articles/"
+                href="/guides/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 All articles →
@@ -1026,7 +1027,7 @@ export default function LTheanineArticlePage() {
       </div>
 
       <div className="mt-8">
-        <Link href="/articles/" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
+        <Link href="/guides/" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
           ← Back to Articles
         </Link>
       </div>

@@ -45,7 +45,7 @@ export const topicClusters: TopicCluster[] = [
   {
     slug: 'longevity',
     label: 'Longevity',
-    href: '/goals/recovery',
+    href: '/guides/sleep',
     description: 'Aging-adjacent research themes including repair, oxidative stress, metabolism, and resilience.',
     systems: ['Repair', 'Resilience', 'Healthy aging'],
     keywords: ['longevity', 'aging', 'cellular', 'repair', 'resilience'],

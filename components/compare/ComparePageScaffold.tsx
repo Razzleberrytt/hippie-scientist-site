@@ -103,7 +103,7 @@ export default function ComparePageScaffold({
             <h3 className="font-bold text-ink">More comparison paths</h3>
             <div className="flex flex-col gap-2">
               {runtimeComparisonLinks.map(item => (
-                <Link key={item.slug} href={`/compare/${item.slug}`} className="text-sm font-semibold text-brand-850 hover:underline">
+                <Link key={item.slug} href={`/guides/compare/${item.slug}`} className="text-sm font-semibold text-brand-850 hover:underline">
                   {item.title} →
                 </Link>
               ))}

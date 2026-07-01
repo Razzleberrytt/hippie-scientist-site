@@ -6,11 +6,11 @@ import type { Heading } from '@/components/articles'
 export const metadata: Metadata = {
   title: 'Psychedelic-Adjacent Herbs & Harm Reduction',
   description: 'Evidence-informed harm reduction guide for traditional, ritual, and dream-adjacent botanicals like Blue Lotus and Kanna.',
-  alternates: { canonical: '/guides/psychedelic-adjacent-herbs/' },
+  alternates: { canonical: '/guides/other/psychedelic-adjacent-herbs/' },
   openGraph: {
     title: 'Psychedelic-Adjacent Herbs & Harm Reduction',
     description: 'Evidence-informed harm reduction guide for traditional, ritual, and dream-adjacent botanicals like Blue Lotus and Kanna.',
-    url: '/guides/psychedelic-adjacent-herbs/',
+    url: '/guides/other/psychedelic-adjacent-herbs/',
     images: ['/og-default.jpg'],
   },
   twitter: {
@@ -61,13 +61,13 @@ export default function PsychedelicAdjacentHerbsPage() {
         </p>
 
         <div className="mt-6 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
-          <Link href="/psychoactive/serotonergic-stacking-risks" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/learn/serotonergic-stacking-risks" className="text-brand-700 hover:text-brand-800 hover:underline">
             Serotonergic Stacking Risks →
           </Link>
-          <Link href="/compare/kanna-vs-ssris" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/guides/compare/kanna-vs-ssris" className="text-brand-700 hover:text-brand-800 hover:underline">
             Kanna vs SSRIs Compare →
           </Link>
-          <Link href="/info/info/disclaimer/" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/info/disclaimer/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Safety Disclaimer →
           </Link>
         </div>
@@ -136,7 +136,7 @@ export default function PsychedelicAdjacentHerbsPage() {
           These pages are for educational and harm reduction purposes only. The Hippie Scientist does not advocate for the use of unregulated or illegal substances. Always review clinical contraindications and consult with a licensed physician before introducing any botanical supplements into your lifestyle.
         </p>
         <div className="mt-4 flex gap-3">
-          <Link href="/compare/" className="text-xs font-bold text-amber-900 hover:text-amber-950 hover:underline">
+          <Link href="/guides/compare/" className="text-xs font-bold text-amber-900 hover:text-amber-950 hover:underline">
             Side-by-Side Compare Tool →
           </Link>
           <Link href="/safety-checker/" className="text-xs font-bold text-amber-900 hover:text-amber-950 hover:underline">

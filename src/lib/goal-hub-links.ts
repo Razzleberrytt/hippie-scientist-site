@@ -106,7 +106,7 @@ export function getGoalCompareLinks(goalSlug: string, limit = 4): GoalHubLink[] 
     const config = supplementComparisons.find((item) => item.slug === slug)
     links.push({
       label: config?.title ?? slug.replace(/-/g, ' '),
-      href: `/compare/${slug}/`,
+      href: `/guides/compare/${slug}/`,
       note: config?.summary?.slice(0, 120),
     })
     if (links.length >= limit) break

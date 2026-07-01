@@ -17,7 +17,7 @@ export function StartHereBox({ currentSlug }: { currentSlug: string }) {
           return (
             <Link
               key={link.slug}
-              href={`/articles/${link.slug}`}
+              href={`/guides/adhd/${link.slug}`}
               className={`flex items-center justify-between rounded-lg border px-3 py-2 text-xs font-semibold transition ${
                 isCurrent
                   ? 'border-brand-700 bg-brand-100 text-brand-900 cursor-default pointer-events-none'
@@ -40,7 +40,7 @@ export function AdhdCtaDashboard({ currentSlug }: { currentSlug: string }) {
       <h3 className="text-base font-bold text-ink">Next Steps &amp; Practical Resources</h3>
       <p className="mt-1 text-sm text-muted">Review these guides to translate evidence into safe, personalized actions.</p>
       <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        <Link href="/compare/" className="flex flex-col justify-between rounded-lg border border-brand-900/10 bg-white/50 p-4 transition hover:border-brand-700/20 hover:bg-brand-50/10">
+        <Link href="/guides/compare/" className="flex flex-col justify-between rounded-lg border border-brand-900/10 bg-white/50 p-4 transition hover:border-brand-700/20 hover:bg-brand-50/10">
           <div>
             <p className="text-[0.68rem] font-bold uppercase tracking-wider text-brand-700">Database</p>
             <h4 className="mt-1 text-sm font-bold text-ink">Compare Options</h4>
@@ -106,7 +106,7 @@ export function AdhdComparisonCard({ slug }: { slug: string }) {
       { label: 'Key Symptom Target', text: 'Magnesium targets muscle tension, sleep quality, and physical stress; L-Theanine targets cognitive calm, racing thoughts, and mental focus.' },
       { label: 'Medication Context', text: 'Both are generally low-risk with stimulants, but blood-pressure monitoring is warranted as both can mildly reduce blood pressure.' },
     ]
-    compareLink = '/compare/magnesium-vs-l-theanine'
+    compareLink = '/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium'
   } else if (slug === 'sleep-and-adhd' || slug === 'melatonin-for-adhd-sleep') {
     cardTitle = 'Comparison: Melatonin vs. Magnesium'
     cardDesc = 'Addressing sleep issues in ADHD requires distinguishing between falling asleep (circadian timing) and staying asleep (sleep quality).'
@@ -115,7 +115,7 @@ export function AdhdComparisonCard({ slug }: { slug: string }) {
       { label: 'Neuromuscular Calm', text: 'Magnesium supports neurotransmitters like GABA and relaxes muscles. Best for sleep architecture, restlessness, and staying asleep.' },
       { label: 'Dosing Cautions', text: 'Melatonin works in microdoses (0.3mg to 1mg) taken 2 hours before bed; Magnesium is taken as 200-400mg elemental glycinate/threonate 1 hour before bed.' },
     ]
-    compareLink = '/compare/melatonin-vs-magnesium'
+    compareLink = '/guides/compare/melatonin-vs-magnesium'
   } else if (slug === 'citicoline-vs-alpha-gpc') {
     cardTitle = 'Comparison: Citicoline vs. Alpha-GPC'
     cardDesc = 'These are the two most popular brain-active choline sources, but they differ in chemical structure and secondary metabolic pathways.'
@@ -133,7 +133,7 @@ export function AdhdComparisonCard({ slug }: { slug: string }) {
       { label: 'Minerals (Iron, Zinc, Mg)', text: 'Direct co-factors for dopamine and norepinephrine synthesis. Crucial to test baseline levels rather than supplementing blindly.' },
       { label: 'Decision Logic', text: 'Omega-3s can be supplemented conservatively based on dietary gap; minerals like iron and zinc should be verified via blood labs first.' },
     ]
-    compareLink = '/best-supplements-for-adhd'
+    compareLink = '/guides/adhd/best-supplements-for-adhd'
   } else if (slug === 'l-theanine-vs-caffeine-for-focus') {
     cardTitle = 'Comparison: Caffeine vs. L-Theanine'
     cardDesc = 'Caffeine provides rapid, direct stimulation, while L-Theanine supports calm alpha-wave activity to smooth out neurotransmitter spikes.'
@@ -142,7 +142,7 @@ export function AdhdComparisonCard({ slug }: { slug: string }) {
       { label: 'Synergistic Ratio', text: 'Clinical trials often pair them in a 2:1 ratio (200mg L-Theanine to 100mg Caffeine) to maximize attention while reducing jitteriness.' },
       { label: 'Sleep & Timing', text: 'Caffeine has a 3-7 hour half-life and can disrupt sleep if taken late; L-Theanine is non-sedating and safe to take closer to bedtime.' },
     ]
-    compareLink = '/compare/caffeine-vs-theanine'
+    compareLink = '/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus'
   } else {
     return null
   }
@@ -229,7 +229,7 @@ export function AdhdInlineCta({ type }: { type: 'start-here' | 'checklist' | 'st
   if (type === 'start-here') {
     title = 'Start Here'
     text = 'New to ADHD supplements? Start with the evidence-first guide before building a stack.'
-    href = '/guides/adhd-supplements'
+    href = '/guides/adhd/adhd-supplements'
     buttonText = 'Read Guide'
     badgeText = 'Evidence-First Guide'
   } else if (type === 'checklist') {

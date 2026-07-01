@@ -125,7 +125,7 @@ export default function BestMagnesiumSupplementsForAdhdPage() {
           <Link href='/guides/focus/' className='rounded-full bg-brand-950 px-5 py-3 text-sm font-bold text-white hover:bg-brand-900'>
             Compare focus options
           </Link>
-          <Link href='/info/info/supplement-safety-checklist/' className='rounded-full border border-brand-900/10 bg-white px-5 py-3 text-sm font-bold text-ink hover:bg-brand-50'>
+          <Link href='/info/supplement-safety-checklist/' className='rounded-full border border-brand-900/10 bg-white px-5 py-3 text-sm font-bold text-ink hover:bg-brand-50'>
             Get the safety checklist
           </Link>
         </div>
@@ -304,7 +304,7 @@ export default function BestMagnesiumSupplementsForAdhdPage() {
             ['/guides/adhd/magnesium-for-adhd/', 'Magnesium for ADHD evidence review'],
             ['/compounds/magnesium/', 'Magnesium compound profile'],
             ['/guides/adhd/best-supplements-for-adhd/', 'Best supplements for ADHD'],
-            ['/guides/adhd-supplements/', 'ADHD supplements hub'],
+            ['/guides/adhd/adhd-supplements/', 'ADHD supplements hub'],
           ].map(([href, label]) => (
             <Link key={href} href={href} className='rounded-2xl border border-brand-900/10 bg-white p-4 text-sm font-semibold text-brand-800 hover:bg-brand-50'>
               {label}

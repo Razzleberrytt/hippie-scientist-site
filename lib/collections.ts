@@ -44,9 +44,9 @@ export const scientificCollections: ScientificCollection[] = [
     description: 'A workbook-first collection of compounds and botanicals with visible sleep, GABA, calming, relaxation, or circadian signals. Items are included only when the runtime record exposes evidence or mechanism context; this is not a ranked efficacy list.',
     chips: ['GABA signaling', 'Sleep quality', 'Relaxation', 'Circadian context', 'Nighttime recovery'],
     related: [
-      { title: 'Adaptogens for Stress', href: '/guides/best-adaptogens-for-stress', description: 'Stress and resilience records with adaptogenic or cortisol-adjacent signals.' },
+      { title: 'Adaptogens for Stress', href: '/guides/anxiety/best-adaptogens-for-stress', description: 'Stress and resilience records with adaptogenic or cortisol-adjacent signals.' },
       { title: 'GABA Pathways', href: '/learn/gaba', description: 'Pathway hub for GABA, inhibitory tone, relaxation, and sleep-adjacent records.' },
-      { title: 'Recovery Support', href: '/goals/recovery', description: 'Recovery and repair signals that overlap with sleep quality and nighttime restoration.' },
+      { title: 'Recovery Support', href: '/guides/sleep', description: 'Recovery and repair signals that overlap with sleep quality and nighttime restoration.' },
       { title: 'Relaxation Mechanisms', href: '/guides/sleep', description: 'Broader semantic navigation for calming and sleep-support discovery.' },
     ],
   },
@@ -64,7 +64,7 @@ export const scientificCollections: ScientificCollection[] = [
       { title: 'Best-Studied Sleep Compounds', href: '/guides/sleep', description: 'Sleep and relaxation records that often overlap with stress physiology.' },
       { title: 'GABA Pathways', href: '/learn/gaba', description: 'Calming pathway records related to inhibitory tone and relaxation.' },
       { title: 'Stress Goal Guide', href: '/best-supplements-for-stress', description: 'Intent-oriented stress support navigation from the goal layer.' },
-      { title: 'Natural Anxiolytics', href: '/guides/natural-anxiolytics-beyond-ashwagandha', description: 'Broader harm-aware discovery for calming botanicals beyond one headline herb.' },
+      { title: 'Natural Anxiolytics', href: '/guides/anxiety/natural-anxiolytics-beyond-ashwagandha', description: 'Broader harm-aware discovery for calming botanicals beyond one headline herb.' },
     ],
   },
   {
@@ -96,7 +96,7 @@ export const scientificCollections: ScientificCollection[] = [
     chips: ['Inflammation', 'Antioxidant systems', 'Cytokine context', 'Oxidative stress', 'Immune signaling'],
     related: [
       { title: 'Inflammation Pathways', href: '/learn/inflammation', description: 'Pathway hub for inflammatory, immune, oxidative, and antioxidant records.' },
-      { title: 'Recovery Support', href: '/goals/recovery', description: 'Recovery signals that can overlap with inflammatory and oxidative-stress context.' },
+      { title: 'Recovery Support', href: '/guides/sleep', description: 'Recovery signals that can overlap with inflammatory and oxidative-stress context.' },
       { title: 'Joint Support Supplements', href: '/best-supplements-for-joint-support', description: 'Intent entry page for joint-support discovery.' },
       { title: 'Gut Health Supplements', href: '/best-supplements-for-gut-health', description: 'Adjacent discovery for immune and inflammation-adjacent wellness intent.' },
     ],

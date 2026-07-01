@@ -70,7 +70,7 @@ const relatedArticles = [
     description: 'Better fit when the problem is chronic stress rather than acute overarousal.',
   },
   {
-    href: '/guides/magnesium-for-sleep',
+    href: '/guides/sleep/magnesium-for-sleep',
     title: 'Magnesium for Sleep',
     description: 'Better fit when sleep, muscle tension, or magnesium status is the main issue.',
   },
@@ -240,11 +240,11 @@ export default function LTheanineForAnxietyPage() {
                 Ashwagandha for Anxiety
               </Link>
               ,{' '}
-              <Link href="/guides/magnesium-for-sleep" className="text-primary underline">
+              <Link href="/guides/sleep/magnesium-for-sleep" className="text-primary underline">
                 Magnesium for Sleep
               </Link>
               , and{' '}
-              <Link href="/compare/l-theanine-vs-magnesium" className="text-primary underline">
+              <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium" className="text-primary underline">
                 L-Theanine vs Magnesium
               </Link>
               .

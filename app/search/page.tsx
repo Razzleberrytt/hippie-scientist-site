@@ -44,18 +44,18 @@ export default function SearchPage() {
     { name: 'Stress Resilience', href: '/guides/anxiety/' },
     { name: 'Anxiety Support', href: '/guides/anxiety/' },
     { name: 'Focus & Cognition', href: '/guides/focus/' },
-    { name: 'Fat Loss', href: '/goals/fat-loss/' },
-    { name: 'Gut Health', href: '/goals/gut-health/' },
-    { name: 'Joint Support', href: '/goals/joint-support/' },
+    { name: 'Fat Loss', href: '/guides/best/supplements-for-fat-loss/' },
+    { name: 'Gut Health', href: '/guides/best/supplements-for-gut-health/' },
+    { name: 'Joint Support', href: '/guides/best/supplements-for-joint-support/' },
   ]
 
   const researchTools = [
     { name: 'Safety Checker', href: '/safety-checker/' },
-    { name: 'Compare Supplements', href: '/compare/' },
+    { name: 'Compare Supplements', href: '/guides/compare/' },
     { name: 'Research Tools Hub', href: '/tools/' },
     { name: 'Citation Explorer', href: '/learn/citation-explorer/' },
-    { name: 'Dosing Calculator', href: '/info/info/dosing/' },
-    { name: 'Stack Builder', href: '/stacks/builder/' },
+    { name: 'Dosing Calculator', href: '/info/dosing/' },
+    { name: 'Stack Builder', href: '/guides/' },
   ]
 
   return (

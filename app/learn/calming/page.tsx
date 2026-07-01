@@ -6,7 +6,7 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 export const metadata: Metadata = buildPageMetadata({
   title: "Calming Psychoactives",
   description: "Educational exploration of calming psychoactive herbs, inhibitory neuropharmacology, stress regulation, and GABAergic systems.",
-  path: "/psychoactive/calming/",
+  path: "/learn/calming/",
 })
 
 
@@ -35,7 +35,7 @@ export default function CalmingPsychoactivesPage() {
       <AuthorityJsonLd
         title="Calming Psychoactives"
         description="Educational exploration of calming psychoactive herbs, inhibitory neuropharmacology, stress regulation, and GABAergic systems."
-        url="https://thehippiescientist.net/psychoactive/calming"
+        url="https://thehippiescientist.net/learn/calming"
         type="CollectionPage"
       />
 

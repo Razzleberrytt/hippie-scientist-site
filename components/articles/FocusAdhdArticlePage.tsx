@@ -38,11 +38,12 @@ const ADHD_ARTICLE_PRODUCTS: Record<string, string> = {
 }
 
 const focusArticleSlugs = new Set(focusAdhdArticles.map((article) => article.slug))
+const ADHD_GUIDE_BASE = '/guides/adhd'
 
 function articleLink(slug: string, label: string, eyebrow: string): RelatedLink | null {
   if (!focusArticleSlugs.has(slug)) return null
   return {
-    href: `/articles/${slug}/`,
+    href: `${ADHD_GUIDE_BASE}/${slug}/`,
     label,
     eyebrow,
   }
@@ -113,10 +114,10 @@ function getRelatedFocusAdhdLinks(slug: string): RelatedLink[] {
       routeLink('/learn/cholinergic-system', 'Cholinergic System', 'Mechanism guide'),
     )
 
-    return dedupeRelatedLinks(curatedLinks, `/articles/${slug}/`)
+    return dedupeRelatedLinks(curatedLinks, `${ADHD_GUIDE_BASE}/${slug}/`)
   }
 
-  const links: RelatedLink[] = [routeLink('/guides/adhd-supplements/', 'ADHD Supplements Guide', 'Start here')]
+  const links: RelatedLink[] = [routeLink('/guides/adhd/adhd-supplements/', 'ADHD Supplements Guide', 'Start here')]
 
   addRelatedLinks(
     links,
@@ -169,7 +170,7 @@ function getRelatedFocusAdhdLinks(slug: string): RelatedLink[] {
     )
   }
 
-  return dedupeRelatedLinks(links, `/articles/${slug}/`)
+  return dedupeRelatedLinks(links, `${ADHD_GUIDE_BASE}/${slug}/`)
 }
 
 function parseBlocks(raw: string): Block[] {
@@ -352,7 +353,7 @@ export function focusAdhdMetadata(slug: string): Metadata {
   return buildPageMetadata({
     title: article.seoTitle,
     description: article.description,
-    path: `/articles/${slug}`,
+    path: `${ADHD_GUIDE_BASE}/${slug}`,
     openGraphType: 'article',
   })
 }
@@ -368,10 +369,11 @@ export default function FocusAdhdArticlePage({ slug }: { slug: string }) {
     date: article.date,
     updated: article.date,
     excerpt: article.description,
-  }, `/articles/${article.slug}`)
+  }, `${ADHD_GUIDE_BASE}/${article.slug}`)
   const breadcrumbLd = breadcrumbJsonLd([
-    { name: 'Articles', url: 'https://thehippiescientist.net/articles' },
-    { name: article.title, url: `https://thehippiescientist.net/articles/${article.slug}` },
+    { name: 'Guides', url: 'https://thehippiescientist.net/guides' },
+    { name: 'ADHD', url: 'https://thehippiescientist.net/guides/adhd' },
+    { name: article.title, url: `https://thehippiescientist.net${ADHD_GUIDE_BASE}/${article.slug}` },
   ])
 
   return (
@@ -380,7 +382,9 @@ export default function FocusAdhdArticlePage({ slug }: { slug: string }) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
-        <Link href="/articles/" className="transition hover:text-ink">Articles</Link>
+        <Link href="/guides/" className="transition hover:text-ink">Guides</Link>
+        <span>/</span>
+        <Link href="/guides/adhd/" className="transition hover:text-ink">ADHD</Link>
         <span>/</span>
         <span className="line-clamp-1 text-ink">{article.title}</span>
       </nav>
@@ -459,7 +463,7 @@ export default function FocusAdhdArticlePage({ slug }: { slug: string }) {
       </section>
 
       <div className="mt-8">
-        <Link href="/articles/" className="text-sm font-semibold text-brand-700 hover:text-brand-800">Back to Articles</Link>
+        <Link href="/guides/adhd/" className="text-sm font-semibold text-brand-700 hover:text-brand-800">Back to ADHD Guides</Link>
       </div>
     </article>
   )

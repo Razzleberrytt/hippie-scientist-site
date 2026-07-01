@@ -42,7 +42,7 @@ describe('Route Integrity Test', () => {
       '/herbs', '/herbs/',
       '/compounds', '/compounds/',
       '/articles', '/articles/',
-      '/compare', '/compare/',
+      '/compare', '/guides/compare/',
       '/stacks', '/stacks/',
       '/goals', '/goals/',
     ]

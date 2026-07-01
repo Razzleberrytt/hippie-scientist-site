@@ -5,7 +5,7 @@ import EmailCapture from '../../../components/EmailCapture'
 export const metadata: Metadata = {
   title: 'Newsletter Archive',
   description: 'Static archive for The Hippie Scientist newsletter notes on supplement safety, evidence, and sourcing.',
-  alternates: { canonical: '/info/info/newsletter/' },
+  alternates: { canonical: '/info/newsletter/' },
 }
 
 const archiveItems = [

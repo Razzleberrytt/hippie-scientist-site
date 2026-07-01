@@ -50,7 +50,7 @@ export function buildArticleSchema(post: Record<string, unknown>) {
     author: {
       '@type': 'Person',
       name: 'Will Thomas',
-      url: 'https://thehippiescientist.net/info/info/about/'
+      url: 'https://thehippiescientist.net/info/about/'
     },
     publisher: {
       '@type': 'Organization',

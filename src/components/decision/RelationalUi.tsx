@@ -145,7 +145,7 @@ export default function RelationalUi({ record, relatedRecords }: RelationalUiPro
                   <div className="mt-4 flex justify-end">
                     {compSlug ? (
                       <Link
-                        href={`/compare/${compSlug}`}
+                        href={`/guides/compare/${compSlug}`}
                         className="text-xs font-semibold text-brand-700 hover:text-brand-900 transition"
                       >
                         Compare {record.name} vs {candidate.name} →

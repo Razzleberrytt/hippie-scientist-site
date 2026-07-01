@@ -230,12 +230,12 @@ export default function PassionflowerGuidePage() {
       <section className="space-y-3">
         <h2 className="text-xl font-semibold text-ink">Related Guides</h2>
         <div className="grid gap-3 sm:grid-cols-3">
-          <Link href="/guides/magnesium-for-sleep" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
+          <Link href="/guides/sleep/magnesium-for-sleep" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Guide</p>
             <p className="mt-1 text-sm font-semibold text-ink">Magnesium for Sleep</p>
             <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">Forms, dosage, and evidence for magnesium as a sleep and anxiety support.</p>
           </Link>
-          <Link href="/guides/natural-anxiolytics-beyond-ashwagandha" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
+          <Link href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Guide</p>
             <p className="mt-1 text-sm font-semibold text-ink">Natural Anxiolytics</p>
             <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">Evidence-ranked anxiolytic options beyond the usual picks.</p>

@@ -87,10 +87,10 @@ describe('schema-graph', () => {
       description: 'Compare side by side.',
       breadcrumbs: [
         { name: 'Home', url: 'https://thehippiescientist.net/' },
-        { name: 'Compare', url: 'https://thehippiescientist.net/compare/' }
+        { name: 'Compare', url: 'https://thehippiescientist.net/guides/compare/' }
       ],
       comparisonPairs: [
-        { name: 'Ashwagandha vs Rhodiola', url: '/compare/ashwagandha-vs-rhodiola' }
+        { name: 'Ashwagandha vs Rhodiola', url: '/guides/compare/ashwagandha-vs-rhodiola' }
       ]
     })
 
@@ -100,7 +100,7 @@ describe('schema-graph', () => {
 
     const collection = nodes.find(n => n['@type'] === 'CollectionPage')
     expect(collection?.name).toBe('Compare Supplements | The Hippie Scientist')
-    expect(collection?.url).toBe('https://thehippiescientist.net/compare/')
+    expect(collection?.url).toBe('https://thehippiescientist.net/guides/compare/')
 
     const itemList = nodes.find(n => n['@type'] === 'ItemList')
     expect(itemList?.numberOfItems).toBe(1)
@@ -108,13 +108,13 @@ describe('schema-graph', () => {
 
   it('builds a consolidated Compare Detail page schema graph', () => {
     const graph = buildCompareDetailSchemaGraph({
-      path: '/compare/ashwagandha-vs-rhodiola',
+      path: '/guides/compare/ashwagandha-vs-rhodiola',
       title: 'Ashwagandha vs Rhodiola | The Hippie Scientist',
       description: 'Ashwagandha vs Rhodiola details.',
       breadcrumbs: [
         { name: 'Home', url: 'https://thehippiescientist.net/' },
-        { name: 'Compare', url: 'https://thehippiescientist.net/compare/' },
-        { name: 'Ashwagandha vs Rhodiola', url: 'https://thehippiescientist.net/compare/ashwagandha-vs-rhodiola/' }
+        { name: 'Compare', url: 'https://thehippiescientist.net/guides/compare/' },
+        { name: 'Ashwagandha vs Rhodiola', url: 'https://thehippiescientist.net/guides/compare/ashwagandha-vs-rhodiola/' }
       ],
       entities: [
         { name: 'Ashwagandha', url: '/herbs/ashwagandha', type: 'herb' },

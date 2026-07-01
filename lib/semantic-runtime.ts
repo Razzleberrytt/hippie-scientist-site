@@ -232,13 +232,13 @@ export function getComparisonCandidates(compound: RuntimeCompoundInput, limit = 
   return getRelatedCompounds(normalized, limit)
     .map((candidate) => {
       // Only emit links to comparison pages that are actually built; an
-      // arbitrary related-compound pair is usually not a real /compare/ route
+      // arbitrary related-compound pair is usually not a real /guides/compare/ route
       // and would 404 under static export.
       const validSlug = getValidComparisonSlug(normalized.slug, candidate.slug)
       if (!validSlug) return null
       return {
         slug: validSlug,
-        href: `/compare/${validSlug}`,
+        href: `/guides/compare/${validSlug}`,
         label: `${normalized.name} vs ${candidate.name}`,
       }
     })

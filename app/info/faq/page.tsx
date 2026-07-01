@@ -58,7 +58,7 @@ const faqLd = faqPageJsonLd({
 })
 const breadcrumbLd = breadcrumbJsonLd([
   { name: 'Home', url: SITE_URL },
-  { name: 'FAQ', url: `${SITE_URL}/info/info/faq/` },
+  { name: 'FAQ', url: `${SITE_URL}/info/faq/` },
 ])
 
 export default function FaqPage() {

@@ -3,13 +3,13 @@ export const beginnerJourneys = [
     slug: 'new-to-sleep-support',
     title: 'New to sleep support?',
     description: 'Learn how calming compounds, circadian support, recovery, stress, and sleep architecture differ before trying random stacks.',
-    routes: ['/best-supplements-for-sleep', '/ecosystems/sleep', '/compare/glycine-vs-theanine'],
+    routes: ['/best-supplements-for-sleep', '/ecosystems/sleep', '/guides/compare/glycine-vs-theanine'],
   },
   {
     slug: 'improve-focus',
     title: 'Trying to improve focus?',
     description: 'Explore calm focus, stimulation, cholinergic pathways, cognitive energy, and realistic expectations.',
-    routes: ['/cognition-supplements', '/ecosystems/cognition', '/compare/alpha-gpc-vs-citicoline'],
+    routes: ['/cognition-supplements', '/ecosystems/cognition', '/guides/compare/alpha-gpc-vs-citicoline'],
   },
   {
     slug: 'understanding-adaptogens',

@@ -28,7 +28,7 @@ export default function CompareRelated({ comparisons, currentSlug }: CompareRela
         {related.map((slug) => (
           <Link
             key={slug}
-            href={`/compare/${slug}`}
+            href={`/guides/compare/${slug}`}
             className="rounded-2xl border border-brand-900/10 bg-paper-50 px-4 py-4 text-sm font-medium text-ink transition-colors hover:bg-brand-50 hover:text-brand-700"
           >
             {formatComparisonSlug(slug)}

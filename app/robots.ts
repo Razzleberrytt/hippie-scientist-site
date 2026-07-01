@@ -15,7 +15,7 @@ export default function robots(): MetadataRoute.Robots {
       // disclosing the existence of internal tooling endpoints).
       disallow: [
         '/api/',
-        '/compare/dynamic',
+        '/guides/compare/dynamic',
         '/analytics',
         '/admin/',
         '/dashboard',

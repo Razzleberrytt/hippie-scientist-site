@@ -6,7 +6,7 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 export const metadata: Metadata = buildPageMetadata({
   title: "Dream Herbs",
   description: "Educational exploration of oneirogenic herbs, REM-related neuropharmacology, dreaming systems, and psychoactive ethnobotany.",
-  path: "/psychoactive/dream-herbs/",
+  path: "/learn/dream-herbs/",
 })
 
 
@@ -31,7 +31,7 @@ export default function DreamHerbsPage() {
       <AuthorityJsonLd
         title="Dream Herbs"
         description="Educational exploration of oneirogenic herbs, REM-related neuropharmacology, dreaming systems, and psychoactive ethnobotany."
-        url="https://thehippiescientist.net/psychoactive/dream-herbs"
+        url="https://thehippiescientist.net/learn/dream-herbs"
         type="CollectionPage"
       />
 

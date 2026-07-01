@@ -57,7 +57,7 @@ function nodeHref(node: SemanticLinkNode): string {
     case 'goal':
       return `/goals/${slug}`
     case 'compare':
-      return `/compare/${slug}`
+      return `/guides/compare/${slug}`
     case 'stack':
       return `/stacks/${slug}`
     case 'compound':

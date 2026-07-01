@@ -13,7 +13,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: 'Sleep Herbs vs Melatonin: Evidence Comparison',
   description:
     'Evidence-graded comparison of melatonin, magnesium, L-theanine, and valerian for sleep. Understand mechanisms, onset, evidence quality, safety, and when to use each — or stack them.',
-  path: '/compare/sleep-herbs-vs-melatonin/',
+  path: '/guides/compare/sleep-herbs-vs-melatonin/',
   openGraphType: 'article',
 })
 
@@ -29,7 +29,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
       <AuthorityJsonLd
         title="Sleep Herbs vs Melatonin – Magnesium, L-Theanine & Valerian Compared"
         description="Evidence-graded comparison of melatonin, magnesium, L-theanine, and valerian for sleep. Mechanisms, dosing, stacking guidance, and safety context."
-        url="https://thehippiescientist.net/compare/sleep-herbs-vs-melatonin"
+        url="https://thehippiescientist.net/guides/compare/sleep-herbs-vs-melatonin"
         type="Article"
       />
 
@@ -578,21 +578,21 @@ export default function SleepHerbsVsMelatoninComparePage() {
             label: 'Comparison',
             title: 'L-Theanine vs Magnesium',
             description: 'Acute calm focus vs systemic mineral support — mechanisms, stacking, and dosing for anxiety and sleep.',
-            href: '/compare/l-theanine-vs-magnesium',
+            href: '/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium',
           },
           {
             type: 'guide',
             label: 'Comparison',
             title: 'Magnesium Glycinate vs L-Threonate for Sleep',
             description: 'When the more expensive threonate form is worth it — sleep vs cognition positioning.',
-            href: '/compare/magnesium-glycinate-vs-magnesium-threonate',
+            href: '/guides/sleep/magnesium-types-for-sleep',
           },
           {
             type: 'guide',
             label: 'Comparison',
             title: 'Magnesium Glycinate vs Oxide',
             description: 'Why form matters: bioavailability explained, and why oxide is not a useful sleep supplement.',
-            href: '/compare/magnesium-glycinate-vs-magnesium-oxide',
+            href: '/guides/sleep/magnesium-types-for-sleep',
           },
           {
             type: 'guide',
@@ -628,12 +628,12 @@ export default function SleepHerbsVsMelatoninComparePage() {
       </div>
 
       <div className="flex flex-wrap gap-3">
-        <Link href="/compare/l-theanine-vs-magnesium" className="chip-readable">L-Theanine vs Magnesium</Link>
-        <Link href="/compare/magnesium-glycinate-vs-magnesium-threonate" className="chip-readable">Magnesium Glycinate vs L-Threonate</Link>
-        <Link href="/compare/magnesium-glycinate-vs-magnesium-oxide" className="chip-readable">Magnesium Glycinate vs Oxide</Link>
+        <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium" className="chip-readable">L-Theanine vs Magnesium</Link>
+        <Link href="/guides/sleep/magnesium-types-for-sleep" className="chip-readable">Magnesium Glycinate vs L-Threonate</Link>
+        <Link href="/guides/sleep/magnesium-types-for-sleep" className="chip-readable">Magnesium Glycinate vs Oxide</Link>
         <Link href="/guides/sleep" className="chip-readable">Sleep Goals</Link>
         <Link href="/learn/gaba" className="chip-readable">GABA Pathway</Link>
-        <Link href="/compare/" className="chip-readable">All Comparisons</Link>
+        <Link href="/guides/compare/" className="chip-readable">All Comparisons</Link>
       </div>
     </div>
   )

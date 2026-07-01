@@ -24,7 +24,7 @@ export default function AuthorPage() {
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link
-            href="/info/info/about/"
+            href="/info/about/"
             className="rounded-full bg-brand-800 px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-900"
           >
             Editorial standards
@@ -116,7 +116,7 @@ export default function AuthorPage() {
           Found an error, outdated citation, or evidence summary that overstates what the data supports? Please reach out. Corrections improve the resource for everyone and are taken seriously.
         </p>
         <Link
-          href="/info/info/contact/"
+          href="/info/contact/"
           className="inline-block rounded-full border border-brand-900/20 px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50"
         >
           Send a correction →
@@ -131,9 +131,9 @@ export default function AuthorPage() {
         <span className="text-muted">·</span>
         <Link href="/goals/" className="text-brand-800 hover:underline font-semibold">Goal guides</Link>
         <span className="text-muted">·</span>
-        <Link href="/info/info/about/" className="text-brand-800 hover:underline font-semibold">About</Link>
+        <Link href="/info/about/" className="text-brand-800 hover:underline font-semibold">About</Link>
         <span className="text-muted">·</span>
-        <Link href="/info/info/disclaimer/" className="text-brand-800 hover:underline font-semibold">Disclaimer</Link>
+        <Link href="/info/disclaimer/" className="text-brand-800 hover:underline font-semibold">Disclaimer</Link>
       </nav>
     </div>
   )

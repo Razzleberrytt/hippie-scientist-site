@@ -92,7 +92,7 @@ const supernodes = [
     title: 'Psychoactive Systems',
     description:
       'Education on altered states, perception, emotional intensity, and safety context without romanticizing risky use.',
-    href: '/guides/psychedelic-adjacent-herbs',
+    href: '/guides/other/psychedelic-adjacent-herbs',
     category: 'Safety context',
   },
 ]

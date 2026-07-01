@@ -8,7 +8,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Dynamic Ingredient Comparison Matrix',
   description: 'Select and compare any two herbs, compounds, or adaptogens side-by-side on evidence strength, mechanisms, safety profiles, and dosages.',
-  path: '/compare/dynamic/',
+  path: '/guides/compare/dynamic/',
 })
 
 export default async function DynamicComparePage() {
@@ -35,7 +35,7 @@ export default async function DynamicComparePage() {
       <AuthorityJsonLd
         title="Dynamic Ingredient Comparison Matrix"
         description="Side-by-side scientific comparison of herbs, compounds, and active extracts."
-        url="https://thehippiescientist.net/compare/dynamic"
+        url="https://thehippiescientist.net/guides/compare/dynamic"
         type="MedicalWebPage"
       />
 

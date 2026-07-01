@@ -413,7 +413,7 @@ function CompoundMdxPage({ page }: { page: (typeof allCompoundMdxPages)[number] 
           Educational disclaimer: this page is for evidence review and harm-reduction context only. It is not medical advice, legal advice, sourcing guidance, or a recommendation to use any opioid-acting kratom derivative.
           <div className="mt-3 flex flex-wrap gap-4 font-semibold text-brand-800">
             <Link href="/compounds/" className="hover:underline">Compounds library</Link>
-            <Link href="/articles/7-hydroxymitragynine" className="hover:underline">7-OH article</Link>
+            <Link href="/compounds/7-hydroxymitragynine" className="hover:underline">7-OH article</Link>
             <Link href="/safety-checker/" className="hover:underline">Safety checker</Link>
           </div>
         </footer>
@@ -930,7 +930,7 @@ export default async function CompoundPage({ params }: PageProps) {
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               <Link
-                href="/articles/7-hydroxymitragynine"
+                href="/compounds/7-hydroxymitragynine"
                 className="rounded-full border border-red-200 bg-red-50 px-4 py-2 text-sm font-bold text-red-950 hover:bg-red-100"
               >
                 Full evidence monograph →
@@ -942,7 +942,7 @@ export default async function CompoundPage({ params }: PageProps) {
                 Withdrawal management guide →
               </Link>
               <Link
-                href="/compare/mitragynine-vs-7-hydroxymitragynine"
+                href="/guides/other/kratom-7oh-withdrawal-management"
                 className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-brand-800 hover:bg-brand-50"
               >
                 Compare mitragynine vs 7-OH →
@@ -960,13 +960,13 @@ export default async function CompoundPage({ params }: PageProps) {
             </p>
             <div className="mt-4 flex flex-wrap gap-3">
               <Link
-                href="/articles/mitragynine"
+                href="/compounds/mitragynine"
                 className="rounded-full border border-amber-200 bg-amber-50 px-4 py-2 text-sm font-bold text-amber-950 hover:bg-amber-100"
               >
                 Mitragynine monograph →
               </Link>
               <Link
-                href="/compare/mitragynine-vs-7-hydroxymitragynine"
+                href="/guides/other/kratom-7oh-withdrawal-management"
                 className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-brand-800 hover:bg-brand-50"
               >
                 Compare mitragynine vs 7-OH →
@@ -1206,7 +1206,7 @@ export default async function CompoundPage({ params }: PageProps) {
                       const compSlug = getValidComparisonSlug(sourceSlug, String(item.slug || ''))
                       if (!compSlug) return null
                       return (
-                        <Link key={String(item.slug || compSlug)} href={`/compare/${compSlug}`} className="text-sm font-semibold text-brand-800 hover:underline">Compare {formatDisplayLabel(item.name || item.slug)}</Link>
+                        <Link key={String(item.slug || compSlug)} href={`/guides/compare/${compSlug}`} className="text-sm font-semibold text-brand-800 hover:underline">Compare {formatDisplayLabel(item.name || item.slug)}</Link>
                       )
                     })
                     .filter(Boolean)}

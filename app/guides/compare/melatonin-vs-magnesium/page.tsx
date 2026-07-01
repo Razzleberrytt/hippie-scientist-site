@@ -4,7 +4,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Melatonin vs Magnesium for Sleep: Which Works Better?',
   description: 'Melatonin vs Magnesium for sleep — which works better, which is safer long-term, and how to take them together. Evidence-based comparison with dosing and timing guide.',
-  path: '/compare/melatonin-vs-magnesium/',
+  path: '/guides/compare/melatonin-vs-magnesium/',
 })
 
 import Link from 'next/link'
@@ -17,7 +17,7 @@ export default function MelatoninVsMagnesiumPage() {
       <AuthorityJsonLd
         title="Melatonin vs Magnesium for Sleep: Which Works Better?"
         description="Melatonin vs Magnesium for sleep — which works better, which is safer long-term, and how to take them together. Evidence-based comparison with dosing and timing guide."
-        url="https://thehippiescientist.net/compare/melatonin-vs-magnesium"
+        url="https://thehippiescientist.net/guides/compare/melatonin-vs-magnesium"
         type="Article"
       />
 
@@ -76,7 +76,7 @@ export default function MelatoninVsMagnesiumPage() {
           <Link href="/guides/sleep/" className="chip-readable">
             Sleep Goal Hub
           </Link>
-          <Link href="/compare/" className="chip-readable">
+          <Link href="/guides/compare/" className="chip-readable">
             All Comparisons
           </Link>
         </div>

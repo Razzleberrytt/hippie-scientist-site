@@ -38,7 +38,7 @@ const RELATED_GUIDE_MAP: Record<string, RelatedArticle[]> = {
       category: "focus",
     },
     {
-      href: "/guides/magnesium-for-sleep/",
+      href: "/guides/sleep/magnesium-for-sleep/",
       title: "Magnesium for Sleep Guide",
       description: "Magnesium forms, dosage, and evidence for sleep and anxiety support.",
       category: "sleep",
@@ -58,7 +58,7 @@ const RELATED_GUIDE_MAP: Record<string, RelatedArticle[]> = {
       category: "stress",
     },
     {
-      href: "/guides/magnesium-for-sleep/",
+      href: "/guides/sleep/magnesium-for-sleep/",
       title: "Magnesium for Sleep Guide",
       description: "Magnesium forms, dosage, and evidence for sleep and anxiety support.",
       category: "sleep",
@@ -142,7 +142,7 @@ export default async function GuidePage({ params }: Props) {
         )}
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700" aria-label="Guide support links">
           <Link href="/guides/" className="hover:text-brand-800">All guides</Link>
-          <Link href="/articles/" className="hover:text-brand-800">Articles</Link>
+          <Link href="/guides/" className="hover:text-brand-800">Articles</Link>
           <Link href="/safety-checker/" className="hover:text-brand-800">Safety checker</Link>
         </nav>
       </div>

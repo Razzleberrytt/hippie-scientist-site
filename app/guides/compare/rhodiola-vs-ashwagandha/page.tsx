@@ -12,7 +12,7 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Rhodiola vs Ashwagandha for Stress & Fatigue',
   description: 'Evidence-informed comparison of rhodiola and ashwagandha for stress resilience, fatigue, sleep-adjacent tradeoffs, and product selection.',
-  path: '/guides/guides/compare/rhodiola-vs-ashwagandha/',
+  path: '/guides/compare/rhodiola-vs-ashwagandha/',
   openGraphType: 'article',
 })
 
@@ -91,14 +91,14 @@ export default function RhodiolaVsAshwagandhaComparePage() {
         subheading="Move from this pair into related stress and focus decisions."
         items={[
           {
-            href: '/compare/ashwagandha-vs-l-theanine-vs-magnesium',
+            href: '/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium',
             label: 'Stress comparison',
             title: 'Ashwagandha vs L-Theanine vs Magnesium',
             description: 'A three-way stress comparison that splits calming, timing, and muscle-relaxation roles.',
             type: 'comparison',
           },
           {
-            href: '/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus',
+            href: '/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus',
             label: 'Focus comparison',
             title: 'Caffeine vs L-Theanine vs Bacopa',
             description: 'A focus comparison that separates acute stimulation from calm concentration and long-term memory support.',

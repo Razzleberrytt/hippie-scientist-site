@@ -6,7 +6,7 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 export const metadata: Metadata = buildPageMetadata({
   title: "Serotonergic Stacking Risks",
   description: "Educational exploration of serotonergic overlap, psychoactive interaction awareness, mood-system safety, and evidence-informed harm reduction.",
-  path: "/psychoactive/serotonergic-stacking-risks/",
+  path: "/learn/serotonergic-stacking-risks/",
 })
 
 
@@ -16,15 +16,15 @@ const systems = [
     title: 'Serotonin Pathway',
   },
   {
-    href: '/compare/kanna-vs-ssris',
+    href: '/guides/compare/kanna-vs-ssris',
     title: 'Kanna vs SSRIs',
   },
   {
-    href: '/psychoactive/interactions',
+    href: '/learn/interactions',
     title: 'Interaction Awareness',
   },
   {
-    href: '/psychoactive/harm-reduction',
+    href: '/learn/harm-reduction',
     title: 'Harm Reduction',
   },
 ]
@@ -35,7 +35,7 @@ export default function SerotonergicRisksPage() {
       <AuthorityJsonLd
         title="Serotonergic Stacking Risks"
         description="Educational exploration of serotonergic overlap, psychoactive interaction awareness, mood-system safety, and evidence-informed harm reduction."
-        url="https://thehippiescientist.net/psychoactive/serotonergic-stacking-risks"
+        url="https://thehippiescientist.net/learn/serotonergic-stacking-risks"
         type="Article"
       />
 

@@ -58,10 +58,10 @@ export function getValidComparisonSlug(a: string, b: string): string | undefined
 
 /**
  * Returns true only when `slug` resolves to a comparison page that is actually
- * built (i.e. emitted by `generateStaticParams` in `app/compare/[slug]/page.tsx`).
+ * built (i.e. emitted by `generateStaticParams` in `app/guides/compare/[slug]/page.tsx`).
  *
- * This is the single guard every dynamic `/compare/...` link generator must pass
- * its candidate slug through. Under static export, linking to a `/compare/...`
+ * This is the single guard every dynamic `/guides/compare/...` link generator must pass
+ * its candidate slug through. Under static export, linking to a `/guides/compare/...`
  * slug that is NOT built produces a hard 404 the moment Google crawls it — the
  * root cause of the large "Not found (404)" cluster in Search Console. Validating
  * here keeps internal links honest and prevents that class of phantom URL from

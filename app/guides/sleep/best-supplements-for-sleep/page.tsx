@@ -7,18 +7,18 @@ import type { Heading } from '@/components/articles'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 
-const PAGE_URL = `${SITE_URL}/guides/best-supplements-for-sleep`
+const PAGE_URL = `${SITE_URL}/guides/sleep/best-supplements-for-sleep`
 
 export const metadata: Metadata = {
   title: 'Best Supplements for Sleep: Magnesium, Melatonin, L-Theanine & More',
   description:
     'Evidence-graded review of the best sleep supplements: magnesium glycinate, L-theanine, melatonin, valerian, ashwagandha, and more. Mechanisms, dosing, safety, and decision framework.',
-  alternates: { canonical: '/guides/best-supplements-for-sleep/' },
+  alternates: { canonical: '/guides/sleep/best-supplements-for-sleep/' },
   openGraph: {
     title: 'Best Supplements for Sleep: Magnesium, Melatonin, L-Theanine & More',
     description:
       'Which sleep supplements actually work? Magnesium, melatonin, L-theanine, valerian, ashwagandha — evidence-graded with dosing, safety, and stacking notes.',
-    url: '/guides/best-supplements-for-sleep/',
+    url: '/guides/sleep/best-supplements-for-sleep/',
     type: 'article',
     images: ['/og-default.jpg'],
   },
@@ -114,11 +114,41 @@ const STACKING_GUIDE = [
   },
 ]
 
+const SLEEP_DECISION_EDGES = [
+  ['Circadian delay', 'Melatonin', 'Best when the issue is sleep timing, jet lag, or delayed sleep phase rather than general sedation.'],
+  ['Cognitive arousal', 'L-theanine', 'Best framed as reducing mental overactivation or racing thoughts, not as a knockout sleep drug.'],
+  ['Physical tension', 'Magnesium glycinate', 'Most relevant when low intake, muscle tension, or restlessness overlaps with poor sleep.'],
+  ['Sleep depth / refreshment', 'Glycine', 'A gentler sleep-quality hypothesis supported by small human studies.'],
+  ['Herbal sedation', 'Valerian', 'A traditional option with mixed trial results and higher caution for next-day impairment or sedative stacking.'],
+  ['Persistent insomnia', 'Clinical evaluation', 'Supplements should not mask sleep apnea, restless legs, medication effects, pain, anxiety, or mood disorders.'],
+] as const
+
+const EVIDENCE_BOUNDARIES = [
+  ['Melatonin', 'Strongest for sleep-onset timing and circadian use; weaker as a general insomnia sedative.'],
+  ['Magnesium', 'Most plausible when deficiency risk, low intake, older age, or tension is part of the picture.'],
+  ['L-theanine', 'Better evidence for relaxation and stress physiology than for standalone insomnia treatment.'],
+  ['Glycine', 'Promising but narrow human evidence; useful to compare when avoiding heavier sedatives.'],
+  ['Valerian', 'Mixed meta-analytic signal; product chemistry and dose vary substantially.'],
+] as const
+
+const SLEEP_REFERENCES = [
+  ['American Academy of Sleep Medicine guideline for pharmacologic treatment of chronic insomnia in adults', 'https://pubmed.ncbi.nlm.nih.gov/27998379/'],
+  ['Clinical practice guideline for intrinsic circadian rhythm sleep-wake disorders', 'https://pubmed.ncbi.nlm.nih.gov/26414986/'],
+  ['Melatonin for preventing and treating jet lag', 'https://pubmed.ncbi.nlm.nih.gov/12076414/'],
+  ['Effect of magnesium supplementation on insomnia in elderly people: double-blind placebo-controlled trial', 'https://pubmed.ncbi.nlm.nih.gov/23853635/'],
+  ['Glycine ingestion improves subjective sleep quality in human volunteers', 'https://pubmed.ncbi.nlm.nih.gov/22529837/'],
+  ['Valerian for sleep: systematic review and meta-analysis', 'https://pubmed.ncbi.nlm.nih.gov/17145239/'],
+  ['L-theanine effects on stress-related symptoms and cognitive functions in healthy adults', 'https://pubmed.ncbi.nlm.nih.gov/31623400/'],
+] as const
+
 const HEADINGS: Heading[] = [
   { id: 'match', text: 'Match supplement to sleep problem', level: 2 },
+  { id: 'semantic-edges', text: 'Choose by sleep bottleneck', level: 2 },
   { id: 'profiles', text: 'Sleep supplement profiles', level: 2 },
+  { id: 'evidence-boundaries', text: 'Evidence boundaries', level: 2 },
   { id: 'stacking', text: 'Evidence-informed stacking guide', level: 2 },
   { id: 'mistakes', text: 'Common mistakes to avoid', level: 2 },
+  { id: 'references', text: 'References', level: 2 },
 ]
 
 export default function BestSupplementsForSleepPage() {
@@ -135,7 +165,7 @@ export default function BestSupplementsForSleepPage() {
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides' },
-          { label: 'Best Supplements for Sleep', href: '/guides/best-supplements-for-sleep' },
+          { label: 'Best Supplements for Sleep', href: '/guides/sleep/best-supplements-for-sleep' },
         ]}
       />
 
@@ -205,6 +235,29 @@ export default function BestSupplementsForSleepPage() {
           </div>
         </section>
 
+        <section id="semantic-edges" className="scroll-mt-20 space-y-5 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <div className="max-w-3xl">
+            <p className="eyebrow-label">Semantic edges</p>
+            <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">
+              Choose by sleep bottleneck
+            </h2>
+            <p className="mt-2 text-sm leading-7 text-muted">
+              The cleanest decision is not "what is the strongest sleep supplement?" It is whether
+              the bottleneck is circadian timing, cognitive arousal, physical tension, perceived sleep
+              depth, sedative need, or an undiagnosed sleep disorder.
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {SLEEP_DECISION_EDGES.map(([bottleneck, option, interpretation]) => (
+              <div key={bottleneck} className="rounded-2xl border border-brand-900/10 bg-brand-50/40 p-5">
+                <h3 className="text-sm font-bold text-ink">{bottleneck}</h3>
+                <p className="mt-2 text-sm font-semibold text-brand-800">{option}</p>
+                <p className="mt-2 text-xs leading-6 text-muted">{interpretation}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Individual profiles */}
         <section id="profiles" className="scroll-mt-20 space-y-6">
           <div>
@@ -254,6 +307,21 @@ export default function BestSupplementsForSleepPage() {
           </div>
         </section>
 
+        <section id="evidence-boundaries" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <p className="eyebrow-label">Evidence boundaries</p>
+          <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">
+            What the evidence does and does not mean
+          </h2>
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            {EVIDENCE_BOUNDARIES.map(([name, boundary]) => (
+              <div key={name} className="rounded-xl border border-brand-900/10 bg-brand-50/35 p-4">
+                <h3 className="text-sm font-semibold text-ink">{name}</h3>
+                <p className="mt-2 text-xs leading-6 text-muted">{boundary}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* Stacking guide */}
         <section id="stacking" className="scroll-mt-20 space-y-5">
           <div>
@@ -293,13 +361,29 @@ export default function BestSupplementsForSleepPage() {
           <RecommendationSection products={magnesiumProducts.products} />
         )}
 
+        <section id="references" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <p className="eyebrow-label">References</p>
+          <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">
+            Evidence sources used for this guide
+          </h2>
+          <ul className="mt-5 grid gap-3 text-sm leading-6 sm:grid-cols-2">
+            {SLEEP_REFERENCES.map(([label, href]) => (
+              <li key={href} className="rounded-xl border border-brand-900/10 bg-brand-50/35 p-4">
+                <a href={href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:underline">
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+
         {/* Related */}
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
           <Link href="/guides/herbs/l-theanine" className="hover:text-brand-800">L-Theanine for Calm Sleep →</Link>
-          <Link href="/guides/magnesium-vs-melatonin" className="hover:text-brand-800">Magnesium vs Melatonin →</Link>
-          <Link href="/compare/sleep-herbs-vs-melatonin" className="hover:text-brand-800">Sleep Herbs vs Melatonin →</Link>
-          <Link href="/guides/magnesium-for-sleep" className="hover:text-brand-800">Magnesium for Sleep Guide →</Link>
-          <Link href="/compare/magnesium-glycinate-vs-magnesium-threonate" className="hover:text-brand-800">Glycinate vs L-Threonate →</Link>
+          <Link href="/guides/sleep/magnesium-vs-melatonin" className="hover:text-brand-800">Magnesium vs Melatonin →</Link>
+          <Link href="/guides/compare/sleep-herbs-vs-melatonin" className="hover:text-brand-800">Sleep Herbs vs Melatonin →</Link>
+          <Link href="/guides/sleep/magnesium-for-sleep" className="hover:text-brand-800">Magnesium for Sleep Guide →</Link>
+          <Link href="/guides/sleep/magnesium-types-for-sleep" className="hover:text-brand-800">Magnesium Types for Sleep →</Link>
           <Link href="/guides/" className="hover:text-brand-800">All Guides →</Link>
         </nav>
       </div>

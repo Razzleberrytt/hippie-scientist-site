@@ -11,13 +11,10 @@ import { PUBLIC_ROUTES } from '../lib/public-routes'
 const exploreLinks = [
   { href: PUBLIC_ROUTES.herbs, label: 'Herb Database' },
   { href: PUBLIC_ROUTES.compounds, label: 'Compounds' },
-  { href: '/stacks/', label: 'Stacks' },
-  { href: '/compare/', label: 'Compare' },
+  { href: '/guides/compare/', label: 'Compare' },
   { href: PUBLIC_ROUTES.guides, label: 'Guides' },
-  { href: PUBLIC_ROUTES.articles, label: 'Articles' },
   { href: '/learn/', label: 'Learn the Science' },
   { href: '/search/', label: 'Search' },
-  { href: PUBLIC_ROUTES.goals, label: 'Goals' },
 ]
 
 const priorityGoalLinks = [
@@ -28,14 +25,14 @@ const priorityGoalLinks = [
 ]
 
 const safetyLinks = [
-  { href: '/info/info/methodology/', label: 'Methodology' },
+  { href: '/info/methodology/', label: 'Methodology' },
   { href: PUBLIC_ROUTES.disclaimer, label: 'Disclaimer' },
   { href: PUBLIC_ROUTES.contact, label: 'Contact' },
 ]
 
 const legalLinks = [
   { href: PUBLIC_ROUTES.privacy, label: 'Privacy Policy' },
-  { href: '/info/info/affiliate-disclosure/', label: 'Affiliate Disclosure' },
+  { href: '/info/affiliate-disclosure/', label: 'Affiliate Disclosure' },
   { href: '/sitemap.xml', label: 'Sitemap' },
 ]
 

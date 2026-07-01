@@ -16,7 +16,7 @@ export const GOAL_START_HERE_LINKS: Record<string, GoalStartHereLink[]> = {
     {
       role: 'Comparison guide',
       title: 'Sleep herbs vs melatonin',
-      href: '/compare/sleep-herbs-vs-melatonin/',
+      href: '/guides/compare/sleep-herbs-vs-melatonin/',
       note: 'Use this when the main question is herbal wind-down support versus circadian timing.',
     },
     {
@@ -34,7 +34,7 @@ export const GOAL_START_HERE_LINKS: Record<string, GoalStartHereLink[]> = {
     {
       role: 'Methodology',
       title: 'Evidence methodology',
-      href: '/info/info/methodology/',
+      href: '/info/methodology/',
       note: 'How the site separates clinical evidence, mechanism, and safety uncertainty.',
     },
     {
@@ -54,7 +54,7 @@ export const GOAL_START_HERE_LINKS: Record<string, GoalStartHereLink[]> = {
     {
       role: 'Comparison guide',
       title: 'Rhodiola vs ashwagandha',
-      href: '/guides/guides/compare/rhodiola-vs-ashwagandha/',
+      href: '/guides/compare/rhodiola-vs-ashwagandha/',
       note: 'Best next read when choosing between calming resilience and fatigue support.',
     },
     {
@@ -72,7 +72,7 @@ export const GOAL_START_HERE_LINKS: Record<string, GoalStartHereLink[]> = {
     {
       role: 'Methodology',
       title: 'Evidence methodology',
-      href: '/info/info/methodology/',
+      href: '/info/methodology/',
       note: 'Use this to understand evidence grades before comparing adaptogens.',
     },
     {
@@ -86,13 +86,13 @@ export const GOAL_START_HERE_LINKS: Record<string, GoalStartHereLink[]> = {
     {
       role: 'Beginner guide',
       title: 'Best herbs for anxiety',
-      href: '/guides/best-herbs-for-anxiety/',
+      href: '/guides/anxiety/best-herbs-for-anxiety/',
       note: 'Start with the herb-by-herb decision framework and medication cautions.',
     },
     {
       role: 'Comparison guide',
       title: 'Ashwagandha vs L-theanine vs magnesium',
-      href: '/compare/ashwagandha-vs-l-theanine-vs-magnesium/',
+      href: '/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/',
       note: 'Useful when anxiety overlaps with stress, tension, or sleep disruption.',
     },
     {
@@ -110,13 +110,13 @@ export const GOAL_START_HERE_LINKS: Record<string, GoalStartHereLink[]> = {
     {
       role: 'Methodology',
       title: 'Evidence methodology',
-      href: '/info/info/methodology/',
+      href: '/info/methodology/',
       note: 'Review how evidence strength and safety caveats are separated.',
     },
     {
       role: 'Related article',
       title: 'Natural anxiolytics beyond ashwagandha',
-      href: '/guides/natural-anxiolytics-beyond-ashwagandha/',
+      href: '/guides/anxiety/natural-anxiolytics-beyond-ashwagandha/',
       note: 'A broader herb cluster for readers who need options beyond the usual anchor herb.',
     },
   ],
@@ -124,13 +124,13 @@ export const GOAL_START_HERE_LINKS: Record<string, GoalStartHereLink[]> = {
     {
       role: 'Beginner guide',
       title: 'Best nootropics for focus',
-      href: '/guides/best-nootropics-for-focus/',
+      href: '/guides/focus/best-nootropics-for-focus/',
       note: 'Start here to separate acute stimulation from slow-build cognitive support.',
     },
     {
       role: 'Comparison guide',
       title: 'Caffeine vs L-theanine vs bacopa',
-      href: '/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/',
+      href: '/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/',
       note: 'Best next read for fast alertness, calm focus, and non-stimulant tradeoffs.',
     },
     {
@@ -148,7 +148,7 @@ export const GOAL_START_HERE_LINKS: Record<string, GoalStartHereLink[]> = {
     {
       role: 'Methodology',
       title: 'Evidence methodology',
-      href: '/info/info/methodology/',
+      href: '/info/methodology/',
       note: 'Use this before comparing nootropic claims with different evidence tiers.',
     },
     {

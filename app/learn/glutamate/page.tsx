@@ -12,7 +12,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 const systems = [
   {
-    href: '/psychoactive/dissociative-mechanisms',
+    href: '/learn/dissociative-mechanisms',
     title: 'Dissociative Mechanisms',
   },
   {

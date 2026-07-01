@@ -1,6 +1,6 @@
 {
   "build-runtime-from-workbook": {
-    "timestamp": "2026-06-27T03:51:53.231Z",
+    "timestamp": "2026-06-28T11:35:19.821Z",
     "inputHash": "9145b7f35d0f5952",
     "configHash": "44136fa355b3678a",
     "outputHash": "6f0540ba8d510d18",
@@ -9,7 +9,7 @@
     ]
   },
   "build-related-runtime-maps": {
-    "timestamp": "2026-06-27T03:51:55.799Z",
+    "timestamp": "2026-06-28T11:35:23.303Z",
     "inputHash": "6f0540ba8d510d18",
     "configHash": "44136fa355b3678a",
     "outputHash": "6f0540ba8d510d18",
@@ -18,7 +18,7 @@
     ]
   },
   "build-runtime-summary-indexes": {
-    "timestamp": "2026-06-27T03:51:55.951Z",
+    "timestamp": "2026-06-28T11:35:23.457Z",
     "inputHash": "6f0540ba8d510d18",
     "configHash": "44136fa355b3678a",
     "outputHash": "6f0540ba8d510d18",
@@ -27,7 +27,7 @@
     ]
   },
   "build-route-manifest": {
-    "timestamp": "2026-06-27T03:51:56.047Z",
+    "timestamp": "2026-06-28T11:35:23.559Z",
     "inputHash": "2b77db1e81ce2971",
     "configHash": "44136fa355b3678a",
     "outputHash": "6f0540ba8d510d18",
@@ -36,7 +36,7 @@
     ]
   },
   "build-internal-link-engine": {
-    "timestamp": "2026-06-27T03:52:03.650Z",
+    "timestamp": "2026-06-28T11:35:30.880Z",
     "inputHash": "9145b7f35d0f5952",
     "configHash": "44136fa355b3678a",
     "outputHash": "d60a5eef94627bfd",
@@ -49,7 +49,7 @@
     ]
   },
   "build-sitemap-manifest": {
-    "timestamp": "2026-06-27T03:52:03.739Z",
+    "timestamp": "2026-06-28T11:35:30.968Z",
     "inputHash": "6f0540ba8d510d18",
     "configHash": "44136fa355b3678a",
     "outputHash": "e40703a6be19fbc3",
@@ -59,7 +59,7 @@
     ]
   },
   "build-export-batches": {
-    "timestamp": "2026-06-27T03:52:03.821Z",
+    "timestamp": "2026-06-28T11:35:31.053Z",
     "inputHash": "6f0540ba8d510d18",
     "configHash": "44136fa355b3678a",
     "outputHash": "6f0540ba8d510d18",
@@ -68,12 +68,31 @@
     ]
   },
   "build-semantic-snapshots": {
-    "timestamp": "2026-06-27T03:52:03.975Z",
+    "timestamp": "2026-06-28T11:35:31.211Z",
     "inputHash": "6f0540ba8d510d18",
     "configHash": "44136fa355b3678a",
     "outputHash": "6f0540ba8d510d18",
     "outputs": [
       "public/data/semantic-snapshots/**/*"
+    ]
+  },
+  "build-production": {
+    "timestamp": "2026-06-28T11:38:50.396Z",
+    "inputHash": "d2409411ee3153ad",
+    "configHash": "44136fa355b3678a",
+    "outputHash": "e40703a6be19fbc3",
+    "outputs": [
+      "out/**/*",
+      ".next/**/*"
+    ]
+  },
+  "build-pagefind": {
+    "timestamp": "2026-06-28T11:44:58.654Z",
+    "inputHash": "6f0540ba8d510d18",
+    "configHash": "44136fa355b3678a",
+    "outputHash": "6f0540ba8d510d18",
+    "outputs": [
+      "out/pagefind/**/*"
     ]
   }
 }

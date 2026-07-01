@@ -20,7 +20,8 @@ describe('validate-evidence-language auditRecord', () => {
       slug: 'test-empty',
       summary: '',
       description: '',
-      evidence_tier: 'Strong Human Evidence'
+      evidence_tier: 'Strong Human Evidence',
+      indexability_status: 'PUBLISH',
     }
     const findings = runAuditRecord(record)
     expect(findings).toHaveLength(1)

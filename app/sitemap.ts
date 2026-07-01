@@ -107,7 +107,7 @@ function readAppGuidePageSlugs(relativePath: string): SitemapSourceItem[] {
   }
 }
 
-// Discovers App Router compare pages by scanning app/compare/ for subdirectories
+// Discovers App Router compare pages by scanning app/guides/compare/ for subdirectories
 // that contain a page.tsx. This picks up custom compare pages.
 function readAppComparePageSlugs(relativePath: string): SitemapSourceItem[] {
   const dirPath = path.join(process.cwd(), relativePath);
@@ -726,7 +726,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const compareFromCombinations = readTsStringArray('config/compare-combinations.ts', 'COMPARE_COMBINATIONS');
   const compareFromDirs = readAppComparePageSlugs('app/compare').map(item => item.slug).filter((s): s is string => Boolean(s));
   Array.from(new Set([...compareFromGen, ...compareFromData, ...compareFromCombinations, ...compareFromDirs])).forEach((slug) => {
-    if (slug) addRoute(`/compare/${slug}`, 'monthly', 0.6);
+    if (slug) addRoute(`/guides/compare/${slug}`, 'monthly', 0.6);
   });
 
   // Inactive collections routes (redirect targets or defined in lib) are excluded from the sitemap.
@@ -760,7 +760,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Pull any extra from comprehensive route-manifest (covers additional /compare index, ecosystems etc not already listed)
   routeManifest.forEach((entry: Record<string, unknown>) => {
     const r = (entry && (entry.route || entry.slug)) as string | undefined;
-    if (!r || typeof r !== 'string' || r === '/' || r.startsWith('/herbs/') || r.startsWith('/compounds/') || r.startsWith('/blog/') || r.startsWith('/research-notes/') || r.startsWith('/articles/') || r.startsWith('/goals/') || r.startsWith('/compare/') || r.startsWith('/collections/')) return;
+    if (!r || typeof r !== 'string' || r === '/' || r.startsWith('/herbs/') || r.startsWith('/compounds/') || r.startsWith('/blog/') || r.startsWith('/research-notes/') || r.startsWith('/articles/') || r.startsWith('/goals/') || r.startsWith('/guides/compare/') || r.startsWith('/collections/')) return;
     if (r.startsWith('/_') || r.includes('dynamic')) return;
     if (!isAllowedRouteManifestEntry(r)) return;
     addRoute(r, 'monthly', 0.5, undefined, entry);

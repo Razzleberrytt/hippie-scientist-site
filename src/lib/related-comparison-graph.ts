@@ -120,7 +120,7 @@ export function createComparisonCardModel<T extends CompareProfile>(comparison: 
   return {
     slug: comparison.slug,
     label: comparison.label,
-    href: `/compare/${comparison.slug}`,
+    href: `/guides/compare/${comparison.slug}`,
     score: comparison.score,
     reasons: comparison.reasons,
     sharedEffects: comparison.sharedEffects.slice(0, 3),

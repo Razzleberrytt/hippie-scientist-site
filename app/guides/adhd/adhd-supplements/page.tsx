@@ -7,15 +7,16 @@ import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
+import ResponsiveTable from '@/components/ui/ResponsiveTable'
 
-const SLUG = 'adhd-supplements'
+const PATH = '/guides/adhd/adhd-supplements'
 const TITLE = 'ADHD Supplements: Evidence, Safety & Testing'
 const DESCRIPTION = 'Start here for evidence-based ADHD supplement guidance, including nutrient deficiencies, sleep support, focus stacks, safety, and testing.'
 
 export const metadata: Metadata = buildPageMetadata({
   title: TITLE,
   description: DESCRIPTION,
-  path: `/guides/${SLUG}`,
+  path: PATH,
   openGraphType: 'article',
 })
 
@@ -50,16 +51,39 @@ const NUTRIENT_GUIDE = [
 
 const GUIDE_REFERENCES = [
   ['Nutrition in the Management of ADHD: review of recent research', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10444659/'],
+  ['A closer look at the role of nutrition in children and adults with ADHD', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC12343232/'],
   ['Iron and zinc in ADHD systematic review', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8618748/'],
+  ['Eating patterns and dietary interventions in ADHD: systematic review', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC9608000/'],
+  ['Omega-3 polyunsaturated fatty acids for core symptoms of ADHD: meta-analysis', 'https://pubmed.ncbi.nlm.nih.gov/37656283/'],
+  ['The effects of saffron on ADHD: systematic review', 'https://pubmed.ncbi.nlm.nih.gov/37864351/'],
+  ['Melatonin for sleep, behavior, and cognition in ADHD and chronic sleep-onset insomnia', 'https://pubmed.ncbi.nlm.nih.gov/17242627/'],
   ['Mineral status in ADHD review', 'https://www.mdpi.com/1420-3049/25/19/4440'],
 ] as const
 
 const HEADINGS: Heading[] = [
   { id: 'evidence-hierarchy', text: 'The Evidence Hierarchy', level: 2 },
+  { id: 'semantic-decision-map', text: 'Semantic Decision Map', level: 2 },
   { id: 'ranked-nutrients', text: 'Ranked Nutrient Cards', level: 2 },
   { id: 'sleep-calm', text: 'Sleep & Calm Focus Connection', level: 2 },
   { id: 'faq', text: 'Frequently Asked Questions', level: 2 },
 ]
+
+const DECISION_MAP = [
+  ['Core ADHD symptoms', 'omega-3, saffron', 'modest and inconsistent', 'Use as adjuncts, not substitutes for evidence-based ADHD care.'],
+  ['Low ferritin or low iron stores', 'iron repletion', 'stronger when deficient', 'Test first; avoid blind iron supplementation.'],
+  ['Low zinc or poor dietary intake', 'zinc', 'context-dependent', 'Most relevant when status or diet suggests a gap.'],
+  ['Delayed sleep onset', 'melatonin', 'targeted sleep-timing support', 'Best framed as circadian timing support, especially in pediatric ADHD studies.'],
+  ['Bedtime arousal or anxious overactivation', 'L-theanine, magnesium glycinate', 'adjunctive calm support', 'More relevant to arousal and tension than to attention itself.'],
+  ['Medication appetite effects or restricted diet', 'dietary pattern review, labs', 'root-cause support', 'Treat nutrition as clinical context before adding nootropics.'],
+] as const
+
+const SEMANTIC_EDGES = [
+  ['ADHD -> sleep', 'Insufficient sleep can worsen daytime attention, emotional regulation, and executive function.'],
+  ['ADHD -> nutrient status', 'Restricted diets, low intake, appetite suppression, and selective eating can make deficiency screening more useful.'],
+  ['Supplement -> outcome specificity', 'A supplement with sleep-onset evidence is not automatically an attention supplement.'],
+  ['Evidence -> baseline status', 'Nutrient trials often look stronger when low baseline status is present or likely.'],
+  ['Stack -> attribution risk', 'Adding several ingredients at once makes benefit, side effects, and interactions harder to interpret.'],
+] as const
 
 export default function AdhdSupplementsHub() {
   const magnesiumProducts = getRevenueProductSet('magnesium')
@@ -68,8 +92,8 @@ export default function AdhdSupplementsHub() {
     '@graph': [
       {
         '@type': 'CollectionPage',
-        '@id': `https://thehippiescientist.net/guides/${SLUG}/#webpage`,
-        url: `https://thehippiescientist.net/guides/${SLUG}`,
+        '@id': `https://thehippiescientist.net${PATH}/#webpage`,
+        url: `https://thehippiescientist.net${PATH}`,
         name: TITLE,
         description: DESCRIPTION,
         isPartOf: { '@type': 'WebSite', name: 'The Hippie Scientist', url: 'https://thehippiescientist.net' },
@@ -77,12 +101,12 @@ export default function AdhdSupplementsHub() {
       },
       {
         '@type': 'ItemList',
-        '@id': `https://thehippiescientist.net/guides/${SLUG}/#item-list`,
+        '@id': `https://thehippiescientist.net${PATH}/#item-list`,
         name: 'ADHD Cluster Articles',
         itemListElement: focusAdhdArticles.map((article, index) => ({
           '@type': 'ListItem',
           position: index + 1,
-          url: `https://thehippiescientist.net/articles/${article.slug}`,
+          url: `https://thehippiescientist.net/guides/adhd/${article.slug}`,
           name: article.title,
         })),
       },
@@ -185,6 +209,53 @@ export default function AdhdSupplementsHub() {
 
       <AdhdInlineCta type="safety" />
 
+      <section id="semantic-decision-map" className="scroll-mt-20 space-y-5 rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+        <div className="max-w-3xl">
+          <p className="eyebrow-label">Decision map</p>
+          <h2 className="mt-2 text-2xl font-bold tracking-tight text-ink">
+            Match the supplement to the missing link, not just the diagnosis
+          </h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            The useful semantic edge for ADHD content is separating the entity from the outcome.
+            Omega-3 and saffron are discussed as adjuncts for core symptoms; melatonin is a sleep-onset
+            timing tool; iron, zinc, magnesium, and vitamin D are most meaningful when intake, labs, or
+            clinical context suggest a gap. That distinction creates better recommendations than a single
+            generic list of "ADHD supplements."
+          </p>
+        </div>
+        <ResponsiveTable label="ADHD supplement decision map">
+          <table className="min-w-[820px] w-full text-left text-sm">
+            <thead className="bg-brand-50/80">
+              <tr className="border-b border-brand-900/10">
+                {['Clinical context', 'Most relevant option', 'Evidence shape', 'Editorial implication'].map((heading) => (
+                  <th key={heading} className="px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] text-brand-900">
+                    {heading}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-brand-900/10 bg-white">
+              {DECISION_MAP.map(([context, option, evidence, implication]) => (
+                <tr key={context} className="align-top">
+                  <td className="px-4 py-4 font-semibold text-ink">{context}</td>
+                  <td className="px-4 py-4 text-[#46574d]">{option}</td>
+                  <td className="px-4 py-4 text-[#46574d]">{evidence}</td>
+                  <td className="px-4 py-4 text-[#46574d]">{implication}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </ResponsiveTable>
+        <div className="grid gap-3 md:grid-cols-5">
+          {SEMANTIC_EDGES.map(([edge, meaning]) => (
+            <div key={edge} className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+              <h3 className="text-xs font-bold uppercase tracking-[0.12em] text-brand-800">{edge}</h3>
+              <p className="mt-2 text-xs leading-6 text-muted">{meaning}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section id="ranked-nutrients" className="scroll-mt-20 space-y-4 rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
         <h2 className="text-2xl font-bold tracking-tight text-ink">Ranked Nutrient Cards</h2>
         <p className="max-w-3xl text-sm leading-relaxed text-muted">
@@ -259,7 +330,7 @@ export default function AdhdSupplementsHub() {
                   <span className="text-[10px] text-muted whitespace-nowrap">{article.readingTime}</span>
                 </div>
                 <h3 className="mt-3 text-base font-bold text-ink hover:text-brand-800">
-                  <Link href={`/articles/${article.slug}`}>{article.title}</Link>
+                  <Link href={`/guides/adhd/${article.slug}`}>{article.title}</Link>
                 </h3>
                 <p className="mt-2 text-xs leading-relaxed text-muted line-clamp-3">
                   {article.description}
@@ -267,7 +338,7 @@ export default function AdhdSupplementsHub() {
               </div>
               <div className="pt-2 border-t border-brand-900/5">
                 <Link
-                  href={`/articles/${article.slug}`}
+                  href={`/guides/adhd/${article.slug}`}
                   className="inline-flex items-center justify-between w-full text-xs font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   <span>Read evidence review</span>
@@ -352,7 +423,7 @@ export default function AdhdSupplementsHub() {
           <Link href="/safety-checker/" className="hover:text-amber-950 hover:underline">
             Open Safety Checker →
           </Link>
-          <Link href="/compare/" className="hover:text-amber-950 hover:underline">
+          <Link href="/guides/compare/" className="hover:text-amber-950 hover:underline">
             Side-by-Side Comparison Tool →
           </Link>
         </div>

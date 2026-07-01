@@ -408,7 +408,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       if (!compSlug) return null
       return {
         label: formatDisplayLabel(record.name || record.title || record.slug),
-        href: `/compare/${compSlug}`,
+        href: `/guides/compare/${compSlug}`,
       }
     })
     .filter((item): item is { label: string; href: string } => item !== null)

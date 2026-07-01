@@ -6,21 +6,21 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 export const metadata: Metadata = buildPageMetadata({
   title: "Psychoactive Harm Reduction",
   description: "Educational psychoactive harm reduction hub focused on interaction awareness, neurochemical safety, and educational guidance.",
-  path: "/psychoactive/harm-reduction/",
+  path: "/learn/harm-reduction/",
 })
 
 
 const topics = [
   {
-    href: '/psychoactive/interactions',
+    href: '/learn/interactions',
     title: 'Interaction Awareness',
   },
   {
-    href: '/psychoactive/serotonergic-stacking-risks',
+    href: '/learn/serotonergic-stacking-risks',
     title: 'Serotonergic Risks',
   },
   {
-    href: '/psychoactive/harm-reduction',
+    href: '/learn/harm-reduction',
     title: 'GABAergic Safety',
   },
   {
@@ -35,7 +35,7 @@ export default function HarmReductionPage() {
       <AuthorityJsonLd
         title="Psychoactive Harm Reduction"
         description="Educational psychoactive harm reduction hub focused on interaction awareness, neurochemical safety, and educational guidance."
-        url="https://thehippiescientist.net/psychoactive/harm-reduction"
+        url="https://thehippiescientist.net/learn/harm-reduction"
         type="Article"
       />
 

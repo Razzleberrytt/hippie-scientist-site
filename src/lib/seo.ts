@@ -362,7 +362,7 @@ export function shouldIndexRoute(path: string, pageData?: Record<string, unknown
       : null
 
   if (
-    normalizedPath === '/compare/dynamic' ||
+    normalizedPath === '/guides/compare/dynamic' ||
     normalizedPath.startsWith('/admin') ||
     normalizedPath.startsWith('/api') ||
     normalizedPath.startsWith('/data') ||
@@ -646,7 +646,7 @@ export function blogJsonLd(post: BlogJsonLdPost, path: string) {
     author: {
       '@type': 'Person',
       name: 'Will Thomas',
-      url: `${SITE_URL}/info/info/about/`,
+      url: `${SITE_URL}/info/about/`,
     },
     publisher: {
       '@type': 'Organization',

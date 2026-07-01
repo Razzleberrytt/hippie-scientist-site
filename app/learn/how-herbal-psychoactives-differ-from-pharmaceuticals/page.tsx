@@ -16,11 +16,11 @@ const systems = [
     title: 'Neuropharmacology',
   },
   {
-    href: '/psychoactive/harm-reduction',
+    href: '/learn/harm-reduction',
     title: 'Harm Reduction',
   },
   {
-    href: '/compare/kanna-vs-ssris',
+    href: '/guides/compare/kanna-vs-ssris',
     title: 'Kanna vs SSRIs',
   },
   {

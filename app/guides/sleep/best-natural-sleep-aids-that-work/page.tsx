@@ -178,7 +178,7 @@ export default function Page() {
                 in stressed, high-caffeine populations. The glycinate form is well absorbed and gentle on
                 the gut. Typical evening dose is 200–400&nbsp;mg of elemental magnesium. It pairs naturally
                 with L-theanine; see{' '}
-                <Link href="/compare/l-theanine-vs-magnesium" className="font-medium text-brand-700 hover:underline">L-theanine vs magnesium</Link>{' '}
+                <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium" className="font-medium text-brand-700 hover:underline">L-theanine vs magnesium</Link>{' '}
                 for how to choose between or combine them.
               </p>
             </article>
@@ -205,9 +205,9 @@ export default function Page() {
                 Melatonin is a circadian signal, not a knockout drug. It is strongly evidenced for jet
                 lag, shift work and delayed sleep phase, and moderately helpful for general sleep-onset
                 latency. Use 0.5–1&nbsp;mg — higher doses rarely help more and can cause grogginess. See{' '}
-                <Link href="/compare/melatonin-vs-magnesium" className="font-medium text-brand-700 hover:underline">melatonin vs magnesium</Link>{' '}
+                <Link href="/guides/compare/melatonin-vs-magnesium" className="font-medium text-brand-700 hover:underline">melatonin vs magnesium</Link>{' '}
                 and{' '}
-                <Link href="/guides/magnesium-vs-melatonin" className="font-medium text-brand-700 hover:underline">our magnesium vs melatonin guide</Link>{' '}
+                <Link href="/guides/sleep/magnesium-vs-melatonin" className="font-medium text-brand-700 hover:underline">our magnesium vs melatonin guide</Link>{' '}
                 to decide which mechanism fits your problem.
               </p>
             </article>
@@ -287,11 +287,11 @@ export default function Page() {
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Related guides &amp; comparisons</h2>
           <div className="grid gap-3 sm:grid-cols-2">
-            <Link href="/guides/best-supplements-for-sleep" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Supplements for Sleep →</Link>
-            <Link href="/guides/magnesium-for-sleep" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Magnesium for Sleep →</Link>
+            <Link href="/guides/sleep/best-supplements-for-sleep" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Supplements for Sleep →</Link>
+            <Link href="/guides/sleep/magnesium-for-sleep" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Magnesium for Sleep →</Link>
             <Link href="/guides/best-herbs-for-stress-and-anxiety-at-night" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Stress &amp; Anxiety at Night →</Link>
-            <Link href="/compare/melatonin-vs-valerian-vs-magnesium-for-sleep" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Melatonin vs Valerian vs Magnesium →</Link>
-            <Link href="/compare/sleep-herbs-vs-melatonin" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Sleep Herbs vs Melatonin →</Link>
+            <Link href="/guides/compare/melatonin-vs-valerian-vs-magnesium-for-sleep" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Melatonin vs Valerian vs Magnesium →</Link>
+            <Link href="/guides/compare/sleep-herbs-vs-melatonin" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Sleep Herbs vs Melatonin →</Link>
             <Link href="/guides/sleep" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Sleep Guides →</Link>
           </div>
         </section>

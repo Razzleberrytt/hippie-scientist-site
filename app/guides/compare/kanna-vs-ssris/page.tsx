@@ -4,7 +4,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Kanna vs SSRIs',
   description: 'Educational comparison of kanna and SSRI-related serotonergic systems, mood regulation, emotional processing, and safety considerations.',
-  path: '/compare/kanna-vs-ssris/',
+  path: '/guides/compare/kanna-vs-ssris/',
 })
 
 import Link from 'next/link'
@@ -49,7 +49,7 @@ export default function KannaVsSSRIsPage() {
       <AuthorityJsonLd
         title="Kanna vs SSRIs"
         description="Educational comparison of kanna and SSRI-related serotonergic systems, mood regulation, emotional processing, and safety considerations."
-        url="https://thehippiescientist.net/compare/kanna-vs-ssris"
+        url="https://thehippiescientist.net/guides/compare/kanna-vs-ssris"
         type="Article"
       />
 
@@ -119,7 +119,7 @@ export default function KannaVsSSRIsPage() {
             Serotonin Pathway
           </Link>
 
-          <Link href="/psychoactive/serotonergic-stacking-risks" className="chip-readable">
+          <Link href="/learn/serotonergic-stacking-risks" className="chip-readable">
             Serotonergic Risks
           </Link>
         </div>

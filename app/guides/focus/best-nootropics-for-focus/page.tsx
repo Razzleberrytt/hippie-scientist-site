@@ -9,18 +9,18 @@ import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 
-const PAGE_URL = `${SITE_URL}/guides/best-nootropics-for-focus`
+const PAGE_URL = `${SITE_URL}/guides/focus/best-nootropics-for-focus`
 
 export const metadata: Metadata = {
   title: 'Best Nootropics for Focus — Evidence-Based Guide (2026)',
   description:
     'Evidence-graded guide to the best nootropics for focus: L-theanine + caffeine, citicoline, bacopa, lion\'s mane, rhodiola, and phosphatidylserine. Mechanisms, dosing, safety, and stacking notes.',
-  alternates: { canonical: '/guides/best-nootropics-for-focus/' },
+  alternates: { canonical: '/guides/focus/best-nootropics-for-focus/' },
   openGraph: {
     title: 'Best Nootropics for Focus — Evidence-Based Guide (2026)',
     description:
       'Which nootropics actually improve focus? Evidence-graded review of L-theanine + caffeine, citicoline, bacopa monnieri, lion\'s mane, rhodiola, and more.',
-    url: '/guides/best-nootropics-for-focus/',
+    url: '/guides/focus/best-nootropics-for-focus/',
     type: 'article',
     images: ['/og-default.jpg'],
   },
@@ -139,7 +139,7 @@ export default function BestNootropicsForFocusPage() {
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides' },
-          { label: 'Best Nootropics for Focus', href: '/guides/best-nootropics-for-focus' },
+          { label: 'Best Nootropics for Focus', href: '/guides/focus/best-nootropics-for-focus' },
         ]}
       />
 
@@ -271,9 +271,9 @@ export default function BestNootropicsForFocusPage() {
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
           <Link href="/guides/focus" className="hover:text-brand-800">Focus goal hub →</Link>
           <Link href="/guides/focus-without-caffeine-crash" className="hover:text-brand-800">Focus Without the Caffeine Crash →</Link>
-          <Link href="/guides/adhd-supplements" className="hover:text-brand-800">ADHD Supplements Hub →</Link>
+          <Link href="/guides/adhd/adhd-supplements/" className="hover:text-brand-800">ADHD Supplements Hub →</Link>
           <Link href="/guides/supplements-for-brain-fog-and-fatigue" className="hover:text-brand-800">Brain Fog & Fatigue →</Link>
-          <Link href="/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus" className="hover:text-brand-800">Caffeine vs L-Theanine vs Bacopa →</Link>
+          <Link href="/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus" className="hover:text-brand-800">Caffeine vs L-Theanine vs Bacopa →</Link>
           <Link href="/guides/" className="hover:text-brand-800">All Guides →</Link>
         </nav>
       </div>

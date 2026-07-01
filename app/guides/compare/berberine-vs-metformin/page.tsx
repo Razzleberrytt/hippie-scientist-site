@@ -4,7 +4,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Berberine vs Metformin',
   description: 'Evidence-graded comparison of berberine and metformin for blood sugar management, insulin resistance, and metabolic health. Mechanisms, RCT data, safety, cost, and when to use each.',
-  path: '/compare/berberine-vs-metformin/',
+  path: '/guides/compare/berberine-vs-metformin/',
 })
 
 import Link from 'next/link'
@@ -24,7 +24,7 @@ export default function BerberineVsMetforminPage() {
       <AuthorityJsonLd
         title="Berberine vs Metformin"
         description="Evidence-graded comparison of berberine and metformin for blood sugar management, insulin resistance, and metabolic health. Mechanisms, RCT data, safety, cost, and when to use each."
-        url="https://thehippiescientist.net/compare/berberine-vs-metformin"
+        url="https://thehippiescientist.net/guides/compare/berberine-vs-metformin"
         type="Article"
       />
 
@@ -426,14 +426,14 @@ export default function BerberineVsMetforminPage() {
             label: 'Comparison',
             title: 'Berberine vs Inositol',
             description: 'Two insulin sensitizers with different mechanisms — when each makes sense, and how they stack.',
-            href: '/compare/berberine-vs-inositol',
+            href: '/guides/compare/berberine-vs-metformin',
           },
           {
             type: 'guide',
             label: 'Comparison',
             title: 'Berberine vs Psyllium',
             description: 'Comparing two gut-first metabolic supplements with different primary mechanisms.',
-            href: '/compare/berberine-vs-psyllium',
+            href: '/guides/compare/berberine-vs-metformin',
           },
           {
             type: 'guide',
@@ -469,11 +469,11 @@ export default function BerberineVsMetforminPage() {
       </div>
 
       <div className="flex flex-wrap gap-3">
-        <Link href="/compare/berberine-vs-inositol" className="chip-readable">Berberine vs Inositol</Link>
-        <Link href="/compare/berberine-vs-psyllium" className="chip-readable">Berberine vs Psyllium</Link>
+        <Link href="/guides/compare/berberine-vs-metformin" className="chip-readable">Berberine vs Inositol</Link>
+        <Link href="/guides/compare/berberine-vs-metformin" className="chip-readable">Berberine vs Psyllium</Link>
         <Link href="/guides/best/supplements-for-gut-health" className="chip-readable">Gut Health Goals</Link>
         <Link href="/guides/best/supplements-for-fat-loss" className="chip-readable">Fat Loss Goals</Link>
-        <Link href="/compare/" className="chip-readable">All Comparisons</Link>
+        <Link href="/guides/compare/" className="chip-readable">All Comparisons</Link>
       </div>
     </div>
   )

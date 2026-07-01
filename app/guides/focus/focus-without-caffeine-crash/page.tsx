@@ -157,7 +157,7 @@ export default function Page() {
                 and{' '}
                 <Link href="/compounds/caffeine" className="font-medium text-brand-700 hover:underline">caffeine</Link>{' '}
                 profiles, or the{' '}
-                <Link href="/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus" className="font-medium text-brand-700 hover:underline">caffeine vs L-theanine vs bacopa</Link>{' '}
+                <Link href="/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus" className="font-medium text-brand-700 hover:underline">caffeine vs L-theanine vs bacopa</Link>{' '}
                 comparison.
               </p>
             </div>
@@ -201,7 +201,7 @@ export default function Page() {
               Choline donors like alpha-GPC support acetylcholine, a neurotransmitter central to attention.
               They can sharpen focus without stimulation, and some people pair a small dose with their
               focus block. Explore more in{' '}
-              <Link href="/guides/best-nootropics-for-focus" className="font-medium text-brand-700 hover:underline">best nootropics for focus</Link>.
+              <Link href="/guides/focus/best-nootropics-for-focus" className="font-medium text-brand-700 hover:underline">best nootropics for focus</Link>.
             </p>
           </article>
         </section>
@@ -253,9 +253,9 @@ export default function Page() {
           <h2 className="text-2xl font-semibold text-ink">Related guides &amp; comparisons</h2>
           <div className="grid gap-3 sm:grid-cols-2">
             <Link href="/guides/best-supplements-for-focus" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Supplements for Focus →</Link>
-            <Link href="/guides/best-nootropics-for-focus" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Nootropics for Focus →</Link>
+            <Link href="/guides/focus/best-nootropics-for-focus" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Nootropics for Focus →</Link>
             <Link href="/guides/supplements-for-brain-fog-and-fatigue" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Supplements for Brain Fog &amp; Fatigue →</Link>
-            <Link href="/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Caffeine vs L-theanine vs Bacopa →</Link>
+            <Link href="/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Caffeine vs L-theanine vs Bacopa →</Link>
             <Link href="/compounds/l-theanine" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">L-theanine Profile →</Link>
             <Link href="/guides/focus" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Focus Guides →</Link>
           </div>

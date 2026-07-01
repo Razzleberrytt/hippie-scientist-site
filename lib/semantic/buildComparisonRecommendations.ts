@@ -39,7 +39,7 @@ export function buildComparisonRecommendations(record: RuntimeRecord) {
       const comparisonSlug = `${slug}-vs-${signal.toLowerCase().replace(/\s+/g, '-')}`
       return {
         comparisonSlug,
-        href: `/compare/${comparisonSlug}`,
+        href: `/guides/compare/${comparisonSlug}`,
         title: cleanEditorialText(`${name} vs ${signal}`),
         rationale: cleanEditorialText(`Semantic comparison generated through overlap in ${signal}.`),
         overlap: [signal],
@@ -47,7 +47,7 @@ export function buildComparisonRecommendations(record: RuntimeRecord) {
     })
     // Only surface comparisons that are actually built. Signals (mechanisms,
     // pathways, effects) are not comparison pages, so these would 404 — the
-    // historical source of the "/compare/*" not-found cluster in Search Console.
+    // historical source of the "/guides/compare/*" not-found cluster in Search Console.
     .filter((item) => isBuiltComparisonSlug(item.comparisonSlug))
     .filter((item) => shouldRenderCard(item.title, item.rationale))
 }

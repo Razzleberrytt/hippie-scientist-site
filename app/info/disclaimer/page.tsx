@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     'The Hippie Scientist is an educational resource only. Nothing on this site is medical advice, diagnosis, or treatment. Always consult a professional.',
   alternates: {
-    canonical: '/info/info/disclaimer/',
+    canonical: '/info/disclaimer/',
   },
   robots: {
     index: true,

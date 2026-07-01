@@ -1,5 +1,5 @@
 /**
- * Data layer for /compare/ pages.
+ * Data layer for /guides/compare/ pages.
  * Pre-flight findings (2026-06-22):
  *   Herbs: 287 total, 218 PUBLISH | Compounds: 597 total, 123 PUBLISH
  *   100% coverage: slug, name, summary, mechanisms, evidence_grade, evidence_tier,

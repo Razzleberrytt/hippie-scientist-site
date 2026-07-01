@@ -6,7 +6,7 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 export const metadata: Metadata = buildPageMetadata({
   title: "Dissociative Mechanisms",
   description: "Educational exploration of dissociative neuropharmacology, glutamatergic signaling, altered-state mechanisms, and psychoactive ethnobotany.",
-  path: "/psychoactive/dissociative-mechanisms/",
+  path: "/learn/dissociative-mechanisms/",
 })
 
 
@@ -20,7 +20,7 @@ const systems = [
     title: 'Neuropharmacology',
   },
   {
-    href: '/psychoactive/harm-reduction',
+    href: '/learn/harm-reduction',
     title: 'Harm Reduction',
   },
 ]
@@ -31,7 +31,7 @@ export default function DissociativeMechanismsPage() {
       <AuthorityJsonLd
         title="Dissociative Mechanisms"
         description="Educational exploration of dissociative neuropharmacology, glutamatergic signaling, altered-state mechanisms, and psychoactive ethnobotany."
-        url="https://thehippiescientist.net/psychoactive/dissociative-mechanisms"
+        url="https://thehippiescientist.net/learn/dissociative-mechanisms"
         type="CollectionPage"
       />
 

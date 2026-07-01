@@ -10,7 +10,7 @@ import AffiliateDisclosure from '@/components/AffiliateDisclosure';
 import EmailCapture from '@/components/EmailCapture';
 
 const route = 'guides/magnesium-vs-melatonin';
-const PAGE_URL = 'https://thehippiescientist.net/guides/magnesium-vs-melatonin';
+const PAGE_URL = 'https://thehippiescientist.net/guides/sleep/magnesium-vs-melatonin';
 
 export const metadata = {
   ...generateSeoEntryMetadata(route),
@@ -41,7 +41,7 @@ export default function MagnesiumVsMelatoninGuidePage() {
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides' },
-          { label: 'Magnesium vs Melatonin', href: '/guides/magnesium-vs-melatonin' },
+          { label: 'Magnesium vs Melatonin', href: '/guides/sleep/magnesium-vs-melatonin' },
         ]}
       />
 
@@ -179,7 +179,7 @@ export default function MagnesiumVsMelatoninGuidePage() {
             Magnesium and melatonin are complementary tools. Choose emphasis based on whether your main need is relaxation/quality support or circadian timing/onset. Thoughtful stacking is common. Prioritize sleep hygiene and use the compare tool for deeper evidence views.
           </p>
           <div className="mt-4 flex flex-wrap gap-4 text-sm">
-            <Link href="/compare/magnesium-vs-melatonin" className="font-semibold text-emerald-700 hover:underline">Open side-by-side compare →</Link>
+            <Link href="/guides/sleep/magnesium-vs-melatonin" className="font-semibold text-emerald-700 hover:underline">Open side-by-side compare →</Link>
             <Link href="/compounds/magnesium" className="font-semibold text-emerald-700 hover:underline">Magnesium profile →</Link>
             <Link href="/compounds/melatonin" className="font-semibold text-emerald-700 hover:underline">Melatonin profile →</Link>
           </div>

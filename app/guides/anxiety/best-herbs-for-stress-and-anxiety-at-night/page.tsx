@@ -241,7 +241,7 @@ export default function Page() {
               Not a herb but the most reliable fast-acting option for mental noise: 100–200&nbsp;mg quiets
               stress-driven arousal within an hour without sedation, and it stacks cleanly with magnesium
               or passionflower. See{' '}
-              <Link href="/compare/l-theanine-vs-magnesium" className="font-medium text-brand-700 hover:underline">L-theanine vs magnesium</Link>.
+              <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium" className="font-medium text-brand-700 hover:underline">L-theanine vs magnesium</Link>.
             </p>
           </article>
         </section>
@@ -296,10 +296,10 @@ export default function Page() {
           <h2 className="text-2xl font-semibold text-ink">Related guides &amp; comparisons</h2>
           <div className="grid gap-3 sm:grid-cols-2">
             <Link href="/guides/best-natural-sleep-aids-that-work" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Natural Sleep Aids That Work →</Link>
-            <Link href="/guides/best-herbs-for-anxiety" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Anxiety →</Link>
+            <Link href="/guides/anxiety/best-herbs-for-anxiety" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Anxiety →</Link>
             <Link href="/guides/how-to-lower-cortisol-naturally" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">How to Lower Cortisol Naturally →</Link>
-            <Link href="/guides/natural-anxiolytics-beyond-ashwagandha" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Natural Anxiolytics Beyond Ashwagandha →</Link>
-            <Link href="/compare/ashwagandha-vs-l-theanine-vs-magnesium" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Ashwagandha vs L-theanine vs Magnesium →</Link>
+            <Link href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Natural Anxiolytics Beyond Ashwagandha →</Link>
+            <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Ashwagandha vs L-theanine vs Magnesium →</Link>
             <Link href="/guides/anxiety" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Anxiety Guides →</Link>
           </div>
         </section>

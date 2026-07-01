@@ -4,7 +4,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Melatonin vs Valerian vs Magnesium for Sleep Support',
   description: 'Evidence-informed 3-way comparison of melatonin, valerian root, and magnesium for sleep latency, circadian rhythm timing, safety, and supplement selection.',
-  path: '/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/',
+  path: '/guides/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/',
 })
 
 import Link from 'next/link'
@@ -27,7 +27,7 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
       <AuthorityJsonLd
         title="Melatonin vs Valerian vs Magnesium for Sleep Support"
         description="Evidence-informed 3-way comparison of melatonin, valerian root, and magnesium for sleep latency, circadian rhythm timing, safety, and supplement selection."
-        url="https://thehippiescientist.net/compare/melatonin-vs-valerian-vs-magnesium-for-sleep"
+        url="https://thehippiescientist.net/guides/compare/melatonin-vs-valerian-vs-magnesium-for-sleep"
         type="Article"
       />
 

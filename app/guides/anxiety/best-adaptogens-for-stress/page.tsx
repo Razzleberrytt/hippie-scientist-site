@@ -7,18 +7,18 @@ import type { Heading } from '@/components/articles'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 
-const PAGE_URL = `${SITE_URL}/guides/best-adaptogens-for-stress`
+const PAGE_URL = `${SITE_URL}/guides/anxiety/best-adaptogens-for-stress`
 
 export const metadata: Metadata = {
   title: 'Best Adaptogens for Stress — Evidence-Based Guide',
   description:
     'Evidence-graded guide to the best adaptogens for stress: ashwagandha, rhodiola, eleuthero, schisandra, and holy basil. How adaptogens work, key differences, dosing, and safety.',
-  alternates: { canonical: '/guides/best-adaptogens-for-stress/' },
+  alternates: { canonical: '/guides/anxiety/best-adaptogens-for-stress/' },
   openGraph: {
     title: 'Best Adaptogens for Stress — Evidence-Based Guide',
     description:
       'Which adaptogens actually work for stress? Ashwagandha, rhodiola, eleuthero, schisandra — evidence-graded with honest assessments of mechanisms, dosing, and safety.',
-    url: '/guides/best-adaptogens-for-stress/',
+    url: '/guides/anxiety/best-adaptogens-for-stress/',
     type: 'article',
     images: ['/og-default.jpg'],
   },
@@ -112,7 +112,7 @@ export default function BestAdaptogensForStressPage() {
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides' },
-          { label: 'Best Adaptogens for Stress', href: '/guides/best-adaptogens-for-stress' },
+          { label: 'Best Adaptogens for Stress', href: '/guides/anxiety/best-adaptogens-for-stress' },
         ]}
       />
 

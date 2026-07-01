@@ -8,18 +8,18 @@ import type { Heading } from '@/components/articles'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 
-const PAGE_URL = `${SITE_URL}/guides/best-herbs-for-anxiety`
+const PAGE_URL = `${SITE_URL}/guides/anxiety/best-herbs-for-anxiety`
 
 export const metadata: Metadata = {
   title: 'Best Herbs for Anxiety: Ashwagandha, Passionflower, Lavender & More',
   description:
     'Evidence-graded review of the best herbs for anxiety: ashwagandha, kava, passionflower, lemon balm, valerian, and lavender. Mechanisms, dosing, safety, drug interactions, and decision framework.',
-  alternates: { canonical: '/guides/best-herbs-for-anxiety/' },
+  alternates: { canonical: '/guides/anxiety/best-herbs-for-anxiety/' },
   openGraph: {
     title: 'Best Herbs for Anxiety: Ashwagandha, Passionflower, Lavender & More',
     description:
       'Which herbs actually help with anxiety? Ashwagandha, kava, passionflower, lemon balm — evidence-graded with dosing, safety, and interaction warnings.',
-    url: '/guides/best-herbs-for-anxiety/',
+    url: '/guides/anxiety/best-herbs-for-anxiety/',
     type: 'article',
     images: ['/og-default.jpg'],
   },
@@ -167,7 +167,7 @@ export default function BestHerbsForAnxietyPage() {
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides' },
-          { label: 'Best Herbs for Anxiety', href: '/guides/best-herbs-for-anxiety' },
+          { label: 'Best Herbs for Anxiety', href: '/guides/anxiety/best-herbs-for-anxiety' },
         ]}
       />
       <JsonLd schema={faqSchema} />
@@ -376,7 +376,7 @@ export default function BestHerbsForAnxietyPage() {
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
           <Link href="/guides/anxiety" className="hover:text-brand-800">Anxiety goal hub →</Link>
           <Link href="/guides/herbs/ashwagandha" className="hover:text-brand-800">Ashwagandha Evidence Guide →</Link>
-          <Link href="/guides/natural-anxiolytics-beyond-ashwagandha" className="hover:text-brand-800">Anxiolytics Beyond Ashwagandha →</Link>
+          <Link href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha" className="hover:text-brand-800">Anxiolytics Beyond Ashwagandha →</Link>
           <Link href="/guides/natural-alternatives-to-anxiety-medication" className="hover:text-brand-800">Natural Alternatives to Anxiety Meds →</Link>
           <Link href="/guides/kava" className="hover:text-brand-800">Kava Safety Guide →</Link>
           <Link href="/guides/best-supplements-for-overthinking" className="hover:text-brand-800">Supplements for Overthinking →</Link>

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Latest Human Evidence Updates | Evidence Digest',
   description:
     'Weekly summaries of new human clinical trials on adaptogens, biological compounds, and minerals, graded for evidence strength.',
-  alternates: { canonical: '/evidence/evidence/evidence-digest/' },
+  alternates: { canonical: '/evidence/evidence-digest/' },
 }
 
 type StudyUpdate = {
@@ -92,7 +92,7 @@ export default function EvidenceDigestPage() {
         {
           title: 'Curcumin-Phospholipid Complex on Knee Mobility and Osteoarthritis Joint Pain Markers',
           ingredient: { name: 'Turmeric', href: '/herbs/turmeric' },
-          goal: { name: 'Pain Support', href: '/goals/pain' },
+          goal: { name: 'Pain Support', href: '/guides/best/supplements-for-joint-support' },
           grade: 'Moderate',
           gradeColor: 'bg-blue-100 text-blue-800 border-blue-200',
           pmid: '32009843',

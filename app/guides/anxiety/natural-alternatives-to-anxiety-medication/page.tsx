@@ -9,7 +9,7 @@ import EmailCapture from '@/components/EmailCapture'
 export const metadata: Metadata = {
   title: 'Natural Alternatives to Anxiety Medication',
   description: 'Educational overview of supportive herbs and non-supplement routines for anxiety-related stress patterns.',
-  alternates: { canonical: '/guides/best-herbs-for-anxiety/' },
+  alternates: { canonical: '/guides/anxiety/best-herbs-for-anxiety/' },
 }
 
 export default function Page() {
@@ -35,8 +35,8 @@ export default function Page() {
       )}
       <EmailCapture location="guides-natural-alternatives-to-anxiety-medication" className="mt-6" />
       <div className="flex flex-wrap gap-4">
-        <Link href="/guides/best-herbs-for-anxiety" className="text-sm font-medium text-emerald-700 hover:underline">Top anxiety herbs</Link>
-        <Link href="/guides/natural-anxiolytics-beyond-ashwagandha" className="text-sm font-medium text-emerald-700 hover:underline">Natural anxiolytics cluster</Link>
+        <Link href="/guides/anxiety/best-herbs-for-anxiety" className="text-sm font-medium text-emerald-700 hover:underline">Top anxiety herbs</Link>
+        <Link href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha" className="text-sm font-medium text-emerald-700 hover:underline">Natural anxiolytics cluster</Link>
       </div>
     </ArticleLayout>
   )

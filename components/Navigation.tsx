@@ -8,7 +8,7 @@ import { GlobalSearchModal } from './search/GlobalSearchModal'
 import DarkModeToggle from './DarkModeToggle'
 import { mainNavigation } from '@/lib/navigation-config'
 
-const primaryLinks = mainNavigation.map(({ href, label }) => ({ href, label }))
+const primaryLinks = mainNavigation
 
 function toCanonicalHref(href: string) {
   if (!href || href === '/' || href.includes('?') || href.includes('#')) return href
@@ -42,8 +42,8 @@ export function Navigation() {
   const isActive = (href: string) => {
     if (href === '/') return pathname === '/'
     if (href === '/guides') return pathname === '/guides' || pathname.startsWith('/guides/')
-    if (href === '/learn') return pathname === '/learn' || pathname.startsWith('/learn/') || pathname === '/learn' || pathname.startsWith('/learn/') || pathname.startsWith('/novel-psychoactive-substances')
-    if (href === '/safety-checker') return pathname === '/safety-checker' || pathname.startsWith('/evidence/') || pathname.startsWith('/info/info/dosing') || pathname.startsWith('/info/info/supplement-safety-checklist')
+    if (href === '/learn') return pathname === '/learn' || pathname.startsWith('/learn/') || pathname.startsWith('/novel-psychoactive-substances')
+    if (href === '/safety-checker') return pathname === '/safety-checker' || pathname.startsWith('/evidence/') || pathname.startsWith('/info/dosing') || pathname.startsWith('/info/supplement-safety-checklist')
     return pathname === href || pathname.startsWith(href + '/')
   }
 
@@ -143,18 +143,33 @@ export function Navigation() {
 
             <nav className="flex flex-col gap-1 text-base" aria-label="Mobile primary links">
               {primaryLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={toCanonicalHref(link.href)}
-                  onClick={closeMobile}
-                  className={`rounded-lg px-3 py-2.5 font-medium transition ${
-                    isActive(link.href)
-                      ? 'border-l-2 border-brand-700 bg-brand-50/60 pl-[10px] font-semibold text-brand-900 dark:border-[var(--accent-teal)] dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]'
-                      : 'text-ink hover:bg-brand-50/60'
-                  }`}
-                >
-                  {link.label}
-                </Link>
+                <div key={link.href}>
+                  <Link
+                    href={toCanonicalHref(link.href)}
+                    onClick={closeMobile}
+                    className={`block rounded-lg px-3 py-2.5 font-medium transition ${
+                      isActive(link.href)
+                        ? 'border-l-2 border-brand-700 bg-brand-50/60 pl-[10px] font-semibold text-brand-900 dark:border-[var(--accent-teal)] dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]'
+                        : 'text-ink hover:bg-brand-50/60'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                  {link.children && link.children.length > 0 ? (
+                    <div className="ml-3 mt-1 border-l border-brand-900/10 pl-3 dark:border-[var(--border-soft)]">
+                      {link.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={toCanonicalHref(child.href)}
+                          onClick={closeMobile}
+                          className="block rounded-md px-3 py-2 text-sm font-medium text-ink/75 transition hover:bg-brand-50/60 hover:text-ink dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  ) : null}
+                </div>
               ))}
 
               <div className="my-2 h-px bg-brand-900/10 dark:bg-[var(--border-soft)]" />

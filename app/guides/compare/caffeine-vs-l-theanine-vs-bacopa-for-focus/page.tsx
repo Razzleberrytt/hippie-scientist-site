@@ -4,7 +4,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Caffeine vs L-Theanine vs Bacopa for Focus & Attention',
   description: 'Evidence-informed 3-way comparison of caffeine, L-theanine, and bacopa monnieri for acute alertness, calm concentration, long-term memory support, safety, and supplement selection.',
-  path: '/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/',
+  path: '/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/',
 })
 
 import Link from 'next/link'
@@ -27,7 +27,7 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
       <AuthorityJsonLd
         title="Caffeine vs L-Theanine vs Bacopa for Focus & Attention"
         description="Evidence-informed 3-way comparison of caffeine, L-theanine, and bacopa monnieri for acute alertness, calm concentration, long-term memory support, safety, and supplement selection."
-        url="https://thehippiescientist.net/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus"
+        url="https://thehippiescientist.net/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus"
         type="Article"
       />
 

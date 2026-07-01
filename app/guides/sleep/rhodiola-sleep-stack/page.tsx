@@ -155,7 +155,7 @@ export default function RhodiolaSleepStackGuidePage() {
           <Link href="/guides/rhodiola-complete-guide" className="text-brand-700 hover:text-brand-800 hover:underline">
             Complete Rhodiola Guide →
           </Link>
-          <Link href="/guides/magnesium-for-sleep" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/guides/sleep/magnesium-for-sleep" className="text-brand-700 hover:text-brand-800 hover:underline">
             Magnesium for Sleep Guide →
           </Link>
         </div>
@@ -269,7 +269,7 @@ export default function RhodiolaSleepStackGuidePage() {
             <p className="mt-1 text-sm font-semibold text-ink">Complete Rhodiola Guide</p>
             <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">Forms, benefits, dosing, and the full evidence base in one place.</p>
           </Link>
-          <Link href="/guides/magnesium-for-sleep" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
+          <Link href="/guides/sleep/magnesium-for-sleep" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Guide</p>
             <p className="mt-1 text-sm font-semibold text-ink">Magnesium for Sleep</p>
             <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">Forms, dosage, and evidence for magnesium as a sleep and anxiety support.</p>

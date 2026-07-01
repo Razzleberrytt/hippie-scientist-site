@@ -90,7 +90,7 @@ describe('RelationalUi Component', () => {
     // Check comparison page link
     const compareLink = screen.getByRole('link', { name: 'Compare Ashwagandha vs L-Theanine →' })
     expect(compareLink).toBeInTheDocument()
-    expect(compareLink.getAttribute('href')).toBe('/compare/ashwagandha-vs-l-theanine')
+    expect(compareLink.getAttribute('href')).toBe('/guides/compare/ashwagandha-vs-l-theanine')
   })
 
   it('does not render if there are no connections', () => {

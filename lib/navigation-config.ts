@@ -107,10 +107,10 @@ export const mainNavigation: NavigationItem[] = [
     description: 'Safety checkers, evidence lookup, and practical resources',
     children: [
       { label: 'Safety Checker', href: '/safety-checker', description: 'Herb-drug interaction and contraindication lookup' },
-      { label: 'Evidence Lookup', href: '/evidence/evidence/evidence-checker', description: 'Search compounds by clinical evidence grade' },
-      { label: 'Evidence Report', href: '/evidence/evidence/evidence-report', description: 'State of Supplement Evidence — annual research review' },
-      { label: 'Dosing Guide', href: '/info/info/dosing', description: 'Bioavailability, timing, and stacking guidelines' },
-      { label: 'Supplement Checklist', href: '/info/info/supplement-safety-checklist', description: 'What to verify before buying any supplement' },
+      { label: 'Evidence Lookup', href: '/evidence/evidence-checker', description: 'Search compounds by clinical evidence grade' },
+      { label: 'Evidence Report', href: '/evidence/evidence-report', description: 'State of Supplement Evidence — annual research review' },
+      { label: 'Dosing Guide', href: '/info/dosing', description: 'Bioavailability, timing, and stacking guidelines' },
+      { label: 'Supplement Checklist', href: '/info/supplement-safety-checklist', description: 'What to verify before buying any supplement' },
     ],
   },
 ]
@@ -190,7 +190,7 @@ export const routeLabels: Record<string, RouteMetadata> = {
     description: 'Side-by-side comparisons',
     parent: '/',
   },
-  '/compare/[slug]': {
+  '/guides/compare/[slug]': {
     label: 'Comparison',
     description: 'Side-by-side comparison',
     parent: '/compare',

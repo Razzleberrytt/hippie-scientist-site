@@ -10,11 +10,11 @@ import EmailCapture from '@/components/EmailCapture'
 export const metadata: Metadata = {
   title: 'Natural Anxiolytics Beyond Ashwagandha',
   description: 'Compare calming botanicals and acute calm-support options like L-Theanine, Kava, and Kanna. Evidence-first, safety-aware analysis.',
-  alternates: { canonical: '/guides/best-herbs-for-anxiety/' },
+  alternates: { canonical: '/guides/anxiety/best-herbs-for-anxiety/' },
   openGraph: {
     title: 'Natural Anxiolytics Beyond Ashwagandha',
     description: 'Compare calming botanicals and acute calm-support options like L-Theanine, Kava, and Kanna. Evidence-first, safety-aware analysis.',
-    url: '/guides/natural-anxiolytics-beyond-ashwagandha/',
+    url: '/guides/anxiety/natural-anxiolytics-beyond-ashwagandha/',
     images: ['/og-default.jpg'],
   },
   twitter: {
@@ -90,13 +90,13 @@ export default function NaturalAnxiolyticsPage() {
           <Link href="/herbs/ashwagandha" className="text-brand-700 hover:text-brand-800 hover:underline">
             Read Ashwagandha Profile →
           </Link>
-          <Link href="/guides/best-herbs-for-anxiety" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/guides/anxiety/best-herbs-for-anxiety" className="text-brand-700 hover:text-brand-800 hover:underline">
             Best Herbs for Anxiety Guide →
           </Link>
-          <Link href="/compare/kanna-vs-ssris" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/guides/compare/kanna-vs-ssris" className="text-brand-700 hover:text-brand-800 hover:underline">
             Kanna vs SSRIs Guide →
           </Link>
-          <Link href="/compare/kava-vs-alcohol" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/guides/compare/kava-vs-alcohol" className="text-brand-700 hover:text-brand-800 hover:underline">
             Kava vs Alcohol Guide →
           </Link>
         </div>
@@ -179,7 +179,7 @@ export default function NaturalAnxiolyticsPage() {
           Always review your personal contraindications, potential drug-supplement interactions, and consult with a qualified medical professional before introducing new supplements.
         </p>
         <div className="mt-4 flex gap-3">
-          <Link href="/compare/" className="text-xs font-bold text-amber-900 hover:text-amber-950 hover:underline">
+          <Link href="/guides/compare/" className="text-xs font-bold text-amber-900 hover:text-amber-950 hover:underline">
             Side-by-Side Compare Tool →
           </Link>
           <Link href="/safety-checker/" className="text-xs font-bold text-amber-900 hover:text-amber-950 hover:underline">

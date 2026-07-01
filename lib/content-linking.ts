@@ -267,7 +267,7 @@ export function findRelatedComparisons(
       scored.push({
         slug: comparison.slug,
         title: comparison.title,
-        route: `/compare/${comparison.slug}`,
+        route: `/guides/compare/${comparison.slug}`,
         matchReason: reason,
         score,
       })

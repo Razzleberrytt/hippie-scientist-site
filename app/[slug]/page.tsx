@@ -576,7 +576,7 @@ export default async function FocusClusterRootArticlePage({ params }: { params: 
       />
 
       <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
-        <Link href="/articles/" className="transition hover:text-ink">Articles</Link>
+        <Link href="/guides/" className="transition hover:text-ink">Articles</Link>
         <span>/</span>
         <span className="line-clamp-1 text-ink">{article.title}</span>
       </nav>

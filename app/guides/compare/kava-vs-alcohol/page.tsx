@@ -4,7 +4,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Kava vs Alcohol',
   description: 'Educational comparison of kava and alcohol, calming neuropharmacology, stress-response systems, and safety considerations.',
-  path: '/compare/kava-vs-alcohol/',
+  path: '/guides/compare/kava-vs-alcohol/',
 })
 
 import Link from 'next/link'
@@ -17,7 +17,7 @@ export default function KavaVsAlcoholPage() {
       <AuthorityJsonLd
         title="Kava vs Alcohol"
         description="Educational comparison of kava and alcohol, calming neuropharmacology, stress-response systems, and safety considerations."
-        url="https://thehippiescientist.net/compare/kava-vs-alcohol"
+        url="https://thehippiescientist.net/guides/compare/kava-vs-alcohol"
         type="Article"
       />
 
@@ -70,7 +70,7 @@ export default function KavaVsAlcoholPage() {
         </p>
 
         <div className="flex flex-wrap gap-3">
-          <Link href="/psychoactive/harm-reduction" className="chip-readable">
+          <Link href="/learn/harm-reduction" className="chip-readable">
             Harm Reduction
           </Link>
 

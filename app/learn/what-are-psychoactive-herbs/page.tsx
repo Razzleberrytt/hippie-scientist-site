@@ -165,21 +165,21 @@ export default function WhatArePsychoactiveHerbsPage() {
 
         <div className="flex flex-wrap gap-3">
           <Link
-            href="/psychoactive/harm-reduction"
+            href="/learn/harm-reduction"
             className="chip-readable hover:bg-white transition"
           >
             Harm Reduction
           </Link>
 
           <Link
-            href="/psychoactive/interactions"
+            href="/learn/interactions"
             className="chip-readable hover:bg-white transition"
           >
             Interaction Guide
           </Link>
 
           <Link
-            href="/psychoactive/serotonergic-stacking-risks"
+            href="/learn/serotonergic-stacking-risks"
             className="chip-readable hover:bg-white transition"
           >
             Serotonergic Risks

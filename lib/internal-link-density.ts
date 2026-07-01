@@ -101,7 +101,7 @@ export function buildInternalLinkDensity(record: Record<string, unknown>) {
       if (!validSlug) return null
       return {
         label: `Compare ${record?.slug} alternatives`,
-        href: `/compare/${validSlug}`,
+        href: `/guides/compare/${validSlug}`,
       }
     })
     .filter((x): x is { label: string; href: string } => x !== null)

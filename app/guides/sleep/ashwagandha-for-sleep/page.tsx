@@ -94,7 +94,7 @@ export default function AshwagandhaForSleepPage() {
 
       {/* Breadcrumb */}
       <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
-        <Link href="/articles/" className="transition hover:text-ink">
+        <Link href="/guides/" className="transition hover:text-ink">
           Articles
         </Link>
         <span>/</span>
@@ -129,7 +129,7 @@ export default function AshwagandhaForSleepPage() {
 
         <p className="mt-2 text-sm text-muted">
           By{' '}
-          <Link href="/info/info/about/" rel="author" className="font-medium text-ink hover:underline">
+          <Link href="/info/about/" rel="author" className="font-medium text-ink hover:underline">
             {AUTHOR}
           </Link>
         </p>
@@ -662,7 +662,7 @@ export default function AshwagandhaForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/natural-anxiolytics-beyond-ashwagandha"
+                  href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -707,7 +707,7 @@ export default function AshwagandhaForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/articles/"
+                  href="/guides/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -965,7 +965,7 @@ export default function AshwagandhaForSleepPage() {
                 Sleep herbs vs melatonin →
               </Link>
               <Link
-                href="/guides/natural-anxiolytics-beyond-ashwagandha"
+                href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Natural anxiolytics →
@@ -977,7 +977,7 @@ export default function AshwagandhaForSleepPage() {
                 All herb profiles →
               </Link>
               <Link
-                href="/articles/"
+                href="/guides/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 All articles →
@@ -988,7 +988,7 @@ export default function AshwagandhaForSleepPage() {
       </div>
 
       <div className="mt-8">
-        <Link href="/articles/" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
+        <Link href="/guides/" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
           ← Back to Articles
         </Link>
       </div>

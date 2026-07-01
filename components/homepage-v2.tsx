@@ -58,7 +58,7 @@ const trustSignals = [
 
 const comparisonLinks = [
   { href: '/guides/compare/melatonin-vs-magnesium/', title: 'Melatonin vs magnesium' },
-  { href: '/guides/guides/guides/compare/rhodiola-vs-ashwagandha/', title: 'Rhodiola vs ashwagandha' },
+  { href: '/guides/compare/rhodiola-vs-ashwagandha/', title: 'Rhodiola vs ashwagandha' },
   { href: '/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/', title: 'Ashwagandha vs L-theanine vs magnesium' },
   { href: '/guides/compare/berberine-vs-metformin/', title: 'Berberine vs metformin' },
 ]
@@ -70,12 +70,12 @@ const toolLinks = [
     description: 'Screen supplement combinations for overlapping cautions before stacking.',
   },
   {
-    href: '/info/info/supplement-safety-checklist/',
+    href: '/info/supplement-safety-checklist/',
     title: 'Supplement safety checklist',
     description: 'Use five safety questions before comparing products or buying.',
   },
   {
-    href: '/tools/',
+    href: '/evidence/evidence-checker/',
     title: 'Decision tools',
     description: 'Open the site tools built for safety, dosing, and practical comparison.',
   },
@@ -143,7 +143,7 @@ export default function HomepageV2() {
                 </Link>
               ))}
             </div>
-            <Link href='/compare/' className='mt-5 inline-flex text-sm font-bold text-brand-700 transition hover:text-brand-800'>
+            <Link href='/guides/compare/' className='mt-5 inline-flex text-sm font-bold text-brand-700 transition hover:text-brand-800'>
               Browse all comparisons →
             </Link>
           </div>
@@ -177,8 +177,8 @@ export default function HomepageV2() {
               subtitle='Most visitors should start here. Pick the outcome you care about, then compare options inside that guide.'
               as='h2'
             />
-            <Link href='/goals/' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
-              View all goals →
+            <Link href='/guides/' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
+              View all guides →
             </Link>
           </div>
 
@@ -186,7 +186,7 @@ export default function HomepageV2() {
             {heroGoals.map((hGoal) => (
                 <Link
                   key={hGoal.slug}
-                  href={`/goals/${hGoal.slug}/`}
+                  href={hGoal.slug === 'stress' || hGoal.slug === 'anxiety' ? '/guides/anxiety/' : `/guides/${hGoal.slug}/`}
                   className={`group flex min-h-48 flex-col justify-between rounded-[1.25rem] border bg-gradient-to-br ${hGoal.bg} p-5 shadow-sm transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)] dark:from-[var(--surface-card)] dark:to-[var(--surface-card)]`}
                 >
                   <div>
@@ -213,15 +213,15 @@ export default function HomepageV2() {
                 subtitle='Evidence reviews, mechanism deep-dives, and practical guides — updated regularly.'
                 as='h2'
               />
-              <Link href='/articles/' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
-                Browse all articles →
+              <Link href='/guides/' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
+                Browse all guides →
               </Link>
             </div>
             <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
               {featuredArticles.map((article: any) => (
                 <Link
                   key={article.slug}
-                  href={`/articles/${article.slug}/`}
+                  href={`/${article.slug}/`}
                   className='group flex flex-col gap-3 rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm transition-all duration-200 hover:border-brand-700/20 hover:shadow-md dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]'
                 >
                   <div className='flex items-center gap-2'>
@@ -267,7 +267,7 @@ export default function HomepageV2() {
             </div>
           </div>
           <div className='mt-5 text-sm font-bold'>
-            <Link href='/info/info/methodology/' className='text-brand-700 transition hover:text-brand-800'>
+            <Link href='/info/methodology/' className='text-brand-700 transition hover:text-brand-800'>
               Read the evidence methodology →
             </Link>
           </div>

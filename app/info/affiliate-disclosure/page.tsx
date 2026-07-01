@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: 'Affiliate Disclosure',
   description:
     'How The Hippie Scientist uses affiliate links while keeping editorial independence, safety context, and evidence uncertainty visible.',
-  alternates: { canonical: '/info/info/affiliate-disclosure/' },
+  alternates: { canonical: '/info/affiliate-disclosure/' },
 }
 
 export default function AffiliateDisclosurePage() {

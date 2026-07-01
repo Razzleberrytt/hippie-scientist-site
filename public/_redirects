@@ -2,6 +2,58 @@
 https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 
 /atom.xml /feed.xml 301
+
+# 2026 guide taxonomy consolidation: old article and top-level URLs now live under
+# topic-specific guide hubs.
+/guides/adhd-supplements /guides/adhd/adhd-supplements/ 301
+/guides/adhd-supplements/ /guides/adhd/adhd-supplements/ 301
+/articles/best-supplements-for-adhd /guides/adhd/best-supplements-for-adhd/ 301
+/articles/best-supplements-for-adhd/ /guides/adhd/best-supplements-for-adhd/ 301
+/articles/adhd-stack-guide /guides/adhd/adhd-stack-guide/ 301
+/articles/adhd-stack-guide/ /guides/adhd/adhd-stack-guide/ 301
+/articles/adhd-blood-tests /guides/adhd/adhd-blood-tests/ 301
+/articles/adhd-blood-tests/ /guides/adhd/adhd-blood-tests/ 301
+/articles/omega-3-and-adhd /guides/adhd/omega-3-and-adhd/ 301
+/articles/omega-3-and-adhd/ /guides/adhd/omega-3-and-adhd/ 301
+/articles/magnesium-for-adhd /guides/adhd/magnesium-for-adhd/ 301
+/articles/magnesium-for-adhd/ /guides/adhd/magnesium-for-adhd/ 301
+/articles/l-theanine-for-adhd /guides/adhd/l-theanine-for-adhd/ 301
+/articles/l-theanine-for-adhd/ /guides/adhd/l-theanine-for-adhd/ 301
+/articles/nutrient-deficiencies-and-adhd /guides/adhd/nutrient-deficiencies-and-adhd/ 301
+/articles/nutrient-deficiencies-and-adhd/ /guides/adhd/nutrient-deficiencies-and-adhd/ 301
+/articles/vitamin-d-and-adhd /guides/adhd/vitamin-d-and-adhd/ 301
+/articles/vitamin-d-and-adhd/ /guides/adhd/vitamin-d-and-adhd/ 301
+/articles/zinc-and-adhd /guides/adhd/zinc-and-adhd/ 301
+/articles/zinc-and-adhd/ /guides/adhd/zinc-and-adhd/ 301
+/articles/sleep-and-adhd /guides/adhd/sleep-and-adhd/ 301
+/articles/sleep-and-adhd/ /guides/adhd/sleep-and-adhd/ 301
+/articles/melatonin-for-adhd-sleep /guides/adhd/melatonin-for-adhd-sleep/ 301
+/articles/melatonin-for-adhd-sleep/ /guides/adhd/melatonin-for-adhd-sleep/ 301
+/articles/best-herbs-for-sleep /guides/sleep/best-herbs-for-sleep/ 301
+/articles/best-herbs-for-sleep/ /guides/sleep/best-herbs-for-sleep/ 301
+/articles/l-theanine-for-sleep /guides/sleep/l-theanine-for-sleep/ 301
+/articles/l-theanine-for-sleep/ /guides/sleep/l-theanine-for-sleep/ 301
+/articles/magnesium-for-sleep /guides/sleep/magnesium-for-sleep/ 301
+/articles/magnesium-for-sleep/ /guides/sleep/magnesium-for-sleep/ 301
+/articles/ashwagandha-for-sleep /guides/sleep/ashwagandha-for-sleep/ 301
+/articles/ashwagandha-for-sleep/ /guides/sleep/ashwagandha-for-sleep/ 301
+/articles/sleep-stack-guide /guides/sleep/sleep-stack-guide/ 301
+/articles/sleep-stack-guide/ /guides/sleep/sleep-stack-guide/ 301
+/articles/ashwagandha /guides/herbs/ashwagandha/ 301
+/articles/ashwagandha/ /guides/herbs/ashwagandha/ 301
+/articles/l-theanine /guides/herbs/l-theanine/ 301
+/articles/l-theanine/ /guides/herbs/l-theanine/ 301
+/best-supplements-for-sleep /guides/sleep/best-supplements-for-sleep/ 301
+/best-supplements-for-sleep/ /guides/sleep/best-supplements-for-sleep/ 301
+/best-herbs-for-anxiety /guides/anxiety/best-herbs-for-anxiety/ 301
+/best-herbs-for-anxiety/ /guides/anxiety/best-herbs-for-anxiety/ 301
+/best-nootropics-for-focus /guides/focus/best-nootropics-for-focus/ 301
+/best-nootropics-for-focus/ /guides/focus/best-nootropics-for-focus/ 301
+/compare/sleep-herbs-vs-melatonin /guides/compare/sleep-herbs-vs-melatonin/ 301
+/compare/sleep-herbs-vs-melatonin/ /guides/compare/sleep-herbs-vs-melatonin/ 301
+/compare/rhodiola-vs-ashwagandha /guides/compare/rhodiola-vs-ashwagandha/ 301
+/compare/rhodiola-vs-ashwagandha/ /guides/compare/rhodiola-vs-ashwagandha/ 301
+
 # GSC redirect cleanup: exact non-slash variants for active static-export pages.
 /articles/omega-3-and-adhd /articles/omega-3-and-adhd/ 301
 /articles/magnesium-for-adhd /articles/magnesium-for-adhd/ 301

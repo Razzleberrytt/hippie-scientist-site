@@ -7,11 +7,11 @@ import { buildCompareCTA } from '@/lib/conversion-aware-layouts'
 
 /**
  * Guards against the regression that produced a large "Not found (404)" cluster
- * in Google Search Console: dynamic generators emitting `/compare/<slug>` links
+ * in Google Search Console: dynamic generators emitting `/guides/compare/<slug>` links
  * for comparison pages that are never built. Under static export those links
  * 404 the moment a crawler follows them.
  *
- * Every generator that can build a `/compare/...` href must only emit slugs that
+ * Every generator that can build a `/guides/compare/...` href must only emit slugs that
  * are actually built (`isBuiltComparisonSlug`). These tests feed each generator
  * the exact shapes that historically leaked phantoms and assert nothing unbuilt
  * escapes.
@@ -24,7 +24,7 @@ function compareSlug(href: string): string {
 describe('compare link integrity', () => {
   it('isBuiltComparisonSlug accepts a known built pair and rejects phantoms', () => {
     // `aescin-vs-ajoene` is part of the generated/adjacent comparison set that
-    // `app/compare/[slug]/page.tsx` builds via generateStaticParams.
+    // `app/guides/compare/[slug]/page.tsx` builds via generateStaticParams.
     expect(isBuiltComparisonSlug('aescin-vs-ajoene')).toBe(true)
     // Mechanism / signal "comparisons" and arbitrary pairs are not built pages.
     expect(isBuiltComparisonSlug('garcinia-indica-vs-nf-b-inhibition')).toBe(false)
@@ -32,7 +32,7 @@ describe('compare link integrity', () => {
     expect(isBuiltComparisonSlug('alpha-gpc')).toBe(false)
   })
 
-  it('buildComparisonRecommendations never emits an unbuilt /compare/ slug', () => {
+  it('buildComparisonRecommendations never emits an unbuilt /guides/compare/ slug', () => {
     // Mechanisms/pathways/effects are NOT comparison pages — the historical leak.
     const record = {
       name: 'Garcinia Indica',
@@ -58,7 +58,7 @@ describe('compare link integrity', () => {
 
     const candidates = getComparisonCandidates(compound, 8)
     for (const candidate of candidates) {
-      expect(candidate.href.startsWith('/compare/')).toBe(true)
+      expect(candidate.href.startsWith('/guides/compare/')).toBe(true)
       expect(isBuiltComparisonSlug(compareSlug(candidate.href))).toBe(true)
     }
   })

@@ -50,7 +50,7 @@ export function buildCompareCTA(record: Record<string, unknown>): ConversionCTA 
 
   // A topic name is not a comparison slug, so only deep-link when a built page
   // exists; otherwise route to the comparison hub instead of a 404.
-  const href = isBuiltComparisonSlug(topicSlug) ? `/compare/${topicSlug}` : '/compare'
+  const href = isBuiltComparisonSlug(topicSlug) ? `/guides/compare/${topicSlug}` : '/compare'
 
   return {
     label: `Compare ${topic} alternatives`,

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'How We Grade Evidence & Methodology',
   description:
     'Detailed review of The Hippie Scientist evidence grading levels, Conflict of Interest policy, conservative framing rules, and editorial credentials.',
-  alternates: { canonical: '/info/info/methodology/' },
+  alternates: { canonical: '/info/methodology/' },
 }
 
 export default function MethodologyPage() {
@@ -54,7 +54,7 @@ export default function MethodologyPage() {
       'Detailed review of The Hippie Scientist evidence grading levels, conflict-of-interest policy, conservative framing rules, and editorial credentials.',
     breadcrumbs: [
       { name: 'Home', url: `${SITE_URL}/` },
-      { name: 'Methodology', url: `${SITE_URL}/info/info/methodology/` },
+      { name: 'Methodology', url: `${SITE_URL}/info/methodology/` },
     ],
     faqQuestions: [
       {

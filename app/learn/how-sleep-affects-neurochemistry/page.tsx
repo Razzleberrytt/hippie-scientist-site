@@ -44,7 +44,7 @@ const related = [
     title: 'Sleep Support',
   },
   {
-    href: '/psychoactive/dream-herbs',
+    href: '/learn/dream-herbs',
     title: 'Dream Herbs',
   },
 ]

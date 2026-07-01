@@ -109,7 +109,7 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
       <JsonLd schema={pageBreadcrumb} />
 
       <nav className="flex items-center gap-2 text-sm text-muted">
-        <Link href="/articles/" className="transition hover:text-ink">
+        <Link href="/guides/" className="transition hover:text-ink">
           Articles
         </Link>
 
@@ -126,7 +126,7 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
         </div>
       )}
 
-      <Link href="/articles/" className="text-sm font-bold text-brand-800">&lt;- Back to articles</Link>
+      <Link href="/guides/" className="text-sm font-bold text-brand-800">&lt;- Back to articles</Link>
 
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8 lg:p-10">
         <div className="flex flex-wrap items-center gap-3">
@@ -137,7 +137,7 @@ export default async function BlogPostPage({ params }: BlogRouteProps) {
         <h1 className="mt-4 heading-premium max-w-4xl">{post.title}</h1>
         <p className="mt-3 text-sm text-muted">
           By{' '}
-          <Link href="/info/info/about/" rel="author" className="font-medium text-ink hover:underline">
+          <Link href="/info/about/" rel="author" className="font-medium text-ink hover:underline">
             Will
           </Link>
         </p>

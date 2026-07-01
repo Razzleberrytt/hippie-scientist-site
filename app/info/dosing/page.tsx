@@ -9,7 +9,7 @@ import { isRestrictedRecord } from '../../../src/lib/restricted-ingredients'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Dynamic Dosage & Active Molecular Yield Calculator',
   description: 'Compute conservative educational supplement dosing ranges based on body weight and extract concentration. Calculate active chemical yields and cycle notes.',
-  path: '/info/info/dosing/',
+  path: '/info/dosing/',
 })
 
 export default async function DosingPage() {

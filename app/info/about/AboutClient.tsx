@@ -26,7 +26,7 @@ export default function AboutClient() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Willie B. Randolph III',
-    url: 'https://thehippiescientist.net/info/info/about/',
+    url: 'https://thehippiescientist.net/info/about/',
     jobTitle: 'Founder & Head Researcher',
     worksFor: {
       '@type': 'Organization',

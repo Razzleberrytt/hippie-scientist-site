@@ -20,7 +20,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: `Herb & Supplement Comparison Center ${SEO_YEAR}`,
   description:
     'Compare herbs and supplements side-by-side by evidence strength, mechanism, stimulation profile, safety, and dosing. Evidence-based decision support.',
-  path: '/compare/',
+  path: '/guides/compare/',
 })
 
 type CompareCategory = {
@@ -87,12 +87,12 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
 ]
 
 const popularComparisonPairs = [
-  { label: 'Melatonin vs Magnesium', href: '/compare/melatonin-vs-magnesium/' },
-  { label: 'Sleep herbs vs Melatonin', href: '/compare/sleep-herbs-vs-melatonin/' },
-  { label: 'Rhodiola vs Ashwagandha', href: '/guides/guides/compare/rhodiola-vs-ashwagandha/' },
-  { label: 'Ashwagandha vs L-Theanine vs Magnesium', href: '/compare/ashwagandha-vs-l-theanine-vs-magnesium/' },
-  { label: 'Caffeine vs L-Theanine vs Bacopa for Focus', href: '/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/' },
-  { label: 'Dynamic Ingredient Comparison Matrix', href: '/compare/dynamic/' },
+  { label: 'Melatonin vs Magnesium', href: '/guides/compare/melatonin-vs-magnesium/' },
+  { label: 'Sleep herbs vs Melatonin', href: '/guides/compare/sleep-herbs-vs-melatonin/' },
+  { label: 'Rhodiola vs Ashwagandha', href: '/guides/compare/rhodiola-vs-ashwagandha/' },
+  { label: 'Ashwagandha vs L-Theanine vs Magnesium', href: '/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/' },
+  { label: 'Caffeine vs L-Theanine vs Bacopa for Focus', href: '/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/' },
+  { label: 'Dynamic Ingredient Comparison Matrix', href: '/guides/compare/dynamic/' },
 ]
 
 const guidanceCards = [
@@ -128,12 +128,12 @@ export default async function ComparePage() {
     }))
 
   const schemaGraph = buildCompareHubSchemaGraph({
-    path: '/compare/',
+    path: '/guides/compare/',
     title: `Compare Supplements Side by Side ${SEO_YEAR} – Evidence & Safety`,
     description: 'Compare herbs and supplements by evidence strength, mechanism, stimulation profile, safety, and dosing. Free research tool.',
     breadcrumbs: [
       { name: 'Home', url: `${SITE_URL}/` },
-      { name: 'Compare', url: `${SITE_URL}/compare/` },
+      { name: 'Compare', url: `${SITE_URL}/guides/compare/` },
     ],
     comparisonPairs: popularComparisonPairs.map(pair => ({
       name: pair.label,
@@ -176,7 +176,7 @@ export default async function ComparePage() {
               {cat.pairs.map((pair) => (
                 <li key={pair.slug}>
                   <Link
-                    href={`/compare/${pair.slug}/`}
+                    href={`/guides/compare/${pair.slug}/`}
                     className="library-content-card block rounded-2xl border border-brand-900/10 bg-white/90 px-4 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-brand-300 hover:shadow dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
                   >
                     <span className="block truncate">{pair.label}</span>
@@ -215,7 +215,7 @@ export default async function ComparePage() {
           <Link href="/goals/" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">
             Start from your goal
           </Link>
-          <Link href="/compare/dynamic/" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">
+          <Link href="/guides/compare/dynamic/" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">
             Open dynamic matrix
           </Link>
           <Link href="/safety-checker/" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">

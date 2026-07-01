@@ -80,7 +80,7 @@ export default function LTheanineMagnesiumAdhdStackPage() {
 
       {/* Breadcrumb */}
       <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
-        <Link href="/articles/" className="transition hover:text-ink">Articles</Link>
+        <Link href="/guides/" className="transition hover:text-ink">Articles</Link>
         <span>/</span>
         <span className="text-ink line-clamp-1">{TITLE}</span>
       </nav>
@@ -105,7 +105,7 @@ export default function LTheanineMagnesiumAdhdStackPage() {
         </h1>
         <p className="mt-2 text-sm text-muted">
           By{' '}
-          <Link href="/info/info/about/" rel="author" className="font-medium text-ink hover:underline">
+          <Link href="/info/about/" rel="author" className="font-medium text-ink hover:underline">
             {AUTHOR}
           </Link>
         </p>
@@ -452,7 +452,7 @@ export default function LTheanineMagnesiumAdhdStackPage() {
                 ['/guides/adhd/magnesium-for-adhd', 'Magnesium for ADHD →'],
                 ['/guides/adhd/l-theanine-for-adhd', 'L-Theanine for ADHD →'],
                 ['/guides/adhd/adhd-stack-guide', 'ADHD stack guide →'],
-                ['/guides/adhd-supplements', 'ADHD supplements guide →'],
+                ['/guides/adhd/adhd-supplements/', 'ADHD supplements guide →'],
               ].map(([href, label]) => (
                 <Link key={href as string} href={href as string}
                   className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline">
@@ -465,7 +465,7 @@ export default function LTheanineMagnesiumAdhdStackPage() {
       </div>
 
       <div className="mt-8">
-        <Link href="/articles/" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
+        <Link href="/guides/" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
           ← Back to Articles
         </Link>
       </div>

@@ -50,7 +50,7 @@ const configs: Record<'gaba' | 'dopamine' | 'inflammation', PathwayConfig> = {
       { label: 'Dopamine', href: '/learn/dopamine', description: 'Motivation, focus, reward, and cognition-adjacent neurotransmitter signals.' },
       { label: 'Stress', href: '/guides/anxiety', description: 'Goal guide for cortisol, adaptation, anxiety, and stress-resilience context.' },
       { label: 'Sleep', href: '/guides/sleep', description: 'Decision guide for sleep quality, nighttime relaxation, and circadian support.' },
-      { label: 'Recovery', href: '/goals/recovery', description: 'Recovery-adjacent inflammation, repair, mobility, and oxidative-stress context.' },
+      { label: 'Recovery', href: '/guides/sleep', description: 'Recovery-adjacent inflammation, repair, mobility, and oxidative-stress context.' },
     ],
   },
   dopamine: {
@@ -84,7 +84,7 @@ const configs: Record<'gaba' | 'dopamine' | 'inflammation', PathwayConfig> = {
     related: [
       { label: 'GABA', href: '/learn/gaba', description: 'Neurotransmitter and sleep-adjacent signals with calming pathway context.' },
       { label: 'Dopamine', href: '/learn/dopamine', description: 'Motivation, focus, and cognition-adjacent neurotransmitter context.' },
-      { label: 'Joint support', href: '/goals/joint-support', description: 'Goal guide for mobility and inflammation-adjacent supplement decisions.' },
+      { label: 'Joint support', href: '/guides/best/supplements-for-joint-support', description: 'Goal guide for mobility and inflammation-adjacent supplement decisions.' },
     ],
   },
 }

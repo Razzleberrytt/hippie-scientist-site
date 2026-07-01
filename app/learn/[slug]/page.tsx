@@ -119,7 +119,7 @@ export default async function Page({ params }: LearnRouteProps) {
               description: 'Use safety-first pages before trialing new compounds.',
               links: [
                 { href: '/guides/sleep-herbs-vs-melatonin', label: 'Sleep herbs vs melatonin' },
-                { href: '/guides/psychedelic-adjacent-herbs', label: 'Psychedelic-adjacent herbs' },
+                { href: '/guides/other/psychedelic-adjacent-herbs', label: 'Psychedelic-adjacent herbs' },
                 { href: '/guides', label: 'Browse all guides' },
               ],
             },

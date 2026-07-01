@@ -79,7 +79,7 @@ export default function AuthorityHubTemplate({
                 className="surface-subtle rounded-2xl p-4"
               >
                 <Link
-                  href={`/compare/${comparison.slug}`}
+                  href={`/guides/compare/${comparison.slug}`}
                   className="font-medium hover:underline"
                 >
                   {comparison.name || comparison.slug}
