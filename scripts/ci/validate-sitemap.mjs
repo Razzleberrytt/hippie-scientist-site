@@ -126,8 +126,8 @@ function main() {
   // Asserts
   console.log(`[validate-sitemap] Category counts: herbs=${herbCount}, compounds=${compoundCount}, articles=${articleCount}, guides=${guideCount}`)
 
-  if (urls.length > 550) {
-    errors.push(`Sitemap contains ${urls.length} URLs (expected no more than 550 for index-priority sitemap).`)
+  if (urls.length > 650) {
+    errors.push(`Sitemap contains ${urls.length} URLs (expected no more than 650 for index-priority sitemap).`)
     failed = true
   }
 

@@ -405,7 +405,7 @@ export function shouldIndexRoute(path: string, pageData?: Record<string, unknown
     return { index: true, follow: true, reason: 'article-detail', priority: 0.7 }
   }
 
-  if (/^\/guides\/[^/]+$/.test(normalizedPath)) {
+  if (/^\/guides\/.+$/.test(normalizedPath)) {
     return { index: true, follow: true, reason: 'guide-detail', priority: 0.7 }
   }
 
