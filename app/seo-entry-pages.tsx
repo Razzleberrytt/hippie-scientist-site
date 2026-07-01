@@ -586,6 +586,22 @@ export async function SeoEntryPage({ route }: { route: string }) {
         <Link href={`/goals/${goal.slug}`} className="mt-4 inline-block text-sm font-semibold text-emerald-700">Review full safety guidance →</Link>
       </section>
 
+      {page.route === 'best-supplements-for-blood-pressure' ? (
+        <section className="rounded-3xl border border-amber-300/40 bg-white/90 p-5 shadow-sm">
+          <h2 className="text-xl font-bold text-ink">Nicotine and vascular context</h2>
+          <p className="mt-2 text-sm leading-6 text-muted">
+            If blood pressure or carotid artery risk is part of the reason you are replacing dip, treat nicotine as a tapering bridge rather than a circulation supplement.
+            The dipping tobacco alternatives guide compares regulated cessation aids, non-nicotine oral substitutes, and tobacco-free pouches with that vascular context in mind.
+          </p>
+          <Link
+            href="/guides/other/healthy-dipping-tobacco-alternatives/"
+            className="mt-4 inline-block text-sm font-semibold text-emerald-700"
+          >
+            Read the dipping tobacco alternatives guide -&gt;
+          </Link>
+        </section>
+      ) : null}
+
       <section className="rounded-2xl border border-red-300/40 bg-red-50 p-5">
         <h2 className="text-xl font-bold text-red-900">Common mistakes</h2>
         <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-6 text-red-900/80">
