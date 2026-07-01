@@ -11,6 +11,7 @@ import type {
 } from './evidence-engine'
 import type { RuntimeRecord } from '../types/content'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
+import { getUnifiedRuntimeRecords } from './runtime-record-index'
 
 const dataDir = path.join(process.cwd(), 'public', 'data')
 

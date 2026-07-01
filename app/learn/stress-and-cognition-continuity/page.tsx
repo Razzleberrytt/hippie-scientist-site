@@ -6,7 +6,7 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
-import RelatedEducationSystems from '@/components/learn/related-education-systems'
+import RelatedEducationSystems from '@/components/education/related-education-systems'
 export const metadata: Metadata = buildPageMetadata({
   title: "Stress and Cognition Continuity",
   description: "Educational exploration of stress physiology, recovery continuity, attentional resilience, and sustainable cognition systems.",
