@@ -762,10 +762,6 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /tools /guides/ 301
 /tools/ /guides/ 301
 
-# Articles → /guides/ (2026-06-30)
-/articles /guides/ 301
-/articles/ /guides/ 301
-/articles/* /guides/:splat 301
 /research-notes /guides/ 301
 /research-notes/ /guides/ 301
 /research-notes/* /guides/:splat 301
