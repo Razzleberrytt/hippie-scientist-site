@@ -124,12 +124,12 @@ console.log(`[seo-metadata-validation] sampled ${totalPages} of ${allFiles.lengt
 // P0: Explicit checks on representative routes for full OG + Twitter metadata (must be present in built static HTML)
 const requiredRepresentativeRoutes = [
   { route: '/', file: 'index.html', label: 'homepage' },
-  { route: '/articles/', file: 'articles/index.html', label: 'articles index' },
+  { route: '/guides/', file: 'guides/index.html', label: 'guides index' },
   { route: '/herbs/', file: 'herbs/index.html', label: 'herbs index' },
   { route: '/herbs/ashwagandha/', file: 'herbs/ashwagandha/index.html', label: 'herb profile (ashwagandha)' },
   { route: '/compounds/', file: 'compounds/index.html', label: 'compounds index' },
   { route: '/compounds/caffeine/', file: 'compounds/caffeine/index.html', label: 'compound profile (caffeine)' },
-  { route: '/faq/', file: 'faq/index.html', label: 'faq' },
+  { route: '/info/faq/', file: 'info/faq/index.html', label: 'faq' },
 ]
 
 for (const rep of requiredRepresentativeRoutes) {

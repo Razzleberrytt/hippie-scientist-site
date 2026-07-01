@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import JsonLd from '@/components/seo/JsonLd'
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '../../../../src/lib/seo'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
@@ -82,19 +83,10 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
   return (
     <article className="mx-auto max-w-5xl space-y-0 px-4 pb-20 pt-6 sm:px-6 lg:px-8">
       {/* JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageBreadcrumb) }}
-      />
+      <JsonLd schema={articleLd} />
+      <JsonLd schema={pageBreadcrumb} />
       {faqLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
-        />
+        <JsonLd schema={faqLd} />
       )}
 
       {/* Breadcrumb */}
@@ -1081,7 +1073,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                 ['#evidence', 'Evidence Comparison'],
                 ['#safety', 'Safety Comparison'],
                 ['#combining', 'Taking Both Together'],
-                ['#buying-guide', 'Cost &amp; Buying Guide'],
+                ['#buying-guide', 'Cost & Buying Guide'],
                 ['#decision-framework', 'Decision Framework'],
                 ['#what-not-to-do', 'What Not To Do'],
                 ['#faq', 'FAQ'],
@@ -1090,9 +1082,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                 <a
                   key={href}
                   href={href}
-                  className="block text-sm text-brand-700 hover:text-brand-800 hover:underline"
-                  dangerouslySetInnerHTML={{ __html: label }}
-                />
+                  className="block text-sm text-brand-700 hover:text-brand-800 hover:underline">{label}</a>
               ))}
             </nav>
           </div>

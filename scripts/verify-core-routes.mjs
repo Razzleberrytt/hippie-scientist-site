@@ -7,13 +7,13 @@ const coreRoutes = [
   '/',
   '/herbs',
   '/compounds',
-  '/articles',
+  '/guides',
   '/learn',
-  '/about',
-  '/contact',
-  '/privacy',
-  '/disclaimer',
-  '/herbs/ashwagandha-withania-somnifera/',
+  '/info/about',
+  '/info/contact',
+  '/info/privacy',
+  '/info/disclaimer',
+  '/herbs/ashwagandha/',
   '/safety-checker/',
 ]
 
@@ -75,8 +75,8 @@ const routeContentExpectations = [
     forbidden: ['Herb Profiles &amp; Research Library', 'Find the right supplement path for your goals.'],
   },
   {
-    route: '/articles',
-    required: ['Articles', 'All articles'],
+    route: '/guides',
+    required: ['Supplement Guides', 'Browse by database'],
     forbidden: [LOADING_SENTINEL, 'Find the right supplement path for your goals.'],
   },
 ]
@@ -126,12 +126,15 @@ const SITE_HOST = rawSiteUrl === 'https://www.thehippiescientist.net'
   : (rawSiteUrl || 'https://thehippiescientist.net')
 const requiredSitemapUrls = [
   `${SITE_HOST}/`,
-  `${SITE_HOST}/about/`,
-  `${SITE_HOST}/articles/`,
+  `${SITE_HOST}/info/about/`,
+  `${SITE_HOST}/info/contact/`,
+  `${SITE_HOST}/info/privacy/`,
+  `${SITE_HOST}/info/disclaimer/`,
+  `${SITE_HOST}/guides/`,
   `${SITE_HOST}/herbs/`,
   `${SITE_HOST}/compounds/`,
-  `${SITE_HOST}/compare/`,
-  '/articles/', // at least some article or research note
+  `${SITE_HOST}/guides/compare/`,
+  '/guides/', // at least some guide or research note
   '/herbs/', // detail
   '/compounds/', // detail
 ]

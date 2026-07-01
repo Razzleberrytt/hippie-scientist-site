@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import JsonLd from '@/components/seo/JsonLd'
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, compactMetaTitle } from '../../../../src/lib/seo'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
@@ -82,19 +83,10 @@ export default function LTheanineForSleepPage() {
   return (
     <article className="mx-auto max-w-5xl space-y-0 px-4 pb-20 pt-6 sm:px-6 lg:px-8">
       {/* JSON-LD */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageBreadcrumb) }}
-      />
+      <JsonLd schema={articleLd} />
+      <JsonLd schema={pageBreadcrumb} />
       {faqLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
-        />
+        <JsonLd schema={faqLd} />
       )}
 
       {/* Breadcrumb */}
@@ -1288,12 +1280,12 @@ export default function LTheanineForSleepPage() {
                 ['#what-is-l-theanine', 'What Is L-Theanine?'],
                 ['#mechanisms', 'How It Affects Sleep'],
                 ['#evidence-summary', 'Evidence Summary'],
-                ['#dosage', 'Dosage &amp; Timing'],
+                ['#dosage', 'Dosage & Timing'],
                 ['#product-recommendations', 'Product Options'],
                 ['#vs-magnesium', 'vs Magnesium'],
                 ['#vs-ashwagandha', 'vs Ashwagandha'],
                 ['#combining', 'Combining Supplements'],
-                ['#safety', 'Safety &amp; Side Effects'],
+                ['#safety', 'Safety & Side Effects'],
                 ['#decision-framework', 'Who Should Try It?'],
                 ['#what-not-to-do', 'What Not To Do'],
                 ['#faq', 'FAQ'],
@@ -1302,9 +1294,7 @@ export default function LTheanineForSleepPage() {
                 <a
                   key={href}
                   href={href}
-                  className="block text-sm text-brand-700 hover:text-brand-800 hover:underline"
-                  dangerouslySetInnerHTML={{ __html: label }}
-                />
+                  className="block text-sm text-brand-700 hover:text-brand-800 hover:underline">{label}</a>
               ))}
             </nav>
           </div>
