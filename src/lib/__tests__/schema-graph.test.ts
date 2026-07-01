@@ -82,7 +82,7 @@ describe('schema-graph', () => {
 
   it('builds a consolidated Compare Hub page schema graph', () => {
     const graph = buildCompareHubSchemaGraph({
-      path: '/compare',
+      path: '/guides/compare/',
       title: 'Compare Supplements | The Hippie Scientist',
       description: 'Compare side by side.',
       breadcrumbs: [
