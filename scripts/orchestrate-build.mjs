@@ -156,6 +156,11 @@ const steps = [
     description: 'Verify sitemap.xml counts, routes, and layout constraints',
   },
   {
+    name: 'validate-sitemap-completeness',
+    cmd: 'node scripts/ci/validate-sitemap-completeness.mjs',
+    description: 'Verify every real, indexable app/ route is covered by sitemap.xml (catches silently dropped content)',
+  },
+  {
     name: 'validate-guide-related',
     cmd: 'npx tsx scripts/ci/validate-guide-related.mjs',
     description: 'Validate related guide relationships and prevent self-reference/duplicates'

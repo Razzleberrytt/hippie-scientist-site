@@ -9,7 +9,7 @@ import EmailCapture from '@/components/EmailCapture'
 export const metadata: Metadata = {
   title: 'Supplements for Brain Fog and Fatigue',
   description: 'A practical guide to supplements commonly discussed for brain fog, low energy, fatigue, and focus support.',
-  alternates: { canonical: '/guides/supplements-for-brain-fog-and-fatigue/' },
+  alternates: { canonical: '/guides/other/supplements-for-brain-fog-and-fatigue/' },
 }
 
 export default function Page() {
@@ -40,8 +40,8 @@ export default function Page() {
       <section className='card-premium p-6'>
         <h2 className='text-xl font-semibold text-ink'>Where to go next</h2>
         <div className='mt-4 flex flex-wrap gap-4'>
-          <Link href='/guides/supplements-for-brain-fog-and-fatigue' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for brain fog</Link>
-          <Link href='/guides/supplements-for-brain-fog-and-fatigue' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for fatigue</Link>
+          <Link href='/guides/other/supplements-for-brain-fog-and-fatigue' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for brain fog</Link>
+          <Link href='/guides/other/supplements-for-brain-fog-and-fatigue' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for fatigue</Link>
           <Link href='/guides/focus/best-nootropics-for-focus' className='text-sm font-medium text-emerald-700 hover:underline'>Creatine vs caffeine</Link>
         </div>
       </section>

@@ -9,18 +9,18 @@ import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 
-const PAGE_URL = `${SITE_URL}/guides/best-supplements-for-stress`
+const PAGE_URL = `${SITE_URL}/guides/anxiety/best-supplements-for-stress`
 
 export const metadata: Metadata = {
   title: 'Best Supplements for Stress: Ashwagandha, Rhodiola, Magnesium & More',
   description:
     'Evidence-graded review of the best stress supplements: ashwagandha, rhodiola, phosphatidylserine, magnesium, and L-theanine. Mechanisms, dosing, safety, and when each works.',
-  alternates: { canonical: '/guides/best-supplements-for-stress/' },
+  alternates: { canonical: '/guides/anxiety/best-supplements-for-stress/' },
   openGraph: {
     title: 'Best Supplements for Stress: Ashwagandha, Rhodiola, Magnesium & More',
     description:
       'Which supplements actually reduce stress? Ashwagandha, rhodiola, magnesium, phosphatidylserine — evidence-graded with dosing, safety, and stacking notes.',
-    url: '/guides/best-supplements-for-stress/',
+    url: '/guides/anxiety/best-supplements-for-stress/',
     type: 'article',
     images: ['/og-default.jpg'],
   },
@@ -99,7 +99,7 @@ export default function BestSupplementsForStressPage() {
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides' },
-          { label: 'Best Supplements for Stress', href: '/guides/best-supplements-for-stress' },
+          { label: 'Best Supplements for Stress', href: '/guides/anxiety/best-supplements-for-stress' },
         ]}
       />
 

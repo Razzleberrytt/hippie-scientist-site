@@ -9,18 +9,18 @@ import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 
-const PAGE_URL = `${SITE_URL}/guides/best-herbs-for-stress-and-anxiety-at-night`
+const PAGE_URL = `${SITE_URL}/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night`
 
 export const metadata: Metadata = {
   title: 'Best Herbs for Stress and Anxiety at Night — Calm-Down Guide',
   description:
     'Evening stress and anxiety keeping you awake? An evidence-informed guide to calming herbs for nighttime — passionflower, lemon balm, ashwagandha, magnolia, valerian and L-theanine — with a wind-down routine, dosing and safety.',
-  alternates: { canonical: '/guides/best-herbs-for-stress-and-anxiety-at-night/' },
+  alternates: { canonical: '/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/' },
   openGraph: {
     title: 'Best Herbs for Stress and Anxiety at Night — Calm-Down Guide',
     description:
       'Calming herbs for evening stress and racing thoughts, matched to how nighttime anxiety actually shows up — with a practical wind-down routine, dosing and safety.',
-    url: '/guides/best-herbs-for-stress-and-anxiety-at-night/',
+    url: '/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/',
     type: 'article',
     images: ['/og-default.jpg'],
   },
@@ -74,7 +74,7 @@ export default function Page() {
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides' },
-          { label: 'Best Herbs for Stress and Anxiety at Night', href: '/guides/best-herbs-for-stress-and-anxiety-at-night' },
+          { label: 'Best Herbs for Stress and Anxiety at Night', href: '/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night' },
         ]}
       />
 

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     'Willie B. Randolph III is the independent author behind The Hippie Scientist. Learn about the editorial philosophy, methodology, and the person behind the database.',
   alternates: {
-    canonical: '/author/',
+    canonical: '/info/author/',
   },
 }
 
