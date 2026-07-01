@@ -5,8 +5,8 @@ import {
   breadcrumbJsonLd,
   faqPageJsonLd,
   compactMetaTitle
-} from '../../../src/lib/seo';
-import LastUpdatedBadge from '../../../src/components/editorial/LastUpdatedBadge';
+} from '../../../../src/lib/seo';
+import LastUpdatedBadge from '../../../../src/components/editorial/LastUpdatedBadge';
 import ResponsiveTable from '@/components/ui/ResponsiveTable';
 import SafetyNotice from '@/components/evidence/SafetyNotice';
 import EmailCapture from '@/components/EmailCapture';

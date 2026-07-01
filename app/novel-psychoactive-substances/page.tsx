@@ -20,8 +20,8 @@ export const metadata: Metadata = sectionPage
         title: sectionPage.title,
         description: sectionPage.metaDescription,
         type: 'website',
-        url: `${SITE_URL
-    images: ['/og-default.jpg'],}/novel-psychoactive-substances/`,
+        url: `${SITE_URL}/novel-psychoactive-substances/`,
+        images: ['/og-default.jpg'],
       },
     }
   : {}

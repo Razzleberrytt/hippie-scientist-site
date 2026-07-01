@@ -1,6 +1,6 @@
 // src/components/InteractionWarnings.tsx
 import Link from 'next/link'
-import type { InteractionEdge, SlugEntityTypeMap, InteractionSeverity } from '@/types/interactions'
+import type { InteractionEdge, SlugEntityTypeMap, InteractionSeverity } from '@/src/types/interactions'
 
 const MECHANISM_LABELS: Record<string, string> = {
   serotonergic: 'Serotonergic activity',

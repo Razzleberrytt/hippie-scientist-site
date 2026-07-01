@@ -1,13 +1,13 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
-import { getEducationArticleBySlug, getAllEducationArticles, parseMdxBlocks } from '@/lib/learn'
+import { getEducationArticleBySlug, getAllEducationArticles, parseMdxBlocks } from '@/lib/education'
 import { buildPageMetadata, compactMetaTitle } from '../../../src/lib/seo'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import LastUpdatedBadge from '../../../src/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
-import TrialDesignInsight from '@/components/learn/TrialDesignInsight'
-import EvidenceGradeRationale from '@/components/learn/EvidenceGradeRationale'
+import TrialDesignInsight from '@/components/education/TrialDesignInsight'
+import EvidenceGradeRationale from '@/components/education/EvidenceGradeRationale'
 
 interface Props {
   params: Promise<{ slug: string }>

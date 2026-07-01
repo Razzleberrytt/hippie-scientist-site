@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
-import EducationSupernodeGrid from '@/components/learn/learn-supernode-grid'
+import EducationSupernodeGrid from '@/components/education/education-supernode-grid'
 
 export const metadata: Metadata = {
   title: 'Neuroscience and Neuropharmacology Education',

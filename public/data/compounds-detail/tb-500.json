@@ -1,0 +1,51 @@
+{
+  "id": "tb-500",
+  "slug": "tb-500",
+  "name": "TB-500",
+  "summary": "TB-500 is a synthetic fragment of thymosin beta-4 marketed for muscle recovery and connective-tissue repair; the underlying Tβ4 biology has real scientific grounding, but the synthetic fragment sold as TB-500 has thin direct human evidence and an unresolved FDA compounding status pending July 2026 PCAC review.",
+  "description": "TB-500 is a synthetic fragment of thymosin beta-4 (Tβ4), a naturally occurring peptide found in nearly all human and animal cells. It's marketed primarily around muscle recovery, flexibility, and connective-tissue repair, and is often stacked with BPC-157 in gray-market use despite acting through a different mechanism (actin regulation rather than angiogenesis/NO signaling). It is not FDA-approved for human use; product sold online is almost universally labeled research use only.",
+  "compoundClass": "Synthetic thymosin beta-4 fragment",
+  "mechanisms": [
+    "Actin (G-actin) Binding",
+    "Cell Migration Promotion",
+    "Angiogenesis Support",
+    "Anti-Fibrotic Signaling"
+  ],
+  "targets": [
+    "G-actin"
+  ],
+  "pathways": [
+    "Cell migration",
+    "Angiogenesis",
+    "Anti-fibrotic signaling"
+  ],
+  "foundIn": [
+    "Endogenous thymosin beta-4 (nearly all human and animal cells)"
+  ],
+  "bioavailability": "Reported via subcutaneous injection in RUO products; human pharmacokinetic data for the synthetic fragment is not established.",
+  "safetyNotes": "No controlled human safety data exists. Theoretical caution around growth-promoting peptide biology and cancer history warrants physician oversight rather than self-directed use.",
+  "evidenceLevel": "preliminary",
+  "relatedCompounds": [
+    "bpc-157"
+  ],
+  "governance": {
+    "reviewStatus": "needs_review",
+    "legalRisk": "elevated",
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
+    "indexingAllowed": true,
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "unapproved_ruo_compound_pending_fda_review"
+  },
+  "evidence": {
+    "reviewStatus": "needs_review",
+    "sourceCount": 0,
+    "sourceIds": []
+  },
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": []
+}

@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import React from 'react'
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
 
-import AboutClient from '../info/info/about/AboutClient'
+import AboutClient from '../info/about/AboutClient'
 
 vi.mock('next/link', () => {
   return {

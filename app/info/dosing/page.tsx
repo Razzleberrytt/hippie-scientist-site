@@ -1,10 +1,10 @@
-import { buildPageMetadata } from '../../src/lib/seo'
+import { buildPageMetadata } from '../../../src/lib/seo'
 import type { Metadata } from 'next'
-import { getHerbs, getCompounds } from '../../src/lib/runtime-data'
-import { getRuntimeVisibility } from '../../lib/runtime-visibility'
-import DosageCalculatorClient from '../../src/components/info/info/dosing/DosageCalculatorClient'
+import { getHerbs, getCompounds } from '../../../src/lib/runtime-data'
+import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
+import DosageCalculatorClient from '../../../src/components/dosing/DosageCalculatorClient'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
-import { isRestrictedRecord } from '../../src/lib/restricted-ingredients'
+import { isRestrictedRecord } from '../../../src/lib/restricted-ingredients'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Dynamic Dosage & Active Molecular Yield Calculator',

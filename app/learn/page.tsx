@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 }
 
 import { learnPosts } from './data'
-import EducationSupernodeGrid from '@/components/learn/learn-supernode-grid'
+import EducationSupernodeGrid from '@/components/education/education-supernode-grid'
 
 const educationHubs = [
   {

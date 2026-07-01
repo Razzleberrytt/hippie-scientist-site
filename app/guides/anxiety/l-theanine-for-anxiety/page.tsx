@@ -1,10 +1,10 @@
 import Link from 'next/link'
-import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, compactMetaTitle } from '../../../src/lib/seo'
+import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, compactMetaTitle } from '../../../../src/lib/seo'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import EmailCapture from '@/components/EmailCapture'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
-import LastUpdatedBadge from '../../../src/components/editorial/LastUpdatedBadge'
+import LastUpdatedBadge from '../../../../src/components/editorial/LastUpdatedBadge'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
 
 const SLUG = 'l-theanine-for-anxiety'

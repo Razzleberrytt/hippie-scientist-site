@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import AffiliateDisclosure from '../../components/AffiliateDisclosure'
+import AffiliateDisclosure from '../../../components/AffiliateDisclosure'
 import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
 
 export const metadata: Metadata = {

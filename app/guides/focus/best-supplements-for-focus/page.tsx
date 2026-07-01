@@ -1,4 +1,4 @@
-import { SeoEntryPage, generateSeoEntryMetadata } from '../seo-entry-pages'
+import { SeoEntryPage, generateSeoEntryMetadata } from '../../../seo-entry-pages'
 
 const route = 'best-supplements-for-focus'
 

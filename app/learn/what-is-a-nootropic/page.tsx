@@ -7,7 +7,7 @@ import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
-import RelatedEducationSystems from '@/components/learn/related-education-systems'
+import RelatedEducationSystems from '@/components/education/related-education-systems'
 export const metadata: Metadata = buildPageMetadata({
   title: "What Is a Nootropic?",
   description: "Educational introduction to nootropics, cognition-oriented compounds, focus systems, neuropharmacology, and cognitive support.",

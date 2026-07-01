@@ -1,0 +1,49 @@
+{
+  "id": "cjc-1295",
+  "slug": "cjc-1295",
+  "name": "CJC-1295",
+  "summary": "CJC-1295 is a synthetic growth hormone releasing hormone (GHRH) analog engineered for a longer half-life than natural GHRH, commonly combined with Ipamorelin in gray-market protocols; its GH/IGF-1 mechanism has early pharmaceutical-development data behind it, but no FDA approval and an uncertain compounding pathway.",
+  "description": "CJC-1295 is a synthetic analog of growth hormone releasing hormone (GHRH) that acts directly on GHRH receptors in the pituitary, upstream of ghrelin-receptor secretagogues like Ipamorelin. Two distinct, non-interchangeable forms are sold: CJC-1295 with DAC (Drug Affinity Complex), which binds serum albumin for a multi-day half-life and sustained non-pulsatile GH/IGF-1 elevation, and CJC-1295 without DAC (also sold as Mod GRF 1-29), a short-acting form (~30 minute half-life) producing a more natural pulsatile GH release.",
+  "compoundClass": "GHRH analog peptide",
+  "mechanisms": [
+    "GHRH Receptor Agonism",
+    "DAC Albumin-Binding Half-Life Extension",
+    "Downstream IGF-1 Elevation"
+  ],
+  "targets": [
+    "GHRH receptor"
+  ],
+  "pathways": [
+    "Growth hormone axis",
+    "IGF-1 signaling"
+  ],
+  "foundIn": [
+    "Synthetic analog of endogenous GHRH"
+  ],
+  "bioavailability": "Subcutaneous injection. DAC form has an extended half-life of several days via albumin binding; non-DAC (Mod GRF 1-29) form has a short ~30-minute half-life.",
+  "safetyNotes": "DAC form's sustained non-pulsatile GH/IGF-1 elevation carries theoretical long-term risk based on broader GH-axis literature; no CJC-1295-specific long-term human safety data exists.",
+  "evidenceLevel": "preliminary",
+  "relatedCompounds": [
+    "ipamorelin"
+  ],
+  "governance": {
+    "reviewStatus": "needs_review",
+    "legalRisk": "elevated",
+    "medicalRisk": "moderate",
+    "monetizationAllowed": false,
+    "indexingAllowed": true,
+    "recommendationAllowed": false,
+    "requiresHumanReview": true,
+    "reason": "unapproved_ruo_compound_pending_fda_review"
+  },
+  "evidence": {
+    "reviewStatus": "needs_review",
+    "sourceCount": 0,
+    "sourceIds": []
+  },
+  "claimMap": [],
+  "indexability_status": "PUBLISH",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_reasons": []
+}
