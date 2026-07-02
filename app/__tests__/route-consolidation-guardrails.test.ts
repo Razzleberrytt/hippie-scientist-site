@@ -20,6 +20,11 @@ function parseRedirects() {
     })
 }
 
+function appPagePathForHref(href: string) {
+  const route = href.replace(/^\/+|\/+$/g, '')
+  return path.join(rootDir, 'app', route, 'page.tsx')
+}
+
 describe('route consolidation guardrails', () => {
   it('keeps mobile bottom navigation off legacy redirect surfaces', () => {
     const legacyPrefixes = ['/articles', '/compare', '/goals', '/stacks']
@@ -29,6 +34,7 @@ describe('route consolidation guardrails', () => {
 
     for (const href of navHrefs) {
       expect(legacyPrefixes.some((legacyPrefix) => href === legacyPrefix || href.startsWith(`${legacyPrefix}/`))).toBe(false)
+      expect(fs.existsSync(appPagePathForHref(href))).toBe(true)
     }
   })
 
