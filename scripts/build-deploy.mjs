@@ -19,13 +19,14 @@
  * 6. build-runtime-summary-indexes (search indexes)
  * 7. build-route-manifest (route discovery)
  * 8. build-internal-link-engine (semantic internal links)
- * 9. build-sitemap-manifest (SEO sitemap)
+ * 9. build-sitemap-manifest (SEO sitemap source manifest)
  * 10. build-export-batches (batch optimization)
  * 11. build-semantic-snapshots (snapshot generation)
  * 12. build-production (next build)
- * 13. validate-sitemap-static (prove /sitemap.xml is real XML, not HTML)
- * 14. repair-static-blog-h1s (legacy static blog heading repair)
- * 15. build-pagefind (static search index)
+ * 13. write-static-sitemap (physical out/sitemap.xml for Cloudflare Pages)
+ * 14. validate-sitemap-static (prove /sitemap.xml is real XML, not HTML)
+ * 15. repair-static-blog-h1s (legacy static blog heading repair)
+ * 16. build-pagefind (static search index)
  *
  * Time estimate: cold builds are dominated by Next static export and Pagefind;
  * warm builds skip cacheable generation steps when inputs and outputs match.
@@ -139,6 +140,13 @@ const steps = [
       'package.json',
     ],
     outputs: ['out/**/*', '.next/**/*'],
+  },
+  {
+    name: 'write-static-sitemap',
+    cmd: 'node scripts/seo/write-static-sitemap.mjs',
+    inputs: ['out/**/*.html', 'out/_redirects', 'scripts/seo/write-static-sitemap.mjs'],
+    outputs: ['out/sitemap.xml'],
+    cacheable: false,
   },
   {
     name: 'validate-sitemap-static',
