@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=20 <23"
+    "node": ">=20 <25"
   },
   "scripts": {
     "create:page": "node scripts/create-content-page.mjs",
