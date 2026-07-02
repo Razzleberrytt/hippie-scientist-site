@@ -15,6 +15,14 @@ function parseXmlUrls(xmlContent) {
   return urls
 }
 
+function looksLikeHtml(content) {
+  return /^\s*(?:<!doctype\s+html\b|<html\b)/i.test(content)
+}
+
+function hasSupportedSitemapRoot(content) {
+  return /<urlset\b|<sitemapindex\b/i.test(content)
+}
+
 function main() {
   const outDir = path.join(ROOT, 'out')
   const sitemapPath = path.join(outDir, 'sitemap.xml')
@@ -34,6 +42,17 @@ function main() {
   }
 
   const sitemapContent = fs.readFileSync(sitemapPath, 'utf8')
+
+  if (looksLikeHtml(sitemapContent)) {
+    console.error('[validate-sitemap] FAIL: out/sitemap.xml is HTML, not XML. This matches the Google Search Console "Sitemap is HTML" error.')
+    process.exit(1)
+  }
+
+  if (!hasSupportedSitemapRoot(sitemapContent)) {
+    console.error('[validate-sitemap] FAIL: out/sitemap.xml does not contain a supported sitemap root tag (<urlset> or <sitemapindex>).')
+    process.exit(1)
+  }
+
   const urls = parseXmlUrls(sitemapContent)
 
   if (urls.length === 0) {
@@ -162,7 +181,7 @@ function main() {
     process.exit(1)
   }
 
-  console.log('[validate-sitemap] PASS: Sitemap is fully valid (trailing slashes, route counts, built static files, and core pages).')
+  console.log('[validate-sitemap] PASS: Sitemap is fully valid XML with trailing slashes, route counts, built static files, and core pages.')
 }
 
 main()
