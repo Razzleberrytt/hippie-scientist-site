@@ -63,6 +63,33 @@ const comparisonLinks = [
   { href: '/guides/compare/berberine-vs-metformin/', title: 'Berberine vs metformin' },
 ]
 
+const buyingGuideLinks = [
+  {
+    href: '/guides/sleep/best-supplements-for-sleep/',
+    kicker: 'Sleep',
+    title: 'Best supplements for sleep',
+    detail: 'Match magnesium, melatonin, L-theanine, ashwagandha, and valerian to the sleep problem.',
+  },
+  {
+    href: '/guides/anxiety/best-supplements-for-stress/',
+    kicker: 'Stress',
+    title: 'Best supplements for stress',
+    detail: 'Compare ashwagandha, rhodiola, magnesium, phosphatidylserine, and L-theanine by stress pattern.',
+  },
+  {
+    href: '/guides/anxiety/best-herbs-for-anxiety/',
+    kicker: 'Anxiety',
+    title: 'Best herbs for anxiety',
+    detail: 'Sort calming herbs by onset speed, evidence strength, and medication-stacking cautions.',
+  },
+  {
+    href: '/guides/focus/best-supplements-for-focus/',
+    kicker: 'Focus',
+    title: 'Best supplements for focus',
+    detail: 'Choose between caffeine-adjacent, non-stimulant, and nutrient-focused nootropic options.',
+  },
+]
+
 const toolLinks = [
   {
     href: '/safety-checker/',
@@ -121,6 +148,39 @@ export default function HomepageV2() {
                 </Link>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className='rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm sm:p-6 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]'>
+          <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
+            <SectionHeader
+              title='Most searched buying guides'
+              subtitle='Start with the pages built for high-intent decisions, then move into individual herb and compound profiles when you need depth.'
+              as='h2'
+            />
+            <Link href='/guides/best/' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
+              Browse best-of guides →
+            </Link>
+          </div>
+          <div className='mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4'>
+            {buyingGuideLinks.map((guide) => (
+              <Link
+                key={guide.href}
+                href={guide.href}
+                className='group flex min-h-40 flex-col justify-between rounded-[0.85rem] border border-brand-900/10 bg-brand-50/35 p-4 transition hover:border-brand-700/25 hover:bg-brand-50 dark:bg-[var(--surface-subtle)]'
+              >
+                <div>
+                  <p className='text-xs font-bold uppercase tracking-wider text-brand-700'>{guide.kicker}</p>
+                  <h3 className='mt-2 text-base font-semibold leading-snug text-ink group-hover:text-brand-800'>
+                    {guide.title}
+                  </h3>
+                  <p className='mt-2 text-sm leading-6 text-muted'>{guide.detail}</p>
+                </div>
+                <span className='mt-4 text-sm font-bold text-brand-700 transition group-hover:translate-x-1 group-hover:text-brand-800'>
+                  Open guide <span aria-hidden='true'>→</span>
+                </span>
+              </Link>
+            ))}
           </div>
         </section>
 
