@@ -233,7 +233,7 @@ export default function BestHerbsForSleepPage() {
                         <td className="py-3 pr-4 text-muted">200–400 mg elemental, 30–60 min before bed</td>
                         <td className="py-3">
                           <Link
-                            href="/guides/sleep/magnesium-for-sleep"
+                            href="/guides/sleep/magnesium-for-sleep/"
                             className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                           >
                             Full guide →
@@ -406,7 +406,7 @@ export default function BestHerbsForSleepPage() {
                   </p>
                   <p>
                     <Link
-                      href="/guides/sleep/magnesium-for-sleep"
+                      href="/guides/sleep/magnesium-for-sleep/"
                       className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                     >
                       Full guide: Magnesium for Sleep →
@@ -598,7 +598,7 @@ export default function BestHerbsForSleepPage() {
                   <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>If you want the simplest starting point with the broadest
                     applicability:</strong> try{' '}
-                    <Link href="/guides/sleep/magnesium-for-sleep" className="font-semibold text-brand-700 hover:underline">
+                    <Link href="/guides/sleep/magnesium-for-sleep/" className="font-semibold text-brand-700 hover:underline">
                       magnesium glycinate
                     </Link>{' '}
                     (200–400 mg elemental, 30–60 min before bed).
@@ -810,7 +810,7 @@ export default function BestHerbsForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/magnesium-for-sleep"
+                  href="/guides/sleep/magnesium-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -885,7 +885,7 @@ export default function BestHerbsForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/anxiety/natural-anxiety-relief"
+                  href="/guides/anxiety/natural-anxiety-relief/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1084,7 +1084,7 @@ export default function BestHerbsForSleepPage() {
             </p>
             <div className="mt-3 space-y-2">
               <Link
-                href="/guides/sleep/magnesium-for-sleep"
+                href="/guides/sleep/magnesium-for-sleep/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Magnesium for sleep →

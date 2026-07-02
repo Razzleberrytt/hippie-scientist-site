@@ -35,11 +35,11 @@
 ## Suggested internal links
 
 - [`/articles/magnesium-glycinate-vs-citrate-for-adhd`](/articles/magnesium-glycinate-vs-citrate-for-adhd)
-- [`/articles/magnesium-for-adhd`](/articles/magnesium-for-adhd)
+- [`/articles/magnesium-for-adhd`](/articles/magnesium-for-adhd/)
 - [`/compare/magnesium-glycinate-vs-l-threonate-for-sleep`](/compare/magnesium-glycinate-vs-l-threonate-for-sleep)
 - [`/compounds/magnesium`](/compounds/magnesium)
 - [`/articles/l-theanine-magnesium-adhd-stack`](/articles/l-theanine-magnesium-adhd-stack)
-- [`/articles/best-supplements-for-adhd`](/articles/best-supplements-for-adhd)
+- [`/articles/best-supplements-for-adhd`](/articles/best-supplements-for-adhd/)
 
 ## Suggested affiliate opportunities
 

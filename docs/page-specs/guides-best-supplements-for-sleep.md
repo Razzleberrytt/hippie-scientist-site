@@ -61,10 +61,10 @@
 > Funnel toward money pages (#1–#9). Lists are directional, not exhaustive.
 
 - [`/best-supplements-for-sleep`](/best-supplements-for-sleep)
-- [`/articles/best-herbs-for-sleep`](/articles/best-herbs-for-sleep)
+- [`/articles/best-herbs-for-sleep`](/articles/best-herbs-for-sleep/)
 - [`/compare/sleep-herbs-vs-melatonin`](/compare/sleep-herbs-vs-melatonin)
 - [`/guides/magnesium-vs-melatonin`](/guides/magnesium-vs-melatonin)
-- [`/articles/magnesium-types-for-sleep`](/articles/magnesium-types-for-sleep)
+- [`/articles/magnesium-types-for-sleep`](/articles/magnesium-types-for-sleep/)
 - [`/herbs/valerian`](/herbs/valerian)
 - [`/compounds/melatonin`](/compounds/melatonin)
 

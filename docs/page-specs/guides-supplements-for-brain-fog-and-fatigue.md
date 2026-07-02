@@ -59,10 +59,10 @@
 
 - [`/herbs/rhodiola`](/herbs/rhodiola)
 - [`/herbs/lions-mane`](/herbs/lions-mane)
-- [`/guides/best-nootropics-for-focus`](/guides/best-nootropics-for-focus)
+- [`/guides/best-nootropics-for-focus`](/guides/best-nootropics-for-focus/)
 - [`/best-supplements-for-focus`](/best-supplements-for-focus)
 - [`/articles/vitamin-d-and-adhd`](/articles/vitamin-d-and-adhd)
-- [`/articles/iron-ferritin-and-adhd`](/articles/iron-ferritin-and-adhd)
+- [`/articles/iron-ferritin-and-adhd`](/articles/iron-ferritin-and-adhd/)
 - [`/compounds/citicoline`](/compounds/citicoline)
 
 ## Evidence opportunities

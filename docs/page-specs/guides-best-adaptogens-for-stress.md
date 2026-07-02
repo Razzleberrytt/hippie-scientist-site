@@ -66,7 +66,7 @@
 - [`/best-supplements-for-stress`](/best-supplements-for-stress)
 - [`/compare/rhodiola-vs-ashwagandha`](/compare/rhodiola-vs-ashwagandha)
 - [`/guides/how-to-lower-cortisol-naturally`](/guides/how-to-lower-cortisol-naturally)
-- [`/guides/rhodiola-complete-guide`](/guides/rhodiola-complete-guide)
+- [`/guides/rhodiola-complete-guide`](/guides/rhodiola-complete-guide/)
 - [`/articles/natural-anxiety-relief`](/articles/natural-anxiety-relief)
 
 ## Evidence opportunities

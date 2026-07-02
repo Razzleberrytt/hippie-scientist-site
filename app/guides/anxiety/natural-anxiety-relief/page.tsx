@@ -162,15 +162,15 @@ export default function NaturalAnxietyReliefPage() {
               no dependency. It is a calming amino acid, not a sedative, and it stacks cleanly with
               magnesium or ashwagandha. For chronic stress-driven anxiety that builds over weeks,
               add{' '}
-              <Link href="/guides/herbs/ashwagandha" className="font-semibold text-brand-700 hover:underline">
+              <Link href="/guides/herbs/ashwagandha/" className="font-semibold text-brand-700 hover:underline">
                 ashwagandha
               </Link>{' '}
               (KSM-66 or Sensoril, 300–600&nbsp;mg/day). See the{' '}
-              <Link href="/guides/herbs/l-theanine" className="font-semibold text-brand-700 hover:underline">
+              <Link href="/guides/herbs/l-theanine/" className="font-semibold text-brand-700 hover:underline">
                 full L-theanine guide
               </Link>
               , the{' '}
-              <Link href="/guides/herbs/ashwagandha" className="font-semibold text-brand-700 hover:underline">
+              <Link href="/guides/herbs/ashwagandha/" className="font-semibold text-brand-700 hover:underline">
                 ashwagandha guide
               </Link>
               , and the{' '}
@@ -270,7 +270,7 @@ export default function NaturalAnxietyReliefPage() {
                         <td className="py-3 pr-4 text-muted">Rare hepatotoxicity; avoid in pregnancy</td>
                         <td className="py-3">
                           <Link
-                            href="/guides/herbs/ashwagandha"
+                            href="/guides/herbs/ashwagandha/"
                             className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                           >
                             Full guide →
@@ -285,7 +285,7 @@ export default function NaturalAnxietyReliefPage() {
                         <td className="py-3 pr-4 text-muted">Minimal; very well-tolerated</td>
                         <td className="py-3">
                           <Link
-                            href="/guides/herbs/l-theanine"
+                            href="/guides/herbs/l-theanine/"
                             className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                           >
                             Full guide →
@@ -300,7 +300,7 @@ export default function NaturalAnxietyReliefPage() {
                         <td className="py-3 pr-4 text-muted">Kidney disease; GI upset at high doses</td>
                         <td className="py-3">
                           <Link
-                            href="/guides/sleep/magnesium-for-sleep"
+                            href="/guides/sleep/magnesium-for-sleep/"
                             className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                           >
                             Sleep guide →
@@ -565,7 +565,7 @@ export default function NaturalAnxietyReliefPage() {
                   </p>
                   <p>
                     <Link
-                      href="/guides/sleep/magnesium-for-sleep"
+                      href="/guides/sleep/magnesium-for-sleep/"
                       className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                     >
                       Related: Magnesium for Sleep →
@@ -715,7 +715,7 @@ export default function NaturalAnxietyReliefPage() {
                       ashwagandha
                     </Link>{' '}
                     (KSM-66 or Sensoril, 300–600 mg/day). Allow 6–8 weeks. Consider adding{' '}
-                    <Link href="/guides/sleep/magnesium-for-sleep" className="font-semibold text-brand-700 hover:underline">
+                    <Link href="/guides/sleep/magnesium-for-sleep/" className="font-semibold text-brand-700 hover:underline">
                       magnesium glycinate
                     </Link>{' '}
                     for sleep overlap.
@@ -733,7 +733,7 @@ export default function NaturalAnxietyReliefPage() {
                   <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
                   <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>Muscle tension + sleep overlap:</strong>{' '}
-                    <Link href="/guides/sleep/magnesium-for-sleep" className="font-semibold text-brand-700 hover:underline">
+                    <Link href="/guides/sleep/magnesium-for-sleep/" className="font-semibold text-brand-700 hover:underline">
                       Magnesium glycinate
                     </Link>{' '}
                     (200–400 mg elemental, evening) is a well-tolerated, broadly applicable
@@ -869,7 +869,7 @@ export default function NaturalAnxietyReliefPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/magnesium-for-sleep"
+                  href="/guides/sleep/magnesium-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4 transition hover:border-brand-700/30"
                 >
                   <p className="font-semibold text-ink transition group-hover:text-brand-700">
@@ -1146,7 +1146,7 @@ export default function NaturalAnxietyReliefPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/magnesium-for-sleep"
+                  href="/guides/sleep/magnesium-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1184,7 +1184,7 @@ export default function NaturalAnxietyReliefPage() {
                   <p className="mt-1 text-xs text-muted">Benefits, dosage, safety, and research review.</p>
                 </Link>
                 <Link
-                  href="/guides/anxiety/l-theanine-for-anxiety"
+                  href="/guides/anxiety/l-theanine-for-anxiety/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1375,7 +1375,7 @@ export default function NaturalAnxietyReliefPage() {
                 Ashwagandha for anxiety →
               </Link>
               <Link
-                href="/guides/anxiety/l-theanine-for-anxiety"
+                href="/guides/anxiety/l-theanine-for-anxiety/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 L-theanine for anxiety →
@@ -1408,7 +1408,7 @@ export default function NaturalAnxietyReliefPage() {
                 Ashwagandha for sleep →
               </Link>
               <Link
-                href="/guides/sleep/magnesium-for-sleep"
+                href="/guides/sleep/magnesium-for-sleep/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Magnesium for sleep →

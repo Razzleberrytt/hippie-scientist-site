@@ -377,6 +377,6 @@ While bottlenecks in heterologous expression and regulatory safety must be addre
 
 ## Related Articles
 
-- [Functional Mushrooms 101](/articles/functional-mushrooms-guide)
-- [Peptides: Research Guide](/articles/peptides-research-guide)
-- [Adaptogenic Compounds: Clinical Evidence](/articles/adaptogenic-natural-compounds)
+- [Functional Mushrooms 101](/articles/functional-mushrooms-guide/)
+- [Peptides: Research Guide](/articles/peptides-research-guide/)
+- [Adaptogenic Compounds: Clinical Evidence](/articles/adaptogenic-natural-compounds/)

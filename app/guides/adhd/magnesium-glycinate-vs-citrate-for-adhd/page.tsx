@@ -408,12 +408,12 @@ export default function MagnesiumGlycinateCitrateAdhdPage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Related Articles</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {[
-                  ['/guides/adhd/magnesium-for-adhd', 'ADHD Cluster', 'Magnesium for ADHD', 'Evidence review, forms, sleep, and practical use.'],
-                  ['/guides/adhd/best-supplements-for-adhd', 'ADHD Cornerstone', 'Best Supplements for ADHD', 'Evidence-ranked guide covering all key ADHD supplements.'],
+                  ['/guides/adhd/magnesium-for-adhd/', 'ADHD Cluster', 'Magnesium for ADHD', 'Evidence review, forms, sleep, and practical use.'],
+                  ['/guides/adhd/best-supplements-for-adhd/', 'ADHD Cornerstone', 'Best Supplements for ADHD', 'Evidence-ranked guide covering all key ADHD supplements.'],
                   ['/guides/adhd/l-theanine-magnesium-adhd-stack', 'ADHD Cluster', 'L-Theanine + Magnesium Stack', 'How to combine L-theanine and magnesium for ADHD.'],
                   ['/guides/adhd/best-magnesium-supplement-for-adhd', 'Buying Guide', 'Best Magnesium Supplement for ADHD', 'Which product to buy first — form, dose, and practical guidance.'],
                   ['/guides/adhd/adhd-stack-guide', 'ADHD Cluster', 'ADHD Stack Guide', 'How to build a safe, evidence-based ADHD supplement stack.'],
-                  ['/guides/adhd/l-theanine-for-adhd', 'ADHD Cluster', 'L-Theanine for ADHD', 'Evidence on attention, sleep, and emotional regulation.'],
+                  ['/guides/adhd/l-theanine-for-adhd/', 'ADHD Cluster', 'L-Theanine for ADHD', 'Evidence on attention, sleep, and emotional regulation.'],
                   ['/guides/adhd/sleep-and-adhd', 'Sleep + ADHD', 'Sleep and ADHD', 'Why sleep issues are common in ADHD and how to address them.'],
                   ['/guides/focus', 'Goal Hub', 'Focus Goal Hub', 'Compare all focus supplements side by side.'],
                 ].map(([href, eyebrow, label, desc]) => (
@@ -471,9 +471,9 @@ export default function MagnesiumGlycinateCitrateAdhdPage() {
             <p className="text-[10px] font-bold uppercase tracking-wider text-muted">ADHD cluster</p>
             <div className="mt-3 space-y-2">
               {[
-                ['/guides/adhd/best-supplements-for-adhd', 'Best supplements for ADHD →'],
-                ['/guides/adhd/magnesium-for-adhd', 'Magnesium for ADHD →'],
-                ['/guides/adhd/l-theanine-for-adhd', 'L-Theanine for ADHD →'],
+                ['/guides/adhd/best-supplements-for-adhd/', 'Best supplements for ADHD →'],
+                ['/guides/adhd/magnesium-for-adhd/', 'Magnesium for ADHD →'],
+                ['/guides/adhd/l-theanine-for-adhd/', 'L-Theanine for ADHD →'],
                 ['/guides/adhd/adhd-stack-guide', 'ADHD stack guide →'],
                 ['/guides/adhd/sleep-and-adhd', 'Sleep and ADHD →'],
                 ['/guides/focus', 'Focus goal hub →'],

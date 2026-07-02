@@ -303,6 +303,6 @@ Its profile positions Bacopa as a particularly strong choice for individuals pri
 
 ## Related Articles
 
-- [Lion's Mane: Mechanisms and Clinical Evidence](/articles/lions-mane)
-- [Ginkgo Biloba: Cognition and Aging](/articles/ginkgo-biloba)
-- [Creatine for Brain Health](/articles/creatine-brain-health)
+- [Lion's Mane: Mechanisms and Clinical Evidence](/articles/lions-mane/)
+- [Ginkgo Biloba: Cognition and Aging](/articles/ginkgo-biloba/)
+- [Creatine for Brain Health](/articles/creatine-brain-health/)

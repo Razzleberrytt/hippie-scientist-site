@@ -62,7 +62,7 @@
 - [`/herbs/ashwagandha`](/herbs/ashwagandha)
 - [`/herbs/rhodiola`](/herbs/rhodiola)
 - [`/best-supplements-for-stress`](/best-supplements-for-stress)
-- [`/guides/best-adaptogens-for-stress`](/guides/best-adaptogens-for-stress)
+- [`/guides/best-adaptogens-for-stress`](/guides/best-adaptogens-for-stress/)
 - [`/education/how-stress-affects-the-brain`](/education/how-stress-affects-the-brain)
 - [`/articles/natural-anxiety-relief`](/articles/natural-anxiety-relief)
 - [`/compounds/l-theanine`](/compounds/l-theanine)

@@ -60,11 +60,11 @@
 > Funnel toward money pages (#1–#9). Lists are directional, not exhaustive.
 
 - [`/best-supplements-for-focus`](/best-supplements-for-focus)
-- [`/guides/best-nootropics-for-focus`](/guides/best-nootropics-for-focus)
+- [`/guides/best-nootropics-for-focus`](/guides/best-nootropics-for-focus/)
 - [`/guides/supplements-for-brain-fog-and-fatigue`](/guides/supplements-for-brain-fog-and-fatigue)
 - [`/compounds/hericenones`](/compounds/hericenones)
 - [`/education/how-learning-affects-neuroplasticity`](/education/how-learning-affects-neuroplasticity)
-- [`/articles/best-supplements-for-adhd`](/articles/best-supplements-for-adhd)
+- [`/articles/best-supplements-for-adhd`](/articles/best-supplements-for-adhd/)
 - [`/herbs/rhodiola`](/herbs/rhodiola)
 
 ## Evidence opportunities

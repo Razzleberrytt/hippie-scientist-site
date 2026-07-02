@@ -55,12 +55,12 @@
 
 > Funnel toward money pages (#1–#9). Lists are directional, not exhaustive.
 
-- [`/articles/best-supplements-for-adhd`](/articles/best-supplements-for-adhd)
-- [`/articles/omega-3-and-adhd`](/articles/omega-3-and-adhd)
-- [`/articles/zinc-and-adhd`](/articles/zinc-and-adhd)
-- [`/articles/iron-ferritin-and-adhd`](/articles/iron-ferritin-and-adhd)
+- [`/articles/best-supplements-for-adhd`](/articles/best-supplements-for-adhd/)
+- [`/articles/omega-3-and-adhd`](/articles/omega-3-and-adhd/)
+- [`/articles/zinc-and-adhd`](/articles/zinc-and-adhd/)
+- [`/articles/iron-ferritin-and-adhd`](/articles/iron-ferritin-and-adhd/)
 - [`/articles/best-magnesium-supplement-for-adhd`](/articles/best-magnesium-supplement-for-adhd)
-- [`/articles/adhd-stack-guide`](/articles/adhd-stack-guide)
+- [`/articles/adhd-stack-guide`](/articles/adhd-stack-guide/)
 - [`/best-magnesium-supplements-for-adhd`](/best-magnesium-supplements-for-adhd)
 
 ## Evidence opportunities

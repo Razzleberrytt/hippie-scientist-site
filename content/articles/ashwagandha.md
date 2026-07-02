@@ -167,13 +167,13 @@ Ashwagandha (*Withania somnifera*) is most worth considering when the main probl
 | Typical study dose | 300 mg twice daily of standardized root extract, or lower-dose high-withanolide extracts |
 | Expected timeline | Reassess after 4-8 weeks, not after one or two doses |
 | Main safety flags | Pregnancy, thyroid disease, liver disease, sedatives, thyroid medication, immunosuppressants |
-| Better alternatives when fatigue is primary | Consider [Rhodiola](/guides/rhodiola-complete-guide) for fatigue-dominant stress or [L-theanine](/guides/anxiety/l-theanine-for-anxiety) for short-term calm |
+| Better alternatives when fatigue is primary | Consider [Rhodiola](/guides/rhodiola-complete-guide/) for fatigue-dominant stress or [L-theanine](/guides/anxiety/l-theanine-for-anxiety/) for short-term calm |
 
 ---
 
 ## Who This Guide Is For
 
-This guide is for readers comparing natural options for stress, anxiety, sleep, and calm focus. If your main issue is wired-at-night stress, start here. If your main issue is sleep architecture or magnesium status, compare with [Magnesium for Sleep](/guides/sleep/magnesium-for-sleep). If your main issue is acute calm without sedation, read [L-Theanine for Anxiety](/guides/anxiety/l-theanine-for-anxiety). If your main issue is mental fatigue, compare with [Best Nootropics for Focus](/guides/best-nootropics-for-focus) and the [Rhodiola complete guide](/guides/rhodiola-complete-guide).
+This guide is for readers comparing natural options for stress, anxiety, sleep, and calm focus. If your main issue is wired-at-night stress, start here. If your main issue is sleep architecture or magnesium status, compare with [Magnesium for Sleep](/guides/sleep/magnesium-for-sleep/). If your main issue is acute calm without sedation, read [L-Theanine for Anxiety](/guides/anxiety/l-theanine-for-anxiety/). If your main issue is mental fatigue, compare with [Best Nootropics for Focus](/guides/best-nootropics-for-focus/) and the [Rhodiola complete guide](/guides/rhodiola-complete-guide/).
 
 ---
 
@@ -286,7 +286,7 @@ For stress and anxiety, the cleanest evidence-aligned approach is a split dose w
 
 The cortisol awakening response peaks shortly after waking, and stress-related sleep issues often track with elevated evening arousal. That is why study-style split dosing can make sense for stress, while evening-weighted dosing can make sense when sleep onset is the main target. Do not treat this as a precision protocol; it is a cautious translation of short-term human trial patterns.
 
-Reassess after 4-8 weeks. If there is no meaningful improvement in stress, sleep quality, or anxiety by then, increasing the dose indefinitely is less evidence-based than switching strategies, checking sleep and caffeine patterns, or comparing options like [L-theanine for calm](/guides/anxiety/l-theanine-for-calm), [magnesium for sleep](/guides/sleep/magnesium-for-sleep), or [best supplements for stress](/guides/best-supplements-for-stress).
+Reassess after 4-8 weeks. If there is no meaningful improvement in stress, sleep quality, or anxiety by then, increasing the dose indefinitely is less evidence-based than switching strategies, checking sleep and caffeine patterns, or comparing options like [L-theanine for calm](/guides/anxiety/l-theanine-for-calm/), [magnesium for sleep](/guides/sleep/magnesium-for-sleep/), or [best supplements for stress](/guides/best-supplements-for-stress/).
 
 Most clinical trials run 8-12 weeks. If stress symptoms have improved, consider tapering off or taking a 2-4 week break to reassess baseline. If continuing longer, thyroid and liver context matter more than dose escalation; consider clinician-guided monitoring when risk factors are present.
 
@@ -373,7 +373,7 @@ Ashwagandha has human research outside stress, anxiety, and sleep, including ath
 
 The clearest secondary pattern is that some trials report hormonal or performance changes in specific populations, such as resistance-trained men, men with fertility concerns, or adults with subclinical hypothyroid lab patterns. Those findings are not the same as saying ashwagandha is a general testosterone booster, fertility treatment, thyroid treatment, or athletic enhancer. They are narrower signals that need more replication and better long-term monitoring.
 
-For comparison, ashwagandha is usually the calmer adaptogen choice. [Rhodiola](/guides/rhodiola-complete-guide) is often a better fit when fatigue, low motivation, and cognitive burnout are the main problems. [L-theanine](/guides/anxiety/l-theanine-for-anxiety) is usually a better fit when the goal is short-term calm without committing to a multi-week adaptogen trial. [Magnesium](/guides/sleep/magnesium-for-sleep) is often more relevant when sleep issues overlap with low intake, muscle tension, or dietary insufficiency.
+For comparison, ashwagandha is usually the calmer adaptogen choice. [Rhodiola](/guides/rhodiola-complete-guide/) is often a better fit when fatigue, low motivation, and cognitive burnout are the main problems. [L-theanine](/guides/anxiety/l-theanine-for-anxiety/) is usually a better fit when the goal is short-term calm without committing to a multi-week adaptogen trial. [Magnesium](/guides/sleep/magnesium-for-sleep/) is often more relevant when sleep issues overlap with low intake, muscle tension, or dietary insufficiency.
 
 ### Evidence Gaps
 
@@ -399,12 +399,12 @@ The main unresolved questions are long-term safety, product comparability, dose-
 ## Related Guides and Next Steps
 
 Use ashwagandha as one decision point, not the whole decision tree. The better next article depends on the problem you are solving:
-- For sleep-first problems, read [Magnesium for Sleep](/guides/sleep/magnesium-for-sleep) or [Best Natural Sleep Aids That Work](/guides/best-natural-sleep-aids-that-work).
-- For anxiety-first problems, compare [L-Theanine for Anxiety](/guides/anxiety/l-theanine-for-anxiety), [Natural Anxiety Relief](/guides/anxiety/natural-anxiety-relief), and [Best Herbs for Anxiety](/guides/best-herbs-for-anxiety).
-- For stress and burnout, continue with [Best Supplements for Stress](/guides/best-supplements-for-stress) and [Best Adaptogens for Stress](/guides/best-adaptogens-for-stress).
-- For focus and fatigue, compare ashwagandha with [Best Nootropics for Focus](/guides/best-nootropics-for-focus), [Focus Without Caffeine Crash](/guides/focus-without-caffeine-crash), and [Rhodiola](/guides/rhodiola-complete-guide).
+- For sleep-first problems, read [Magnesium for Sleep](/guides/sleep/magnesium-for-sleep/) or [Best Natural Sleep Aids That Work](/guides/best-natural-sleep-aids-that-work/).
+- For anxiety-first problems, compare [L-Theanine for Anxiety](/guides/anxiety/l-theanine-for-anxiety/), [Natural Anxiety Relief](/guides/anxiety/natural-anxiety-relief/), and [Best Herbs for Anxiety](/guides/best-herbs-for-anxiety/).
+- For stress and burnout, continue with [Best Supplements for Stress](/guides/best-supplements-for-stress/) and [Best Adaptogens for Stress](/guides/best-adaptogens-for-stress/).
+- For focus and fatigue, compare ashwagandha with [Best Nootropics for Focus](/guides/best-nootropics-for-focus/), [Focus Without Caffeine Crash](/guides/focus-without-caffeine-crash/), and [Rhodiola](/guides/rhodiola-complete-guide/).
 
-**Next step:** if your main symptom is stress-related anxiety, go to the [Natural Anxiety Relief guide](/guides/anxiety/natural-anxiety-relief) and compare ashwagandha against L-theanine, magnesium, sleep interventions, and non-supplement options before building a stack.
+**Next step:** if your main symptom is stress-related anxiety, go to the [Natural Anxiety Relief guide](/guides/anxiety/natural-anxiety-relief/) and compare ashwagandha against L-theanine, magnesium, sleep interventions, and non-supplement options before building a stack.
 
 ---
 
@@ -459,6 +459,6 @@ The strongest fit is chronic stress with anxiety or stress-related sleep disrupt
 
 ## Related Articles
 
-- [Saffron for Depression: What the Evidence Shows](/articles/saffron-depression-evidence)
-- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)
-- [Creatine for Brain Health](/articles/creatine-brain-health)
+- [Saffron for Depression: What the Evidence Shows](/articles/saffron-depression-evidence/)
+- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality/)
+- [Creatine for Brain Health](/articles/creatine-brain-health/)

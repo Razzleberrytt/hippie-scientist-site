@@ -34,14 +34,14 @@
 
 ## Suggested internal links
 
-- [`/guides/best-nootropics-for-focus`](/guides/best-nootropics-for-focus)
+- [`/guides/best-nootropics-for-focus`](/guides/best-nootropics-for-focus/)
 - [`/articles/l-theanine-vs-caffeine-for-focus`](/articles/l-theanine-vs-caffeine-for-focus)
-- [`/articles/citicoline-vs-alpha-gpc`](/articles/citicoline-vs-alpha-gpc)
+- [`/articles/citicoline-vs-alpha-gpc`](/articles/citicoline-vs-alpha-gpc/)
 - [`/herbs/lions-mane`](/herbs/lions-mane)
 - [`/compounds/l-theanine`](/compounds/l-theanine)
-- [`/guides/focus-without-caffeine-crash`](/guides/focus-without-caffeine-crash)
+- [`/guides/focus-without-caffeine-crash`](/guides/focus-without-caffeine-crash/)
 - [`/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus`](/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus)
-- [`/articles/best-supplements-for-adhd`](/articles/best-supplements-for-adhd)
+- [`/articles/best-supplements-for-adhd`](/articles/best-supplements-for-adhd/)
 
 ## Suggested affiliate opportunities
 

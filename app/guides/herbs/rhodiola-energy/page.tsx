@@ -160,7 +160,7 @@ export default function RhodiolaEnergyGuidePage() {
           This is not an acute stimulant, and that is the point.
         </p>
         <div className="mt-6 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
-          <Link href="/guides/rhodiola-complete-guide" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/guides/rhodiola-complete-guide/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Complete Rhodiola Guide →
           </Link>
           <Link href="/herbs/rhodiola" className="text-brand-700 hover:text-brand-800 hover:underline">
@@ -268,7 +268,7 @@ export default function RhodiolaEnergyGuidePage() {
       <section className="space-y-3">
         <h2 className="text-xl font-semibold text-ink">More in the Rhodiola Hub</h2>
         <div className="grid gap-3 sm:grid-cols-3">
-          <Link href="/guides/rhodiola-complete-guide" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
+          <Link href="/guides/rhodiola-complete-guide/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Pillar Guide</p>
             <p className="mt-1 text-sm font-semibold text-ink">Complete Rhodiola Guide</p>
             <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">Forms, benefits, dosing, and the full evidence base in one place.</p>

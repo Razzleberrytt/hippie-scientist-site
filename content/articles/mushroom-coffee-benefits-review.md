@@ -160,6 +160,6 @@ If you enjoy the taste and the ritual, and you appreciate the lower-caffeine ene
 | 5 | Tang W et al. | Reishi effects on fatigue and quality of life | J Altern Complement Med | 2005 | [16261513](https://pubmed.ncbi.nlm.nih.gov/16261513/) |
 ## Related Articles
 
-- [Functional Mushrooms 101](/articles/functional-mushrooms-guide)
-- [Lion's Mane: What the Science Actually Says](/articles/lions-mane)
-- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)
+- [Functional Mushrooms 101](/articles/functional-mushrooms-guide/)
+- [Lion's Mane: What the Science Actually Says](/articles/lions-mane/)
+- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality/)

@@ -15,7 +15,15 @@ async function loadBrowseHerbs(): Promise<RuntimeRecord[]> {
   return all.filter((h) => h.slug && getRuntimeVisibility(h).canRender && !isRedirectedDuplicate(String(h.slug), present))
 }
 export async function generateStaticParams(){ const herbs=await loadBrowseHerbs(); const total=Math.max(1,Math.ceil(herbs.length/HERBS_PAGE_SIZE)); return Array.from({length:Math.max(total-1,0)},(_,i)=>({page:String(i+2)})) }
-export async function generateMetadata({params}:P):Promise<Metadata>{const n=clampPositiveInt((await params).page,2);return{title:`Herb Profiles & Research Library — Page ${n}`,alternates:{canonical:`/herbs/page/${n}/`}}}
+export async function generateMetadata({ params }: P): Promise<Metadata> {
+  const n = clampPositiveInt((await params).page, 2)
+
+  return {
+    title: `Herb Profiles & Research Library — Page ${n}`,
+    description: `Browse evidence-first herb profiles on page ${n} of the botanical research library, with mechanisms, safety notes, and practical context.`,
+    alternates: { canonical: `/herbs/page/${n}/` },
+  }
+}
 
 function HerbsPageSkeleton() {
   return (

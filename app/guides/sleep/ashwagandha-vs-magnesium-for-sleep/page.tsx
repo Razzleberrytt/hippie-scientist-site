@@ -382,7 +382,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
               <p className="mt-4 text-sm text-muted">
                 For a full breakdown of each magnesium form and dosage protocols, see the{' '}
                 <Link
-                  href="/guides/sleep/magnesium-for-sleep"
+                  href="/guides/sleep/magnesium-for-sleep/"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   Magnesium for Sleep article
@@ -811,7 +811,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/magnesium-for-sleep"
+                  href="/guides/sleep/magnesium-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1030,7 +1030,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                 </Link>
                 . Magnesium safety references are shared with the{' '}
                 <Link
-                  href="/guides/sleep/magnesium-for-sleep"
+                  href="/guides/sleep/magnesium-for-sleep/"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   Magnesium for Sleep article
@@ -1100,7 +1100,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
                 Ashwagandha for sleep →
               </Link>
               <Link
-                href="/guides/sleep/magnesium-for-sleep"
+                href="/guides/sleep/magnesium-for-sleep/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Magnesium for sleep →

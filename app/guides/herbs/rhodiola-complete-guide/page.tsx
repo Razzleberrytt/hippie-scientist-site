@@ -17,7 +17,7 @@ import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 
 const SLUG = 'rhodiola-complete-guide'
-const PAGE_URL = 'https://thehippiescientist.net/guides/rhodiola-complete-guide'
+const PAGE_URL = 'https://thehippiescientist.net/guides/rhodiola-complete-guide/'
 const TITLE = 'Rhodiola: Forms, Benefits & Dosing Guide'
 const DESCRIPTION =
   'Evidence-based guide to Rhodiola rosea: forms compared, what the research shows for fatigue and stress, correct dosing, safety, and how to choose a product.'

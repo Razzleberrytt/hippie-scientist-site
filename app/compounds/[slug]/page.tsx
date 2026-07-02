@@ -942,7 +942,7 @@ export default async function CompoundPage({ params }: PageProps) {
                 Full evidence monograph →
               </Link>
               <Link
-                href="/guides/kratom-7oh-withdrawal-management"
+                href="/guides/kratom-7oh-withdrawal-management/"
                 className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-brand-800 hover:bg-brand-50"
               >
                 Withdrawal management guide →
@@ -978,7 +978,7 @@ export default async function CompoundPage({ params }: PageProps) {
                 Compare mitragynine vs 7-OH →
               </Link>
               <Link
-                href="/guides/kratom-7oh-withdrawal-management"
+                href="/guides/kratom-7oh-withdrawal-management/"
                 className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-sm font-bold text-brand-800 hover:bg-brand-50"
               >
                 Withdrawal management guide →

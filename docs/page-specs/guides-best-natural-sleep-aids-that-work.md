@@ -60,7 +60,7 @@
 
 - [`/best-supplements-for-sleep`](/best-supplements-for-sleep)
 - [`/guides/best-supplements-for-sleep`](/guides/best-supplements-for-sleep)
-- [`/articles/best-herbs-for-sleep`](/articles/best-herbs-for-sleep)
+- [`/articles/best-herbs-for-sleep`](/articles/best-herbs-for-sleep/)
 - [`/compare/sleep-herbs-vs-melatonin`](/compare/sleep-herbs-vs-melatonin)
 - [`/herbs/valerian`](/herbs/valerian)
 - [`/herbs/passionflower`](/herbs/passionflower)

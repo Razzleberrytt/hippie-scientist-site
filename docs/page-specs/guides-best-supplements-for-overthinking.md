@@ -58,7 +58,7 @@
 > Funnel toward money pages (#1–#9). Lists are directional, not exhaustive.
 
 - [`/best-supplements-for-stress`](/best-supplements-for-stress)
-- [`/guides/best-herbs-for-anxiety`](/guides/best-herbs-for-anxiety)
+- [`/guides/best-herbs-for-anxiety`](/guides/best-herbs-for-anxiety/)
 - [`/compounds/l-theanine`](/compounds/l-theanine)
 - [`/herbs/ashwagandha`](/herbs/ashwagandha)
 - [`/articles/l-theanine-for-anxiety`](/articles/l-theanine-for-anxiety)

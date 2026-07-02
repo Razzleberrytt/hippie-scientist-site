@@ -403,6 +403,6 @@ For anyone navigating the peptide landscape, the key intellectual discipline is 
 
 ## Related Articles
 
-- [Creatine for Brain Health](/articles/creatine-brain-health)
-- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)
-- [Natural Compounds Research Clusters](/articles/natural-compounds-research-clusters)
+- [Creatine for Brain Health](/articles/creatine-brain-health/)
+- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality/)
+- [Natural Compounds Research Clusters](/articles/natural-compounds-research-clusters/)

@@ -390,9 +390,9 @@ export default function LTheanineMagnesiumAdhdStackPage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Related Articles</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {[
-                  ['/guides/adhd/best-supplements-for-adhd', 'Cornerstone', 'Best Supplements for ADHD', 'Full evidence-ranked guide.'],
-                  ['/guides/adhd/magnesium-for-adhd', 'ADHD Cluster', 'Magnesium for ADHD', 'Evidence review of magnesium for ADHD.'],
-                  ['/guides/adhd/l-theanine-for-adhd', 'ADHD Cluster', 'L-Theanine for ADHD', 'Evidence review of L-theanine for ADHD.'],
+                  ['/guides/adhd/best-supplements-for-adhd/', 'Cornerstone', 'Best Supplements for ADHD', 'Full evidence-ranked guide.'],
+                  ['/guides/adhd/magnesium-for-adhd/', 'ADHD Cluster', 'Magnesium for ADHD', 'Evidence review of magnesium for ADHD.'],
+                  ['/guides/adhd/l-theanine-for-adhd/', 'ADHD Cluster', 'L-Theanine for ADHD', 'Evidence review of L-theanine for ADHD.'],
                   ['/guides/adhd/magnesium-glycinate-vs-citrate-for-adhd', 'ADHD Cluster', 'Glycinate vs Citrate for ADHD', 'Which magnesium form works best.'],
                   ['/guides/adhd/best-magnesium-supplement-for-adhd', 'Buying Guide', 'Best Magnesium for ADHD', 'Which product to buy first.'],
                   ['/guides/adhd/adhd-stack-guide', 'Stack Guide', 'ADHD Stack Guide', 'Full supplement stacking guide for ADHD.'],
@@ -449,9 +449,9 @@ export default function LTheanineMagnesiumAdhdStackPage() {
             <p className="text-[10px] font-bold uppercase tracking-wider text-muted">ADHD cluster</p>
             <div className="mt-3 space-y-2">
               {[
-                ['/guides/adhd/best-supplements-for-adhd', 'Best supplements for ADHD →'],
-                ['/guides/adhd/magnesium-for-adhd', 'Magnesium for ADHD →'],
-                ['/guides/adhd/l-theanine-for-adhd', 'L-Theanine for ADHD →'],
+                ['/guides/adhd/best-supplements-for-adhd/', 'Best supplements for ADHD →'],
+                ['/guides/adhd/magnesium-for-adhd/', 'Magnesium for ADHD →'],
+                ['/guides/adhd/l-theanine-for-adhd/', 'L-Theanine for ADHD →'],
                 ['/guides/adhd/adhd-stack-guide', 'ADHD stack guide →'],
                 ['/guides/adhd/adhd-supplements/', 'ADHD supplements guide →'],
               ].map(([href, label]) => (

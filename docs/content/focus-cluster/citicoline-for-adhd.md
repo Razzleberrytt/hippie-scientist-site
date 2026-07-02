@@ -44,7 +44,7 @@ Citicoline is not the best fit for people who:
 
 ## What Citicoline Is
 
-Citicoline is a naturally occurring compound involved in the synthesis of phosphatidylcholine, a major component of cell membranes. As a supplement, it provides choline and cytidine. Cytidine can convert into uridine in the body, which is one reason citicoline is discussed differently from basic choline salts and other supports for the [cholinergic system](/education/cholinergic-system).
+Citicoline is a naturally occurring compound involved in the synthesis of phosphatidylcholine, a major component of cell membranes. As a supplement, it provides choline and cytidine. Cytidine can convert into uridine in the body, which is one reason citicoline is discussed differently from basic choline salts and other supports for the [cholinergic system](/education/cholinergic-system/).
 
 Standard choline supplements mainly supply choline. Citicoline supplies choline plus cytidine, giving it a broader proposed role in membrane synthesis, cellular energy, and cognitive support. That does not make it automatically better for ADHD, but it explains why it appears often in nootropic and cognitive-performance research and why readers often compare [citicoline vs Alpha-GPC](/articles/citicoline-vs-alpha-gpc/).
 
@@ -74,7 +74,7 @@ That indirect evidence may justify interest, but it should not be overstated. A 
 
 ## Citicoline for Focus, Attention, and Executive Function
 
-Citicoline has shown modest cognitive signals in some non-ADHD studies. Attention, memory, and processing-speed outcomes are the most relevant areas for readers comparing focus supports, especially alongside broader explanations of [how focus and motivation work](/education/how-focus-and-motivation-work).
+Citicoline has shown modest cognitive signals in some non-ADHD studies. Attention, memory, and processing-speed outcomes are the most relevant areas for readers comparing focus supports, especially alongside broader explanations of [how focus and motivation work](/education/how-focus-and-motivation-work/).
 
 For attention and focus, some studies report improvement on attention measures, particularly in cognitive-demand or fatigue contexts. The applicability to ADHD is uncertain because ADHD involves a broader pattern of attention regulation, impulsivity, executive function, emotional regulation, and daily impairment.
 

@@ -56,7 +56,7 @@ Alpha-GPC is broken down into choline and glycerophosphate. The choline portion 
 
 The practical theory is straightforward: if a person responds well to additional choline availability, Alpha-GPC might support attention, learning, memory, or mental effort. The important limitation is that ADHD is not simply an acetylcholine deficiency. ADHD involves multiple systems, including dopamine, norepinephrine, sleep regulation, motivation, stress physiology, learning environment, and executive demands.
 
-For that reason, the [cholinergic system](/education/cholinergic-system) is one relevant pathway, but it is not the whole explanation. Readers trying to place Alpha-GPC in the broader focus picture may also find the guide to [how focus and motivation work](/education/how-focus-and-motivation-work) useful.
+For that reason, the [cholinergic system](/education/cholinergic-system/) is one relevant pathway, but it is not the whole explanation. Readers trying to place Alpha-GPC in the broader focus picture may also find the guide to [how focus and motivation work](/education/how-focus-and-motivation-work/) useful.
 
 ## What the Evidence Says About ADHD
 

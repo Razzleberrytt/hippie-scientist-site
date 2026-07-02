@@ -92,7 +92,7 @@ A 2013 study by Talbott et al. randomized 63 moderately stressed adults to tongk
 
 ## What Is Ashwagandha?
 
-Ashwagandha (*Withania somnifera*) is covered in detail in our [dedicated guide](/guides/herbs/ashwagandha). For this comparison, the key mechanism is: ashwagandha reduces cortisol, and chronically elevated cortisol suppresses testosterone production at multiple levels — including direct inhibition of Leydig cell function and reduced GnRH release from the hypothalamus. By lowering cortisol, ashwagandha removes a brake on testosterone synthesis.
+Ashwagandha (*Withania somnifera*) is covered in detail in our [dedicated guide](/guides/herbs/ashwagandha/). For this comparison, the key mechanism is: ashwagandha reduces cortisol, and chronically elevated cortisol suppresses testosterone production at multiple levels — including direct inhibition of Leydig cell function and reduced GnRH release from the hypothalamus. By lowering cortisol, ashwagandha removes a brake on testosterone synthesis.
 
 A 2019 study by Lopresti et al. in overweight men aged 40–70 found that 600 mg/day of ashwagandha extract (Shoden) for 8 weeks increased testosterone by 14.7% and DHEA-S by 18% compared to placebo. Cortisol and estrogen were not significantly changed in that particular trial, though other ashwagandha studies have consistently shown cortisol reduction.
 
@@ -148,6 +148,6 @@ Tongkat ali has a more concerning safety profile than ashwagandha, primarily due
 
 ## Related Articles
 
-- [Ashwagandha: Stress, Cortisol, and Anxiety](/guides/herbs/ashwagandha)
-- [Creatine for Brain Health](/articles/creatine-brain-health)
-- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)
+- [Ashwagandha: Stress, Cortisol, and Anxiety](/guides/herbs/ashwagandha/)
+- [Creatine for Brain Health](/articles/creatine-brain-health/)
+- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality/)

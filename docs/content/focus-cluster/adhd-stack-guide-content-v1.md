@@ -3,7 +3,7 @@
 Status: Approved for implementation
 Cluster: Focus / ADHD
 Type: Hub Article
-Target URL: /articles/adhd-stack-guide
+Target URL: /articles/adhd-stack-guide/
 Version: 1
 
 ---

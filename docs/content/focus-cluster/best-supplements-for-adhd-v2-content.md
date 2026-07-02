@@ -3,7 +3,7 @@
 Status: Approved for implementation
 Cluster: Focus / ADHD
 Type: Pillar Article
-Target URL: /articles/best-supplements-for-adhd
+Target URL: /articles/best-supplements-for-adhd/
 Version: 2
 
 ---
@@ -239,7 +239,7 @@ Emotional dysregulation may respond to sleep support, stress-modulating compound
 
 ### Sleep Problems
 
-Melatonin has the strongest evidence among supplements for reducing sleep onset latency in children with ADHD. Magnesium and L-theanine show promise for sleep quality or calming in specific contexts. Foundational sleep hygiene and circadian strategies should be optimized first. Supplements are most useful when behavioral approaches are insufficient. For a detailed review of how sleep issues manifest in ADHD and how to address them, read our full article on [Sleep and ADHD](/articles/sleep-and-adhd).
+Melatonin has the strongest evidence among supplements for reducing sleep onset latency in children with ADHD. Magnesium and L-theanine show promise for sleep quality or calming in specific contexts. Foundational sleep hygiene and circadian strategies should be optimized first. Supplements are most useful when behavioral approaches are insufficient. For a detailed review of how sleep issues manifest in ADHD and how to address them, read our full article on [Sleep and ADHD](/articles/sleep-and-adhd/).
 
 ### Nutrient Deficiencies
 

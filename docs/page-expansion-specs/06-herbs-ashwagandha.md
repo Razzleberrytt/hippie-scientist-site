@@ -38,7 +38,7 @@
 ## Suggested internal links
 
 - [`/best-supplements-for-stress`](/best-supplements-for-stress)
-- [`/guides/best-adaptogens-for-stress`](/guides/best-adaptogens-for-stress)
+- [`/guides/best-adaptogens-for-stress`](/guides/best-adaptogens-for-stress/)
 - [`/compare/rhodiola-vs-ashwagandha`](/compare/rhodiola-vs-ashwagandha)
 - [`/articles/ashwagandha-for-anxiety`](/articles/ashwagandha-for-anxiety)
 - [`/articles/ashwagandha-for-sleep`](/articles/ashwagandha-for-sleep)

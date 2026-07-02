@@ -183,6 +183,6 @@ Spending an extra $10–15/month for a certified product over a generic one is n
 | 5 | Consumer Reports | Turmeric and echinacea supplement testing | Consumer Reports | 2023 | — |
 ## Related Articles
 
-- [Berberine: The Evidence-Based Guide](/articles/berberine)
-- [Functional Mushrooms 101](/articles/functional-mushrooms-guide)
-- [Mushroom Coffee: Benefits and What to Look For](/articles/mushroom-coffee-benefits-review)
+- [Berberine: The Evidence-Based Guide](/articles/berberine/)
+- [Functional Mushrooms 101](/articles/functional-mushrooms-guide/)
+- [Mushroom Coffee: Benefits and What to Look For](/articles/mushroom-coffee-benefits-review/)

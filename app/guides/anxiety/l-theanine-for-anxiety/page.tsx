@@ -56,12 +56,12 @@ const FAQS = [
 
 const relatedArticles = [
   {
-    href: '/guides/herbs/l-theanine',
+    href: '/guides/herbs/l-theanine/',
     title: 'Complete L-Theanine Evidence Guide',
     description: 'The main hub for caffeine, calm focus, sleep, stress, dosage, safety, and evidence.',
   },
   {
-    href: '/guides/anxiety/natural-anxiety-relief',
+    href: '/guides/anxiety/natural-anxiety-relief/',
     title: 'Natural Anxiety Relief',
     description: 'A broader anxiety guide for readers comparing supplement and lifestyle options.',
   },
@@ -71,7 +71,7 @@ const relatedArticles = [
     description: 'Better fit when the problem is chronic stress rather than acute overarousal.',
   },
   {
-    href: '/guides/sleep/magnesium-for-sleep',
+    href: '/guides/sleep/magnesium-for-sleep/',
     title: 'Magnesium for Sleep',
     description: 'Better fit when sleep, muscle tension, or magnesium status is the main issue.',
   },
@@ -90,7 +90,7 @@ const relatedArticles = [
 export default function LTheanineForAnxietyPage() {
   const pageBreadcrumb = breadcrumbJsonLd([
     { name: 'Home', url: 'https://thehippiescientist.net' },
-    { name: 'Anxiety', url: 'https://thehippiescientist.net/guides/anxiety/natural-anxiety-relief' },
+    { name: 'Anxiety', url: 'https://thehippiescientist.net/guides/anxiety/natural-anxiety-relief/' },
     { name: TITLE, url: `https://thehippiescientist.net/articles/${SLUG}` },
   ])
 
@@ -149,7 +149,7 @@ export default function LTheanineForAnxietyPage() {
           </div>
           <p className="text-sm text-muted-foreground mt-4">
             For the complete evidence hub, read the{' '}
-            <Link href="/guides/herbs/l-theanine" className="text-primary underline">
+            <Link href="/guides/herbs/l-theanine/" className="text-primary underline">
               full L-theanine guide
             </Link>
             .
@@ -228,11 +228,11 @@ export default function LTheanineForAnxietyPage() {
             </p>
             <p>
               For deeper comparisons, read{' '}
-              <Link href="/guides/herbs/ashwagandha" className="text-primary underline">
+              <Link href="/guides/herbs/ashwagandha/" className="text-primary underline">
                 Ashwagandha for Anxiety
               </Link>
               ,{' '}
-              <Link href="/guides/sleep/magnesium-for-sleep" className="text-primary underline">
+              <Link href="/guides/sleep/magnesium-for-sleep/" className="text-primary underline">
                 Magnesium for Sleep
               </Link>
               , and{' '}

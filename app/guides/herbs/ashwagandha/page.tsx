@@ -173,7 +173,7 @@ export default function AshwagandhaArticlePage() {
             <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
               Match the tool to the timeframe: ashwagandha for the baseline; faster tools for acute moments.
               See the{' '}
-              <Link href="/guides/herbs/l-theanine" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">
+              <Link href="/guides/herbs/l-theanine/" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">
                 full L-theanine article
               </Link>{' '}
               for the acute-relief counterpart.
@@ -294,7 +294,7 @@ export default function AshwagandhaArticlePage() {
                       <td className="p-4 text-brand-700 font-medium">Moderate</td>
                       <td className="p-4 text-muted">6–8 weeks</td>
                       <td className="p-4">
-                        <Link href="/guides/herbs/ashwagandha" className="text-brand-700 hover:underline font-medium">
+                        <Link href="/guides/herbs/ashwagandha/" className="text-brand-700 hover:underline font-medium">
                           Ashwagandha for anxiety →
                         </Link>
                       </td>
@@ -339,7 +339,7 @@ export default function AshwagandhaArticlePage() {
                   dedicated sleep article
                 </Link>
                 . If anxiety is primary, see the{' '}
-                <Link href="/guides/herbs/ashwagandha" className="font-semibold text-brand-700 hover:underline">
+                <Link href="/guides/herbs/ashwagandha/" className="font-semibold text-brand-700 hover:underline">
                   anxiety article
                 </Link>
                 . If you want a head-to-head with magnesium, see{' '}
@@ -623,7 +623,7 @@ export default function AshwagandhaArticlePage() {
                   <p className="mt-1 text-xs leading-5 text-muted">
                     Foundational stress reduction (ashwagandha, weeks) plus acute calm focus
                     (L-theanine, 30–60 min). See{' '}
-                    <Link href="/guides/herbs/l-theanine" className="font-semibold text-brand-700 hover:underline">
+                    <Link href="/guides/herbs/l-theanine/" className="font-semibold text-brand-700 hover:underline">
                       the L-theanine article
                     </Link>
                     .
@@ -690,7 +690,7 @@ export default function AshwagandhaArticlePage() {
               </h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 <Link
-                  href="/guides/herbs/ashwagandha"
+                  href="/guides/herbs/ashwagandha/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -968,7 +968,7 @@ export default function AshwagandhaArticlePage() {
             </p>
             <div className="mt-3 space-y-2">
               <Link
-                href="/guides/herbs/ashwagandha"
+                href="/guides/herbs/ashwagandha/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Ashwagandha for anxiety →
@@ -980,7 +980,7 @@ export default function AshwagandhaArticlePage() {
                 Ashwagandha for sleep →
               </Link>
               <Link
-                href="/guides/herbs/l-theanine"
+                href="/guides/herbs/l-theanine/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 L-theanine article →

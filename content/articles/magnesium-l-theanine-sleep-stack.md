@@ -112,7 +112,7 @@ Magnesium glycinate + L-theanine is the most evidence-supported, lowest-risk sle
 
 ## Related Articles
 
-- [Magnesium Glycinate: Sleep, Stress, and Anxiety](/articles/magnesium-glycinate)
-- [L-Theanine: Calm Focus, Anxiety, and Sleep](/guides/herbs/l-theanine)
-- [Ashwagandha: Stress, Cortisol, and Anxiety](/guides/herbs/ashwagandha)
-- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)
+- [Magnesium Glycinate: Sleep, Stress, and Anxiety](/articles/magnesium-glycinate/)
+- [L-Theanine: Calm Focus, Anxiety, and Sleep](/guides/herbs/l-theanine/)
+- [Ashwagandha: Stress, Cortisol, and Anxiety](/guides/herbs/ashwagandha/)
+- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality/)

@@ -175,7 +175,7 @@ export default function GabaPathwayPage() {
           </Link>
 
           <Link
-            href="/guides/best-natural-sleep-aids-that-work"
+            href="/guides/best-natural-sleep-aids-that-work/"
             className="chip-readable hover:bg-white transition"
           >
             Sleep Support Guide

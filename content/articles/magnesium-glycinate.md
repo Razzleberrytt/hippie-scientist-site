@@ -503,6 +503,6 @@ Beyond sleep and anxiety, the expanding evidence base for magnesium in cardiovas
 
 ## Related Articles
 
-- [Ashwagandha: Stress, Cortisol, and Anxiety](/guides/herbs/ashwagandha)
-- [L-Theanine: Focus and Calm](/guides/herbs/l-theanine)
-- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)
+- [Ashwagandha: Stress, Cortisol, and Anxiety](/guides/herbs/ashwagandha/)
+- [L-Theanine: Focus and Calm](/guides/herbs/l-theanine/)
+- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality/)

@@ -56,7 +56,7 @@ Rhodiola appears to influence stress-response systems, fatigue signaling, and mo
 
 Those mechanisms are plausible for stress resilience and fatigue support, but they should not be overstated. ADHD is not simply an adaptogen deficiency or a stress-response problem. Stress and fatigue can amplify ADHD symptoms, but reducing fatigue does not necessarily treat the underlying attention disorder.
 
-Readers trying to understand where stress, fatigue, and attention overlap may find [how focus and motivation work](/education/how-focus-and-motivation-work) and [why fatigue is biologically complex](/education/why-fatigue-is-biologically-complex) useful.
+Readers trying to understand where stress, fatigue, and attention overlap may find [how focus and motivation work](/education/how-focus-and-motivation-work/) and [why fatigue is biologically complex](/education/why-fatigue-is-biologically-complex/) useful.
 
 ## What the Evidence Says About ADHD
 

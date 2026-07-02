@@ -460,6 +460,6 @@ For mild-to-moderate insomnia — particularly sleep onset difficulty in otherwi
 
 ## Related Articles
 
-- [Kava: Anxiety and Sleep](/articles/kava)
-- [Passionflower: Anxiety and Sleep](/articles/passionflower)
-- [Magnesium Glycinate: Sleep and Stress](/articles/magnesium-glycinate)
+- [Kava: Anxiety and Sleep](/articles/kava/)
+- [Passionflower: Anxiety and Sleep](/articles/passionflower/)
+- [Magnesium Glycinate: Sleep and Stress](/articles/magnesium-glycinate/)

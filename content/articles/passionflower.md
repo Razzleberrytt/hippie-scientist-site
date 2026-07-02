@@ -299,6 +299,6 @@ The remaining evidence gaps include larger and longer RCTs in diverse population
 
 ## Related Articles
 
-- [Kava: Anxiety and Sleep](/articles/kava)
-- [Valerian Root: Sleep Quality and GABA](/articles/valerian-root)
-- [Ashwagandha: Stress and Cortisol](/guides/herbs/ashwagandha)
+- [Kava: Anxiety and Sleep](/articles/kava/)
+- [Valerian Root: Sleep Quality and GABA](/articles/valerian-root/)
+- [Ashwagandha: Stress and Cortisol](/guides/herbs/ashwagandha/)

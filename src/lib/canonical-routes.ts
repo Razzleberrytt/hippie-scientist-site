@@ -2,7 +2,7 @@
 
 export const SEO_GUIDE_ROUTES = {
   sleep: '/guides/sleep/best-supplements-for-sleep',
-  stress: '/guides/best-supplements-for-stress',
+  stress: '/guides/best-supplements-for-stress/',
   focus: '/guides/best-supplements-for-focus',
   anxiety: '/guides/anxiety/best-herbs-for-anxiety',
   adaptogensStress: '/guides/anxiety/best-adaptogens-for-stress',

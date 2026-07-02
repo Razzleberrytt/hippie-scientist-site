@@ -1,69 +1,99 @@
-# SEO and Deep Audit Summary
+# Audit Summary — SEO Fixes Iteration 31
 
-Generated: 2026-07-01 America/Chicago
+Source baseline: `hippie-scientist-site-main 31.zip`  
+Patched output: `hippie-scientist-site-main-31-seo-audited.zip`
 
-## Main finding fixed
+## What changed
 
-The build-generated sitemap listed URLs that were not self-canonical. Before the patch, `npm run -s seo:audit-sitemap` reported:
+This iteration preserved the previous sitemap/canonical repairs and fixed the remaining high-signal internal-link canonical problem found in the new baseline.
 
-- 454 sitemap URLs
-- 411 live indexable URLs
-- 43 canonical mismatches
+### SEO fixes applied
 
-That meant sitemap URLs such as `/guides/.../` and `/evidence/evidence-report/` were asking crawlers to index pages whose rendered canonical tag pointed elsewhere, including several non-existent canonical targets.
+- Normalized internal links that pointed to slashless URLs where the destination route canonicalizes with a trailing slash.
+- Updated guide/app route links, article/content links, page-spec source data, curated expansion links, schema helper links, and related CTA links so internal links now match canonical destination URLs.
+- Added/kept route metadata hardening for herb alias/detail pages where duplicate or weak descriptions were being surfaced in route-level audits.
+- Kept the structured-data audit adjustment aligned with canonical trailing-slash guide routes.
 
-## Source fixes applied
+## Final audit results
 
-- Corrected self-canonical metadata for 43 sitemap-listed routes.
-- Split `/app/evidence/evidence-report/page.tsx` into a server metadata page plus a client component so it no longer inherits the homepage canonical.
-- Added canonical override support to:
-  - `components/articles/FocusAdhdArticlePage.tsx`
-  - `components/articles/GoalClusterArticlePage.tsx`
-  - `app/seo-entry-pages.tsx`
-- Updated mounted guide routes to pass their actual canonical path when they reuse shared article/SEO components.
-- Corrected `/learn/entheogens/` metadata and schema URL from `/psychoactive/entheogens/` to `/learn/entheogens/`.
-- Hardened `/pages/500.tsx` with title, description, noindex/follow robots, canonical, OG/Twitter tags, and JSON-LD.
-- Added noindex metadata, canonical, social tags, and JSON-LD to `public/lead-magnets/adhd-supplement-starter-checklist.html`.
-- Added Article and BreadcrumbList JSON-LD to `public/blog/2026-03-18-research-digest-passionflower/index.html`.
-- Made the SEO/structured-data audit regexes compatible with Next-rendered attributes such as `data-next-head`.
-
-## Final validation results
-
-All of these passed after the fixes:
-
-```bash
-npm run -s typecheck
-npm run -s lint:nocache
-npm run -s validate:route-seo
-npm run -s audit:metadata
-npm run -s validate:static-export
-npm run -s validate:security-headers
-npm run -s validate:canonical-host
-npm run -s build
-npm run -s validate:sitemap:built
-npm run -s validate:sitemap-completeness
-npm run -s seo:audit-sitemap
-npm run -s audit:structured-data
-npm run -s audit:seo-routes
-npm run -s audit:sitemap-affiliate
-npm run -s validate:build-seo-metadata
-npm run -s validate:deploy-readiness
-npm run -s report:performance
-npm run -s audit:internal-links
+```text
+npm run -s typecheck                         PASS
+npm run -s lint:nocache                      PASS
+npm run -s build                             PASS
+npm run -s validate:static-export            PASS
+npm run -s validate:security-headers         PASS
+npm run -s validate:canonical-host           PASS
+npm run -s validate:route-seo                PASS
+npm run -s seo:audit-sitemap                 PASS
+npm run -s audit:structured-data             PASS
+npm run -s audit:seo-routes                  PASS
+npm run -s validate:deploy-readiness         PASS
+npm run -s audit:internal-links              PASS
 ```
 
-Final key audit outputs:
+### Sitemap/indexability
 
-- Sitemap indexability: `454/454` live indexable, `0` canonical mismatches, `0` noindex URLs in sitemap.
-- SEO route audit: average score `90`, severe `0`, moderate `0`, blocking severe `0`.
-- Structured data audit: malformed `0`, representative failures `0`.
-- Affiliate sitemap audit: passed.
-- Deploy readiness: passed.
+```text
+totalUrls:            575
+liveIndexable:        575
+404_IN_SITEMAP:       0
+NOINDEX_IN_SITEMAP:   0
+CANONICAL_MISMATCH:   0
+DUPLICATE_URL:        0
+MISSING_CANONICAL:    0
+```
 
-## Remaining non-blocking diagnostics
+### Route SEO audit
 
-These were reported as non-blocking diagnostics and were not required to pass the deploy gates:
+```text
+routes:          1140
+avgScore:        90
+severe:          0
+blockingSevere:  0
+moderate:        0
+```
 
-- Internal links: `56` potentially orphaned crawlable routes and `219` non-canonical internal hrefs, mostly trailing-slash or legacy-link cleanup.
-- Structured data: duplicate herb meta-description groups: `3`.
-- Structured data: diagnostic schema gaps on non-representative pages remain expected under the current audit script.
+### Structured data audit
+
+```text
+routes:               1097
+malformed:            0
+representative fails: 0
+duplicate herb descs: 0
+```
+
+### Internal-link audit
+
+```text
+routes:                     1139
+nonCanonicalInternalLinks:  0
+orphanRoutes:               56
+weaklyConnected:            0
+```
+
+The remaining orphan routes are non-blocking and are not present in the sitemap indexability set. They are mostly static blog pages, compound aliases, `/500`, and the ADHD lead magnet landing page. They can be handled later by either intentionally linking them from hub pages or explicitly excluding/de-indexing routes that are not meant to be crawled.
+
+## Build notes
+
+The full production build completed successfully and exported the site.
+
+```text
+Next.js static generation: 1,132 pages
+Exported HTML files found by Pagefind: 1,140
+Pagefind indexed pages: 1,070
+```
+
+## Recommended deploy steps
+
+1. Replace the current repo with `hippie-scientist-site-main-31-seo-audited.zip` using the anti-timeout Codex prompt.
+2. Run validations in separate turns or locally:
+   - `npm run -s typecheck`
+   - `npm run -s lint:nocache`
+   - `npm run -s build`
+   - `npm run -s seo:audit-sitemap`
+   - `npm run -s audit:structured-data`
+   - `npm run -s audit:seo-routes`
+   - `npm run -s validate:deploy-readiness`
+   - `npm run -s audit:internal-links`
+3. Deploy.
+4. Submit the current sitemap in Google Search Console.

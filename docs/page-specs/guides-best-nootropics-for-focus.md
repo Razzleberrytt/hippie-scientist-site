@@ -63,12 +63,12 @@
 > Funnel toward money pages (#1–#9). Lists are directional, not exhaustive.
 
 - [`/best-supplements-for-focus`](/best-supplements-for-focus)
-- [`/articles/citicoline-vs-alpha-gpc`](/articles/citicoline-vs-alpha-gpc)
+- [`/articles/citicoline-vs-alpha-gpc`](/articles/citicoline-vs-alpha-gpc/)
 - [`/articles/l-theanine-vs-caffeine-for-focus`](/articles/l-theanine-vs-caffeine-for-focus)
 - [`/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus`](/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus)
 - [`/herbs/lions-mane`](/herbs/lions-mane)
 - [`/herbs/rhodiola`](/herbs/rhodiola)
-- [`/guides/focus-without-caffeine-crash`](/guides/focus-without-caffeine-crash)
+- [`/guides/focus-without-caffeine-crash`](/guides/focus-without-caffeine-crash/)
 
 ## Evidence opportunities
 

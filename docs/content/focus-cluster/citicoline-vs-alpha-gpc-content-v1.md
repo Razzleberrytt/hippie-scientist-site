@@ -3,7 +3,7 @@
 Status: Approved for implementation
 Cluster: Focus / ADHD
 Type: Comparison Article
-Target URL: /articles/citicoline-vs-alpha-gpc
+Target URL: /articles/citicoline-vs-alpha-gpc/
 Version: 1
 
 ---

@@ -45,9 +45,9 @@ const NUTRIENT_GUIDE = [
   ['Iron / ferritin', 'Tier A when deficient', 'Low ferritin or iron stores confirmed by testing', '/guides/adhd/iron-ferritin-and-adhd'],
   ['Magnesium', 'Tier B / context-dependent', 'Sleep, tension, low intake, or documented low status', '/guides/adhd/best-magnesium-supplement-for-adhd'],
   ['Zinc', 'Tier B-C', 'Low intake or measured low status; mixed supplementation trials', '/guides/adhd/zinc-and-adhd'],
-  ['L-theanine', 'Tier C', 'Calm focus, caffeine sensitivity, or bedtime arousal', '/guides/adhd/l-theanine-for-adhd'],
-  ['Saffron', 'Tier C / promising', 'Interesting early trials, but not first-line and quality varies', '/guides/adhd/best-supplements-for-adhd'],
-  ['Bacopa', 'Tier D for ADHD', 'Memory evidence does not automatically translate to ADHD', '/guides/adhd/best-supplements-for-adhd'],
+  ['L-theanine', 'Tier C', 'Calm focus, caffeine sensitivity, or bedtime arousal', '/guides/adhd/l-theanine-for-adhd/'],
+  ['Saffron', 'Tier C / promising', 'Interesting early trials, but not first-line and quality varies', '/guides/adhd/best-supplements-for-adhd/'],
+  ['Bacopa', 'Tier D for ADHD', 'Memory evidence does not automatically translate to ADHD', '/guides/adhd/best-supplements-for-adhd/'],
 ] as const
 
 const GUIDE_REFERENCES = [
@@ -145,7 +145,7 @@ export default function AdhdSupplementsHub() {
           Navigating natural support for focus, hyperactivity, sleep, and emotional dysregulation can be overwhelming. Rather than relying on marketing claims, this guide organizes the clinical research on common ADHD supplements using a clear hierarchy of evidence.
         </p>
         <div className="mt-6 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
-          <Link href="/guides/adhd/best-supplements-for-adhd" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/guides/adhd/best-supplements-for-adhd/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Read Pillar Review →
           </Link>
           <Link href="/guides/adhd/adhd-stack-guide" className="text-brand-700 hover:text-brand-800 hover:underline">

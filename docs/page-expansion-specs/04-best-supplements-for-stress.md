@@ -35,7 +35,7 @@
 
 ## Suggested internal links
 
-- [`/guides/best-adaptogens-for-stress`](/guides/best-adaptogens-for-stress)
+- [`/guides/best-adaptogens-for-stress`](/guides/best-adaptogens-for-stress/)
 - [`/guides/how-to-lower-cortisol-naturally`](/guides/how-to-lower-cortisol-naturally)
 - [`/herbs/ashwagandha`](/herbs/ashwagandha)
 - [`/herbs/rhodiola`](/herbs/rhodiola)

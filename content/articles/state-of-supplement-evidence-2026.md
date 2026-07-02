@@ -167,7 +167,7 @@ Each study is graded on design quality (RCT > controlled > observational > case 
 
 ## Related Articles
 
-- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)
-- [Adaptogenic Compounds: Clinical Evidence](/articles/adaptogenic-natural-compounds)
-- [Ashwagandha: Stress, Cortisol, and Anxiety](/guides/herbs/ashwagandha)
-- [Berberine: AMPK Activation and Metabolic Health](/articles/berberine)
+- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality/)
+- [Adaptogenic Compounds: Clinical Evidence](/articles/adaptogenic-natural-compounds/)
+- [Ashwagandha: Stress, Cortisol, and Anxiety](/guides/herbs/ashwagandha/)
+- [Berberine: AMPK Activation and Metabolic Health](/articles/berberine/)

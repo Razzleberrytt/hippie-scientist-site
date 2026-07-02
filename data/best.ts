@@ -7,14 +7,14 @@ export type BestPageConfig = {
 
 const bestPageHrefOverrides: Record<string, string> = {
   sleep: '/guides/best-supplements-for-sleep',
-  stress: '/guides/best-supplements-for-stress',
+  stress: '/guides/best-supplements-for-stress/',
   focus: '/guides/best-supplements-for-focus',
   'fat-loss': '/best-supplements-for-fat-loss',
   'gut-health': '/best-supplements-for-gut-health',
   'joint-support': '/best-supplements-for-joint-support',
   'blood-pressure': '/best-supplements-for-blood-pressure',
-  anxiety: '/guides/best-herbs-for-anxiety',
-  adaptogens: '/guides/best-adaptogens-for-stress',
+  anxiety: '/guides/best-herbs-for-anxiety/',
+  adaptogens: '/guides/best-adaptogens-for-stress/',
   'brain-fog': '/guides/supplements-for-brain-fog-and-fatigue',
   'non-melatonin-sleep': '/guides/best-supplements-for-sleep',
   'falling-asleep': '/guides/best-supplements-for-sleep',

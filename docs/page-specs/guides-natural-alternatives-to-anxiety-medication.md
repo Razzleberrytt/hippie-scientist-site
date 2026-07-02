@@ -58,7 +58,7 @@
 
 > Funnel toward money pages (#1–#9). Lists are directional, not exhaustive.
 
-- [`/guides/best-herbs-for-anxiety`](/guides/best-herbs-for-anxiety)
+- [`/guides/best-herbs-for-anxiety`](/guides/best-herbs-for-anxiety/)
 - [`/articles/natural-anxiety-relief`](/articles/natural-anxiety-relief)
 - [`/herbs/kava`](/herbs/kava)
 - [`/herbs/passionflower`](/herbs/passionflower)

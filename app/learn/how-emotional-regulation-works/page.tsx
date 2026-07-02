@@ -44,7 +44,7 @@ const related = [
     title: 'Stress Regulation',
   },
   {
-    href: '/learn/what-is-anxiety-neurochemistry',
+    href: '/learn/what-is-anxiety-neurochemistry/',
     title: 'Anxiety Neurochemistry',
   },
 ]

@@ -30,7 +30,7 @@ export const metadata = buildPageMetadata({
 
 const breadcrumbs = [
   { name: 'Home', url: '/' },
-  { name: 'Anxiety', url: '/guides/anxiety/natural-anxiety-relief' },
+  { name: 'Anxiety', url: '/guides/anxiety/natural-anxiety-relief/' },
   { name: 'Anxiety Stack Guide', url: `/articles/${slug}` },
 ];
 
@@ -118,11 +118,11 @@ export default function AnxietyStackGuidePage() {
             safety profile. Adding magnesium (200–400&nbsp;mg/day, glycinate form) creates the most
             reliable beginner stack. Reserve ashwagandha for when you have a clear chronic-stress
             pattern and can commit to 6–8 weeks of daily use. See the{' '}
-            <Link href="/guides/herbs/l-theanine" className="font-semibold text-brand-700 hover:underline">
+            <Link href="/guides/herbs/l-theanine/" className="font-semibold text-brand-700 hover:underline">
               full L-theanine guide
             </Link>{' '}
             and the{' '}
-            <Link href="/guides/herbs/ashwagandha" className="font-semibold text-brand-700 hover:underline">
+            <Link href="/guides/herbs/ashwagandha/" className="font-semibold text-brand-700 hover:underline">
               ashwagandha guide
             </Link>
             .
@@ -151,9 +151,9 @@ export default function AnxietyStackGuidePage() {
               The three supplements most commonly discussed for anxiety support in this cluster are:
             </p>
             <ul>
-              <li><strong>Ashwagandha</strong> — Adaptogen with research on chronic stress and stress-related anxiety. See <Link href="/guides/herbs/ashwagandha" className="text-primary underline">Ashwagandha for Anxiety</Link> or the umbrella <Link href="/guides/herbs/ashwagandha" className="text-primary underline">Ashwagandha article</Link>.</li>
-              <li><strong>L-Theanine</strong> — Amino acid from tea that may promote calm focus and relaxation without heavy sedation. See <Link href="/guides/herbs/l-theanine" className="text-primary underline">L-Theanine for Anxiety</Link> or the umbrella <Link href="/guides/herbs/l-theanine" className="text-primary underline">L-Theanine article</Link>.</li>
-              <li><strong>Magnesium</strong> — Mineral involved in nervous system function and often used for physical tension and sleep support. See <Link href="/guides/sleep/magnesium-for-sleep" className="text-primary underline">Magnesium for Sleep</Link>.</li>
+              <li><strong>Ashwagandha</strong> — Adaptogen with research on chronic stress and stress-related anxiety. See <Link href="/guides/herbs/ashwagandha/" className="text-primary underline">Ashwagandha for Anxiety</Link> or the umbrella <Link href="/guides/herbs/ashwagandha/" className="text-primary underline">Ashwagandha article</Link>.</li>
+              <li><strong>L-Theanine</strong> — Amino acid from tea that may promote calm focus and relaxation without heavy sedation. See <Link href="/guides/herbs/l-theanine/" className="text-primary underline">L-Theanine for Anxiety</Link> or the umbrella <Link href="/guides/herbs/l-theanine/" className="text-primary underline">L-Theanine article</Link>.</li>
+              <li><strong>Magnesium</strong> — Mineral involved in nervous system function and often used for physical tension and sleep support. See <Link href="/guides/sleep/magnesium-for-sleep/" className="text-primary underline">Magnesium for Sleep</Link>.</li>
             </ul>
           </div>
         </section>
@@ -381,13 +381,13 @@ export default function AnxietyStackGuidePage() {
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Related Articles</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Link href="/guides/anxiety/natural-anxiety-relief" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+            <Link href="/guides/anxiety/natural-anxiety-relief/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               Natural Anxiety Relief: Evidence-Based Approaches
             </Link>
-            <Link href="/guides/herbs/ashwagandha" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+            <Link href="/guides/herbs/ashwagandha/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               Ashwagandha: Full Guide
             </Link>
-            <Link href="/guides/herbs/l-theanine" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+            <Link href="/guides/herbs/l-theanine/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               L-Theanine: Full Guide
             </Link>
             <Link href="/guides/anxiety/cbd-vs-ashwagandha-for-anxiety" className="block p-4 border rounded-lg hover:bg-muted transition-colors">

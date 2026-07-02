@@ -40,7 +40,7 @@ const relatedSystems = [
   { href: '/protocols/burnout-recovery', title: 'Burnout Recovery' },
   { href: '/protocols/overstimulation-recovery', title: 'Overstimulation Recovery' },
   { href: '/education/why-calm-focus-differs-from-stimulation', title: 'Calm Focus and Stimulation' },
-  { href: '/education/why-fatigue-is-biologically-complex', title: 'Fatigue Complexity' },
+  { href: '/education/why-fatigue-is-biologically-complex/', title: 'Fatigue Complexity' },
 ]
 
 export default function RecoveryOrientedProductivityPage() {

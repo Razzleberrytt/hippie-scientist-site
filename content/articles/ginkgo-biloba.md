@@ -496,6 +496,6 @@ Beyond cognition, the evidence for tinnitus (particularly with EGb 761 or stabil
 
 ## Related Articles
 
-- [Bacopa Monnieri: Memory and Focus](/articles/bacopa-monnieri)
-- [Lion's Mane: Mechanisms and Clinical Evidence](/articles/lions-mane)
-- [Creatine for Brain Health](/articles/creatine-brain-health)
+- [Bacopa Monnieri: Memory and Focus](/articles/bacopa-monnieri/)
+- [Lion's Mane: Mechanisms and Clinical Evidence](/articles/lions-mane/)
+- [Creatine for Brain Health](/articles/creatine-brain-health/)

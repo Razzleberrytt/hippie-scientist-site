@@ -62,7 +62,7 @@
 - [`/compare/sleep-herbs-vs-melatonin`](/compare/sleep-herbs-vs-melatonin)
 - [`/best-supplements-for-sleep`](/best-supplements-for-sleep)
 - [`/guides/best-supplements-for-sleep`](/guides/best-supplements-for-sleep)
-- [`/articles/magnesium-types-for-sleep`](/articles/magnesium-types-for-sleep)
+- [`/articles/magnesium-types-for-sleep`](/articles/magnesium-types-for-sleep/)
 - [`/compounds/melatonin`](/compounds/melatonin)
 - [`/compounds/magnesium`](/compounds/magnesium)
 

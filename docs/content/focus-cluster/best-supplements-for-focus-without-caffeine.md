@@ -75,7 +75,7 @@ Human evidence supports benefits for relaxed attention and sleep quality. One ra
 - Calm focus: 100–200 mg
 - Sleep support: 200–400 mg in the evening
 
-See our dedicated guide: [L-Theanine for ADHD](/l-theanine-for-adhd).
+See our dedicated guide: [L-Theanine for ADHD](/l-theanine-for-adhd/).
 
 ## 2. Citicoline
 
@@ -89,7 +89,7 @@ Direct ADHD evidence is limited, but human studies in cognitive impairment and a
 
 250–500 mg daily, taken in the morning or early afternoon.
 
-See our comparison: [Citicoline vs Alpha-GPC](/citicoline-vs-alpha-gpc).
+See our comparison: [Citicoline vs Alpha-GPC](/citicoline-vs-alpha-gpc/).
 
 ## 3. Magnesium Glycinate
 
@@ -103,7 +103,7 @@ Evidence from observational studies and supplementation trials shows modest bene
 
 200–400 mg elemental magnesium in the evening.
 
-See our guide: [Magnesium for ADHD](/magnesium-for-adhd).
+See our guide: [Magnesium for ADHD](/magnesium-for-adhd/).
 
 ## 4. Omega-3 Fish Oil
 
@@ -117,7 +117,7 @@ Meta-analyses of randomized trials, including Bloch & Qawasmi, 2011, show small-
 
 1,000–2,000 mg combined EPA + DHA daily. EPA-dominant formulas are often preferred.
 
-See our guide: [Omega-3 for ADHD](/omega-3-for-adhd).
+See our guide: [Omega-3 for ADHD](/omega-3-for-adhd/).
 
 ## 5. Rhodiola Rosea
 

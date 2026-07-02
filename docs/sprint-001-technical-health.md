@@ -46,10 +46,10 @@ dynamically-generated `[slug]` routes. All 11 targets build and render real page
 | guides/magnesium-vs-melatonin | /compare/magnesium-vs-melatonin | REAL |
 | guides/focus-without-caffeine-crash | /compare/caffeine-vs-l-theanine | REAL |
 | guides/kava | /guides/ashwagandha | REAL |
-| guides/kratom-7oh-withdrawal-management | /articles/mitragynine, /articles/7-hydroxymitragynine | REAL |
+| guides/kratom-7oh-withdrawal-management | /articles/mitragynine/, /articles/7-hydroxymitragynine/ | REAL |
 | guides/supplements-for-brain-fog-and-fatigue | /compare/creatine-vs-caffeine | REAL |
 | compare/berberine-vs-metformin | /compare/berberine-vs-inositol, /compare/berberine-vs-psyllium | REAL |
-| compare/mitragynine-vs-7-hydroxymitragynine | /articles/mitragynine, /articles/7-hydroxymitragynine | REAL |
+| compare/mitragynine-vs-7-hydroxymitragynine | /articles/mitragynine/, /articles/7-hydroxymitragynine/ | REAL |
 
 **Fix:** `buildKnownRouteSet()` now unions in the actual built routes from `out/` when present, so
 real dynamic routes are recognized while genuinely-missing routes are still flagged.

@@ -1,51 +1,52 @@
-You are Claude Code/Codex working inside my existing project workspace.
+# Codex/Claude Anti-Timeout Repo Replacement Prompt
 
-I have attached a zip named `hippie-scientist-site-main-seo-audited.zip`. Replace the current buggy repository with the audited version in that zip while preserving local secrets and deployment settings.
+Use this prompt after uploading `hippie-scientist-site-main-31-seo-audited.zip` into the root of your current local repository.
 
-Do this carefully:
+```md
+You are in the root of my current buggy repository. I have placed this file in the repo root:
 
-1. Back up the current repository first, or work on a new branch.
-2. Do not overwrite `.env`, `.env.local`, `.env.*.local`, or any production secret files.
-3. Unzip `hippie-scientist-site-main-seo-audited.zip` into a temporary directory.
-4. Replace the existing repo contents with the unzipped audited repo contents. Use a sync command that deletes obsolete source files but excludes:
-   - `.env*`
-   - `node_modules`
-   - `.next`
-   - `out`
-   - `.git`
-   - local IDE/cache files
-5. Install dependencies with `npm ci`.
-6. Run these validation commands and stop if any fail:
-   ```bash
-   npm run -s typecheck
-   npm run -s lint:nocache
-   npm run -s validate:route-seo
-   npm run -s audit:metadata
-   npm run -s validate:static-export
-   npm run -s validate:security-headers
-   npm run -s validate:canonical-host
-   npm run -s build
-   npm run -s validate:sitemap:built
-   npm run -s validate:sitemap-completeness
-   npm run -s seo:audit-sitemap
-   npm run -s audit:structured-data
-   npm run -s audit:seo-routes
-   npm run -s audit:sitemap-affiliate
-   npm run -s validate:build-seo-metadata
-   npm run -s validate:deploy-readiness
-   ```
-7. Confirm that `npm run -s seo:audit-sitemap` reports:
-   - 454 total URLs
-   - 454 live indexable URLs
-   - 0 canonical mismatches
-   - 0 noindex URLs in sitemap
-   - 0 missing canonicals
-8. Confirm that `npm run -s audit:seo-routes` reports:
-   - severe=0
-   - blockingSevere=0
-   - moderate=0
-9. Review `AUDIT_SUMMARY_SEO_FIXES.md` in the repo root for a summary of what changed.
-10. Commit the replacement with a message like:
-   `Fix sitemap canonicalization and SEO metadata audit failures`
+`hippie-scientist-site-main-31-seo-audited.zip`
 
-The most important fix in this zip is that sitemap-listed routes now self-canonicalize correctly. Do not reintroduce canonicals that point from `/guides/.../` sitemap URLs to non-existent `/articles/.../`, `/best-.../`, or top-level guide aliases.
+Do not audit, refactor, summarize every file, run a build, or inspect the whole repository. Your task is only to replace the working tree with the contents of the zip.
+
+Run these shell commands exactly, adapting only if the zip filename differs:
+
+```bash
+set -euo pipefail
+
+ZIP="hippie-scientist-site-main-31-seo-audited.zip"
+WORK="/tmp/hippie-scientist-site-replace"
+
+test -f "$ZIP"
+
+rm -rf "$WORK"
+mkdir -p "$WORK"
+unzip -q "$ZIP" -d "$WORK"
+
+test -f "$WORK/hippie-scientist-site-main/package.json"
+
+git status --short > /tmp/pre-replace-status.txt
+
+rsync -a --delete \
+  --exclude='.git/' \
+  --exclude='node_modules/' \
+  --exclude='.next/' \
+  --exclude='out/' \
+  --exclude='.vercel/' \
+  --exclude="$ZIP" \
+  "$WORK/hippie-scientist-site-main/" \
+  ./
+
+git status --short
+git diff --stat
+```
+
+Stop after `git diff --stat`. Do not run the build in this same Codex turn.
+
+Report only:
+1. Whether the replacement succeeded.
+2. The `git diff --stat`.
+3. Any shell error, if one occurred.
+
+Do not perform additional analysis.
+```

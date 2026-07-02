@@ -3,7 +3,7 @@
 Status: Approved for implementation
 Cluster: Focus / ADHD
 Type: Spoke Article
-Target URL: /articles/omega-3-and-adhd
+Target URL: /articles/omega-3-and-adhd/
 Version: 1
 
 ---

@@ -36,13 +36,13 @@
 
 ## Suggested internal links
 
-- [`/articles/omega-3-and-adhd`](/articles/omega-3-and-adhd)
-- [`/articles/zinc-and-adhd`](/articles/zinc-and-adhd)
-- [`/articles/iron-ferritin-and-adhd`](/articles/iron-ferritin-and-adhd)
-- [`/articles/magnesium-for-adhd`](/articles/magnesium-for-adhd)
-- [`/articles/l-theanine-for-adhd`](/articles/l-theanine-for-adhd)
+- [`/articles/omega-3-and-adhd`](/articles/omega-3-and-adhd/)
+- [`/articles/zinc-and-adhd`](/articles/zinc-and-adhd/)
+- [`/articles/iron-ferritin-and-adhd`](/articles/iron-ferritin-and-adhd/)
+- [`/articles/magnesium-for-adhd`](/articles/magnesium-for-adhd/)
+- [`/articles/l-theanine-for-adhd`](/articles/l-theanine-for-adhd/)
 - [`/articles/best-magnesium-supplement-for-adhd`](/articles/best-magnesium-supplement-for-adhd)
-- [`/articles/adhd-stack-guide`](/articles/adhd-stack-guide)
+- [`/articles/adhd-stack-guide`](/articles/adhd-stack-guide/)
 - [`/guides/adhd-supplements`](/guides/adhd-supplements)
 
 ## Suggested affiliate opportunities

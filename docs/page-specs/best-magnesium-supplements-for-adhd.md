@@ -62,9 +62,9 @@
 
 - [`/articles/best-magnesium-supplement-for-adhd`](/articles/best-magnesium-supplement-for-adhd)
 - [`/articles/magnesium-glycinate-vs-citrate-for-adhd`](/articles/magnesium-glycinate-vs-citrate-for-adhd)
-- [`/articles/magnesium-for-adhd`](/articles/magnesium-for-adhd)
+- [`/articles/magnesium-for-adhd`](/articles/magnesium-for-adhd/)
 - [`/compounds/magnesium`](/compounds/magnesium)
-- [`/articles/best-supplements-for-adhd`](/articles/best-supplements-for-adhd)
+- [`/articles/best-supplements-for-adhd`](/articles/best-supplements-for-adhd/)
 - [`/guides/adhd-supplements`](/guides/adhd-supplements)
 
 ## Evidence opportunities

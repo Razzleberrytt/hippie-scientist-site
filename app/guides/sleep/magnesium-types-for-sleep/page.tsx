@@ -866,7 +866,7 @@ export default function MagnesiumTypesForSleepPage() {
               </h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 <Link
-                  href="/guides/sleep/magnesium-for-sleep"
+                  href="/guides/sleep/magnesium-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -956,7 +956,7 @@ export default function MagnesiumTypesForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/adhd/magnesium-for-adhd"
+                  href="/guides/adhd/magnesium-for-adhd/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1124,7 +1124,7 @@ export default function MagnesiumTypesForSleepPage() {
             </p>
             <div className="mt-3 space-y-2">
               <Link
-                href="/guides/sleep/magnesium-for-sleep"
+                href="/guides/sleep/magnesium-for-sleep/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Magnesium for sleep →

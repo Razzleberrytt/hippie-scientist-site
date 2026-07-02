@@ -57,7 +57,7 @@
 
 > Funnel toward money pages (#1–#9). Lists are directional, not exhaustive.
 
-- [`/guides/rhodiola-complete-guide`](/guides/rhodiola-complete-guide)
+- [`/guides/rhodiola-complete-guide`](/guides/rhodiola-complete-guide/)
 - [`/guides/rhodiola-extract-vs-powder`](/guides/rhodiola-extract-vs-powder)
 - [`/guides/rhodiola-energy`](/guides/rhodiola-energy)
 - [`/compare/rhodiola-vs-ashwagandha`](/compare/rhodiola-vs-ashwagandha)

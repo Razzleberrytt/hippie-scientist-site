@@ -235,6 +235,6 @@ Elderberry is a reasonable evidence-supported supportive option for short-term u
 
 ## Related Articles
 
-- [Functional Mushrooms 101](/articles/functional-mushrooms-guide)
-- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)
-- [NAC: Glutathione and Lung Health](/articles/nac)
+- [Functional Mushrooms 101](/articles/functional-mushrooms-guide/)
+- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality/)
+- [NAC: Glutathione and Lung Health](/articles/nac/)

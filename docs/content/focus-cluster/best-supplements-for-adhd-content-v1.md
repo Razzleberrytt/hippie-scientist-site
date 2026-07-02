@@ -3,7 +3,7 @@
 Status: Approved for implementation
 Cluster: Focus / ADHD
 Type: Pillar Article
-Target URL: /articles/best-supplements-for-adhd
+Target URL: /articles/best-supplements-for-adhd/
 Version: 1
 
 ---

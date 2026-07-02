@@ -124,7 +124,7 @@ export function AdhdComparisonCard({ slug }: { slug: string }) {
       { label: 'Alpha-GPC', text: 'Provides glycerophosphate alongside choline. Increases acetylcholine output directly and crosses the blood-brain barrier very rapidly.' },
       { label: 'Cognitive Efficacy', text: 'Citicoline is preferred in clinical trials for sustained attention and mental energy; Alpha-GPC is preferred for power output and rapid memory support.' },
     ]
-    compareLink = '/guides/adhd/citicoline-vs-alpha-gpc'
+    compareLink = '/guides/adhd/citicoline-vs-alpha-gpc/'
   } else if (slug === 'omega-3-and-adhd' || slug === 'nutrient-deficiencies-and-adhd') {
     cardTitle = 'Comparison: Omega-3 vs. General Nutrient Deficiencies'
     cardDesc = 'Correcting essential fatty acid levels addresses membrane structure, whereas mineral or vitamin correction addresses metabolic enzymes.'
@@ -133,7 +133,7 @@ export function AdhdComparisonCard({ slug }: { slug: string }) {
       { label: 'Minerals (Iron, Zinc, Mg)', text: 'Direct co-factors for dopamine and norepinephrine synthesis. Crucial to test baseline levels rather than supplementing blindly.' },
       { label: 'Decision Logic', text: 'Omega-3s can be supplemented conservatively based on dietary gap; minerals like iron and zinc should be verified via blood labs first.' },
     ]
-    compareLink = '/guides/adhd/best-supplements-for-adhd'
+    compareLink = '/guides/adhd/best-supplements-for-adhd/'
   } else if (slug === 'l-theanine-vs-caffeine-for-focus') {
     cardTitle = 'Comparison: Caffeine vs. L-Theanine'
     cardDesc = 'Caffeine provides rapid, direct stimulation, while L-Theanine supports calm alpha-wave activity to smooth out neurotransmitter spikes.'

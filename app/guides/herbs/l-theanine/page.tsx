@@ -290,7 +290,7 @@ export default function LTheanineArticlePage() {
                       <td className="p-4 text-brand-700 font-medium">Moderate</td>
                       <td className="p-4 text-muted">30–60 min</td>
                       <td className="p-4">
-                        <Link href="/guides/herbs/l-theanine" className="text-brand-700 hover:underline font-medium">
+                        <Link href="/guides/herbs/l-theanine/" className="text-brand-700 hover:underline font-medium">
                           L-theanine for anxiety →
                         </Link>
                       </td>
@@ -310,7 +310,7 @@ export default function LTheanineArticlePage() {
                       <td className="p-4 text-muted">Emerging–Moderate</td>
                       <td className="p-4 text-muted">30–60 min</td>
                       <td className="p-4">
-                        <Link href="/guides/adhd/l-theanine-for-adhd" className="text-brand-700 hover:underline font-medium">
+                        <Link href="/guides/adhd/l-theanine-for-adhd/" className="text-brand-700 hover:underline font-medium">
                           L-theanine for ADHD →
                         </Link>
                       </td>
@@ -331,7 +331,7 @@ export default function LTheanineArticlePage() {
                 For most readers, the right entry point is the calm focus / caffeine smoothing
                 evidence — that is the strongest and most consistent body of research. If your
                 primary goal is anxiety, see the{' '}
-                <Link href="/guides/herbs/l-theanine" className="font-semibold text-brand-700 hover:underline">
+                <Link href="/guides/herbs/l-theanine/" className="font-semibold text-brand-700 hover:underline">
                   anxiety deep-dive
                 </Link>
                 . If sleep is primary, see{' '}
@@ -642,7 +642,7 @@ export default function LTheanineArticlePage() {
                   <p className="mt-1 text-xs leading-5 text-muted">
                     Acute calm focus (L-theanine) plus chronic stress baseline regulation
                     (ashwagandha). See the{' '}
-                    <Link href="/guides/herbs/ashwagandha" className="font-semibold text-brand-700 hover:underline">
+                    <Link href="/guides/herbs/ashwagandha/" className="font-semibold text-brand-700 hover:underline">
                       ashwagandha article
                     </Link>
                     .
@@ -697,7 +697,7 @@ export default function LTheanineArticlePage() {
               </h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 <Link
-                  href="/guides/herbs/l-theanine"
+                  href="/guides/herbs/l-theanine/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -727,7 +727,7 @@ export default function LTheanineArticlePage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/adhd/l-theanine-for-adhd"
+                  href="/guides/adhd/l-theanine-for-adhd/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -966,7 +966,7 @@ export default function LTheanineArticlePage() {
             </p>
             <div className="mt-3 space-y-2">
               <Link
-                href="/guides/herbs/l-theanine"
+                href="/guides/herbs/l-theanine/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 L-theanine for anxiety →
@@ -978,13 +978,13 @@ export default function LTheanineArticlePage() {
                 L-theanine for sleep →
               </Link>
               <Link
-                href="/guides/adhd/l-theanine-for-adhd"
+                href="/guides/adhd/l-theanine-for-adhd/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 L-theanine for ADHD →
               </Link>
               <Link
-                href="/guides/herbs/ashwagandha"
+                href="/guides/herbs/ashwagandha/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Ashwagandha article →

@@ -483,8 +483,8 @@ export default function BestMagnesiumForAdhdPage() {
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Related Articles</h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 {[
-                  ['/guides/adhd/magnesium-for-adhd', 'ADHD Cluster', 'Magnesium for ADHD', 'Full evidence review.'],
-                  ['/guides/adhd/best-supplements-for-adhd', 'Cornerstone', 'Best Supplements for ADHD', 'Evidence-ranked guide.'],
+                  ['/guides/adhd/magnesium-for-adhd/', 'ADHD Cluster', 'Magnesium for ADHD', 'Full evidence review.'],
+                  ['/guides/adhd/best-supplements-for-adhd/', 'Cornerstone', 'Best Supplements for ADHD', 'Evidence-ranked guide.'],
                   ['/guides/adhd/magnesium-glycinate-vs-citrate-for-adhd', 'ADHD Cluster', 'Glycinate vs Citrate for ADHD', 'Form comparison.'],
                   ['/guides/adhd/l-theanine-magnesium-adhd-stack', 'Stack Guide', 'L-Theanine + Magnesium Stack', 'How to combine the two.'],
                   ['/guides/adhd/sleep-and-adhd', 'Sleep + ADHD', 'Sleep and ADHD', 'Why sleep is critical in ADHD.'],
@@ -539,8 +539,8 @@ export default function BestMagnesiumForAdhdPage() {
             <p className="text-[10px] font-bold uppercase tracking-wider text-muted">ADHD cluster</p>
             <div className="mt-3 space-y-2">
               {[
-                ['/guides/adhd/best-supplements-for-adhd', 'Best supplements for ADHD →'],
-                ['/guides/adhd/magnesium-for-adhd', 'Magnesium for ADHD →'],
+                ['/guides/adhd/best-supplements-for-adhd/', 'Best supplements for ADHD →'],
+                ['/guides/adhd/magnesium-for-adhd/', 'Magnesium for ADHD →'],
                 ['/guides/adhd/l-theanine-magnesium-adhd-stack', 'L-Theanine + Magnesium Stack →'],
                 ['/guides/adhd/adhd-stack-guide', 'ADHD stack guide →'],
                 ['/guides/focus', 'Focus goal hub →'],

@@ -138,7 +138,7 @@ export default function AshwagandhaVsRhodiolaForStressPage() {
             label: 'Protocol',
             title: 'Adaptogen Stack',
             description: 'When and how to safely combine ashwagandha, rhodiola, and other adaptogens for synergy.',
-            href: '/guides/best-adaptogens-for-stress',
+            href: '/guides/best-adaptogens-for-stress/',
           },
           {
             type: 'guide',

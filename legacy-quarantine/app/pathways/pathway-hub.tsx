@@ -47,7 +47,7 @@ const configs: Record<'gaba' | 'dopamine' | 'inflammation', PathwayConfig> = {
     ],
     related: [
       { label: 'Dopamine', href: '/pathways/dopamine', description: 'Motivation, focus, reward, and cognition-adjacent neurotransmitter signals.' },
-      { label: 'Stress', href: '/guides/best-supplements-for-stress', description: 'Goal guide for cortisol, adaptation, anxiety, and stress-resilience context.' },
+      { label: 'Stress', href: '/guides/best-supplements-for-stress/', description: 'Goal guide for cortisol, adaptation, anxiety, and stress-resilience context.' },
       { label: 'Sleep', href: '/goals/sleep', description: 'Decision guide for sleep quality, nighttime relaxation, and circadian support.' },
       { label: 'Recovery', href: '/goals/recovery', description: 'Recovery-adjacent inflammation, repair, mobility, and oxidative-stress context.' },
     ],

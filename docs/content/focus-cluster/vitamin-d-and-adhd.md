@@ -35,7 +35,7 @@ The strongest clinical takeaway is simple: **Test for deficiency, correct defici
 ---
 
 > [!IMPORTANT]
-> **Bottom Line:** Vitamin D is one of several nutritional factors that can modulate ADHD symptoms and general well-being. Compared to other interventions, [iron/ferritin](/articles/iron-ferritin-and-adhd) has stronger deficiency-specific data, [omega-3](/articles/omega-3-and-adhd) has a larger overall supplementation base, and [magnesium](/articles/magnesium-for-adhd) is widely studied for sleep. Vitamin D sits in the middle: a crucial hormone precursor to replete when low, but with little benefit for those already sufficient. See our [Best Supplements for ADHD](/articles/best-supplements-for-adhd) overview and [ADHD Stack Guide](/articles/adhd-stack-guide) for comprehensive stack integration.
+> **Bottom Line:** Vitamin D is one of several nutritional factors that can modulate ADHD symptoms and general well-being. Compared to other interventions, [iron/ferritin](/articles/iron-ferritin-and-adhd/) has stronger deficiency-specific data, [omega-3](/articles/omega-3-and-adhd/) has a larger overall supplementation base, and [magnesium](/articles/magnesium-for-adhd/) is widely studied for sleep. Vitamin D sits in the middle: a crucial hormone precursor to replete when low, but with little benefit for those already sufficient. See our [Best Supplements for ADHD](/articles/best-supplements-for-adhd/) overview and [ADHD Stack Guide](/articles/adhd-stack-guide/) for comprehensive stack integration.
 
 ---
 
@@ -57,7 +57,7 @@ Never adjust or stop prescribed ADHD medication or behavioral therapies without 
 
 # What Is Vitamin D?
 
-Vitamin D is a fat-soluble hormone precursor that the human body can produce endogenously through skin exposure to ultraviolet B (UVB) radiation from sunlight. You can read our deep dive into the [Vitamin D compound profile](/compounds/vitamin-d) for full details on its pharmacology, food sources, and absorption.
+Vitamin D is a fat-soluble hormone precursor that the human body can produce endogenously through skin exposure to ultraviolet B (UVB) radiation from sunlight. You can read our deep dive into the [Vitamin D compound profile](/compounds/vitamin-d/) for full details on its pharmacology, food sources, and absorption.
 
 Primary sources of vitamin D include:
 - Skin synthesis via sunlight exposure
@@ -223,10 +223,10 @@ It is common for individuals with ADHD to present with multiple nutrient deficie
 | Nutrient | Primary Mechanism | Strongest Evidence / ADHD Role | Dosing / Repletion Principle | Safety Cautions |
 | :--- | :--- | :--- | :--- | :--- |
 | **Vitamin D** | Regulates tyrosine hydroxylase expression, neuroprotection, and HPA axis. | Consistent deficiency association; modest adjunctive benefits for attention, mood, and sleep. | Replete only if deficient (target 30–60 ng/mL). Maintenance: 1,000–2,000 IU/day. | Hypercalcemia and kidney stone risk; contraindicated in kidney disease. |
-| **[Iron / Ferritin](/articles/iron-ferritin-and-adhd)** | Essential cofactor for tyrosine hydroxylase (dopamine synthesis). | Strongest deficiency-specific link (low ferritin correlates with restless sleep/RLS and ADHD severity). | Replete if ferritin is low (target >50 ng/mL). Dosing is weight-dependent. | High toxicity risk from iron overload; never supplement without prior testing. |
-| **[Zinc](/articles/zinc-and-adhd)** | Modulates dopamine transporters/receptors; cofactor for over 300 enzymes. | Deficiencies correlate with ADHD severity; supplementation shows modest adjunctive benefits. | Replete if deficient. Standard clinical range: 15–30 mg elemental zinc daily. | High zinc can deplete copper; keep zinc:copper ratio balanced. |
-| **[Magnesium](/articles/magnesium-for-adhd)** | NMDA receptor antagonist; supports GABA transmission. | Promising data for calming, improving sleep quality, and managing daytime hyperactivity. | Daily maintenance: 100–300 mg (glycinate or L-threonate preferred). | Excess can cause diarrhea; check kidney function. |
-| **[Omega-3](/articles/omega-3-and-adhd)** | Integrates into neuron membranes; modulates signaling and inflammation. | Broadest evidence base for modest ADHD symptom improvement (attention and behavior). | General target: 1,000–2,000 mg combined EPA + DHA daily. | Mild GI effects; blood-thinning risk at extremely high doses. |
+| **[Iron / Ferritin](/articles/iron-ferritin-and-adhd/)** | Essential cofactor for tyrosine hydroxylase (dopamine synthesis). | Strongest deficiency-specific link (low ferritin correlates with restless sleep/RLS and ADHD severity). | Replete if ferritin is low (target >50 ng/mL). Dosing is weight-dependent. | High toxicity risk from iron overload; never supplement without prior testing. |
+| **[Zinc](/articles/zinc-and-adhd/)** | Modulates dopamine transporters/receptors; cofactor for over 300 enzymes. | Deficiencies correlate with ADHD severity; supplementation shows modest adjunctive benefits. | Replete if deficient. Standard clinical range: 15–30 mg elemental zinc daily. | High zinc can deplete copper; keep zinc:copper ratio balanced. |
+| **[Magnesium](/articles/magnesium-for-adhd/)** | NMDA receptor antagonist; supports GABA transmission. | Promising data for calming, improving sleep quality, and managing daytime hyperactivity. | Daily maintenance: 100–300 mg (glycinate or L-threonate preferred). | Excess can cause diarrhea; check kidney function. |
+| **[Omega-3](/articles/omega-3-and-adhd/)** | Integrates into neuron membranes; modulates signaling and inflammation. | Broadest evidence base for modest ADHD symptom improvement (attention and behavior). | General target: 1,000–2,000 mg combined EPA + DHA daily. | Mild GI effects; blood-thinning risk at extremely high doses. |
 
 ---
 

@@ -568,10 +568,10 @@ The best way to assess whether Lion's Mane is doing anything: track a specific c
 
 ## Related Articles
 
-- [Lion's Mane mechanisms and clinical evidence](/articles/lions-mane)
-- [Ginkgo Biloba evidence guide](/articles/ginkgo-biloba)
-- [L-Theanine calm-focus guide](/guides/herbs/l-theanine)
-- [Bacopa Monnieri memory evidence guide](/articles/bacopa-monnieri)
+- [Lion's Mane mechanisms and clinical evidence](/articles/lions-mane/)
+- [Ginkgo Biloba evidence guide](/articles/ginkgo-biloba/)
+- [L-Theanine calm-focus guide](/guides/herbs/l-theanine/)
+- [Bacopa Monnieri memory evidence guide](/articles/bacopa-monnieri/)
 ## Sources Cited
 
 1. Mori K, Inatomi S, Ouchi K, Azumi Y, Tuchida T. Yamabushitake and mild cognitive impairment. PMID: 18844328.

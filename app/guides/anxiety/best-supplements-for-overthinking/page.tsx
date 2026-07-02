@@ -113,7 +113,7 @@ export default function Page() {
               magnesium glycinate
             </Link>{' '}
             in the evening. See the{' '}
-            <Link href="/guides/herbs/l-theanine" className="font-semibold text-brand-700 hover:underline">
+            <Link href="/guides/herbs/l-theanine/" className="font-semibold text-brand-700 hover:underline">
               full L-theanine guide
             </Link>{' '}
             for dosing and stacking notes.

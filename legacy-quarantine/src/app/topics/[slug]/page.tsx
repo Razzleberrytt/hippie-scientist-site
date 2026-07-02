@@ -119,7 +119,7 @@ export default async function TopicHubPage({ params }: TopicRouteProps) {
                 label: 'Ashwagandha vs Rhodiola',
               },
               {
-                href: '/compare/l-theanine-vs-magnesium',
+                href: '/compare/l-theanine-vs-magnesium/',
                 label: 'L-Theanine vs Magnesium',
               },
             ]}

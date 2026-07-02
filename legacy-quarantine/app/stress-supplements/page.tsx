@@ -8,7 +8,7 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 export const metadata: Metadata = {
   title: 'Best Supplements for Stress',
   description: 'Science-backed supplements for stress. Dosage, effects, and safety.',
-  alternates: { canonical: '/guides/best-supplements-for-stress' },
+  alternates: { canonical: '/guides/best-supplements-for-stress/' },
   robots: {
     index: false,
     follow: true,

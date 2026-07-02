@@ -36,8 +36,8 @@
 
 ## Suggested internal links
 
-- [`/articles/best-herbs-for-sleep`](/articles/best-herbs-for-sleep)
-- [`/articles/magnesium-types-for-sleep`](/articles/magnesium-types-for-sleep)
+- [`/articles/best-herbs-for-sleep`](/articles/best-herbs-for-sleep/)
+- [`/articles/magnesium-types-for-sleep`](/articles/magnesium-types-for-sleep/)
 - [`/compare/sleep-herbs-vs-melatonin`](/compare/sleep-herbs-vs-melatonin)
 - [`/guides/magnesium-vs-melatonin`](/guides/magnesium-vs-melatonin)
 - [`/herbs/valerian`](/herbs/valerian)

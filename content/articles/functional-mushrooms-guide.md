@@ -89,7 +89,7 @@ references:
 
 Functional mushrooms are fungi valued for health benefits beyond basic nutrition — they contain bioactive compounds including beta-glucans, triterpenoids, polysaccharides, and antioxidants that have been studied for immune modulation, stress adaptation, cognitive support, and physical performance. They are distinct from psychedelic mushrooms and from culinary mushrooms (though many are edible).
 
-The four mushrooms covered in this guide — **reishi, cordyceps, chaga, and turkey tail** — represent the core functional mushroom pharmacopeia alongside Lion's Mane (covered separately in its [dedicated guide](/articles/lions-mane)). Each has a distinct evidence profile, traditional use history, and practical application.
+The four mushrooms covered in this guide — **reishi, cordyceps, chaga, and turkey tail** — represent the core functional mushroom pharmacopeia alongside Lion's Mane (covered separately in its [dedicated guide](/articles/lions-mane/)). Each has a distinct evidence profile, traditional use history, and practical application.
 
 ## Reishi (Ganoderma lucidum) — The "Mushroom of Immortality"
 
@@ -220,6 +220,6 @@ None of these are "magic bullets." The people who benefit most are those using t
 | 8 | Torkelson CJ et al. | Turkey tail and immune function in breast cancer | ISRN Oncol | 2012 | [23137720](https://pubmed.ncbi.nlm.nih.gov/23137720/) |
 ## Related Articles
 
-- [Lion's Mane: What the Science Actually Says](/articles/lions-mane)
-- [Mushroom Coffee: Benefits and What to Look For](/articles/mushroom-coffee-benefits-review)
-- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)
+- [Lion's Mane: What the Science Actually Says](/articles/lions-mane/)
+- [Mushroom Coffee: Benefits and What to Look For](/articles/mushroom-coffee-benefits-review/)
+- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality/)

@@ -508,6 +508,6 @@ For individuals navigating high cognitive demand, examination stress, physical e
 
 ## Related Articles
 
-- [Ashwagandha: Stress, Cortisol, and Anxiety](/guides/herbs/ashwagandha)
-- [Saffron for Depression](/articles/saffron-depression-evidence)
-- [Adaptogenic Compounds: Clinical Evidence](/articles/adaptogenic-natural-compounds)
+- [Ashwagandha: Stress, Cortisol, and Anxiety](/guides/herbs/ashwagandha/)
+- [Saffron for Depression](/articles/saffron-depression-evidence/)
+- [Adaptogenic Compounds: Clinical Evidence](/articles/adaptogenic-natural-compounds/)

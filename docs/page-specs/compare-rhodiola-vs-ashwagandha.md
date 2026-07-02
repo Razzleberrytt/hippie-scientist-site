@@ -61,10 +61,10 @@
 
 - [`/herbs/rhodiola`](/herbs/rhodiola)
 - [`/herbs/ashwagandha`](/herbs/ashwagandha)
-- [`/guides/best-adaptogens-for-stress`](/guides/best-adaptogens-for-stress)
+- [`/guides/best-adaptogens-for-stress`](/guides/best-adaptogens-for-stress/)
 - [`/best-supplements-for-stress`](/best-supplements-for-stress)
 - [`/best-supplements-for-focus`](/best-supplements-for-focus)
-- [`/guides/rhodiola-complete-guide`](/guides/rhodiola-complete-guide)
+- [`/guides/rhodiola-complete-guide`](/guides/rhodiola-complete-guide/)
 
 ## Evidence opportunities
 

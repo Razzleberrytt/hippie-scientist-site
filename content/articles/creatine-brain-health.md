@@ -168,6 +168,6 @@ At $10–20/month with an excellent safety profile, creatine monohydrate is one 
 | 6 | McMorris T et al. | Creatine and cognitive performance in young adults | Psychopharmacology | 2007 | [18059623](https://pubmed.ncbi.nlm.nih.gov/18059623/) |
 ## Related Articles
 
-- [Lion's Mane vs Stimulants for ADHD](/articles/lions-mane-vs-stimulants-adhd)
-- [Saffron for Depression](/articles/saffron-depression-evidence)
-- [Ashwagandha: Stress, Sleep & the Evidence](/guides/herbs/ashwagandha)
+- [Lion's Mane vs Stimulants for ADHD](/articles/lions-mane-vs-stimulants-adhd/)
+- [Saffron for Depression](/articles/saffron-depression-evidence/)
+- [Ashwagandha: Stress, Sleep & the Evidence](/guides/herbs/ashwagandha/)

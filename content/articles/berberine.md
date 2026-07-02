@@ -256,5 +256,5 @@ Berberine is one of the more extensively studied botanical compounds in the meta
 
 ## Related Articles
 
-- [Functional Mushrooms 101: Reishi, Cordyceps, Chaga, Turkey Tail](/articles/functional-mushrooms-guide)
-- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)
+- [Functional Mushrooms 101: Reishi, Cordyceps, Chaga, Turkey Tail](/articles/functional-mushrooms-guide/)
+- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality/)

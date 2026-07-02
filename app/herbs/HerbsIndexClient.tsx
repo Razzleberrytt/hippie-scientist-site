@@ -299,7 +299,7 @@ function HerbCard({ herb, featured = false }: { herb: RuntimeRecord; featured?: 
 const browsePaths = [
   {
     label: 'Stress & calm',
-    href: '/guides/best-supplements-for-stress',
+    href: '/guides/best-supplements-for-stress/',
     description: 'Calming herbs, adaptogens, and interaction context.',
   },
   {

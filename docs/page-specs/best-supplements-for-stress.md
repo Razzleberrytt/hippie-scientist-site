@@ -63,7 +63,7 @@
 
 > Funnel toward money pages (#1–#9). Lists are directional, not exhaustive.
 
-- [`/guides/best-adaptogens-for-stress`](/guides/best-adaptogens-for-stress)
+- [`/guides/best-adaptogens-for-stress`](/guides/best-adaptogens-for-stress/)
 - [`/guides/how-to-lower-cortisol-naturally`](/guides/how-to-lower-cortisol-naturally)
 - [`/herbs/ashwagandha`](/herbs/ashwagandha)
 - [`/herbs/rhodiola`](/herbs/rhodiola)

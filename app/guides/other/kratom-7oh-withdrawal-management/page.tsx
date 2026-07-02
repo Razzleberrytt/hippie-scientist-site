@@ -309,7 +309,7 @@ export default function Page() {
         <Link href="/compounds/mitragynine" className="text-sm font-medium text-emerald-700 hover:underline">Read the mitragynine monograph →</Link>
         <Link href="/guides/other/kratom-7oh-withdrawal-management" className="text-sm font-medium text-emerald-700 hover:underline">Compare mitragynine vs 7-OH →</Link>
         <Link href="/compounds/mitragynine" className="text-sm font-medium text-emerald-700 hover:underline">View mitragynine profile →</Link>
-        <Link href="/compounds/kratom" className="text-sm font-medium text-emerald-700 hover:underline">View kratom profile →</Link>
+        <Link href="/compounds/kratom/" className="text-sm font-medium text-emerald-700 hover:underline">View kratom profile →</Link>
         <Link href="/compounds/7-hydroxymitragynine" className="text-sm font-medium text-emerald-700 hover:underline">View 7-OH compound profile →</Link>
       </div>
     </div>

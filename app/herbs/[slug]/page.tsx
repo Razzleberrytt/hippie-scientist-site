@@ -70,6 +70,26 @@ const HERB_CANONICAL_SOURCE_ALIASES: Record<string, string> = {
   'ashwagandha-withania-somnifera': 'ashwagandha',
 }
 
+const HERB_META_DESCRIPTION_OVERRIDES: Record<string, string> = {
+  'ashwagandha-withania-somnifera':
+    'Ashwagandha alias page for Withania somnifera with canonical safety, dosage, and evidence context pointing to the primary Ashwagandha profile.',
+  'milk-thistle':
+    'Milk thistle herb profile covering seed-focused use, liver-support context, antioxidant mechanisms, dosage, and safety considerations.',
+  'silybum-marianum':
+    'Silybum marianum herb profile covering silymarin antioxidant mechanisms, hepatocyte support context, dosage, and safety considerations.',
+}
+
+function withMetadataDescriptionOverride(metadata: Metadata, description?: string): Metadata {
+  if (!description) return metadata
+
+  return {
+    ...metadata,
+    description,
+    ...(metadata.openGraph ? { openGraph: { ...metadata.openGraph, description } } : {}),
+    ...(metadata.twitter ? { twitter: { ...metadata.twitter, description } } : {}),
+  }
+}
+
 export async function generateStaticParams() {
   const herbs = await getHerbSummaryIndex()
 
@@ -104,7 +124,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   // data source slug (e.g. ashwagandha-withania-somnifera → ashwagandha).
   const aliasCanonicalSlug = HERB_CANONICAL_SOURCE_ALIASES[canonicalSlug] ? sourceSlug : null
 
-  const metadata = generateDetailMetadata({ ...herb, slug: aliasCanonicalSlug ?? canonicalSlug }, 'herb')
+  const descriptionOverride =
+    HERB_META_DESCRIPTION_OVERRIDES[normalizedSlug] || HERB_META_DESCRIPTION_OVERRIDES[canonicalSlug]
+  const metadata = withMetadataDescriptionOverride(
+    generateDetailMetadata({ ...herb, slug: aliasCanonicalSlug ?? canonicalSlug }, 'herb'),
+    descriptionOverride,
+  )
 
   if (canonicalSlug !== normalizedSlug) {
     const indexDecision = shouldIndexRoute(`/herbs/${canonicalSlug}`, { ...herb, slug: canonicalSlug })

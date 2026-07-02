@@ -63,7 +63,7 @@
 > Funnel toward money pages (#1–#9). Lists are directional, not exhaustive.
 
 - [`/best-supplements-for-stress`](/best-supplements-for-stress)
-- [`/guides/best-adaptogens-for-stress`](/guides/best-adaptogens-for-stress)
+- [`/guides/best-adaptogens-for-stress`](/guides/best-adaptogens-for-stress/)
 - [`/compare/rhodiola-vs-ashwagandha`](/compare/rhodiola-vs-ashwagandha)
 - [`/articles/ashwagandha-for-anxiety`](/articles/ashwagandha-for-anxiety)
 - [`/articles/ashwagandha-for-sleep`](/articles/ashwagandha-for-sleep)

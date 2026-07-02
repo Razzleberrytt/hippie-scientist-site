@@ -290,6 +290,6 @@ Emerging psychiatric evidence (schizophrenia negative symptoms, OCD spectrum, ad
 
 ## Related Articles
 
-- [Berberine: The Evidence-Based Guide](/articles/berberine)
-- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality)
-- [Creatine for Brain Health](/articles/creatine-brain-health)
+- [Berberine: The Evidence-Based Guide](/articles/berberine/)
+- [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality/)
+- [Creatine for Brain Health](/articles/creatine-brain-health/)

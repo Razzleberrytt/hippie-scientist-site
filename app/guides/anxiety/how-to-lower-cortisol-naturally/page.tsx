@@ -208,7 +208,7 @@ export default function Page() {
               and can blunt the stress response under demanding conditions. Best taken in the morning at
               200–400&nbsp;mg of a standardized extract; it can disrupt sleep if taken late. Explore the
               full{' '}
-              <Link href="/guides/rhodiola-complete-guide" className="font-medium text-brand-700 hover:underline">rhodiola guide</Link>.
+              <Link href="/guides/rhodiola-complete-guide/" className="font-medium text-brand-700 hover:underline">rhodiola guide</Link>.
             </p>
           </article>
 
@@ -274,10 +274,10 @@ export default function Page() {
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Related guides &amp; comparisons</h2>
           <div className="grid gap-3 sm:grid-cols-2">
-            <Link href="/guides/best-supplements-for-stress" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Supplements for Stress →</Link>
+            <Link href="/guides/best-supplements-for-stress/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Supplements for Stress →</Link>
             <Link href="/guides/anxiety/best-adaptogens-for-stress" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Adaptogens for Stress →</Link>
             <Link href="/guides/best-herbs-for-stress-and-anxiety-at-night" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Stress &amp; Anxiety at Night →</Link>
-            <Link href="/guides/rhodiola-complete-guide" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Complete Rhodiola Guide →</Link>
+            <Link href="/guides/rhodiola-complete-guide/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Complete Rhodiola Guide →</Link>
             <Link href="/guides/compare/rhodiola-vs-ashwagandha" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Rhodiola vs Ashwagandha →</Link>
             <Link href="/guides/anxiety" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Stress Guides →</Link>
           </div>

@@ -65,7 +65,7 @@ const FAQS = [
 export default function AshwagandhaForAnxietyPage() {
   const pageBreadcrumb = breadcrumbJsonLd([
     { name: 'Home', url: 'https://thehippiescientist.net' },
-    { name: 'Anxiety', url: 'https://thehippiescientist.net/guides/anxiety/natural-anxiety-relief' },
+    { name: 'Anxiety', url: 'https://thehippiescientist.net/guides/anxiety/natural-anxiety-relief/' },
     { name: TITLE, url: `https://thehippiescientist.net/articles/${SLUG}` },
   ])
 
@@ -114,13 +114,13 @@ export default function AshwagandhaForAnxietyPage() {
             Onset is slow &mdash; meaningful effects typically require 6&ndash;8 weeks of consistent
             use at 300&ndash;600&nbsp;mg/day of a standardized extract (KSM-66 or Sensoril). If you
             need faster relief for racing thoughts or situational anxiety,{' '}
-            <Link href="/guides/herbs/l-theanine" className="text-primary underline font-semibold">L-theanine</Link>{' '}
+            <Link href="/guides/herbs/l-theanine/" className="text-primary underline font-semibold">L-theanine</Link>{' '}
             (100&ndash;200&nbsp;mg) works within 30&ndash;60 minutes and is a cleaner first choice for
             acute anxiety. Ashwagandha is best reserved for chronic, stress-driven anxiety where you can
             commit to a multi-week course. See the{' '}
-            <Link href="/guides/herbs/ashwagandha" className="text-primary underline font-semibold">ashwagandha article</Link>{' '}
+            <Link href="/guides/herbs/ashwagandha/" className="text-primary underline font-semibold">ashwagandha article</Link>{' '}
             for the full evidence review and the{' '}
-            <Link href="/guides/anxiety/natural-anxiety-relief" className="text-primary underline font-semibold">natural anxiety relief hub</Link>{' '}
+            <Link href="/guides/anxiety/natural-anxiety-relief/" className="text-primary underline font-semibold">natural anxiety relief hub</Link>{' '}
             for how it fits alongside other options.
           </p>
         </div>
@@ -236,10 +236,10 @@ export default function AshwagandhaForAnxietyPage() {
             <p>
               Many people use them together or at different times of day. See our comparison in the{' '}
               <Link href="/guides/sleep/l-theanine-for-sleep" className="text-primary underline">L-Theanine for Sleep</Link>, the umbrella{' '}
-              <Link href="/guides/herbs/l-theanine" className="text-primary underline">L-Theanine article</Link>, and the{' '}
-              <Link href="/guides/anxiety/natural-anxiety-relief" className="text-primary underline">Natural Anxiety Relief</Link>{' '}
+              <Link href="/guides/herbs/l-theanine/" className="text-primary underline">L-Theanine article</Link>, and the{' '}
+              <Link href="/guides/anxiety/natural-anxiety-relief/" className="text-primary underline">Natural Anxiety Relief</Link>{' '}
               hub. For the full{' '}
-              <Link href="/guides/herbs/ashwagandha" className="text-primary underline">ashwagandha evidence review</Link>, see the umbrella article.
+              <Link href="/guides/herbs/ashwagandha/" className="text-primary underline">ashwagandha evidence review</Link>, see the umbrella article.
             </p>
           </div>
         </section>
@@ -258,7 +258,7 @@ export default function AshwagandhaForAnxietyPage() {
             </p>
             <p>
               See related content:{' '}
-              <Link href="/guides/sleep/magnesium-for-sleep" className="text-primary underline">Magnesium for Sleep</Link> and{' '}
+              <Link href="/guides/sleep/magnesium-for-sleep/" className="text-primary underline">Magnesium for Sleep</Link> and{' '}
               <Link href="/guides/sleep/best-herbs-for-sleep" className="text-primary underline">Best Herbs for Sleep</Link>.
             </p>
           </div>
@@ -370,10 +370,10 @@ export default function AshwagandhaForAnxietyPage() {
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Related Articles</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Link href="/guides/anxiety/natural-anxiety-relief" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+            <Link href="/guides/anxiety/natural-anxiety-relief/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               Natural Anxiety Relief: Evidence-Based Approaches
             </Link>
-            <Link href="/guides/anxiety/l-theanine-for-anxiety" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+            <Link href="/guides/anxiety/l-theanine-for-anxiety/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               L-Theanine for Anxiety
             </Link>
             <Link href="/guides/anxiety/cbd-vs-ashwagandha-for-anxiety" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
@@ -385,7 +385,7 @@ export default function AshwagandhaForAnxietyPage() {
             <Link href="/guides/sleep/ashwagandha-for-sleep" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               Ashwagandha for Sleep
             </Link>
-            <Link href="/guides/herbs/l-theanine" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+            <Link href="/guides/herbs/l-theanine/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               L-Theanine: Full Guide
             </Link>
             <Link href="/guides/anxiety" className="block p-4 border rounded-lg hover:bg-muted transition-colors">

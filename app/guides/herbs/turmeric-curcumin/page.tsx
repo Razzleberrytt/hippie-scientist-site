@@ -142,7 +142,7 @@ const RELATED_GUIDES = [
     type: 'guide' as const,
   },
   {
-    href: '/guides/sleep/magnesium-for-sleep',
+    href: '/guides/sleep/magnesium-for-sleep/',
     label: 'Magnesium for Sleep Guide',
     description: 'Form comparison, dosage, and evidence review for magnesium as a sleep and anxiety support supplement.',
     type: 'guide' as const,
