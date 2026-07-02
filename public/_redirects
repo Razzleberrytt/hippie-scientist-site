@@ -407,6 +407,10 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /compounds/curcumin/ /herbs/curcumin/ 301
 /compounds/phosphatidylserine /compounds/ 301
 /compounds/phosphatidylserine/ /compounds/ 301
+/compounds/berberine-hcl /compounds/berberine/ 301
+/compounds/berberine-hcl/ /compounds/berberine/ 301
+/compounds/nr /compounds/nicotinamide-riboside/ 301
+/compounds/nr/ /compounds/nicotinamide-riboside/ 301
 /focus-cluster/* /articles/:splat 301
 /focus-cluster /articles/ 301
 /focus-cluster/ /articles/ 301

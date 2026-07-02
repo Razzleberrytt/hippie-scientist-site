@@ -56,7 +56,7 @@ if (!FULL_HTML_AUDIT) {
 const routes=new Set(files.map(routeFromFile))
 const graph=new Map([...routes].map(r=>[r,new Set()]))
 const hrefRe=/href=["'](\/[^"'#\s>]+)["']/g
-const robotsNoindexRe=/<meta\s+[^>]*name=["']robots["'][^"']*\bnoindex\b/i
+const robotsNoindexRe=/<meta\b(?=[^>]*\bname=["']robots["'])(?=[^>]*\bcontent=["'][^"']*\bnoindex\b)[^>]*>/i
 
 function nonCanonicalInternalHref(href) {
   if (!href || href === '/' || href.includes('?') || href.includes('#')) return null

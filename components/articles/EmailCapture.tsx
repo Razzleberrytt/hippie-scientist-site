@@ -12,7 +12,7 @@ type EmailCaptureProps = {
 
 type SubmitState = 'idle' | 'loading' | 'success' | 'error'
 
-const CHECKLIST_URL = '/lead-magnets/adhd-supplement-starter-checklist.html'
+const CHECKLIST_URL = '/lead-magnets/adhd-supplement-starter-checklist/'
 
 export default function EmailCapture({ title, description, ctaLabel, magnet }: EmailCaptureProps) {
   const titleId = useId()
