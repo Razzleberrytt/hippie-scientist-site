@@ -20,11 +20,12 @@
  * 7. build-route-manifest (route discovery)
  * 8. build-internal-link-engine (semantic internal links)
  * 9. build-sitemap-manifest (SEO sitemap)
- * 9. build-export-batches (batch optimization)
- * 10. build-semantic-snapshots (snapshot generation)
- * 11. build-production (next build)
- * 12. repair-static-blog-h1s (legacy static blog heading repair)
- * 13. build-pagefind (static search index)
+ * 10. build-export-batches (batch optimization)
+ * 11. build-semantic-snapshots (snapshot generation)
+ * 12. build-production (next build)
+ * 13. validate-sitemap-static (prove /sitemap.xml is real XML, not HTML)
+ * 14. repair-static-blog-h1s (legacy static blog heading repair)
+ * 15. build-pagefind (static search index)
  *
  * Time estimate: cold builds are dominated by Next static export and Pagefind;
  * warm builds skip cacheable generation steps when inputs and outputs match.
@@ -140,6 +141,13 @@ const steps = [
     outputs: ['out/**/*', '.next/**/*'],
   },
   {
+    name: 'validate-sitemap-static',
+    cmd: 'node scripts/ci/validate-sitemap.mjs --require-built',
+    inputs: ['out/sitemap.xml', 'scripts/ci/validate-sitemap.mjs'],
+    outputs: [],
+    cacheable: false,
+  },
+  {
     name: 'repair-static-blog-h1s',
     cmd: 'node scripts/ci/repair-static-blog-h1s.mjs',
     inputs: ['out/blog/**/*', 'scripts/ci/repair-static-blog-h1s.mjs'],
@@ -219,29 +227,11 @@ for (const step of steps) {
   }
 }
 
-if (!failed) {
-  const totalDuration = performance.now() - startTime
-  const cachedSteps = executed.filter(s => s.cached).length
-  const executedSteps = executed.filter(s => !s.cached && !s.failed).length
+const totalSeconds = ((performance.now() - startTime) / 1000).toFixed(2)
 
-  console.log(`
-╔════════════════════════════════════════════════╗
-║           ✓ Deploy Build Successful!           ║
-╚════════════════════════════════════════════════╝
-
-Summary:
-  Total Time: ${(totalDuration / 1000).toFixed(2)}s
-  Steps Executed: ${executedSteps}
-  Steps Cached: ${cachedSteps}
-  Total Steps: ${executed.length}
-
-Next Steps:
-  1. Verify output: npm run build:qa
-  2. Deploy to Cloudflare Pages
-
-Pro Tip: To clear build cache, run:
-  npm run cache:clear
-`)
-} else {
+if (failed) {
+  console.error(`\n[build-deploy] FAILED after ${totalSeconds}s. Deployment should not continue.`)
   process.exit(1)
 }
+
+console.log(`\n[build-deploy] PASS: ${executed.length} steps completed in ${totalSeconds}s.`)
