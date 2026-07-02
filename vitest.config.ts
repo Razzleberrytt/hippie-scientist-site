@@ -1,9 +1,30 @@
 import { defineConfig } from 'vitest/config'
-import { transformWithOxc } from 'vite'
+import { transformWithOxc, type Plugin } from 'vite'
 import path from 'path'
+
+function workspaceAliasPlugin(): Plugin {
+  return {
+    name: 'workspace-alias',
+    enforce: 'pre' as const,
+    async resolveId(source: string, importer: string | undefined) {
+      const match = source.match(/^@\/(.*)$/)
+      if (!match) return null
+
+      const relativePath = match[1]
+      const srcAttempt = path.resolve(__dirname, 'src', relativePath)
+      const resolvedSrc = await this.resolve(srcAttempt, importer, { skipSelf: true })
+      if (resolvedSrc) return resolvedSrc.id
+
+      const rootAttempt = path.resolve(__dirname, relativePath)
+      const resolvedRoot = await this.resolve(rootAttempt, importer, { skipSelf: true })
+      return resolvedRoot?.id ?? null
+    },
+  }
+}
 
 export default defineConfig({
   plugins: [
+    workspaceAliasPlugin(),
     {
       name: 'vitest-tsx-transform',
       enforce: 'pre',
@@ -27,22 +48,6 @@ export default defineConfig({
     maxWorkers: '50%',
     testTimeout: 15000,
     pool: 'forks',
-    fileParallelism: false,
-  },
-  resolve: {
-    alias: [
-      {
-        find: /^@\/(.*)$/,
-        replacement: '$1',
-        async customResolver(source: any, importer: any, options: any) {
-          const srcAttempt = path.resolve(__dirname, 'src', source)
-          const resolvedSrc = await this.resolve(srcAttempt, importer, { skipSelf: true })
-          if (resolvedSrc) return resolvedSrc
-
-          const rootAttempt = path.resolve(__dirname, source)
-          return this.resolve(rootAttempt, importer, { skipSelf: true })
-        }
-      }
-    ] as any
+    fileParallelism: true,
   },
 })

@@ -23,10 +23,10 @@ import { createHash } from 'crypto'
 import globPkg from 'glob'
 import { fileURLToPath } from 'url'
 
-const { glob } = globPkg
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const projectRoot = path.resolve(__dirname, '../..')
 const cacheDir = path.join(projectRoot, '.build-cache')
+const CACHE_VERSION = 2
 
 function arrayish(value) {
   if (Array.isArray(value)) return value
@@ -52,7 +52,7 @@ async function hashFiles(patterns, baseDir = projectRoot) {
     const cleanPattern = String(pattern || '').trim()
     if (!cleanPattern) continue
     const fullPattern = path.join(baseDir, cleanPattern)
-    const matches = arrayish(await glob(fullPattern, { absolute: true, nodir: true }))
+    const matches = globPkg.sync(fullPattern, { absolute: true, nodir: true })
     files.push(...matches)
   }
 
@@ -78,7 +78,7 @@ async function hashFiles(patterns, baseDir = projectRoot) {
  */
 function hashConfig(config) {
   return createHash('sha256')
-    .update(JSON.stringify(config, null, 2))
+    .update(JSON.stringify({ cacheVersion: CACHE_VERSION, ...config }, null, 2))
     .digest('hex')
     .substring(0, 16)
 }
@@ -219,4 +219,3 @@ if (process.argv[1] && (process.argv[1] === fileURLToPath(import.meta.url) || pr
     console.log('  node scripts/cache/build-cache-manager.mjs clear-step <stepName>')
   }
 }
-

@@ -118,6 +118,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               Page components must use <div>, <section>, <article>, etc. — NEVER another <main>. */}
           <main
             id='main-content'
+            data-pagefind-body
             className='pb-[calc(env(safe-area-inset-bottom)+9rem)] md:pb-8'
             tabIndex={-1}
           >

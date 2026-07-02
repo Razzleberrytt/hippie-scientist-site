@@ -26,8 +26,10 @@
  * 12. repair-static-blog-h1s (legacy static blog heading repair)
  * 13. build-pagefind (static search index)
  *
- * Time estimate: ~40-55s (instead of ~180s with full validation)
- * Savings: ~125s by deferring non-critical checks to npm run build:qa
+ * Time estimate: cold builds are dominated by Next static export and Pagefind;
+ * warm builds skip cacheable generation steps when inputs and outputs match.
+ * Savings come from deferring non-critical checks to npm run build:qa and
+ * reusing unchanged generated artifacts.
  */
 
 import { execSync } from 'child_process'
@@ -80,44 +82,44 @@ const steps = [
   {
     name: 'build-related-runtime-maps',
     cmd: 'node scripts/data/build-related-runtime-maps.mjs --data-dir=public/data',
-    inputs: ['public/data/**/*'],
-    outputs: ['public/data/related-maps.json'],
+    inputs: ['public/data/herbs.json', 'public/data/compounds.json', 'public/data/herbs-detail/**/*.json', 'public/data/compounds-detail/**/*.json', 'scripts/data/build-related-runtime-maps.mjs'],
+    outputs: ['public/data/runtime-maps/related-profiles.json', 'public/data/runtime-maps/comparison-map.json', 'public/data/runtime-maps/comparison-recommendations.json', 'public/data/runtime-maps/entity-to-conditions.json', 'public/data/runtime-maps/stack-map.json'],
   },
   {
     name: 'build-runtime-summary-indexes',
     cmd: 'node scripts/data/build-runtime-summary-indexes.mjs --data-dir=public/data',
-    inputs: ['public/data/**/*'],
-    outputs: ['public/data/summary-indexes.json'],
+    inputs: ['public/data/herbs.json', 'public/data/compounds.json', 'scripts/data/build-runtime-summary-indexes.mjs'],
+    outputs: ['public/data/summary-indexes/herbs-summary.json', 'public/data/summary-indexes/compounds-summary.json', 'public/data/summary-indexes/search-index.json', 'public/data/summary-indexes/alphabetical-shards.json', 'public/data/summary-indexes/entity-shards.json', 'public/data/summary-indexes/alpha-entity-shards.json'],
   },
   {
     name: 'build-route-manifest',
     cmd: 'node scripts/data/build-route-manifest.mjs --data-dir=public/data',
-    inputs: ['public/data/**/*', 'app/**/*.{ts,tsx}', 'src/**/*.{ts,tsx}'],
-    outputs: ['public/data/route-manifest.json'],
+    inputs: ['public/data/herbs.json', 'public/data/compounds.json', 'public/data/guides/**/*.json', 'app/**/*.{ts,tsx}', 'src/**/*.{ts,tsx}', 'scripts/data/build-route-manifest.mjs'],
+    outputs: ['public/data/runtime-manifests/route-manifest.json', 'public/data/runtime-manifests/route-segment-groups.json'],
   },
   {
     name: 'build-internal-link-engine',
     cmd: 'node scripts/data/build-internal-link-engine.mjs --data-dir=public/data',
-    inputs: ['public/data/**/*', 'app/**/*.{ts,tsx}', 'components/**/*.{ts,tsx}', 'data/goals.ts'],
+    inputs: ['public/data/herbs.json', 'public/data/compounds.json', 'public/data/runtime-manifests/route-manifest.json', 'app/**/*.{ts,tsx}', 'components/**/*.{ts,tsx}', 'data/goals.ts', 'scripts/data/build-internal-link-engine.mjs'],
     outputs: ['public/data/runtime-maps/internal-link-map.json', 'public/data/runtime-maps/topic-clusters.json', 'docs/internal-link-map.md', 'docs/topic-clusters.md', 'docs/pages-needing-links.md'],
   },
   {
     name: 'build-sitemap-manifest',
     cmd: 'node scripts/data/build-sitemap-manifest.mjs --data-dir=public/data',
-    inputs: ['public/data/**/*'],
-    outputs: ['public/data/sitemap-manifest.json', 'public/sitemap.xml'],
+    inputs: ['public/data/runtime-manifests/route-manifest.json', 'scripts/data/build-sitemap-manifest.mjs'],
+    outputs: ['public/data/runtime-manifests/sitemap-chunk-manifest.json'],
   },
   {
     name: 'build-export-batches',
     cmd: 'node scripts/data/build-export-batches.mjs --data-dir=public/data',
-    inputs: ['public/data/**/*'],
-    outputs: ['public/data/export-batches/**/*'],
+    inputs: ['public/data/runtime-manifests/route-manifest.json', 'scripts/data/build-export-batches.mjs'],
+    outputs: ['public/data/runtime-manifests/export-batch-manifest.json'],
   },
   {
     name: 'build-semantic-snapshots',
     cmd: 'node scripts/data/build-semantic-snapshots.mjs --data-dir=public/data',
-    inputs: ['public/data/**/*'],
-    outputs: ['public/data/semantic-snapshots/**/*'],
+    inputs: ['public/data/herbs.json', 'public/data/compounds.json', 'public/data/runtime-maps/related-profiles.json', 'scripts/data/build-semantic-snapshots.mjs'],
+    outputs: ['public/data/runtime-snapshots/profile-semantic-snapshots.json'],
   },
   {
     name: 'build-production',
@@ -146,8 +148,8 @@ const steps = [
   },
   {
     name: 'build-pagefind',
-    cmd: 'npm run build:pagefind',
-    inputs: ['out/**/*'],
+    cmd: 'node node_modules/pagefind/lib/runner/bin.cjs --site out --output-path out/pagefind',
+    inputs: ['out/**/*.html', 'package.json', 'package-lock.json'],
     outputs: ['out/pagefind/**/*'],
   },
 ]
