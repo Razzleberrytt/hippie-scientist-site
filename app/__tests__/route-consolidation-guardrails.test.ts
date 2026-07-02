@@ -3,6 +3,7 @@ import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { authorityHomeLinks, bestForSlugs } from '@/app/authority-links'
 import { SEO_GUIDE_ROUTES } from '../../src/lib/canonical-routes'
+import { mobileBottomNavItems } from '../../src/components/mobile-bottom-nav'
 
 const rootDir = process.cwd()
 const redirectsPath = path.join(rootDir, 'public', '_redirects')
@@ -20,6 +21,17 @@ function parseRedirects() {
 }
 
 describe('route consolidation guardrails', () => {
+  it('keeps mobile bottom navigation off legacy redirect surfaces', () => {
+    const legacyPrefixes = ['/articles', '/compare', '/goals', '/stacks']
+    const navHrefs = mobileBottomNavItems.map((item) => item.href)
+
+    expect(navHrefs).toEqual(['/guides', '/herbs', '/search', '/compounds', '/guides/best'])
+
+    for (const href of navHrefs) {
+      expect(legacyPrefixes.some((legacyPrefix) => href === legacyPrefix || href.startsWith(`${legacyPrefix}/`))).toBe(false)
+    }
+  })
+
   it('keeps required money and goal routes directly reachable', () => {
     const redirectedSources = new Set(parseRedirects().map((redirect) => redirect.source))
 
