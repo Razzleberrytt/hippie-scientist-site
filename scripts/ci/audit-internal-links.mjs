@@ -9,6 +9,29 @@ let files=[]; const walk=d=>{for(const e of fs.readdirSync(d,{withFileTypes:true
 if(!fs.existsSync(outDir)){console.log('[audit-internal-links] SKIP: Build output not found at out/. Run npm run build first.');process.exit(0)}
 walk(outDir)
 
+const routeFromFile = (f) => '/' + path.relative(outDir, f).replace(/index\.html$/, '').replace(/\.html$/, '').replace(/\\/g, '/').replace(/\/+/g, '/').replace(/\/$/, '') || '/'
+
+function readRedirectSourcePatterns() {
+  const redirectsPath = path.join(root, 'public', '_redirects')
+  if (!fs.existsSync(redirectsPath)) return []
+
+  return fs.readFileSync(redirectsPath, 'utf8')
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith('#'))
+    .map((line) => line.split(/\s+/)[0])
+    .filter((source) => source?.startsWith('/'))
+}
+
+const redirectSourcePatterns = readRedirectSourcePatterns()
+const isRedirectSourceRoute = (route) => redirectSourcePatterns.some((source) => {
+  if (source.endsWith('/*')) return route.startsWith(source.slice(0, -1))
+  if (source.includes(':splat')) return route.startsWith(source.split(':splat')[0].replace(/\/$/, '/'))
+  return route === source.replace(/\/$/, '') || route === source
+})
+
+files = files.filter((f) => !isRedirectSourceRoute(routeFromFile(f)))
+
 if (!FULL_HTML_AUDIT) {
   const criticalSubpaths = [
     '/index.html',
@@ -30,7 +53,7 @@ if (!FULL_HTML_AUDIT) {
   console.log(`[audit-internal-links] Running in targeted mode. Scanning ${files.length} critical pages (use FULL_HTML_AUDIT=1 to audit all files).`);
 }
 
-const routes=new Set(files.map(f=>'/'+path.relative(outDir,f).replace(/index\.html$/,'').replace(/\.html$/,'').replace(/\\/g,'/').replace(/\/+/g,'/').replace(/\/$/,'')||'/'))
+const routes=new Set(files.map(routeFromFile))
 const graph=new Map([...routes].map(r=>[r,new Set()]))
 const hrefRe=/href=["'](\/[^"'#\s>]+)["']/g
 const robotsNoindexRe=/<meta\s+[^>]*name=["']robots["'][^"']*\bnoindex\b/i
@@ -74,7 +97,7 @@ async function run() {
     console.log(`[internal-links] Processing batch ${i / batchSize + 1}/${Math.ceil(files.length / batchSize)} (files ${i} to ${Math.min(i + batchSize, files.length)})...`)
     const batch = files.slice(i, i + batchSize)
     await Promise.all(batch.map(async (f, idx) => {
-      const route='/'+path.relative(outDir,f).replace(/index\.html$/,'').replace(/\.html$/,'').replace(/\\/g,'/').replace(/\/$/,'')||'/';
+      const route=routeFromFile(f);
       const fileIndex = i + idx;
       console.log(`[internal-links] Scanning ${fileIndex}: ${route}`);
       const html=await fsPromises.readFile(f,'utf8');
@@ -101,7 +124,7 @@ async function run() {
   const nonCanonicalSummary = summarizeNonCanonicalLinks(nonCanonicalInternalLinks)
   const report={generatedAt:new Date().toISOString(),totalRoutes:routes.size,orphanRoutes:orphan,weaklyConnected:weak,internalLinkDensity:density.slice(0,100),nonCanonicalInternalLinks,nonCanonicalSummary}
   fs.mkdirSync(path.join(root,'ops','reports'),{recursive:true}); fs.writeFileSync(path.join(root,'ops/reports/internal-link-report.json'),JSON.stringify(report,null,2));
-  const nonIndexable = orphan.filter(r => r.startsWith('/_not-found') || r.startsWith('/sitemap.xml') || r.startsWith('/robots.txt') || r.startsWith('/opengraph-image') || r.startsWith('/twitter-image') || r.startsWith('/blogdata') || noindexRoutes.has(r))
+  const nonIndexable = orphan.filter(r => r === '/500' || r.startsWith('/_not-found') || r.startsWith('/sitemap.xml') || r.startsWith('/robots.txt') || r.startsWith('/opengraph-image') || r.startsWith('/twitter-image') || r.startsWith('/blogdata') || noindexRoutes.has(r))
   const blockingOrphans = orphan.filter(r => !nonIndexable.includes(r))
   const topNonCanonicalSource = nonCanonicalSummary.topSourceRoutes[0]
   console.log(`internal-links: routes=${routes.size}, orphan=${orphan.length}, blockingOrphan=${blockingOrphans.length}, weak=${weak.length}, nonCanonical=${nonCanonicalInternalLinks.length}`)
