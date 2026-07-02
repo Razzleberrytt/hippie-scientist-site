@@ -25,7 +25,7 @@ const DATE_MODIFIED = '2026-06-14'
 export const metadata: Metadata = buildPageMetadata({
   title: TITLE,
   description: DESCRIPTION,
-  path: `/guides/${SLUG}`,
+  path: `/guides/herbs/${SLUG}`,
   openGraphType: 'article',
 })
 

@@ -35,7 +35,7 @@ async function run() {
     await Promise.all(batch.map(async (f) => {
       const route='/'+path.relative(outDir,f).replace(/index\.html$/,'').replace(/\.html$/,'').replace(/\\/g,'/').replace(/\/$/,'')||'/';
       const h=await fsPromises.readFile(f,'utf8');
-      const title=(h.match(/<title>([^<]*)<\/title>/i)||[])[1]||'';
+      const title=(h.match(/<title\b[^>]*>([^<]*)<\/title>/i)||[])[1]||'';
       const desc=(h.match(/name="description" content="([^"]*)"/i)||[])[1]||'';
       const canonical=(h.match(/rel="canonical" href="([^"]+)"/i)||[])[1]||'';
       const og=(h.match(/property="og:title"/g)||[]).length>0;

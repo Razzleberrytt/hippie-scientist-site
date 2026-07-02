@@ -6,7 +6,7 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 export const metadata: Metadata = buildPageMetadata({
   title: "Entheogens",
   description: "Educational exploration of entheogenic ethnobotany, psychoactive mechanisms, ceremonial traditions, and consciousness-oriented neuropharmacology.",
-  path: "/psychoactive/entheogens/",
+  path: "/learn/entheogens/",
 })
 
 
@@ -27,7 +27,7 @@ export default function EntheogensPage() {
       <AuthorityJsonLd
         title="Entheogens"
         description="Educational exploration of entheogenic ethnobotany, psychoactive mechanisms, ceremonial traditions, and consciousness-oriented neuropharmacology."
-        url="https://thehippiescientist.net/psychoactive/entheogens"
+        url="https://thehippiescientist.net/learn/entheogens/"
         type="CollectionPage"
       />
 

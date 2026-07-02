@@ -25,7 +25,7 @@ const CATEGORY = 'ADHD Stacks'
 export const metadata: Metadata = buildPageMetadata({
   title: TITLE,
   description: DESCRIPTION,
-  path: `/articles/${SLUG}`,
+  path: `/guides/adhd/${SLUG}`,
   openGraphType: 'article',
 })
 

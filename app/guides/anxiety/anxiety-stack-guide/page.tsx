@@ -24,7 +24,7 @@ const slug = "anxiety-stack-guide";
 export const metadata = buildPageMetadata({
   title: compactMetaTitle(articleTitle),
   description: articleDescription,
-  path: `/articles/${slug}`,
+  path: `/guides/anxiety/${slug}`,
   openGraphType: 'article',
 });
 

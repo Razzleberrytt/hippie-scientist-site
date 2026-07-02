@@ -26,7 +26,7 @@ const CATEGORY = 'anxiety'
 export const metadata = buildPageMetadata({
   title: compactMetaTitle(TITLE),
   description: DESCRIPTION,
-  path: `/articles/${SLUG}`,
+  path: `/guides/anxiety/${SLUG}`,
   openGraphType: 'article',
 })
 

@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-01T17:35:14.203Z",
+  "generatedAt": "2026-07-02T01:48:31.663Z",
   "source": {
-    "workbookPath": "/home/user/hippie-scientist-site/data-sources/herb_monograph_master.xlsx",
+    "workbookPath": "C:\\Users\\Will\\Documents\\hippie-scientist-site\\data-sources\\herb_monograph_master.xlsx",
     "workbook": "herb_monograph_master.xlsx"
   },
-  "output": "public/data",
+  "output": "public\\data",
   "counts": {
     "herbs": 290,
     "compounds": 565,

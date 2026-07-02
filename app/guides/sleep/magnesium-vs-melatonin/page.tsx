@@ -9,11 +9,12 @@ import RecommendationSection from '@/components/RecommendationSection';
 import AffiliateDisclosure from '@/components/AffiliateDisclosure';
 import EmailCapture from '@/components/EmailCapture';
 
+const CANONICAL_PATH = '/guides/sleep/magnesium-vs-melatonin/'
 const route = 'guides/magnesium-vs-melatonin';
 const PAGE_URL = 'https://thehippiescientist.net/guides/sleep/magnesium-vs-melatonin';
 
 export const metadata = {
-  ...generateSeoEntryMetadata(route),
+  ...generateSeoEntryMetadata(route, CANONICAL_PATH),
   robots: { index: true, follow: true },
 };
 
@@ -45,7 +46,7 @@ export default function MagnesiumVsMelatoninGuidePage() {
         ]}
       />
 
-      <SeoEntryPage route={route} />
+      <SeoEntryPage route={route} canonicalPath={CANONICAL_PATH} />
 
       {magnesiumProducts && (
         <RecommendationSection products={magnesiumProducts.products} />

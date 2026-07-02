@@ -26,7 +26,7 @@ const CATEGORY = 'adaptogens'
 export const metadata = buildPageMetadata({
   title: TITLE,
   description: DESCRIPTION,
-  path: `/articles/${SLUG}`,
+  path: `/guides/herbs/${SLUG}`,
   openGraphType: 'article',
 })
 

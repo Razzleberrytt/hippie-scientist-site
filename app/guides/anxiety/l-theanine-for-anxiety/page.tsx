@@ -17,7 +17,7 @@ const DATE = '2026-06-26'
 export const metadata = buildPageMetadata({
   title: compactMetaTitle(TITLE),
   description: DESCRIPTION,
-  path: `/articles/${SLUG}`,
+  path: `/guides/anxiety/${SLUG}`,
   openGraphType: 'article',
 })
 

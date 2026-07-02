@@ -9,7 +9,7 @@ import type { Heading } from '@/components/articles'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Kratom 7-OH Withdrawal: Harm Reduction Guide',
   description: 'Comprehensive evidence-informed guide to 7-hydroxymitragynine (7-OH) withdrawal management, symptom timeline, harm reduction strategies, and medical support context.',
-  path: '/guides/kratom-7oh-withdrawal-management/',
+  path: '/guides/other/kratom-7oh-withdrawal-management/',
 })
 
 const HEADINGS: Heading[] = [

@@ -26,7 +26,7 @@ const CATEGORY = 'Focus'
 export const metadata: Metadata = buildPageMetadata({
   title: compactMetaTitle(TITLE),
   description: DESCRIPTION,
-  path: `/articles/${SLUG}`,
+  path: `/guides/focus/${SLUG}`,
   openGraphType: 'article',
 })
 

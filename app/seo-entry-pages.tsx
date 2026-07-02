@@ -406,17 +406,17 @@ function buildFaqs(page: SeoEntryConfig, goalTitle: string): FaqItem[] {
 }
 
 
-export function generateSeoEntryMetadata(route: string): Metadata {
+export function generateSeoEntryMetadata(route: string, canonicalPath?: string): Metadata {
   const page = seoEntryPages.find((item) => item.route === route)
   if (!page) return { title: 'Supplement Guide | The Hippie Scientist' }
-  const canonicalRoute = page.route
+  const canonicalRoute = canonicalPath ?? page.route
   const isGeneratedGuideRoute = route.startsWith('guides/')
     && !indexableGuidePages.some((item) => item.route === route)
 
   let meta = buildPageMetadata({
     title: page.title,
     description: page.intro,
-    path: `/${canonicalRoute}`,
+    path: canonicalRoute.startsWith('/') ? canonicalRoute : `/${canonicalRoute}`,
     image: '/og-default.jpg',
     openGraphType: 'article',
   })
@@ -426,7 +426,7 @@ export function generateSeoEntryMetadata(route: string): Metadata {
   return meta
 }
 
-export async function SeoEntryPage({ route }: { route: string }) {
+export async function SeoEntryPage({ route, canonicalPath }: { route: string; canonicalPath?: string }) {
   const page = seoEntryPages.find((item) => item.route === route)
   if (!page) return notFound()
 
@@ -463,7 +463,7 @@ export async function SeoEntryPage({ route }: { route: string }) {
     .flatMap(set => set.products)
 
   const schemaGraph = buildSeoEntrySchemaGraph({
-    route: page.route,
+    route: canonicalPath ?? page.route,
     title: page.title,
     description: page.intro,
     h1: page.h1,

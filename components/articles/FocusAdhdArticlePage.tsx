@@ -347,21 +347,22 @@ function MarkdownBody({ body, slug }: { body: string; slug: string }) {
   )
 }
 
-export function focusAdhdMetadata(slug: string): Metadata {
+export function focusAdhdMetadata(slug: string, basePath: string = ADHD_GUIDE_BASE): Metadata {
   const article = focusAdhdArticles.find((item) => item.slug === slug)
   if (!article) return {}
   return buildPageMetadata({
     title: article.seoTitle,
     description: article.description,
-    path: `${ADHD_GUIDE_BASE}/${slug}`,
+    path: `${basePath}/${slug}`,
     openGraphType: 'article',
   })
 }
 
-export default function FocusAdhdArticlePage({ slug }: { slug: string }) {
+export default function FocusAdhdArticlePage({ slug, basePath = ADHD_GUIDE_BASE }: { slug: string; basePath?: string }) {
   const article = getFocusAdhdArticle(slug)
   if (!article) notFound()
   const related = getRelatedFocusAdhdLinks(slug)
+  const articlePath = `${basePath}/${article.slug}`
 
   const articleLd = blogJsonLd({
     title: article.title,
@@ -369,11 +370,11 @@ export default function FocusAdhdArticlePage({ slug }: { slug: string }) {
     date: article.date,
     updated: article.date,
     excerpt: article.description,
-  }, `${ADHD_GUIDE_BASE}/${article.slug}`)
+  }, articlePath)
   const breadcrumbLd = breadcrumbJsonLd([
     { name: 'Guides', url: 'https://thehippiescientist.net/guides' },
-    { name: 'ADHD', url: 'https://thehippiescientist.net/guides/adhd' },
-    { name: article.title, url: `https://thehippiescientist.net${ADHD_GUIDE_BASE}/${article.slug}` },
+    { name: basePath === ADHD_GUIDE_BASE ? 'ADHD' : 'Focus', url: `https://thehippiescientist.net${basePath}` },
+    { name: article.title, url: `https://thehippiescientist.net${articlePath}` },
   ])
 
   return (
@@ -384,7 +385,7 @@ export default function FocusAdhdArticlePage({ slug }: { slug: string }) {
       <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
         <Link href="/guides/" className="transition hover:text-ink">Guides</Link>
         <span>/</span>
-        <Link href="/guides/adhd/" className="transition hover:text-ink">ADHD</Link>
+        <Link href={basePath === ADHD_GUIDE_BASE ? "/guides/adhd/" : "/guides/focus/"} className="transition hover:text-ink">{basePath === ADHD_GUIDE_BASE ? "ADHD" : "Focus"}</Link>
         <span>/</span>
         <span className="line-clamp-1 text-ink">{article.title}</span>
       </nav>

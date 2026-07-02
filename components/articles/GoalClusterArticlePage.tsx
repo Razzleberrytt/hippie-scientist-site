@@ -13,9 +13,10 @@ import RecommendedProduct from '../RecommendedProduct'
 
 type GoalClusterArticlePageProps = {
   slug: string
+  canonicalPath?: string
 }
 
-export function goalClusterArticleMetadata(slug: string): Metadata {
+export function goalClusterArticleMetadata(slug: string, canonicalPath?: string): Metadata {
   const article = getGoalArticle(slug)
   if (!article) {
     return {
@@ -27,12 +28,12 @@ export function goalClusterArticleMetadata(slug: string): Metadata {
   return buildPageMetadata({
     title: article.seoTitle,
     description: article.description,
-    path: `/articles/${article.slug}/`,
+    path: canonicalPath ?? `/articles/${article.slug}/`,
     openGraphType: 'article',
   })
 }
 
-export default function GoalClusterArticlePage({ slug }: GoalClusterArticlePageProps) {
+export default function GoalClusterArticlePage({ slug, canonicalPath }: GoalClusterArticlePageProps) {
   const article = getGoalArticle(slug)
   if (!article || article.category !== 'sleep') {
     notFound()
@@ -41,7 +42,7 @@ export default function GoalClusterArticlePage({ slug }: GoalClusterArticlePageP
   const cluster = getGoalCluster(article.category)
   const content = getSleepArticleContent(slug)
   const relatedArticles = getRelatedGoalArticles(slug, 5)
-  const articlePath = `/articles/${article.slug}/`
+  const articlePath = canonicalPath ?? `/articles/${article.slug}/`
   const canonicalUrl = `${SITE_URL}${articlePath}`
   const faqSchema = faqPageJsonLd({ pagePath: articlePath, questions: content.faq })
   const schemas = [
@@ -56,7 +57,7 @@ export default function GoalClusterArticlePage({ slug }: GoalClusterArticlePageP
     ),
     breadcrumbJsonLd([
       { name: 'Home', url: `${SITE_URL}/` },
-      { name: 'Articles', url: `${SITE_URL}/articles/` },
+      { name: 'Guides', url: `${SITE_URL}/guides/` },
       { name: cluster?.title ?? 'Goal Cluster', url: `${SITE_URL}${cluster?.goalHref ?? '/goals/'}` },
       { name: article.title, url: canonicalUrl },
     ]),

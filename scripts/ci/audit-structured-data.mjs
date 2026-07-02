@@ -103,7 +103,7 @@ async function run() {
       const route=routeFromFile(f);
       const html=await fsPromises.readFile(f,'utf8');
       if (html.includes('NEXT_REDIRECT')) return;
-      const blocks=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m=>m[1]);
+      const blocks=[...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(m=>m[1]);
 
       for (const b of blocks) {
         try {
@@ -150,7 +150,7 @@ async function run() {
       }
     }
     const html=await readRouteHtml(rep.route)
-    const blocks=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m=>m[1]);
+    const blocks=[...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(m=>m[1]);
     for (const b of blocks) {
       try { JSON.parse(b) } catch { const message = `[structured-data] invalid JSON-LD on ${rep.route}`; console.error(message); repErrors.push(message); repFails++ }
     }

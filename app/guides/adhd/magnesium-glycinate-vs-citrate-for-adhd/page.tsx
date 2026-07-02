@@ -26,7 +26,7 @@ const CATEGORY = 'Supplement Evidence'
 export const metadata: Metadata = buildPageMetadata({
   title: compactMetaTitle(TITLE),
   description: DESCRIPTION,
-  path: `/articles/${SLUG}`,
+  path: `/guides/adhd/${SLUG}`,
   openGraphType: 'article',
 })
 
