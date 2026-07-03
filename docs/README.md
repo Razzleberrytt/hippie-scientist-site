@@ -26,4 +26,4 @@ Do not hand-edit generated docs. Regenerate them from scripts.
 
 ## Historical Docs
 
-Audits, merge reports, old plans, and content drafts are retained only when they help explain past decisions. If a historical doc describes routes that no longer exist as active navigation, update its heading to mark it historical or move it under `archive/`.
+Audits, merge reports, old plans, and content drafts are retained only when they help explain past decisions. If a historical doc describes routes that no longer exist as active navigation, update its heading to mark it historical or move it under a dated historical note in `docs/audits/` rather than reintroducing a root archive payload.

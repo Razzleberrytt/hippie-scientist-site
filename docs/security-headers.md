@@ -18,10 +18,12 @@ Current allowed third-party origins:
 | Directive | Allowed origin | Reason |
 | --- | --- | --- |
 | `script-src` | `https://www.googletagmanager.com` | Used by the consent-gated analytics loader in `src/lib/loadAnalytics.ts` to load Google Analytics gtag scripts. |
+| `script-src` | `https://analytics.ahrefs.com` | Used by the Ahrefs analytics script injected from `app/layout.tsx`. |
 | `connect-src` | `https://www.google-analytics.com` | Google Analytics collection endpoint. |
 | `connect-src` | `https://region1.google-analytics.com` | Regional Google Analytics collection endpoint. |
+| `connect-src` | `https://analytics.ahrefs.com` | Permits the Ahrefs analytics client to report to its own origin. |
 
-No clearly unused third-party script domains were identified during this audit.
+The Ahrefs origin is intentionally present because `app/layout.tsx` injects `https://analytics.ahrefs.com/analytics.js`; without this CSP allowance, the script can be blocked in production.
 
 ## Inline script posture
 

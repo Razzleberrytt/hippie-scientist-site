@@ -31,26 +31,14 @@ No standalone audit PDF or executive-summary/matching-status PDF is present in `
 - Expected-by-name examples referenced in planning (`hippie-scientist-audit-Apr427.pdf`, `Executive Summary.pdf`) were not found in this directory.
 - If these files are later added, keep them in this section as **meta-only** (not for direct JSON writing).
 
-## 5) Archived or removed duplicates
+## 5) Removed duplicate/archive payloads
 
-Archived duplicate/superseded files were moved to `ops/research/archive/`.
+The old `ops/research/archive/` payload was removed in the July 3, 2026 cleanup because it only contained duplicate or superseded copies already represented by the canonical files above.
 
-| Old filename | Canonical replacement | Reason |
+| Removed duplicate | Canonical replacement | Reason |
 |---|---|---|
 | `ops/research/archive/The Hippie Scientist herb shard research for G, H, I.pdf` | `ops/research/herbs-g-i.md` | Overlapping same shard content; markdown retained as canonical readable/editable version. |
 | `ops/research/archive/Project_ The Hippie Scientist — Herb Detail Records for Slugs W–Z.pdf` | `ops/research/herbs-w-z.md` | Overlapping same shard content; markdown retained as canonical. |
-| `ops/research/archive/herb-research-0.pdf` | `ops/research/herbs-w-z.md` | Duplicate W–Z PDF copy (superseded by markdown canonical). |
-| `ops/research/archive/l-tryptophan.pdf` | `ops/research/compound-research.pdf` | Substantively duplicate compound/nutrient PDF lane copy. |
-| `ops/research/archive/Ugh` | _none_ | Non-descriptive stray artifact; archived to keep root corpus canonical and clean. |
-
-## 6) Recommended usage notes
-
-- **Direct Codex apply**
-  - `herbs-g-i.md`, `herbs-j-m.md`, `herbs-n-r.md`, `herbs-s-v.md`
-  - Use for record-level updates with normal lane-safe field verification.
-- **Cautious apply**
-  - `herbs-w-z.md`, `compound-research.pdf`, `Deep Research Report.pdf`
-  - Reconcile slug/record-type fit before writing; these files include mixed assumptions or PDF-only structure.
-- **Meta-only / not for direct JSON writing**
-  - Any audit or executive-summary/matching-status file when present.
-  - None currently present in `ops/research/` after this pass.
+| `ops/research/archive/herb-research-0.pdf` | `ops/research/herbs-w-z.md` | Duplicate W–Z PDF copy. |
+| `ops/research/archive/l-tryptophan.pdf` | `ops/research/compound-research.pdf` | Duplicate compound/nutrient lane copy. |
+| `ops/research/archive/Ugh` | _none_ | Non-descriptive stray artifact. |

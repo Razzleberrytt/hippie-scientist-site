@@ -27,7 +27,6 @@
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    "legacy-quarantine",
     // Dependencies; not project source.
     "node_modules",
 
@@ -48,7 +47,7 @@
     "agent/**/*",
 
     // Legacy src component surfaces from removed/deferred MVP systems.
-    // Safe per docs/src-active-vs-legacy.md and docs/legacy-code-quarantine.md reachability scans.
+    // Safe per reachability scans; dead source has been removed where confidence was high.
     // Scheduled for later deletion or rebuild instead of restoring removed legacy modules.
     "src/components/AdvancedSearch.tsx",
     "src/components/BlendSummaryCard.tsx",
