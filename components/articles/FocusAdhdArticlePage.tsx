@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import React from 'react'
@@ -35,6 +36,33 @@ const ADHD_ARTICLE_PRODUCTS: Record<string, string> = {
   'magnesium-for-adhd': 'magnesium',
   'melatonin-for-adhd-sleep': 'magnesium',
   'sleep-and-adhd': 'magnesium',
+}
+
+// Per-slug hero images (1536x1024) for image SEO + engagement.
+const ADHD_ARTICLE_IMAGES: Record<string, { src: string; alt: string }> = {
+  'adhd-blood-tests': { src: '/images/guides/adhd/adhd-blood-tests.jpg', alt: 'Blood test tube and supplement capsules — checking nutrient levels relevant to ADHD' },
+  'adhd-stack-guide': { src: '/images/guides/adhd/adhd-supplements-general.jpg', alt: 'An assortment of ADHD supplement capsules with a weekly pill organizer' },
+  'alpha-gpc-and-adhd': { src: '/images/guides/adhd/adhd-choline.jpg', alt: 'Alpha-GPC choline nootropic capsules with a lion’s mane mushroom' },
+  'ashwagandha-for-adhd': { src: '/images/guides/adhd/adhd-ashwagandha.jpg', alt: 'Ashwagandha root, powder, and leaves — an adaptogen studied for stress and ADHD' },
+  'best-magnesium-supplement-for-adhd': { src: '/images/guides/adhd/adhd-magnesium.jpg', alt: 'Magnesium glycinate capsules and powder used for calm and focus in ADHD' },
+  'best-supplements-for-adhd': { src: '/images/guides/adhd/adhd-supplements-general.jpg', alt: 'A stack of natural supplements commonly used to support ADHD' },
+  'citicoline-for-adhd': { src: '/images/guides/adhd/adhd-choline.jpg', alt: 'Citicoline nootropic capsules used to support attention and focus' },
+  'citicoline-vs-alpha-gpc': { src: '/images/guides/adhd/adhd-choline.jpg', alt: 'Choline nootropic capsules comparing citicoline and alpha-GPC for focus' },
+  'iron-ferritin-and-adhd': { src: '/images/guides/adhd/adhd-iron.jpg', alt: 'Iron supplement capsules with iron-rich leafy greens, relevant to ferritin and ADHD' },
+  'l-theanine-for-adhd': { src: '/images/guides/adhd/adhd-l-theanine.jpg', alt: 'L-theanine capsules and green tea used for calm, focused attention' },
+  'l-theanine-magnesium-adhd-stack': { src: '/images/guides/adhd/adhd-l-theanine.jpg', alt: 'L-theanine and magnesium supplements used together as a calming focus stack' },
+  'l-theanine-vs-caffeine-for-focus': { src: '/images/guides/adhd/adhd-l-theanine-caffeine.jpg', alt: 'Green tea and coffee side by side — comparing L-theanine and caffeine for focus' },
+  'l-theanine-without-caffeine': { src: '/images/guides/adhd/adhd-l-theanine.jpg', alt: 'Caffeine-free L-theanine capsules and green tea leaves' },
+  'l-tyrosine-and-adhd': { src: '/images/guides/adhd/adhd-l-tyrosine.jpg', alt: 'L-tyrosine powder and capsules used to support focus and dopamine in ADHD' },
+  'magnesium-for-adhd': { src: '/images/guides/adhd/adhd-magnesium.jpg', alt: 'Magnesium glycinate capsules and powder used for calm and focus in ADHD' },
+  'magnesium-glycinate-vs-citrate-for-adhd': { src: '/images/guides/adhd/adhd-magnesium.jpg', alt: 'Magnesium supplements comparing glycinate and citrate forms for ADHD' },
+  'melatonin-for-adhd-sleep': { src: '/images/guides/adhd/adhd-melatonin-sleep.jpg', alt: 'Melatonin tablets on a calm bedside setting used for ADHD-related sleep problems' },
+  'nutrient-deficiencies-and-adhd': { src: '/images/guides/adhd/adhd-nutrient-deficiency.jpg', alt: 'Nutrient-rich whole foods and supplements linked to nutrient deficiencies in ADHD' },
+  'omega-3-and-adhd': { src: '/images/guides/adhd/adhd-omega3.jpg', alt: 'Omega-3 fish oil softgel capsules used to support attention in ADHD' },
+  'rhodiola-rosea-and-adhd': { src: '/images/guides/adhd/adhd-rhodiola.jpg', alt: 'Rhodiola rosea root and flowers — an adaptogen for mental energy and ADHD' },
+  'sleep-and-adhd': { src: '/images/guides/adhd/adhd-sleep.jpg', alt: 'A calm bedroom nightstand with water and supplements — sleep and ADHD' },
+  'vitamin-d-and-adhd': { src: '/images/guides/adhd/adhd-vitamin-d.jpg', alt: 'Vitamin D softgel capsules in warm sunlight, relevant to ADHD' },
+  'zinc-and-adhd': { src: '/images/guides/adhd/adhd-zinc.jpg', alt: 'Zinc supplement tablets with pumpkin seeds, a dietary zinc source, for ADHD' },
 }
 
 const focusArticleSlugs = new Set(focusAdhdArticles.map((article) => article.slug))
@@ -399,6 +427,21 @@ export default function FocusAdhdArticlePage({ slug, basePath = ADHD_GUIDE_BASE 
         <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">{article.title}</h1>
         <div className="mt-3"><LastUpdatedBadge date={article.date} label="Last updated" /></div>
         <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{article.description}</p>
+
+        {ADHD_ARTICLE_IMAGES[slug] && (
+          <figure className="mt-6">
+            <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+              <Image
+                src={ADHD_ARTICLE_IMAGES[slug].src}
+                alt={ADHD_ARTICLE_IMAGES[slug].alt}
+                width={1536}
+                height={1024}
+                priority
+                className="w-full h-auto"
+              />
+            </div>
+          </figure>
+        )}
 
         <StartHereBox currentSlug={slug} />
       </section>
