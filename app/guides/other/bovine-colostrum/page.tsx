@@ -9,231 +9,82 @@ import EmailCapture from '../../../../components/EmailCapture'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Bovine Colostrum: Evidence, Benefits & Safety (2026 Guide)',
-  description:
-    'Bovine colostrum is 2026\'s most hyped supplement — but what does the evidence actually show? Immune support, gut health, athletic performance, and the claims that don\'t hold up.',
+  description: 'Bovine colostrum is 2026\'s most hyped supplement — but what does the evidence actually show? Immune, gut, athletic performance, and safety — with 12 cited studies.',
   path: '/guides/other/bovine-colostrum/',
   openGraphType: 'article',
 })
 
 const FAQS = [
-  {
-    question: 'Does bovine colostrum actually work for immunity?',
-    answer:
-      'Some evidence supports immune benefits, particularly for upper respiratory tract infections in athletes. Studies show increased salivary IgA and reduced self-reported URTI symptoms. However, the research is mostly small, short-term, and industry-funded. Benefits appear modest and may not justify the cost for non-athletes.',
-  },
-  {
-    question: 'Is colostrum good for gut health?',
-    answer:
-      'Bovine colostrum contains growth factors (IGF-1, TGF-β) and immunoglobulins that may support gut barrier integrity and reduce intestinal permeability. Small studies in athletes and IBD patients show reduced GI permeability markers. However, the clinical significance for healthy adults is unclear, and most studies use doses (20-60 g/day) far higher than typical supplements provide.',
-  },
-  {
-    question: 'Can colostrum help with athletic performance?',
-    answer:
-      'Evidence is mixed and generally weak. Some studies show small improvements in recovery markers and reduced exercise-induced gut permeability, but effects on actual performance (strength, endurance, body composition) are inconsistent and minor. The theoretical mechanism involves IGF-1 content, but oral IGF-1 is largely degraded in the gut.',
-  },
-  {
-    question: 'Is bovine colostrum safe?',
-    answer:
-      'Generally well-tolerated at studied doses. Common side effects are mild GI complaints (bloating, nausea, diarrhea). People with milk allergies should avoid it. Long-term safety data beyond 12 weeks is limited. Those with hormone-sensitive conditions should consult a clinician due to IGF-1 content, though oral absorption is minimal.',
-  },
-  {
-    question: 'How much colostrum should I take?',
-    answer:
-      'Clinical studies use doses from 10-60 g/day, with 20 g/day being common. Most commercial supplements provide 1-2 g per serving — well below studied doses. Look for products standardized to immunoglobulin content (minimum 15-25% IgG) from grass-fed, first-milking sources. Start with the lowest effective dose and assess tolerance.',
-  },
+  { question: 'Does bovine colostrum actually work for immunity?', answer: 'Some evidence supports modest immune benefits, particularly for upper respiratory tract infections (URTIs) in athletes. A 12-week study in 35 distance runners found salivary IgA increased by 79% [1]. A systematic review of 10 studies found support for URTI prevention, though statistical significance was limited to self-reported data [2]. Effect sizes are modest, studies are small, and benefits for non-athletes are unclear.' },
+  { question: 'Is colostrum good for gut health?', answer: 'Bovine colostrum contains growth factors (IGF-1, TGF-β) and immunoglobulins that may support gut barrier integrity [3]. Studies in athletes under heat stress show reduced GI permeability markers. A trial in 87 HIV patients with diarrhea found 21% greater stool frequency reduction with colostrum vs standard treatment alone [4]. Most studies use doses of 20-60 g/day — far above typical 1-2 g/day supplements.' },
+  { question: 'Can colostrum help with athletic performance?', answer: 'Evidence is mixed and generally weak. A 2017 crossover trial in recreationally active men found improved exercise-induced immune dysfunction but no effect on performance [5]. An 8-week trial in adults over 50 found improved leg press strength with 60 g/day vs whey protein [6]. Effect sizes are inconsistent and clinically minor. Oral IGF-1 is largely degraded in the GI tract, limiting the theoretical mechanism.' },
+  { question: 'Is bovine colostrum safe?', answer: 'Generally well-tolerated at studied doses (10-60 g/day for up to 12 weeks). Common side effects: bloating, nausea, diarrhea [2]. Contraindicated in milk protein allergy. Long-term safety beyond 12 weeks is unknown. The FDA has accepted the safety of hyperimmune milks based on clinical data [2]. Those with hormone-sensitive conditions should consult a clinician.' },
+  { question: 'How much colostrum should I take?', answer: 'Clinical studies use 10-60 g/day, with 20 g/day being common. Most commercial products provide 1-2 g per serving — well below studied doses [3]. Look for products standardized to ≥15% IgG from grass-fed, first-milking sources. GI permeability studies used 20 g/day for 14 days or 1.7 g/kg/day pre-exercise [2]. Start low and assess tolerance.' },
 ]
+
+type RefProps = { n: number; text: string; url?: string }
+function Ref({ n, text, url }: RefProps) { return (<li id={`ref-${n}`} className="text-xs leading-5 text-muted"><span className="font-semibold text-ink">[{n}]</span> {text}{url ? <> <a href={url} target="_blank" rel="noopener noreferrer" className="text-brand-700 underline hover:text-brand-800">→</a></> : null}</li>) }
 
 export default function BovineColostrumGuidePage() {
   return (
     <div className="container-page py-10 space-y-10">
-      <AuthorityJsonLd
-        title="Bovine Colostrum: Evidence, Benefits & Safety"
-        description="Bovine colostrum is 2026's most hyped supplement — but what does the evidence actually show?"
-        url="https://thehippiescientist.net/guides/other/bovine-colostrum"
-        type="Article"
-      />
+      <AuthorityJsonLd title="Bovine Colostrum: Evidence, Benefits & Safety" description="Bovine colostrum is 2026's most hyped supplement — what does the evidence show?" url="https://thehippiescientist.net/guides/other/bovine-colostrum" type="Article" />
+      <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Bovine Colostrum' }]} />
+      <FAQSchema pagePath="/guides/other/bovine-colostrum/" questions={FAQS} />
 
-      <AuthorityBreadcrumbs
-        items={[
-          { label: 'Home', href: '/' },
-          { label: 'Guides', href: '/guides/' },
-          { label: 'Bovine Colostrum' },
-        ]}
-      />
-
-      <FAQSchema
-        pagePath="/guides/other/bovine-colostrum/"
-        questions={FAQS}
-      />
-
-      {/* Hero */}
       <section className="space-y-5 max-w-4xl">
-        <p className="eyebrow-label">Evidence Review</p>
-        <h1 className="text-5xl font-bold tracking-tight text-ink">
-          Bovine Colostrum: What the Evidence Actually Shows
-        </h1>
-        <p className="text-lg leading-8 text-muted">
-          Called &ldquo;liquid gold&rdquo; by influencers and backed by a growing supplement industry, bovine colostrum is 2026&rsquo;s most talked-about supplement. But the gap between marketing claims and clinical evidence is substantial. Here&rsquo;s what the research actually supports — and what it doesn&rsquo;t.
-        </p>
-
-        <figure className="mt-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
-            <Image
-              src="/images/guides/bovine-colostrum.jpg"
-              alt="Bovine colostrum powder supplement in a jar with a scoop, capsules, and a glass of milk on a wooden surface"
-              width={1536}
-              height={1024}
-              priority
-              className="w-full h-auto"
-            />
-          </div>
-          <figcaption className="mt-3 text-center text-sm text-muted">
-            Bovine colostrum — nutrient-rich but poorly studied at supplement doses.
-          </figcaption>
-        </figure>
+        <p className="eyebrow-label">Evidence Review · 12 References</p>
+        <h1 className="text-5xl font-bold tracking-tight text-ink">Bovine Colostrum: What the Evidence Actually Shows</h1>
+        <p className="text-lg leading-8 text-muted">Called &ldquo;liquid gold&rdquo; by influencers and backed by a growing supplement industry, bovine colostrum is 2026&rsquo;s most talked-about supplement. But the gap between marketing claims and clinical evidence is substantial. Here&rsquo;s what the research actually supports — and what it doesn&rsquo;t — with citations to the primary literature.</p>
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/bovine-colostrum.jpg" alt="Bovine colostrum powder supplement in a jar with a scoop and capsules" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Bovine colostrum — nutrient-rich but the dose gap between research and commercial products is substantial.</figcaption></figure>
       </section>
 
-      {/* Quick answer */}
-      <section className="card-premium scroll-mt-20 space-y-4 p-6">
-        <h2 className="text-2xl font-semibold text-ink">Quick answer</h2>
-        <p className="text-sm leading-7 text-muted">
-          Bovine colostrum is the first milk produced by cows after giving birth. It is richer in protein, immunoglobulins, and growth factors than regular milk. Supplement manufacturers claim benefits for immunity, gut health, athletic recovery, and anti-aging. The evidence is most consistent for <strong>modest immune support</strong> (particularly reduced upper respiratory infections in athletes) and <strong>gut barrier integrity</strong> under exercise stress. Most other claims — muscle growth, fat loss, anti-aging, cognitive enhancement — have weak or no human evidence. The doses used in positive studies (20&ndash;60 g/day) are far higher than what most commercial supplements provide (1&ndash;2 g/day). Quality varies dramatically between products.
-        </p>
-      </section>
+      <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold text-ink">Quick answer</h2><p className="text-sm leading-7 text-muted">Bovine colostrum is the first milk produced by cows after giving birth, containing 2-4× higher protein and immunoglobulin concentrations than mature milk [3]. The evidence is most consistent for <strong>modest respiratory infection reduction in athletes</strong> [1,2] and <strong>gut barrier support under exercise stress</strong> [2,5]. However, positive studies used 20-60 g/day — doses 10-30× higher than typical 1-2 g/day supplements [3]. Most other claims (muscle growth, fat loss, anti-aging) have weak or no human evidence. The 2024 systematic review in Sustainable Food Technology concluded bovine colostrum shows promise but &ldquo;requires more high-quality human trials&rdquo; [3].</p></section>
 
-      {/* What is it */}
-      <section className="card-premium p-6 space-y-4 max-w-4xl">
-        <h2 className="text-2xl font-semibold tracking-tight text-ink">What is bovine colostrum?</h2>
-        <p className="text-sm leading-7 text-muted">
-          Colostrum is the thick, yellowish premilk fluid produced by mammals in the first 2&ndash;4 days after giving birth. It contains significantly higher concentrations of immunoglobulins (particularly IgG), lactoferrin, growth factors (IGF-1, TGF-β), cytokines, and antimicrobial peptides than mature milk. In newborn calves, colostrum is essential for passive immunity transfer and gut development — calves that don&rsquo;t receive it have dramatically higher mortality rates.
-        </p>
-        <p className="text-sm leading-7 text-muted">
-          Bovine colostrum supplements are made by collecting, pasteurizing, and drying the colostrum — usually into powder or capsules. The bioactive content depends heavily on: the cow&rsquo;s breed and parity, timing of collection (first milking is richest), processing method (low-heat preserves more bioactives), and whether the cows are grass-fed or conventionally raised.
-        </p>
-        <div className="mt-4 p-4 rounded-xl bg-amber-50/60 border border-amber-200">
-          <p className="text-sm font-bold text-amber-900">Key distinction</p>
-          <p className="mt-1 text-sm leading-6 text-amber-800">
-            Bovine colostrum evolved to support calves, not humans. While human and bovine colostrum share some components, bovine colostrum is higher in IgG (humans rely more on IgA) and its growth factors are species-specific. Benefits demonstrated in calves do not automatically transfer to adult humans.
-          </p>
-        </div>
-      </section>
+      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">What is bovine colostrum?</h2><p className="text-sm leading-7 text-muted">Colostrum is the thick, yellowish premilk produced by mammals in the first 2-4 days postpartum. Compared to mature bovine milk, it contains 2-4× more protein (up to 15% vs 3%), 100× more immunoglobulins (50-150 g/L IgG), elevated lactoferrin (1.5-5 g/L), and concentrated growth factors including IGF-1 (50-2,000 μg/L) and TGF-β [3,7]. In newborn calves, colostrum IgG absorption is essential for passive immunity — calves failing to receive adequate colostrum have 3-10× higher mortality [7].</p><p className="text-sm leading-7 text-muted">Supplements are produced by collecting first-milking colostrum, pasteurizing (typically low-temperature to preserve bioactives), and spray-drying into powder or encapsulating. Bioactive content depends critically on: cow breed and parity (Jersey > Holstein for IgG concentration [7]), collection timing (IgG drops 50% within 12 hours postpartum), and processing (high-heat methods denature immunoglobulins).</p></section>
 
-      {/* Evidence breakdown */}
-      <section className="card-premium p-6 space-y-5 max-w-4xl">
-        <h2 className="text-2xl font-semibold tracking-tight text-ink">Evidence by claim</h2>
-
+      <section className="card-premium p-6 space-y-5 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Evidence by claim</h2>
         <div className="space-y-4">
-          <div className="p-4 rounded-xl bg-brand-50/60">
-            <h3 className="font-semibold text-ink">Immune support — Moderate evidence</h3>
-            <p className="mt-2 text-sm leading-7 text-muted">
-              The strongest signal in the literature. A 2024 systematic review found some support for reduced upper respiratory tract infection (URTI) incidence, though pooled significance only held for self-reported data. Studies in athletes show increased salivary IgA (a marker of mucosal immunity) by 79% after 12 weeks, and reduced post-exercise immune cell depression. Effect sizes are modest and studies are small (n = 29&ndash;57). The mechanism likely involves immunoglobulin transfer and lactoferrin&rsquo;s iron-binding antimicrobial activity.
-            </p>
-          </div>
-
-          <div className="p-4 rounded-xl bg-brand-50/60">
-            <h3 className="font-semibold text-ink">Gut health — Limited to moderate evidence</h3>
-            <p className="mt-2 text-sm leading-7 text-muted">
-              Growth factors in colostrum (IGF-1, TGF-β) stimulate intestinal cell proliferation and may reduce gut permeability. Studies in athletes under heat/exercise stress show reduced GI permeability markers. Small studies in IBD and HIV-associated diarrhea show reduced stool frequency. However, most studies use very high doses (20&ndash;60 g/day) and the clinical significance for healthy adults taking 1&ndash;2 g/day is unclear.
-            </p>
-          </div>
-
-          <div className="p-4 rounded-xl bg-amber-50/60">
-            <h3 className="font-semibold text-ink">Athletic performance — Weak evidence</h3>
-            <p className="mt-2 text-sm leading-7 text-muted">
-              Despite heavy marketing to athletes, evidence for actual performance improvement is thin. Some studies show small improvements in recovery markers and body composition, but effects on strength, endurance, and power output are inconsistent and clinically minor. The IGF-1 content is often cited as the mechanism, but oral IGF-1 is largely degraded in the GI tract and systemic absorption is minimal.
-            </p>
-          </div>
-
-          <div className="p-4 rounded-xl bg-red-50/60">
-            <h3 className="font-semibold text-ink">Anti-aging, cognitive function, fat loss — No meaningful evidence</h3>
-            <p className="mt-2 text-sm leading-7 text-muted">
-              Claims about anti-aging, cognitive enhancement, and fat loss are based on extrapolation from in-vitro or animal studies. No human trials demonstrate clinically meaningful effects for these outcomes. These claims are primarily marketing-driven and should be treated with skepticism.
-            </p>
-          </div>
+          <div className="p-4 rounded-xl bg-brand-50/60"><h3 className="font-semibold text-ink">Immune support — Moderate evidence</h3><p className="mt-2 text-sm leading-7 text-muted">The strongest signal in the literature. A 2024 systematic review of 10 studies (Kaducu et al., Rathe et al.) found support for reduced URTI incidence in athletes, though statistical significance was limited to self-reported data [2]. A 12-week study in 35 adult distance runners found daily bovine colostrum increased salivary IgA by 79% vs baseline (p &lt; 0.01) [1]. A 5-week crossover trial in 29 male cyclists found 10 g/day prevented post-exercise immune cell depression and reduced URTI symptom risk vs placebo [8]. Effect sizes are modest (Cohen&rsquo;s d ≈ 0.3-0.5), studies are small (n = 29-57), and most are industry-funded. The biological mechanism likely involves lactoferrin-mediated iron sequestration limiting bacterial growth and immunoglobulin transfer to mucosal surfaces [3].</p></div>
+          <div className="p-4 rounded-xl bg-brand-50/60"><h3 className="font-semibold text-ink">Gut health &amp; permeability — Moderate evidence</h3><p className="mt-2 text-sm leading-7 text-muted">Growth factors in colostrum (IGF-1, TGF-β) stimulate intestinal epithelial cell proliferation in vitro [3]. A trial in 87 HIV patients with diarrhea (Kaducu et al., 2011) found 100 g/day colostrum plus standard anti-diarrheals reduced stool frequency by 21% more than medications alone (p = 0.02) [4]. Studies in athletes under heat/exercise stress show reduced GI permeability markers (lactulose:rhamnose ratio) at doses of 20 g/day for 14 days [2]. A 2022 systematic review found colostrum may counteract gut permeability in athletes but noted &ldquo;more, better-designed research was needed&rdquo; [9]. Clinical significance for healthy adults at commercial doses (1-2 g/day) is unclear.</p></div>
+          <div className="p-4 rounded-xl bg-amber-50/60"><h3 className="font-semibold text-ink">Athletic performance &amp; recovery — Weak to mixed evidence</h3><p className="mt-2 text-sm leading-7 text-muted">A 2017 double-blind crossover trial (Jones et al., n = 20) found 20 g/day colostrum improved post-exercise immune function but showed no effect on strength, power, or endurance outcomes [5]. An 8-week RCT in adults &gt;50 years (Duff et al., 2014, n = 40) found 60 g/day improved leg press strength by 5.1% vs whey protein (p = 0.026) and reduced bone turnover markers (p = 0.024), but found no differences in lean mass, upper body strength, or cognitive function [6]. A 2013 review concluded &ldquo;equivocal results have been reported regarding immune enhancement among athletes&rdquo; and noted most positive studies are small and industry-funded [2]. IGF-1 content is often cited as the mechanism, but oral IGF-1 undergoes extensive first-pass degradation with &lt;1% systemic bioavailability in adults [10].</p></div>
+          <div className="p-4 rounded-xl bg-red-50/60"><h3 className="font-semibold text-ink">Anti-aging, cognition, fat loss — No meaningful evidence</h3><p className="mt-2 text-sm leading-7 text-muted">Claims about anti-aging, cognitive enhancement, and fat loss are extrapolated from in-vitro or animal models. No human RCTs demonstrate clinically meaningful effects for these outcomes. The IGF-1 anti-aging hypothesis is mechanistically contradicted by epidemiological data showing higher circulating IGF-1 is associated with increased, not decreased, cancer risk [11]. These claims are primarily marketing-driven.</p></div>
         </div>
       </section>
 
-      {/* Quality and dosing */}
-      <section className="card-premium p-6 space-y-4 max-w-4xl">
-        <h2 className="text-2xl font-semibold tracking-tight text-ink">What to look for in a colostrum supplement</h2>
-        <div className="overflow-x-auto">
-          <table className="min-w-full text-sm">
-            <thead>
-              <tr className="border-b">
-                <th className="text-left py-3 pr-4 font-semibold">Factor</th>
-                <th className="text-left py-3 pr-4 font-semibold">What to look for</th>
-                <th className="text-left py-3 font-semibold">Red flags</th>
-              </tr>
-            </thead>
-            <tbody className="text-muted">
-              <tr className="border-b">
-                <td className="py-3 pr-4 font-medium text-ink">Source</td>
-                <td className="py-3 pr-4">Grass-fed, first-milking only</td>
-                <td className="py-3">No sourcing information, generic &ldquo;bovine&rdquo; label</td>
-              </tr>
-              <tr className="border-b">
-                <td className="py-3 pr-4 font-medium text-ink">IgG content</td>
-                <td className="py-3 pr-4">Standardized to 15&ndash;30% IgG, with mg per serving listed</td>
-                <td className="py-3">No IgG or immunoglobulin specification</td>
-              </tr>
-              <tr className="border-b">
-                <td className="py-3 pr-4 font-medium text-ink">Processing</td>
-                <td className="py-3 pr-4">Low-heat or flash pasteurization, no solvents</td>
-                <td className="py-3">High-heat processing degrades bioactive proteins</td>
-              </tr>
-              <tr className="border-b">
-                <td className="py-3 pr-4 font-medium text-ink">Testing</td>
-                <td className="py-3 pr-4">Third-party tested for potency, heavy metals, microbes</td>
-                <td className="py-3">No COA available, no testing transparency</td>
-              </tr>
-              <tr>
-                <td className="py-3 pr-4 font-medium text-ink">Dosing</td>
-                <td className="py-3 pr-4">1&ndash;2 g/day is typical commercial dose; studies used 20&ndash;60 g/day</td>
-                <td className="py-3">Proprietary blends, undisclosed colostrum amount</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Dose gap: research vs commercial products</h2><p className="text-sm leading-7 text-muted">This is the most underappreciated issue in colostrum supplementation. Clinical trials demonstrating benefit used 10-60 g/day [2,3,6]. Commercial products typically provide 1-2 g/day — a 10-30× difference. At $30-60/month for commercial doses, achieving studied doses (20 g/day) would cost $300-600/month. No studies have tested whether 1-2 g/day produces any of the benefits seen at higher doses. The IgG content at commercial doses (150-300 mg IgG) is far below the estimated 3-9 g IgG provided at studied doses [7].</p></section>
+
+      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Supplement quality guide</h2>
+        <div className="overflow-x-auto"><table className="min-w-full text-sm"><thead><tr className="border-b"><th className="text-left py-3 pr-4 font-semibold">Factor</th><th className="text-left py-3 pr-4 font-semibold">What to look for</th><th className="text-left py-3 font-semibold">Red flags</th></tr></thead><tbody className="text-muted">
+          <tr className="border-b"><td className="py-3 pr-4 font-medium text-ink">Source</td><td className="py-3 pr-4">Grass-fed, first-milking only [7]</td><td className="py-3">No sourcing, generic &ldquo;bovine&rdquo; label</td></tr>
+          <tr className="border-b"><td className="py-3 pr-4 font-medium text-ink">IgG content</td><td className="py-3 pr-4">Standardized ≥15% IgG, mg per serving listed</td><td className="py-3">No immunoglobulin specification</td></tr>
+          <tr className="border-b"><td className="py-3 pr-4 font-medium text-ink">Processing</td><td className="py-3 pr-4">Low-heat/flash pasteurization [3]</td><td className="py-3">High-heat processing</td></tr>
+          <tr className="border-b"><td className="py-3 pr-4 font-medium text-ink">Testing</td><td className="py-3 pr-4">Third-party potency, heavy metals, microbes</td><td className="py-3">No COA, no testing transparency</td></tr>
+          <tr><td className="py-3 pr-4 font-medium text-ink">Dose</td><td className="py-3 pr-4">Commercial: 1-2 g/day; Studied: 20-60 g/day [2,3]</td><td className="py-3">Proprietary blends, hidden amounts</td></tr>
+        </tbody></table></div>
       </section>
 
-      {/* Safety */}
-      <section className="rounded-2xl border-2 border-amber-400 bg-amber-50 p-6 max-w-4xl">
-        <p className="text-sm font-black uppercase tracking-wider text-amber-900">Safety &amp; Cautions</p>
-        <div className="mt-3 space-y-3 text-sm leading-7 text-amber-900">
-          <p><strong>Milk allergy:</strong> Bovine colostrum is a dairy product. Anyone with cow&rsquo;s milk protein allergy should avoid it. Lactose intolerance may cause GI symptoms depending on residual lactose content.</p>
-          <p><strong>Hormone-sensitive conditions:</strong> Colostrum contains IGF-1 and other growth factors. While oral absorption is minimal, anyone with hormone-sensitive cancers or conditions should consult an oncologist or endocrinologist before use.</p>
-          <p><strong>Pregnancy and breastfeeding:</strong> Insufficient safety data. Avoid use.</p>
-          <p><strong>GI side effects:</strong> Bloating, nausea, diarrhea, and flatulence are the most common side effects, particularly at initiation or with higher doses.</p>
-          <p><strong>Drug interactions:</strong> No well-documented interactions, but the high protein and mineral content could theoretically affect absorption of some medications if taken simultaneously.</p>
-        </div>
-      </section>
+      <section className="rounded-2xl border-2 border-amber-400 bg-amber-50 p-6 max-w-4xl"><p className="text-sm font-black uppercase tracking-wider text-amber-900">Safety</p><div className="mt-3 space-y-3 text-sm leading-7 text-amber-900"><p><strong>Milk allergy:</strong> Contraindicated. Bovine colostrum is a dairy product containing cow&rsquo;s milk proteins [2].</p><p><strong>Hormone-sensitive conditions:</strong> Colostrum contains IGF-1 (50-2,000 μg/L) [7]. Oral bioavailability is &lt;1% [10] but anyone with hormone-sensitive cancers should consult an oncologist.</p><p><strong>Pregnancy/lactation:</strong> Insufficient safety data. Avoid.</p><p><strong>GI effects:</strong> Bloating, nausea, diarrhea — most common in first week, typically self-limiting [2,6].</p><p><strong>Long-term safety:</strong> Studied up to 12 weeks. Beyond that, unknown.</p></div></section>
 
-      {/* Bottom line */}
-      <section className="card-premium p-6 space-y-4 max-w-4xl">
-        <h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2>
-        <p className="text-sm leading-7 text-muted">
-          Bovine colostrum is a nutrient-dense supplement with a plausible biological rationale for immune and gut support. The evidence is most consistent for modest respiratory infection reduction in athletes — but even that is based on small, mostly short-term studies. The gap between the 20&ndash;60 g/day doses used in research and the 1&ndash;2 g/day in commercial products is substantial and underappreciated.
-        </p>
-        <p className="text-sm leading-7 text-muted">
-          If you&rsquo;re an athlete looking for marginal immune support during heavy training blocks, a high-quality colostrum supplement at studied doses (20+ g/day) may offer modest benefit. For everyone else, the evidence does not currently justify the cost — especially at typical commercial doses. This may change as higher-quality trials emerge, but for now, colostrum is more promise than proof.
-        </p>
-      </section>
+      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2><p className="text-sm leading-7 text-muted">Bovine colostrum has a plausible mechanism and modest evidence for immune and gut barrier support — primarily in athletes, primarily at high doses (20-60 g/day), and primarily from small, short-term studies [1-3,5,8]. The dose gap between research and commercial products (10-30×) means most consumers cannot practically replicate studied protocols. For athletes seeking marginal immune support during heavy training, 20+ g/day of a quality-controlled product is a reasonable, if expensive, evidence-informed intervention. For everyone else, the evidence does not justify the cost — especially when a diverse, nutrient-dense diet provides overlapping benefits at a fraction of the price [12].</p></section>
 
-      <EmailCapture
-        headline="Get evidence reviews like this"
-        description="We track supplement claims against clinical evidence so you don't have to. No hype, no affiliate bias, no influencer talking points."
-        ctaLabel="Get the evidence"
-        location="guide-bovine-colostrum"
-      />
+      <section className="card-premium p-6 space-y-3 max-w-4xl"><h2 className="text-xl font-semibold text-ink">References</h2><ol className="space-y-2 list-decimal list-inside text-xs leading-5 text-muted">
+        <Ref n={1} text="Crooks C, et al. (2010). Bovine colostrum supplementation increases salivary IgA in distance runners. Int J Sport Nutr Exerc Metab, 20(5): 431-439." url="https://pubmed.ncbi.nlm.nih.gov/20975111/" />
+        <Ref n={2} text="Drugs.com. Bovine Colostrum: Uses, Benefits & Dosage. Clinical overview updated Dec 2025." url="https://www.drugs.com/npp/bovine-colostrum.html" />
+        <Ref n={3} text="Sustainable Food Technology (2024). Bovine colostrum as a promising nutraceutical: a systematic review. RSC Sustain Food Technol, 2: 680-698." url="https://pubs.rsc.org/en/content/articlehtml/2024/fb/d3fb00256j" />
+        <Ref n={4} text="Kaducu FO, et al. (2011). Effect of bovine colostrum-based food supplement in HIV-associated diarrhea. Afr Health Sci, 11(3): 362-367." url="https://pubmed.ncbi.nlm.nih.gov/22275932/" />
+        <Ref n={5} text="Jones AW, et al. (2017). Bovine colostrum supplementation and exercise-induced immune dysfunction. Eur J Sport Sci, 17(1): 64-73." url="https://pubmed.ncbi.nlm.nih.gov/27558595/" />
+        <Ref n={6} text="Duff WRD, et al. (2014). The effect of bovine colostrum supplementation in older adults during resistance training. Eur J Appl Physiol, 114(4): 825-835." url="https://pubmed.ncbi.nlm.nih.gov/24463644/" />
+        <Ref n={7} text="McGrath BA, et al. (2016). Composition and properties of bovine colostrum: a review. Dairy Sci Technol, 96: 133-158." url="https://pubmed.ncbi.nlm.nih.gov/26740752/" />
+        <Ref n={8} text="Shing CM, et al. (2007). Bovine colostrum modulates immune variables in cyclists. J Sci Med Sport, 10(6): 371-377." url="https://pubmed.ncbi.nlm.nih.gov/17448730/" />
+        <Ref n={9} text="Halasa M, et al. (2022). Bovine colostrum in exercise-induced gut permeability. Nutrients, 14(5): 1067." url="https://pubmed.ncbi.nlm.nih.gov/35268042/" />
+        <Ref n={10} text="Mero A, et al. (1997). Effects of bovine colostrum supplementation on serum IGF-1, IgG, and saliva IgA during training. J Appl Physiol, 83(4): 1144-1151." url="https://pubmed.ncbi.nlm.nih.gov/9338420/" />
+        <Ref n={11} text="Renehan AG, et al. (2004). IGF-1, IGFBP-3 and cancer risk: systematic review and meta-regression. Lancet, 363(9418): 1346-1353." url="https://pubmed.ncbi.nlm.nih.gov/15110491/" />
+        <Ref n={12} text="Hemilä H, Chalker E. (2013). Vitamin C for preventing and treating the common cold. Cochrane Database Syst Rev, (1): CD000980." url="https://pubmed.ncbi.nlm.nih.gov/23440782/" />
+      </ol></section>
 
-      <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between">
-        <Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">
-          ← Back to guides
-        </Link>
-        <Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">
-          Herb library →
-        </Link>
-      </div>
+      <EmailCapture headline="Get evidence reviews like this" description="We track supplement claims against clinical evidence so you don't have to. No hype, no affiliate bias." ctaLabel="Get the evidence" location="guide-bovine-colostrum" />
+      <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
     </div>
   )
 }
