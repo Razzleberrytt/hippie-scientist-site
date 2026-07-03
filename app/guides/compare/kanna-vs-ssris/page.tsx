@@ -9,6 +9,7 @@ export const metadata: Metadata = buildPageMetadata({
 })
 
 import Link from 'next/link'
+import FAQSchema from '@/components/seo/FAQSchema'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import COAList from '../../../../src/components/coa/COAList'
@@ -93,34 +94,82 @@ export default function KannaVsSSRIsPage() {
       <section className="grid gap-6 lg:grid-cols-2">
         <div className="card-premium p-6 space-y-4">
           <p className="eyebrow-label">Ethnobotanical System</p>
-
-          <h2 className="text-3xl font-semibold tracking-tight text-ink">
-            Kanna
-          </h2>
-
+          <h2 className="text-3xl font-semibold tracking-tight text-ink">Kanna</h2>
           <p className="text-sm leading-7 text-muted">
-            Traditionally used psychoactive ethnobotanical associated with emotional regulation, stress modulation, and serotonergic mechanisms.
+            Kanna (Sceletium tortuosum) contains mesembrine and related alkaloids that act as serotonin reuptake inhibitors and PDE4 inhibitors. Traditional South African use includes mood elevation, stress reduction, and social bonding — but the pharmacology is under-studied compared to pharmaceutical antidepressants.
           </p>
-
-          <Link href="/herbs/kanna" className="chip-readable">
-            Explore Kanna
-          </Link>
+          <Link href="/herbs/kanna" className="chip-readable">Explore Kanna</Link>
         </div>
 
         <div className="card-premium p-6 space-y-4">
           <p className="eyebrow-label">Pharmaceutical System</p>
-
-          <h2 className="text-3xl font-semibold tracking-tight text-ink">
-            SSRIs
-          </h2>
-
+          <h2 className="text-3xl font-semibold tracking-tight text-ink">SSRIs</h2>
           <p className="text-sm leading-7 text-muted">
-            Selective serotonin reuptake inhibitors are prescription medications associated with serotonergic modulation and mood-related neuropharmacology.
+            Selective serotonin reuptake inhibitors (fluoxetine, sertraline, escitalopram, etc.) are FDA-approved medications with decades of clinical trial data for depression and anxiety. They work by blocking serotonin transporter (SERT) proteins, gradually increasing synaptic serotonin over weeks.
           </p>
         </div>
       </section>
 
       <COAList entries={exampleCOAEntries} title="COA verification snapshot" />
+
+      {/* Mechanism comparison */}
+      <section className="card-premium p-6 space-y-4 max-w-4xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Why the comparison is uneven</h2>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <h3 className="font-semibold text-ink">Kanna: Under-studied SRI</h3>
+            <p className="mt-2 text-sm leading-7 text-muted">
+              Kanna's mesembrine alkaloids inhibit serotonin reuptake — but the potency, selectivity, and clinical effect size are not well-characterized in human trials. There is no standardized dosing, no long-term safety data, and significant variability between products (plant part, extraction method, alkaloid content).
+            </p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-ink">SSRIs: Extensively studied</h3>
+            <p className="mt-2 text-sm leading-7 text-muted">
+              SSRIs have been studied in tens of thousands of patients across decades. Their efficacy, side effect profiles, drug interactions, withdrawal syndromes, and contraindications are well-documented. They are prescribed within a medical monitoring framework that includes dose titration and follow-up.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Safety warning */}
+      <section className="rounded-2xl border-2 border-red-400 bg-red-50 p-6 max-w-4xl">
+        <p className="text-sm font-black uppercase tracking-wider text-red-800">Do not combine kanna with SSRIs</p>
+        <p className="mt-3 text-sm leading-7 text-red-900">
+          Kanna has serotonergic activity. Combining it with SSRIs, SNRIs, MAOIs, tramadol, St. John's Wort, or other serotonergic substances increases the risk of serotonin syndrome — a potentially life-threatening condition. Symptoms include agitation, confusion, rapid heart rate, high blood pressure, dilated pupils, muscle rigidity, and hyperthermia. If you take any serotonergic medication, do not use kanna.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-3">
+          <Link href="/learn/serotonin" className="rounded-full bg-red-100 px-3 py-1.5 text-xs font-bold text-red-800">Serotonin Pathway</Link>
+          <Link href="/learn/serotonergic-stacking-risks" className="rounded-full bg-red-100 px-3 py-1.5 text-xs font-bold text-red-800">Serotonergic Risks</Link>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="card-premium p-6 space-y-4 max-w-4xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Frequently asked questions</h2>
+        <div className="space-y-4 text-sm leading-7 text-muted">
+          <div>
+            <h3 className="text-lg font-semibold text-ink">Can kanna replace an SSRI?</h3>
+            <p>No. Kanna is not a replacement for prescribed antidepressants. SSRIs are titrated under medical supervision with known efficacy and safety data. Kanna has no standardized dosing, no long-term outcome studies, and no regulatory quality control. Changing your depression treatment without medical guidance is dangerous.</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-ink">What is serotonin syndrome?</h3>
+            <p>Serotonin syndrome is a potentially life-threatening condition caused by excessive serotonergic activity. It can occur when multiple serotonergic substances are combined. Symptoms range from mild (shivering, diarrhea) to severe (hyperthermia, seizures, death). If you suspect serotonin syndrome, seek emergency medical attention immediately.</p>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-ink">Is kanna safe on its own?</h3>
+            <p>For most healthy adults not taking serotonergic medications, kanna at moderate doses appears to have a reasonable short-term safety profile based on traditional use and limited modern data. However, long-term safety is not established. Side effects may include headache, GI discomfort, and mild sedation. Start low and avoid daily use without breaks.</p>
+          </div>
+        </div>
+      </section>
+
+      <FAQSchema
+        pagePath="/guides/compare/kanna-vs-ssris/"
+        questions={[
+          { question: 'Can kanna replace an SSRI?', answer: 'No. Kanna is not a replacement for prescribed antidepressants. SSRIs are titrated under medical supervision with known efficacy and safety data. Kanna has no standardized dosing, no long-term outcome studies, and no regulatory quality control. Changing your depression treatment without medical guidance is dangerous.' },
+          { question: 'What is serotonin syndrome?', answer: 'Serotonin syndrome is a potentially life-threatening condition caused by excessive serotonergic activity. It can occur when multiple serotonergic substances are combined. Symptoms range from mild (shivering, diarrhea) to severe (hyperthermia, seizures, death). If you suspect serotonin syndrome, seek emergency medical attention immediately.' },
+          { question: 'Is kanna safe on its own?', answer: 'For most healthy adults not taking serotonergic medications, kanna at moderate doses appears to have a reasonable short-term safety profile based on traditional use and limited modern data. However, long-term safety is not established. Side effects may include headache, GI discomfort, and mild sedation.' },
+        ]}
+      />
 
       <section className="surface-subtle rounded-3xl p-6 space-y-5">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">
