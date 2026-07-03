@@ -13,6 +13,7 @@ import PathwayDiagram from '@/components/PathwayDiagram'
 import EvidenceLegend from '@/components/EvidenceLegend'
 import { pathwayDiagrams } from '@/lib/pathway-data'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
+import References from '@/components/References'
 
 const SLUG = 'magnesium-glycinate-vs-citrate-for-adhd'
 const TITLE = 'Magnesium Glycinate vs Citrate for ADHD: Which Form Works Better?'
@@ -62,6 +63,12 @@ const FAQS = [
     answer:
       'Magnesium threonate (L-threonate) is marketed for brain health due to animal data suggesting greater brain penetration. Human trial data for threonate vs glycinate in ADHD specifically is very limited. It is substantially more expensive than glycinate. For most people starting magnesium supplementation for ADHD, glycinate is the most practical first choice: better evidence, better cost, and a strong safety profile. Threonate may be worth exploring if glycinate does not produce results after a fair trial.',
   },
+]
+
+const MAGNESIUM_GLYCINATE_VS_CITRATE_FOR_ADHD_REFS = [
+  { n: 1, text: 'Starobrat-Hermelin B, Kozielec T. (1997). Magnesium in ADHD. Magnes Res, 10(2): 149-156.', url: 'https://pubmed.ncbi.nlm.nih.gov/9368238/' },
+  { n: 2, text: 'Mousain-Bosc M, et al. (2006). Magnesium-B6 supplementation in ADHD. Magnes Res, 19(1): 46-52.', url: 'https://pubmed.ncbi.nlm.nih.gov/16846101/' },
+  { n: 3, text: 'Abbasi B, et al. (2012). Magnesium and sleep. J Res Med Sci, 17(12): 1161-1169.', url: 'https://pubmed.ncbi.nlm.nih.gov/23853635/' },
 ]
 
 export default function MagnesiumGlycinateCitrateAdhdPage() {

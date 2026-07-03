@@ -9,6 +9,7 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
+import References from '@/components/References'
 
 const PAGE_URL = `${SITE_URL}/guides/anxiety/how-to-lower-cortisol-naturally`
 
@@ -57,6 +58,12 @@ const HEADINGS: Heading[] = [
   { id: 'supplements', text: 'Herbs and supplements', level: 2 },
   { id: 'risks', text: 'Risks & safety', level: 2 },
   { id: 'faq', text: 'Frequently asked questions', level: 2 },
+]
+
+const HOW_TO_LOWER_CORTISOL_NATURALLY_REFS = [
+  { n: 1, text: 'Chandrasekhar K, et al. (2012). Ashwagandha and cortisol reduction. Indian J Psychol Med, 34(3): 255-262.', url: 'https://pubmed.ncbi.nlm.nih.gov/23439798/' },
+  { n: 2, text: 'Olsson EM, et al. (2009). Rhodiola rosea for stress fatigue. Planta Med, 75(2): 105-112.', url: 'https://pubmed.ncbi.nlm.nih.gov/19016404/' },
+  { n: 3, text: 'Panossian A, Wikman G. (2010). Adaptogens and stress response. Pharmaceuticals, 3(1): 188-224.', url: 'https://pubmed.ncbi.nlm.nih.gov/27713248/' },
 ]
 
 export default function Page() {
@@ -269,6 +276,7 @@ export default function Page() {
         </section>
 
         {ashwagandhaProducts && (
+        <References refs={HOW_TO_LOWER_CORTISOL_NATURALLY_REFS} />
           <RecommendationSection products={ashwagandhaProducts.products} />
         )}
 

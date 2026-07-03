@@ -9,6 +9,7 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
+import References from '@/components/References'
 
 const PAGE_URL = `${SITE_URL}/guides/best/supplements-for-stress`
 
@@ -85,6 +86,11 @@ const HEADINGS: Heading[] = [
   { id: 'stress-pattern', text: 'Choose by stress pattern', level: 2 },
   { id: 'profiles', text: 'Supplement profiles', level: 2 },
   { id: 'stacks', text: 'Recommended stacks', level: 2 },
+]
+
+const BEST_SUPPLEMENTS_FOR_STRESS_REFS = [
+  { n: 1, text: 'Boyle NB, et al. (2017). Magnesium and anxiety. Nutrients, 9(5): 429.', url: 'https://pubmed.ncbi.nlm.nih.gov/28445426/' },
+  { n: 2, text: 'Panossian A, Wikman G. (2010). Adaptogens. Pharmaceuticals, 3(1): 188-224.', url: 'https://pubmed.ncbi.nlm.nih.gov/27713248/' },
 ]
 
 export default function BestSupplementsForStressPage() {
@@ -218,6 +224,7 @@ export default function BestSupplementsForStressPage() {
         </section>
 
         {ashwagandhaProducts && (
+        <References refs={BEST_SUPPLEMENTS_FOR_STRESS_REFS} />
           <RecommendationSection products={ashwagandhaProducts.products} />
         )}
 

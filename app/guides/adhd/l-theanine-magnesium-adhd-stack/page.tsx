@@ -12,6 +12,7 @@ import PathwayDiagram from '@/components/PathwayDiagram'
 import EvidenceLegend from '@/components/EvidenceLegend'
 import { pathwayDiagrams } from '@/lib/pathway-data'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
+import References from '@/components/References'
 
 const SLUG = 'l-theanine-magnesium-adhd-stack'
 const TITLE = 'L-Theanine and Magnesium for ADHD: How to Stack Them Safely'
@@ -61,6 +62,12 @@ const FAQS = [
     answer:
       'Starting them separately is strongly preferred. Begin one supplement, assess your response over 7–14 days, then add the second. If you start both simultaneously and experience an effect (positive or negative), you cannot determine which supplement is responsible. This makes it harder to optimise or troubleshoot. Starting separately also means smaller initial supplement burden and cleaner attribution of any side effects.',
   },
+]
+
+const L_THEANINE_MAGNESIUM_ADHD_STACK_REFS = [
+  { n: 1, text: 'Giesbrecht T, et al. (2010). L-theanine and caffeine on cognition. Nutr Neurosci, 13(6): 283-290.', url: 'https://pubmed.ncbi.nlm.nih.gov/21040626/' },
+  { n: 2, text: 'Starobrat-Hermelin B. (1998). Magnesium in ADHD children. Magnes Res, 11(1): 71-77.', url: 'https://pubmed.ncbi.nlm.nih.gov/9595557/' },
+  { n: 3, text: 'Haskell CF, et al. (2008). L-theanine and cognition. Biol Psychol, 77(2): 113-122.', url: 'https://pubmed.ncbi.nlm.nih.gov/18006208/' },
 ]
 
 export default function LTheanineMagnesiumAdhdStackPage() {
