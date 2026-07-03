@@ -36,6 +36,7 @@ import { SourcingCta } from '../../../src/components/sourcing/SourcingCta'
 import AuthorCredentials from '@/components/AuthorCredentials'
 import Disclaimer from '../../../src/components/Disclaimer'
 import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
+import SafetyGaugeMeter from '@/components/ui/SafetyGaugeMeter'
 import ProfileEvidenceLens from '@/components/ui/ProfileEvidenceLens'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
@@ -249,6 +250,12 @@ function getSafetyTone(summary: string, avoidIf: string[], sensitivity: string) 
   return 'Standard caution'
 }
 
+function getSafetyGaugeScore(sensitivity: string): { score: number; label: string } {
+  if (/low/i.test(sensitivity)) return { score: 90, label: 'Low caution — well tolerated' }
+  if (/moderate/i.test(sensitivity)) return { score: 60, label: 'Moderate caution — review before use' }
+  return { score: 28, label: 'High caution — review carefully' }
+}
+
 function getTopUses(herb: Herb) {
   const terms = unique([...getEffects(herb), ...getTraditionalUses(herb), ...deriveResearchFocusAreas({ profile: herb })])
   const selected: string[] = []
@@ -424,6 +431,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const evidenceLimitations = deriveEvidenceLimitations({ profile: herb })
   const topUses = getTopUses(herb)
   const safetyTone = getSafetyTone(safetySummary, avoidIf, safetySensitivity)
+  const safetyGaugeScore = getSafetyGaugeScore(safetySensitivity)
   const relatedHerbLinks = getRelatedLinks(relatedHerbs, 'herb')
   const revenueProducts = getRevenueProductSet(normalizedSlug)
   const stackRecommendations = getStackRecommendations(normalizedSlug, 3)
@@ -756,8 +764,13 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
       {/* Section 2: Safety */}
       <section id="safety" className="scroll-mt-24 rounded-2xl bg-amber-50/70 border border-amber-900/10 border-l-4 border-amber-500/60 p-4 sm:p-5 space-y-3">
-        <h2 className="text-lg font-bold text-ink">Safety &amp; Cautions</h2>
-        <p className="text-sm leading-6 text-amber-900">{safetySummary}</p>
+        <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+          <div className="flex-1 space-y-2">
+            <h2 className="text-lg font-bold text-ink">Safety &amp; Cautions</h2>
+            <p className="text-sm leading-6 text-amber-900">{safetySummary}</p>
+          </div>
+          <SafetyGaugeMeter score={safetyGaugeScore.score} label={safetyGaugeScore.label} className="shrink-0 sm:w-44" />
+        </div>
         {safetyGroups.length > 0 && (
           <details className="group mt-4 border-t border-amber-900/10 pt-3">
             <summary className="flex cursor-pointer items-center justify-between gap-3 text-sm font-bold text-amber-950 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-700/40 focus-visible:rounded">
