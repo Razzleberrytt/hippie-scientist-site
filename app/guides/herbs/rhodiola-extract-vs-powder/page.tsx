@@ -14,6 +14,7 @@ import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import References from '@/components/References'
 
 const SLUG = 'rhodiola-extract-vs-powder'
 const PAGE_URL = 'https://thehippiescientist.net/guides/rhodiola-extract-vs-powder'
@@ -80,6 +81,12 @@ const HEADINGS: Heading[] = [
   { id: 'dosage', text: 'Dosing by Form', level: 2 },
   { id: 'quality', text: 'How to Verify Extract Quality', level: 2 },
   { id: 'faq', text: 'Common Questions', level: 2 },
+]
+
+const RHODIOLA_EXTRACT_VS_POWDER_REFS = [
+  { n: 1, text: 'Panossian A, et al. (2010). Rhodiola rosea: traditional use, composition, and clinical trials. Phytomedicine, 17(7): 481-493.', url: 'https://pubmed.ncbi.nlm.nih.gov/20378318/' },
+  { n: 2, text: 'Olsson EM, et al. (2009). Rhodiola rosea for stress-related fatigue. Planta Med, 75(2): 105-112.', url: 'https://pubmed.ncbi.nlm.nih.gov/19016404/' },
+  { n: 3, text: 'Darbinyan V, et al. (2000). Rhodiola rosea in stress-induced fatigue. Phytomedicine, 7(5): 365-371.', url: 'https://pubmed.ncbi.nlm.nih.gov/11081987/' },
 ]
 
 export default function RhodiolaExtractVsPowderGuidePage() {
@@ -212,6 +219,7 @@ export default function RhodiolaExtractVsPowderGuidePage() {
       )}
 
       {rhodiolaProducts && (
+      <References refs={RHODIOLA_EXTRACT_VS_POWDER_REFS} />
         <RecommendationSection products={rhodiolaProducts.products} />
       )}
 

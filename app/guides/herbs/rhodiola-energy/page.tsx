@@ -16,6 +16,7 @@ import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import References from '@/components/References'
 
 const SLUG = 'rhodiola-energy'
 const PAGE_URL = 'https://thehippiescientist.net/guides/rhodiola-energy'
@@ -119,6 +120,13 @@ const HEADINGS: Heading[] = [
   { id: 'dosage', text: 'Dosing Protocol', level: 2 },
   { id: 'safety', text: 'Safety & Precautions', level: 2 },
   { id: 'faq', text: 'Common Questions', level: 2 },
+]
+
+const RHODIOLA_ENERGY_REFS = [
+  { n: 1, text: 'Olsson EM, et al. (2009). Rhodiola rosea for stress-related fatigue. Planta Med, 75(2): 105-112.', url: 'https://pubmed.ncbi.nlm.nih.gov/19016404/' },
+  { n: 2, text: 'Darbinyan V, et al. (2000). Rhodiola rosea in fatigue. Phytomedicine, 7(5): 365-371.', url: 'https://pubmed.ncbi.nlm.nih.gov/11081987/' },
+  { n: 3, text: 'Ishaque S, et al. (2012). Rhodiola for physical and mental fatigue. BMC Complement Altern Med, 12: 70.', url: 'https://pubmed.ncbi.nlm.nih.gov/22643043/' },
+  { n: 4, text: 'Panossian A, et al. (2010). Rosenroot traditional use and clinical trials. Phytomedicine, 17(7): 481-493.', url: 'https://pubmed.ncbi.nlm.nih.gov/20378318/' },
 ]
 
 export default function RhodiolaEnergyGuidePage() {
@@ -271,6 +279,7 @@ export default function RhodiolaEnergyGuidePage() {
       )}
 
       {rhodiolaProducts && (
+      <References refs={RHODIOLA_ENERGY_REFS} />
         <RecommendationSection products={rhodiolaProducts.products} />
       )}
 

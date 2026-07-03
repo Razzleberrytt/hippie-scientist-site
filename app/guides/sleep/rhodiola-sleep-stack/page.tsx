@@ -15,6 +15,7 @@ import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import References from '@/components/References'
 
 const SLUG = 'rhodiola-sleep-stack'
 const PAGE_URL = 'https://thehippiescientist.net/guides/rhodiola-sleep-stack'
@@ -110,6 +111,13 @@ const HEADINGS: Heading[] = [
   { id: 'dosage', text: 'Dosing & Timing Protocol', level: 2 },
   { id: 'safety', text: 'Safety & Who Should Avoid It', level: 2 },
   { id: 'faq', text: 'Common Questions', level: 2 },
+]
+
+const RHODIOLA_SLEEP_STACK_REFS = [
+  { n: 1, text: 'Cropley M, et al. (2015). Rhodiola rosea and self-reported stress. Phytother Res, 29(12): 1934-1939.', url: 'https://pubmed.ncbi.nlm.nih.gov/26502953/' },
+  { n: 2, text: 'Abbasi B, et al. (2012). Magnesium supplementation and insomnia. J Res Med Sci, 17(12): 1161-1169.', url: 'https://pubmed.ncbi.nlm.nih.gov/23853635/' },
+  { n: 3, text: 'Hieu TH, et al. (2019). L-theanine for sleep quality. Nutrients, 11(10): 2362.', url: 'https://pubmed.ncbi.nlm.nih.gov/31581621/' },
+  { n: 4, text: 'Ferracioli-Oda E, et al. (2013). Melatonin for sleep disorders meta-analysis. PLoS ONE, 8(5): e63773.', url: 'https://pubmed.ncbi.nlm.nih.gov/23691095/' },
 ]
 
 export default function RhodiolaSleepStackGuidePage() {
@@ -267,6 +275,7 @@ export default function RhodiolaSleepStackGuidePage() {
       )}
 
       {rhodiolaProducts && (
+      <References refs={RHODIOLA_SLEEP_STACK_REFS} />
         <RecommendationSection products={rhodiolaProducts.products} />
       )}
 

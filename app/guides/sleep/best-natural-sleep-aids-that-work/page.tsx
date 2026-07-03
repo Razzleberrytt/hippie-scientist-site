@@ -9,6 +9,7 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
+import References from '@/components/References'
 
 const PAGE_URL = `${SITE_URL}/guides/sleep/best-natural-sleep-aids-that-work`
 
@@ -58,6 +59,15 @@ const HEADINGS: Heading[] = [
   { id: 'risks', text: 'Risks & safety', level: 2 },
   { id: 'mistakes', text: 'Common mistakes to avoid', level: 2 },
   { id: 'faq', text: 'Frequently asked questions', level: 2 },
+]
+
+const BEST_NATURAL_SLEEP_AIDS_THAT_WORK_REFS = [
+  { n: 1, text: 'Abbasi B, et al. (2012). Magnesium supplementation and primary insomnia. J Res Med Sci, 17(12): 1161-1169.', url: 'https://pubmed.ncbi.nlm.nih.gov/23853635/' },
+  { n: 2, text: 'Bent S, et al. (2006). Valerian for sleep: systematic review. Am J Med, 119(12): 1005-1012.', url: 'https://pubmed.ncbi.nlm.nih.gov/17145239/' },
+  { n: 3, text: 'Ferracioli-Oda E, et al. (2013). Melatonin for primary sleep disorders: meta-analysis. PLoS ONE, 8(5): e63773.', url: 'https://pubmed.ncbi.nlm.nih.gov/23691095/' },
+  { n: 4, text: 'Hieu TH, et al. (2019). L-theanine for sleep quality. Nutrients, 11(10): 2362.', url: 'https://pubmed.ncbi.nlm.nih.gov/31581621/' },
+  { n: 5, text: 'Ngan A, Conduit R. (2011). Passionflower for sleep: double-blind RCT. Phytother Res, 25(8): 1153-1159.', url: 'https://pubmed.ncbi.nlm.nih.gov/21294203/' },
+  { n: 6, text: 'Wheatley D. (2001). Kava and valerian in stress-induced insomnia. Phytother Res, 15(6): 549-551.', url: 'https://pubmed.ncbi.nlm.nih.gov/11536391/' },
 ]
 
 export default function Page() {
@@ -282,6 +292,7 @@ export default function Page() {
         </section>
 
         {valerianProducts && (
+        <References refs={BEST_NATURAL_SLEEP_AIDS_THAT_WORK_REFS} />
           <RecommendationSection products={valerianProducts.products} />
         )}
 

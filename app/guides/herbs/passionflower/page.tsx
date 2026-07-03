@@ -15,6 +15,7 @@ import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import References from '@/components/References'
 
 const SLUG = 'passionflower'
 const PAGE_URL = 'https://thehippiescientist.net/guides/passionflower'
@@ -109,6 +110,13 @@ const MECHANISM_POINTS = [
     description:
       'Most clinical benefit is attributed to mild GABAergic activity and general calming rather than strong sedation — consistent with its modest effect sizes.',
   },
+]
+
+const PASSIONFLOWER_REFS = [
+  { n: 1, text: 'Ngan A, Conduit R. (2011). Passionflower for sleep: double-blind RCT. Phytother Res, 25(8): 1153-1159.', url: 'https://pubmed.ncbi.nlm.nih.gov/21294203/' },
+  { n: 2, text: 'Akhondzadeh S, et al. (2001). Passionflower in generalized anxiety. J Clin Pharm Ther, 26(5): 363-367.', url: 'https://pubmed.ncbi.nlm.nih.gov/11679026/' },
+  { n: 3, text: 'Movafegh A, et al. (2008). Passionflower for preoperative anxiety. Anesth Analg, 106(6): 1728-1732.', url: 'https://pubmed.ncbi.nlm.nih.gov/18499599/' },
+  { n: 4, text: 'Miroddi M, et al. (2013). Passiflora incarnata clinical indications. J Ethnopharmacol, 150(3): 791-804.', url: 'https://pubmed.ncbi.nlm.nih.gov/24012504/' },
 ]
 
 export default function PassionflowerGuidePage() {
@@ -233,6 +241,7 @@ export default function PassionflowerGuidePage() {
       )}
 
       {passionflowerProducts && (
+      <References refs={PASSIONFLOWER_REFS} />
         <RecommendationSection products={passionflowerProducts.products} />
       )}
 

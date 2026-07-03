@@ -15,6 +15,7 @@ import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import References from '@/components/References'
 
 const SLUG = 'elderberry'
 const PAGE_URL = 'https://thehippiescientist.net/guides/elderberry'
@@ -110,6 +111,13 @@ const HEADINGS: Heading[] = [
   { id: 'quality', text: 'Quality Matters', level: 2 },
   { id: 'safety', text: 'Safety & Precautions', level: 2 },
   { id: 'faq', text: 'Common Questions', level: 2 },
+]
+
+const ELDERBERRY_REFS = [
+  { n: 1, text: 'Zakay-Rones Z, et al. (2004). Elderberry for influenza A and B. J Int Med Res, 32(2): 132-140.', url: 'https://pubmed.ncbi.nlm.nih.gov/15080016/' },
+  { n: 2, text: 'Tiralongo E, et al. (2016). Elderberry reduces cold duration in air travelers. Nutrients, 8(4): 182.', url: 'https://pubmed.ncbi.nlm.nih.gov/27023596/' },
+  { n: 3, text: 'Hawkins J, et al. (2019). Black elderberry for upper respiratory symptoms. Complement Ther Med, 42: 361-365.', url: 'https://pubmed.ncbi.nlm.nih.gov/30670267/' },
+  { n: 4, text: 'Krawitz C, et al. (2011). Elderberry flavonoids inhibit H1N1 in vitro. BMC Complement Altern Med, 11: 16.', url: 'https://pubmed.ncbi.nlm.nih.gov/21352539/' },
 ]
 
 export default function ElderberryGuidePage() {
@@ -245,6 +253,7 @@ export default function ElderberryGuidePage() {
       )}
 
       {elderberryProducts && (
+      <References refs={ELDERBERRY_REFS} />
         <RecommendationSection products={elderberryProducts.products} />
       )}
 
