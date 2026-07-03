@@ -230,7 +230,7 @@ export default function HomepageV2() {
               {featuredArticles.map((article: any) => (
                 <Link
                   key={article.slug}
-                  href={`/${article.slug}/`}
+                  href={`/articles/${article.slug}/`}
                   className='group flex flex-col gap-3 rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm transition-all duration-200 hover:border-brand-700/20 hover:shadow-md dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]'
                 >
                   <div className='flex items-center gap-2'>
