@@ -7,6 +7,7 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Sleep Changes Emotional Regulation",
   description: "Educational exploration of sleep continuity, emotional regulation, stress resilience, recovery biology, and nervous-system restoration.",
@@ -49,6 +50,11 @@ const relatedSystems = [
   { href: '/learn/why-burnout-affects-cognition', title: 'Burnout and Cognition' },
   { href: '/learn/how-emotional-regulation-works', title: 'Emotional Regulation' },
   { href: '/guides/anxiety', title: 'Burnout Recovery' },
+]
+
+const WHY_SLEEP_CHANGES_EMOTIONAL_REGULATION_REFS = [
+  { n: 1, text: 'Scammell TE, et al. (2017). Neural circuitry of wakefulness and sleep. Neuron, 93(4): 747-765.', url: 'https://pubmed.ncbi.nlm.nih.gov/28231463/' },
+  { n: 2, text: 'Walker MP. (2017). Why We Sleep. Scribner.', url: '' },
 ]
 
 export default function WhySleepChangesEmotionalRegulationPage() {

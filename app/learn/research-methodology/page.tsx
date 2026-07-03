@@ -4,12 +4,17 @@ import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSection from '@/components/evidence/EvidenceSection'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Research Methodology",
   description: "Educational overview of evidence standards, human trials, mechanistic evidence, neuropharmacology interpretation, and scientific methodology.",
   path: "/learn/research-methodology/",
 })
 
+
+const RESEARCH_METHODOLOGY_REFS = [
+  { n: 1, text: 'Greenhalgh T. (2014). How to Read a Paper, 5th ed. BMJ Books.', url: '' },
+]
 
 export default function ResearchMethodologyPage() {
   return (

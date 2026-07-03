@@ -3,6 +3,7 @@ import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Dissociative Mechanisms",
   description: "Educational exploration of dissociative neuropharmacology, glutamatergic signaling, altered-state mechanisms, and psychoactive ethnobotany.",
@@ -23,6 +24,10 @@ const systems = [
     href: '/learn/harm-reduction',
     title: 'Harm Reduction',
   },
+]
+
+const DISSOCIATIVE_MECHANISMS_REFS = [
+  { n: 1, text: 'Vollenweider FX, Kometer M. (2010). The neurobiology of psychedelic drugs. Nat Rev Neurosci, 11(9): 642-651.', url: 'https://pubmed.ncbi.nlm.nih.gov/20717121/' },
 ]
 
 export default function DissociativeMechanismsPage() {

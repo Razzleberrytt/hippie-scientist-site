@@ -5,12 +5,18 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSection from '@/components/evidence/EvidenceSection'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "How to Read Scientific Studies",
   description: "Educational overview of scientific interpretation, evidence quality, human trials, mechanistic evidence, and research limitations.",
   path: "/learn/how-to-read-scientific-studies/",
 })
 
+
+const HOW_TO_READ_SCIENTIFIC_STUDIES_REFS = [
+  { n: 1, text: 'Greenhalgh T. (2014). How to Read a Paper, 5th ed. BMJ Books.', url: '' },
+  { n: 2, text: 'Ioannidis JPA. (2005). Why most published research findings are false. PLoS Med, 2(8): e124.', url: 'https://pubmed.ncbi.nlm.nih.gov/16060722/' },
+]
 
 export default function ReadScientificStudiesPage() {
   return (

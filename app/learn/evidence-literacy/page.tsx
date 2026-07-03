@@ -6,6 +6,7 @@ import EducationPageLayout from '@/components/layouts/EducationPageLayout'
 import TrialDesignInsight from '@/components/education/TrialDesignInsight'
 import EvidenceGradeRationale from '@/components/education/EvidenceGradeRationale'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Evidence Literacy: How to Read and Evaluate Herbal Clinical Trials',
@@ -52,6 +53,11 @@ const relatedSystems = [
   { href: '/learn/evidence-hierarchy', title: 'Evidence Hierarchy' },
   { href: '/learn/study-design-snapshot', title: 'Study Design Snapshot' },
   { href: '/learn/why-studies-conflict', title: 'Why Studies Conflict' },
+]
+
+const EVIDENCE_LITERACY_REFS = [
+  { n: 1, text: 'Ioannidis JPA. (2005). Why most published research findings are false. PLoS Med, 2(8): e124.', url: 'https://pubmed.ncbi.nlm.nih.gov/16060722/' },
+  { n: 2, text: 'Button KS, et al. (2013). Power failure in neuroscience. Nat Rev Neurosci, 14(5): 365-376.', url: 'https://pubmed.ncbi.nlm.nih.gov/23571845/' },
 ]
 
 export default function EvidenceLiteracyPage() {

@@ -8,6 +8,7 @@ import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Learning Affects Neuroplasticity",
   description: "Educational exploration of neuroplasticity, learning systems, cognition continuity, recovery biology, and adaptive nervous-system signaling.",
@@ -65,6 +66,11 @@ const faqItems = [
     answer:
       'No. Online discussions sometimes exaggerate neuroplasticity narratives. Human adaptation systems involve biological constraints, recovery limitations, environmental influences, stress physiology, and substantial individual variability.',
   },
+]
+
+const HOW_LEARNING_AFFECTS_NEUROPLASTICITY_REFS = [
+  { n: 1, text: 'Diamond A. (2013). Executive functions. Annu Rev Psychol, 64: 135-168.', url: 'https://pubmed.ncbi.nlm.nih.gov/23020641/' },
+  { n: 2, text: 'Posner MI, Petersen SE. (1990). The attention system of the human brain. Annu Rev Neurosci, 13: 25-42.', url: 'https://pubmed.ncbi.nlm.nih.gov/2183676/' },
 ]
 
 export default function NeuroplasticityEducationPage() {

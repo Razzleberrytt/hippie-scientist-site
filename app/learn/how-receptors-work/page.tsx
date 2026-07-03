@@ -6,6 +6,7 @@ import EvidenceSection from '@/components/evidence/EvidenceSection'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Receptors Work",
   description: "Educational overview of receptor systems, signaling pathways, neuropharmacology, neurotransmitter interactions, and psychoactive mechanisms.",
@@ -30,6 +31,12 @@ const receptorSystems = [
     title: 'Glutamatergic receptors',
     description: 'Associated with excitatory signaling, learning systems, neuroplasticity, cognition pathways, memory formation, and altered-state neuropharmacology.',
   },
+]
+
+const HOW_RECEPTORS_WORK_REFS = [
+  { n: 1, text: 'Kandel ER, et al. (2013). Principles of Neural Science: synaptic transmission. McGraw-Hill.', url: '' },
+  { n: 2, text: 'Cooper JR, Bloom FE, Roth RH. (2003). The Biochemical Basis of Neuropharmacology, 8th ed. Oxford.', url: '' },
+  { n: 3, text: 'Südhof TC. (2013). Neurotransmitter release. Neuron, 80(3): 675-690.', url: 'https://pubmed.ncbi.nlm.nih.gov/24183020/' },
 ]
 
 export default function ReceptorsPage() {

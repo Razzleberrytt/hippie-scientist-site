@@ -8,12 +8,17 @@ import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Psychoactive Substances Affect Perception",
   description: "Educational exploration of psychoactive perception, neurochemical signaling, altered states, sensory processing, and neuropharmacology.",
   path: "/learn/how-psychoactive-substances-affect-perception/",
 })
 
+
+const HOW_PSYCHOACTIVE_SUBSTANCES_AFFECT_PERCEPTION_REFS = [
+  { n: 1, text: 'Carhart-Harris RL, et al. (2014). The entropic brain. Front Hum Neurosci, 8: 20.', url: 'https://pubmed.ncbi.nlm.nih.gov/24550805/' },
+]
 
 export default function PsychoactivePerceptionPage() {
   return (

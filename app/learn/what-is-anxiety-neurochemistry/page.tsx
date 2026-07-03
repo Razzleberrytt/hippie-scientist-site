@@ -3,6 +3,7 @@ import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "What Is Anxiety Neurochemistry?",
   description: "Educational overview of anxiety-related neurochemistry, stress signaling, calming systems, emotional processing, and nervous-system regulation.",
@@ -31,6 +32,10 @@ const systems = [
     title: 'Non-Sedating Calm',
     description: 'Educational calm-focus discovery system emphasizing stress-aware neuropharmacology.',
   },
+]
+
+const WHAT_IS_ANXIETY_NEUROCHEMISTRY_REFS = [
+  { n: 1, text: 'Tovote P, et al. (2015). Neuronal circuits for fear and anxiety. Nat Rev Neurosci, 16(6): 317-331.', url: 'https://pubmed.ncbi.nlm.nih.gov/25991441/' },
 ]
 
 export default function AnxietyNeurochemistryPage() {

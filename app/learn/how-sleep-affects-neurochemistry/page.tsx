@@ -8,6 +8,7 @@ import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Sleep Affects Neurochemistry",
   description: "Educational exploration of sleep neurochemistry, REM systems, recovery continuity, nervous-system restoration, and dream-related signaling.",
@@ -47,6 +48,11 @@ const related = [
     href: '/learn/dream-herbs',
     title: 'Dream Herbs',
   },
+]
+
+const HOW_SLEEP_AFFECTS_NEUROCHEMISTRY_REFS = [
+  { n: 1, text: 'Scammell TE, et al. (2017). Neural circuitry of wakefulness and sleep. Neuron, 93(4): 747-765.', url: 'https://pubmed.ncbi.nlm.nih.gov/28231463/' },
+  { n: 2, text: 'Walker MP. (2017). Why We Sleep. Scribner.', url: '' },
 ]
 
 export default function SleepNeurochemistryPage() {

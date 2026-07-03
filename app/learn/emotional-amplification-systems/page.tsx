@@ -7,6 +7,7 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Emotional Amplification Systems",
   description: "Educational exploration of emotional salience, contextual neurobiology, stress physiology, perception systems, and subjective emotional experiences.",
@@ -49,6 +50,11 @@ const relatedSystems = [
   { href: '/learn/placebo-and-context-effects', title: 'Placebo and Context Effects' },
   { href: '/learn/why-individual-variability-matters', title: 'Individual Variability' },
   { href: '/learn/why-neuroscience-is-difficult', title: 'Why Neuroscience Is Difficult' },
+]
+
+const EMOTIONAL_AMPLIFICATION_SYSTEMS_REFS = [
+  { n: 1, text: 'McEwen BS. (2017). Neurobiological and systemic effects of chronic stress. Chronic Stress, 1: 2470547017692328.', url: 'https://pubmed.ncbi.nlm.nih.gov/28856337/' },
+  { n: 2, text: 'Sapolsky RM. (2015). Stress and the brain: individual variability. Mol Psychiatry, 20(11): 1331-1338.', url: 'https://pubmed.ncbi.nlm.nih.gov/25917366/' },
 ]
 
 export default function EmotionalAmplificationSystemsPage() {

@@ -4,12 +4,17 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSection from '@/components/evidence/EvidenceSection'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Understanding Placebo and Expectancy",
   description: "Educational exploration of placebo effects, expectancy systems, perception, neurochemistry, and scientific interpretation.",
   path: "/learn/understanding-placebo-and-expectancy/",
 })
 
+
+const UNDERSTANDING_PLACEBO_AND_EXPECTANCY_REFS = [
+  { n: 1, text: 'Finniss DG, et al. (2010). Placebo effects. Lancet, 375(9715): 686-695.', url: 'https://pubmed.ncbi.nlm.nih.gov/20171404/' },
+]
 
 export default function PlaceboExpectancyPage() {
   return (

@@ -7,6 +7,7 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Neuroscience Is Difficult",
   description: "Educational exploration of biological complexity, contextual neurobiology, human variability, and scientific limitations in neuroscience research.",
@@ -49,6 +50,10 @@ const relatedSystems = [
   { href: '/learn/why-individual-variability-matters', title: 'Individual Variability' },
   { href: '/learn/why-online-supplement-claims-spread', title: 'Mechanistic Hype and Claims' },
   { href: '/learn/why-studies-conflict', title: 'Translational Limitations' },
+]
+
+const WHY_NEUROSCIENCE_IS_DIFFICULT_REFS = [
+  { n: 1, text: 'Button KS, et al. (2013). Power failure in neuroscience. Nat Rev Neurosci, 14(5): 365-376.', url: 'https://pubmed.ncbi.nlm.nih.gov/23571845/' },
 ]
 
 export default function WhyNeuroscienceIsDifficultPage() {

@@ -7,6 +7,7 @@ import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanistic
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import RelatedEducationSystems from '@/components/education/related-education-systems'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Scientific But Human Neuroscience",
   description: "Authority hub exploring scientific literacy, contextual neurobiology, sustainable cognition, recovery-oriented neuroscience, and emotionally mature evidence interpretation.",
@@ -69,6 +70,10 @@ const relatedSystems = [
     href: '/learn/why-individual-variability-matters',
     title: 'Individual Variability',
   },
+]
+
+const SCIENTIFIC_BUT_HUMAN_NEUROSCIENCE_REFS = [
+  { n: 1, text: 'Kandel ER, et al. (2013). Principles of Neural Science, 5th ed. McGraw-Hill.', url: '' },
 ]
 
 export default function ScientificButHumanNeurosciencePage() {

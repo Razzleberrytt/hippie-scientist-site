@@ -6,6 +6,7 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSection from '@/components/evidence/EvidenceSection'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Sleep Matters for Mental Health",
   description: "Educational exploration of sleep continuity, emotional regulation, cognition recovery, stress systems, and mental-health-related neurochemistry.",
@@ -30,6 +31,11 @@ const relatedSystems = [
     href: '/guides/sleep',
     title: 'Sleep Support',
   },
+]
+
+const WHY_SLEEP_MATTERS_FOR_MENTAL_HEALTH_REFS = [
+  { n: 1, text: 'Scammell TE, et al. (2017). Neural circuitry of wakefulness and sleep. Neuron, 93(4): 747-765.', url: 'https://pubmed.ncbi.nlm.nih.gov/28231463/' },
+  { n: 2, text: 'Walker MP. (2017). Why We Sleep. Scribner.', url: '' },
 ]
 
 export default function SleepMentalHealthPage() {

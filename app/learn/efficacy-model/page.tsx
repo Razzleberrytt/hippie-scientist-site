@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import EfficacyModelerClient from '../../../src/components/education/EfficacyModelerClient'
+import References from '@/components/References'
 
 export const metadata: Metadata = {
   title: 'Supplement Efficacy & Pharmacokinetics Modeler',
@@ -8,6 +9,10 @@ export const metadata: Metadata = {
     'Simulate absorption onset, peak action, half-life clearance timelines, and cumulative build-up curves for herbs and compounds.',
   alternates: { canonical: '/learn/efficacy-model/' },
 }
+
+const EFFICACY_MODEL_REFS = [
+  { n: 1, text: 'Burns PB, et al. (2011). Levels of evidence. Plast Reconstr Surg, 128(1): 305-310.', url: 'https://pubmed.ncbi.nlm.nih.gov/21701348/' },
+]
 
 export default function EfficacyModelPage() {
   return (

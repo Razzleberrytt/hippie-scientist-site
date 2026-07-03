@@ -7,6 +7,7 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Calm Focus Differs From Stimulation",
   description: "Educational exploration of calm focus, stimulation tradeoffs, attentional continuity, emotional regulation, and sustainable cognition systems.",
@@ -49,6 +50,11 @@ const relatedSystems = [
   { href: '/guides/focus', title: 'Non-Stimulant Focus' },
   { href: '/learn/why-overstimulation-impairs-focus', title: 'Overstimulation and Focus' },
   { href: '/learn/how-focus-and-motivation-work', title: 'Focus and Motivation' },
+]
+
+const WHY_CALM_FOCUS_DIFFERS_FROM_STIMULATION_REFS = [
+  { n: 1, text: 'Diamond A. (2013). Executive functions. Annu Rev Psychol, 64: 135-168.', url: 'https://pubmed.ncbi.nlm.nih.gov/23020641/' },
+  { n: 2, text: 'Posner MI, Petersen SE. (1990). The attention system of the human brain. Annu Rev Neurosci, 13: 25-42.', url: 'https://pubmed.ncbi.nlm.nih.gov/2183676/' },
 ]
 
 export default function WhyCalmFocusDiffersFromStimulationPage() {

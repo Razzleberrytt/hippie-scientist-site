@@ -8,6 +8,7 @@ import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Memory Formation Works",
   description: "Educational exploration of memory formation, cognition continuity, sleep-dependent consolidation, emotional salience, and neuropharmacology.",
@@ -65,6 +66,11 @@ const faqItems = [
     answer:
       'Attention systems may support memory encoding, but fatigue, stress burden, emotional state, sleep quality, overstimulation, and cognitive overload may still influence recall and consolidation outcomes.',
   },
+]
+
+const HOW_MEMORY_FORMATION_WORKS_REFS = [
+  { n: 1, text: 'Diamond A. (2013). Executive functions. Annu Rev Psychol, 64: 135-168.', url: 'https://pubmed.ncbi.nlm.nih.gov/23020641/' },
+  { n: 2, text: 'Posner MI, Petersen SE. (1990). The attention system of the human brain. Annu Rev Neurosci, 13: 25-42.', url: 'https://pubmed.ncbi.nlm.nih.gov/2183676/' },
 ]
 
 export default function MemoryFormationEducationPage() {

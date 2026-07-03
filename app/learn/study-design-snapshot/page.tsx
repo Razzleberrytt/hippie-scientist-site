@@ -3,6 +3,7 @@ import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import StudyDesignSnapshot from '@/components/evidence/StudyDesignSnapshot'
+import References from '@/components/References'
 
 export const metadata: Metadata = {
   title: 'Study Design Snapshots: Reading an Evidence Grade',
@@ -17,6 +18,10 @@ export const metadata: Metadata = {
     images: ['/og-default.jpg'],
   },
 }
+
+const STUDY_DESIGN_SNAPSHOT_REFS = [
+  { n: 1, text: 'Concato J, et al. (2000). RCTs vs observational studies. N Engl J Med, 342(25): 1887-1892.', url: 'https://pubmed.ncbi.nlm.nih.gov/10861325/' },
+]
 
 export default function StudyDesignSnapshotHubPage() {
   return (

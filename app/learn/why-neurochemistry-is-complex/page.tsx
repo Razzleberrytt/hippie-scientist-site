@@ -7,12 +7,19 @@ import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import MechanismCard from '@/components/evidence/MechanismCard'
 import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Neurochemistry Is Complex",
   description: "Educational overview of systems biology, pathway interaction, receptor complexity, neuropharmacology, and scientific uncertainty.",
   path: "/learn/why-neurochemistry-is-complex/",
 })
 
+
+const WHY_NEUROCHEMISTRY_IS_COMPLEX_REFS = [
+  { n: 1, text: 'Kandel ER, et al. (2013). Principles of Neural Science: synaptic transmission. McGraw-Hill.', url: '' },
+  { n: 2, text: 'Cooper JR, Bloom FE, Roth RH. (2003). The Biochemical Basis of Neuropharmacology, 8th ed. Oxford.', url: '' },
+  { n: 3, text: 'Südhof TC. (2013). Neurotransmitter release. Neuron, 80(3): 675-690.', url: 'https://pubmed.ncbi.nlm.nih.gov/24183020/' },
+]
 
 export default function NeurochemistryComplexityPage() {
   return (

@@ -3,6 +3,7 @@ import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Dream Herbs",
   description: "Educational exploration of oneirogenic herbs, REM-related neuropharmacology, dreaming systems, and psychoactive ethnobotany.",
@@ -23,6 +24,10 @@ const herbs = [
     href: '/herbs/passionflower',
     title: 'Passionflower',
   },
+]
+
+const DREAM_HERBS_REFS = [
+  { n: 1, text: 'Luthringer R, et al. (2002). Valerian on sleep EEG. Phytother Res, 16(7): 650-654.', url: 'https://pubmed.ncbi.nlm.nih.gov/12410546/' },
 ]
 
 export default function DreamHerbsPage() {

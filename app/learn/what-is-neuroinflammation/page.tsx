@@ -8,6 +8,7 @@ import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "What Is Neuroinflammation?",
   description: "Educational exploration of neuroinflammation, stress-response biology, nervous-system signaling, cognition systems, and recovery-oriented neuropharmacology.",
@@ -65,6 +66,11 @@ const faqItems = [
     answer:
       'Neuroinflammation has become a popular systems-biology topic because inflammatory signaling may intersect with stress physiology, fatigue systems, cognition continuity, recovery biology, and nervous-system regulation. However, online discussions sometimes exaggerate mechanistic certainty.',
   },
+]
+
+const WHAT_IS_NEUROINFLAMMATION_REFS = [
+  { n: 1, text: 'DiSabato DJ, et al. (2016). Neuroinflammation: the devil is in the details. J Neurochem, 139(S2): 136-153.', url: 'https://pubmed.ncbi.nlm.nih.gov/26990767/' },
+  { n: 2, text: 'Ransohoff RM. (2016). How neuroinflammation contributes to neurodegeneration. Science, 353(6301): 777-783.', url: 'https://pubmed.ncbi.nlm.nih.gov/27540165/' },
 ]
 
 export default function NeuroinflammationEducationPage() {

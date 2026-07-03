@@ -7,6 +7,7 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Online Supplement Claims Spread",
   description: "Educational exploration of mechanistic hype, simplified neuroscience, contextual variability, and scientific uncertainty in supplement discourse.",
@@ -49,6 +50,10 @@ const relatedSystems = [
   { href: '/learn/why-human-trials-matter', title: 'Human vs Mechanistic Evidence' },
   { href: '/learn/why-studies-conflict', title: 'Translational Limitations' },
   { href: '/learn/why-neuroscience-is-difficult', title: 'Why Neuroscience Is Complicated' },
+]
+
+const WHY_ONLINE_SUPPLEMENT_CLAIMS_SPREAD_REFS = [
+  { n: 1, text: 'Vosoughi S, et al. (2018). The spread of true and false news online. Science, 359(6380): 1146-1151.', url: 'https://pubmed.ncbi.nlm.nih.gov/29590045/' },
 ]
 
 export default function WhyOnlineSupplementClaimsSpreadPage() {

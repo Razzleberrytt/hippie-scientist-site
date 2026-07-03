@@ -3,6 +3,7 @@ import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import EducationPageLayout from '@/components/layouts/EducationPageLayout'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "What Is an Entheogen?",
   description: "Educational exploration of entheogens, ethnobotanical traditions, psychoactive neuropharmacology, and consciousness-oriented plant systems.",
@@ -27,6 +28,10 @@ const related = [
     href: '/learn/harm-reduction',
     title: 'Harm Reduction',
   },
+]
+
+const WHAT_IS_AN_ENTHEOGEN_REFS = [
+  { n: 1, text: 'Nichols DE. (2016). Psychedelics. Pharmacol Rev, 68(2): 264-355.', url: 'https://pubmed.ncbi.nlm.nih.gov/26841800/' },
 ]
 
 export default function EntheogenEducationPage() {

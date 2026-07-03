@@ -5,6 +5,7 @@ import { TrustMethodologyCallout } from '@/components/monetization/TrustMethodol
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { buildToolPageSchemaGraph } from '../../../src/lib/schema-graph'
 import { SITE_URL } from '../../../src/lib/seo'
+import References from '@/components/References'
 
 export const metadata: Metadata = {
   title: 'How We Grade Evidence & Methodology',
@@ -12,6 +13,11 @@ export const metadata: Metadata = {
     'Detailed review of The Hippie Scientist evidence grading levels, Conflict of Interest policy, conservative framing rules, and editorial credentials.',
   alternates: { canonical: '/info/methodology/' },
 }
+
+const METHODOLOGY_REFS = [
+  { n: 1, text: 'Burns PB, et al. (2011). Levels of evidence. Plast Reconstr Surg, 128(1): 305-310.', url: 'https://pubmed.ncbi.nlm.nih.gov/21701348/' },
+  { n: 2, text: 'Ioannidis JPA. (2005). Why most published research findings are false. PLoS Med, 2(8): e124.', url: 'https://pubmed.ncbi.nlm.nih.gov/16060722/' },
+]
 
 export default function MethodologyPage() {
   const grades = [

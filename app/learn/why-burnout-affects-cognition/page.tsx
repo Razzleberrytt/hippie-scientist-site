@@ -7,6 +7,7 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Burnout Affects Cognition",
   description: "Educational exploration of burnout, stress exhaustion, recovery biology, attentional fatigue, and sustainable cognition systems.",
@@ -34,6 +35,11 @@ const relatedSystems = [
   { href: '/learn/how-the-brain-recovers-from-fatigue', title: 'Fatigue Recovery' },
   { href: '/learn/how-sleep-affects-neurochemistry', title: 'Sleep and Neurochemistry' },
   { href: '/learn/why-fatigue-is-biologically-complex', title: 'Fatigue Complexity' },
+]
+
+const WHY_BURNOUT_AFFECTS_COGNITION_REFS = [
+  { n: 1, text: 'McEwen BS. (2017). Neurobiological and systemic effects of chronic stress. Chronic Stress, 1: 2470547017692328.', url: 'https://pubmed.ncbi.nlm.nih.gov/28856337/' },
+  { n: 2, text: 'Sapolsky RM. (2015). Stress and the brain: individual variability. Mol Psychiatry, 20(11): 1331-1338.', url: 'https://pubmed.ncbi.nlm.nih.gov/25917366/' },
 ]
 
 export default function WhyBurnoutAffectsCognitionPage() {

@@ -3,6 +3,7 @@ import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Psychoactive Harm Reduction",
   description: "Educational psychoactive harm reduction hub focused on interaction awareness, neurochemical safety, and educational guidance.",
@@ -27,6 +28,10 @@ const topics = [
     href: '/learn/what-are-psychoactive-herbs',
     title: 'Psychoactive Education',
   },
+]
+
+const HARM_REDUCTION_REFS = [
+  { n: 1, text: 'Marlatt GA, Witkiewitz K. (2010). Harm reduction: evidence and challenges. Addict Sci Clin Pract, 5(1): 4-8.', url: 'https://pubmed.ncbi.nlm.nih.gov/20228740/' },
 ]
 
 export default function HarmReductionPage() {

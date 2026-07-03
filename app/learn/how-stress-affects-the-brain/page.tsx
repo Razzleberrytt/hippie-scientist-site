@@ -8,6 +8,7 @@ import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Stress Affects the Brain",
   description: "Educational exploration of stress neurochemistry, emotional regulation, nervous-system signaling, sleep continuity, and recovery-oriented neuropharmacology.",
@@ -47,6 +48,11 @@ const related = [
     href: '/learn/what-are-adaptogens',
     title: 'Adaptogens',
   },
+]
+
+const HOW_STRESS_AFFECTS_THE_BRAIN_REFS = [
+  { n: 1, text: 'McEwen BS. (2017). Neurobiological and systemic effects of chronic stress. Chronic Stress, 1: 2470547017692328.', url: 'https://pubmed.ncbi.nlm.nih.gov/28856337/' },
+  { n: 2, text: 'Sapolsky RM. (2015). Stress and the brain: individual variability. Mol Psychiatry, 20(11): 1331-1338.', url: 'https://pubmed.ncbi.nlm.nih.gov/25917366/' },
 ]
 
 export default function StressBrainEducationPage() {

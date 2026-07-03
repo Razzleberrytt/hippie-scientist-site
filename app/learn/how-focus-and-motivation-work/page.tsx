@@ -8,6 +8,7 @@ import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Focus and Motivation Work",
   description: "Educational exploration of focus neurochemistry, motivation signaling, cognition systems, calm productivity, and stress-aware neuropharmacology.",
@@ -47,6 +48,11 @@ const related = [
     href: '/guides/focus',
     title: 'Non-Sedating Calm',
   },
+]
+
+const HOW_FOCUS_AND_MOTIVATION_WORK_REFS = [
+  { n: 1, text: 'Diamond A. (2013). Executive functions. Annu Rev Psychol, 64: 135-168.', url: 'https://pubmed.ncbi.nlm.nih.gov/23020641/' },
+  { n: 2, text: 'Posner MI, Petersen SE. (1990). The attention system of the human brain. Annu Rev Neurosci, 13: 25-42.', url: 'https://pubmed.ncbi.nlm.nih.gov/2183676/' },
 ]
 
 export default function FocusMotivationPage() {

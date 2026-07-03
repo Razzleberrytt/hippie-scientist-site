@@ -7,6 +7,7 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Placebo and Context Effects",
   description: "Educational exploration of placebo effects, contextual neurobiology, expectation systems, and scientific complexity in neuroscience and health research.",
@@ -49,6 +50,11 @@ const relatedSystems = [
   { href: '/learn/why-studies-conflict', title: 'Why Studies Conflict' },
   { href: '/learn/why-individual-variability-matters', title: 'Individual Variability' },
   { href: '/learn/why-online-supplement-claims-spread', title: 'Mechanistic Hype and Claims' },
+]
+
+const PLACEBO_AND_CONTEXT_EFFECTS_REFS = [
+  { n: 1, text: 'Finniss DG, et al. (2010). Placebo effects. Lancet, 375(9715): 686-695.', url: 'https://pubmed.ncbi.nlm.nih.gov/20171404/' },
+  { n: 2, text: 'Kaptchuk TJ, Miller FG. (2015). Placebo effects in medicine. N Engl J Med, 373(1): 8-9.', url: 'https://pubmed.ncbi.nlm.nih.gov/26132938/' },
 ]
 
 export default function PlaceboAndContextEffectsPage() {

@@ -3,6 +3,7 @@ import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Calming Psychoactives",
   description: "Educational exploration of calming psychoactive herbs, inhibitory neuropharmacology, stress regulation, and GABAergic systems.",
@@ -27,6 +28,10 @@ const profiles = [
     href: '/compounds/l-theanine',
     title: 'L-Theanine',
   },
+]
+
+const CALMING_REFS = [
+  { n: 1, text: 'Kimura K, et al. (2007). L-theanine and stress. Biol Psychol, 74(1): 39-45.', url: 'https://pubmed.ncbi.nlm.nih.gov/16930802/' },
 ]
 
 export default function CalmingPsychoactivesPage() {

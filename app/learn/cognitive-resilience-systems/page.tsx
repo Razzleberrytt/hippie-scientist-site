@@ -7,6 +7,7 @@ import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanistic
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import RelatedEducationSystems from '@/components/education/related-education-systems'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Cognitive Resilience Systems",
   description: "Authority hub exploring attentional resilience, recovery continuity, stress regulation, contextual neurobiology, and sustainable cognition systems.",
@@ -65,6 +66,11 @@ const relatedSystems = [
     href: '/guides/anxiety',
     title: 'Burnout Recovery',
   },
+]
+
+const COGNITIVE_RESILIENCE_SYSTEMS_REFS = [
+  { n: 1, text: 'Diamond A. (2013). Executive functions. Annu Rev Psychol, 64: 135-168.', url: 'https://pubmed.ncbi.nlm.nih.gov/23020641/' },
+  { n: 2, text: 'Posner MI, Petersen SE. (1990). The attention system of the human brain. Annu Rev Neurosci, 13: 25-42.', url: 'https://pubmed.ncbi.nlm.nih.gov/2183676/' },
 ]
 
 export default function CognitiveResilienceSystemsPage() {

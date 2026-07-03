@@ -7,6 +7,7 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Studies Conflict",
   description: "Educational exploration of scientific uncertainty, human variability, study design differences, and biological complexity in neuroscience and health research.",
@@ -49,6 +50,10 @@ const relatedSystems = [
   { href: '/learn/why-online-supplement-claims-spread', title: 'Mechanistic Hype and Claims' },
   { href: '/learn/why-human-trials-matter', title: 'Human vs Mechanistic Evidence' },
   { href: '/learn/why-studies-conflict', title: 'Translational Limitations' },
+]
+
+const WHY_STUDIES_CONFLICT_REFS = [
+  { n: 1, text: 'Ioannidis JPA. (2005). Why most published research findings are false. PLoS Med, 2(8): e124.', url: 'https://pubmed.ncbi.nlm.nih.gov/16060722/' },
 ]
 
 export default function WhyStudiesConflictPage() {
