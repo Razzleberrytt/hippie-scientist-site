@@ -10,7 +10,7 @@ const heroGoals = [
     title: 'Sleep',
     icon: Moon,
     prompt: 'Fall asleep, stay asleep, and compare sleep supplements without guessing.',
-    bg: 'from-[#eaf2fb] to-[#dceef8] border-[#a8c8e0]',
+    bg: 'bg-[#dceef8] border-[#a8c8e0]',
     accent: 'text-[#1a3d5c]',
   },
   {
@@ -18,7 +18,7 @@ const heroGoals = [
     title: 'Stress',
     icon: Leaf,
     prompt: 'Sort adaptogens and calming supports by fatigue pattern, timing, and safety.',
-    bg: 'from-[#edf6ee] to-[#ddf0df] border-[#8dc49a]',
+    bg: 'bg-[#ddf0df] border-[#8dc49a]',
     accent: 'text-[#1e4a2c]',
   },
   {
@@ -26,7 +26,7 @@ const heroGoals = [
     title: 'Anxiety',
     icon: Cloud,
     prompt: 'Find grounded options for calm, overthinking, and daytime tension.',
-    bg: 'from-[#f3eefc] to-[#ebe2f8] border-[#c4aadf]',
+    bg: 'bg-[#ebe2f8] border-[#c4aadf]',
     accent: 'text-[#4a2d6e]',
   },
   {
@@ -34,10 +34,24 @@ const heroGoals = [
     title: 'Focus',
     icon: Zap,
     prompt: 'Compare non-stimulant focus supports and caffeine-adjacent options.',
-    bg: 'from-[#fdf5e6] to-[#f9ecce] border-[#d4aa62]',
+    bg: 'bg-[#f9ecce] border-[#d4aa62]',
     accent: 'text-[#5c3f0e]',
   },
 ]
+
+const CATEGORY_TAG_COLORS: Record<string, string> = {
+  'metabolic health': 'border-stone-400/30 bg-stone-200/70 text-stone-800 dark:bg-stone-300/10 dark:text-stone-100',
+  'cognitive health': 'border-emerald-600/25 bg-emerald-100/70 text-emerald-900 dark:bg-emerald-300/10 dark:text-emerald-100',
+  'anxiety & sleep': 'border-violet-600/25 bg-violet-100/70 text-violet-900 dark:bg-violet-300/10 dark:text-violet-100',
+  general: 'border-amber-600/25 bg-amber-100/70 text-amber-900 dark:bg-amber-300/10 dark:text-amber-100',
+}
+
+function categoryTagClass(category: string): string {
+  return (
+    CATEGORY_TAG_COLORS[category.toLowerCase()] ||
+    'border-brand-900/10 bg-brand-50 text-brand-700 dark:bg-[var(--surface-subtle)] dark:text-[var(--text-secondary)]'
+  )
+}
 
 const trustSignals = [
   {
@@ -103,10 +117,10 @@ export default function HomepageV2() {
       <div className='mx-auto max-w-6xl space-y-8 px-4 pb-12 pt-4 sm:px-6 sm:space-y-10 sm:pb-16 sm:pt-6 lg:px-8'>
 
         {/* ── Hero ─────────────────────────────────────────────── */}
-        <section className='relative overflow-hidden rounded-[1.5rem] border border-brand-900/10 bg-gradient-to-br from-white via-[#fafdf6] to-[#f2f8ed] px-6 py-10 shadow-md sm:px-10 sm:py-16 dark:from-[#1a3028] dark:via-[#162a20] dark:to-[#0f2419]'>
+        <section className='relative px-6 py-8 sm:px-10 sm:py-12'>
           <div className='relative mx-auto max-w-4xl'>
             <div className='flex flex-col items-center text-center'>
-              <h1 className='font-display text-[2.5rem] font-bold leading-[1.05] tracking-[-0.04em] text-ink break-words sm:text-5xl md:text-6xl'>
+              <h1 className='font-display text-[2.75rem] font-bold leading-[1.02] tracking-[-0.02em] text-ink break-words sm:text-5xl md:text-[3.75rem]'>
                 Herbs & supplements,<br />actually explained.
               </h1>
               <p className='mt-5 max-w-2xl text-sm font-medium leading-7 text-muted sm:text-base sm:leading-8'>
@@ -149,7 +163,7 @@ export default function HomepageV2() {
             </Link>
           </div>
 
-          <div className='rounded-[1rem] border border-emerald-800/15 bg-emerald-50/70 p-5 shadow-sm sm:p-6 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]'>
+          <div className='rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm sm:p-6 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]'>
             <SectionHeader
               title='Use the safety tools'
               subtitle='The fastest win is avoiding mismatched products, risky stacks, and unclear supplement forms.'
@@ -190,7 +204,7 @@ export default function HomepageV2() {
                 <Link
                   key={hGoal.slug}
                   href={hGoal.slug === 'stress' || hGoal.slug === 'anxiety' ? '/guides/anxiety/' : `/guides/${hGoal.slug}/`}
-                  className={`group flex min-h-48 flex-col justify-between rounded-[1.25rem] border bg-gradient-to-br ${hGoal.bg} p-5 shadow-sm transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)] dark:from-[var(--surface-card)] dark:to-[var(--surface-card)]`}
+                  className={`group flex min-h-48 flex-col justify-between rounded-[1.25rem] border ${hGoal.bg} p-5 shadow-sm transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]`}
                 >
                   <div>
                     <span
@@ -235,7 +249,7 @@ export default function HomepageV2() {
                 >
                   <div className='flex items-center gap-2'>
                     {article.category && (
-                      <span className='rounded-full border border-brand-900/10 bg-brand-50 px-2.5 py-0.5 text-[0.72rem] font-medium text-brand-700 dark:bg-[var(--surface-subtle)] dark:text-[var(--text-secondary)]'>
+                      <span className={`rounded-full border px-2.5 py-0.5 text-[0.72rem] font-medium ${categoryTagClass(article.category)}`}>
                         {article.category}
                       </span>
                     )}
