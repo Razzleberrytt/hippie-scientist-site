@@ -47,6 +47,14 @@ export const CURATED_INDEXABLE_HERB_SLUGS = [
   'saffron',
   'melissa-officinalis',
   'valerian',
+  'st-johns-wort',
+  'reishi',
+  'lions-mane',
+  'schisandra',
+  'eleuthero',
+  'evening-primrose',
+  'turkey-tail',
+  'quercetin',
 ] as const
 
 // Canonical (current-data) slugs. Curated index-allowlisted compound slugs.
