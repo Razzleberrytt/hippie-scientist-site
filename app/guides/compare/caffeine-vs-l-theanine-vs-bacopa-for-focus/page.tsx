@@ -13,6 +13,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
+import FAQSchema from '@/components/seo/FAQSchema'
 import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
@@ -269,6 +270,15 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
           </div>
         </div>
       </section>
+
+      <FAQSchema
+        pagePath="/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/"
+        questions={[
+          { question: 'How should I schedule my bacopa doses?', answer: 'Because bacopa is fat-soluble and can trigger mild GI discomfort, it is best taken daily with a meal containing healthy fats. Dosing is cumulative, meaning missing days will reduce its memory consolidation effects.' },
+          { question: 'Why does caffeine lose its focus-boosting effect?', answer: 'The brain adapts to chronic caffeine use by building more adenosine receptors. Over time, you require more caffeine just to reach your baseline level of alertness. Cycling off caffeine (e.g. taking weekend breaks) helps reset this sensitivity.' },
+          { question: 'Is there a non-stimulant focus stack?', answer: 'Yes. Pairing L-theanine with bacopa monnieri is a popular non-stimulant combination that targets both acute bedtime-safe cognitive quieting and long-term memory support without touching cardiac pathways.' },
+        ]}
+      />
 
       <EnhancedEmailCapture
         headline="Cognitive Performance &amp; Focus Guide"

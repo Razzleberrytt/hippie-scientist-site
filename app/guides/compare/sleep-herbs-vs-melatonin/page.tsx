@@ -9,6 +9,7 @@ import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCap
 import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
+import FAQSchema from '@/components/seo/FAQSchema'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Sleep Herbs vs Melatonin: Evidence Comparison',
@@ -575,6 +576,17 @@ export default function SleepHerbsVsMelatoninComparePage() {
           </div>
         </div>
       </section>
+
+      <FAQSchema
+        pagePath="/guides/compare/sleep-herbs-vs-melatonin/"
+        questions={[
+          { question: 'Is melatonin better than magnesium for sleep?', answer: 'They work on different systems. Melatonin signals your circadian clock (\'it\'s time to sleep\'), while magnesium supports muscle relaxation and GABA activity (\'your body is ready to rest\'). For sleep-onset insomnia, melatonin may be more direct. For tension-driven sleep issues, magnesium is often more appropriate. Many people benefit from both.' },
+          { question: 'Is 10 mg melatonin safe?', answer: '10 mg is far above the physiological dose (~0.3 mg) and can cause next-day grogginess, vivid dreams, and hormone disruption with chronic use. Clinical trials show 0.3-1 mg is effective for sleep onset. Higher doses have not proven more effective and increase side effect risk.' },
+          { question: 'Can you take L-theanine and melatonin together?', answer: 'Yes, they have complementary mechanisms with no known negative interactions. L-theanine promotes relaxation via alpha-wave activity and glutamate modulation without sedation, while melatonin signals sleep timing. This is a common and well-tolerated stack for sleep.' },
+          { question: 'Does valerian root actually work?', answer: 'Evidence is mixed and methodologically limited. Some studies show modest improvements in sleep latency and quality, likely via GABA modulation, but many trials are small and unblinded. Valerian has a strong safety record and some people report clear benefit; others notice nothing.' },
+          { question: 'What is the best natural sleep supplement?', answer: 'There is no single best — effectiveness depends on your sleep problem. Sleep-onset issues may respond to melatonin; tension-driven issues to magnesium glycinate; racing thoughts to L-theanine. A magnesium + L-theanine combination is the most broadly applicable starting point with the strongest safety profile.' },
+        ]}
+      />
 
       <EnhancedEmailCapture
         headline="Sleep supplement research — evidence, not hype"

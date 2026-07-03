@@ -13,6 +13,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
+import FAQSchema from '@/components/seo/FAQSchema'
 import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
@@ -297,6 +298,15 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
           </div>
         </div>
       </section>
+
+      <FAQSchema
+        pagePath="/guides/compare/curcumin-vs-boswellia-vs-omega-3/"
+        questions={[
+          { question: 'Can I take curcumin and boswellia together?', answer: 'Yes — because they hit different inflammatory pathways (COX-2/NF-kB vs 5-LOX), they are a common and rational pairing, and some products combine them. Add them one at a time so you can judge each one\'s effect, and review the combined bleeding caution if you take anticoagulants.' },
+          { question: 'Why isn\'t plain turmeric powder enough?', answer: 'Curcumin is poorly absorbed on its own. Most positive trials use bioavailability-enhanced forms (phytosome/Meriva, or curcumin paired with piperine). Culinary turmeric delivers far less curcumin than the studied doses, so it is unlikely to reproduce trial results.' },
+          { question: 'Which one works fastest?', answer: 'Boswellia tends to show the quickest subjective change (days to ~2 weeks), curcumin over 1-4 weeks, and omega-3 the slowest (weeks to months) because it works by shifting baseline lipid chemistry rather than acutely blocking an enzyme.' },
+        ]}
+      />
 
       <EnhancedEmailCapture
         headline="Inflammation &amp; Joint Support Guide"

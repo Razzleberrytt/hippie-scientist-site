@@ -13,6 +13,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
+import FAQSchema from '@/components/seo/FAQSchema'
 import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
@@ -268,6 +269,24 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
           </div>
         </div>
       </section>
+
+      <FAQSchema
+        pagePath="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/"
+        questions={[
+          {
+            question: 'Can I take all three together?',
+            answer: 'Many users stack them, particularly in evening routines. However, to identify what actually works for you and avoid compound side effects, we strongly recommend starting with one ingredient at a time and evaluating it for at least a week before adding others.',
+          },
+          {
+            question: 'Does magnesium glycinate or L-theanine work faster?',
+            answer: 'L-theanine works much faster (usually within 30 to 90 minutes) for acute mental chatter. Magnesium glycinate acts over several days to correct baseline cell levels, though the glycine component can offer mild acute bedtime relaxation.',
+          },
+          {
+            question: 'Should I take ashwagandha in the morning or night?',
+            answer: 'If ashwagandha is used to support evening calm, a split dose (morning and evening) or a single evening dose is common. If it causes daytime lethargy, move the entire dose to 1 hour before sleep.',
+          },
+        ]}
+      />
 
       <EnhancedEmailCapture
         headline="Stress Pattern Matching Framework"
