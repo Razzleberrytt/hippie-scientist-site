@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
@@ -98,6 +99,22 @@ export default function Page() {
             how your evening anxiety actually shows up, and only alongside a consistent wind-down routine.
             This guide covers the best-supported options and how to use them safely.
           </p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/best-herbs-for-stress-and-anxiety-at-night.jpg"
+              alt="Calming nighttime herbs — lavender, chamomile, passionflower — with herbal tea"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Calming herbs best suited to nighttime stress and anxiety.
+          </figcaption>
+        </figure>
         </section>
 
         {/* Fastest useful choice */}

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
@@ -98,6 +99,22 @@ export default function Page() {
             match the supplement to <em>why</em> your mind is racing: anxiety, stress overload, or simple
             sleep deprivation. This guide breaks down the best-supported options for each.
           </p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/best-supplements-for-overthinking.jpg"
+              alt="L-theanine and magnesium supplements with green tea and lavender for racing thoughts"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Supplements that may quiet overthinking and racing thoughts.
+          </figcaption>
+        </figure>
         </section>
 
         {/* Fastest useful choice */}

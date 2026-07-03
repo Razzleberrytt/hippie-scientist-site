@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
@@ -100,6 +101,22 @@ export default function SleepHerbsVsMelatoninPage() {
             Browse Sleep Supplements →
           </Link>
         </div>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/sleep-herbs-vs-melatonin.jpg"
+              alt="Sleep herbs like valerian and passionflower next to melatonin tablets"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Sleep herbs vs melatonin — different mechanisms, different use cases.
+          </figcaption>
+        </figure>
       </section>
 
       {/* Comparison Grid */}

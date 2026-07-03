@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import JsonLd from '@/components/seo/JsonLd'
 import { buildPageMetadata } from '../../../../src/lib/seo'
@@ -152,6 +153,22 @@ export default function AdhdSupplementsHub() {
             View Stack Builder Guide →
           </Link>
         </div>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/adhd-supplements-hub.jpg"
+              alt="An ADHD supplement lineup with omega-3, magnesium, L-theanine, and zinc"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            The supplements most relevant to ADHD, by evidence.
+          </figcaption>
+        </figure>
       </section>
 
       <AdhdInlineCta type="checklist" />

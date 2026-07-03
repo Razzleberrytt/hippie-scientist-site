@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
@@ -202,6 +203,22 @@ export default function BestSupplementsForSleepPage() {
             for jet lag or a shifted sleep schedule, start with low-dose{' '}
             <Link href="/compounds/melatonin" className="font-semibold text-brand-800 hover:underline">melatonin</Link>.
           </div>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/best-supplements-for-sleep.jpg"
+              alt="An assortment of sleep supplements and calming herbs on a bedside surface"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            The best-supported supplements for sleep, ranked by evidence.
+          </figcaption>
+        </figure>
         </section>
 
         {/* Decision Framework */}

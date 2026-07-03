@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
@@ -100,6 +101,22 @@ export default function NaturalAnxiolyticsPage() {
             Kava vs Alcohol Guide →
           </Link>
         </div>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/natural-anxiolytics-beyond-ashwagandha.jpg"
+              alt="Natural anxiolytic herbs beyond ashwagandha — kava, lemon balm, passionflower, saffron"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Anxiolytic herbs worth knowing beyond ashwagandha.
+          </figcaption>
+        </figure>
       </section>
 
       {/* Alternatives Grid */}

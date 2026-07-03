@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
@@ -129,6 +130,22 @@ export default function BestSupplementsForStressPage() {
             for acute stress without sedation, start with{' '}
             <Link href="/guides/herbs/l-theanine/" className="font-semibold text-brand-800 hover:underline">L-theanine</Link>.
           </div>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/best-supplements-for-stress.jpg"
+              alt="Ashwagandha, magnesium, and L-theanine supplements for stress"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            The best-supported supplements for everyday stress.
+          </figcaption>
+        </figure>
         </section>
 
         {/* Type of stress framework */}

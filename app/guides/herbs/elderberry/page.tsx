@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import StructuredData from '@/components/StructuredData'
@@ -150,6 +151,22 @@ export default function ElderberryGuidePage() {
           well tolerated when properly prepared, but raw or unripe berries and other plant parts can be toxic.
           This is not medical advice.
         </p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/elderberry.jpg"
+              alt="Dark purple elderberries with leaves and a jar of elderberry syrup"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Elderberry (Sambucus nigra) — evidence, uses, and safety.
+          </figcaption>
+        </figure>
       </section>
 
       {/* Evidence */}
