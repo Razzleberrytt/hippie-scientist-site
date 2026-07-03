@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import JsonLd from '@/components/seo/JsonLd'
 import type { Metadata } from 'next'
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, compactMetaTitle } from '../../../../src/lib/seo'
@@ -116,6 +117,22 @@ export default function MagnesiumGlycinateCitrateAdhdPage() {
           <LastUpdatedBadge date={DATE} label="Last updated" />
         </div>
         <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/magnesium-glycinate-vs-citrate-for-adhd.jpg"
+              alt="Magnesium glycinate and magnesium citrate supplements compared for ADHD"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Glycinate vs citrate — the two magnesium forms most relevant to ADHD.
+          </figcaption>
+        </figure>
       </section>
 
       {/* Disclosure */}
