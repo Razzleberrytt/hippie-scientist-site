@@ -15,6 +15,15 @@ import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import ConversionStickyCTA from '@/components/conversion-sticky-cta'
+import References from '@/components/References'
+
+const MELATONIN_VS_MAGNESIUM_REFS = [
+  { n: 1, text: 'Ferracioli-Oda E, et al. (2013). Meta-analysis: melatonin for primary sleep disorders. PLoS ONE, 8(5): e63773.', url: 'https://pubmed.ncbi.nlm.nih.gov/23691095/' },
+  { n: 2, text: 'Abbasi B, et al. (2012). Magnesium supplementation and primary insomnia. J Res Med Sci, 17(12): 1161-1169.', url: 'https://pubmed.ncbi.nlm.nih.gov/23853635/' },
+  { n: 3, text: 'Brzezinski A, et al. (2005). Effects of exogenous melatonin on sleep: meta-analysis. Sleep Med Rev, 9(1): 41-50.', url: 'https://pubmed.ncbi.nlm.nih.gov/15649737/' },
+  { n: 4, text: 'Nielsen FH, et al. (2010). Magnesium supplementation improves sleep in elderly. Magnes Res, 23(4): 158-168.', url: 'https://pubmed.ncbi.nlm.nih.gov/21199787/' },
+  { n: 5, text: 'Rondanelli M, et al. (2011). Melatonin, magnesium, and zinc in primary insomnia. J Am Geriatr Soc, 59(1): 82-90.', url: 'https://pubmed.ncbi.nlm.nih.gov/21226679/' },
+]
 
 export default function MelatoninVsMagnesiumPage() {
   const revenueProducts = ['melatonin', 'magnesium']

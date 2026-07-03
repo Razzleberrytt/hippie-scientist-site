@@ -10,6 +10,7 @@ import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscove
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import ConversionStickyCTA from '@/components/conversion-sticky-cta'
+import References from '@/components/References'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Rhodiola vs Ashwagandha for Stress & Fatigue',
@@ -17,6 +18,14 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/guides/compare/rhodiola-vs-ashwagandha/',
   openGraphType: 'article',
 })
+
+const RHODIOLA_VS_ASHWAGANDHA_REFS = [
+  { n: 1, text: 'Panossian A, Wikman G. (2010). Effects of adaptogens on the central nervous system. Pharmaceuticals, 3(1): 188-224.', url: 'https://pubmed.ncbi.nlm.nih.gov/27713248/' },
+  { n: 2, text: 'Chandrasekhar K, et al. (2012). Ashwagandha root extract safety and efficacy in reducing stress. Indian J Psychol Med, 34(3): 255-262.', url: 'https://pubmed.ncbi.nlm.nih.gov/23439798/' },
+  { n: 3, text: 'Olsson EM, et al. (2009). Rhodiola rosea for stress-related fatigue. Planta Med, 75(2): 105-112.', url: 'https://pubmed.ncbi.nlm.nih.gov/19016404/' },
+  { n: 4, text: 'Ishaque S, et al. (2012). Rhodiola rosea for physical and mental fatigue. BMC Complement Altern Med, 12: 70.', url: 'https://pubmed.ncbi.nlm.nih.gov/22643043/' },
+  { n: 5, text: 'Lopresti AL, et al. (2019). Ashwagandha for stress and anxiety. Medicine, 98(37): e17186.', url: 'https://pubmed.ncbi.nlm.nih.gov/31517876/' },
+]
 
 export default function RhodiolaVsAshwagandhaComparePage() {
   const revenueProducts = ['rhodiola', 'ashwagandha']
@@ -129,6 +138,7 @@ export default function RhodiolaVsAshwagandhaComparePage() {
         name={revenueProducts[0]?.title}
         href={revenueProducts[0]?.affiliateUrl || '#'}
       />
+      <References refs={RHODIOLA_VS_ASHWAGANDHA_REFS} />
     </div>
   )
 }

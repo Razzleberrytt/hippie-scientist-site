@@ -18,6 +18,17 @@ import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscove
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import ConversionStickyCTA from '@/components/conversion-sticky-cta'
+import References from '@/components/References'
+
+const BERBERINE_VS_METFORMIN_REFS = [
+  { n: 1, text: 'Zhang H, et al. (2008). Berberine lowers blood glucose in type 2 diabetes patients. J Clin Endocrinol Metab, 93(7): 2559-2565.', url: 'https://pubmed.ncbi.nlm.nih.gov/18397984/' },
+  { n: 2, text: 'Yin J, et al. (2012). Efficacy of berberine in patients with type 2 diabetes. Metabolism, 57(5): 712-717.', url: 'https://pubmed.ncbi.nlm.nih.gov/18442639/' },
+  { n: 3, text: 'UKPDS Group. (1998). Intensive blood-glucose control with metformin on complications in overweight patients with type 2 diabetes. Lancet, 352(9131): 854-865.', url: 'https://pubmed.ncbi.nlm.nih.gov/9742977/' },
+  { n: 4, text: 'Lan J, et al. (2015). Meta-analysis of berberine in the treatment of type 2 diabetes. J Ethnopharmacol, 161: 69-81.', url: 'https://pubmed.ncbi.nlm.nih.gov/25498346/' },
+  { n: 5, text: 'Guo Y, et al. (2012). Repeated administration of berberine inhibits cytochromes P450. Eur J Pharmacol, 685(1-3): 116-122.', url: 'https://pubmed.ncbi.nlm.nih.gov/21575678/' },
+  { n: 6, text: 'Dong H, et al. (2012). Berberine in the treatment of type 2 diabetes mellitus: a systemic review and meta-analysis. Evid Based Complement Alternat Med, 2012: 591654.', url: 'https://pubmed.ncbi.nlm.nih.gov/23118793/' },
+  { n: 7, text: 'Imenshahidi M, Hosseinzadeh H. (2019). Berberine and barberry: pharmacological effects and clinical uses. Phytother Res, 33(3): 504-523.', url: 'https://pubmed.ncbi.nlm.nih.gov/30637820/' },
+]
 
 export default function BerberineVsMetforminPage() {
   const berberineProducts = getRevenueProductSet('berberine')?.products ?? []

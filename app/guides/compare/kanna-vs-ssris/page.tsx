@@ -10,6 +10,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 import Link from 'next/link'
 import FAQSchema from '@/components/seo/FAQSchema'
+import References from '@/components/References'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import COAList from '../../../../src/components/coa/COAList'
@@ -43,6 +44,14 @@ const exampleCOAEntries: COADocument[] = [
     availability: 'unverified_lab',
     testResults: [],
   },
+]
+
+const KANNA_VS_SSRIS_REFS = [
+  { n: 1, text: 'Boyer EW, Shannon M. (2005). The serotonin syndrome. N Engl J Med, 352(11): 1112-1120.', url: 'https://pubmed.ncbi.nlm.nih.gov/15784664/' },
+  { n: 2, text: 'Gericke N, Viljoen AM. (2008). Sceletium — a review update. J Ethnopharmacol, 119(3): 653-663.', url: 'https://pubmed.ncbi.nlm.nih.gov/18761074/' },
+  { n: 3, text: 'Cipriani A, et al. (2018). Comparative efficacy of 21 antidepressants for major depression. Lancet, 391(10128): 1357-1366.', url: 'https://pubmed.ncbi.nlm.nih.gov/29477251/' },
+  { n: 4, text: 'Harvey BH, et al. (2011). Sceletium tortuosum demonstrates antidepressant effects. Prog Neuropsychopharmacol Biol Psychiatry, 35(5): 1225-1230.', url: 'https://pubmed.ncbi.nlm.nih.gov/21338652/' },
+  { n: 5, text: 'Gillman PK. (2010). Triptans, serotonin agonists, and serotonin syndrome. Headache, 50(2): 264-272.', url: 'https://pubmed.ncbi.nlm.nih.gov/19925619/' },
 ]
 
 export default function KannaVsSSRIsPage() {
