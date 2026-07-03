@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { goalConfigs } from '@/data/goals'
 import { getCompounds } from '../src/lib/runtime-data'
@@ -16,6 +17,17 @@ import { isRestrictedRecord } from '../src/lib/restricted-ingredients'
 import { buildSeoEntrySchemaGraph } from '../src/lib/schema-graph'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { seoEntryExpansions } from '@/lib/curated-expansions'
+
+// Per-route hero images (1536x1024) for image SEO + engagement.
+const SEO_ENTRY_IMAGES: Record<string, { src: string; alt: string }> = {
+  'best-supplements-for-joint-support': { src: '/images/guides/supplements-for-joint-support.jpg', alt: 'Joint-support supplements including glucosamine, curcumin, and omega-3 with turmeric root' },
+  'best-supplements-for-stress': { src: '/images/guides/supplements-for-stress.jpg', alt: 'Stress supplements including ashwagandha, magnesium, and L-theanine' },
+  'best-supplements-for-fat-loss': { src: '/images/guides/supplements-for-fat-loss.jpg', alt: 'Fat-loss and metabolism supplements including green tea extract and berberine' },
+  'best-supplements-for-gut-health': { src: '/images/guides/supplements-for-gut-health.jpg', alt: 'Gut-health supplements including probiotics and fiber with fermented foods' },
+  'best-supplements-for-blood-pressure': { src: '/images/guides/supplements-for-blood-pressure.jpg', alt: 'Blood-pressure supplements including magnesium and potassium with a home monitor' },
+  'best-supplements-for-focus': { src: '/images/guides/best-supplements-for-focus.jpg', alt: 'Focus supplements including L-theanine, citicoline, and rhodiola with green tea' },
+  'guides/magnesium-vs-melatonin': { src: '/images/guides/seo-magnesium-vs-melatonin.jpg', alt: 'Magnesium capsules and melatonin tablets compared for sleep' },
+}
 
 type SeoEntryConfig = {
   route: string
@@ -488,6 +500,8 @@ export async function SeoEntryPage({ route, canonicalPath }: { route: string; ca
     faqs,
   })
 
+  const heroImage = SEO_ENTRY_IMAGES[route]
+
   return (
     <div className="space-y-12">
       <SchemaGraphScript graph={schemaGraph} />
@@ -501,6 +515,20 @@ export async function SeoEntryPage({ route, canonicalPath }: { route: string; ca
             <Link href={goalGuideHref(goal.slug)} className="rounded-full bg-emerald-300 px-4 py-2 text-sm font-bold text-black hover:bg-emerald-200">View ranked picks</Link>
             <Link href="/compounds/" className="rounded-full border border-brand-900/10 px-4 py-2 text-sm font-semibold text-ink hover:bg-brand-50">Browse compounds</Link>
           </div>
+          {heroImage && (
+            <figure className="mt-6">
+              <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+                <Image
+                  src={heroImage.src}
+                  alt={heroImage.alt}
+                  width={1536}
+                  height={1024}
+                  priority
+                  className="w-full h-auto"
+                />
+              </div>
+            </figure>
+          )}
         </section>
       </div>
 

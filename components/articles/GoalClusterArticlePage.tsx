@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
 import { blogJsonLd, breadcrumbJsonLd, buildPageMetadata, faqPageJsonLd, SITE_URL } from '../../src/lib/seo'
@@ -10,6 +11,16 @@ import EvidenceLegend from '../EvidenceLegend'
 import PathwayDiagram from '../PathwayDiagram'
 import NewsletterSignup from '../NewsletterSignup'
 import RecommendedProduct from '../RecommendedProduct'
+
+// Per-slug hero images (1536x1024) for image SEO + engagement.
+const GOAL_ARTICLE_IMAGES: Record<string, { src: string; alt: string }> = {
+  'magnesium-for-sleep': { src: '/images/guides/magnesium-for-sleep.jpg', alt: 'Magnesium glycinate capsules and powder used for sleep' },
+  'sleep-stack-magnesium-melatonin': { src: '/images/guides/sleep-stack-magnesium-melatonin.jpg', alt: 'A magnesium and melatonin sleep stack on a bedside surface' },
+  'best-magnesium-for-sleep': { src: '/images/guides/best-magnesium-for-sleep.jpg', alt: 'Several forms of magnesium supplements compared for sleep' },
+  'sleep-best-supplements': { src: '/images/guides/sleep-best-supplements.jpg', alt: 'The best sleep supplements including magnesium, melatonin, and calming herbs' },
+  'melatonin-vs-valerian': { src: '/images/guides/melatonin-vs-valerian.jpg', alt: 'Melatonin tablets beside dried valerian root, compared for sleep' },
+  'l-theanine-for-calm': { src: '/images/guides/l-theanine-for-calm.jpg', alt: 'L-theanine capsules and green tea used for calm and relaxation' },
+}
 
 type GoalClusterArticlePageProps = {
   slug: string
@@ -88,6 +99,21 @@ export default function GoalClusterArticlePage({ slug, canonicalPath }: GoalClus
             <span className="rounded-full border border-brand-900/10 bg-brand-50 px-3 py-1">Educational only</span>
             <span className="rounded-full border border-brand-900/10 bg-brand-50 px-3 py-1">Updated June 12, 2026</span>
           </div>
+
+          {GOAL_ARTICLE_IMAGES[slug] && (
+            <figure className="mt-6">
+              <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+                <Image
+                  src={GOAL_ARTICLE_IMAGES[slug].src}
+                  alt={GOAL_ARTICLE_IMAGES[slug].alt}
+                  width={1536}
+                  height={1024}
+                  priority
+                  className="w-full h-auto"
+                />
+              </div>
+            </figure>
+          )}
         </header>
 
         <section className="card-premium p-6 sm:p-8">
