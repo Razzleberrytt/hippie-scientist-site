@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import JsonLd from '@/components/seo/JsonLd'
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '../../../../src/lib/seo'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
@@ -141,6 +142,22 @@ export default function AshwagandhaArticlePage() {
         </div>
 
         <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/ashwagandha-herb.jpg"
+              alt="Whole ashwagandha (Withania somnifera) roots, leaves, red berries, and golden root powder"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Ashwagandha (Withania somnifera) — a widely studied adaptogen for stress, sleep, and recovery.
+          </figcaption>
+        </figure>
       </section>
 
       {/* Affiliate disclosure */}

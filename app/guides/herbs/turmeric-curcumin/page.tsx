@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import StructuredData from '@/components/StructuredData'
 import FAQAccordion from '@/components/FAQAccordion'
@@ -212,6 +213,22 @@ export default function TurmericCurcuminGuidePage() {
             Curcumin Compound Profile →
           </Link>
         </div>
+
+        <figure className="mt-8">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/turmeric-curcumin.jpg"
+              alt="Fresh turmeric root and golden turmeric powder, the source of the active compound curcumin"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Turmeric and its active compound curcumin — studied for inflammation and joint support.
+          </figcaption>
+        </figure>
       </section>
 
       {/* Evidence Overview */}

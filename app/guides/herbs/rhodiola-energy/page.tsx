@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import StructuredData from '@/components/StructuredData'
 import FAQAccordion from '@/components/FAQAccordion'
@@ -167,6 +168,22 @@ export default function RhodiolaEnergyGuidePage() {
             Rhodiola Herb Profile →
           </Link>
         </div>
+
+        <figure className="mt-8">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/rhodiola-energy.jpg"
+              alt="Golden Rhodiola rosea root, powder, and flowers — an adaptogen used for stress-related fatigue and energy"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Rhodiola rosea — an adaptogen that helps the body tolerate stress-related fatigue rather than masking it.
+          </figcaption>
+        </figure>
       </section>
 
       {/* Evidence */}
