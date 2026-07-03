@@ -51,8 +51,8 @@ export function Navigation() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 border-b border-brand-900/10 transition-all dark:border-[var(--border-strong)] ${
-        scrolled ? 'bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:bg-[var(--surface-card-strong)] dark:supports-[backdrop-filter]:bg-[var(--surface-card-strong)]' : 'bg-[#fffdf7]/95 dark:bg-[var(--surface)]'
+      className={`sticky top-0 z-50 border-b border-black/5 transition-all dark:border-[var(--border-strong)] ${
+        scrolled ? 'bg-white shadow-sm dark:bg-[var(--surface-card-strong)]' : 'bg-white dark:bg-[var(--surface-card)]'
       }`}
       aria-label="Primary"
     >
