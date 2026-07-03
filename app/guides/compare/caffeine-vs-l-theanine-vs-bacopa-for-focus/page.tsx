@@ -18,6 +18,16 @@ import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscove
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import ConversionStickyCTA from '@/components/conversion-sticky-cta'
+import References from '@/components/References'
+
+const CAFFEINE_VS_THEANINE_VS_BACOPA_REFS = [
+  { n: 1, text: 'Haskell CF, et al. (2008). The effects of L-theanine, caffeine and their combination on cognition and mood. Biol Psychol, 77(2): 113-122.', url: 'https://pubmed.ncbi.nlm.nih.gov/18006208/' },
+  { n: 2, text: 'Giesbrecht T, et al. (2010). The combination of L-theanine and caffeine improves cognitive performance and increases subjective alertness. Nutr Neurosci, 13(6): 283-290.', url: 'https://pubmed.ncbi.nlm.nih.gov/21040626/' },
+  { n: 3, text: 'Pase MP, et al. (2012). The cognitive-enhancing effects of Bacopa monnieri: a systematic review. J Altern Complement Med, 18(7): 647-652.', url: 'https://pubmed.ncbi.nlm.nih.gov/22747190/' },
+  { n: 4, text: 'Nehlig A. (2010). Is caffeine a cognitive enhancer? J Alzheimers Dis, 20(S1): S85-S94.', url: 'https://pubmed.ncbi.nlm.nih.gov/20182035/' },
+  { n: 5, text: 'Stough C, et al. (2001). The chronic effects of Bacopa monnieri on cognitive function in healthy humans. Psychopharmacology, 156(4): 481-484.', url: 'https://pubmed.ncbi.nlm.nih.gov/11498727/' },
+  { n: 6, text: 'Dodd FL, et al. (2015). A double-blind, placebo-controlled study of the effects of L-theanine on stress. J Psychopharmacol, 29(4): 457-463.', url: 'https://pubmed.ncbi.nlm.nih.gov/25784529/' },
+]
 
 export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
   const revenueProducts = ['caffeine', 'l-theanine', 'bacopa']

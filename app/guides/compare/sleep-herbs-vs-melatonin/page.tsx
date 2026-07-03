@@ -11,6 +11,7 @@ import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import ConversionStickyCTA from '@/components/conversion-sticky-cta'
 import FAQSchema from '@/components/seo/FAQSchema'
+import References from '@/components/References'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Sleep Herbs vs Melatonin: Evidence Comparison',
@@ -19,6 +20,17 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/guides/compare/sleep-herbs-vs-melatonin/',
   openGraphType: 'article',
 })
+
+const SLEEP_HERBS_VS_MELATONIN_REFS = [
+  { n: 1, text: 'Ferracioli-Oda E, et al. (2013). Meta-analysis: melatonin for the treatment of primary sleep disorders. PLoS ONE, 8(5): e63773.', url: 'https://pubmed.ncbi.nlm.nih.gov/23691095/' },
+  { n: 2, text: 'Abbasi B, et al. (2012). The effect of magnesium supplementation on primary insomnia in elderly. J Res Med Sci, 17(12): 1161-1169.', url: 'https://pubmed.ncbi.nlm.nih.gov/23853635/' },
+  { n: 3, text: 'Rondanelli M, et al. (2011). The effect of melatonin, magnesium, and zinc on primary insomnia. J Am Geriatr Soc, 59(1): 82-90.', url: 'https://pubmed.ncbi.nlm.nih.gov/21226679/' },
+  { n: 4, text: 'Bent S, et al. (2006). Valerian for sleep: a systematic review and meta-analysis. Am J Med, 119(12): 1005-1012.', url: 'https://pubmed.ncbi.nlm.nih.gov/17145239/' },
+  { n: 5, text: 'Rao TP, et al. (2015). In search of a safe natural sleep aid. J Am Coll Nutr, 34(5): 436-447.', url: 'https://pubmed.ncbi.nlm.nih.gov/25759004/' },
+  { n: 6, text: 'Hieu TH, et al. (2019). Therapeutic efficacy of L-theanine for sleep quality. Nutrients, 11(10): 2362.', url: 'https://pubmed.ncbi.nlm.nih.gov/31581621/' },
+  { n: 7, text: 'Brzezinski A, et al. (2005). Effects of exogenous melatonin on sleep: a meta-analysis. Sleep Med Rev, 9(1): 41-50.', url: 'https://pubmed.ncbi.nlm.nih.gov/15649737/' },
+  { n: 8, text: 'Wheatley D. (2001). Kava and valerian in the treatment of stress-induced insomnia. Phytother Res, 15(6): 549-551.', url: 'https://pubmed.ncbi.nlm.nih.gov/11536391/' },
+]
 
 export default function SleepHerbsVsMelatoninComparePage() {
   const melatoninProducts = getRevenueProductSet('melatonin')?.products ?? []

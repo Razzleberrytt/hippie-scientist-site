@@ -10,8 +10,17 @@ export const metadata: Metadata = buildPageMetadata({
 
 import Link from 'next/link'
 import FAQSchema from '@/components/seo/FAQSchema'
+import References from '@/components/References'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+
+const KAVA_VS_ALCOHOL_REFS = [
+  { n: 1, text: 'Sarris J, et al. (2013). Kava in the treatment of generalized anxiety disorder. J Clin Psychopharmacol, 33(5): 643-648.', url: 'https://pubmed.ncbi.nlm.nih.gov/23942365/' },
+  { n: 2, text: 'Pittler MH, Ernst E. (2003). Kava extract versus placebo for treating anxiety. Cochrane Database Syst Rev, (1): CD003383.', url: 'https://pubmed.ncbi.nlm.nih.gov/12535473/' },
+  { n: 3, text: 'Teschke R, et al. (2011). Kava hepatotoxicity solution: a six-point plan for new kava standardization. Phytomedicine, 18(2-3): 96-103.', url: 'https://pubmed.ncbi.nlm.nih.gov/21112196/' },
+  { n: 4, text: 'Rehm J, et al. (2010). Alcohol as a risk factor for liver cirrhosis: a systematic review. Drug Alcohol Rev, 29(4): 437-445.', url: 'https://pubmed.ncbi.nlm.nih.gov/20636661/' },
+  { n: 5, text: 'Sarris J, et al. (2011). Kava for the treatment of generalized anxiety disorder. J Clin Psychopharmacol, 31(5): 592-598.', url: 'https://pubmed.ncbi.nlm.nih.gov/21849899/' },
+]
 
 export default function KavaVsAlcoholPage() {
   return (

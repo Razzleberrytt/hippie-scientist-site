@@ -18,6 +18,16 @@ import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscove
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import ConversionStickyCTA from '@/components/conversion-sticky-cta'
+import References from '@/components/References'
+
+const CURCUMIN_VS_BOSWELLIA_VS_OMEGA3_REFS = [
+  { n: 1, text: 'Hewlings SJ, Kalman DS. (2017). Curcumin: a review of its effects on human health. Foods, 6(10): 92.', url: 'https://pubmed.ncbi.nlm.nih.gov/29065496/' },
+  { n: 2, text: 'Calder PC. (2017). Omega-3 fatty acids and inflammatory processes: from molecules to man. Biochem Soc Trans, 45(5): 1105-1115.', url: 'https://pubmed.ncbi.nlm.nih.gov/28900017/' },
+  { n: 3, text: 'Ammon HP. (2006). Boswellic acids in chronic inflammatory diseases. Planta Med, 72(12): 1100-1116.', url: 'https://pubmed.ncbi.nlm.nih.gov/17024588/' },
+  { n: 4, text: 'Kimmatkar N, et al. (2003). Efficacy and tolerability of Boswellia serrata extract in treatment of osteoarthritis of knee. Phytomedicine, 10(1): 3-7.', url: 'https://pubmed.ncbi.nlm.nih.gov/12622457/' },
+  { n: 5, text: 'Belcaro G, et al. (2014). Meriva curcumin in osteoarthritis. Panminerva Med, 56(2): 143-151.', url: 'https://pubmed.ncbi.nlm.nih.gov/24861886/' },
+  { n: 6, text: 'Goldberg RJ, Katz J. (2007). A meta-analysis of the analgesic effects of omega-3 PUFA for inflammatory joint pain. Pain, 129(1-2): 210-223.', url: 'https://pubmed.ncbi.nlm.nih.gov/17335973/' },
+]
 
 export default function CurcuminVsBoswelliaVsOmega3Page() {
   const revenueProducts = ['turmeric', 'boswellia', 'omega-3']

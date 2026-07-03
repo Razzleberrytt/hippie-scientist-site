@@ -18,6 +18,18 @@ import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscove
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import ConversionStickyCTA from '@/components/conversion-sticky-cta'
+import References from '@/components/References'
+
+const ASHWAGANDHA_VS_LTHEANINE_VS_MAGNESIUM_REFS = [
+  { n: 1, text: 'Chandrasekhar K, et al. (2012). A prospective, randomized double-blind, placebo-controlled study of safety and efficacy of a high-concentration full-spectrum extract of ashwagandha root in reducing stress and anxiety in adults. Indian J Psychol Med, 34(3): 255-262.', url: 'https://pubmed.ncbi.nlm.nih.gov/23439798/' },
+  { n: 2, text: 'Lopresti AL, et al. (2019). An investigation into the stress-relieving and pharmacological actions of an ashwagandha extract. Medicine, 98(37): e17186.', url: 'https://pubmed.ncbi.nlm.nih.gov/31517876/' },
+  { n: 3, text: 'Nobre AC, et al. (2008). L-theanine, a natural constituent in tea, and its effect on mental state. Asia Pac J Clin Nutr, 17(S1): 167-168.', url: 'https://pubmed.ncbi.nlm.nih.gov/18296328/' },
+  { n: 4, text: 'Kimura K, et al. (2007). L-Theanine reduces psychological and physiological stress responses. Biol Psychol, 74(1): 39-45.', url: 'https://pubmed.ncbi.nlm.nih.gov/16930802/' },
+  { n: 5, text: 'Boyle NB, et al. (2017). The effects of magnesium supplementation on subjective anxiety and stress — a systematic review. Nutrients, 9(5): 429.', url: 'https://pubmed.ncbi.nlm.nih.gov/28445426/' },
+  { n: 6, text: 'Abbasi B, et al. (2012). The effect of magnesium supplementation on primary insomnia in elderly. J Res Med Sci, 17(12): 1161-1169.', url: 'https://pubmed.ncbi.nlm.nih.gov/23853635/' },
+  { n: 7, text: 'Ritsner MS, et al. (2011). L-theanine relieves positive, activation, and anxiety symptoms in patients with schizophrenia. J Clin Psychiatry, 72(1): 34-42.', url: 'https://pubmed.ncbi.nlm.nih.gov/21208586/' },
+  { n: 8, text: 'Salve J, et al. (2019). Adaptogenic and anxiolytic effects of ashwagandha root extract in healthy adults. Cureus, 11(12): e6466.', url: 'https://pubmed.ncbi.nlm.nih.gov/32021735/' },
+]
 
 export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
   const revenueProducts = ['ashwagandha', 'l-theanine', 'magnesium']
@@ -348,6 +360,7 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
           products={revenueProducts}
         />
       </div>
+      <References refs={ASHWAGANDHA_VS_LTHEANINE_VS_MAGNESIUM_REFS} />
     </div>
   )
 }

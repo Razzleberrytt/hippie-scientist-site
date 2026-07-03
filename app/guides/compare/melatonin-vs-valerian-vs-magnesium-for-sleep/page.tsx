@@ -18,6 +18,16 @@ import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscove
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import ConversionStickyCTA from '@/components/conversion-sticky-cta'
+import References from '@/components/References'
+
+const MELATONIN_VS_VALERIAN_VS_MAGNESIUM_REFS = [
+  { n: 1, text: 'Ferracioli-Oda E, et al. (2013). Meta-analysis: melatonin for primary sleep disorders. PLoS ONE, 8(5): e63773.', url: 'https://pubmed.ncbi.nlm.nih.gov/23691095/' },
+  { n: 2, text: 'Bent S, et al. (2006). Valerian for sleep: systematic review and meta-analysis. Am J Med, 119(12): 1005-1012.', url: 'https://pubmed.ncbi.nlm.nih.gov/17145239/' },
+  { n: 3, text: 'Abbasi B, et al. (2012). Magnesium supplementation and primary insomnia in elderly. J Res Med Sci, 17(12): 1161-1169.', url: 'https://pubmed.ncbi.nlm.nih.gov/23853635/' },
+  { n: 4, text: 'Fernández-San-Martín MI, et al. (2010). Valerian for insomnia: meta-analysis of RCTs. Sleep Med, 11(6): 505-511.', url: 'https://pubmed.ncbi.nlm.nih.gov/20096668/' },
+  { n: 5, text: 'Held K, et al. (2002). Magnesium and sleep: a placebo-controlled trial. Pharmacopsychiatry, 35(4): 135-143.', url: 'https://pubmed.ncbi.nlm.nih.gov/12163983/' },
+  { n: 6, text: 'Buscemi N, et al. (2005). The efficacy and safety of exogenous melatonin for primary sleep disorders. J Gen Intern Med, 20(12): 1151-1158.', url: 'https://pubmed.ncbi.nlm.nih.gov/16423108/' },
+]
 
 export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
   const revenueProducts = ['melatonin', 'valerian', 'magnesium']
