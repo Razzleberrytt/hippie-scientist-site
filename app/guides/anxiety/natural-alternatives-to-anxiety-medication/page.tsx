@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArticleLayout } from '@/components/articles'
 import { getRevenueProductSet } from '@/config/revenue-products'
@@ -21,6 +22,22 @@ export default function Page() {
         <p className="eyebrow-label">Educational only</p>
         <h1 className="mt-2 text-3xl font-semibold text-ink sm:text-4xl">Natural Alternatives to Anxiety Medication</h1>
         <p className="detail-reading mt-4 text-muted">This page does not recommend replacing prescribed treatment. It is a learning guide about supportive lifestyle and supplement options to discuss with a licensed clinician.</p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/natural-alternatives-to-anxiety-medication.jpg"
+              alt="Calming herbs and supplements considered as natural alternatives to anxiety medication"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Natural options people consider alongside or instead of anxiety medication.
+          </figcaption>
+        </figure>
       </section>
       <section className="card-premium p-6 space-y-3">
         <h2 className="text-2xl font-semibold text-ink">Supportive options often discussed</h2>

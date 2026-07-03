@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
@@ -97,6 +98,22 @@ export default function Page() {
             is really about restoring that rhythm. This guide covers the lifestyle levers that move it
             most, then the herbs with the strongest evidence, in priority order.
           </p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/how-to-lower-cortisol-naturally.jpg"
+              alt="Ashwagandha root and calming herbal tea for lowering cortisol naturally"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Practical, evidence-based ways to lower cortisol naturally.
+          </figcaption>
+        </figure>
         </section>
 
         {/* Fastest useful choice */}

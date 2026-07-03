@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import StructuredData from '@/components/StructuredData'
@@ -169,6 +170,22 @@ export default function RhodiolaCompleteGuidePage() {
             Salidroside Compound →
           </Link>
         </div>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/rhodiola-complete-guide.jpg"
+              alt="Whole rhodiola rosea roots, powder, and flowers"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Rhodiola rosea — the complete evidence-based guide.
+          </figcaption>
+        </figure>
       </section>
 
       {/* Quick summary */}

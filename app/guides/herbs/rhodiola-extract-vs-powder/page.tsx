@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import StructuredData from '@/components/StructuredData'
@@ -127,6 +128,22 @@ export default function RhodiolaExtractVsPowderGuidePage() {
             Rhodiola Herb Profile →
           </Link>
         </div>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/rhodiola-extract-vs-powder.jpg"
+              alt="Rhodiola extract capsules next to raw rhodiola root powder"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Rhodiola extract vs raw powder — what actually matters.
+          </figcaption>
+        </figure>
       </section>
 
       {/* Quick comparison */}

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
@@ -98,6 +99,22 @@ export default function Page() {
             caffeine&nbsp;+&nbsp;L-theanine stack smooths it, the calmer nootropics that support focus
             without spiking, and the timing habits that prevent the slump in the first place.
           </p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/focus-without-caffeine-crash.jpg"
+              alt="Green tea, L-theanine, and matcha for focus without a caffeine crash"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            How to get steady focus without the caffeine crash.
+          </figcaption>
+        </figure>
         </section>
 
         {/* Quick Answer */}

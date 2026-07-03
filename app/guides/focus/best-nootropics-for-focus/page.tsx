@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
@@ -163,6 +164,22 @@ export default function BestNootropicsForFocusPage() {
             in 30 minutes. Bacopa takes 12 weeks. Mixing expectations for different compounds leads
             to perceived failures.
           </div>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/best-nootropics-for-focus.jpg"
+              alt="Nootropics for focus including capsules, lion's mane mushroom, and green tea"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            The best-supported nootropics for focus and attention.
+          </figcaption>
+        </figure>
         </section>
 
         {/* Timescale comparison */}

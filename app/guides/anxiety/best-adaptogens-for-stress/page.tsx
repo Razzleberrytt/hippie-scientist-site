@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
@@ -137,6 +138,22 @@ export default function BestAdaptogensForStressPage() {
             the direction of deviation. Not all herbs marketed as adaptogens meet this classical
             definition rigorously.
           </div>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/best-adaptogens-for-stress.jpg"
+              alt="Adaptogens for stress including ashwagandha, rhodiola, and holy basil"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            The best-studied adaptogens for stress resilience.
+          </figcaption>
+        </figure>
         </section>
 
         {/* Fastest useful choice */}
