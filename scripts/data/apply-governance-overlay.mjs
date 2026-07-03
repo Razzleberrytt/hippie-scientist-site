@@ -11,10 +11,10 @@
  *  1. Canonical detail folders. The runtime serves the PLURAL folders
  *     (herbs-detail, compounds-detail). The singular folders (herb-detail,
  *     compound-detail) are removed so there is a single source of truth.
- *  2. Orphan reconciliation. Detail files whose slug is not present in the canonical
- *     runtime lists (herbs.json / compounds.json) are removed so the served detail set
- *     matches the canonical record set. This also strips ungoverned controlled-substance
- *     detail files that were never reachable by a generated route.
+ *  2. Detail reconciliation. Detail files whose slug is not present in the canonical
+ *     runtime lists (herbs.json / compounds.json) are removed, and any canonical list
+ *     record missing a detail payload gets a detail file copied from that canonical
+ *     record. This keeps the served detail set matched to the generated route set.
  *  3. Governance metadata. Every canonical herb/compound record (flat list + detail)
  *     gets an explicit `governance` object. Restricted/high-risk slugs are forced to the
  *     strict posture (no monetization, no indexing, no recommendation, human review).
@@ -248,12 +248,27 @@ function processKind(kind, listFile, detailDirName, report) {
   }
   report.removedOrphans[kind] = removedOrphans.sort()
 
-  // 2. Load canonical detail records (the source-of-truth for record-level evidence).
+  // 2. Load canonical detail records. If a canonical list row has no detail payload,
+  // seed one from the canonical row so fresh builds cannot leave renderable routes
+  // without matching detail JSON. This copies existing fields only; it does not
+  // fabricate citations or claims.
   const detailBySlug = new Map()
   for (const name of listJsonFiles(detailDir)) {
     const slug = name.replace(/\.json$/, '')
     detailBySlug.set(slug, { name, record: readJson(path.join(detailDir, name), {}) })
   }
+
+  const createdMissingDetails = []
+  for (const record of list) {
+    const slug = record?.slug
+    if (!slug || detailBySlug.has(slug)) continue
+    const name = `${slug}.json`
+    const detailRecord = { ...record }
+    writeJson(path.join(detailDir, name), detailRecord)
+    detailBySlug.set(slug, { name, record: detailRecord })
+    createdMissingDetails.push(slug)
+  }
+  report.createdMissingDetails[kind] = createdMissingDetails.sort()
 
   const deIndexed = []
   const restricted = []
@@ -375,6 +390,7 @@ function main() {
     removedSingularDirs: [],
     trimmedSummaries: {},
     removedOrphans: {},
+    createdMissingDetails: {},
     deIndexed: {},
     restricted: {},
     counts: {},
@@ -399,7 +415,7 @@ function main() {
     const c = report.counts[kind] || {}
     const curated = (report.curatedAllowlist[kind] || []).length
     console.log(
-      `[governance-overlay] ${kind}: records=${c.records} detail=${c.detailFiles} indexable=${c.indexable} needsReview=${c.needsReview} curated=${curated} orphansRemoved=${(report.removedOrphans[kind] || []).length} restricted=${(report.restricted[kind] || []).length}`,
+      `[governance-overlay] ${kind}: records=${c.records} detail=${c.detailFiles} indexable=${c.indexable} needsReview=${c.needsReview} curated=${curated} orphansRemoved=${(report.removedOrphans[kind] || []).length} missingDetailsCreated=${(report.createdMissingDetails[kind] || []).length} restricted=${(report.restricted[kind] || []).length}`,
     )
   }
   console.log(`[governance-overlay] report: ${path.relative(repoRoot, reportPath)}`)

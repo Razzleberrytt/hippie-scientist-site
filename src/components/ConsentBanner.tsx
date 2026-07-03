@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useEffect, useState } from 'react'
 import { Link } from '../lib/router-compat'
 import { getConsent, setConsent, initConsentDefault, getSystemNoTracking } from '../lib/consent'
@@ -7,8 +9,16 @@ export default function ConsentBanner() {
 
   useEffect(() => {
     initConsentDefault()
-    const c = getConsent()
-    setShow(c === null)
+    const consent = getConsent()
+    setShow(consent === null)
+
+    if (consent === 'granted') {
+      import('../lib/loadAnalytics')
+        .then(module => module.loadAnalytics())
+        .catch(() => {
+          // Ignore analytics load failures.
+        })
+    }
   }, [])
 
   if (!show) return null
@@ -44,7 +54,11 @@ export default function ConsentBanner() {
               onClick={() => {
                 setConsent('granted')
                 setShow(false)
-                import('../lib/loadAnalytics').then(module => module.loadAnalytics())
+                import('../lib/loadAnalytics')
+                  .then(module => module.loadAnalytics())
+                  .catch(() => {
+                    // Ignore analytics load failures.
+                  })
               }}
             >
               Accept

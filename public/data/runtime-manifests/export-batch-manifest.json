@@ -1,1 +1,1 @@
-[{"batchIndex":0,"estimatedComplexity":1096,"firstRoute":"/compounds/alpha-gpc","id":"batch-1","lastRoute":"/herbs/noni","routeCount":250,"segments":["compounds","herbs"]},{"batchIndex":1,"estimatedComplexity":335,"firstRoute":"/herbs/notoginseng","id":"batch-2","lastRoute":"/herbs","routeCount":86,"segments":["compounds","herbs","root"]}]
+[{"batchIndex":0,"estimatedComplexity":962,"firstRoute":"/compounds/acetyl-l-carnitine","id":"batch-1","lastRoute":"/herbs","routeCount":237,"segments":["compounds","herbs","root"]}]

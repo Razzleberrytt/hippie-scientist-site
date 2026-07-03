@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
-import Script from 'next/script'
 import '@fontsource-variable/inter'
 import '@fontsource-variable/fraunces/wght.css'
 import { Navigation } from '@/components/Navigation'
@@ -11,6 +10,7 @@ import Footer from '../src/components/Footer'
 import MobileBottomNav from '../src/components/mobile-bottom-nav'
 import ScrollToTopButton from '../src/components/ScrollToTopButton'
 import ClickTracker from '@/components/ClickTracker'
+import ConsentBanner from '../src/components/ConsentBanner'
 import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
 import { buildPageMetadata, DEFAULT_DESCRIPTION, SITE_URL, websiteJsonLd, organizationJsonLd } from '../src/lib/seo'
 import { DarkModeProvider } from '@/lib/dark-mode-provider'
@@ -24,8 +24,6 @@ import '@/styles/resonant-theme-lighting.css'
 import '@/styles/premium-surface-details.css'
 import '@/styles/accessibility-wcag-22.css'
 
-const ga4Id = process.env.NEXT_PUBLIC_GA4_ID?.trim() || ''
-const ahrefsAnalyticsKey = process.env.NEXT_PUBLIC_AHREFS_ANALYTICS_KEY?.trim() || '5Gf2j5Wq0fzGEtXu5Dip0w'
 const HOME_TITLE = 'The Hippie Scientist | Supplement Research'
 
 // Reusable JSON-LD from central helper (WebSite + Organization for homepage)
@@ -61,45 +59,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           }}
         />
         <link rel="manifest" href="/manifest.json" />
-        {ahrefsAnalyticsKey && (
-          <>
-            <link rel="preconnect" href="https://analytics.ahrefs.com" />
-            <link rel="dns-prefetch" href="https://analytics.ahrefs.com" />
-            <Script
-              id="ahrefs-analytics"
-              strategy="afterInteractive"
-              src="https://analytics.ahrefs.com/analytics.js"
-              data-key={ahrefsAnalyticsKey}
-            />
-          </>
-        )}
-        {ga4Id && (
-          <>
-            <link rel="preconnect" href="https://www.googletagmanager.com" />
-            <link rel="preconnect" href="https://www.google-analytics.com" />
-            <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-            <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-          </>
-        )}
       </head>
       <body className='font-sans antialiased'>
-        {ga4Id && (
-          <>
-            <Script
-              strategy='afterInteractive'
-              src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}
-            />
-            <Script strategy='afterInteractive' id='ga4-init'>
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${ga4Id}');
-              `}
-            </Script>
-          </>
-        )}
-
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteWebsiteLd) }}
@@ -134,6 +95,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <ScrollToTopButton />
           <CitationDrawerLazy />
           <ClickTracker />
+          <ConsentBanner />
           {/* Dark mode toggle — fixed fallback plus nav controls, accessible via keyboard */}
           <div className='fixed bottom-[6.5rem] right-4 z-[86] md:hidden'>
             <DarkModeToggle />

@@ -1,6 +1,7 @@
 import { getConsent } from './consent'
 
-const GA_ID = process.env.NEXT_PUBLIC_GA4_ID ?? ''
+const GA_ID = process.env.NEXT_PUBLIC_GA4_ID?.trim() ?? ''
+const AHREFS_ANALYTICS_KEY = process.env.NEXT_PUBLIC_AHREFS_ANALYTICS_KEY?.trim() ?? ''
 const PLAUSIBLE_DOMAIN = 'thehippiescientist.net'
 // Preserve the Plausible domain for future use without triggering unused variable warnings.
 void PLAUSIBLE_DOMAIN
@@ -16,8 +17,13 @@ function injectScript(src: string, attrs: Record<string, string> = {}) {
   document.head.appendChild(script)
 }
 
+function injectScriptOnce(id: string, src: string, attrs: Record<string, string> = {}) {
+  if (typeof document === 'undefined') return
+  if (document.getElementById(id)) return
+  injectScript(src, { id, ...attrs })
+}
+
 export function loadAnalytics() {
-  if (!GA_ID) return
   if (loaded) return
   if (typeof window === 'undefined') return
 
@@ -32,7 +38,13 @@ export function loadAnalytics() {
     window.gtag = gtag
     gtag('js', new Date())
     gtag('config', GA_ID, { anonymize_ip: true })
-    injectScript(`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`)
+    injectScriptOnce('ga4-script', `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`)
+  }
+
+  if (AHREFS_ANALYTICS_KEY) {
+    injectScriptOnce('ahrefs-analytics', 'https://analytics.ahrefs.com/analytics.js', {
+      'data-key': AHREFS_ANALYTICS_KEY,
+    })
   }
 
   // injectScript('https://plausible.io/js/script.js', {

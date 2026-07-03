@@ -1,77 +1,662 @@
 {
-  "generatedAt": "2026-06-11T23:12:33.972Z",
+  "generatedAt": "2026-07-03T13:50:35.205Z",
   "counts": {
-    "herbs": 287,
-    "compounds": 595,
-    "total": 882
+    "herbs": 290,
+    "compounds": 565,
+    "total": 855
   },
   "statusDistributions": {
     "herbs": {
-      "total": 287,
+      "total": 290,
       "byStatus": {
-        "PUBLISH": 287,
-        "NOINDEX": 0,
-        "NEEDS_REVIEW": 0,
+        "PUBLISH": 255,
+        "NOINDEX": 30,
+        "NEEDS_REVIEW": 5,
         "BLOCKED": 0,
         "UNKNOWN": 0
       },
       "percentages": {
-        "PUBLISH": 100,
-        "NOINDEX": 0,
-        "NEEDS_REVIEW": 0,
+        "PUBLISH": 87.9,
+        "NOINDEX": 10.3,
+        "NEEDS_REVIEW": 1.7,
         "BLOCKED": 0,
         "UNKNOWN": 0
       },
       "averageScoreByStatus": {
-        "PUBLISH": 79.2,
-        "NOINDEX": null,
-        "NEEDS_REVIEW": null,
+        "PUBLISH": 89.8,
+        "NOINDEX": 0,
+        "NEEDS_REVIEW": 68.4,
         "BLOCKED": null,
         "UNKNOWN": null
       },
-      "sitemapIncluded": 287,
+      "sitemapIncluded": 255,
       "robotsDistribution": {
-        "index,follow": 287
+        "index,follow": 255,
+        "noindex,follow": 35
       }
     },
     "compounds": {
-      "total": 595,
+      "total": 565,
       "byStatus": {
-        "PUBLISH": 594,
-        "NOINDEX": 1,
-        "NEEDS_REVIEW": 0,
-        "BLOCKED": 0,
+        "PUBLISH": 121,
+        "NOINDEX": 426,
+        "NEEDS_REVIEW": 16,
+        "BLOCKED": 2,
         "UNKNOWN": 0
       },
       "percentages": {
-        "PUBLISH": 99.8,
-        "NOINDEX": 0.2,
-        "NEEDS_REVIEW": 0,
-        "BLOCKED": 0,
+        "PUBLISH": 21.4,
+        "NOINDEX": 75.4,
+        "NEEDS_REVIEW": 2.8,
+        "BLOCKED": 0.4,
         "UNKNOWN": 0
       },
       "averageScoreByStatus": {
-        "PUBLISH": 22.4,
+        "PUBLISH": 99.1,
         "NOINDEX": 0,
-        "NEEDS_REVIEW": null,
-        "BLOCKED": null,
+        "NEEDS_REVIEW": 45,
+        "BLOCKED": 0,
         "UNKNOWN": null
       },
-      "sitemapIncluded": 594,
+      "sitemapIncluded": 121,
       "robotsDistribution": {
-        "index,follow": 594,
-        "noindex,follow": 1
+        "index,follow": 121,
+        "noindex,follow": 444
       }
     }
   },
   "candidates": {
-    "needsReviewHerbs": [],
-    "needsReviewCompounds": [],
+    "needsReviewHerbs": [
+      {
+        "kind": "herb",
+        "slug": "garlic",
+        "name": "Garlic (Allium sativum)",
+        "status": "NEEDS_REVIEW",
+        "score": 73,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
+        ]
+      },
+      {
+        "kind": "herb",
+        "slug": "ginger",
+        "name": "Ginger (Zingiber officinale)",
+        "status": "NEEDS_REVIEW",
+        "score": 73,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
+        ]
+      },
+      {
+        "kind": "herb",
+        "slug": "maca",
+        "name": "Maca (Lepidium meyenii)",
+        "status": "NEEDS_REVIEW",
+        "score": 73,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
+        ]
+      },
+      {
+        "kind": "herb",
+        "slug": "peppermint",
+        "name": "Peppermint (Mentha × piperita)",
+        "status": "NEEDS_REVIEW",
+        "score": 68,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
+        ]
+      },
+      {
+        "kind": "herb",
+        "slug": "withania-somnifera",
+        "name": "Ashwagandha",
+        "status": "NEEDS_REVIEW",
+        "score": 55,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:primary_runtime_priority"
+        ]
+      }
+    ],
+    "needsReviewCompounds": [
+      {
+        "kind": "compound",
+        "slug": "acetyl-l-carnitine",
+        "name": "Acetyl-L-Carnitine",
+        "status": "NEEDS_REVIEW",
+        "score": 45,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "ashitaba-extract",
+        "name": "Ashitaba Extract",
+        "status": "NEEDS_REVIEW",
+        "score": 45,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "betaine",
+        "name": "Betaine",
+        "status": "NEEDS_REVIEW",
+        "score": 45,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "betaine-anhydrous",
+        "name": "Betaine anhydrous",
+        "status": "NEEDS_REVIEW",
+        "score": 45,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "catuaba",
+        "name": "Catuaba",
+        "status": "NEEDS_REVIEW",
+        "score": 45,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "chlorella",
+        "name": "Chlorella",
+        "status": "NEEDS_REVIEW",
+        "score": 45,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "cordyceps",
+        "name": "Cordyceps",
+        "status": "NEEDS_REVIEW",
+        "score": 45,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "cordyceps-militaris",
+        "name": "cordyceps militaris",
+        "status": "NEEDS_REVIEW",
+        "score": 45,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "eaa-blend",
+        "name": "EAA Blend",
+        "status": "NEEDS_REVIEW",
+        "score": 45,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "eaa-essential-amino-acids",
+        "name": "Eaa Essential Amino Acids",
+        "status": "NEEDS_REVIEW",
+        "score": 45,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "hmb",
+        "name": "HMB",
+        "status": "NEEDS_REVIEW",
+        "score": 45,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "magnesium-citrate",
+        "name": "magnesium citrate",
+        "status": "NEEDS_REVIEW",
+        "score": 45,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-present",
+          "evidence-signal",
+          "export-decision:primary_runtime_priority"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "mucuna-pruriens",
+        "name": "Mucuna pruriens",
+        "status": "NEEDS_REVIEW",
+        "score": 45,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "olive-leaf-extract",
+        "name": "Olive Leaf Extract",
+        "status": "NEEDS_REVIEW",
+        "score": 45,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "pqq",
+        "name": "PQQ",
+        "status": "NEEDS_REVIEW",
+        "score": 45,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "schisandra-extract",
+        "name": "Schisandra Extract",
+        "status": "NEEDS_REVIEW",
+        "score": 45,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
+        ]
+      }
+    ],
     "noindexClosestToPublish": [
       {
         "kind": "compound",
-        "slug": "7-hydroxymitragynine",
-        "name": "7-Hydroxymitragynine",
+        "slug": "11-keto-beta-boswellic-acid",
+        "name": "11-keto-beta-boswellic acid",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "23-epi-26-deoxyactein",
+        "name": "23-epi-26-deoxyactein",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "5-htp",
+        "name": "5-HTP",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "acarbose",
+        "name": "Acarbose",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "acemannan",
+        "name": "acemannan",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "acetate",
+        "name": "acetate",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "acetyl-11-keto-beta-boswellic-acid",
+        "name": "acetyl-11-keto-beta-boswellic acid",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "acetyl-beta-boswellic-acid",
+        "name": "acetyl-beta-boswellic acid",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "acetylshikonin",
+        "name": "acetylshikonin",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "actein",
+        "name": "Actein",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "acteoside",
+        "name": "acteoside",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "adenosine",
+        "name": "Adenosine",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "aescin",
+        "name": "aescin",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "agaricus-blazei",
+        "name": "Agaricus blazei",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "agmatine-sulfate",
+        "name": "Agmatine sulfate",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "ajoene",
+        "name": "ajoene",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "albiflorin",
+        "name": "albiflorin",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "alkylamides",
+        "name": "Alkylamides",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "allicin",
+        "name": "Allicin",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "herb",
+        "slug": "aloe-vera",
+        "name": "Aloe Vera",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "alpha-asarone",
+        "name": "alpha-asarone",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "alpha-lipoic-acid",
+        "name": "Alpha-Lipoic Acid",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "alpha-mangostin",
+        "name": "alpha-mangostin",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "anandamide",
+        "name": "Anandamide",
+        "status": "NOINDEX",
+        "score": 0,
+        "robots": "noindex,follow",
+        "sitemap_included": false,
+        "reasons": [
+          "noindex-decision:hidden_until_grounded"
+        ]
+      },
+      {
+        "kind": "compound",
+        "slug": "andrographis",
+        "name": "Andrographis",
         "status": "NOINDEX",
         "score": 0,
         "robots": "noindex,follow",
@@ -83,303 +668,353 @@
     ],
     "suspiciousLowPublish": [
       {
-        "kind": "compound",
-        "slug": "11-keto-beta-boswellic-acid",
-        "name": "11-keto-beta-boswellic acid",
+        "kind": "herb",
+        "slug": "andrographis-paniculata",
+        "name": "Andrographis Paniculata",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 78,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "23-epi-26-deoxyactein",
-        "name": "23-epi-26-deoxyactein",
+        "kind": "herb",
+        "slug": "boswellia-carterii",
+        "name": "Boswellia Carterii",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 78,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "5-htp",
-        "name": "5-HTP",
+        "kind": "herb",
+        "slug": "brassica-juncea",
+        "name": "Brassica Juncea",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 78,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "acarbose",
-        "name": "Acarbose",
+        "kind": "herb",
+        "slug": "brassica-oleracea",
+        "name": "Brassica Oleracea",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 78,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "acemannan",
-        "name": "acemannan",
+        "kind": "herb",
+        "slug": "caraway",
+        "name": "Caraway",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 78,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "acetate",
-        "name": "acetate",
+        "kind": "herb",
+        "slug": "codonopsis",
+        "name": "Codonopsis",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 78,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "acetyl-11-keto-beta-boswellic-acid",
-        "name": "acetyl-11-keto-beta-boswellic acid",
+        "kind": "herb",
+        "slug": "coriandrum-sativum",
+        "name": "Coriandrum Sativum",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 78,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "acetyl-beta-boswellic-acid",
-        "name": "acetyl-beta-boswellic acid",
+        "kind": "herb",
+        "slug": "cymbopogon-citratus",
+        "name": "Cymbopogon Citratus",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 78,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "acetylshikonin",
-        "name": "acetylshikonin",
+        "kind": "herb",
+        "slug": "daphne-odora",
+        "name": "Daphne Odora",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 78,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "actein",
-        "name": "Actein",
+        "kind": "herb",
+        "slug": "isatis",
+        "name": "Isatis",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 78,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "acteoside",
-        "name": "acteoside",
+        "kind": "herb",
+        "slug": "longan",
+        "name": "Longan",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 78,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "adenosine",
-        "name": "Adenosine",
+        "kind": "herb",
+        "slug": "marshmallow",
+        "name": "Marshmallow",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 78,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "aescin",
-        "name": "aescin",
+        "kind": "herb",
+        "slug": "ocotea-odorifera",
+        "name": "Ocotea Odorifera",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 78,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "agaricus-blazei",
-        "name": "Agaricus blazei",
+        "kind": "herb",
+        "slug": "pueraria-mirifica",
+        "name": "Pueraria Mirifica",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 78,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "agmatine-sulfate",
-        "name": "Agmatine sulfate",
+        "kind": "herb",
+        "slug": "rooibos",
+        "name": "Rooibos",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 78,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "ajoene",
-        "name": "ajoene",
+        "kind": "herb",
+        "slug": "tribulus-terrestris",
+        "name": "Tribulus (Tribulus terrestris)",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 78,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-present",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "albiflorin",
-        "name": "albiflorin",
+        "kind": "herb",
+        "slug": "angelica-archangelica",
+        "name": "Angelica Archangelica",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 83,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "alkylamides",
-        "name": "Alkylamides",
+        "kind": "herb",
+        "slug": "angelica-dahurica",
+        "name": "Angelica Dahurica",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 83,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "allicin",
-        "name": "Allicin",
+        "kind": "herb",
+        "slug": "angelica-pubescens",
+        "name": "Angelica Pubescens",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 83,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "aloe-vera",
-        "name": "Aloe Vera",
+        "kind": "herb",
+        "slug": "artemisia-capillaris",
+        "name": "Artemisia Capillaris",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 83,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "alpha-asarone",
-        "name": "alpha-asarone",
+        "kind": "herb",
+        "slug": "astragalus",
+        "name": "Astragalus",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 83,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "alpha-lipoic-acid",
-        "name": "Alpha-Lipoic Acid",
+        "kind": "herb",
+        "slug": "berberis-vulgaris",
+        "name": "Berberis Vulgaris",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 83,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "alpha-mangostin",
-        "name": "alpha-mangostin",
+        "kind": "herb",
+        "slug": "capsicum-annuum",
+        "name": "Capsicum",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 83,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "anandamide",
-        "name": "Anandamide",
+        "kind": "herb",
+        "slug": "cichorium-intybus",
+        "name": "Cichorium Intybus",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 83,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       },
       {
-        "kind": "compound",
-        "slug": "andrographis",
-        "name": "Andrographis",
+        "kind": "herb",
+        "slug": "citrus-bergamia",
+        "name": "Citrus Bergamia",
         "status": "PUBLISH",
-        "score": 0,
+        "score": 83,
         "robots": "index,follow",
         "sitemap_included": true,
         "reasons": [
-          "noindex-decision:hidden_until_grounded"
+          "effect-coverage",
+          "evidence-signal",
+          "export-decision:full_public_runtime"
         ]
       }
     ]
