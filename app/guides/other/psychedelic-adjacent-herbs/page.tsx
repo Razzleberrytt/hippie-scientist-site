@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import References from '@/components/References'
 
 export const metadata: Metadata = {
   title: 'Psychedelic-Adjacent Herbs & Harm Reduction',
@@ -25,6 +26,12 @@ const HEADINGS: Heading[] = [
   { id: 'profiles', text: 'Monitored Botanical Profiles', level: 2 },
   { id: 'harm-reduction', text: 'Core Harm Reduction Checkpoints', level: 2 },
   { id: 'disclaimer', text: 'Legal & Health Disclaimer', level: 2 },
+]
+
+const PSYCHEDELIC_ADJACENT_HERBS_REFS = [
+  { n: 1, text: 'Carhart-Harris RL, Goodwin GM. (2017). The therapeutic potential of psychedelic drugs. Neuropsychopharmacology, 42(11): 2105-2113.', url: 'https://pubmed.ncbi.nlm.nih.gov/28443616/' },
+  { n: 2, text: 'Nichols DE. (2016). Psychedelics. Pharmacol Rev, 68(2): 264-355.', url: 'https://pubmed.ncbi.nlm.nih.gov/26841800/' },
+  { n: 3, text: 'Johnson MW, et al. (2019). The abuse potential of medical psilocybin. Neuropharmacology, 142: 143-166.', url: 'https://pubmed.ncbi.nlm.nih.gov/29753748/' },
 ]
 
 export default function PsychedelicAdjacentHerbsPage() {

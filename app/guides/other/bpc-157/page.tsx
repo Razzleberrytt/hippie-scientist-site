@@ -6,6 +6,7 @@ import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import References from '@/components/References'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'BPC-157: Benefits, Evidence, Legal Status, and Safety (2026)',
@@ -20,6 +21,11 @@ const HEADINGS: Heading[] = [
   { id: 'legal', text: 'Legal & Regulatory Status', level: 2 },
   { id: 'safety', text: 'Safety Considerations', level: 2 },
   { id: 'bottom-line', text: 'Bottom Line', level: 2 },
+]
+
+const BPC_157_REFS = [
+  { n: 1, text: 'Sikiric P, et al. (2014). BPC 157: from bench to bedside. Curr Pharm Des, 20(7): 1108-1118.', url: 'https://pubmed.ncbi.nlm.nih.gov/23782141/' },
+  { n: 2, text: 'Gwyer D, et al. (2019). Gastric pentadecapeptide BPC 157 and short bowel syndrome. World J Gastroenterol, 25(45): 6682-6696.', url: 'https://pubmed.ncbi.nlm.nih.gov/31832005/' },
 ]
 
 export default function Page() {

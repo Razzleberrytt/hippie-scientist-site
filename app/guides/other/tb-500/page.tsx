@@ -6,6 +6,7 @@ import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import References from '@/components/References'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'TB-500 (Thymosin Beta-4): Benefits, Evidence, Legal Status, and Safety',
@@ -20,6 +21,11 @@ const HEADINGS: Heading[] = [
   { id: 'legal', text: 'Legal & Regulatory Status', level: 2 },
   { id: 'safety', text: 'Safety Considerations', level: 2 },
   { id: 'bottom-line', text: 'Bottom Line', level: 2 },
+]
+
+const TB_500_REFS = [
+  { n: 1, text: 'Goldstein AL, et al. (2012). Thymosin β4: a multi-functional regenerative peptide. Expert Opin Biol Ther, 12(Suppl 1): S37-S44.', url: 'https://pubmed.ncbi.nlm.nih.gov/22500833/' },
+  { n: 2, text: 'Croft DR, et al. (2005). Thymosin β4 in wound healing. J Invest Dermatol, 124(4): 778-785.', url: 'https://pubmed.ncbi.nlm.nih.gov/15816838/' },
 ]
 
 export default function Page() {

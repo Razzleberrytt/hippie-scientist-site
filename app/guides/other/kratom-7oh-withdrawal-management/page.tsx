@@ -6,6 +6,7 @@ import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import References from '@/components/References'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Kratom 7-OH Withdrawal: Harm Reduction Guide',
@@ -21,6 +22,12 @@ const HEADINGS: Heading[] = [
   { id: 'relapse', text: 'Relapse Prevention', level: 2 },
   { id: 'emergency', text: 'When to Seek Emergency Care', level: 2 },
   { id: 'takeaways', text: 'Key Takeaways', level: 2 },
+]
+
+const KRATOM_7OH_WITHDRAWAL_MANAGEMENT_REFS = [
+  { n: 1, text: 'Prozialeck WC, et al. (2012). Pharmacology of kratom: an emerging botanical agent. J Am Osteopath Assoc, 112(12): 792-799.', url: 'https://pubmed.ncbi.nlm.nih.gov/23212430/' },
+  { n: 2, text: 'Swogger MT, et al. (2015). Kratom use and mental health: a systematic review. Drug Alcohol Depend, 183: 134-140.', url: 'https://pubmed.ncbi.nlm.nih.gov/29248691/' },
+  { n: 3, text: 'Kruegel AC, Grundmann O. (2018). The medicinal chemistry and neuropharmacology of kratom. Neuropharmacology, 134(Pt A): 108-120.', url: 'https://pubmed.ncbi.nlm.nih.gov/28830758/' },
 ]
 
 export default function Page() {

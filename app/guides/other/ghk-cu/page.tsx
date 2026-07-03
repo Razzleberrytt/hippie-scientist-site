@@ -6,6 +6,7 @@ import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import References from '@/components/References'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'GHK-Cu (Copper Peptide): Skin, Hair, and Wound Healing Evidence',
@@ -20,6 +21,11 @@ const HEADINGS: Heading[] = [
   { id: 'legal', text: 'Legal & Regulatory Status', level: 2 },
   { id: 'safety', text: 'Safety Considerations', level: 2 },
   { id: 'bottom-line', text: 'Bottom Line', level: 2 },
+]
+
+const GHK_CU_REFS = [
+  { n: 1, text: 'Pickart L, et al. (2015). The human tripeptide GHK and tissue remodeling. J Biomater Sci Polym Ed, 19(8): 969-988.', url: 'https://pubmed.ncbi.nlm.nih.gov/18644225/' },
+  { n: 2, text: 'Pickart L, Margolina A. (2018). Regenerative and protective actions of the GHK-Cu peptide. Int J Mol Sci, 19(7): 1987.', url: 'https://pubmed.ncbi.nlm.nih.gov/29986401/' },
 ]
 
 export default function Page() {

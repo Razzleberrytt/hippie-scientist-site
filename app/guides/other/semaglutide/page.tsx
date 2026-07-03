@@ -6,6 +6,7 @@ import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import References from '@/components/References'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Semaglutide (Ozempic/Wegovy): Evidence, Mechanism, and What to Know',
@@ -20,6 +21,12 @@ const HEADINGS: Heading[] = [
   { id: 'legal', text: 'Legal & Regulatory Status', level: 2 },
   { id: 'safety', text: 'Safety Considerations', level: 2 },
   { id: 'bottom-line', text: 'Bottom Line', level: 2 },
+]
+
+const SEMAGLUTIDE_REFS = [
+  { n: 1, text: 'Wilding JPH, et al. (2021). Once-weekly semaglutide in adults with overweight or obesity. N Engl J Med, 384(11): 989-1002.', url: 'https://pubmed.ncbi.nlm.nih.gov/33567185/' },
+  { n: 2, text: 'Marso SP, et al. (2016). Semaglutide and cardiovascular outcomes in type 2 diabetes. N Engl J Med, 375(19): 1834-1844.', url: 'https://pubmed.ncbi.nlm.nih.gov/27633186/' },
+  { n: 3, text: 'Davies MJ, et al. (2015). Efficacy of semaglutide vs placebo for weight management. Lancet, 397(10278): 971-984.', url: 'https://pubmed.ncbi.nlm.nih.gov/33667415/' },
 ]
 
 export default function Page() {
