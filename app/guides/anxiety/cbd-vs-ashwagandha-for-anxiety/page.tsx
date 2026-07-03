@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import JsonLd from '@/components/seo/JsonLd'
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, compactMetaTitle } from '../../../../src/lib/seo'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
@@ -84,6 +85,22 @@ export default function CbdVsAshwagandhaForAnxietyPage() {
           <LastUpdatedBadge date={DATE} />
           <h1 className="text-4xl font-bold tracking-tight mt-4 mb-4">{TITLE}</h1>
           <p className="text-xl text-muted-foreground">{DESCRIPTION}</p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/cbd-vs-ashwagandha-for-anxiety.jpg"
+              alt="A CBD oil tincture beside ashwagandha root and powder, compared for anxiety"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            CBD vs ashwagandha — two popular but very different options for anxiety.
+          </figcaption>
+        </figure>
         </div>
 
         <div className="prose prose-sm mb-8 p-4 bg-muted/50 rounded-lg">

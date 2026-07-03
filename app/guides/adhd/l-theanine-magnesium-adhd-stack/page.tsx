@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import JsonLd from '@/components/seo/JsonLd'
 import type { Metadata } from 'next'
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '../../../../src/lib/seo'
@@ -114,6 +115,22 @@ export default function LTheanineMagnesiumAdhdStackPage() {
           <LastUpdatedBadge date={DATE} label="Last updated" />
         </div>
         <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/l-theanine-magnesium-adhd-stack.jpg"
+              alt="L-theanine and magnesium supplements combined as a calming focus stack for ADHD"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            L-theanine plus magnesium — a low-risk calming stack often used for ADHD focus.
+          </figcaption>
+        </figure>
       </section>
 
       {/* Disclosure */}

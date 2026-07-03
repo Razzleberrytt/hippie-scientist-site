@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import JsonLd from '@/components/seo/JsonLd'
 import type { Metadata } from 'next'
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, compactMetaTitle } from '../../../../src/lib/seo'
@@ -113,6 +114,22 @@ export default function LTheanineWithoutCaffeinePage() {
           <LastUpdatedBadge date={DATE} label="Last updated" />
         </div>
         <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/l-theanine-without-caffeine.jpg"
+              alt="Caffeine-free L-theanine capsules with green tea leaves for calm focus"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            L-theanine without caffeine — calm focus without the stimulant.
+          </figcaption>
+        </figure>
       </section>
 
       <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 px-5 py-3 text-xs leading-6 text-muted">
