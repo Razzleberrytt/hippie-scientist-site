@@ -3,7 +3,7 @@
   "slug": "baicalein",
   "name": "baicalein",
   "summary": "Baicalein is the aglycone partner of baicalin and is widely studied in inflammation, redox biology, and cancer-mechanism literature. The evidence remains mainly preclinical, with limited isolated human intervention data.",
-  "description": "Flavone aglycone from Scutellaria associated with NF-\u03baB and MAPK pathway modulation.",
+  "description": "Flavone aglycone from Scutellaria associated with NF-κB and MAPK pathway modulation.",
   "compoundClass": "",
   "mechanisms": [
     "Inflammatory Signaling Modulation",
@@ -25,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

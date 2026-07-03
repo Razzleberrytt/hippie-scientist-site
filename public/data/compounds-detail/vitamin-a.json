@@ -3,7 +3,7 @@
   "slug": "vitamin-a",
   "name": "Vitamin A",
   "summary": "Essential for vision and immune function; excess causes toxicity.",
-  "description": "Vitamin A is essential for vision and immune maintenance via retinoid signaling; excess intake can cause toxicity, so benefit depends on adequate\u2014not high\u2014status.",
+  "description": "Vitamin A is essential for vision and immune maintenance via retinoid signaling; excess intake can cause toxicity, so benefit depends on adequate—not high—status.",
   "compoundClass": "",
   "mechanisms": [
     "Immune Function Regulation",
@@ -23,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

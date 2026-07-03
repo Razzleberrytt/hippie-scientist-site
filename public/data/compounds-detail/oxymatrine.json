@@ -2,8 +2,8 @@
   "id": "oxymatrine",
   "slug": "oxymatrine",
   "name": "oxymatrine",
-  "summary": "Matrine-related alkaloid associated with TGF-\u03b2-linked fibrosis pathways and NF-\u03baB inhibition.",
-  "description": "Matrine-related alkaloid associated with TGF-\u03b2-linked fibrosis pathways and NF-\u03baB inhibition.",
+  "summary": "Matrine-related alkaloid associated with TGF-β-linked fibrosis pathways and NF-κB inhibition.",
+  "description": "Matrine-related alkaloid associated with TGF-β-linked fibrosis pathways and NF-κB inhibition.",
   "compoundClass": "",
   "mechanisms": [
     "Inflammatory Signaling Modulation",
@@ -22,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

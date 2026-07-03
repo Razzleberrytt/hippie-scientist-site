@@ -3,7 +3,7 @@
   "slug": "glycyrrhizin-isolated",
   "name": "Glycyrrhizin Isolated",
   "summary": "Glycyrrhizin is the major triterpenoid saponin from licorice with anti-inflammatory and regional hepatology use. Its safety profile is limited by pseudoaldosteronism risk.",
-  "description": "Isolated licorice constituent that inhibits 11\u03b2-HSD2 and can increase cortisol-like mineralocorticoid effects; some regional use for chronic hepatitis markers.",
+  "description": "Isolated licorice constituent that inhibits 11β-HSD2 and can increase cortisol-like mineralocorticoid effects; some regional use for chronic hepatitis markers.",
   "compoundClass": "",
   "mechanisms": [
     "Inflammatory Signaling Modulation",
@@ -24,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

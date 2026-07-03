@@ -12,7 +12,7 @@
     "AMPK Signaling",
     "Mitochondrial Support",
     "Oxidative Stress Modulation",
-    "NF-\u03baB Pathway Modulation",
+    "NF-κB Pathway Modulation",
     "Inflammatory Signaling Modulation"
   ],
   "targets": [],
@@ -27,7 +27,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -38,8 +38,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NEEDS_REVIEW",
+  "robots": "noindex,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

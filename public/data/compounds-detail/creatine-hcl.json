@@ -3,7 +3,7 @@
   "slug": "creatine-hcl",
   "name": "Creatine HCl",
   "summary": "Creatine monohydrate has strong evidence, but creatine HCl should not inherit formulation-specific authority without direct comparative human evidence.",
-  "description": "Creatine HCl is a creatine salt intended to raise intramuscular phosphocreatine; creatine\u2019s broader efficacy is strong, but salt-specific claims need direct data.",
+  "description": "Creatine HCl is a creatine salt intended to raise intramuscular phosphocreatine; creatine’s broader efficacy is strong, but salt-specific claims need direct data.",
   "compoundClass": "",
   "mechanisms": [
     "Phosphocreatine System Support",
@@ -24,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": true,
     "reason": "missing_record_level_sources"
@@ -35,8 +35,8 @@
     "sourceIds": []
   },
   "claimMap": [],
-  "indexability_status": "PUBLISH",
-  "robots": "index,follow",
+  "indexability_status": "NEEDS_REVIEW",
+  "robots": "noindex,follow",
   "sitemap_included": false,
   "indexability_reasons": []
 }

@@ -9,7 +9,7 @@
     "Immune Signaling Modulation",
     "Mitochondrial Dysfunction Signaling",
     "Metabolic Regulation",
-    "NF-\u03baB/Inflammation Pathway Modulation",
+    "NF-κB/Inflammation Pathway Modulation",
     "AMPK Signaling",
     "Apoptotic Signaling Modulation",
     "Mitochondrial Support",
@@ -31,7 +31,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

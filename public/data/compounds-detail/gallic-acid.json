@@ -3,7 +3,7 @@
   "slug": "gallic-acid",
   "name": "gallic acid",
   "summary": "Gallic acid is a small phenolic acid present across many herbs, teas, and fruits. It is well represented in antioxidant and inflammatory pathway studies, but isolated human outcome evidence is limited.",
-  "description": "Simple phenolic acid widely reported from tea and fruit sources with MAPK and NF-\u03baB pathway activity.",
+  "description": "Simple phenolic acid widely reported from tea and fruit sources with MAPK and NF-κB pathway activity.",
   "compoundClass": "",
   "mechanisms": [
     "Inflammatory Signaling Modulation",
@@ -25,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

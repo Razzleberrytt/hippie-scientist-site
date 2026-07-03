@@ -13,7 +13,7 @@
     "Inflammasome Signaling Suppression",
     "AMPK Signaling",
     "Mitochondrial Support",
-    "NF-\u03baB Pathway Inhibition",
+    "NF-κB Pathway Inhibition",
     "Oxidative Stress Modulation",
     "JAK/STAT Pathway Modulation",
     "Inflammatory Signaling Modulation"
@@ -30,7 +30,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

@@ -15,7 +15,7 @@
     "Cell Survival Signaling",
     "MMP Regulation",
     "Inflammatory Signaling Modulation",
-    "TGF-\u03b2/SMAD Pathway Modulation"
+    "TGF-β/SMAD Pathway Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -29,7 +29,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

@@ -2,8 +2,8 @@
   "id": "daphnetin",
   "slug": "daphnetin",
   "name": "daphnetin",
-  "summary": "Coumarin derivative reported with JAK/STAT and NF-\u03baB inhibitory activity.",
-  "description": "Daphnetin, a coumarin derivative, is reported to inhibit NF-\u03baB and JAK/STAT signaling in lab models, aligning with anti-inflammatory and survival-modulatory hypotheses.",
+  "summary": "Coumarin derivative reported with JAK/STAT and NF-κB inhibitory activity.",
+  "description": "Daphnetin, a coumarin derivative, is reported to inhibit NF-κB and JAK/STAT signaling in lab models, aligning with anti-inflammatory and survival-modulatory hypotheses.",
   "compoundClass": "",
   "mechanisms": [
     "Apoptosis/Survival Signaling Modulation",
@@ -27,7 +27,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

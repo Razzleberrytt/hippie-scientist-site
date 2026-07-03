@@ -2,8 +2,8 @@
   "id": "ligustilide",
   "slug": "ligustilide",
   "name": "ligustilide",
-  "summary": "Phthalide constituent of Angelica/Ligusticum associated with calcium-channel-related and NF-\u03baB effects.",
-  "description": "Phthalide constituent of Angelica/Ligusticum associated with calcium-channel-related and NF-\u03baB effects.",
+  "summary": "Phthalide constituent of Angelica/Ligusticum associated with calcium-channel-related and NF-κB effects.",
+  "description": "Phthalide constituent of Angelica/Ligusticum associated with calcium-channel-related and NF-κB effects.",
   "compoundClass": "",
   "mechanisms": [
     "Inflammatory Signaling Modulation",
@@ -24,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

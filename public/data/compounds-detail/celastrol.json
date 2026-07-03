@@ -2,8 +2,8 @@
   "id": "celastrol",
   "slug": "celastrol",
   "name": "celastrol",
-  "summary": "Quinone methide triterpenoid linked to HSP90 inhibition and NF-\u03baB suppression.",
-  "description": "Celastrol (quinone methide triterpenoid) is linked to HSP90 inhibition and NF-\u03baB suppression, aligning with anti-inflammatory survival signaling effects.",
+  "summary": "Quinone methide triterpenoid linked to HSP90 inhibition and NF-κB suppression.",
+  "description": "Celastrol (quinone methide triterpenoid) is linked to HSP90 inhibition and NF-κB suppression, aligning with anti-inflammatory survival signaling effects.",
   "compoundClass": "",
   "mechanisms": [
     "Heat Shock Response Modulation",
@@ -11,7 +11,7 @@
     "NF-kB Modulation",
     "HSP90 Inhibition",
     "Inflammatory Signaling Modulation",
-    "NF-\u03baB Pathway Suppression"
+    "NF-κB Pathway Suppression"
   ],
   "targets": [],
   "pathways": [],
@@ -25,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

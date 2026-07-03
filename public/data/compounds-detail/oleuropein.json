@@ -2,8 +2,8 @@
   "id": "oleuropein",
   "slug": "oleuropein",
   "name": "oleuropein",
-  "summary": "Olive secoiridoid associated with NF-\u03baB and AMPK pathway modulation.",
-  "description": "Oleuropein from olive is associated with NF-\u03baB suppression and AMPK-related metabolic signaling in experimental models, suggesting anti-inflammatory and metabolic modulation.",
+  "summary": "Olive secoiridoid associated with NF-κB and AMPK pathway modulation.",
+  "description": "Oleuropein from olive is associated with NF-κB suppression and AMPK-related metabolic signaling in experimental models, suggesting anti-inflammatory and metabolic modulation.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
@@ -30,7 +30,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

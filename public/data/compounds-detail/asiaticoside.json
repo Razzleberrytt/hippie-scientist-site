@@ -7,7 +7,7 @@
   "compoundClass": "",
   "mechanisms": [
     "Extracellular Matrix Remodeling",
-    "TGF-\u03b2 Pathway Modulation",
+    "TGF-β Pathway Modulation",
     "NF-kB Modulation",
     "Inflammatory Signaling Modulation",
     "Wound Healing Signaling"
@@ -24,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

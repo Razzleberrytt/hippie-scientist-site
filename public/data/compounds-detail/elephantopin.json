@@ -8,7 +8,7 @@
   "mechanisms": [
     "NF-kB Modulation",
     "Inflammatory Signaling Modulation",
-    "NF-\u03baB Pathway Modulation"
+    "NF-κB Pathway Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -22,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

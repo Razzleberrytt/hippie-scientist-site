@@ -3,7 +3,7 @@
   "slug": "hericenones",
   "name": "hericenones",
   "summary": "Aromatic compounds from lion's mane fruiting body linked to neurotrophic signaling.",
-  "description": "Hericenones from lion\u2019s mane are associated with neurotrophic signaling and potential neuronal support. Evidence is mainly mechanistic/preclinical at present.",
+  "description": "Hericenones from lion’s mane are associated with neurotrophic signaling and potential neuronal support. Evidence is mainly mechanistic/preclinical at present.",
   "compoundClass": "",
   "mechanisms": [
     "Neuronal Survival Signaling",
@@ -23,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

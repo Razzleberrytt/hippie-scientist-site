@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-02T03:19:51.021Z",
+  "generatedAt": "2026-07-03T03:02:56.447Z",
   "source": {
-    "workbookPath": "/mnt/data/iterate31/hippie-scientist-site-main/data-sources/herb_monograph_master.xlsx",
+    "workbookPath": "data-sources/herb_monograph_master.xlsx",
     "workbook": "herb_monograph_master.xlsx"
   },
   "output": "public/data",

@@ -3,7 +3,7 @@
   "slug": "levodopa",
   "name": "Levodopa",
   "summary": "Levodopa has strong indication-specific human evidence for Parkinson's motor symptoms, but supplement/herb attribution should not be generalized beyond L-DOPA-driven preparations.",
-  "description": "Levodopa is a clinically used dopamine precursor for Parkinson\u2019s disease; any Mucuna-related findings should be attributed only to the specific levodopa exposure.",
+  "description": "Levodopa is a clinically used dopamine precursor for Parkinson’s disease; any Mucuna-related findings should be attributed only to the specific levodopa exposure.",
   "compoundClass": "",
   "mechanisms": [
     "Dopaminergic Neurotransmission Support",
@@ -23,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

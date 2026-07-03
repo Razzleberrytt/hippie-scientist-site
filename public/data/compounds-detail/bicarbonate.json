@@ -3,7 +3,7 @@
   "slug": "bicarbonate",
   "name": "Bicarbonate",
   "summary": "Improves high-intensity exercise performance.",
-  "description": "Sodium bicarbonate is framed for high-intensity efforts by shifting acid\u2013base balance, supporting buffering of exercise-induced hydrogen ions and fatigue signaling.",
+  "description": "Sodium bicarbonate is framed for high-intensity efforts by shifting acid–base balance, supporting buffering of exercise-induced hydrogen ions and fatigue signaling.",
   "compoundClass": "",
   "mechanisms": [
     "Buffering Capacity Enhancement",
@@ -22,7 +22,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

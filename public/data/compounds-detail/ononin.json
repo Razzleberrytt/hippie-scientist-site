@@ -15,7 +15,7 @@
     "Hormonal Signaling Context",
     "Estrogen Receptor Modulation",
     "Inflammatory Signaling Modulation",
-    "ER\u03b2 Selective Signaling (Context Dependent)"
+    "ERβ Selective Signaling (Context Dependent)"
   ],
   "targets": [],
   "pathways": [],
@@ -29,7 +29,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

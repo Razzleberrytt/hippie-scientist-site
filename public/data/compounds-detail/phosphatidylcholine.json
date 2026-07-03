@@ -20,14 +20,14 @@
   "evidenceLevel": "",
   "relatedCompounds": [],
   "governance": {
-    "reviewStatus": "needs_review",
+    "reviewStatus": "approved",
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
     "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
-    "reason": ""
+    "reason": "curated_allowlist"
   },
   "evidence": {
     "reviewStatus": "needs_review",
@@ -36,5 +36,6 @@
   },
   "claimMap": [],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "sitemap_included": true
 }

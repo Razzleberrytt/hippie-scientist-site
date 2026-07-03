@@ -9,7 +9,7 @@
     "Extracellular Matrix Remodeling",
     "Inflammatory Signaling Modulation",
     "Collagen Biosynthesis Support",
-    "TGF-\u03b2 Pathway Modulation"
+    "TGF-β Pathway Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

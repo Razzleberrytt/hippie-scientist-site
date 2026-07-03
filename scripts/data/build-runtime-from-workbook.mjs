@@ -742,6 +742,10 @@ function args() {
   return path.resolve(repoRoot, out || 'public/data')
 }
 
+function repoRelativePath(filePath) {
+  return path.relative(repoRoot, filePath).split(path.sep).join('/')
+}
+
 function mechanismReport(herbs, compounds, canonicalMechanisms) {
   const records = [...herbs, ...compounds]
   const unmapped = new Map()
@@ -853,8 +857,8 @@ async function main() {
   // so the two manifests can never drift (enforced by validate-data-governance.mjs).
   writeJson(path.join(outDir, '_meta', 'build-info.json'), {
     generatedAt: new Date().toISOString(),
-    source: { workbookPath, workbook: path.basename(workbookPath) },
-    output: path.relative(repoRoot, outDir),
+    source: { workbookPath: repoRelativePath(workbookPath), workbook: path.basename(workbookPath) },
+    output: repoRelativePath(outDir),
     counts: {
       herbs: herbs.length,
       compounds: compounds.length,

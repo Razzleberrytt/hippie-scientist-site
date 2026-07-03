@@ -3,7 +3,7 @@
   "slug": "hypericin",
   "name": "hypericin",
   "summary": "Hypericin is a napthodianthrone marker from St.",
-  "description": "Hypericin is a St. John\u2019s wort napthodianthrone associated with photodynamic activity; it can influence photoactivated ROS signaling relevant to antiviral and anticancer research.",
+  "description": "Hypericin is a St. John’s wort napthodianthrone associated with photodynamic activity; it can influence photoactivated ROS signaling relevant to antiviral and anticancer research.",
   "compoundClass": "",
   "mechanisms": [
     "Viral/Cellular Targeting via Photoactivation",
@@ -24,7 +24,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

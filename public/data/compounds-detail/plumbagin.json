@@ -12,7 +12,7 @@
     "Mitochondrial Support",
     "NF-kB Modulation",
     "Oxidative Stress Modulation",
-    "NF-\u03baB Pathway Modulation",
+    "NF-κB Pathway Modulation",
     "Inflammatory Signaling Modulation"
   ],
   "targets": [],
@@ -27,7 +27,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

@@ -18,14 +18,14 @@
   "evidenceLevel": "",
   "relatedCompounds": [],
   "governance": {
-    "reviewStatus": "needs_review",
+    "reviewStatus": "approved",
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
     "indexingAllowed": true,
     "recommendationAllowed": true,
-    "requiresHumanReview": true,
-    "reason": "missing_record_level_sources"
+    "requiresHumanReview": false,
+    "reason": "curated_allowlist"
   },
   "evidence": {
     "reviewStatus": "needs_review",
@@ -35,6 +35,6 @@
   "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
-  "sitemap_included": false,
+  "sitemap_included": true,
   "indexability_reasons": []
 }

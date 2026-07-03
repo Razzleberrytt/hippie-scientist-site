@@ -2,14 +2,14 @@
   "id": "tetrandrine",
   "slug": "tetrandrine",
   "name": "tetrandrine",
-  "summary": "Bisbenzylisoquinoline alkaloid known for calcium-channel-related and NF-\u03baB pathway activity.",
-  "description": "Tetrandrine is a bisbenzylisoquinoline alkaloid; mechanistic data include calcium-channel-related effects and NF-\u03baB signaling regulation.",
+  "summary": "Bisbenzylisoquinoline alkaloid known for calcium-channel-related and NF-κB pathway activity.",
+  "description": "Tetrandrine is a bisbenzylisoquinoline alkaloid; mechanistic data include calcium-channel-related effects and NF-κB signaling regulation.",
   "compoundClass": "",
   "mechanisms": [
     "NF-kB Modulation",
     "Inflammatory Signaling Modulation",
     "Calcium Channel Blockade",
-    "NF-\u03baB Pathway Modulation"
+    "NF-κB Pathway Modulation"
   ],
   "targets": [],
   "pathways": [],
@@ -23,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

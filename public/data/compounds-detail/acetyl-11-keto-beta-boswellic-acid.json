@@ -3,7 +3,7 @@
   "slug": "acetyl-11-keto-beta-boswellic-acid",
   "name": "acetyl-11-keto-beta-boswellic acid",
   "summary": "Acetyl-11-keto-beta-boswellic acid is a boswellic acid emphasized in Boswellia standardization discussions. Its relevance is mechanistically strong for inflammatory pathways, but isolated-compound human evidence is much thinner than extract-level evidence.",
-  "description": "AKBA (acetyl-11-keto-\u03b2-boswellic acid) is a Boswellia marker with mechanistic interest in anti-inflammatory signaling pathways; most support is preclinical.",
+  "description": "AKBA (acetyl-11-keto-β-boswellic acid) is a Boswellia marker with mechanistic interest in anti-inflammatory signaling pathways; most support is preclinical.",
   "compoundClass": "",
   "mechanisms": [
     "NF-KappaB Signaling Modulation",
@@ -25,7 +25,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

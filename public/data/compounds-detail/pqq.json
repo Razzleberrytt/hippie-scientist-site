@@ -3,12 +3,12 @@
   "slug": "pqq",
   "name": "PQQ",
   "summary": "PQQ entry from SciSpace evidence pass. Evidence level: low.",
-  "description": "PQQ is a redox-active cofactor with signals for oxidative stress control and possible mitochondrial biogenesis via PGC-1\u03b1 in preclinical studies.",
+  "description": "PQQ is a redox-active cofactor with signals for oxidative stress control and possible mitochondrial biogenesis via PGC-1α in preclinical studies.",
   "compoundClass": "",
   "mechanisms": [
     "Redox Cycling",
     "Oxidative Stress Modulation",
-    "Mitochondrial Biogenesis (PGC-1\u03b1)",
+    "Mitochondrial Biogenesis (PGC-1α)",
     "Mitochondrial Support"
   ],
   "targets": [],
@@ -23,7 +23,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""

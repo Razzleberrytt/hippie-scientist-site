@@ -9,7 +9,7 @@
     "Immune Signaling Modulation",
     "COX-2 Pathway Modulation",
     "Antioxidant Enzyme Support",
-    "NF-\u03baB Signaling Modulation",
+    "NF-κB Signaling Modulation",
     "Neuroprotective Activity",
     "Mitochondrial Support",
     "NF-kB Modulation",
@@ -29,7 +29,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": true,
+    "indexingAllowed": false,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
