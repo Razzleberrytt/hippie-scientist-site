@@ -99,7 +99,7 @@ const toolLinks = [
 function SectionHeader({ title, subtitle, as: HeadingTag = 'h2' }: SectionHeaderProps) {
   return (
     <div className='max-w-3xl space-y-2'>
-      <HeadingTag className='text-xl font-semibold tracking-tight text-ink sm:text-2xl'>{title}</HeadingTag>
+      <HeadingTag className='font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl'>{title}</HeadingTag>
       {subtitle ? <p className='text-sm leading-6 text-muted sm:text-base'>{subtitle}</p> : null}
     </div>
   )
@@ -127,10 +127,10 @@ export default function HomepageV2() {
                 Evidence-based guides for sleep, stress, anxiety, and focus. 816 peer-reviewed studies, 557 compounds, zero marketing fluff.
               </p>
 
-              <div className='mt-6 flex w-full max-w-sm flex-col'>
+              <div className='mt-8 flex w-full max-w-sm flex-col'>
                 <Link
                   href='#choose-a-path'
-                  className='rounded-full bg-brand-800 px-6 py-3.5 text-sm font-bold text-white shadow-[0_4px_14px_rgba(11,29,20,0.22)] transition-all duration-200 motion-safe:hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-[0_8px_20px_rgba(11,29,20,0.28)] active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 text-center'
+                  className='rounded-full bg-brand-800 px-8 py-4 text-base font-bold text-white shadow-[0_6px_20px_rgba(11,29,20,0.3)] transition-all duration-200 motion-safe:hover:-translate-y-0.5 hover:bg-brand-700 hover:shadow-[0_10px_26px_rgba(11,29,20,0.35)] active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 text-center'
                 >
                   Browse by Health Goal
                 </Link>
@@ -141,7 +141,7 @@ export default function HomepageV2() {
 
         {/* Comparisons and tools */}
         <section className='grid gap-4 lg:grid-cols-[1fr_0.9fr]'>
-          <div className='rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm sm:p-6 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]'>
+          <div className='rounded-[1rem] border-2 border-brand-900/12 bg-white/90 p-5 shadow-md sm:p-6 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]'>
             <SectionHeader
               title='Compare before you choose'
               subtitle='Side-by-side pages help answer the high-intent questions people search before buying or stacking.'
@@ -152,7 +152,7 @@ export default function HomepageV2() {
                 <Link
                   key={comparison.href}
                   href={comparison.href}
-                  className='rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 px-4 py-3 text-sm font-bold text-brand-800 transition hover:border-brand-700/20 hover:bg-brand-50 dark:bg-[var(--surface-subtle)]'
+                  className='rounded-[0.75rem] border-2 border-brand-900/12 bg-brand-50/50 px-4 py-3 text-sm font-bold text-brand-800 transition hover:border-brand-700/25 hover:bg-brand-50 dark:bg-[var(--surface-subtle)]'
                 >
                   {comparison.title} →
                 </Link>
@@ -163,7 +163,7 @@ export default function HomepageV2() {
             </Link>
           </div>
 
-          <div className='rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm sm:p-6 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]'>
+          <div className='rounded-[1rem] border-2 border-brand-900/12 bg-white/90 p-5 shadow-md sm:p-6 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]'>
             <SectionHeader
               title='Use the safety tools'
               subtitle='The fastest win is avoiding mismatched products, risky stacks, and unclear supplement forms.'
@@ -174,7 +174,7 @@ export default function HomepageV2() {
                 <Link
                   key={tool.href}
                   href={tool.href}
-                  className='block rounded-[0.75rem] border border-emerald-900/10 bg-white/80 p-4 transition hover:border-emerald-700/20 hover:bg-white dark:bg-[var(--surface-subtle)]'
+                  className='block rounded-[0.75rem] border-2 border-brand-900/12 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/25 hover:bg-white dark:bg-[var(--surface-subtle)]'
                 >
                   <h3 className='text-sm font-bold text-ink'>{tool.title}</h3>
                   <p className='mt-1 text-sm leading-6 text-muted'>{tool.description}</p>
@@ -204,14 +204,14 @@ export default function HomepageV2() {
                 <Link
                   key={hGoal.slug}
                   href={hGoal.slug === 'stress' || hGoal.slug === 'anxiety' ? '/guides/anxiety/' : `/guides/${hGoal.slug}/`}
-                  className={`group flex min-h-48 flex-col justify-between rounded-[1.25rem] border ${hGoal.bg} p-5 shadow-sm transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]`}
+                  className={`group flex min-h-48 flex-col justify-between rounded-[1.25rem] border-2 ${hGoal.bg} p-5 shadow-md transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-xl dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]`}
                 >
                   <div>
                     <span
-                      className={`mb-3 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/70 shadow-sm ${hGoal.accent} dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]`}
+                      className={`mb-3 inline-flex h-12 w-12 items-center justify-center rounded-full bg-white/80 shadow-sm ${hGoal.accent} dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]`}
                       aria-hidden='true'
                     >
-                      <Icon className='h-5 w-5' strokeWidth={1.75} />
+                      <Icon className='h-6 w-6' strokeWidth={1.75} />
                     </span>
                     <h3 className={`text-2xl font-bold tracking-tight ${hGoal.accent} dark:text-[var(--text-primary)]`}>
                       {hGoal.title}
@@ -245,7 +245,7 @@ export default function HomepageV2() {
                 <Link
                   key={article.slug}
                   href={`/articles/${article.slug}/`}
-                  className='group flex flex-col gap-3 rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm transition-all duration-200 hover:border-brand-700/20 hover:shadow-md dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]'
+                  className='group flex flex-col gap-3 rounded-[1rem] border-2 border-brand-900/12 bg-white/90 p-5 shadow-md transition-all duration-200 hover:border-brand-700/25 hover:shadow-lg dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)]'
                 >
                   <div className='flex items-center gap-2'>
                     {article.category && (
@@ -270,7 +270,7 @@ export default function HomepageV2() {
         )}
 
         {/* Trust */}
-        <section className='rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm sm:p-6'>
+        <section className='rounded-[1rem] border-2 border-brand-900/12 bg-white/90 p-5 shadow-md sm:p-6'>
           <div className='grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start'>
             <SectionHeader
               title='Why trust the guide?'
@@ -279,7 +279,7 @@ export default function HomepageV2() {
             />
             <div className='grid gap-3 sm:grid-cols-3'>
               {trustSignals.map((signal) => (
-                <div key={signal.n} className='flex gap-4 rounded-[0.85rem] border border-brand-900/10 bg-white/60 p-4 dark:bg-[var(--surface-card)] dark:text-[var(--text-secondary)]'>
+                <div key={signal.n} className='flex gap-4 rounded-[0.85rem] border-2 border-brand-900/12 bg-white/70 p-4 shadow-sm dark:bg-[var(--surface-card)] dark:text-[var(--text-secondary)]'>
                   <span className='mt-0.5 shrink-0 font-mono text-xs font-bold tracking-widest text-brand-400'>{signal.n}</span>
                   <div>
                     <p className='text-sm font-semibold text-ink'>{signal.label}</p>

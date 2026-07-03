@@ -12,6 +12,7 @@ interface Props {
 }
 
 const STUDY_TYPE_ORDER = ['Randomized controlled trial', 'Systematic review', 'Meta-analysis', 'Observational', 'Mechanistic', 'Animal', 'In vitro']
+const VISIBLE_ROWS = 6
 
 function StudyTypeBadge({ type }: { type: string }) {
   const lower = type.toLowerCase()
@@ -65,70 +66,109 @@ function sortByStudyType(a: Citation, b: Citation) {
   return aRank - bRank
 }
 
+function StudyRow({ citation, index }: { citation: Citation; index: number }) {
+  const pubmedUrl = citation.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${citation.pmid}/` : null
+
+  return (
+    <tr
+      key={citation.pmid || citation.title || index}
+      className="border-t border-brand-900/10 dark:border-white/10"
+    >
+      <td className="px-3 py-3 align-top sm:px-4">
+        <p className="text-[13px] font-semibold leading-snug text-ink">
+          {pubmedUrl ? (
+            <a
+              href={pubmedUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-brand-700 hover:underline dark:hover:text-brand-100"
+            >
+              {citation.title}
+            </a>
+          ) : (
+            citation.title
+          )}
+        </p>
+        {(citation.authors || citation.year) && (
+          <p className="mt-0.5 text-[11px] text-muted">
+            {citation.authors}
+            {citation.year ? ` (${citation.year})` : ''}
+          </p>
+        )}
+      </td>
+      <td className="px-3 py-3 align-top sm:px-4">
+        {citation.studyType ? <StudyTypeBadge type={citation.studyType} /> : <span className="text-xs text-muted">—</span>}
+      </td>
+      <td className="whitespace-nowrap px-3 py-3 align-top text-[12px] text-muted sm:px-4">
+        {citation.sampleSize ? `n=${citation.sampleSize}` : '—'}
+      </td>
+      <td className="px-3 py-3 text-right align-top sm:px-4">
+        {pubmedUrl ? (
+          <a
+            href={pubmedUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[11px] font-semibold text-brand-700 hover:underline dark:text-brand-100"
+          >
+            PubMed →
+          </a>
+        ) : (
+          <span className="text-xs text-muted">—</span>
+        )}
+      </td>
+    </tr>
+  )
+}
+
 export default function ShowMeTheStudies({ citations }: Props) {
   if (!citations || citations.length === 0) return null
 
   const sorted = [...citations].sort(sortByStudyType)
+  const visible = sorted.slice(0, VISIBLE_ROWS)
+  const overflow = sorted.slice(VISIBLE_ROWS)
 
   return (
-    <details className="group rounded-2xl border border-brand-900/10 bg-white/70 p-3 dark:border-white/10 dark:bg-white/5">
-      <summary className="flex cursor-pointer select-none items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted transition-colors hover:text-ink dark:hover:text-brand-50">
-        <span className="inline-block text-brand-500 transition-transform group-open:rotate-90 dark:text-brand-200">▶</span>
-        Show me the studies ({citations.length})
-      </summary>
-      <div className="mt-3 rounded-xl border border-brand-900/10 bg-white/70 p-3 space-y-2 dark:border-white/10 dark:bg-white/5">
-        <p className="text-[11px] leading-5 text-muted">
-          Research sources informing this profile. Study type ordering: RCTs and reviews first, then observational and mechanistic work.
+    <div className="overflow-hidden rounded-2xl border-2 border-brand-900/10 dark:border-white/10">
+      <div className="border-b border-brand-900/10 bg-brand-50/70 px-4 py-3 dark:border-white/10 dark:bg-[var(--surface-subtle)]">
+        <h3 className="text-sm font-bold text-ink">Clinical Study Summaries</h3>
+        <p className="mt-0.5 text-[11px] leading-5 text-muted">
+          {citations.length} cited stud{citations.length === 1 ? 'y' : 'ies'} informing this profile. RCTs and reviews shown first.
         </p>
-        <div className="space-y-2">
-          {sorted.map((c, i) => {
-            const pubmedUrl = c.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${c.pmid}/` : null
-            return (
-              <div
-                key={c.pmid || c.title || i}
-                className="space-y-1.5 rounded-lg border border-brand-900/10 bg-white/90 p-3 dark:border-white/10 dark:bg-white/5"
-              >
-                <p className="text-[12px] font-semibold leading-snug text-ink">
-                  {pubmedUrl ? (
-                    <a
-                      href={pubmedUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-brand-700 hover:underline dark:hover:text-brand-100"
-                    >
-                      {c.title}
-                    </a>
-                  ) : (
-                    c.title
-                  )}
-                </p>
-                <div className="flex flex-wrap gap-x-4 gap-y-1">
-                  {c.authors && (
-                    <span className="text-[11px] text-muted">{c.authors}{c.year ? ` (${c.year})` : ''}</span>
-                  )}
-                  {!c.authors && c.year && (
-                    <span className="text-[11px] text-muted">{c.year}</span>
-                  )}
-                  {c.studyType && <StudyTypeBadge type={c.studyType} />}
-                  {c.sampleSize && (
-                    <span className="text-[11px] text-muted">n={c.sampleSize}</span>
-                  )}
-                  {pubmedUrl && (
-                    <a
-                      href={pubmedUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[11px] font-medium text-brand-700 hover:underline dark:text-brand-100"
-                    >
-                      PubMed →
-                    </a>
-                  )}
-                </div>
-              </div>
-            )
-          })}
-        </div>
       </div>
-    </details>
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[560px] border-collapse text-left text-sm">
+          <thead>
+            <tr className="bg-[var(--surface-card)] text-[10px] font-bold uppercase tracking-wider text-muted">
+              <th className="px-3 py-2 sm:px-4">Study</th>
+              <th className="px-3 py-2 sm:px-4">Type</th>
+              <th className="px-3 py-2 sm:px-4">Sample</th>
+              <th className="px-3 py-2 text-right sm:px-4">Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            {visible.map((citation, index) => (
+              <StudyRow key={citation.pmid || citation.title || index} citation={citation} index={index} />
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {overflow.length > 0 && (
+        <details className="group border-t border-brand-900/10 dark:border-white/10">
+          <summary className="flex cursor-pointer select-none items-center gap-1.5 px-4 py-2.5 text-xs font-semibold text-brand-700 hover:text-brand-800 dark:text-brand-100 dark:hover:text-white">
+            <span aria-hidden="true" className="inline-block transition-transform group-open:rotate-90">▶</span>
+            Show {overflow.length} more stud{overflow.length === 1 ? 'y' : 'ies'}
+          </summary>
+          <div className="overflow-x-auto">
+            <table className="w-full min-w-[560px] border-collapse text-left text-sm">
+              <tbody>
+                {overflow.map((citation, index) => (
+                  <StudyRow key={citation.pmid || citation.title || index} citation={citation} index={index} />
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </details>
+      )}
+    </div>
   )
 }
