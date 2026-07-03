@@ -11,6 +11,7 @@ import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import LastUpdatedBadge from '../../../../src/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
+import References from '@/components/References'
 
 // ─── Article metadata ─────────────────────────────────────────────────────────
 
@@ -68,6 +69,14 @@ const FAQS = [
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
+const ASHWAGANDHA_VS_MAGNESIUM_FOR_SLEEP_REFS = [
+  { n: 1, text: 'Chandrasekhar K, et al. (2012). Ashwagandha root extract in reducing stress and anxiety. Indian J Psychol Med, 34(3): 255-262.', url: 'https://pubmed.ncbi.nlm.nih.gov/23439798/' },
+  { n: 2, text: 'Abbasi B, et al. (2012). Magnesium supplementation and primary insomnia. J Res Med Sci, 17(12): 1161-1169.', url: 'https://pubmed.ncbi.nlm.nih.gov/23853635/' },
+  { n: 3, text: 'Lopresti AL, et al. (2019). Ashwagandha for stress and anxiety. Medicine, 98(37): e17186.', url: 'https://pubmed.ncbi.nlm.nih.gov/31517876/' },
+  { n: 4, text: 'Rondanelli M, et al. (2011). Melatonin, magnesium, and zinc in primary insomnia. J Am Geriatr Soc, 59(1): 82-90.', url: 'https://pubmed.ncbi.nlm.nih.gov/21226679/' },
+  { n: 5, text: 'Salve J, et al. (2019). Ashwagandha root extract in healthy adults. Cureus, 11(12): e6466.', url: 'https://pubmed.ncbi.nlm.nih.gov/32021735/' },
+]
+
 export default function AshwagandhaVsMagnesiumForSleepPage() {
   const pageBreadcrumb = breadcrumbJsonLd([
     { name: 'Articles', url: 'https://thehippiescientist.net/articles' },
@@ -87,6 +96,7 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
       <JsonLd schema={articleLd} />
       <JsonLd schema={pageBreadcrumb} />
       {faqLd && (
+      <References refs={ASHWAGANDHA_VS_MAGNESIUM_FOR_SLEEP_REFS} />
         <JsonLd schema={faqLd} />
       )}
 

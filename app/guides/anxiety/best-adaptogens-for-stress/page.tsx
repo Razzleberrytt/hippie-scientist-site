@@ -7,6 +7,7 @@ import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
+import References from '@/components/References'
 
 const PAGE_URL = `${SITE_URL}/guides/anxiety/best-adaptogens-for-stress`
 
@@ -97,6 +98,11 @@ const HEADINGS: Heading[] = [
   { id: 'glance', text: 'Adaptogen at a glance', level: 2 },
   { id: 'profiles', text: 'Adaptogen profiles', level: 2 },
   { id: 'stacking', text: 'Stacking adaptogens', level: 2 },
+]
+
+const BEST_ADAPTOGENS_FOR_STRESS_REFS = [
+  { n: 1, text: 'Panossian A, Wikman G. (2010). Adaptogens and CNS. Pharmaceuticals, 3(1): 188-224.', url: 'https://pubmed.ncbi.nlm.nih.gov/27713248/' },
+  { n: 2, text: 'Chandrasekhar K, et al. (2012). Ashwagandha for stress. Indian J Psychol Med, 34(3): 255-262.', url: 'https://pubmed.ncbi.nlm.nih.gov/23439798/' },
 ]
 
 export default function BestAdaptogensForStressPage() {
@@ -260,6 +266,7 @@ export default function BestAdaptogensForStressPage() {
         </section>
 
         {ashwagandhaProducts && (
+        <References refs={BEST_ADAPTOGENS_FOR_STRESS_REFS} />
           <RecommendationSection products={ashwagandhaProducts.products} />
         )}
 

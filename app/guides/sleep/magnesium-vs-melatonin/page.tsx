@@ -8,6 +8,7 @@ import { getRevenueProductSet } from '@/config/revenue-products';
 import RecommendationSection from '@/components/RecommendationSection';
 import AffiliateDisclosure from '@/components/AffiliateDisclosure';
 import EmailCapture from '@/components/EmailCapture';
+import References from '@/components/References'
 
 const CANONICAL_PATH = '/guides/sleep/magnesium-vs-melatonin/'
 const route = 'guides/magnesium-vs-melatonin';
@@ -24,6 +25,11 @@ const HEADINGS: Heading[] = [
   { id: 'decision', text: 'Decision Framework', level: 2 },
   { id: 'routine', text: 'Example Evening Routine', level: 2 },
   { id: 'bottom-line', text: 'Bottom Line', level: 2 },
+]
+
+const MAGNESIUM_VS_MELATONIN_REFS = [
+  { n: 1, text: 'Abbasi B, et al. (2012). Magnesium and insomnia. J Res Med Sci, 17(12): 1161-1169.', url: 'https://pubmed.ncbi.nlm.nih.gov/23853635/' },
+  { n: 2, text: 'Ferracioli-Oda E, et al. (2013). Melatonin for sleep. PLoS ONE, 8(5): e63773.', url: 'https://pubmed.ncbi.nlm.nih.gov/23691095/' },
 ]
 
 export default function MagnesiumVsMelatoninGuidePage() {
@@ -49,6 +55,7 @@ export default function MagnesiumVsMelatoninGuidePage() {
       <SeoEntryPage route={route} canonicalPath={CANONICAL_PATH} />
 
       {magnesiumProducts && (
+      <References refs={MAGNESIUM_VS_MELATONIN_REFS} />
         <RecommendationSection products={magnesiumProducts.products} />
       )}
 

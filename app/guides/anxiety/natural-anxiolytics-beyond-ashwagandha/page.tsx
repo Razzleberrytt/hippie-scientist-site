@@ -7,6 +7,7 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
+import References from '@/components/References'
 
 export const metadata: Metadata = {
   title: 'Natural Anxiolytics Beyond Ashwagandha',
@@ -29,6 +30,11 @@ const HEADINGS: Heading[] = [
   { id: 'compared', text: 'Four Calming Alternatives Compared', level: 2 },
   { id: 'evaluation', text: 'How to Structure Your Calm Evaluation', level: 2 },
   { id: 'summary', text: 'Evidence and Precaution Summary', level: 2 },
+]
+
+const NATURAL_ANXIOLYTICS_BEYOND_ASHWAGANDHA_REFS = [
+  { n: 1, text: 'Sarris J, et al. (2013). Kava for GAD. J Clin Psychopharmacol, 33(5): 643-648.', url: 'https://pubmed.ncbi.nlm.nih.gov/23942365/' },
+  { n: 2, text: 'Akhondzadeh S, et al. (2001). Passionflower for anxiety. J Clin Pharm Ther, 26(5): 363-367.', url: 'https://pubmed.ncbi.nlm.nih.gov/11679026/' },
 ]
 
 export default function NaturalAnxiolyticsPage() {
@@ -181,6 +187,7 @@ export default function NaturalAnxiolyticsPage() {
       </section>
 
       {valerianProducts && (
+      <References refs={NATURAL_ANXIOLYTICS_BEYOND_ASHWAGANDHA_REFS} />
         <RecommendationSection products={valerianProducts.products} />
       )}
 

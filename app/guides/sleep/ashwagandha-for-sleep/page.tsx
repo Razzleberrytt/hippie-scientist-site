@@ -11,6 +11,7 @@ import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import LastUpdatedBadge from '../../../../src/components/editorial/LastUpdatedBadge'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
+import References from '@/components/References'
 
 // ─── Article metadata ─────────────────────────────────────────────────────────
 
@@ -63,6 +64,12 @@ const FAQS = [
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
+const ASHWAGANDHA_FOR_SLEEP_REFS = [
+  { n: 1, text: 'Chandrasekhar K, et al. (2012). Ashwagandha root extract for stress. Indian J Psychol Med, 34(3): 255-262.', url: 'https://pubmed.ncbi.nlm.nih.gov/23439798/' },
+  { n: 2, text: 'Langade D, et al. (2019). Ashwagandha on sleep: a randomized trial. Cureus, 11(9): e5797.', url: 'https://pubmed.ncbi.nlm.nih.gov/31728244/' },
+  { n: 3, text: 'Salve J, et al. (2019). Ashwagandha and sleep quality. Cureus, 11(12): e6466.', url: 'https://pubmed.ncbi.nlm.nih.gov/32021735/' },
+]
+
 export default function AshwagandhaForSleepPage() {
   const pageBreadcrumb = breadcrumbJsonLd([
     { name: 'Articles', url: 'https://thehippiescientist.net/articles' },
@@ -82,6 +89,7 @@ export default function AshwagandhaForSleepPage() {
       <JsonLd schema={articleLd} />
       <JsonLd schema={pageBreadcrumb} />
       {faqLd && (
+      <References refs={ASHWAGANDHA_FOR_SLEEP_REFS} />
         <JsonLd schema={faqLd} />
       )}
 

@@ -7,6 +7,7 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
+import References from '@/components/References'
 
 export const metadata: Metadata = {
   title: 'Sleep Herbs vs Melatonin',
@@ -29,6 +30,11 @@ const HEADINGS: Heading[] = [
   { id: 'comparison', text: 'Comparing Roles, Onsets, and Precautions', level: 2 },
   { id: 'choice', text: 'Which Sleep Tool Fits Your Bedtime Need?', level: 2 },
   { id: 'evidence', text: 'Evidence-Driven Precaution', level: 2 },
+]
+
+const SLEEP_HERBS_VS_MELATONIN_REFS = [
+  { n: 1, text: 'Bent S, et al. (2006). Valerian for sleep. Am J Med, 119(12): 1005-1012.', url: 'https://pubmed.ncbi.nlm.nih.gov/17145239/' },
+  { n: 2, text: 'Ferracioli-Oda E, et al. (2013). Melatonin meta-analysis. PLoS ONE, 8(5): e63773.', url: 'https://pubmed.ncbi.nlm.nih.gov/23691095/' },
 ]
 
 export default function SleepHerbsVsMelatoninPage() {
@@ -179,6 +185,7 @@ export default function SleepHerbsVsMelatoninPage() {
       </section>
 
       {valerianProducts && (
+      <References refs={SLEEP_HERBS_VS_MELATONIN_REFS} />
         <RecommendationSection products={valerianProducts.products} />
       )}
 

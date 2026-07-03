@@ -9,6 +9,7 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
+import References from '@/components/References'
 
 const PAGE_URL = `${SITE_URL}/guides/focus/best-nootropics-for-focus`
 
@@ -123,6 +124,11 @@ const HEADINGS: Heading[] = [
   { id: 'acute-vs-long-term', text: 'Acute vs long-term nootropics', level: 2 },
   { id: 'profiles', text: 'Nootropic-by-nootropic review', level: 2 },
   { id: 'stacking', text: 'Evidence-informed stacking guide', level: 2 },
+]
+
+const BEST_NOOTROPICS_FOR_FOCUS_REFS = [
+  { n: 1, text: 'Pase MP, et al. (2012). Bacopa monnieri for cognition. J Altern Complement Med, 18(7): 647-652.', url: 'https://pubmed.ncbi.nlm.nih.gov/22747190/' },
+  { n: 2, text: 'Haskell CF, et al. (2008). L-theanine and cognition. Biol Psychol, 77(2): 113-122.', url: 'https://pubmed.ncbi.nlm.nih.gov/18006208/' },
 ]
 
 export default function BestNootropicsForFocusPage() {
@@ -279,6 +285,7 @@ export default function BestNootropicsForFocusPage() {
         </section>
 
         {lTheanineProducts && (
+        <References refs={BEST_NOOTROPICS_FOR_FOCUS_REFS} />
           <RecommendationSection products={lTheanineProducts.products} />
         )}
 

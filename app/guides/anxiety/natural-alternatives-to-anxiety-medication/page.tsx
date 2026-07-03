@@ -6,12 +6,18 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
+import References from '@/components/References'
 
 export const metadata: Metadata = {
   title: 'Natural Alternatives to Anxiety Medication',
   description: 'Educational overview of supportive herbs and non-supplement routines for anxiety-related stress patterns.',
   alternates: { canonical: '/guides/anxiety/best-herbs-for-anxiety/' },
 }
+
+const NATURAL_ALTERNATIVES_TO_ANXIETY_MEDICATION_REFS = [
+  { n: 1, text: 'Sarris J, et al. (2013). Kava for GAD. J Clin Psychopharmacol, 33(5): 643-648.', url: 'https://pubmed.ncbi.nlm.nih.gov/23942365/' },
+  { n: 2, text: 'Lopresti AL, et al. (2019). Ashwagandha for anxiety. Medicine, 98(37): e17186.', url: 'https://pubmed.ncbi.nlm.nih.gov/31517876/' },
+]
 
 export default function Page() {
   const ashwagandhaProducts = getRevenueProductSet('ashwagandha')
@@ -48,6 +54,7 @@ export default function Page() {
         </ul>
       </section>
       {ashwagandhaProducts && (
+      <References refs={NATURAL_ALTERNATIVES_TO_ANXIETY_MEDICATION_REFS} />
         <RecommendationSection products={ashwagandhaProducts.products} />
       )}
       <EmailCapture location="guides-natural-alternatives-to-anxiety-medication" className="mt-6" />

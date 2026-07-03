@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_URL } from '@/src/lib/seo'
+import References from '@/components/References'
 
 export const metadata: Metadata = {
   title: 'ADHD Supplement Guides & Research',
@@ -38,6 +39,11 @@ const GUIDES = [
   { slug: 'adhd-blood-tests', title: 'ADHD Blood Tests', desc: 'What lab work to consider when evaluating ADHD — nutrients, hormones, and markers.' },
   { slug: 'melatonin-for-adhd-sleep', title: 'Melatonin for ADHD Sleep', desc: 'Melatonin for ADHD-related sleep onset difficulties.' },
   { slug: 'sleep-and-adhd', title: 'Sleep and ADHD', desc: 'The bidirectional relationship between sleep quality and ADHD symptoms.' },
+]
+
+const ADHD_REFS = [
+  { n: 1, text: 'Bloch MH, et al. (2015). Nutritional supplements for ADHD. Child Adolesc Psychiatr Clin N Am, 23(4): 883-897.', url: 'https://pubmed.ncbi.nlm.nih.gov/25220094/' },
+  { n: 2, text: 'Rucklidge JJ, et al. (2014). Vitamin-mineral treatment of ADHD. Br J Psychiatry, 204(4): 306-315.', url: 'https://pubmed.ncbi.nlm.nih.gov/24434087/' },
 ]
 
 export default function AdhdGuideIndex() {

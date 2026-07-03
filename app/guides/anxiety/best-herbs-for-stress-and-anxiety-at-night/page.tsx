@@ -9,6 +9,7 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
+import References from '@/components/References'
 
 const PAGE_URL = `${SITE_URL}/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night`
 
@@ -58,6 +59,12 @@ const HEADINGS: Heading[] = [
   { id: 'routine', text: 'A simple evening wind-down', level: 2 },
   { id: 'risks', text: 'Risks & safety', level: 2 },
   { id: 'faq', text: 'Frequently asked questions', level: 2 },
+]
+
+const BEST_HERBS_FOR_STRESS_AND_ANXIETY_AT_NIGHT_REFS = [
+  { n: 1, text: 'Sarris J, et al. (2013). Kava for GAD. J Clin Psychopharmacol, 33(5): 643-648.', url: 'https://pubmed.ncbi.nlm.nih.gov/23942365/' },
+  { n: 2, text: 'Chandrasekhar K, et al. (2012). Ashwagandha for stress. Indian J Psychol Med, 34(3): 255-262.', url: 'https://pubmed.ncbi.nlm.nih.gov/23439798/' },
+  { n: 3, text: 'Ngan A, Conduit R. (2011). Passionflower for sleep. Phytother Res, 25(8): 1153-1159.', url: 'https://pubmed.ncbi.nlm.nih.gov/21294203/' },
 ]
 
 export default function Page() {
@@ -290,6 +297,7 @@ export default function Page() {
         </section>
 
         {ashwagandhaProducts && (
+        <References refs={BEST_HERBS_FOR_STRESS_AND_ANXIETY_AT_NIGHT_REFS} />
           <RecommendationSection products={ashwagandhaProducts.products} />
         )}
 

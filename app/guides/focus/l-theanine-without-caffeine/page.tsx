@@ -13,6 +13,7 @@ import PathwayDiagram from '@/components/PathwayDiagram'
 import EvidenceLegend from '@/components/EvidenceLegend'
 import { pathwayDiagrams } from '@/lib/pathway-data'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
+import References from '@/components/References'
 
 const SLUG = 'l-theanine-without-caffeine'
 const TITLE = 'L-Theanine Without Caffeine for ADHD: Calm Focus Without the Jitters'
@@ -62,6 +63,13 @@ const FAQS = [
     answer:
       'L-theanine works faster — effects may be noticeable within 30–60 minutes — and is more suitable for acute mental calm and daytime focus support. Ashwagandha works over weeks by reducing chronic HPA axis activation and cortisol, making it better suited for stress-driven ADHD difficulties over a longer time horizon. L-theanine is caffeine-free and can be taken as needed; ashwagandha is typically taken daily for weeks to months. Both are reasonable for ADHD; the choice depends on whether you need acute calm focus (L-theanine) or chronic stress management (ashwagandha).',
   },
+]
+
+const L_THEANINE_WITHOUT_CAFFEINE_REFS = [
+  { n: 1, text: 'Nobre AC, et al. (2008). L-theanine and mental state. Asia Pac J Clin Nutr, 17(S1): 167-168.', url: 'https://pubmed.ncbi.nlm.nih.gov/18296328/' },
+  { n: 2, text: 'Haskell CF, et al. (2008). L-theanine, caffeine and cognition. Biol Psychol, 77(2): 113-122.', url: 'https://pubmed.ncbi.nlm.nih.gov/18006208/' },
+  { n: 3, text: 'Kimura K, et al. (2007). L-theanine reduces stress responses. Biol Psychol, 74(1): 39-45.', url: 'https://pubmed.ncbi.nlm.nih.gov/16930802/' },
+  { n: 4, text: 'Giesbrecht T, et al. (2010). L-theanine and caffeine on cognitive performance. Nutr Neurosci, 13(6): 283-290.', url: 'https://pubmed.ncbi.nlm.nih.gov/21040626/' },
 ]
 
 export default function LTheanineWithoutCaffeinePage() {

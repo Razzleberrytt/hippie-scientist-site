@@ -9,6 +9,7 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
+import References from '@/components/References'
 
 const PAGE_URL = `${SITE_URL}/guides/anxiety/best-supplements-for-overthinking`
 
@@ -58,6 +59,12 @@ const HEADINGS: Heading[] = [
   { id: 'basics', text: 'The basics that beat any supplement', level: 2 },
   { id: 'risks', text: 'Risks & safety', level: 2 },
   { id: 'faq', text: 'Frequently asked questions', level: 2 },
+]
+
+const BEST_SUPPLEMENTS_FOR_OVERTHINKING_REFS = [
+  { n: 1, text: 'Haskell CF, et al. (2008). L-theanine, caffeine and cognition. Biol Psychol, 77(2): 113-122.', url: 'https://pubmed.ncbi.nlm.nih.gov/18006208/' },
+  { n: 2, text: 'Chandrasekhar K, et al. (2012). Ashwagandha for stress. Indian J Psychol Med, 34(3): 255-262.', url: 'https://pubmed.ncbi.nlm.nih.gov/23439798/' },
+  { n: 3, text: 'Boyle NB, et al. (2017). Magnesium and subjective anxiety. Nutrients, 9(5): 429.', url: 'https://pubmed.ncbi.nlm.nih.gov/28445426/' },
 ]
 
 export default function Page() {
@@ -267,6 +274,7 @@ export default function Page() {
         </section>
 
         {ashwagandhaProducts && (
+        <References refs={BEST_SUPPLEMENTS_FOR_OVERTHINKING_REFS} />
           <RecommendationSection products={ashwagandhaProducts.products} />
         )}
 
