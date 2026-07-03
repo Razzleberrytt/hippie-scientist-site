@@ -17,6 +17,7 @@ import FAQSchema from '@/components/seo/FAQSchema'
 import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
+import ConversionStickyCTA from '@/components/conversion-sticky-cta'
 
 export default function BerberineVsMetforminPage() {
   const berberineProducts = getRevenueProductSet('berberine')?.products ?? []
@@ -503,6 +504,11 @@ export default function BerberineVsMetforminPage() {
         <Link href="/guides/best/supplements-for-fat-loss" className="chip-readable">Fat Loss Goals</Link>
         <Link href="/guides/compare/" className="chip-readable">All Comparisons</Link>
       </div>
+      <ConversionStickyCTA
+        brand={berberineProducts[0]?.brand}
+        name={berberineProducts[0]?.title}
+        href={berberineProducts[0]?.affiliateUrl || '#'}
+      />
     </div>
   )
 }

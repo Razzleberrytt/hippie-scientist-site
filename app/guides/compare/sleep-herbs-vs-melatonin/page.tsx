@@ -9,6 +9,7 @@ import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCap
 import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
+import ConversionStickyCTA from '@/components/conversion-sticky-cta'
 import FAQSchema from '@/components/seo/FAQSchema'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -664,6 +665,11 @@ export default function SleepHerbsVsMelatoninComparePage() {
         <Link href="/learn/gaba" className="chip-readable">GABA Pathway</Link>
         <Link href="/guides/compare/" className="chip-readable">All Comparisons</Link>
       </div>
+      <ConversionStickyCTA
+        brand={melatoninProducts[0]?.brand}
+        name={melatoninProducts[0]?.title}
+        href={melatoninProducts[0]?.affiliateUrl || '#'}
+      />
     </div>
   )
 }

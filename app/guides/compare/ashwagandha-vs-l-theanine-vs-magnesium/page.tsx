@@ -17,6 +17,7 @@ import FAQSchema from '@/components/seo/FAQSchema'
 import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
+import ConversionStickyCTA from '@/components/conversion-sticky-cta'
 
 export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
   const revenueProducts = ['ashwagandha', 'l-theanine', 'magnesium']
@@ -331,6 +332,12 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
             href: '/guides/anxiety',
           },
         ]}
+      />
+
+      <ConversionStickyCTA
+        brand={revenueProducts[0]?.brand}
+        name={revenueProducts[0]?.title}
+        href={revenueProducts[0]?.affiliateUrl || '#'}
       />
 
       <div className="space-y-3">

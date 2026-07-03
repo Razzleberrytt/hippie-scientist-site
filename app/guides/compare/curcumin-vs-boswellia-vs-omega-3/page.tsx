@@ -17,6 +17,7 @@ import FAQSchema from '@/components/seo/FAQSchema'
 import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
+import ConversionStickyCTA from '@/components/conversion-sticky-cta'
 
 export default function CurcuminVsBoswelliaVsOmega3Page() {
   const revenueProducts = ['turmeric', 'boswellia', 'omega-3']
@@ -368,6 +369,11 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
           products={revenueProducts}
         />
       </div>
+      <ConversionStickyCTA
+        brand={revenueProducts[0]?.brand}
+        name={revenueProducts[0]?.title}
+        href={revenueProducts[0]?.affiliateUrl || '#'}
+      />
     </div>
   )
 }

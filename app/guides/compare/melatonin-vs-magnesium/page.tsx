@@ -11,8 +11,17 @@ export const metadata: Metadata = buildPageMetadata({
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import RecommendationSection from '@/components/RecommendationSection'
+import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import ConversionStickyCTA from '@/components/conversion-sticky-cta'
 
 export default function MelatoninVsMagnesiumPage() {
+  const revenueProducts = ['melatonin', 'magnesium']
+    .map((slug) => getRevenueProductSet(slug))
+    .filter((set): set is NonNullable<typeof set> => Boolean(set))
+    .flatMap((set) => set.products)
+
   return (
     <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
@@ -98,6 +107,18 @@ export default function MelatoninVsMagnesiumPage() {
           </Link>
         </div>
       </section>
+
+      <AffiliateDisclosure />
+      <RecommendationSection
+        title="Melatonin &amp; Magnesium Product Picks"
+        description="Editor-recommended options for clean, third-party tested melatonin and magnesium formulations."
+        products={revenueProducts}
+      />
+      <ConversionStickyCTA
+        brand={revenueProducts[0]?.brand}
+        name={revenueProducts[0]?.title}
+        href={revenueProducts[0]?.affiliateUrl || '#'}
+      />
     </div>
   )
 }
