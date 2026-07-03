@@ -86,4 +86,7 @@ export const CURATED_INDEXABLE_COMPOUND_SLUGS = [
   'dim',
   'wogonin',
   'morin',
+  'krill-oil',
+  'pomegranate-extract',
+  'panax-ginseng-extract',
 ] as const
