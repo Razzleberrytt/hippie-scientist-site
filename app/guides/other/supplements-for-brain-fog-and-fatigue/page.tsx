@@ -6,12 +6,19 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
+import References from '@/components/References'
 
 export const metadata: Metadata = {
   title: 'Supplements for Brain Fog and Fatigue',
   description: 'A practical guide to supplements commonly discussed for brain fog, low energy, fatigue, and focus support.',
   alternates: { canonical: '/guides/other/supplements-for-brain-fog-and-fatigue/' },
 }
+
+const SUPPLEMENTS_FOR_BRAIN_FOG_AND_FATIGUE_REFS = [
+  { n: 1, text: 'Kennedy DO. (2016). B vitamins and the brain: mechanisms, dose and efficacy. Nutrients, 8(2): 68.', url: 'https://pubmed.ncbi.nlm.nih.gov/26828517/' },
+  { n: 2, text: 'Pase MP, et al. (2012). Bacopa monnieri cognitive effects review. J Altern Complement Med, 18(7): 647-652.', url: 'https://pubmed.ncbi.nlm.nih.gov/22747190/' },
+  { n: 3, text: 'Nehlig A. (2010). Is caffeine a cognitive enhancer? J Alzheimers Dis, 20(S1): S85-S94.', url: 'https://pubmed.ncbi.nlm.nih.gov/20182035/' },
+]
 
 export default function Page() {
   const lionsManeProducts = getRevenueProductSet('lions-mane')
@@ -50,6 +57,7 @@ export default function Page() {
       </section>
 
       {lionsManeProducts && (
+      <References refs={SUPPLEMENTS_FOR_BRAIN_FOG_AND_FATIGUE_REFS} />
         <RecommendationSection products={lionsManeProducts.products} />
       )}
       <EmailCapture location="guides-supplements-for-brain-fog-and-fatigue" className="mt-6" />

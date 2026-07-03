@@ -6,6 +6,7 @@ import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import References from '@/components/References'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Ipamorelin: Growth Hormone Secretagogue Benefits, Evidence & Legal Status',
@@ -20,6 +21,11 @@ const HEADINGS: Heading[] = [
   { id: 'legal', text: 'Legal & Regulatory Status', level: 2 },
   { id: 'safety', text: 'Safety Considerations', level: 2 },
   { id: 'bottom-line', text: 'Bottom Line', level: 2 },
+]
+
+const IPAMORELIN_REFS = [
+  { n: 1, text: 'Johannsson G, et al. (1997). GH secretagogues: pharmacology and clinical potential. Endocr Rev, 18(5): 646-677.', url: 'https://pubmed.ncbi.nlm.nih.gov/9331546/' },
+  { n: 2, text: 'Bowers CY. (1998). Growth hormone-releasing peptide (GHRP). Cell Mol Life Sci, 54(12): 1316-1329.', url: 'https://pubmed.ncbi.nlm.nih.gov/9893709/' },
 ]
 
 export default function Page() {

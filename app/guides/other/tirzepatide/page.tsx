@@ -6,6 +6,7 @@ import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import References from '@/components/References'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Tirzepatide (Mounjaro/Zepbound): Evidence, Mechanism, and What to Know',
@@ -20,6 +21,11 @@ const HEADINGS: Heading[] = [
   { id: 'legal', text: 'Legal & Regulatory Status', level: 2 },
   { id: 'safety', text: 'Safety Considerations', level: 2 },
   { id: 'bottom-line', text: 'Bottom Line', level: 2 },
+]
+
+const TIRZEPATIDE_REFS = [
+  { n: 1, text: 'Jastreboff AM, et al. (2022). Tirzepatide once weekly for obesity. N Engl J Med, 387(3): 205-216.', url: 'https://pubmed.ncbi.nlm.nih.gov/35658024/' },
+  { n: 2, text: 'Frías JP, et al. (2021). Tirzepatide vs semaglutide in type 2 diabetes. N Engl J Med, 385(6): 503-515.', url: 'https://pubmed.ncbi.nlm.nih.gov/34170647/' },
 ]
 
 export default function Page() {

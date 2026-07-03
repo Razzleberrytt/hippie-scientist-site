@@ -6,6 +6,7 @@ import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import References from '@/components/References'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'PT-141 (Bremelanotide/Vyleesi): Evidence, Mechanism, and Legal Status',
@@ -20,6 +21,11 @@ const HEADINGS: Heading[] = [
   { id: 'legal', text: 'Legal & Regulatory Status', level: 2 },
   { id: 'safety', text: 'Safety Considerations', level: 2 },
   { id: 'bottom-line', text: 'Bottom Line', level: 2 },
+]
+
+const PT_141_REFS = [
+  { n: 1, text: 'Molinoff PB, et al. (2003). PT-141: a melanocortin agonist for sexual dysfunction. Ann N Y Acad Sci, 994: 96-102.', url: 'https://pubmed.ncbi.nlm.nih.gov/12851303/' },
+  { n: 2, text: 'Diamond LE, et al. (2004). Bremelanotide for erectile dysfunction. Int J Impot Res, 16(1): 51-59.', url: 'https://pubmed.ncbi.nlm.nih.gov/14963472/' },
 ]
 
 export default function Page() {

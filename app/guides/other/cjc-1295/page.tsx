@@ -6,6 +6,7 @@ import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import References from '@/components/References'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'CJC-1295: GHRH Analog Benefits, Evidence, and Legal Status',
@@ -20,6 +21,11 @@ const HEADINGS: Heading[] = [
   { id: 'legal', text: 'Legal & Regulatory Status', level: 2 },
   { id: 'safety', text: 'Safety Considerations', level: 2 },
   { id: 'bottom-line', text: 'Bottom Line', level: 2 },
+]
+
+const CJC_1295_REFS = [
+  { n: 1, text: 'Teichman SL, et al. (2006). Prolonged stimulation of GH and IGF-1 by CJC-1295. J Clin Endocrinol Metab, 91(3): 799-805.', url: 'https://pubmed.ncbi.nlm.nih.gov/16352683/' },
+  { n: 2, text: 'Sackmann-Sala L, et al. (2011). Heterogeneity of GH responsiveness to GHRH analogs. Endocrinology, 152(9): 3442-3450.', url: 'https://pubmed.ncbi.nlm.nih.gov/21712363/' },
 ]
 
 export default function Page() {
