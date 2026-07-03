@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { Leaf } from 'lucide-react'
 import { Link } from '../lib/router-compat'
 import ConsentManager from './ConsentManager'
 import { onOpenConsent } from '../lib/consentBus'
@@ -65,11 +66,14 @@ export default function Footer() {
   }
 
   return (
-    <footer className='mt-8 w-full border-t border-white/10 bg-[#07080F] px-4 py-12 dark:bg-[#07080F]'>
+    <footer className='mt-8 w-full px-4 py-12'>
       <div className='mx-auto w-full max-w-screen-lg'>
         <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4'>
           <div>
-            <p className='font-display text-lg italic text-white'>The Hippie Scientist</p>
+            <div className='flex items-center gap-2'>
+              <Leaf aria-hidden='true' className='h-5 w-5 text-[#8dc49a]' strokeWidth={1.75} />
+              <p className='font-display text-lg italic text-white'>The Hippie Scientist</p>
+            </div>
             <p className='mt-1.5 text-[0.8rem] tracking-[0.02em] text-white/55'>
               Evidence-first botanical research. Not medical advice.
             </p>
