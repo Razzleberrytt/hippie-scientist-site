@@ -386,12 +386,14 @@ html.dark ::selection {
 
   .card-premium {
     background-color: #ffffff;
+    border: 1px solid rgba(13, 23, 18, 0.06);
     @apply transition-all duration-300;
     border-radius: var(--radius-card-premium);
     box-shadow: var(--shadow-card-calm);
   }
 
   .card-premium:hover {
+    border-color: rgba(13, 23, 18, 0.10);
     box-shadow: var(--shadow-card-calm-hover);
   }
 
@@ -486,6 +488,7 @@ html.dark ::selection {
 
   .section-frame {
     background-color: #ffffff;
+    border: 1px solid rgba(13, 23, 18, 0.06);
     @apply p-4 sm:p-5;
     border-radius: var(--radius-card-premium);
     box-shadow: var(--shadow-card-calm);
@@ -508,12 +511,14 @@ html.dark ::selection {
 
   .surface-subtle {
     background-color: var(--surface);
+    border: 1px solid rgba(13, 23, 18, 0.05);
     @apply shadow-sm;
     border-radius: var(--radius-card-premium);
   }
 
   .surface-depth {
     background-color: var(--surface-elevated);
+    border: 1px solid rgba(13, 23, 18, 0.06);
     border-radius: var(--radius-card-premium);
     box-shadow: var(--shadow-card-calm);
   }
@@ -902,6 +907,15 @@ html.dark :is(
 
 html.dark :is(table, thead, tbody, tr, td, th) {
   border-color: var(--border-soft);
+}
+
+html.dark table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+html.dark td, html.dark th {
+  border-bottom: 1px solid var(--border-soft);
 }
 
 html.dark :is(.prose, .prose p, .prose li, .prose td) {
