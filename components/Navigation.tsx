@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X } from 'lucide-react'
+import { Leaf, Menu, X } from 'lucide-react'
 import { GlobalSearchModal } from './search/GlobalSearchModal'
 import DarkModeToggle from './DarkModeToggle'
 import { mainNavigation } from '@/lib/navigation-config'
@@ -61,9 +61,10 @@ export function Navigation() {
           {/* Logo — Fraunces via font-display */}
           <Link
             href="/"
-            className="font-display text-[1.15rem] font-bold italic tracking-[-0.02em] text-ink transition hover:text-brand-700 dark:text-[var(--text-primary)]"
+            className="flex items-center gap-2 font-display text-[1.15rem] font-bold italic tracking-[-0.02em] text-ink transition hover:text-brand-700 dark:text-[var(--text-primary)]"
             aria-label="The Hippie Scientist home"
           >
+            <Leaf aria-hidden="true" className="h-5 w-5 shrink-0 text-brand-700 dark:text-[var(--accent-teal)]" strokeWidth={1.75} />
             The Hippie Scientist
           </Link>
 
@@ -123,7 +124,8 @@ export function Navigation() {
             style={{ height: '100dvh' }}
           >
             <div className="mb-6 flex items-center justify-between">
-              <Link href="/" onClick={closeMobile} className="font-display text-lg font-semibold text-ink">
+              <Link href="/" onClick={closeMobile} className="flex items-center gap-2 font-display text-lg font-semibold text-ink">
+                <Leaf aria-hidden="true" className="h-[1.125rem] w-[1.125rem] shrink-0 text-brand-700 dark:text-[var(--accent-teal)]" strokeWidth={1.75} />
                 The Hippie Scientist
               </Link>
               <button

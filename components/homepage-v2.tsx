@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Cloud, Leaf, Moon, Zap } from 'lucide-react'
 import articlesData from '@/data/articles/articles.json'
 
 type SectionHeaderProps = { title: string; subtitle?: string; as?: 'h2' | 'h3' }
@@ -7,7 +8,7 @@ const heroGoals = [
   {
     slug: 'sleep',
     title: 'Sleep',
-    icon: '🌙',
+    icon: Moon,
     prompt: 'Fall asleep, stay asleep, and compare sleep supplements without guessing.',
     bg: 'from-[#eaf2fb] to-[#dceef8] border-[#a8c8e0]',
     accent: 'text-[#1a3d5c]',
@@ -15,7 +16,7 @@ const heroGoals = [
   {
     slug: 'stress',
     title: 'Stress',
-    icon: '🌿',
+    icon: Leaf,
     prompt: 'Sort adaptogens and calming supports by fatigue pattern, timing, and safety.',
     bg: 'from-[#edf6ee] to-[#ddf0df] border-[#8dc49a]',
     accent: 'text-[#1e4a2c]',
@@ -23,7 +24,7 @@ const heroGoals = [
   {
     slug: 'anxiety',
     title: 'Anxiety',
-    icon: '☁️',
+    icon: Cloud,
     prompt: 'Find grounded options for calm, overthinking, and daytime tension.',
     bg: 'from-[#f3eefc] to-[#ebe2f8] border-[#c4aadf]',
     accent: 'text-[#4a2d6e]',
@@ -31,7 +32,7 @@ const heroGoals = [
   {
     slug: 'focus',
     title: 'Focus',
-    icon: '⚡',
+    icon: Zap,
     prompt: 'Compare non-stimulant focus supports and caffeine-adjacent options.',
     bg: 'from-[#fdf5e6] to-[#f9ecce] border-[#d4aa62]',
     accent: 'text-[#5c3f0e]',
@@ -183,14 +184,21 @@ export default function HomepageV2() {
           </div>
 
           <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
-            {heroGoals.map((hGoal) => (
+            {heroGoals.map((hGoal) => {
+              const Icon = hGoal.icon
+              return (
                 <Link
                   key={hGoal.slug}
                   href={hGoal.slug === 'stress' || hGoal.slug === 'anxiety' ? '/guides/anxiety/' : `/guides/${hGoal.slug}/`}
                   className={`group flex min-h-48 flex-col justify-between rounded-[1.25rem] border bg-gradient-to-br ${hGoal.bg} p-5 shadow-sm transition-all duration-300 motion-safe:hover:-translate-y-1 hover:shadow-lg dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)] dark:from-[var(--surface-card)] dark:to-[var(--surface-card)]`}
                 >
                   <div>
-                    <span className='mb-3 block text-2xl' aria-hidden='true'>{hGoal.icon}</span>
+                    <span
+                      className={`mb-3 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/70 shadow-sm ${hGoal.accent} dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]`}
+                      aria-hidden='true'
+                    >
+                      <Icon className='h-5 w-5' strokeWidth={1.75} />
+                    </span>
                     <h3 className={`text-2xl font-bold tracking-tight ${hGoal.accent} dark:text-[var(--text-primary)]`}>
                       {hGoal.title}
                     </h3>
@@ -200,7 +208,8 @@ export default function HomepageV2() {
                     Start with {hGoal.title} <span aria-hidden='true' className='ml-1'>→</span>
                   </span>
                 </Link>
-              ))}
+              )
+            })}
           </div>
         </section>
 
