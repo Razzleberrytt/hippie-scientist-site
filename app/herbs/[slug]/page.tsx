@@ -64,6 +64,7 @@ type PageProps = {
 
 import { getHerbSummaryIndex } from '../../../src/lib/runtime-summary-indexes'
 import { DEPRECATED_HERB_CANONICALS } from '@/lib/deprecated-herb-canonicals'
+import EmailCapture from '../../../components/EmailCapture'
 
 const HERB_CANONICAL_SOURCE_ALIASES: Record<string, string> = {
   'lions-mane': 'hericium-erinaceus',
@@ -1041,6 +1042,13 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
       <Disclaimer className="border-amber-900/15 bg-amber-50/70 !text-amber-950 [&_p]:!text-amber-950 [&_a]:!text-brand-800 mt-6" />
       <AuthorCredentials />
+
+      <EmailCapture
+        headline={`Get the ${displayName} research notes`}
+        description="Evidence summaries, dosing context, and safety updates for this herb — straight to your inbox."
+        ctaLabel="Send me the evidence"
+        location={`herb-${normalizedSlug}`}
+      />
 
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between">
         <Link href="/herbs/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">
