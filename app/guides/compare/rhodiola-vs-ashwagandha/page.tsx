@@ -9,6 +9,7 @@ import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCap
 import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
+import ConversionStickyCTA from '@/components/conversion-sticky-cta'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Rhodiola vs Ashwagandha for Stress & Fatigue',
@@ -122,6 +123,11 @@ export default function RhodiolaVsAshwagandhaComparePage() {
             type: 'comparison',
           },
         ]}
+      />
+      <ConversionStickyCTA
+        brand={revenueProducts[0]?.brand}
+        name={revenueProducts[0]?.title}
+        href={revenueProducts[0]?.affiliateUrl || '#'}
       />
     </div>
   )
