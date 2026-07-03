@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import JsonLd from '@/components/seo/JsonLd'
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '../../../../src/lib/seo'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
@@ -136,6 +137,22 @@ export default function BestHerbsForSleepPage() {
         </div>
 
         <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/best-herbs-for-sleep.jpg"
+              alt="Natural sleep herbs and supplements including valerian root, lavender, chamomile, ashwagandha, passionflower, and magnesium glycinate"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Evidence-ranked herbs and supplements commonly used for sleep — from magnesium and ashwagandha to valerian, passionflower, and lavender.
+          </figcaption>
+        </figure>
       </section>
 
       {/* Affiliate disclosure */}
