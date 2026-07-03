@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { CircleCheck } from 'lucide-react'
 import { notFound, redirect } from 'next/navigation'
 import type { Herb, RuntimeRecord } from '../../../src/types/content'
 import { getHerbBySlug } from '../../../src/lib/runtime-data'
@@ -552,7 +553,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
       {/* Title Header */}
       <div className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-sm sm:p-8 lg:p-10">
-        <header className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-center">
+        <header className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
           <div className="space-y-3">
           <div className="space-y-1">
             <p className="eyebrow-label">Herb Profile</p>
@@ -566,20 +567,67 @@ export default async function HerbDetailPage({ params }: PageProps) {
             <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
             <EvidenceScoreBadge record={herbRecord} />
           </div>
+
+          {/* Safety Summary banner */}
+          <div
+            className={`rounded-xl border-2 px-4 py-3 ${
+              safetyTone === 'Standard caution'
+                ? 'border-emerald-600/30 bg-emerald-50/70 dark:border-emerald-300/20 dark:bg-emerald-300/10'
+                : 'border-amber-600/30 bg-amber-50/70 dark:border-amber-300/20 dark:bg-amber-300/10'
+            }`}
+          >
+            <p className="text-sm leading-6 text-ink">
+              <span
+                className={`font-bold ${
+                  safetyTone === 'Standard caution' ? 'text-emerald-800 dark:text-emerald-100' : 'text-amber-800 dark:text-amber-100'
+                }`}
+              >
+                Safety Summary:
+              </span>{' '}
+              <span className="font-semibold">{safetyTone}</span> — {safetySummary}
+            </p>
           </div>
-          <MonographHeroImage image={heroImage} label={displayName} eyebrow="Monograph visual" />
+          </div>
+
+          <div className="space-y-4">
+            <MonographHeroImage image={heroImage} label={displayName} eyebrow="Monograph visual" />
+
+            {/* Key Findings */}
+            {topUses.length > 0 && (
+              <div className="rounded-2xl border-2 border-emerald-600/25 bg-emerald-50/60 p-4 dark:border-emerald-300/20 dark:bg-emerald-300/10">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-100">Key Findings</h3>
+                <p className="mt-1 text-[11px] font-semibold text-muted">Primary reported uses</p>
+                <ul className="mt-3 space-y-2">
+                  {topUses.slice(0, 4).map((use) => (
+                    <li key={use} className="flex items-start gap-2 text-sm leading-5 text-ink">
+                      <CircleCheck aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-emerald-700 dark:text-emerald-200" strokeWidth={1.75} />
+                      <span>{use}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-4 border-t border-emerald-600/15 pt-3 dark:border-emerald-300/15">
+                  <EvidenceScoreBadge record={herbRecord} size="circle" />
+                </div>
+              </div>
+            )}
+          </div>
         </header>
       </div>
 
       <ProfileTOC items={tocItems} variant="mobile" />
 
-      {/* Jump navigation — lets keyboard and screen-reader users reach sections directly */}
-      <nav aria-label="Jump to profile sections" className="flex flex-wrap gap-2">
-        {tocItems.slice(0, 7).map(({ label, id }) => (
+      {/* Jump navigation — styled as a segmented tab bar; still plain anchor links so all
+          section content stays server-rendered and reachable without JS. */}
+      <nav aria-label="Jump to profile sections" className="flex flex-wrap gap-1.5 rounded-full border border-brand-900/10 bg-[#182f22] p-1.5 sm:inline-flex sm:flex-nowrap sm:gap-1">
+        {tocItems.slice(0, 7).map(({ label, id }, index) => (
           <a
             key={id}
             href={`#${id}`}
-            className="rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-3 py-1.5 text-xs font-semibold text-brand-800 transition-colors hover:bg-brand-50"
+            className={`rounded-full px-3.5 py-1.5 text-xs font-semibold whitespace-nowrap transition-colors ${
+              index === 0
+                ? 'bg-white text-[#182f22]'
+                : 'text-white/70 hover:bg-white/10 hover:text-white'
+            }`}
           >
             {label}
           </a>
@@ -740,7 +788,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       <section id="evidence" className="card-premium scroll-mt-24 p-4 sm:p-5 space-y-4">
         <div className="flex items-center gap-2 flex-wrap">
           <h2 className="text-lg font-bold text-ink">Evidence Summary</h2>
-          <EvidenceScoreBadge record={herbRecord} size="sm" />
+          <EvidenceScoreBadge record={herbRecord} size="circle" />
         </div>
         <ProfileEvidenceLens
           record={herbRecord}
