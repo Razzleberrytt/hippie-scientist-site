@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -39,6 +40,22 @@ export default function MelatoninVsMagnesiumPage() {
         <p className="text-lg leading-8 text-muted">
           Melatonin and magnesium are two of the most commonly used sleep supplements, but they work through completely different mechanisms. This guide compares the evidence, practical dosing, and safety trade-offs.
         </p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/compare-melatonin-vs-magnesium.jpg"
+              alt="Melatonin tablets beside magnesium capsules and powder for sleep"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Melatonin vs magnesium — timing vs relaxation for sleep.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="grid gap-6 md:grid-cols-2">

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
@@ -67,6 +68,22 @@ export default function SleepHerbsVsMelatoninComparePage() {
             Valerian (sedation) — Evidence Grade: C
           </span>
         </div>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/compare-sleep-herbs-vs-melatonin.jpg"
+              alt="Valerian, passionflower, and chamomile herbs beside melatonin tablets"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Sleep herbs vs melatonin — which fits your sleep problem.
+          </figcaption>
+        </figure>
       </section>
 
       {/* Overview cards — 2 rows of 2 */}

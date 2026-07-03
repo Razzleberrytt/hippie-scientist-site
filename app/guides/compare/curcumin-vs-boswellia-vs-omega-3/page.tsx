@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -53,6 +54,22 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
           over the longer term. None is a painkiller in the pharmaceutical sense — each works on a
           days-to-weeks timeline.
         </p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/curcumin-vs-boswellia-vs-omega-3.jpg"
+              alt="Turmeric curcumin powder, boswellia resin, and omega-3 capsules compared"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Curcumin vs boswellia vs omega-3 for inflammation.
+          </figcaption>
+        </figure>
       </section>
 
       {/* 3-Column Core Comparison Cards */}

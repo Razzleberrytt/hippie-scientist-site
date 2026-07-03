@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import JsonLd from '@/components/seo/JsonLd'
 import {
   buildPageMetadata,
@@ -88,6 +89,22 @@ export default function AnxietyStackGuidePage() {
           <p className="text-xl text-muted-foreground">
             {articleDescription}
           </p>
+
+          <figure className="mt-6">
+            <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+              <Image
+                src="/images/guides/anxiety-stack-guide.jpg"
+                alt="An anxiety supplement stack with ashwagandha, magnesium, and L-theanine"
+                width={1536}
+                height={1024}
+                priority
+                className="w-full h-auto"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm text-muted-foreground">
+              Building an anxiety stack — start with one supplement and add deliberately.
+            </figcaption>
+          </figure>
         </div>
 
         <div className="prose prose-sm mb-8 p-4 bg-muted/50 rounded-lg">

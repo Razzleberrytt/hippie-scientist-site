@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -58,6 +59,22 @@ export default function BerberineVsMetforminPage() {
             Metformin — Evidence Grade: A
           </span>
         </div>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/berberine-vs-metformin.jpg"
+              alt="Berberine supplement capsules beside metformin-style tablets"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Berberine vs metformin — what the metabolic evidence actually says.
+          </figcaption>
+        </figure>
       </section>
 
       {/* Overview cards */}

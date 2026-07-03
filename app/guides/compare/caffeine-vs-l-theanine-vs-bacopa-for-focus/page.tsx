@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -50,6 +51,22 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
           <strong> L-Theanine</strong> promotes calm concentration and is commonly paired with caffeine to smooth its stimulant side effects.
           <strong> Bacopa Monnieri</strong> is a cumulative, non-stimulant adaptogen that supports long-term memory retention over several weeks.
         </p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/caffeine-vs-l-theanine-vs-bacopa-for-focus.jpg"
+              alt="Coffee beans, green tea leaves, and bacopa herb compared for focus"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Caffeine vs L-theanine vs bacopa — three routes to better focus.
+          </figcaption>
+        </figure>
       </section>
 
       {/* 3-Column Core Comparison Cards */}

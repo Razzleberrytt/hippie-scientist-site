@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
@@ -48,6 +49,22 @@ export default function RhodiolaVsAshwagandhaComparePage() {
           Rhodiola is usually the better fit for fatigue-heavy, overextended days.
           Ashwagandha is usually the better fit for longer-running stress load and evening unwind support.
         </p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/rhodiola-vs-ashwagandha.jpg"
+              alt="Rhodiola root and flowers beside ashwagandha root and powder, two adaptogens"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Rhodiola vs ashwagandha — stimulating vs calming adaptogens.
+          </figcaption>
+        </figure>
       </section>
 
       <AffiliateDisclosure />

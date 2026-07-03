@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -50,6 +51,22 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
           <strong> Valerian root</strong> is a traditional herb targeting GABA pathways to reduce sleep latency over weeks.
           <strong> Magnesium glycinate</strong> provides foundational mineral support for baseline physical muscle relaxation.
         </p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/melatonin-vs-valerian-vs-magnesium-for-sleep.jpg"
+              alt="Melatonin tablets, valerian root, and magnesium capsules compared for sleep"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Melatonin vs valerian vs magnesium — three sleep tools compared.
+          </figcaption>
+        </figure>
       </section>
 
       {/* 3-Column Core Comparison Cards */}
