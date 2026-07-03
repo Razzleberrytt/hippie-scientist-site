@@ -4,12 +4,17 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Evidence Hierarchy",
   description: "Educational overview of evidence hierarchy, clinical trials, mechanistic evidence, ethnobotanical context, and scientific interpretation systems.",
   path: "/learn/evidence-hierarchy/",
 })
 
+
+const EVIDENCE_HIERARCHY_REFS = [
+  { n: 1, text: 'Burns PB, et al. (2011). The levels of evidence. Plast Reconstr Surg, 128(1): 305-310.', url: 'https://pubmed.ncbi.nlm.nih.gov/21701348/' },
+]
 
 export default function EvidenceHierarchyPage() {
   return (

@@ -7,6 +7,7 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Set and Setting Matter",
   description: "Educational exploration of set and setting, contextual neurobiology, emotional regulation, environmental influence, and subjective experiences.",
@@ -49,6 +50,10 @@ const relatedSystems = [
   { href: '/learn/why-individual-variability-matters', title: 'Individual Variability' },
   { href: '/learn/why-neuroscience-is-difficult', title: 'Why Neuroscience Is Difficult' },
   { href: '/learn/understanding-altered-states', title: 'Understanding Altered States' },
+]
+
+const WHY_SET_AND_SETTING_MATTER_REFS = [
+  { n: 1, text: 'Carhart-Harris RL, et al. (2018). Psychedelics and the essential importance of context. J Psychopharmacol, 32(7): 725-731.', url: 'https://pubmed.ncbi.nlm.nih.gov/29446697/' },
 ]
 
 export default function WhySetAndSettingMatterPage() {

@@ -3,6 +3,7 @@ import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Herbal Psychoactives Differ From Pharmaceuticals",
   description: "Educational exploration of herbal psychoactives, pharmaceutical systems, neuropharmacology, ethnobotany, and careful comparison.",
@@ -27,6 +28,10 @@ const systems = [
     href: '/learn/serotonin',
     title: 'Serotonin Pathway',
   },
+]
+
+const HOW_HERBAL_PSYCHOACTIVES_DIFFER_FROM_PHARMACEUTICALS_REFS = [
+  { n: 1, text: 'Kennedy DO, Wightman EL. (2011). Herbal extracts and phytochemicals. Adv Nutr, 2(1): 32-50.', url: 'https://pubmed.ncbi.nlm.nih.gov/22211188/' },
 ]
 
 export default function HerbalVsPharmaPage() {

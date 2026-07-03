@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import JsonLd from '@/components/seo/JsonLd'
 import { buildPageMetadata, faqPageJsonLd, breadcrumbJsonLd, SITE_URL } from '../../../src/lib/seo'
+import References from '@/components/References'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'FAQ',
@@ -61,6 +62,10 @@ const breadcrumbLd = breadcrumbJsonLd([
   { name: 'Home', url: SITE_URL },
   { name: 'FAQ', url: `${SITE_URL}/info/faq/` },
 ])
+
+const FAQ_REFS = [
+  { n: 1, text: 'Gibson GR, et al. (2017). ISAPP consensus on prebiotics. Nat Rev Gastroenterol Hepatol, 14(8): 491-502.', url: 'https://pubmed.ncbi.nlm.nih.gov/28611480/' },
+]
 
 export default function FaqPage() {
   return (

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import EducationSupernodeGrid from '@/components/education/education-supernode-grid'
 import { learnPosts } from './data'
+import References from '@/components/References'
 
 export const metadata: Metadata = {
   title: 'Neuroscience and Neuropharmacology Education',
@@ -276,6 +277,10 @@ function Section({
     </section>
   )
 }
+
+const PAGE_REFS = [
+  { n: 1, text: 'Kandel ER, et al. (2013). Principles of Neural Science. McGraw-Hill.', url: '' },
+]
 
 export default function EducationHubPage() {
   return (

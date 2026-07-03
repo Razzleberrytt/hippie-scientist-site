@@ -3,6 +3,7 @@ import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Psychoactive Interactions",
   description: "Educational exploration of psychoactive interaction awareness, pathway overlap, neurochemical safety, and evidence-informed harm reduction.",
@@ -27,6 +28,10 @@ const systems = [
     href: '/learn/gaba',
     title: 'GABA Pathway',
   },
+]
+
+const INTERACTIONS_REFS = [
+  { n: 1, text: 'Boyer EW, Shannon M. (2005). Serotonin syndrome. N Engl J Med, 352(11): 1112-1120.', url: 'https://pubmed.ncbi.nlm.nih.gov/15784664/' },
 ]
 
 export default function PsychoactiveInteractionsPage() {

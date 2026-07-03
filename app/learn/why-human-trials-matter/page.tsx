@@ -5,12 +5,17 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Human Trials Matter",
   description: "Educational overview of human clinical evidence, translational limitations, mechanistic research, and evidence-informed scientific interpretation.",
   path: "/learn/why-human-trials-matter/",
 })
 
+
+const WHY_HUMAN_TRIALS_MATTER_REFS = [
+  { n: 1, text: 'Concato J, et al. (2000). RCTs vs observational studies. N Engl J Med, 342(25): 1887-1892.', url: 'https://pubmed.ncbi.nlm.nih.gov/10861325/' },
+]
 
 export default function HumanTrialsMatterPage() {
   return (

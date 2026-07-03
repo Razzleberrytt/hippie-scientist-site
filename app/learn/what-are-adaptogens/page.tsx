@@ -8,6 +8,7 @@ import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import RelatedEducationSystems from '@/components/education/related-education-systems'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "What Are Adaptogens?",
   description: "Educational introduction to adaptogens, stress-response systems, nervous-system regulation, and evidence-informed adaptogenic neuropharmacology.",
@@ -69,6 +70,11 @@ const faqItems = [
     answer:
       'Yes. Some adaptogenic herbs may influence endocrine systems, blood pressure, sleep physiology, mood regulation, immune signaling, or medication metabolism.',
   },
+]
+
+const WHAT_ARE_ADAPTOGENS_REFS = [
+  { n: 1, text: 'Panossian A, Wikman G. (2010). Adaptogens. Pharmaceuticals, 3(1): 188-224.', url: 'https://pubmed.ncbi.nlm.nih.gov/27713248/' },
+  { n: 2, text: 'Panossian A. (2017). Adaptogens in mental and behavioral disorders. Psychiatr Clin North Am, 40(2): 295-307.', url: 'https://pubmed.ncbi.nlm.nih.gov/28477655/' },
 ]
 
 export default function AdaptogensEducationPage() {

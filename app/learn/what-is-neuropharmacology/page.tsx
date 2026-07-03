@@ -3,6 +3,7 @@ import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "What Is Neuropharmacology?",
   description: "Educational introduction to neuropharmacology, psychoactive mechanisms, signaling pathways, and ethnobotanical neurochemistry.",
@@ -27,6 +28,12 @@ const systems = [
     href: '/learn/glutamate',
     title: 'Glutamate Pathway',
   },
+]
+
+const WHAT_IS_NEUROPHARMACOLOGY_REFS = [
+  { n: 1, text: 'Kandel ER, et al. (2013). Principles of Neural Science: synaptic transmission. McGraw-Hill.', url: '' },
+  { n: 2, text: 'Cooper JR, Bloom FE, Roth RH. (2003). The Biochemical Basis of Neuropharmacology, 8th ed. Oxford.', url: '' },
+  { n: 3, text: 'Südhof TC. (2013). Neurotransmitter release. Neuron, 80(3): 675-690.', url: 'https://pubmed.ncbi.nlm.nih.gov/24183020/' },
 ]
 
 export default function NeuropharmacologyPage() {

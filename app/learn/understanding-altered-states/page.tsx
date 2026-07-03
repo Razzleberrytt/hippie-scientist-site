@@ -8,6 +8,7 @@ import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Understanding Altered States",
   description: "Educational exploration of altered states, perception-oriented neurobiology, emotional processing, psychoactive context, and systems-oriented neuroscience.",
@@ -65,6 +66,11 @@ const faqItems = [
     answer:
       'Altered experiences may be influenced by psychological context, emotional regulation, stress physiology, environmental setting, prior experiences, sleep quality, nervous-system state, social dynamics, and individual biological variability.',
   },
+]
+
+const UNDERSTANDING_ALTERED_STATES_REFS = [
+  { n: 1, text: 'Carhart-Harris RL, et al. (2014). The entropic brain. Front Hum Neurosci, 8: 20.', url: 'https://pubmed.ncbi.nlm.nih.gov/24550805/' },
+  { n: 2, text: 'Nichols DE. (2016). Psychedelics. Pharmacol Rev, 68(2): 264-355.', url: 'https://pubmed.ncbi.nlm.nih.gov/26841800/' },
 ]
 
 export default function AlteredStatesEducationPage() {

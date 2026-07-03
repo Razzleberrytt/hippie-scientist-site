@@ -3,6 +3,7 @@ import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Psychoactive Plants Affect the Brain",
   description: "Educational exploration of psychoactive neuropharmacology, signaling systems, pathways, and ethnobotanical mechanisms.",
@@ -27,6 +28,11 @@ const systems = [
     title: 'Cholinergic Systems',
     href: '/learn/cholinergic-system',
   },
+]
+
+const HOW_PSYCHOACTIVE_PLANTS_AFFECT_THE_BRAIN_REFS = [
+  { n: 1, text: 'Kennedy DO. (2014). Plants and the Human Brain. Oxford University Press.', url: '' },
+  { n: 2, text: 'Nichols DE. (2016). Psychedelics. Pharmacol Rev, 68(2): 264-355.', url: 'https://pubmed.ncbi.nlm.nih.gov/26841800/' },
 ]
 
 export default function PsychoactiveBrainPage() {

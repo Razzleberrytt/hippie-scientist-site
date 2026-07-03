@@ -7,6 +7,7 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Individual Variability Matters",
   description: "Educational exploration of contextual neurobiology, human variability, stress physiology, recovery biology, and scientific uncertainty.",
@@ -49,6 +50,10 @@ const relatedSystems = [
   { href: '/learn/why-fatigue-is-biologically-complex', title: 'Fatigue Complexity' },
   { href: '/learn/why-overstimulation-impairs-focus', title: 'Overstimulation and Focus' },
   { href: '/learn/how-stress-affects-the-brain', title: 'Stress and the Brain' },
+]
+
+const WHY_INDIVIDUAL_VARIABILITY_MATTERS_REFS = [
+  { n: 1, text: 'Sapolsky RM. (2015). Stress and the brain. Mol Psychiatry, 20(11): 1331-1338.', url: 'https://pubmed.ncbi.nlm.nih.gov/25917366/' },
 ]
 
 export default function WhyIndividualVariabilityMattersPage() {

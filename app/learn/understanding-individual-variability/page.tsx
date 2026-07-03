@@ -5,12 +5,17 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import MechanismCard from '@/components/evidence/MechanismCard'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Understanding Individual Variability",
   description: "Educational overview of individual variability, neurochemical diversity, stress systems, psychoactive responses, and systems biology.",
   path: "/learn/understanding-individual-variability/",
 })
 
+
+const UNDERSTANDING_INDIVIDUAL_VARIABILITY_REFS = [
+  { n: 1, text: 'Sapolsky RM. (2015). Stress and the brain. Mol Psychiatry, 20(11): 1331-1338.', url: 'https://pubmed.ncbi.nlm.nih.gov/25917366/' },
+]
 
 export default function IndividualVariabilityPage() {
   return (

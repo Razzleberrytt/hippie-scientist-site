@@ -7,6 +7,7 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import HumanVsMechanisticEvidence from '@/components/evidence/HumanVsMechanisticEvidence'
 import TranslationalLimitationsCard from '@/components/evidence/TranslationalLimitationsCard'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Why Fatigue Is Biologically Complex",
   description: "Educational exploration of fatigue systems, recovery biology, stress physiology, burnout-oriented neurobiology, and cognition sustainability.",
@@ -49,6 +50,11 @@ const relatedSystems = [
   { href: '/learn/why-burnout-affects-cognition', title: 'Burnout and Cognition' },
   { href: '/guides/anxiety', title: 'Burnout Recovery' },
   { href: '/learn/how-sleep-affects-neurochemistry', title: 'Sleep and Neurochemistry' },
+]
+
+const WHY_FATIGUE_IS_BIOLOGICALLY_COMPLEX_REFS = [
+  { n: 1, text: 'McEwen BS. (2017). Neurobiological and systemic effects of chronic stress. Chronic Stress, 1: 2470547017692328.', url: 'https://pubmed.ncbi.nlm.nih.gov/28856337/' },
+  { n: 2, text: 'Sapolsky RM. (2015). Stress and the brain: individual variability. Mol Psychiatry, 20(11): 1331-1338.', url: 'https://pubmed.ncbi.nlm.nih.gov/25917366/' },
 ]
 
 export default function WhyFatigueIsBiologicallyComplexPage() {

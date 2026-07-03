@@ -4,6 +4,7 @@ import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FaqJsonLd from '@/components/seo/FaqJsonLd'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "What Are Psychoactive Herbs?",
   description: "Educational overview of psychoactive herbs, neuropharmacology, mechanisms, pathways, and harm reduction.",
@@ -54,6 +55,11 @@ const systems = [
       'Associated with dreaming, cognition, memory, and REM-related mechanisms.',
     href: '/learn/cholinergic-system',
   },
+]
+
+const WHAT_ARE_PSYCHOACTIVE_HERBS_REFS = [
+  { n: 1, text: 'Kennedy DO, Wightman EL. (2011). Herbal extracts and phytochemicals. Adv Nutr, 2(1): 32-50.', url: 'https://pubmed.ncbi.nlm.nih.gov/22211188/' },
+  { n: 2, text: 'Nichols DE. (2016). Psychedelics. Pharmacol Rev, 68(2): 264-355.', url: 'https://pubmed.ncbi.nlm.nih.gov/26841800/' },
 ]
 
 export default function WhatArePsychoactiveHerbsPage() {

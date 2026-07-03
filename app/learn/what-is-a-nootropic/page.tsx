@@ -8,6 +8,7 @@ import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
 import RelatedEducationSystems from '@/components/education/related-education-systems'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "What Is a Nootropic?",
   description: "Educational introduction to nootropics, cognition-oriented compounds, focus systems, neuropharmacology, and cognitive support.",
@@ -69,6 +70,11 @@ const faqItems = [
     answer:
       'Online nootropic discussions frequently oversimplify neuroscience, exaggerate mechanistic certainty, ignore individual variability, or frame preliminary evidence as definitive cognitive enhancement.',
   },
+]
+
+const WHAT_IS_A_NOOTROPIC_REFS = [
+  { n: 1, text: 'Froestl W, et al. (2012). Cognitive enhancers. J Alzheimers Dis, 29(4): 729-750.', url: 'https://pubmed.ncbi.nlm.nih.gov/22366771/' },
+  { n: 2, text: 'Pase MP, et al. (2012). Bacopa for cognition. J Altern Complement Med, 18(7): 647-652.', url: 'https://pubmed.ncbi.nlm.nih.gov/22747190/' },
 ]
 
 export default function NootropicEducationPage() {

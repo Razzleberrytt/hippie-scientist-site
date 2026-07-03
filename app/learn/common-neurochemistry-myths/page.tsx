@@ -5,6 +5,7 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import EvidenceSection from '@/components/evidence/EvidenceSection'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Common Neurochemistry Myths",
   description: "Educational overview of common neurochemistry misconceptions, oversimplified neurotransmitter narratives, and evidence-informed scientific interpretation.",
@@ -28,6 +29,12 @@ const myths = [
     explanation:
       'Natural substances may still involve interaction risks, psychoactive intensity, contraindications, cardiovascular concerns, sedation pathways, and substantial individual variability.',
   },
+]
+
+const COMMON_NEUROCHEMISTRY_MYTHS_REFS = [
+  { n: 1, text: 'Kandel ER, et al. (2013). Principles of Neural Science: synaptic transmission. McGraw-Hill.', url: '' },
+  { n: 2, text: 'Cooper JR, Bloom FE, Roth RH. (2003). The Biochemical Basis of Neuropharmacology, 8th ed. Oxford.', url: '' },
+  { n: 3, text: 'Südhof TC. (2013). Neurotransmitter release. Neuron, 80(3): 675-690.', url: 'https://pubmed.ncbi.nlm.nih.gov/24183020/' },
 ]
 
 export default function NeurochemistryMythsPage() {

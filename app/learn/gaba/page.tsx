@@ -3,6 +3,7 @@ import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FaqJsonLd from '@/components/seo/FaqJsonLd'
+import References from '@/components/References'
 
 export const metadata: Metadata = {
   title: 'GABA Pathway Education',
@@ -54,6 +55,12 @@ const relatedProfiles = [
     description:
       'Historically used psychoactive ethnobotanical associated with calming experiential effects.',
   },
+]
+
+const GABA_REFS = [
+  { n: 1, text: 'Kandel ER, et al. (2013). Principles of Neural Science: synaptic transmission. McGraw-Hill.', url: '' },
+  { n: 2, text: 'Cooper JR, Bloom FE, Roth RH. (2003). The Biochemical Basis of Neuropharmacology, 8th ed. Oxford.', url: '' },
+  { n: 3, text: 'Südhof TC. (2013). Neurotransmitter release. Neuron, 80(3): 675-690.', url: 'https://pubmed.ncbi.nlm.nih.gov/24183020/' },
 ]
 
 export default function GabaPathwayPage() {

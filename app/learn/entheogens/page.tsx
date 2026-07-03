@@ -3,6 +3,7 @@ import { buildPageMetadata } from '../../../src/lib/seo'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "Entheogens",
   description: "Educational exploration of entheogenic ethnobotany, psychoactive mechanisms, ceremonial traditions, and consciousness-oriented neuropharmacology.",
@@ -19,6 +20,10 @@ const profiles = [
     href: '/herbs/kanna',
     title: 'Kanna',
   },
+]
+
+const ENTHEOGENS_REFS = [
+  { n: 1, text: 'Nichols DE. (2016). Psychedelics. Pharmacol Rev, 68(2): 264-355.', url: 'https://pubmed.ncbi.nlm.nih.gov/26841800/' },
 ]
 
 export default function EntheogensPage() {

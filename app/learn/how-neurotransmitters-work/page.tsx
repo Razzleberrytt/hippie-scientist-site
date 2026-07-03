@@ -7,6 +7,7 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import ReferencedStudies from '@/components/evidence/ReferencedStudies'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
+import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: "How Neurotransmitters Work",
   description: "Educational overview of neurotransmitters, signaling systems, neuropharmacology, pathway interactions, and nervous-system communication.",
@@ -35,6 +36,12 @@ const pathways = [
     title: 'Glutamate Pathway',
     description: 'Excitatory signaling systems associated with learning, neuroplasticity, cognition, memory formation, and altered-state neuropharmacology.',
   },
+]
+
+const HOW_NEUROTRANSMITTERS_WORK_REFS = [
+  { n: 1, text: 'Kandel ER, et al. (2013). Principles of Neural Science: synaptic transmission. McGraw-Hill.', url: '' },
+  { n: 2, text: 'Cooper JR, Bloom FE, Roth RH. (2003). The Biochemical Basis of Neuropharmacology, 8th ed. Oxford.', url: '' },
+  { n: 3, text: 'Südhof TC. (2013). Neurotransmitter release. Neuron, 80(3): 675-690.', url: 'https://pubmed.ncbi.nlm.nih.gov/24183020/' },
 ]
 
 export default function NeurotransmittersPage() {
