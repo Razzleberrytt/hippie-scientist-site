@@ -15,6 +15,7 @@ import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import References from '@/components/References'
 
 const SLUG = 'turmeric-curcumin'
 const PAGE_URL = 'https://thehippiescientist.net/guides/turmeric-curcumin'
@@ -157,6 +158,14 @@ const HEADINGS: Heading[] = [
   { id: 'dosage', text: 'Dosage & Forms', level: 2 },
   { id: 'safety', text: 'Safety & Precautions', level: 2 },
   { id: 'faq', text: 'Common Questions', level: 2 },
+]
+
+const TURMERIC_CURCUMIN_REFS = [
+  { n: 1, text: 'Hewlings SJ, Kalman DS. (2017). Curcumin: a review of its effects on human health. Foods, 6(10): 92.', url: 'https://pubmed.ncbi.nlm.nih.gov/29065496/' },
+  { n: 2, text: 'Gupta SC, et al. (2013). Therapeutic roles of curcumin: lessons from clinical trials. AAPS J, 15(1): 195-218.', url: 'https://pubmed.ncbi.nlm.nih.gov/23143785/' },
+  { n: 3, text: 'Belcaro G, et al. (2014). Meriva curcumin in osteoarthritis. Panminerva Med, 56(2): 143-151.', url: 'https://pubmed.ncbi.nlm.nih.gov/24861886/' },
+  { n: 4, text: 'Anand P, et al. (2007). Bioavailability of curcumin: problems and promises. Mol Pharm, 4(6): 807-818.', url: 'https://pubmed.ncbi.nlm.nih.gov/17999464/' },
+  { n: 5, text: 'Daily JW, et al. (2016). Efficacy of turmeric extracts and curcumin for arthritis. J Med Food, 19(8): 717-729.', url: 'https://pubmed.ncbi.nlm.nih.gov/27533649/' },
 ]
 
 export default function TurmericCurcuminGuidePage() {
@@ -327,6 +336,7 @@ export default function TurmericCurcuminGuidePage() {
       )}
 
       {turmericProducts && (
+      <References refs={TURMERIC_CURCUMIN_REFS} />
         <RecommendationSection products={turmericProducts.products} />
       )}
 

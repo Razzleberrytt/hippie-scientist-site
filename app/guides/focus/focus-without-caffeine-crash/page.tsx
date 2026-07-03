@@ -9,6 +9,7 @@ import { getRevenueProductSet } from '@/config/revenue-products'
 import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
+import References from '@/components/References'
 
 const PAGE_URL = `${SITE_URL}/guides/focus/focus-without-caffeine-crash`
 
@@ -58,6 +59,13 @@ const HEADINGS: Heading[] = [
   { id: 'habits', text: 'Habits that prevent the crash', level: 2 },
   { id: 'risks', text: 'Risks & safety', level: 2 },
   { id: 'faq', text: 'Frequently asked questions', level: 2 },
+]
+
+const FOCUS_WITHOUT_CAFFEINE_CRASH_REFS = [
+  { n: 1, text: 'Haskell CF, et al. (2008). L-theanine, caffeine and cognition. Biol Psychol, 77(2): 113-122.', url: 'https://pubmed.ncbi.nlm.nih.gov/18006208/' },
+  { n: 2, text: 'Pase MP, et al. (2012). Bacopa monnieri cognitive effects review. J Altern Complement Med, 18(7): 647-652.', url: 'https://pubmed.ncbi.nlm.nih.gov/22747190/' },
+  { n: 3, text: 'Nehlig A. (2010). Is caffeine a cognitive enhancer? J Alzheimers Dis, 20(S1): S85-S94.', url: 'https://pubmed.ncbi.nlm.nih.gov/20182035/' },
+  { n: 4, text: 'Giesbrecht T, et al. (2010). L-theanine and caffeine on cognitive performance. Nutr Neurosci, 13(6): 283-290.', url: 'https://pubmed.ncbi.nlm.nih.gov/21040626/' },
 ]
 
 export default function Page() {
@@ -247,6 +255,7 @@ export default function Page() {
         </section>
 
         {lTheanineProducts && (
+        <References refs={FOCUS_WITHOUT_CAFFEINE_CRASH_REFS} />
           <RecommendationSection products={lTheanineProducts.products} />
         )}
 

@@ -9,6 +9,7 @@ import SafetyBox from '@/components/SafetyBox'
 import MechanismBox from '@/components/MechanismBox'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
+import References from '@/components/References'
 
 // NOTE: This is intentionally a HARM-REDUCTION / educational guide, not a supplement
 // recommendation. The source content explicitly does not recommend or endorse kava use
@@ -106,6 +107,14 @@ const HEADINGS: Heading[] = [
   { id: 'safety', text: 'Safety & Harm Reduction', level: 2 },
   { id: 'faq', text: 'Common Questions', level: 2 },
   { id: 'alternatives', text: 'Better-Studied Alternatives', level: 2 },
+]
+
+const KAVA_REFS = [
+  { n: 1, text: 'Sarris J, et al. (2013). Kava for generalized anxiety disorder. J Clin Psychopharmacol, 33(5): 643-648.', url: 'https://pubmed.ncbi.nlm.nih.gov/23942365/' },
+  { n: 2, text: 'Pittler MH, Ernst E. (2003). Kava extract vs placebo for anxiety. Cochrane Database Syst Rev, (1): CD003383.', url: 'https://pubmed.ncbi.nlm.nih.gov/12535473/' },
+  { n: 3, text: 'Teschke R, et al. (2011). Kava hepatotoxicity solution. Phytomedicine, 18(2-3): 96-103.', url: 'https://pubmed.ncbi.nlm.nih.gov/21112196/' },
+  { n: 4, text: 'Sarris J, et al. (2011). Kava for GAD clinical trial. J Clin Psychopharmacol, 31(5): 592-598.', url: 'https://pubmed.ncbi.nlm.nih.gov/21849899/' },
+  { n: 5, text: 'LaPorte E, et al. (2011). Kava lactones and GABA-A modulation. Psychopharmacology, 213(2-3): 375-384.', url: 'https://pubmed.ncbi.nlm.nih.gov/20953588/' },
 ]
 
 export default function KavaGuidePage() {
