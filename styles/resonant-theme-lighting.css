@@ -29,21 +29,11 @@ html.dark {
 }
 
 body {
-  background:
-    radial-gradient(circle at 12% 7%, var(--resonance-emerald), transparent 34rem),
-    radial-gradient(circle at 88% 10%, var(--resonance-gold), transparent 30rem),
-    radial-gradient(circle at 55% 45%, var(--resonance-violet), transparent 36rem),
-    radial-gradient(circle at 18% 84%, var(--resonance-rose), transparent 28rem),
-    linear-gradient(180deg, #fffdf7 0%, #fbf6e9 44%, #f6efe0 100%);
+  background: #ffffff;
 }
 
 html.dark body {
-  background:
-    radial-gradient(circle at 15% 6%, rgba(142, 186, 143, 0.13), transparent 32rem),
-    radial-gradient(circle at 88% 12%, rgba(196, 125, 46, 0.14), transparent 32rem),
-    radial-gradient(circle at 54% 42%, rgba(184, 174, 207, 0.10), transparent 34rem),
-    radial-gradient(circle at 18% 84%, rgba(252, 165, 165, 0.055), transparent 28rem),
-    linear-gradient(180deg, #0f2419 0%, #0b1b12 52%, #08150f 100%);
+  background: #0d1712;
 }
 
 .hero-shell,
@@ -61,18 +51,12 @@ html.dark body {
 .hero-shell {
   overflow: hidden;
   background:
-    radial-gradient(circle at 7% 0%, var(--resonance-emerald-strong), transparent 34%),
-    radial-gradient(circle at 93% 6%, var(--resonance-gold), transparent 28%),
-    radial-gradient(circle at 54% 112%, var(--resonance-violet), transparent 34%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(251, 246, 233, 0.88));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 247, 242, 0.88));
 }
 
 html.dark .hero-shell {
   background:
-    radial-gradient(circle at 7% 0%, rgba(142, 186, 143, 0.14), transparent 34%),
-    radial-gradient(circle at 93% 6%, rgba(196, 125, 46, 0.16), transparent 30%),
-    radial-gradient(circle at 54% 112%, rgba(184, 174, 207, 0.12), transparent 34%),
-    linear-gradient(180deg, rgba(39, 66, 52, 0.96), rgba(23, 42, 31, 0.94));
+    linear-gradient(180deg, rgba(26, 48, 40, 0.96), rgba(20, 38, 29, 0.94));
 }
 
 .hero-shell::before {
@@ -102,8 +86,7 @@ html.dark .hero-shell::before {
 .scientific-card,
 .library-card-premium {
   background:
-    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.38), transparent 12rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(251, 246, 233, 0.78));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(244, 247, 242, 0.82));
 }
 
 html.dark .card-premium,
@@ -113,8 +96,7 @@ html.dark .section-frame,
 html.dark .scientific-card,
 html.dark .library-card-premium {
   background:
-    radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.055), transparent 12rem),
-    linear-gradient(180deg, rgba(36, 61, 50, 0.94), rgba(23, 42, 31, 0.9));
+    linear-gradient(180deg, rgba(26, 48, 40, 0.94), rgba(20, 38, 29, 0.9));
 }
 
 .card-premium:hover,

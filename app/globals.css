@@ -13,18 +13,18 @@ differences are expected beyond Tailwind v4's generated CSS ordering.
   --font-display: var(--font-fraunces), Fraunces, ui-serif, Georgia;
   --font-mono: "JetBrains Mono", monospace;
 
-  --color-brand-50: #f3f5ee;
-  --color-brand-100: #e4eadc;
-  --color-brand-200: #cbd8c0;
-  --color-brand-300: #a7ba98;
-  --color-brand-400: #78956b;
-  --color-brand-500: #536f49;
-  --color-brand-600: #3f5c3c;
-  --color-brand-700: #314b33;
-  --color-brand-800: #243d2b;
-  --color-brand-900: #182f22;
-  --color-brand-950: #0b1d14;
-  --color-brand: #243d2b;
+  --color-brand-50: #eef5ef;
+  --color-brand-100: #d4e7d7;
+  --color-brand-200: #aed0b3;
+  --color-brand-300: #82b48b;
+  --color-brand-400: #5c9866;
+  --color-brand-500: #3f7c4a;
+  --color-brand-600: #2d6338;
+  --color-brand-700: #1f4d29;
+  --color-brand-800: #153a1f;
+  --color-brand-900: #0e2917;
+  --color-brand-950: #071a0e;
+  --color-brand: #153a1f;
 
   --color-sage-50: #f4f7f1;
   --color-sage-100: #e7eee0;
@@ -60,10 +60,10 @@ differences are expected beyond Tailwind v4's generated CSS ordering.
   --color-safety-avoid: #b91c1c;
   --color-safety-ok: #2f5f3a;
 
-  --color-background: #fffdf7;
-  --color-surface: #fbf6e9;
-  --color-ink: #111a16;
-  --color-muted: #4f5b56;
+  --color-background: #ffffff;
+  --color-surface: #f4f7f2;
+  --color-ink: #0d1712;
+  --color-muted: #47544d;
 
   --shadow-card: 0 18px 45px rgba(16, 32, 24, 0.08);
   --shadow-soft: 0 24px 70px rgba(16, 32, 24, 0.12);
@@ -85,16 +85,16 @@ differences are expected beyond Tailwind v4's generated CSS ordering.
   --font-fraunces: "Fraunces Variable", Fraunces, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, "Times New Roman", serif;
   
   /* HSL-tailored colors */
-  --bg-h: 45;
-  --bg-s: 100%;
-  --bg-l: 98.4%;
-  --bg: hsl(var(--bg-h), var(--bg-s), var(--bg-l)); /* #fffdf7 */
+  --bg-h: 120;
+  --bg-s: 8%;
+  --bg-l: 98%;
+  --bg: hsl(var(--bg-h), var(--bg-s), var(--bg-l)); /* #f4f7f2 */
   
-  --surface-h: 42;
-  --surface-s: 53%;
-  --surface-l: 95.1%;
-  --surface: hsl(var(--surface-h), var(--surface-s), var(--surface-l)); /* #fbf6e9 */
-  --surface-elevated: rgba(255, 255, 255, 0.72);
+  --surface-h: 115;
+  --surface-s: 10%;
+  --surface-l: 96%;
+  --surface: hsl(var(--surface-h), var(--surface-s), var(--surface-l)); /* #f0f4ee */
+  --surface-elevated: #ffffff;
   
   --text-primary-h: 150;
   --text-primary-s: 21%;
@@ -125,9 +125,9 @@ differences are expected beyond Tailwind v4's generated CSS ordering.
   --surface-info: rgba(239, 246, 255, 0.82);
   --surface-neutral: rgba(248, 250, 252, 0.86);
   --ring-brand: rgba(49, 75, 51, 0.32);
-  --accent-primary: #314b33;
-  --accent-secondary: #6d5bd0;
-  --accent-teal: #536f49;
+  --accent-primary: #1a3b2e;
+  --accent-secondary: #5c4db8;
+  --accent-teal: #3d5a38;
   --accent-warning: #b45309;
   --accent-danger: #b91c1c;
   --bg-c: var(--bg);
@@ -135,12 +135,12 @@ differences are expected beyond Tailwind v4's generated CSS ordering.
   --text-c: var(--text-primary);
   --border-c: var(--border-soft);
   --radius-lg: var(--radius-card-premium);
-  --radius-card-premium: 0.9rem;
-  --radius-card-compact: 0.75rem;
-  --shadow-card-calm: 0 1px 3px rgba(16, 32, 24, 0.045);
-  --shadow-card-calm-hover: 0 4px 12px rgba(16, 32, 24, 0.06);
-  --shadow-button-primary: 0 4px 12px rgba(11, 29, 20, 0.14);
-  --shadow-button-secondary: 0 1px 3px rgba(16, 32, 24, 0.04);
+  --radius-card-premium: 0.75rem;
+  --radius-card-compact: 0.625rem;
+  --shadow-card-calm: 0 1px 2px rgba(13, 23, 18, 0.06);
+  --shadow-card-calm-hover: 0 4px 16px rgba(13, 23, 18, 0.10);
+  --shadow-button-primary: 0 2px 8px rgba(13, 23, 18, 0.18);
+  --shadow-button-secondary: 0 1px 2px rgba(13, 23, 18, 0.06);
 }
 
 /* Class-based dark mode variant for Tailwind v4 */
@@ -155,73 +155,62 @@ html {
 
 /* Dark mode variable overrides — applied when <html class="dark"> is set by DarkModeProvider */
 html.dark {
-  --color-background: #0f2419;
-  --color-surface: #1a3028;
-  --color-ink: #f5f0e6;
-  --color-muted: #c2d0c6;
-  --color-brand-50: #111f17;
-  --color-brand-100: #182a1f;
-  --color-brand-200: #24382b;
-  --color-brand-300: #314b37;
-  --color-brand-400: #4f6b55;
-  --color-brand-500: #6f8a73;
-  --color-brand-600: #8da892;
-  --color-brand-700: #a8bda9;
-  --color-brand-800: #c7d5c5;
-  --color-brand-900: #e0eadc;
-  --color-brand-950: #f2f6ee;
-  --bg: #0f2419;
-  --surface: #1a3028;
-  --surface-elevated: #243d32;
-  --text-primary: #f5f0e6;
-  --text-secondary: #e0dcd2;
-  --text-muted: #c2d0c6;
-  --border-soft: rgba(180, 210, 190, 0.18);
-  --border-strong: rgba(180, 210, 190, 0.30);
+  --color-background: #0d1712;
+  --color-surface: #14261d;
+  --color-ink: #f2efe5;
+  --color-muted: #b0bfb5;
+  --color-brand-50: #0e1f16;
+  --color-brand-100: #152b1f;
+  --color-brand-200: #1d3a2a;
+  --color-brand-300: #264d37;
+  --color-brand-400: #3d6b4d;
+  --color-brand-500: #5a8a65;
+  --color-brand-600: #78a380;
+  --color-brand-700: #95b99a;
+  --color-brand-800: #b5ceb8;
+  --color-brand-900: #d4e4d5;
+  --color-brand-950: #ecf3ec;
+  --bg: #0d1712;
+  --surface: #14261d;
+  --surface-elevated: #1a3028;
+  --text-primary: #f2efe5;
+  --text-secondary: #d8d5ca;
+  --text-muted: #b0bfb5;
+  --border-soft: rgba(180, 210, 190, 0.16);
+  --border-strong: rgba(180, 210, 190, 0.26);
   --border-default: var(--border-soft);
-  --surface-card: rgba(36, 61, 50, 0.97);
-  --surface-card-strong: rgba(42, 69, 56, 0.99);
+  --surface-card: rgba(26, 48, 40, 0.95);
+  --surface-card-strong: rgba(30, 55, 45, 0.98);
   --surface-1: var(--surface);
   --surface-2: var(--surface-card);
-  --surface-subtle: rgba(36, 61, 50, 0.55);
-  --surface-code: rgba(26, 48, 40, 0.90);
-  --surface-warning: rgba(61, 42, 20, 0.92);
-  --surface-danger: rgba(58, 22, 28, 0.88);
-  --surface-info: rgba(18, 38, 64, 0.88);
-  --surface-neutral: rgba(37, 47, 42, 0.9);
-  --ring-brand: rgba(168, 189, 169, 0.38);
-  --accent-primary: #c47d2e;
-  --accent-secondary: #b8aecf;
-  --accent-teal: #8da892;
+  --surface-subtle: rgba(26, 48, 40, 0.55);
+  --surface-code: rgba(20, 38, 29, 0.90);
+  --surface-warning: rgba(45, 32, 16, 0.92);
+  --surface-danger: rgba(48, 18, 24, 0.88);
+  --surface-info: rgba(14, 30, 52, 0.88);
+  --surface-neutral: rgba(30, 42, 36, 0.9);
+  --ring-brand: rgba(149, 185, 154, 0.32);
+  --accent-primary: #78a380;
+  --accent-secondary: #a89dcc;
+  --accent-teal: #5a8a65;
   --accent-warning: #c47d2e;
-  --accent-danger: #fca5a5;
+  --accent-danger: #f5a5a5;
   --bg-c: var(--bg);
   --surface-c: var(--surface-card);
   --text-c: var(--text-primary);
   --border-c: var(--border-soft);
-  --shadow-card-calm: 0 1px 3px rgba(0, 0, 0, 0.22);
-  --shadow-card-calm-hover: 0 8px 22px rgba(0, 0, 0, 0.24);
+  --shadow-card-calm: 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-card-calm-hover: 0 8px 24px rgba(0, 0, 0, 0.28);
   color-scheme: dark;
 }
 
 html.dark body {
-  background:
-    radial-gradient(ellipse at 80% 0%, rgba(196, 125, 46, 0.07), transparent 45%),
-    radial-gradient(ellipse at 10% 60%, rgba(36, 61, 50, 0.6), transparent 50%),
-    linear-gradient(180deg, #0f2419 0%, #0c1e13 100%);
-}
-
-html.dark .hero-shell {
-  background: var(--surface-card-strong);
+  background: #0d1712;
 }
 
 body {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at 10% 20%, rgba(83, 111, 73, 0.08), transparent 45%),
-    radial-gradient(circle at 90% 10%, rgba(96, 116, 126, 0.07), transparent 40%),
-    radial-gradient(circle at 50% 80%, rgba(192, 138, 53, 0.06), transparent 50%),
-    linear-gradient(180deg, #fffdf7 0%, #fbf6e9 100%);
+  background: #ffffff;
   color: var(--text-primary);
   font-family: var(--font-inter), Inter, system-ui, sans-serif;
   font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
@@ -396,23 +385,20 @@ html.dark ::selection {
   }
 
   .card-premium {
-    border: 1px solid var(--border-soft);
-    background-color: var(--surface-card);
-    @apply backdrop-blur-xl transition-all duration-300;
+    background-color: #ffffff;
+    @apply transition-all duration-300;
     border-radius: var(--radius-card-premium);
     box-shadow: var(--shadow-card-calm);
   }
 
   .card-premium:hover {
-    border-color: var(--border-strong);
     box-shadow: var(--shadow-card-calm-hover);
   }
 
   .hero-shell {
     background:
-      radial-gradient(circle at 12% 8%, rgba(83, 111, 73, .12), transparent 30%),
-      radial-gradient(circle at 88% 12%, rgba(192, 138, 53, .10), transparent 24%),
-      linear-gradient(180deg, rgba(255,255,255,.84), rgba(251,246,233,.9));
+      linear-gradient(180deg, #ffffff, #f4f7f2);
+    border: 1px solid rgba(13, 23, 18, 0.06);
   }
 
   .section-spacing {
@@ -499,9 +485,8 @@ html.dark ::selection {
   }
 
   .section-frame {
-    border: 1px solid var(--border-soft);
-    background-color: var(--surface-card);
-    @apply p-4 backdrop-blur sm:p-5;
+    background-color: #ffffff;
+    @apply p-4 sm:p-5;
     border-radius: var(--radius-card-premium);
     box-shadow: var(--shadow-card-calm);
   }
@@ -522,16 +507,13 @@ html.dark ::selection {
   }
 
   .surface-subtle {
-    border: 1px solid var(--border-soft);
     background-color: var(--surface);
-    @apply shadow-sm backdrop-blur-xl;
+    @apply shadow-sm;
     border-radius: var(--radius-card-premium);
   }
 
   .surface-depth {
-    border: 1px solid var(--border-soft);
     background-color: var(--surface-elevated);
-    @apply backdrop-blur-xl;
     border-radius: var(--radius-card-premium);
     box-shadow: var(--shadow-card-calm);
   }
@@ -571,12 +553,12 @@ html.dark ::selection {
   }
 
   .button-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-brand-800 px-4 py-2 text-sm font-semibold text-white transition-colors duration-200 hover:bg-brand-700 hover:text-white focus-visible:text-white;
+    @apply inline-flex items-center justify-center rounded-full bg-brand-700 px-4 py-2 text-sm font-semibold text-white transition-colors duration-200 hover:bg-brand-800 focus-visible:text-white;
     box-shadow: var(--shadow-button-primary);
   }
 
   .button-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-brand-900/10 bg-white/85 px-4 py-2 text-sm font-semibold text-ink transition-colors duration-200 hover:border-brand-700/20 hover:bg-white hover:text-brand-800;
+    @apply inline-flex items-center justify-center rounded-full border border-brand-200 bg-white px-4 py-2 text-sm font-semibold text-brand-800 transition-colors duration-200 hover:border-brand-300 hover:bg-brand-50;
     box-shadow: var(--shadow-button-secondary);
   }
 }
@@ -613,7 +595,7 @@ html.dark .content-prose blockquote {
   [class~="text-emerald-800"],
   [class~="text-emerald-900"]
 ) {
-  color: #2f5f3a;
+  color: #1f4d29;
 }
 
 :where(
@@ -621,7 +603,7 @@ html.dark .content-prose blockquote {
   [class~="hover:text-emerald-800"]:hover,
   [class~="hover:text-emerald-900"]:hover
 ) {
-  color: #243d2b;
+  color: #153a1f;
 }
 
 :where(
@@ -634,21 +616,21 @@ html.dark .content-prose blockquote {
   [class~="bg-emerald-50/80"],
   [class~="bg-emerald-100"]
 ) {
-  background-color: rgba(243, 245, 238, 0.86);
+  background-color: rgba(238, 245, 239, 0.86);
 }
 
 :where(
   [class~="bg-emerald-300"],
   [class~="bg-emerald-400"]
 ) {
-  background-color: #a8bda9;
+  background-color: #95b99a;
 }
 
 :where(
   [class~="bg-emerald-500"],
   [class~="bg-emerald-600"]
 ) {
-  background-color: #536f49;
+  background-color: #3f7c4a;
 }
 
 :where(
@@ -656,7 +638,7 @@ html.dark .content-prose blockquote {
   [class~="hover:bg-emerald-100"]:hover,
   [class~="hover:bg-emerald-200"]:hover
 ) {
-  background-color: #cbd8c0;
+  background-color: #aed0b3;
 }
 
 :where(
@@ -852,7 +834,7 @@ html.dark :is(
   [class~="text-brand-800"],
   [class~="text-brand-850"]
 ) {
-  color: #a8bda9;
+  color: #95b99a;
 }
 
 html.dark :is(
@@ -861,7 +843,7 @@ html.dark :is(
   [class~="hover:text-brand-800"]:hover,
   [class~="hover:text-ink"]:hover
 ) {
-  color: #c7d5c5;
+  color: #b5ceb8;
 }
 
 html.dark .content-prose blockquote {
@@ -947,34 +929,21 @@ html.dark :is(.button-secondary) {
 }
 
 html.dark :is(.button-primary) {
-  background-color: #8fa88e;
-  color: #030e06;
+  background-color: #78a380;
+  color: #07150c;
   box-shadow: 0 2px 10px rgba(0,0,0,0.30);
 }
 
-html.dark :is([class~="bg-brand-700"], [class~="bg-brand-800"], [class~="bg-brand-950"]) {
-  background-color: #a8bda9;
-  color: #07150c;
-}
-
 html.dark :is(
-  .btn-primary,
-  .btn-secondary,
-  .ds-card,
-  .ds-card-lg,
-  .ds-pill
+  [class~="bg-brand-700"], [class~="bg-brand-800"], [class~="bg-brand-950"]
 ) {
-  border-color: var(--border-soft);
+  background-color: #95b99a;
+  color: #07150c;
 }
 
 html.dark :is(.btn-primary) {
-  background-color: #a8bda9;
+  background-color: #95b99a;
   color: #07150c;
-}
-
-html.dark :is(.btn-secondary, .ds-card, .ds-card-lg, .ds-pill) {
-  background-color: var(--surface-card);
-  color: var(--text-primary);
 }
 
 html.dark input::placeholder,
@@ -1057,7 +1026,7 @@ html.dark :is(
 
 @layer components {
   .scientific-card {
-    @apply block border border-brand-900/10 bg-white/80 p-4 backdrop-blur transition-all duration-200 hover:border-brand-900/15 hover:bg-white;
+    @apply block bg-white p-4 transition-all duration-200 hover:bg-brand-50/50;
     border-radius: var(--radius-card-compact);
     box-shadow: var(--shadow-card-calm);
   }
@@ -1079,27 +1048,23 @@ html.dark :is(
   }
 
   .identity-herb {
-    @apply border-emerald-800/15;
-    background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(236,253,245,.42));
+    background: linear-gradient(180deg, #ffffff, #f0f7f2);
   }
 
   .identity-compound {
-    @apply border-blue-800/15;
-    background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(239,246,255,.48));
+    background: linear-gradient(180deg, #ffffff, #f2f5fc);
   }
 
   .identity-article {
-    @apply border-amber-800/15;
-    background: linear-gradient(180deg, rgba(255,255,255,.88), rgba(254,243,199,.42));
+    background: linear-gradient(180deg, #ffffff, #fcfaf2);
   }
 
   .identity-path {
-    @apply border-purple-800/15;
-    background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(250,245,255,.46));
+    background: linear-gradient(180deg, #ffffff, #f7f4fc);
   }
 
   .identity-kicker {
-    @apply rounded-full border border-brand-900/10 bg-white/75 px-3 py-1 text-[0.78rem] font-semibold tracking-[0.03em] text-brand-800;
+    @apply rounded-full border border-brand-200 bg-brand-50 px-3 py-1 text-[0.78rem] font-semibold tracking-[0.02em] text-brand-700;
   }
 
   .identity-meta {
