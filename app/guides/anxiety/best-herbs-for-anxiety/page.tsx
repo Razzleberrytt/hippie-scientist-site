@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import StructuredData from '@/components/StructuredData'
 import JsonLd from '@/components/seo/JsonLd'
 import { SITE_URL } from '@/lib/navigation-config'
@@ -202,6 +203,22 @@ export default function BestHerbsForAnxietyPage() {
             for higher-risk short-term use only, read the{' '}
             <Link href="/guides/kava" className="font-semibold text-brand-800 hover:underline">kava safety guide</Link> first.
           </div>
+
+          <figure className="mt-6">
+            <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+              <Image
+                src="/images/guides/best-herbs-for-anxiety.jpg"
+                alt="Calming anxiety herbs including passionflower, lavender, lemon balm, kava root, and ashwagandha arranged on a slate surface"
+                width={1536}
+                height={1024}
+                priority
+                className="w-full h-auto"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm text-muted">
+              The best-supported herbs for anxiety — ashwagandha, passionflower, lavender, lemon balm, and kava — each work differently.
+            </figcaption>
+          </figure>
         </section>
 
         {/* Decision framework */}
