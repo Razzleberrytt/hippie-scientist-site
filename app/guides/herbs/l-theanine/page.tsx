@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import JsonLd from '@/components/seo/JsonLd'
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd } from '../../../../src/lib/seo'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
@@ -141,6 +142,22 @@ export default function LTheanineArticlePage() {
         </div>
 
         <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/l-theanine-herb.jpg"
+              alt="Green tea leaves, pure L-theanine powder, and a cup of green tea — L-theanine's natural source"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            L-theanine — an amino acid from green tea used for calm, focused relaxation without sedation.
+          </figcaption>
+        </figure>
       </section>
 
       {/* Affiliate disclosure */}

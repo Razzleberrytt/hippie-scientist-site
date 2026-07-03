@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import StructuredData from '@/components/StructuredData'
 import FAQAccordion from '@/components/FAQAccordion'
@@ -149,6 +150,22 @@ export default function PassionflowerGuidePage() {
           well tolerated at typical doses, with drowsiness and dizziness the most common side effects. This is not
           medical advice — use caution when driving or operating machinery.
         </p>
+
+        <figure className="mt-8">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/passionflower.jpg"
+              alt="Passionflower (Passiflora incarnata) bloom and dried passionflower herb used for anxiety and sleep"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Passionflower (Passiflora incarnata) — modest clinical evidence for easing anxiety, with weaker support for sleep.
+          </figcaption>
+        </figure>
       </section>
 
       {/* Evidence */}

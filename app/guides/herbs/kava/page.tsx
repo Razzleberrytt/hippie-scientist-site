@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import StructuredData from '@/components/StructuredData'
 import FAQAccordion from '@/components/FAQAccordion'
@@ -144,6 +145,22 @@ export default function KavaGuidePage() {
           an educational, harm-reduction review of the evidence — it is not medical advice and does not recommend
           or endorse kava use.
         </p>
+
+        <figure className="mt-8">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/kava.jpg"
+              alt="Dried kava (Piper methysticum) root, kava powder, and a traditional serving cup"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Kava (Piper methysticum) — studied for anxiety but carrying a well-established risk of liver injury.
+          </figcaption>
+        </figure>
       </section>
 
       {/* Strong disclaimer up front */}
