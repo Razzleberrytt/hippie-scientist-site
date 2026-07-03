@@ -78,7 +78,7 @@ export default function AboutClient() {
               </Link>
 
               <Link
-                href="/goals/"
+                href="/guides/"
                 className="rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50"
               >
                 Browse by goals

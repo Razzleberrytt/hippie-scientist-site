@@ -219,7 +219,7 @@ function EmptyLibraryState() {
       actions={[
         { href: '/search', label: 'Search the site', variant: 'primary' },
         { href: '/herbs', label: 'Browse herbs' },
-        { href: '/goals', label: 'Explore goals' },
+        { href: '/guides', label: 'Explore guides' },
       ]}
     />
   )
@@ -289,7 +289,7 @@ const browsePaths = [
   },
   {
     label: 'Goal guides',
-    href: '/goals',
+    href: '/guides',
     description: 'Use goal guides when the practical context matters more than the molecule.',
   },
   {

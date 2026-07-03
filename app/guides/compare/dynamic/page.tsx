@@ -9,6 +9,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: 'Dynamic Ingredient Comparison Matrix',
   description: 'Select and compare any two herbs, compounds, or adaptogens side-by-side on evidence strength, mechanisms, safety profiles, and dosages.',
   path: '/guides/compare/dynamic/',
+  robots: { index: false, follow: true },
 })
 
 export default async function DynamicComparePage() {

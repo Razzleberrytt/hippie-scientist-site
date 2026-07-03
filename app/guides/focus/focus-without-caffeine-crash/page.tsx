@@ -252,7 +252,7 @@ export default function Page() {
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Related guides &amp; comparisons</h2>
           <div className="grid gap-3 sm:grid-cols-2">
-            <Link href="/guides/best-supplements-for-focus" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Supplements for Focus →</Link>
+            <Link href="/guides/focus/best-supplements-for-focus" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Supplements for Focus →</Link>
             <Link href="/guides/focus/best-nootropics-for-focus" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Nootropics for Focus →</Link>
             <Link href="/guides/supplements-for-brain-fog-and-fatigue" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Supplements for Brain Fog &amp; Fatigue →</Link>
             <Link href="/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Caffeine vs L-theanine vs Bacopa →</Link>

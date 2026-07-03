@@ -876,7 +876,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
             {conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => (
               <Link
                 key={link.slug}
-                href={link.href || `/goals/${link.slug}`}
+                href={link.href || '/guides/'}
                 className="rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-3 py-1.5 text-xs font-semibold text-brand-800 hover:bg-brand-50"
               >
                 {link.label || formatDisplayLabel(link.slug)}

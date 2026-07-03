@@ -51,19 +51,31 @@ const GOAL_COMPARE_SLUGS: Record<string, string[]> = {
 const GOAL_SEO_ENTRIES: Record<string, GoalHubLink> = {
   sleep: {
     label: 'Best supplements for sleep (entry guide)',
-    href: '/best-supplements-for-sleep/',
+    href: '/guides/sleep/best-supplements-for-sleep/',
     note: 'Broader sleep keyword landing page with ranked picks.',
   },
   stress: {
     label: 'Best supplements for stress (entry guide)',
-    href: '/best-supplements-for-stress/',
+    href: '/guides/best/supplements-for-stress/',
     note: 'Calming vs adaptogen framing for stress support.',
   },
   focus: {
     label: 'Best supplements for focus (entry guide)',
-    href: '/best-supplements-for-focus/',
+    href: '/guides/focus/best-supplements-for-focus/',
     note: 'Stimulant vs non-stimulant focus comparison entry.',
   },
+}
+
+const GOAL_GUIDE_ROUTES: Record<string, string> = {
+  sleep: '/guides/sleep/',
+  stress: '/guides/anxiety/',
+  anxiety: '/guides/anxiety/',
+  focus: '/guides/focus/',
+  cognition: '/guides/focus/',
+  energy: '/guides/focus/',
+  pain: '/guides/best/supplements-for-joint-support/',
+  inflammation: '/guides/best/supplements-for-joint-support/',
+  'joint-support': '/guides/best/supplements-for-joint-support/',
 }
 
 const FLAGSHIP_COMPARE_ROUTES = new Set([
@@ -150,6 +162,6 @@ export function getGoalsForEntity(slug: string): GoalHubLink[] {
   const goalSlugs = ENTITY_GOAL_MAP[normalized] ?? []
   return goalSlugs.map((goalSlug) => ({
     label: goalSlug.replace(/-/g, ' '),
-    href: `/goals/${goalSlug}/`,
+    href: GOAL_GUIDE_ROUTES[goalSlug] ?? '/guides/',
   }))
 }

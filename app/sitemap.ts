@@ -522,7 +522,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     route(normalizeSitemapUrl('/learn'), 'monthly', 0.75),
     route(normalizeSitemapUrl('/novel-psychoactive-substances'), 'monthly', 0.7, getSitemapLastModified(npsIndex)),
     route(normalizeSitemapUrl('/guides/compare'), 'monthly', 0.7),
-    route(normalizeSitemapUrl('/guides/compare/dynamic'), 'monthly', 0.6),
     route(normalizeSitemapUrl('/info/dosing'), 'monthly', 0.6),
     route(normalizeSitemapUrl('/info/affiliate-disclosure'), 'yearly', 0.5),
     route(normalizeSitemapUrl('/info/privacy'), 'yearly', 0.4),

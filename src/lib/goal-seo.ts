@@ -30,10 +30,24 @@ const GOAL_SEO_DESCRIPTIONS: Record<string, string> = {
 }
 
 const GOAL_SEO_ENTRY_ROUTES: Record<string, string> = {
-  sleep: '/best-supplements-for-sleep',
-  stress: '/best-supplements-for-stress',
-  focus: '/best-supplements-for-focus',
-  anxiety: '/best-supplements-for-anxiety',
+  sleep: '/guides/sleep/best-supplements-for-sleep',
+  stress: '/guides/best/supplements-for-stress',
+  focus: '/guides/focus/best-supplements-for-focus',
+  anxiety: '/guides/anxiety/best-herbs-for-anxiety',
+}
+
+const GOAL_GUIDE_ROUTES: Record<string, string> = {
+  sleep: '/guides/sleep',
+  stress: '/guides/anxiety',
+  anxiety: '/guides/anxiety',
+  focus: '/guides/focus',
+  cognition: '/guides/focus',
+  energy: '/guides/focus',
+  pain: '/guides/best/supplements-for-joint-support',
+  inflammation: '/guides/best/supplements-for-joint-support',
+  'blood-pressure': '/guides/best/supplements-for-blood-pressure',
+  'gut-health': '/guides/best/supplements-for-gut-health',
+  'fat-loss': '/guides/best/supplements-for-fat-loss',
 }
 
 function fallbackGoalTitle(goal: Goal): string {
@@ -74,7 +88,7 @@ export function buildGoalPageMetadata(
   return buildPageMetadata({
     title,
     description,
-    path: `/goals/${goal.slug}`,
+    path: GOAL_GUIDE_ROUTES[goal.slug] ?? '/guides',
     openGraphType: 'article',
   })
 }

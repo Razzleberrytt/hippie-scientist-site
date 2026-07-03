@@ -51,7 +51,7 @@ export default function NotFound() {
           </Link>
 
           <Link
-            href='/goals'
+            href='/guides'
             className='button-secondary px-5 py-3 text-sm'
           >
             Goals

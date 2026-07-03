@@ -96,8 +96,8 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /best-for/non-stimulant-focus /goals/focus/ 301
 /best-for/non-sedating-calm /goals/anxiety/ 301
 /top/top-3-natural-sleep-aids /guides/best-supplements-for-sleep/ 301
-/top/top-3-supplements-for-focus /guides/best-supplements-for-focus/ 301
-/top/top-3-herbs-for-stress /guides/best-supplements-for-stress/ 301
+/top/top-3-supplements-for-focus /guides/focus/best-supplements-for-focus/ 301
+/top/top-3-herbs-for-stress /guides/best/supplements-for-stress/ 301
 /top/top-3-herbs-for-anxiety /guides/best-herbs-for-anxiety/ 301
 /top/best-herbs-for-cortisol /guides/how-to-lower-cortisol-naturally/ 301
 /buy-guide /learn/product-quality/ 301
@@ -120,7 +120,7 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /best/fat-loss /guides/best-supplements-for-fat-loss/ 301
 /best/testosterone /guides/natural-testosterone-boosters/ 301
 /best/brain-fog /guides/supplements-for-brain-fog-and-fatigue/ 301
-/best/best-supplements-for-focus /guides/best-supplements-for-focus/ 301
+/best/best-supplements-for-focus /guides/focus/best-supplements-for-focus/ 301
 /best/non-melatonin-sleep /guides/best-supplements-for-sleep/ 301
 # NEW REDIRECTS - ROUTE CONSOLIDATION AUDIT (June 1, 2026)
 /comparisons /compare/ 301
@@ -498,8 +498,8 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /best-supplements-for-blood-pressure/ /guides/best/supplements-for-blood-pressure/ 301
 /best-supplements-for-fat-loss /guides/best/supplements-for-fat-loss/ 301
 /best-supplements-for-fat-loss/ /guides/best/supplements-for-fat-loss/ 301
-/best-supplements-for-focus /guides/best/supplements-for-focus/ 301
-/best-supplements-for-focus/ /guides/best/supplements-for-focus/ 301
+/best-supplements-for-focus /guides/focus/best-supplements-for-focus/ 301
+/best-supplements-for-focus/ /guides/focus/best-supplements-for-focus/ 301
 /best-supplements-for-gut-health /guides/best/supplements-for-gut-health/ 301
 /best-supplements-for-gut-health/ /guides/best/supplements-for-gut-health/ 301
 /best-supplements-for-joint-support /guides/best/supplements-for-joint-support/ 301
@@ -606,8 +606,8 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /guides/best-herbs-for-anxiety/ /guides/anxiety/best-herbs-for-anxiety/ 301
 /guides/best-herbs-for-stress-and-anxiety-at-night /guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/ 301
 /guides/best-herbs-for-stress-and-anxiety-at-night/ /guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/ 301
-/guides/best-supplements-for-stress /guides/anxiety/best-supplements-for-stress/ 301
-/guides/best-supplements-for-stress/ /guides/anxiety/best-supplements-for-stress/ 301
+/guides/best-supplements-for-stress /guides/best/supplements-for-stress/ 301
+/guides/best-supplements-for-stress/ /guides/best/supplements-for-stress/ 301
 /guides/how-to-lower-cortisol-naturally /guides/anxiety/how-to-lower-cortisol-naturally/ 301
 /guides/how-to-lower-cortisol-naturally/ /guides/anxiety/how-to-lower-cortisol-naturally/ 301
 /guides/natural-alternatives-to-anxiety-medication /guides/anxiety/natural-alternatives-to-anxiety-medication/ 301
