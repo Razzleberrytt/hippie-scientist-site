@@ -764,7 +764,7 @@ export default function SearchClient() {
           </section>
 
           {/* Dosing safety checker */}
-          <details className="rounded-[1.5rem] border border-amber-200 bg-[#fffdf7] p-2.5 sm:p-4 shadow-sm">
+          <details className="rounded-[1.5rem] border border-amber-200 bg-white p-2.5 sm:p-4 shadow-sm">
             <summary className="flex min-h-12 cursor-pointer items-center justify-between gap-4 text-sm font-bold text-amber-900">
               <span className="flex items-center gap-2">
                 <ShieldAlert className="h-5 w-5 text-amber-700 shrink-0" />

@@ -19,7 +19,7 @@ export default function OpenGraphImage() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'stretch',
-          background: 'linear-gradient(135deg, #fffdf7 0%, #eef8f1 60%, #d9f0df 100%)',
+          background: 'linear-gradient(135deg, #ffffff 0%, #f0f7f2 60%, #d4e7d7 100%)',
           color: '#102018',
           padding: '48px',
           fontFamily:
