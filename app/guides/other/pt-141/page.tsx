@@ -1,4 +1,5 @@
 import { buildPageMetadata } from '../../../../src/lib/seo'
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
@@ -39,6 +40,22 @@ export default function Page() {
         <p className="eyebrow-label">Peptide &amp; Compound Guide</p>
         <h1 className="mt-2 text-3xl font-semibold text-ink sm:text-4xl">PT-141 (Bremelanotide/Vyleesi): Evidence, Mechanism, and Legal Status</h1>
         <p className="detail-reading mt-4 text-muted">Evidence-based overview of PT-141 (bremelanotide) — melanocortin receptor mechanism, the FDA-approved Vyleesi indication, off-label/RUO use, and safety.</p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/pt-141.jpg"
+              alt="A glass vial of lyophilized research peptide powder in a lab setting"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            PT-141 — an educational, research-use-only overview.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-2xl border border-rose-900/15 bg-rose-50/80 p-5 text-sm leading-6 text-rose-950">

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
@@ -181,6 +182,22 @@ export default function Page() {
             and reducing cardiovascular strain over time. This guide ranks the real options and explains
             what is known, and not known, about carotid artery inflammation.
           </p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/healthy-dipping-tobacco-alternatives.jpg"
+              alt="Herbal non-tobacco dipping pouches with mint and herbs"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Tobacco-free dipping alternatives — options and trade-offs.
+          </figcaption>
+        </figure>
         </section>
 
         <section className="rounded-2xl border border-rose-900/15 bg-rose-50/80 p-5 text-sm leading-6 text-rose-950">

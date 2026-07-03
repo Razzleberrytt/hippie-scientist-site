@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArticleLayout } from '@/components/articles'
 import { getRevenueProductSet } from '@/config/revenue-products'
@@ -21,6 +22,22 @@ export default function Page() {
         <p className='eyebrow-label'>Guide</p>
         <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>Supplements for Brain Fog and Fatigue</h1>
         <p className='mt-4 text-muted'>Brain fog and fatigue can overlap with poor sleep, stress, low energy availability, or inconsistent focus. This guide points you toward research pages, not medical advice.</p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/supplements-for-brain-fog-and-fatigue.jpg"
+              alt="Nootropic and B-vitamin supplements with green tea and lion's mane for brain fog and fatigue"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Supplements that may help lift brain fog and fatigue.
+          </figcaption>
+        </figure>
       </section>
 
       <section className='card-premium p-6'>

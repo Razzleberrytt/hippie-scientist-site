@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
@@ -71,6 +72,22 @@ export default function PsychedelicAdjacentHerbsPage() {
             Safety Disclaimer →
           </Link>
         </div>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/psychedelic-adjacent-herbs.jpg"
+              alt="An arrangement of psychedelic-adjacent botanical herbs including blue lotus"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Psychedelic-adjacent herbs — what they are and the safety context.
+          </figcaption>
+        </figure>
       </section>
 
       {/* Botanical Profiles */}

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import NewsletterSignup from '../../../../components/NewsletterSignup'
@@ -129,6 +130,22 @@ export default function BestMagnesiumSupplementsForAdhdPage() {
             Get the safety checklist
           </Link>
         </div>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/magnesium-supplements-for-adhd.jpg"
+              alt="Magnesium supplements and powder used for calm and focus in ADHD"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Choosing a magnesium supplement for ADHD — form and dose matter.
+          </figcaption>
+        </figure>
       </section>
 
       <section className='rounded-2xl border border-emerald-800/15 bg-emerald-50/70 p-5 shadow-sm sm:p-6'>
