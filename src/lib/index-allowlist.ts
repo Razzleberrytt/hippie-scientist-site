@@ -7,7 +7,6 @@ export const CORE_INDEXABLE_ROUTES = [
   '/info/dosing',
   '/evidence/evidence-digest',
   '/info/faq',
-  '/goals',
   '/guides',
   '/herbs',
   '/learn',
@@ -22,8 +21,6 @@ export const CORE_INDEXABLE_ROUTES = [
 
 export const MONEY_ENTRY_ROUTES = [
   '/best-supplements-for-sleep',
-  '/best-supplements-for-stress',
-  '/best-supplements-for-focus',
   '/best-supplements-for-fat-loss',
   '/best-supplements-for-blood-pressure',
   '/best-supplements-for-gut-health',

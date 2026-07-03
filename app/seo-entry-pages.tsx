@@ -212,6 +212,24 @@ const canonicalGuideRouteOverrides: Record<string, string> = {
   'herbs-for-sleep': 'articles/best-herbs-for-sleep',
 }
 
+const goalGuideRoutes: Record<string, string> = {
+  sleep: '/guides/sleep/',
+  stress: '/guides/anxiety/',
+  anxiety: '/guides/anxiety/',
+  focus: '/guides/focus/',
+  cognition: '/guides/focus/',
+  energy: '/guides/focus/',
+  pain: '/guides/best/supplements-for-joint-support/',
+  inflammation: '/guides/best/supplements-for-joint-support/',
+  'blood-pressure': '/guides/best/supplements-for-blood-pressure/',
+  'gut-health': '/guides/best/supplements-for-gut-health/',
+  'fat-loss': '/guides/best/supplements-for-fat-loss/',
+}
+
+function goalGuideHref(goalSlug: string): string {
+  return goalGuideRoutes[goalSlug] ?? '/guides/'
+}
+
 const manualGuideSeoEntryPages: SeoEntryConfig[] = manualSeoEntryPages.map((page) => ({
   ...page,
   route: canonicalGuideRouteOverrides[page.route]
@@ -480,7 +498,7 @@ export async function SeoEntryPage({ route, canonicalPath }: { route: string; ca
           <h1 className="mt-3 text-4xl font-black text-ink">{page.h1}</h1>
           <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{page.intro}</p>
           <div className="mt-5 flex flex-wrap gap-3">
-            <Link href={`/goals/${goal.slug}`} className="rounded-full bg-emerald-300 px-4 py-2 text-sm font-bold text-black hover:bg-emerald-200">View ranked picks</Link>
+            <Link href={goalGuideHref(goal.slug)} className="rounded-full bg-emerald-300 px-4 py-2 text-sm font-bold text-black hover:bg-emerald-200">View ranked picks</Link>
             <Link href="/compounds/" className="rounded-full border border-brand-900/10 px-4 py-2 text-sm font-semibold text-ink hover:bg-brand-50">Browse compounds</Link>
           </div>
         </section>
@@ -583,7 +601,7 @@ export async function SeoEntryPage({ route, canonicalPath }: { route: string; ca
       <section className="rounded-3xl border border-amber-300/40 bg-amber-50 p-5">
         <h2 className="font-bold text-amber-900">Safety considerations</h2>
         <p className="mt-2 text-sm leading-6 text-amber-900/85">{sentence(goal.safetyNote)} Supplements are not risk-free, especially when combined with medications, medical conditions, pregnancy, surgery, sedatives, stimulants, or blood-pressure concerns.</p>
-        <Link href={`/goals/${goal.slug}`} className="mt-4 inline-block text-sm font-semibold text-emerald-700">Review full safety guidance →</Link>
+        <Link href={goalGuideHref(goal.slug)} className="mt-4 inline-block text-sm font-semibold text-emerald-700">Review full safety guidance →</Link>
       </section>
 
       {page.route === 'best-supplements-for-blood-pressure' ? (
@@ -643,7 +661,7 @@ export async function SeoEntryPage({ route, canonicalPath }: { route: string; ca
       <section className="rounded-3xl border border-brand-900/10 bg-white/90 p-6">
         <h2 className="text-2xl font-bold text-ink">Comparison context</h2>
         <p className="mt-2 max-w-3xl text-sm leading-6 text-muted">{pageSections.comparison}</p>
-        <Link href={`/goals/${goal.slug}`} className="mt-4 inline-block text-sm font-semibold text-emerald-700">Compare ranked options →</Link>
+        <Link href={goalGuideHref(goal.slug)} className="mt-4 inline-block text-sm font-semibold text-emerald-700">Compare ranked options →</Link>
       </section>
 
       {linkedCompounds.length > 0 ? (

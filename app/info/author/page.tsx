@@ -129,7 +129,7 @@ export default function AuthorPage() {
         <span className="text-muted">·</span>
         <Link href="/compounds/" className="text-brand-800 hover:underline font-semibold">Compound library</Link>
         <span className="text-muted">·</span>
-        <Link href="/goals/" className="text-brand-800 hover:underline font-semibold">Goal guides</Link>
+        <Link href="/guides/" className="text-brand-800 hover:underline font-semibold">Goal guides</Link>
         <span className="text-muted">·</span>
         <Link href="/info/about/" className="text-brand-800 hover:underline font-semibold">About</Link>
         <span className="text-muted">·</span>

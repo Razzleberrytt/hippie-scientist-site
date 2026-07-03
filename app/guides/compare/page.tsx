@@ -212,7 +212,7 @@ export default async function ComparePage() {
         <p className="eyebrow-label">Decision next step</p>
         <h2 className="mt-2 text-xl font-semibold text-ink">Use comparisons to choose a safer path</h2>
         <div className="mt-4 grid gap-3 text-sm leading-6 text-muted md:grid-cols-4">
-          <Link href="/goals/" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">
+          <Link href="/guides/" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">
             Start from your goal
           </Link>
           <Link href="/guides/compare/dynamic/" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">

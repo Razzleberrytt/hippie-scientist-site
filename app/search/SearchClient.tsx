@@ -368,7 +368,7 @@ function GuidedDiscovery({ onSelect }: { onSelect: (query: string) => void }) {
             These entry points are orientation tools, not deterministic recommendations.
           </p>
         </div>
-        <Link href="/goals/" className="w-fit text-sm font-bold text-brand-800 transition hover:text-brand-900">Browse goal guides →</Link>
+        <Link href="/guides/" className="w-fit text-sm font-bold text-brand-800 transition hover:text-brand-900">Browse goal guides →</Link>
       </div>
 
       <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">

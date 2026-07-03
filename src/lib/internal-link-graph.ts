@@ -55,7 +55,7 @@ function nodeHref(node: SemanticLinkNode): string {
 
   switch (node.type) {
     case 'goal':
-      return `/goals/${slug}`
+      return goalGuideHref(slug)
     case 'compare':
       return `/guides/compare/${slug}`
     case 'stack':
@@ -69,6 +69,23 @@ function nodeHref(node: SemanticLinkNode): string {
     default:
       return `/${slug}`
   }
+}
+
+function goalGuideHref(slug: string): string {
+  const routes: Record<string, string> = {
+    sleep: '/guides/sleep',
+    stress: '/guides/anxiety',
+    anxiety: '/guides/anxiety',
+    focus: '/guides/focus',
+    cognition: '/guides/focus',
+    energy: '/guides/focus',
+    pain: '/guides/best/supplements-for-joint-support',
+    inflammation: '/guides/best/supplements-for-joint-support',
+    'blood-pressure': '/guides/best/supplements-for-blood-pressure',
+    'gut-health': '/guides/best/supplements-for-gut-health',
+    'fat-loss': '/guides/best/supplements-for-fat-loss',
+  }
+  return routes[slug] ?? '/guides'
 }
 
 

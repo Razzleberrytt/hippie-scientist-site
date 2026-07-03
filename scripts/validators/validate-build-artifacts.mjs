@@ -89,8 +89,8 @@ function main() {
   const keyPages = [
     { name: 'Homepage', file: 'index.html' },
     { name: 'Guides index', file: 'guides/index.html' },
-    { name: 'FAQ', file: 'faq/index.html' },
-    { name: 'Compare', file: 'compare/index.html' }
+    { name: 'FAQ', file: 'info/faq/index.html' },
+    { name: 'Compare', file: 'guides/compare/index.html' }
   ]
 
   for (const page of keyPages) {

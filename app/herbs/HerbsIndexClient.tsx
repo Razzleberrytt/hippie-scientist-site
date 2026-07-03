@@ -257,7 +257,7 @@ export function EmptyLibraryState() {
       actions={[
         { href: '/search', label: 'Search the site', variant: 'primary' },
         { href: '/compounds', label: 'Browse compounds' },
-        { href: '/goals', label: 'Explore goals' },
+        { href: '/guides', label: 'Explore guides' },
       ]}
     />
   )
@@ -276,7 +276,7 @@ function EmptyFilteredState({ query, context, evidence }: { query: string; conte
       currentScan={currentScan || undefined}
       actions={[
         { href: '/herbs', label: 'Reset filters', variant: 'primary' },
-        { href: '/goals', label: 'Browse by goal' },
+        { href: '/guides', label: 'Browse by goal' },
       ]}
     />
   )
@@ -299,7 +299,7 @@ function HerbCard({ herb, featured = false }: { herb: RuntimeRecord; featured?: 
 const browsePaths = [
   {
     label: 'Stress & calm',
-    href: '/guides/best-supplements-for-stress/',
+    href: '/guides/best/supplements-for-stress/',
     description: 'Calming herbs, adaptogens, and interaction context.',
   },
   {
@@ -386,7 +386,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
               <p className="eyebrow-label">Search and filter</p>
               <h2 id="herb-search-heading" className="compact-heading">Start with the question you need answered.</h2>
             </div>
-            <Link href="/goals/" className="w-fit text-sm font-bold text-brand-800 transition hover:text-brand-900">Browse all goals →</Link>
+            <Link href="/guides/" className="w-fit text-sm font-bold text-brand-800 transition hover:text-brand-900">Browse all goals →</Link>
           </div>
 
           <form action="/herbs" className="mt-3 grid gap-2 sm:grid-cols-[1fr_auto]">
