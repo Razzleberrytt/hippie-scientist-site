@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -31,7 +32,23 @@ export default function GreensPowdersPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Greens Powders' }]} />
       <FAQSchema pagePath="/guides/other/greens-powders/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 8 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Greens Powders: Do They Actually Do Anything?</h1><p className="text-lg leading-8 text-muted">AG1 ($99/month), Bloom, Live It Up, Grüns (acquired by Unilever for undisclosed sum) — greens powders are a multi-billion-dollar category built on the promise of replacing your multivitamin, probiotic, and vegetables in one scoop. Hugh Jackman and Lewis Hamilton endorse AG1. Strip away the marketing, and the evidence is remarkably thin. Here is what the research actually shows, with citations.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 8 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Greens Powders: Do They Actually Do Anything?</h1><p className="text-lg leading-8 text-muted">AG1 ($99/month), Bloom, Live It Up, Grüns (acquired by Unilever for undisclosed sum) — greens powders are a multi-billion-dollar category built on the promise of replacing your multivitamin, probiotic, and vegetables in one scoop. Hugh Jackman and Lewis Hamilton endorse AG1. Strip away the marketing, and the evidence is remarkably thin. Here is what the research actually shows, with citations.</p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/greens-powders.jpg"
+              alt="Greens powder supplement in a glass jar with scoop on marble surface"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Greens powders — a multivitamin in a glass, at 10× the price.
+          </figcaption>
+        </figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted">Greens powders are fundamentally <strong>powdered multivitamins with plant extracts</strong>. They can fill nutrient gaps in people with poor diets — the vitamin and mineral component produces measurable effects [1,2]. But the claims that separate them from a basic multivitamin (gut health transformation, immune supercharging, detoxification) are unsupported by independent clinical evidence [3,4]. The category is defined by proprietary blends that hide ingredient doses [5], celebrity endorsements that substitute for clinical data, and pricing ($79-99/month) that far exceeds the cost of the nutrients they contain.</p></section>
 
