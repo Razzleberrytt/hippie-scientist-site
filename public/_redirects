@@ -1,3 +1,26 @@
+# GSC redirect cleanup (2026-07-03): preserve workbook www URLs to canonical paths.
+https://www.thehippiescientist.net/goals/ https://thehippiescientist.net/goals/ 301
+https://www.thehippiescientist.net/guides/supplements-for-brain-fog-and-fatigue/ https://thehippiescientist.net/guides/other/supplements-for-brain-fog-and-fatigue/ 301
+https://www.thehippiescientist.net/ https://thehippiescientist.net/ 301
+https://www.thehippiescientist.net/top/stress/ https://thehippiescientist.net/goals/stress/ 301
+https://www.thehippiescientist.net/guides/sleep-herbs-vs-melatonin/ https://thehippiescientist.net/guides/sleep/sleep-herbs-vs-melatonin/ 301
+https://www.thehippiescientist.net/guides/best-supplements-for-gut-health/ https://thehippiescientist.net/guides/best/supplements-for-gut-health/ 301
+https://www.thehippiescientist.net/guides/ https://thehippiescientist.net/guides/ 301
+https://www.thehippiescientist.net/guides/best-supplements-for-blood-pressure-support/ https://thehippiescientist.net/guides/best/supplements-for-blood-pressure/ 301
+https://www.thehippiescientist.net/guides/best-supplements-for-joint-support/ https://thehippiescientist.net/guides/best/supplements-for-joint-support/ 301
+https://www.thehippiescientist.net/compare/creatine-vs-beta-alanine/ https://thehippiescientist.net/guides/compare/creatine-vs-beta-alanine/ 301
+https://www.thehippiescientist.net/compare/berberine-vs-inositol/ https://thehippiescientist.net/guides/compare/berberine-vs-inositol/ 301
+https://www.thehippiescientist.net/herbs/guayusa/ https://thehippiescientist.net/herbs/guayusa/ 301
+https://www.thehippiescientist.net/herbs/agarikon https://thehippiescientist.net/herbs/agarikon/ 301
+https://www.thehippiescientist.net/herbs/corydalis/ https://thehippiescientist.net/herbs/corydalis/ 301
+https://www.thehippiescientist.net/herbs/sage/ https://thehippiescientist.net/herbs/sage/ 301
+https://www.thehippiescientist.net/herbs/lagerstroemia-speciosa/ https://thehippiescientist.net/herbs/lagerstroemia-speciosa/ 301
+https://www.thehippiescientist.net/herbs/tripterygium-wilfordii/ https://thehippiescientist.net/herbs/tripterygium-wilfordii/ 301
+https://www.thehippiescientist.net/compare/lions-mane-vs-alpha-gpc/ https://thehippiescientist.net/guides/compare/lions-mane-vs-alpha-gpc/ 301
+https://www.thehippiescientist.net/compare/caffeine-vs-l-theanine/ https://thehippiescientist.net/guides/compare/caffeine-vs-theanine/ 301
+https://www.thehippiescientist.net/best-supplements-for-fat-loss/ https://thehippiescientist.net/guides/best/supplements-for-fat-loss/ 301
+https://www.thehippiescientist.net/best-supplements-for-focus/ https://thehippiescientist.net/guides/focus/best-supplements-for-focus/ 301
+
 # Canonical: non-www
 https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 
