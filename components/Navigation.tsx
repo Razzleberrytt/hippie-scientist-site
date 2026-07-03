@@ -74,6 +74,7 @@ export function Navigation() {
               <Link
                 key={link.href}
                 href={toCanonicalHref(link.href)}
+                aria-current={isActive(link.href) ? 'page' : undefined}
                 className={`font-medium transition-colors ${
                   isActive(link.href)
                     ? 'font-semibold text-brand-800 underline underline-offset-[6px] decoration-brand-700/35 decoration-2 dark:text-[var(--text-primary)] dark:decoration-[var(--accent-teal)]/40'
@@ -149,6 +150,7 @@ export function Navigation() {
                   <Link
                     href={toCanonicalHref(link.href)}
                     onClick={closeMobile}
+                    aria-current={isActive(link.href) ? 'page' : undefined}
                     className={`block rounded-lg px-3 py-2.5 font-medium transition ${
                       isActive(link.href)
                         ? 'border-l-2 border-brand-700 bg-brand-50/60 pl-[10px] font-semibold text-brand-900 dark:border-[var(--accent-teal)] dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]'
@@ -164,6 +166,7 @@ export function Navigation() {
                           key={child.href}
                           href={toCanonicalHref(child.href)}
                           onClick={closeMobile}
+                          aria-current={isActive(child.href) ? 'page' : undefined}
                           className="block rounded-md px-3 py-2 text-sm font-medium text-ink/75 transition hover:bg-brand-50/60 hover:text-ink dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]"
                         >
                           {child.label}
