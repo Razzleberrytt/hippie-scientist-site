@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import JsonLd from '@/components/seo/JsonLd'
 import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, compactMetaTitle } from '../../../../src/lib/seo'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
@@ -95,6 +96,22 @@ export default function AshwagandhaForAnxietyPage() {
           <p className="text-xl text-muted-foreground">
             {DESCRIPTION}
           </p>
+
+          <figure className="mt-6">
+            <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+              <Image
+                src="/images/guides/ashwagandha-for-anxiety.jpg"
+                alt="Dried ashwagandha roots, leaves, and golden powder — an adaptogen used to reduce stress and anxiety"
+                width={1536}
+                height={1024}
+                priority
+                className="w-full h-auto"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm text-muted-foreground">
+              Ashwagandha (Withania somnifera) — an adaptogen with clinical evidence for lowering stress and anxiety.
+            </figcaption>
+          </figure>
         </div>
 
         {/* Affiliate Disclosure */}
