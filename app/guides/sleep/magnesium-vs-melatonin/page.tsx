@@ -146,6 +146,7 @@ export default function MagnesiumVsMelatoninGuidePage() {
                 alt="Decision flowchart for choosing magnesium vs melatonin"
                 width={784}
                 height={1176}
+                priority
                 className="w-full h-auto"
               />
             </div>
