@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -39,6 +40,22 @@ export default function KavaVsAlcoholPage() {
         <p className="text-lg leading-8 text-muted">
           Educational comparison of kava and alcohol through the lens of neuropharmacology, inhibitory signaling, stress-response systems, sedation, and harm reduction.
         </p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/kava-vs-alcohol.jpg"
+              alt="A cup of kava and kava root beside a glass of wine, compared for relaxation"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Kava vs alcohol — relaxation, risks, and the real trade-offs.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="grid gap-6 lg:grid-cols-2">

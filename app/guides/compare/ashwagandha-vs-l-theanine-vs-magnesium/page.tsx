@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -49,6 +50,22 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
           Ashwagandha is an adaptogen suited for chronic, daily tension. L-Theanine is an amino acid that excels at acute, situational stress.
           Magnesium glycinate is a mineral that addresses baseline physical relaxation and evening recovery.
         </p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/ashwagandha-vs-l-theanine-vs-magnesium.jpg"
+              alt="Ashwagandha root, green tea (L-theanine), and magnesium capsules compared"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Ashwagandha vs L-theanine vs magnesium — three different jobs.
+          </figcaption>
+        </figure>
       </section>
 
       {/* 3-Column Core Comparison Cards */}

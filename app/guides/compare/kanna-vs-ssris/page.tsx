@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -71,6 +72,22 @@ export default function KannaVsSSRIsPage() {
         <p className="text-lg leading-8 text-muted">
           Educational comparison of kanna and SSRI-related serotonergic systems through the lens of emotional processing, mood regulation, psychoactive neuropharmacology, and safety awareness.
         </p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/kanna-vs-ssris.jpg"
+              alt="Kanna (Sceletium tortuosum) herb beside prescription antidepressant tablets"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            Kanna vs SSRIs — an honest look at a very uneven comparison.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="grid gap-6 lg:grid-cols-2">
