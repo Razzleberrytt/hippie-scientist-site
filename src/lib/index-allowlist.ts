@@ -89,4 +89,11 @@ export const CURATED_INDEXABLE_COMPOUND_SLUGS = [
   'krill-oil',
   'pomegranate-extract',
   'panax-ginseng-extract',
+  'alpha-lipoic-acid',
+  'glycine',
+  'taurine',
+  'zinc',
+  'saffron-extract',
+  'creatine-beta-alanine',
+  'iron',
 ] as const
