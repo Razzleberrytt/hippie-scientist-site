@@ -1,4 +1,5 @@
 import { buildPageMetadata } from '../../../../src/lib/seo'
+import Image from 'next/image'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
@@ -39,6 +40,22 @@ export default function Page() {
         <p className="eyebrow-label">Peptide &amp; Compound Guide</p>
         <h1 className="mt-2 text-3xl font-semibold text-ink sm:text-4xl">TB-500 (Thymosin Beta-4): Benefits, Evidence, Legal Status, and Safety</h1>
         <p className="detail-reading mt-4 text-muted">Evidence-based overview of TB-500 — actin-binding mechanism, recovery/repair research, FDA compounding status update, and safety.</p>
+
+        <figure className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+            <Image
+              src="/images/guides/tb-500.jpg"
+              alt="A research peptide vial with a sterile syringe on a clinical surface"
+              width={1536}
+              height={1024}
+              priority
+              className="w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-center text-sm text-muted">
+            TB-500 — an educational, research-use-only overview.
+          </figcaption>
+        </figure>
       </section>
 
       <section className="rounded-2xl border border-rose-900/15 bg-rose-50/80 p-5 text-sm leading-6 text-rose-950">
