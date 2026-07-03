@@ -4,7 +4,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Ashwagandha vs L-Theanine vs Magnesium',
-  description: 'Evidence-informed 3-way comparison of ashwagandha, L-theanine, and magnesium for chronic tension, acute stress buffering, sleep latency, safety, and supplement selection.',
+  description: 'Ashwagandha, L-theanine, and magnesium compared for stress, sleep, and anxiety. Evidence-informed guide with dosing, safety, and stacking advice.',
   path: '/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/',
 })
 

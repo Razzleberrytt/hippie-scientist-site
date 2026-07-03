@@ -4,7 +4,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Melatonin vs Magnesium for Sleep: Which Works Better?',
-  description: 'Melatonin vs Magnesium for sleep — which works better, which is safer long-term, and how to take them together. Evidence-based comparison with dosing and timing guide.',
+  description: 'Melatonin vs magnesium for sleep — which works better, which is safer long-term, and how to take them together. Evidence-based comparison.',
   path: '/guides/compare/melatonin-vs-magnesium/',
 })
 

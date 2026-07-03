@@ -4,7 +4,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Curcumin vs Boswellia vs Omega-3 for Pain & Inflammation',
-  description: 'Evidence-informed 3-way comparison of curcumin, boswellia, and omega-3 (EPA/DHA) for joint pain, inflammatory discomfort, mechanism, onset, safety, and supplement selection.',
+  description: 'Curcumin, boswellia, and omega-3 compared for joint pain and inflammation. Evidence-informed guide with mechanism, onset, safety, and stacking advice.',
   path: '/guides/compare/curcumin-vs-boswellia-vs-omega-3/',
 })
 
