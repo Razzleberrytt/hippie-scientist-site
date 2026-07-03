@@ -13,6 +13,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
+import FAQSchema from '@/components/seo/FAQSchema'
 import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
@@ -269,6 +270,15 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
           </div>
         </div>
       </section>
+
+      <FAQSchema
+        pagePath="/guides/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/"
+        questions={[
+          { question: 'Why does melatonin cause morning grogginess?', answer: 'Melatonin has a short half-life (20-50 minutes), but higher doses (5+ mg) can leave residual levels above physiological range into the morning, causing daytime drowsiness. Using 0.3-1 mg and taking it 1-2 hours before bed reduces next-day grogginess.' },
+          { question: 'Does valerian root smell bad?', answer: 'Yes, valerian root has a strong, earthy, sometimes described as \'dirty sock\' smell due to valerenic acid and other volatile compounds. This is normal and does not indicate spoilage. Encapsulated forms minimize the odor.' },
+          { question: 'Can I combine magnesium and melatonin?', answer: 'Yes, magnesium and melatonin are a common and safe combination. Magnesium supports GABA activity and muscle relaxation, while melatonin signals sleep onset. Start low with melatonin (0.3-1 mg) and magnesium glycinate (200 mg) and evaluate tolerance before increasing.' },
+        ]}
+      />
 
       <EnhancedEmailCapture
         headline="Sleep Optimization &amp; Safety Guide"

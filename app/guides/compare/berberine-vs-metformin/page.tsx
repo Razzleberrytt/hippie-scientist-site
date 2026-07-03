@@ -4,7 +4,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Berberine vs Metformin',
-  description: 'Evidence-graded comparison of berberine and metformin for blood sugar management, insulin resistance, and metabolic health. Mechanisms, RCT data, safety, cost, and when to use each.',
+  description: 'Berberine vs metformin for blood sugar: evidence-graded comparison of efficacy, safety, drug interactions, and clinical context for metabolic health.',
   path: '/guides/compare/berberine-vs-metformin/',
 })
 
@@ -13,6 +13,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
+import FAQSchema from '@/components/seo/FAQSchema'
 import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
@@ -416,6 +417,16 @@ export default function BerberineVsMetforminPage() {
           </div>
         </div>
       </section>
+
+      <FAQSchema
+        pagePath="/guides/compare/berberine-vs-metformin/"
+        questions={[
+          { question: 'Is berberine as effective as metformin for blood sugar?', answer: 'In short-term head-to-head trials, berberine 1,500mg/day produced comparable HbA1c and fasting glucose reductions to metformin 1,500mg/day over 13 weeks. However, metformin has decades of long-term outcome data including proven reductions in cardiovascular events.' },
+          { question: 'Can I take berberine instead of metformin?', answer: 'Not without clinician guidance. If you are prescribed metformin for diagnosed T2D, substituting berberine on your own changes your treatment plan without accounting for your full medical history. Discuss it with your clinician first.' },
+          { question: 'Who is berberine a reasonable option for?', answer: 'Berberine is a reasonable OTC metabolic support option for people in the prediabetes range who want to support lifestyle changes, or those with insulin resistance seeking a supplement approach. It is not a replacement for clinical evaluation.' },
+          { question: 'Does berberine have side effects?', answer: 'Yes. GI effects (constipation, diarrhea, abdominal discomfort) are common, particularly at initiation. More importantly, berberine inhibits liver enzymes that metabolize many drugs (CYP3A4, CYP2D6), creating interaction risk. Pregnancy is a contraindication.' },
+        ]}
+      />
 
       <EnhancedEmailCapture
         headline="Metabolic supplement research — curated, not hyped"
