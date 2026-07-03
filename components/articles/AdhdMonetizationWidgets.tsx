@@ -148,7 +148,7 @@ export function AdhdComparisonCard({ slug }: { slug: string }) {
   }
 
   return (
-    <div className="mt-8 rounded-xl border border-brand-900/10 bg-[#fffdf7] p-5 shadow-sm">
+    <div className="mt-8 rounded-xl bg-white p-5 shadow-[0_1px_2px_rgba(13,23,18,0.06)]">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <h3 className="text-base font-bold text-ink">{cardTitle}</h3>
         <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2 py-0.5 text-xs font-bold text-brand-800">Quick Comparison</span>

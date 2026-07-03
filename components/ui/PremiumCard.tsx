@@ -32,7 +32,7 @@ export default function PremiumCard({
   const visibleTags = tags.map(formatDisplayLabel).filter(isClean).slice(0, 3)
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-card border border-brand-900/10 bg-[rgba(255,253,247,0.92)] p-6 shadow-[var(--soft-lift-shadow)] backdrop-blur-xl transition duration-300 motion-safe:hover:-translate-y-1 hover:border-brand-700/25 hover:bg-white hover:shadow-[var(--deep-lift-shadow)] sm:p-7">
+    <article className="group flex h-full flex-col overflow-hidden rounded-card bg-white p-6 shadow-[var(--soft-lift-shadow)] transition duration-300 motion-safe:hover:-translate-y-1 hover:bg-brand-50/30 hover:shadow-[var(--deep-lift-shadow)] sm:p-7">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="eyebrow text-brand-700">
           Evidence-informed profile
@@ -65,7 +65,7 @@ export default function PremiumCard({
         ) : null}
 
         {cleanBestFor ? (
-          <div className="mt-5 rounded-2xl border border-brand-900/10 bg-[rgba(251,246,233,0.85)] px-4 py-3">
+          <div className="mt-5 rounded-2xl bg-brand-50 px-4 py-3">
             <p className="text-sm leading-6 text-muted">
               <span className="font-semibold text-ink">Commonly explored for:</span> {cleanBestFor}
             </p>
