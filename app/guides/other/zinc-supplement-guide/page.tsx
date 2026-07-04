@@ -26,7 +26,9 @@ const FAQS = [
 const ZINC_REFS = [
   { n: 1, text: 'Wegmüller R, et al. (2014). Zinc bioavailability from citrate, gluconate, and oxide. J Nutr, 144(2): 132-136.', url: 'https://pubmed.ncbi.nlm.nih.gov/24259556/' },
   { n: 2, text: 'Hemilä H. (2017). Zinc lozenges and the common cold: a meta-analysis. JRSM Open, 8(5): 2054270417694291.', url: 'https://pubmed.ncbi.nlm.nih.gov/28515951/' },
-  { n: 3, text: 'Prasad AS. (2013). Discovery of human zinc deficiency. J Am Coll Nutr, 28(3): 257-265.', url: 'https://pubmed.ncbi.nlm.nih.gov/20150599/' },
+  { n: 3, text: 'Prasad AS. (2013). Discovery of human zinc deficiency. J Am Coll Nutr, 28(3): 257-265.', url: 'https://pubmed.ncbi.nlm.nih.gov/20150599/' },  { n: 4, text: 'Hemila H. (2011). Zinc lozenges and the common cold. Open Respir Med J, 5: 51-58.', url: 'https://pubmed.ncbi.nlm.nih.gov/21769305/' },
+  { n: 5, text: 'Prasad AS. (2013). Discovery of human zinc deficiency. J Am Coll Nutr, 28(3): 257-265.', url: 'https://pubmed.ncbi.nlm.nih.gov/20150599/' },
+
 ]
 
 export default function ZincPage() {
@@ -36,7 +38,7 @@ export default function ZincPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Zinc Supplements' }]} />
       <FAQSchema pagePath="/guides/other/zinc-supplement-guide/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 3 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Zinc: The Essential Mineral Most People Get Wrong</h1><p className="text-lg leading-8 text-muted">Zinc is required for over 300 enzymatic reactions — immunity, DNA synthesis, wound healing, and testosterone production. Yet 17% of the global population is zinc deficient [3], and most supplements use the wrong form at the wrong dose. Here&rsquo;s what you need to know.</p>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 5 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Zinc: The Essential Mineral Most People Get Wrong</h1><p className="text-lg leading-8 text-muted">Zinc is required for over 300 enzymatic reactions — immunity, DNA synthesis, wound healing, and testosterone production. Yet 17% of the global population is zinc deficient [3], and most supplements use the wrong form at the wrong dose. Here&rsquo;s what you need to know.</p>
         <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/zinc-supplement-guide.jpg" alt="Zinc capsules and zinc-rich foods — pumpkin seeds and oysters" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Zinc — the right form, at the right dose, for the right reason.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>Take 15-25 mg zinc picolinate or citrate daily with food, paired with 1-2 mg copper if taking for more than a few weeks.</strong> Avoid zinc oxide (poor absorption). For colds: zinc acetate or gluconate lozenges at 75-100 mg/day in divided doses, started within 24 hours of symptoms — reduces duration by ~33% [2]. Do not take on an empty stomach (nausea). Do not combine with high-calcium meals or iron supplements (competes for absorption). Zinc is one of the most evidence-supported supplements — when taken in the right form at the right dose for the right reason.</p></section>

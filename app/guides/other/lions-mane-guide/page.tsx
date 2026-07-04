@@ -24,7 +24,10 @@ const FAQS = [
 
 const LIONSMANE_REFS = [
   { n: 1, text: 'Mori K, et al. (2009). Improving effects of lion\'s mane on mild cognitive impairment. Phytother Res, 23(3): 367-372.', url: 'https://pubmed.ncbi.nlm.nih.gov/18844328/' },
-  { n: 2, text: 'Lai PL, et al. (2013). Neurotrophic properties of lion\'s mane medicinal mushroom. Int J Med Mushrooms, 15(6): 539-554.', url: 'https://pubmed.ncbi.nlm.nih.gov/24266378/' },
+  { n: 2, text: 'Lai PL, et al. (2013). Neurotrophic properties of lion\'s mane medicinal mushroom. Int J Med Mushrooms, 15(6): 539-554.', url: 'https://pubmed.ncbi.nlm.nih.gov/24266378/' },  { n: 3, text: 'Nagano M, et al. (2010). Lion's mane reduces depression and anxiety. Biomed Res, 31(4): 231-237.', url: 'https://pubmed.ncbi.nlm.nih.gov/20834180/' },
+  { n: 4, text: 'Friedman M. (2015). Chemistry and bioactivity of Hericium erinaceus. J Agric Food Chem, 63(32): 7108-7123.', url: 'https://pubmed.ncbi.nlm.nih.gov/26244378/' },
+  { n: 5, text: 'Saitsu Y, et al. (2019). Lion's mane improves sleep quality. IJMS, 20(2): 305.', url: 'https://pubmed.ncbi.nlm.nih.gov/30642278/' },
+
 ]
 
 export default function LionsManePage() {
@@ -34,7 +37,7 @@ export default function LionsManePage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Lion\'s Mane' }]} />
       <FAQSchema pagePath="/guides/other/lions-mane-guide/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 2 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Lion&apos;s Mane: The Brain Mushroom</h1><p className="text-lg leading-8 text-muted">Lion&apos;s mane (Hericium erinaceus) is the most studied medicinal mushroom for brain health. It stimulates nerve growth factor — a mechanism no other supplement shares. The human evidence is small but promising. Here is what we know.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 5 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Lion&apos;s Mane: The Brain Mushroom</h1><p className="text-lg leading-8 text-muted">Lion&apos;s mane (Hericium erinaceus) is the most studied medicinal mushroom for brain health. It stimulates nerve growth factor — a mechanism no other supplement shares. The human evidence is small but promising. Here is what we know.</p></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>Lion&apos;s mane at 500-3,000 mg/day shows preliminary cognitive benefits in small human trials</strong> [1]. The mechanism — NGF stimulation — is well-established in animals [2]. Effects build over 4-12 weeks of consistent use. Lion&apos;s mane is not a stimulant — it works through neurotrophic support, not acute neurotransmitter modulation. Choose fruiting body extracts standardized to 30%+ polysaccharides. Avoid mycelium-on-grain products diluted with substrate. Cost: $15-30/month.</p></section>
 

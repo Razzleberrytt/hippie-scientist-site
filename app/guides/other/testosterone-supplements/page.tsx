@@ -27,7 +27,9 @@ const TESTO_REFS = [
   { n: 1, text: 'Lopresti AL, et al. (2019). Ashwagandha and testosterone. Am J Mens Health, 13(2): 1557988319835985.', url: 'https://pubmed.ncbi.nlm.nih.gov/30854916/' },
   { n: 2, text: 'Leproult R, Van Cauter E. (2011). Sleep deprivation and testosterone. JAMA, 305(21): 2173-2174.', url: 'https://pubmed.ncbi.nlm.nih.gov/21632481/' },
   { n: 3, text: 'Prasad AS, et al. (1996). Zinc and testosterone. Nutrition, 12(5): 344-348.', url: 'https://pubmed.ncbi.nlm.nih.gov/8875519/' },
-  { n: 4, text: 'Pilz S, et al. (2011). Vitamin D and testosterone. Horm Metab Res, 43(3): 223-225.', url: 'https://pubmed.ncbi.nlm.nih.gov/21154195/' },
+  { n: 4, text: 'Pilz S, et al. (2011). Vitamin D and testosterone. Horm Metab Res, 43(3): 223-225.', url: 'https://pubmed.ncbi.nlm.nih.gov/21154195/' },  { n: 5, text: 'Prasad AS, et al. (1996). Zinc status and serum testosterone. Nutrition, 12(5): 344-348.', url: 'https://pubmed.ncbi.nlm.nih.gov/8875519/' },
+  { n: 6, text: 'Pilz S, et al. (2011). Vitamin D and testosterone. Horm Metab Res, 43(3): 223-225.', url: 'https://pubmed.ncbi.nlm.nih.gov/21154195/' },
+
 ]
 
 export default function TestosteronePage() {
@@ -37,7 +39,7 @@ export default function TestosteronePage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Testosterone Supplements' }]} />
       <FAQSchema pagePath="/guides/other/testosterone-supplements/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 4 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Testosterone Supplements: What Actually Works</h1><p className="text-lg leading-8 text-muted">The "test booster" industry is a $2 billion market built on proprietary blends, before-and-after photos, and ingredients dosed at 5% of studied levels. The reality: a few supplements modestly support testosterone in deficient men. Most do nothing. Here&rsquo;s what the evidence shows — and what is just good marketing.</p>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 6 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Testosterone Supplements: What Actually Works</h1><p className="text-lg leading-8 text-muted">The "test booster" industry is a $2 billion market built on proprietary blends, before-and-after photos, and ingredients dosed at 5% of studied levels. The reality: a few supplements modestly support testosterone in deficient men. Most do nothing. Here&rsquo;s what the evidence shows — and what is just good marketing.</p>
         <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/testosterone-supplements.jpg" alt="Men's health supplements — zinc, ashwagandha, vitamin D, magnesium" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Testosterone support — evidence over marketing.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted">The supplements with evidence for testosterone support are: <strong>zinc</strong> (corrects deficiency — no benefit if levels normal [3]), <strong>vitamin D</strong> (corrects deficiency — strong correlation with T levels [4]), <strong>ashwagandha</strong> (14-17% increase in stressed men [1]), and <strong>magnesium</strong> (increases free T by reducing SHBG binding). The biggest factors are lifestyle: sleep, body fat, and resistance training [2]. Most commercial "test boosters" combine underdosed ingredients in a proprietary blend — you cannot know if you are getting studied doses. Buy individual supplements at studied doses instead.</p></section>

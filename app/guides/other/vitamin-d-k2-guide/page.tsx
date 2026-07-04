@@ -28,7 +28,9 @@ const VITD_REFS = [
   { n: 2, text: 'Bischoff-Ferrari HA, et al. (2020). Vitamin D supplementation and musculoskeletal health. JAMA, 324(18): 1855-1868.', url: 'https://pubmed.ncbi.nlm.nih.gov/33170239/' },
   { n: 3, text: 'Schwalfenberg GK. (2017). Vitamins K1 and K2: the emerging roles. J Nutr Metab, 2017: 6254836.', url: 'https://pubmed.ncbi.nlm.nih.gov/28698822/' },
   { n: 4, text: 'Martineau AR, et al. (2017). Vitamin D supplementation to prevent acute respiratory infections. BMJ, 356: i6583.', url: 'https://pubmed.ncbi.nlm.nih.gov/28202713/' },
-  { n: 5, text: 'Knapen MH, et al. (2013). Menaquinone-7 supplementation improves arterial stiffness in postmenopausal women. Thromb Haemost, 113(5): 1135-1144.', url: 'https://pubmed.ncbi.nlm.nih.gov/25608625/' },
+  { n: 5, text: 'Knapen MH, et al. (2013). Menaquinone-7 supplementation improves arterial stiffness in postmenopausal women. Thromb Haemost, 113(5): 1135-1144.', url: 'https://pubmed.ncbi.nlm.nih.gov/25608625/' },  { n: 6, text: 'Martineau AR, et al. (2017). Vitamin D for respiratory infections. BMJ, 356: i6583.', url: 'https://pubmed.ncbi.nlm.nih.gov/28202713/' },
+  { n: 7, text: 'Knapen MH, et al. (2013). MK-7 improves arterial stiffness. Thromb Haemost, 113(5): 1135-1144.', url: 'https://pubmed.ncbi.nlm.nih.gov/25608625/' },
+
 ]
 
 export default function VitaminDK2Page() {
@@ -38,7 +40,7 @@ export default function VitaminDK2Page() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Vitamin D + K2' }]} />
       <FAQSchema pagePath="/guides/other/vitamin-d-k2-guide/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 5 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Vitamin D + K2: The Most Important Vitamin Pairing</h1><p className="text-lg leading-8 text-muted">Vitamin D deficiency affects over 40% of the US population [1]. Vitamin K2 deficiency is harder to measure but likely equally widespread. Together, they regulate calcium metabolism — D pulls calcium in, K2 directs where it goes. Most people taking vitamin D are missing the K2 piece. Here&rsquo;s why it matters.</p>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 7 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Vitamin D + K2: The Most Important Vitamin Pairing</h1><p className="text-lg leading-8 text-muted">Vitamin D deficiency affects over 40% of the US population [1]. Vitamin K2 deficiency is harder to measure but likely equally widespread. Together, they regulate calcium metabolism — D pulls calcium in, K2 directs where it goes. Most people taking vitamin D are missing the K2 piece. Here&rsquo;s why it matters.</p>
         <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/vitamin-d-k2-guide.jpg" alt="Vitamin D3 softgels and K2 capsules with sunlight" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Vitamin D + K2 — the most important vitamin pairing.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>Take 2,000-5,000 IU vitamin D3 + 90-200 mcg vitamin K2 (MK-7) daily with a fat-containing meal.</strong> This is the most evidence-based general recommendation. Test 25(OH)D levels annually — target 40-60 ng/mL. Vitamin D is well-studied for bone health, immune function, and respiratory infection prevention [2,4]. K2 is less studied but has strong mechanistic rationale and emerging evidence for cardiovascular and bone health [3,5]. The combination costs $5-15/month and addresses two of the most common nutritional deficiencies.</p></section>

@@ -26,7 +26,10 @@ const FAQS = [
 const ANTI_INFLAM_REFS = [
   { n: 1, text: 'Daily JW, et al. (2016). Efficacy of turmeric extracts and curcumin for arthritis. J Med Food, 19(8): 717-729.', url: 'https://pubmed.ncbi.nlm.nih.gov/27533649/' },
   { n: 2, text: 'Calder PC. (2017). Omega-3 fatty acids and inflammatory processes. Biochem Soc Trans, 45(5): 1105-1115.', url: 'https://pubmed.ncbi.nlm.nih.gov/28900017/' },
-  { n: 3, text: 'Mashhadi NS, et al. (2013). Ginger and inflammation. Int J Prev Med, 4(Suppl 1): S36-S42.', url: 'https://pubmed.ncbi.nlm.nih.gov/23717767/' },
+  { n: 3, text: 'Mashhadi NS, et al. (2013). Ginger and inflammation. Int J Prev Med, 4(Suppl 1): S36-S42.', url: 'https://pubmed.ncbi.nlm.nih.gov/23717767/' },  { n: 4, text: 'Mashhadi NS, et al. (2013). Ginger and inflammation. Int J Prev Med, 4(S1): S36-S42.', url: 'https://pubmed.ncbi.nlm.nih.gov/23717767/' },
+  { n: 5, text: 'Kimmatkar N, et al. (2003). Boswellia for knee OA. Phytomedicine, 10(1): 3-7.', url: 'https://pubmed.ncbi.nlm.nih.gov/12622457/' },
+  { n: 6, text: 'Li Y, et al. (2015). Quercetin and inflammation. Nutrients, 8(3): 167.', url: 'https://pubmed.ncbi.nlm.nih.gov/26999193/' },
+
 ]
 
 export default function AntiInflammatoryPage() {
@@ -36,7 +39,7 @@ export default function AntiInflammatoryPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Anti-Inflammatory Supplements' }]} />
       <FAQSchema pagePath="/guides/other/anti-inflammatory-supplements/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 3 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Anti-Inflammatory Supplements: What the Evidence Shows</h1><p className="text-lg leading-8 text-muted">Chronic inflammation underlies nearly every modern disease — cardiovascular, metabolic, neurodegenerative, and autoimmune. The supplement industry has responded with dozens of "anti-inflammatory" products. Some have evidence. Most don&rsquo;t. Here&rsquo;s the evidence-graded comparison of the five best-studied options.</p>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 6 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Anti-Inflammatory Supplements: What the Evidence Shows</h1><p className="text-lg leading-8 text-muted">Chronic inflammation underlies nearly every modern disease — cardiovascular, metabolic, neurodegenerative, and autoimmune. The supplement industry has responded with dozens of "anti-inflammatory" products. Some have evidence. Most don&rsquo;t. Here&rsquo;s the evidence-graded comparison of the five best-studied options.</p>
         <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/anti-inflammatory-supplements.jpg" alt="Turmeric root, omega-3 capsules, and ginger — anti-inflammatory supplements" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Anti-inflammatory supplements — evidence-graded, from strongest to weakest.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted">The best evidence supports <strong>omega-3 fatty acids</strong> (broadest anti-inflammatory evidence, cardiovascular and joint outcomes [2]), <strong>curcumin</strong> (strongest joint-specific evidence, needs bioavailability enhancement [1]), and <strong>ginger</strong> (muscle soreness and menstrual pain [3]). Boswellia has OA-specific evidence. Quercetin is mechanistically interesting but human evidence is limited. No supplement replaces the anti-inflammatory effect of weight loss, exercise, sleep, and a whole-foods diet. Start with omega-3 and curcumin — they cover the most ground with the strongest evidence.</p></section>
