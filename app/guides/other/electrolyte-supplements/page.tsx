@@ -17,11 +17,16 @@ export const metadata: Metadata = buildPageMetadata({
 const FAQS = [
   { question: 'Do I need electrolyte supplements?', answer: 'Most people do not. The AIS (Australian Institute of Sport) classifies electrolyte supplements as a sports food for specific use cases: prolonged exercise &gt;90 min, extreme heat, or documented high sodium losses [1]. For healthy adults with normal diets and moderate activity, kidneys regulate electrolyte balance effectively [2]. Supplementation is primarily indicated for endurance athletes, outdoor laborers in heat, and during illness with vomiting/diarrhea.' },
   { question: 'Is LMNT worth it?', answer: 'For heavy sweaters and endurance athletes — reasonable. LMNT provides 1,000 mg sodium, 200 mg potassium, and 60 mg magnesium at ~$1.50/serving. The 5:1 sodium-to-potassium ratio reflects sweat composition [3]. For everyone else, salt your food and eat potassium-rich foods (bananas, potatoes, spinach) — same electrolytes at 1% of the cost.' },
-  { question: 'Can you consume too many electrolytes?', answer: 'Yes. Excessive sodium increases blood pressure in sodium-sensitive individuals [2]. Hyperkalemia (excess potassium) can cause dangerous cardiac arrhythmias, especially in kidney disease. The Tolerable Upper Intake Level for sodium is 2,300 mg/day [2]. One LMNT packet is 1,000 mg. Don\'t consume multiple packets daily on top of a normal diet.' },
-  { question: 'Powders vs sports drinks vs DIY?', answer: 'For exercise &gt;60 min, some carbohydrate (sports drinks) benefits performance [1]. For shorter exercise or everyday use, sugar-free powders are preferable. DIY (1/4 tsp salt + 1/8 tsp potassium chloride in water with lemon) costs ~$0.05/serving — same electrolyte profile as commercial products [4].' },
-  { question: 'What ratio is best?', answer: 'Sodium dominates sweat losses. A 3:1 to 5:1 sodium-to-potassium ratio reflects sweat composition [3]. LMNT uses 5:1 (1,000:200 mg). WHO oral rehydration solution: ~2:1. For athletes losing 2+ L sweat/hr, more sodium may be needed. General guidance: 0.5-0.7 g sodium/L fluid during exercise [1].' },  { n: 3, text: 'Baker LB. (2017). Sweating rate and sweat sodium in athletes. Sports Med, 47(S1): 65-77.', url: 'https://pubmed.ncbi.nlm.nih.gov/28332115/' },
-  { n: 6, text: 'Phinney SD, et al. (1983). Chronic ketosis without caloric restriction. Metabolism, 32(8): 769-776.', url: 'https://pubmed.ncbi.nlm.nih.gov/6865778/' },
+];
 
+const ELECTROLYTE_REFS = [
+  { n: 1, text: 'Australian Institute of Sport. Electrolyte Supplement fact sheet.', url: 'https://www.ausport.gov.au/ais/nutrition/supplements/group_a/sports-foods2/electrolyte-supplement2' },
+  { n: 2, text: 'IOM. (2005). DRIs for Water, Potassium, Sodium, Chloride, and Sulfate.', url: 'https://pubmed.ncbi.nlm.nih.gov/15883093/' },
+  { n: 3, text: 'Baker LB. (2017). Sweating rate and sweat sodium. Sports Med, 47(S1): 65-77.', url: 'https://pubmed.ncbi.nlm.nih.gov/28332115/' },
+  { n: 4, text: 'Butler-Dawson J, et al. (2020). Electrolyte beverage in Guatemalan workers. J Occup Environ Med, 62(12): e739-747.', url: 'https://pubmed.ncbi.nlm.nih.gov/33298780/' },
+  { n: 5, text: 'Phinney SD, et al. (1983). Chronic ketosis without caloric restriction. Metabolism, 32(8): 769-776.', url: 'https://pubmed.ncbi.nlm.nih.gov/6865778/' },
+  { n: 6, text: 'Francisco R, et al. (2026). Athlete hydration and long-term health. Sports Med.', url: 'https://pubmed.ncbi.nlm.nih.gov/42020895/' },
+]
 ]
 
 type RefProps = { n: number; text: string; url?: string }

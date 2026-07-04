@@ -20,9 +20,18 @@ const FAQS = [
   { question: 'Which collagen type is best?', answer: 'Types I+III (bovine, marine) for skin and bone at 2.5-10 g/day [1,2]. Type II (chicken sternum) for joint cartilage at 40 mg/day [3]. Marine collagen may have 1.5× better absorption than bovine [5] but costs more. Most multi-collagen products contain sub-therapeutic doses of each type.' },
   { question: 'Is collagen just overpriced protein?', answer: 'Partially. Collagen lacks tryptophan (incomplete protein) and is inferior to whey for muscle protein synthesis [6]. However, its unique amino acid profile (25% glycine, 12% proline) may stimulate fibroblast collagen synthesis in ways general protein does not [1,7]. The skin/joint evidence is specific to collagen, not just protein. Value depends on your goals.' },
   { question: 'Can I get collagen from bone broth?', answer: 'Bone broth collagen content is unpredictable — one study found commercial broths ranged from undetectable to 5 g/serving [8]. Supplements provide standardized doses matching clinical trial protocols. Bone broth is a healthy food but not a reliable substitute for studied collagen doses.' },
-  { n: 6, text: 'Alcock RD, et al. (2019). Plasma amino acids after bovine and marine collagen. Front Nutr, 6: 140.', url: '' },
-  { n: 8, text: 'ConsumerLab.com. (2023). Collagen Supplements Review: per-gram cost varies 350x.', url: 'https://www.consumerlab.com/reviews/collagen-supplements-review/collagen/' },
+];
 
+const COLLAGEN_REFS = [
+  { n: 1, text: 'de Miranda RB, et al. (2021). Hydrolyzed collagen on skin aging: meta-analysis. Int J Dermatol, 60(12): 1449-1461.', url: 'https://pubmed.ncbi.nlm.nih.gov/34617276/' },
+  { n: 2, text: 'Choi FD, et al. (2019). Oral collagen: systematic review. J Drugs Dermatol, 18(1): 9-16.', url: 'https://pubmed.ncbi.nlm.nih.gov/30681787/' },
+  { n: 3, text: 'Crowley DC, et al. (2009). Undenatured type II collagen in knee OA. Int J Med Sci, 6(6): 312-321.', url: 'https://pubmed.ncbi.nlm.nih.gov/19847319/' },
+  { n: 4, text: 'Bello A, Oesser S. (2006). Collagen hydrolysate for joint disorders. Curr Med Res Opin, 22(11): 2221-2232.', url: 'https://pubmed.ncbi.nlm.nih.gov/17076983/' },
+  { n: 5, text: 'Alcock RD, et al. (2019). Plasma amino acids after collagen. Front Nutr, 6: 140.', url: '' },
+  { n: 6, text: 'ConsumerLab.com. (2023). Collagen Supplements Review.', url: 'https://www.consumerlab.com/reviews/collagen-supplements-review/collagen/' },
+  { n: 7, text: 'König D, et al. (2018). Collagen peptides and bone density. Nutrients, 10(1): 97.', url: 'https://pubmed.ncbi.nlm.nih.gov/29337906/' },
+  { n: 8, text: 'Oikawa SY, et al. (2019). Collagen peptide with resistance training. Br J Nutr, 122(8): 889-898.', url: 'https://pubmed.ncbi.nlm.nih.gov/31294236/' },
+]
 ]
 
 type RefProps = { n: number; text: string; url?: string }
