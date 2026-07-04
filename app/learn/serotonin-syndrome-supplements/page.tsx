@@ -101,7 +101,7 @@ export default function SerotoninSyndromeArticle() {
       <section className="mb-10">
         <h2 className="text-2xl font-bold text-ink mb-4">The 18 flagged entities</h2>
         <div className="overflow-x-auto rounded-xl border border-brand-900/10">
-          <table className="min-w-full text-sm">
+          <table className="min-w-[560px] text-sm">
             <thead className="bg-brand-50/60">
               <tr>
                 <th className="px-4 py-3 text-left font-semibold text-ink">Entity</th>

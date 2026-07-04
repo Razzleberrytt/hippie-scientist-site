@@ -168,7 +168,7 @@ export default function BestMagnesiumSupplementsForAdhdPage() {
           .
         </p>
         <div className='mt-5 overflow-x-auto rounded-2xl border border-brand-900/10 bg-white'>
-          <table className='min-w-full text-left text-sm'>
+          <table className='min-w-[1000px] text-left text-sm'>
             <thead className='bg-brand-50/70 text-xs font-bold uppercase tracking-[0.14em] text-muted'>
               <tr>
                 <th className='px-4 py-3'>Rank</th>
@@ -229,7 +229,7 @@ export default function BestMagnesiumSupplementsForAdhdPage() {
           <AffiliateDisclosure variant='compact' />
         </div>
         <div className='mt-5 overflow-x-auto rounded-2xl border border-brand-900/10 bg-white'>
-          <table className='min-w-full text-left text-sm'>
+          <table className='min-w-[880px] text-left text-sm'>
             <thead className='bg-brand-50/70 text-xs font-bold uppercase tracking-[0.14em] text-muted'>
               <tr>
                 <th className='px-4 py-3'>Name</th>

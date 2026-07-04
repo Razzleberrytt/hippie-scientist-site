@@ -120,7 +120,7 @@ export default function BerberineVsMetforminPage() {
         <p className="eyebrow-label">Fast Decision</p>
         <h2 className="text-3xl font-semibold tracking-tight text-ink">Which one makes sense for you?</h2>
         <div className="overflow-x-auto">
-          <table className="w-full text-sm text-left">
+          <table className="w-full min-w-[560px] text-sm text-left">
             <thead className="text-ink">
               <tr className="border-b border-black/10">
                 <th className="py-3 pr-4 font-semibold">Factor</th>

@@ -140,7 +140,7 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
         <p className="eyebrow-label">Decision Table</p>
         <h2 className="text-3xl font-semibold tracking-tight text-ink">Head-to-Head Comparison</h2>
         <div className="overflow-x-auto">
-          <table className="w-full text-sm text-left border-collapse">
+          <table className="w-full min-w-[720px] text-sm text-left border-collapse">
             <thead className="text-ink">
               <tr className="border-b border-black/10">
                 <th className="py-3 pr-4 font-bold uppercase tracking-wider text-xs">Factor</th>

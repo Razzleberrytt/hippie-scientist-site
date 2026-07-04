@@ -47,7 +47,7 @@ export default function NMNGuidePage() {
       </section>
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">NMN vs NR vs Niacin compared</h2>
-        <div className="overflow-x-auto"><table className="min-w-full text-sm"><thead><tr className="border-b"><th className="text-left py-3 pr-4">Factor</th><th className="text-left py-3 pr-4">NMN</th><th className="text-left py-3 pr-4">NR</th><th className="text-left py-3">Niacin (B3)</th></tr></thead><tbody className="text-muted">
+        <div className="overflow-x-auto"><table className="min-w-[720px] text-sm"><thead><tr className="border-b"><th className="text-left py-3 pr-4">Factor</th><th className="text-left py-3 pr-4">NMN</th><th className="text-left py-3 pr-4">NR</th><th className="text-left py-3">Niacin (B3)</th></tr></thead><tbody className="text-muted">
           <tr className="border-b"><td className="py-3 pr-4 font-medium text-ink">NAD+ pathway</td><td className="py-3 pr-4">Direct (1 step) [7]</td><td className="py-3 pr-4">2-step conversion [7]</td><td className="py-3">Preiss-Handler (inefficient)</td></tr>
           <tr className="border-b"><td className="py-3 pr-4 font-medium text-ink">Human trials</td><td className="py-3 pr-4">10+ small RCTs</td><td className="py-3 pr-4">15+ RCTs</td><td className="py-3">Decades of safety data</td></tr>
           <tr className="border-b"><td className="py-3 pr-4 font-medium text-ink">Effective dose</td><td className="py-3 pr-4">250-500 mg/day [2,4]</td><td className="py-3 pr-4">300-1000 mg/day</td><td className="py-3">15-500 mg/day</td></tr>

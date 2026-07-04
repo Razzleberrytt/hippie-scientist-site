@@ -160,7 +160,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
         <p className="eyebrow-label">Fast Decision</p>
         <h2 className="text-3xl font-semibold tracking-tight text-ink">Which one fits your sleep problem?</h2>
         <div className="overflow-x-auto">
-          <table className="w-full text-sm text-left">
+          <table className="w-full min-w-[880px] text-sm text-left">
             <thead className="text-ink">
               <tr className="border-b border-black/10">
                 <th className="py-3 pr-3 font-semibold">Sleep Problem</th>
