@@ -131,6 +131,7 @@ export default function WhyIndividualVariabilityMattersPage() {
           ))}
         </div>
       </section>
+      <References refs={WHY_INDIVIDUAL_VARIABILITY_MATTERS_REFS} />
     </div>
   )
 }

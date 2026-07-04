@@ -85,6 +85,7 @@ export default function HarmReductionPage() {
           </Link>
         ))}
       </section>
+      <References refs={HARM_REDUCTION_REFS} />
     </div>
   )
 }

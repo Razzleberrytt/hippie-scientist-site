@@ -125,6 +125,7 @@ export default function SleepMentalHealthPage() {
           },
         ]}
       />
+      <References refs={WHY_SLEEP_MATTERS_FOR_MENTAL_HEALTH_REFS} />
     </div>
   )
 }

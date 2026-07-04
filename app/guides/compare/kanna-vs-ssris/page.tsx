@@ -199,6 +199,7 @@ export default function KannaVsSSRIsPage() {
           </Link>
         </div>
       </section>
+      <References refs={KANNA_VS_SSRIS_REFS} />
     </div>
   )
 }

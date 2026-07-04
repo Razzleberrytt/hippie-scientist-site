@@ -152,6 +152,7 @@ export default function Page() {
 
       </div>
     </div>
+    <References refs={TB_500_REFS} />
     </ArticleLayout>
   )
 }

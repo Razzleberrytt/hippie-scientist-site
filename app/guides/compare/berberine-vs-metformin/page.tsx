@@ -520,6 +520,7 @@ export default function BerberineVsMetforminPage() {
         name={berberineProducts[0]?.title}
         href={berberineProducts[0]?.affiliateUrl || '#'}
       />
+      <References refs={BERBERINE_VS_METFORMIN_REFS} />
     </div>
   )
 }

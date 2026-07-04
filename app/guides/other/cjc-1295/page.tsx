@@ -152,6 +152,7 @@ export default function Page() {
 
       </div>
     </div>
+    <References refs={CJC_1295_REFS} />
     </ArticleLayout>
   )
 }

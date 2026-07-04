@@ -133,6 +133,7 @@ export default function WhyFatigueIsBiologicallyComplexPage() {
           ))}
         </div>
       </section>
+      <References refs={WHY_FATIGUE_IS_BIOLOGICALLY_COMPLEX_REFS} />
     </div>
   )
 }

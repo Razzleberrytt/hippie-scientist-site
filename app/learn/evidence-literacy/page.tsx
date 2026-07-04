@@ -181,6 +181,7 @@ export default function EvidenceLiteracyPage() {
             ))}
           </div>
         </section>
+        <References refs={EVIDENCE_LITERACY_REFS} />
       </EducationPageLayout>
     </>
   )

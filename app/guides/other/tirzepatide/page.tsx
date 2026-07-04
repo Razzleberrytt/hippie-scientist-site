@@ -145,6 +145,7 @@ export default function Page() {
 
       </div>
     </div>
+    <References refs={TIRZEPATIDE_REFS} />
     </ArticleLayout>
   )
 }

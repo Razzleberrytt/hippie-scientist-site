@@ -96,6 +96,7 @@ export default function ReadScientificStudiesPage() {
           'Publication bias and selective reporting may affect interpretation quality.',
         ]}
       />
+      <References refs={HOW_TO_READ_SCIENTIFIC_STUDIES_REFS} />
     </div>
   )
 }

@@ -85,6 +85,7 @@ export default function HerbalVsPharmaPage() {
           </Link>
         ))}
       </section>
+      <References refs={HOW_HERBAL_PSYCHOACTIVES_DIFFER_FROM_PHARMACEUTICALS_REFS} />
     </div>
   )
 }

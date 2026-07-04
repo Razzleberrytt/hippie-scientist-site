@@ -86,6 +86,7 @@ export default function EvidenceHierarchyPage() {
           },
         ]}
       />
+      <References refs={EVIDENCE_HIERARCHY_REFS} />
     </div>
   )
 }

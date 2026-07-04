@@ -128,6 +128,7 @@ export default function MelatoninVsMagnesiumPage() {
         name={revenueProducts[0]?.title}
         href={revenueProducts[0]?.affiliateUrl || '#'}
       />
+      <References refs={MELATONIN_VS_MAGNESIUM_REFS} />
     </div>
   )
 }

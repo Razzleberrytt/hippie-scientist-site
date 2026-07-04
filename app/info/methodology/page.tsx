@@ -185,6 +185,7 @@ export default function MethodologyPage() {
       </section>
 
       <SafetyDisclaimerBox />
+      <References refs={METHODOLOGY_REFS} />
     </div>
   )
 }

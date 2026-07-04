@@ -83,6 +83,7 @@ export default function GlutamatePathwayPage() {
           </Link>
         ))}
       </section>
+      <References refs={GLUTAMATE_REFS} />
     </div>
   )
 }

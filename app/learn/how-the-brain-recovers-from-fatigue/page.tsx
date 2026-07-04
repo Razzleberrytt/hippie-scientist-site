@@ -173,6 +173,7 @@ export default function FatigueRecoveryPage() {
           },
         ]}
       />
+      <References refs={HOW_THE_BRAIN_RECOVERS_FROM_FATIGUE_REFS} />
     </div>
   )
 }

@@ -131,6 +131,7 @@ export default function WhyNeuroscienceIsDifficultPage() {
           ))}
         </div>
       </section>
+      <References refs={WHY_NEUROSCIENCE_IS_DIFFICULT_REFS} />
     </div>
   )
 }

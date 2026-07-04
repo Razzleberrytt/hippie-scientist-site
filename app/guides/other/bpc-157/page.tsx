@@ -160,6 +160,7 @@ export default function Page() {
 
       </div>
     </div>
+    <References refs={BPC_157_REFS} />
     </ArticleLayout>
   )
 }

@@ -162,6 +162,7 @@ export default function StressAndCognitionContinuityPage() {
         title='Continue exploring recovery-oriented neuroscience'
         systems={relatedSystems}
       />
+      <References refs={STRESS_AND_COGNITION_CONTINUITY_REFS} />
     </div>
   )
 }

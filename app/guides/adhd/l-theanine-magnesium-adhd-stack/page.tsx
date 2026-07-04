@@ -494,6 +494,7 @@ export default function LTheanineMagnesiumAdhdStackPage() {
           ← Back to Articles
         </Link>
       </div>
+      <References refs={L_THEANINE_MAGNESIUM_ADHD_STACK_REFS} />
     </article>
   )
 }

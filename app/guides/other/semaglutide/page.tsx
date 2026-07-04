@@ -149,6 +149,7 @@ export default function Page() {
 
       </div>
     </div>
+    <References refs={SEMAGLUTIDE_REFS} />
     </ArticleLayout>
   )
 }

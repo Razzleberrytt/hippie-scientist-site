@@ -83,6 +83,7 @@ export default function DopaminePathwayPage() {
           </Link>
         ))}
       </section>
+      <References refs={DOPAMINE_REFS} />
     </div>
   )
 }

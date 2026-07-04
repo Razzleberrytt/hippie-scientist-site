@@ -337,6 +337,7 @@ export default function Page() {
         <Link href="/compounds/7-hydroxymitragynine" className="text-sm font-medium text-emerald-700 hover:underline">View 7-OH compound profile →</Link>
       </div>
     </div>
+    <References refs={KRATOM_7OH_WITHDRAWAL_MANAGEMENT_REFS} />
     </ArticleLayout>
   )
 }

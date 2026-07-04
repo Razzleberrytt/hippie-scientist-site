@@ -135,6 +135,7 @@ export default function WhyOverstimulationImpairsFocusPage() {
           ))}
         </div>
       </section>
+      <References refs={WHY_OVERSTIMULATION_IMPAIRS_FOCUS_REFS} />
     </div>
   )
 }

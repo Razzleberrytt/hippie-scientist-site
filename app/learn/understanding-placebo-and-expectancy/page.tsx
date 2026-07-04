@@ -74,6 +74,7 @@ export default function PlaceboExpectancyPage() {
           'Small studies may overestimate effect size reliability.',
         ]}
       />
+      <References refs={UNDERSTANDING_PLACEBO_AND_EXPECTANCY_REFS} />
     </div>
   )
 }

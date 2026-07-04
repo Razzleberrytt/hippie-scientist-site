@@ -146,6 +146,7 @@ export default function WhySetAndSettingMatterPage() {
           ))}
         </div>
       </section>
+      <References refs={WHY_SET_AND_SETTING_MATTER_REFS} />
     </div>
   )
 }

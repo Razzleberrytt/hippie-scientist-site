@@ -103,6 +103,7 @@ export default function WhyBurnoutAffectsCognitionPage() {
           ))}
         </div>
       </section>
+      <References refs={WHY_BURNOUT_AFFECTS_COGNITION_REFS} />
     </div>
   )
 }

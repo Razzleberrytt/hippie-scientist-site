@@ -73,6 +73,7 @@ export default function EntheogenEducationPage() {
           </Link>
         ))}
       </section>
+      <References refs={WHAT_IS_AN_ENTHEOGEN_REFS} />
       </EducationPageLayout>
     </>
   )

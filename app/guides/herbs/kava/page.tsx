@@ -282,6 +282,7 @@ export default function KavaGuidePage() {
         <Link href="/herbs/" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">Herb Library →</Link>
       </div>
       </div>{/* end space-y-8 */}
+      <References refs={KAVA_REFS} />
     </ArticleLayout>
   )
 }

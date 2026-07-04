@@ -166,6 +166,7 @@ export default function CognitiveResilienceSystemsPage() {
         title='Explore the broader resilience ecosystem'
         systems={relatedSystems}
       />
+      <References refs={COGNITIVE_RESILIENCE_SYSTEMS_REFS} />
     </div>
   )
 }

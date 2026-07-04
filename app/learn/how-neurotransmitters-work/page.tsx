@@ -130,6 +130,7 @@ export default function NeurotransmittersPage() {
           },
         ]}
       />
+      <References refs={HOW_NEUROTRANSMITTERS_WORK_REFS} />
       </EducationPageLayout>
     </>
   )

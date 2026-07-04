@@ -169,6 +169,7 @@ export default function ScientificButHumanNeurosciencePage() {
         title='Explore the broader neuroscience ecosystem'
         systems={relatedSystems}
       />
+      <References refs={SCIENTIFIC_BUT_HUMAN_NEUROSCIENCE_REFS} />
     </div>
   )
 }

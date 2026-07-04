@@ -173,6 +173,7 @@ export default function StressBrainEducationPage() {
           },
         ]}
       />
+      <References refs={HOW_STRESS_AFFECTS_THE_BRAIN_REFS} />
     </div>
   )
 }

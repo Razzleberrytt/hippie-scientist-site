@@ -124,6 +124,7 @@ export default function ReceptorsPage() {
           },
         ]}
       />
+      <References refs={HOW_RECEPTORS_WORK_REFS} />
     </div>
   )
 }

@@ -85,6 +85,7 @@ export default function PsychoactiveInteractionsPage() {
           </Link>
         ))}
       </section>
+      <References refs={INTERACTIONS_REFS} />
     </div>
   )
 }

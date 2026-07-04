@@ -85,6 +85,7 @@ export default function SerotonergicRisksPage() {
           </Link>
         ))}
       </section>
+      <References refs={SEROTONERGIC_STACKING_RISKS_REFS} />
     </div>
   )
 }

@@ -517,6 +517,7 @@ export default function MagnesiumGlycinateCitrateAdhdPage() {
           ← Back to Articles
         </Link>
       </div>
+      <References refs={MAGNESIUM_GLYCINATE_VS_CITRATE_FOR_ADHD_REFS} />
     </article>
   )
 }

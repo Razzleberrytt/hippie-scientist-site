@@ -122,6 +122,7 @@ export default function StudyDesignSnapshotHubPage() {
           and so you can judge the evidence for yourself.
         </p>
       </section>
+      <References refs={STUDY_DESIGN_SNAPSHOT_REFS} />
     </div>
   )
 }

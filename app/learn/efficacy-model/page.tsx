@@ -40,6 +40,7 @@ export default function EfficacyModelPage() {
       <section className='card-premium p-6 sm:p-8'>
         <EfficacyModelerClient />
       </section>
+      <References refs={EFFICACY_MODEL_REFS} />
     </div>
   )
 }
