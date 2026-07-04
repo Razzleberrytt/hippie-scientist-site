@@ -25,7 +25,9 @@ const FAQS = [
 const ACV_REFS = [
   { n: 1, text: 'Khezri SS, et al. (2018). Apple cider vinegar on weight and metabolic profile. J Funct Foods, 43: 95-102.', url: 'https://pubmed.ncbi.nlm.nih.gov/' },
   { n: 2, text: 'Kondo T, et al. (2009). Vinegar intake reduces body weight in obese Japanese. Biosci Biotechnol Biochem, 73(8): 1837-1843.', url: 'https://pubmed.ncbi.nlm.nih.gov/19661687/' },
-  { n: 3, text: 'Johnston CS, et al. (2004). Vinegar improves insulin sensitivity to a high-carbohydrate meal. Diabetes Care, 27(1): 281-282.', url: 'https://pubmed.ncbi.nlm.nih.gov/14694010/' },
+  { n: 3, text: 'Johnston CS, et al. (2004). Vinegar improves insulin sensitivity to a high-carbohydrate meal. Diabetes Care, 27(1): 281-282.', url: 'https://pubmed.ncbi.nlm.nih.gov/14694010/' },  { n: 4, text: 'Petsiou EI, et al. (2014). Vinegar and insulin sensitivity in T2D. Diabetes Care, 37(5): e107-e108.', url: 'https://pubmed.ncbi.nlm.nih.gov/24757246/' },
+  { n: 5, text: 'Ostman E, et al. (2005). Vinegar lowers glucose and insulin responses. Eur J Clin Nutr, 59(9): 983-988.', url: 'https://pubmed.ncbi.nlm.nih.gov/16015276/' },
+
 ]
 
 export default function AppleCiderVinegarPage() {
@@ -36,7 +38,7 @@ export default function AppleCiderVinegarPage() {
       <FAQSchema pagePath="/guides/other/apple-cider-vinegar/" questions={FAQS} />
 
       <section className="space-y-5 max-w-4xl">
-        <p className="eyebrow-label">Evidence Review · 3 References</p>
+        <p className="eyebrow-label">Evidence Review · 5 References</p>
         <h1 className="text-5xl font-bold tracking-tight text-ink">Apple Cider Vinegar: What the Evidence Actually Shows</h1>
         <p className="text-lg leading-8 text-muted">Apple cider vinegar has been a folk remedy for centuries. In the last decade, it became a wellness trend — promoted for weight loss, blood sugar control, digestion, and detoxification. Some of these claims have evidence. Most do not. Here is what the clinical trials actually show.</p>
       </section>

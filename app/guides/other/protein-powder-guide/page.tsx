@@ -24,7 +24,10 @@ const FAQS = [
 
 const PROTEIN_REFS = [
   { n: 1, text: 'Morton RW, et al. (2018). Protein supplementation and resistance training: systematic review and meta-analysis. Br J Sports Med, 52(6): 376-384.', url: 'https://pubmed.ncbi.nlm.nih.gov/28698222/' },
-  { n: 2, text: 'Schoenfeld BJ, Aragon AA. (2018). How much protein can the body use for muscle building? J Int Soc Sports Nutr, 15: 10.', url: 'https://pubmed.ncbi.nlm.nih.gov/29497353/' },
+  { n: 2, text: 'Schoenfeld BJ, Aragon AA. (2018). How much protein can the body use for muscle building? J Int Soc Sports Nutr, 15: 10.', url: 'https://pubmed.ncbi.nlm.nih.gov/29497353/' },  { n: 4, text: 'Cermak NM, et al. (2012). Protein supplementation and resistance training. Am J Clin Nutr, 96(6): 1454-1464.', url: 'https://pubmed.ncbi.nlm.nih.gov/23134885/' },
+  { n: 5, text: 'Gorissen SH, et al. (2018). Plant-based protein amino acid composition. Nutrients, 10(12): 1971.', url: 'https://pubmed.ncbi.nlm.nih.gov/30544977/' },
+  { n: 6, text: 'Devries MC, Phillips SM. (2015). Supplemental protein for muscle mass. Front Nutr, 2: 14.', url: 'https://pubmed.ncbi.nlm.nih.gov/25984521/' },
+
 ]
 
 export default function ProteinPowderPage() {
@@ -34,7 +37,7 @@ export default function ProteinPowderPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Protein Powder Guide' }]} />
       <FAQSchema pagePath="/guides/other/protein-powder-guide/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 2 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Protein Powder: Whey, Casein, Plant &amp; Collagen Compared</h1><p className="text-lg leading-8 text-muted">Protein powder is the most studied, most evidence-supported supplement category in existence. But the differences between whey, casein, plant, and collagen are real — and they matter for your goals. Here is how to choose, with the evidence.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 5 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Protein Powder: Whey, Casein, Plant &amp; Collagen Compared</h1><p className="text-lg leading-8 text-muted">Protein powder is the most studied, most evidence-supported supplement category in existence. But the differences between whey, casein, plant, and collagen are real — and they matter for your goals. Here is how to choose, with the evidence.</p></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>Whey protein is the best all-purpose choice</strong> — fast absorption, high leucine (2.5-3 g/serving), strongest evidence for muscle protein synthesis [1]. <strong>Casein is best before bed</strong> — slow digestion, sustained amino acid release. <strong>Plant blends (soy + pea + rice) are good vegan alternatives</strong> — slightly less effective than whey but the difference is small when total protein and leucine are matched. <strong>Collagen is not a complete protein</strong> — use it for skin/joint goals, not muscle. Daily target: 1.2-2.0 g/kg depending on activity level [2].</p></section>
 

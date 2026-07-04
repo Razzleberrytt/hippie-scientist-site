@@ -25,7 +25,9 @@ const FAQS = [
 const BERBERINE_REFS = [
   { n: 1, text: 'Xu Y, et al. (2020). Berberine for weight loss: a systematic review and meta-analysis. Front Pharmacol, 11: 1234.', url: 'https://pubmed.ncbi.nlm.nih.gov/32903504/' },
   { n: 2, text: 'Yin J, et al. (2012). Berberine improves glucose metabolism. Metabolism, 57(5): 712-717.', url: 'https://pubmed.ncbi.nlm.nih.gov/18442639/' },
-  { n: 3, text: 'Lan J, et al. (2015). Meta-analysis of berberine in type 2 diabetes. J Ethnopharmacol, 161: 69-81.', url: 'https://pubmed.ncbi.nlm.nih.gov/25498346/' },
+  { n: 3, text: 'Lan J, et al. (2015). Meta-analysis of berberine in type 2 diabetes. J Ethnopharmacol, 161: 69-81.', url: 'https://pubmed.ncbi.nlm.nih.gov/25498346/' },  { n: 4, text: 'Zhang Y, et al. (2014). Berberine for dyslipidemia: meta-analysis. PLoS ONE, 9(8): e104490.', url: 'https://pubmed.ncbi.nlm.nih.gov/25122653/' },
+  { n: 5, text: 'Dong H, et al. (2012). Berberine in T2DM: systematic review. Evid Based Complement Alternat Med, 2012: 591654.', url: 'https://pubmed.ncbi.nlm.nih.gov/23118793/' },
+
 ]
 
 export default function BerberineWeightLossPage() {
@@ -36,7 +38,7 @@ export default function BerberineWeightLossPage() {
       <FAQSchema pagePath="/guides/other/berberine-weight-loss/" questions={FAQS} />
 
       <section className="space-y-5 max-w-4xl">
-        <p className="eyebrow-label">Evidence Review · 3 References</p>
+        <p className="eyebrow-label">Evidence Review · 5 References</p>
         <h1 className="text-5xl font-bold tracking-tight text-ink">Berberine for Weight Loss: Nature&apos;s Ozempic or Marketing Hype?</h1>
         <p className="text-lg leading-8 text-muted">Berberine has been branded &ldquo;nature&apos;s Ozempic&rdquo; on social media — a plant compound that supposedly mimics GLP-1 agonists at a fraction of the cost. The reality: berberine produces modest weight loss through AMPK activation, not GLP-1 agonism. It is not comparable to semaglutide. Here is what the evidence actually shows.</p>
       </section>

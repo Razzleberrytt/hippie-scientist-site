@@ -24,7 +24,9 @@ const FAQS = [
 
 const BCOMPLEX_REFS = [
   { n: 1, text: 'Kennedy DO. (2016). B vitamins and the brain: mechanisms, dose and efficacy — a review. Nutrients, 8(2): 68.', url: 'https://pubmed.ncbi.nlm.nih.gov/26828517/' },
-  { n: 2, text: 'Institute of Medicine. (1998). Dietary Reference Intakes for Thiamin, Riboflavin, Niacin, B6, Folate, B12, Pantothenic Acid, Biotin, and Choline.', url: 'https://pubmed.ncbi.nlm.nih.gov/23193625/' },
+  { n: 2, text: 'Institute of Medicine. (1998). Dietary Reference Intakes for Thiamin, Riboflavin, Niacin, B6, Folate, B12, Pantothenic Acid, Biotin, and Choline.', url: 'https://pubmed.ncbi.nlm.nih.gov/23193625/' },  { n: 3, text: 'Smith AD, et al. (2018). Homocysteine and B vitamins in cognitive decline. Nutrients, 10(2): 217.', url: 'https://pubmed.ncbi.nlm.nih.gov/29439458/' },
+  { n: 4, text: 'Obeid R, et al. (2019). Vitamin B12: from deficiency to supplementation. Nutrients, 11(8): 1844.', url: 'https://pubmed.ncbi.nlm.nih.gov/31408995/' },
+
 ]
 
 export default function BComplexPage() {
@@ -35,7 +37,7 @@ export default function BComplexPage() {
       <FAQSchema pagePath="/guides/other/b-complex-guide/" questions={FAQS} />
 
       <section className="space-y-5 max-w-4xl">
-        <p className="eyebrow-label">Evidence Review · 2 References</p>
+        <p className="eyebrow-label">Evidence Review · 4 References</p>
         <h1 className="text-5xl font-bold tracking-tight text-ink">B-Complex Vitamins: Which Ones Actually Matter?</h1>
         <p className="text-lg leading-8 text-muted">B-complex supplements are marketed for energy, brain function, and metabolism. But B vitamins only improve these outcomes if you are deficient. For most people eating a varied diet, a B-complex provides expensive urine. Here is which B vitamins matter, which forms to choose, and when supplementation is warranted.</p>
       </section>
