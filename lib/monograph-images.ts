@@ -95,6 +95,9 @@ const FEATURED_IMAGES: Record<string, string> = {
   'herb:oregano': '/images/monographs/photos/oregano.jpg',
   'herb:cordyceps': '/images/guides/cordyceps.jpg',
   'herb:schisandra': '/images/monographs/photos/schisandra.jpg',
+  'herb:sage': '/images/monographs/photos/sage.jpg',
+  'herb:thyme': '/images/monographs/photos/thyme.jpg',
+  'herb:licorice': '/images/monographs/photos/licorice.jpg',
   // Existing hand-made illustrations:
   'herb:ashwagandha': '/images/guides/ashwagandha-herb.jpg',
   'herb:lions-mane': '/images/guides/lions-mane.jpg',
