@@ -55,8 +55,10 @@ export default function MagnesiumVsMelatoninGuidePage() {
       <SeoEntryPage route={route} canonicalPath={CANONICAL_PATH} />
 
       {magnesiumProducts && (
-      <References refs={MAGNESIUM_VS_MELATONIN_REFS} />
-        <RecommendationSection products={magnesiumProducts.products} />
+      <>
+        <References refs={MAGNESIUM_VS_MELATONIN_REFS} />
+          <RecommendationSection products={magnesiumProducts.products} />
+      </>
       )}
 
       <EmailCapture location="guides-magnesium-vs-melatonin" className="mt-6" />

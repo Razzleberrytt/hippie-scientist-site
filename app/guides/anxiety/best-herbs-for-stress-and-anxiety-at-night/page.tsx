@@ -297,8 +297,10 @@ export default function Page() {
         </section>
 
         {ashwagandhaProducts && (
-        <References refs={BEST_HERBS_FOR_STRESS_AND_ANXIETY_AT_NIGHT_REFS} />
-          <RecommendationSection products={ashwagandhaProducts.products} />
+        <>
+          <References refs={BEST_HERBS_FOR_STRESS_AND_ANXIETY_AT_NIGHT_REFS} />
+            <RecommendationSection products={ashwagandhaProducts.products} />
+        </>
         )}
 
         {/* FAQs */}

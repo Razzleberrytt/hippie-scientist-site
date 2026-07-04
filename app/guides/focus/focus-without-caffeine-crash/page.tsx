@@ -255,8 +255,10 @@ export default function Page() {
         </section>
 
         {lTheanineProducts && (
-        <References refs={FOCUS_WITHOUT_CAFFEINE_CRASH_REFS} />
-          <RecommendationSection products={lTheanineProducts.products} />
+        <>
+          <References refs={FOCUS_WITHOUT_CAFFEINE_CRASH_REFS} />
+            <RecommendationSection products={lTheanineProducts.products} />
+        </>
         )}
 
         {/* FAQs */}

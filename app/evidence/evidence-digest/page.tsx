@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { SafetyDisclaimerBox } from '@/components/monetization/SafetyDisclaimerBox'
 import SafetyChecklistPromo from '@/components/monetization/SafetyChecklistPromo'
@@ -114,6 +115,16 @@ export default function EvidenceDigestPage() {
         <p className='mt-4 text-sm leading-relaxed text-muted sm:text-base'>
           Our research team reviews peer-reviewed literature weekly to extract new human clinical trials. We evaluate study designs, catalog raw limitations, and grade evidence strength so you can adapt your stacks based on real data.
         </p>
+        <div className='mt-6 overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm'>
+          <Image
+            src='/images/evidence-digest.jpg'
+            alt='Clinical research papers and a microscope representing the evidence digest'
+            width={1536}
+            height={700}
+            priority
+            className='h-auto w-full'
+          />
+        </div>
       </section>
 
       {/* Digests Feed */}

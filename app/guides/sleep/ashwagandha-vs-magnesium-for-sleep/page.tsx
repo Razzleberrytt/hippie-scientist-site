@@ -96,8 +96,10 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
       <JsonLd schema={articleLd} />
       <JsonLd schema={pageBreadcrumb} />
       {faqLd && (
-      <References refs={ASHWAGANDHA_VS_MAGNESIUM_FOR_SLEEP_REFS} />
-        <JsonLd schema={faqLd} />
+        <>
+          <References refs={ASHWAGANDHA_VS_MAGNESIUM_FOR_SLEEP_REFS} />
+          <JsonLd schema={faqLd} />
+        </>
       )}
 
       {/* Breadcrumb */}

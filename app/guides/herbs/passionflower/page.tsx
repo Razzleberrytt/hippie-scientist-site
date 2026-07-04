@@ -241,8 +241,10 @@ export default function PassionflowerGuidePage() {
       )}
 
       {passionflowerProducts && (
-      <References refs={PASSIONFLOWER_REFS} />
-        <RecommendationSection products={passionflowerProducts.products} />
+      <>
+        <References refs={PASSIONFLOWER_REFS} />
+          <RecommendationSection products={passionflowerProducts.products} />
+      </>
       )}
 
       {/* FAQ */}

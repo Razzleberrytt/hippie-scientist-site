@@ -294,8 +294,10 @@ export default function RhodiolaCompleteGuidePage() {
       )}
 
       {rhodiolaProducts && (
-      <References refs={RHODIOLA_COMPLETE_GUIDE_REFS} />
-        <RecommendationSection products={rhodiolaProducts.products} />
+      <>
+        <References refs={RHODIOLA_COMPLETE_GUIDE_REFS} />
+          <RecommendationSection products={rhodiolaProducts.products} />
+      </>
       )}
 
       {/* FAQ */}

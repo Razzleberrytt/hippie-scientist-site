@@ -279,8 +279,10 @@ export default function RhodiolaEnergyGuidePage() {
       )}
 
       {rhodiolaProducts && (
-      <References refs={RHODIOLA_ENERGY_REFS} />
-        <RecommendationSection products={rhodiolaProducts.products} />
+      <>
+        <References refs={RHODIOLA_ENERGY_REFS} />
+          <RecommendationSection products={rhodiolaProducts.products} />
+      </>
       )}
 
       {/* FAQ */}

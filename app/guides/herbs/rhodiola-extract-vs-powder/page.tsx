@@ -219,8 +219,10 @@ export default function RhodiolaExtractVsPowderGuidePage() {
       )}
 
       {rhodiolaProducts && (
-      <References refs={RHODIOLA_EXTRACT_VS_POWDER_REFS} />
-        <RecommendationSection products={rhodiolaProducts.products} />
+      <>
+        <References refs={RHODIOLA_EXTRACT_VS_POWDER_REFS} />
+          <RecommendationSection products={rhodiolaProducts.products} />
+      </>
       )}
 
       {/* FAQ */}

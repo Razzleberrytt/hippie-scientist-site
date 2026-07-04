@@ -275,8 +275,10 @@ export default function RhodiolaSleepStackGuidePage() {
       )}
 
       {rhodiolaProducts && (
-      <References refs={RHODIOLA_SLEEP_STACK_REFS} />
-        <RecommendationSection products={rhodiolaProducts.products} />
+      <>
+        <References refs={RHODIOLA_SLEEP_STACK_REFS} />
+          <RecommendationSection products={rhodiolaProducts.products} />
+      </>
       )}
 
       {/* FAQ */}

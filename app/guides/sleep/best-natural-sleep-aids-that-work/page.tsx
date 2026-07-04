@@ -292,8 +292,10 @@ export default function Page() {
         </section>
 
         {valerianProducts && (
-        <References refs={BEST_NATURAL_SLEEP_AIDS_THAT_WORK_REFS} />
-          <RecommendationSection products={valerianProducts.products} />
+        <>
+          <References refs={BEST_NATURAL_SLEEP_AIDS_THAT_WORK_REFS} />
+            <RecommendationSection products={valerianProducts.products} />
+        </>
         )}
 
         {/* FAQs */}

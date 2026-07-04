@@ -276,8 +276,10 @@ export default function Page() {
         </section>
 
         {ashwagandhaProducts && (
-        <References refs={HOW_TO_LOWER_CORTISOL_NATURALLY_REFS} />
-          <RecommendationSection products={ashwagandhaProducts.products} />
+        <>
+          <References refs={HOW_TO_LOWER_CORTISOL_NATURALLY_REFS} />
+            <RecommendationSection products={ashwagandhaProducts.products} />
+        </>
         )}
 
         {/* FAQs */}

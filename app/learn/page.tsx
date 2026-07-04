@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import EducationSupernodeGrid from '@/components/education/education-supernode-grid'
@@ -299,6 +300,17 @@ export default function EducationHubPage() {
           <h1 className='text-6xl font-bold tracking-tight text-ink leading-tight'>
             Neuroscience, Neuropharmacology, and Systems-Biology Education
           </h1>
+        </div>
+
+        <div className='overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm'>
+          <Image
+            src='/images/learn-hub.jpg'
+            alt='Brain and neurotransmitter illustration representing neuroscience education'
+            width={1536}
+            height={700}
+            priority
+            className='h-auto w-full'
+          />
         </div>
 
         <div className='space-y-5 text-lg leading-9 text-muted max-w-4xl'>

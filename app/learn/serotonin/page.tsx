@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -68,6 +69,16 @@ export default function SerotoninPathwayPage() {
         <p className="text-lg leading-8 text-muted">
           Educational exploration of serotonergic signaling systems involved in mood regulation, emotional processing, cognition, stress response, and psychoactive neuropharmacology.
         </p>
+
+        <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm">
+          <Image
+            src="/images/learn/serotonin.jpg"
+            alt="Molecular illustration representing serotonin neurotransmitter signaling"
+            width={1200}
+            height={630}
+            className="h-auto w-full"
+          />
+        </div>
       </section>
 
       <section className="grid gap-5 lg:grid-cols-2">

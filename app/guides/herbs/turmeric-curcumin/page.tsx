@@ -336,8 +336,10 @@ export default function TurmericCurcuminGuidePage() {
       )}
 
       {turmericProducts && (
-      <References refs={TURMERIC_CURCUMIN_REFS} />
-        <RecommendationSection products={turmericProducts.products} />
+      <>
+        <References refs={TURMERIC_CURCUMIN_REFS} />
+          <RecommendationSection products={turmericProducts.products} />
+      </>
       )}
 
       {/* FAQ */}

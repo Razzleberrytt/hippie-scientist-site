@@ -54,8 +54,10 @@ export default function Page() {
         </ul>
       </section>
       {ashwagandhaProducts && (
-      <References refs={NATURAL_ALTERNATIVES_TO_ANXIETY_MEDICATION_REFS} />
-        <RecommendationSection products={ashwagandhaProducts.products} />
+      <>
+        <References refs={NATURAL_ALTERNATIVES_TO_ANXIETY_MEDICATION_REFS} />
+          <RecommendationSection products={ashwagandhaProducts.products} />
+      </>
       )}
       <EmailCapture location="guides-natural-alternatives-to-anxiety-medication" className="mt-6" />
       <div className="flex flex-wrap gap-4">

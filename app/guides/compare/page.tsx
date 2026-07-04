@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
+import Image from 'next/image'
 import { Suspense } from 'react'
 import Link from 'next/link'
 import { CompareTableSkeleton } from '@/components/skeletons'
@@ -152,7 +153,18 @@ export default async function ComparePage() {
           { href: '#featured-comparisons', label: 'Browse comparisons' },
           { href: '#comparison-table', label: 'Open full table', variant: 'secondary' },
         ]}
-      />
+      >
+        <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm">
+          <Image
+            src="/images/guides/compare-hub.jpg"
+            alt="Herbs and supplement bottles arranged side by side for comparison"
+            width={1536}
+            height={700}
+            priority
+            className="h-auto w-full"
+          />
+        </div>
+      </PremiumHero>
 
       <section className="grid gap-4 md:grid-cols-3">
         {guidanceCards.map((card) => (
