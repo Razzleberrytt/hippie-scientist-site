@@ -220,6 +220,9 @@ export default function AdaptogensEducationPage() {
           },
         ]}
       />
+
+      <section className="card-premium p-6 space-y-4 mb-8"><h2 className="text-2xl font-semibold tracking-tight text-ink">Which adaptogen for which stress?</h2><p className="text-sm leading-7 text-muted">Ashwagandha is calming — for the wired-tired pattern (high cortisol, anxious). Rhodiola is stimulating — for burnout and fatigue. Holy basil is neutral — for general stress with inflammation. The most common mistake: taking rhodiola for anxiety (it can worsen it) or ashwagandha for fatigue (can be too sedating). Start with the adaptogen matching your dominant stress symptom, not the one with the best marketing.</p></section>
+
       <References refs={WHAT_ARE_ADAPTOGENS_REFS} />
     </div>
   )

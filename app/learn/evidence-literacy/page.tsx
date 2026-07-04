@@ -181,6 +181,9 @@ export default function EvidenceLiteracyPage() {
             ))}
           </div>
         </section>
+
+        <section className="card-premium p-6 space-y-4 mb-8"><h2 className="text-2xl font-semibold tracking-tight text-ink">Quick guide to study quality</h2><p className="text-sm leading-7 text-muted">Meta-analysis of RCTs is the highest quality. Single RCT: check sample size and funding (industry-funded trials are 3-4x more likely positive). Observational studies show correlation, not causation. Animal studies are hypothesis-generating only. Mechanistic speculation is not evidence. If a supplement claim is supported only by anecdotes, it is indistinguishable from placebo. Demand human RCTs before spending money.</p></section>
+
         <References refs={EVIDENCE_LITERACY_REFS} />
       </EducationPageLayout>
     </>

@@ -205,6 +205,9 @@ export default function NootropicEducationPage() {
           },
         ]}
       />
+
+      <section className="card-premium p-6 space-y-4 mb-8"><h2 className="text-2xl font-semibold tracking-tight text-ink">How to evaluate nootropic claims</h2><p className="text-sm leading-7 text-muted">Most nootropic claims are based on animal studies, small uncontrolled trials, or mechanistic speculation. Reliable evidence requires: human RCTs with placebo control, n>30, at least 4 weeks duration, and independent replication. The only nootropics meeting these criteria for healthy adults: caffeine, L-theanine, creatine (under stress), and bacopa (for memory). Everything else has substantially weaker evidence. The nootropic industry is largely unregulated. Apply the same skepticism you would to any health claim.</p></section>
+
       <References refs={WHAT_IS_A_NOOTROPIC_REFS} />
       </EducationPageLayout>
     </>
