@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -37,7 +38,8 @@ export default function LionsManePage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Lion\'s Mane' }]} />
       <FAQSchema pagePath="/guides/other/lions-mane-guide/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 5 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Lion&apos;s Mane: The Brain Mushroom</h1><p className="text-lg leading-8 text-muted">Lion&apos;s mane (Hericium erinaceus) is the most studied medicinal mushroom for brain health. It stimulates nerve growth factor — a mechanism no other supplement shares. The human evidence is small but promising. Here is what we know.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 5 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Lion&apos;s Mane: The Brain Mushroom</h1><p className="text-lg leading-8 text-muted">Lion&apos;s mane (Hericium erinaceus) is the most studied medicinal mushroom for brain health. It stimulates nerve growth factor — a mechanism no other supplement shares. The human evidence is small but promising. Here is what we know.</p>
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/lions-mane.jpg" alt="Lion\'s mane mushroom on dark wood" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Lion\'s mane — the brain mushroom.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>Lion&apos;s mane at 500-3,000 mg/day shows preliminary cognitive benefits in small human trials</strong> [1]. The mechanism — NGF stimulation — is well-established in animals [2]. Effects build over 4-12 weeks of consistent use. Lion&apos;s mane is not a stimulant — it works through neurotrophic support, not acute neurotransmitter modulation. Choose fruiting body extracts standardized to 30%+ polysaccharides. Avoid mycelium-on-grain products diluted with substrate. Cost: $15-30/month.</p></section>
 

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -35,7 +36,8 @@ export default function SleepSupplementsPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Sleep Supplements' }]} />
       <FAQSchema pagePath="/guides/other/sleep-supplements-guide/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 3 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Sleep Supplements: What Actually Works</h1><p className="text-lg leading-8 text-muted">One-third of adults do not get enough sleep. The supplement industry has responded with melatonin gummies, magnesium drinks, and "sleep stacks" — but which ones have evidence? Here is an evidence-graded comparison of the most common sleep supplements, matched to specific sleep problems.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 3 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Sleep Supplements: What Actually Works</h1><p className="text-lg leading-8 text-muted">One-third of adults do not get enough sleep. The supplement industry has responded with melatonin gummies, magnesium drinks, and "sleep stacks" — but which ones have evidence? Here is an evidence-graded comparison of the most common sleep supplements, matched to specific sleep problems.</p>
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/sleep-supplements-guide.jpg" alt="Sleep supplements beside chamomile tea and lavender" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Sleep supplements — match the supplement to the problem.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>Match the supplement to your sleep problem, not the marketing.</strong> For sleep onset (can&apos;t fall asleep): low-dose melatonin (0.3-1 mg) or L-theanine (200 mg). For sleep maintenance (can&apos;t stay asleep): magnesium glycinate (200-400 mg). For racing mind: L-theanine + magnesium. For circadian disruption (jet lag, shift work): melatonin [2]. Avoid diphenhydramine (Benadryl/ZzzQuil) for regular use — it causes tolerance and next-day impairment. Sleep hygiene (consistent schedule, dark room, no screens) has stronger evidence than any supplement [1].</p></section>
 

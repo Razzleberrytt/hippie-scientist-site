@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -42,7 +43,8 @@ export default function IntermittentFastingPage() {
         <p className="eyebrow-label">Evidence Review · 5 References</p>
         <h1 className="text-5xl font-bold tracking-tight text-ink">Intermittent Fasting Supplements: What Helps and What Breaks a Fast</h1>
         <p className="text-lg leading-8 text-muted">Intermittent fasting has moved from niche biohacking to mainstream nutrition. The supplement industry has responded with fasting-specific products, but most are unnecessary. The real questions are simpler: which supplements support the fast, which break it, and which should you time to your eating window? Here is the evidence-based guide.</p>
-      </section>
+      
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/intermittent-fasting-supplements.jpg" alt="Kitchen timer and electrolyte supplements for fasting" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Intermittent fasting — electrolytes are the most important supplement.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4">
         <h2 className="text-2xl font-semibold">Quick answer</h2>

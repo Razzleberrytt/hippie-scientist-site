@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -42,7 +43,8 @@ export default function AppleCiderVinegarPage() {
         <p className="eyebrow-label">Evidence Review · 5 References</p>
         <h1 className="text-5xl font-bold tracking-tight text-ink">Apple Cider Vinegar: What the Evidence Actually Shows</h1>
         <p className="text-lg leading-8 text-muted">Apple cider vinegar has been a folk remedy for centuries. In the last decade, it became a wellness trend — promoted for weight loss, blood sugar control, digestion, and detoxification. Some of these claims have evidence. Most do not. Here is what the clinical trials actually show.</p>
-      </section>
+      
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/apple-cider-vinegar.jpg" alt="Apple cider vinegar bottle beside fresh apples on wood" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Apple cider vinegar — evidence over trends.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4">
         <h2 className="text-2xl font-semibold">Quick answer</h2>

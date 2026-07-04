@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -42,7 +43,8 @@ export default function BerberineWeightLossPage() {
         <p className="eyebrow-label">Evidence Review · 5 References</p>
         <h1 className="text-5xl font-bold tracking-tight text-ink">Berberine for Weight Loss: Nature&apos;s Ozempic or Marketing Hype?</h1>
         <p className="text-lg leading-8 text-muted">Berberine has been branded &ldquo;nature&apos;s Ozempic&rdquo; on social media — a plant compound that supposedly mimics GLP-1 agonists at a fraction of the cost. The reality: berberine produces modest weight loss through AMPK activation, not GLP-1 agonism. It is not comparable to semaglutide. Here is what the evidence actually shows.</p>
-      </section>
+      
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/berberine-weight-loss.jpg" alt="Berberine capsules beside berberis plant with yellow flowers" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Berberine — nature\'s Ozempic is marketing, not science.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4">
         <h2 className="text-2xl font-semibold">Quick answer</h2>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -38,7 +39,8 @@ export default function SaffronPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Saffron' }]} />
       <FAQSchema pagePath="/guides/other/saffron-supplement/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 6 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Saffron for Depression: The Spice That Might Actually Work</h1><p className="text-lg leading-8 text-muted">Saffron is the most expensive spice in the world — and one of the most surprisingly evidence-supported supplements for mood. Multiple RCTs have compared it head-to-head against fluoxetine (Prozac) with comparable results for mild-moderate depression. Here is the evidence.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 6 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Saffron for Depression: The Spice That Might Actually Work</h1><p className="text-lg leading-8 text-muted">Saffron is the most expensive spice in the world — and one of the most surprisingly evidence-supported supplements for mood. Multiple RCTs have compared it head-to-head against fluoxetine (Prozac) with comparable results for mild-moderate depression. Here is the evidence.</p>
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/saffron-supplement.jpg" alt="Premium saffron threads in a glass bowl" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Saffron — the spice with antidepressant evidence.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>Saffron extract at 30 mg/day shows moderate antidepressant effects comparable to fluoxetine in small RCTs</strong> [1,2,5]. The evidence is stronger than most herbal antidepressants but weaker than prescription standards. Most trials are from a single country (Iran), small (n=30-60), and short-term (6-12 weeks). The mechanism — serotonin, dopamine, norepinephrine reuptake modulation — is pharmacologically plausible [2]. Saffron is not a replacement for antidepressants but is one of the better-evidenced herbal options for mild-moderate depression. Use standardized extract (not culinary saffron). Do not combine with SSRIs without prescriber approval.</p></section>
 

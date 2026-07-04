@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -36,7 +37,8 @@ export default function NootropicStackingPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Nootropic Stacking' }]} />
       <FAQSchema pagePath="/guides/other/nootropic-stacking-guide/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 4 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Nootropic Stacking: Safe Combinations That Work</h1><p className="text-lg leading-8 text-muted">Nootropic stacking is the art of combining cognitive enhancers for synergistic effect. Done right, it produces results greater than the sum of the parts. Done wrong, it wastes money or creates dangerous interactions. Here is how to build an evidence-based stack, starting with the simplest, most studied combination in the field.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 4 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Nootropic Stacking: Safe Combinations That Work</h1><p className="text-lg leading-8 text-muted">Nootropic stacking is the art of combining cognitive enhancers for synergistic effect. Done right, it produces results greater than the sum of the parts. Done wrong, it wastes money or creates dangerous interactions. Here is how to build an evidence-based stack, starting with the simplest, most studied combination in the field.</p>
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/lions-mane.jpg" alt="Nootropic supplements for cognitive enhancement" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Nootropic stacking — one compound at a time.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>The best beginner stack: caffeine (100 mg) + L-theanine (200 mg)</strong> — the most studied nootropic combination with multiple RCTs [1,2]. <strong>The best memory stack: creatine (3-5 g/day) + bacopa (300 mg)</strong> — energy + memory consolidation [4]. <strong>The best brain longevity stack: lion&apos;s mane (1 g) + rhodiola (200 mg)</strong> — NGF stimulation + adaptogenic energy [3]. <strong>Rule: one cholinergic, one stimulant/energetic, one adaptogen/neurotrophic.</strong> Start one at a time for 1-2 weeks before adding the next. Cost: $20-40/month for a quality 2-3 compound stack.</p></section>
 

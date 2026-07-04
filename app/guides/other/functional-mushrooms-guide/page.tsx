@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -36,7 +37,8 @@ export default function FunctionalMushroomsPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Functional Mushrooms' }]} />
       <FAQSchema pagePath="/guides/other/functional-mushrooms-guide/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 4 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Functional Mushrooms: Lion&apos;s Mane, Reishi, Cordyceps &amp; Beyond</h1><p className="text-lg leading-8 text-muted">Medicinal mushrooms have been used for millennia in Traditional Chinese Medicine. Modern research has identified specific bioactive compounds — beta-glucans, triterpenes, hericenones — with measurable effects on brain, immune, and energy systems. Here is a practical guide to the five most important functional mushrooms.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 4 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Functional Mushrooms: Lion&apos;s Mane, Reishi, Cordyceps &amp; Beyond</h1><p className="text-lg leading-8 text-muted">Medicinal mushrooms have been used for millennia in Traditional Chinese Medicine. Modern research has identified specific bioactive compounds — beta-glucans, triterpenes, hericenones — with measurable effects on brain, immune, and energy systems. Here is a practical guide to the five most important functional mushrooms.</p>
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/functional-mushrooms-guide.jpg" alt="Medicinal mushrooms on a dark surface" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Functional mushrooms — fruiting body over mycelium.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>For brain health: lion&apos;s mane</strong> — stimulates nerve growth factor, best evidence for cognition [1,4]. <strong>For immunity: reishi and turkey tail</strong> — beta-glucan immune modulation [2]. <strong>For energy: cordyceps</strong> — may improve exercise performance through ATP production [3]. <strong>For overall antioxidant support: chaga</strong> — highest ORAC score of any food but human evidence is limited. Quality matters enormously — fruiting body extracts are superior to mycelium-on-grain products. Look for standardized beta-glucan content (minimum 30%). Cost: $15-30/month per mushroom. Avoid blends that hide individual mushroom amounts.</p></section>
 

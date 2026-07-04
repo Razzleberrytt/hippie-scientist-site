@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -38,7 +39,8 @@ export default function ProteinPowderPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Protein Powder Guide' }]} />
       <FAQSchema pagePath="/guides/other/protein-powder-guide/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 5 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Protein Powder: Whey, Casein, Plant &amp; Collagen Compared</h1><p className="text-lg leading-8 text-muted">Protein powder is the most studied, most evidence-supported supplement category in existence. But the differences between whey, casein, plant, and collagen are real — and they matter for your goals. Here is how to choose, with the evidence.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 5 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Protein Powder: Whey, Casein, Plant &amp; Collagen Compared</h1><p className="text-lg leading-8 text-muted">Protein powder is the most studied, most evidence-supported supplement category in existence. But the differences between whey, casein, plant, and collagen are real — and they matter for your goals. Here is how to choose, with the evidence.</p>
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/protein-powder-guide.jpg" alt="Protein powder tub and shaker" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Protein powder — whey, casein, plant, and collagen compared.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>Whey protein is the best all-purpose choice</strong> — fast absorption, high leucine (2.5-3 g/serving), strongest evidence for muscle protein synthesis [1]. <strong>Casein is best before bed</strong> — slow digestion, sustained amino acid release. <strong>Plant blends (soy + pea + rice) are good vegan alternatives</strong> — slightly less effective than whey but the difference is small when total protein and leucine are matched. <strong>Collagen is not a complete protein</strong> — use it for skin/joint goals, not muscle. Daily target: 1.2-2.0 g/kg depending on activity level [2].</p></section>
 

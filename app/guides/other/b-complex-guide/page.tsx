@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -41,7 +42,8 @@ export default function BComplexPage() {
         <p className="eyebrow-label">Evidence Review · 4 References</p>
         <h1 className="text-5xl font-bold tracking-tight text-ink">B-Complex Vitamins: Which Ones Actually Matter?</h1>
         <p className="text-lg leading-8 text-muted">B-complex supplements are marketed for energy, brain function, and metabolism. But B vitamins only improve these outcomes if you are deficient. For most people eating a varied diet, a B-complex provides expensive urine. Here is which B vitamins matter, which forms to choose, and when supplementation is warranted.</p>
-      </section>
+      
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/b-complex-guide.jpg" alt="B-complex capsules beside eggs and leafy greens" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">B-complex — which ones matter and which are expensive urine.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4">
         <h2 className="text-2xl font-semibold">Quick answer</h2>
