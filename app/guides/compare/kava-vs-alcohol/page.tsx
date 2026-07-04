@@ -4,8 +4,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Kava vs Alcohol',
-  description: 'Educational comparison of kava and alcohol, calming neuropharmacology, stress-response systems, and safety considerations.
-      ',
+  description: 'Educational comparison of kava and alcohol, calming neuropharmacology, stress-response systems, and safety considerations.',
   path: '/guides/compare/kava-vs-alcohol/',
 })
 
