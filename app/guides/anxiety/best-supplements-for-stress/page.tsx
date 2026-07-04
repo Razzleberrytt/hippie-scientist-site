@@ -224,8 +224,10 @@ export default function BestSupplementsForStressPage() {
         </section>
 
         {ashwagandhaProducts && (
-        <References refs={BEST_SUPPLEMENTS_FOR_STRESS_REFS} />
-          <RecommendationSection products={ashwagandhaProducts.products} />
+        <>
+          <References refs={BEST_SUPPLEMENTS_FOR_STRESS_REFS} />
+            <RecommendationSection products={ashwagandhaProducts.products} />
+        </>
         )}
 
         <EmailCapture location="guides-best-supplements-for-stress" className="mt-6" />

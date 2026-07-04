@@ -253,8 +253,10 @@ export default function ElderberryGuidePage() {
       )}
 
       {elderberryProducts && (
-      <References refs={ELDERBERRY_REFS} />
-        <RecommendationSection products={elderberryProducts.products} />
+      <>
+        <References refs={ELDERBERRY_REFS} />
+          <RecommendationSection products={elderberryProducts.products} />
+      </>
       )}
 
       {/* FAQ */}

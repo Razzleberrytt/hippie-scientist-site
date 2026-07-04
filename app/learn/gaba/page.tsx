@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -121,6 +122,16 @@ export default function GabaPathwayPage() {
         <p className="text-base leading-8 text-[#5c6b63]">
           Educational exploration of GABAergic systems helps contextualize calming herbs, psychoactive ethnobotanicals, sleep-supportive compounds, anxiolytic mechanisms, and inhibitory neuropharmacology.
         </p>
+
+        <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm">
+          <Image
+            src="/images/learn/gaba.jpg"
+            alt="Molecular illustration representing GABA inhibitory neurotransmitter signaling"
+            width={1200}
+            height={630}
+            className="h-auto w-full"
+          />
+        </div>
       </section>
 
       <section className="surface-depth card-spacing">

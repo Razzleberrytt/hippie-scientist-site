@@ -274,8 +274,10 @@ export default function Page() {
         </section>
 
         {ashwagandhaProducts && (
-        <References refs={BEST_SUPPLEMENTS_FOR_OVERTHINKING_REFS} />
-          <RecommendationSection products={ashwagandhaProducts.products} />
+        <>
+          <References refs={BEST_SUPPLEMENTS_FOR_OVERTHINKING_REFS} />
+            <RecommendationSection products={ashwagandhaProducts.products} />
+        </>
         )}
 
         {/* FAQs */}

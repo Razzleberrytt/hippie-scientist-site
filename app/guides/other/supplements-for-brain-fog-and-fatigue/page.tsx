@@ -57,8 +57,10 @@ export default function Page() {
       </section>
 
       {lionsManeProducts && (
-      <References refs={SUPPLEMENTS_FOR_BRAIN_FOG_AND_FATIGUE_REFS} />
-        <RecommendationSection products={lionsManeProducts.products} />
+      <>
+        <References refs={SUPPLEMENTS_FOR_BRAIN_FOG_AND_FATIGUE_REFS} />
+          <RecommendationSection products={lionsManeProducts.products} />
+      </>
       )}
       <EmailCapture location="guides-supplements-for-brain-fog-and-fatigue" className="mt-6" />
 

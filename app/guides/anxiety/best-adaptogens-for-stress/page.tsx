@@ -266,8 +266,10 @@ export default function BestAdaptogensForStressPage() {
         </section>
 
         {ashwagandhaProducts && (
-        <References refs={BEST_ADAPTOGENS_FOR_STRESS_REFS} />
-          <RecommendationSection products={ashwagandhaProducts.products} />
+        <>
+          <References refs={BEST_ADAPTOGENS_FOR_STRESS_REFS} />
+            <RecommendationSection products={ashwagandhaProducts.products} />
+        </>
         )}
 
         {/* Related */}

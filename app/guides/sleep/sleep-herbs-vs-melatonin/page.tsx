@@ -185,8 +185,10 @@ export default function SleepHerbsVsMelatoninPage() {
       </section>
 
       {valerianProducts && (
-      <References refs={SLEEP_HERBS_VS_MELATONIN_REFS} />
-        <RecommendationSection products={valerianProducts.products} />
+      <>
+        <References refs={SLEEP_HERBS_VS_MELATONIN_REFS} />
+          <RecommendationSection products={valerianProducts.products} />
+      </>
       )}
 
       <EmailCapture location="guides-sleep-herbs-vs-melatonin" className="mt-6" />

@@ -187,8 +187,10 @@ export default function NaturalAnxiolyticsPage() {
       </section>
 
       {valerianProducts && (
-      <References refs={NATURAL_ANXIOLYTICS_BEYOND_ASHWAGANDHA_REFS} />
-        <RecommendationSection products={valerianProducts.products} />
+      <>
+        <References refs={NATURAL_ANXIOLYTICS_BEYOND_ASHWAGANDHA_REFS} />
+          <RecommendationSection products={valerianProducts.products} />
+      </>
       )}
 
       <EmailCapture location="guides-natural-anxiolytics-beyond-ashwagandha" className="mt-6" />

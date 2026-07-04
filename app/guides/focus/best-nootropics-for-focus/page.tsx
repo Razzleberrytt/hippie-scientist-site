@@ -285,8 +285,10 @@ export default function BestNootropicsForFocusPage() {
         </section>
 
         {lTheanineProducts && (
-        <References refs={BEST_NOOTROPICS_FOR_FOCUS_REFS} />
-          <RecommendationSection products={lTheanineProducts.products} />
+        <>
+          <References refs={BEST_NOOTROPICS_FOR_FOCUS_REFS} />
+            <RecommendationSection products={lTheanineProducts.products} />
+        </>
         )}
 
         <EmailCapture location="guides-best-nootropics-for-focus" className="mt-6" />

@@ -89,8 +89,10 @@ export default function AshwagandhaForSleepPage() {
       <JsonLd schema={articleLd} />
       <JsonLd schema={pageBreadcrumb} />
       {faqLd && (
-      <References refs={ASHWAGANDHA_FOR_SLEEP_REFS} />
-        <JsonLd schema={faqLd} />
+        <>
+          <References refs={ASHWAGANDHA_FOR_SLEEP_REFS} />
+          <JsonLd schema={faqLd} />
+        </>
       )}
 
       {/* Breadcrumb */}
