@@ -55,6 +55,12 @@ export default function PrebioticsGuide() {
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2><p className="text-sm leading-7 text-muted">Prebiotic fibers reliably shift microbiome composition — this is real [1-3]. A high-fiber diet (25-35 g/day from diverse plant sources) provides greater benefit than any isolated supplement [4]. Prebiotic supplements are reasonable if you consistently fall short of fiber targets: start with PHGG if gut-sensitive, inulin if fiber-tolerant. Expect modest, not transformative, effects. A $20 bag of oats, beans, and vegetables will do more for your gut than a $40 jar of prebiotic powder [8].</p></section>
 
+      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance · Prebiotic Selector</p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Best: Food First</p><p className="mt-1 text-xs leading-5 text-muted">Garlic, onions, leeks, asparagus, oats, legumes, green bananas. 25-35 g fiber/day from 10-15 plant foods/week.</p></div>
+          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Supplement If Needed</p><p className="mt-1 text-xs leading-5 text-muted">PHGG for sensitive gut. Inulin/FOS for general microbiome. GOS for immune. Start at 1-2 g, titrate up. Expect modest effects.</p></div>
+        </div></section>
+
       <section className="card-premium p-6 space-y-3 max-w-4xl"><h2 className="text-xl font-semibold text-ink">References</h2><ol className="space-y-2 list-decimal list-inside text-xs leading-5 text-muted">
         <Ref n={1} text="Gibson GR, et al. (2017). Expert consensus: the International Scientific Association for Probiotics and Prebiotics (ISAPP) consensus on prebiotics. Nat Rev Gastroenterol Hepatol, 14(8): 491-502." url="https://pubmed.ncbi.nlm.nih.gov/28611480/" />
         <Ref n={2} text="Holscher HD. (2017). Dietary fiber and prebiotics and the gastrointestinal microbiota. Gut Microbes, 8(2): 172-184." url="https://pubmed.ncbi.nlm.nih.gov/28165863/" />

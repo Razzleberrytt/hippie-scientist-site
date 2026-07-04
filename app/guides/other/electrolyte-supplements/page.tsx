@@ -56,6 +56,13 @@ export default function ElectrolyteGuidePage() {
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2><p className="text-sm leading-7 text-muted">For endurance athletes and outdoor laborers in heat, electrolyte supplements are evidence-based tools — choose LMNT or DripDrop for high sodium, Liquid IV if you want carbohydrates with electrolytes [1,3,5]. For keto adaptation, 2-5 g supplemental sodium/day from salt or electrolyte products is reasonable [6,7]. For everyone else: salt your food, eat fruits and vegetables for potassium, drink to thirst [2,8]. The $40-50/month electrolyte habit is better allocated to food.</p></section>
 
+      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance · Who Needs Electrolytes</p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-emerald-700">Actually Needs Them</p><p className="mt-1 text-xs leading-5 text-muted">Endurance athletes (90+ min), outdoor laborers in heat, keto adaptation phase, vomiting/diarrhea recovery.</p></div>
+          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-red-600">Doesn't Need Them</p><p className="mt-1 text-xs leading-5 text-muted">Healthy adults with normal diets, moderate exercise, and functioning kidneys. Salt your food. Eat potassium-rich foods. Drink to thirst.</p></div>
+        </div>
+        <p className="text-xs leading-5 text-muted">DIY alternative: 1/4 tsp salt + 1/8 tsp potassium chloride in water with lemon = ~$0.05/serving vs $1.50 for LMNT.</p></section>
+
       <section className="card-premium p-6 space-y-3 max-w-4xl"><h2 className="text-xl font-semibold text-ink">References</h2><ol className="space-y-2 list-decimal list-inside text-xs leading-5 text-muted">
         <Ref n={1} text="Australian Institute of Sport (AIS). Electrolyte Supplement: Sports Food fact sheet. AIS Supplement Framework, Group A." url="https://www.ausport.gov.au/ais/nutrition/supplements/group_a/sports-foods2/electrolyte-supplement2" />
         <Ref n={2} text="IOM (2005). Dietary Reference Intakes for Water, Potassium, Sodium, Chloride, and Sulfate. National Academies Press." url="https://pubmed.ncbi.nlm.nih.gov/15883093/" />
