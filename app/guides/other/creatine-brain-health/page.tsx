@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -40,9 +41,20 @@ export default function CreatineBrainPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Creatine & Brain Health' }]} />
       <FAQSchema pagePath="/guides/other/creatine-brain-health/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 8 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Creatine for Brain Health: Not Just for Muscle Anymore</h1><p className="text-lg leading-8 text-muted">Creatine has been a gym staple for 30 years. But in 2026, the conversation has shifted — BBC headlines, menopause specialists, and cognitive researchers are all asking the same question: can this white powder help your brain? The answer is emerging, nuanced, and — for once in the supplement world — actually supported by decent evidence.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 8 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Creatine for Brain Health: Not Just for Muscle Anymore</h1><p className="text-lg leading-8 text-muted">Creatine has been a gym staple for 30 years. But in 2026, the conversation has shifted — BBC headlines, menopause specialists, and cognitive researchers are all asking the same question: can this white powder help your brain? The answer is emerging, nuanced, and — for once in the supplement world — actually supported by decent evidence.</p>
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/creatine-brain-health.jpg" alt="Creatine powder beside a brain model" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Creatine — beyond muscle, into the brain.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted">Creatine <strong>modestly improves cognitive function under conditions of stress</strong> — sleep deprivation, aging, and metabolic demand [1,2,7]. The effect is most consistent for short-term memory and processing speed. A 2024 meta-analysis of 14 RCTs confirmed these benefits, particularly in older adults and during sleep deprivation [1]. The 2025 CONCRET-MENOPA trial found creatine improved reaction time and mood in menopausal women — the first RCT in this population [4]. Creatine is not a nootropic in the traditional sense; it does not stimulate the brain. Rather, it supports brain energy metabolism, helping neurons function when demand exceeds supply [3]. For healthy, well-rested young adults, the effect is negligible. For older adults, sleep-deprived individuals, and women in menopause, the evidence is increasingly positive.</p></section>
+
+      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance · Creatine Brain Evidence</p>
+        <div className="overflow-x-auto"><table className="min-w-full text-sm"><thead><tr className="border-b"><th className="text-left py-2 pr-4 font-semibold text-ink">Use Case</th><th className="text-left py-2 pr-4 font-semibold text-ink">Evidence</th><th className="text-left py-2 pr-4 font-semibold text-ink">Effect Size</th><th className="text-left py-2 font-semibold text-ink">Dose</th></tr></thead><tbody className="text-muted">
+          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Sleep Deprivation</td><td className="py-2 pr-4 text-emerald-700 font-semibold">Strong</td><td className="py-2 pr-4">Moderate</td><td className="py-2">0.2 g/kg single dose</td></tr>
+          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Menopause Brain Fog</td><td className="py-2 pr-4 text-amber-700 font-semibold">Emerging</td><td className="py-2 pr-4">Small-Moderate</td><td className="py-2">1.5-5 g/day</td></tr>
+          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Depression Augmentation</td><td className="py-2 pr-4 text-amber-700 font-semibold">Emerging</td><td className="py-2 pr-4">Moderate</td><td className="py-2">5 g/day (+ SSRI)</td></tr>
+          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Healthy Young Adults</td><td className="py-2 pr-4 text-red-600 font-semibold">Minimal</td><td className="py-2 pr-4">Negligible</td><td className="py-2">N/A</td></tr>
+          <tr><td className="py-2 pr-4 font-medium text-ink">Vegetarians/Vegans</td><td className="py-2 pr-4 text-emerald-700 font-semibold">Stronger</td><td className="py-2 pr-4">Moderate</td><td className="py-2">3-5 g/day</td></tr>
+        </tbody></table></div>
+        <p className="text-xs leading-5 text-muted">Creatine works best when the brain is under metabolic stress. Healthy, well-rested adults see minimal benefit. Vegetarians benefit more due to lower baseline stores.</p></section>
 
       <section className="card-premium p-6 space-y-5 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Evidence by use case</h2>
         <div className="space-y-4">

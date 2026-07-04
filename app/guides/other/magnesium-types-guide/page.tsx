@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -40,7 +41,10 @@ export default function MagnesiumTypesPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Magnesium Types Guide' }]} />
       <FAQSchema pagePath="/guides/other/magnesium-types-guide/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 8 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Magnesium Types: Which Form Actually Works?</h1><p className="text-lg leading-8 text-muted">Magnesium glycinate, citrate, oxide, threonate, malate, taurate, chloride — the supplement aisle has never been more confusing. Each form claims unique benefits. But which claims are supported by evidence, and which are marketing? Here&rsquo;s a data-driven comparison of the 7 most common types, with absorption rates, best use cases, and dosing guidance.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 8 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Magnesium Types: Which Form Actually Works?</h1><p className="text-lg leading-8 text-muted">Magnesium glycinate, citrate, oxide, threonate, malate, taurate, chloride — the supplement aisle has never been more confusing. Each form claims unique benefits. But which claims are supported by evidence, and which are marketing? Here&rsquo;s a data-driven comparison of the 7 most common types, with absorption rates, best use cases, and dosing guidance.</p>
+
+      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance · Magnesium Type Selector</p><p className="text-sm leading-7 text-muted"><strong>Sleep or anxiety?</strong> → Glycinate. <strong>Constipation?</strong> → Citrate. <strong>Brain health?</strong> → Threonate. <strong>Budget?</strong> → Glycinate. <strong>Avoid:</strong> Oxide (4% absorption). Take with food, split doses, pair with vitamin D.</p></section>
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/magnesium-types-guide.jpg" alt="Different magnesium supplement forms compared" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Seven magnesium types — one clear winner for most people.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Magnesium types at a glance</h2>
         <div className="overflow-x-auto"><table className="min-w-full text-sm"><thead><tr className="border-b"><th className="text-left py-3 pr-4">Form</th><th className="text-left py-3 pr-4">Bioavailability</th><th className="text-left py-3 pr-4">Best for</th><th className="text-left py-3">Typical dose</th></tr></thead><tbody className="text-muted">

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -39,7 +40,15 @@ export default function AdaptogensComparedPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Adaptogens Compared' }]} />
       <FAQSchema pagePath="/guides/other/adaptogens-compared/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 7 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Adaptogens Compared: Find Your Stress Pattern Match</h1><p className="text-lg leading-8 text-muted">Adaptogens are the most interesting category in herbal medicine — herbs that help your body adapt to stress without overstimulating or sedating. But &ldquo;adaptogen&rdquo; is a category, not a prescription. Different adaptogens fit different stress patterns. Ashwagandha calms the overactivated; rhodiola energizes the depleted; holy basil modulates the anxious inflammatory response. Here&rsquo;s how to choose — with evidence for each.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 7 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Adaptogens Compared: Find Your Stress Pattern Match</h1><p className="text-lg leading-8 text-muted">Adaptogens are the most interesting category in herbal medicine — herbs that help your body adapt to stress without overstimulating or sedating. But &ldquo;adaptogen&rdquo; is a category, not a prescription. Different adaptogens fit different stress patterns. Ashwagandha calms the overactivated; rhodiola energizes the depleted; holy basil modulates the anxious inflammatory response. Here&rsquo;s how to choose — with evidence for each.</p>
+
+      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance · Adaptogen Selector</p>
+        <div className="grid gap-3 sm:grid-cols-3">
+          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Anxious & Wired</p><p className="mt-1 text-xs leading-5 text-muted">Ashwagandha · 240-600 mg evening. Calms the overactivated HPA axis. Best evidence for anxiety.</p></div>
+          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Burned Out & Fatigued</p><p className="mt-1 text-xs leading-5 text-muted">Rhodiola · 200-400 mg morning. Stimulating adaptogen for mental and physical fatigue.</p></div>
+          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">General Life Stress</p><p className="mt-1 text-xs leading-5 text-muted">Holy Basil · 500-1000 mg/day. Mild, safe, anti-inflammatory. Gentle introduction to adaptogens.</p></div>
+        </div></section>
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/adaptogens-compared.jpg" alt="Adaptogenic herbs: ashwagandha, rhodiola, holy basil, eleuthero flat lay" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Adaptogens — match the herb to your stress pattern.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Adaptogens at a glance</h2>
         <div className="overflow-x-auto"><table className="min-w-full text-sm"><thead><tr className="border-b"><th className="text-left py-3 pr-4">Adaptogen</th><th className="text-left py-3 pr-4">Best for</th><th className="text-left py-3 pr-4">Direction</th><th className="text-left py-3">Evidence</th></tr></thead><tbody className="text-muted">

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -39,7 +40,10 @@ export default function StackingSafetyPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Stacking Safety' }]} />
       <FAQSchema pagePath="/guides/other/supplement-stacking-safety/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 7 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Supplement Stacking: The Safety Guide Nobody Reads</h1><p className="text-lg leading-8 text-muted">Most supplement guides tell you what to take. Few tell you what happens when you combine them. Supplements are pharmacologically active — they affect neurotransmitters, liver enzymes, blood pressure, and glucose metabolism. Combining them without understanding their mechanisms can create additive effects, amplify side effects, or produce dangerous interactions. This guide covers the most important stacking risks, organized by biological system.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 7 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Supplement Stacking: The Safety Guide Nobody Reads</h1><p className="text-lg leading-8 text-muted">Most supplement guides tell you what to take. Few tell you what happens when you combine them. Supplements are pharmacologically active — they affect neurotransmitters, liver enzymes, blood pressure, and glucose metabolism. Combining them without understanding their mechanisms can create additive effects, amplify side effects, or produce dangerous interactions. This guide covers the most important stacking risks, organized by biological system.</p>
+
+      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-red-500 bg-red-50/30"><p className="text-xs font-bold uppercase tracking-wider text-red-700">At a Glance · Stacking Risk Levels</p><p className="text-sm leading-7 text-red-900"><strong>HIGHEST RISK:</strong> Serotonergic stacking (SSRIs + 5-HTP + St. John's Wort → serotonin syndrome). <strong>MODERATE:</strong> Sedative stacking (kava + valerian + alcohol → excessive CNS depression). Stimulant stacking (caffeine + synephrine + yohimbine → cardiovascular strain). <strong>LOW:</strong> Adaptogen stacking (ashwagandha + rhodiola — generally safe with monitoring). <strong>RULE:</strong> One supplement at a time. 1-2 week assessment period. Check mechanisms before combining.</p></section>
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/supplement-stacking-safety.jpg" alt="Supplement bottles with caution concept" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Stacking supplements — the safety guide most people skip.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-5 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">High-risk combinations by system</h2>
 
