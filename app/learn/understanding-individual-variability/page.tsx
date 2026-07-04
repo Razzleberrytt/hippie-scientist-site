@@ -89,6 +89,7 @@ export default function IndividualVariabilityPage() {
           'Average study outcomes may not predict individual experiences.',
         ]}
       />
+      <References refs={UNDERSTANDING_INDIVIDUAL_VARIABILITY_REFS} />
     </div>
   )
 }

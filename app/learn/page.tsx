@@ -472,6 +472,7 @@ export default function EducationHubPage() {
           </div>
         </div>
       </section>
+      <References refs={PAGE_REFS} />
     </div>
   )
 }

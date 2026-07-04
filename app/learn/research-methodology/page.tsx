@@ -106,6 +106,7 @@ export default function ResearchMethodologyPage() {
           </Link>
         </div>
       </section>
+      <References refs={RESEARCH_METHODOLOGY_REFS} />
     </div>
   )
 }

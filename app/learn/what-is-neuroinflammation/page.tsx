@@ -259,6 +259,7 @@ export default function NeuroinflammationEducationPage() {
           },
         ]}
       />
+      <References refs={WHAT_IS_NEUROINFLAMMATION_REFS} />
     </div>
   )
 }

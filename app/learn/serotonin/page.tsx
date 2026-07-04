@@ -102,6 +102,7 @@ export default function SerotoninPathwayPage() {
           </Link>
         ))}
       </section>
+      <References refs={SEROTONIN_REFS} />
     </div>
   )
 }

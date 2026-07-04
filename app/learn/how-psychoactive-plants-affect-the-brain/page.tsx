@@ -81,6 +81,7 @@ export default function PsychoactiveBrainPage() {
           </Link>
         ))}
       </section>
+      <References refs={HOW_PSYCHOACTIVE_PLANTS_AFFECT_THE_BRAIN_REFS} />
     </div>
   )
 }

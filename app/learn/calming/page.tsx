@@ -80,6 +80,7 @@ export default function CalmingPsychoactivesPage() {
           </Link>
         ))}
       </section>
+      <References refs={CALMING_REFS} />
     </div>
   )
 }

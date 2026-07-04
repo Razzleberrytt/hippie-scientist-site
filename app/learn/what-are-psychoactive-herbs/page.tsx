@@ -192,6 +192,7 @@ export default function WhatArePsychoactiveHerbsPage() {
           </Link>
         </div>
       </section>
+      <References refs={WHAT_ARE_PSYCHOACTIVE_HERBS_REFS} />
     </div>
   )
 }

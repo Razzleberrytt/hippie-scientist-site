@@ -144,6 +144,7 @@ export default function Page() {
 
       </div>
     </div>
+    <References refs={GHK_CU_REFS} />
     </ArticleLayout>
   )
 }

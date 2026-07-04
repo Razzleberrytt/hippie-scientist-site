@@ -84,6 +84,7 @@ export default function HumanTrialsMatterPage() {
           },
         ]}
       />
+      <References refs={WHY_HUMAN_TRIALS_MATTER_REFS} />
     </div>
   )
 }

@@ -132,6 +132,7 @@ export default function PlaceboAndContextEffectsPage() {
           ))}
         </div>
       </section>
+      <References refs={PLACEBO_AND_CONTEXT_EFFECTS_REFS} />
     </div>
   )
 }

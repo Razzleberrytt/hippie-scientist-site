@@ -120,6 +120,7 @@ export default function WhyStudiesConflictPage() {
           ))}
         </div>
       </section>
+      <References refs={WHY_STUDIES_CONFLICT_REFS} />
       </EducationPageLayout>
     </>
   )

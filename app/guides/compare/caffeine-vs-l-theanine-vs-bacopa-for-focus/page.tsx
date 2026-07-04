@@ -349,6 +349,7 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
         name={revenueProducts[0]?.title}
         href={revenueProducts[0]?.affiliateUrl || '#'}
       />
+      <References refs={CAFFEINE_VS_THEANINE_VS_BACOPA_REFS} />
     </div>
   )
 }

@@ -87,6 +87,7 @@ export default function NeuropharmacologyPage() {
           </Link>
         ))}
       </section>
+      <References refs={WHAT_IS_NEUROPHARMACOLOGY_REFS} />
     </div>
   )
 }

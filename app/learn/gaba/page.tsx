@@ -207,6 +207,7 @@ export default function GabaPathwayPage() {
           </Link>
         </div>
       </section>
+      <References refs={GABA_REFS} />
     </div>
   )
 }

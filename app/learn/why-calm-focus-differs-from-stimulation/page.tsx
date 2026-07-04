@@ -132,6 +132,7 @@ export default function WhyCalmFocusDiffersFromStimulationPage() {
           ))}
         </div>
       </section>
+      <References refs={WHY_CALM_FOCUS_DIFFERS_FROM_STIMULATION_REFS} />
     </div>
   )
 }

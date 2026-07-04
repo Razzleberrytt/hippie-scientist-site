@@ -220,6 +220,7 @@ export default function AdaptogensEducationPage() {
           },
         ]}
       />
+      <References refs={WHAT_ARE_ADAPTOGENS_REFS} />
     </div>
   )
 }

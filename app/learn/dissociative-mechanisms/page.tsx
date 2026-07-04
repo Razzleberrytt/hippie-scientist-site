@@ -77,6 +77,7 @@ export default function DissociativeMechanismsPage() {
           </Link>
         ))}
       </section>
+      <References refs={DISSOCIATIVE_MECHANISMS_REFS} />
     </div>
   )
 }

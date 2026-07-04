@@ -5,7 +5,6 @@ import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
 import BuyGuideClient from '../../../src/components/sourcing/BuyGuideClient'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import { isRestrictedRecord } from '../../../src/lib/restricted-ingredients'
-import References from '@/components/References'
 
 export const metadata: Metadata = {
   title: 'Supplement Product Quality Guide',

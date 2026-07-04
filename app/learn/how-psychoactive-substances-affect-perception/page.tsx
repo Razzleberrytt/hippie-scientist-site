@@ -116,6 +116,7 @@ export default function PsychoactivePerceptionPage() {
           },
         ]}
       />
+      <References refs={HOW_PSYCHOACTIVE_SUBSTANCES_AFFECT_PERCEPTION_REFS} />
     </div>
   )
 }

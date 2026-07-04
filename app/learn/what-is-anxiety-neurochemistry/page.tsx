@@ -95,6 +95,7 @@ export default function AnxietyNeurochemistryPage() {
           </Link>
         ))}
       </section>
+      <References refs={WHAT_IS_ANXIETY_NEUROCHEMISTRY_REFS} />
     </div>
   )
 }

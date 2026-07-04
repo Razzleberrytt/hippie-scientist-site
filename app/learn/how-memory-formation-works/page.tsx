@@ -260,6 +260,7 @@ export default function MemoryFormationEducationPage() {
           },
         ]}
       />
+      <References refs={HOW_MEMORY_FORMATION_WORKS_REFS} />
     </div>
   )
 }

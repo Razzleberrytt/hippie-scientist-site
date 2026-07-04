@@ -131,6 +131,7 @@ export default function WhyOnlineSupplementClaimsSpreadPage() {
           ))}
         </div>
       </section>
+      <References refs={WHY_ONLINE_SUPPLEMENT_CLAIMS_SPREAD_REFS} />
     </div>
   )
 }

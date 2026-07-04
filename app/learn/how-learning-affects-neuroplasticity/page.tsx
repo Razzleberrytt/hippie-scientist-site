@@ -260,6 +260,7 @@ export default function NeuroplasticityEducationPage() {
           },
         ]}
       />
+      <References refs={HOW_LEARNING_AFFECTS_NEUROPLASTICITY_REFS} />
     </div>
   )
 }

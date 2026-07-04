@@ -77,6 +77,7 @@ export default function DreamHerbsPage() {
           </Link>
         ))}
       </section>
+      <References refs={DREAM_HERBS_REFS} />
     </div>
   )
 }

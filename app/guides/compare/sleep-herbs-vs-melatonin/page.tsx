@@ -682,6 +682,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
         name={melatoninProducts[0]?.title}
         href={melatoninProducts[0]?.affiliateUrl || '#'}
       />
+      <References refs={SLEEP_HERBS_VS_MELATONIN_REFS} />
     </div>
   )
 }

@@ -384,6 +384,7 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
         name={revenueProducts[0]?.title}
         href={revenueProducts[0]?.affiliateUrl || '#'}
       />
+      <References refs={CURCUMIN_VS_BOSWELLIA_VS_OMEGA3_REFS} />
     </div>
   )
 }

@@ -173,6 +173,7 @@ export default function EmotionalRegulationPage() {
           },
         ]}
       />
+      <References refs={HOW_EMOTIONAL_REGULATION_WORKS_REFS} />
     </div>
   )
 }

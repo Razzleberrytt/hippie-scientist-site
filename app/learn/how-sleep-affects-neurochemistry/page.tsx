@@ -173,6 +173,7 @@ export default function SleepNeurochemistryPage() {
           },
         ]}
       />
+      <References refs={HOW_SLEEP_AFFECTS_NEUROCHEMISTRY_REFS} />
     </div>
   )
 }

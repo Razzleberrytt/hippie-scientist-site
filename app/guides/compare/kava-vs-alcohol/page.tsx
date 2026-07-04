@@ -181,6 +181,7 @@ export default function KavaVsAlcoholPage() {
           </Link>
         </div>
       </section>
+      <References refs={KAVA_VS_ALCOHOL_REFS} />
     </div>
   )
 }

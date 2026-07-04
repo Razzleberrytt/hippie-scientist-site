@@ -68,6 +68,7 @@ export default function GabaVsSerotoninPage() {
           </div>
         </div>
       </section>
+      <References refs={GABA_VS_SEROTONIN_REFS} />
     </div>
   )
 }

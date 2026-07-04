@@ -112,6 +112,7 @@ export default function NeurochemistryComplexityPage() {
           },
         ]}
       />
+      <References refs={WHY_NEUROCHEMISTRY_IS_COMPLEX_REFS} />
     </div>
   )
 }

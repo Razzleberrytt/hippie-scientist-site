@@ -73,6 +73,7 @@ export default function EntheogensPage() {
           </Link>
         ))}
       </section>
+      <References refs={ENTHEOGENS_REFS} />
     </div>
   )
 }

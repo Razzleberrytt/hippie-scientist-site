@@ -146,6 +146,7 @@ export default function EmotionalAmplificationSystemsPage() {
           ))}
         </div>
       </section>
+      <References refs={EMOTIONAL_AMPLIFICATION_SYSTEMS_REFS} />
     </div>
   )
 }

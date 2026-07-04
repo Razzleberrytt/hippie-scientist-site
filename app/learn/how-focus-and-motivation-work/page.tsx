@@ -173,6 +173,7 @@ export default function FocusMotivationPage() {
           },
         ]}
       />
+      <References refs={HOW_FOCUS_AND_MOTIVATION_WORK_REFS} />
     </div>
   )
 }

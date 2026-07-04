@@ -75,6 +75,7 @@ export default function AdhdGuideIndex() {
           </Link>
         ))}
       </div>
+      <References refs={ADHD_REFS} />
     </div>
   )
 }

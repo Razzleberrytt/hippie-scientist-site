@@ -182,6 +182,7 @@ export default function FaqPage() {
           </div>
         </aside>
       </section>
+      <References refs={FAQ_REFS} />
     </div>
   )
 }

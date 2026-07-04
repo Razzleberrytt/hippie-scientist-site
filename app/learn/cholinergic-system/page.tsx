@@ -83,6 +83,7 @@ export default function CholinergicSystemPage() {
           </Link>
         ))}
       </section>
+      <References refs={CHOLINERGIC_SYSTEM_REFS} />
     </div>
   )
 }

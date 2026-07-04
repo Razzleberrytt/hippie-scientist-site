@@ -106,6 +106,7 @@ export default function NeurochemistryMythsPage() {
           'Psychological, environmental, and behavioral factors strongly influence subjective experiences.',
         ]}
       />
+      <References refs={COMMON_NEUROCHEMISTRY_MYTHS_REFS} />
     </div>
   )
 }

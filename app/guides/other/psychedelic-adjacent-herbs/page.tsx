@@ -169,6 +169,7 @@ export default function PsychedelicAdjacentHerbsPage() {
         </div>
       </section>
     </div>
+    <References refs={PSYCHEDELIC_ADJACENT_HERBS_REFS} />
     </ArticleLayout>
   )
 }

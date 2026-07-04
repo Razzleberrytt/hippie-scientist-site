@@ -132,6 +132,7 @@ export default function WhySleepChangesEmotionalRegulationPage() {
           ))}
         </div>
       </section>
+      <References refs={WHY_SLEEP_CHANGES_EMOTIONAL_REGULATION_REFS} />
     </div>
   )
 }

@@ -260,6 +260,7 @@ export default function AlteredStatesEducationPage() {
           },
         ]}
       />
+      <References refs={UNDERSTANDING_ALTERED_STATES_REFS} />
     </div>
   )
 }

@@ -580,6 +580,7 @@ export default function LTheanineWithoutCaffeinePage() {
           ← Back to Articles
         </Link>
       </div>
+      <References refs={L_THEANINE_WITHOUT_CAFFEINE_REFS} />
     </article>
   )
 }

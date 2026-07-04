@@ -205,6 +205,7 @@ export default function NootropicEducationPage() {
           },
         ]}
       />
+      <References refs={WHAT_IS_A_NOOTROPIC_REFS} />
       </EducationPageLayout>
     </>
   )
