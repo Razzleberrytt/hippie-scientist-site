@@ -23,6 +23,15 @@ function workspaceAliasPlugin(): Plugin {
 }
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      // 'xlsx' is not an installed dependency — it's only referenced by a dead
+      // standalone-CLI branch in scripts/data/build-interaction-data.mjs that
+      // never executes under test. Alias it to a stub so Vite's static import
+      // analysis can still resolve the specifier when transforming that file.
+      xlsx: path.resolve(__dirname, 'scripts/data/xlsx-optional-dependency-stub.mjs'),
+    },
+  },
   plugins: [
     workspaceAliasPlugin(),
     {
