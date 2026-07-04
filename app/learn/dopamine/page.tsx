@@ -83,6 +83,9 @@ export default function DopaminePathwayPage() {
           </Link>
         ))}
       </section>
+
+      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Dopamine in practice</h2><p className="text-sm leading-7 text-muted">Dopamine is not a pleasure chemical — it is a motivation and learning signal. It rises in anticipation of reward, not during consumption. Practical implications: cold exposure produces sustained dopamine increases (2.5x baseline for hours). Sleep deprivation downregulates D2 receptors. L-tyrosine (500-2000 mg) may support synthesis during stress. Mucuna pruriens (L-DOPA source) is potent but carries dyskinesia risk — avoid chronic use. The best dopamine strategy: pursue effort-based rewards (exercise, learning) over consumption-based ones (scrolling, eating).</p></section>
+
       <References refs={DOPAMINE_REFS} />
     </div>
   )

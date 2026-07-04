@@ -102,6 +102,9 @@ export default function SerotoninPathwayPage() {
           </Link>
         ))}
       </section>
+
+      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Serotonin in practice</h2><p className="text-sm leading-7 text-muted">90% of serotonin is produced in the gut, not the brain — which is why diet, microbiome, and gut health affect mood. Tryptophan (the amino acid precursor) competes with other large neutral amino acids for brain entry — consuming carbohydrates increases the tryptophan ratio (insulin clears competing amino acids). This is why carbohydrate cravings during low mood have a biological basis. SSRIs work by blocking serotonin reuptake, but this takes 4-6 weeks due to receptor downregulation — not because serotonin levels rise slowly. Key supplements: 5-HTP (50-100 mg) bypasses the rate-limiting step in serotonin synthesis but should never be combined with SSRIs (serotonin syndrome risk). St. John\'s Wort has similar risks. Tryptophan (500-2000 mg) is safer but less potent. Sunlight exposure increases serotonin synthesis independently of vitamin D. The safest serotonin-supporting interventions are behavioral: morning sunlight, exercise, and consistent sleep.</p></section>
+
       <References refs={SEROTONIN_REFS} />
     </div>
   )
