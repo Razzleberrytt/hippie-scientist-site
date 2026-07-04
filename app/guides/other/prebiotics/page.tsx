@@ -20,9 +20,14 @@ const FAQS = [
   { question: 'Best food sources of prebiotics?', answer: 'Garlic, onions, leeks, asparagus, Jerusalem artichokes, slightly green bananas (resistant starch), oats (beta-glucan), and legumes are richest [1]. Aim for variety — different fibers feed different species. 10-15 different plant foods per week supports the widest bacterial diversity. The Reynolds 2019 Lancet meta-analysis found 25-29 g/day fiber reduced all-cause mortality by 15-30% [4].' },
   { question: 'Why do prebiotics cause gas?', answer: 'Fermentation produces gas (hydrogen, methane, CO₂). Start at 1-2 g/day, increase by 1-2 g every 3-4 days over 2-3 weeks. Most adapt within 1-2 weeks [2]. Persistent bloating at low doses may indicate SIBO or IBS — consult a gastroenterologist. PHGG (partially hydrolyzed guar gum) is the best-tolerated prebiotic for sensitive guts [5].' },
   { question: 'Which prebiotic supplement is best?', answer: 'PHGG — best-tolerated, evidence for IBS [5]. Inulin/FOS — most studied for microbiome support, more gas [2]. GOS — gentler, supports immune function [6]. Resistant starch (green banana flour, potato starch) — metabolic health, 15-30 g/day. Start with PHGG if sensitive; inulin if fiber-tolerant. No supplement replicates the diversity of food fiber [4].' },
+];
+
+const PREBIOTICS_REFS = [
+  { n: 1, text: 'Gibson GR, et al. (2017). ISAPP consensus on prebiotics. Nat Rev Gastroenterol Hepatol, 14(8): 491-502.', url: 'https://pubmed.ncbi.nlm.nih.gov/28611480/' },
+  { n: 2, text: 'Holscher HD. (2017). Dietary fiber and the GI microbiota. Gut Microbes, 8(2): 172-184.', url: 'https://pubmed.ncbi.nlm.nih.gov/28165863/' },
+  { n: 3, text: 'Reynolds A, et al. (2019). Carbohydrate quality and health: Lancet review. Lancet, 393: 434-445.', url: 'https://pubmed.ncbi.nlm.nih.gov/30638909/' },
   { n: 4, text: 'Deehan EC, et al. (2020). Precision microbiome modulation with fiber. Cell Host Microbe, 27(3): 389-404.', url: 'https://pubmed.ncbi.nlm.nih.gov/32101703/' },
   { n: 5, text: 'Slavin J. (2013). Fiber and prebiotics: mechanisms and health benefits. Nutrients, 5(4): 1417-1435.', url: 'https://pubmed.ncbi.nlm.nih.gov/23609775/' },
-
 ]
 
 type RefProps = { n: number; text: string; url?: string }
