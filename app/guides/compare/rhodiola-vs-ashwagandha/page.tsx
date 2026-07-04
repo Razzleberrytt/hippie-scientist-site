@@ -14,8 +14,7 @@ import References from '@/components/References'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Rhodiola vs Ashwagandha for Stress & Fatigue',
-  description: 'Evidence-informed comparison of rhodiola and ashwagandha for stress resilience, fatigue, sleep-adjacent tradeoffs, and product selection.
-      ',
+  description: 'Evidence-informed comparison of rhodiola and ashwagandha for stress resilience, fatigue, sleep-adjacent tradeoffs, and product selection.',
   path: '/guides/compare/rhodiola-vs-ashwagandha/',
   openGraphType: 'article',
 })

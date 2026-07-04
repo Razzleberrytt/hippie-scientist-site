@@ -16,8 +16,7 @@ import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Sleep Herbs vs Melatonin: Evidence Comparison',
   description:
-    'Evidence-graded comparison of melatonin, magnesium, L-theanine, and valerian for sleep. Understand mechanisms, onset, evidence quality, safety, and when to use each — or stack them.
-      ',
+    'Evidence-graded comparison of melatonin, magnesium, L-theanine, and valerian for sleep. Understand mechanisms, onset, evidence quality, safety, and when to use each — or stack them.',
   path: '/guides/compare/sleep-herbs-vs-melatonin/',
   openGraphType: 'article',
 })
