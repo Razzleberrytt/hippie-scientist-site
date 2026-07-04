@@ -32,7 +32,7 @@ export default function GreensPowdersPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Greens Powders' }]} />
       <FAQSchema pagePath="/guides/other/greens-powders/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 8 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Greens Powders: Do They Actually Do Anything?</h1><p className="text-lg leading-8 text-muted">AG1 ($99/month), Bloom, Live It Up, Grüns (acquired by Unilever for undisclosed sum) — greens powders are a multi-billion-dollar category built on the promise of replacing your multivitamin, probiotic, and vegetables in one scoop. Hugh Jackman and Lewis Hamilton endorse AG1. Strip away the marketing, and the evidence is remarkably thin. Here is what the research actually shows, with citations.</p>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 7 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Greens Powders: Do They Actually Do Anything?</h1><p className="text-lg leading-8 text-muted">AG1 ($99/month), Bloom, Live It Up, Grüns (acquired by Unilever for undisclosed sum) — greens powders are a multi-billion-dollar category built on the promise of replacing your multivitamin, probiotic, and vegetables in one scoop. Hugh Jackman and Lewis Hamilton endorse AG1. Strip away the marketing, and the evidence is remarkably thin. Here is what the research actually shows, with citations.</p>
 
         <figure className="mt-6">
           <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
