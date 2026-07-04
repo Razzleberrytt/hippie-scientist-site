@@ -28,7 +28,8 @@ const VITD_REFS = [
   { n: 2, text: 'Bischoff-Ferrari HA, et al. (2020). Vitamin D supplementation and musculoskeletal health. JAMA, 324(18): 1855-1868.', url: 'https://pubmed.ncbi.nlm.nih.gov/33170239/' },
   { n: 3, text: 'Schwalfenberg GK. (2017). Vitamins K1 and K2: the emerging roles. J Nutr Metab, 2017: 6254836.', url: 'https://pubmed.ncbi.nlm.nih.gov/28698822/' },
   { n: 4, text: 'Martineau AR, et al. (2017). Vitamin D supplementation to prevent acute respiratory infections. BMJ, 356: i6583.', url: 'https://pubmed.ncbi.nlm.nih.gov/28202713/' },
-  { n: 5, text: 'Knapen MH, et al. (2013). Menaquinone-7 supplementation improves arterial stiffness in postmenopausal women. Thromb Haemost, 113(5): 1135-1144.', url: 'https://pubmed.ncbi.nlm.nih.gov/25608625/' },  { n: 6, text: 'Martineau AR, et al. (2017). Vitamin D for respiratory infections. BMJ, 356: i6583.', url: 'https://pubmed.ncbi.nlm.nih.gov/28202713/' },
+  { n: 5, text: 'Knapen MH, et al. (2013). Menaquinone-7 supplementation improves arterial stiffness in postmenopausal women. Thromb Haemost, 113(5): 1135-1144.', url: 'https://pubmed.ncbi.nlm.nih.gov/25608625/' },
+  { n: 6, text: 'Martineau AR, et al. (2017). Vitamin D for respiratory infections. BMJ, 356: i6583.', url: 'https://pubmed.ncbi.nlm.nih.gov/28202713/' },
   { n: 7, text: 'Knapen MH, et al. (2013). MK-7 improves arterial stiffness. Thromb Haemost, 113(5): 1135-1144.', url: 'https://pubmed.ncbi.nlm.nih.gov/25608625/' },
 
 ]

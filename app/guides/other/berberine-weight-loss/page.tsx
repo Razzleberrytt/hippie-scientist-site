@@ -25,7 +25,8 @@ const FAQS = [
 const BERBERINE_REFS = [
   { n: 1, text: 'Xu Y, et al. (2020). Berberine for weight loss: a systematic review and meta-analysis. Front Pharmacol, 11: 1234.', url: 'https://pubmed.ncbi.nlm.nih.gov/32903504/' },
   { n: 2, text: 'Yin J, et al. (2012). Berberine improves glucose metabolism. Metabolism, 57(5): 712-717.', url: 'https://pubmed.ncbi.nlm.nih.gov/18442639/' },
-  { n: 3, text: 'Lan J, et al. (2015). Meta-analysis of berberine in type 2 diabetes. J Ethnopharmacol, 161: 69-81.', url: 'https://pubmed.ncbi.nlm.nih.gov/25498346/' },  { n: 4, text: 'Zhang Y, et al. (2014). Berberine for dyslipidemia: meta-analysis. PLoS ONE, 9(8): e104490.', url: 'https://pubmed.ncbi.nlm.nih.gov/25122653/' },
+  { n: 3, text: 'Lan J, et al. (2015). Meta-analysis of berberine in type 2 diabetes. J Ethnopharmacol, 161: 69-81.', url: 'https://pubmed.ncbi.nlm.nih.gov/25498346/' },
+  { n: 4, text: 'Zhang Y, et al. (2014). Berberine for dyslipidemia: meta-analysis. PLoS ONE, 9(8): e104490.', url: 'https://pubmed.ncbi.nlm.nih.gov/25122653/' },
   { n: 5, text: 'Dong H, et al. (2012). Berberine in T2DM: systematic review. Evid Based Complement Alternat Med, 2012: 591654.', url: 'https://pubmed.ncbi.nlm.nih.gov/23118793/' },
 
 ]

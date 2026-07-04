@@ -26,7 +26,8 @@ const FAQS = [
 const ANTI_INFLAM_REFS = [
   { n: 1, text: 'Daily JW, et al. (2016). Efficacy of turmeric extracts and curcumin for arthritis. J Med Food, 19(8): 717-729.', url: 'https://pubmed.ncbi.nlm.nih.gov/27533649/' },
   { n: 2, text: 'Calder PC. (2017). Omega-3 fatty acids and inflammatory processes. Biochem Soc Trans, 45(5): 1105-1115.', url: 'https://pubmed.ncbi.nlm.nih.gov/28900017/' },
-  { n: 3, text: 'Mashhadi NS, et al. (2013). Ginger and inflammation. Int J Prev Med, 4(Suppl 1): S36-S42.', url: 'https://pubmed.ncbi.nlm.nih.gov/23717767/' },  { n: 4, text: 'Mashhadi NS, et al. (2013). Ginger and inflammation. Int J Prev Med, 4(S1): S36-S42.', url: 'https://pubmed.ncbi.nlm.nih.gov/23717767/' },
+  { n: 3, text: 'Mashhadi NS, et al. (2013). Ginger and inflammation. Int J Prev Med, 4(Suppl 1): S36-S42.', url: 'https://pubmed.ncbi.nlm.nih.gov/23717767/' },
+  { n: 4, text: 'Mashhadi NS, et al. (2013). Ginger and inflammation. Int J Prev Med, 4(S1): S36-S42.', url: 'https://pubmed.ncbi.nlm.nih.gov/23717767/' },
   { n: 5, text: 'Kimmatkar N, et al. (2003). Boswellia for knee OA. Phytomedicine, 10(1): 3-7.', url: 'https://pubmed.ncbi.nlm.nih.gov/12622457/' },
   { n: 6, text: 'Li Y, et al. (2015). Quercetin and inflammation. Nutrients, 8(3): 167.', url: 'https://pubmed.ncbi.nlm.nih.gov/26999193/' },
 

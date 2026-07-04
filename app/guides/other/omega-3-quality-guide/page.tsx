@@ -27,7 +27,8 @@ const OMEGA3_REFS = [
   { n: 1, text: 'GISSI-Prevenzione Investigators. (1999). Dietary supplementation with n-3 PUFA and vitamin E after MI. Lancet, 354(9177): 447-455.', url: 'https://pubmed.ncbi.nlm.nih.gov/10465168/' },
   { n: 2, text: 'Dyerberg J, et al. (2010). Bioavailability of marine n-3 fatty acid formulations. Prostaglandins Leukot Essent Fatty Acids, 83(3): 137-141.', url: 'https://pubmed.ncbi.nlm.nih.gov/20638827/' },
   { n: 3, text: 'Nicholls SJ, et al. (2020). Omega-3 fatty acids and cardiovascular outcomes. JAMA, 324(22): 2268-2280.', url: 'https://pubmed.ncbi.nlm.nih.gov/33190147/' },
-  { n: 4, text: 'IFOS (International Fish Oil Standards). Consumer reports on oxidation and purity testing.', url: 'https://www.ifosprogram.com/' },  { n: 5, text: 'Schuchardt JP, Hahn A. (2013). Bioavailability of omega-3 formulations. Eur J Clin Nutr, 67(12): 1234-1240.', url: 'https://pubmed.ncbi.nlm.nih.gov/24129326/' },
+  { n: 4, text: 'IFOS (International Fish Oil Standards). Consumer reports on oxidation and purity testing.', url: 'https://www.ifosprogram.com/' },
+  { n: 5, text: 'Schuchardt JP, Hahn A. (2013). Bioavailability of omega-3 formulations. Eur J Clin Nutr, 67(12): 1234-1240.', url: 'https://pubmed.ncbi.nlm.nih.gov/24129326/' },
   { n: 6, text: 'Harris WS, et al. (2017). Omega-3 fatty acids and cardiovascular disease. Atherosclerosis, 262: 87-93.', url: 'https://pubmed.ncbi.nlm.nih.gov/28511757/' },
 
 ]

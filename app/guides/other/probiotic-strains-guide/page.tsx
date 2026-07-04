@@ -27,7 +27,8 @@ const PROBIOTIC_REFS = [
   { n: 1, text: 'Hempel S, et al. (2012). Probiotics for the prevention of antibiotic-associated diarrhea. JAMA, 307(18): 1959-1969.', url: 'https://pubmed.ncbi.nlm.nih.gov/22570464/' },
   { n: 2, text: 'Ford AC, et al. (2014). Efficacy of probiotics in irritable bowel syndrome. Am J Gastroenterol, 109(10): 1547-1561.', url: 'https://pubmed.ncbi.nlm.nih.gov/25091171/' },
   { n: 3, text: 'McFarland LV. (2010). Saccharomyces boulardii: a review. Gastroenterol, 138(5): 1846-1854.', url: 'https://pubmed.ncbi.nlm.nih.gov/20303902/' },
-  { n: 4, text: 'Hill C, et al. (2014). The ISAPP consensus on probiotics. Nat Rev Gastroenterol Hepatol, 11(8): 506-514.', url: 'https://pubmed.ncbi.nlm.nih.gov/24912386/' },  { n: 5, text: 'Szajewska H, et al. (2015). Probiotics for acute gastroenteritis. J Pediatr Gastroenterol Nutr, 60(5): 593-601.', url: 'https://pubmed.ncbi.nlm.nih.gov/25855939/' },
+  { n: 4, text: 'Hill C, et al. (2014). The ISAPP consensus on probiotics. Nat Rev Gastroenterol Hepatol, 11(8): 506-514.', url: 'https://pubmed.ncbi.nlm.nih.gov/24912386/' },
+  { n: 5, text: 'Szajewska H, et al. (2015). Probiotics for acute gastroenteritis. J Pediatr Gastroenterol Nutr, 60(5): 593-601.', url: 'https://pubmed.ncbi.nlm.nih.gov/25855939/' },
   { n: 6, text: 'Sanders ME, et al. (2019). Probiotics and prebiotics: ISAPP consensus. Nat Rev Gastroenterol Hepatol, 16(10): 605-616.', url: 'https://pubmed.ncbi.nlm.nih.gov/31296969/' },
 
 ]

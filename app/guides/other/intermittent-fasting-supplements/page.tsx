@@ -25,7 +25,8 @@ const FAQS = [
 const IF_REFS = [
   { n: 1, text: 'Anton SD, et al. (2018). Flipping the metabolic switch: understanding health benefits of fasting. Obesity, 26(2): 254-268.', url: 'https://pubmed.ncbi.nlm.nih.gov/29086496/' },
   { n: 2, text: 'Varady KA, et al. (2022). Clinical application of intermittent fasting for weight loss. Nat Rev Endocrinol, 18(5): 309-321.', url: 'https://pubmed.ncbi.nlm.nih.gov/35194134/' },
-  { n: 3, text: 'Mattson MP, et al. (2017). Impact of intermittent fasting on health and disease processes. Ageing Res Rev, 39: 46-58.', url: 'https://pubmed.ncbi.nlm.nih.gov/27810402/' },  { n: 4, text: 'Patterson RE, Sears DD. (2017). Metabolic effects of intermittent fasting. Annu Rev Nutr, 37: 371-393.', url: 'https://pubmed.ncbi.nlm.nih.gov/28715993/' },
+  { n: 3, text: 'Mattson MP, et al. (2017). Impact of intermittent fasting on health and disease processes. Ageing Res Rev, 39: 46-58.', url: 'https://pubmed.ncbi.nlm.nih.gov/27810402/' },
+  { n: 4, text: 'Patterson RE, Sears DD. (2017). Metabolic effects of intermittent fasting. Annu Rev Nutr, 37: 371-393.', url: 'https://pubmed.ncbi.nlm.nih.gov/28715993/' },
   { n: 5, text: 'Stockman MC, et al. (2018). Intermittent fasting and weight loss. J Clin Med, 7(11): 385.', url: 'https://pubmed.ncbi.nlm.nih.gov/30388744/' },
 
 ]

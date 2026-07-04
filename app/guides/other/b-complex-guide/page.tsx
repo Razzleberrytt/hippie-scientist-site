@@ -24,7 +24,8 @@ const FAQS = [
 
 const BCOMPLEX_REFS = [
   { n: 1, text: 'Kennedy DO. (2016). B vitamins and the brain: mechanisms, dose and efficacy — a review. Nutrients, 8(2): 68.', url: 'https://pubmed.ncbi.nlm.nih.gov/26828517/' },
-  { n: 2, text: 'Institute of Medicine. (1998). Dietary Reference Intakes for Thiamin, Riboflavin, Niacin, B6, Folate, B12, Pantothenic Acid, Biotin, and Choline.', url: 'https://pubmed.ncbi.nlm.nih.gov/23193625/' },  { n: 3, text: 'Smith AD, et al. (2018). Homocysteine and B vitamins in cognitive decline. Nutrients, 10(2): 217.', url: 'https://pubmed.ncbi.nlm.nih.gov/29439458/' },
+  { n: 2, text: 'Institute of Medicine. (1998). Dietary Reference Intakes for Thiamin, Riboflavin, Niacin, B6, Folate, B12, Pantothenic Acid, Biotin, and Choline.', url: 'https://pubmed.ncbi.nlm.nih.gov/23193625/' },
+  { n: 3, text: 'Smith AD, et al. (2018). Homocysteine and B vitamins in cognitive decline. Nutrients, 10(2): 217.', url: 'https://pubmed.ncbi.nlm.nih.gov/29439458/' },
   { n: 4, text: 'Obeid R, et al. (2019). Vitamin B12: from deficiency to supplementation. Nutrients, 11(8): 1844.', url: 'https://pubmed.ncbi.nlm.nih.gov/31408995/' },
 
 ]

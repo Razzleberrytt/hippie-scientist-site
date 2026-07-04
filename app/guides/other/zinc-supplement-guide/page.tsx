@@ -26,7 +26,8 @@ const FAQS = [
 const ZINC_REFS = [
   { n: 1, text: 'Wegmüller R, et al. (2014). Zinc bioavailability from citrate, gluconate, and oxide. J Nutr, 144(2): 132-136.', url: 'https://pubmed.ncbi.nlm.nih.gov/24259556/' },
   { n: 2, text: 'Hemilä H. (2017). Zinc lozenges and the common cold: a meta-analysis. JRSM Open, 8(5): 2054270417694291.', url: 'https://pubmed.ncbi.nlm.nih.gov/28515951/' },
-  { n: 3, text: 'Prasad AS. (2013). Discovery of human zinc deficiency. J Am Coll Nutr, 28(3): 257-265.', url: 'https://pubmed.ncbi.nlm.nih.gov/20150599/' },  { n: 4, text: 'Hemila H. (2011). Zinc lozenges and the common cold. Open Respir Med J, 5: 51-58.', url: 'https://pubmed.ncbi.nlm.nih.gov/21769305/' },
+  { n: 3, text: 'Prasad AS. (2013). Discovery of human zinc deficiency. J Am Coll Nutr, 28(3): 257-265.', url: 'https://pubmed.ncbi.nlm.nih.gov/20150599/' },
+  { n: 4, text: 'Hemila H. (2011). Zinc lozenges and the common cold. Open Respir Med J, 5: 51-58.', url: 'https://pubmed.ncbi.nlm.nih.gov/21769305/' },
   { n: 5, text: 'Prasad AS. (2013). Discovery of human zinc deficiency. J Am Coll Nutr, 28(3): 257-265.', url: 'https://pubmed.ncbi.nlm.nih.gov/20150599/' },
 
 ]

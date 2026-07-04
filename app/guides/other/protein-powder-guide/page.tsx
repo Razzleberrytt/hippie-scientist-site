@@ -24,7 +24,8 @@ const FAQS = [
 
 const PROTEIN_REFS = [
   { n: 1, text: 'Morton RW, et al. (2018). Protein supplementation and resistance training: systematic review and meta-analysis. Br J Sports Med, 52(6): 376-384.', url: 'https://pubmed.ncbi.nlm.nih.gov/28698222/' },
-  { n: 2, text: 'Schoenfeld BJ, Aragon AA. (2018). How much protein can the body use for muscle building? J Int Soc Sports Nutr, 15: 10.', url: 'https://pubmed.ncbi.nlm.nih.gov/29497353/' },  { n: 4, text: 'Cermak NM, et al. (2012). Protein supplementation and resistance training. Am J Clin Nutr, 96(6): 1454-1464.', url: 'https://pubmed.ncbi.nlm.nih.gov/23134885/' },
+  { n: 2, text: 'Schoenfeld BJ, Aragon AA. (2018). How much protein can the body use for muscle building? J Int Soc Sports Nutr, 15: 10.', url: 'https://pubmed.ncbi.nlm.nih.gov/29497353/' },
+  { n: 4, text: 'Cermak NM, et al. (2012). Protein supplementation and resistance training. Am J Clin Nutr, 96(6): 1454-1464.', url: 'https://pubmed.ncbi.nlm.nih.gov/23134885/' },
   { n: 5, text: 'Gorissen SH, et al. (2018). Plant-based protein amino acid composition. Nutrients, 10(12): 1971.', url: 'https://pubmed.ncbi.nlm.nih.gov/30544977/' },
   { n: 6, text: 'Devries MC, Phillips SM. (2015). Supplemental protein for muscle mass. Front Nutr, 2: 14.', url: 'https://pubmed.ncbi.nlm.nih.gov/25984521/' },
 
