@@ -51,7 +51,7 @@ export default function FunctionalMushroomsPage() {
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Bottom line</h2><p className="text-sm leading-7 text-muted">Functional mushrooms are the most evidence-supported category in the medicinal food space. Lion&apos;s mane for brain [1,4], reishi for immune [2], cordyceps for energy [3], turkey tail for immune (prescription-grade in Japan). Quality is the single biggest variable — cheap myceliated grain products have minimal bioactivity. Invest in fruiting body extracts from reputable brands. Start one mushroom at a time to assess effect. Expect gradual, cumulative benefits — mushrooms are not acute interventions. Cost: $15-30/month for a quality single-mushroom extract.</p></section>
       <References refs={MUSHROOM_REFS} />
       <EmailCapture headline="Get evidence reviews like this" description="Mushrooms, brain health, immunity — evidence over marketing." ctaLabel="Get the evidence" location="guide-mushrooms" />
-      <div className="pt-4 border-t flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border px-4 py-2 text-sm font-bold transition">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold hover:underline">Herb library →</Link></div>
+      <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
     </div>
   )
 }

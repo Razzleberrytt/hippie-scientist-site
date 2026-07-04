@@ -50,7 +50,7 @@ export default function NootropicStackingPage() {
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Bottom line</h2><p className="text-sm leading-7 text-muted">The best nootropic stack is the simplest one that works for you. Caffeine + L-theanine is the most studied, safest, and most effective starting point for focus [1,2]. Add creatine for energy, bacopa for memory, lion&apos;s mane for brain longevity [3,4]. Avoid stimulant stacking and cholinergic stacking. One compound at a time. The nootropic space is filled with overhyped, understudied compounds — stick to the ones with human RCTs. The best cognitive enhancer remains sleep, exercise, and consistent mental challenge.</p></section>
       <References refs={NOOTROPIC_REFS} />
       <EmailCapture headline="Get evidence reviews like this" description="Nootropics, stacking, focus — evidence over hype." ctaLabel="Get the evidence" location="guide-nootropic-stacking" />
-      <div className="pt-4 border-t flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border px-4 py-2 text-sm font-bold transition">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold hover:underline">Herb library →</Link></div>
+      <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
     </div>
   )
 }
