@@ -94,7 +94,6 @@ const FEATURED_IMAGES: Record<string, string> = {
   'herb:cinnamon': '/images/monographs/photos/cinnamon.jpg',
   'herb:oregano': '/images/monographs/photos/oregano.jpg',
   'herb:cordyceps': '/images/guides/cordyceps.jpg',
-  'herb:schisandra': '/images/monographs/photos/schisandra.jpg',
   'herb:sage': '/images/monographs/photos/sage.jpg',
   'herb:thyme': '/images/monographs/photos/thyme.jpg',
   'herb:licorice': '/images/monographs/photos/licorice.jpg',
