@@ -1,0 +1,63 @@
+import { describe, it, expect } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import ShowMeTheStudies from '../ShowMeTheStudies'
+import type { Citation } from '../ShowMeTheStudies'
+
+function citation(overrides: Partial<Citation> = {}): Citation {
+  return { title: 'A study title', ...overrides }
+}
+
+describe('ShowMeTheStudies', () => {
+  it('renders nothing when there are no citations', () => {
+    const { container } = render(<ShowMeTheStudies citations={[]} />)
+    expect(container).toBeEmptyDOMElement()
+  })
+
+  it('renders nothing when citations is null/undefined', () => {
+    const { container } = render(<ShowMeTheStudies citations={undefined as unknown as Citation[]} />)
+    expect(container).toBeEmptyDOMElement()
+  })
+
+  it('uses singular "study" wording for exactly one citation', () => {
+    render(<ShowMeTheStudies citations={[citation()]} />)
+    expect(screen.getByText(/1 cited study informing/)).toBeTruthy()
+  })
+
+  it('uses plural "studies" wording for more than one citation', () => {
+    render(<ShowMeTheStudies citations={[citation({ title: 'A' }), citation({ title: 'B' })]} />)
+    expect(screen.getByText(/2 cited studies informing/)).toBeTruthy()
+  })
+
+  it('links the study title and "PubMed" cell to PubMed when a pmid is present', () => {
+    render(<ShowMeTheStudies citations={[citation({ title: 'Ashwagandha RCT', pmid: '12345678' })]} />)
+    const links = screen.getAllByRole('link', { name: /Ashwagandha RCT|PubMed/ })
+    expect(links.length).toBeGreaterThan(0)
+    for (const link of links) {
+      expect(link).toHaveAttribute('href', 'https://pubmed.ncbi.nlm.nih.gov/12345678/')
+    }
+  })
+
+  it('shows a plain dash instead of a PubMed link when no pmid is present', () => {
+    render(<ShowMeTheStudies citations={[citation({ title: 'No PMID Study' })]} />)
+    expect(screen.queryByRole('link')).toBeNull()
+  })
+
+  it('shows sample size as "n=<value>" when provided, otherwise a dash', () => {
+    render(<ShowMeTheStudies citations={[citation({ title: 'Sized study', sampleSize: 42 })]} />)
+    expect(screen.getByText('n=42')).toBeTruthy()
+  })
+
+  it('keeps the first 6 citations visible and moves the rest behind a "Show N more" disclosure', () => {
+    const citations = Array.from({ length: 9 }, (_, i) => citation({ title: `Study ${i}` }))
+    const { container } = render(<ShowMeTheStudies citations={citations} />)
+
+    expect(container.querySelectorAll('tbody tr')).toHaveLength(9)
+    expect(screen.getByText('Show 3 more studies')).toBeTruthy()
+  })
+
+  it('omits the overflow disclosure entirely when 6 or fewer citations are given', () => {
+    const citations = Array.from({ length: 6 }, (_, i) => citation({ title: `Study ${i}` }))
+    const { container } = render(<ShowMeTheStudies citations={citations} />)
+    expect(container.querySelector('details')).toBeNull()
+  })
+})
