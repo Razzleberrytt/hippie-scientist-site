@@ -49,5 +49,11 @@ export default defineConfig({
     testTimeout: 15000,
     pool: 'forks',
     fileParallelism: true,
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'html'],
+      include: ['lib/**/*.ts', 'src/lib/**/*.ts', 'components/**/*.tsx', 'src/components/**/*.tsx'],
+      exclude: ['**/__tests__/**', '**/*.d.ts'],
+    },
   },
 })
