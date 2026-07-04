@@ -114,7 +114,7 @@ export default function KavaVsAlcoholPage() {
       <section className="card-premium p-6 space-y-4 max-w-4xl">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Practical differences at a glance</h2>
         <div className="overflow-x-auto">
-          <table className="min-w-full text-sm">
+          <table className="min-w-[560px] text-sm">
             <thead>
               <tr className="border-b">
                 <th className="text-left py-3 pr-4 font-semibold">Factor</th>

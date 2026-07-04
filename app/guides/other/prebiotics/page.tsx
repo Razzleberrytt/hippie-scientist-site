@@ -46,7 +46,7 @@ export default function PrebioticsGuide() {
       </section>
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Prebiotic types compared</h2>
-        <div className="overflow-x-auto"><table className="min-w-full text-sm"><thead><tr className="border-b"><th className="text-left py-3 pr-4">Type</th><th className="text-left py-3 pr-4">Best evidence</th><th className="text-left py-3 pr-4">Dose</th><th className="text-left py-3">Tolerability</th></tr></thead><tbody className="text-muted">
+        <div className="overflow-x-auto"><table className="min-w-[720px] text-sm"><thead><tr className="border-b"><th className="text-left py-3 pr-4">Type</th><th className="text-left py-3 pr-4">Best evidence</th><th className="text-left py-3 pr-4">Dose</th><th className="text-left py-3">Tolerability</th></tr></thead><tbody className="text-muted">
           <tr className="border-b"><td className="py-3 pr-4 font-medium text-ink">Inulin/FOS</td><td className="py-3 pr-4">Bifidobacterium ↑ [2]</td><td className="py-3 pr-4">5-10 g/day</td><td className="py-3">Moderate gas</td></tr>
           <tr className="border-b"><td className="py-3 pr-4 font-medium text-ink">PHGG</td><td className="py-3 pr-4">IBS symptoms ↓ [5]</td><td className="py-3 pr-4">5-10 g/day</td><td className="py-3">Well tolerated</td></tr>
           <tr className="border-b"><td className="py-3 pr-4 font-medium text-ink">GOS</td><td className="py-3 pr-4">Immune modulation [6]</td><td className="py-3 pr-4">2-5 g/day</td><td className="py-3">Well tolerated</td></tr>

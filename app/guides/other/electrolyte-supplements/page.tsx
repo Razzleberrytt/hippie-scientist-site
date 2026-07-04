@@ -47,7 +47,7 @@ export default function ElectrolyteGuidePage() {
       </section>
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Popular products compared</h2>
-        <div className="overflow-x-auto"><table className="min-w-full text-sm"><thead><tr className="border-b"><th className="text-left py-3 pr-4">Product</th><th className="text-left py-3 pr-4">Na (mg)</th><th className="text-left py-3 pr-4">K (mg)</th><th className="text-left py-3 pr-4">Sugar (g)</th><th className="text-left py-3">$/serving</th></tr></thead><tbody className="text-muted">
+        <div className="overflow-x-auto"><table className="min-w-[880px] text-sm"><thead><tr className="border-b"><th className="text-left py-3 pr-4">Product</th><th className="text-left py-3 pr-4">Na (mg)</th><th className="text-left py-3 pr-4">K (mg)</th><th className="text-left py-3 pr-4">Sugar (g)</th><th className="text-left py-3">$/serving</th></tr></thead><tbody className="text-muted">
           <tr className="border-b"><td className="py-3 pr-4 font-medium text-ink">LMNT</td><td className="py-3 pr-4">1,000</td><td className="py-3 pr-4">200</td><td className="py-3 pr-4">0</td><td className="py-3">$1.50</td></tr>
           <tr className="border-b"><td className="py-3 pr-4 font-medium text-ink">Liquid IV</td><td className="py-3 pr-4">500</td><td className="py-3 pr-4">380</td><td className="py-3 pr-4">11</td><td className="py-3">$1.50</td></tr>
           <tr className="border-b"><td className="py-3 pr-4 font-medium text-ink">DripDrop (NSF Sport)</td><td className="py-3 pr-4">330</td><td className="py-3 pr-4">185</td><td className="py-3 pr-4">9</td><td className="py-3">$1.25</td></tr>

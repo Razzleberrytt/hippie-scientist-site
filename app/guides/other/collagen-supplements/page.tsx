@@ -47,7 +47,7 @@ export default function CollagenGuidePage() {
       </section>
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Collagen types at a glance</h2>
-        <div className="overflow-x-auto"><table className="min-w-full text-sm"><thead><tr className="border-b"><th className="text-left py-3 pr-4">Type</th><th className="text-left py-3 pr-4">Source</th><th className="text-left py-3 pr-4">Best evidence for</th><th className="text-left py-3">Studied dose</th></tr></thead><tbody className="text-muted">
+        <div className="overflow-x-auto"><table className="min-w-[720px] text-sm"><thead><tr className="border-b"><th className="text-left py-3 pr-4">Type</th><th className="text-left py-3 pr-4">Source</th><th className="text-left py-3 pr-4">Best evidence for</th><th className="text-left py-3">Studied dose</th></tr></thead><tbody className="text-muted">
           <tr className="border-b"><td className="py-3 pr-4 font-medium text-ink">I + III</td><td className="py-3 pr-4">Bovine, marine [5]</td><td className="py-3 pr-4">Skin, bone [1,2]</td><td className="py-3">2.5-10 g/day</td></tr>
           <tr className="border-b"><td className="py-3 pr-4 font-medium text-ink">II (undenatured)</td><td className="py-3 pr-4">Chicken sternum</td><td className="py-3 pr-4">Joint cartilage [3]</td><td className="py-3">40 mg/day</td></tr>
           <tr><td className="py-3 pr-4 font-medium text-ink">Multi-collagen</td><td className="py-3 pr-4">Mixed</td><td className="py-3 pr-4">General (sub-therapeutic doses of each)</td><td className="py-3">5-20 g/day</td></tr>
