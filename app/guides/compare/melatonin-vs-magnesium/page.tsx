@@ -129,6 +129,9 @@ export default function MelatoninVsMagnesiumPage() {
         name={revenueProducts[0]?.title}
         href={revenueProducts[0]?.affiliateUrl || '#'}
       />
+
+      <section className="card-premium p-6 space-y-4 max-w-4xl mb-8"><h2 className="text-2xl font-semibold tracking-tight text-ink">Practical recommendation</h2><p className="text-sm leading-7 text-muted">For most people with sleep issues, start with magnesium glycinate (200-400 mg before bed) for one week before adding anything else. Magnesium addresses the most common sleep disruptors — muscle tension, restless legs, and stress-related poor sleep quality. If sleep onset specifically is the problem after one week of magnesium, add low-dose melatonin (0.3-1 mg, not 3-10 mg) 1-2 hours before bed. The combination of magnesium + low-dose melatonin is well-tolerated and addresses both sleep quality and sleep timing. If you wake up groggy, reduce the melatonin dose — the dose-response curve is flat and more is not better. Avoid high-dose melatonin (5-10 mg) which produces supraphysiological levels and next-day impairment.</p></section>
+
       <References refs={MELATONIN_VS_MAGNESIUM_REFS} />
     </div>
   )
