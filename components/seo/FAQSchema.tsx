@@ -1,10 +1,12 @@
 /**
  * FAQ Structured Data Component
- * 
- * Renders FAQPage JSON-LD for FAQ sections. 
+ *
+ * Renders FAQPage JSON-LD for FAQ sections.
  * Use when a page has real FAQ content that should earn rich results.
  * Only emits when questions array is non-empty.
  */
+import JsonLd from './JsonLd'
+
 type FAQItem = { question: string; answer: string }
 
 export default function FAQSchema({ questions, pagePath }: { questions: FAQItem[]; pagePath: string }) {
@@ -24,10 +26,5 @@ export default function FAQSchema({ questions, pagePath }: { questions: FAQItem[
     url: `https://thehippiescientist.net${pagePath}`,
   }
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-    />
-  )
+  return <JsonLd schema={faqJsonLd} />
 }

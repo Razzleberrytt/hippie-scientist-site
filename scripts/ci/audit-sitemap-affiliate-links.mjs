@@ -41,8 +41,23 @@ function main() {
   let failed = false
   const errors = []
 
-  // Simple regex to find href links
-  const hrefRegex = /href="([^"]*?)"/gi
+  // Only scan clickable <a> links — <link rel="preconnect"/"dns-prefetch"> resource
+  // hints (e.g. to m.media-amazon.com, images-na.ssl-images-amazon.com for image CDN
+  // performance) are not outbound purchase links and never carry affiliate tags.
+  const anchorRegex = /<a\b[^>]*\shref="([^"]*)"[^>]*>/gi
+
+  // Real Amazon storefront/product domains only — excludes CDN/image subdomains like
+  // media-amazon.com or ssl-images-amazon.com, which a plain substring match on
+  // "amazon.com" would incorrectly catch.
+  const AMAZON_RETAIL_HOSTS = new Set(['amazon.com', 'www.amazon.com', 'amazon.co.uk', 'www.amazon.co.uk', 'amzn.to'])
+
+  function isAmazonRetailLink(href) {
+    try {
+      return AMAZON_RETAIL_HOSTS.has(new URL(href).hostname.toLowerCase())
+    } catch {
+      return false
+    }
+  }
 
   for (const url of urls) {
     let urlObj
@@ -67,20 +82,16 @@ function main() {
 
     const htmlContent = fs.readFileSync(localPath, 'utf8')
     let match
-    while ((match = hrefRegex.exec(htmlContent)) !== null) {
+    while ((match = anchorRegex.exec(htmlContent)) !== null) {
       const href = match[1]
-      const isAmazon = href.includes('amazon.com') || href.includes('amzn.to') || href.includes('amazon.co.uk')
-      if (isAmazon) {
-        const isStandardAmazonLink = href.includes('amazon.com') || href.includes('amazon.co.uk')
-        if (isStandardAmazonLink) {
-          const hasTag = href.includes(`tag=${AMAZON_TAG}`)
-          // Exclude non-product pages like customer service, registry, privacy, policy, etc., if any
-          const isSupportPage = href.includes('/gp/help/') || href.includes('/privacy') || href.includes('/gp/customer-service')
-          
-          if (!hasTag && !isSupportPage) {
-            errors.push(`Page "${pathname}" contains non-compliant Amazon link: "${href}" (missing "tag=${AMAZON_TAG}")`)
-            failed = true
-          }
+      if (isAmazonRetailLink(href)) {
+        const hasTag = href.includes(`tag=${AMAZON_TAG}`)
+        // Exclude non-product pages like customer service, registry, privacy, policy, etc., if any
+        const isSupportPage = href.includes('/gp/help/') || href.includes('/privacy') || href.includes('/gp/customer-service')
+
+        if (!hasTag && !isSupportPage) {
+          errors.push(`Page "${pathname}" contains non-compliant Amazon link: "${href}" (missing "tag=${AMAZON_TAG}")`)
+          failed = true
         }
       }
     }
