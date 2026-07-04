@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -35,7 +36,8 @@ export default function CoQ10Page() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'CoQ10' }]} />
       <FAQSchema pagePath="/guides/other/coq10-guide/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 3 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">CoQ10: When It Matters and When It Does Not</h1><p className="text-lg leading-8 text-muted">Coenzyme Q10 is essential for mitochondrial energy production — every cell in your body uses it. Supplementation makes sense when levels are depleted: heart failure, statin use, aging, and mitochondrial disorders. For young healthy adults, your body produces all the CoQ10 it needs. Here is who actually benefits.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 3 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">CoQ10: When It Matters and When It Does Not</h1><p className="text-lg leading-8 text-muted">Coenzyme Q10 is essential for mitochondrial energy production — every cell in your body uses it. Supplementation makes sense when levels are depleted: heart failure, statin use, aging, and mitochondrial disorders. For young healthy adults, your body produces all the CoQ10 it needs. Here is who actually benefits.</p>
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/coq10-guide.jpg" alt="CoQ10 softgels beside heart health concept" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">CoQ10 — when it matters and when it does not.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>CoQ10 at 200-300 mg/day is evidence-supported for heart failure (43% mortality reduction in Q-SYMBIO trial) [1] and reasonable for statin-associated muscle symptoms [2].</strong> For everyone else, benefit is unlikely. Ubiquinol is better absorbed but costs more — ubiquinone is fine for most people, especially under 50. Take with a fat-containing meal (2-3x better absorption). CoQ10 is most relevant for: heart failure patients, statin users with muscle pain, people over 50, and those with mitochondrial disorders. For young healthy adults, endogenous production is adequate. Cost: $15-30/month for ubiquinone, $30-50 for ubiquinol.</p></section>
 

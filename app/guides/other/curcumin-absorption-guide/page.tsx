@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -35,7 +36,8 @@ export default function CurcuminAbsorptionPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Curcumin Absorption' }]} />
       <FAQSchema pagePath="/guides/other/curcumin-absorption-guide/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 3 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Curcumin Absorption: Why Most Turmeric Supplements Are a Waste</h1><p className="text-lg leading-8 text-muted">Curcumin has excellent anti-inflammatory evidence — in a petri dish. In the human body, it is nearly impossible to absorb. Without bioavailability enhancement, over 99% of what you take is metabolized before reaching your bloodstream. Here is how to fix that.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 3 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Curcumin Absorption: Why Most Turmeric Supplements Are a Waste</h1><p className="text-lg leading-8 text-muted">Curcumin has excellent anti-inflammatory evidence — in a petri dish. In the human body, it is nearly impossible to absorb. Without bioavailability enhancement, over 99% of what you take is metabolized before reaching your bloodstream. Here is how to fix that.</p>
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/curcumin-absorption-guide.jpg" alt="Fresh turmeric root with curcumin capsules and peppercorns" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Curcumin — the formulation matters more than the dose.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>Standard curcumin supplements (95% curcuminoids, no enhancer) are poorly absorbed — less than 1% reaches the bloodstream [1].</strong> The fix: add piperine 5-10 mg (black pepper extract) for a 20x absorption boost [2], or use a phytosome formulation (Meriva) for 20-30x improvement [3]. For most people: 500 mg curcumin 95% + 5 mg piperine 2x/day is the best value at $15-25/month. Meriva/phytosome forms are slightly better absorbed but cost $25-40/month. Skip turmeric powder supplements — they contain too little curcumin to match studied doses. Skip formulations without bioavailability enhancement — you are paying for expensive urine.</p></section>
 

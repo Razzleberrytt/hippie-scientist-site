@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -35,7 +36,8 @@ export default function IronSupplementPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Iron Supplements' }]} />
       <FAQSchema pagePath="/guides/other/iron-supplement-guide/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 3 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Iron: The Supplement You Should Not Take Without a Blood Test</h1><p className="text-lg leading-8 text-muted">Iron deficiency is the most common nutritional deficiency worldwide — affecting 25% of the global population. But iron overload is also dangerous, and supplementing without testing can cause harm. Here is how to supplement safely, which form to choose, and when iron is actually necessary.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 3 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Iron: The Supplement You Should Not Take Without a Blood Test</h1><p className="text-lg leading-8 text-muted">Iron deficiency is the most common nutritional deficiency worldwide — affecting 25% of the global population. But iron overload is also dangerous, and supplementing without testing can cause harm. Here is how to supplement safely, which form to choose, and when iron is actually necessary.</p>
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/iron-supplement-guide.jpg" alt="Iron capsules beside spinach and red meat" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Iron — do not supplement without a blood test.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>Test ferritin before supplementing.</strong> If ferritin is below 30 ng/mL: iron bisglycinate 25-50 mg/day + vitamin C 200 mg. Take on an empty stomach if tolerated, every other day to reduce GI effects. Re-test in 3 months. Do not supplement without a confirmed deficiency — iron overload (hemochromatosis) is underdiagnosed and dangerous. Women with heavy periods, vegetarians, and endurance athletes are at highest risk for deficiency [1,3]. Ferrous sulfate is the cheapest but causes constipation in 20-30% — bisglycinate is worth the small premium [2].</p></section>
 

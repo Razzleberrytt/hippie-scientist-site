@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -35,7 +36,8 @@ export default function GreenTeaEGCGPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Green Tea Extract' }]} />
       <FAQSchema pagePath="/guides/other/green-tea-egcg-guide/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 3 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Green Tea Extract: Benefits With a Liver Warning</h1><p className="text-lg leading-8 text-muted">Green tea is one of the healthiest beverages in the world. Green tea extract concentrates its catechins 10-20x — which sounds good until you learn about the liver toxicity cases. Here is what the evidence shows, and why the dose makes the difference between benefit and risk.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 3 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Green Tea Extract: Benefits With a Liver Warning</h1><p className="text-lg leading-8 text-muted">Green tea is one of the healthiest beverages in the world. Green tea extract concentrates its catechins 10-20x — which sounds good until you learn about the liver toxicity cases. Here is what the evidence shows, and why the dose makes the difference between benefit and risk.</p>
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/green-tea-egcg-guide.jpg" alt="Fresh green tea leaves beside matcha and a steaming cup" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Green tea extract — benefits with a liver warning.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>Drink green tea — do not megadose green tea extract.</strong> Green tea as a beverage (3-5 cups/day) is safe and provides 150-500 mg catechins. Green tea extract above 400 mg EGCG/day carries a small but real risk of acute liver injury [2]. The weight loss effect is modest (~1-2 kg) and not worth the liver risk at high doses [1]. If you take green tea extract, stay under 400 mg EGCG/day, take with food, and stop immediately at any sign of liver stress. Matcha provides the best of both worlds — concentrated catechins without the extract-related liver risk.</p></section>
 

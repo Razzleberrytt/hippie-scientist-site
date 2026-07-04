@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -36,7 +37,8 @@ export default function GlutathioneNACPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'NAC & Glutathione' }]} />
       <FAQSchema pagePath="/guides/other/glutathione-nac-guide/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 4 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">NAC &amp; Glutathione: Your Body&apos;s Master Antioxidant System</h1><p className="text-lg leading-8 text-muted">Glutathione is your body&apos;s most important intracellular antioxidant — it neutralizes free radicals, supports liver detoxification, and regulates immune function. NAC (N-acetylcysteine) is the precursor that replenishes it. But most glutathione supplements are a waste of money — here&apos;s why, and what actually works.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 4 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">NAC &amp; Glutathione: Your Body&apos;s Master Antioxidant System</h1><p className="text-lg leading-8 text-muted">Glutathione is your body&apos;s most important intracellular antioxidant — it neutralizes free radicals, supports liver detoxification, and regulates immune function. NAC (N-acetylcysteine) is the precursor that replenishes it. But most glutathione supplements are a waste of money — here&apos;s why, and what actually works.</p>
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/glutathione-nac-guide.jpg" alt="NAC capsules on a clinical surface" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">NAC & Glutathione — your master antioxidant system.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>Take NAC at 600-1,200 mg/day, not oral glutathione.</strong> NAC is well-absorbed and your body converts exactly what it needs to glutathione [1]. Oral glutathione is largely destroyed in the gut — liposomal forms may work but cost 5-10x more with weaker evidence. NAC has specific clinical evidence for COPD (reduces exacerbations 25%) [2], OCD/trichotillomania (adjunct to SSRIs) [3], and acetaminophen overdose (FDA-approved). For general antioxidant support, NAC is the evidence-based choice. Cost: $10-20/month.</p></section>
 

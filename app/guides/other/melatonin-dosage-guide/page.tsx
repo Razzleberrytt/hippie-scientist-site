@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -35,7 +36,8 @@ export default function MelatoninDosingPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Melatonin Dosing' }]} />
       <FAQSchema pagePath="/guides/other/melatonin-dosage-guide/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 3 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Melatonin: Why You Are Probably Taking Too Much</h1><p className="text-lg leading-8 text-muted">The melatonin in your medicine cabinet is almost certainly overdosed. The original MIT research used 0.3 mg. Drugstore melatonin is 3-10 mg — up to 30 times the studied effective dose. Here is why less is more, and how to dose melatonin correctly.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 3 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Melatonin: Why You Are Probably Taking Too Much</h1><p className="text-lg leading-8 text-muted">The melatonin in your medicine cabinet is almost certainly overdosed. The original MIT research used 0.3 mg. Drugstore melatonin is 3-10 mg — up to 30 times the studied effective dose. Here is why less is more, and how to dose melatonin correctly.</p>
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/melatonin-dosage-guide.jpg" alt="Low-dose melatonin tablet beside sleep mask and lavender" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Melatonin — less is more.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>Take 0.3-1 mg of melatonin, not 3-10 mg.</strong> Low-dose melatonin produces physiological blood levels that naturally trigger sleep onset [1]. High-dose melatonin (3-10 mg) produces supraphysiological levels (10-50x normal) — it still works, but causes morning grogginess, vivid dreams, and receptor desensitization with chronic use. The meta-analyses consistently show that melatonin works for sleep onset latency (falling asleep faster) but the dose-response curve is flat — more is not better [2]. For jet lag: 0.5-5 mg at target bedtime for 3-5 days [3]. Cost: $5-10/month for properly dosed melatonin.</p></section>
 
