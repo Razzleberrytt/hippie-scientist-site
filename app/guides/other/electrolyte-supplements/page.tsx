@@ -19,16 +19,6 @@ const FAQS = [
   { question: 'Is LMNT worth it?', answer: 'For heavy sweaters and endurance athletes — reasonable. LMNT provides 1,000 mg sodium, 200 mg potassium, and 60 mg magnesium at ~$1.50/serving. The 5:1 sodium-to-potassium ratio reflects sweat composition [3]. For everyone else, salt your food and eat potassium-rich foods (bananas, potatoes, spinach) — same electrolytes at 1% of the cost.' },
 ];
 
-const ELECTROLYTE_REFS = [
-  { n: 1, text: 'Australian Institute of Sport. Electrolyte Supplement fact sheet.', url: 'https://www.ausport.gov.au/ais/nutrition/supplements/group_a/sports-foods2/electrolyte-supplement2' },
-  { n: 2, text: 'IOM. (2005). DRIs for Water, Potassium, Sodium, Chloride, and Sulfate.', url: 'https://pubmed.ncbi.nlm.nih.gov/15883093/' },
-  { n: 3, text: 'Baker LB. (2017). Sweating rate and sweat sodium. Sports Med, 47(S1): 65-77.', url: 'https://pubmed.ncbi.nlm.nih.gov/28332115/' },
-  { n: 4, text: 'Butler-Dawson J, et al. (2020). Electrolyte beverage in Guatemalan workers. J Occup Environ Med, 62(12): e739-747.', url: 'https://pubmed.ncbi.nlm.nih.gov/33298780/' },
-  { n: 5, text: 'Phinney SD, et al. (1983). Chronic ketosis without caloric restriction. Metabolism, 32(8): 769-776.', url: 'https://pubmed.ncbi.nlm.nih.gov/6865778/' },
-  { n: 6, text: 'Francisco R, et al. (2026). Athlete hydration and long-term health. Sports Med.', url: 'https://pubmed.ncbi.nlm.nih.gov/42020895/' },
-]
-]
-
 type RefProps = { n: number; text: string; url?: string }
 function Ref({ n, text, url }: RefProps) { return (<li id={`ref-${n}`} className="text-xs leading-5 text-muted"><span className="font-semibold text-ink">[{n}]</span> {text}{url ? <> <a href={url} target="_blank" rel="noopener noreferrer" className="text-brand-700 underline hover:text-brand-800">→</a></> : null}</li>) }
 

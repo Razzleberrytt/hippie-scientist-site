@@ -22,14 +22,6 @@ const FAQS = [
   { question: 'Which prebiotic supplement is best?', answer: 'PHGG — best-tolerated, evidence for IBS [5]. Inulin/FOS — most studied for microbiome support, more gas [2]. GOS — gentler, supports immune function [6]. Resistant starch (green banana flour, potato starch) — metabolic health, 15-30 g/day. Start with PHGG if sensitive; inulin if fiber-tolerant. No supplement replicates the diversity of food fiber [4].' },
 ];
 
-const PREBIOTICS_REFS = [
-  { n: 1, text: 'Gibson GR, et al. (2017). ISAPP consensus on prebiotics. Nat Rev Gastroenterol Hepatol, 14(8): 491-502.', url: 'https://pubmed.ncbi.nlm.nih.gov/28611480/' },
-  { n: 2, text: 'Holscher HD. (2017). Dietary fiber and the GI microbiota. Gut Microbes, 8(2): 172-184.', url: 'https://pubmed.ncbi.nlm.nih.gov/28165863/' },
-  { n: 3, text: 'Reynolds A, et al. (2019). Carbohydrate quality and health: Lancet review. Lancet, 393: 434-445.', url: 'https://pubmed.ncbi.nlm.nih.gov/30638909/' },
-  { n: 4, text: 'Deehan EC, et al. (2020). Precision microbiome modulation with fiber. Cell Host Microbe, 27(3): 389-404.', url: 'https://pubmed.ncbi.nlm.nih.gov/32101703/' },
-  { n: 5, text: 'Slavin J. (2013). Fiber and prebiotics: mechanisms and health benefits. Nutrients, 5(4): 1417-1435.', url: 'https://pubmed.ncbi.nlm.nih.gov/23609775/' },
-]
-
 type RefProps = { n: number; text: string; url?: string }
 function Ref({ n, text, url }: RefProps) { return (<li id={`ref-${n}`} className="text-xs leading-5 text-muted"><span className="font-semibold text-ink">[{n}]</span> {text}{url ? <> <a href={url} target="_blank" rel="noopener noreferrer" className="text-brand-700 underline hover:text-brand-800">→</a></> : null}</li>) }
 
