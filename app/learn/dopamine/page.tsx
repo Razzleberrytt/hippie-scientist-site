@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import References from '@/components/References'
@@ -64,7 +65,8 @@ export default function DopaminePathwayPage() {
         <p className="text-lg leading-8 text-muted">
           Educational exploration of motivation systems, reward signaling, focus regulation, behavioral drive, and dopaminergic neuropharmacology.
         </p>
-      </section>
+      
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/learn/dopamine.jpg" alt="Dopamine molecular model with runner and coffee" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Dopamine — a motivation signal, not a pleasure chemical.</figcaption></figure></section>
 
       <section className="grid gap-5 lg:grid-cols-2">
         {profiles.map((profile) => (
