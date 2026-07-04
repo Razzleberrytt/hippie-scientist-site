@@ -130,6 +130,9 @@ export default function NeurotransmittersPage() {
           },
         ]}
       />
+
+      <section className="card-premium p-6 space-y-4 mb-8"><h2 className="text-2xl font-semibold tracking-tight text-ink">Why this matters for supplements</h2><p className="text-sm leading-7 text-muted">Every supplement that claims to affect mood, focus, or sleep is targeting one or more neurotransmitter systems. Caffeine blocks adenosine. SSRIs block serotonin reuptake. L-theanine enhances GABA. Understanding the mechanism helps predict effects and interactions. If two supplements target the same system (e.g., two serotonergic compounds), they can cause additive effects or dangerous interactions. The most important rule: know the neurotransmitter before taking the supplement.</p></section>
+
       <References refs={HOW_NEUROTRANSMITTERS_WORK_REFS} />
       </EducationPageLayout>
     </>

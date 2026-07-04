@@ -96,6 +96,9 @@ export default function ReadScientificStudiesPage() {
           'Publication bias and selective reporting may affect interpretation quality.',
         ]}
       />
+
+      <section className="card-premium p-6 space-y-4 mb-8"><h2 className="text-2xl font-semibold tracking-tight text-ink">Quick red flags in supplement studies</h2><p className="text-sm leading-7 text-muted">Industry funding: manufacturer-funded trials are 3-4x more likely to report positive results. Small sample size: n=20 cannot detect moderate effects. No placebo control: without blinding, expectation effects dominate. Surrogate endpoints: a supplement that lowers a blood marker has not been shown to improve health outcomes. Short duration: 4-week trials cannot assess long-term safety or sustained efficacy. Single study: one positive trial without replication is hypothesis-generating, not confirmatory. If a supplement claim rests on industry-funded, small, short, unreplicated studies using surrogate endpoints, apply extreme skepticism.</p></section>
+
       <References refs={HOW_TO_READ_SCIENTIFIC_STUDIES_REFS} />
     </div>
   )
