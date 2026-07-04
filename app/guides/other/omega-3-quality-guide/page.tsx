@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -36,7 +37,8 @@ export default function Omega3QualityPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Omega-3 Quality' }]} />
       <FAQSchema pagePath="/guides/other/omega-3-quality-guide/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 4 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Omega-3: What Actually Matters When You Buy</h1><p className="text-lg leading-8 text-muted">The fish oil aisle is confusing by design — proprietary blends, misleading "total oil" claims, and marketing terms that obscure what actually matters. The only numbers you need: EPA+DHA content per serving, triglyceride vs ethyl ester form, and oxidation freshness. Everything else is noise. Here&rsquo;s how to cut through it.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 4 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Omega-3: What Actually Matters When You Buy</h1><p className="text-lg leading-8 text-muted">The fish oil aisle is confusing by design — proprietary blends, misleading "total oil" claims, and marketing terms that obscure what actually matters. The only numbers you need: EPA+DHA content per serving, triglyceride vs ethyl ester form, and oxidation freshness. Everything else is noise. Here&rsquo;s how to cut through it.</p>
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/omega-3-quality-guide.jpg" alt="Fish oil capsules and salmon sashimi" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Omega-3 quality — EPA+DHA concentration is all that matters.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>Look for 60%+ EPA+DHA concentration in triglyceride (rTG) form from a brand that publishes third-party oxidation testing.</strong> Ignore "total fish oil" — a 1,000 mg pill with 30% concentration gives you only 300 mg EPA+DHA. A 1,000 mg pill at 80% gives you 800 mg. Both are "1,000 mg fish oil" on the label. The concentration determines how many pills you need to reach an effective dose. For general health, 500 mg EPA+DHA/day is sufficient. For cardiovascular risk, 1,000-2,000 mg. For triglycerides, 2,000-4,000 mg (prescription typically). Vegetarians: algae oil provides DHA; EPA is lower but some algae products now match fish oil EPA levels.</p></section>
 

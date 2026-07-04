@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -36,7 +37,8 @@ export default function ProbioticStrainsPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Probiotic Strains' }]} />
       <FAQSchema pagePath="/guides/other/probiotic-strains-guide/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 4 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Probiotic Strains: Which Ones Actually Work?</h1><p className="text-lg leading-8 text-muted">The probiotic aisle has become a CFU arms race — 50 billion, 100 billion, 200 billion. But strain identity matters far more than CFU count. A specific strain at 5 billion CFU with clinical evidence outperforms a generic blend at 100 billion CFU with none. Here&rsquo;s which strains have human evidence — and for what.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 4 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Probiotic Strains: Which Ones Actually Work?</h1><p className="text-lg leading-8 text-muted">The probiotic aisle has become a CFU arms race — 50 billion, 100 billion, 200 billion. But strain identity matters far more than CFU count. A specific strain at 5 billion CFU with clinical evidence outperforms a generic blend at 100 billion CFU with none. Here
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/probiotic-strains-guide.jpg" alt="Probiotic capsules beside yogurt, kimchi, and kombucha" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Probiotic strains — match the strain to the condition.</figcaption></figure>&rsquo;s which strains have human evidence — and for what.</p></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted">Probiotics are <strong>strain-specific, condition-specific interventions</strong> — not general gut health tonics. The strongest evidence exists for: antibiotic-associated diarrhea (L. rhamnosus GG, S. boulardii; NNT = 13) [1], IBS (B. infantis 35624) [2], and traveler&rsquo;s diarrhea (S. boulardii) [3]. For general gut health in healthy adults, evidence is weak — a diverse fiber-rich diet likely outperforms any probiotic. Match the strain to the condition. Ignore CFU count as a primary decision metric. Most generic "digestive health" blends have no specific clinical evidence for their specific formulation.</p></section>
 

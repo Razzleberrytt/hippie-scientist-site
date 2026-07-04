@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
@@ -35,7 +36,8 @@ export default function AntiInflammatoryPage() {
       <AuthorityBreadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Guides', href: '/guides/' }, { label: 'Anti-Inflammatory Supplements' }]} />
       <FAQSchema pagePath="/guides/other/anti-inflammatory-supplements/" questions={FAQS} />
 
-      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 3 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Anti-Inflammatory Supplements: What the Evidence Shows</h1><p className="text-lg leading-8 text-muted">Chronic inflammation underlies nearly every modern disease — cardiovascular, metabolic, neurodegenerative, and autoimmune. The supplement industry has responded with dozens of "anti-inflammatory" products. Some have evidence. Most don&rsquo;t. Here&rsquo;s the evidence-graded comparison of the five best-studied options.</p></section>
+      <section className="space-y-5 max-w-4xl"><p className="eyebrow-label">Evidence Review · 3 References</p><h1 className="text-5xl font-bold tracking-tight text-ink">Anti-Inflammatory Supplements: What the Evidence Shows</h1><p className="text-lg leading-8 text-muted">Chronic inflammation underlies nearly every modern disease — cardiovascular, metabolic, neurodegenerative, and autoimmune. The supplement industry has responded with dozens of "anti-inflammatory" products. Some have evidence. Most don&rsquo;t. Here&rsquo;s the evidence-graded comparison of the five best-studied options.</p>
+        <figure className="mt-6"><div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white"><Image src="/images/guides/anti-inflammatory-supplements.jpg" alt="Turmeric root, omega-3 capsules, and ginger — anti-inflammatory supplements" width={1536} height={1024} priority className="w-full h-auto" /></div><figcaption className="mt-3 text-center text-sm text-muted">Anti-inflammatory supplements — evidence-graded, from strongest to weakest.</figcaption></figure></section>
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted">The best evidence supports <strong>omega-3 fatty acids</strong> (broadest anti-inflammatory evidence, cardiovascular and joint outcomes [2]), <strong>curcumin</strong> (strongest joint-specific evidence, needs bioavailability enhancement [1]), and <strong>ginger</strong> (muscle soreness and menstrual pain [3]). Boswellia has OA-specific evidence. Quercetin is mechanistically interesting but human evidence is limited. No supplement replaces the anti-inflammatory effect of weight loss, exercise, sleep, and a whole-foods diet. Start with omega-3 and curcumin — they cover the most ground with the strongest evidence.</p></section>
 
