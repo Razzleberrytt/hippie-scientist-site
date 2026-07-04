@@ -15,11 +15,7 @@ import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Rhodiola vs Ashwagandha for Stress & Fatigue',
   description: 'Evidence-informed comparison of rhodiola and ashwagandha for stress resilience, fatigue, sleep-adjacent tradeoffs, and product selection.
-      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance</p>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Rhodiola</p><p className="mt-1 text-xs leading-5 text-muted">Stimulating adaptogen. Best for: fatigue, burnout, mental performance. Morning dosing. Avoid if anxious or evening use.</p></div>
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Ashwagandha</p><p className="mt-1 text-xs leading-5 text-muted">Calming adaptogen. Best for: anxiety, stress load, cortisol, sleep. Evening dosing. Monitor thyroid with long-term use.</p></div>
-        </div></section>',
+      ',
   path: '/guides/compare/rhodiola-vs-ashwagandha/',
   openGraphType: 'article',
 })
@@ -43,11 +39,7 @@ export default function RhodiolaVsAshwagandhaComparePage() {
       <AuthorityJsonLd
         title="Rhodiola vs Ashwagandha for Stress & Fatigue"
         description="Evidence-informed comparison of rhodiola and ashwagandha for stress resilience, fatigue, sleep-adjacent tradeoffs, and product selection.
-      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance</p>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Rhodiola</p><p className="mt-1 text-xs leading-5 text-muted">Stimulating adaptogen. Best for: fatigue, burnout, mental performance. Morning dosing. Avoid if anxious or evening use.</p></div>
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Ashwagandha</p><p className="mt-1 text-xs leading-5 text-muted">Calming adaptogen. Best for: anxiety, stress load, cortisol, sleep. Evening dosing. Monitor thyroid with long-term use.</p></div>
-        </div></section>"
+      "
         url="https://thehippiescientist.net/guides/compare/rhodiola-vs-ashwagandha"
         type="Article"
       />

@@ -5,12 +5,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Melatonin vs Valerian vs Magnesium for Sleep Support',
   description: 'Evidence-informed 3-way comparison of melatonin, valerian root, and magnesium for sleep latency, circadian rhythm timing, safety, and supplement selection.
-      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance</p>
-        <div className="grid gap-3 sm:grid-cols-3">
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Melatonin</p><p className="mt-1 text-xs leading-5 text-muted">Circadian signal. Best for sleep onset. 0.3-1 mg (not 5-10 mg). Morning grogginess at high doses.</p></div>
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Valerian</p><p className="mt-1 text-xs leading-5 text-muted">Traditional sedative. Mixed evidence. Strong safety record. GABAergic — do not combine with alcohol.</p></div>
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Magnesium</p><p className="mt-1 text-xs leading-5 text-muted">Muscle/GABA support. Best for sleep maintenance. Glycinate preferred. Safe for long-term nightly use.</p></div>
-        </div></section>',
+      ',
   path: '/guides/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/',
 })
 
@@ -46,12 +41,7 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
       <AuthorityJsonLd
         title="Melatonin vs Valerian vs Magnesium for Sleep Support"
         description="Evidence-informed 3-way comparison of melatonin, valerian root, and magnesium for sleep latency, circadian rhythm timing, safety, and supplement selection.
-      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance</p>
-        <div className="grid gap-3 sm:grid-cols-3">
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Melatonin</p><p className="mt-1 text-xs leading-5 text-muted">Circadian signal. Best for sleep onset. 0.3-1 mg (not 5-10 mg). Morning grogginess at high doses.</p></div>
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Valerian</p><p className="mt-1 text-xs leading-5 text-muted">Traditional sedative. Mixed evidence. Strong safety record. GABAergic — do not combine with alcohol.</p></div>
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Magnesium</p><p className="mt-1 text-xs leading-5 text-muted">Muscle/GABA support. Best for sleep maintenance. Glycinate preferred. Safe for long-term nightly use.</p></div>
-        </div></section>"
+      "
         url="https://thehippiescientist.net/guides/compare/melatonin-vs-valerian-vs-magnesium-for-sleep"
         type="Article"
       />

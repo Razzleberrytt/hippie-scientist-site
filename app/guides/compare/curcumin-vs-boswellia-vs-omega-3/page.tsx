@@ -40,12 +40,7 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
       <AuthorityJsonLd
         title="Curcumin vs Boswellia vs Omega-3 for Pain & Inflammation"
         description="Evidence-informed 3-way comparison of curcumin, boswellia, and omega-3 (EPA/DHA) for joint pain, inflammatory discomfort, mechanism, onset, safety, and supplement selection.
-      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance</p>
-        <div className="grid gap-3 sm:grid-cols-3">
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Curcumin</p><p className="mt-1 text-xs leading-5 text-muted">NF-kB/COX-2 inhibitor. Strongest human evidence. Poor absorption — needs piperine or phytosome.</p></div>
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Boswellia</p><p className="mt-1 text-xs leading-5 text-muted">5-LOX inhibitor. Fastest subjective relief (days-weeks). Good for OA knee pain.</p></div>
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Omega-3</p><p className="mt-1 text-xs leading-5 text-muted">Membrane lipid modulation. Slowest onset (weeks-months). Broad cardiovascular benefits beyond joints.</p></div>
-        </div></section>"
+      "
         url="https://thehippiescientist.net/guides/compare/curcumin-vs-boswellia-vs-omega-3"
         type="Article"
       />

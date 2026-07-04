@@ -5,11 +5,7 @@ import { buildPageMetadata } from '../../../../src/lib/seo'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Kava vs Alcohol',
   description: 'Educational comparison of kava and alcohol, calming neuropharmacology, stress-response systems, and safety considerations.
-      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance</p>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Kava</p><p className="mt-1 text-xs leading-5 text-muted">GABA-A modulator. Relaxation without cognitive impairment. Low dependence risk. Liver safety: noble cultivars only. Do not combine with alcohol.</p></div>
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Alcohol</p><p className="mt-1 text-xs leading-5 text-muted">Broad CNS depressant. Impaired cognition, coordination. Moderate-high dependence risk. Dose-dependent liver toxicity. Carcinogenic with regular use.</p></div>
-        </div></section>',
+      ',
   path: '/guides/compare/kava-vs-alcohol/',
 })
 
@@ -33,11 +29,7 @@ export default function KavaVsAlcoholPage() {
       <AuthorityJsonLd
         title="Kava vs Alcohol"
         description="Educational comparison of kava and alcohol, calming neuropharmacology, stress-response systems, and safety considerations.
-      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance</p>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Kava</p><p className="mt-1 text-xs leading-5 text-muted">GABA-A modulator. Relaxation without cognitive impairment. Low dependence risk. Liver safety: noble cultivars only. Do not combine with alcohol.</p></div>
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Alcohol</p><p className="mt-1 text-xs leading-5 text-muted">Broad CNS depressant. Impaired cognition, coordination. Moderate-high dependence risk. Dose-dependent liver toxicity. Carcinogenic with regular use.</p></div>
-        </div></section>"
+      "
         url="https://thehippiescientist.net/guides/compare/kava-vs-alcohol"
         type="Article"
       />

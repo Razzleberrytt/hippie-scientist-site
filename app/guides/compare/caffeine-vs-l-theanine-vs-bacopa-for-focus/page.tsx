@@ -40,12 +40,7 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
       <AuthorityJsonLd
         title="Caffeine vs L-Theanine vs Bacopa for Focus & Attention"
         description="Evidence-informed 3-way comparison of caffeine, L-theanine, and bacopa monnieri for acute alertness, calm concentration, long-term memory support, safety, and supplement selection.
-      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance</p>
-        <div className="grid gap-3 sm:grid-cols-3">
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Caffeine</p><p className="mt-1 text-xs leading-5 text-muted">Fast stimulant. Best for acute alertness. Tolerance builds. Sleep disruption risk. Best in morning.</p></div>
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">L-Theanine</p><p className="mt-1 text-xs leading-5 text-muted">Calm focus. Best paired with caffeine. No tolerance. Alpha-wave induction. Non-sedating.</p></div>
-          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Bacopa</p><p className="mt-1 text-xs leading-5 text-muted">Memory consolidation. Slow cumulative effect (4-8 weeks). Fat-soluble — take with meal. Best for long-term cognitive support.</p></div>
-        </div></section>"
+      "
         url="https://thehippiescientist.net/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus"
         type="Article"
       />
