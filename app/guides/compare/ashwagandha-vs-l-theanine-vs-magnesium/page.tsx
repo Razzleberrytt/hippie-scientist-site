@@ -41,7 +41,13 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
     <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Ashwagandha vs L-Theanine vs Magnesium for Stress & Anxiety"
-        description="Evidence-informed 3-way comparison of ashwagandha, L-theanine, and magnesium for chronic tension, acute stress buffering, sleep latency, safety, and supplement selection."
+        description="Evidence-informed 3-way comparison of ashwagandha, L-theanine, and magnesium for chronic tension, acute stress buffering, sleep latency, safety, and supplement selection.
+      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance</p>
+        <div className="grid gap-3 sm:grid-cols-3">
+          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Ashwagandha</p><p className="mt-1 text-xs leading-5 text-muted">Calming adaptogen. Best for chronic stress, evening use, cortisol reduction. 4-12 weeks for full effect.</p></div>
+          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">L-Theanine</p><p className="mt-1 text-xs leading-5 text-muted">Fast-acting calming amino acid. Best for acute stress, daytime focus, caffeine jitters. Works in 30-60 min.</p></div>
+          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Magnesium</p><p className="mt-1 text-xs leading-5 text-muted">Mineral for muscle relaxation, sleep. Best for physical tension, evening wind-down. Glycinate preferred.</p></div>
+        </div></section>"
         url="https://thehippiescientist.net/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium"
         type="Article"
       />

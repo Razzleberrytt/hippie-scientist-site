@@ -16,7 +16,14 @@ import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Sleep Herbs vs Melatonin: Evidence Comparison',
   description:
-    'Evidence-graded comparison of melatonin, magnesium, L-theanine, and valerian for sleep. Understand mechanisms, onset, evidence quality, safety, and when to use each — or stack them.',
+    'Evidence-graded comparison of melatonin, magnesium, L-theanine, and valerian for sleep. Understand mechanisms, onset, evidence quality, safety, and when to use each — or stack them.
+      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance</p>
+        <div className="grid gap-3 sm:grid-cols-4">
+          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Melatonin</p><p className="mt-1 text-xs leading-5 text-muted">Sleep timing signal. Best for jet lag, shifted schedules.</p></div>
+          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Magnesium</p><p className="mt-1 text-xs leading-5 text-muted">Muscle relaxation. Best for tension, restless legs.</p></div>
+          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">L-Theanine</p><p className="mt-1 text-xs leading-5 text-muted">Racing mind quieting. Best for overthinking at bedtime.</p></div>
+          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Valerian</p><p className="mt-1 text-xs leading-5 text-muted">Traditional sedative. Mixed evidence, strong safety record.</p></div>
+        </div></section>',
   path: '/guides/compare/sleep-herbs-vs-melatonin/',
   openGraphType: 'article',
 })

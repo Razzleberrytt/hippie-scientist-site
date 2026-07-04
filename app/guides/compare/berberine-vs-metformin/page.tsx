@@ -37,7 +37,12 @@ export default function BerberineVsMetforminPage() {
     <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Berberine vs Metformin"
-        description="Evidence-graded comparison of berberine and metformin for blood sugar management, insulin resistance, and metabolic health. Mechanisms, RCT data, safety, cost, and when to use each."
+        description="Evidence-graded comparison of berberine and metformin for blood sugar management, insulin resistance, and metabolic health. Mechanisms, RCT data, safety, cost, and when to use each.
+      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance</p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Berberine</p><p className="mt-1 text-xs leading-5 text-muted">OTC supplement. AMPK activation. Modest HbA1c reduction. CYP3A4/2D6 inhibitor (drug interactions). GI side effects common. $15-30/month.</p></div>
+          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Metformin</p><p className="mt-1 text-xs leading-5 text-muted">Prescription drug. Decades of outcome data. Proven cardiovascular mortality reduction. B12 depletion risk. Contraindicated eGFR &lt;30. $4-10/month generic.</p></div>
+        </div></section>"
         url="https://thehippiescientist.net/guides/compare/berberine-vs-metformin"
         type="Article"
       />

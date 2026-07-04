@@ -35,7 +35,12 @@ export default function MelatoninVsMagnesiumPage() {
     <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
         title="Melatonin vs Magnesium for Sleep: Which Works Better?"
-        description="Melatonin vs Magnesium for sleep — which works better, which is safer long-term, and how to take them together. Evidence-based comparison with dosing and timing guide."
+        description="Melatonin vs Magnesium for sleep — which works better, which is safer long-term, and how to take them together. Evidence-based comparison with dosing and timing guide.
+      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance</p>
+        <div className="grid gap-3 sm:grid-cols-2">
+          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Melatonin</p><p className="mt-1 text-xs leading-5 text-muted">Sleep timing. Best for: can't fall asleep (circadian). Dose: 0.3-5 mg. Timing: 1-2 hrs before bed.</p></div>
+          <div className="p-3 rounded-xl bg-white"><p className="text-sm font-semibold text-ink">Magnesium</p><p className="mt-1 text-xs leading-5 text-muted">Sleep quality. Best for: can't stay asleep (maintenance), restless legs. Dose: 200-400 mg glycinate. Timing: evening.</p></div>
+        </div></section>"
         url="https://thehippiescientist.net/guides/compare/melatonin-vs-magnesium"
         type="Article"
       />

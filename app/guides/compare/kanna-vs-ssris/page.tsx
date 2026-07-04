@@ -81,6 +81,8 @@ export default function KannaVsSSRIsPage() {
 
         <p className="text-lg leading-8 text-muted">
           Educational comparison of kanna and SSRI-related serotonergic systems through the lens of emotional processing, mood regulation, psychoactive neuropharmacology, and safety awareness.
+      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-red-500 bg-red-50/30"><p className="text-xs font-bold uppercase tracking-wider text-red-700">⚠️ Do Not Combine</p>
+        <p className="text-sm leading-7 text-red-900"><strong>Kanna + SSRIs = Serotonin Syndrome Risk.</strong> Kanna has serotonergic activity. SSRIs are serotonergic. The combination is dangerous. This comparison is educational only — not a recommendation to substitute or combine.</p></section>
         </p>
 
         <figure className="mt-6">
