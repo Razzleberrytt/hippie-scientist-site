@@ -1,9 +1,9 @@
 ---
 slug: peptides-research-guide
-title: "Peptides: What the Research Shows — Mechanisms and Clinical Evidence"
-description: "A comprehensive, evidence-graded review of bioactive peptides covering growth hormone secretagogues, collagen peptides, BPC-157, thymosin beta-4, and more — with citations from PubMed, NIH, and peer-reviewed clinical trials."
+title: "Peptides Research Guide: Clinical Evidence, Mechanisms & Safety"
+description: "Evidence-based guide to bioactive peptides covering collagen, growth hormone secretagogues, BPC-157, and thymosin beta-4 — with mechanisms, clinical data, and safety considerations."
 date: '2026-06-08'
-updatedAt: '2026-06-30'
+updatedAt: '2026-07-05'
 author: Will
 category: Research
 keywords:

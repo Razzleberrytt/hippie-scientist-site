@@ -3,7 +3,7 @@ slug: natural-compounds-research-clusters
 title: "Natural Compounds: Biosynthetic Gene Clusters and Drug Discovery"
 description: "An evidence-based deep dive into biosynthetic gene clusters (BGCs) and cheminformatic space mapping, showing how genome mining and chemical clustering are transforming natural product supplement discovery."
 date: '2026-06-10'
-updatedAt: '2026-06-30'
+updatedAt: '2026-07-05'
 author: Will
 category: Research
 keywords:

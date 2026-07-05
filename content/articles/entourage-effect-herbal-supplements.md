@@ -3,7 +3,7 @@ slug: entourage-effect-herbal-supplements
 title: "The Entourage Effect in Herbal Supplements: Evidence Review"
 description: "A skeptical, evidence-based guide to the entourage effect in natural compounds, including full-spectrum extracts, phytochemical synergy, clinical evidence, stacking logic, and safety limits."
 date: "2026-06-10"
-updatedAt: "2026-06-10"
+updatedAt: "2026-07-05"
 author: "Will"
 category: "research"
 evidence_grade: "mixed-human-evidence"
