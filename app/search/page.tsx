@@ -52,7 +52,7 @@ export default function SearchPage() {
   const researchTools = [
     { name: 'Safety Checker', href: '/safety-checker/' },
     { name: 'Compare Supplements', href: '/guides/compare/' },
-    { name: 'Research Tools Hub', href: '/tools/' },
+    { name: 'Evidence Checker', href: '/evidence/evidence-checker/' },
     { name: 'Citation Explorer', href: '/learn/citation-explorer/' },
     { name: 'Dosing Calculator', href: '/info/dosing/' },
     { name: 'Stack Builder', href: '/guides/' },
