@@ -40,6 +40,9 @@ ai_assisted: false
 | Main side effects | GI upset (nausea, cramping) — take with a meal containing fat; fatigue/sedation in first 1–2 weeks |
 | Better for acute focus? | Try [L-theanine + caffeine](/articles/l-theanine/) |
 
+
+![Bacopa Monnieri](/images/guides/bacopa-monnieri.jpg)
+
 ---
 
 ## What to Expect: The Slowest Nootropic

@@ -92,6 +92,9 @@ L-theanine is an amino acid found almost exclusively in tea. It produces "alert 
 | **Tolerance** | None | None |
 | **Cost** | ~$10–15/month | ~$5–10/month |
 
+
+![Magnesium L Theanine Sleep Stack](/images/guides/l-theanine-magnesium-adhd-stack.jpg)
+
 ---
 
 ## How to Take This Stack

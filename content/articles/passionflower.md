@@ -39,6 +39,9 @@ ai_assisted: false
 | Better for chronic stress? | Try [ashwagandha](/articles/ashwagandha/) — cortisol-focused, builds over weeks |
 | Main caution | Drowsiness — don't drive until you know your response. Avoid pregnancy. |
 
+
+![Passionflower](/images/monographs/photos/passionflower.jpg)
+
 ---
 
 ## What Passionflower Feels Like

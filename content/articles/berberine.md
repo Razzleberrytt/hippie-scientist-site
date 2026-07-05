@@ -39,6 +39,9 @@ ai_assisted: false
 | Is it "nature's Ozempic"? | **No.** Modest weight loss (2–5 lbs), not the 10–15% body weight of GLP-1 drugs. Different mechanism entirely. |
 | Main caution | Major drug interactions — CYP3A4 and CYP2D6 inhibition can alter levels of many prescription drugs. Metabolically active — requires monitoring if on diabetes or BP meds. |
 
+
+![Berberine](/images/monographs/photos/berberine.jpg)
+
 ---
 
 ## What to Expect: Timeline and Sensation

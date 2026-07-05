@@ -38,6 +38,9 @@ ai_assisted: false
 | **Cycling** | Recommended (5 days on, 2 off common; 8 weeks on, 2 weeks off) | Optional (6–8 weeks on, 2–4 weeks off) |
 | **Cost** | $15–30/month | $15–25/month |
 
+
+![Tongkat Ali Vs Ashwagandha Testosterone](/images/monographs/photos/tongkat-ali.jpg)
+
 ---
 
 ## The Clinical Evidence

@@ -42,6 +42,9 @@ Ginkgo biloba is one of the oldest living tree species and one of the most presc
 | Key mechanism | Increases cerebral blood flow, antioxidant, mild antiplatelet |
 | Main caution | Blood thinners — theoretical bleeding risk; stop 2 weeks before surgery |
 
+
+![Ginkgo Biloba](/images/guides/ginkgo-biloba.jpg)
+
 ---
 
 ## What to Expect

@@ -41,6 +41,9 @@ NAC is the stable, bioavailable form of cysteine — a conditionally essential a
 | Main side effects | GI upset (nausea, bloating) — take with food; rare bronchospasm in asthmatics (with inhaled NAC only) |
 | Cost | $10–20/month at 1,200–1,800 mg/day |
 
+
+![Nac](/images/monographs/photos/nac.jpg)
+
 ---
 
 ## NAC's Three Mechanisms

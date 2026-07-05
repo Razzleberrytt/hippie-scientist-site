@@ -98,6 +98,9 @@ Lion's Mane (*Hericium erinaceus*) is a medicinal mushroom studied primarily for
 | Main safety concern | Mushroom allergy; caution with blood thinners |
 | Cost | $15–40/month depending on extract quality and dose |
 
+
+![Lions Mane Mushroom Benefits Mechanisms Dosage Evidence Guide](/images/guides/lions-mane.jpg)
+
 ---
 
 ## What Lion's Mane Actually Feels Like

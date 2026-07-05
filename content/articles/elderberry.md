@@ -40,6 +40,9 @@ ai_assisted: false
 | Duration of use | 5–7 days or until symptoms resolve |
 | Main caution | Raw berries are toxic — only use commercial preparations |
 
+
+![Elderberry](/images/monographs/photos/elderberry.jpg)
+
 ---
 
 ## What Elderberry Does

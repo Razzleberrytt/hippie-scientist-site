@@ -455,19 +455,40 @@ html.dark ::selection {
   }
 
   .content-prose table {
-    @apply min-w-[680px] w-full border-collapse text-left text-sm;
+    @apply w-full border-collapse text-left text-sm;
+    border-spacing: 0;
+  }
+
+  .content-prose thead {
+    @apply border-b-2 border-brand-800/20;
   }
 
   .content-prose th {
-    @apply bg-brand-50/80 px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-brand-900;
+    @apply bg-brand-50/60 px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.10em] text-brand-800 whitespace-nowrap;
+    border-bottom: 2px solid rgba(30, 60, 40, 0.15);
   }
 
   .content-prose td {
-    @apply border-t border-brand-900/10 px-4 py-3 align-top leading-6 text-[#36483e];
+    @apply border-b border-brand-900/10 px-4 py-3 align-top leading-6 text-[#36483e];
   }
 
   .content-prose tbody tr:nth-child(even) {
-    background-color: rgba(243, 245, 238, 0.46);
+    background-color: rgba(243, 245, 238, 0.40);
+  }
+
+  .content-prose tbody tr:hover {
+    background-color: rgba(230, 240, 230, 0.50);
+  }
+
+  .content-prose td:first-child,
+  .content-prose th:first-child {
+    @apply font-semibold text-ink;
+  }
+
+  .content-prose img {
+    @apply rounded-xl w-full my-6;
+    max-height: 420px;
+    object-fit: cover;
   }
 
   .content-prose .article-table {

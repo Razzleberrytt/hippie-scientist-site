@@ -156,6 +156,8 @@ Ashwagandha (*Withania somnifera*) is a calming adaptogen — not a sedative, no
 | Better fit for fatigue-dominant stress? | Try [Rhodiola](/guides/rhodiola-complete-guide/) — stimulating, not calming |
 | Better fit for acute calm? | Try [L-theanine](/guides/anxiety/l-theanine-for-anxiety/) — works in 30–40 minutes |
 
+![Ashwagandha root and powder](/images/monographs/photos/ashwagandha.jpg)
+
 ---
 
 ## What to Expect: A Realistic Timeline

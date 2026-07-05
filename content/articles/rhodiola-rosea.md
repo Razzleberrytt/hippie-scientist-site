@@ -87,6 +87,9 @@ Rhodiola rosea (golden root, Arctic root) is a succulent perennial native to hig
 | Better for anxiety or sleep? | No — try [ashwagandha](/articles/ashwagandha/) for calming support |
 | Main caution | Can cause overstimulation/insomnia at high doses or if taken too late; bipolar caution (MAO inhibition) |
 
+
+![Rhodiola Rosea](/images/monographs/photos/rhodiola.jpg)
+
 ---
 
 ## What to Expect: Timeline and Sensation

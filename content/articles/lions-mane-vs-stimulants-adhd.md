@@ -36,6 +36,9 @@ ai_assisted: false
 | **Regulation** | Supplement — no FDA oversight, no quality standards for ADHD claims | Schedule II controlled substance — rigorous manufacturing and prescribing standards |
 | **Cost** | $15–40/month | $30–300/month (varies widely by insurance) |
 
+
+![Lions Mane Vs Stimulants Adhd](/images/guides/lions-mane.jpg)
+
 ---
 
 ## The Evidence Gap

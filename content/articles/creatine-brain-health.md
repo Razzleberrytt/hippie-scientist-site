@@ -131,6 +131,9 @@ The evidence for neuroprotection is primarily mechanistic and from animal models
 | **Cost** | $10–20/month (creatine monohydrate is one of the cheapest supplements) |
 | **Hydration** | Creatine draws water into cells; maintain adequate hydration |
 
+
+![Creatine Brain Health](/images/guides/creatine-brain-health.jpg)
+
 **Who may benefit most:**
 - People under high cognitive demand or sleep restriction
 - Vegetarians and vegans (lower baseline creatine)

@@ -45,6 +45,9 @@ L-theanine is one of the few supplements where the subjective experience is cons
 | Better for chronic stress? | Try [ashwagandha](/articles/ashwagandha/) (cortisol, weeks) |
 | Better for sleep? | Combine with [magnesium glycinate](/articles/magnesium-glycinate/) — the classic sleep stack |
 
+
+![L Theanine](/images/monographs/photos/l-theanine.jpg)
+
 ---
 
 ## What L-Theanine Feels Like

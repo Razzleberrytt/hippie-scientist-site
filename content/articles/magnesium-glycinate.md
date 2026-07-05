@@ -105,6 +105,9 @@ Magnesium is a cofactor for over 300 enzymatic reactions — including several d
 | Main caution | Kidney disease (GFR < 30 mL/min) — avoid without medical supervision |
 | Cost | $10–20/month at effective doses — one of the most affordable evidence-based sleep supplements |
 
+
+![Magnesium Glycinate](/images/guides/magnesium-for-sleep.jpg)
+
 ---
 
 ## What to Expect: A Detailed Timeline

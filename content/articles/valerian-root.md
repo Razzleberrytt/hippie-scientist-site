@@ -40,6 +40,9 @@ ai_assisted: false
 | Better for circadian issues? | Try melatonin |
 | Better for muscle tension? | Try [magnesium glycinate](/articles/magnesium-glycinate/) |
 
+
+![Valerian Root](/images/guides/valerian-root.jpg)
+
 ---
 
 ## What to Expect

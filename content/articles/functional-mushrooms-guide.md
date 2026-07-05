@@ -37,6 +37,9 @@ ai_assisted: false
 | **Reishi** | Immune modulation, mild calming, stress resilience | Limited-moderate | 1,500–3,000 mg/day | Triterpenes (ganoderic acids) + beta-glucans |
 | **Chaga** | Antioxidant support, general wellness | Preliminary | 1,000–2,000 mg/day | Betulinic acid, melanin — highest ORAC antioxidant score |
 
+
+![Functional Mushrooms Guide](/images/monographs/photos/cordyceps.jpg)
+
 ---
 
 ## Cordyceps (*Cordyceps militaris*)

@@ -36,6 +36,9 @@ ai_assisted: false
 | Is it worth the price? | Only if you value the convenience of getting subclinical mushroom doses with your coffee and wouldn't take mushrooms otherwise |
 | Best use case | Morning coffee with a modest mushroom bonus for people who wouldn't take standalone mushroom supplements |
 
+
+![Mushroom Coffee Benefits Review](/images/guides/lions-mane.jpg)
+
 ---
 
 ## The Dose Gap: What You're Actually Getting

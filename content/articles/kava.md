@@ -37,6 +37,9 @@ ai_assisted: false
 | Duration | 2–4 hours per dose |
 | Main caution | Do NOT combine with alcohol, benzodiazepines, or CNS depressants. Liver safety requires noble cultivars + water extracts only. |
 
+
+![Kava](/images/monographs/photos/kava.jpg)
+
 ---
 
 ## What Kava Feels Like
