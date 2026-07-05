@@ -12,6 +12,7 @@ import ScrollToTopButton from '../src/components/ScrollToTopButton'
 import ClickTracker from '@/components/ClickTracker'
 import ConsentBanner from '../src/components/ConsentBanner'
 import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
+import GlobalTOC from '@/components/content/GlobalTOC'
 import { buildPageMetadata, DEFAULT_DESCRIPTION, SITE_URL, websiteJsonLd, organizationJsonLd } from '../src/lib/seo'
 import { DarkModeProvider } from '@/lib/dark-mode-provider'
 import DarkModeToggle from '@/components/DarkModeToggle'
@@ -91,6 +92,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             className='pb-[calc(env(safe-area-inset-bottom)+9rem)] md:pb-8'
             tabIndex={-1}
           >
+            <GlobalTOC />
             {children}
           </main>
           <Footer />

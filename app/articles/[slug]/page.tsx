@@ -6,7 +6,6 @@ import { allArticleMonographs, allBlogPosts } from '../../../.content-collection
 import ArticleMdx from '@/components/articles/ArticleMdx'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import JsonLd from '@/components/seo/JsonLd'
-import TableOfContentsAuto from '@/components/articles/TableOfContentsAuto'
 import { SITE_URL, compactMetaTitle } from '../../../src/lib/seo'
 
 const articlePages = [...allArticleMonographs, ...allBlogPosts]
@@ -109,19 +108,12 @@ export default async function ArticleMonographPage({ params }: PageProps) {
         </p>
       </header>
 
-      <div className="mt-6 lg:grid lg:grid-cols-[minmax(0,1fr)_220px] lg:items-start lg:gap-8">
-        <div className="min-w-0">
-          <div className="rounded-[1rem] border-2 border-brand-900/15 bg-white p-6 shadow-md ring-1 ring-brand-900/5 sm:p-8">
+      <div className="mt-6">
+        <div className="rounded-[1rem] border-2 border-brand-900/15 bg-white p-6 shadow-md ring-1 ring-brand-900/5 sm:p-8">
             <div className="content-prose max-w-none [&>*]:max-w-reading [&_a]:font-semibold [&_a]:text-brand-800 [&_a:hover]:underline [&_blockquote]:max-w-reading [&_blockquote]:rounded-r-lg [&_blockquote]:border-l-4 [&_blockquote]:border-brand-700/40 [&_blockquote]:bg-brand-50/60 [&_blockquote]:py-3 [&_blockquote]:pl-5 [&_blockquote]:pr-4 [&_code]:break-all [&_h2]:mt-10 [&_h2]:text-2xl [&_h3]:mt-7 [&_h3]:text-xl [&_ol]:list-decimal [&_table]:w-full [&_table]:text-sm [&_td]:border-t [&_td]:border-brand-900/10 [&_td]:py-3 [&_td]:pr-4 [&_td]:align-top [&_td]:break-words [&_th]:border-b [&_th]:border-brand-900/10 [&_th]:pb-2 [&_th]:pr-4 [&_th]:text-left [&_ul]:list-disc">
               <ArticleMdx code={page.body} />
             </div>
           </div>
-        </div>
-        <aside aria-label="Page contents" className="hidden lg:block">
-          <div className="sticky top-20 rounded-xl border-2 border-brand-900/15 bg-white p-4 shadow-md ring-1 ring-brand-900/5 dark:border-white/15 dark:bg-brand-950/80">
-            <TableOfContentsAuto />
-          </div>
-        </aside>
       </div>
 
       {page.references.length > 0 ? (
