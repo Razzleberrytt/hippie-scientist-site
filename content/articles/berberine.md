@@ -107,7 +107,7 @@ Berberine's primary mechanism is **AMPK activation** — the same cellular energ
 ### AMPK Activation Cascade
 
 ```
-Berberine → Mitochondrial complex I inhibition → ↓ ATP:AMP ratio → AMPK phosphorylation → 
+Berberine → Mitochondrial complex I inhibition → ↓ ATP:AMP ratio → AMPK phosphorylation →
 Multiple downstream effects:
 
 Liver: ↓ Gluconeogenesis (↓ PEPCK, G6Pase) → ↓ hepatic glucose output

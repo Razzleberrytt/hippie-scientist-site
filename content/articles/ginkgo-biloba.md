@@ -88,7 +88,7 @@ Cheap, unstandardized ginkgo products may contain ginkgolic acids — allergenic
 
 ### The GEM Trial: what everyone should know
 
-The Ginkgo Evaluation of Memory (GEM) study was the definitive prevention trial: 3,069 cognitively healthy adults aged 75+ took 240 mg/day EGb 761 or placebo for a median of 6.1 years. **Result: no significant difference in dementia or Alzheimer's rates between groups.** 
+The Ginkgo Evaluation of Memory (GEM) study was the definitive prevention trial: 3,069 cognitively healthy adults aged 75+ took 240 mg/day EGb 761 or placebo for a median of 6.1 years. **Result: no significant difference in dementia or Alzheimer's rates between groups.**
 
 This doesn't mean ginkgo is useless — it means it's not a preventive. The same trial's subgroup analysis found modest benefits in people who already had mild cognitive impairment (MCI). Think of it as a treatment, not a vaccine.
 
