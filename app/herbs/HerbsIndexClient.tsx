@@ -356,7 +356,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
 
   return (
     <div className="px-2 pb-28 pt-2 text-ink sm:px-3 sm:pt-3">
-      <div className="mx-auto max-w-7xl space-y-4 sm:space-y-4">
+      <div className="mx-auto max-w-7xl space-y-3 sm:space-y-4">
         <section className="hero-shell relative overflow-hidden rounded-[0.95rem] border border-brand-900/10 px-3 py-4 shadow-sm sm:px-4 sm:py-5">
           <div className="relative grid gap-3 lg:grid-cols-[1.05fr_.95fr] lg:items-end">
             <div className="max-w-3xl space-y-2">
@@ -381,12 +381,14 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
         </section>
 
         <section className="rounded-[0.85rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm sm:p-4" aria-labelledby="herb-search-heading">
-          <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-2xl space-y-1.5">
-              <p className="eyebrow-label">Search and filter</p>
-              <h2 id="herb-search-heading" className="compact-heading">Start with the question you need answered.</h2>
+          <div className="flex flex-col gap-1.5 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-2xl space-y-1">
+              <p className="eyebrow-label">Search</p>
+              <h2 id="herb-search-heading" className="font-display text-2xl font-semibold leading-tight tracking-tight text-ink sm:text-3xl">
+                Find an herb
+              </h2>
             </div>
-            <Link href="/guides/" className="w-fit text-sm font-bold text-brand-800 transition hover:text-brand-900">Browse all goals →</Link>
+            <Link href="/guides/" className="w-fit text-sm font-bold text-brand-800 transition hover:text-brand-900">Browse goals →</Link>
           </div>
 
           <form action="/herbs" className="mt-3 grid gap-2 sm:grid-cols-[1fr_auto]">
@@ -396,45 +398,55 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
               name="q"
               type="search"
               defaultValue={query}
-              placeholder="Search herb, effect, mechanism, or safety note"
-              className="min-h-10 w-full rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 text-sm text-ink shadow-sm placeholder:text-muted/60 dark:placeholder:text-[var(--text-muted)]/50"
+              placeholder="Search herb, effect, or safety note"
+              className="min-h-11 w-full rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 text-base text-ink shadow-sm placeholder:text-muted/60 focus:outline-none focus:ring-2 focus:ring-brand-700/30 dark:placeholder:text-[var(--text-muted)]/50"
             />
             {activeFilter !== 'all' ? <input type="hidden" name="context" value={activeFilter} /> : null}
             {activeEvidence !== 'all' ? <input type="hidden" name="evidence" value={activeEvidence} /> : null}
-            <button type="submit" className="button-primary min-h-10 px-4 py-2">
+            <button type="submit" className="button-primary min-h-11 px-5 py-2.5 text-sm sm:w-auto">
               Search
             </button>
           </form>
 
-          <DecisionFilterGroup
-            options={filterOptions}
-            activeFilter={activeFilter}
-            query={query}
-            buildHref={(value, q) => buildFilterHref(value, q, activeEvidence)}
-            open={hasActiveFilters}
-          />
+          <details className="mt-3 group" open={hasActiveFilters}>
+            <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between rounded-full border border-brand-900/10 px-4 py-2 text-sm font-bold text-ink/80 transition hover:bg-[var(--surface-card-strong)] [&::-webkit-details-marker]:hidden">
+              <span>Advanced filters</span>
+              <span className="text-xs text-muted group-open:hidden">Open</span>
+              <span className="hidden text-xs text-muted group-open:inline">Close</span>
+            </summary>
 
-          <div className="mt-2">
-            <div className="mb-1.5 text-xs font-bold uppercase tracking-[0.12em] text-muted">Evidence level</div>
-            <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
-              {EVIDENCE_FILTER_OPTIONS.map(opt => {
-                const href = buildEvidenceHref(opt.value, query, activeFilter)
-                const active = activeEvidence === opt.value
-                return (
-                  <Link
-                    key={opt.value}
-                    href={href}
-                    className={`rounded-full border px-2.5 py-1 text-center text-xs font-semibold transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-[var(--surface-card)] text-[#33443a] hover:border-brand-700/20'}`}
-                  >
-                    {opt.label}
-                  </Link>
-                )
-              })}
+            <div className="mt-3 space-y-3 border-t border-brand-900/10 pt-3">
+              <DecisionFilterGroup
+                options={filterOptions}
+                activeFilter={activeFilter}
+                query={query}
+                buildHref={(value, q) => buildFilterHref(value, q, activeEvidence)}
+                open={hasActiveFilters}
+              />
+
+              <div>
+                <div className="mb-1.5 text-xs font-bold uppercase tracking-[0.12em] text-muted">Evidence level</div>
+                <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
+                  {EVIDENCE_FILTER_OPTIONS.map(opt => {
+                    const href = buildEvidenceHref(opt.value, query, activeFilter)
+                    const active = activeEvidence === opt.value
+                    return (
+                      <Link
+                        key={opt.value}
+                        href={href}
+                        className={`rounded-full border px-2.5 py-1.5 text-center text-xs font-semibold transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-transparent text-[#33443a] hover:border-brand-700/20'}`}
+                      >
+                        {opt.label}
+                      </Link>
+                    )
+                  })}
+                </div>
+              </div>
             </div>
-          </div>
+          </details>
 
           {hasActiveFilters && (
-            <div className="pt-1">
+            <div className="pt-2">
               <Link href="/herbs/" className="text-xs font-semibold text-brand-800 underline-offset-2 hover:underline">
                 Clear all filters
               </Link>
