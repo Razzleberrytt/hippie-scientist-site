@@ -23,6 +23,27 @@ tags:
   - evidence review
 profile_status: published
 ai_assisted: false
+references:
+  - title: "Valerian for sleep: a systematic review and meta-analysis"
+    authors: "Bent S, Padula A, Moore D, Patterson M, Mehling W"
+    year: "2006"
+    pmid: "17145239"
+    url: "https://pubmed.ncbi.nlm.nih.gov/17145239/"
+  - title: "Effectiveness of Valerian on insomnia: a meta-analysis of randomized placebo-controlled trials"
+    authors: "Fernández-San-Martín MI, Masa-Font R, Palacios-Soler L, Sancho-Gómez P, Calbó-Caldentey C, Flores-Mateo G"
+    year: "2010"
+    pmid: "20347389"
+    url: "https://pubmed.ncbi.nlm.nih.gov/20347389/"
+  - title: "Critical evaluation of the effect of valerian extract on sleep structure and sleep quality"
+    authors: "Donath F, Quispe S, Diefenbach K, Maurer A, Fietze I, Roots I"
+    year: "2000"
+    pmid: "10761819"
+    url: "https://pubmed.ncbi.nlm.nih.gov/10761819/"
+  - title: "Efficacy and tolerability of valerian extract LI 156 compared with oxazepam in the treatment of non-organic insomnia--a randomized, double-blind, comparative clinical study"
+    authors: "Ziegler G, Ploch M, Miettinen-Baumann A, Collet W"
+    year: "2002"
+    pmid: "12568976"
+    url: "https://pubmed.ncbi.nlm.nih.gov/12568976/"
 ---
 
 > **The bottom line:** Valerian root (*Valeriana officinalis*) is a traditional sedative herb that enhances GABA signaling. Meta-analyses show modest but significant improvements in sleep latency — typically reducing the time to fall asleep by 8–15 minutes. It's not a knockout sleep aid — effects are subtle and build over 2–4 weeks of consistent nightly use. Evidence grade: **Mixed-moderate** for sleep; preliminary for anxiety.

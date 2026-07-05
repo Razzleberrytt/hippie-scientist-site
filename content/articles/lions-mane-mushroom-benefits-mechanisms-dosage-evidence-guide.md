@@ -204,8 +204,8 @@ Lion's Mane contains immunomodulatory beta-glucans that are shared across most m
 The mechanism explains the timeline. NGF doesn't produce acute cognitive enhancement — it supports neuronal health over weeks:
 
 ```
-Lion's Mane compounds → Astrocyte NGF synthesis ↑ → NGF binds TrkA receptors on cholinergic neurons → 
-Neuronal survival signals activated → Synaptic maintenance and plasticity supported → 
+Lion's Mane compounds → Astrocyte NGF synthesis ↑ → NGF binds TrkA receptors on cholinergic neurons →
+Neuronal survival signals activated → Synaptic maintenance and plasticity supported →
 Cognitive improvements measurable after 8+ weeks
 ```
 

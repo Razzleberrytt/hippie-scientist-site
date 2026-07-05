@@ -23,6 +23,32 @@ tags:
   - evidence review
 profile_status: published
 ai_assisted: false
+references:
+  - title: "Black elderberry (Sambucus nigra) supplementation effectively treats upper respiratory symptoms: a meta-analysis of randomized, controlled clinical trials"
+    authors: "Hawkins J, Baker C, Cherry L, Dunne E"
+    year: "2019"
+    pmid: "30670267"
+    url: "https://pubmed.ncbi.nlm.nih.gov/30670267/"
+  - title: "Randomized study of the efficacy and safety of oral elderberry extract in the treatment of influenza A and B virus infections"
+    authors: "Zakay-Rones Z, Thom E, Wollan T, Wadstein J"
+    year: "2004"
+    pmid: "15080016"
+    url: "https://pubmed.ncbi.nlm.nih.gov/15080016/"
+  - title: "Elderberry supplementation reduces cold duration and symptoms in air-travellers: a randomized, double-blind placebo-controlled clinical trial"
+    authors: "Tiralongo E, Wee SS, Lea RA"
+    year: "2016"
+    pmid: "27023596"
+    url: "https://pubmed.ncbi.nlm.nih.gov/27023596/"
+  - title: "Elderberry for prevention and treatment of viral respiratory illnesses: a systematic review"
+    authors: "Wieland LS, Piechotta V, Feinberg T, Ludeman E, Hutton B, Kanji S, Seely D, Garritty C"
+    year: "2021"
+    pmid: "33827515"
+    url: "https://pubmed.ncbi.nlm.nih.gov/33827515/"
+  - title: "Elderberry flavonoids bind to and prevent H1N1 infection in vitro"
+    authors: "Roschek B Jr, Fink RC, McMichael MD, Li D, Alberte RS"
+    year: "2009"
+    pmid: "19682714"
+    url: "https://pubmed.ncbi.nlm.nih.gov/19682714/"
 ---
 
 > **The bottom line:** Elderberry (*Sambucus nigra*) reduces the duration and severity of cold and flu symptoms when taken at the first sign of illness. Multiple meta-analyses confirm it shortens symptoms by 2–4 days. It does NOT prevent colds or flu — it treats symptoms once you're sick. Evidence grade: **Moderate** for treatment; weak for prevention.

@@ -322,7 +322,7 @@ Integrating genomics will allow researchers to predict how polymorphisms in gluc
 
 ### Meta-Analysis Gaps vs. Examine.com
 
-While resources like Examine.com provide excellent summaries of single ingredients, they frequently lack analysis of multi-herb adaptogenic synergisms and the ecological sustainability of sourcing. Intensive global demand for wild-harvested *Rhodiola rosea* and *Cordyceps sinensis* has led to severe over-harvesting and ecological degradation in the Altai Mountains and the Tibetan Plateau. 
+While resources like Examine.com provide excellent summaries of single ingredients, they frequently lack analysis of multi-herb adaptogenic synergisms and the ecological sustainability of sourcing. Intensive global demand for wild-harvested *Rhodiola rosea* and *Cordyceps sinensis* has led to severe over-harvesting and ecological degradation in the Altai Mountains and the Tibetan Plateau.
 
 Research must prioritize mapping the biosynthetic gene clusters (BGCs) of these endangered botanicals to enable sustainable bioreactor production [11, 12]. Additionally, large-scale, head-to-head human clinical trials are urgently needed to compare adaptogens directly and define standardized protocols for specific clinical exhaustion syndromes.
 

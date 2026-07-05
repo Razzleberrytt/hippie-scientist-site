@@ -20,6 +20,27 @@ tags:
   - comparison
 profile_status: published
 ai_assisted: false
+references:
+  - title: "Nerve growth factor-inducing activity of Hericium erinaceus in 1321N1 human astrocytoma cells"
+    authors: "Mori K, Obara Y, Hirota M, Azumi Y, Kinugasa S, Inatomi S, Nakahata N"
+    year: "2008"
+    pmid: "18758067"
+    url: "https://pubmed.ncbi.nlm.nih.gov/18758067/"
+  - title: "Improving effects of the mushroom Yamabushitake (Hericium erinaceus) on mild cognitive impairment: a double-blind placebo-controlled clinical trial"
+    authors: "Mori K, Inatomi S, Ouchi K, Azumi Y, Tuchida T"
+    year: "2009"
+    pmid: "18844328"
+    url: "https://pubmed.ncbi.nlm.nih.gov/18844328/"
+  - title: "Reduction of depression and anxiety by 4 weeks Hericium erinaceus intake"
+    authors: "Nagano M, Shimizu K, Kondo R, Hayashi C, Sato D, Kitagawa K, Ohnuki K"
+    year: "2010"
+    pmid: "20834180"
+    url: "https://pubmed.ncbi.nlm.nih.gov/20834180/"
+  - title: "Methylphenidate for children and adolescents with attention deficit hyperactivity disorder (ADHD)"
+    authors: "Storebø OJ, Ramstad E, Krogh HB, et al."
+    year: "2023"
+    pmid: "36971690"
+    url: "https://pubmed.ncbi.nlm.nih.gov/36971690/"
 ---
 
 > **The bottom line:** There are **zero clinical trials** of Lion's Mane for ADHD. Prescription stimulants (Adderall, Vyvanse, Ritalin) have decades of RCT evidence and are first-line standard of care. Lion's Mane is not a substitute for ADHD medication — its mechanism (NGF stimulation over weeks) is fundamentally different from stimulants (dopamine/norepinephrine within 30–60 minutes). It may offer modest adjunctive cognitive support, but the evidence gap is enormous.

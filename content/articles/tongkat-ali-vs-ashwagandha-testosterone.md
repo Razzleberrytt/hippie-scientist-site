@@ -21,6 +21,32 @@ tags:
   - comparison
 profile_status: published
 ai_assisted: false
+references:
+  - title: "Standardised water-soluble extract of Eurycoma longifolia, Tongkat ali, as testosterone booster for managing men with late-onset hypogonadism?"
+    authors: "Tambi MIBM, Imran MK, Henkel RR"
+    year: "2012"
+    pmid: "21671978"
+    url: "https://pubmed.ncbi.nlm.nih.gov/21671978/"
+  - title: "Effect of Tongkat Ali on stress hormones and psychological mood state in moderately stressed subjects"
+    authors: "Talbott SM, Talbott JA, George A, Pugh M"
+    year: "2013"
+    pmid: "23705671"
+    url: "https://pubmed.ncbi.nlm.nih.gov/23705671/"
+  - title: "Eurycoma longifolia (Jack) Improves Serum Total Testosterone in Men: A Systematic Review and Meta-Analysis of Clinical Trials"
+    authors: "Leisegang K, Finelli R, Sikka SC, Panner Selvam MK"
+    year: "2022"
+    pmid: "36013514"
+    url: "https://pubmed.ncbi.nlm.nih.gov/36013514/"
+  - title: "A prospective, randomized double-blind, placebo-controlled study of safety and efficacy of a high-concentration full-spectrum extract of ashwagandha root in reducing stress and anxiety in adults"
+    authors: "Chandrasekhar K, Kapoor J, Anishetty S"
+    year: "2012"
+    pmid: "23439798"
+    url: "https://pubmed.ncbi.nlm.nih.gov/23439798/"
+  - title: "A Randomized, Double-Blind, Placebo-Controlled, Crossover Study Examining the Hormonal and Vitality Effects of Ashwagandha (Withania somnifera) in Aging, Overweight Males"
+    authors: "Lopresti AL, Drummond PD, Smith SJ"
+    year: "2019"
+    pmid: "30854916"
+    url: "https://pubmed.ncbi.nlm.nih.gov/30854916/"
 ---
 
 > **The bottom line:** Tongkat ali and ashwagandha are both adaptogens, but for fundamentally different goals. Tongkat ali is the stronger choice for testosterone, libido, and athletic performance. Ashwagandha is the better choice for stress reduction, cortisol management, and sleep. They can be stacked — tongkat ali in the morning (stimulating), ashwagandha in the evening (calming).

@@ -25,6 +25,37 @@ tags:
   - evidence review
 profile_status: published
 ai_assisted: false
+references:
+  - title: "L-theanine, a natural constituent in tea, and its effect on mental state"
+    authors: "Nobre AC, Rao A, Owen GN"
+    year: "2008"
+    pmid: "18296328"
+    url: "https://pubmed.ncbi.nlm.nih.gov/18296328/"
+  - title: "L-Theanine reduces psychological and physiological stress responses"
+    authors: "Kimura K, Ozeki M, Juneja LR, Ohira H"
+    year: "2007"
+    pmid: "16930802"
+    url: "https://pubmed.ncbi.nlm.nih.gov/16930802/"
+  - title: "The effects of L-theanine, caffeine and their combination on cognition and mood"
+    authors: "Haskell CF, Kennedy DO, Milne AL, Wesnes KA, Scholey AB"
+    year: "2008"
+    pmid: "18006208"
+    url: "https://pubmed.ncbi.nlm.nih.gov/18006208/"
+  - title: "The combination of L-theanine and caffeine improves cognitive performance and increases subjective alertness"
+    authors: "Giesbrecht T, Rycroft JA, Rowson MJ, De Bruin EA"
+    year: "2010"
+    pmid: "21040626"
+    url: "https://pubmed.ncbi.nlm.nih.gov/21040626/"
+  - title: "The effects of L-theanine (Suntheanine) on objective sleep quality in boys with attention deficit hyperactivity disorder (ADHD): a randomized, double-blind, placebo-controlled clinical trial"
+    authors: "Lyon MR, Kapoor MP, Juneja LR"
+    year: "2011"
+    pmid: "22214254"
+    url: "https://pubmed.ncbi.nlm.nih.gov/22214254/"
+  - title: "L-theanine relieves positive, activation, and anxiety symptoms in patients with schizophrenia and schizoaffective disorder: an 8-week, randomized, double-blind, placebo-controlled, 2-center study"
+    authors: "Ritsner MS, Miodownik C, Ratner Y, Shleifer T, Mar M, Pintov L, Lerner V"
+    year: "2011"
+    pmid: "21208586"
+    url: "https://pubmed.ncbi.nlm.nih.gov/21208586/"
 ---
 
 > **The bottom line:** L-theanine is an amino acid from tea that produces "alert relaxation" — calm focus without sedation. It increases alpha brain waves within 30–40 minutes, making it one of the fastest-acting anxiolytic supplements. Best for: caffeine jitter reduction, acute situational anxiety (presentations, exams, social settings), and racing thoughts at bedtime. It does not build tolerance or cause dependence. Evidence grade: **Moderate** for acute relaxation; limited for chronic anxiety and sleep.

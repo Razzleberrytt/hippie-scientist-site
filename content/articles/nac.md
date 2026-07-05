@@ -24,6 +24,32 @@ tags:
   - evidence review
 profile_status: published
 ai_assisted: false
+references:
+  - title: "N-acetylcysteine, a glutamate modulator, in the treatment of trichotillomania: a double-blind, placebo-controlled study"
+    authors: "Grant JE, Odlaug BL, Kim SW"
+    year: "2009"
+    pmid: "19581567"
+    url: "https://pubmed.ncbi.nlm.nih.gov/19581567/"
+  - title: "A double-blind randomized controlled trial of N-acetylcysteine in cannabis-dependent adolescents"
+    authors: "Gray KM, Carpenter MJ, Baker NL, DeSantis SM, Kryway E, Hartwell KJ, McRae-Clark AL, Brady KT"
+    year: "2012"
+    pmid: "22706327"
+    url: "https://pubmed.ncbi.nlm.nih.gov/22706327/"
+  - title: "N-acetyl cysteine for depressive symptoms in bipolar disorder--a double-blind randomized placebo-controlled trial"
+    authors: "Berk M, Copolov DL, Dean O, Lu K, Jeavons S, Schapkaitz I, Anderson-Hunt M, Bush AI"
+    year: "2008"
+    pmid: "18534556"
+    url: "https://pubmed.ncbi.nlm.nih.gov/18534556/"
+  - title: "The effect of N-acetylcysteine on exacerbations of chronic obstructive pulmonary disease: a meta-analysis and systematic review"
+    authors: "Fowdar K, Chen H, He Z, Zhang J, Zhong X, Zhang J, Li M, Bai J"
+    year: "2017"
+    pmid: "28109565"
+    url: "https://pubmed.ncbi.nlm.nih.gov/28109565/"
+  - title: "N-acetylcysteine augmentation therapy for moderate-to-severe obsessive-compulsive disorder: randomized, double-blind, placebo-controlled trial"
+    authors: "Paydary K, Akamaloo A, Ahmadipour A, Pishgar F, Emamzadehfard S, Akhondzadeh S"
+    year: "2016"
+    pmid: "26931055"
+    url: "https://pubmed.ncbi.nlm.nih.gov/26931055/"
 ---
 
 > **The bottom line:** NAC (N-acetyl cysteine) is a precursor to glutathione — the body's master antioxidant. It's a clinically established treatment for acetaminophen overdose (IV NAC is standard of care) and COPD (reduces exacerbation frequency by ~40%). As a supplement, the best evidence is for respiratory health, OCD, and compulsive behaviors. Evidence grade: **Strong** for respiratory and acetaminophen toxicity; **moderate** for psychiatric applications (OCD, trichotillomania, addiction).

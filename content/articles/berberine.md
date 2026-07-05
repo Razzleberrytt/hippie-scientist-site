@@ -24,6 +24,27 @@ tags:
   - evidence review
 profile_status: published
 ai_assisted: false
+references:
+  - title: "Efficacy of berberine in patients with type 2 diabetes mellitus"
+    authors: "Yin J, Xing H, Ye J"
+    year: "2008"
+    pmid: "18442638"
+    url: "https://pubmed.ncbi.nlm.nih.gov/18442638/"
+  - title: "Berberine is a novel cholesterol-lowering drug working through a unique mechanism distinct from statins"
+    authors: "Kong W, Wei J, Abidi P, et al."
+    year: "2004"
+    pmid: "15531889"
+    url: "https://pubmed.ncbi.nlm.nih.gov/15531889/"
+  - title: "The effects of berberine on blood lipids: a systemic review and meta-analysis of randomized controlled trials"
+    authors: "Dong H, Zhao Y, Zhao L, Lu FE"
+    year: "2013"
+    pmid: "23512497"
+    url: "https://pubmed.ncbi.nlm.nih.gov/23512497/"
+  - title: "The effect of berberine supplementation on obesity indices: a dose-response meta-analysis and systematic review of randomized controlled trials"
+    authors: "Xiong P, Niu L, Talaei S, Kord-Varkaneh H, Clark CCT, et al."
+    year: "2020"
+    pmid: "32379652"
+    url: "https://pubmed.ncbi.nlm.nih.gov/32379652/"
 ---
 
 > **The bottom line:** Berberine is a plant alkaloid that activates AMPK — the same cellular energy sensor targeted by metformin — improving insulin sensitivity, lowering blood sugar, and reducing lipids. It's been called "nature's metformin," and the evidence supports that comparison for glucose and lipid control. It is NOT "nature's Ozempic" — weight loss effects are modest (2–5 lbs over 3 months) and completely different from GLP-1 agonists (10–15% body weight reduction). Evidence grade: **Moderate-high** for glucose and lipid control; limited for weight loss.
@@ -107,7 +128,7 @@ Berberine's primary mechanism is **AMPK activation** — the same cellular energ
 ### AMPK Activation Cascade
 
 ```
-Berberine → Mitochondrial complex I inhibition → ↓ ATP:AMP ratio → AMPK phosphorylation → 
+Berberine → Mitochondrial complex I inhibition → ↓ ATP:AMP ratio → AMPK phosphorylation →
 Multiple downstream effects:
 
 Liver: ↓ Gluconeogenesis (↓ PEPCK, G6Pase) → ↓ hepatic glucose output
