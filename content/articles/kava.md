@@ -22,6 +22,27 @@ tags:
   - evidence review
 profile_status: published
 ai_assisted: false
+references:
+  - title: "Kava extract for treating anxiety"
+    authors: "Pittler MH, Ernst E"
+    year: "2003"
+    pmid: "12535473"
+    url: "https://pubmed.ncbi.nlm.nih.gov/12535473/"
+  - title: "Kava in the treatment of generalized anxiety disorder"
+    authors: "Sarris J, Stough C, Bousman CA, Wahid ZT, Murray G, Teschke R, Savage KM, Dowell A, Ng C, Schweitzer I"
+    year: "2013"
+    pmid: "23635869"
+    url: "https://pubmed.ncbi.nlm.nih.gov/23635869/"
+  - title: "The Kava Anxiety Depression Spectrum Study (KADSS): a randomized, placebo-controlled crossover trial using an aqueous extract of Piper methysticum"
+    authors: "Sarris J, Kavanagh DJ, Byrne G, Bone KM, Adams J, Deed G"
+    year: "2009"
+    pmid: "19430766"
+    url: "https://pubmed.ncbi.nlm.nih.gov/19430766/"
+  - title: "Clinical efficacy of kava extract WS 1490 in sleep disturbances associated with anxiety disorders. Results of a multicenter, randomized, placebo-controlled, double-blind clinical trial"
+    authors: "Lehrl S"
+    year: "2004"
+    pmid: "14706720"
+    url: "https://pubmed.ncbi.nlm.nih.gov/14706720/"
 ---
 
 > **The bottom line:** Kava (*Piper methysticum*) is a Pacific Island root with anxiolytic effects comparable to low-dose benzodiazepines in clinical trials — but it works within 30–60 minutes, not weeks. Multiple RCTs show significant anxiety reduction without the dependence liability of benzodiazepines at therapeutic doses. Evidence grade: **Moderate** for anxiety — one of the most studied herbal anxiolytics. The liver safety concern is largely resolved when using noble cultivars and water extracts.

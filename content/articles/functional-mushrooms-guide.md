@@ -24,6 +24,27 @@ tags:
   - evidence review
 profile_status: published
 ai_assisted: false
+references:
+  - title: "Cordyceps militaris Improves Tolerance to High-Intensity Exercise After Acute and Chronic Supplementation"
+    authors: "Hirsch KR, Smith-Ryan AE, Roelofs EJ, Trexler ET, Mock MG"
+    year: "2016"
+    pmid: "27408987"
+    url: "https://pubmed.ncbi.nlm.nih.gov/27408987/"
+  - title: "Efficacy of adjuvant immunochemotherapy with polysaccharide K for patients with curative resections of gastric cancer"
+    authors: "Oba K, Teramukai S, Kobayashi M, Matsui T, Kodera Y, Sakamoto J"
+    year: "2007"
+    pmid: "17106715"
+    url: "https://pubmed.ncbi.nlm.nih.gov/17106715/"
+  - title: "Ganoderma lucidum (Reishi mushroom) for cancer treatment"
+    authors: "Jin X, Ruiz Beguerie J, Sze DM, Chan GC"
+    year: "2016"
+    pmid: "27045603"
+    url: "https://pubmed.ncbi.nlm.nih.gov/27045603/"
+  - title: "Therapeutic properties of Inonotus obliquus (Chaga mushroom): A review"
+    authors: "Tee Yon Ern P, Tang YQ, Fung SY, Chia AY"
+    year: "2023"
+    pmid: "38813471"
+    url: "https://pubmed.ncbi.nlm.nih.gov/38813471/"
 ---
 
 > **The bottom line:** Four functional mushrooms beyond Lion's Mane, each with distinct evidence bases: Cordyceps for athletic performance (moderate evidence), Turkey Tail for immune support including cancer adjunct protocols (moderate), Reishi for immune modulation and mild calming (limited-moderate), and Chaga for antioxidant support (preliminary). Mushroom quality depends on fruiting body vs. mycelium-on-grain and beta-glucan content — cheap products are mostly starch.
