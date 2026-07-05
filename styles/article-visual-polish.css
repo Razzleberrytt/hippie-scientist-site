@@ -7,8 +7,7 @@ body {
 }
 
 /* ── Header card ── */
-article > header,
-[class*="article-page"] header {
+article > header {
   background: linear-gradient(135deg, #ffffff 0%, #f8faf6 50%, #eef5ef 100%) !important;
   position: relative;
   overflow: hidden;
@@ -25,163 +24,144 @@ article > header::after {
   pointer-events: none;
 }
 
-/* ── Content card ── */
-.content-prose {
-  position: relative;
+/* ── Section cards (from ContentCards) ── */
+section:has(> h2) {
+  transition: box-shadow 0.2s ease;
+  background: white !important;
+}
+section:has(> h2):hover {
+  box-shadow: 0 4px 20px rgba(30, 60, 40, 0.06) !important;
 }
 
-/* ── Section headers (h2) ── */
-.content-prose h2 {
-  position: relative;
-  padding-bottom: 0.5rem;
+/* ── Section headers (h2) inside cards ── */
+section > h2 {
+  font-size: 1.45rem;
+  margin-top: 0;
   margin-bottom: 1rem;
-  border-bottom: 1px solid rgba(30, 60, 40, 0.08);
-  font-size: 1.6rem;
-  line-height: 1.3;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(30, 60, 40, 0.1);
+  color: #153a1f;
 }
-.content-prose h2::before {
+section > h2::after {
   content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 48px;
+  display: block;
+  width: 40px;
   height: 3px;
+  margin-top: 0.5rem;
   background: linear-gradient(90deg, #3f7c4a, #82b48b);
   border-radius: 2px;
 }
 
-/* ── Sub-section headers (h3) ── */
-.content-prose h3 {
-  position: relative;
-  padding-left: 1rem;
+/* ── Sub-section headers (h3) inside cards ── */
+section > h3 {
+  padding-left: 0.75rem;
   border-left: 3px solid #82b48b;
   color: #1f4d29;
+  font-size: 1.15rem;
+  margin-top: 1.5rem;
 }
 
 /* ── Blockquotes ── */
-.content-prose blockquote {
+blockquote {
   position: relative;
   background: linear-gradient(135deg, #f4f7f1 0%, #eef5ef 100%) !important;
   border-left: 4px solid #82b48b !important;
-  font-style: normal !important;
+  font-style: normal;
   font-size: 0.95rem;
 }
-.content-prose blockquote::before {
-  content: '"';
+blockquote::before {
+  content: '\201C';
   position: absolute;
-  top: -8px;
-  left: 12px;
+  top: -10px;
+  left: 10px;
   font-family: var(--font-display), Georgia, serif;
   font-size: 2.5rem;
-  color: rgba(63, 124, 74, 0.12);
+  color: rgba(63, 124, 74, 0.10);
   line-height: 1;
   pointer-events: none;
 }
 
-/* ── Bold text pop ── */
-.content-prose strong {
+/* ── Bold text ── */
+strong {
   color: #1f4d29;
   font-weight: 650;
 }
 
-/* ── First paragraph after h2 ── */
-.content-prose h2 + p {
-  font-size: 1.05rem;
-  color: #2d4032;
-}
-
-/* ── At a Glance tables ── */
-.content-prose table {
+/* ── Tables ── */
+table {
   border-radius: 0.75rem;
   overflow: hidden;
 }
-.content-prose thead {
+thead {
   background: linear-gradient(180deg, #eef5ef 0%, #e7eee0 100%);
 }
-.content-prose tbody tr:last-child td {
+tbody tr:last-child td {
   border-bottom: none;
 }
-
-/* Make the first table (At a Glance) visually prominent */
-.content-prose > table:first-of-type {
-  box-shadow: 0 2px 16px rgba(30, 60, 40, 0.08);
+tbody tr:hover td {
+  background-color: rgba(230, 240, 230, 0.3);
 }
-.content-prose > table:first-of-type td:first-child {
+section > table:first-of-type td:first-child {
   color: #1f4d29;
   font-weight: 650;
   white-space: nowrap;
   width: 180px;
 }
 
-/* ── HR dividers ── */
-.content-prose hr {
-  border: none;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(30,60,40,0.1), transparent);
-  margin: 2.5rem 0;
+/* ── Images ── */
+img {
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  max-width: 100%;
+  height: auto;
 }
 
 /* ── Links ── */
-.content-prose a {
+a {
   transition: all 0.15s ease;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
 }
 
-/* ── Images ── */
-.content-prose img {
-  border-radius: 0.75rem;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+/* ── First paragraph after h2 (lead text) ── */
+section > h2 + p {
+  font-size: 1.05rem;
+  color: #2d4032;
 }
 
-/* ── First letters in At a Glance answers ── */
-.content-prose > table:first-of-type td:last-child::first-letter {
-  /* subtle emphasis on answer text */
-}
-
-/* ── Collapsible sections ── */
-[class*="CollapsibleSection"],
-.collapsible-section {
-  transition: box-shadow 0.2s ease;
-}
-[class*="CollapsibleSection"]:hover,
-.collapsible-section:hover {
-  box-shadow: 0 4px 20px rgba(30, 60, 40, 0.06);
-}
-
-/* ── TOC sidebar visual lift ── */
-[aria-label="Page contents"] {
-  backdrop-filter: blur(12px);
-  background: rgba(255,255,255,0.92) !important;
-}
-
-/* ── Dark mode overrides ── */
+/* ── Dark mode ── */
 html.dark body {
-  background: linear-gradient(180deg, #0d1712 0%, #111c16 40%, #0d1712 100%) !important;
+  background: linear-gradient(180deg, #0d1712 0%, #111c16 40%, #0d1712 100%);
 }
 html.dark article > header {
   background: linear-gradient(135deg, #111c16 0%, #0d1712 100%) !important;
 }
-html.dark .content-prose h2 {
-  border-bottom-color: rgba(255,255,255,0.08);
+html.dark section:has(> h2) {
+  background: #111c16 !important;
+  border-color: rgba(255,255,255,0.12) !important;
 }
-html.dark .content-prose h2::before {
+html.dark section > h2 {
+  color: #d4e7d7;
+  border-bottom-color: rgba(255,255,255,0.1);
+}
+html.dark section > h2::after {
   background: linear-gradient(90deg, #5c9866, #82b48b);
 }
-html.dark .content-prose h3 {
+html.dark section > h3 {
   border-left-color: #5c9866;
   color: #aed0b3;
 }
-html.dark .content-prose blockquote {
+html.dark blockquote {
   background: linear-gradient(135deg, #0d1712 0%, #111c16 100%) !important;
   border-left-color: #5c9866 !important;
 }
-html.dark .content-prose strong {
+html.dark strong {
   color: #aed0b3;
 }
-html.dark .content-prose thead {
+html.dark thead {
   background: linear-gradient(180deg, #0e2917 0%, #153a1f 100%);
 }
-html.dark .content-prose h2 + p {
+html.dark section > h2 + p {
   color: #b2c7a1;
+}
+html.dark tbody tr:hover td {
+  background-color: rgba(36, 61, 50, 0.3);
 }
