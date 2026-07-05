@@ -416,7 +416,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
 
           <div className="mt-2">
             <div className="mb-1.5 text-xs font-bold uppercase tracking-[0.12em] text-muted">Evidence level</div>
-            <div className="flex flex-wrap gap-2">
+            <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
               {EVIDENCE_FILTER_OPTIONS.map(opt => {
                 const href = buildEvidenceHref(opt.value, query, activeFilter)
                 const active = activeEvidence === opt.value
@@ -424,7 +424,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
                   <Link
                     key={opt.value}
                     href={href}
-                    className={`rounded-full border px-2.5 py-1 text-xs font-semibold transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-[var(--surface-card)] text-[#33443a] hover:border-brand-700/20'}`}
+                    className={`rounded-full border px-2.5 py-1 text-center text-xs font-semibold transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-[var(--surface-card)] text-[#33443a] hover:border-brand-700/20'}`}
                   >
                     {opt.label}
                   </Link>
