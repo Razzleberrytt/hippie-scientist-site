@@ -65,6 +65,8 @@ The evidence for kava's acute anxiolytic effect is consistent across multiple tr
 
 ---
 
+<CollapsibleWarning title="Liver Safety Warning & Non-Negotiables">
+
 ## The Liver Safety Question: Resolved (With Caveats)
 
 Kava's reputation was damaged by hepatotoxicity reports from the early 2000s. The current scientific consensus:
@@ -128,6 +130,10 @@ Unlike benzodiazepines, kavalactones do not appear to produce GABA-A receptor do
 - Rare reversible skin rash (kava dermopathy) with chronic high-dose use — resolves on discontinuation
 
 ---
+
+## Kava vs. Alternatives
+
+</CollapsibleWarning>
 
 ## Kava vs. Alternatives
 

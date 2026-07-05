@@ -171,6 +171,8 @@ Results: Some tentative signals for improved stress response and aspects of cogn
 
 ---
 
+<CollapsibleDetails title="How It Works — Complete Mechanism (tap to expand)" defaultOpen={false}>
+
 ## How It Works (Complete Mechanism)
 
 *Hericium erinaceus* contains two families of bioactive compounds that drive its effects:
@@ -210,6 +212,10 @@ This is fundamentally different from stimulants (acute dopamine/norepinephrine),
 
 ## Dosage, Product Selection, and Buying Guide
 
+</CollapsibleDetails>
+
+## Dosage, Product Selection, and Buying Guide
+
 ### Dose by Product Type
 
 | Product type | Typical dose | What to look for | Best evidence |
@@ -243,6 +249,8 @@ The industry is slowly moving toward requiring disclosure of grain content, but 
 
 ---
 
+<CollapsibleWarning title="Safety, Side Effects & Contraindications">
+
 ## Safety, Side Effects, and Populations
 
 ### General Tolerability
@@ -271,6 +279,10 @@ Lion's Mane is generally well tolerated. A 2025 systematic review of adverse eff
 The Li 2020 trial is the longest safety study at 49 weeks — no significant adverse events were observed. Beyond one year, safety is unknown. The 2025 systematic review noted the limited long-term data and recommended caution with indefinite daily use.
 
 ---
+
+## Stacking Lion's Mane
+
+</CollapsibleWarning>
 
 ## Stacking Lion's Mane
 

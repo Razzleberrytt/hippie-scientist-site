@@ -260,6 +260,8 @@ All guidance below is based on standardized extracts used in human trials. It do
 
 ---
 
+<CollapsibleDetails title="How It Works — Complete Mechanism (tap to expand)" defaultOpen={false}>
+
 ## How It Works: The Complete Mechanism
 
 *Withania somnifera* is a small woody shrub in the Solanaceae (nightshade) family, native to India, the Middle East, and parts of North Africa. The root contains over 35 **withanolides** — steroidal lactones — of which withaferin A and withanolide D are the most pharmacologically characterized. These compounds drive ashwagandha's effects through four interconnected mechanisms.
@@ -293,6 +295,10 @@ Chronic stress suppresses thyroid function via cortisol-mediated inhibition of T
 Withaferin A is a potent inhibitor of NF-κB, a master transcription factor that drives inflammatory cytokine production. Chronic stress activates NF-κB-mediated neuroinflammation, which contributes to the fatigue, cognitive fog, and mood disturbance of burnout. Withaferin A's NF-κB inhibition is well-characterized in cell and animal models and may contribute to the anti-inflammatory dimension of ashwagandha's stress-protective effect.
 
 ---
+
+## Ashwagandha for Specific Goals
+
+</CollapsibleDetails>
 
 ## Ashwagandha for Specific Goals
 
@@ -355,6 +361,8 @@ Ashwagandha's calming, cortisol-lowering profile makes it an excellent evening a
 
 ---
 
+<CollapsibleWarning title="Safety, Contraindications & Drug Interactions">
+
 ## Safety and Interactions
 
 ### General Tolerability
@@ -395,6 +403,10 @@ Ashwagandha has a strong safety profile in trials up to 90 days. The most common
 Most trials run 8–12 weeks. No controlled safety data exists beyond 90 days for liver enzymes, thyroid markers, adrenal function, or hormone panels. For extended use, periodic breaks (2–4 weeks every 8–12 weeks) and clinician-guided monitoring of liver enzymes and thyroid function represent a prudent risk-management approach.
 
 ---
+
+## How to Choose an Ashwagandha Product
+
+</CollapsibleWarning>
 
 ## How to Choose an Ashwagandha Product
 

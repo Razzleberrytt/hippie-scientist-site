@@ -128,6 +128,8 @@ The microbiome modulation may partially explain berberine's metabolic benefits i
 
 ---
 
+<CollapsibleWarning title="Safety & Critical Drug Interactions (CYP3A4/2D6/2C9)">
+
 ## Safety and Drug Interactions: The Critical Section
 
 Berberine's biggest safety concern is not the compound itself — it's the **drug interactions**. Berberine inhibits CYP3A4, CYP2D6, and CYP2C9 — three liver enzymes that collectively metabolize approximately 50–60% of prescription drugs.
@@ -155,6 +157,10 @@ Berberine is generally safe in healthy people at therapeutic doses for up to 6 m
 - **Liver disease:** Berberine is hepatically metabolized; impaired clearance may increase systemic exposure
 
 ---
+
+## FAQ
+
+</CollapsibleWarning>
 
 ## FAQ
 

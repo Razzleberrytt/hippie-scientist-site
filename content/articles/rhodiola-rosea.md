@@ -195,6 +195,8 @@ For predictable high-demand periods (exam season, project deadlines, tax season)
 
 ---
 
+<CollapsibleDetails title="How It Works — Complete Mechanism (tap to expand)" defaultOpen={false}>
+
 ## How It Works (Complete Mechanism)
 
 Rhodiola's stimulating-adaptogen profile is driven by two compound classes working through three interconnected mechanisms.
@@ -228,6 +230,10 @@ Salidroside activates AMP-activated protein kinase (AMPK) — the cellular energ
 
 ## Stacking Rhodiola
 
+</CollapsibleDetails>
+
+## Stacking Rhodiola
+
 Rhodiola's stimulating profile makes it the morning anchor in adaptogen stacks.
 
 | Stack | Protocol | Why | Best for |
@@ -240,6 +246,8 @@ Rhodiola's stimulating profile makes it the morning anchor in adaptogen stacks.
 **Avoid stacking with:** other MAO inhibitors (prescription or supplement), high-dose SSRIs/SNRIs (theoretical serotonin syndrome from additive mechanisms), or other stimulating supplements late in the day.
 
 ---
+
+<CollapsibleWarning title="Safety & Contraindications">
 
 ## Safety and Contraindications
 
@@ -259,6 +267,10 @@ Rhodiola has a favorable safety profile in trials up to 12 weeks. The most commo
 | **Evening dosing** | Avoid within 6 hours of bedtime | Stimulating effects will interfere with sleep onset |
 
 ---
+
+## FAQ
+
+</CollapsibleWarning>
 
 ## FAQ
 

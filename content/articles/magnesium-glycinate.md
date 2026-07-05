@@ -206,6 +206,8 @@ The clinical implication: most people considering magnesium supplementation are 
 
 ---
 
+<CollapsibleDetails title="How It Works — Complete Mechanism (tap to expand)" defaultOpen={false}>
+
 ## How It Works: The Complete Mechanism
 
 Magnesium influences sleep and anxiety through four interconnected mechanisms, each operating on a different timescale and biological level.
@@ -258,6 +260,10 @@ The glycine molecule bound to magnesium in the glycinate chelate is not pharmaco
 When you take 400 mg of elemental magnesium as magnesium glycinate, you're also consuming approximately 2–3 g of glycine. This dual action — magnesium's GABAergic and NMDA-modulating effects plus glycine's independent sleep-promoting effects — makes the glycinate chelate uniquely suited for sleep applications.
 
 ---
+
+## Forms Comparison: Every Magnesium, Ranked
+
+</CollapsibleDetails>
 
 ## Forms Comparison: Every Magnesium, Ranked
 
@@ -333,6 +339,8 @@ Magnesium and vitamin D have a bidirectional dependency that is clinically under
 
 ---
 
+<CollapsibleWarning title="Safety, Side Effects & Drug Interactions">
+
 ## Safety, Side Effects, and Drug Interactions
 
 ### General Tolerability
@@ -369,6 +377,10 @@ Magnesium glycinate is among the best-tolerated oral supplements available. The 
 | **Gabapentinoids (gabapentin, pregabalin)** | Magnesium may reduce gabapentin absorption | Separate dosing by 2+ hours |
 
 ---
+
+## How to Choose a Magnesium Glycinate Product
+
+</CollapsibleWarning>
 
 ## How to Choose a Magnesium Glycinate Product
 

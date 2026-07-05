@@ -116,6 +116,8 @@ The psychiatric evidence is strongest for OCD and compulsive-spectrum disorders 
 
 ---
 
+<CollapsibleWarning title="Safety & Side Effects">
+
 ## Safety and Side Effects
 
 ### Common Side Effects
@@ -138,6 +140,10 @@ The psychiatric evidence is strongest for OCD and compulsive-spectrum disorders 
 **Kidney stones:** Cysteine is a component of cystine kidney stones. If you have a history of cystinuria or cystine stones, avoid NAC.
 
 ---
+
+## NAC vs. Glutathione Supplements
+
+</CollapsibleWarning>
 
 ## NAC vs. Glutathione Supplements
 
