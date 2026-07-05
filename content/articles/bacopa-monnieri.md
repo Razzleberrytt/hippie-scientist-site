@@ -24,6 +24,27 @@ tags:
   - evidence review
 profile_status: published
 ai_assisted: false
+references:
+  - title: "The chronic effects of an extract of Bacopa monniera (Brahmi) on cognitive function in healthy human subjects"
+    authors: "Stough C, Lloyd J, Clarke J, Downey LA, Hutchison CW, Rodgers T, Nathan PJ"
+    year: "2001"
+    pmid: "11498727"
+    url: "https://pubmed.ncbi.nlm.nih.gov/11498727/"
+  - title: "Chronic effects of Brahmi (Bacopa monnieri) on human memory"
+    authors: "Roodenrys S, Booth D, Bulzomi S, Phipps A, Micallef C, Smoker J"
+    year: "2002"
+    pmid: "12093601"
+    url: "https://pubmed.ncbi.nlm.nih.gov/12093601/"
+  - title: "The cognitive-enhancing effects of Bacopa monnieri: a systematic review of randomized, controlled human clinical trials"
+    authors: "Pase MP, Kean J, Sarris J, Neale C, Scholey AB, Stough C"
+    year: "2012"
+    pmid: "22747190"
+    url: "https://pubmed.ncbi.nlm.nih.gov/22747190/"
+  - title: "Effects of a standardized Bacopa monnieri extract on cognitive performance, anxiety, and depression in the elderly: a randomized, double-blind, placebo-controlled trial"
+    authors: "Calabrese C, Gregory WL, Leo M, Kraemer D, Bone K, Oken B"
+    year: "2008"
+    pmid: "18611150"
+    url: "https://pubmed.ncbi.nlm.nih.gov/18611150/"
 ---
 
 > **The bottom line:** Bacopa monnieri (Brahmi) is an Ayurvedic herb that improves memory formation and recall — but it's one of the slowest nootropics. Clinical trials show cognitive benefits at 300–600 mg/day after 8–12 weeks of consistent use. Its distinctive mechanism (enhancing dendritic branching) means it builds cognitive infrastructure rather than providing acute enhancement. Evidence grade: **Moderate** for memory and learning in both older adults and healthy populations.
