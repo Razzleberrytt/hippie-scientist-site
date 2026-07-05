@@ -46,15 +46,19 @@ function wrapInDetails(
   const parent = startEl.parentNode
   if (!parent) return
 
+  // Insert the (still-empty) details shell at startEl's original position
+  // before moving anything — startEl stops being parent's child the moment
+  // the loop below appends it into content, so inserting relative to it
+  // afterward would throw (it's no longer a child of parent).
+  parent.insertBefore(details, startEl)
+  details.appendChild(content)
+
   let current: Element | null = startEl
   while (current && current !== endEl) {
     const next: Element | null = current.nextElementSibling
     content.appendChild(current)
     current = next
   }
-
-  details.appendChild(content)
-  parent.insertBefore(details, startEl)
 }
 
 export default function ContentCards({ children }: { children: ReactNode }) {
@@ -79,10 +83,14 @@ export default function ContentCards({ children }: { children: ReactNode }) {
         // Find the parent list or paragraph to wrap
         const listParent = el.closest('ul, ol') || el.closest('p')
         if (listParent && !listParent.closest('details')) {
-          const endEl = listParent.nextElementSibling?.tagName === 'P' && /caution|avoid/i.test(listParent.nextElementSibling.textContent || '')
+          const cautionPara = listParent.nextElementSibling?.tagName === 'P' && /caution|avoid/i.test(listParent.nextElementSibling.textContent || '')
             ? listParent.nextElementSibling
             : null
-          wrapInDetails(listParent, endEl?.nextElementSibling || null, 'Combination Cautions', false)
+          // Bound the wrap to listParent (plus the caution paragraph, if any) —
+          // falling back to null here would make wrapInDetails walk every
+          // remaining sibling in the section into one collapsed block.
+          const endEl = cautionPara ? cautionPara.nextElementSibling : listParent.nextElementSibling
+          wrapInDetails(listParent, endEl, 'Combination Cautions', false)
         }
       }
 
@@ -130,6 +138,10 @@ export default function ContentCards({ children }: { children: ReactNode }) {
       const parent = firstH2.parentNode
       if (!parent) return
 
+      // Insert the wrapper at firstH2's original position before moving
+      // anything into it — same reasoning as wrapInDetails above.
+      parent.insertBefore(wrapper, firstH2)
+
       let current: Element | null = firstH2
       while (current) {
         const next: Element | null = current.nextElementSibling
@@ -145,8 +157,6 @@ export default function ContentCards({ children }: { children: ReactNode }) {
         }
         current = next
       }
-      
-      parent.insertBefore(wrapper, firstH2)
     })
 
     // ── Step 3: Wrap intro content ──

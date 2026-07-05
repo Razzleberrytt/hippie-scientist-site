@@ -182,8 +182,6 @@ Berberine is generally safe in healthy people at therapeutic doses for up to 6 m
 
 ---
 
-## FAQ
-
 </CollapsibleWarning>
 
 ## FAQ

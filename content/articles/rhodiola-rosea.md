@@ -271,8 +271,6 @@ Rhodiola has a favorable safety profile in trials up to 12 weeks. The most commo
 
 ---
 
-## FAQ
-
 </CollapsibleWarning>
 
 ## FAQ
