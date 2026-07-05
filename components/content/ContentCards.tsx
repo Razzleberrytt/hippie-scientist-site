@@ -48,7 +48,7 @@ function wrapInDetails(
 
   let current: Element | null = startEl
   while (current && current !== endEl) {
-    const next = current.nextElementSibling
+    const next: Element | null = current.nextElementSibling
     content.appendChild(current)
     current = next
   }
@@ -132,12 +132,12 @@ export default function ContentCards({ children }: { children: ReactNode }) {
 
       let current: Element | null = firstH2
       while (current) {
-        const next = current.nextElementSibling
+        const next: Element | null = current.nextElementSibling
         wrapper.appendChild(current)
         if (current === lastH2) {
-          let after = next
+          let after: Element | null = next
           while (after && after.tagName !== 'H2') {
-            const afterNext = after.nextElementSibling
+            const afterNext: Element | null = after.nextElementSibling
             wrapper.appendChild(after)
             after = afterNext
           }
