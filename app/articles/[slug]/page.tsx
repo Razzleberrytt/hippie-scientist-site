@@ -83,13 +83,13 @@ export default async function ArticleMonographPage({ params }: PageProps) {
         ]}
       />
 
-      <header className="mt-6 rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 lg:p-10">
+      <header className="mt-6 rounded-[1rem] border-2 border-brand-900/15 bg-white p-6 shadow-md ring-1 ring-brand-900/5 sm:p-8 lg:p-10">
         <div className="flex flex-wrap items-center gap-2 text-xs">
-          <span className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-bold uppercase tracking-wider text-muted">
+          <span className="rounded-full border border-brand-700/20 bg-brand-50 px-2.5 py-0.5 font-bold uppercase tracking-wider text-brand-800">
             {page.category}
           </span>
           {page.evidenceGrade ? (
-            <span className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted">
+            <span className="rounded-full border border-brand-700/20 bg-brand-50 px-2.5 py-0.5 font-semibold text-brand-700">
               Evidence: {page.evidenceGrade}
             </span>
           ) : null}
@@ -111,21 +111,21 @@ export default async function ArticleMonographPage({ params }: PageProps) {
 
       <div className="mt-6 lg:grid lg:grid-cols-[minmax(0,1fr)_220px] lg:items-start lg:gap-8">
         <div className="min-w-0">
-          <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+          <div className="rounded-[1rem] border-2 border-brand-900/15 bg-white p-6 shadow-md ring-1 ring-brand-900/5 sm:p-8">
             <div className="content-prose max-w-none [&>*]:max-w-reading [&_a]:font-semibold [&_a]:text-brand-800 [&_a:hover]:underline [&_blockquote]:max-w-reading [&_blockquote]:rounded-r-lg [&_blockquote]:border-l-4 [&_blockquote]:border-brand-700/40 [&_blockquote]:bg-brand-50/60 [&_blockquote]:py-3 [&_blockquote]:pl-5 [&_blockquote]:pr-4 [&_code]:break-all [&_h2]:mt-10 [&_h2]:text-2xl [&_h3]:mt-7 [&_h3]:text-xl [&_ol]:list-decimal [&_table]:w-full [&_table]:text-sm [&_td]:border-t [&_td]:border-brand-900/10 [&_td]:py-3 [&_td]:pr-4 [&_td]:align-top [&_td]:break-words [&_th]:border-b [&_th]:border-brand-900/10 [&_th]:pb-2 [&_th]:pr-4 [&_th]:text-left [&_ul]:list-disc">
               <ArticleMdx code={page.body} />
             </div>
           </div>
         </div>
         <aside aria-label="Page contents" className="hidden lg:block">
-          <div className="sticky top-20 rounded-xl border border-brand-900/10 bg-white/95 p-4 shadow-sm backdrop-blur dark:border-white/10 dark:bg-brand-950/60">
+          <div className="sticky top-20 rounded-xl border-2 border-brand-900/15 bg-white p-4 shadow-md ring-1 ring-brand-900/5 dark:border-white/15 dark:bg-brand-950/80">
             <TableOfContentsAuto />
           </div>
         </aside>
       </div>
 
       {page.references.length > 0 ? (
-        <section className="mt-8 rounded-[0.9rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm">
+        <section className="mt-8 rounded-[0.9rem] border-2 border-brand-900/15 bg-white p-5 shadow-md ring-1 ring-brand-900/5">
           <h2 className="text-lg font-bold text-ink">References</h2>
           <ol className="mt-4 space-y-2 text-sm leading-6 text-muted">
             {page.references.map((ref, index) => (
@@ -148,14 +148,14 @@ export default async function ArticleMonographPage({ params }: PageProps) {
       ) : null}
 
       {relatedPages.length > 0 ? (
-        <section className="mt-8 rounded-[0.9rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm">
+        <section className="mt-8 rounded-[0.9rem] border-2 border-brand-900/15 bg-white p-5 shadow-md ring-1 ring-brand-900/5">
           <h2 className="text-lg font-bold text-ink">Related Articles</h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {relatedPages.map((relatedPage) => (
               <Link
                 key={relatedPage.slug}
                 href={relatedPage.url}
-                className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/30 p-4 text-sm font-semibold leading-6 text-brand-800 hover:bg-brand-50"
+                className="rounded-[0.75rem] border-2 border-brand-700/15 bg-brand-50/60 p-4 text-sm font-semibold leading-6 text-brand-800 shadow-sm hover:border-brand-700/30 hover:bg-brand-50 hover:shadow-md transition-all"
               >
                 {relatedPage.title}
               </Link>
@@ -164,7 +164,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
         </section>
       ) : null}
 
-      <footer className="mt-8 rounded-[0.9rem] border border-amber-700/20 bg-amber-50/80 p-4 text-sm leading-6 text-[#5b4a2c]">
+      <footer className="mt-8 rounded-[0.9rem] border-2 border-amber-600/30 bg-amber-50 p-4 shadow-sm text-sm leading-6 text-[#5b4a2c]">
         Educational disclaimer: this article is for evidence review and educational context only. It is not medical advice, legal advice, or a recommendation to use any substance discussed.
         <div className="mt-3 flex flex-wrap gap-4 font-semibold text-brand-800">
           <Link href="/articles/" className="hover:underline">All articles</Link>

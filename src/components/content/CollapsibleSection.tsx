@@ -21,9 +21,9 @@ export default function CollapsibleSection({
   const [open, setOpen] = useState(defaultOpen)
 
   const variants = {
-    warning: 'border-amber-600/30 bg-amber-50/60 dark:border-amber-500/20 dark:bg-amber-950/30',
-    info: 'border-brand-700/20 bg-brand-50/40 dark:border-brand-500/20 dark:bg-brand-950/30',
-    section: 'border-brand-900/10 bg-white/90 dark:border-white/10 dark:bg-white/5',
+    warning: 'border-2 border-amber-500/40 bg-amber-50 shadow-sm ring-1 ring-amber-500/10 dark:border-amber-500/25 dark:bg-amber-950/30',
+    info: 'border-2 border-brand-600/30 bg-brand-50 shadow-sm ring-1 ring-brand-600/10 dark:border-brand-500/25 dark:bg-brand-950/30',
+    section: 'border-2 border-brand-900/15 bg-white shadow-sm ring-1 ring-brand-900/5 dark:border-white/15 dark:bg-white/5',
   }
 
   const headerVariants = {
