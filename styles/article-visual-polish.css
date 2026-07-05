@@ -1,0 +1,187 @@
+/* Article & content page visual polish — gradations, accents, rhythm */
+
+/* ── Page background ── */
+body {
+  background: linear-gradient(180deg, #f4f7f1 0%, #fafbf8 20%, #ffffff 60%);
+  background-attachment: fixed;
+}
+
+/* ── Header card ── */
+article > header,
+[class*="article-page"] header {
+  background: linear-gradient(135deg, #ffffff 0%, #f8faf6 50%, #eef5ef 100%) !important;
+  position: relative;
+  overflow: hidden;
+}
+article > header::after {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(63, 124, 74, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ── Content card ── */
+.content-prose {
+  position: relative;
+}
+
+/* ── Section headers (h2) ── */
+.content-prose h2 {
+  position: relative;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(30, 60, 40, 0.08);
+  font-size: 1.6rem;
+  line-height: 1.3;
+}
+.content-prose h2::before {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #3f7c4a, #82b48b);
+  border-radius: 2px;
+}
+
+/* ── Sub-section headers (h3) ── */
+.content-prose h3 {
+  position: relative;
+  padding-left: 1rem;
+  border-left: 3px solid #82b48b;
+  color: #1f4d29;
+}
+
+/* ── Blockquotes ── */
+.content-prose blockquote {
+  position: relative;
+  background: linear-gradient(135deg, #f4f7f1 0%, #eef5ef 100%) !important;
+  border-left: 4px solid #82b48b !important;
+  font-style: normal !important;
+  font-size: 0.95rem;
+}
+.content-prose blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -8px;
+  left: 12px;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 2.5rem;
+  color: rgba(63, 124, 74, 0.12);
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ── Bold text pop ── */
+.content-prose strong {
+  color: #1f4d29;
+  font-weight: 650;
+}
+
+/* ── First paragraph after h2 ── */
+.content-prose h2 + p {
+  font-size: 1.05rem;
+  color: #2d4032;
+}
+
+/* ── At a Glance tables ── */
+.content-prose table {
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+.content-prose thead {
+  background: linear-gradient(180deg, #eef5ef 0%, #e7eee0 100%);
+}
+.content-prose tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Make the first table (At a Glance) visually prominent */
+.content-prose > table:first-of-type {
+  box-shadow: 0 2px 16px rgba(30, 60, 40, 0.08);
+}
+.content-prose > table:first-of-type td:first-child {
+  color: #1f4d29;
+  font-weight: 650;
+  white-space: nowrap;
+  width: 180px;
+}
+
+/* ── HR dividers ── */
+.content-prose hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(30,60,40,0.1), transparent);
+  margin: 2.5rem 0;
+}
+
+/* ── Links ── */
+.content-prose a {
+  transition: all 0.15s ease;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* ── Images ── */
+.content-prose img {
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+/* ── First letters in At a Glance answers ── */
+.content-prose > table:first-of-type td:last-child::first-letter {
+  /* subtle emphasis on answer text */
+}
+
+/* ── Collapsible sections ── */
+[class*="CollapsibleSection"],
+.collapsible-section {
+  transition: box-shadow 0.2s ease;
+}
+[class*="CollapsibleSection"]:hover,
+.collapsible-section:hover {
+  box-shadow: 0 4px 20px rgba(30, 60, 40, 0.06);
+}
+
+/* ── TOC sidebar visual lift ── */
+[aria-label="Page contents"] {
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.92) !important;
+}
+
+/* ── Dark mode overrides ── */
+html.dark body {
+  background: linear-gradient(180deg, #0d1712 0%, #111c16 40%, #0d1712 100%) !important;
+}
+html.dark article > header {
+  background: linear-gradient(135deg, #111c16 0%, #0d1712 100%) !important;
+}
+html.dark .content-prose h2 {
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+html.dark .content-prose h2::before {
+  background: linear-gradient(90deg, #5c9866, #82b48b);
+}
+html.dark .content-prose h3 {
+  border-left-color: #5c9866;
+  color: #aed0b3;
+}
+html.dark .content-prose blockquote {
+  background: linear-gradient(135deg, #0d1712 0%, #111c16 100%) !important;
+  border-left-color: #5c9866 !important;
+}
+html.dark .content-prose strong {
+  color: #aed0b3;
+}
+html.dark .content-prose thead {
+  background: linear-gradient(180deg, #0e2917 0%, #153a1f 100%);
+}
+html.dark .content-prose h2 + p {
+  color: #b2c7a1;
+}
