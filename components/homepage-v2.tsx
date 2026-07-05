@@ -224,7 +224,7 @@ export default function HomepageV2() {
                       <p className='mt-1.5 text-sm leading-6 text-muted dark:text-[var(--text-secondary)] sm:mt-3'>{hGoal.prompt}</p>
                     </div>
                   </div>
-                  <span className='ml-13 mt-3 hidden text-sm font-bold text-brand-700 transition group-hover:translate-x-1 group-hover:text-brand-800 sm:ml-0 sm:mt-5 sm:inline-flex'>
+                  <span className='mt-3 hidden text-sm font-bold text-brand-700 transition group-hover:translate-x-1 group-hover:text-brand-800 sm:mt-5 sm:inline-flex'>
                     Start with {hGoal.title} <span aria-hidden='true' className='ml-1'>→</span>
                   </span>
                 </Link>
