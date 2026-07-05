@@ -24,7 +24,26 @@ tags:
 profile_status: published
 ai_assisted: false
 references:
-  # (keeping all existing references intact in the frontmatter for build compatibility)
+  - title: "Ginkgo biloba for prevention of dementia: a randomized controlled trial"
+    authors: "DeKosky ST, Williamson JD, Fitzpatrick AL, et al."
+    year: "2008"
+    pmid: "19017911"
+    url: "https://pubmed.ncbi.nlm.nih.gov/19017911/"
+  - title: "Ginkgo biloba special extract in dementia with neuropsychiatric features: a randomised, placebo-controlled, double-blind clinical trial"
+    authors: "Napryeyenko O, Borzenko I"
+    year: "2007"
+    pmid: "17341003"
+    url: "https://pubmed.ncbi.nlm.nih.gov/17341003/"
+  - title: "Ginkgo biloba extract for the treatment of intermittent claudication: a meta-analysis of randomized trials"
+    authors: "Pittler MH, Ernst E"
+    year: "2000"
+    pmid: "11014719"
+    url: "https://pubmed.ncbi.nlm.nih.gov/11014719/"
+  - title: "Ginkgo biloba for cognitive impairment and dementia"
+    authors: "Birks J, Grimley Evans J"
+    year: "2009"
+    pmid: "19160216"
+    url: "https://pubmed.ncbi.nlm.nih.gov/19160216/"
 ---
 
 > **The bottom line:** Ginkgo biloba (EGb 761 extract) improves cerebral blood flow and shows modest benefits for cognitive function in dementia and age-related cognitive decline. It does **not** prevent dementia in healthy older adults — the large GEM trial showed no preventive effect. Evidence grade: **Moderate** for treating cognitive symptoms; **negative** for prevention in healthy populations.
