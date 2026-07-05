@@ -22,6 +22,32 @@ tags:
   - evidence review
 profile_status: published
 ai_assisted: false
+references:
+  - title: "Passionflower in the treatment of generalized anxiety: a pilot double-blind randomized controlled trial with oxazepam"
+    authors: "Akhondzadeh S, Naghavi HR, Vazirian M, Shayeganpour A, Rashidi H, Khani M"
+    year: "2001"
+    pmid: "11679026"
+    url: "https://pubmed.ncbi.nlm.nih.gov/11679026/"
+  - title: "Preoperative oral Passiflora incarnata reduces anxiety in ambulatory surgery patients: a double-blind, placebo-controlled study"
+    authors: "Movafegh A, Alizadeh R, Hajimohamadi F, Esfehani F, Nejatfar M"
+    year: "2008"
+    pmid: "18499602"
+    url: "https://pubmed.ncbi.nlm.nih.gov/18499602/"
+  - title: "A double-blind, placebo-controlled investigation of the effects of Passiflora incarnata (passionflower) herbal tea on subjective sleep quality"
+    authors: "Ngan A, Conduit R"
+    year: "2011"
+    pmid: "21294203"
+    url: "https://pubmed.ncbi.nlm.nih.gov/21294203/"
+  - title: "Passiflora incarnata in Neuropsychiatric Disorders-A Systematic Review"
+    authors: "Janda K, Wojtkowska K, Jakubczyk K, Antoniewicz J, Skonieczna-Żydecka K"
+    year: "2020"
+    pmid: "33352740"
+    url: "https://pubmed.ncbi.nlm.nih.gov/33352740/"
+  - title: "Randomized, Double-Blind, Placebo-Controlled, Clinical Study of Passiflora incarnata in Participants With Stress and Sleep Problems"
+    authors: "Harit MK, Mundhe N, Tamoli S Sr, Pawar V, Bhapkar V, Kolhe G, Mahadik S, Kulkarni A, Agarwal A"
+    year: "2024"
+    pmid: "38646244"
+    url: "https://pubmed.ncbi.nlm.nih.gov/38646244/"
 ---
 
 > **The bottom line:** Passionflower (*Passiflora incarnata*) is a mild anxiolytic herb that enhances GABA signaling. In one clinical trial, it was comparable to low-dose oxazepam (a benzodiazepine) for generalized anxiety, with fewer side effects. It's gentler than kava, faster-acting than ashwagandha, and mildly sedating. Best for: mild generalized anxiety, nervous restlessness, and anxiety-related sleep disruption. Evidence grade: **Moderate** for anxiety; limited for sleep.

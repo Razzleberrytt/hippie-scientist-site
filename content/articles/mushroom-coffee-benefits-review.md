@@ -21,6 +21,32 @@ tags:
   - review
 profile_status: published
 ai_assisted: false
+references:
+  - title: "Improving effects of the mushroom Yamabushitake (Hericium erinaceus) on mild cognitive impairment: a double-blind placebo-controlled clinical trial"
+    authors: "Mori K, Inatomi S, Ouchi K, Azumi Y, Tuchida T"
+    year: "2009"
+    pmid: "18844328"
+    url: "https://pubmed.ncbi.nlm.nih.gov/18844328/"
+  - title: "Nerve growth factor-inducing activity of Hericium erinaceus in 1321N1 human astrocytoma cells"
+    authors: "Mori K, Obara Y, Hirota M, Azumi Y, Kinugasa S, Inatomi S, Nakahata N"
+    year: "2008"
+    pmid: "18758067"
+    url: "https://pubmed.ncbi.nlm.nih.gov/18758067/"
+  - title: "A randomized, double-blind and placebo-controlled study of a Ganoderma lucidum polysaccharide extract in neurasthenia"
+    authors: "Tang W, Gao Y, Chen G, Gao H, Dai X, Ye J, Chan E, Huang M, Zhou S"
+    year: "2005"
+    pmid: "15857210"
+    url: "https://pubmed.ncbi.nlm.nih.gov/15857210/"
+  - title: "Effect of Cs-4 (Cordyceps sinensis) on exercise performance in healthy older subjects: a double-blind, placebo-controlled trial"
+    authors: "Chen S, Li Z, Krochmal R, et al."
+    year: "2010"
+    pmid: "20804368"
+    url: "https://pubmed.ncbi.nlm.nih.gov/20804368/"
+  - title: "New antioxidant polyphenols from the medicinal mushroom Inonotus obliquus"
+    authors: "Lee IK, Kim YS, Jang YW, Jung JY, Yun BS"
+    year: "2007"
+    pmid: "17980585"
+    url: "https://pubmed.ncbi.nlm.nih.gov/17980585/"
 ---
 
 > **The bottom line:** Mushroom coffee is regular coffee blended with powdered functional mushrooms — typically Lion's Mane, Chaga, Reishi, or Cordyceps. The coffee provides caffeine. The mushrooms may add subtle cognitive, immune, or adaptogenic benefits — but at doses far below what clinical trials used. You're paying a convenience premium for subclinical mushroom doses mixed with your morning caffeine.
