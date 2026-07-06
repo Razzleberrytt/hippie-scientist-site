@@ -206,10 +206,13 @@ improves every profile at once. It composes three parts from
    curated overlay in `config/profile-verdicts.ts` (recommendation, confidence,
    best/not-ideal, onset, evaluation window, safety/evidence notes, better
    alternative, bottom line).
-2. **Compare before choosing** — an amber routing block rendered from the
+2. **Evidence confidence** — when the overlay carries an `evidenceConfidence`
+   object, a shared `<EvidenceConfidence>` explainer (grade → why not higher →
+   why not lower → practical takeaway). Reserved for the highest-value profiles.
+3. **Compare before choosing** — an amber routing block rendered from the
    overlay's `comparisons[]` (`label` + `href` + a `when` that names the reader
    the comparison is for). Only surfaces routes that exist.
-3. **Continue reading** — intent-based routing derived from the record's own
+4. **Continue reading** — intent-based routing derived from the record's own
    keyword corpus (sleep / anxiety / focus hubs + a browse-index exit). Present
    for *every* profile, curated or not.
 
@@ -229,3 +232,6 @@ surface to a full verdict with **zero template changes**. Routes are guarded by
 2. **Articles**: open with `<ScientificVerdict>`, keep the deeper science lower
    and collapsible, and inline-cite numeric claims to `#ref-<pmid>` anchors.
 3. Never invent routes or medical claims; verify every `href` exists first.
+4. Follow [`evidence-and-claim-discipline.md`](./evidence-and-claim-discipline.md)
+   for how to phrase evidence, safety, and recommendations — and run
+   `npm run validate:claim-discipline` before shipping.

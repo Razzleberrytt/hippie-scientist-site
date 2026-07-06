@@ -214,10 +214,16 @@ detail, compare). Progressive disclosure: practical/decision on top, science bel
 
 - **To add a full verdict:** add one entry to `config/profile-verdicts.ts`
   (`recommendation`, optional `confidence`, `bestFor`, `notIdealFor`, `onset`,
-  `evaluationWindow`, optional `safetyNote` / `evidenceNote`, `bottomLine`,
-  optional `betterAlternative`, optional `comparisons`). No template edits. The
-  panel renders it. `comparisons[]` renders a **"Compare before choosing"** block
-  — only list routes that exist; each `when` names the reader it's for.
+  `evaluationWindow`, optional `safetyNote` / `evidenceNote`, optional
+  `evidenceConfidence`, `bottomLine`, optional `betterAlternative`, optional
+  `comparisons`). No template edits. The panel renders it. `comparisons[]`
+  renders a **"Compare before choosing"** block — only list routes that exist;
+  each `when` names the reader it's for.
+- **To explain the evidence grade** (highest-value profiles): add an
+  `evidenceConfidence` object (`grade`, `whyNotHigher[]`, `whyNotLower?[]`,
+  `practicalTakeaway`). The panel renders the shared `EvidenceConfidence`
+  explainer. Never fabricate the reasons — see
+  [`evidence-and-claim-discipline.md`](./evidence-and-claim-discipline.md).
 - **Key by the record slug the live page uses, not the common name.** A few
   botanicals (kava, passionflower) are indexed under a herb page with a
   *botanical* record slug (`piper-methysticum`, `passiflora-incarnata`) while the
@@ -227,10 +233,11 @@ detail, compare). Progressive disclosure: practical/decision on top, science bel
   `buildProfileDecision`.
 - **To fix a fact:** edit the workbook and run `npm run data:build` — never edit
   `public/data` JSON by hand.
-- **Guardrail:** `npm run validate:profile-verdicts`
-  (`scripts/ci/validate-profile-verdicts.mjs`, part of `check:fast`) fails the
-  build if any keyed profile or linked route (`betterAlternative`, `comparisons`)
-  does not resolve to a real slug/page.
+- **Guardrails:** `npm run validate:profile-verdicts`
+  (`scripts/ci/validate-profile-verdicts.mjs`) fails the build if any keyed
+  profile or linked route (`betterAlternative`, `comparisons`) does not resolve.
+  `npm run validate:claim-discipline` (`scripts/ci/validate-claim-discipline.mjs`)
+  fails if the overlay uses banned overclaim phrasing. Both run in `check:fast`.
 
 ### Migration strategy & extensibility
 

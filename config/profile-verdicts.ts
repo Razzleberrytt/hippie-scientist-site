@@ -35,6 +35,17 @@ export type ProfileVerdictOverlay = {
   safetyNote?: string
   /** One line on the strength/shape of the evidence base. */
   evidenceNote?: string
+  /**
+   * Structured "why is the evidence graded this way" explainer, rendered via the
+   * shared `EvidenceConfidence` component. Use it on the highest-value profiles
+   * to turn a bare grade into a calibrated, honest read. Never fabricate reasons.
+   */
+  evidenceConfidence?: {
+    grade: string
+    whyNotHigher: string[]
+    whyNotLower?: string[]
+    practicalTakeaway: string
+  }
   betterAlternative?: { label: string; href: string; reason?: string }
   /**
    * "Compare before choosing" routing. Only surface comparison guides that
@@ -65,6 +76,21 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
     safetyNote:
       'Discuss with a clinician first if you have thyroid disease, are pregnant, or take sedatives; rare liver-injury reports exist.',
     evidenceNote: 'Multiple randomized trials for stress and cortisol, though many are small and industry-funded.',
+    evidenceConfidence: {
+      grade: 'Moderate–high',
+      whyNotHigher: [
+        'Many trials are small and industry-funded',
+        'Extracts and doses differ between studies',
+        'Long-term (12+ month) safety data is limited',
+      ],
+      whyNotLower: [
+        'Several randomized, placebo-controlled trials exist',
+        'Results point consistently toward lower stress and cortisol',
+        'Short-term tolerability is well characterized in healthy adults',
+      ],
+      practicalTakeaway:
+        'Reasonable to try for chronic stress over 6–8 weeks. It is a support, not a treatment for a diagnosed anxiety or mood disorder — involve a clinician for those.',
+    },
     betterAlternative: {
       label: 'L-theanine',
       href: '/compounds/l-theanine/',
@@ -106,6 +132,8 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
     evaluationWindow: '3–6 weeks',
     bottomLine:
       'A daytime adaptogen aimed at stress-driven fatigue rather than tension. Take it earlier in the day — it can be too activating for evening use.',
+    safetyNote:
+      'Can be over-stimulating and disrupt sleep if taken late; discuss with a clinician if you have a bipolar-spectrum condition or take stimulants or antidepressants.',
     evidenceNote: 'Several human trials for fatigue and stress, but heterogeneous extracts and small samples.',
     comparisons: [
       {
@@ -153,6 +181,21 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
       'A strong first choice for calm without sedation — smoothing caffeine and quieting a busy mind. Not the best primary tool for chronic stress or severe anxiety.',
     safetyNote: 'Among the best-tolerated options here; still pair with care if you take sedatives or blood-pressure medication.',
     evidenceNote: 'Small human trials for stress reactivity and attention; effects are real but modest.',
+    evidenceConfidence: {
+      grade: 'Moderate',
+      whyNotHigher: [
+        'Most trials are small and short',
+        'Effect sizes are modest',
+        'Benefits are clearest when paired with caffeine, less so alone',
+      ],
+      whyNotLower: [
+        'Multiple human trials point the same direction',
+        'The mechanism (alpha-wave activity, glutamate modulation) is plausible',
+        'One of the best-tolerated options with a wide safety margin',
+      ],
+      practicalTakeaway:
+        'A sensible first thing to try for situational calm or caffeine jitters. It is not a treatment for a diagnosed anxiety disorder.',
+    },
     betterAlternative: {
       label: 'Ashwagandha',
       href: '/herbs/ashwagandha/',
@@ -191,6 +234,21 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
     safetyNote:
       'Rare but serious liver injury is reported. Avoid with alcohol, other sedatives, or existing liver conditions; involve a clinician.',
     evidenceNote: 'Meta-analyses support short-term anxiolytic effects; safety signals limit routine use.',
+    evidenceConfidence: {
+      grade: 'Moderate',
+      whyNotHigher: [
+        'Rare but serious liver-injury reports shape the risk picture',
+        'Long-term daily-use safety data is limited',
+        'Product quality (cultivar, extraction) varies widely',
+      ],
+      whyNotLower: [
+        'Multiple randomized trials and meta-analyses show a real anxiolytic effect',
+        'Short-term effects are relatively fast and consistent',
+        'Water-extracted noble cultivars have a better-understood safety profile',
+      ],
+      practicalTakeaway:
+        'For occasional, short-term situational anxiety with a carefully sourced product — not a daily habit. Avoid with alcohol, sedatives, or existing liver concerns, and involve a clinician.',
+    },
     betterAlternative: {
       label: 'L-theanine',
       href: '/compounds/l-theanine/',
@@ -265,6 +323,8 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
     evaluationWindow: '1–4 weeks',
     bottomLine:
       'A mild, calming herb with modest trial support for anxiety and sleep onset. Best as a gentle option or stack ingredient, not a heavyweight sedative.',
+    safetyNote:
+      'Can add to the sedation of alcohol or other sleep aids; avoid in pregnancy and discuss with a clinician before combining with sedatives.',
     evidenceNote: 'Small randomized trials for anxiety and sleep; effects are modest.',
     comparisons: [
       {
@@ -312,6 +372,21 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
       'A sensible, low-risk foundation for sleep and relaxation — especially if intake is low. The specific form matters more than most people realize.',
     safetyNote: 'Generally well tolerated; high doses loosen stools. Caution with kidney impairment.',
     evidenceNote: 'Evidence is strongest for repletion; benefits in already-replete people are smaller.',
+    evidenceConfidence: {
+      grade: 'Moderate',
+      whyNotHigher: [
+        'The strongest results are in people who were low to begin with',
+        'Trials use different forms, doses, and populations',
+        'Effects on sleep are real but modest, not dramatic',
+      ],
+      whyNotLower: [
+        'Human trials support relaxation and sleep-quality benefits',
+        'The mechanism is well understood',
+        'Very favorable safety and cost',
+      ],
+      practicalTakeaway:
+        'A low-risk nightly foundation worth trying, especially if dietary intake is low. Pick the form deliberately and give it a couple of weeks.',
+    },
     comparisons: [
       {
         label: 'Which magnesium for sleep?',
@@ -342,6 +417,21 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
       'The form most people should reach for at night — well absorbed and gentle on the gut. A steady base layer rather than a knockout.',
     safetyNote: 'Very well tolerated; still use caution with kidney impairment.',
     evidenceNote: 'Glycinate is favored for tolerability; head-to-head sleep data across forms is limited.',
+    evidenceConfidence: {
+      grade: 'Moderate',
+      whyNotHigher: [
+        'Little head-to-head trial data pits glycinate against other forms',
+        'Most magnesium sleep evidence is not form-specific',
+        'Effects are modest, not sedative-strength',
+      ],
+      whyNotLower: [
+        'Magnesium repletion has real, well-understood benefits',
+        'Glycinate is reliably well absorbed and gentle on the gut',
+        'Very favorable safety and cost',
+      ],
+      practicalTakeaway:
+        'The most sensible default form for a nightly base — gentle and easy to tolerate. Judge it over a couple of weeks rather than in one night.',
+    },
     comparisons: [
       {
         label: 'Magnesium forms compared',
@@ -367,6 +457,21 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
       'A timing signal, not a sedative. Excellent for jet lag and shifted clocks at low doses; underwhelming for ordinary insomnia, where lower doses often beat higher ones.',
     safetyNote: 'Most people overshoot the dose; more is not better. Use lowest effective amount and involve a clinician for children.',
     evidenceNote: 'Robust for circadian rhythm timing; effect on general insomnia is small.',
+    evidenceConfidence: {
+      grade: 'Moderate — split by use case',
+      whyNotHigher: [
+        'For ordinary insomnia the benefit is small (often minutes)',
+        'Over-the-counter doses are frequently far higher than needed',
+        'Long-term and pediatric data are limited',
+      ],
+      whyNotLower: [
+        'Strong, consistent evidence for circadian uses (jet lag, delayed sleep phase)',
+        'The mechanism (circadian signaling) is well understood',
+        'Short-term use is well tolerated in healthy adults',
+      ],
+      practicalTakeaway:
+        'Best matched to a timing problem, at the lowest effective dose. If the issue is "can\'t switch off," a relaxation-first option often fits better. Involve a clinician for children or ongoing use.',
+    },
     betterAlternative: {
       label: 'Magnesium',
       href: '/compounds/magnesium/',
@@ -502,9 +607,9 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
     onset: 'Days to a few weeks (tissue saturation)',
     evaluationWindow: '2–4 weeks',
     bottomLine:
-      'One of the safest, best-evidenced supplements there is — long proven for training, and increasingly interesting for cognition under stress and sleep loss.',
+      'One of the safest, best-evidenced supplements there is — long established for training, and increasingly interesting for cognition under stress and sleep loss.',
     safetyNote: 'Very well tolerated; stay hydrated. Discuss with a clinician if you have kidney disease.',
-    evidenceNote: 'Overwhelming evidence for physical performance; cognitive evidence is newer but growing.',
+    evidenceNote: 'Extensive evidence for physical performance; cognitive evidence is newer but growing.',
   },
 }
 

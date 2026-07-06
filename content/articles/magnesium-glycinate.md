@@ -271,6 +271,13 @@ Rosanoff, Weaver, and Rude conducted a sweeping analysis of NHANES dietary data 
 
 The clinical implication: most people considering magnesium supplementation are not taking a drug — they're correcting a genuine nutritional gap. This fundamentally changes the risk-benefit calculus compared to pharmacological sleep or anxiety interventions.
 
+<EvidenceConfidence
+  grade="Moderate"
+  whyNotHigher={['The strongest sleep and anxiety effects are in people who were low in magnesium to begin with', 'Trials use different forms, doses, and populations, and many are small', 'Little head-to-head data compares glycinate specifically against other forms']}
+  whyNotLower={['Multiple human trials support benefits for sleep quality and stress', 'The biological role of magnesium in the nervous system is well understood', 'Deficiency is genuinely common, and the safety and cost profile is very favorable']}
+  practicalTakeaway="A low-risk, affordable first step worth a 2–4 week trial — especially if your diet is light on magnesium. It supports better sleep habits rather than replacing them, and it is not a treatment for primary insomnia or a diagnosed anxiety disorder."
+/>
+
 ---
 
 <CollapsibleDetails title="How It Works — Complete Mechanism (tap to expand)" defaultOpen={false}>

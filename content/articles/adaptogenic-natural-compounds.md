@@ -141,7 +141,7 @@ For readers of *The Hippie Scientist*, navigating the adaptogen market requires 
 The concept of adaptogens represents a modern, scientific reframing of traditional medical systems. In Ayurveda, compounds like Ashwagandha and Tulsi were classified as *Rasayanas*—tonics used to promote longevity, vitality, and mental clarity. In Traditional Chinese Medicine (TCM), plants like *Panax ginseng* and *Schisandra chinensis* were utilized as "superior herbs" to tonify *Qi* (life force energy) and support the body's defensive reserves.
 
 The formal scientific characterization of adaptogens, however, began during the Cold War. In the 1940s and 1950s, the Soviet government tasked toxicologists and pharmacologists—most notably Nikolai Lazarev and Israel Brekhman—with finding natural substances that could enhance the stamina, cognitive performance, and survival capacity of military personnel, factory workers, astronauts, and Olympic athletes. Brekhman established three rigorous criteria that a botanical must satisfy to be classified as a true adaptogen:
-1. **Non-toxicity:** The substance must be completely safe, causing minimal disruption to normal physiological functions.
+1. **Non-toxicity:** The substance must be essentially non-toxic, causing minimal disruption to normal physiological functions.
 2. **Non-specific resistance:** The compound must increase the host's tolerance to a broad range of physical, chemical, and biological stressors.
 3. **Normalizing effect:** The substance must exert a balancing, homeostatic action, restoring normal physiological values regardless of the direction of the initial stress-induced deviation (e.g., lowering hyperactive blood pressure while elevating hypotensive states).
 
