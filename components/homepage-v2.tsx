@@ -11,6 +11,7 @@ const heroGoals = [
     icon: Moon,
     prompt: 'Fall asleep, stay asleep, and compare sleep supplements without guessing.',
     accent: 'text-[#1a3d5c]',
+    darkAccent: 'dark:text-[#8fbfe0]',
     ring: 'ring-[#a8c8e0]/40',
     bgHover: 'hover:bg-[#f0f6fa]',
   },
@@ -20,6 +21,7 @@ const heroGoals = [
     icon: Leaf,
     prompt: 'Sort adaptogens and calming supports by fatigue pattern, timing, and safety.',
     accent: 'text-[#1e4a2c]',
+    darkAccent: 'dark:text-[#8dc49a]',
     ring: 'ring-[#8dc49a]/40',
     bgHover: 'hover:bg-[#f0f7f1]',
   },
@@ -29,6 +31,7 @@ const heroGoals = [
     icon: Cloud,
     prompt: 'Find grounded options for calm, overthinking, and daytime tension.',
     accent: 'text-[#4a2d6e]',
+    darkAccent: 'dark:text-[#c4aadf]',
     ring: 'ring-[#c4aadf]/40',
     bgHover: 'hover:bg-[#f5f1fa]',
   },
@@ -38,6 +41,7 @@ const heroGoals = [
     icon: Zap,
     prompt: 'Compare non-stimulant focus supports and caffeine-adjacent options.',
     accent: 'text-[#5c3f0e]',
+    darkAccent: 'dark:text-[#d4aa62]',
     ring: 'ring-[#d4aa62]/40',
     bgHover: 'hover:bg-[#faf6ed]',
   },
@@ -100,7 +104,7 @@ const toolLinks = [
 function SectionHeader({ title, subtitle, as: HeadingTag = 'h2' }: SectionHeaderProps) {
   return (
     <div className='max-w-3xl space-y-1.5'>
-      <HeadingTag className='font-display text-[1.65rem] font-bold leading-tight tracking-tight text-ink sm:text-3xl'>{title}</HeadingTag>
+      <HeadingTag className='font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl'>{title}</HeadingTag>
       {subtitle ? <p className='text-sm leading-6 text-muted sm:text-base'>{subtitle}</p> : null}
     </div>
   )
@@ -114,29 +118,26 @@ export default function HomepageV2() {
     .slice(0, 6)
 
   return (
-    <div className='overflow-x-clip bg-[#fbfaf7] dark:bg-[var(--surface-page)]'>
-      <div className='mx-auto max-w-6xl space-y-7 px-3 pb-10 pt-2 sm:space-y-12 sm:px-6 sm:pb-16 sm:pt-6 lg:px-8'>
+    <div className='overflow-x-clip bg-white'>
+      <div className='mx-auto max-w-6xl space-y-8 px-4 pb-12 pt-2 sm:px-6 sm:space-y-12 sm:pb-16 sm:pt-6 lg:px-8'>
 
         {/* ── Hero ─────────────────────────────────────────────── */}
-        <section className='relative rounded-[1.75rem] bg-white px-4 py-8 shadow-[0_1px_2px_rgba(13,23,18,0.05)] dark:bg-[var(--surface-card)] sm:px-8 sm:py-14'>
+        <section className='relative px-2 py-6 sm:px-8 sm:py-14'>
           <div className='relative mx-auto max-w-4xl'>
             <div className='flex flex-col items-center text-center'>
-              <p className='mb-3 rounded-full bg-brand-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-brand-800 dark:bg-[var(--surface-subtle)] dark:text-[var(--text-secondary)]'>
-                Supplement research, simplified
-              </p>
-              <h1 className='max-w-[12ch] text-balance font-display text-[2.35rem] font-bold leading-[0.98] tracking-[-0.035em] text-ink sm:max-w-none sm:text-5xl md:text-[3.75rem]'>
-                Herbs & supplements, actually explained.
+              <h1 className='font-display text-[2.5rem] font-bold leading-[1.05] tracking-[-0.02em] text-ink break-words sm:text-5xl md:text-[3.75rem]'>
+                Herbs & supplements,<br />actually explained.
               </h1>
-              <p className='mt-4 max-w-[34rem] text-[0.98rem] leading-7 text-muted sm:mt-5 sm:text-lg sm:leading-8'>
-                Evidence-based guides for sleep, stress, anxiety, and focus — without marketing fluff.
+              <p className='mt-4 max-w-2xl text-[0.95rem] leading-7 text-muted sm:mt-5 sm:text-lg sm:leading-8'>
+                Evidence-based guides for sleep, stress, anxiety, and focus. 816 peer-reviewed studies, 557 compounds, zero marketing fluff.
               </p>
 
               <div className='mt-6 flex w-full max-w-sm flex-col sm:mt-8'>
                 <Link
                   href='#choose-a-path'
-                  className='rounded-full bg-brand-700 px-6 py-3.5 text-center text-base font-bold text-white shadow-[0_4px_16px_rgba(13,23,18,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-[0_8px_24px_rgba(13,23,18,0.24)] active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 sm:px-8 sm:py-4'
+                  className='rounded-full bg-brand-700 px-8 py-4 text-base font-bold text-white shadow-[0_4px_16px_rgba(13,23,18,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-[0_8px_24px_rgba(13,23,18,0.24)] active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 text-center'
                 >
-                  Choose your health goal
+                  Browse by Health Goal
                 </Link>
               </div>
             </div>
@@ -144,41 +145,41 @@ export default function HomepageV2() {
         </section>
 
         {/* Comparisons and tools */}
-        <section className='grid gap-3 sm:gap-4 lg:grid-cols-[1fr_0.9fr]'>
-          <div className='rounded-2xl border border-brand-900/5 bg-white p-4 shadow-[0_1px_2px_rgba(13,23,18,0.05)] sm:p-7 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)]'>
+        <section className='grid gap-4 lg:grid-cols-[1fr_0.9fr]'>
+          <div className='rounded-xl bg-white p-6 shadow-[0_1px_2px_rgba(13,23,18,0.06)] sm:p-7 dark:bg-[var(--surface-card)]'>
             <SectionHeader
               title='Compare before you choose'
-              subtitle='Side-by-side pages answer the questions people search before buying or stacking.'
+              subtitle='Side-by-side pages help answer the high-intent questions people search before buying or stacking.'
               as='h2'
             />
-            <div className='mt-4 grid gap-2 sm:mt-5 sm:grid-cols-2'>
+            <div className='mt-5 grid gap-2 sm:grid-cols-2'>
               {comparisonLinks.map((comparison) => (
                 <Link
                   key={comparison.href}
                   href={comparison.href}
-                  className='rounded-xl bg-brand-50 px-3.5 py-3 text-sm font-bold leading-snug text-brand-800 transition hover:bg-brand-100 dark:bg-[var(--surface-subtle)] dark:hover:bg-[var(--surface-code)] sm:px-4'
+                  className='rounded-lg bg-brand-50 px-4 py-3 text-sm font-bold text-brand-800 transition hover:bg-brand-100 dark:bg-[var(--surface-subtle)] dark:hover:bg-[var(--surface-code)]'
                 >
                   {comparison.title} →
                 </Link>
               ))}
             </div>
-            <Link href='/guides/compare/' className='mt-4 inline-flex text-sm font-bold text-brand-700 transition hover:text-brand-800 sm:mt-5'>
+            <Link href='/guides/compare/' className='mt-5 inline-flex text-sm font-bold text-brand-700 transition hover:text-brand-800'>
               Browse all comparisons →
             </Link>
           </div>
 
-          <div className='rounded-2xl border border-brand-900/5 bg-white p-4 shadow-[0_1px_2px_rgba(13,23,18,0.05)] sm:p-7 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)]'>
+          <div className='rounded-xl bg-white p-6 shadow-[0_1px_2px_rgba(13,23,18,0.06)] sm:p-7 dark:bg-[var(--surface-card)]'>
             <SectionHeader
               title='Use the safety tools'
-              subtitle='Avoid mismatched products, risky stacks, and unclear supplement forms.'
+              subtitle='The fastest win is avoiding mismatched products, risky stacks, and unclear supplement forms.'
               as='h2'
             />
-            <div className='mt-4 space-y-2.5 sm:mt-5 sm:space-y-3'>
+            <div className='mt-5 space-y-3'>
               {toolLinks.map((tool) => (
                 <Link
                   key={tool.href}
                   href={tool.href}
-                  className='block rounded-xl bg-brand-50/70 p-3.5 transition hover:bg-brand-100 dark:bg-[var(--surface-subtle)] dark:hover:bg-[var(--surface-code)] sm:p-4'
+                  className='block rounded-lg bg-brand-50/70 p-4 transition hover:bg-brand-100 dark:bg-[var(--surface-subtle)] dark:hover:bg-[var(--surface-code)]'
                 >
                   <h3 className='text-sm font-bold text-ink'>{tool.title}</h3>
                   <p className='mt-1 text-sm leading-6 text-muted'>{tool.description}</p>
@@ -190,41 +191,39 @@ export default function HomepageV2() {
 
         {/* Goal Pathways */}
         <section id='choose-a-path' className='scroll-mt-24 space-y-4'>
-          <div className='flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between sm:gap-3'>
+          <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
             <SectionHeader
               title='Choose one path'
-              subtitle='Start with the outcome you care about, then compare options inside that guide.'
+              subtitle='Most visitors should start here. Pick the outcome you care about, then compare options inside that guide.'
               as='h2'
             />
-            <Link href='/guides/' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 sm:shrink-0'>
+            <Link href='/guides/' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
               View all guides →
             </Link>
           </div>
 
-          <div className='grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4'>
+          <div className='grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4'>
             {heroGoals.map((hGoal) => {
               const Icon = hGoal.icon
               return (
                 <Link
                   key={hGoal.slug}
                   href={hGoal.slug === 'stress' || hGoal.slug === 'anxiety' ? '/guides/anxiety/' : `/guides/${hGoal.slug}/`}
-                  className='group flex rounded-2xl border border-brand-900/5 bg-white p-4 shadow-[0_1px_2px_rgba(13,23,18,0.05)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(13,23,18,0.12)] dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] sm:min-h-48 sm:flex-col sm:justify-between sm:p-5'
+                  className={`group flex min-h-40 flex-col justify-between rounded-xl bg-white p-4 shadow-[0_1px_2px_rgba(13,23,18,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(13,23,18,0.12)] sm:min-h-48 sm:p-5 dark:bg-[var(--surface-card)]`}
                 >
-                  <div className='flex gap-3 sm:block'>
+                  <div>
                     <span
-                      className={`mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white ${hGoal.ring} ring-1 dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)] sm:mb-3 sm:h-12 sm:w-12`}
+                      className={`mb-2.5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white ${hGoal.ring} ring-1 sm:mb-3 sm:h-12 sm:w-12 dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]`}
                       aria-hidden='true'
                     >
-                      <Icon className={`h-5 w-5 ${hGoal.accent} sm:h-6 sm:w-6`} strokeWidth={1.75} />
+                      <Icon className={`h-5 w-5 ${hGoal.accent} ${hGoal.darkAccent} sm:h-6 sm:w-6`} strokeWidth={1.75} />
                     </span>
-                    <div>
-                      <h3 className={`text-xl font-bold tracking-tight ${hGoal.accent} dark:text-[var(--text-primary)] sm:text-2xl`}>
-                        {hGoal.title}
-                      </h3>
-                      <p className='mt-1.5 text-sm leading-6 text-muted dark:text-[var(--text-secondary)] sm:mt-3'>{hGoal.prompt}</p>
-                    </div>
+                    <h3 className={`text-xl font-bold tracking-tight ${hGoal.accent} sm:text-2xl dark:text-[var(--text-primary)]`}>
+                      {hGoal.title}
+                    </h3>
+                    <p className='mt-2 text-[0.8rem] leading-5 text-muted sm:mt-3 sm:text-sm sm:leading-6 dark:text-[var(--text-secondary)]'>{hGoal.prompt}</p>
                   </div>
-                  <span className='mt-3 hidden text-sm font-bold text-brand-700 transition group-hover:translate-x-1 group-hover:text-brand-800 sm:mt-5 sm:inline-flex'>
+                  <span className='mt-4 inline-flex text-[0.8rem] font-bold text-brand-700 transition group-hover:translate-x-1 group-hover:text-brand-800 sm:mt-5 sm:text-sm'>
                     Start with {hGoal.title} <span aria-hidden='true' className='ml-1'>→</span>
                   </span>
                 </Link>
@@ -236,24 +235,24 @@ export default function HomepageV2() {
         {/* Featured Articles */}
         {featuredArticles.length > 0 && (
           <section className='space-y-4'>
-            <div className='flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between sm:gap-3'>
+            <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
               <SectionHeader
                 title='Latest research'
                 subtitle='Evidence reviews, mechanism deep-dives, and practical guides — updated regularly.'
                 as='h2'
               />
-              <Link href='/guides/' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 sm:shrink-0'>
+              <Link href='/guides/' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
                 Browse all guides →
               </Link>
             </div>
-            <div className='grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3'>
+            <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
               {featuredArticles.map((article: any) => (
                 <Link
                   key={article.slug}
                   href={`/articles/${article.slug}/`}
-                  className='group flex flex-col gap-2.5 rounded-2xl border border-brand-900/5 bg-white p-4 shadow-[0_1px_2px_rgba(13,23,18,0.05)] transition-all duration-200 hover:shadow-[0_8px_24px_rgba(13,23,18,0.12)] dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] sm:gap-3 sm:p-5'
+                  className='group flex flex-col gap-3 rounded-xl bg-white p-5 shadow-[0_1px_2px_rgba(13,23,18,0.06)] transition-all duration-200 hover:shadow-[0_8px_24px_rgba(13,23,18,0.12)] dark:bg-[var(--surface-card)]'
                 >
-                  <div className='flex flex-wrap items-center gap-2'>
+                  <div className='flex items-center gap-2'>
                     {article.category && (
                       <span className={`rounded-full border px-2.5 py-0.5 text-[0.72rem] font-medium ${categoryTagClass(article.category)}`}>
                         {article.category}
@@ -276,8 +275,8 @@ export default function HomepageV2() {
         )}
 
         {/* Trust */}
-        <section className='rounded-2xl border border-brand-900/5 bg-white p-4 shadow-[0_1px_2px_rgba(13,23,18,0.05)] sm:p-8 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)]'>
-          <div className='grid gap-5 sm:gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start'>
+        <section className='rounded-xl bg-white p-6 shadow-[0_1px_2px_rgba(13,23,18,0.06)] sm:p-8 dark:bg-[var(--surface-card)]'>
+          <div className='grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start'>
             <SectionHeader
               title='Why trust the guide?'
               subtitle='The site is built for cautious decisions: what has human evidence, what is only plausible, and what needs safety review before use.'
@@ -292,7 +291,7 @@ export default function HomepageV2() {
               ))}
             </div>
           </div>
-          <div className='mt-5 text-sm font-bold sm:mt-6'>
+          <div className='mt-6 text-sm font-bold'>
             <Link href='/info/methodology/' className='text-brand-700 transition hover:text-brand-800'>
               Read the evidence methodology →
             </Link>
