@@ -58,8 +58,9 @@ assertWorkbookExists(workbookPath)
 const handle = await readWorkbookExcelJS(workbookPath)
 if (!handle.workbook) {
   warnings.push(
-    'Full ExcelJS read failed; using the deterministic streaming reader. The workbook cannot currently be opened for WRITING ' +
-      '(programmatic edits via edit-workbook.mjs will crash). See docs/workbook-pipeline.md §"Tooling blocker".',
+    'Full ExcelJS read failed; using the deterministic streaming reader. ExcelJS-based read/write is unavailable, but targeted ' +
+      'programmatic edits ARE supported via the surgical editor: `npm run workbook:edit -- --slug <slug> --column <col> --value <v>` ' +
+      '(scripts/data/edit-entity-master-cell.mjs), proven byte-stable by `npm run workbook:roundtrip-test`. See docs/workbook-pipeline.md §7.',
   )
 }
 
