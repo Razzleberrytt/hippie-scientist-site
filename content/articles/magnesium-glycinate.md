@@ -380,6 +380,15 @@ The effective range from clinical trials: **200–400 mg elemental magnesium per
 
 **Week 4:** Assess. If sleep has improved meaningfully, maintain at the effective dose. If no improvement, magnesium deficiency is unlikely to be the primary driver of your sleep issue — consider behavioral interventions, sleep study (if apnea is suspected), or other supplement pathways.
 
+<CommonMistakes
+  items={[
+    { mistake: 'Buying magnesium oxide for sleep', whyItMatters: "Oxide is the most common drugstore form but is barely absorbed (~4%) and mostly acts as a laxative.", betterApproach: 'Choose glycinate (or citrate if budget-limited) and dose by elemental magnesium.' },
+    { mistake: 'Dosing by the big number on the front of the bottle', whyItMatters: '"1,000 mg magnesium glycinate" may contain only ~140 mg of actual elemental magnesium.', betterApproach: 'Read the Supplement Facts panel and target 200–400 mg elemental.' },
+    { mistake: 'Quitting after two or three nights', whyItMatters: 'Beyond the first-night glycine calm, the real benefits build as tissue stores replete over weeks.', betterApproach: 'Give it a consistent 2–4 week trial before judging it.' },
+    { mistake: 'Expecting a sleeping-pill effect', whyItMatters: 'Magnesium enables better sleep physiology; it will not override caffeine, stress, or a sleep disorder.', betterApproach: 'Pair it with sleep hygiene and match it to tension/deficiency-driven sleep problems.' },
+  ]}
+/>
+
 ---
 
 ## Beyond Sleep & Anxiety: Magnesium's Full Application Spectrum
