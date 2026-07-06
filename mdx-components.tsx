@@ -11,6 +11,7 @@ import { NPSDisclaimer } from '@/components/NPSDisclaimer'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import CollapsibleSection, { CollapsibleWarning, CollapsibleDetails } from '@/components/content/CollapsibleSection'
 import Collapsible from '@/components/content/Collapsible'
+import ScientificVerdict from '@/components/content/ScientificVerdict'
 
 type MDXComponents = Record<string, ComponentType<Record<string, unknown>>>
 type MdxTableProps = Record<string, unknown> & { children?: ReactNode }
@@ -54,6 +55,7 @@ const evidenceComponents = {
   CollapsibleWarning,
   CollapsibleDetails,
   Collapsible,
+  ScientificVerdict,
   table: MdxTable,
 } as unknown as MDXComponents
 
