@@ -192,7 +192,7 @@ profiles.
 | Layer | Owns | Files |
 |---|---|---|
 | **Workbook / runtime data** | structured facts: evidence tier, safety flags, dosing, effects, interactions | `data-sources/*.xlsx` → `public/data/**` (generated; never hand-edit) |
-| **Editorial verdict overlay** | curated *judgement*: recommendation, best/not-ideal framing, better alternative, bottom line | `config/profile-verdicts.ts` (opt-in, keyed by slug) |
+| **Editorial verdict overlay** | curated *judgement*: recommendation, confidence, best/not-ideal framing, safety/evidence notes, better alternative, comparison routing, bottom line | `config/profile-verdicts.ts` (opt-in, keyed by slug) |
 | **Rendering** | how the decision surface looks and derives intent-nav from data | `lib/profile-decision.ts` + `components/editorial/ProfileDecisionPanel.tsx`, mounted in both `[slug]/page.tsx` templates |
 
 This preserves the workbook source-of-truth philosophy: the overlay **never
@@ -213,12 +213,24 @@ detail, compare). Progressive disclosure: practical/decision on top, science bel
 ### How to upgrade a profile
 
 - **To add a full verdict:** add one entry to `config/profile-verdicts.ts`
-  (`recommendation`, `bestFor`, `notIdealFor`, `onset`, `evaluationWindow`,
-  `bottomLine`, `betterAlternative`). No template edits. The panel renders it.
+  (`recommendation`, optional `confidence`, `bestFor`, `notIdealFor`, `onset`,
+  `evaluationWindow`, optional `safetyNote` / `evidenceNote`, `bottomLine`,
+  optional `betterAlternative`, optional `comparisons`). No template edits. The
+  panel renders it. `comparisons[]` renders a **"Compare before choosing"** block
+  — only list routes that exist; each `when` names the reader it's for.
+- **Key by the record slug the live page uses, not the common name.** A few
+  botanicals (kava, passionflower) are indexed under a herb page with a
+  *botanical* record slug (`piper-methysticum`, `passiflora-incarnata`) while the
+  common-name compound page is a noindex canonical redirect. Key the overlay by
+  the botanical slug; alias the common slug at the bottom of the file.
 - **To improve every profile at once:** edit `ProfileDecisionPanel` /
   `buildProfileDecision`.
 - **To fix a fact:** edit the workbook and run `npm run data:build` — never edit
   `public/data` JSON by hand.
+- **Guardrail:** `npm run validate:profile-verdicts`
+  (`scripts/ci/validate-profile-verdicts.mjs`, part of `check:fast`) fails the
+  build if any keyed profile or linked route (`betterAlternative`, `comparisons`)
+  does not resolve to a real slug/page.
 
 ### Migration strategy & extensibility
 
@@ -229,9 +241,14 @@ extensions (e.g. deriving `bestFor` from cleaned workbook fields, or a
 `buildProfileDecision` without touching the templates.
 
 ### Reference impl
-`config/profile-verdicts.ts` (ashwagandha herb, l-theanine compound),
-`lib/profile-decision.ts`, `components/editorial/ProfileDecisionPanel.tsx`,
-mounted in `app/herbs/[slug]/page.tsx` and `app/compounds/[slug]/page.tsx`.
+`config/profile-verdicts.ts` — 18 curated money-cluster profiles across
+sleep / stress / anxiety / focus (ashwagandha, rhodiola, saffron, l-theanine,
+kava, lavender, lemon-balm, passionflower, chamomile, magnesium,
+magnesium-glycinate, melatonin, glycine, valerian, caffeine, bacopa, l-tyrosine,
+creatine) — plus `lib/profile-decision.ts`,
+`components/editorial/ProfileDecisionPanel.tsx`, mounted in
+`app/herbs/[slug]/page.tsx` and `app/compounds/[slug]/page.tsx`. Guarded by
+`scripts/ci/validate-profile-verdicts.mjs`.
 
 ---
 

@@ -31,13 +31,40 @@ export function ProfileDecisionPanel({
         <ScientificVerdictCard
           title={`Verdict: ${name}`}
           recommendation={verdict.recommendation}
+          confidence={verdict.confidence}
           bestFor={verdict.bestFor}
           notIdealFor={verdict.notIdealFor}
           onset={verdict.onset}
           evaluationWindow={verdict.evaluationWindow}
+          safetyNote={verdict.safetyNote}
+          evidenceNote={verdict.evidenceNote}
           betterAlternative={verdict.betterAlternative}
           bottomLine={verdict.bottomLine}
         />
+      ) : null}
+
+      {verdict?.comparisons && verdict.comparisons.length > 0 ? (
+        <section
+          aria-label="Compare before choosing"
+          className="not-prose rounded-2xl border border-amber-500/25 bg-amber-50/50 p-5 dark:border-amber-400/15 dark:bg-[var(--surface-subtle)]"
+        >
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-amber-700 dark:text-amber-300">
+            Compare before choosing
+          </p>
+          <ul className="mt-3 space-y-2.5">
+            {verdict.comparisons.map((c) => (
+              <li key={c.href} className="text-sm leading-6">
+                <Link
+                  href={c.href}
+                  className="font-bold text-brand-800 hover:underline dark:text-[var(--text-primary)]"
+                >
+                  {c.label}
+                </Link>
+                <span className="text-muted"> — if {c.when}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
       ) : null}
 
       {continueReading.length > 0 ? (

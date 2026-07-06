@@ -192,6 +192,34 @@ Reference implementation of all three: [`app/guides/sleep/page.tsx`](../app/guid
 
 ---
 
+## Profile decision surface (herb & compound engine)
+
+### `<ProfileDecisionPanel>` — the shared decision surface for ~850 profiles
+
+`components/editorial/ProfileDecisionPanel.tsx`
+
+Rendered once by each of the herb and compound templates, so improving it
+improves every profile at once. It composes three parts from
+`buildProfileDecision(record, kind)` (see `lib/profile-decision.ts`):
+
+1. **Scientific verdict** — a full `<ScientificVerdictCard>` when the slug has a
+   curated overlay in `config/profile-verdicts.ts` (recommendation, confidence,
+   best/not-ideal, onset, evaluation window, safety/evidence notes, better
+   alternative, bottom line).
+2. **Compare before choosing** — an amber routing block rendered from the
+   overlay's `comparisons[]` (`label` + `href` + a `when` that names the reader
+   the comparison is for). Only surfaces routes that exist.
+3. **Continue reading** — intent-based routing derived from the record's own
+   keyword corpus (sleep / anxiety / focus hubs + a browse-index exit). Present
+   for *every* profile, curated or not.
+
+Curated profiles live in `config/profile-verdicts.ts` (18 money-cluster herbs &
+compounds as of Pass 5). Adding an entry upgrades a profile from the derived
+surface to a full verdict with **zero template changes**. Routes are guarded by
+`npm run validate:profile-verdicts` (part of `check:fast`).
+
+---
+
 ## How to apply this to the next hub / article
 
 1. **Hubs** (anxiety, stress, focus): copy the section skeleton from the sleep
