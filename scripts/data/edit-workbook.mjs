@@ -1,12 +1,39 @@
 import ExcelJS from 'exceljs';
 import path from 'node:path';
 
+// NOTE (workbook pipeline stabilization): this editor is currently STALE and
+// non-functional against the live workbook. Two blockers, both documented in
+// docs/workbook-pipeline.md:
+//   1. ExcelJS `readFile` throws on this workbook's table definitions, so it
+//      cannot be opened for writing at all.
+//   2. The live workbook stores entity rows in the `Entity_Master` sheet; the
+//      `Herb Master V3` / `Compound Master V3` sheets referenced below no longer
+//      exist.
+// Do not use this script until the write-path tooling is restored. The guard
+// below converts the previous cryptic crash into an actionable message.
 async function main() {
   const wbPath = path.resolve('data-sources/herb_monograph_master.xlsx');
   console.log('Loading workbook from:', wbPath);
   const workbook = new ExcelJS.Workbook();
-  await workbook.xlsx.readFile(wbPath);
-  
+  try {
+    await workbook.xlsx.readFile(wbPath);
+  } catch (error) {
+    console.error(
+      '\n[edit-workbook] Cannot open the workbook for writing via ExcelJS: ' + error.message +
+      '\n[edit-workbook] This editor is STALE and the write path is broken. See docs/workbook-pipeline.md' +
+      ' ("Tooling blocker" + "Editing workbook rows safely"). No changes were made.\n',
+    );
+    process.exit(1);
+  }
+
+  if (!workbook.getWorksheet('Herb Master V3') && workbook.getWorksheet('Entity_Master')) {
+    console.error(
+      '\n[edit-workbook] This script targets the removed "Herb Master V3" / "Compound Master V3" sheets, but the' +
+      ' live workbook uses a single "Entity_Master" sheet. It is stale — do not run it. See docs/workbook-pipeline.md.\n',
+    );
+    process.exit(1);
+  }
+
   // 1. Process Herb Master V3
   {
     const sheet = workbook.getWorksheet('Herb Master V3');
