@@ -3,7 +3,8 @@ slug: magnesium-glycinate
 title: "Magnesium Glycinate: Sleep, Anxiety & Stress — What the Evidence Shows"
 description: "Evidence-based guide to magnesium glycinate for sleep, anxiety, and stress. Covers dosage (200-400 mg), GABA mechanisms, forms comparison, and what clinical trials actually found."
 date: '2026-06-06'
-updatedAt: '2026-07-05'
+updatedAt: '2026-07-06'
+lastReviewed: '2026-07-06'
 author: Will
 category: Anxiety & Sleep
 keywords:
@@ -100,13 +101,23 @@ references:
     year: "2018"
     pmid: "29480918"
     url: "https://pubmed.ncbi.nlm.nih.gov/29480918/"
+  - title: "Oral magnesium successfully relieves premenstrual mood changes"
+    authors: "Facchinetti F, Borella P, Sances G, Fioroni L, Nappi RE, Genazzani AR"
+    year: "1991"
+    pmid: "2067759"
+    url: "https://pubmed.ncbi.nlm.nih.gov/2067759/"
+  - title: "Oral magnesium supplementation improves insulin sensitivity and metabolic control in type 2 diabetic subjects: a randomized double-blind controlled trial"
+    authors: "Rodríguez-Morán M, Guerrero-Romero F"
+    year: "2003"
+    pmid: "12663588"
+    url: "https://pubmed.ncbi.nlm.nih.gov/12663588/"
 ---
 
-> **The bottom line:** Magnesium glycinate is the best-studied magnesium form for sleep and anxiety. Human trials show improved sleep quality, reduced anxiety, and lower cortisol at 200–400 mg elemental magnesium before bed. Unlike oxide or citrate, it's well-absorbed without laxative effects — and the glycine molecule it's bound to adds independent sleep benefits. Best for: stress-related insomnia, muscle tension, and correcting the magnesium deficiency that affects roughly half of US adults. Evidence grade: **Moderate** for sleep and anxiety.
+> **The bottom line:** Magnesium glycinate is the best-studied magnesium form for sleep and anxiety. Human trials show improved sleep quality, reduced anxiety, and lower cortisol at 200–400 mg elemental magnesium before bed. Unlike oxide or citrate, it's well-absorbed without laxative effects — and the glycine molecule it's bound to adds independent sleep benefits. Best for: stress-related insomnia, muscle tension, and correcting the magnesium deficiency that affects roughly half of US adults ([Rosanoff 2012](#ref-25540137)). Evidence grade: **Moderate** for sleep and anxiety.
 
 ## At a Glance
 
-Magnesium is a cofactor for over 300 enzymatic reactions — including several directly involved in sleep regulation, stress response, and neurotransmitter function. Yet national dietary surveys consistently find that 50–60% of US adults consume less than the Estimated Average Requirement. Magnesium glycinate (magnesium chelated to the amino acid glycine) is the preferred form for neurological and sleep applications because it delivers high absorption with minimal GI side effects — and glycine itself is an inhibitory neurotransmitter that independently improves sleep quality.
+Magnesium is a cofactor for over 300 enzymatic reactions — including several directly involved in sleep regulation, stress response, and neurotransmitter function. Yet national dietary surveys consistently find that 50–60% of US adults consume less than the Estimated Average Requirement ([Rosanoff 2012](#ref-25540137)). Magnesium glycinate (magnesium chelated to the amino acid glycine) is the preferred form for neurological and sleep applications because it delivers high absorption with minimal GI side effects — and glycine itself is an inhibitory neurotransmitter that independently improves sleep quality.
 
 | Question | Answer |
 |---|---|
@@ -168,7 +179,7 @@ It is not a focus or energy supplement, and it won't override caffeine, acute st
 
 ## For Sleep
 
-- **Strength of evidence:** Moderate (RCTs and meta-analyses in insomnia)
+- **Strength of evidence:** Moderate — RCTs and meta-analyses in insomnia ([Abbasi 2012](#ref-22163214), [Mah 2021](#ref-31552798))
 - **Protocol:** 200–400 mg elemental magnesium (as glycinate), 30–60 minutes before bed
 - **What to track:** Time to fall asleep, 3 AM awakenings, nighttime jaw/muscle tension, morning grogginess (there should be none)
 - **Expected result:** Easier sleep onset and steadier sleep through the night, building over 2–4 weeks
@@ -182,7 +193,7 @@ The [glycine](/compounds/glycine/) bound to the magnesium is itself a calming ne
 - **What to track:** Baseline tension, stress reactivity, sleep knock-on effects
 - **Expected result:** A gradual easing of everyday [stress](/guides/best/supplements-for-stress/) and mild [anxiety](/guides/anxiety/) over 4+ weeks — a low-risk adjunct, not a replacement for treating a diagnosed anxiety disorder
 
-Because magnesium and cortisol deplete each other in a feedback loop, correcting a shortfall can help settle an overactive stress response. For chronic, cortisol-driven stress, it stacks well with [ashwagandha](/articles/ashwagandha/); for acute, in-the-moment nerves, pair it with fast-acting [L-theanine](/articles/l-theanine/).
+A systematic review found reduced anxiety in 12 of 18 trials, strongest at 200–400 mg/day for at least four weeks ([Boyle 2017](#ref-28352141)). Because magnesium and cortisol deplete each other in a feedback loop ([Pickering 2020](#ref-33260549)), correcting a shortfall can help settle an overactive stress response. For chronic, cortisol-driven stress, it stacks well with [ashwagandha](/articles/ashwagandha/); for acute, in-the-moment nerves, pair it with fast-acting [L-theanine](/articles/l-theanine/).
 
 ---
 
@@ -194,11 +205,11 @@ Because magnesium and cortisol deplete each other in a feedback loop, correcting
 
 | Study | Design | n | Population | Duration | Dose/Form | Primary Outcomes | Quality |
 |---|---|---|---|---|---|---|---|
-| Abbasi 2012 | RCT, DB, PC | 46 | Elderly with primary insomnia (mean age 65) | 8 weeks | 500 mg elemental (oxide) | Sleep latency –17 min; sleep efficiency ↑; insomnia severity ↓; cortisol ↓; melatonin ↑ | **Moderate** |
-| Mah 2021 | Meta-analysis | ~400 pooled | Older adults with insomnia | 4–8 weeks | Mixed forms | Sleep efficiency ↑; sleep onset latency ↓; early morning awakening ↓; ISI scores ↓ | **Moderate** |
-| Boyle 2017 | Systematic review | ~2,000 pooled | Mixed populations | 4–12 weeks | Mixed forms | 12/18 studies: anxiety significantly ↓; strongest at 200–400 mg/day × 4+ weeks | **Moderate** |
-| Tarleton 2017 | RCT, crossover | 126 | Adults with mild-moderate depression + low Mg intake | 6 weeks per phase | 248 mg elemental (chloride) | PHQ-9 depression scores –6.0 points vs –0.9 placebo (P<0.001); effect within 2 weeks | **Moderate-high** |
-| Pickering 2020 | Narrative review | N/A | Stressed populations | N/A | Mixed | Confirmed bidirectional Mg-cortisol relationship; stress depletes Mg, low Mg amplifies stress | **Moderate** (mechanistic) |
+| [Abbasi 2012](#ref-22163214) | RCT, DB, PC | 46 | Elderly with primary insomnia (mean age 65) | 8 weeks | 500 mg elemental (oxide) | Sleep latency –17 min; sleep efficiency ↑; insomnia severity ↓; cortisol ↓; melatonin ↑ | **Moderate** |
+| [Mah 2021](#ref-31552798) | Meta-analysis | ~400 pooled | Older adults with insomnia | 4–8 weeks | Mixed forms | Sleep efficiency ↑; sleep onset latency ↓; early morning awakening ↓; ISI scores ↓ | **Moderate** |
+| [Boyle 2017](#ref-28352141) | Systematic review | ~2,000 pooled | Mixed populations | 4–12 weeks | Mixed forms | 12/18 studies: anxiety significantly ↓; strongest at 200–400 mg/day × 4+ weeks | **Moderate** |
+| [Tarleton 2017](#ref-28526025) | RCT, crossover | 126 | Adults with mild-moderate depression + low Mg intake | 6 weeks per phase | 248 mg elemental (chloride) | PHQ-9 depression scores –6.0 points vs –0.9 placebo (P<0.001); effect within 2 weeks | **Moderate-high** |
+| [Pickering 2020](#ref-33260549) | Narrative review | N/A | Stressed populations | N/A | Mixed | Confirmed bidirectional Mg-cortisol relationship; stress depletes Mg, low Mg amplifies stress | **Moderate** (mechanistic) |
 
 ### The Landmark Sleep Trial: Abbasi 2012
 
@@ -213,7 +224,7 @@ Results:
 - **Serum melatonin:** Increased — magnesium is a cofactor for enzymes in melatonin synthesis
 - **Insomnia Severity Index:** Significantly improved
 
-Methodological note: This trial used **magnesium oxide** — the form with the worst absorption (~4%). The fact that significant effects were achieved despite poor bioavailability strongly suggests a glycinate formulation at equivalent elemental doses would produce equal or superior results. This is the most common critique of the magnesium sleep literature: the best-designed trials used the worst-absorbed form.
+Methodological note: This trial used **magnesium oxide** — the form with the worst absorption (~4%). Head-to-head bioavailability work found the diglycinate (glycinate) chelate is absorbed substantially better than oxide ([Lindberg 1990](#ref-2407766)). The fact that significant effects were achieved despite poor bioavailability strongly suggests a glycinate formulation at equivalent elemental doses would produce equal or superior results. This is the most common critique of the magnesium sleep literature: the best-designed trials used the worst-absorbed form.
 
 ### Anxiety: Boyle 2017 Systematic Review
 
@@ -368,17 +379,17 @@ Magnesium glycinate's benefits extend past sleep and anxiety, but these are seco
 
 | Application | Evidence | Protocol | Magnitude of Effect |
 |---|---|---|---|
-| **Blood pressure** | Meta-analysis of 34 RCTs (Zhang 2016): –2.0 mmHg systolic, –1.8 diastolic at 368 mg/day median dose | 300–400 mg/day for 3+ months | Modest but real — a 2 mmHg population-wide systolic reduction would reduce stroke mortality ~10% |
-| **Migraine prevention** | Peikert 1996 (RCT, n=81): attack frequency –41.6% vs –15.8% placebo at 3 months | 400–600 mg/day elemental | Comparable to some prescription preventives; American Academy of Neurology and American Headache Society recommend as first-line option |
-| **Depression (mild-moderate)** | Tarleton 2017 (crossover, n=126): PHQ-9 –6.0 points vs –0.9 placebo at 6 weeks | 248 mg/day elemental | Effect size comparable to some SSRIs in mild depression; onset within 2 weeks |
-| **PMS** | Facchinetti 1991 (RCT): significant mood symptom reduction | 200–400 mg/day throughout cycle | Addresses anxiety, sleep, and mood symptoms simultaneously in PMS-overlap populations |
-| **Exercise recovery** | Golf 1998 (RCT in rowers): lower post-exercise cortisol, improved glucose utilization | 300–400 mg/day | Athletes have 10–20% higher Mg requirements due to sweat and urinary losses |
-| **Insulin sensitivity** | Guerrero-Romero 2004 (RCT in T2DM with hypomagnesemia): fasting glucose –17 mg/dL, HbA1c –0.3–0.4% | 300 mg/day elemental | Addresses deficiency-driven insulin resistance; not a diabetes monotherapy |
-| **Bone density** | Castiglioni 2013 (review): 60% of body Mg stored in bone; deficiency impairs hydroxyapatite crystal formation | 200–400 mg/day | Take evening (separate from morning calcium for optimal absorption of both) |
+| **Blood pressure** | Meta-analysis of 34 RCTs ([Zhang 2016](#ref-26936737)): –2.0 mmHg systolic, –1.8 diastolic at 368 mg/day median dose | 300–400 mg/day for 3+ months | Modest but real — a 2 mmHg population-wide systolic reduction would reduce stroke mortality ~10% |
+| **Migraine prevention** | [Peikert 1996](#ref-22426836) (RCT, n=81): attack frequency –41.6% vs –15.8% placebo at 3 months | 400–600 mg/day elemental | Comparable to some prescription preventives; American Academy of Neurology and American Headache Society recommend as first-line option |
+| **Depression (mild-moderate)** | [Tarleton 2017](#ref-28526025) (crossover, n=126): PHQ-9 –6.0 points vs –0.9 placebo at 6 weeks | 248 mg/day elemental | Effect size comparable to some SSRIs in mild depression; onset within 2 weeks |
+| **PMS** | [Facchinetti 1991](#ref-2067759) (RCT): significant mood symptom reduction | 200–400 mg/day throughout cycle | Addresses anxiety, sleep, and mood symptoms simultaneously in PMS-overlap populations |
+| **Exercise recovery** | Athletes lose magnesium through sweat and urine and have 10–20% higher requirements; supplementation may lower post-exercise cortisol | 300–400 mg/day | Evidence is preliminary and mostly in athletes with low baseline status |
+| **Insulin sensitivity** | [Rodríguez-Morán & Guerrero-Romero 2003](#ref-12663588) (RCT in T2DM with hypomagnesemia): improved insulin sensitivity and glycemic control (fasting glucose and HbA1c) | 300 mg/day elemental | Addresses deficiency-driven insulin resistance; not a diabetes monotherapy |
+| **Bone density** | ~60% of body magnesium is stored in bone; deficiency impairs the mineral matrix that supports bone density | 200–400 mg/day | Take evening (separate from morning calcium for optimal absorption of both) |
 
 ### The Vitamin D-Magnesium Connection
 
-Magnesium and vitamin D have a bidirectional dependency that is clinically underappreciated. Magnesium is a required cofactor for both the hepatic 25-hydroxylation and renal 1α-hydroxylation steps that convert vitamin D precursors into active calcitriol. Without adequate magnesium, vitamin D supplementation — regardless of dose — cannot be fully activated. This means that individuals supplementing vitamin D without ensuring adequate magnesium may have "vitamin D resistance" — unexpectedly low 25(OH)D levels despite consistent supplementation — that resolves with magnesium repletion.
+Magnesium and vitamin D have a bidirectional dependency that is clinically underappreciated ([Uwitonze 2018](#ref-29480918)). Magnesium is a required cofactor for both the hepatic 25-hydroxylation and renal 1α-hydroxylation steps that convert vitamin D precursors into active calcitriol. Without adequate magnesium, vitamin D supplementation — regardless of dose — cannot be fully activated. This means that individuals supplementing vitamin D without ensuring adequate magnesium may have "vitamin D resistance" — unexpectedly low 25(OH)D levels despite consistent supplementation — that resolves with magnesium repletion.
 
 ---
 
