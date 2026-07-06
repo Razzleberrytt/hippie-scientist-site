@@ -140,6 +140,14 @@ buried. Minimums:
 
 Apply only where relevant — do not paste boilerplate onto low-risk profiles.
 
+**Machine-enforced.** For curated profiles, these minimums are checked by
+`npm run validate:safety-visibility` (`scripts/ci/validate-safety-visibility.mjs`,
+in `check:fast`): each high-risk profile's overlay block must contain the required
+caution phrasings (in `safetyNote`, `notIdealFor`, `bottomLine`, or the
+`evidenceConfidence` takeaway). Adding a high-risk profile without its cautions
+fails the build. To extend coverage, add the slug and its requirement groups to
+that script.
+
 ---
 
 ## 6. Comparison Page Trust Rules
@@ -177,7 +185,8 @@ fact, edit the workbook and run `npm run data:build`.
 |---|---|---|
 | `npm run validate:evidence-language` | workbook `public/data` summaries — placeholder & disease-claim/tier alignment | hard fail (critical) |
 | `npm run validate:claim-discipline` | **curated overlay** (`config/profile-verdicts.ts`) hard fail; **article prose** warn-only with negation/citation filtering | mixed |
-| `npm run validate:profile-verdicts` | overlay keyed slugs + linked routes resolve | hard fail |
+| `npm run validate:profile-verdicts` | overlay keyed slugs + all linked routes (`betterAlternative`, `comparisons`, `primaryGuide`) resolve | hard fail |
+| `npm run validate:safety-visibility` | high-risk curated profiles carry required cautions | hard fail |
 | `npm run validate:article-quality` | article structure/entity integrity | hard fail |
 
 `validate:claim-discipline` and `validate:profile-verdicts` run inside
