@@ -9,6 +9,7 @@ import RecommendationSection from '@/components/RecommendationSection';
 import AffiliateDisclosure from '@/components/AffiliateDisclosure';
 import EmailCapture from '@/components/EmailCapture';
 import References from '@/components/References'
+import ComparisonVerdict from '@/components/editorial/ComparisonVerdict'
 
 const CANONICAL_PATH = '/guides/sleep/magnesium-vs-melatonin/'
 const route = 'guides/magnesium-vs-melatonin';
@@ -51,6 +52,31 @@ export default function MagnesiumVsMelatoninGuidePage() {
           { label: 'Magnesium vs Melatonin', href: '/guides/sleep/magnesium-vs-melatonin' },
         ]}
       />
+
+      <ComparisonVerdict
+        optionA="Magnesium"
+        optionB="Melatonin"
+        chooseA={[
+          'Muscle tension or trouble winding down',
+          'You suspect a low magnesium intake (common)',
+          'You want sleep-quality support, not just faster onset',
+        ]}
+        chooseB={[
+          'A circadian / timing problem — jet lag, shift work, delayed sleep phase',
+          'You mainly struggle to fall asleep at the desired hour',
+          'You need it only occasionally, for a schedule shift',
+        ]}
+        useBoth={['Both relaxation and timing are issues — take magnesium in the evening and low-dose melatonin 30–120 min before your target bedtime.']}
+        avoidBoth={['Loud snoring with daytime exhaustion (possible sleep apnea) or chronic insomnia — see a clinician; neither supplement fixes these.']}
+        winners={[
+          { label: 'Fastest to act', winner: 'Melatonin' },
+          { label: 'Best for muscle tension', winner: 'Magnesium' },
+          { label: 'Best for jet lag / timing', winner: 'Melatonin' },
+          { label: 'Best safety for nightly use', winner: 'Magnesium', note: 'no morning grog' },
+        ]}
+      >
+        They solve different problems — magnesium calms the body and nervous system; melatonin shifts your clock. Most people should start with whichever matches the list above, and many combine them.
+      </ComparisonVerdict>
 
       <SeoEntryPage route={route} canonicalPath={CANONICAL_PATH} />
 

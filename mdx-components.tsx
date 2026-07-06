@@ -12,6 +12,7 @@ import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import CollapsibleSection, { CollapsibleWarning, CollapsibleDetails } from '@/components/content/CollapsibleSection'
 import Collapsible from '@/components/content/Collapsible'
 import ScientificVerdictCard, { ScientificVerdict } from '@/components/editorial/ScientificVerdictCard'
+import ComparisonVerdict from '@/components/editorial/ComparisonVerdict'
 import DecisionMatrix from '@/components/editorial/DecisionMatrix'
 import RealityCheck from '@/components/editorial/RealityCheck'
 import CommonMistakes from '@/components/editorial/CommonMistakes'
@@ -64,6 +65,7 @@ const evidenceComponents = {
   Collapsible,
   ScientificVerdictCard,
   ScientificVerdict,
+  ComparisonVerdict,
   DecisionMatrix,
   RealityCheck,
   CommonMistakes,
