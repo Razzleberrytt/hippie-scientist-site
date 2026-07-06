@@ -48,6 +48,10 @@ const REQUIREMENTS = {
     { label: 'over-stimulation caution', any: [/stimulat/i, /activating/i] },
     { label: 'bipolar / mania caution', any: [/bipolar/i, /mania/i] },
   ],
+  '5-htp': [
+    { label: 'serotonin-syndrome caution', any: [/serotonin/i] },
+    { label: 'antidepressant / serotonergic-drug caution', any: [/ssri/i, /snri/i, /maoi/i, /antidepressant/i, /serotonergic/i, /triptan/i] },
+  ],
 }
 
 /** Extract the overlay object block for a given slug key (2-space-indented entry). */

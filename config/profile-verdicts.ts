@@ -797,6 +797,342 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
     },
     primaryGuide: { label: 'Best supplements for focus', href: '/guides/focus/best-supplements-for-focus/' },
   },
+
+  // ══ Batch 2 — next 10 money-cluster overlays ══════════════════════════════
+  // ── Anxiety / mood ────────────────────────────────────────────────────────
+  '5-htp': {
+    recommendation: 'Situation-dependent',
+    confidence: 'Limited — small trials for mood and appetite, real interaction risk',
+    bestFor: ['Low mood tied to low serotonin', 'Appetite and emotional-eating support', 'Occasional help falling asleep'],
+    notIdealFor: [
+      'Anyone taking an SSRI, SNRI, MAOI, triptan, or other serotonergic drug',
+      'A primary anxiety tool',
+      'Long-term daily use without guidance',
+    ],
+    onset: 'Days to a few weeks',
+    evaluationWindow: '4–6 weeks',
+    bottomLine:
+      'A serotonin precursor with small trials for mood, appetite, and sleep onset — but its interaction with antidepressants is the headline. Treat it as short-term and clinician-guided, not a casual daily habit.',
+    safetyNote:
+      'Serotonin-syndrome risk when combined with SSRIs, SNRIs, MAOIs, triptans, or other serotonergic medication; discuss with a clinician before use.',
+    evidenceNote: 'Some small human trials for depression and appetite; safety concerns limit routine use.',
+    evidenceConfidence: {
+      grade: 'Limited',
+      whyNotHigher: [
+        'Trials are small and short',
+        'The interaction risk with antidepressants is significant',
+        'Long-term safety data is thin',
+      ],
+      whyNotLower: [
+        'A clear mechanism (serotonin precursor)',
+        'Some randomized evidence for mood and appetite',
+      ],
+      practicalTakeaway:
+        'Only consider it if you are not on any serotonergic medication, for short-term use, ideally with a clinician. For everyday calm, a lower-risk option fits better.',
+    },
+    betterAlternative: {
+      label: 'L-theanine',
+      href: '/compounds/l-theanine/',
+      reason: 'for lower-risk everyday calm',
+    },
+    primaryGuide: { label: 'Natural anxiety & mood relief', href: '/guides/anxiety/natural-anxiety-relief/' },
+  },
+
+  gaba: {
+    recommendation: 'Maybe',
+    confidence: 'Limited — whether oral GABA reaches the brain is debated',
+    bestFor: ['Mild situational stress', 'A low-risk thing to try for tension', 'Pairing in a calming stack'],
+    notIdealFor: ['Significant anxiety or insomnia', 'Anyone wanting a reliable, predictable effect'],
+    onset: '30–60 minutes (if it works for you)',
+    evaluationWindow: '1–2 weeks',
+    bottomLine:
+      'Supplemental GABA is popular, but whether much of it crosses the blood–brain barrier is genuinely unsettled — some report calm, possibly via the gut. A low-risk experiment, not a dependable tool.',
+    safetyNote: 'Generally well tolerated; can add to the effect of sedatives.',
+    evidenceNote: 'Small trials and a debated mechanism; effects are inconsistent.',
+    evidenceConfidence: {
+      grade: 'Limited',
+      whyNotHigher: [
+        'It is unclear how much oral GABA reaches the brain',
+        'Trials are small and mixed',
+      ],
+      whyNotLower: [
+        'A few small studies report reduced stress markers',
+        'A gut–brain pathway is plausible, and the risk is low',
+      ],
+      practicalTakeaway:
+        'Fine as a low-stakes experiment for mild tension. If you want better-evidenced calm, start elsewhere.',
+    },
+    betterAlternative: {
+      label: 'L-theanine',
+      href: '/compounds/l-theanine/',
+      reason: 'for better-evidenced calm without sedation',
+    },
+    primaryGuide: { label: 'Natural anxiety & mood relief', href: '/guides/anxiety/natural-anxiety-relief/' },
+  },
+
+  inositol: {
+    recommendation: 'Maybe',
+    confidence: 'Limited–moderate — some panic/anxiety trials, but at large doses',
+    bestFor: ['Panic and anxiety symptoms', 'Mood support', 'PCOS-related metabolic goals (myo-inositol)'],
+    notIdealFor: ['Fast, in-the-moment relief', 'Anyone wanting a small, convenient dose'],
+    onset: '2–4 weeks',
+    evaluationWindow: '4–6 weeks',
+    bottomLine:
+      'One of the more interesting options for panic and anxiety, with some randomized support — but effective doses are large (grams), which is the practical catch.',
+    safetyNote: 'Usually well tolerated; high doses can cause mild GI upset. Involve a clinician for a diagnosed condition.',
+    evidenceNote: 'Small randomized trials for panic and anxiety; effective doses are high.',
+    evidenceConfidence: {
+      grade: 'Limited–moderate',
+      whyNotHigher: [
+        'Trials are small',
+        'Effective doses are large and inconvenient',
+        'Results vary by condition',
+      ],
+      whyNotLower: [
+        'Several randomized trials support a real effect on panic and anxiety',
+        'A plausible mechanism and a benign safety profile',
+      ],
+      practicalTakeaway:
+        'Reasonable to try over several weeks for panic-type anxiety if you can tolerate the large dose. Not a fast-acting rescue tool.',
+    },
+    betterAlternative: {
+      label: 'L-theanine',
+      href: '/compounds/l-theanine/',
+      reason: 'for acute, in-the-moment calm',
+    },
+    primaryGuide: { label: 'Natural anxiety & mood relief', href: '/guides/anxiety/natural-anxiety-relief/' },
+  },
+
+  'n-acetylcysteine': {
+    recommendation: 'Situation-dependent',
+    confidence: 'Emerging — best evidence is for compulsive behaviors, not general anxiety',
+    bestFor: ['Compulsive behaviors (hair-pulling, skin-picking)', 'Glutathione / antioxidant support', 'An adjunct alongside professional care'],
+    notIdealFor: ['Everyday anxiety, sleep, or focus', 'A fast calming agent', 'A stand-alone treatment'],
+    onset: 'Weeks',
+    evaluationWindow: '8–12 weeks',
+    bottomLine:
+      'NAC is a glutathione precursor whose most interesting mental-health evidence is for compulsive behaviors — not general calm. Think of it as a targeted adjunct, not an anxiety or focus staple.',
+    safetyNote: 'Generally well tolerated; can cause GI upset. Discuss with a clinician if you take other medication.',
+    evidenceNote: 'Emerging trials for compulsive/repetitive behaviors; broader mental-health evidence is mixed.',
+    evidenceConfidence: {
+      grade: 'Limited–moderate (narrow)',
+      whyNotHigher: [
+        'The strongest signal is narrow (compulsive behaviors), not general anxiety',
+        'Broader psychiatric trials are mixed',
+      ],
+      whyNotLower: [
+        'Several randomized trials support a role in compulsive behaviors',
+        'A well-understood biochemical mechanism and good tolerability',
+      ],
+      practicalTakeaway:
+        'Consider it as an adjunct for compulsive behaviors with professional guidance. It is not the tool for everyday stress, sleep, or focus.',
+    },
+    primaryGuide: { label: 'Natural anxiety & mood relief', href: '/guides/anxiety/natural-anxiety-relief/' },
+  },
+
+  apigenin: {
+    recommendation: 'Maybe',
+    confidence: 'Preliminary — mostly preclinical, little human data on isolated apigenin',
+    bestFor: ['Mild pre-sleep calm', 'Exploring chamomile’s active flavonoid', 'A gentle stack ingredient'],
+    notIdealFor: ['Significant insomnia or anxiety', 'Anyone expecting real sedation'],
+    onset: '~1 hour',
+    evaluationWindow: '1–2 weeks',
+    bottomLine:
+      'Apigenin is the flavonoid behind chamomile’s calming reputation, but most evidence is preclinical — as an isolated supplement it is a gentle experiment, not a proven sleep aid.',
+    evidenceNote: 'Largely preclinical; human data on isolated apigenin is sparse.',
+    evidenceConfidence: {
+      grade: 'Preliminary',
+      whyNotHigher: [
+        'Most evidence is animal/cell, not human',
+        'Little data on isolated apigenin as a supplement',
+      ],
+      whyNotLower: [
+        'A plausible mechanism and the long track record of chamomile',
+        'Low risk at culinary/supplemental amounts',
+      ],
+      practicalTakeaway:
+        'A low-stakes option for mild pre-sleep calm. For better-evidenced help, magnesium or L-theanine are stronger starting points.',
+    },
+    betterAlternative: {
+      label: 'Magnesium',
+      href: '/compounds/magnesium/',
+      reason: 'for a better-evidenced, low-risk sleep base',
+    },
+    primaryGuide: { label: 'Natural sleep aids that work', href: '/guides/sleep/best-natural-sleep-aids-that-work/' },
+  },
+
+  taurine: {
+    recommendation: 'Maybe',
+    confidence: 'Limited — calming evidence is thin; most data is in other domains',
+    bestFor: ['Mild calming as part of a stack', 'Energy-formula and exercise contexts', 'A low-risk amino acid to try'],
+    notIdealFor: ['A primary anxiety, sleep, or focus intervention', 'Anyone expecting a strong effect'],
+    onset: 'Variable',
+    evaluationWindow: '2–4 weeks',
+    bottomLine:
+      'Taurine is a well-tolerated amino acid with inhibitory, calming activity, but the human evidence for stress or focus specifically is thin — it is a supporting player, not a headliner.',
+    safetyNote: 'Very well tolerated at common doses.',
+    evidenceNote: 'Most human evidence is cardiovascular/exercise-related; calming evidence is limited.',
+    evidenceConfidence: {
+      grade: 'Limited',
+      whyNotHigher: [
+        'Little direct human evidence for anxiety or focus',
+        'Most trials are in unrelated domains',
+      ],
+      whyNotLower: [
+        'A plausible calming (inhibitory) mechanism',
+        'An excellent safety and tolerability profile',
+      ],
+      practicalTakeaway:
+        'Fine as a low-risk supporting ingredient. If calm focus is the goal, a better-evidenced option should lead.',
+    },
+    betterAlternative: {
+      label: 'L-theanine',
+      href: '/compounds/l-theanine/',
+      reason: 'for better-evidenced calm focus',
+    },
+    primaryGuide: { label: 'Natural anxiety & mood relief', href: '/guides/anxiety/natural-anxiety-relief/' },
+  },
+
+  // ── Stress / adaptogens ───────────────────────────────────────────────────
+  'tongkat-ali': {
+    recommendation: 'Maybe',
+    confidence: 'Limited–moderate — small trials for stress and hormonal markers',
+    bestFor: ['Stress paired with fatigue or low drive', 'Male vitality and energy interest', 'Stress–hormone balance'],
+    notIdealFor: [
+      'Acute anxiety or a same-day calm',
+      'A sleep aid',
+      'Hormone-sensitive conditions without medical guidance',
+    ],
+    onset: '2–4 weeks',
+    evaluationWindow: '4–8 weeks',
+    bottomLine:
+      'A traditional adaptogen with small trials suggesting it eases stress and nudges hormonal markers — promising but under-studied, and product quality varies a lot.',
+    safetyNote:
+      'Product adulteration is a known issue; choose tested brands. Use caution with hormone-sensitive conditions and discuss with a clinician if you take medication.',
+    evidenceNote: 'Small human trials for stress, mood, and testosterone; larger, independent studies are lacking.',
+    evidenceConfidence: {
+      grade: 'Limited–moderate',
+      whyNotHigher: [
+        'Trials are small and often industry-linked',
+        'Product quality and standardization vary widely',
+        'Independent replication is limited',
+      ],
+      whyNotLower: [
+        'Several randomized trials point toward reduced stress and improved hormonal markers',
+        'A coherent adaptogenic rationale',
+      ],
+      practicalTakeaway:
+        'Reasonable to trial for stress-with-fatigue over several weeks using a tested product. For the best-studied stress adaptogen, start with ashwagandha.',
+    },
+    betterAlternative: {
+      label: 'Ashwagandha',
+      href: '/herbs/ashwagandha/',
+      reason: 'for the best-studied stress adaptogen',
+    },
+    primaryGuide: { label: 'Best adaptogens for stress', href: '/guides/anxiety/best-adaptogens-for-stress/' },
+  },
+
+  phosphatidylserine: {
+    recommendation: 'Maybe',
+    confidence: 'Limited–moderate — older cognition trials plus some cortisol data',
+    bestFor: ['Stress-related cortisol', 'Cognitive support with aging', 'Exercise-stress recovery'],
+    notIdealFor: ['Acute anxiety', 'Same-day focus', 'Young, healthy users expecting large gains'],
+    onset: 'Weeks',
+    evaluationWindow: '6–12 weeks',
+    bottomLine:
+      'Phosphatidylserine has older trials for memory and some data on blunting stress cortisol — a plausible, low-risk option, though much of the best evidence used formulations no longer common.',
+    safetyNote: 'Generally well tolerated; discuss with a clinician if you take blood thinners.',
+    evidenceNote: 'Some cognition and cortisol trials, several older and small; soy-derived differs from earlier bovine sources.',
+    evidenceConfidence: {
+      grade: 'Limited–moderate',
+      whyNotHigher: [
+        'Much of the strongest data is older and used different source material',
+        'Modern soy-derived trials are smaller',
+        'Effects are modest',
+      ],
+      whyNotLower: [
+        'Multiple trials support memory and stress-cortisol benefits',
+        'A clear role in cell-membrane and neuronal function',
+      ],
+      practicalTakeaway:
+        'A reasonable, low-risk trial for stress-cortisol or age-related cognition over 6–12 weeks. Not a fast focus tool.',
+    },
+    betterAlternative: {
+      label: 'Ashwagandha',
+      href: '/herbs/ashwagandha/',
+      reason: 'for the best-studied cortisol/stress option',
+    },
+    primaryGuide: { label: 'Best nootropics for focus', href: '/guides/focus/best-nootropics-for-focus/' },
+  },
+
+  // ── Focus / cognition ─────────────────────────────────────────────────────
+  // Keyed by botanical slug: the indexed page is the herb
+  // (/herbs/hericium-erinaceus/), the canonical for Lion's Mane. Alias below
+  // also maps the `lions-mane` slug.
+  'hericium-erinaceus': {
+    recommendation: 'Maybe',
+    confidence: 'Limited–moderate — small human trials, mostly preclinical mechanism',
+    bestFor: ['Long-term cognitive support', 'A non-stimulant nootropic', 'Mood and nerve-health interest'],
+    notIdealFor: ['Same-day focus or alertness', 'Anyone wanting fast, strong effects', 'Mushroom allergy'],
+    onset: 'Weeks',
+    evaluationWindow: '8–12 weeks',
+    bottomLine:
+      'Lion’s mane is the most interesting food-grade nootropic mushroom, with small human trials hinting at cognition and mood benefits — but it works slowly and the evidence is still early.',
+    safetyNote: 'Generally well tolerated; avoid if you have a mushroom allergy.',
+    evidenceNote: 'A few small human trials for cognition and mood; much of the mechanism work is preclinical.',
+    evidenceConfidence: {
+      grade: 'Limited–moderate',
+      whyNotHigher: [
+        'Human trials are small and short',
+        'Much of the exciting nerve-growth work is preclinical',
+      ],
+      whyNotLower: [
+        'A few randomized human trials show mild cognitive and mood benefits',
+        'A plausible mechanism and a benign, food-grade safety profile',
+      ],
+      practicalTakeaway:
+        'Worth a patient 8–12 week trial for long-term cognitive support. Do not expect a same-day lift — pair with caffeine/L-theanine for that.',
+    },
+    betterAlternative: {
+      label: 'Caffeine + L-theanine',
+      href: '/compounds/caffeine/',
+      reason: 'for same-day focus',
+    },
+    primaryGuide: { label: 'Best nootropics for focus', href: '/guides/focus/best-nootropics-for-focus/' },
+  },
+
+  citicoline: {
+    recommendation: 'Maybe',
+    confidence: 'Moderate — some decent trials for attention and cognition',
+    bestFor: ['Attention and focus support', 'Cognitive support with aging', 'A non-stimulant nootropic base'],
+    notIdealFor: ['A same-day stimulant lift', 'Anyone expecting dramatic effects'],
+    onset: 'Days to weeks',
+    evaluationWindow: '4–8 weeks',
+    bottomLine:
+      'Citicoline (CDP-choline) is among the better-evidenced nootropics for attention, with real if modest trial support — a sensible non-stimulant option for sustained focus.',
+    safetyNote: 'Generally well tolerated.',
+    evidenceNote: 'Several human trials for attention and cognition; effects are modest.',
+    evidenceConfidence: {
+      grade: 'Moderate',
+      whyNotHigher: [
+        'Effect sizes are modest',
+        'Some trials are industry-funded',
+        'Benefits are clearest in attention and cognitive aging, less so in healthy young adults',
+      ],
+      whyNotLower: [
+        'Multiple randomized trials support attention and cognitive benefits',
+        'A clear mechanism (a choline and membrane-phospholipid source) and good tolerability',
+      ],
+      practicalTakeaway:
+        'A reasonable non-stimulant pick for sustained attention over several weeks. Pair with caffeine/L-theanine if you also want an immediate lift.',
+    },
+    betterAlternative: {
+      label: 'Caffeine + L-theanine',
+      href: '/compounds/caffeine/',
+      reason: 'for immediate, same-day focus',
+    },
+    primaryGuide: { label: 'Best nootropics for focus', href: '/guides/focus/best-nootropics-for-focus/' },
+  },
 }
 
 // Slug aliases — a few botanicals are indexed under a herb page with a
@@ -805,6 +1141,9 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
 // template passes.
 PROFILE_VERDICTS.kava = PROFILE_VERDICTS['piper-methysticum']
 PROFILE_VERDICTS.passionflower = PROFILE_VERDICTS['passiflora-incarnata']
+// Lion's Mane: the indexed canonical is the herb `hericium-erinaceus`; the
+// `lions-mane` page canonicalizes to it. Map both.
+PROFILE_VERDICTS['lions-mane'] = PROFILE_VERDICTS['hericium-erinaceus']
 
 export function getProfileVerdict(slug: string): ProfileVerdictOverlay | undefined {
   return PROFILE_VERDICTS[slug]
