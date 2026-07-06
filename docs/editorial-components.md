@@ -9,6 +9,10 @@ All components use the existing design language (brand emerald, `text-ink` /
 `text-muted` tokens, rounded cards) and are theme-aware (light + dark). They are
 server components — safe for static export, no client JS.
 
+> To **operate** the system (add a profile, upgrade a hub/article, add a
+> comparison, what to run before merging), see
+> [`editorial-operating-system-handoff.md`](./editorial-operating-system-handoff.md).
+
 ---
 
 ## Article-body components (MDX)

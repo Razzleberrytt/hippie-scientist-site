@@ -140,13 +140,15 @@ buried. Minimums:
 
 Apply only where relevant — do not paste boilerplate onto low-risk profiles.
 
-**Machine-enforced.** For curated profiles, these minimums are checked by
+**Machine-enforced.** These minimums are checked by
 `npm run validate:safety-visibility` (`scripts/ci/validate-safety-visibility.mjs`,
 in `check:fast`): each high-risk profile's overlay block must contain the required
 caution phrasings (in `safetyNote`, `notIdealFor`, `bottomLine`, or the
-`evidenceConfidence` takeaway). Adding a high-risk profile without its cautions
-fails the build. To extend coverage, add the slug and its requirement groups to
-that script.
+`evidenceConfidence` takeaway), **and** the high-risk article files (kava,
+ashwagandha, magnesium-glycinate) must contain their caution keywords anywhere in
+the body (a deliberately loose whole-file check that stays reliable). Adding a
+high-risk profile or article without its cautions fails the build. To extend
+coverage, add the slug/file and its requirement groups to that script.
 
 ---
 
@@ -186,7 +188,8 @@ fact, edit the workbook and run `npm run data:build`.
 | `npm run validate:evidence-language` | workbook `public/data` summaries — placeholder & disease-claim/tier alignment | hard fail (critical) |
 | `npm run validate:claim-discipline` | **curated overlay** (`config/profile-verdicts.ts`) hard fail; **article prose** warn-only with negation/citation filtering | mixed |
 | `npm run validate:profile-verdicts` | overlay keyed slugs + all linked routes (`betterAlternative`, `comparisons`, `primaryGuide`) resolve | hard fail |
-| `npm run validate:safety-visibility` | high-risk curated profiles carry required cautions | hard fail |
+| `npm run validate:safety-visibility` | high-risk curated profiles **and high-risk articles** (kava, ashwagandha, magnesium-glycinate) carry required cautions | hard fail |
+| `node scripts/ci/validate-internal-links.mjs` | links resolve to an emitted page or a `_redirects` rule, including `/*` wildcard splats | hard fail (post-build) |
 | `npm run validate:article-quality` | article structure/entity integrity | hard fail |
 
 `validate:claim-discipline` and `validate:profile-verdicts` run inside
