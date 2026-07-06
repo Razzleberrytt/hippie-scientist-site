@@ -67,11 +67,17 @@ export default function ContentCards({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (!ref.current) return
 
-    const h2s = Array.from(ref.current.querySelectorAll('h2'))
+    // Editorial components (ScientificVerdictCard, DecisionMatrix, RealityCheck,
+    // …) render self-contained blocks marked `.not-prose`. Their internal
+    // headings/paragraphs must be left untouched — grouping or re-parenting them
+    // would tear the components apart. `isEditorial` excludes that whole subtree.
+    const isEditorial = (el: Element) => Boolean(el.closest('.not-prose'))
+
+    const h2s = Array.from(ref.current.querySelectorAll('h2')).filter((h2) => !isEditorial(h2))
     if (h2s.length === 0) return
 
     // ── Step 1: Wrap combination warnings in collapsible <details> ──
-    const allElements = Array.from(ref.current.querySelectorAll('*'))
+    const allElements = Array.from(ref.current.querySelectorAll('*')).filter((el) => !isEditorial(el))
     for (const el of allElements) {
       const text = el.textContent?.trim() || ''
       
@@ -148,7 +154,10 @@ export default function ContentCards({ children }: { children: ReactNode }) {
         wrapper.appendChild(current)
         if (current === lastH2) {
           let after: Element | null = next
-          while (after && after.tagName !== 'H2') {
+          // Stop at the next heading OR any standalone editorial block so those
+          // components stay as top-level siblings instead of being absorbed
+          // (and double-wrapped) into this section card.
+          while (after && after.tagName !== 'H2' && !isEditorial(after)) {
             const afterNext: Element | null = after.nextElementSibling
             wrapper.appendChild(after)
             after = afterNext

@@ -16,9 +16,14 @@ server components — safe for static export, no client JS.
 These are registered in [`mdx-components.tsx`](../mdx-components.tsx), so any
 `.md`/`.mdx` article can use them inline with **no import**.
 
-### `<ScientificVerdict>` — the signature decision module
+> **Location:** the editorial component system lives in `components/editorial/`.
+> The guide-hub primitives live in `components/guides/`. All are registered in
+> [`mdx-components.tsx`](../mdx-components.tsx) where they're usable in articles.
 
-`components/content/ScientificVerdict.tsx`
+### `<ScientificVerdictCard>` — the signature decision module
+
+`components/editorial/ScientificVerdictCard.tsx` (also exported/registered as
+`ScientificVerdict` for backward compatibility)
 
 The recognizable module every major article/herb/compound/comparison page should
 **open** with. It answers, before any biochemistry: would we recommend this, for
@@ -51,6 +56,61 @@ the best primary tool for chronic stress or severe anxiety.
   for" list when the evidence warrants. That honesty is the brand.
 
 Live example: [`content/articles/magnesium-glycinate.md`](../content/articles/magnesium-glycinate.md).
+
+### `<DecisionMatrix>` — "Should you use it?" fit-by-situation
+
+`components/editorial/DecisionMatrix.tsx`
+
+Rows of situation → labeled fit (**Good fit / Maybe / Poor fit / Avoid**, never
+color alone) → guidance → optional route. Place it near the top as the
+"Should you use it?" section. `items` is a JS expression:
+
+```mdx
+<DecisionMatrix title="Should you use L-theanine?" items={[
+  { situation: 'Racing thoughts before bed', fit: 'good',
+    guidance: 'May quiet mental chatter without sedation.',
+    href: '/guides/sleep/l-theanine-for-sleep/', hrefLabel: 'L-theanine for sleep' },
+  { situation: 'Severe panic attacks', fit: 'poor',
+    guidance: 'A mild supplement is unlikely to be enough.' },
+]} />
+```
+
+### `<RealityCheck>` — expectation vs reality
+
+`components/editorial/RealityCheck.tsx`. Two columns:
+`expectations={[…]}` (struck through) vs `reality={[…]}`, with optional
+`bottomLine`. Defuses hype.
+
+### `<EvidenceConfidence>` — explain the grade in plain English
+
+`components/editorial/EvidenceConfidence.tsx`.
+`grade`, `whyNotHigher={[…]}`, `whyNotLower={[…]}`, `practicalTakeaway`.
+Use instead of leaving "Moderate" unexplained.
+
+### `<CommonMistakes>` — prevent misuse
+
+`components/editorial/CommonMistakes.tsx`.
+`items={[{ mistake, whyItMatters, betterApproach? }]}`.
+
+### `<BetterAlternatives>` — route elsewhere when appropriate
+
+`components/editorial/BetterAlternatives.tsx`.
+`alternatives={[{ condition, recommendation, reason, href? }]}`. Trust-building.
+
+### `<WhereNext>` — intent-based journey nav (replaces "Related Articles")
+
+`components/editorial/WhereNext.tsx`.
+`paths={[{ ifYouWant, goTo, href, reason? }]}`.
+
+### `<EditorialNote variant>` — short editor's aside
+
+`components/editorial/EditorialNote.tsx`.
+`variant`: `default | caution | positive | neutral`. Use sparingly.
+
+> **Architecture note:** editorial components render self-contained `.not-prose`
+> blocks. `ContentCards` (the article-body post-processor) explicitly skips any
+> `.not-prose` subtree, so their internal headings are never re-grouped or
+> re-parented. Keep the `.not-prose` root class on any new editorial component.
 
 ### Other registered MDX components
 

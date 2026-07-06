@@ -11,7 +11,14 @@ import { NPSDisclaimer } from '@/components/NPSDisclaimer'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import CollapsibleSection, { CollapsibleWarning, CollapsibleDetails } from '@/components/content/CollapsibleSection'
 import Collapsible from '@/components/content/Collapsible'
-import ScientificVerdict from '@/components/content/ScientificVerdict'
+import ScientificVerdictCard, { ScientificVerdict } from '@/components/editorial/ScientificVerdictCard'
+import DecisionMatrix from '@/components/editorial/DecisionMatrix'
+import RealityCheck from '@/components/editorial/RealityCheck'
+import CommonMistakes from '@/components/editorial/CommonMistakes'
+import BetterAlternatives from '@/components/editorial/BetterAlternatives'
+import WhereNext from '@/components/editorial/WhereNext'
+import EvidenceConfidence from '@/components/editorial/EvidenceConfidence'
+import EditorialNote from '@/components/editorial/EditorialNote'
 
 type MDXComponents = Record<string, ComponentType<Record<string, unknown>>>
 type MdxTableProps = Record<string, unknown> & { children?: ReactNode }
@@ -55,7 +62,15 @@ const evidenceComponents = {
   CollapsibleWarning,
   CollapsibleDetails,
   Collapsible,
+  ScientificVerdictCard,
   ScientificVerdict,
+  DecisionMatrix,
+  RealityCheck,
+  CommonMistakes,
+  BetterAlternatives,
+  WhereNext,
+  EvidenceConfidence,
+  EditorialNote,
   table: MdxTable,
 } as unknown as MDXComponents
 

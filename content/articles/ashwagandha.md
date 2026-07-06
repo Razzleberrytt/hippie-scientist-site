@@ -139,7 +139,20 @@ references:
     url: "https://pubmed.ncbi.nlm.nih.gov/10956379/"
 ---
 
-> **The bottom line:** Ashwagandha is the most-studied adaptogen for stress. Multiple RCTs show 300–600 mg/day of standardized root extract reduces cortisol by 28% and perceived stress by 44% over 6–8 weeks. It's not a quick fix — effects build gradually through HPA axis recalibration. Best fit: chronic stress with anxiety or sleep disruption. Evidence grade: **Moderate-high** for stress; moderate for anxiety and sleep.
+**Ashwagandha** (*Withania somnifera*) is the most-studied adaptogen for chronic stress. Here's the honest read on when it helps — and when it doesn't.
+
+<ScientificVerdictCard
+  recommendation="Yes"
+  bestFor="Chronic stress with anxiety|Stress-related sleep disruption|High cortisol — feeling 'wired but tired'"
+  notIdealFor="Acute anxiety or panic (works over weeks, not minutes)|A same-night sleep aid|Pregnancy, thyroid disease, or use with sedatives"
+  confidence="Moderate-high"
+  onset="Gradual — first shifts in 2–4 weeks"
+  evaluationWindow="6–8 weeks"
+  betterAlternative={{ label: 'L-theanine', href: '/articles/l-theanine/', reason: 'for acute, in-the-moment calm' }}
+  safetyNote="Avoid in pregnancy, thyroid disease, and active liver disease, and with sedatives; several cholestatic liver-injury case reports exist. See the safety section."
+>
+Ashwagandha is the best-studied adaptogen for chronic stress — standardized root extract lowers cortisol and eases stress-related sleep over weeks in multiple RCTs. It is not a quick fix and it is the wrong tool for acute anxiety or panic.
+</ScientificVerdictCard>
 
 ## At a Glance
 
@@ -153,10 +166,31 @@ Ashwagandha (*Withania somnifera*) is a calming adaptogen — not a sedative, no
 | When to reassess | 4–8 weeks, not after a few doses |
 | Who should avoid it | Pregnancy, thyroid disease, liver disease, sedative users, thyroid meds, immunosuppressants |
 | Common side effects | Mild GI upset (~5–10% of users, usually resolves in first week); rare emotional blunting at high doses |
-| Better fit for fatigue-dominant stress? | Try [Rhodiola](/guides/rhodiola-complete-guide/) — stimulating, not calming |
+| Better fit for fatigue-dominant stress? | Try [Rhodiola](/guides/herbs/rhodiola-complete-guide/) — stimulating, not calming |
 | Better fit for acute calm? | Try [L-theanine](/guides/anxiety/l-theanine-for-anxiety/) — works in 30–40 minutes |
 
-![Ashwagandha root and powder](/images/monographs/photos/ashwagandha.jpg)
+![Ashwagandha root and powder](/images/guides/ashwagandha-herb.jpg)
+
+---
+
+<DecisionMatrix
+  title="Should you use ashwagandha?"
+  intro="Ashwagandha is a slow, baseline-stress tool. Match your situation to the fit."
+  items={[
+    { situation: 'Chronic stress that builds over weeks', fit: 'good', guidance: 'Its strongest, best-evidenced use — lowers cortisol and perceived stress over 6–8 weeks.' },
+    { situation: 'Stress-related insomnia', fit: 'good', guidance: 'Helps stress-driven sleep, especially at an evening dose.', href: '/guides/sleep/ashwagandha-for-sleep/', hrefLabel: 'Ashwagandha for sleep' },
+    { situation: 'Fatigue and burnout with low motivation', fit: 'maybe', guidance: 'A stimulating adaptogen like rhodiola may fit better if fatigue dominates.', href: '/guides/herbs/rhodiola-complete-guide/', hrefLabel: 'Rhodiola guide' },
+    { situation: 'Acute anxiety before a specific event', fit: 'poor', guidance: 'It works over weeks, not minutes — reach for L-theanine instead.', href: '/articles/l-theanine/', hrefLabel: 'L-theanine' },
+    { situation: 'Pregnancy, thyroid disease, or you take sedatives', fit: 'avoid', guidance: 'Contraindicated or requires clinician oversight — see the safety section.' },
+  ]}
+/>
+
+<RealityCheck
+  title="What to actually expect"
+  expectations={['A calm feeling within a day or two', 'Noticeable sedation or a mood lift', 'Stress and anxiety gone entirely']}
+  reality={['Little for the first 1–2 weeks; effects build gradually', 'A lower baseline — the same triggers feel less overwhelming', 'Roughly 15–25% of people feel nothing even after 8 weeks']}
+  bottomLine="Judge it at 6–8 weeks, not after a few doses. If you need relief tonight, this is the wrong tool."
+/>
 
 ---
 
@@ -172,7 +206,7 @@ This is what ashwagandha users typically report in clinical trials and community
 | **Week 6–8** | **This is the window where clinical trials show measurable effects.** Anxiety scores drop measurably. Sleep consolidates into deeper, more restorative architecture. You may notice you're less reactive to stressors — the same trigger that would have derailed your afternoon now feels manageable. Testosterone effects in men may become measurable. | Still not a sedative. Won't stop a panic attack. Won't replace therapy, exercise, or addressing the structural sources of your stress. |
 | **Week 8–12** | Effects plateau for most people. Some choose to cycle off (2–4 week break) to reassess their baseline. Long-term users frequently report sustained stress resilience without evidence of tolerance. | Effects won't keep increasing indefinitely — you're normalizing a dysregulated stress system, not optimizing indefinitely. |
 
-> **If you feel nothing after 8 weeks at 600 mg/day:** ashwagandha probably isn't your adaptogen. This happens for roughly 15–25% of people. Consider [rhodiola](/guides/rhodiola-complete-guide/) (if fatigue-dominant), a [magnesium + L-theanine sleep stack](/guides/magnesium-l-theanine-sleep-stack/) (if sleep-dominant), or addressing whether your stress is situational rather than physiological.
+> **If you feel nothing after 8 weeks at 600 mg/day:** ashwagandha probably isn't your adaptogen. This happens for roughly 15–25% of people. Consider [rhodiola](/guides/herbs/rhodiola-complete-guide/) (if fatigue-dominant), a [magnesium + L-theanine sleep stack](/articles/magnesium-l-theanine-sleep-stack/) (if sleep-dominant), or addressing whether your stress is situational rather than physiological.
 
 ## What Ashwagandha Actually Feels Like
 
@@ -231,6 +265,13 @@ All guidance below is based on standardized extracts used in human trials. It do
 ## The Clinical Evidence: Study-by-Study
 
 > **Key finding:** Multiple randomized, double-blind, placebo-controlled trials show ashwagandha reduces perceived stress and serum cortisol. The main weakness: most trials are small (n=50–65), short (8–10 weeks), and industry-funded, using different branded extracts that complicate cross-comparison.
+
+<EvidenceConfidence
+  grade="Moderate-high"
+  whyNotHigher={['Most trials are small (n=50–65) and short (8–10 weeks)', 'Many are industry-funded by extract manufacturers', 'Branded extracts differ in standardization, complicating comparison', 'Little long-term safety data beyond 12 weeks']}
+  whyNotLower={['Multiple independent RCTs point the same direction', 'Objective cortisol biomarkers back the subjective stress scales', 'The HPA-axis mechanism is biologically plausible', 'Short-term safety is generally favorable']}
+  practicalTakeaway="Well-supported for a 6–8 week trial in chronic stress with standardized extract — but not a treatment for a diagnosed anxiety disorder, and worth clinician oversight for long-term use."
+/>
 
 ### Evidence Summary Table
 
@@ -444,6 +485,15 @@ The ashwagandha market is saturated. Here's how to cut through the noise:
 | Stress-related cognitive fog | **Ashwagandha** | Bacopa monnieri | Ashwagandha addresses the stress driving the fog; bacopa supports memory formation directly. Different mechanisms, can stack. |
 | Perimenopausal anxiety + sleep disruption | **Ashwagandha** | Magnesium + L-theanine | HPA axis dysregulation is common in perimenopause; ashwagandha addresses this directly. Limited perimenopause-specific trial data. |
 
+<BetterAlternatives
+  intro="If your main problem isn't chronic stress, one of these is a better first pick:"
+  alternatives={[
+    { condition: 'You need calm for a specific moment (a presentation, a bad night)', recommendation: 'L-theanine', reason: 'works in 30–40 minutes, where ashwagandha needs weeks.', href: '/articles/l-theanine/' },
+    { condition: 'Your main issue is physical tension or restless sleep', recommendation: 'Magnesium glycinate', reason: 'relaxes muscles and the nervous system, and is very low-risk.', href: '/articles/magnesium-glycinate/' },
+    { condition: 'You are exhausted and unmotivated more than anxious', recommendation: 'Rhodiola', reason: 'a stimulating adaptogen for fatigue-dominant burnout.', href: '/guides/herbs/rhodiola-complete-guide/' },
+  ]}
+/>
+
 ---
 
 ## FAQ
@@ -474,11 +524,19 @@ KSM-66 is a root-only extract (≥5% withanolides) with 22+ clinical trials — 
 
 ---
 
-## Related Articles
+<WhereNext
+  intro="Depending on what you're solving for next:"
+  paths={[
+    { ifYouWant: 'help with stress-related insomnia', goTo: 'Ashwagandha for Sleep', href: '/guides/sleep/ashwagandha-for-sleep/' },
+    { ifYouWant: 'to choose between the two most common picks', goTo: 'Ashwagandha vs Magnesium for Sleep', href: '/guides/sleep/ashwagandha-vs-magnesium-for-sleep/' },
+    { ifYouWant: 'fast, in-the-moment calm instead', goTo: 'L-Theanine', href: '/articles/l-theanine/', reason: 'works in 30–40 minutes' },
+    { ifYouWant: 'an energizing adaptogen for fatigue', goTo: 'Rhodiola Rosea', href: '/articles/rhodiola-rosea/' },
+    { ifYouWant: 'to browse all stress options', goTo: 'Best Supplements for Stress', href: '/guides/best/supplements-for-stress/' },
+  ]}
+/>
 
-- [Rhodiola Rosea: Benefits, Dosage & Evidence](/articles/rhodiola-rosea/)
-- [Magnesium Glycinate: Sleep, Anxiety & Stress](/articles/magnesium-glycinate/)
+## Related Reading
+
 - [Magnesium + L-Theanine Sleep Stack](/articles/magnesium-l-theanine-sleep-stack/)
-- [L-Theanine: Calm Focus Guide](/articles/l-theanine/)
 - [Kava for Anxiety & Sleep](/articles/kava/)
 - [How to Choose a Quality Supplement](/articles/how-to-choose-supplement-quality/)

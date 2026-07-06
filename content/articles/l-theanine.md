@@ -71,7 +71,17 @@ references:
     url: "https://pubmed.ncbi.nlm.nih.gov/21208586/"
 ---
 
-> **The bottom line:** L-theanine is an amino acid from tea that produces "alert relaxation" — calm focus without sedation. It increases alpha brain waves within 30–40 minutes, making it one of the fastest-acting anxiolytic supplements. Best for: caffeine jitter reduction, acute situational [anxiety](/guides/anxiety/) (presentations, exams, social settings), and racing thoughts at bedtime. It does not build tolerance or cause dependence. Evidence grade: **Moderate** for acute relaxation; limited for chronic anxiety and sleep.
+<ScientificVerdictCard
+  recommendation="Yes"
+  bestFor="Caffeine jitters|Racing thoughts at bedtime|Mild situational anxiety (presentations, exams)|Calm focus without sedation"
+  notIdealFor="Severe insomnia|Panic attacks|Chronic baseline stress alone"
+  confidence="Moderate"
+  onset="30–40 minutes"
+  evaluationWindow="Same day to 2 weeks"
+  betterAlternative={{ label: 'Ashwagandha', href: '/articles/ashwagandha/', reason: 'for chronic baseline stress that builds over weeks' }}
+>
+L-theanine is a strong first choice for calm without sedation — smoothing caffeine and quieting a busy mind — but not the best primary tool for chronic stress or severe anxiety. It works within 30–40 minutes, builds no tolerance, and is one of the safest supplements for daily use.
+</ScientificVerdictCard>
 
 ## At a Glance
 
@@ -110,24 +120,27 @@ L-theanine's subjective effects are consistent across most users.
 - You remain alert and capable — this is not sedation or cognitive impairment
 - The effect is often described as similar to the mental state after 10–15 minutes of meditation
 
-**What it's NOT:**
-- Not a sedative — won't make you drowsy or impair driving
-- Not a "high" — no euphoria, no altered perception
-- Not a stimulant-style cognitive enhancer — it won't increase raw processing speed
-- Not a fix for the source of your anxiety — it provides acute symptom relief, not root-cause resolution
+<RealityCheck
+  title="What to actually expect"
+  expectations={['Instant, powerful calm', 'Sedation that puts you to sleep', 'Anxiety disappearing completely']}
+  reality={['A subtle drop in mental "volume" within ~40 minutes', 'Calm while staying alert — you can drive and work', 'Smoother caffeine and quieter thoughts, not a cure for severe anxiety']}
+  bottomLine="Think 'quieter and smoother', not 'switched off'. If you expect a strong hit, you may conclude it 'did nothing'."
+/>
 
 ---
 
-## Best Use Cases
-
-L-theanine is a precise tool, not a cure-all. It shines in a few specific situations:
-
-- **Taming caffeine** — smoothing the jitters, anxiety, and crash from coffee or pre-workout.
-- **Situational calm** — a presentation, exam, interview, flight, or difficult conversation where you need to be composed *and* sharp.
-- **Bedtime mental chatter** — quieting an overactive mind so you can fall asleep, especially as part of a [sleep](/guides/sleep/) routine.
-- **Calmer daytime [focus](/guides/focus/)** — reducing background mental noise during deep work, with or without caffeine.
-
-If your challenge is **chronic, ongoing stress** rather than an acute moment, L-theanine is better used as a complement to a cortisol-focused adaptogen — see [ashwagandha](/articles/ashwagandha/) and the [best supplements for stress](/guides/best/supplements-for-stress/).
+<DecisionMatrix
+  title="Should you use L-theanine?"
+  intro="Match your situation to the fit. L-theanine is a precise tool, not a cure-all."
+  items={[
+    { situation: 'Caffeine jitters or afternoon crash', fit: 'good', guidance: 'Pairs with caffeine to smooth the edge while keeping the focus.', href: '/guides/focus/l-theanine-vs-caffeine-for-focus/', hrefLabel: 'L-theanine vs caffeine' },
+    { situation: 'Racing thoughts at bedtime', fit: 'good', guidance: 'May quiet mental chatter without sedation.', href: '/guides/sleep/l-theanine-for-sleep/', hrefLabel: 'L-theanine for sleep' },
+    { situation: 'Situational nerves (presentation, exam, flight)', fit: 'good', guidance: 'Fast, non-sedating calm for a specific stressful moment.', href: '/guides/anxiety/l-theanine-for-anxiety/', hrefLabel: 'L-theanine for anxiety' },
+    { situation: 'Physical tension or restless body at night', fit: 'maybe', guidance: 'Magnesium may be the better first choice for muscle-driven tension.', href: '/articles/magnesium-glycinate/', hrefLabel: 'Magnesium glycinate' },
+    { situation: 'Chronic, ongoing baseline stress', fit: 'maybe', guidance: 'Better as an add-on to a cortisol-focused adaptogen than as the main tool.', href: '/articles/ashwagandha/', hrefLabel: 'Ashwagandha' },
+    { situation: 'Severe anxiety or panic attacks', fit: 'poor', guidance: 'A mild supplement is unlikely to be enough; speak with a clinician.' },
+  ]}
+/>
 
 ---
 
@@ -221,6 +234,13 @@ No cycling needed — L-theanine doesn't build tolerance. You can use it daily o
 
 The evidence is strongest for acute, single-dose relaxation effects — that's where L-theanine's rapid alpha-wave mechanism provides a clear, measurable signal. For chronic anxiety or sleep disorders, the evidence is thinner and L-theanine is better used as a component of a broader approach (stacked with [magnesium](/articles/magnesium-glycinate/), [ashwagandha](/articles/ashwagandha/), or cognitive-behavioral interventions).
 
+<EvidenceConfidence
+  grade="Moderate"
+  whyNotHigher={['Most trials are small (n=15–40)', 'Effects are measured acutely, not over months', 'Chronic-anxiety and sleep-disorder data are thin']}
+  whyNotLower={['Multiple human RCTs with objective EEG endpoints', 'The alpha-wave and caffeine-synergy effects are consistent and biologically plausible', 'Safety profile is excellent with no tolerance']}
+  practicalTakeaway="A reasonable, low-risk first choice for acute, situational calm and caffeine pairing — not a treatment for a diagnosed anxiety or sleep disorder."
+/>
+
 ---
 
 ## How It Works
@@ -273,6 +293,17 @@ L-theanine has an excellent safety profile. No serious adverse events have been 
 
 ---
 
+<BetterAlternatives
+  intro="L-theanine is not always the right first tool. If one of these fits you better, start there."
+  alternatives={[
+    { condition: 'Your main issue is physical tension or a restless body at night', recommendation: 'Magnesium glycinate', reason: 'it supports muscle relaxation and nervous-system calm.', href: '/articles/magnesium-glycinate/' },
+    { condition: 'Your main issue is chronic, baseline stress', recommendation: 'Ashwagandha', reason: 'it lowers cortisol and baseline stress over weeks, where L-theanine only helps in the moment.', href: '/articles/ashwagandha/' },
+    { condition: 'Your main issue is severe anxiety or panic', recommendation: 'A clinician, not a supplement', reason: 'mild anxiolytics are unlikely to be enough; this is a medical conversation.' },
+  ]}
+/>
+
+---
+
 ## FAQ
 
 ### Does L-theanine help with sleep?
@@ -295,13 +326,19 @@ Some people don't notice L-theanine's effects, particularly if they're expecting
 
 ---
 
-## Related Articles
+<WhereNext
+  intro="Depending on what you're solving for next:"
+  paths={[
+    { ifYouWant: 'to quiet a racing mind at bedtime', goTo: 'L-Theanine for Sleep', href: '/guides/sleep/l-theanine-for-sleep/' },
+    { ifYouWant: 'calm, jitter-free focus', goTo: 'L-Theanine vs Caffeine for Focus', href: '/guides/focus/l-theanine-vs-caffeine-for-focus/' },
+    { ifYouWant: 'a ready-made sleep combination', goTo: 'Magnesium + L-Theanine Sleep Stack', href: '/articles/magnesium-l-theanine-sleep-stack/' },
+    { ifYouWant: 'help with chronic, baseline stress', goTo: 'Ashwagandha', href: '/articles/ashwagandha/', reason: 'works over weeks on cortisol' },
+    { ifYouWant: 'to browse all calm & sleep options', goTo: 'Best Supplements for Anxiety', href: '/guides/anxiety/' },
+  ]}
+/>
 
-- [Magnesium + L-Theanine Sleep Stack](/articles/magnesium-l-theanine-sleep-stack/)
-- [Ashwagandha: Benefits, Dosage & Evidence](/articles/ashwagandha/)
+## Related Reading
+
 - [Magnesium Glycinate: Sleep, Anxiety & Stress](/articles/magnesium-glycinate/)
-- [Best Supplements for Sleep](/guides/sleep/)
-- [Best Supplements for Anxiety](/guides/anxiety/)
-- [Best Supplements for Focus](/guides/focus/)
 - [Kava for Anxiety & Sleep](/articles/kava/)
 - [Passionflower for Anxiety](/articles/passionflower/)
