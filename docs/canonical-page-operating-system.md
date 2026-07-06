@@ -179,6 +179,62 @@ job, and give it the required components for that blueprint.
 
 ---
 
+## Profile Template Specification (herb & compound engine)
+
+Herb (`/herbs/{slug}/`) and compound (`/compounds/{slug}/`) profiles are
+**engine-rendered**: ~850 pages share two templates. The rule for this type is
+*improve the machine, not the output* — a change to the shared template or its
+data layer improves every profile at once. Do not hand-polish individual
+profiles.
+
+### The three layers (clean boundaries)
+
+| Layer | Owns | Files |
+|---|---|---|
+| **Workbook / runtime data** | structured facts: evidence tier, safety flags, dosing, effects, interactions | `data-sources/*.xlsx` → `public/data/**` (generated; never hand-edit) |
+| **Editorial verdict overlay** | curated *judgement*: recommendation, best/not-ideal framing, better alternative, bottom line | `config/profile-verdicts.ts` (opt-in, keyed by slug) |
+| **Rendering** | how the decision surface looks and derives intent-nav from data | `lib/profile-decision.ts` + `components/editorial/ProfileDecisionPanel.tsx`, mounted in both `[slug]/page.tsx` templates |
+
+This preserves the workbook source-of-truth philosophy: the overlay **never
+overrides facts** — it only adds the editorial layer that data alone can't
+express. `lib/profile-decision.ts` surfaces only reliably-clean data and derives
+intent-based "continue reading" routes; it never invents facts (runtime fields
+like `primary_effects` are noisy — e.g. a compound may list "GABA" — so the
+derived surface stays conservative).
+
+### What a profile communicates (before deep science)
+
+Hero (name, summary, evidence badge, **visible safety summary**, key uses) →
+**ProfileDecisionPanel**: a full Scientific Verdict when the slug is curated,
+plus intent-based *Continue reading* routing for every profile → then the
+existing deep sections (quick stats, evidence, mechanisms, interactions, safety
+detail, compare). Progressive disclosure: practical/decision on top, science below.
+
+### How to upgrade a profile
+
+- **To add a full verdict:** add one entry to `config/profile-verdicts.ts`
+  (`recommendation`, `bestFor`, `notIdealFor`, `onset`, `evaluationWindow`,
+  `bottomLine`, `betterAlternative`). No template edits. The panel renders it.
+- **To improve every profile at once:** edit `ProfileDecisionPanel` /
+  `buildProfileDecision`.
+- **To fix a fact:** edit the workbook and run `npm run data:build` — never edit
+  `public/data` JSON by hand.
+
+### Migration strategy & extensibility
+
+Curate verdict overlays for the highest-traffic profiles first (sleep/anxiety/
+focus cluster); the long tail keeps the derived surface until curated. Future
+extensions (e.g. deriving `bestFor` from cleaned workbook fields, or a
+`ComparisonVerdict` auto-surfaced from `comparisonBySlug`) slot into
+`buildProfileDecision` without touching the templates.
+
+### Reference impl
+`config/profile-verdicts.ts` (ashwagandha herb, l-theanine compound),
+`lib/profile-decision.ts`, `components/editorial/ProfileDecisionPanel.tsx`,
+mounted in `app/herbs/[slug]/page.tsx` and `app/compounds/[slug]/page.tsx`.
+
+---
+
 ## Acceptance checklist for any new/edited page
 
 1. It maps to exactly one page product above.

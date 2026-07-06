@@ -36,6 +36,8 @@ import Disclaimer from '../../../src/components/Disclaimer'
 import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
 import EvidenceMeter from '@/components/ui/EvidenceMeter'
 import ProfileEvidenceLens from '@/components/ui/ProfileEvidenceLens'
+import ProfileDecisionPanel from '@/components/editorial/ProfileDecisionPanel'
+import { buildProfileDecision } from '@/lib/profile-decision'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
 import EvidenceGradeRationale from '@/components/education/EvidenceGradeRationale'
@@ -766,6 +768,7 @@ export default async function CompoundPage({ params }: PageProps) {
     .slice(0, 8)
 
   const displayName = formatDisplayLabel(compound.name || compound.slug)
+  const profileDecision = buildProfileDecision(compound as Record<string, unknown>, 'compound')
   const quickSummary = firstSentences(summary, 1) || 'Compound profile with safety, mechanism, and fit context.'
   const timeline = getTimeline(compound)
   const avoidIf = getAvoidIf(compound)
@@ -894,6 +897,10 @@ export default async function CompoundPage({ params }: PageProps) {
             <MonographHeroImage image={heroImage} label={displayName} eyebrow="Monograph visual" />
           </header>
         </div>
+
+        {/* Decision surface — verdict (when curated) + intent-based routing.
+            Rendered by the shared ProfileDecisionPanel so all profiles benefit. */}
+        <ProfileDecisionPanel decision={profileDecision} name={displayName} />
 
         {/* Jump navigation — lets keyboard and screen-reader users reach sections directly */}
         <nav aria-label="Jump to profile sections" className="flex flex-wrap gap-2">

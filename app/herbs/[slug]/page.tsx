@@ -38,6 +38,8 @@ import Disclaimer from '../../../src/components/Disclaimer'
 import EvidenceScoreBadge from '@/components/ui/EvidenceScoreBadge'
 import SafetyGaugeMeter from '@/components/ui/SafetyGaugeMeter'
 import ProfileEvidenceLens from '@/components/ui/ProfileEvidenceLens'
+import ProfileDecisionPanel from '@/components/editorial/ProfileDecisionPanel'
+import { buildProfileDecision } from '@/lib/profile-decision'
 import EvidenceGradeExplainer from '@/components/ui/EvidenceGradeExplainer'
 import ShowMeTheStudies from '@/components/ui/ShowMeTheStudies'
 import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
@@ -431,6 +433,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
   const mechanisms = getMechanisms(herb)
   const evidenceLimitations = deriveEvidenceLimitations({ profile: herb })
   const topUses = getTopUses(herb)
+  const profileDecision = buildProfileDecision(herbRecord as Record<string, unknown>, 'herb')
   const safetyTone = getSafetyTone(safetySummary, avoidIf, safetySensitivity)
   const safetyGaugeScore = getSafetyGaugeScore(safetySensitivity)
   const relatedHerbLinks = getRelatedLinks(relatedHerbs, 'herb')
@@ -622,6 +625,10 @@ export default async function HerbDetailPage({ params }: PageProps) {
           </div>
         </header>
       </div>
+
+      {/* Decision surface — verdict (when curated) + intent-based routing.
+          Rendered by the shared ProfileDecisionPanel so all profiles benefit. */}
+      <ProfileDecisionPanel decision={profileDecision} name={displayName} />
 
       <ProfileTOC items={tocItems} variant="mobile" />
 
