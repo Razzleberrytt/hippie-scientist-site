@@ -48,6 +48,18 @@ export default async function ArticleMonographPage({ params }: PageProps) {
 
   const relatedPages = articlePages.filter((item) => item.slug !== page.slug && item.category === page.category)
 
+  // Trust/E-E-A-T fields exist only on article monographs, not blog posts.
+  const author = 'author' in page ? page.author : undefined
+  const reviewedBy = 'reviewedBy' in page && page.reviewedBy ? page.reviewedBy : undefined
+  const reviewerCredential =
+    'reviewerCredential' in page && page.reviewerCredential ? page.reviewerCredential : undefined
+  // Only surfaced when a page carries an explicit review date — "updated" is
+  // not the same as "reviewed", so we never infer this from lastUpdated.
+  const lastReviewed = 'lastReviewed' in page && page.lastReviewed ? page.lastReviewed : undefined
+  const reviewerLabel = reviewedBy
+    ? `${reviewedBy}${reviewerCredential ? `, ${reviewerCredential}` : ''}`
+    : undefined
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -58,6 +70,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
     mainEntityOfPage: `${SITE_URL}/articles/${page.slug}/`,
     keywords: page.tags,
     articleSection: page.category,
+    ...(author ? { author: { '@type': 'Person', name: author } } : {}),
     additionalProperty: page.evidenceGrade
       ? [{ '@type': 'PropertyValue', name: 'evidenceGrade', value: page.evidenceGrade }]
       : undefined,
@@ -71,9 +84,24 @@ export default async function ArticleMonographPage({ params }: PageProps) {
     })),
   }
 
+  // Emitted only when there is real review/citation substance to attest to.
+  const medicalPageSchema =
+    lastReviewed || page.references.length > 0
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'MedicalWebPage',
+          url: `${SITE_URL}/articles/${page.slug}/`,
+          ...(lastReviewed ? { lastReviewed } : {}),
+          ...(reviewerLabel
+            ? { reviewedBy: { '@type': 'Person', name: reviewedBy, ...(reviewerCredential ? { honorificSuffix: reviewerCredential } : {}) } }
+            : {}),
+        }
+      : null
+
   return (
     <article className="mx-auto max-w-5xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
       <JsonLd schema={articleSchema} />
+      {medicalPageSchema ? <JsonLd schema={medicalPageSchema} /> : null}
 
       <Breadcrumbs
         items={[
@@ -107,6 +135,42 @@ export default async function ArticleMonographPage({ params }: PageProps) {
         <p className="mt-4 max-w-3xl text-base leading-7 text-muted">
           {page.description}
         </p>
+
+        <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1.5 border-t border-brand-900/10 pt-4 text-xs text-muted">
+          {author ? (
+            <span>
+              Written by <span className="font-semibold text-ink">{author}</span>
+            </span>
+          ) : null}
+          {reviewerLabel ? (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>
+                Reviewed by <span className="font-semibold text-ink">{reviewerLabel}</span>
+              </span>
+            </>
+          ) : null}
+          {lastReviewed ? (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>
+                Last reviewed <time dateTime={lastReviewed}>{lastReviewed}</time>
+              </span>
+            </>
+          ) : null}
+          {page.references.length > 0 ? (
+            <>
+              <span aria-hidden="true">·</span>
+              <a href="#references" className="font-semibold text-brand-800 hover:underline">
+                {page.references.length} cited sources
+              </a>
+            </>
+          ) : null}
+          <span aria-hidden="true">·</span>
+          <Link href="/info/methodology/" className="font-semibold text-brand-800 hover:underline">
+            Evidence standards
+          </Link>
+        </div>
       </header>
 
       <div className="mt-6">
@@ -116,11 +180,11 @@ export default async function ArticleMonographPage({ params }: PageProps) {
       </div>
 
       {page.references.length > 0 ? (
-        <section className="mt-8 rounded-[0.9rem] border-2 border-brand-900/15 bg-white p-5 shadow-md ring-1 ring-brand-900/5">
+        <section id="references" className="mt-8 scroll-mt-24 rounded-[0.9rem] border-2 border-brand-900/15 bg-white p-5 shadow-md ring-1 ring-brand-900/5">
           <h2 className="text-lg font-bold text-ink">References</h2>
-          <ol className="mt-4 space-y-2 text-sm leading-6 text-muted">
+          <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-6 text-muted marker:font-semibold marker:text-brand-800">
             {page.references.map((ref, index) => (
-              <li key={`${ref.title}-${index}`}>
+              <li key={`${ref.title}-${index}`} id={`ref-${ref.pmid || index + 1}`} className="scroll-mt-24">
                 {ref.authors ? `${ref.authors} ` : ''}
                 {ref.title}
                 {ref.year ? ` (${ref.year})` : ''}

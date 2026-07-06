@@ -39,6 +39,11 @@ const articleMonographs = defineCollection({
     evidenceGrade: z.string().min(1).optional(),
     evidence_grade: z.string().min(1).optional(),
     author: z.string().optional(),
+    // Optional trust/E-E-A-T signals. `reviewedBy`/`reviewerCredential` are
+    // only rendered when a real reviewer is supplied — never fabricate one.
+    reviewedBy: z.string().optional(),
+    reviewerCredential: z.string().optional(),
+    lastReviewed: z.string().regex(isoDatePattern).optional(),
     faqs: z.array(articleFaqSchema).default([]),
     references: z.array(articleReferenceSchema).default([]),
     content: z.string(),
