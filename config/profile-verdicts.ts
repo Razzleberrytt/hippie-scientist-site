@@ -48,6 +48,12 @@ export type ProfileVerdictOverlay = {
   }
   betterAlternative?: { label: string; href: string; reason?: string }
   /**
+   * The single safest "start here" guide for this profile's primary goal — the
+   * decision-graph entry point (problem → hub → *this guide* → verdict). Rendered
+   * as a prominent "Start here" step. Must be a real route.
+   */
+  primaryGuide?: { label: string; href: string }
+  /**
    * "Compare before choosing" routing. Only surface comparison guides that
    * actually exist. `when` describes the reader for whom the comparison matters.
    */
@@ -96,6 +102,7 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
       href: '/compounds/l-theanine/',
       reason: 'for acute, in-the-moment calm',
     },
+    primaryGuide: { label: 'Ashwagandha for anxiety & stress', href: '/guides/anxiety/ashwagandha-for-anxiety/' },
     comparisons: [
       {
         label: 'Ashwagandha vs. Rhodiola',
@@ -135,6 +142,21 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
     safetyNote:
       'Can be over-stimulating and disrupt sleep if taken late; discuss with a clinician if you have a bipolar-spectrum condition or take stimulants or antidepressants.',
     evidenceNote: 'Several human trials for fatigue and stress, but heterogeneous extracts and small samples.',
+    evidenceConfidence: {
+      grade: 'Limited–moderate',
+      whyNotHigher: [
+        'Extracts and rosavin/salidroside content vary widely between products',
+        'Trials are small and results are inconsistent',
+        'Strongest signal is for fatigue, weaker for mood or anxiety',
+      ],
+      whyNotLower: [
+        'Several human trials point toward reduced fatigue under stress',
+        'A plausible mechanism and a long traditional-use history',
+      ],
+      practicalTakeaway:
+        'Reasonable to try for stress-driven fatigue, taken earlier in the day. Treat it as mild support, not a primary treatment for a mood or anxiety condition.',
+    },
+    primaryGuide: { label: 'Best adaptogens for stress', href: '/guides/anxiety/best-adaptogens-for-stress/' },
     comparisons: [
       {
         label: 'Rhodiola vs. Ashwagandha',
@@ -155,6 +177,21 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
       'One of the more compelling botanicals for mild low mood, with several controlled trials. It works slowly and is a support, not a substitute for care.',
     safetyNote: 'High doses can cause side effects; keep to culinary/standardized amounts and involve a clinician for depression.',
     evidenceNote: 'Multiple randomized trials for depressive symptoms, mostly small and short.',
+    evidenceConfidence: {
+      grade: 'Moderate',
+      whyNotHigher: [
+        'Trials are small, short, and often industry-linked',
+        'Standardized extracts differ from culinary saffron',
+        'Long-term data is limited',
+      ],
+      whyNotLower: [
+        'Multiple randomized, placebo-controlled trials for mild low mood',
+        'Effects are directionally consistent across studies',
+      ],
+      practicalTakeaway:
+        'A reasonable food-grade option for mild low mood over 6–8 weeks. It is a support, not a substitute for care — involve a clinician for depression.',
+    },
+    primaryGuide: { label: 'Natural anxiety & mood relief', href: '/guides/anxiety/natural-anxiety-relief/' },
     comparisons: [
       {
         label: 'Beyond ashwagandha: other anxiolytics',
@@ -201,6 +238,7 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
       href: '/herbs/ashwagandha/',
       reason: 'for chronic baseline stress',
     },
+    primaryGuide: { label: 'L-theanine for anxiety & calm', href: '/guides/anxiety/l-theanine-for-anxiety/' },
     comparisons: [
       {
         label: 'L-theanine + caffeine for focus',
@@ -254,6 +292,7 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
       href: '/compounds/l-theanine/',
       reason: 'for lower-risk everyday calm',
     },
+    primaryGuide: { label: 'Anxiolytics beyond ashwagandha', href: '/guides/anxiety/natural-anxiolytics-beyond-ashwagandha/' },
     comparisons: [
       {
         label: 'Kava vs. alcohol',
@@ -278,6 +317,21 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
     bottomLine:
       'Standardized oral lavender has surprisingly solid trials for mild anxiety and is well tolerated. Aromatherapy effects are gentler and less consistent.',
     evidenceNote: 'Randomized trials of standardized oral lavender show anxiolytic effects comparable to low-dose reference agents.',
+    evidenceConfidence: {
+      grade: 'Moderate',
+      whyNotHigher: [
+        'The good evidence is for one standardized oral preparation, not lavender generally',
+        'Aromatherapy evidence is much weaker',
+        'Most trials are short',
+      ],
+      whyNotLower: [
+        'Randomized trials show a real anxiolytic effect for standardized oral lavender',
+        'It is well tolerated with a low-risk profile',
+      ],
+      practicalTakeaway:
+        'A reasonable low-risk option for mild everyday anxiety if you use a standardized oral product. Not a substitute for care in severe anxiety.',
+    },
+    primaryGuide: { label: 'Best herbs for anxiety', href: '/guides/anxiety/best-herbs-for-anxiety/' },
     comparisons: [
       {
         label: 'Beyond ashwagandha: other anxiolytics',
@@ -297,6 +351,20 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
     bottomLine:
       'A gentle calming herb best used for mild stress or as part of a stack. Real but subtle — do not expect heavy sedation.',
     evidenceNote: 'Small human trials suggest mild mood and stress benefits; evidence base is thin.',
+    evidenceConfidence: {
+      grade: 'Limited',
+      whyNotHigher: [
+        'Human trials are few, small, and short',
+        'Many studies use lemon balm inside a blend, not alone',
+      ],
+      whyNotLower: [
+        'The small trials that exist point toward mild stress and mood benefit',
+        'Long traditional use and a benign safety profile',
+      ],
+      practicalTakeaway:
+        'Best treated as a gentle, low-stakes option or stack ingredient for mild stress — not a primary intervention for significant anxiety or insomnia.',
+    },
+    primaryGuide: { label: 'Best herbs for anxiety', href: '/guides/anxiety/best-herbs-for-anxiety/' },
     comparisons: [
       {
         label: 'Sleep herbs vs. melatonin',
@@ -326,6 +394,21 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
     safetyNote:
       'Can add to the sedation of alcohol or other sleep aids; avoid in pregnancy and discuss with a clinician before combining with sedatives.',
     evidenceNote: 'Small randomized trials for anxiety and sleep; effects are modest.',
+    evidenceConfidence: {
+      grade: 'Limited',
+      whyNotHigher: [
+        'Trials are small and often combine passionflower with other herbs',
+        'Preparations and doses vary',
+        'Effects are modest',
+      ],
+      whyNotLower: [
+        'A few randomized trials support mild anxiety and sleep-onset benefit',
+        'Long traditional use and good tolerability',
+      ],
+      practicalTakeaway:
+        'A gentle option for mild anxiety or trouble winding down, best as a stack ingredient rather than a stand-alone fix for significant insomnia.',
+    },
+    primaryGuide: { label: 'Best herbs for anxiety', href: '/guides/anxiety/best-herbs-for-anxiety/' },
     comparisons: [
       {
         label: 'Sleep herbs vs. melatonin',
@@ -351,6 +434,20 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
       'Gentle and pleasant, with a little trial support for generalized anxiety. Effects are subtle — value it as a low-risk ritual rather than a strong sleep aid.',
     safetyNote: 'Can trigger reactions in people allergic to ragweed/daisy family; may interact with anticoagulants.',
     evidenceNote: 'Limited randomized trials for generalized anxiety; sleep evidence is weaker.',
+    evidenceConfidence: {
+      grade: 'Limited',
+      whyNotHigher: [
+        'Only a handful of trials, mostly small',
+        'Sleep evidence is weaker than the (already limited) anxiety evidence',
+      ],
+      whyNotLower: [
+        'One reasonable trial supports a mild effect on generalized anxiety',
+        'Very low risk for most people and a pleasant daily ritual',
+      ],
+      practicalTakeaway:
+        'Value it as a calming, low-risk ritual for mild anxiety rather than a reliable sleep aid. Skip it if you are allergic to the ragweed/daisy family.',
+    },
+    primaryGuide: { label: 'Best herbs for anxiety', href: '/guides/anxiety/best-herbs-for-anxiety/' },
     comparisons: [
       {
         label: 'Sleep herbs vs. melatonin',
@@ -387,6 +484,7 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
       practicalTakeaway:
         'A low-risk nightly foundation worth trying, especially if dietary intake is low. Pick the form deliberately and give it a couple of weeks.',
     },
+    primaryGuide: { label: 'Magnesium for sleep', href: '/guides/sleep/magnesium-for-sleep/' },
     comparisons: [
       {
         label: 'Which magnesium for sleep?',
@@ -432,6 +530,7 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
       practicalTakeaway:
         'The most sensible default form for a nightly base — gentle and easy to tolerate. Judge it over a couple of weeks rather than in one night.',
     },
+    primaryGuide: { label: 'Best magnesium for sleep', href: '/guides/sleep/best-magnesium-for-sleep/' },
     comparisons: [
       {
         label: 'Magnesium forms compared',
@@ -455,7 +554,7 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
     evaluationWindow: 'A few nights for circadian use',
     bottomLine:
       'A timing signal, not a sedative. Excellent for jet lag and shifted clocks at low doses; underwhelming for ordinary insomnia, where lower doses often beat higher ones.',
-    safetyNote: 'Most people overshoot the dose; more is not better. Use lowest effective amount and involve a clinician for children.',
+    safetyNote: 'Most people overshoot the dose; more is not better and can cause next-day grogginess. Use the lowest effective amount and involve a clinician for children or ongoing use.',
     evidenceNote: 'Robust for circadian rhythm timing; effect on general insomnia is small.',
     evidenceConfidence: {
       grade: 'Moderate — split by use case',
@@ -477,6 +576,7 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
       href: '/compounds/magnesium/',
       reason: 'for relaxation-type sleep trouble',
     },
+    primaryGuide: { label: 'Best supplements for sleep', href: '/guides/sleep/best-supplements-for-sleep/' },
     comparisons: [
       {
         label: 'Magnesium vs. melatonin',
@@ -506,6 +606,20 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
     bottomLine:
       'An inexpensive, well-tolerated add-on with small trials suggesting better sleep quality and morning alertness. Subtle, not sedating.',
     evidenceNote: 'A handful of small trials on sleep quality; evidence base is limited.',
+    evidenceConfidence: {
+      grade: 'Limited',
+      whyNotHigher: [
+        'Only a few small trials, several from the same group',
+        'Effects are subtle and subjective',
+      ],
+      whyNotLower: [
+        'The small trials that exist point toward better sleep quality and morning alertness',
+        'Very low risk and inexpensive',
+      ],
+      practicalTakeaway:
+        'A cheap, low-risk add-on worth a short trial for sleep quality — not a stand-alone fix for significant insomnia.',
+    },
+    primaryGuide: { label: 'Best supplements for sleep', href: '/guides/sleep/best-supplements-for-sleep/' },
     comparisons: [
       {
         label: 'Sleep herbs vs. melatonin',
@@ -526,6 +640,21 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
       'The classic sleep herb, but the evidence is genuinely mixed and effects vary between people and products. Worth a fair trial; do not expect consistency.',
     safetyNote: 'Avoid combining with alcohol or other sedatives; some report grogginess.',
     evidenceNote: 'Trials conflict, partly due to variable extract quality.',
+    evidenceConfidence: {
+      grade: 'Limited — mixed',
+      whyNotHigher: [
+        'Trials genuinely conflict',
+        'Extract quality and dose vary widely between products',
+        'Effects are inconsistent between people',
+      ],
+      whyNotLower: [
+        'Some randomized trials do show a sleep-onset benefit',
+        'Long traditional use with an acceptable short-term safety profile',
+      ],
+      practicalTakeaway:
+        'Worth a fair trial for trouble falling asleep, but manage expectations — results vary. Avoid combining with alcohol or other sedatives.',
+    },
+    primaryGuide: { label: 'Best herbs for sleep', href: '/guides/sleep/best-herbs-for-sleep/' },
     comparisons: [
       {
         label: 'Melatonin vs. valerian vs. magnesium',
@@ -552,6 +681,20 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
       'The most reliable cognitive enhancer available — the real questions are dose, timing, and tolerance. Pairing it with L-theanine smooths the jitters.',
     safetyNote: 'Late or high doses wreck sleep and can amplify anxiety; taper rather than stack endlessly.',
     evidenceNote: 'Extensive human evidence for alertness and performance.',
+    evidenceConfidence: {
+      grade: 'Strong',
+      whyNotHigher: [
+        'Tolerance builds, so the benefit shrinks with habitual use',
+        'The effect is alertness, not deep cognition or learning',
+      ],
+      whyNotLower: [
+        'Large, consistent human evidence for alertness and reaction time',
+        'A well-understood mechanism and dose-response',
+      ],
+      practicalTakeaway:
+        'The most reliable focus tool — manage dose and timing, keep it out of the late afternoon, and pair with L-theanine if it makes you jittery.',
+    },
+    primaryGuide: { label: 'L-theanine + caffeine for focus', href: '/guides/focus/l-theanine-vs-caffeine-for-focus/' },
     comparisons: [
       {
         label: 'Caffeine + L-theanine for focus',
@@ -577,6 +720,21 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
       'A genuine memory herb, but it rewards patience — the trials that work run for months. Useless as a same-day focus tool.',
     safetyNote: 'Can cause GI upset; take with food. May interact with thyroid and sedative medications.',
     evidenceNote: 'Multiple trials show memory benefits over 12 weeks; short-term effects are negligible.',
+    evidenceConfidence: {
+      grade: 'Moderate',
+      whyNotHigher: [
+        'Benefits only appear after ~8–12 weeks of daily use',
+        'Effect sizes are modest and mostly on memory/recall',
+        'Extracts (e.g. standardized bacosides) differ between products',
+      ],
+      whyNotLower: [
+        'Multiple randomized trials show real memory benefits over 12 weeks',
+        'A plausible mechanism and long traditional use',
+      ],
+      practicalTakeaway:
+        'Worth it only if you will commit to daily use for 2–3 months for memory and learning. Useless as a same-day focus tool, and take it with food.',
+    },
+    primaryGuide: { label: 'Best nootropics for focus', href: '/guides/focus/best-nootropics-for-focus/' },
     comparisons: [
       {
         label: 'Caffeine vs. L-theanine vs. Bacopa',
@@ -597,6 +755,20 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
       'A precursor that mainly helps when stress or sleep loss has drained you — it restores rather than boosts. Little to offer a well-rested baseline.',
     safetyNote: 'Caution with thyroid conditions and MAOI medications; involve a clinician.',
     evidenceNote: 'Human trials show benefits specifically under acute stressors, not at baseline.',
+    evidenceConfidence: {
+      grade: 'Limited — situational',
+      whyNotHigher: [
+        'Benefits show up under acute stress or sleep loss, not at baseline',
+        'Trials are small and task-specific',
+      ],
+      whyNotLower: [
+        'Controlled studies do show a real effect under demanding, stressful conditions',
+        'A clear, plausible mechanism (dopamine/noradrenaline precursor)',
+      ],
+      practicalTakeaway:
+        'Save it for genuinely draining, high-pressure or sleep-deprived days. It restores depleted performance rather than lifting a well-rested baseline.',
+    },
+    primaryGuide: { label: 'Best supplements for focus', href: '/guides/focus/best-supplements-for-focus/' },
   },
 
   creatine: {
@@ -610,6 +782,20 @@ export const PROFILE_VERDICTS: Record<string, ProfileVerdictOverlay> = {
       'One of the safest, best-evidenced supplements there is — long established for training, and increasingly interesting for cognition under stress and sleep loss.',
     safetyNote: 'Very well tolerated; stay hydrated. Discuss with a clinician if you have kidney disease.',
     evidenceNote: 'Extensive evidence for physical performance; cognitive evidence is newer but growing.',
+    evidenceConfidence: {
+      grade: 'Strong for training; emerging for cognition',
+      whyNotHigher: [
+        'The cognitive evidence is newer and mostly under stress or sleep deprivation',
+        'It is not a same-day mental "lift"',
+      ],
+      whyNotLower: [
+        'One of the most-studied supplements, with extensive safety and performance data',
+        'A clear energy-metabolism mechanism, plus growing cognitive trials',
+      ],
+      practicalTakeaway:
+        'A very safe daily staple. Expect reliable training benefits; treat the cognitive upside — clearest when sleep-deprived — as a promising bonus.',
+    },
+    primaryGuide: { label: 'Best supplements for focus', href: '/guides/focus/best-supplements-for-focus/' },
   },
 }
 

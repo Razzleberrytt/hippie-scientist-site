@@ -188,7 +188,10 @@ Eyebrow + title (+ optional sub) that separates hub sections ("Start here",
 "Comparisons", "Full library"). Use it for every hub section so spacing and type
 scale stay uniform.
 
-Reference implementation of all three: [`app/guides/sleep/page.tsx`](../app/guides/sleep/page.tsx).
+Reference implementations: [`app/guides/sleep/page.tsx`](../app/guides/sleep/page.tsx)
+and [`app/guides/focus/page.tsx`](../app/guides/focus/page.tsx) — both follow the
+decision-first hub shape (Start here → Best first → Comparisons → cluster
+crossover → editorial note → full library).
 
 ---
 
@@ -208,13 +211,18 @@ improves every profile at once. It composes three parts from
    alternative, bottom line).
 2. **Evidence confidence** — when the overlay carries an `evidenceConfidence`
    object, a shared `<EvidenceConfidence>` explainer (grade → why not higher →
-   why not lower → practical takeaway). Reserved for the highest-value profiles.
-3. **Compare before choosing** — an amber routing block rendered from the
+   why not lower → practical takeaway).
+3. **Start here** — when the overlay carries `primaryGuide` (`{ label, href }`),
+   a prominent link to the safe entry-point guide for the profile's primary goal.
+   This is the profile's node in the decision graph.
+4. **Compare before choosing** — an amber routing block rendered from the
    overlay's `comparisons[]` (`label` + `href` + a `when` that names the reader
    the comparison is for). Only surfaces routes that exist.
-4. **Continue reading** — intent-based routing derived from the record's own
+5. **Continue reading** — intent-based routing derived from the record's own
    keyword corpus (sleep / anxiety / focus hubs + a browse-index exit). Present
    for *every* profile, curated or not.
+
+Full flow: verdict → evidence confidence → **start here** → compare → continue.
 
 Curated profiles live in `config/profile-verdicts.ts` (18 money-cluster herbs &
 compounds as of Pass 5). Adding an entry upgrades a profile from the derived

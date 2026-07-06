@@ -224,6 +224,11 @@ detail, compare). Progressive disclosure: practical/decision on top, science bel
   `practicalTakeaway`). The panel renders the shared `EvidenceConfidence`
   explainer. Never fabricate the reasons — see
   [`evidence-and-claim-discipline.md`](./evidence-and-claim-discipline.md).
+- **To place the profile in the decision graph:** add `primaryGuide`
+  (`{ label, href }`) — the single safest "start here" guide for the profile's
+  primary goal. The panel renders it as a prominent **"Start here"** step, giving
+  the flow *problem → hub → start-here guide → verdict → compare → alternative →
+  continue*. Route it to a real guide in the profile's primary cluster.
 - **Key by the record slug the live page uses, not the common name.** A few
   botanicals (kava, passionflower) are indexed under a herb page with a
   *botanical* record slug (`piper-methysticum`, `passiflora-incarnata`) while the
@@ -233,11 +238,36 @@ detail, compare). Progressive disclosure: practical/decision on top, science bel
   `buildProfileDecision`.
 - **To fix a fact:** edit the workbook and run `npm run data:build` — never edit
   `public/data` JSON by hand.
-- **Guardrails:** `npm run validate:profile-verdicts`
-  (`scripts/ci/validate-profile-verdicts.mjs`) fails the build if any keyed
-  profile or linked route (`betterAlternative`, `comparisons`) does not resolve.
-  `npm run validate:claim-discipline` (`scripts/ci/validate-claim-discipline.mjs`)
-  fails if the overlay uses banned overclaim phrasing. Both run in `check:fast`.
+- **Guardrails** (all run in `check:fast`): `validate:profile-verdicts` fails if
+  any keyed profile or linked route — `betterAlternative`, `comparisons`, **and
+  `primaryGuide`** (every `href:` in the overlay is checked) — does not resolve.
+  `validate:claim-discipline` fails on banned overclaim phrasing.
+  `validate:safety-visibility` fails if a high-risk profile (kava, ashwagandha,
+  melatonin, magnesium, magnesium-glycinate, caffeine, rhodiola) is missing a
+  required caution.
+
+### Discovery layer & the decision graph
+
+The curated overlay is not just per-page judgement — together the 18 entries
+form a **decision graph** across the money clusters. Each profile declares its
+place in the reader's journey:
+
+| Overlay field | Graph role |
+|---|---|
+| `primaryGuide` | the safe **entry point** — problem → hub → *this guide* |
+| `bestFor` / `notIdealFor` | **fit** — is this the reader's problem, and when is it not? |
+| `evidenceConfidence` | **trust** — how far the evidence actually goes |
+| `comparisons[]` | **branch** — the decision to make before committing |
+| `betterAlternative` | **redirect** — a clearly better fit for a nearby need |
+| continue-reading (derived) | **exit** — the goal hub + browse index |
+
+**Discovery-first hubs** (`/guides/{sleep,anxiety,focus}/`) are the top of the
+graph: a `DecisionRouter` "Start here" (problem → guide), `GuideCardGrid` best-first
+and comparison sections, and a secondary full library. A hub that is still a flat
+directory should be upgraded to this shape (reference: the sleep and focus hubs).
+The graph rule for adding links: **route, compare, or stop** — send the reader to
+the one best next step, surface a comparison only when it helps them *choose*, and
+otherwise stop rather than dumping generic "related" links.
 
 ### Migration strategy & extensibility
 

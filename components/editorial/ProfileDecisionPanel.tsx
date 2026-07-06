@@ -53,6 +53,24 @@ export function ProfileDecisionPanel({
         />
       ) : null}
 
+      {verdict?.primaryGuide ? (
+        <section
+          aria-label="Start here"
+          className="not-prose rounded-2xl border border-brand-700/25 bg-brand-50/60 p-5 dark:border-emerald-400/20 dark:bg-[var(--surface-subtle)]"
+        >
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700 dark:text-emerald-300">Start here</p>
+          <p className="mt-2 text-sm leading-6">
+            <span className="text-muted">New to this? Begin with the guide, then come back → </span>
+            <Link
+              href={verdict.primaryGuide.href}
+              className="font-bold text-brand-800 hover:underline dark:text-[var(--text-primary)]"
+            >
+              {verdict.primaryGuide.label}
+            </Link>
+          </p>
+        </section>
+      ) : null}
+
       {verdict?.comparisons && verdict.comparisons.length > 0 ? (
         <section
           aria-label="Compare before choosing"
