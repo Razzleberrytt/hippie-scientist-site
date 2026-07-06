@@ -45,7 +45,7 @@ references:
     url: "https://pubmed.ncbi.nlm.nih.gov/14706720/"
 ---
 
-> **The bottom line:** Kava (*Piper methysticum*) is a Pacific Island root with anxiolytic effects comparable to low-dose benzodiazepines in clinical trials — but it works within 30–60 minutes, not weeks. Multiple RCTs show significant anxiety reduction without the dependence liability of benzodiazepines at therapeutic doses. Evidence grade: **Moderate** for anxiety — one of the most studied herbal anxiolytics. The liver safety concern is largely resolved when using noble cultivars and water extracts.
+> **The bottom line:** Kava (*Piper methysticum*) is a Pacific Island root with anxiolytic effects comparable to low-dose benzodiazepines in clinical trials — but it works within 30–60 minutes, not weeks. Multiple RCTs show significant anxiety reduction without the dependence liability of benzodiazepines at therapeutic doses. Evidence grade: **Moderate** for anxiety — one of the most studied herbal anxiolytics. The liver-safety risk is much better understood — and much lower with noble cultivars and water extracts — but rare idiosyncratic reactions mean it is best kept to occasional, carefully-sourced use rather than a daily habit.
 
 ## At a Glance
 
@@ -91,9 +91,9 @@ The evidence for kava's acute anxiolytic effect is consistent across multiple tr
 
 <CollapsibleWarning title="Liver Safety Warning & Non-Negotiables">
 
-## The Liver Safety Question: Resolved (With Caveats)
+## The Liver Safety Question: Much Better Understood
 
-Kava's reputation was damaged by hepatotoxicity reports from the early 2000s. The current scientific consensus:
+Kava's reputation was damaged by hepatotoxicity reports from the early 2000s. Liver injury remains a real, if rare, risk, and the cases taught the field what drives it. The current scientific consensus:
 
 **What caused the liver problems:**
 1. **Non-noble ("tudei" or "two-day") cultivars** — contain higher levels of flavokavain B, a hepatotoxic compound
@@ -107,7 +107,7 @@ Kava's reputation was damaged by hepatotoxicity reports from the early 2000s. Th
 - Water extraction (traditional method) or CO₂ extraction
 - Third-party tested for flavokavain levels and absence of aerial parts
 
-When these criteria are met, kava's safety profile is comparable to other herbal anxiolytics. The Sarris 2013 trial, which used a water-extracted noble kava product, found no evidence of hepatotoxicity over 6 weeks with regular liver function monitoring.
+When these criteria are met, kava's short-term safety profile appears much closer to other herbal anxiolytics — though rare idiosyncratic liver reactions cannot be fully ruled out, which is why occasional, monitored use is the sensible ceiling. The Sarris 2013 trial, which used a water-extracted noble kava product, found no evidence of hepatotoxicity over 6 weeks with regular liver function monitoring.
 
 ---
 
@@ -152,10 +152,6 @@ Unlike benzodiazepines, kavalactones do not appear to produce GABA-A receptor do
 - Stop 2 weeks before surgery (anesthetic interaction risk)
 - Avoid in pregnancy and breastfeeding
 - Rare reversible skin rash (kava dermopathy) with chronic high-dose use — resolves on discontinuation
-
----
-
-## Kava vs. Alternatives
 
 </CollapsibleWarning>
 

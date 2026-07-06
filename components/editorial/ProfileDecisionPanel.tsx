@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import type { ProfileDecision } from '@/lib/profile-decision'
 import ScientificVerdictCard from '@/components/editorial/ScientificVerdictCard'
+import EvidenceConfidence from '@/components/editorial/EvidenceConfidence'
 
 /**
  * ProfileDecisionPanel — the shared decision surface for every herb and
@@ -40,6 +41,15 @@ export function ProfileDecisionPanel({
           evidenceNote={verdict.evidenceNote}
           betterAlternative={verdict.betterAlternative}
           bottomLine={verdict.bottomLine}
+        />
+      ) : null}
+
+      {verdict?.evidenceConfidence ? (
+        <EvidenceConfidence
+          grade={verdict.evidenceConfidence.grade}
+          whyNotHigher={verdict.evidenceConfidence.whyNotHigher}
+          whyNotLower={verdict.evidenceConfidence.whyNotLower}
+          practicalTakeaway={verdict.evidenceConfidence.practicalTakeaway}
         />
       ) : null}
 
