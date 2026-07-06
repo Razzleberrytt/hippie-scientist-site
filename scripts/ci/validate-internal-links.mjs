@@ -8,8 +8,13 @@ if (!fs.existsSync(outDir)) {
   process.exit(1)
 }
 
-// 1. Load Redirects
+// 1. Load Redirects (exact sources + wildcard/splat prefixes).
+// Cloudflare `_redirects` honors trailing `/*` splats (e.g. `/compare/* ...`),
+// so a link like `/compare/foo` is a valid redirect target even though it is not
+// an emitted static file. The validator must mirror that to avoid flagging
+// wildcard-covered links as broken.
 const redirects = new Set()
+const redirectPrefixes = [] // root-relative sources ending in `/*`, sans the `*`
 const redirectsFile = path.join(outDir, '_redirects')
 if (fs.existsSync(redirectsFile)) {
   const content = fs.readFileSync(redirectsFile, 'utf8')
@@ -17,8 +22,13 @@ if (fs.existsSync(redirectsFile)) {
     const trimmed = line.trim()
     if (!trimmed || trimmed.startsWith('#')) return
     const parts = trimmed.split(/\s+/)
-    if (parts[0]) {
-      redirects.add(parts[0])
+    const source = parts[0]
+    if (!source) return
+    // Only root-relative sources can match internal root-relative routes.
+    if (source.startsWith('/') && source.endsWith('/*')) {
+      redirectPrefixes.push(source.slice(0, -1)) // keep trailing slash, drop `*`
+    } else {
+      redirects.add(source)
     }
   })
 }
@@ -33,8 +43,13 @@ function routeExists(route) {
     cleanRoute = '/'
   }
 
-  // Check redirects
+  // Check redirects (exact source match)
   if (redirects.has(cleanRoute) || redirects.has(cleanRoute + '/')) {
+    return true
+  }
+  // Check wildcard/splat redirect prefixes (e.g. `/compare/*` covers `/compare/foo`)
+  const withSlash = cleanRoute + '/'
+  if (redirectPrefixes.some(prefix => withSlash.startsWith(prefix))) {
     return true
   }
 

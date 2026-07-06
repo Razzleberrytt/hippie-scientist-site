@@ -5,8 +5,13 @@ The operating system for every indexable page on The Hippie Scientist. It is the
 without belonging to a defined page product below.**
 
 Companion docs:
+- [`editorial-operating-system-handoff.md`](./editorial-operating-system-handoff.md)
+  — **start here to operate the system**: how to add a profile, upgrade a hub or
+  article, add a comparison, what to run before merging, and what never to do.
 - [`editorial-components.md`](./editorial-components.md) — the reusable article/MDX
   components (`ScientificVerdictCard`, `DecisionMatrix`, …) referenced throughout.
+- [`evidence-and-claim-discipline.md`](./evidence-and-claim-discipline.md) — how to
+  phrase evidence, safety, and recommendations.
 - Hub primitives live in `components/guides/`; editorial components in
   `components/editorial/` (all registered in `mdx-components.tsx`).
 

@@ -67,21 +67,55 @@ const errors = []
 for (const [slug, reqs] of Object.entries(REQUIREMENTS)) {
   const block = blockFor(slug)
   if (!block) {
-    errors.push(`${slug}: no curated overlay block found (expected a high-risk profile entry)`)
+    errors.push(`overlay/${slug}: no curated overlay block found (expected a high-risk profile entry)`)
     continue
   }
   for (const req of reqs) {
     if (!req.any.some((re) => re.test(block))) {
-      errors.push(`${slug}: missing ${req.label}`)
+      errors.push(`overlay/${slug}: missing ${req.label}`)
+    }
+  }
+}
+
+/**
+ * High-risk ARTICLE prose checks. Deliberately loose: whole-file presence of a
+ * caution keyword that a responsible article on this topic must contain. This
+ * stays reliable (no false-positive chaos) because it only requires that the
+ * concept appears *somewhere* in the article, not a specific phrasing or place.
+ * Only files that exist are checked, so it never breaks when an article is absent.
+ */
+const ARTICLE_REQUIREMENTS = {
+  'content/articles/kava.md': [
+    { label: 'liver caution', any: [/liver/i, /hepato/i] },
+    { label: 'alcohol / sedative caution', any: [/alcohol/i, /sedativ/i, /benzodiazepine/i] },
+  ],
+  'content/articles/ashwagandha.md': [
+    { label: 'pregnancy caution', any: [/pregnan/i] },
+    { label: 'thyroid caution', any: [/thyroid/i] },
+  ],
+  'content/articles/magnesium-glycinate.md': [{ label: 'kidney / renal caution', any: [/kidney/i, /renal/i] }],
+}
+
+let articlesChecked = 0
+for (const [file, reqs] of Object.entries(ARTICLE_REQUIREMENTS)) {
+  const full = path.join(ROOT, file)
+  if (!fs.existsSync(full)) continue // absent article → skip, never fail
+  articlesChecked += 1
+  const text = fs.readFileSync(full, 'utf8')
+  for (const req of reqs) {
+    if (!req.any.some((re) => re.test(text))) {
+      errors.push(`${file}: missing ${req.label}`)
     }
   }
 }
 
 if (errors.length) {
-  console.error('validate-safety-visibility: FAILED — required cautions missing from curated overlay:')
+  console.error('validate-safety-visibility: FAILED — required cautions missing:')
   for (const e of errors) console.error(`  - ${e}`)
-  console.error('\nAdd the caution to the profile\'s safetyNote / notIdealFor / bottomLine in config/profile-verdicts.ts.')
+  console.error('\nAdd the caution to the overlay (safetyNote / notIdealFor / bottomLine) or to the article body.')
   process.exit(1)
 }
 
-console.log(`validate-safety-visibility: OK (${Object.keys(REQUIREMENTS).length} high-risk profiles carry required cautions)`)
+console.log(
+  `validate-safety-visibility: OK (${Object.keys(REQUIREMENTS).length} high-risk overlays + ${articlesChecked} article(s) carry required cautions)`,
+)

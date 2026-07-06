@@ -574,7 +574,7 @@ function buildComparisonRecommendationMap(records, comparisonMap) {
         const candidate = recordsBySlug.get(entry.slug)
         if (!candidate) return null
         return {
-          href: `/compare/${sourceSlug}-vs-${entry.slug}`,
+          href: `/guides/compare/${sourceSlug}-vs-${entry.slug}`,
           sourceSlug,
           targetSlug: entry.slug,
           targetType: candidate.entityType || 'compound',
