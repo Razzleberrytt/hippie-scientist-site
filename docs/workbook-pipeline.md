@@ -66,9 +66,10 @@ Audit any profile's status/blocker: **`npm run audit:why-noindex [slug ...]`**
      crashes. This is the real blocker behind "can't safely edit the workbook".
    - The fallback was **silent** (a lone `console.warn`). It is now surfaced by
      `validate:workbook-schema` as a loud WARNING.
-2. **`scripts/data/edit-workbook.mjs` is stale.** It targets the removed
-   `Herb Master V3` / `Compound Master V3` sheets and crashes on read. It now
-   fails fast with an actionable message instead of a cryptic stack.
+2. **`scripts/data/edit-workbook.mjs` is retired.** It targeted the removed
+   `Herb Master V3` / `Compound Master V3` sheets and relied on the broken ExcelJS
+   read/write path. It now just prints a pointer to its replacement,
+   `edit-entity-master-cell.mjs` (`npm run workbook:edit`), and exits.
 3. **No schema contract (until now).** `validate-workbook-source.mjs` only checks
    file existence/size — not sheets, columns, or slug integrity. A renamed column
    or a duplicate/blank slug would have failed deep in the build or silently
@@ -96,10 +97,13 @@ against the committed build).
   `guard:source-of-truth` and `check:data`.
 - **`npm run audit:why-noindex`** — per-profile indexability reason + promotion
   readiness (read-only).
-- **`edit-workbook.mjs`** guarded to fail with guidance instead of crashing.
-- **`scripts/data/edit-entity-master-cell.mjs`** — a targeted XLSX zip/XML cell
-  editor for `Entity_Master`. It avoids ExcelJS full workbook writes and changes
-  only the requested worksheet cell.
+- **`npm run workbook:edit`** (`scripts/data/edit-entity-master-cell.mjs`) — the
+  targeted `Entity_Master` cell editor (zip/XML surgery; avoids ExcelJS full
+  workbook writes and changes only the requested worksheet cell). The old
+  `edit-workbook.mjs` is retired and just points here.
+- **`npm run workbook:roundtrip-test`** (`scripts/ci/validate-workbook-roundtrip.mjs`)
+  — runs a no-op round-trip through the editor and asserts every sheet's parsed
+  data is preserved byte-for-byte. Run it after any workbook edit.
 
 ## 7. Editing workbook rows safely
 

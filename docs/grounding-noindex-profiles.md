@@ -71,11 +71,11 @@ Two independent reasons, both blocking a safe automated change:
    `Cannot read properties of undefined (reading 'name')` on its table
    definitions, and the repo's reader (`scripts/utils/read-workbook-exceljs.mjs`)
    only survives by falling back to a **streaming row reader that returns
-   `workbook: null`**. The sanctioned editor `scripts/data/edit-workbook.mjs`
-   (which needs `readFile` to succeed) would crash. SheetJS (`xlsx`) is not
-   installed. A lossy full rebuild would risk corrupting all 850+ records across
-   every sheet — unacceptable for the sole source of truth. **This tooling defect
-   must be fixed before any workbook grounding can be done safely** (see §6).
+   `workbook: null`**. The old `edit-workbook.mjs` (which needed `readFile` to
+   succeed) would crash, and a lossy full rebuild would risk corrupting all 850+
+   records. At the time of this pass, no safe write path existed. **This tooling
+   defect has since been RESOLVED** by the surgical `edit-entity-master-cell.mjs`
+   editor (see §6) — workbook grounding can now proceed safely.
 2. **Governance boundary.** `docs/runtime-promotion-governance.md` reserves
    runtime promotion for scientific + governance human review, with *mandatory
    human approval* for controversial / interaction-heavy compounds. 5-HTP
@@ -106,16 +106,19 @@ In the workbook, per row (matched by slug in column 1):
 Expected result: 6 profiles flip to `index,follow` and enter the sitemap; 5-HTP
 and GABA remain `noindex` (correctly held by the quality gate + governance).
 
-## 6. Blocking tooling fix (do this first)
+## 6. Blocking tooling fix — ✅ RESOLVED
 
-Restore a safe, **lossless** workbook write path. Options, cheapest first:
-- Add `xlsx` (SheetJS) and write a targeted cell-edit script that preserves all
-  sheets/values; or
-- Fix the ExcelJS table-model crash (guard the undefined table in the workbook's
-  XML, or strip/repair the offending table definitions) so
-  `scripts/data/edit-workbook.mjs` loads again.
-Validate the round-trip by diffing a no-op read→write against the original and
-confirming `npm run data:build` output is unchanged.
+The safe, lossless workbook write path has been restored. Use the surgical
+targeted editor `scripts/data/edit-entity-master-cell.mjs`
+(`npm run workbook:edit`), which patches a single `Entity_Master` cell by
+slug + column via zip/XML surgery without touching unrelated workbook structure.
+It is proven byte-stable by `npm run workbook:roundtrip-test` (a no-op round-trip
+that asserts every sheet's parsed data is unchanged). See docs/workbook-pipeline.md
+§7. Grounding the profiles in §5 can now proceed through this editor.
+
+> Historical note: this was blocked because ExcelJS's `readFile` throws on the
+> workbook's table definitions, so the old `edit-workbook.mjs` (now retired) could
+> not open it for writing. The new editor avoids ExcelJS entirely.
 
 ## 7. Validation to run after applying
 
