@@ -97,26 +97,82 @@ against the committed build).
 - **`npm run audit:why-noindex`** — per-profile indexability reason + promotion
   readiness (read-only).
 - **`edit-workbook.mjs`** guarded to fail with guidance instead of crashing.
+- **`scripts/data/edit-entity-master-cell.mjs`** — a targeted XLSX zip/XML cell
+  editor for `Entity_Master`. It avoids ExcelJS full workbook writes and changes
+  only the requested worksheet cell.
 
-## 7. Editing workbook rows safely (current + target)
+## 7. Editing workbook rows safely
 
-**Today (write path broken):**
-1. Edit `data-sources/herb_monograph_master.xlsx` **by hand in Excel/Sheets** —
-   only `Entity_Master` rows, matched by `slug`. Do not rename columns or sheets.
-2. `npm run validate:workbook-schema` — catches structural mistakes immediately.
-3. `npm run data:build && npm run guard:source-of-truth`.
-4. Review the `public/data` diff; the schema guard's entity content hash tells you
-   whether parsed data actually changed.
+### Preferred: targeted Entity_Master cell editor
 
-**Target (restore programmatic edits — recommended fix):** get the workbook
-openable for writing again, cheapest first:
-- add `xlsx` (SheetJS) and write a targeted, lossless cell-editor; **or**
-- repair the workbook's table definitions so ExcelJS `readFile` succeeds and
-  `edit-workbook.mjs` can be updated to target `Entity_Master`.
-Validate any writer with a no-op read→write round-trip that leaves `data:build`
-output unchanged.
+Use `scripts/data/edit-entity-master-cell.mjs` for surgical row edits while the
+ExcelJS full read/write path remains broken. The tool opens the `.xlsx` as a ZIP,
+locates `Entity_Master` through `xl/workbook.xml` + workbook relationships, maps
+headers from row 1, finds a row by `slug`, and patches the requested cell as an
+inline string. It does **not** reconstruct tables, styles, relationships, formulas,
+or unrelated sheets.
 
-## 8. Should governance fields move out of Excel?
+Examples:
+
+```bash
+node scripts/data/edit-entity-master-cell.mjs \
+  --slug n-acetylcysteine \
+  --column summary \
+  --value "Careful grounded summary here." \
+  --dry-run
+
+node scripts/data/edit-entity-master-cell.mjs \
+  --slug n-acetylcysteine \
+  --column summary \
+  --value "Careful grounded summary here." \
+  --out /tmp/herb_monograph_master.edited.xlsx
+
+node scripts/data/edit-entity-master-cell.mjs \
+  --roundtrip \
+  --out /tmp/herb_monograph_master.roundtrip.xlsx
+```
+
+The editor refuses unsafe edits:
+
+- missing `Entity_Master`
+- missing/duplicate target slug
+- missing `slug` column
+- missing target column
+- blanking required parser/indexability fields
+- invalid `runtime_export_decision` values
+- invalid `profile_status` values
+
+After any real edit:
+
+```bash
+npm run validate:workbook-schema
+npm run data:build
+npm run guard:source-of-truth
+```
+
+Review the `public/data` diff before committing. The generated JSON remains the
+runtime artifact; do not hand-edit it.
+
+### Manual fallback
+
+If the targeted editor cannot handle a specific workbook change, edit
+`data-sources/herb_monograph_master.xlsx` by hand in Excel/Sheets — only
+`Entity_Master` rows, matched by `slug`. Do not rename columns or sheets. Then run
+exactly the same validation sequence above.
+
+## 8. Why ExcelJS write is avoided
+
+ExcelJS currently fails during full table-model reconstruction on this workbook,
+then falls back to a streaming read path that returns `workbook: null`. That means
+ExcelJS can read rows for the build, but it cannot safely write the workbook. The
+targeted editor deliberately bypasses that broken object model and patches the
+smallest possible worksheet XML surface.
+
+The `--roundtrip` mode repacks the workbook without changing values. Use it to
+prove that the workbook still parses and that `data:build` output remains stable
+before trusting the write path in a larger batch.
+
+## 9. Should governance fields move out of Excel?
 
 **Recommendation (not yet migrated — flagged as small & safer for later):** the
 publish-gating fields are the ones most painful to edit in the fragile binary
@@ -133,14 +189,16 @@ slug + allowed enum). Do not build it as part of this pass — it changes how
 indexability inputs are sourced and deserves its own focused change. It does **not**
 weaken governance: the score-based quality gate still decides.
 
-## 9. Should grounding happen in the workbook or a safer layer?
+## 10. Should grounding happen in the workbook or a safer layer?
 
-Until the write path is fixed, **grounding via the workbook is blocked** (no safe
-writer). Two viable paths:
-- **Short term:** hand-edit `Entity_Master` in Excel (§7) — fine for a few rows,
-  guarded by `validate:workbook-schema`.
-- **Better:** build the promotion overlay (§8), then ground/promote profiles in
-  code review without workbook surgery.
+Grounding can now be attempted through the targeted cell editor for small,
+reviewable changes to `Entity_Master`, followed by schema/data/source-of-truth
+validation. Two viable paths remain:
+
+- **Short term:** use the targeted cell editor for a few high-value rows, then
+  validate and review generated-data diffs.
+- **Better for promotions:** build the promotion overlay (§9), then promote
+  profiles in code review without workbook surgery.
 
 Either way the quality gate stays in control; 5-HTP and GABA remain correctly held
 (`research_only` cap) until a human editor certifies completeness.
