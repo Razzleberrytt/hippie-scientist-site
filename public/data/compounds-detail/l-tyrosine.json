@@ -2,8 +2,8 @@
   "id": "l-tyrosine",
   "slug": "l-tyrosine",
   "name": "L-Tyrosine",
-  "summary": "Decision-ready summary: L-Tyrosine is best framed for acute stress performance; sleep-deprivation focus; cold/stress resilience; safety screen: MAOIs; hyperthyroidism; levodopa/thyroid medication review.",
-  "description": "L-Tyrosine supports stress performance; focus; catecholamines with moderate confidence in this merged decision layer.",
+  "summary": "L-tyrosine is best framed for acute stress performance, sleep-deprivation focus, and cold or demanding-task resilience, with safety screening for MAOIs, hyperthyroidism, stimulant sensitivity, levodopa, and thyroid medication review.",
+  "description": "L-tyrosine is best framed for acute stress performance, sleep-deprivation focus, and cold or demanding-task resilience, with safety screening for MAOIs, hyperthyroidism, stimulant sensitivity, levodopa, and thyroid medication review.",
   "compoundClass": "",
   "mechanisms": [
     "Oxidative Stress Modulation",
@@ -37,5 +37,7 @@
   "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
-  "sitemap_included": true
+  "sitemap_included": true,
+  "runtime_export_decision": "full_public_runtime",
+  "indexability_score": 100
 }

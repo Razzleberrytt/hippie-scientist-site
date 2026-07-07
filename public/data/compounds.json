@@ -34317,8 +34317,8 @@
   {
     "slug": "l-tyrosine",
     "name": "L-Tyrosine",
-    "summary": "Decision-ready summary: L-Tyrosine is best framed for acute stress performance; sleep-deprivation focus; cold/stress resilience; safety screen: MAOIs; hyperthyroidism; levodopa/thyroid medication review.",
-    "description": "Decision-ready summary: L-Tyrosine is best framed for acute stress performance; sleep-deprivation focus; cold/stress resilience; safety screen: MAOIs; hyperthyroidism; levodopa/thyroid medication review.",
+    "summary": "L-tyrosine is best framed for acute stress performance, sleep-deprivation focus, and cold or demanding-task resilience, with safety screening for MAOIs, hyperthyroidism, stimulant sensitivity, levodopa, and thyroid medication review.",
+    "description": "L-tyrosine is best framed for acute stress performance, sleep-deprivation focus, and cold or demanding-task resilience, with safety screening for MAOIs, hyperthyroidism, stimulant sensitivity, levodopa, and thyroid medication review.",
     "effects": [
       "catecholamine synthesis pathways"
     ],
@@ -34409,14 +34409,22 @@
     "regulatory_sources": [],
     "profile_status": "commercial_ready",
     "summary_quality": "",
-    "runtime_export_decision": "hidden_until_grounded",
+    "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NOINDEX",
-    "indexability_score": 0,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 100,
     "indexability_reasons": [
-      "noindex-decision:hidden_until_grounded"
+      "effect-present",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
     ],
     "meta_title": "",
     "meta_description": "",
