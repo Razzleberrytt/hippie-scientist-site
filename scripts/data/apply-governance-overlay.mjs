@@ -161,6 +161,7 @@ const SOURCE_BACKED_PROMOTION_SLUGS = new Set([
   'biotin',
   'calcium',
   'carnitine-l-tartrate',
+  'chamomile',
   'choline',
   'citicoline',
   '11-keto-beta-boswellic-acid',

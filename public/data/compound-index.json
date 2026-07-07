@@ -3735,7 +3735,7 @@
   {
     "slug": "chamomile",
     "name": "Chamomile",
-    "summary": "Decision-ready summary: Chamomile is best framed for sleep relaxation; mild anxiety; digestive discomfort; safety screen: ragweed-family allergy; sedatives; pregnancy caution.",
+    "summary": "Chamomile is a traditional botanical most often used for sleep, relaxation, mild anxiety, and digestive comfort. A small randomized trial points to modest benefit for generalized anxiety, while evidence for sleep and digestion is more limited and lower-certainty, so effects are best framed as gentle rather than dramatic. It is generally well tolerated; people with ragweed-family (Asteraceae) allergies should be cautious, it may add to the effects of sedatives, and pregnancy warrants caution — discuss use with a clinician.",
     "primary_effects": [
       "GABA-A receptor",
       "inflammatory pathways"
@@ -3747,15 +3747,23 @@
     "evidence_grade": "moderate",
     "evidence_tier": "Mechanistic Evidence",
     "profile_status": "commercial_ready",
-    "runtime_export_decision": "hidden_until_grounded",
+    "runtime_export_decision": "full_public_runtime",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NOINDEX",
-    "indexability_score": 0,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 95,
     "indexability_reasons": [
-      "noindex-decision:hidden_until_grounded"
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context-missing",
+      "summary-depth",
+      "summary-quality-missing"
     ]
   },
   {
