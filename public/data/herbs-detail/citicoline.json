@@ -87,7 +87,7 @@
   "visibility_tier": "public",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_status": "NOINDEX",
+  "indexability_status": "NEEDS_REVIEW",
   "indexability_score": 0,
   "indexability_reasons": [
     "noindex-decision:hidden_until_grounded"
@@ -105,8 +105,8 @@
     "monetizationAllowed": true,
     "indexingAllowed": false,
     "recommendationAllowed": true,
-    "requiresHumanReview": false,
-    "reason": ""
+    "requiresHumanReview": true,
+    "reason": "missing_record_level_sources"
   },
   "evidence": {
     "reviewStatus": "needs_review",

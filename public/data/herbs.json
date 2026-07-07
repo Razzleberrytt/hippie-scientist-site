@@ -8912,14 +8912,23 @@
     "regulatory_status": "",
     "profile_status": "needs_review",
     "summary_quality": "",
-    "runtime_export_decision": "hidden_until_grounded",
+    "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
     "robots": "noindex,follow",
     "sitemap_included": false,
-    "indexability_status": "NOINDEX",
-    "indexability_score": 0,
+    "indexability_status": "NEEDS_REVIEW",
+    "indexability_score": 75,
     "indexability_reasons": [
-      "noindex-decision:hidden_until_grounded"
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:needs_review",
+      "safety-context-missing",
+      "summary-depth",
+      "summary-quality-missing",
+      "missing_record_level_sources"
     ],
     "meta_title": "",
     "meta_description": "",
@@ -8934,8 +8943,8 @@
       "monetizationAllowed": true,
       "indexingAllowed": false,
       "recommendationAllowed": true,
-      "requiresHumanReview": false,
-      "reason": ""
+      "requiresHumanReview": true,
+      "reason": "missing_record_level_sources"
     }
   },
   {
