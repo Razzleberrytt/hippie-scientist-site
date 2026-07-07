@@ -1,8 +1,8 @@
 {
   "name": "Kava",
   "slug": "piper-methysticum",
-  "summary": "Kavalactones modulate GABA and ion channels producing anxiolytic effects.",
-  "description": "Kavalactones modulate GABA and ion channels producing anxiolytic effects.",
+  "summary": "Kava is best framed for short-term anxiety and relaxation research tied to kavalactone preparations, with safety screening for liver disease, alcohol use, sedatives, hepatotoxic medications, pregnancy, and prolonged daily use.",
+  "description": "Kava is best framed for short-term anxiety and relaxation research tied to kavalactone preparations, with safety screening for liver disease, alcohol use, sedatives, hepatotoxic medications, pregnancy, and prolonged daily use.",
   "primaryActions": [
     "sleep",
     "stress"
@@ -71,5 +71,7 @@
   "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
-  "sitemap_included": true
+  "sitemap_included": true,
+  "runtime_export_decision": "full_public_runtime",
+  "indexability_score": 100
 }
