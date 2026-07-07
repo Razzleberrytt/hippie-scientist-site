@@ -1594,15 +1594,23 @@
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "profile_status": "commercial_ready",
-    "runtime_export_decision": "hidden_until_grounded",
+    "runtime_export_decision": "full_public_runtime",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NOINDEX",
-    "indexability_score": 0,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 95,
     "indexability_reasons": [
-      "noindex-decision:hidden_until_grounded"
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context-missing",
+      "summary-depth",
+      "summary-quality-missing"
     ]
   },
   {
@@ -2470,15 +2478,23 @@
     "evidence_grade": "moderate",
     "evidence_tier": "Mechanistic Evidence",
     "profile_status": "commercial_ready",
-    "runtime_export_decision": "hidden_until_grounded",
+    "runtime_export_decision": "full_public_runtime",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NOINDEX",
-    "indexability_score": 0,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 85,
     "indexability_reasons": [
-      "noindex-decision:hidden_until_grounded"
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context-missing",
+      "summary-present",
+      "summary-quality-missing"
     ]
   },
   {
@@ -6938,15 +6954,23 @@
     "evidence_grade": "Moderate prebiotic evidence",
     "evidence_tier": "Strong Human Evidence",
     "profile_status": "commercial_ready",
-    "runtime_export_decision": "hidden_until_grounded",
+    "runtime_export_decision": "full_public_runtime",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NOINDEX",
-    "indexability_score": 0,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 90,
     "indexability_reasons": [
-      "noindex-decision:hidden_until_grounded"
+      "effect-present",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context-missing",
+      "summary-depth",
+      "summary-quality-missing"
     ]
   },
   {
@@ -7690,15 +7714,23 @@
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "profile_status": "commercial_ready",
-    "runtime_export_decision": "hidden_until_grounded",
+    "runtime_export_decision": "full_public_runtime",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NOINDEX",
-    "indexability_score": 0,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 95,
     "indexability_reasons": [
-      "noindex-decision:hidden_until_grounded"
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context-missing",
+      "summary-depth",
+      "summary-quality-missing"
     ]
   },
   {
@@ -8739,15 +8771,23 @@
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "profile_status": "commercial_ready",
-    "runtime_export_decision": "hidden_until_grounded",
+    "runtime_export_decision": "full_public_runtime",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NOINDEX",
-    "indexability_score": 0,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 95,
     "indexability_reasons": [
-      "noindex-decision:hidden_until_grounded"
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context-missing",
+      "summary-depth",
+      "summary-quality-missing"
     ]
   },
   {
@@ -9083,15 +9123,23 @@
     "evidence_grade": "strong",
     "evidence_tier": "Mechanistic Evidence",
     "profile_status": "commercial_ready",
-    "runtime_export_decision": "hidden_until_grounded",
+    "runtime_export_decision": "full_public_runtime",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NOINDEX",
-    "indexability_score": 0,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 80,
     "indexability_reasons": [
-      "noindex-decision:hidden_until_grounded"
+      "effect-present",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context-missing",
+      "summary-present",
+      "summary-quality-missing"
     ]
   },
   {
@@ -13751,15 +13799,23 @@
     "evidence_grade": "moderate",
     "evidence_tier": "Mechanistic Evidence",
     "profile_status": "commercial_ready",
-    "runtime_export_decision": "hidden_until_grounded",
+    "runtime_export_decision": "full_public_runtime",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NOINDEX",
-    "indexability_score": 0,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 85,
     "indexability_reasons": [
-      "noindex-decision:hidden_until_grounded"
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context-missing",
+      "summary-present",
+      "summary-quality-missing"
     ]
   },
   {

@@ -2,14 +2,15 @@
   "name": "Lion’s Mane",
   "slug": "lions-mane",
   "summary": "Traditional herbal medicine with emerging evidence supporting therapeutic applications.",
-  "description": "Lion’s Mane is best framed as a conservative research profile with mechanistic evidence and a focus on Cognition; Neurobiology. Current workbook signals support mechanistic context around Neuroprotective Activity, not treatment claims.",
+  "description": "Traditional herbal medicine with emerging evidence supporting therapeutic applications.",
   "primaryActions": [
     "cognitive",
     "neuroprotective",
     "mood"
   ],
   "mechanisms": [
-    "Neuroprotective Activity"
+    "Neuroprotective Activity",
+    "neuroprotective"
   ],
   "activeCompounds": [],
   "safetyNotes": "Generally well tolerated for most users.",
@@ -62,5 +63,52 @@
       "40284172"
     ]
   },
-  "claimMap": []
+  "claimMap": [],
+  "effects": [
+    "cognitive",
+    "neuroprotective",
+    "mood"
+  ],
+  "primary_effects": [
+    "cognitive",
+    "neuroprotective",
+    "mood"
+  ],
+  "raw_mechanisms": [
+    "Neuroprotective Activity",
+    "neuroprotective"
+  ],
+  "canonical_mechanisms": [
+    "Neuroprotective activity"
+  ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "neuroprotective"
+  ],
+  "evidence_tier": "Mechanistic Evidence",
+  "profile_status": "partial",
+  "runtime_export_decision": "full_public_runtime",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "PUBLISH",
+  "indexability_score": 93,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:partial",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing"
+  ],
+  "safety": "Generally well tolerated for most users."
 }

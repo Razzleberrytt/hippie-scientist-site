@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-07T02:23:49.111Z",
+  "generatedAt": "2026-07-07T02:37:02.205Z",
   "dataDir": "public\\data",
   "removedSingularDirs": [],
   "trimmedSummaries": {
@@ -166,13 +166,13 @@
     "herbs": {
       "records": 290,
       "detailFiles": 290,
-      "indexable": 229,
+      "indexable": 232,
       "needsReview": 32
     },
     "compounds": {
       "records": 565,
       "detailFiles": 565,
-      "indexable": 63,
+      "indexable": 70,
       "needsReview": 114
     }
   },

@@ -10,7 +10,8 @@
   "mechanisms": [
     "Inflammatory Signaling Modulation",
     "Oxidative Stress Modulation",
-    "Immune Signaling Modulation"
+    "Immune Signaling Modulation",
+    "Oxidative Stress"
   ],
   "activeCompounds": [],
   "safetyNotes": "Generally well tolerated for most users.",
@@ -55,19 +56,72 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
   },
   "evidence": {
     "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "sourceCount": 6,
     "sourceIds": [
       "30670267",
       "33827515",
-      "35348337"
+      "35348337",
+      "claim:study-row-205",
+      "https://pubmed.ncbi.nlm.nih.gov/30670267/ | https://pubmed.ncbi.nlm.nih.gov/15080016/",
+      "pmid:30670267"
     ]
   },
-  "claimMap": []
+  "claimMap": [],
+  "effects": [
+    "antiviral",
+    "respiratory"
+  ],
+  "primary_effects": [
+    "antiviral",
+    "respiratory"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Oxidative Stress Modulation",
+    "Immune Signaling Modulation",
+    "Oxidative Stress"
+  ],
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Antioxidant",
+    "Immune modulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "immune"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Oxidative Stress"
+  ],
+  "evidence_tier": "Strong Human Evidence",
+  "profile_status": "partial",
+  "runtime_export_decision": "full_public_runtime",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "PUBLISH",
+  "indexability_score": 93,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:partial",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing"
+  ],
+  "safety": "Generally well tolerated for most users."
 }

@@ -13,7 +13,9 @@
     "Metabolic Regulation",
     "Immune Signaling Modulation",
     "AMPK Signaling",
-    "Glucose Metabolism Support"
+    "Glucose Metabolism Support",
+    "inflammatory",
+    "gut_microbiome"
   ],
   "activeCompounds": [],
   "safetyNotes": "Generally well tolerated for most users.",
@@ -63,19 +65,84 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
   },
   "evidence": {
     "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "sourceCount": 7,
     "sourceIds": [
       "32183224",
       "37915246",
-      "38998660"
+      "38998660",
+      "claim:study-row-131",
+      "claim:study-row-240",
+      "https://pubmed.ncbi.nlm.nih.gov/27347994/",
+      "pmid:27347994"
     ]
   },
-  "claimMap": []
+  "claimMap": [],
+  "effects": [
+    "immune",
+    "metabolic",
+    "skin-support"
+  ],
+  "primary_effects": [
+    "immune",
+    "metabolic",
+    "skin-support"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Metabolic Regulation",
+    "Immune Signaling Modulation",
+    "AMPK Signaling",
+    "Glucose Metabolism Support",
+    "inflammatory",
+    "gut_microbiome"
+  ],
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Metabolic regulation",
+    "Immune modulation",
+    "AMPK activation",
+    "Glucose regulation"
+  ],
+  "mechanism_categories": [
+    "core",
+    "immune",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Signaling pathway modulation",
+    "Metabolic modulation"
+  ],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "inflammatory",
+    "gut_microbiome"
+  ],
+  "evidence_tier": "Strong Human Evidence",
+  "profile_status": "partial",
+  "runtime_export_decision": "full_public_runtime",
+  "robots": "index,follow",
+  "sitemap_included": true,
+  "indexability_status": "PUBLISH",
+  "indexability_score": 83,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:partial",
+    "safety-context",
+    "summary-present",
+    "summary-quality-missing"
+  ],
+  "safety": "Generally well tolerated for most users."
 }
