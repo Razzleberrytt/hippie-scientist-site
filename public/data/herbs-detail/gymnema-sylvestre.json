@@ -60,9 +60,9 @@
     "reviewStatus": "sourced",
     "sourceCount": 3,
     "sourceIds": [
-      "39666848",
       "23472485",
-      "34467577"
+      "34467577",
+      "39666848"
     ]
   },
   "claimMap": []

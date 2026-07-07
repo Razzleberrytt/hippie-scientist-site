@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-03T13:56:49.717Z",
-  "dataDir": "public/data",
+  "generatedAt": "2026-07-07T01:51:41.475Z",
+  "dataDir": "public\\data",
   "removedSingularDirs": [],
   "trimmedSummaries": {
     "herbs": 0,
@@ -11,11 +11,7 @@
     "compounds": []
   },
   "createdMissingDetails": {
-    "herbs": [
-      "capsicum-frutescens",
-      "citicoline",
-      "withania-somnifera"
-    ],
+    "herbs": [],
     "compounds": []
   },
   "deIndexed": {
@@ -170,13 +166,13 @@
     "herbs": {
       "records": 290,
       "detailFiles": 290,
-      "indexable": 228,
+      "indexable": 229,
       "needsReview": 32
     },
     "compounds": {
       "records": 565,
       "detailFiles": 565,
-      "indexable": 23,
+      "indexable": 33,
       "needsReview": 114
     }
   },

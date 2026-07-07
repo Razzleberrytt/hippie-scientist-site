@@ -1,1 +1,1 @@
-[{"batchIndex":0,"estimatedComplexity":962,"firstRoute":"/compounds/acetyl-l-carnitine","id":"batch-1","lastRoute":"/herbs","routeCount":237,"segments":["compounds","herbs","root"]}]
+[{"batchIndex":0,"estimatedComplexity":1106,"firstRoute":"/compounds/alpha-gpc","id":"batch-1","lastRoute":"/herbs/milk-thistle","routeCount":250,"segments":["compounds","herbs"]},{"batchIndex":1,"estimatedComplexity":379,"firstRoute":"/herbs/morinda-citrifolia","id":"batch-2","lastRoute":"/herbs","routeCount":97,"segments":["compounds","herbs","root"]}]

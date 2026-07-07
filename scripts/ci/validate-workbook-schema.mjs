@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import path from 'node:path'
 import crypto from 'node:crypto'
+import { fileURLToPath } from 'node:url'
 import { readWorkbookExcelJS } from '../utils/read-workbook-exceljs.mjs'
 import { resolveWorkbookPath, assertWorkbookExists } from '../workbook-source.mjs'
 
@@ -25,7 +26,7 @@ import { resolveWorkbookPath, assertWorkbookExists } from '../workbook-source.mj
  *   - a policy-referenced column that is absent everywhere (informational drift).
  */
 
-const repoRoot = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../..')
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 
 // The entity sheet the parser requires (with its historical fallbacks).
 const ENTITY_SHEET_CANDIDATES = ['Entity_Master', 'Sheet7', 'Herb Master V3']
