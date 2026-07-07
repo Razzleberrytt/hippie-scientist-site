@@ -2,14 +2,15 @@
   "id": "chamomile",
   "slug": "chamomile",
   "name": "Chamomile",
-  "summary": "Decision-ready summary: Chamomile is best framed for sleep relaxation; mild anxiety; digestive discomfort; safety screen: ragweed-family allergy; sedatives; pregnancy caution.",
-  "description": "Chamomile supports sleep; calm; digestion with moderate confidence in this merged decision layer.",
+  "summary": "Chamomile is a traditional botanical most often used for sleep, relaxation, mild anxiety, and digestive comfort. A small randomized trial points to modest benefit for generalized anxiety, while evidence for sleep and digestion is more limited and lower-certainty, so effects are best framed as gentle rather than dramatic. It is generally well tolerated; people with ragweed-family (Asteraceae) allergies should be cautious, it may add to the effects of sedatives, and pregnancy warrants caution — discuss use with a clinician.",
+  "description": "Chamomile is a traditional botanical most often used for sleep, relaxation, mild anxiety, and digestive comfort. A small randomized trial points to modest benefit for generalized anxiety, while evidence for sleep and digestion is more limited and lower-certainty, so effects are best framed as gentle rather than dramatic. It is generally well tolerated; people with ragweed-family (Asteraceae) allergies should be cautious, it may add to the effects of sedatives, and pregnancy warrants caution — discuss use with a clinician.",
   "compoundClass": "",
   "mechanisms": [
     "Inflammatory Signaling Modulation",
     "Neurotransmitter Modulation",
     "Stress Response Modulation",
-    "Neuroprotective Activity"
+    "Neuroprotective Activity",
+    "neuroprotective"
   ],
   "targets": [],
   "pathways": [],
@@ -19,21 +20,75 @@
   "evidenceLevel": "",
   "relatedCompounds": [],
   "governance": {
-    "reviewStatus": "needs_review",
+    "reviewStatus": "approved",
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced",
+    "sourceCount": 3,
+    "sourceIds": [
+      "claim:study-row-138",
+      "https://pubmed.ncbi.nlm.nih.gov/19593179/ | https://pubmed.ncbi.nlm.nih.gov/27912875/",
+      "pmid:19593179"
+    ]
   },
   "claimMap": [],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "effects": [
+    "GABA-A receptor",
+    "inflammatory pathways"
+  ],
+  "primary_effects": [
+    "GABA-A receptor",
+    "inflammatory pathways"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "Neuroprotective Activity",
+    "neuroprotective"
+  ],
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "HPA-axis modulation",
+    "Neuroprotective activity"
+  ],
+  "mechanism_categories": [
+    "core",
+    "stress"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Neuroendocrine modulation"
+  ],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation",
+    "neuroprotective"
+  ],
+  "evidence_tier": "Mechanistic Evidence",
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "sitemap_included": true,
+  "indexability_score": 95,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:commercial_ready",
+    "safety-context-missing",
+    "summary-depth",
+    "summary-quality-missing"
+  ]
 }
