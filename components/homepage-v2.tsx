@@ -129,7 +129,7 @@ export default function HomepageV2() {
                 Herbs & supplements,<br />actually explained.
               </h1>
               <p className='mt-4 max-w-2xl text-[0.95rem] leading-7 text-muted sm:mt-5 sm:text-lg sm:leading-8'>
-                Evidence-based guides for sleep, stress, anxiety, and focus. 816 peer-reviewed studies, 557 compounds, zero marketing fluff.
+                Evidence-based guides for sleep, stress, anxiety, and focus — mechanisms, safety context, and practical comparisons without marketing fluff.
               </p>
 
               <div className='mt-6 flex w-full max-w-sm flex-col sm:mt-8'>
