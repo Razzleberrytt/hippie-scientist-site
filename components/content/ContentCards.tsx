@@ -37,7 +37,31 @@ function wrapInDetails(
 
   const summary = document.createElement('summary')
   summary.className = 'flex cursor-pointer select-none items-center gap-2 px-4 py-2.5 text-sm font-semibold text-amber-900 hover:bg-amber-100/40 transition-colors'
-  summary.innerHTML = `<span class="text-xs mr-1">⚠️</span>${title}<svg class="ml-auto size-4 transition-transform group-open:rotate-180" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+
+  const icon = document.createElement('span')
+  icon.className = 'text-xs mr-1'
+  icon.setAttribute('aria-hidden', 'true')
+  icon.textContent = '⚠️'
+
+  const label = document.createElement('span')
+  label.textContent = title
+
+  const chevron = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+  chevron.setAttribute('class', 'ml-auto size-4 transition-transform group-open:rotate-180')
+  chevron.setAttribute('viewBox', '0 0 16 16')
+  chevron.setAttribute('fill', 'none')
+  chevron.setAttribute('stroke', 'currentColor')
+  chevron.setAttribute('stroke-width', '2')
+  chevron.setAttribute('aria-hidden', 'true')
+  chevron.setAttribute('focusable', 'false')
+
+  const chevronPath = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+  chevronPath.setAttribute('d', 'M4 6l4 4 4-4')
+  chevronPath.setAttribute('stroke-linecap', 'round')
+  chevronPath.setAttribute('stroke-linejoin', 'round')
+  chevron.appendChild(chevronPath)
+
+  summary.append(icon, label, chevron)
   details.appendChild(summary)
 
   const content = document.createElement('div')
