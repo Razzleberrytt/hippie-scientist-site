@@ -1,8 +1,8 @@
 {
   "name": "Bitter Melon",
   "slug": "momordica-charantia",
-  "summary": "Contains charantin and polypeptide-p which lower blood glucose.",
-  "description": "Contains charantin and polypeptide-p which lower blood glucose.",
+  "summary": "Bitter melon is best framed around blood-glucose and metabolic-health research, with conservative evidence language and safety screening for diabetes medications, hypoglycemia risk, pregnancy, and perioperative use.",
+  "description": "Bitter melon is best framed around blood-glucose and metabolic-health research, with conservative evidence language and safety screening for diabetes medications, hypoglycemia risk, pregnancy, and perioperative use.",
   "primaryActions": [
     "metabolic"
   ],
@@ -71,5 +71,7 @@
   "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
-  "sitemap_included": true
+  "sitemap_included": true,
+  "runtime_export_decision": "full_public_runtime",
+  "indexability_score": 100
 }
