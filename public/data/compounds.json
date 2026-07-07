@@ -34631,8 +34631,8 @@
   {
     "slug": "lavender",
     "name": "Lavender",
-    "summary": "Lavender entry from SciSpace evidence pass. Evidence level: moderate.",
-    "description": "Lavender entry from SciSpace evidence pass. Evidence level: moderate.",
+    "summary": "Lavender is best framed as a calming botanical with moderate human evidence for anxiety support and relaxation, especially for oral lavender oil preparations, while sleep and aromatherapy claims should stay conservative.",
+    "description": "Lavender is best framed as a calming botanical with moderate human evidence for anxiety support and relaxation, especially for oral lavender oil preparations, while sleep and aromatherapy claims should stay conservative.",
     "effects": [
       "GABA-A",
       "autonomic nervous system"
@@ -34716,14 +34716,22 @@
     "regulatory_sources": [],
     "profile_status": "commercial_ready",
     "summary_quality": "",
-    "runtime_export_decision": "hidden_until_grounded",
+    "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NOINDEX",
-    "indexability_score": 0,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 95,
     "indexability_reasons": [
-      "noindex-decision:hidden_until_grounded"
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context-missing",
+      "summary-depth",
+      "summary-quality-missing"
     ],
     "meta_title": "",
     "meta_description": "",

@@ -164,6 +164,7 @@ const SOURCE_BACKED_PROMOTION_SLUGS = new Set([
   'chamomile',
   'choline',
   'citicoline',
+  'lavender',
   'passionflower',
   '11-keto-beta-boswellic-acid',
   'acarbose',

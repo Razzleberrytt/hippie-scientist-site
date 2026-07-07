@@ -2,8 +2,8 @@
   "id": "lavender",
   "slug": "lavender",
   "name": "Lavender",
-  "summary": "Lavender entry from SciSpace evidence pass. Evidence level: moderate.",
-  "description": "Lavender is cataloged as monoterpene-rich botanical. Reported mechanisms: GABA-A modulation; reduced sympathetic activity.",
+  "summary": "Lavender is best framed as a calming botanical with moderate human evidence for anxiety support and relaxation, especially for oral lavender oil preparations, while sleep and aromatherapy claims should stay conservative.",
+  "description": "Lavender is best framed as a calming botanical with moderate human evidence for anxiety support and relaxation, especially for oral lavender oil preparations, while sleep and aromatherapy claims should stay conservative.",
   "compoundClass": "",
   "mechanisms": [
     "Neurotransmitter Modulation",
@@ -34,5 +34,8 @@
   },
   "claimMap": [],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "runtime_export_decision": "full_public_runtime",
+  "indexability_score": 95,
+  "sitemap_included": true
 }
