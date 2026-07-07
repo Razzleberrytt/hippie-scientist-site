@@ -2,8 +2,8 @@
   "id": "epigallocatechin-gallate-egcg",
   "slug": "epigallocatechin-gallate-egcg",
   "name": "EGCG",
-  "summary": "Decision-ready summary: EGCG is best framed for fat oxidation support; cardiometabolic markers; antioxidant polyphenol intake; safety screen: liver disease; high-dose fasting use; stimulant sensitivity.",
-  "description": "EGCG supports metabolic; polyphenols; fat oxidation with moderate confidence in this merged decision layer.",
+  "summary": "EGCG is best framed around green-tea catechin context, antioxidant polyphenol activity, cardiometabolic marker research, and fat-oxidation support, with safety screening for liver disease, high-dose extracts, and stimulant-sensitive users.",
+  "description": "EGCG is best framed around green-tea catechin context, antioxidant polyphenol activity, cardiometabolic marker research, and fat-oxidation support, with safety screening for liver disease, high-dose extracts, and stimulant-sensitive users.",
   "compoundClass": "",
   "mechanisms": [
     "Inflammatory Signaling Modulation",
@@ -38,5 +38,7 @@
   "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
-  "sitemap_included": true
+  "sitemap_included": true,
+  "runtime_export_decision": "full_public_runtime",
+  "indexability_score": 100
 }
