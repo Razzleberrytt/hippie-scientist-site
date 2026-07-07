@@ -1,15 +1,13 @@
-import React from 'react'
+import type { JsonLdNode } from '@/src/lib/schema-injector'
+import { serializeJsonLd } from '@/src/lib/schema-injector'
 
-export default function JsonLd({ schema }: { schema: any }) {
+export default function JsonLd({ schema }: { schema: JsonLdNode }) {
   if (!schema) return null
-
-  // Safely serialize and escape HTML tags (like '<') to prevent XSS injection
-  const escapedJson = JSON.stringify(schema).replace(/</g, '\\u003c')
 
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: escapedJson }}
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }}
     />
   )
 }
