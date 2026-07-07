@@ -107,6 +107,20 @@ against the committed build).
 
 ## 7. Editing workbook rows safely
 
+### Publishing a profile? Use the one-command tool
+
+If the edit is a **profile promotion** (lifting `runtime_export_decision` and/or
+cleaning a summary so a page publishes), do not hand-sequence the steps below —
+run `npm run promote:profile -- --slug <slug> --summary "…"` (read-only preview:
+`npm run promote:check -- --slug <slug>`). It performs the workbook edit, a
+**drift-free** rebuild, the detail-file refresh, and verification in one step.
+See **docs/promoting-profiles.md**. The manual path below is for other cell edits.
+
+> ⚠️ **Drift trap:** never commit the output of a full `npm run data:build` for a
+> single-row change. Its governance overlay + postprocess rewrite ~855 records and
+> are not committed by the deploy path (`build:fast` → `data:build:core`). For a
+> committed hand rebuild, use **`npm run data:build:core`**.
+
 ### Preferred: targeted Entity_Master cell editor
 
 Use `scripts/data/edit-entity-master-cell.mjs` for surgical row edits while the
@@ -150,7 +164,7 @@ After any real edit:
 
 ```bash
 npm run validate:workbook-schema
-npm run data:build
+npm run data:build:core   # NOT `npm run data:build` — see the drift-trap note above
 npm run guard:source-of-truth
 ```
 
