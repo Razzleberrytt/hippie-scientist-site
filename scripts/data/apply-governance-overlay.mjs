@@ -163,12 +163,22 @@ const SOURCE_BACKED_PROMOTION_SLUGS = new Set([
   'carnitine-l-tartrate',
   'choline',
   'citicoline',
+  'crocin',
+  'crocetin',
+  'diosgenin',
+  'forskolin',
+  'galantamine',
+  'garcinia-cambogia-extract',
+  'garcinol',
   'iron',
   'lavender-extract',
   'lemon-balm',
   'msm',
   'pygeum',
   'saw-palmetto-extract',
+  'yohimbine',
+  'atractylenolide-i',
+  'atractylenolide-iii',
 ])
 
 function buildClaimSourceIdsBySlug() {

@@ -6,11 +6,10 @@
   "description": "Passionflower Extract is best framed as a conservative research profile with mechanistic evidence and a focus on Sleep; Stress Response; Neurobiology. Current workbook signals support mechanistic context around Neurotransmitter Modulation; Stress Response Modulation, not treatment claims.",
   "compoundClass": "",
   "mechanisms": [
-    "Neurotransmitter Balance",
     "Neurotransmitter Modulation",
-    "Serotonergic Signaling Modulation",
     "Stress Response Modulation",
-    "GABA-A Receptor Modulation (Evidence-Dependent)"
+    "gabaergic",
+    "anxiolytic"
   ],
   "targets": [],
   "pathways": [],
@@ -36,5 +35,53 @@
   },
   "claimMap": [],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "effects": [
+    "GABA signaling"
+  ],
+  "primary_effects": [
+    "GABA signaling"
+  ],
+  "raw_mechanisms": [
+    "Neurotransmitter Modulation",
+    "Stress Response Modulation",
+    "gabaergic",
+    "anxiolytic"
+  ],
+  "canonical_mechanisms": [
+    "HPA-axis modulation",
+    "GABA modulation",
+    "Anxiolytic"
+  ],
+  "mechanism_categories": [
+    "stress",
+    "neuro"
+  ],
+  "mechanism_classes": [
+    "Neuroendocrine modulation",
+    "Receptor interaction",
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Neurotransmitter Modulation"
+  ],
+  "evidence_tier": "Mechanistic Evidence",
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "sitemap_included": true,
+  "indexability_score": 100,
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:commercial_ready",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing"
+  ],
+  "safety": "Generally well tolerated for most users."
 }
