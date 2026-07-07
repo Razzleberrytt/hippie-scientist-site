@@ -132,7 +132,7 @@ Priority clusters used by the internal link engine.
 - [chamazulene](/compounds/chamazulene) (compound)
 - [Chamomile](/compounds/chamomile) (compound)
 - [citronellal](/compounds/citronellal) (compound)
-- [cryptotanshinone](/compounds/cryptotanshinone) (compound)
+- [D Aspartic Acid](/compounds/d-aspartic-acid) (compound)
 
 ## Stress
 - Signals: stress, cortisol, adaptogen, burnout, hpa, resilience
