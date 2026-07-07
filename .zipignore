@@ -1,0 +1,33 @@
+# Keep handoff archives small and reproducible.
+# Do not include installed dependencies or generated build output.
+node_modules/
+.next/
+out/
+dist/
+build/
+coverage/
+.cache/
+.eslintcache
+*.tsbuildinfo
+
+# Local/editor/system clutter
+.DS_Store
+*.log
+*.tmp
+*.temp
+*.bak
+*.orig
+*~
+
+# Local secrets and agent state
+.env.local
+.env.*.local
+.claude/
+ops/state.db
+agent/cache/
+
+# Large/generated archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
