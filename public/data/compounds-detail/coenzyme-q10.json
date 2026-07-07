@@ -2,8 +2,8 @@
   "id": "coenzyme-q10",
   "slug": "coenzyme-q10",
   "name": "Coenzyme Q10",
-  "summary": "Decision-ready summary: Coenzyme Q10 is best framed for statin-associated muscle symptoms; heart failure support; mitochondrial fatigue; safety screen: warfarin or anticoagulant management; planned surgery.",
-  "description": "Coenzyme Q10 supports heart; mitochondria; fatigue with high confidence in this merged decision layer.",
+  "summary": "Coenzyme Q10 is best framed around mitochondrial energy context, statin-associated muscle symptom research, heart-failure support context, and exercise-fatigue studies, with safety screening for warfarin and blood-pressure medication review.",
+  "description": "Coenzyme Q10 is best framed around mitochondrial energy context, statin-associated muscle symptom research, heart-failure support context, and exercise-fatigue studies, with safety screening for warfarin and blood-pressure medication review.",
   "compoundClass": "",
   "mechanisms": [
     "Oxidative Stress Modulation",
@@ -38,5 +38,7 @@
   "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
-  "sitemap_included": true
+  "sitemap_included": true,
+  "runtime_export_decision": "full_public_runtime",
+  "indexability_score": 95
 }

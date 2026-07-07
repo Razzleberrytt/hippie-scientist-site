@@ -4298,7 +4298,7 @@
   {
     "slug": "coenzyme-q10",
     "name": "Coenzyme Q10",
-    "summary": "Decision-ready summary: Coenzyme Q10 is best framed for statin-associated muscle symptoms; heart failure support; mitochondrial fatigue; safety screen: warfarin or anticoagulant management; planned surgery.",
+    "summary": "Coenzyme Q10 is best framed around mitochondrial energy context, statin-associated muscle symptom research, heart-failure support context, and exercise-fatigue studies, with safety screening for warfarin and blood-pressure medication review.",
     "primary_effects": [
       "mitochondrial ETC",
       "oxidative stress pathways",
@@ -4314,15 +4314,23 @@
     "evidence_grade": "moderate-high",
     "evidence_tier": "Mechanistic Evidence",
     "profile_status": "commercial_ready",
-    "runtime_export_decision": "hidden_until_grounded",
+    "runtime_export_decision": "full_public_runtime",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NOINDEX",
-    "indexability_score": 0,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 95,
     "indexability_reasons": [
-      "noindex-decision:hidden_until_grounded"
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context-missing",
+      "summary-depth",
+      "summary-quality-missing"
     ]
   },
   {
