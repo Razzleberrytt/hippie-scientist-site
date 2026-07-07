@@ -1,3 +1,7 @@
+import JsonLd from './JsonLd'
+
+const MIN_FAQ_SCHEMA_ITEMS = 2
+
 type FaqItem = {
   question: string
   answer: string
@@ -39,7 +43,7 @@ function getMeaningfulFaqItems(items: FaqItem[]): FaqItem[] {
 export default function FaqJsonLd({ items }: FaqJsonLdProps) {
   const meaningfulItems = getMeaningfulFaqItems(items ?? [])
 
-  if (meaningfulItems.length === 0) {
+  if (meaningfulItems.length < MIN_FAQ_SCHEMA_ITEMS) {
     return null
   }
 
@@ -56,12 +60,5 @@ export default function FaqJsonLd({ items }: FaqJsonLdProps) {
     })),
   }
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify(schema),
-      }}
-    />
-  )
+  return <JsonLd schema={schema} />
 }
