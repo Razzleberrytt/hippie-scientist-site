@@ -2,8 +2,8 @@
   "id": "n-acetylcysteine",
   "slug": "n-acetylcysteine",
   "name": "NAC",
-  "summary": "Decision-ready summary: NAC is best framed for respiratory mucus support; glutathione replenishment; compulsive-behavior research context; safety screen: nitroglycerin; active ulcer; asthma caution.",
-  "description": "NAC supports glutathione; respiratory; compulsive behavior with high confidence in this merged decision layer.",
+  "summary": "NAC is best framed around respiratory mucus support, glutathione replenishment, oxidative-stress context, and glutamate-related research, with safety screening for nitroglycerin use, active ulcers, and asthma caution.",
+  "description": "NAC is best framed around respiratory mucus support, glutathione replenishment, oxidative-stress context, and glutamate-related research, with safety screening for nitroglycerin use, active ulcers, and asthma caution.",
   "compoundClass": "",
   "mechanisms": [
     "Inflammatory Signaling Modulation",
@@ -36,5 +36,7 @@
   "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
-  "sitemap_included": true
+  "sitemap_included": true,
+  "runtime_export_decision": "full_public_runtime",
+  "indexability_score": 100
 }
