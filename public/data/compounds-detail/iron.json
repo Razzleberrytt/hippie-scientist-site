@@ -3,13 +3,13 @@
   "slug": "iron",
   "name": "Iron",
   "summary": "Corrects iron deficiency anemia effectively.",
-  "description": "Iron corrects deficiency anemia by replenishing hemoglobin iron; it enables oxygen transport and supports essential enzymatic processes.",
+  "description": "Corrects iron deficiency anemia effectively.",
   "compoundClass": "",
   "mechanisms": [
+    "Mitochondrial Support",
     "Metabolic Regulation",
-    "Erythropoiesis Support",
-    "Hemoglobin Synthesis Support",
-    "Mitochondrial Support"
+    "metabolic",
+    "mitochondrial"
   ],
   "targets": [],
   "pathways": [],
@@ -19,21 +19,80 @@
   "evidenceLevel": "",
   "relatedCompounds": [],
   "governance": {
-    "reviewStatus": "needs_review",
+    "reviewStatus": "approved",
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced",
+    "sourceCount": 9,
+    "sourceIds": [
+      "claim:study-row-216",
+      "claim:study-row-33",
+      "claim:study-row-34",
+      "https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/ | https://pubmed.ncbi.nlm.nih.gov/18711167/",
+      "https://pubmed.ncbi.nlm.nih.gov/12706309/",
+      "https://pubmed.ncbi.nlm.nih.gov/17344500/",
+      "pmid:12706309",
+      "pmid:17344500",
+      "pmid:18711167"
+    ]
   },
   "claimMap": [],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "effects": [
+    "hemoglobin",
+    "mitochondrial enzymes"
+  ],
+  "primary_effects": [
+    "hemoglobin",
+    "mitochondrial enzymes"
+  ],
+  "raw_mechanisms": [
+    "Mitochondrial Support",
+    "Metabolic Regulation",
+    "metabolic",
+    "mitochondrial"
+  ],
+  "canonical_mechanisms": [
+    "Mitochondrial biogenesis",
+    "Metabolic regulation"
+  ],
+  "mechanism_categories": [
+    "mitochondrial",
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological/cellular effect",
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "metabolic",
+    "mitochondrial"
+  ],
+  "evidence_tier": "Strong Human Evidence",
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "sitemap_included": true,
+  "indexability_score": 95,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:commercial_ready",
+    "safety-context",
+    "summary-present",
+    "summary-quality-missing"
+  ],
+  "safety": "Generally well tolerated for most users."
 }

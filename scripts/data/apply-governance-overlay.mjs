@@ -153,6 +153,85 @@ function hasRealSources(record) {
 
 const DOWNGRADE_REASON = 'missing_record_level_sources'
 
+// Explicit, source-backed promotions reviewed outside the broad curated allowlist.
+// These slugs still need real Evidence_Register/claims source ids; this list only
+// allows the overlay to count those existing workbook-derived citations as record
+// sources for the source gate.
+const SOURCE_BACKED_PROMOTION_SLUGS = new Set([
+  'biotin',
+  'calcium',
+  'carnitine-l-tartrate',
+  'choline',
+  'citicoline',
+  'iron',
+  'lavender-extract',
+  'lemon-balm',
+  'msm',
+  'pygeum',
+  'saw-palmetto-extract',
+])
+
+function buildClaimSourceIdsBySlug() {
+  const claims = readJson(path.join(dataDir, 'claims.json'), [])
+  const bySlug = new Map()
+  if (!Array.isArray(claims)) return bySlug
+
+  for (const claim of claims) {
+    const slug = String(claim?.profile_slug || '').trim()
+    if (!slug || !SOURCE_BACKED_PROMOTION_SLUGS.has(slug)) continue
+
+    const sourceIds = [
+      claim.pmid ? `pmid:${claim.pmid}` : '',
+      claim.doi ? `doi:${claim.doi}` : '',
+      claim.source_url ? String(claim.source_url) : '',
+    ].filter(Boolean)
+
+    if (!sourceIds.length) continue
+    const ids = [
+      ...sourceIds,
+      claim.id ? `claim:${claim.id}` : '',
+    ].filter(Boolean)
+    if (!bySlug.has(slug)) bySlug.set(slug, [])
+    bySlug.get(slug).push(...ids)
+  }
+
+  for (const [slug, ids] of bySlug.entries()) {
+    bySlug.set(slug, [...new Set(ids)].sort())
+  }
+
+  return bySlug
+}
+
+function mirrorRecordFieldsIntoDetail(detailRecord, record) {
+  const fields = [
+    'summary',
+    'description',
+    'effects',
+    'primary_effects',
+    'mechanisms',
+    'raw_mechanisms',
+    'canonical_mechanisms',
+    'mechanism_categories',
+    'mechanism_classes',
+    'mechanism_target_systems',
+    'mechanism_normalization_status',
+    'unmapped_mechanisms',
+    'evidence_tier',
+    'profile_status',
+    'runtime_export_decision',
+    'robots',
+    'sitemap_included',
+    'indexability_status',
+    'indexability_score',
+    'indexability_reasons',
+    'safety',
+  ]
+
+  for (const field of fields) {
+    if (field in record) detailRecord[field] = record[field]
+  }
+}
+
 /**
  * Build the governance object for a record.
  * `wasIndexable` is the stable, re-run-safe notion of "this profile is meant to be
@@ -272,6 +351,7 @@ function processKind(kind, listFile, detailDirName, report) {
 
   const deIndexed = []
   const restricted = []
+  const claimSourceIdsBySlug = buildClaimSourceIdsBySlug()
 
   for (const record of list) {
     const slug = record?.slug
@@ -287,7 +367,8 @@ function processKind(kind, listFile, detailDirName, report) {
     const isCuratedCompound = kind === 'compounds' && CURATED_COMPOUND_SLUGS.has(slug) && !RESTRICTED_SLUGS.has(slug)
     const isCurated = isCuratedHerb || isCuratedCompound
     const manualOverride = kind === 'compounds' ? MANUAL_GOVERNANCE_OVERRIDES.get(slug) : undefined
-    const hasSources = (detailEntry && hasRealSources(detailEntry.record)) || hasRealSources(record) || isCurated
+    const claimSourceIds = claimSourceIdsBySlug.get(slug) || []
+    const hasSources = (detailEntry && hasRealSources(detailEntry.record)) || hasRealSources(record) || claimSourceIds.length > 0 || isCurated
     const baseIndexable = isBaseIndexable(record) || isCurated
     const existingReasons = Array.isArray(record.indexability_reasons) ? record.indexability_reasons : []
     // Stable across re-runs: a record we previously downgraded still counts as "meant to
@@ -338,7 +419,10 @@ function processKind(kind, listFile, detailDirName, report) {
 
     // 4. Enrich the detail record with governance + evidence (no fabrication).
     if (detailEntry) {
-      const sourceIds = extractSourceIds(detailEntry.record)
+      if (claimSourceIds.length > 0) {
+        mirrorRecordFieldsIntoDetail(detailEntry.record, record)
+      }
+      const sourceIds = [...new Set([...extractSourceIds(detailEntry.record), ...claimSourceIds])].sort()
       detailEntry.record.governance = record.governance
       detailEntry.record.evidence = {
         reviewStatus: sourceIds.length > 0 ? 'sourced' : 'needs_review',

@@ -3,12 +3,13 @@
   "slug": "biotin",
   "name": "Biotin",
   "summary": "Biotin is an essential vitamin that corrects deficiency but lacks strong evidence for hair, skin, or nail benefits in non-deficient people. High doses can interfere with important lab tests.",
-  "description": "Vitamin B7 cofactor for carboxylase enzymes involved in fatty acid and glucose metabolism.",
+  "description": "Biotin is an essential vitamin that corrects deficiency but lacks strong evidence for hair, skin, or nail benefits in non-deficient people. High doses can interfere with important lab tests.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
     "Glucose Metabolism Support",
-    "Lipid Metabolism Support"
+    "Lipid Metabolism Support",
+    "Glucose Metabolism"
   ],
   "targets": [],
   "pathways": [],
@@ -18,23 +19,73 @@
   "evidenceLevel": "",
   "relatedCompounds": [],
   "governance": {
-    "reviewStatus": "needs_review",
+    "reviewStatus": "approved",
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced",
+    "sourceCount": 2,
+    "sourceIds": [
+      "claim:study-row-128",
+      "https://ods.od.nih.gov/factsheets/Biotin-HealthProfessional/"
+    ]
   },
   "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
-  "sitemap_included": false,
-  "indexability_reasons": []
+  "sitemap_included": true,
+  "indexability_reasons": [
+    "effect-coverage",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:commercial_ready",
+    "safety-context-missing",
+    "summary-depth",
+    "summary-quality-missing"
+  ],
+  "effects": [
+    "carboxylases",
+    "energy metabolism"
+  ],
+  "primary_effects": [
+    "carboxylases",
+    "energy metabolism"
+  ],
+  "raw_mechanisms": [
+    "Metabolic Regulation",
+    "Glucose Metabolism Support",
+    "Lipid Metabolism Support",
+    "Glucose Metabolism"
+  ],
+  "canonical_mechanisms": [
+    "Metabolic regulation",
+    "Glucose regulation",
+    "Lipid metabolism support"
+  ],
+  "mechanism_categories": [
+    "core",
+    "metabolic"
+  ],
+  "mechanism_classes": [
+    "Physiological effect",
+    "Metabolic modulation"
+  ],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "partially_mapped",
+  "unmapped_mechanisms": [
+    "Glucose Metabolism"
+  ],
+  "evidence_tier": "Moderate Human Evidence",
+  "profile_status": "commercial_ready",
+  "runtime_export_decision": "full_public_runtime",
+  "indexability_score": 95,
+  "safety": "Generally well tolerated for most users."
 }
