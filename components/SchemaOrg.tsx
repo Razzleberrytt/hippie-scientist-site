@@ -1,4 +1,5 @@
 import type { SchemaNode } from '@/lib/schema'
+import { serializeJsonLd } from '@/src/lib/schema-injector'
 
 type SchemaOrgProps = {
   graph?: Record<string, unknown> | null
@@ -32,10 +33,6 @@ function toPayload({
     '@context': 'https://schema.org',
     '@graph': graphNodes.map(({ '@context': _context, ...item }) => item),
   }
-}
-
-function serializeJsonLd(payload: Record<string, unknown> | SchemaNode): string {
-  return JSON.stringify(payload).replace(/</g, '\\u003c')
 }
 
 export default function SchemaOrg(props: SchemaOrgProps) {
