@@ -8,7 +8,13 @@ indexable through the existing workbook/governance system.
 tooling defect. No source-of-truth or generated data was mutated (see
 [§4 Why nothing was auto-applied](#4-why-nothing-was-auto-applied)).
 
-Re-run the live readout any time: `node scripts/report-grounding-readiness.mjs`.
+Re-run the live readout any time: `npm run audit:why-noindex [slug ...]`.
+
+**To actually promote a ready profile, use the one-command tool** —
+`npm run promote:profile -- --slug <slug> --summary "…"` (preview with
+`npm run promote:check -- --slug <slug>`). It does the workbook edit, a drift-free
+rebuild, the detail refresh, and verification. Full runbook: **docs/promoting-profiles.md**.
+The manual plan below documents the underlying steps.
 
 ---
 
@@ -101,7 +107,9 @@ In the workbook, per row (matched by slug in column 1):
 4. **5-HTP, GABA**: leave held. To promote later, a human editor must raise
    `profile_status` off `research_only` (an editorial-completeness certification),
    which is appropriate to keep gated for 5-HTP given its serotonergic risk.
-5. Regenerate: `npm run data:build`, then run the validation suite (§7).
+5. Regenerate: `npm run data:build:core` (NOT full `npm run data:build` — that
+   rewrites ~855 unrelated records; see docs/promoting-profiles.md), then run the
+   validation suite (§7). The `promote:profile` tool does this rebuild for you.
 
 Expected result: 6 profiles flip to `index,follow` and enter the sitemap; 5-HTP
 and GABA remain `noindex` (correctly held by the quality gate + governance).
@@ -123,7 +131,7 @@ that asserts every sheet's parsed data is unchanged). See docs/workbook-pipeline
 ## 7. Validation to run after applying
 
 ```
-npm run data:build
+npm run data:build:core                 # drift-free; promote:profile runs this for you
 npm run validate:evidence-language      # promoted summaries now audited
 npm run validate:data-governance        # governance/indexability metadata
 node scripts/ci/validate-indexability-metadata.mjs
