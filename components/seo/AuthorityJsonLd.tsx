@@ -1,5 +1,8 @@
 import { buildSchemaGraph } from '../../src/lib/schema-graph'
+import { serializeJsonLd } from '../../src/lib/schema-injector'
 import { SITE_URL } from '../../src/lib/seo'
+
+const MIN_FAQ_SCHEMA_ITEMS = 2
 
 type FaqItem = { question: string; answer: string }
 
@@ -58,6 +61,7 @@ export default function AuthorityJsonLd({
   const breadcrumbId = `${canonical}#breadcrumb`
   const faqId = `${canonical}#faq`
   const meaningfulFaqItems = getMeaningfulFaqItems(faqItems)
+  const hasEligibleFaqSchema = meaningfulFaqItems.length >= MIN_FAQ_SCHEMA_ITEMS
 
   const webpage = {
     '@type': type === 'MedicalWebPage' ? ['MedicalWebPage', 'WebPage'] : type,
@@ -68,7 +72,7 @@ export default function AuthorityJsonLd({
     url: canonical,
     isPartOf: { '@type': 'WebSite', name: 'The Hippie Scientist', url: SITE_URL },
     ...(breadcrumbs.length ? { breadcrumb: { '@id': breadcrumbId } } : {}),
-    ...(meaningfulFaqItems.length ? { hasPart: { '@id': faqId } } : {}),
+    ...(hasEligibleFaqSchema ? { hasPart: { '@id': faqId } } : {}),
   }
 
   const breadcrumb = breadcrumbs.length
@@ -85,7 +89,7 @@ export default function AuthorityJsonLd({
     : null
 
   const faq =
-    meaningfulFaqItems.length > 0
+    hasEligibleFaqSchema
       ? {
           '@type': 'FAQPage',
           '@id': faqId,
@@ -105,7 +109,7 @@ export default function AuthorityJsonLd({
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(graph).replace(/</g, '\u003c'),
+        __html: serializeJsonLd(graph),
       }}
     />
   )
