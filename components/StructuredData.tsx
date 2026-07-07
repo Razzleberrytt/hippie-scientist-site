@@ -3,6 +3,7 @@ import JsonLd from './seo/JsonLd'
 const SITE_URL = 'https://thehippiescientist.net'
 const SITE_NAME = 'The Hippie Scientist'
 const DEFAULT_AUTHOR = 'Will Thomas'
+const MIN_FAQ_SCHEMA_ITEMS = 2
 
 const FAQ_FALLBACK_ANSWER_PREFIXES = [
   'See dosing guidelines and product labeling.',
@@ -135,7 +136,10 @@ export default function StructuredData({
     })
   }
 
-  if (meaningfulFaqs.length > 0) {
+  // FAQPage should only be emitted when there are enough meaningful Q&A pairs
+  // for rich-result eligibility. A one-item FAQ block creates avoidable schema
+  // noise across thin/partial pages without adding search value.
+  if (meaningfulFaqs.length >= MIN_FAQ_SCHEMA_ITEMS) {
     schemas.push({
       '@context': 'https://schema.org',
       '@type': 'FAQPage',
