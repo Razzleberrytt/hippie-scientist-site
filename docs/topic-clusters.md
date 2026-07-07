@@ -92,7 +92,7 @@ Priority clusters used by the internal link engine.
 
 ## Sleep
 - Signals: sleep, insomnia, melatonin, valerian, bedtime, circadian, night
-- Pages: 291
+- Pages: 290
 - [The Hippie Scientist: Evidence & Safety for Supplements](/) (static)
 - [Apigenin vs Melatonin](/compare/apigenin-vs-melatonin) (guide)
 - [Ashwagandha Extract Ksm 66 vs Glycine Sleep](/compare/ashwagandha-extract-ksm-66-vs-glycine-sleep) (guide)
@@ -112,7 +112,6 @@ Priority clusters used by the internal link engine.
 - [Sleep Herbs vs Melatonin](/compare/sleep-herbs-vs-melatonin) (guide)
 - [Valerian vs Passionflower](/compare/valerian-vs-passionflower) (guide)
 - [5-HTP](/compounds/5-htp) (compound)
-- [acetyl-11-keto-beta-boswellic acid](/compounds/acetyl-11-keto-beta-boswellic-acid) (compound)
 - [alpha-asarone](/compounds/alpha-asarone) (compound)
 - [anethole](/compounds/anethole) (compound)
 - [Apigenin](/compounds/apigenin) (compound)
@@ -133,6 +132,7 @@ Priority clusters used by the internal link engine.
 - [chamazulene](/compounds/chamazulene) (compound)
 - [Chamomile](/compounds/chamomile) (compound)
 - [citronellal](/compounds/citronellal) (compound)
+- [cryptotanshinone](/compounds/cryptotanshinone) (compound)
 
 ## Stress
 - Signals: stress, cortisol, adaptogen, burnout, hpa, resilience
@@ -224,11 +224,12 @@ Priority clusters used by the internal link engine.
 
 ## Energy
 - Signals: energy, fatigue, stamina, mitochondria, atp, vitality, performance
-- Pages: 527
+- Pages: 528
 - [11-keto-beta-boswellic acid](/compounds/11-keto-beta-boswellic-acid) (compound)
 - [23-epi-26-deoxyactein](/compounds/23-epi-26-deoxyactein) (compound)
 - [acemannan](/compounds/acemannan) (compound)
 - [acetate](/compounds/acetate) (compound)
+- [acetyl-11-keto-beta-boswellic acid](/compounds/acetyl-11-keto-beta-boswellic-acid) (compound)
 - [acetyl-beta-boswellic acid](/compounds/acetyl-beta-boswellic-acid) (compound)
 - [Acetyl-L-Carnitine](/compounds/acetyl-l-carnitine) (compound)
 - [acetylshikonin](/compounds/acetylshikonin) (compound)
@@ -264,7 +265,6 @@ Priority clusters used by the internal link engine.
 - [baicalein](/compounds/baicalein) (compound)
 - [baicalin](/compounds/baicalin) (compound)
 - [Banaba Leaf Extract](/compounds/banaba-leaf-extract) (compound)
-- [BCAA](/compounds/bcaa) (compound)
 
 ## Gut Health
 - Signals: gut, digestive, microbiome, probiotic, prebiotic, fiber, bloating
