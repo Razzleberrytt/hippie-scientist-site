@@ -2,8 +2,8 @@
   "id": "passionflower",
   "slug": "passionflower",
   "name": "Passionflower",
-  "summary": "Decision-ready summary: Passionflower is best framed for mild anxiety; pre-sleep relaxation; nervous tension; safety screen: sedatives; alcohol; pregnancy.",
-  "description": "Passionflower supports anxiety; sleep; relaxation with moderate confidence in this merged decision layer.",
+  "summary": "Passionflower is best framed as a calming herb with limited human evidence for mild anxiety, pre-sleep relaxation, and nervous tension, with safety screening for sedatives, alcohol, pregnancy, and CNS-depressant use.",
+  "description": "Passionflower is best framed as a calming herb with limited human evidence for mild anxiety, pre-sleep relaxation, and nervous tension, with safety screening for sedatives, alcohol, pregnancy, and CNS-depressant use.",
   "compoundClass": "",
   "mechanisms": [
     "Neurotransmitter Modulation",
@@ -34,5 +34,8 @@
   },
   "claimMap": [],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "runtime_export_decision": "full_public_runtime",
+  "indexability_score": 90,
+  "sitemap_included": true
 }
