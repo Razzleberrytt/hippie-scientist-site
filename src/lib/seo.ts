@@ -887,6 +887,7 @@ export function itemListJsonLd(args: {
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
+      item: toAbsoluteUrl(item.url),
       url: toAbsoluteUrl(item.url),
     })),
   }

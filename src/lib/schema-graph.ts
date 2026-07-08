@@ -276,7 +276,6 @@ export function buildSeoEntrySchemaGraph(args: {
     author: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
     publisher: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
     datePublished: '2026-01-01',
-    breadcrumb: { '@id': breadcrumbId },
     ...(args.faqs.length ? { hasPart: { '@id': faqId } } : {}),
   }
 
