@@ -2,8 +2,8 @@
   "id": "lavender",
   "slug": "lavender",
   "name": "Lavender",
-  "summary": "Lavender entry from SciSpace evidence pass. Evidence level: moderate.",
-  "description": "Lavender is cataloged as monoterpene-rich botanical. Reported mechanisms: GABA-A modulation; reduced sympathetic activity.",
+  "summary": "Lavender is best known for calm, mild anxiety relief, and sleep support. A standardized oral lavender-oil preparation has moderate clinical evidence for mild-to-moderate anxiety, while relaxation and sleep benefits rest on smaller, lower-certainty studies, so effects are best framed as gentle rather than dramatic. It is generally well tolerated; oral use can cause mild burping or digestive upset, and pregnancy or combined use with sedatives warrants caution — discuss use with a clinician.",
+  "description": "Lavender is best known for calm, mild anxiety relief, and sleep support. A standardized oral lavender-oil preparation has moderate clinical evidence for mild-to-moderate anxiety, while relaxation and sleep benefits rest on smaller, lower-certainty studies, so effects are best framed as gentle rather than dramatic. It is generally well tolerated; oral use can cause mild burping or digestive upset, and pregnancy or combined use with sedatives warrants caution — discuss use with a clinician.",
   "compoundClass": "",
   "mechanisms": [
     "Neurotransmitter Modulation",
@@ -34,5 +34,8 @@
   },
   "claimMap": [],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "runtime_export_decision": "full_public_runtime",
+  "indexability_score": 95,
+  "sitemap_included": true
 }

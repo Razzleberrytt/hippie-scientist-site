@@ -197,6 +197,7 @@ const SOURCE_BACKED_PROMOTION_SLUGS = new Set([
   'iberogast',
   'iodine',
   'iron',
+  'lavender',
   'lavender-extract',
   'lemon-balm',
   'msm',
