@@ -19,6 +19,7 @@ import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import ConversionStickyCTA from '@/components/conversion-sticky-cta'
 import References from '@/components/References'
+import CitationReadySummary from '@/components/seo/CitationReadySummary'
 
 const CAFFEINE_VS_THEANINE_VS_BACOPA_REFS = [
   { n: 1, text: 'Haskell CF, et al. (2008). The effects of L-theanine, caffeine and their combination on cognition and mood. Biol Psychol, 77(2): 113-122.', url: 'https://pubmed.ncbi.nlm.nih.gov/18006208/' },
@@ -48,7 +49,7 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Compare', href: '/compare' },
+          { label: 'Compare', href: '/guides/compare/' },
           { label: 'Caffeine vs L-Theanine vs Bacopa for Focus' },
         ]}
       />
@@ -81,6 +82,19 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
           </figcaption>
         </figure>
       </section>
+
+      <CitationReadySummary
+        answer="Caffeine is the best fit for fast alertness, L-theanine is the best fit for calm focus or smoothing caffeine jitters, and bacopa is the better long-term memory-support experiment. They work on different timelines, so the right choice depends on whether the goal is acute attention, relaxed concentration, or slow cumulative learning support."
+        bestFor={[
+          'Caffeine: immediate alertness, vigilance, and short-term cognitive performance when sleep timing and anxiety risk are controlled.',
+          'L-theanine: calmer attention, caffeine smoothing, and lower-stimulation focus support.',
+          'Bacopa: long-term memory and learning support over weeks, not same-day stimulation.',
+        ]}
+        evidenceLevel="Caffeine has strong acute alertness evidence; L-theanine plus caffeine has moderate human evidence for attention quality; bacopa has moderate evidence for memory outcomes after consistent use."
+        safetyNote="Avoid late-day caffeine if sleep is a priority. Review stimulant sensitivity, anxiety, cardiovascular conditions, thyroid context, sedatives, and medication interactions before stacking."
+        notClaiming="This comparison is not claiming any option treats ADHD, replaces sleep, or guarantees cognitive enhancement."
+        referencesHref="#references"
+      />
 
       {/* 3-Column Core Comparison Cards */}
       <section className="grid gap-6 lg:grid-cols-3">
@@ -254,6 +268,9 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
               <strong>Bacopa Monnieri</strong> can cause mild gastrointestinal upset, nausea, or stomach cramping if taken on an empty stomach. Because it increases acetylcholine levels, avoid taking it alongside prescription anticholinergic drugs or acetylcholinesterase inhibitors unless under clinician supervision.
             </li>
           </ul>
+          <p>
+            For broader context, review the <Link href="/safety-checker/" className="font-semibold text-brand-700 hover:underline">Safety Checker</Link> and <Link href="/info/dosing/" className="font-semibold text-brand-700 hover:underline">Dosing Guide</Link> before combining nootropics.
+          </p>
         </div>
       </section>
 

@@ -12,6 +12,7 @@ import AffiliateDisclosure from '../AffiliateDisclosure'
 import { StartHereBox, AdhdCtaDashboard, AdhdComparisonCard, AdhdInlineCta, getAdhdCtasForSlug } from './AdhdMonetizationWidgets'
 import EmailCapture from '@/components/EmailCapture'
 import RecommendedProduct from '../RecommendedProduct'
+import CitationReadySummary from '@/components/seo/CitationReadySummary'
 
 type Block =
   | { type: 'h2' | 'h3' | 'h4'; text: string }
@@ -125,6 +126,27 @@ const cognitiveFocusArticleSlugs = new Set([
   'citicoline-for-adhd',
   'rhodiola-rosea-and-adhd',
 ])
+
+function getCitationSummary(article: NonNullable<ReturnType<typeof getFocusAdhdArticle>>) {
+  const isComparison = / vs | versus |comparison/i.test(article.title)
+  const isSleep = article.tags.some((tag) => /sleep/i.test(tag))
+  const isDeficiency = article.tags.some((tag) => /deficien/i.test(tag))
+  const isStack = /stack/i.test(article.title)
+
+  return {
+    answer: `${article.title}. ${article.description} The practical takeaway is to match the supplement to the specific use case, evidence level, safety context, and any medication or lab-testing considerations.`,
+    bestFor: [
+      isComparison ? 'Readers deciding between two supplement options or forms.' : 'Readers who want a conservative, evidence-first starting point.',
+      isSleep ? 'Sleep-related attention problems, delayed sleep, or bedtime arousal questions.' : 'Focus, attention, or cognitive-support questions where expectations need to stay realistic.',
+      isDeficiency ? 'Nutrient-status questions where testing or documented low intake changes the decision.' : 'Supplement decisions that need safety, dosing, and interaction context before product choice.',
+    ],
+    evidenceLevel: isStack
+      ? 'Mixed by ingredient; stack guidance depends on the weakest evidence and highest safety risk in the combination.'
+      : 'Varies by ingredient and population; the page separates ADHD-specific evidence from broader cognitive, sleep, stress, or mechanistic evidence.',
+    safetyNote: 'Use supplements as adjuncts, not replacements for ADHD care. Children, pregnancy, psychiatric medication, stimulants, sedatives, anticoagulants, and complex health conditions need clinician review.',
+    notClaiming: 'This page is not claiming that supplements diagnose, treat, cure, or replace evidence-based ADHD treatment.',
+  }
+}
 
 function getRelatedFocusAdhdLinks(slug: string): RelatedLink[] {
   if (slug === 'citicoline-vs-alpha-gpc') {
@@ -277,6 +299,13 @@ function inlineFormat(text: string) {
     .replace(/`(.+?)`/g, '<code class="rounded bg-brand-50 px-1 py-0.5 font-mono text-sm text-brand-800">$1</code>')
 }
 
+function headingId(text: string) {
+  const normalized = text.toLowerCase().replace(/<[^>]+>/g, '')
+  if (normalized.includes('references')) return 'references'
+  if (normalized.includes('faq') || normalized.includes('frequently asked questions')) return 'faq'
+  return undefined
+}
+
 function MarkdownBody({ body, slug }: { body: string; slug: string }) {
   const blocks = parseBlocks(body)
   const ctaTypes = getAdhdCtasForSlug(slug)
@@ -328,7 +357,7 @@ function MarkdownBody({ body, slug }: { body: string; slug: string }) {
         // Render the block itself
         let blockEl: React.ReactNode = null
         if (block.type === 'h2') {
-          blockEl = <h2 key={index} className="mt-10 text-2xl font-semibold tracking-tight text-ink first:mt-0" dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }} />
+          blockEl = <h2 key={index} id={headingId(block.text)} className="mt-10 scroll-mt-24 text-2xl font-semibold tracking-tight text-ink first:mt-0" dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }} />
         } else if (block.type === 'h3') {
           blockEl = <h3 key={index} className="mt-7 text-xl font-semibold tracking-tight text-ink" dangerouslySetInnerHTML={{ __html: inlineFormat(block.text) }} />
         } else if (block.type === 'h4') {
@@ -445,6 +474,10 @@ export default function FocusAdhdArticlePage({ slug, basePath = ADHD_GUIDE_BASE 
 
         <StartHereBox currentSlug={slug} />
       </section>
+
+      <div className="mt-6">
+        <CitationReadySummary {...getCitationSummary(article)} referencesHref="#references" />
+      </div>
 
       <section className="mt-6 rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
         <AffiliateDisclosure variant="compact" className="mb-6" />

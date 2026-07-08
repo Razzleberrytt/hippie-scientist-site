@@ -132,6 +132,16 @@ const requiredRepresentativeRoutes = [
   { route: '/info/faq/', file: 'info/faq/index.html', label: 'faq' },
 ]
 
+// Semrush July 2026 reported these URLs in the "pages don't have title tags"
+// issue panel. Keep them as explicit static-export checks so a sampling pass
+// cannot miss regressions on audited compound profiles.
+const semrushTitleAuditRoutes = [
+  { route: '/compounds/semaglutide/', file: 'compounds/semaglutide/index.html', label: 'compound profile (semaglutide)' },
+  { route: '/compounds/taurine/', file: 'compounds/taurine/index.html', label: 'compound profile (taurine)' },
+  { route: '/compounds/trimethylglycine/', file: 'compounds/trimethylglycine/index.html', label: 'compound profile (trimethylglycine)' },
+  { route: '/compounds/vitamin-a/', file: 'compounds/vitamin-a/index.html', label: 'compound profile (vitamin-a)' },
+]
+
 for (const rep of requiredRepresentativeRoutes) {
   const repPath = path.join(buildDir, rep.file)
   if (!fs.existsSync(repPath)) {
@@ -153,6 +163,20 @@ for (const rep of requiredRepresentativeRoutes) {
   const missingTags = tagChecks.filter(c => !c.re.test(repContent)).map(c => c.name)
   if (missingTags.length > 0) {
     console.error(`[seo-metadata-validation] Representative ${rep.label} (${rep.route}) missing required social tags: ${missingTags.join(', ')}`)
+    process.exit(1)
+  }
+}
+
+for (const audited of semrushTitleAuditRoutes) {
+  const auditedPath = path.join(buildDir, audited.file)
+  if (!fs.existsSync(auditedPath)) {
+    console.error(`[seo-metadata-validation] Missing Semrush title-audit route HTML for ${audited.label}: ${audited.route} (expected ${audited.file})`)
+    process.exit(1)
+  }
+  const auditedContent = fs.readFileSync(auditedPath, 'utf8')
+  const titleMatch = auditedContent.match(/<title[^>]*>(.*?)<\/title>/i)
+  if (!titleMatch || !titleMatch[1].trim()) {
+    console.error(`[seo-metadata-validation] Semrush title-audit route ${audited.route} is missing a non-empty <title> tag.`)
     process.exit(1)
   }
 }

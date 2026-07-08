@@ -4,6 +4,7 @@ import path from 'node:path'
 
 const ROOT = process.cwd()
 const COMPARE_DIR = path.join(ROOT, 'app', 'guides', 'compare')
+const LLMS_FILE = path.join(ROOT, 'public', 'llms.txt')
 
 const REQUIRED_MELATONIN_HEADINGS = [
   'Melatonin vs magnesium: quick answer',
@@ -69,17 +70,51 @@ const pages = readComparePages()
 const results = pages.map(auditPage)
 const warned = results.filter((result) => result.warnings.length > 0)
 
-console.log(`[audit-ai-citations] scanned ${results.length} compare page(s) under app/guides/compare`)
+function auditLlmsTxt() {
+  if (!existsSync(LLMS_FILE)) {
+    return ['public/llms.txt is missing']
+  }
 
-if (!warned.length) {
+  const source = readFileSync(LLMS_FILE, 'utf8')
+  const urls = [...source.matchAll(/https:\/\/thehippiescientist\.net\/[^\s)]+/g)].map((match) => match[0])
+  const warnings = []
+
+  for (const url of urls) {
+    const parsed = new URL(url)
+    if (parsed.hostname !== 'thehippiescientist.net') warnings.push(`noncanonical host in llms.txt: ${url}`)
+    if (parsed.pathname.startsWith('/compare/')) warnings.push(`noncanonical compare URL in llms.txt: ${url}`)
+    if (parsed.pathname.startsWith('/goals/')) warnings.push(`legacy goals URL in llms.txt; prefer /guides/*: ${url}`)
+    if (/\/(?:api|data|draft|preview|tmp|temp|ops|agent)\//.test(parsed.pathname)) {
+      warnings.push(`internal or generated route listed in llms.txt: ${url}`)
+    }
+  }
+
+  if (!/\/guides\/compare\//.test(source)) warnings.push('llms.txt missing canonical /guides/compare/ citation guidance')
+  if (!/\/info\/disclaimer\//.test(source)) warnings.push('llms.txt missing disclaimer citation target')
+  if (!/\/safety-checker\//.test(source)) warnings.push('llms.txt missing safety checker citation target')
+
+  return warnings
+}
+
+const llmsWarnings = auditLlmsTxt()
+
+console.log(`[audit-ai-citations] scanned ${results.length} compare page(s) under app/guides/compare`)
+console.log(`[audit-ai-citations] scanned public/llms.txt for canonical AI citation targets`)
+
+if (!warned.length && !llmsWarnings.length) {
   console.log('[audit-ai-citations] advisory PASS: no citation-readiness warnings found.')
   process.exit(0)
 }
 
-console.log(`[audit-ai-citations] advisory warnings: ${warned.length} page(s) need review.`)
+console.log(`[audit-ai-citations] advisory warnings: ${warned.length} page(s) need review; ${llmsWarnings.length} llms.txt issue(s).`)
 for (const result of warned) {
   console.log(`\n- /guides/compare/${result.slug}/ (${result.file})`)
   for (const warning of result.warnings) console.log(`  - ${warning}`)
+}
+
+if (llmsWarnings.length) {
+  console.log('\n- public/llms.txt')
+  for (const warning of llmsWarnings) console.log(`  - ${warning}`)
 }
 
 console.log('\n[audit-ai-citations] Advisory only; not failing CI yet.')

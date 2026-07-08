@@ -40,7 +40,7 @@ L-Theanine vs Caffeine for Focus: Which Works Better for Attention and Calm Ener
 
 Caffeine is the world’s most widely consumed psychoactive substance and is frequently used to enhance alertness and focus. L-Theanine, an amino acid found in tea, is often paired with caffeine because it is thought to promote calm focus without sedation. Many people with ADHD or attention difficulties explore one or both options as supportive tools.
 
-This article compares L-theanine and caffeine directly across key outcomes including attention, reaction time, jitteriness, anxiety, and sleep impact. It reviews mechanisms, human evidence in both ADHD and healthy populations, practical dosing, and safety considerations. The goal is to provide clear information for informed decision-making alongside professional care.
+This article compares L-theanine and caffeine directly across key outcomes including attention, reaction time, jitteriness, anxiety, and sleep impact. It reviews the acute effects of caffeine, the effects of L-theanine as a theanine supplement, human evidence in both ADHD and healthy populations, practical dosing, and safety considerations. The goal is to provide clear information for informed decision-making alongside professional care.
 
 ### Quick Comparison
 
@@ -48,7 +48,7 @@ Caffeine primarily acts as a stimulant by blocking adenosine receptors, leading 
 
 L-Theanine promotes relaxed alertness through increased alpha brain wave activity and modulation of GABA and glutamate. It tends to reduce stress and mental restlessness without causing sedation or significant stimulation on its own.
 
-When combined, L-theanine often smooths the stimulating effects of caffeine while preserving or enhancing benefits for attention. This synergy is one reason the combination is popular for calm, sustained focus.
+When combined, L-theanine often smooths the stimulating effects of caffeine while preserving or enhancing benefits for attention. This synergy is one reason the combination is popular for calm, sustained attention and steady focus.
 
 ### How Caffeine Works
 
@@ -91,6 +91,12 @@ The combination has demonstrated additive or synergistic effects on attention in
 Evidence Grade: Strong for caffeine on acute attention in healthy adults; Moderate for the combination; Preliminary to Moderate for L-theanine alone in attention-demanding contexts.
 
 TODO: Verify general caffeine attention meta-analyses and Kahathuduwa 2020 ADHD crossover study.
+
+### Study Designs Behind the Combination
+
+The strongest support for the caffeine plus L-theanine combination comes from small human studies using double-blind, placebo-controlled or randomized crossover designs. These studies usually test cognitive function over a short window after dosing rather than long-term ADHD symptom change. That makes the evidence most relevant to acute cognitive performance, attention switching, sustained attention, and subjective alertness.
+
+Review and meta-analysis work on dietary supplements for focus is more mixed because outcomes differ across studies and populations. The practical interpretation is narrow: the combination may improve short-term cognitive enhancements for some people, but it should not be presented as a treatment for ADHD or as proof of broad cognitive enhancement in every setting.
 
 ### Evidence for Reaction Time
 

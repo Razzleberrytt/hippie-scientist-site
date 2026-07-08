@@ -377,6 +377,11 @@ export default function CbdVsAshwagandhaForAnxietyPage() {
           <SafetyNotice title="Important Safety Considerations">
             <ul className="ml-5 space-y-1.5 list-disc">
               <li>
+                Consult your healthcare provider if anxiety is severe, persistent, or linked to
+                sleep quality problems. Supplements are not intended to diagnose, treat, cure, or
+                prevent anxiety disorders.
+              </li>
+              <li>
                 <strong>CBD — drug interactions:</strong> Inhibits CYP3A4 and CYP2C19. Risk of
                 elevated blood levels of medications metabolized by these enzymes. Consult a clinician
                 if you take any prescription drugs.
@@ -392,6 +397,11 @@ export default function CbdVsAshwagandhaForAnxietyPage() {
               <li>
                 <strong>Ashwagandha — thyroid:</strong> Some evidence suggests possible effects on
                 thyroid hormone levels. Monitoring advised for people with thyroid conditions.
+              </li>
+              <li>
+                <strong>Ashwagandha — cortisol framing:</strong> Some trials report reducing cortisol
+                levels in stressed adults, but that does not prove it treats clinical anxiety or
+                replaces psychiatric care.
               </li>
               <li>
                 <strong>Ashwagandha — autoimmune:</strong> May stimulate immune activity. Caution in

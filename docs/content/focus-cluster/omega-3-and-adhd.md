@@ -1,7 +1,7 @@
 ---
-title: "Omega-3 and ADHD: EPA, DHA, Symptoms, Dosing, and Fish Oil Quality"
-seoTitle: "Omega-3 and ADHD: EPA, DHA, Symptoms, Dosing, and Fish Oil Quality"
-metaDescription: "Evidence-based review of omega-3 and ADHD. Covers EPA, DHA, symptom research, dosing, fish oil quality, safety, and realistic expectations."
+title: "Omega-3 and ADHD: Fish Oil Supplements, EPA vs DHA, Dosage, and Quality"
+seoTitle: "Fish Oil Supplements for ADHD: EPA vs DHA and Dosage"
+metaDescription: "Evidence-based review of fish oil supplements for ADHD. Covers EPA vs DHA, omega-3 dosage, symptom research, fish oil quality, safety, and realistic expectations."
 primaryKeyword: "omega-3 ADHD"
 secondaryKeywords:
   - "omega-3 for ADHD"
@@ -14,13 +14,13 @@ status: "draft-source"
 cluster: "focus-adhd"
 ---
 
-# Omega-3 and ADHD: What the Research Shows About EPA, DHA, Symptoms, and Supplementation
+# Omega-3 and ADHD: Fish Oil Supplements, EPA vs DHA, Dosage, and Quality
 
 ## Introduction
 
-Omega-3 fatty acids, particularly eicosapentaenoic acid (EPA) and docosahexaenoic acid (DHA), are essential polyunsaturated fats that play important roles in brain structure and function. Observational research has consistently shown lower blood levels of these fatty acids in children and adults with ADHD compared with neurotypical controls. This association has led to numerous clinical trials examining whether omega-3 supplementation can support symptom management.
+Omega-3 fatty acids, particularly eicosapentaenoic acid (EPA) and docosahexaenoic acid (DHA), are essential polyunsaturated fats that play important roles in brain structure and function. Observational research has consistently shown lower blood levels of these fatty acids in children with ADHD and adults with ADHD compared with neurotypical controls. This association has led to numerous clinical trials examining whether fish oil supplements for ADHD can support symptom management.
 
-This article reviews the human evidence on omega-3 fatty acids in ADHD, with attention to EPA versus DHA, effects on specific symptom domains, supplementation outcomes, and practical considerations. It maintains a clear distinction between observational associations and intervention results, and emphasizes that any benefits are generally modest and most relevant when baseline omega-3 status is low. Omega-3 supplementation is discussed here strictly as potential adjunctive nutritional support, not as a replacement for established ADHD treatments.
+This article reviews the human evidence on omega-3 fatty acids in ADHD, with attention to EPA vs DHA ADHD findings, effects on specific symptom domains, supplementation outcomes, omega-3 dosage ADHD questions, and practical considerations. It maintains a clear distinction between observational associations and intervention results, and emphasizes that any benefits are generally modest and most relevant when baseline omega-3 status is low. Omega-3 supplementation is discussed here strictly as potential adjunctive nutritional support, not as a replacement for established ADHD treatments.
 
 ## Important Medical Disclaimer
 
@@ -102,7 +102,7 @@ High-quality randomized trials specifically in adults with confirmed ADHD are li
 
 ## Evidence From Meta-Analyses
 
-Meta-analyses of randomized controlled trials provide the strongest synthesis of supplementation outcomes. Several meta-analyses have examined omega-3 supplementation in ADHD populations. Overall findings indicate small to modest improvements in hyperactivity symptoms and, to a lesser extent, inattention. Effect sizes are generally small compared with stimulant medication or comprehensive behavioral treatment.
+Meta-analyses of randomized controlled trials provide the strongest synthesis of supplementation outcomes. Several meta-analyses and systematic reviews have examined omega-3 supplementation for attention deficit hyperactivity disorder. Overall findings indicate small to modest improvements in hyperactivity symptoms and, to a lesser extent, inattention. Effect sizes are generally small compared with stimulant medication or comprehensive behavioral treatment.
 
 ## Evidence From Randomized Controlled Trials
 

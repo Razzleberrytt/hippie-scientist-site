@@ -168,6 +168,18 @@ export default function GabaPathwayPage() {
         </div>
       </section>
 
+      <section className="card-premium p-6 space-y-4 max-w-4xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">
+          A simple GABA mnemonic
+        </h2>
+        <p className="text-sm leading-7 text-muted">
+          Think of GABA as the brain&apos;s brake pedal: gamma aminobutyric acid helps slow excitatory signaling so neurons do not keep firing unchecked. The mnemonic is imperfect, but useful: <strong>GABA = Go A Bit Asleep</strong> when signaling shifts toward inhibition, calming tone, and sleep pressure.
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          GABA-A receptor activity is the best-known fast inhibitory pathway. Increasing GABA activity is not automatically better, because too much inhibition can mean sedation, impaired coordination, or dangerous additive effects with alcohol, benzodiazepines, or other central nervous system depressants.
+        </p>
+      </section>
+
       <section className="surface-subtle rounded-3xl p-6 space-y-5">
         <div className="space-y-2">
           <p className="eyebrow-label">Related Educational Systems</p>
@@ -208,7 +220,7 @@ export default function GabaPathwayPage() {
         </div>
       </section>
 
-      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">GABA in practice</h2><p className="text-sm leading-7 text-muted">GABA is the brain\'s primary inhibitory neurotransmitter — it puts the brakes on neuronal firing. Benzodiazepines and alcohol enhance GABA-A receptor activity, which is why they produce sedation, anxiolysis, and at high doses, respiratory depression. Key supplements: magnesium and L-theanine enhance GABA signaling through different mechanisms without the dependence risk of pharmaceuticals. Magnesium binds to GABA-A receptors at a distinct site. L-theanine increases brain GABA levels within 30 minutes. Kava and valerian also act on GABA but carry hepatotoxicity risk (kava) and mild sedative effects (valerian). GABA supplements themselves have poor brain penetration — the blood-brain barrier limits entry, which is why pharma developed gabapentinoids (gabapentin, pregabalin) that cross more readily. For most people seeking GABA support, magnesium glycinate (200-400 mg) + L-theanine (200 mg) is the safest, best-evidenced starting point.</p></section>
+      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">GABA in practice</h2><p className="text-sm leading-7 text-muted">GABA is the brain&apos;s primary inhibitory neurotransmitter: it puts the brakes on neuronal firing. Benzodiazepines and alcohol enhance GABA-A receptor activity, which is why they can produce sedation, anxiolysis, and at high doses, respiratory depression. Key supplements such as magnesium and L-theanine intersect with GABA signaling through different mechanisms, but they are not substitutes for medical care. Kava and valerian also intersect with GABA-related pathways but carry safety concerns, including liver caution for kava and additive sedative effects for valerian. GABA supplements themselves may have limited brain penetration because the blood-brain barrier limits entry. For most people seeking general calming support, magnesium glycinate or L-theanine are more conservative starting points than sedative stacks.</p></section>
 
       <References refs={GABA_REFS} />
     </div>
