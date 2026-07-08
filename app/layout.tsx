@@ -14,7 +14,7 @@ import ConsentBanner from '../src/components/ConsentBanner'
 import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
 import GlobalTOC from '@/components/content/GlobalTOC'
 import { buildPageMetadata, DEFAULT_DESCRIPTION, SITE_URL, websiteJsonLd, organizationJsonLd } from '../src/lib/seo'
-import { DEFAULT_LOCALE, LOCALE_TEXT_DIRECTION, getCurrentLocaleAlternates } from '../src/lib/international-seo'
+import { DEFAULT_LOCALE, DEFAULT_OG_LOCALE, LOCALE_TEXT_DIRECTION, getCurrentLocaleAlternates } from '../src/lib/international-seo'
 import { DarkModeProvider } from '@/lib/dark-mode-provider'
 import DarkModeToggle from '@/components/DarkModeToggle'
 import './globals.css'
@@ -54,7 +54,12 @@ export const metadata: Metadata = {
     ...rootMetadata.alternates,
     languages: rootLocaleAlternates,
   },
-  openGraph: rootMetadata.openGraph,
+  openGraph: rootMetadata.openGraph
+    ? {
+        ...rootMetadata.openGraph,
+        locale: DEFAULT_OG_LOCALE,
+      }
+    : rootMetadata.openGraph,
   twitter: rootMetadata.twitter,
   robots: { index: true, follow: true },
 }
