@@ -22,6 +22,24 @@ const overrideFiles = fs.readdirSync(overridesDir)
 const rules = []
 const seenSources = new Set()
 
+function sourceVariants(source) {
+  if (!source.startsWith('/') || source === '/' || source.includes('*') || source.includes(':')) {
+    return [source]
+  }
+
+  return source.endsWith('/')
+    ? [source, source.replace(/\/+$/, '')]
+    : [source, `${source}/`]
+}
+
+function addRule(source, target, status) {
+  if (!source || !target) return
+  if (seenSources.has(source)) return
+
+  seenSources.add(source)
+  rules.push(`${source} ${target} ${status}`)
+}
+
 for (const fileName of overrideFiles) {
   const filePath = path.join(overridesDir, fileName)
   const lines = fs.readFileSync(filePath, 'utf8').split(/\r?\n/)
@@ -32,10 +50,10 @@ for (const fileName of overrideFiles) {
 
     const [source, target, status = '301'] = trimmed.split(/\s+/)
     if (!source || !target) continue
-    if (seenSources.has(source)) continue
 
-    seenSources.add(source)
-    rules.push(`${source} ${target} ${status}`)
+    for (const variant of sourceVariants(source)) {
+      addRule(variant, target, status)
+    }
   }
 }
 
@@ -48,6 +66,7 @@ const existing = fs.readFileSync(redirectsPath, 'utf8').trimStart()
 const header = [
   '# Redirect overrides merged during build.',
   '# These rules are intentionally prepended so exact audit-cleanup rules win over older wildcard or stale targets.',
+  '# Exact slash and non-slash variants are generated automatically for path redirects.',
 ]
 
 fs.writeFileSync(
