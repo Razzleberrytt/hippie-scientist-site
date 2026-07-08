@@ -11,6 +11,7 @@ import {
 } from '../src/lib/index-allowlist';
 import { learnPosts } from './learn/data';
 import { getAllFocusClusterArticles } from '@/lib/focus-cluster-markdown';
+import { getBuiltCompareSlugs } from '@/lib/compare-pages';
 
 type SitemapSourceItem = {
   slug?: string;
@@ -118,26 +119,6 @@ function readAppGuidePageSlugs(relativePath: string, slugPrefix = ''): SitemapSo
   }
 }
 
-// Discovers App Router compare pages by scanning app/guides/compare/ for subdirectories
-// that contain a page.tsx. This picks up custom compare pages.
-function readAppComparePageSlugs(relativePath: string): SitemapSourceItem[] {
-  const dirPath = path.join(process.cwd(), relativePath);
-  if (!existsSync(dirPath)) return [];
-
-  try {
-    return readdirSync(dirPath, { withFileTypes: true })
-      .filter((entry) => {
-        if (!entry.isDirectory()) return false;
-        if (/^\[/.test(entry.name)) return false; // skip [slug] dynamic routes
-        if (entry.name === 'dynamic') return false; // skip dynamic utility directory
-        return existsSync(path.join(dirPath, entry.name, 'page.tsx'));
-      })
-      .map((entry) => ({ slug: entry.name }));
-  } catch {
-    return [];
-  }
-}
-
 // Parses data/goals.ts and extracts top-level goal slugs from the `goals` array.
 // Top-level goal objects are formatted as two-space-indented `{` on their own line
 // followed by a four-space-indented `slug:` property. Nested option slugs are on a
@@ -154,28 +135,6 @@ function readTsGoalSlugs(relativePath: string): SitemapSourceItem[] {
       if (m[1]) results.push({ slug: m[1] });
     }
     return results;
-  } catch {
-    return [];
-  }
-}
-
-function readTsStringArray(relativePath: string, varName: string): string[] {
-  const filePath = path.join(process.cwd(), relativePath);
-  if (!existsSync(filePath)) return [];
-  try {
-    const src = readFileSync(filePath, 'utf8');
-    // Match export const varName = [ 'a', 'b', ... ]
-    const re = new RegExp(`export\\s+const\\s+${varName}\\s*=\\s*\\[([\\s\\S]*?)\\]`, 'm');
-    const m = src.match(re);
-    if (!m) return [];
-    const body = m[1];
-    const items: string[] = [];
-    const itemRe = /['"]([^'"]+)['"]/g;
-    let im;
-    while ((im = itemRe.exec(body)) !== null) {
-      if (im[1]) items.push(im[1]);
-    }
-    return items;
   } catch {
     return [];
   }
@@ -719,15 +678,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     addRoute(`/novel-psychoactive-substances/${page.slug}`, 'monthly', 0.65, getSitemapLastModified(page), page);
   });
 
-  // Add compare detail routes (data-driven + custom directories + generated combinations)
-  const compareFromGen = readTsStringArray('data/generated-comparisons.ts', 'generatedComparisons');
-  const compareFromData = readTsStringArray('data/comparisons.ts', 'supplementComparisons')
-    .map((s: string) => s)
-    .filter(Boolean);
-  const compareFromCombinations = readTsStringArray('config/compare-combinations.ts', 'COMPARE_COMBINATIONS');
-  const compareFromDirs = readAppComparePageSlugs('app/compare').map(item => item.slug).filter((s): s is string => Boolean(s));
-  Array.from(new Set([...compareFromGen, ...compareFromData, ...compareFromCombinations, ...compareFromDirs])).forEach((slug) => {
-    if (slug) addRoute(`/guides/compare/${slug}`, 'monthly', 0.6);
+  // Add compare detail routes — ONLY pages that are actually built as static routes
+  // (app/guides/compare/<slug>/page.tsx). There is no [slug] route, so the config
+  // comparison lists (generated-comparisons, supplementComparisons, COMPARE_COMBINATIONS)
+  // do NOT correspond to built pages; emitting them previously advertised ~640 hard 404s
+  // to search engines (the /guides/compare/* not-found cluster). getBuiltCompareSlugs()
+  // scans the filesystem so the sitemap can never drift from what the build emits.
+  getBuiltCompareSlugs().forEach((slug) => {
+    addRoute(`/guides/compare/${slug}`, 'monthly', 0.6);
   });
 
   // Inactive collections routes (redirect targets or defined in lib) are excluded from the sitemap.
