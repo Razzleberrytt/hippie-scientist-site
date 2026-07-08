@@ -1056,19 +1056,36 @@ export function formatProfileDescription(
  * generated one also collided), resolving the duplicate-title / duplicate-meta SEO
  * issue while keeping both pages indexable. The primary page keeps its generated title.
  */
-const PROFILE_METADATA_OVERRIDES: Record<string, { title: string; description?: string }> = {
+const PROFILE_METADATA_OVERRIDES: Record<string, { title: string; description?: string; canonical?: string }> = {
   'glycine-sleep': { title: 'Glycine for Sleep: Effects, Dose & Safety' },
   'inositol-sleep': { title: 'Inositol for Sleep & Anxiety: Effects, Dose & Safety' },
   'l-theanine-sleep': { title: 'L-Theanine for Sleep: Effects, Dose & Safety' },
   'taurine-sleep': { title: 'Taurine for Sleep: Effects, Dose & Safety' },
+  // Same-molecule duplicates (identical/near-identical page body): consolidate to the
+  // primary with rel=canonical so Google indexes one URL. `canonical` points the
+  // SECONDARY at its primary (berberine base; coq10 is the primary_runtime_priority
+  // form of Coenzyme Q10). The unique title/description above still render as a
+  // fallback signal in case the canonical is ignored.
   'berberine-hcl': {
     title: 'Berberine HCl: Effects, Dose & Safety',
     description:
       'Berberine HCl (hydrochloride salt) dosage, absorption, blood-sugar and lipid effects, onset, and safety limits, graded against research evidence.',
+    canonical: '/compounds/berberine/',
   },
-  'coenzyme-q10': { title: 'Coenzyme Q10 (CoQ10): Effects, Dose & Safety' },
+  'coenzyme-q10': { title: 'Coenzyme Q10 (CoQ10): Effects, Dose & Safety', canonical: '/compounds/coq10/' },
   'silybum-marianum': { title: 'Silybum Marianum (Milk Thistle): Benefits, Dosage & Safety' },
 }
+
+/**
+ * Profile slugs whose canonical points at a *different* (primary) URL — same-molecule
+ * duplicates consolidated via rel=canonical. They stay crawlable but must be kept OUT
+ * of the sitemap (a sitemap should list canonical URLs only).
+ */
+export const CANONICALIZED_AWAY_PROFILE_SLUGS: ReadonlySet<string> = new Set(
+  Object.entries(PROFILE_METADATA_OVERRIDES)
+    .filter(([slug, v]) => v.canonical && !v.canonical.includes(`/${slug}/`))
+    .map(([slug]) => slug),
+)
 
 export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): Metadata {
   const displayName = getProfileDisplayName(record)
@@ -1102,6 +1119,10 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
                       safeFallbackDescription
 
   const path = `/${type === 'herb' ? 'herbs' : 'compounds'}/${record.slug}`
+  // For same-molecule duplicates, point the canonical (and og:url) at the primary
+  // so search engines consolidate them; the real `path` still drives the robots
+  // decision below so the page itself stays crawlable and self-consistent.
+  const canonicalPath = override?.canonical || path
   const meta = buildMeta({ title, description, path })
 
   const indexDecision = shouldIndexRoute(path, record)
@@ -1124,7 +1145,7 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
   return buildPageMetadata({
     title: meta.title,
     description: meta.description,
-    path,
+    path: canonicalPath,
     image: profileOgImage,
     openGraphType: 'article',
     robots: indexDecision.index
