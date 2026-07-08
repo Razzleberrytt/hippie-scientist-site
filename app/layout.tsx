@@ -14,6 +14,7 @@ import ConsentBanner from '../src/components/ConsentBanner'
 import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
 import GlobalTOC from '@/components/content/GlobalTOC'
 import { buildPageMetadata, DEFAULT_DESCRIPTION, SITE_URL, websiteJsonLd, organizationJsonLd } from '../src/lib/seo'
+import { DEFAULT_LOCALE, LOCALE_TEXT_DIRECTION } from '@/src/lib/international-seo'
 import { DarkModeProvider } from '@/lib/dark-mode-provider'
 import DarkModeToggle from '@/components/DarkModeToggle'
 import './globals.css'
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang='en' suppressHydrationWarning>
+    <html lang={DEFAULT_LOCALE} dir={LOCALE_TEXT_DIRECTION} suppressHydrationWarning>
       {/* Inline script runs before React hydration to prevent dark mode flash */}
       <head>
         <link rel="preconnect" href="https://m.media-amazon.com" />
