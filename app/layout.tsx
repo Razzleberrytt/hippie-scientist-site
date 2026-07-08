@@ -14,7 +14,7 @@ import ConsentBanner from '../src/components/ConsentBanner'
 import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
 import GlobalTOC from '@/components/content/GlobalTOC'
 import { buildPageMetadata, DEFAULT_DESCRIPTION, SITE_URL, websiteJsonLd, organizationJsonLd } from '../src/lib/seo'
-import { DEFAULT_LOCALE, LOCALE_TEXT_DIRECTION } from '@/src/lib/international-seo'
+import { DEFAULT_LOCALE, LOCALE_TEXT_DIRECTION, getCurrentLocaleAlternates } from '../src/lib/international-seo'
 import { DarkModeProvider } from '@/lib/dark-mode-provider'
 import DarkModeToggle from '@/components/DarkModeToggle'
 import './globals.css'
@@ -41,11 +41,19 @@ const rootMetadata = buildPageMetadata({
   openGraphType: 'website',
 })
 
+const rootLocaleAlternates = Object.fromEntries(
+  getCurrentLocaleAlternates('/').map((alternate) => [alternate.locale, alternate.url]),
+)
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: HOME_TITLE, template: '%s' },
   description: DEFAULT_DESCRIPTION,
   ...rootMetadata,
+  alternates: {
+    ...rootMetadata.alternates,
+    languages: rootLocaleAlternates,
+  },
   openGraph: rootMetadata.openGraph,
   twitter: rootMetadata.twitter,
   robots: { index: true, follow: true },
