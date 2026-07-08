@@ -24,11 +24,13 @@
  * 11. build-semantic-snapshots (snapshot generation)
  * 12. build-production (next build)
  * 13. repair-broken-canonicals (replace deprecated canonical aliases in exported HTML)
- * 14. apply-redirect-overrides (prepend exact audit-cleanup redirects)
- * 15. write-static-sitemap (physical out/sitemap.xml for Cloudflare Pages)
- * 16. validate-sitemap-static (prove /sitemap.xml is real XML, not HTML)
- * 17. repair-static-blog-h1s (legacy static blog heading repair)
- * 18. build-pagefind (static search index)
+ * 14. inject-content-depth-support (add route-aware supporting copy for low text/HTML pages)
+ * 15. validate-structured-data-regressions (report known Semrush schema failures)
+ * 16. apply-redirect-overrides (prepend exact audit-cleanup redirects)
+ * 17. write-static-sitemap (physical out/sitemap.xml for Cloudflare Pages)
+ * 18. validate-sitemap-static (prove /sitemap.xml is real XML, not HTML)
+ * 19. repair-static-blog-h1s (legacy static blog heading repair)
+ * 20. build-pagefind (static search index)
  *
  * Time estimate: cold builds are dominated by Next static export and Pagefind;
  * warm builds skip cacheable generation steps when inputs and outputs match.
@@ -148,6 +150,20 @@ const steps = [
     cmd: 'node scripts/seo/repair-broken-canonicals.mjs',
     inputs: ['out/**/*.html', 'scripts/seo/repair-broken-canonicals.mjs'],
     outputs: ['out/**/*.html'],
+    cacheable: false,
+  },
+  {
+    name: 'inject-content-depth-support',
+    cmd: 'node scripts/seo/inject-content-depth-support.mjs',
+    inputs: ['out/**/*.html', 'scripts/seo/inject-content-depth-support.mjs'],
+    outputs: ['out/**/*.html'],
+    cacheable: false,
+  },
+  {
+    name: 'validate-structured-data-regressions',
+    cmd: 'node scripts/ci/validate-structured-data-regressions.mjs',
+    inputs: ['out/**/*.html', 'scripts/ci/validate-structured-data-regressions.mjs'],
+    outputs: [],
     cacheable: false,
   },
   {

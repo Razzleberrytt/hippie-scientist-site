@@ -83,6 +83,45 @@ export default async function SafetyCheckerPage() {
         </p>
       </section>
 
+      <section className='grid gap-4 md:grid-cols-3' aria-label='How to use the supplement safety checker'>
+        <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
+          <h2 className='text-base font-bold text-ink'>Start with your full stack</h2>
+          <p className='mt-2 text-sm leading-6 text-muted'>
+            Add every herb, supplement, compound, and high-impact medication context you are trying to reason about. The most useful safety review looks for the combined burden: sedation, stimulation, blood-pressure effects, serotonergic load, bleeding risk, liver stress, or overlapping receptor targets.
+          </p>
+        </article>
+        <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
+          <h2 className='text-base font-bold text-ink'>Read patterns, not permissions</h2>
+          <p className='mt-2 text-sm leading-6 text-muted'>
+            A low-risk result does not mean a stack is guaranteed safe, and a caution flag does not diagnose an interaction. Treat the output as a screening layer that helps you decide what to simplify, research more carefully, or review with a clinician or pharmacist.
+          </p>
+        </article>
+        <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
+          <h2 className='text-base font-bold text-ink'>Escalate high-risk contexts</h2>
+          <p className='mt-2 text-sm leading-6 text-muted'>
+            Pregnancy, breastfeeding, surgery, bleeding disorders, liver or kidney disease, heart rhythm concerns, blood-pressure medication, anticoagulants, antidepressants, sedatives, and stimulants all deserve extra caution before experimenting with supplement combinations.
+          </p>
+        </article>
+      </section>
+
+      <section className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
+        <h2 className='text-xl font-bold tracking-tight text-ink'>What this checker can and cannot tell you</h2>
+        <div className='mt-4 grid gap-5 md:grid-cols-2'>
+          <div>
+            <h3 className='text-sm font-bold uppercase tracking-wide text-emerald-800'>Useful for</h3>
+            <p className='mt-2 text-sm leading-6 text-muted'>
+              Spotting repeated mechanism categories, comparing caution levels before buying, finding ingredient combinations that deserve slower titration, and identifying when a stack is becoming too complex to reason about from labels alone.
+            </p>
+          </div>
+          <div>
+            <h3 className='text-sm font-bold uppercase tracking-wide text-rose-800'>Not useful for</h3>
+            <p className='mt-2 text-sm leading-6 text-muted'>
+              Predicting individual side effects, replacing prescription guidance, checking exact drug metabolism for every medication, or proving that a combination is safe at a specific dose. Personal medical history can change the risk profile completely.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <Suspense fallback={<WizardSkeleton />}>
         <SafetyCheckerClient
           herbs={herbs.map((herb) => toSafetyToolRecord(herb, 'herb'))}

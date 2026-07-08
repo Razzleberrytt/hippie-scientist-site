@@ -14,6 +14,7 @@ import ConsentBanner from '../src/components/ConsentBanner'
 import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
 import GlobalTOC from '@/components/content/GlobalTOC'
 import { buildPageMetadata, DEFAULT_DESCRIPTION, SITE_URL, websiteJsonLd, organizationJsonLd } from '../src/lib/seo'
+import { DEFAULT_LOCALE, DEFAULT_OG_LOCALE, LOCALE_TEXT_DIRECTION } from '../src/lib/international-seo'
 import { DarkModeProvider } from '@/lib/dark-mode-provider'
 import DarkModeToggle from '@/components/DarkModeToggle'
 import './globals.css'
@@ -45,14 +46,19 @@ export const metadata: Metadata = {
   title: { default: HOME_TITLE, template: '%s' },
   description: DEFAULT_DESCRIPTION,
   ...rootMetadata,
-  openGraph: rootMetadata.openGraph,
+  openGraph: rootMetadata.openGraph
+    ? {
+        ...rootMetadata.openGraph,
+        locale: DEFAULT_OG_LOCALE,
+      }
+    : rootMetadata.openGraph,
   twitter: rootMetadata.twitter,
   robots: { index: true, follow: true },
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang='en' suppressHydrationWarning>
+    <html lang={DEFAULT_LOCALE} dir={LOCALE_TEXT_DIRECTION} suppressHydrationWarning>
       {/* Inline script runs before React hydration to prevent dark mode flash */}
       <head>
         <link rel="preconnect" href="https://m.media-amazon.com" />

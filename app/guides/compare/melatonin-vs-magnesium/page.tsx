@@ -3,8 +3,9 @@ import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Melatonin vs Magnesium Glycinate for Sleep: Which Works Better?',
-  description: 'Melatonin vs magnesium glycinate for sleep — compare timing, muscle relaxation, side effects, long-term use, and whether they can be taken together.',
+  title: 'Magnesium Glycinate vs Melatonin: Which Is Better for Sleep?',
+  description:
+    'Magnesium glycinate vs melatonin and melatonin vs magnesium glycinate for sleep — timing, staying asleep, side effects, dosing, and safety-first combining guidance.',
   path: '/guides/compare/melatonin-vs-magnesium/',
 })
 
@@ -28,6 +29,14 @@ const MELATONIN_VS_MAGNESIUM_REFS = [
 
 const citationUrls = MELATONIN_VS_MAGNESIUM_REFS.map((ref) => ref.url).filter(Boolean)
 
+const comparisonRows = [
+  ['Primary job', 'A circadian timing signal that can help shift sleep onset when the sleep clock is delayed.', 'A mineral form often chosen for relaxation, muscle tension, restlessness, and sleep maintenance.'],
+  ['Best fit', 'Jet lag, delayed sleep phase, short-term schedule shifts, or falling asleep late despite feeling tired.', 'Nighttime tension, stress-related poor sleep quality, restless legs context, or waking during the night.'],
+  ['Typical starting range', 'Often lower is better: many people start around 0.3–1 mg rather than jumping to 5–10 mg.', 'Commonly discussed around 200–400 mg elemental magnesium, depending on form and tolerance.'],
+  ['Main downside', 'Vivid dreams, morning grogginess, timing mismatch, and overuse of high doses.', 'Loose stools depending on form, medication spacing, and kidney-disease safety concerns.'],
+  ['Long-term logic', 'Best used when timing is the bottleneck, not as a nightly cure-all for every sleep problem.', 'Often a better first comparison for long-term relaxation support when kidney function and medication context are appropriate.'],
+]
+
 export default function MelatoninVsMagnesiumPage() {
   const revenueProducts = ['melatonin', 'magnesium']
     .map((slug) => getRevenueProductSet(slug))
@@ -37,15 +46,14 @@ export default function MelatoninVsMagnesiumPage() {
   return (
     <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
-        title="Melatonin vs Magnesium Glycinate for Sleep: Which Works Better?"
-        description="Melatonin vs magnesium glycinate for sleep — which works better, which is safer long-term, and how to take them together. Evidence-based comparison with dosing and timing guide.
-      "
+        title="Magnesium Glycinate vs Melatonin for Sleep"
+        description="Magnesium glycinate vs melatonin for sleep — which is better for sleep onset, staying asleep, long-term use, side effects, dosing, and safe combining."
         url="https://thehippiescientist.net/guides/compare/melatonin-vs-magnesium"
         type="Article"
         breadcrumbs={[
           { name: 'Home', url: 'https://thehippiescientist.net/' },
           { name: 'Compare', url: 'https://thehippiescientist.net/guides/compare/' },
-          { name: 'Melatonin vs Magnesium Glycinate', url: 'https://thehippiescientist.net/guides/compare/melatonin-vs-magnesium/' },
+          { name: 'Magnesium Glycinate vs Melatonin', url: 'https://thehippiescientist.net/guides/compare/melatonin-vs-magnesium/' },
         ]}
         citationUrls={citationUrls}
       />
@@ -54,7 +62,7 @@ export default function MelatoninVsMagnesiumPage() {
         items={[
           { label: 'Home', href: '/' },
           { label: 'Compare', href: '/guides/compare/' },
-          { label: 'Melatonin vs Magnesium' },
+          { label: 'Magnesium Glycinate vs Melatonin' },
         ]}
       />
 
@@ -62,11 +70,11 @@ export default function MelatoninVsMagnesiumPage() {
         <p className="eyebrow-label">Evidence-Based Comparison · Sleep</p>
 
         <h1 className="text-4xl font-bold tracking-tight text-ink">
-          Melatonin vs Magnesium Glycinate for Sleep: Which Works Better?
+          Magnesium Glycinate vs Melatonin: Which Works Better for Sleep?
         </h1>
 
         <p className="text-lg leading-8 text-muted">
-          Melatonin and magnesium glycinate are two of the most commonly used sleep supplements, but they work through completely different mechanisms. This guide compares the effects of magnesium, the timing signal from melatonin, practical dosing, and safety trade-offs.
+          Magnesium glycinate vs melatonin is really a question about the cause of the sleep problem. Melatonin is a timing signal that fits delayed sleep onset, jet lag, and circadian rhythm shifts. Magnesium glycinate is more often compared for relaxation, muscle tension, restlessness, and staying asleep. This guide compares melatonin vs magnesium glycinate by mechanism, timing, side effects, and safety.
         </p>
 
         <figure className="mt-6">
@@ -81,16 +89,16 @@ export default function MelatoninVsMagnesiumPage() {
             />
           </div>
           <figcaption className="mt-3 text-center text-sm text-muted">
-            Melatonin vs magnesium — timing vs relaxation for sleep.
+            Magnesium glycinate versus melatonin — relaxation support versus sleep-timing support.
           </figcaption>
         </figure>
       </section>
 
       <CitationReadySummary
-        answer="Melatonin is usually the better fit when the main problem is falling asleep late, jet lag, or a shifted circadian rhythm. Magnesium glycinate is usually the better first choice when the problem is tension, restless legs, stress-related sleep quality, or waking during the night."
+        answer="Magnesium glycinate is usually the better first comparison when the problem is tension, restless legs, stress-related sleep quality, or waking during the night. Melatonin is usually the better fit when the main problem is falling asleep late, jet lag, or a shifted circadian rhythm."
         bestFor={[
-          'Melatonin: short-term sleep timing support, travel, jet lag, or delayed sleep onset.',
           'Magnesium glycinate: longer-term relaxation support, muscle tension, restless legs, and sleep maintenance.',
+          'Melatonin: short-term sleep timing support, travel, jet lag, or delayed sleep onset.',
           'Together: reasonable for some adults when doses stay low and timing is staggered.',
         ]}
         evidenceLevel="Melatonin has stronger meta-analysis evidence for sleep-onset timing; magnesium evidence is smaller but practically relevant for older adults, deficiency risk, and relaxation-related sleep problems."
@@ -103,31 +111,31 @@ export default function MelatoninVsMagnesiumPage() {
         <div className="card-premium p-6 space-y-4">
           <h2 className="text-2xl font-semibold">Melatonin</h2>
           <p className="text-sm leading-7 text-muted">
-            Melatonin helps you fall asleep faster. Best for short-term use, jet lag, and circadian rhythm shifts. Typical dose: 0.5-5 mg, 30 min before bed.
+            Melatonin is best understood as a sleep-timing signal. It may help when the body clock is shifted, but more melatonin does not automatically mean deeper sleep. For many adults, low-dose timing is more sensible than high-dose nightly use.
           </p>
-          <Link href="/compounds/melatonin" className="chip-readable">
-            Explore Melatonin
+          <Link href="/compounds/melatonin/" className="chip-readable">
+            Explore melatonin
           </Link>
         </div>
 
         <div className="card-premium p-6 space-y-4">
-          <h2 className="text-2xl font-semibold">Magnesium (Glycinate)</h2>
+          <h2 className="text-2xl font-semibold">Magnesium Glycinate</h2>
           <p className="text-sm leading-7 text-muted">
-            Magnesium glycinate helps you stay asleep and supports deeper rest. Safer for long-term nightly use. Typical dose: 200-400 mg, 1-2 hours before bed.
+            Magnesium glycinate is usually compared for relaxation, muscle tension, nighttime restlessness, and sleep maintenance. It is not a knockout sedative; it fits best when the sleep problem looks like tension or poor relaxation physiology.
           </p>
-          <Link href="/compounds/magnesium-glycinate" className="chip-readable">
-            Explore Magnesium
+          <Link href="/compounds/magnesium-glycinate/" className="chip-readable">
+            Explore magnesium glycinate
           </Link>
         </div>
       </section>
 
       <section className="surface-subtle rounded-3xl p-6 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">
-          Melatonin vs magnesium: quick answer
+          Magnesium glycinate vs melatonin: quick answer
         </h2>
 
         <p className="text-sm leading-7 text-muted">
-          Choose melatonin for sleep-onset issues and jet lag. Choose magnesium for sleep maintenance, restless legs, and long-term nightly use. Both can be taken together with staggered timing.
+          Choose magnesium glycinate first when the problem is staying asleep, tension, restless legs, or stress-related sleep quality. Choose melatonin first when the problem is sleep timing, jet lag, or delayed sleep onset. If you combine them, keep doses conservative and stagger timing instead of taking a large sleep stack all at once.
         </p>
 
         <div className="flex flex-wrap gap-3">
@@ -146,22 +154,35 @@ export default function MelatoninVsMagnesiumPage() {
         </div>
       </section>
 
-      <section className="card-premium p-6 space-y-4 max-w-4xl">
-        <h2 className="text-2xl font-semibold tracking-tight text-ink">
-          Magnesium versus melatonin: what each changes
-        </h2>
-        <p className="text-sm leading-7 text-muted">
-          Magnesium glycinate is a dietary supplement that supports normal nervous system function, muscle relaxation, and evening calm. That makes it a better fit when sleep problems come from tension, restless legs, or poor sleep quality. Melatonin works more like a clock signal: it can help shift sleep timing, but higher doses are more likely to cause side effects such as next-day grogginess or vivid dreams.
-        </p>
-        <p className="text-sm leading-7 text-muted">
-          Health conditions matter. People with kidney disease should not use magnesium casually, and people using sedatives, pregnancy-related care, or complex medications should review any sleep supplement plan with a clinician. For many adults, the simplest comparison is magnesium glycinate vs melatonin: relaxation and sleep maintenance on one side, circadian timing on the other.
-        </p>
+      <section className="card-premium p-6 space-y-5">
+        <p className="eyebrow-label">Decision table</p>
+        <h2 className="text-3xl font-semibold tracking-tight text-ink">Melatonin vs magnesium glycinate: head-to-head</h2>
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[760px] text-left text-sm">
+            <thead className="text-ink">
+              <tr className="border-b border-black/10">
+                <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider">Question</th>
+                <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider">Melatonin</th>
+                <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider">Magnesium glycinate</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-black/5 text-muted">
+              {comparisonRows.map(([question, melatonin, magnesium]) => (
+                <tr key={question}>
+                  <td className="py-3.5 pr-4 font-semibold text-ink">{question}</td>
+                  <td className="py-3.5 pr-4">{melatonin}</td>
+                  <td className="py-3.5 pr-4">{magnesium}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <section className="grid gap-5 md:grid-cols-2">
         <article className="card-premium p-6 space-y-3">
           <h2 className="text-xl font-semibold tracking-tight text-ink">
-            Magnesium glycinate vs melatonin: the core difference
+            Magnesium versus melatonin: the core difference
           </h2>
           <p className="text-sm leading-7 text-muted">
             Magnesium glycinate supports relaxation physiology and muscle comfort; melatonin is a timing signal. If your body feels tense but your schedule is normal, compare magnesium first. If your sleep clock is shifted, compare low-dose melatonin first.
@@ -177,7 +198,7 @@ export default function MelatoninVsMagnesiumPage() {
             Can you take magnesium and melatonin together?
           </h2>
           <p className="text-sm leading-7 text-muted">
-            Many adults tolerate the combination, but the safer experiment is staggered and low-dose: magnesium earlier in the evening, then 0.3-1 mg melatonin only if sleep onset remains the bottleneck. Check medication and pregnancy context first.
+            Many adults tolerate the combination, but the safer experiment is staggered and low-dose: magnesium earlier in the evening, then 0.3–1 mg melatonin only if sleep onset remains the bottleneck. Check medication, pregnancy, kidney disease, and sedative context first.
           </p>
           <Link href="/info/dosing/" className="chip-readable">Review dosing basics</Link>
         </article>
@@ -197,7 +218,7 @@ export default function MelatoninVsMagnesiumPage() {
             Which is better for staying asleep?
           </h2>
           <p className="text-sm leading-7 text-muted">
-            Magnesium is usually the better first comparison for staying asleep because it maps to relaxation, muscle tension, and nighttime restlessness. Melatonin can help timing, but more melatonin does not reliably mean deeper or longer sleep.
+            Magnesium glycinate is usually the better first comparison for staying asleep because it maps to relaxation, muscle tension, and nighttime restlessness. Melatonin can help timing, but more melatonin does not reliably mean deeper or longer sleep.
           </p>
           <Link href="/guides/sleep/" className="chip-readable">Explore sleep guides</Link>
         </article>
@@ -215,7 +236,12 @@ export default function MelatoninVsMagnesiumPage() {
         href={revenueProducts[0]?.affiliateUrl || '#'}
       />
 
-      <section className="card-premium p-6 space-y-4 max-w-4xl mb-8"><h2 className="text-2xl font-semibold tracking-tight text-ink">Practical recommendation</h2><p className="text-sm leading-7 text-muted">For most people with sleep issues, start with magnesium glycinate (200-400 mg before bed) for one week before adding anything else. Magnesium addresses the most common sleep disruptors — muscle tension, restless legs, and stress-related poor sleep quality. If sleep onset specifically is the problem after one week of magnesium, add low-dose melatonin (0.3-1 mg, not 3-10 mg) 1-2 hours before bed. The combination of magnesium + low-dose melatonin is well-tolerated and addresses both sleep quality and sleep timing. If you wake up groggy, reduce the melatonin dose — the dose-response curve is flat and more is not better. Avoid high-dose melatonin (5-10 mg) which produces supraphysiological levels and next-day impairment.</p></section>
+      <section className="card-premium p-6 space-y-4 max-w-4xl mb-8">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">Practical recommendation</h2>
+        <p className="text-sm leading-7 text-muted">
+          For many people comparing magnesium glycinate vs melatonin, start by identifying the sleep bottleneck. If the issue is tension, restlessness, or waking during the night, magnesium glycinate may be the more logical first experiment. If the issue is falling asleep late because the sleep clock is shifted, use low-dose melatonin as a timing tool rather than a heavy sedative. If grogginess appears, reduce melatonin first; if loose stools appear, reassess magnesium form and dose.
+        </p>
+      </section>
 
       <References refs={MELATONIN_VS_MAGNESIUM_REFS} />
     </div>

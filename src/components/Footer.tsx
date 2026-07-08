@@ -170,6 +170,21 @@ export default function Footer() {
           </NonEmpty>
         </div>
 
+        <section className='mt-10 rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-sm leading-6 text-white/62' aria-label='How to use this research library'>
+          <p className='section-label mb-3 !text-white/55'>How to use this research</p>
+          <div className='grid gap-4 md:grid-cols-3'>
+            <p>
+              Use The Hippie Scientist as an evidence map, not a prescription pad. Herb, compound, guide, and comparison pages are designed to help you separate human evidence from mechanism speculation, marketing language, and traditional-use context.
+            </p>
+            <p>
+              Before buying or stacking supplements, compare the goal, evidence quality, dose realism, product standardization, and safety cautions. Pregnancy, medications, chronic illness, surgery, dependence risk, and use in children all deserve qualified clinical review.
+            </p>
+            <p>
+              Product links and affiliate disclosures should never outweigh safety or evidence. The safest workflow is simple: define the goal, read the profile, check interactions, avoid duplicate mechanisms, and choose transparent products only when the risk-benefit picture still makes sense.
+            </p>
+          </div>
+        </section>
+
         <div className='mt-10 flex flex-col justify-between gap-2 border-t border-white/10 pt-5 text-xs text-white/65 sm:flex-row'>
           {showBuildMeta && <div>Build {versionStampParts.join(' · ')}</div>}
           <div>© 2024–{copyrightYear} The Hippie Scientist – Educational use only. Not medical advice.</div>

@@ -1,8 +1,13 @@
 import type { Metadata } from 'next'
 import HomepageV2 from '@/components/homepage-v2'
 import { buildPageMetadata } from '../src/lib/seo'
+import { getCurrentLocaleAlternates } from '../src/lib/international-seo'
 
-export const metadata: Metadata = buildPageMetadata({
+const homepageLocaleAlternates = Object.fromEntries(
+  getCurrentLocaleAlternates('/').map((alternate) => [alternate.locale, alternate.url]),
+)
+
+const homepageMetadata = buildPageMetadata({
   title: 'The Hippie Scientist: Evidence & Safety for Supplements',
   description:
     'Compare evidence-based plant medicine, herbs, and supplements by goal. Explore human clinical trial evidence, biological mechanisms, and drug interactions for sleep, anxiety, focus, and stress.',
@@ -21,6 +26,14 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/',
   openGraphType: 'website',
 })
+
+export const metadata: Metadata = {
+  ...homepageMetadata,
+  alternates: {
+    ...homepageMetadata.alternates,
+    languages: homepageLocaleAlternates,
+  },
+}
 
 export default function Page() {
   return <HomepageV2 />

@@ -1,7 +1,9 @@
 import { getGoal } from '@/data/goals'
 import { getRevenueProductSet } from '@/config/revenue-products'
+import { getRegionalRevenueProductOverride } from '@/config/regional-revenue-products'
 import ProductTrustAffiliate from '@/components/monetization/ProductTrustAffiliate'
 import { isRestrictedRecord } from '@/src/lib/restricted-ingredients'
+import { resolveRegionalUrl } from '@/src/lib/platforms'
 
 const SLOT_LABELS: Record<string, string> = {
   budget: 'Budget pick',
@@ -12,12 +14,14 @@ const SLOT_LABELS: Record<string, string> = {
 type GoalTopAffiliatePicksProps = {
   goalSlug: string
   limit?: number
+  preferredRegion?: string | null
   suppressMonetization?: boolean
 }
 
 export default function GoalTopAffiliatePicks({
   goalSlug,
   limit = 2,
+  preferredRegion = null,
   suppressMonetization = false,
 }: GoalTopAffiliatePicksProps) {
   if (suppressMonetization) return null
@@ -29,14 +33,26 @@ export default function GoalTopAffiliatePicks({
     if (isRestrictedRecord({ slug: pick.slug, name: pick.option })) return []
     const set = getRevenueProductSet(pick.slug)
     const product = set?.products.find((p) => p.slot === 'overall') ?? set?.products[0]
-    if (!product?.affiliateUrl || isRestrictedRecord(product)) return []
+    if (!product?.affiliateUrl || isRestrictedRecord(product) || !set) return []
+
+    const override = getRegionalRevenueProductOverride({
+      setSlug: set.slug,
+      slot: product.slot,
+      title: product.title || pick.option,
+    })
+    const href = resolveRegionalUrl({
+      defaultUrl: product.affiliateUrl,
+      regionalUrls: override?.regionalUrls,
+      preferredRegion,
+    })
+
     return [
       {
         key: pick.slug,
         need: pick.need,
         productName: product.title || pick.option,
         brand: product.brand,
-        href: product.affiliateUrl,
+        href,
         rationale: product.rationale || `Starting point for ${pick.need.toLowerCase()} — verify dose and safety on the full profile.`,
         slotLabel: SLOT_LABELS[product.slot] || 'Editor pick',
       },
