@@ -136,6 +136,12 @@ Evidence Grade: Limited for both in ADHD populations.
 
 TODO: Verify any available small ADHD or attention-deficit studies for citicoline or alpha-gpc.
 
+### Alpha-GPC and ADHD: practical interpretation
+
+Alpha-GPC for ADHD is best understood as a choline-donor experiment for selected focus goals, not a proven ADHD intervention. It may be more relevant when someone is specifically testing cholinergic support for improved focus, mental effort, or stack compatibility. Side effects such as headache, gastrointestinal discomfort, dizziness, or overstimulation can occur, especially when Alpha-GPC is combined with other cholinergic products.
+
+Health conditions and medication context matter. People using anticholinergic medications, cholinesterase inhibitors, blood pressure medications, or complex psychiatric regimens should review Alpha-GPC with a clinician before use.
+
 ### Evidence in Healthy Adults
 
 In healthy adults, both Citicoline and Alpha-GPC have been studied for acute and short-term cognitive enhancement, often with positive but modest effects on attention, memory, or mental fatigue.

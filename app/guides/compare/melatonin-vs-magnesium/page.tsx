@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Melatonin vs Magnesium for Sleep: Which Works Better?',
-  description: 'Melatonin vs magnesium for sleep — which works better, which is safer long-term, and how to take them together. Evidence-based comparison.',
+  title: 'Melatonin vs Magnesium Glycinate for Sleep: Which Works Better?',
+  description: 'Melatonin vs magnesium glycinate for sleep — compare timing, muscle relaxation, side effects, long-term use, and whether they can be taken together.',
   path: '/guides/compare/melatonin-vs-magnesium/',
 })
 
@@ -37,15 +37,15 @@ export default function MelatoninVsMagnesiumPage() {
   return (
     <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd
-        title="Melatonin vs Magnesium for Sleep: Which Works Better?"
-        description="Melatonin vs Magnesium for sleep — which works better, which is safer long-term, and how to take them together. Evidence-based comparison with dosing and timing guide.
+        title="Melatonin vs Magnesium Glycinate for Sleep: Which Works Better?"
+        description="Melatonin vs magnesium glycinate for sleep — which works better, which is safer long-term, and how to take them together. Evidence-based comparison with dosing and timing guide.
       "
         url="https://thehippiescientist.net/guides/compare/melatonin-vs-magnesium"
         type="Article"
         breadcrumbs={[
           { name: 'Home', url: 'https://thehippiescientist.net/' },
           { name: 'Compare', url: 'https://thehippiescientist.net/guides/compare/' },
-          { name: 'Melatonin vs Magnesium', url: 'https://thehippiescientist.net/guides/compare/melatonin-vs-magnesium/' },
+          { name: 'Melatonin vs Magnesium Glycinate', url: 'https://thehippiescientist.net/guides/compare/melatonin-vs-magnesium/' },
         ]}
         citationUrls={citationUrls}
       />
@@ -62,11 +62,11 @@ export default function MelatoninVsMagnesiumPage() {
         <p className="eyebrow-label">Evidence-Based Comparison · Sleep</p>
 
         <h1 className="text-4xl font-bold tracking-tight text-ink">
-          Melatonin vs Magnesium for Sleep: Which Works Better?
+          Melatonin vs Magnesium Glycinate for Sleep: Which Works Better?
         </h1>
 
         <p className="text-lg leading-8 text-muted">
-          Melatonin and magnesium are two of the most commonly used sleep supplements, but they work through completely different mechanisms. This guide compares the evidence, practical dosing, and safety trade-offs.
+          Melatonin and magnesium glycinate are two of the most commonly used sleep supplements, but they work through completely different mechanisms. This guide compares the effects of magnesium, the timing signal from melatonin, practical dosing, and safety trade-offs.
         </p>
 
         <figure className="mt-6">
@@ -144,6 +144,18 @@ export default function MelatoninVsMagnesiumPage() {
             All Comparisons
           </Link>
         </div>
+      </section>
+
+      <section className="card-premium p-6 space-y-4 max-w-4xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">
+          Magnesium versus melatonin: what each changes
+        </h2>
+        <p className="text-sm leading-7 text-muted">
+          Magnesium glycinate is a dietary supplement that supports normal nervous system function, muscle relaxation, and evening calm. That makes it a better fit when sleep problems come from tension, restless legs, or poor sleep quality. Melatonin works more like a clock signal: it can help shift sleep timing, but higher doses are more likely to cause side effects such as next-day grogginess or vivid dreams.
+        </p>
+        <p className="text-sm leading-7 text-muted">
+          Health conditions matter. People with kidney disease should not use magnesium casually, and people using sedatives, pregnancy-related care, or complex medications should review any sleep supplement plan with a clinician. For many adults, the simplest comparison is magnesium glycinate vs melatonin: relaxation and sleep maintenance on one side, circadian timing on the other.
+        </p>
       </section>
 
       <section className="grid gap-5 md:grid-cols-2">

@@ -9,7 +9,7 @@ https://www.thehippiescientist.net/guides/ https://thehippiescientist.net/guides
 https://www.thehippiescientist.net/guides/best-supplements-for-blood-pressure-support/ https://thehippiescientist.net/guides/best/supplements-for-blood-pressure/ 301
 https://www.thehippiescientist.net/guides/best-supplements-for-joint-support/ https://thehippiescientist.net/guides/best/supplements-for-joint-support/ 301
 https://www.thehippiescientist.net/compare/creatine-vs-beta-alanine/ https://thehippiescientist.net/guides/compare/creatine-vs-beta-alanine/ 301
-https://www.thehippiescientist.net/compare/berberine-vs-inositol/ https://thehippiescientist.net/guides/compare/berberine-vs-inositol/ 301
+https://www.thehippiescientist.net/compare/berberine-vs-inositol/ https://thehippiescientist.net/guides/compare/berberine-vs-metformin/ 301
 https://www.thehippiescientist.net/herbs/guayusa/ https://thehippiescientist.net/herbs/guayusa/ 301
 https://www.thehippiescientist.net/herbs/agarikon https://thehippiescientist.net/herbs/agarikon/ 301
 https://www.thehippiescientist.net/herbs/corydalis/ https://thehippiescientist.net/herbs/corydalis/ 301
@@ -17,7 +17,7 @@ https://www.thehippiescientist.net/herbs/sage/ https://thehippiescientist.net/he
 https://www.thehippiescientist.net/herbs/lagerstroemia-speciosa/ https://thehippiescientist.net/herbs/lagerstroemia-speciosa/ 301
 https://www.thehippiescientist.net/herbs/tripterygium-wilfordii/ https://thehippiescientist.net/herbs/tripterygium-wilfordii/ 301
 https://www.thehippiescientist.net/compare/lions-mane-vs-alpha-gpc/ https://thehippiescientist.net/guides/compare/lions-mane-vs-alpha-gpc/ 301
-https://www.thehippiescientist.net/compare/caffeine-vs-l-theanine/ https://thehippiescientist.net/guides/compare/caffeine-vs-theanine/ 301
+https://www.thehippiescientist.net/compare/caffeine-vs-l-theanine/ https://thehippiescientist.net/guides/focus/l-theanine-vs-caffeine-for-focus/ 301
 https://www.thehippiescientist.net/best-supplements-for-fat-loss/ https://thehippiescientist.net/guides/best/supplements-for-fat-loss/ 301
 https://www.thehippiescientist.net/best-supplements-for-focus/ https://thehippiescientist.net/guides/focus/best-supplements-for-focus/ 301
 
@@ -74,6 +74,10 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /best-nootropics-for-focus/ /guides/focus/best-nootropics-for-focus/ 301
 /compare/sleep-herbs-vs-melatonin /guides/compare/sleep-herbs-vs-melatonin/ 301
 /compare/sleep-herbs-vs-melatonin/ /guides/compare/sleep-herbs-vs-melatonin/ 301
+/compare/caffeine-vs-l-theanine /guides/focus/l-theanine-vs-caffeine-for-focus/ 301
+/compare/caffeine-vs-l-theanine/ /guides/focus/l-theanine-vs-caffeine-for-focus/ 301
+/compare/berberine-vs-inositol /guides/compare/berberine-vs-metformin/ 301
+/compare/berberine-vs-inositol/ /guides/compare/berberine-vs-metformin/ 301
 /compare/rhodiola-vs-ashwagandha /guides/compare/rhodiola-vs-ashwagandha/ 301
 /compare/rhodiola-vs-ashwagandha/ /guides/compare/rhodiola-vs-ashwagandha/ 301
 
@@ -84,7 +88,7 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /articles/vitamin-d-and-adhd /articles/vitamin-d-and-adhd/ 301
 /articles/zinc-and-adhd /articles/zinc-and-adhd/ 301
 /articles/adhd-stack-guide /articles/adhd-stack-guide/ 301
-/articles/best-supplements-for-adhd /articles/best-supplements-for-adhd/ 301
+/articles/best-supplements-for-adhd /guides/adhd/best-supplements-for-adhd/ 301
 /articles/nutrient-deficiencies-and-adhd /articles/nutrient-deficiencies-and-adhd/ 301
 /guides/adhd-supplements /guides/adhd-supplements/ 301
 /articles/anxiety-stack-guide /articles/anxiety-stack-guide/ 301
@@ -92,15 +96,19 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /articles/l-theanine-for-sleep /articles/l-theanine-for-sleep/ 301
 /articles/magnesium-for-sleep /articles/magnesium-for-sleep/ 301
 /articles/ashwagandha-for-sleep /articles/ashwagandha-for-sleep/ 301
-# Focus/ADHD route consolidation: keep canonical article URLs under /articles/.
-/best-supplements-for-adhd /articles/best-supplements-for-adhd/ 301
-/best-supplements-for-adhd/ /articles/best-supplements-for-adhd/ 301
+# Focus/ADHD route consolidation: current canonical URLs live under /guides/adhd/.
+/best-supplements-for-adhd /guides/adhd/best-supplements-for-adhd/ 301
+/best-supplements-for-adhd/ /guides/adhd/best-supplements-for-adhd/ 301
 /magnesium-for-adhd /articles/magnesium-for-adhd/ 301
 /magnesium-for-adhd/ /articles/magnesium-for-adhd/ 301
 /l-theanine-for-adhd /articles/l-theanine-for-adhd/ 301
 /l-theanine-for-adhd/ /articles/l-theanine-for-adhd/ 301
-/citicoline-vs-alpha-gpc /articles/citicoline-vs-alpha-gpc/ 301
-/citicoline-vs-alpha-gpc/ /articles/citicoline-vs-alpha-gpc/ 301
+/citicoline-vs-alpha-gpc /guides/adhd/citicoline-vs-alpha-gpc/ 301
+/citicoline-vs-alpha-gpc/ /guides/adhd/citicoline-vs-alpha-gpc/ 301
+/omega-3-for-adhd /guides/adhd/omega-3-and-adhd/ 301
+/omega-3-for-adhd/ /guides/adhd/omega-3-and-adhd/ 301
+/top/sleep /guides/sleep/best-natural-sleep-aids-that-work/ 301
+/top/sleep/ /guides/sleep/best-natural-sleep-aids-that-work/ 301
 # CONTENT TAXONOMY MIGRATION: Learn content is now surfaced from /guides;
 # keep /learn/ live for existing static learning-path content and sitemap hygiene.
 # Articles style category legacy redirect (field-notes → nootropics)

@@ -56,6 +56,7 @@ const HEADINGS: Heading[] = [
   { id: 'takeaways', text: 'Key takeaways', level: 2 },
   { id: 'match', text: 'Match the sleep aid to your problem', level: 2 },
   { id: 'research', text: 'What the research actually supports', level: 2 },
+  { id: 'sleep-herbs', text: 'Best herbs for sleep', level: 2 },
   { id: 'risks', text: 'Risks & safety', level: 2 },
   { id: 'mistakes', text: 'Common mistakes to avoid', level: 2 },
   { id: 'faq', text: 'Frequently asked questions', level: 2 },
@@ -266,6 +267,28 @@ export default function Page() {
                 for preparation and dosing.
               </p>
             </article>
+          </div>
+        </section>
+
+        <section id="sleep-herbs" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">Herbal sleep aids</p>
+          <h2 className="text-2xl font-semibold text-ink">Best herbs for sleep and sleeplessness</h2>
+          <p className="text-muted">
+            The strongest herbs for sleep are not all strong in the same way. Valerian is the most sedating traditional option, passionflower and lemon balm are gentler herbal remedies for racing thoughts, and chamomile tea is best treated as a calming evening ritual rather than a knockout sleep aid. Natural herbs for sleeping work best when matched to the pattern: poor sleep from tension, sleep disturbances from stress, or difficulty winding down after caffeine.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-3">
+            <Link href="/herbs/valerian/" className="card-premium block p-5 text-sm hover:border-brand-700/40">
+              <span className="block font-semibold text-ink">Valerian</span>
+              <span className="mt-2 block text-muted">Best for short-term sedative support. Avoid with alcohol, benzodiazepines, and other sedatives.</span>
+            </Link>
+            <Link href="/herbs/passionflower/" className="card-premium block p-5 text-sm hover:border-brand-700/40">
+              <span className="block font-semibold text-ink">Passionflower</span>
+              <span className="mt-2 block text-muted">Best for restlessness and stress-linked sleep onset, with a gentler calming effect.</span>
+            </Link>
+            <Link href="/herbs/melissa-officinalis/" className="card-premium block p-5 text-sm hover:border-brand-700/40">
+              <span className="block font-semibold text-ink">Lemon balm</span>
+              <span className="mt-2 block text-muted">Best as a mild relaxant, often paired with tea rituals or other low-risk sleep supports.</span>
+            </Link>
           </div>
         </section>
 

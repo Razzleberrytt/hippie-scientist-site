@@ -173,6 +173,16 @@ Evidence Grade: Moderate for stress and sleep in broader populations; Preliminar
 
 Evidence notes: ashwagandha has better stress and sleep evidence than ADHD-specific evidence; frame it as stress/sleep support only.
 
+### Rhodiola Rosea
+
+Rhodiola rosea is an adaptogen usually discussed for mental clarity, fatigue resistance, and stress-related brain function rather than as a direct ADHD supplement. Human studies in fatigued or stressed adults suggest potential benefits for perceived fatigue and cognitive performance under strain, but the evidence does not yet show that rhodiola treats attention deficit hyperactivity disorder or reliably manages ADHD symptoms.
+
+Rhodiola may be most relevant when the main pattern is stress fatigue, low stamina, or afternoon cognitive drag rather than bedtime anxiety or sleep onset problems. It can feel stimulating for some people, so it is usually better evaluated earlier in the day and one variable at a time. People taking psychiatric medications, blood pressure medications, or stimulants should review rhodiola with healthcare professionals before use.
+
+Evidence Grade: Preliminary for ADHD-specific outcomes; Preliminary to Moderate for stress-fatigue and mental performance contexts.
+
+Evidence notes: rhodiola rosea has a plausible role in stress-related focus support, but ADHD claims should stay conservative until better direct trials exist.
+
 ### Citicoline
 
 Citicoline provides choline and cytidine and has been studied for cognitive function, with more data in older or clinical populations than in ADHD. It supports acetylcholine synthesis and membrane health.
@@ -401,6 +411,7 @@ Periodic review every few months, including trials off individual components whe
 | Vitamin D | When deficient | Preliminary | Low status | Good | High | Limited ADHD-specific data | Repletion is reasonable when deficient; ADHD effects are preliminary. |
 | L-Theanine | Calm focus / sleep | Preliminary-Moderate | Bedtime arousal or caffeine jitter | Good | High | Limited standalone ADHD data | Better sleep/calm rationale than standalone ADHD evidence. |
 | Ashwagandha | Stress / emotional regulation | Preliminary | Stress-related symptoms | Good | Moderate | Limited ADHD-specific data | Stress and sleep evidence should not be overstated as ADHD evidence. |
+| Rhodiola Rosea | Stress fatigue / mental clarity | Preliminary | Fatigue-dominant focus problems | Moderate | Moderate | Limited ADHD-specific data; can feel stimulating | Best framed as stress-fatigue support, not an ADHD treatment. |
 | Citicoline | Cognitive support | Limited | Focus or processing needs | Good | Moderate | Sparse ADHD data | Consider only after higher-yield foundations. |
 | Alpha-GPC | Cognitive support | Limited | Stacks needing choline | Good | Moderate | Very limited ADHD data | Avoid aggressive cholinergic stacking. |
 

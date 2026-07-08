@@ -45,7 +45,7 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
       { slug: 'bacopa-vs-lions-mane', label: "Bacopa vs Lion's Mane" },
       { slug: 'bacopa-vs-ginkgo-biloba', label: 'Bacopa vs Ginkgo Biloba' },
       { slug: 'alpha-gpc-vs-cdp-choline', label: 'Alpha-GPC vs CDP-Choline' },
-      { slug: 'caffeine-vs-theanine', label: 'Caffeine vs L-Theanine' },
+      { slug: 'caffeine-vs-l-theanine-vs-bacopa-for-focus', label: 'Caffeine vs L-Theanine vs Bacopa' },
     ],
   },
   {
@@ -82,7 +82,7 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
       { slug: 'turmeric-vs-ginger', label: 'Turmeric vs Ginger' },
       { slug: 'curcumin-vs-boswellia', label: 'Curcumin vs Boswellia' },
       { slug: 'hawthorn-vs-coq10', label: 'Hawthorn vs CoQ10' },
-      { slug: 'berberine-vs-inositol', label: 'Berberine vs Inositol' },
+      { slug: 'berberine-vs-metformin', label: 'Berberine vs Metformin' },
     ],
   },
 ]
