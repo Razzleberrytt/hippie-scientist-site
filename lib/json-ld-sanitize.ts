@@ -20,7 +20,7 @@ const NON_CREATIVE_ENTITY_TYPES = new Set([
 
 const ARTICLE_TYPES = new Set(['Article', 'BlogPosting', 'NewsArticle'])
 
-function isObject(value: JsonLdValue | undefined): value is JsonLdObject {
+function isObject(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
 }
 
@@ -32,7 +32,7 @@ function typeList(value: JsonLdValue | undefined): string[] {
   return []
 }
 
-function normalizedType(types: string[]): string | string[] | undefined {
+function normalizedType(types: string[]): string | string[] {
   const cleaned = types.filter((type) => type !== 'DietarySupplement')
   if (!cleaned.length) return 'MedicalSubstance'
   return cleaned.length === 1 ? cleaned[0] : cleaned
@@ -46,7 +46,7 @@ function isPureEntityNode(types: string[]): boolean {
   return types.length > 0 && types.every((type) => NON_CREATIVE_ENTITY_TYPES.has(type))
 }
 
-function sanitizeObject(input: JsonLdObject): JsonLdObject {
+function sanitizeObject(input: Record<string, unknown>): JsonLdObject {
   const output: JsonLdObject = {}
 
   for (const [key, value] of Object.entries(input)) {
@@ -105,15 +105,18 @@ function sanitizeObject(input: JsonLdObject): JsonLdObject {
   ) as JsonLdObject
 }
 
-export function sanitizeJsonLdValue(value: JsonLdValue | undefined): JsonLdValue | undefined {
+export function sanitizeJsonLdValue(value: unknown): JsonLdValue | undefined {
   if (value === undefined) return undefined
+  if (value === null || typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+    return value
+  }
   if (Array.isArray(value)) {
     return value.map((item) => sanitizeJsonLdValue(item)).filter((item): item is JsonLdValue => item !== undefined)
   }
   if (isObject(value)) return sanitizeObject(value)
-  return value
+  return undefined
 }
 
-export function sanitizeJsonLdPayload<T extends JsonLdValue | undefined>(payload: T): T {
-  return sanitizeJsonLdValue(payload) as T
+export function sanitizeJsonLdPayload(payload: unknown): JsonLdValue | undefined {
+  return sanitizeJsonLdValue(payload)
 }
