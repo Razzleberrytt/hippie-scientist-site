@@ -415,15 +415,18 @@ export function buildWorkbookEntitySchema(args: ProfileEntitySchemaArgs): Schema
     identifier: buildWorkbookIdentifiers({ kind: args.kind, slug: args.slug, record }),
     ...(scientificName ? { alternateName: scientificName } : {}),
     ...(category ? { category } : {}),
-    ...(evidenceLevel ? { evidenceLevel } : {}),
-    ...(safetyNotes ? { safetyWarnings: safetyNotes } : {}),
-    ...(knownUse.length ? { knownUse } : {}),
     ...(mechanisms.length ? { mechanismOfAction: mechanisms.join('; ') } : {}),
     ...(molecularFormula ? { molecularFormula } : {}),
     ...(sameAs.length ? { sameAs } : {}),
+    // `evidenceLevel`, `knownUse`, and `safetyWarnings` are NOT schema.org properties.
+    // On the herb entity's medical types (DietarySupplement / MedicalSubstance) the
+    // structured-data validator rejects them as invalid, so this data lives in
+    // `additionalProperty` (valid on any Thing) instead — no information is lost.
     additionalProperty: [
       propertyValue('workbook source', WORKBOOK_SOURCE_ID),
       propertyValue('static route', canonical),
+      ...(evidenceLevel ? [propertyValue('evidence level', String(evidenceLevel))] : []),
+      ...(safetyNotes ? [propertyValue('safety notes', String(safetyNotes))] : []),
       ...(mechanisms.length ? [propertyValue('mechanism summary', mechanisms.join('; '))] : []),
       ...(knownUse.length ? [propertyValue('profile use contexts', knownUse.join('; '))] : []),
     ],
