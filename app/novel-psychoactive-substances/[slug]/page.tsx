@@ -57,6 +57,9 @@ export default async function NovelPsychoactiveSubstanceArticlePage({ params }: 
     dateModified: page.lastUpdated,
     datePublished: page.lastUpdated,
     mainEntityOfPage: `${SITE_URL}/novel-psychoactive-substances/${page.slug}/`,
+    image: `${SITE_URL}/og-default.jpg`,
+    author: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
+    publisher: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
     keywords: page.keywords,
     articleSection: 'Novel Psychoactive Substances',
   }

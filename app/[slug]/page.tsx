@@ -551,6 +551,7 @@ function ArticleJsonLd({
     description,
     url,
     mainEntityOfPage: url,
+    image: `${SITE_URL}/og-default.jpg`,
     dateModified,
     author: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
     publisher: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },

@@ -68,9 +68,13 @@ export default async function ArticleMonographPage({ params }: PageProps) {
     dateModified: page.lastUpdated,
     datePublished: page.date ?? page.lastUpdated,
     mainEntityOfPage: `${SITE_URL}/articles/${page.slug}/`,
+    image: `${SITE_URL}/og-default.jpg`,
     keywords: page.tags,
     articleSection: page.category,
-    ...(author ? { author: { '@type': 'Person', name: author } } : {}),
+    author: author
+      ? { '@type': 'Person', name: author }
+      : { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
+    publisher: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
     citation: page.references.map((ref) => ({
       '@type': 'ScholarlyArticle',
       headline: ref.title,
