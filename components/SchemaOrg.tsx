@@ -36,7 +36,8 @@ function toPayload({
 }
 
 function serializeJsonLd(payload: Record<string, unknown> | SchemaNode): string {
-  return JSON.stringify(sanitizeJsonLdPayload(payload)).replace(/</g, '\\u003c')
+  const sanitized = sanitizeJsonLdPayload(payload)
+  return JSON.stringify(sanitized ?? {}).replace(/</g, '\\u003c')
 }
 
 export default function SchemaOrg(props: SchemaOrgProps) {
