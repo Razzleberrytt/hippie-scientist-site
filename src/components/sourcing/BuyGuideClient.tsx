@@ -21,6 +21,8 @@ interface BuyGuideClientProps {
   compounds: any[]
 }
 
+const DEFAULT_VISIBLE_ITEMS = 72
+
 export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps) {
   const [searchQuery, setSearchQuery] = useState('')
 
@@ -98,7 +100,7 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
 
   // Filter items by search query
   const filteredItems = useMemo(() => {
-    if (!searchQuery) return allItems
+    if (!searchQuery) return allItems.slice(0, DEFAULT_VISIBLE_ITEMS)
     return allItems.filter(item =>
       item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       item.slug.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -126,6 +128,11 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
       </div>
 
       {/* Grid of Sourcing Cards */}
+      {!searchQuery && allItems.length > DEFAULT_VISIBLE_ITEMS ? (
+        <p className='text-xs text-slate-500'>
+          Showing {DEFAULT_VISIBLE_ITEMS} common sourcing checklists. Search by ingredient name to inspect the full library.
+        </p>
+      ) : null}
       <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
         {filteredItems.length === 0 ? (
           <div className='col-span-full py-16 text-center text-slate-400 text-sm border border-dashed border-slate-200 rounded-[2rem] bg-white/50'>

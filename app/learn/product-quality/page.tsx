@@ -5,6 +5,8 @@ import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
 import BuyGuideClient from '../../../src/components/sourcing/BuyGuideClient'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import { isRestrictedRecord } from '../../../src/lib/restricted-ingredients'
+import { toBuyingToolRecord } from '../../../src/lib/tool-page-payloads'
+import type { RuntimeRecord } from '../../../src/types/content'
 
 export const metadata: Metadata = {
   title: 'Supplement Product Quality Guide',
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
 export default async function ProductQualityPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs = rawHerbs.filter((herb: Record<string, unknown>) => {
+  const herbs: RuntimeRecord[] = rawHerbs.filter((herb: RuntimeRecord) => {
     if (isRestrictedRecord(herb)) return false
     try {
       return getRuntimeVisibility(herb).canRender
@@ -25,7 +27,7 @@ export default async function ProductQualityPage() {
     }
   })
 
-  const compounds = rawCompounds.filter((compound: Record<string, unknown>) => {
+  const compounds: RuntimeRecord[] = rawCompounds.filter((compound: RuntimeRecord) => {
     if (isRestrictedRecord(compound)) return false
     try {
       return getRuntimeVisibility(compound).canRender
@@ -94,7 +96,10 @@ export default async function ProductQualityPage() {
         </Link>
       </section>
 
-      <BuyGuideClient herbs={herbs} compounds={compounds} />
+      <BuyGuideClient
+        herbs={herbs.map((herb) => toBuyingToolRecord(herb, 'herb'))}
+        compounds={compounds.map((compound) => toBuyingToolRecord(compound, 'compound'))}
+      />
 
       <section className='rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-xs leading-relaxed text-amber-950'>
         <p className='font-bold'>Disclosure and safety note:</p>

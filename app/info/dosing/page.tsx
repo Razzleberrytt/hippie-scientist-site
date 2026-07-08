@@ -5,6 +5,8 @@ import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
 import DosageCalculatorClient from '../../../src/components/dosing/DosageCalculatorClient'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import { isRestrictedRecord } from '../../../src/lib/restricted-ingredients'
+import { toDosingToolRecord } from '../../../src/lib/tool-page-payloads'
+import type { RuntimeRecord } from '../../../src/types/content'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Dynamic Dosage & Active Molecular Yield Calculator',
@@ -15,7 +17,7 @@ export const metadata: Metadata = buildPageMetadata({
 export default async function DosingPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs = rawHerbs.filter((h: Record<string, unknown>) => {
+  const herbs: RuntimeRecord[] = rawHerbs.filter((h: RuntimeRecord) => {
     if (isRestrictedRecord(h)) return false
     try {
       return getRuntimeVisibility(h).canRender
@@ -24,7 +26,7 @@ export default async function DosingPage() {
     }
   })
 
-  const compounds = rawCompounds.filter((c: Record<string, unknown>) => {
+  const compounds: RuntimeRecord[] = rawCompounds.filter((c: RuntimeRecord) => {
     if (isRestrictedRecord(c)) return false
     try {
       return getRuntimeVisibility(c).canRender
@@ -55,7 +57,10 @@ export default async function DosingPage() {
         </p>
       </section>
 
-      <DosageCalculatorClient herbs={herbs} compounds={compounds} />
+      <DosageCalculatorClient
+        herbs={herbs.map((herb) => toDosingToolRecord(herb, 'herb'))}
+        compounds={compounds.map((compound) => toDosingToolRecord(compound, 'compound'))}
+      />
 
       <section className='rounded-2xl border border-rose-900/15 bg-rose-50/50 p-5 text-xs leading-relaxed text-rose-950'>
         <p className='font-bold flex items-center gap-1.5'>
