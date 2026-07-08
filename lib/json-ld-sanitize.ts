@@ -18,6 +18,7 @@ const NON_CREATIVE_ENTITY_TYPES = new Set([
 ])
 
 const ARTICLE_TYPES = new Set(['Article', 'BlogPosting', 'NewsArticle'])
+const PRODUCT_SNIPPET_TYPES = new Set(['Product', 'DietarySupplement'])
 
 function isObject(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
@@ -32,8 +33,8 @@ function typeList(value: unknown): string[] {
 }
 
 function normalizedType(types: string[]): string | string[] {
-  const cleaned = types.filter((type) => type !== 'DietarySupplement')
-  if (!cleaned.length) return 'MedicalSubstance'
+  const cleaned = types.filter((type) => !PRODUCT_SNIPPET_TYPES.has(type))
+  if (!cleaned.length) return 'Thing'
   return cleaned.length === 1 ? cleaned[0] : cleaned
 }
 
@@ -43,6 +44,10 @@ function isArticleLike(types: string[]): boolean {
 
 function isPureEntityNode(types: string[]): boolean {
   return types.length > 0 && types.every((type) => NON_CREATIVE_ENTITY_TYPES.has(type))
+}
+
+function hasProductRichResultSupport(node: Record<string, unknown>): boolean {
+  return Boolean(node.aggregateRating || node.offers || node.review)
 }
 
 function sanitizeObject(input: Record<string, unknown>): JsonLdObject {
@@ -64,7 +69,12 @@ function sanitizeObject(input: Record<string, unknown>): JsonLdObject {
 
   const types = typeList(output['@type'])
 
-  if (types.includes('DietarySupplement')) {
+  // The site profiles are editorial reference pages, not purchasable products.
+  // Google may classify Product/DietarySupplement nodes as Product snippets and
+  // then require offers/reviews/ratings. If a node does not actually provide
+  // product rich-result support, remove product-snippet types at the JSON-LD
+  // boundary while preserving the entity as Thing/MedicalSubstance/etc.
+  if (types.some((type) => PRODUCT_SNIPPET_TYPES.has(type)) && !hasProductRichResultSupport(output)) {
     output['@type'] = normalizedType(types)
   }
 
