@@ -4,7 +4,7 @@ import { MetadataRoute } from 'next';
 import matter from 'gray-matter';
 
 import { SITE_URL } from '../src/lib/site';
-import { shouldIndexRoute } from '../src/lib/seo';
+import { shouldIndexRoute, CANONICALIZED_AWAY_PROFILE_SLUGS } from '../src/lib/seo';
 import {
   CURATED_INDEXABLE_HERB_SLUGS,
   CURATED_INDEXABLE_COMPOUND_SLUGS,
@@ -574,6 +574,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   herbsData.forEach((herb) => {
     if (!herb.slug) return;
     if (DEPRECATED_HERBS.has(herb.slug.toLowerCase())) return;
+    if (CANONICALIZED_AWAY_PROFILE_SLUGS.has(herb.slug.toLowerCase())) return;
 
     const isCurated = curatedHerbs.has(herb.slug);
     if (!isCurated) {
@@ -586,6 +587,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   compoundsData.forEach((compound) => {
     if (!compound.slug) return;
     if (DEPRECATED_COMPOUNDS.has(compound.slug.toLowerCase())) return;
+    // Same-molecule duplicates canonicalized to their primary must not appear as
+    // their own URL in the sitemap (list canonical URLs only).
+    if (CANONICALIZED_AWAY_PROFILE_SLUGS.has(compound.slug.toLowerCase())) return;
 
     const isCurated = curatedCompounds.has(compound.slug);
     if (!isCurated) {
