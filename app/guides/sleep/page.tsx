@@ -34,16 +34,34 @@ const START_HERE: IntentRoute[] = [
     href: '/guides/sleep/magnesium-for-sleep/',
   },
   {
+    problem: 'Waking up tired after short or light sleep',
+    why: 'Glycine is a sleep-quality experiment, not a knockout sedative.',
+    cta: 'Glycine for Sleep',
+    href: '/guides/sleep/glycine-for-sleep/',
+  },
+  {
     problem: 'Not sure which magnesium to buy',
     why: 'Glycinate, citrate, threonate and oxide are not interchangeable for sleep.',
     cta: 'Magnesium Types for Sleep',
     href: '/guides/sleep/magnesium-types-for-sleep/',
   },
   {
+    problem: 'Choosing glycinate vs L-threonate',
+    why: 'A buyer-intent comparison keeps premium forms from sounding automatically better.',
+    cta: 'Glycinate vs L-Threonate',
+    href: '/guides/sleep/magnesium-glycinate-vs-l-threonate-for-sleep/',
+  },
+  {
     problem: 'Stress-related insomnia',
     why: 'An adaptogen that lowers cortisol over weeks, not a same-night fix.',
     cta: 'Ashwagandha for Sleep',
     href: '/guides/sleep/ashwagandha-for-sleep/',
+  },
+  {
+    problem: 'Trending sleep supplements sound convincing',
+    why: 'Apigenin needs a reality check before it becomes another overstacked sleep trend.',
+    cta: 'Apigenin for Sleep',
+    href: '/guides/sleep/apigenin-for-sleep/',
   },
   {
     problem: 'Comparing your options',
@@ -77,6 +95,11 @@ const BEST_FIRST: GuideCard[] = [
     desc: 'The best-evidenced, lowest-risk first pick for most people.',
   },
   {
+    href: '/guides/sleep/glycine-for-sleep/',
+    title: 'Glycine for Sleep',
+    desc: 'For sleep-quality and next-day tiredness questions — not a knockout sedative.',
+  },
+  {
     href: '/guides/sleep/l-theanine-for-sleep/',
     title: 'L-Theanine for Sleep',
     desc: 'For a busy mind at lights-out — calm without grogginess.',
@@ -93,6 +116,11 @@ const COMPARISONS: GuideCard[] = [
     href: '/guides/sleep/magnesium-vs-melatonin/',
     title: 'Magnesium vs Melatonin',
     desc: 'Nervous-system calm vs circadian timing — which problem is yours?',
+  },
+  {
+    href: '/guides/sleep/magnesium-glycinate-vs-l-threonate-for-sleep/',
+    title: 'Magnesium Glycinate vs L-Threonate',
+    desc: 'Simple, lower-cost first trial vs premium cognition-branded magnesium.',
   },
   {
     href: '/guides/sleep/sleep-herbs-vs-melatonin/',
@@ -119,6 +147,9 @@ const ALL_GUIDES = [
   { slug: 'magnesium-for-sleep', title: 'Magnesium for Sleep' },
   { slug: 'best-magnesium-for-sleep', title: 'Best Magnesium for Sleep' },
   { slug: 'magnesium-types-for-sleep', title: 'Magnesium Types for Sleep' },
+  { slug: 'magnesium-glycinate-vs-l-threonate-for-sleep', title: 'Magnesium Glycinate vs L-Threonate for Sleep' },
+  { slug: 'glycine-for-sleep', title: 'Glycine for Sleep' },
+  { slug: 'apigenin-for-sleep', title: 'Apigenin for Sleep' },
   { slug: 'l-theanine-for-sleep', title: 'L-Theanine for Sleep' },
   { slug: 'ashwagandha-for-sleep', title: 'Ashwagandha for Sleep' },
   { slug: 'best-herbs-for-sleep', title: 'Best Herbs for Sleep' },
