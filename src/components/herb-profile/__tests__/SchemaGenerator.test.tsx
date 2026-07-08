@@ -88,13 +88,10 @@ describe('HerbSchemaGenerator', () => {
     expect(mep['@id']).toBe(BASE_PROPS.url)
   })
 
-  it('Article evidenceGrade emitted as PropertyValue', () => {
+  it('keeps evidenceGrade out of Article additionalProperty', () => {
     const { container: c } = render(<HerbSchemaGenerator {...BASE_PROPS} />)
     const { article } = getScripts(c)
-    const prop = article.additionalProperty as Record<string, unknown>
-    expect(prop['@type']).toBe('PropertyValue')
-    expect(prop.name).toBe('Evidence grade')
-    expect(prop.value).toBe('B — Moderate')
+    expect(article.additionalProperty).toBeUndefined()
   })
 
   // ----- XSS safety -----

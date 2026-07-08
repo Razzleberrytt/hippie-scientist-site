@@ -710,11 +710,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   });
 
 
-  // Add static blog posts (public/blog/<slug>/index.html) — uses blogPosts from line 480
-  blogPosts.forEach((post) => {
-    if (!post.slug) return;
-    addRoute(`/blog/${post.slug}`, 'monthly', 0.75, post.date || post.lastUpdated || undefined);
-  });
+  // Legacy /blog/* URLs redirect to /articles/* and must not be advertised as
+  // indexable pages. Keep the redirects as compatibility, but sitemap only the
+  // canonical /articles/* routes above.
 
   // Pull any extra from comprehensive route-manifest (covers additional /compare index, ecosystems etc not already listed)
   routeManifest.forEach((entry: Record<string, unknown>) => {

@@ -14,9 +14,10 @@ interface CompareSchemaProps {
   slug: string
   faqs: FAQItem[]
   dateModified?: string
+  citationUrls?: string[]
 }
 
-export default function CompareSchema({ item1, item2, slug, faqs, dateModified }: CompareSchemaProps) {
+export default function CompareSchema({ item1, item2, slug, faqs, dateModified, citationUrls = [] }: CompareSchemaProps) {
   const pageUrl = `${SITE_URL}/guides/compare/${slug}/`
   const headline = `${item1.name} vs ${item2.name}: Complete Comparison`
   const description = `Compare ${item1.name} and ${item2.name} by evidence, mechanisms, dosing, safety, and best-fit use cases.`
@@ -39,6 +40,7 @@ export default function CompareSchema({ item1, item2, slug, faqs, dateModified }
           url: SITE_URL,
         },
         ...(dateModified ? { dateModified } : {}),
+        ...(citationUrls.length ? { citation: [...new Set(citationUrls)].filter(Boolean) } : {}),
         url: pageUrl,
         mainEntityOfPage: {
           '@type': 'WebPage',

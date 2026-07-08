@@ -5,7 +5,7 @@ import { buildPageMetadata, faqPageJsonLd, breadcrumbJsonLd, SITE_URL } from '..
 import References from '@/components/References'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'FAQ',
+  title: 'Supplement Research FAQ',
   description:
     'Frequently asked questions about The Hippie Scientist and how to use the site. Evidence-based answers on herbs, compounds, and research methodology.',
   path: '/info/faq',

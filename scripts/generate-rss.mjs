@@ -39,7 +39,6 @@ const normalizedPosts = (Array.isArray(posts) ? posts : [])
     const slug = String(post?.slug || '').trim().replace(/^\/+|\/+$/g, '')
     if (!slug) return null
 
-    const isBlog = post?.source === 'blog'
     const parsedDate = new Date(post?.date || post?.updatedAt || 0)
     const date = Number.isNaN(parsedDate.getTime()) ? new Date(0) : parsedDate
 
@@ -48,7 +47,6 @@ const normalizedPosts = (Array.isArray(posts) ? posts : [])
       title: post?.title || 'Untitled',
       description: post?.description || post?.excerpt || post?.summary || '',
       date,
-      isBlog,
     }
   })
   .filter(Boolean)
@@ -57,7 +55,7 @@ const normalizedPosts = (Array.isArray(posts) ? posts : [])
 
 const items = normalizedPosts
   .map(post => {
-    const url = post.isBlog ? `${SITE}/blog/${post.slug}` : `${SITE}/articles/${post.slug}`
+    const url = `${SITE}/articles/${post.slug}`
     return `
     <item>
       <title><![CDATA[${post.title}]]></title>

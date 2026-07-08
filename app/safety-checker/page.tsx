@@ -7,6 +7,8 @@ import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import { WizardSkeleton } from '@/components/skeletons'
 import { buildToolPageSchemaGraph } from '../../src/lib/schema-graph'
 import { buildPageMetadata, SITE_URL } from '../../src/lib/seo'
+import { toSafetyToolRecord } from '../../src/lib/tool-page-payloads'
+import type { RuntimeRecord } from '../../src/types/content'
 
 const SafetyCheckerClient = dynamic(
   () => import('../../src/components/safety/SafetyCheckerClient'),
@@ -23,7 +25,7 @@ export const metadata: Metadata = buildPageMetadata({
 export default async function SafetyCheckerPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs = rawHerbs.filter((h: Record<string, unknown>) => {
+  const herbs: RuntimeRecord[] = rawHerbs.filter((h: RuntimeRecord) => {
     try {
       return getRuntimeVisibility(h).canRender
     } catch {
@@ -31,7 +33,7 @@ export default async function SafetyCheckerPage() {
     }
   })
 
-  const compounds = rawCompounds.filter((c: Record<string, unknown>) => {
+  const compounds: RuntimeRecord[] = rawCompounds.filter((c: RuntimeRecord) => {
     try {
       return getRuntimeVisibility(c).canRender
     } catch {
@@ -82,7 +84,10 @@ export default async function SafetyCheckerPage() {
       </section>
 
       <Suspense fallback={<WizardSkeleton />}>
-        <SafetyCheckerClient herbs={herbs} compounds={compounds} />
+        <SafetyCheckerClient
+          herbs={herbs.map((herb) => toSafetyToolRecord(herb, 'herb'))}
+          compounds={compounds.map((compound) => toSafetyToolRecord(compound, 'compound'))}
+        />
       </Suspense>
 
       <section className='rounded-2xl border border-rose-900/15 bg-rose-50/50 p-5 text-xs leading-relaxed text-rose-950'>

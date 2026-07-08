@@ -71,9 +71,6 @@ export default async function ArticleMonographPage({ params }: PageProps) {
     keywords: page.tags,
     articleSection: page.category,
     ...(author ? { author: { '@type': 'Person', name: author } } : {}),
-    additionalProperty: page.evidenceGrade
-      ? [{ '@type': 'PropertyValue', name: 'evidenceGrade', value: page.evidenceGrade }]
-      : undefined,
     citation: page.references.map((ref) => ({
       '@type': 'ScholarlyArticle',
       headline: ref.title,
@@ -191,7 +188,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
                 {ref.url ? (
                   <>
                     {' — '}
-                    <a href={ref.url} target="_blank" rel="noopener noreferrer nofollow" className="font-semibold text-brand-800 hover:underline">
+                    <a href={ref.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-800 hover:underline">
                       Source
                     </a>
                   </>

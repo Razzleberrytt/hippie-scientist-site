@@ -350,9 +350,6 @@ function CompoundMdxPage({ page }: { page: (typeof allCompoundMdxPages)[number] 
     datePublished: page.lastUpdated,
     mainEntityOfPage: `${SITE_URL}/compounds/${page.slug}/`,
     keywords: page.keywords,
-    additionalProperty: [
-      { '@type': 'PropertyValue', name: 'evidenceGrade', value: page.evidenceGrade },
-    ],
     citation: page.references.map((ref) => ({
       '@type': 'ScholarlyArticle',
       headline: ref.title,

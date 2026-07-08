@@ -42,6 +42,7 @@ type ComparePageScaffoldProps = {
   relatedBestPages: BestPageLink[]
   relatedStack?: { slug: string } | null
   relatedDiscoveryGroups: DiscoveryGroup[]
+  citationUrls?: string[]
   children: ReactNode
 }
 
@@ -58,6 +59,7 @@ export default function ComparePageScaffold({
   relatedBestPages,
   relatedStack,
   relatedDiscoveryGroups,
+  citationUrls = [],
   children,
 }: ComparePageScaffoldProps) {
   const schemaFaqs = isHarmReduction ? [] : faqs
@@ -65,12 +67,12 @@ export default function ComparePageScaffold({
   return (
     <div className="mx-auto max-w-5xl px-4 py-8 space-y-12">
       <SchemaGraphScript graph={schemaGraph} />
-      <CompareSchema item1={item1} item2={item2} slug={slug} faqs={schemaFaqs} />
+      <CompareSchema item1={item1} item2={item2} slug={slug} faqs={schemaFaqs} citationUrls={citationUrls} />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Compare', href: '/compare' },
+          { label: 'Compare', href: '/guides/compare/' },
           { label: title },
         ]}
       />

@@ -59,9 +59,6 @@ export default async function NovelPsychoactiveSubstanceArticlePage({ params }: 
     mainEntityOfPage: `${SITE_URL}/novel-psychoactive-substances/${page.slug}/`,
     keywords: page.keywords,
     articleSection: 'Novel Psychoactive Substances',
-    additionalProperty: page.evidenceGrade
-      ? [{ '@type': 'PropertyValue', name: 'evidenceGrade', value: page.evidenceGrade }]
-      : undefined,
   }
 
   return (

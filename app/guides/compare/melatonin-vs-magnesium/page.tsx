@@ -10,6 +10,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
+import CitationReadySummary from '@/components/seo/CitationReadySummary'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
@@ -25,6 +26,8 @@ const MELATONIN_VS_MAGNESIUM_REFS = [
   { n: 5, text: 'Rondanelli M, et al. (2011). Melatonin, magnesium, and zinc in primary insomnia. J Am Geriatr Soc, 59(1): 82-90.', url: 'https://pubmed.ncbi.nlm.nih.gov/21226679/' },
 ]
 
+const citationUrls = MELATONIN_VS_MAGNESIUM_REFS.map((ref) => ref.url).filter(Boolean)
+
 export default function MelatoninVsMagnesiumPage() {
   const revenueProducts = ['melatonin', 'magnesium']
     .map((slug) => getRevenueProductSet(slug))
@@ -39,12 +42,18 @@ export default function MelatoninVsMagnesiumPage() {
       "
         url="https://thehippiescientist.net/guides/compare/melatonin-vs-magnesium"
         type="Article"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://thehippiescientist.net/' },
+          { name: 'Compare', url: 'https://thehippiescientist.net/guides/compare/' },
+          { name: 'Melatonin vs Magnesium', url: 'https://thehippiescientist.net/guides/compare/melatonin-vs-magnesium/' },
+        ]}
+        citationUrls={citationUrls}
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Compare', href: '/compare' },
+          { label: 'Compare', href: '/guides/compare/' },
           { label: 'Melatonin vs Magnesium' },
         ]}
       />
@@ -77,6 +86,19 @@ export default function MelatoninVsMagnesiumPage() {
         </figure>
       </section>
 
+      <CitationReadySummary
+        answer="Melatonin is usually the better fit when the main problem is falling asleep late, jet lag, or a shifted circadian rhythm. Magnesium glycinate is usually the better first choice when the problem is tension, restless legs, stress-related sleep quality, or waking during the night."
+        bestFor={[
+          'Melatonin: short-term sleep timing support, travel, jet lag, or delayed sleep onset.',
+          'Magnesium glycinate: longer-term relaxation support, muscle tension, restless legs, and sleep maintenance.',
+          'Together: reasonable for some adults when doses stay low and timing is staggered.',
+        ]}
+        evidenceLevel="Melatonin has stronger meta-analysis evidence for sleep-onset timing; magnesium evidence is smaller but practically relevant for older adults, deficiency risk, and relaxation-related sleep problems."
+        safetyNote="Avoid high-dose melatonin by default. Review magnesium form, kidney disease, sedatives, pregnancy, and medication context before combining sleep supplements."
+        notClaiming="This page is not claiming either supplement treats insomnia, replaces sleep disorder care, or works better than behavioral sleep changes."
+        referencesHref="#references"
+      />
+
       <section className="grid gap-6 md:grid-cols-2">
         <div className="card-premium p-6 space-y-4">
           <h2 className="text-2xl font-semibold">Melatonin</h2>
@@ -101,7 +123,7 @@ export default function MelatoninVsMagnesiumPage() {
 
       <section className="surface-subtle rounded-3xl p-6 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">
-          When to choose which
+          Melatonin vs magnesium: quick answer
         </h2>
 
         <p className="text-sm leading-7 text-muted">
@@ -112,10 +134,61 @@ export default function MelatoninVsMagnesiumPage() {
           <Link href="/guides/sleep/" className="chip-readable">
             Sleep Goal Hub
           </Link>
+          <Link href="/safety-checker/" className="chip-readable">
+            Safety Checker
+          </Link>
+          <Link href="/info/dosing/" className="chip-readable">
+            Dosing Guide
+          </Link>
           <Link href="/guides/compare/" className="chip-readable">
             All Comparisons
           </Link>
         </div>
+      </section>
+
+      <section className="grid gap-5 md:grid-cols-2">
+        <article className="card-premium p-6 space-y-3">
+          <h2 className="text-xl font-semibold tracking-tight text-ink">
+            Magnesium glycinate vs melatonin: the core difference
+          </h2>
+          <p className="text-sm leading-7 text-muted">
+            Magnesium glycinate supports relaxation physiology and muscle comfort; melatonin is a timing signal. If your body feels tense but your schedule is normal, compare magnesium first. If your sleep clock is shifted, compare low-dose melatonin first.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <Link href="/compounds/magnesium-glycinate/" className="chip-readable">Magnesium glycinate</Link>
+            <Link href="/compounds/melatonin/" className="chip-readable">Melatonin</Link>
+          </div>
+        </article>
+
+        <article className="card-premium p-6 space-y-3">
+          <h2 className="text-xl font-semibold tracking-tight text-ink">
+            Can you take magnesium and melatonin together?
+          </h2>
+          <p className="text-sm leading-7 text-muted">
+            Many adults tolerate the combination, but the safer experiment is staggered and low-dose: magnesium earlier in the evening, then 0.3-1 mg melatonin only if sleep onset remains the bottleneck. Check medication and pregnancy context first.
+          </p>
+          <Link href="/info/dosing/" className="chip-readable">Review dosing basics</Link>
+        </article>
+
+        <article className="card-premium p-6 space-y-3">
+          <h2 className="text-xl font-semibold tracking-tight text-ink">
+            Side effects: melatonin vs magnesium
+          </h2>
+          <p className="text-sm leading-7 text-muted">
+            Melatonin is more likely to cause next-day grogginess, vivid dreams, or timing mismatch when the dose is too high. Magnesium is more likely to cause loose stools depending on the form and dose; kidney disease changes the safety calculation.
+          </p>
+          <Link href="/safety-checker/" className="chip-readable">Check safety context</Link>
+        </article>
+
+        <article className="card-premium p-6 space-y-3">
+          <h2 className="text-xl font-semibold tracking-tight text-ink">
+            Which is better for staying asleep?
+          </h2>
+          <p className="text-sm leading-7 text-muted">
+            Magnesium is usually the better first comparison for staying asleep because it maps to relaxation, muscle tension, and nighttime restlessness. Melatonin can help timing, but more melatonin does not reliably mean deeper or longer sleep.
+          </p>
+          <Link href="/guides/sleep/" className="chip-readable">Explore sleep guides</Link>
+        </article>
       </section>
 
       <AffiliateDisclosure />

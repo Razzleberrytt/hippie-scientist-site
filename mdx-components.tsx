@@ -1,4 +1,4 @@
-import type { ComponentType, ReactNode } from 'react'
+import type { ComponentPropsWithoutRef, ComponentType, ReactNode } from 'react'
 import StudyDesignSnapshot from '@/components/evidence/StudyDesignSnapshot'
 import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
@@ -23,6 +23,7 @@ import EditorialNote from '@/components/editorial/EditorialNote'
 
 type MDXComponents = Record<string, ComponentType<Record<string, unknown>>>
 type MdxTableProps = Record<string, unknown> & { children?: ReactNode }
+type MdxAnchorProps = ComponentPropsWithoutRef<'a'>
 
 function MdxTable({ children, ...props }: MdxTableProps) {
   return (
@@ -32,6 +33,41 @@ function MdxTable({ children, ...props }: MdxTableProps) {
         {children}
       </table>
     </ResponsiveTable>
+  )
+}
+
+function getDisplayDomain(href: string | undefined) {
+  if (!href) return 'source'
+
+  try {
+    return new URL(href).hostname.replace(/^www\./, '')
+  } catch {
+    return 'source'
+  }
+}
+
+function isBareUrlLabel(children: ReactNode, href: string | undefined) {
+  if (typeof children !== 'string' || !href) return false
+
+  const label = children.trim().replace(/\/$/, '')
+  const target = href.trim().replace(/\/$/, '')
+
+  return /^https?:\/\//i.test(label) && label === target
+}
+
+function MdxAnchor({ children, href, target, rel, ...props }: MdxAnchorProps) {
+  const isExternal = typeof href === 'string' && /^https?:\/\//i.test(href)
+  const label = isBareUrlLabel(children, href) ? `Source: ${getDisplayDomain(href)}` : children
+
+  return (
+    <a
+      {...props}
+      href={href}
+      target={target ?? (isExternal ? '_blank' : undefined)}
+      rel={rel ?? (isExternal ? 'noopener noreferrer' : undefined)}
+    >
+      {label}
+    </a>
   )
 }
 
@@ -74,6 +110,7 @@ const evidenceComponents = {
   EvidenceConfidence,
   EditorialNote,
   table: MdxTable,
+  a: MdxAnchor,
 } as unknown as MDXComponents
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {

@@ -105,14 +105,6 @@ export function buildHerbArticleSchema(args: HerbArticleSchemaArgs): JsonLdNode 
   if (args.datePublished) node.datePublished = args.datePublished
   if (args.dateModified) node.dateModified = args.dateModified
 
-  if (args.evidenceGrade) {
-    node.additionalProperty = {
-      '@type': 'PropertyValue',
-      name: 'Evidence grade',
-      value: args.evidenceGrade,
-    }
-  }
-
   if (args.citations && args.citations.length > 0) {
     node.citation = args.citations.map(title => ({
       '@type': 'CreativeWork',
