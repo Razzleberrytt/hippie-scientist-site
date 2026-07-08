@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import AffiliateProductCard from '../AffiliateProductCard'
 
 vi.mock('next/image', () => ({
-  default: ({ alt }: { alt: string }) => <img alt={alt} />,
+  default: ({ alt }: { alt: string }) => <span aria-label={alt} role="img" />,
 }))
 
 describe('AffiliateProductCard regional URLs', () => {
