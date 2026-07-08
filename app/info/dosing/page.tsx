@@ -57,6 +57,39 @@ export default async function DosingPage() {
         </p>
       </section>
 
+      <section className='grid gap-4 md:grid-cols-3' aria-label='How to interpret supplement dose estimates'>
+        <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
+          <h2 className='text-base font-bold text-ink'>Separate label dose from active yield</h2>
+          <p className='mt-2 text-sm leading-6 text-muted'>
+            A capsule can list 500 mg of extract while delivering a much smaller amount of the active marker compound. Standardization, extract ratio, and marker percentage matter more than the front-label milligram number when comparing products.
+          </p>
+        </article>
+        <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
+          <h2 className='text-base font-bold text-ink'>Treat ranges as starting context</h2>
+          <p className='mt-2 text-sm leading-6 text-muted'>
+            Published ranges are not personal prescriptions. Individual sensitivity, medications, sleep debt, caffeine use, body size, liver metabolism, and health conditions can shift what feels too weak, useful, or too strong.
+          </p>
+        </article>
+        <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
+          <h2 className='text-base font-bold text-ink'>Avoid stacking unknowns</h2>
+          <p className='mt-2 text-sm leading-6 text-muted'>
+            When testing a new supplement, changing multiple ingredients at once makes side effects harder to trace. A conservative approach changes one variable, starts low, tracks response, and avoids combining similar mechanisms too quickly.
+          </p>
+        </article>
+      </section>
+
+      <section className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
+        <h2 className='text-xl font-bold tracking-tight text-ink'>Why supplement dose math gets confusing</h2>
+        <div className='mt-4 space-y-4 text-sm leading-7 text-muted'>
+          <p>
+            Supplement labels often mix several measurement systems: raw herb weight, extract weight, extract ratio, standardized marker percentage, and serving size. Two products can look similar on the front label while delivering very different amounts of the compounds most likely to drive the effect.
+          </p>
+          <p>
+            The safest use of this calculator is comparison, not escalation. It helps translate a product label into a conservative reference estimate so you can compare forms, spot unusually aggressive serving sizes, and decide whether a product deserves more safety review before use.
+          </p>
+        </div>
+      </section>
+
       <DosageCalculatorClient
         herbs={herbs.map((herb) => toDosingToolRecord(herb, 'herb'))}
         compounds={compounds.map((compound) => toDosingToolRecord(compound, 'compound'))}

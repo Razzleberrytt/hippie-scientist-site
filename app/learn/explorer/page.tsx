@@ -54,6 +54,39 @@ export default async function PathwayExplorerPage() {
         </p>
       </section>
 
+      <section className='grid gap-4 md:grid-cols-3' aria-label='How to read pathway relationships'>
+        <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
+          <h2 className='text-base font-bold text-ink'>Mechanism is not the same as outcome</h2>
+          <p className='mt-2 text-sm leading-6 text-muted'>
+            A compound can interact with a receptor, enzyme, transporter, or pathway without producing a predictable real-world effect in every person. The explorer is best used to understand plausible directions of action before reading the full evidence profile.
+          </p>
+        </article>
+        <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
+          <h2 className='text-base font-bold text-ink'>Look for converging signals</h2>
+          <p className='mt-2 text-sm leading-6 text-muted'>
+            Stronger confidence usually comes from multiple signals pointing the same direction: mechanism data, human trials, safety history, dose realism, and practical fit. A pathway match alone should not be treated as proof of benefit.
+          </p>
+        </article>
+        <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
+          <h2 className='text-base font-bold text-ink'>Use caution with stacking</h2>
+          <p className='mt-2 text-sm leading-6 text-muted'>
+            If several ingredients influence the same pathway, the combined effect can be stronger than expected. This matters most for sedating, stimulating, serotonergic, blood-pressure, anticoagulant, and liver-metabolism patterns.
+          </p>
+        </article>
+      </section>
+
+      <section className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
+        <h2 className='text-xl font-bold tracking-tight text-ink'>How this explorer fits into the evidence workflow</h2>
+        <div className='mt-4 space-y-4 text-sm leading-7 text-muted'>
+          <p>
+            Pathway maps are useful for discovery, but they are only one layer of supplement evaluation. A GABA, dopamine, serotonin, acetylcholine, inflammation, or stress-response connection tells you where to investigate next; it does not tell you whether a product is effective, safe, or appropriately dosed.
+          </p>
+          <p>
+            Use the explorer to generate better questions: which profiles share similar mechanisms, which ingredients might duplicate each other in a stack, which safety warnings should be checked, and which pages deserve deeper reading before buying or combining anything.
+          </p>
+        </div>
+      </section>
+
       <PathwayExplorerClient herbs={herbs} compounds={compounds} />
     </div>
   )
