@@ -1,4 +1,5 @@
 import type { SchemaNode } from '@/lib/schema'
+import { sanitizeJsonLdPayload } from '@/lib/json-ld-sanitize'
 
 type SchemaOrgProps = {
   graph?: Record<string, unknown> | null
@@ -35,7 +36,7 @@ function toPayload({
 }
 
 function serializeJsonLd(payload: Record<string, unknown> | SchemaNode): string {
-  return JSON.stringify(payload).replace(/</g, '\\u003c')
+  return JSON.stringify(sanitizeJsonLdPayload(payload)).replace(/</g, '\\u003c')
 }
 
 export default function SchemaOrg(props: SchemaOrgProps) {
