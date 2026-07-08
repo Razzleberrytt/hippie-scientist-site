@@ -1047,15 +1047,41 @@ export function formatProfileDescription(
   return formatMetaDescription(raw, fallback, 160)
 }
 
+/**
+ * Explicit metadata overrides for near-duplicate profile slugs — sleep/context
+ * variant pages and alias/salt forms whose generated title collapses to the same
+ * string as their primary (the parenthetical qualifier in `name`, e.g.
+ * "Glycine (Sleep Use)", is stripped by getProfileDisplayName). Each override gives
+ * the SECONDARY page of a pair a unique, accurate title (and a description where the
+ * generated one also collided), resolving the duplicate-title / duplicate-meta SEO
+ * issue while keeping both pages indexable. The primary page keeps its generated title.
+ */
+const PROFILE_METADATA_OVERRIDES: Record<string, { title: string; description?: string }> = {
+  'glycine-sleep': { title: 'Glycine for Sleep: Effects, Dose & Safety' },
+  'inositol-sleep': { title: 'Inositol for Sleep & Anxiety: Effects, Dose & Safety' },
+  'l-theanine-sleep': { title: 'L-Theanine for Sleep: Effects, Dose & Safety' },
+  'taurine-sleep': { title: 'Taurine for Sleep: Effects, Dose & Safety' },
+  'berberine-hcl': {
+    title: 'Berberine HCl: Effects, Dose & Safety',
+    description:
+      'Berberine HCl (hydrochloride salt) dosage, absorption, blood-sugar and lipid effects, onset, and safety limits, graded against research evidence.',
+  },
+  'coenzyme-q10': { title: 'Coenzyme Q10 (CoQ10): Effects, Dose & Safety' },
+  'silybum-marianum': { title: 'Silybum Marianum (Milk Thistle): Benefits, Dosage & Safety' },
+}
+
 export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): Metadata {
   const displayName = getProfileDisplayName(record)
+  const override = PROFILE_METADATA_OVERRIDES[String(record?.slug || '').toLowerCase()]
 
   // Title Priority:
+  // 0. near-duplicate disambiguation override (see PROFILE_METADATA_OVERRIDES)
   // 1. meta_title
   // 2. seoTitle
   // 3. keyword-first generated title
   // 4. fallback entity/page title
-  const title = getSafeProfileTitleOverride(record, displayName, type) ||
+  const title = override?.title ||
+                getSafeProfileTitleOverride(record, displayName, type) ||
                 formatProfileTitle(displayName, type) ||
                 displayName
 
@@ -1070,7 +1096,8 @@ export function generateDetailMetadata(record: any, type: 'herb' | 'compound'): 
     : `${displayName} dosage, effects, onset, and safety graded against research evidence.`
 
   const rawDescription = (record.meta_description || record.metaDescription || record.description || '').trim()
-  const description = normalizeProfileNameInText(rawDescription, displayName) ||
+  const description = override?.description ||
+                      normalizeProfileNameInText(rawDescription, displayName) ||
                       keywordFirstDescription ||
                       safeFallbackDescription
 
