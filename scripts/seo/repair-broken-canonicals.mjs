@@ -44,7 +44,7 @@ let touchedFiles = 0
 let replacements = 0
 
 for (const filePath of walkHtmlFiles(outDir)) {
-  let html = fs.readFileSync(filePath, 'utf8')
+  const html = fs.readFileSync(filePath, 'utf8')
   let next = html
 
   for (const [from, to] of CANONICAL_REPLACEMENTS) {
