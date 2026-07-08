@@ -13,17 +13,17 @@ export type SemanticImageRecord = {
 
 const herbImages: Record<string, SemanticImageRecord> = {
   ashwagandha: {
-    src: '/images/herbs/ashwagandha.webp',
+    src: '/images/guides/ashwagandha-herb.jpg',
     alt: 'Ashwagandha botanical imagery',
     type: 'herb',
   },
   turmeric: {
-    src: '/images/herbs/turmeric.webp',
+    src: '/images/guides/turmeric-curcumin.jpg',
     alt: 'Turmeric botanical imagery',
     type: 'herb',
   },
   rhodiola: {
-    src: '/images/herbs/rhodiola.webp',
+    src: '/images/monographs/photos/rhodiola.jpg',
     alt: 'Rhodiola botanical imagery',
     type: 'herb',
   },
@@ -31,12 +31,12 @@ const herbImages: Record<string, SemanticImageRecord> = {
 
 const compoundImages: Record<string, SemanticImageRecord> = {
   l_theanine: {
-    src: '/images/compounds/l-theanine.webp',
+    src: '/images/monographs/photos/l-theanine.jpg',
     alt: 'L-Theanine molecular illustration',
     type: 'compound',
   },
   magnesium: {
-    src: '/images/compounds/magnesium.webp',
+    src: '/images/guides/magnesium-for-sleep.jpg',
     alt: 'Magnesium scientific illustration',
     type: 'compound',
   },
@@ -44,12 +44,12 @@ const compoundImages: Record<string, SemanticImageRecord> = {
 
 const pathwayImages: Record<string, SemanticImageRecord> = {
   sleep: {
-    src: '/images/pathways/sleep.webp',
+    src: '/images/guides/sleep-supplements-guide.jpg',
     alt: 'Sleep pathway visualization',
     type: 'pathway',
   },
   cognition: {
-    src: '/images/pathways/cognition.webp',
+    src: '/images/learn-hub.jpg',
     alt: 'Cognition pathway visualization',
     type: 'pathway',
   },
@@ -57,17 +57,17 @@ const pathwayImages: Record<string, SemanticImageRecord> = {
 
 const fallbackImages: Record<string, SemanticImageRecord> = {
   herb: {
-    src: '/images/fallbacks/herb-fallback.webp',
+    src: '/images/monographs/botanical.svg',
     alt: 'Botanical fallback image',
     type: 'fallback',
   },
   compound: {
-    src: '/images/fallbacks/compound-fallback.webp',
+    src: '/images/monographs/molecule.svg',
     alt: 'Scientific compound fallback image',
     type: 'fallback',
   },
   pathway: {
-    src: '/images/fallbacks/pathway-fallback.webp',
+    src: '/images/learn-hub.jpg',
     alt: 'Scientific pathway fallback image',
     type: 'fallback',
   },

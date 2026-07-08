@@ -10,9 +10,9 @@ export const metadata: Metadata = buildPageMetadata({
 
 import Link from 'next/link'
 
-const infoGraphicEmbedCode = (slug: string, width: number, height: number, alt: string) => 
+const infoGraphicEmbedCode = (src: string, width: number, height: number, alt: string) => 
   `<a href="https://thehippiescientist.net/evidence/evidence-report/">
-  <img src="https://thehippiescientist.net/info/infographics/${slug}.png"
+  <img src="https://thehippiescientist.net${src}"
        alt="${alt}" width="${width}" height="${height}"
        style="max-width:100%;height:auto;border:0" />
 </a>
@@ -39,7 +39,7 @@ export default function InfographicsPage() {
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Sleep Supplements: Evidence vs Hype</h2>
         <div className="card-premium p-4">
           <Image
-            src="/info/infographics/sleep-supplements-evidence.png"
+            src="/images/guides/sleep-supplements-guide.jpg"
             alt="Sleep Supplements Evidence vs Hype infographic showing evidence grades for melatonin, magnesium, valerian, ashwagandha, L-theanine, and glycine based on 816 peer-reviewed studies"
             width={600}
             height={800}
@@ -50,7 +50,7 @@ export default function InfographicsPage() {
         <details className="card-premium p-4 cursor-pointer">
           <summary className="text-sm font-semibold text-ink">Embed code — copy and paste</summary>
           <pre className="mt-3 text-xs leading-relaxed bg-surface-subtle p-3 rounded-lg overflow-x-auto text-muted">
-{infoGraphicEmbedCode('sleep-supplements-evidence', 600, 800, 'Sleep Supplements Evidence vs Hype — The Hippie Scientist')}
+{infoGraphicEmbedCode('/images/guides/sleep-supplements-guide.jpg', 600, 800, 'Sleep Supplements Evidence vs Hype — The Hippie Scientist')}
           </pre>
         </details>
       </section>
@@ -60,7 +60,7 @@ export default function InfographicsPage() {
         <h2 className="text-2xl font-semibold tracking-tight text-ink">ADHD Supplements: What the Research Actually Shows</h2>
         <div className="card-premium p-4">
           <Image
-            src="/info/infographics/adhd-supplements-evidence.png"
+            src="/images/guides/adhd-supplements-hub.jpg"
             alt="ADHD Supplements evidence infographic showing clinical trial strength for Omega-3, Magnesium, Zinc, L-Theanine, Citicoline, Iron, and Vitamin D based on 816 peer-reviewed studies"
             width={600}
             height={800}
@@ -71,7 +71,7 @@ export default function InfographicsPage() {
         <details className="card-premium p-4 cursor-pointer">
           <summary className="text-sm font-semibold text-ink">Embed code — copy and paste</summary>
           <pre className="mt-3 text-xs leading-relaxed bg-surface-subtle p-3 rounded-lg overflow-x-auto text-muted">
-{infoGraphicEmbedCode('adhd-supplements-evidence', 600, 800, 'ADHD Supplements Evidence Levels — The Hippie Scientist')}
+{infoGraphicEmbedCode('/images/guides/adhd-supplements-hub.jpg', 600, 800, 'ADHD Supplements Evidence Levels — The Hippie Scientist')}
           </pre>
         </details>
       </section>
