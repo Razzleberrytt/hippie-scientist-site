@@ -23,9 +23,12 @@ function compareSlug(href: string): string {
 
 describe('compare link integrity', () => {
   it('isBuiltComparisonSlug accepts a known built pair and rejects phantoms', () => {
-    // `aescin-vs-ajoene` is part of the generated/adjacent comparison set that
-    // `app/guides/compare/[slug]/page.tsx` builds via generateStaticParams.
-    expect(isBuiltComparisonSlug('aescin-vs-ajoene')).toBe(true)
+    // Only pages with a real `app/guides/compare/<slug>/page.tsx` are built.
+    expect(isBuiltComparisonSlug('rhodiola-vs-ashwagandha')).toBe(true)
+    expect(isBuiltComparisonSlug('kava-vs-alcohol')).toBe(true)
+    // Config "adjacent pairs" / combinations have NO page and must be rejected —
+    // treating them as built was the source of the /guides/compare/* 404 cluster.
+    expect(isBuiltComparisonSlug('aescin-vs-ajoene')).toBe(false)
     // Mechanism / signal "comparisons" and arbitrary pairs are not built pages.
     expect(isBuiltComparisonSlug('garcinia-indica-vs-nf-b-inhibition')).toBe(false)
     expect(isBuiltComparisonSlug('citicoline-vs-neuroprotective-activity')).toBe(false)
