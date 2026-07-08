@@ -12,6 +12,7 @@ type RecommendationSectionProps = {
   title?: string
   description?: string
   products: RecommendationProduct[]
+  preferredRegion?: string | null
   suppressMonetization?: boolean
 }
 
@@ -25,6 +26,7 @@ export default function RecommendationSection({
   title = 'Product recommendations',
   description = 'Use these as sourcing starting points, not medical recommendations. Product quality, dose, and fit still need review.',
   products,
+  preferredRegion = null,
   suppressMonetization = false,
 }: RecommendationSectionProps) {
   if (suppressMonetization) return null
@@ -47,7 +49,14 @@ export default function RecommendationSection({
         {ordered.map((product) => (
           <div key={`${product.slot}-${product.title || product.name}`} className='flex flex-col gap-2'>
             <p className='text-xs font-bold uppercase tracking-[0.16em] text-brand-700 dark:text-brand-200'>{slotLabels[product.slot]}</p>
-            <AffiliateProductCard product={{ ...product, trackingLocation: 'recommendation-section' }} compact />
+            <AffiliateProductCard
+              product={{
+                ...product,
+                preferredRegion: product.preferredRegion ?? preferredRegion,
+                trackingLocation: 'recommendation-section',
+              }}
+              compact
+            />
           </div>
         ))}
       </div>
