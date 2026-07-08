@@ -9,7 +9,7 @@ import type { Heading } from '@/components/articles'
 import References from '@/components/References'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'PT-141 (Bremelanotide/Vyleesi): Evidence, Mechanism, and Legal Status',
+  title: 'PT-141 (Bremelanotide): Evidence & Safety Guide',
   description: 'Evidence-based overview of PT-141 (bremelanotide) — melanocortin receptor mechanism, the FDA-approved Vyleesi indication, off-label/RUO use, and safety.',
   path: '/guides/other/pt-141/',
 })
