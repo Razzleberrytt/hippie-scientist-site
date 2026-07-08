@@ -78,7 +78,7 @@ Store herbs in airtight glass jars away from light and heat. Label each jar with
 
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5871219/
 https://pubmed.ncbi.nlm.nih.gov/31694618/
-https://www.herbalacademy.com/build-your-own-herbal-tea-blend/
+https://www.sleepfoundation.org/sleep-aids/best-tea-for-sleep
 https://www.frontiersin.org/articles/10.3389/fpsyg.2021.720965/full
 
 
@@ -115,4 +115,3 @@ If you develop digestive discomfort, headaches, or unusual dreams, pause the ble
 ## Long-Term Maintenance
 
 Refresh your blend every few months by consulting with herbalists or exploring new botanicals. Attend community herb swaps to diversify ingredients and share notes. Over time, your nightly blend becomes a living document of self-care, evolving with your needs and seasons.
-

@@ -67,10 +67,9 @@ Scientists are exploring synergistic formulas combining lion’s mane with saffr
 https://pubmed.ncbi.nlm.nih.gov/19571154/
 https://pubmed.ncbi.nlm.nih.gov/24266378/
 https://pubmed.ncbi.nlm.nih.gov/32727229/
-https://www.frontiersin.org/articles/10.3389/fphar.2021.731274/full
+https://pmc.ncbi.nlm.nih.gov/articles/PMC12230622/
 
 
 ## Tracking Progress and Personalizing Use
 
 Documenting your experience provides context that raw enthusiasm cannot. Rate focus, creativity, and mood on a 1–5 scale each day for at least four weeks, noting other factors like exercise or stress. If lion’s mane aligns with higher scores during active weeks, you can infer a synergistic relationship with lifestyle habits. Conversely, if benefits fade despite consistent dosing, consider cycling off for two weeks to reset sensitivity or switching to a different extract ratio. Personalized experimentation keeps the conversation grounded in lived outcomes rather than marketing claims.
-

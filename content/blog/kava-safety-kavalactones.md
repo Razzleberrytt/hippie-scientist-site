@@ -67,10 +67,9 @@ Approach kava as a ritual, not a quick fix. Create a calm environment, hydrate, 
 https://apps.who.int/iris/handle/10665/43342
 https://pubmed.ncbi.nlm.nih.gov/12494324/
 https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3080047/
-https://www.mdpi.com/1420-3049/20/7/11796
+https://pmc.ncbi.nlm.nih.gov/articles/PMC9315573/
 
 
 ## Building Community Knowledge
 
 Grassroots kava bars and online forums continue to refine best practices. Sharing preparation ratios, cultivar impressions, and lab data helps create a crowdsourced safety net. If you discover a supplier whose batches feel unusually heavy or cause digestive upset, report your experience and request additional testing. Conversely, celebrate growers who prioritize regenerative agriculture and transparency. Community vigilance keeps kava culture thriving while discouraging shortcuts that compromise liver health.
-

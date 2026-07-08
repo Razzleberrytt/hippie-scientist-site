@@ -76,6 +76,5 @@ Human trials remain limited, but emerging interest in plant-based anxiolytics ma
 
 https://www.frontiersin.org/articles/10.3389/fpsyt.2013.00170/full
 https://pubmed.ncbi.nlm.nih.gov/31881670/
-https://www.researchgate.net/publication/317296038_Sceletium_tortuosum_a_review_update
-https://www.phytotherapymedicines.com/blogs/herbal-monographs/kanna-sceletium-tortuosum
-
+https://pubmed.ncbi.nlm.nih.gov/34758918/
+https://pmc.ncbi.nlm.nih.gov/articles/PMC8762184/
