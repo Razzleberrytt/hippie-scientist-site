@@ -64,6 +64,22 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /safety /safety-checker/ 301
 /safety/ /safety-checker/ 301
 
+# Deprecated top-level guide aliases now live in category guide hubs.
+/guides/elderberry /guides/herbs/elderberry/ 301
+/guides/elderberry/ /guides/herbs/elderberry/ 301
+/guides/kava /guides/herbs/kava/ 301
+/guides/kava/ /guides/herbs/kava/ 301
+/guides/passionflower /guides/herbs/passionflower/ 301
+/guides/passionflower/ /guides/herbs/passionflower/ 301
+/guides/rhodiola-complete-guide /guides/herbs/rhodiola-complete-guide/ 301
+/guides/rhodiola-complete-guide/ /guides/herbs/rhodiola-complete-guide/ 301
+/guides/rhodiola-energy /guides/herbs/rhodiola-energy/ 301
+/guides/rhodiola-energy/ /guides/herbs/rhodiola-energy/ 301
+/guides/rhodiola-extract-vs-powder /guides/herbs/rhodiola-extract-vs-powder/ 301
+/guides/rhodiola-extract-vs-powder/ /guides/herbs/rhodiola-extract-vs-powder/ 301
+/guides/rhodiola-sleep-stack /guides/sleep/rhodiola-sleep-stack/ 301
+/guides/rhodiola-sleep-stack/ /guides/sleep/rhodiola-sleep-stack/ 301
+
 # 2026 guide taxonomy consolidation: old article and top-level URLs now live under
 # topic-specific guide hubs.
 /guides/adhd-supplements /guides/adhd/adhd-supplements/ 301
