@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: P): Promise<Metadata> {
 
   return {
     title: `Compound Profiles & Research Library — Page ${n}`,
+    description: `Browse page ${n} of The Hippie Scientist compound research library, with evidence, mechanism, safety, and practical context for supplement constituents.`,
     alternates: {
       canonical: `/compounds/page/${n}/`,
     },
