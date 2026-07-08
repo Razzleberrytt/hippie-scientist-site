@@ -30,6 +30,79 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 
 /atom.xml /feed.xml 301
 
+# Required legacy aliases checked by verify-redirects.
+/natural-anxiolytics-beyond-ashwagandha /guides/natural-anxiolytics-beyond-ashwagandha/ 301
+/psychedelic-adjacent-herbs /guides/psychedelic-adjacent-herbs/ 301
+/sleep-herbs-vs-melatonin /guides/sleep-herbs-vs-melatonin/ 301
+/compounds/coq10 /compounds/coenzyme-q10/ 301
+/compounds/coenzyme-q10-ubiquinol /compounds/coenzyme-q10/ 301
+/compounds/theanine /compounds/l-theanine/ 301
+/compounds/l-theanine-sleep /compounds/l-theanine/ 301
+/compounds/methyleugenol /compounds/methyl-eugenol/ 301
+/compounds/bcaas /compounds/bcaa/ 301
+/compounds/green-tea-egcg-isolated /compounds/green-tea-extract/ 301
+/compounds/green-tea-extract-egcg /compounds/green-tea-extract/ 301
+/compounds/probiotic-multistrain /compounds/probiotics/ 301
+/compounds/probiotic-strain-bifidobacterium /compounds/probiotics/ 301
+/compounds/probiotic-strain-lactobacillus /compounds/probiotics/ 301
+/compounds/probiotics-bifidobacterium /compounds/probiotics/ 301
+/compounds/probiotics-lactobacillus /compounds/probiotics/ 301
+/compounds/taurine-blend /compounds/taurine/ 301
+/compounds/taurine-sleep /compounds/taurine/ 301
+/compounds/glycine-sleep /compounds/glycine/ 301
+/compounds/inositol-sleep /compounds/inositol/ 301
+/compounds/ashwagandha-extract-ksm-66 /herbs/ashwagandha/ 301
+/compounds/ashwagandha-root-extract /herbs/ashwagandha/ 301
+/compounds/garlic /herbs/garlic/ 301
+/compounds/garlic-extract /herbs/garlic/ 301
+/compounds/garlic-aged-extract /herbs/garlic/ 301
+/compounds/aged-garlic-extract /herbs/garlic/ 301
+/herbs/allium-sativum /herbs/garlic/ 301
+/compounds/ginger /herbs/ginger/ 301
+/compounds/gingerol /herbs/ginger/ 301
+/compounds/gingerols /herbs/ginger/ 301
+/compounds/valerian /herbs/valerian/ 301
+/compounds/valerian-extract-standardized /herbs/valerian/ 301
+/compounds/valerian-root-extract /herbs/valerian/ 301
+/herbs/valeriana-officinalis /herbs/valerian/ 301
+/compounds/lions-mane /herbs/lions-mane/ 301
+/herbs/hericium-erinaceus /herbs/lions-mane/ 301
+/compounds/passionflower /herbs/passionflower/ 301
+/compounds/passionflower-extract /herbs/passionflower/ 301
+/compounds/passionflower-extract-standardized /herbs/passionflower/ 301
+/herbs/passiflora-incarnata /herbs/passionflower/ 301
+/compounds/kava /herbs/kava/ 301
+/compounds/kavalactones /herbs/kava/ 301
+/herbs/piper-methysticum /herbs/kava/ 301
+/compounds/reishi /herbs/reishi/ 301
+/herbs/ganoderma-lucidum /herbs/reishi/ 301
+/compounds/maca /herbs/maca/ 301
+/compounds/maca-root-extract /herbs/maca/ 301
+/compounds/elderberry /herbs/elderberry/ 301
+/compounds/resveratrol /herbs/resveratrol/ 301
+/compounds/trans-resveratrol /herbs/resveratrol/ 301
+/herbs/ashwagandha-withania-somnifera /herbs/ashwagandha/ 301
+/herbs/ashwagandha-withania-somnifera/ /herbs/ashwagandha/ 301
+/safety-checker /safety-checker/ 301
+/safety /safety-checker/ 301
+/safety/ /safety-checker/ 301
+
+# Deprecated top-level guide aliases now live in category guide hubs.
+/guides/elderberry /guides/herbs/elderberry/ 301
+/guides/elderberry/ /guides/herbs/elderberry/ 301
+/guides/kava /guides/herbs/kava/ 301
+/guides/kava/ /guides/herbs/kava/ 301
+/guides/passionflower /guides/herbs/passionflower/ 301
+/guides/passionflower/ /guides/herbs/passionflower/ 301
+/guides/rhodiola-complete-guide /guides/herbs/rhodiola-complete-guide/ 301
+/guides/rhodiola-complete-guide/ /guides/herbs/rhodiola-complete-guide/ 301
+/guides/rhodiola-energy /guides/herbs/rhodiola-energy/ 301
+/guides/rhodiola-energy/ /guides/herbs/rhodiola-energy/ 301
+/guides/rhodiola-extract-vs-powder /guides/herbs/rhodiola-extract-vs-powder/ 301
+/guides/rhodiola-extract-vs-powder/ /guides/herbs/rhodiola-extract-vs-powder/ 301
+/guides/rhodiola-sleep-stack /guides/sleep/rhodiola-sleep-stack/ 301
+/guides/rhodiola-sleep-stack/ /guides/sleep/rhodiola-sleep-stack/ 301
+
 # 2026 guide taxonomy consolidation: old article and top-level URLs now live under
 # topic-specific guide hubs.
 /guides/adhd-supplements /guides/adhd/adhd-supplements/ 301
@@ -80,8 +153,6 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /compare/caffeine-vs-l-theanine/ /guides/compare/caffeine-vs-l-theanine/ 301
 /compare/melatonin-vs-magnesium /guides/compare/melatonin-vs-magnesium/ 301
 /compare/melatonin-vs-magnesium/ /guides/compare/melatonin-vs-magnesium/ 301
-/top/sleep /guides/sleep/best-herbs-for-sleep/ 301
-/top/sleep/ /guides/sleep/best-herbs-for-sleep/ 301
 /compare/sleep-herbs-vs-melatonin /guides/compare/sleep-herbs-vs-melatonin/ 301
 /compare/sleep-herbs-vs-melatonin/ /guides/compare/sleep-herbs-vs-melatonin/ 301
 /compare/rhodiola-vs-ashwagandha /guides/compare/rhodiola-vs-ashwagandha/ 301
