@@ -1,0 +1,481 @@
+# Semrush internal broken links export: www.thehippiescientist.net_internal_broken_links_20260708.csv
+# 3,826 broken-link instances collapsed to 308 unique 404 targets.
+# Counts are preserved in comments for future prioritization; build script emits slash/non-slash variants.
+# 374 broken-link instances
+/goals/anxiety/ /guides/anxiety/ 301
+# 365 broken-link instances
+/goals/blood-pressure/ /guides/best/supplements-for-blood-pressure/ 301
+# 286 broken-link instances
+/goals/cognition/ /guides/focus/ 301
+# 226 broken-link instances
+/goals/energy/ /guides/other/supplements-for-brain-fog-and-fatigue/ 301
+# 190 broken-link instances
+/goals/stress/ /guides/anxiety/best-supplements-for-stress/ 301
+# 175 broken-link instances
+/goals/fat-loss/ /guides/best/supplements-for-fat-loss/ 301
+# 168 broken-link instances
+/herbs/angelica-sinensis/ /herbs/dong-quai/ 301
+# 160 broken-link instances
+/goals/inflammation/ /learn/inflammation/ 301
+# 158 broken-link instances
+/herbs/astragalus-membranaceus/ /herbs/astragalus/ 301
+# 127 broken-link instances
+/herbs/allium-sativum/ /herbs/garlic/ 301
+# 121 broken-link instances
+/herbs/valeriana-officinalis/ /herbs/valerian/ 301
+# 95 broken-link instances
+/goals/recovery/ /guides/best/supplements-for-joint-support/ 301
+# 85 broken-link instances
+/herbs/angelica-root/ /herbs/angelica-archangelica/ 301
+# 84 broken-link instances
+/herbs/phellodendron/ /herbs/phellodendron-amurense/ 301
+# 80 broken-link instances
+/herbs/passiflora-incarnata/ /herbs/passionflower/ 301
+# 78 broken-link instances
+/herbs/morus-alba/ /herbs/mulberry-leaf/ 301
+# 77 broken-link instances
+/herbs/ganoderma-lucidum/ /herbs/reishi/ 301
+# 75 broken-link instances
+/goals/sleep/ /guides/sleep/ 301
+# 73 broken-link instances
+/herbs/berberis-vulgaris/ /herbs/berberis/ 301
+# 70 broken-link instances
+/herbs/coptis-chinensis/ /herbs/coptis/ 301
+# 57 broken-link instances
+/goals/gut-health/ /guides/best/supplements-for-gut-health/ 301
+# 48 broken-link instances
+/goals/focus/ /guides/focus/ 301
+# 46 broken-link instances
+/herbs/berberis-aristata/ /herbs/berberis/ 301
+# 41 broken-link instances
+/goals/pain/ /guides/best/supplements-for-joint-support/ 301
+# 40 broken-link instances
+/goals/joint-support/ /guides/best/supplements-for-joint-support/ 301
+# 33 broken-link instances
+/herbs/atractylodes-macrocephala/ /herbs/atractylodes/ 301
+# 30 broken-link instances
+/herbs/piper-methysticum/ /herbs/kava/ 301
+# 11 broken-link instances
+/guides/sleep-herbs-vs-melatonin/ /guides/compare/sleep-herbs-vs-melatonin/ 301
+# 10 broken-link instances
+/info/ /info/about/ 301
+# 9 broken-link instances
+/guides/other/ /guides/ 301
+# 8 broken-link instances
+/psychoactive/ /guides/other/psychedelic-adjacent-herbs/ 301
+# 7 broken-link instances
+/author/ /info/author/ 301
+# 6 broken-link instances
+/guides/passionflower/ /guides/herbs/passionflower/ 301
+# 6 broken-link instances
+/guides/adhd/l-theanine-vs-caffeine-for-focus/ /guides/focus/l-theanine-vs-caffeine-for-focus/ 301
+# 5 broken-link instances
+/articles/sleep-best-supplements/ /guides/sleep/best-supplements-for-sleep/ 301
+# 5 broken-link instances
+/articles/best-magnesium-for-sleep/ /guides/sleep/best-magnesium-for-sleep/ 301
+# 5 broken-link instances
+/guides/rhodiola-complete-guide/ /guides/herbs/rhodiola-complete-guide/ 301
+# 5 broken-link instances
+/articles/melatonin-vs-valerian/ /guides/herbs/melatonin-vs-valerian/ 301
+# 5 broken-link instances
+/articles/l-theanine-for-calm/ /guides/anxiety/l-theanine-for-calm/ 301
+# 5 broken-link instances
+/articles/sleep-stack-magnesium-melatonin/ /guides/sleep/sleep-stack-guide/ 301
+# 4 broken-link instances
+/herbs/boswellia-carterii/ /herbs/boswellia-serrata/ 301
+# 4 broken-link instances
+/compare/artichoke-extract-vs-berberine/ /guides/compare/ 301
+# 4 broken-link instances
+/education/how-focus-and-motivation-work/ /learn/how-focus-and-motivation-work/ 301
+# 4 broken-link instances
+/guides/how-to-lower-cortisol-naturally/ /guides/anxiety/how-to-lower-cortisol-naturally/ 301
+# 4 broken-link instances
+/compare/agmatine-sulfate-vs-curcumin/ /guides/compare/ 301
+# 4 broken-link instances
+/guides/adhd/l-theanine-without-caffeine/ /guides/focus/l-theanine-without-caffeine/ 301
+# 4 broken-link instances
+/compare/berberine-vs-inositol/ /guides/compare/ 301
+# 3 broken-link instances
+/compare/alpha-lipoic-acid-vs-berberine-hcl/ /guides/compare/ 301
+# 3 broken-link instances
+/articles/l-theanine-vs-caffeine-for-focus/ /guides/focus/l-theanine-vs-caffeine-for-focus/ 301
+# 3 broken-link instances
+/guides/best-herbs-for-stress-and-anxiety-at-night/ /guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/ 301
+# 3 broken-link instances
+/compare/vitamin-d-vs-magnesium/ /guides/compare/ 301
+# 3 broken-link instances
+/compare/agmatine-sulfate-vs-curcumin-piperine/ /guides/compare/ 301
+# 3 broken-link instances
+/guides/kratom-7oh-withdrawal-management/ /guides/other/kratom-7oh-withdrawal-management/ 301
+# 3 broken-link instances
+/compare/ashwagandha-vs-holy-basil/ /guides/compare/ 301
+# 3 broken-link instances
+/compare/ashwagandha-extract-ksm-66-vs-glycine-sleep/ /guides/compare/ 301
+# 3 broken-link instances
+/guides/turmeric-curcumin/ /guides/herbs/turmeric-curcumin/ 301
+# 3 broken-link instances
+/herbs/hericium-erinaceus/ /herbs/lions-mane/ 301
+# 3 broken-link instances
+/articles/citicoline-for-adhd/ /guides/adhd/citicoline-for-adhd/ 301
+# 3 broken-link instances
+/guides/rhodiola-sleep-stack/ /guides/herbs/rhodiola-complete-guide/ 301
+# 3 broken-link instances
+/compare/alpha-lipoic-acid-vs-d-chiro-inositol/ /guides/compare/ 301
+# 3 broken-link instances
+/compare/melatonin-vs-l-theanine/ /guides/compare/ 301
+# 3 broken-link instances
+/compare/choline-vs-lecithin/ /guides/compare/ 301
+# 3 broken-link instances
+/compare/acetyl-l-carnitine-vs-omega-3/ /guides/compare/ 301
+# 3 broken-link instances
+/compare/elderberry-vs-vitamin-d/ /guides/compare/ 301
+# 3 broken-link instances
+/compare/garlic-vs-ginger/ /guides/compare/ 301
+# 3 broken-link instances
+/guides/rhodiola-energy/ /guides/herbs/rhodiola-energy/ 301
+# 3 broken-link instances
+/compare/quercetin-vs-resveratrol/ /guides/compare/ 301
+# 2 broken-link instances
+/articles/alpha-gpc-and-adhd/ /guides/adhd/alpha-gpc-and-adhd/ 301
+# 2 broken-link instances
+/stacks/ /guides/ 301
+# 2 broken-link instances
+/compare/acarbose-vs-american-ginseng-extract/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/acerola-vs-andrographis-paniculata/ /guides/compare/ 301
+# 2 broken-link instances
+/guides/best-natural-sleep-aids-that-work/ /guides/sleep/best-natural-sleep-aids-that-work/ 301
+# 2 broken-link instances
+/compare/aloe-vera-vs-panax-ginseng/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/alpha-gpc-vs-cdp-choline/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/anemarrhena-asphodeloides-vs-cistanche-deserticola/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/sophora-alopecuroides-vs-sophora-flavescens/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/quercetin-vs-turmeric/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/alpha-gpc-vs-caffeine/ /guides/compare/ 301
+# 2 broken-link instances
+/articles/citicoline-vs-alpha-gpc/ /guides/adhd/citicoline-vs-alpha-gpc/ 301
+# 2 broken-link instances
+/compare/acetyl-l-carnitine-vs-omega-3-epa/ /guides/compare/ 301
+# 2 broken-link instances
+/articles/iron-ferritin-and-adhd/ /guides/adhd/iron-ferritin-and-adhd/ 301
+# 2 broken-link instances
+/guides/rhodiola-extract-vs-powder/ /guides/herbs/rhodiola-extract-vs-powder/ 301
+# 2 broken-link instances
+/guides/supplements-for-brain-fog-and-fatigue/ /guides/other/supplements-for-brain-fog-and-fatigue/ 301
+# 2 broken-link instances
+/compounds/curcumin/ /herbs/turmeric/ 301
+# 2 broken-link instances
+/compare/aloe-vera-vs-black-seed/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/arjuna-vs-cistanche-deserticola/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/arjuna-vs-epimedium-brevicornum/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/coenzyme-q10-vs-magnesium/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/coenzyme-q10-vs-alpha-lipoic-acid/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/biotin-vs-collagen-peptides/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/berberine-vs-psyllium/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/mitragynine-vs-7-hydroxymitragynine/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/l-theanine-vs-magnesium/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/panax-ginseng-vs-bacopa/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/omega-3-dha-dominant-vs-omega-3-epa/ /guides/compare/ 301
+# 2 broken-link instances
+/education/cholinergic-system/ /learn/ 301
+# 2 broken-link instances
+/evidence/ /evidence/evidence-checker/ 301
+# 2 broken-link instances
+/compare/piper-nigrum-vs-holy-basil-purple/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/plantago-lanceolata-vs-plantago-major/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/boswellia-akba-standardized-vs-chondroitin/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/cdp-choline-vs-alpha-gpc/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/citicoline-vs-alpha-gpc/ /guides/compare/ 301
+# 2 broken-link instances
+/compare/corydalis-alkaloids-vs-mitragynine/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/magnesium-glycinate-vs-magnesium-taurate/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/magnesium-vs-ashwagandha/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/magnesium-threonate-vs-magnesium-glycinate/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/magnesium-vs-zinc/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/maca-root-extract-vs-panax-ginseng/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/melatonin-vs-glycine/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/magnesium-oxide-vs-magnesium-citrate/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/melatonin-vs-magnesium-glycinate/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/melatonin-vs-valerian/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/melatonin-vs-valerian-root-extract/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/milk-thistle-vs-dandelion-root/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/montmorency-tart-cherry-extract-vs-magnesium/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/moringa-oleifera-vs-piper-nigrum/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/nicotinamide-riboside-vs-coenzyme-q10/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/omega-3-dha-dominant-vs-phosphatidylserine/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/omega-3-epa-vs-dha/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/omega-3-epa-vs-resveratrol/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/omega-3-epa-vs-st-johns-wort/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/panax-ginseng-vs-citicoline/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/magnesium-citrate-vs-magnesium-malate/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/l-theanine-vs-lemon-balm/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/kava-kavalactones-vs-passionflower-extract-standardized/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/l-theanine-vs-gaba/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/green-tea-extract-egcg-vs-berberine-hcl/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/green-tea-extract-egcg-vs-gymnema-sylvestre/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/green-tea-extract-egcg-vs-l-theanine-sleep/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/green-tea-extract-egcg-vs-melatonin/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/green-tea-extract-egcg-vs-quercetin/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/griffonia-simplicifolia-vs-alpha-gpc/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/guarana-vs-alpha-gpc/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/gymnema-sylvestre-vs-berberine-hcl/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/hawthorn-extract-standardized-vs-magnesium/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/hawthorn-vs-bergamot-extract/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/hawthorn-vs-coq10/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/hesperidin-vs-hawthorn-extract-standardized/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/hesperidin-vs-hibiscus/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/holy-basil-vs-gaba/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/holy-basil-vs-l-theanine/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/kava-kavalactones-vs-gaba/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/phellodendron-amurense-vs-berberis-aristata/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/phellodendron-amurense-vs-berberis-vulgaris/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/phellodendron-amurense-vs-coptis-chinensis/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/phellodendron-amurense-vs-pueraria-mirifica/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/valerian-root-extract-vs-melatonin/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/valerian-root-extract-vs-passionflower-extract-standardized/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/valerian-vs-passionflower/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/vitamin-d-vs-vitamin-d3/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/wild-yam-vs-black-cohosh/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/yerba-mate-vs-guarana/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/zinc-vs-vitamin-d3/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/ashwagandha-vs-eleuthero/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/ashwagandha-vs-rhodiola/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/bacopa-vs-ginkgo-biloba/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/bacopa-vs-lions-mane/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/bacopa-vs-rhodiola/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/berberine-vs-inositol/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/caffeine-vs-theanine/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/creatine-vs-beta-alanine/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/creatine-vs-caffeine/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/tulsi-vs-ashwagandha/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/tribulus-terrestris-vs-epimedium-brevicornum/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/tryptophan-vs-melatonin/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/tryptophan-vs-5-htp/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/resveratrol-vs-omega-3-epa/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/resveratrol-vs-quercetin/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/resveratrol-vs-trans-resveratrol/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/rhodiola-vs-5-htp/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/rhodiola-vs-alpha-gpc/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/rhodiola-vs-gaba/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/rhodiola-vs-gotu-kola/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/rhodiola-vs-omega-3-epa/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/rhodiola-vs-omega-3-fish-oil/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/rhodiola-vs-panax-ginseng/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/rhodiola-vs-resveratrol/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/rhodiola-vs-saffron/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/schizandra-vs-gotu-kola/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/scutellaria-baicalensis-vs-scutellaria-lateriflora/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/terminalia-arjuna-vs-coleus-forskohlii/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/terminalia-arjuna-vs-guggul/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/theanine-vs-magnesium/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/creatine-vs-bcaa/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/curcumin-vs-boswellia/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/echinacea-vs-elderberry/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/glycine-vs-melatonin/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/hawthorn-vs-coq10/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/l-theanine-vs-magnesium/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/melatonin-vs-l-theanine/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/melatonin-vs-valerian/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/quercetin-vs-resveratrol/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/reishi-vs-ashwagandha/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/valerian-vs-passionflower/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/vitamin-d-vs-magnesium/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/vitamin-d-vs-vitamin-d3/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/bacopa-vs-omega-3-epa/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/bacopa-vs-alpha-gpc/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/bacopa-monnieri-vs-alpha-gpc/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/bacopa-monnieri-vs-bacopa/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/artichoke-extract-vs-glucomannan/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/ashwagandha-extract-ksm-66-vs-glycine/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/ashwagandha-extract-ksm-66-vs-kava-kavalactones/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/ashwagandha-extract-ksm-66-vs-kava/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/ashwagandha-extract-ksm-66-vs-l-theanine-sleep/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/ashwagandha-extract-ksm-66-vs-rhodiola/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/ashwagandha-extract-vs-passionflower-extract-standardized/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/ashwagandha-root-extract-vs-passionflower-extract-standardized/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/ashwagandha-vs-glycine/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/ashwagandha-vs-passionflower/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/ashwagandha-vs-rhodiola/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/berberine-hcl-vs-green-tea-extract-egcg/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/berberine-vs-green-tea-extract/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/berberine-vs-psyllium-husk/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/black-cohosh-vs-siberian-ginseng/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/boswellia-serrata-vs-turmeric/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/boswellia-vs-omega-3/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/boswellia-vs-turmeric/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/butterbur-vs-feverfew/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/carnitine-vs-creatine/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/cats-claw-vs-boswellia-akba-standardized/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/chamomile-vs-lavender/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/chamomile-vs-lemon-balm/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/chamomile-vs-passionflower/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/creatine-vs-amino-acids/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/creatine-vs-bcaa/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/creatine-vs-beta-alanine/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/creatine-vs-caffeine/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/creatine-vs-carnitine/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/cysteine-vs-glutathione/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/curcumin-vs-boswellia/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/dandelion-root-vs-milk-thistle/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/eleuthero-vs-ginseng/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/famotidine-vs-licorice-root/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/gaba-vs-l-theanine/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/garcinia-cambogia-vs-gymnema-sylvestre/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/glucosamine-vs-boswellia/ /guides/compare/ 301
+# 1 broken-link instances
+/compare/gotu-kola-vs-bacopa/ /guides/compare/ 301
+# 1 broken-link instances
+/guides/compare/cordyceps-vs-beta-alanine/ /guides/compare/ 301

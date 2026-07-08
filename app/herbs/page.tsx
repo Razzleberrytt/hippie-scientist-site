@@ -9,6 +9,7 @@ import { HERBS_PAGE_SIZE, paginateItems } from '@/lib/pagination'
 import { buildPageMetadata } from '../../src/lib/seo'
 import { formatDisplayLabel } from '@/lib/display-utils'
 import { isRedirectedDuplicate } from '@/lib/deprecated-herb-canonicals'
+import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
 import HerbsIndexClient from './HerbsIndexClient'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -51,6 +52,8 @@ export default async function HerbsPage() {
     )
     .sort((a, b) => getHerbName(a).localeCompare(getHerbName(b)))
   const pageData = paginateItems(herbs, 1, HERBS_PAGE_SIZE)
+  const leanHerbs = toLeanProfileIndexRecords(herbs)
+  const leanPageItems = toLeanProfileIndexRecords(pageData.pageItems as RuntimeRecord[])
 
   return (
     <div className="mx-auto max-w-6xl space-y-5 px-4 py-4 sm:py-6">
@@ -95,7 +98,7 @@ export default async function HerbsPage() {
       </noscript>
 
       <Suspense fallback={<HerbsLoadingSkeleton />}>
-        <HerbsIndexClient herbs={pageData.pageItems} allHerbs={herbs} paginated page={1} totalPages={pageData.totalPages} />
+        <HerbsIndexClient herbs={leanPageItems} allHerbs={leanHerbs} paginated page={1} totalPages={pageData.totalPages} />
       </Suspense>
     </div>
   )

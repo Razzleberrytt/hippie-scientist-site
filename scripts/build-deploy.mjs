@@ -23,10 +23,11 @@
  * 10. build-export-batches (batch optimization)
  * 11. build-semantic-snapshots (snapshot generation)
  * 12. build-production (next build)
- * 13. write-static-sitemap (physical out/sitemap.xml for Cloudflare Pages)
- * 14. validate-sitemap-static (prove /sitemap.xml is real XML, not HTML)
- * 15. repair-static-blog-h1s (legacy static blog heading repair)
- * 16. build-pagefind (static search index)
+ * 13. apply-redirect-overrides (prepend exact audit-cleanup redirects)
+ * 14. write-static-sitemap (physical out/sitemap.xml for Cloudflare Pages)
+ * 15. validate-sitemap-static (prove /sitemap.xml is real XML, not HTML)
+ * 16. repair-static-blog-h1s (legacy static blog heading repair)
+ * 17. build-pagefind (static search index)
  *
  * Time estimate: cold builds are dominated by Next static export and Pagefind;
  * warm builds skip cacheable generation steps when inputs and outputs match.
@@ -140,6 +141,13 @@ const steps = [
       'package.json',
     ],
     outputs: ['out/**/*', '.next/**/*'],
+  },
+  {
+    name: 'apply-redirect-overrides',
+    cmd: 'node scripts/seo/apply-redirect-overrides.mjs',
+    inputs: ['out/_redirects', 'public/redirect-overrides/**/*', 'scripts/seo/apply-redirect-overrides.mjs'],
+    outputs: ['out/_redirects'],
+    cacheable: false,
   },
   {
     name: 'write-static-sitemap',

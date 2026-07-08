@@ -6,6 +6,7 @@ import { getAllCompounds } from '@/lib/server/runtime-data'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import { buildPageMetadata } from '../../src/lib/seo'
 import { COMPOUNDS_PAGE_SIZE, paginateItems } from '@/lib/pagination'
+import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
 import CompoundsIndexClient from './CompoundsIndexClient'
 import type { RuntimeRecord } from '../../src/types/content'
 
@@ -25,6 +26,8 @@ export default async function CompoundsPage() {
   )
 
   const pageData = paginateItems(allCompounds, 1, COMPOUNDS_PAGE_SIZE)
+  const leanCompounds = toLeanProfileIndexRecords(allCompounds)
+  const leanPageItems = toLeanProfileIndexRecords(pageData.pageItems as RuntimeRecord[])
 
   return (
     <div className="mx-auto max-w-6xl space-y-6 px-4 py-6 sm:py-8">
@@ -58,8 +61,8 @@ export default async function CompoundsPage() {
         }
       >
         <CompoundsIndexClient
-          compounds={pageData.pageItems}
-          allCompounds={allCompounds}
+          compounds={leanPageItems}
+          allCompounds={leanCompounds}
           paginated
           page={1}
           totalPages={pageData.totalPages}
