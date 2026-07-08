@@ -30,6 +30,30 @@ A refreshed aggregate issue CSV, `thehippiescientist.net_issues_20260708 2.csv`,
 
 The remaining 3 structured-data failures require a URL-level export before exact row remediation. The validator below therefore runs in report-only mode by default during deploy builds, but supports strict mode for exact debugging.
 
+## Low text-to-HTML ratio export
+
+The uploaded low text-to-HTML CSV, `thehippiescientist.net_text_html_ratio_20260708 2.csv`, included 570 affected URLs:
+
+| URL family | Rows |
+| --- | ---: |
+| `/herbs/` | 187 |
+| `/compounds/` | 171 |
+| `/guides/` | 100 |
+| `/learn/` | 73 |
+| `/articles/` | 15 |
+| `/info/` | 13 |
+| `/novel-psychoactive-substances/` | 5 |
+| `/evidence/` | 3 |
+| Home/search/safety-checker | 3 |
+
+The fix is intentionally template/build-level rather than 570 manual edits.
+
+Implemented coverage:
+
+- Added crawlable explanatory sections directly to `/safety-checker/`, `/info/dosing/`, and `/learn/explorer/`.
+- Added a normal React-rendered footer research-context block that appears across the site and explains how to use profiles, guides, safety checks, and affiliate/product content.
+- Added `scripts/seo/inject-content-depth-support.mjs`, a post-export step that injects route-aware supporting copy into exported HTML for the URL families in the Semrush export: herb profiles, compound profiles, guide pages, compare pages, learn pages, articles, info/tools, evidence pages, search, safety checker, and the homepage.
+
 ## Implemented structured-data regression audit
 
 Added `scripts/ci/validate-structured-data-regressions.mjs` and wired it into `scripts/build-deploy.mjs` after the static export and canonical repair steps.
