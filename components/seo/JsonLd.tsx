@@ -6,7 +6,7 @@ export default function JsonLd({ schema }: { schema: any }) {
 
   // Safely serialize and escape HTML tags (like '<') to prevent XSS injection.
   // Also normalize known schema.org validation traps before JSON-LD reaches the page.
-  const escapedJson = JSON.stringify(sanitizeJsonLdPayload(schema)).replace(/</g, '\\u003c')
+  const escapedJson = JSON.stringify(sanitizeJsonLdPayload(schema) ?? {}).replace(/</g, '\\u003c')
 
   return (
     <script
