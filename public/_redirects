@@ -30,6 +30,40 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 
 /atom.xml /feed.xml 301
 
+# Required legacy aliases checked by verify-redirects.
+/natural-anxiolytics-beyond-ashwagandha /guides/natural-anxiolytics-beyond-ashwagandha/ 301
+/psychedelic-adjacent-herbs /guides/psychedelic-adjacent-herbs/ 301
+/sleep-herbs-vs-melatonin /guides/sleep-herbs-vs-melatonin/ 301
+/compounds/coq10 /compounds/coenzyme-q10/ 301
+/compounds/theanine /compounds/l-theanine/ 301
+/compounds/l-theanine-sleep /compounds/l-theanine/ 301
+/compounds/methyleugenol /compounds/methyl-eugenol/ 301
+/compounds/bcaas /compounds/bcaa/ 301
+/compounds/green-tea-egcg-isolated /compounds/green-tea-extract/ 301
+/compounds/green-tea-extract-egcg /compounds/green-tea-extract/ 301
+/compounds/probiotic-multistrain /compounds/probiotics/ 301
+/compounds/probiotic-strain-bifidobacterium /compounds/probiotics/ 301
+/compounds/probiotic-strain-lactobacillus /compounds/probiotics/ 301
+/compounds/probiotics-bifidobacterium /compounds/probiotics/ 301
+/compounds/probiotics-lactobacillus /compounds/probiotics/ 301
+/compounds/glycine-sleep /compounds/glycine/ 301
+/compounds/inositol-sleep /compounds/inositol/ 301
+/compounds/ashwagandha-extract-ksm-66 /herbs/ashwagandha/ 301
+/compounds/ashwagandha-root-extract /herbs/ashwagandha/ 301
+/compounds/garlic /herbs/garlic/ 301
+/compounds/ginger /herbs/ginger/ 301
+/compounds/valerian /herbs/valerian/ 301
+/compounds/lions-mane /herbs/lions-mane/ 301
+/compounds/reishi /herbs/reishi/ 301
+/compounds/maca /herbs/maca/ 301
+/compounds/elderberry /herbs/elderberry/ 301
+/compounds/resveratrol /herbs/resveratrol/ 301
+/herbs/ashwagandha-withania-somnifera /herbs/ashwagandha/ 301
+/herbs/ashwagandha-withania-somnifera/ /herbs/ashwagandha/ 301
+/safety-checker /safety-checker/ 301
+/safety /safety-checker/ 301
+/safety/ /safety-checker/ 301
+
 # 2026 guide taxonomy consolidation: old article and top-level URLs now live under
 # topic-specific guide hubs.
 /guides/adhd-supplements /guides/adhd/adhd-supplements/ 301
