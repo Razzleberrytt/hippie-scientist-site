@@ -75,7 +75,7 @@
     "pipeline:apply-redirects": "node scripts/pipeline/apply-slug-redirects.mjs",
     "pipeline:clean-leaks": "node scripts/pipeline/clean-workbook-leaks.mjs",
     "generate:redirects": "node scripts/generate-redirects.mjs",
-    "guard:source-of-truth": "node scripts/ci/validate-workbook-source.mjs && node scripts/ci/validate-workbook-schema.mjs && node scripts/data/verify-workbook-only-path.mjs && node scripts/ci/validate-workbook-json-parity.mjs",
+    "guard:source-of-truth": "node scripts/ci/validate-workbook-source.mjs && node scripts/ci/validate-workbook-schema.mjs && node scripts/data/verify-workbook-only-path.mjs && node scripts/ci/validate-workbook-json-parity.mjs && node scripts/ci/guard-no-full-build-drift.mjs",
     "guard:generated-data": "node scripts/ci/guard-generated-data.mjs",
     "pretypecheck": "npm run -s check:deps && npm run content:build",
     "typecheck": "tsc --noEmit",
@@ -149,7 +149,8 @@
     "audit:data-governance": "node scripts/ci/validate-data-governance.mjs",
     "audit:data-governance:json": "node scripts/ci/validate-data-governance.mjs --json",
     "audit:data-governance:strict": "node scripts/ci/validate-data-governance.mjs --strict",
-    "validate:audit-hardening": "npm run audit:high && npm run audit:data-governance && npm run validate:security-headers"
+    "validate:audit-hardening": "npm run audit:high && npm run audit:data-governance && npm run validate:security-headers",
+    "guard:no-full-build-drift": "node scripts/ci/guard-no-full-build-drift.mjs"
   },
   "dependencies": {
     "@fontsource-variable/fraunces": "5.2.9",
