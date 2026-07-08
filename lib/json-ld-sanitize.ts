@@ -1,6 +1,5 @@
-type JsonLdPrimitive = string | number | boolean | null
-export type JsonLdValue = JsonLdPrimitive | JsonLdObject | JsonLdValue[]
-export type JsonLdObject = Record<string, JsonLdValue | undefined>
+export type JsonLdValue = unknown
+export type JsonLdObject = Record<string, unknown>
 
 const INVALID_SCHEMA_PROPERTIES = new Set([
   'evidenceLevel',
@@ -24,7 +23,7 @@ function isObject(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === 'object' && !Array.isArray(value)
 }
 
-function typeList(value: JsonLdValue | undefined): string[] {
+function typeList(value: unknown): string[] {
   if (typeof value === 'string') return [value]
   if (Array.isArray(value)) {
     return value.filter((item): item is string => typeof item === 'string')
@@ -53,7 +52,10 @@ function sanitizeObject(input: Record<string, unknown>): JsonLdObject {
     if (INVALID_SCHEMA_PROPERTIES.has(key)) continue
 
     if (Array.isArray(value)) {
-      output[key] = value.map((item) => sanitizeJsonLdValue(item)).filter((item): item is JsonLdValue => item !== undefined)
+      const sanitizedItems = value
+        .map((item) => sanitizeJsonLdValue(item))
+        .filter((item) => item !== undefined)
+      output[key] = sanitizedItems
       continue
     }
 
@@ -102,7 +104,7 @@ function sanitizeObject(input: Record<string, unknown>): JsonLdObject {
       if (isObject(value)) return Object.keys(value).length > 0
       return true
     }),
-  ) as JsonLdObject
+  )
 }
 
 export function sanitizeJsonLdValue(value: unknown): JsonLdValue | undefined {
@@ -111,7 +113,9 @@ export function sanitizeJsonLdValue(value: unknown): JsonLdValue | undefined {
     return value
   }
   if (Array.isArray(value)) {
-    return value.map((item) => sanitizeJsonLdValue(item)).filter((item): item is JsonLdValue => item !== undefined)
+    return value
+      .map((item) => sanitizeJsonLdValue(item))
+      .filter((item) => item !== undefined)
   }
   if (isObject(value)) return sanitizeObject(value)
   return undefined
