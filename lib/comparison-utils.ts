@@ -18,6 +18,7 @@
 export const BUILT_COMPARE_SLUGS = [
   'ashwagandha-vs-l-theanine-vs-magnesium',
   'berberine-vs-metformin',
+  'caffeine-vs-l-theanine',
   'caffeine-vs-l-theanine-vs-bacopa-for-focus',
   'curcumin-vs-boswellia-vs-omega-3',
   'kanna-vs-ssris',
@@ -101,7 +102,7 @@ export function formatComparisonSlug(slug: string): string {
   }
 
   for (const [key, value] of Object.entries(overrides)) {
-    const regex = new RegExp(`\\b${key}\\b`, 'gi')
+    const regex = new RegExp(`\b${key}\b`, 'gi')
     title = title.replace(regex, value)
   }
 
