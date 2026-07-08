@@ -13,6 +13,7 @@ type AuthorityJsonLdProps = {
     url: string
   }>
   faqItems?: FaqItem[]
+  citationUrls?: string[]
 }
 
 function normalizeFaqItem(item: FaqItem): FaqItem | null {
@@ -51,6 +52,7 @@ export default function AuthorityJsonLd({
   type = 'CollectionPage',
   breadcrumbs = [],
   faqItems,
+  citationUrls = [],
 }: AuthorityJsonLdProps) {
   const normalizedUrl = url.replace('https://thehippiescientist.net', SITE_URL)
   const canonical = normalizedUrl.endsWith('/') ? normalizedUrl : `${normalizedUrl}/`
@@ -69,6 +71,7 @@ export default function AuthorityJsonLd({
     isPartOf: { '@type': 'WebSite', name: 'The Hippie Scientist', url: SITE_URL },
     ...(breadcrumbs.length ? { breadcrumb: { '@id': breadcrumbId } } : {}),
     ...(meaningfulFaqItems.length ? { hasPart: { '@id': faqId } } : {}),
+    ...(citationUrls.length ? { citation: [...new Set(citationUrls)].filter(Boolean) } : {}),
   }
 
   const breadcrumb = breadcrumbs.length
