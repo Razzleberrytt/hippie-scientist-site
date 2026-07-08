@@ -85,6 +85,12 @@ npm run data:build:core
 ```
 not `npm run data:build`.
 
+**CI enforces this.** `npm run guard:no-full-build-drift`
+(`scripts/ci/guard-no-full-build-drift.mjs`, wired into `guard:source-of-truth`)
+fails the build if `herbs.json` / `compounds.json` are committed with the
+governance-overlay / postprocess signature — so the trap cannot be reintroduced,
+by a person or a parallel session.
+
 ---
 
 ## What `promote:profile` does, step by step
