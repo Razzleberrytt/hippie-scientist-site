@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { isOptimizableRemoteImage } from '../src/lib/image-hosts'
+import { getOutboundLinkRel, resolveRegionalUrl, type RegionalUrlMap } from '../src/lib/platforms'
 import { trackRevenueEvent } from '../src/lib/revenue-tracking'
 
 export type AffiliateProduct = {
@@ -19,6 +20,8 @@ export type AffiliateProduct = {
   affiliateUrl?: string
   url?: string
   link?: string
+  regionalUrls?: RegionalUrlMap
+  preferredRegion?: string | null
   trackingLocation?: string
 }
 
@@ -32,8 +35,15 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
   const imageUrl = product.imageUrl || product.image
   const rationale = product.rationale || product.notes || 'Review the label, dose, third-party testing, and safety context before buying.'
   const rawUrl = product.affiliateUrl || product.url || product.link
-  const isValidUrl = typeof rawUrl === 'string' && (rawUrl.startsWith('http://') || rawUrl.startsWith('https://'))
-  const affiliateUrl = isValidUrl ? rawUrl : ''
+  const resolvedUrl = rawUrl
+    ? resolveRegionalUrl({
+        defaultUrl: rawUrl,
+        regionalUrls: product.regionalUrls,
+        preferredRegion: product.preferredRegion,
+      })
+    : ''
+  const isValidUrl = typeof resolvedUrl === 'string' && (resolvedUrl.startsWith('http://') || resolvedUrl.startsWith('https://'))
+  const affiliateUrl = isValidUrl ? resolvedUrl : ''
   const ctaLabel = product.ctaLabel || 'Check current price'
 
   return (
@@ -72,7 +82,7 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
           <a
             href={affiliateUrl}
             target='_blank'
-            rel='noopener noreferrer nofollow sponsored'
+            rel={getOutboundLinkRel(true)}
             onClick={() => trackRevenueEvent({
               kind: 'recommendation_click',
               location: product.trackingLocation || 'recommendation-section',
