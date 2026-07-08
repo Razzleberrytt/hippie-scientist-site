@@ -92,15 +92,6 @@ export function buildProfileSchemaGraph(args: ProfileSchemaGraphArgs) {
         reviewedBy: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
         author: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
         publisher: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
-        ...(typeof args.citationCount === 'number'
-          ? {
-              additionalProperty: {
-                '@type': 'PropertyValue',
-                propertyID: 'citation count',
-                value: args.citationCount,
-              },
-            }
-          : {}),
       }
     : null
 
@@ -134,18 +125,6 @@ export function buildProfileSchemaGraph(args: ProfileSchemaGraphArgs) {
     publisher: { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
     ...(args.reviewedAt ? { datePublished: args.reviewedAt } : {}),
     ...(args.modifiedAt ? { dateModified: args.modifiedAt } : {}),
-    ...(evidenceGrade || safetyNotes
-      ? {
-          additionalProperty: [
-            evidenceGrade
-              ? { '@type': 'PropertyValue', name: 'Evidence grade', value: evidenceGrade }
-              : null,
-            safetyNotes
-              ? { '@type': 'PropertyValue', name: 'Safety notes', value: safetyNotes }
-              : null,
-          ].filter(Boolean),
-        }
-      : {}),
   }
 
   const breadcrumb = {

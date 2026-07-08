@@ -125,16 +125,8 @@ describe('buildHerbArticleSchema', () => {
     expect(schema.image).toBeUndefined()
   })
 
-  it('emits evidenceGrade as a PropertyValue when provided', () => {
+  it('keeps evidenceGrade out of Article additionalProperty', () => {
     const schema = buildHerbArticleSchema({ ...base, evidenceGrade: 'B — Moderate' })
-    const prop = schema.additionalProperty as Record<string, unknown>
-    expect(prop['@type']).toBe('PropertyValue')
-    expect(prop.name).toBe('Evidence grade')
-    expect(prop.value).toBe('B — Moderate')
-  })
-
-  it('omits additionalProperty when evidenceGrade is absent', () => {
-    const schema = buildHerbArticleSchema(base)
     expect(schema.additionalProperty).toBeUndefined()
   })
 
