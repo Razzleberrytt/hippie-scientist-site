@@ -4,6 +4,7 @@ import { Suspense } from 'react'
 import { getAllCompounds } from '@/lib/server/runtime-data'
 import { getRuntimeVisibility } from '../../../../lib/runtime-visibility'
 import { COMPOUNDS_PAGE_SIZE, clampPositiveInt, paginateItems } from '@/lib/pagination'
+import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
 import CompoundsIndexClient from '../../CompoundsIndexClient'
 import type { RuntimeRecord } from '../../../../src/types/content'
 
@@ -38,6 +39,8 @@ export default async function CompoundsPageN({ params }: P) {
   const runtime = (await getAllCompounds()) as unknown as RuntimeRecord[]
   const compounds = runtime.filter((compound) => compound?.slug && getRuntimeVisibility(compound).canRender)
   const p = paginateItems(compounds, n, COMPOUNDS_PAGE_SIZE)
+  const leanCompounds = toLeanProfileIndexRecords(compounds)
+  const leanPageItems = toLeanProfileIndexRecords(p.pageItems as RuntimeRecord[])
 
   return (
     <div className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10">
@@ -69,8 +72,8 @@ export default async function CompoundsPageN({ params }: P) {
 
       <Suspense fallback={null}>
         <CompoundsIndexClient
-          compounds={p.pageItems as RuntimeRecord[]}
-          allCompounds={compounds}
+          compounds={leanPageItems}
+          allCompounds={leanCompounds}
           paginated
           page={p.currentPage}
           totalPages={p.totalPages}
