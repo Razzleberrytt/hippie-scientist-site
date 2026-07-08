@@ -5,6 +5,7 @@ import { getHerbSummaryIndex } from '../../../../src/lib/runtime-summary-indexes
 import { getRuntimeVisibility } from '../../../../lib/runtime-visibility'
 import { HERBS_PAGE_SIZE, clampPositiveInt, paginateItems } from '@/lib/pagination'
 import { isRedirectedDuplicate } from '@/lib/deprecated-herb-canonicals'
+import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
 import HerbsIndexClient from '../../HerbsIndexClient'
 import type { RuntimeRecord } from '../../../../src/types/content'
 
@@ -39,6 +40,8 @@ export default async function HerbsPageN({params}:P){
   const n=clampPositiveInt((await params).page,2);
   const herbs=await loadBrowseHerbs();
   const p=paginateItems(herbs,n,HERBS_PAGE_SIZE);
+  const leanHerbs = toLeanProfileIndexRecords(herbs)
+  const leanPageItems = toLeanProfileIndexRecords(p.pageItems as RuntimeRecord[])
   return (
     <div className="mx-auto max-w-6xl space-y-5 px-4 py-4 sm:py-6">
       <div className="space-y-1 pb-1">
@@ -54,7 +57,7 @@ export default async function HerbsPageN({params}:P){
         </div>
       </nav>
       <Suspense fallback={<HerbsPageSkeleton />}>
-        <HerbsIndexClient herbs={p.pageItems as RuntimeRecord[]} allHerbs={herbs} paginated page={p.currentPage} totalPages={p.totalPages} />
+        <HerbsIndexClient herbs={leanPageItems} allHerbs={leanHerbs} paginated page={p.currentPage} totalPages={p.totalPages} />
       </Suspense>
     </div>
   )
