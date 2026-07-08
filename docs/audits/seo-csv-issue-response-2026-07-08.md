@@ -1,8 +1,11 @@
 # SEO CSV Issue Response — 2026-07-08
 
-Uploaded CSV: `thehippiescientist.net_IssueDetailsBySeverity_7_8_2026.csv`
+Uploaded CSVs:
 
-The CSV is an aggregate issue summary, not a URL-level export. It lists issue categories and page counts only, so this patch addresses the most likely site-wide causes without pretending to know the exact affected URLs.
+- `thehippiescientist.net_IssueDetailsBySeverity_7_8_2026.csv`
+- `thehippiescientist.net_PagesByIssueCategory_7_8_2026.csv`
+
+The first CSV is an aggregate issue summary. The second CSV provides the exact 29 URLs for the HTTP 400–499 bucket.
 
 ## CSV summary
 
@@ -14,6 +17,20 @@ The CSV is an aggregate issue summary, not a URL-level export. It lists issue ca
 | H1 tag missing | Notice | 32 |
 
 ## Implemented fixes
+
+### HTTP 400–499 errors
+
+The URL-level CSV showed 29 affected URLs. Most were orphaned `/guides/compare/...` URLs for comparison pages that are not currently built as static routes.
+
+This patch adds `public/redirect-overrides/seo-csv-400-2026-07-08.txt` with exact 301 redirects for all 29 listed URLs. The rules point either to a close matching live page, such as:
+
+- `/guides/compare/ashwagandha-vs-rhodiola/` → `/guides/compare/rhodiola-vs-ashwagandha/`
+- `/guides/compare/melatonin-vs-valerian/` → `/guides/herbs/melatonin-vs-valerian/`
+- `/guides/compare/alpha-gpc-vs-cdp-choline/` → `/guides/adhd/citicoline-vs-alpha-gpc/`
+
+or to the closest live topic hub when no specific comparison page exists.
+
+A deploy-build step now runs `scripts/seo/apply-redirect-overrides.mjs`, which prepends these exact audit-cleanup rules into `out/_redirects`. Prepending is intentional so these URL-level fixes win over older stale or wildcard rules.
 
 ### HTML size too long
 
@@ -34,17 +51,8 @@ The PT-141 guide had a long metadata title. This patch shortens the metadata tit
 
 ### H1 missing
 
-The CSV does not identify which pages were flagged. Core index templates and the 404 template already render visible H1 elements. The likely reason for this aggregate notice is stale crawl data, redirected pages, or old/no-longer-current URLs. A URL-level export is needed for exact row-by-row H1 remediation.
+The available URL-level export only covered HTTP 400–499 pages. Core index templates and the 404 template already render visible H1 elements. Exact row-by-row H1 remediation still requires the URL-level H1 issue export.
 
-### HTTP 400–499 errors
+## Follow-up needed if H1 notices remain
 
-The CSV does not include affected URLs. Existing redirect coverage is already extensive for known legacy route patterns. A URL-level export is needed to safely add exact 301 redirects without guessing and potentially creating bad redirect targets.
-
-## Follow-up needed if issues remain
-
-Export the URL-level issue details from the audit tool for:
-
-- HTTP 400–499 errors
-- H1 tag missing
-
-Then add exact redirects or template fixes for those specific URLs.
+Export the URL-level issue details for `H1 tag missing`, then fix the exact affected templates or redirect stale URLs if the flagged pages are no longer meant to be live.
