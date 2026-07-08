@@ -322,54 +322,14 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 function CompoundMdxPage({ page }: { page: (typeof allCompoundMdxPages)[number] }) {
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Compounds',
-        item: `${SITE_URL}/compounds/`,
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: page.title,
-        item: `${SITE_URL}/compounds/${page.slug}/`,
-      },
-    ],
-  }
-
-  const articleSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: page.title,
-    description: page.metaDescription,
-    dateModified: page.lastUpdated,
-    datePublished: page.lastUpdated,
-    mainEntityOfPage: `${SITE_URL}/compounds/${page.slug}/`,
-    keywords: page.keywords,
-    citation: page.references.map((ref) => ({
-      '@type': 'ScholarlyArticle',
-      headline: ref.title,
-      author: ref.authors,
-      datePublished: ref.year,
-      identifier: ref.pmid ? `PMID:${ref.pmid}` : undefined,
-      url: ref.url || (ref.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${ref.pmid}/` : undefined),
-    })),
-  }
-
+  // Structured data (Article + BreadcrumbList + MedicalWebPage + FAQ) is emitted
+  // once via the complete <SchemaGraphScript graph={schemaGraph} /> below. A separate
+  // hand-built Article/BreadcrumbList used to be rendered here too, which produced a
+  // second, incomplete Article (missing author/publisher/image) on every compound
+  // page — the source of the invalid structured-data cluster. The graph is now the
+  // single source of truth, matching the herb profile page.
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
       <ReadingProgress />
 
       <article className="mx-auto max-w-5xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
