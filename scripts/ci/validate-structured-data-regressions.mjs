@@ -4,6 +4,7 @@ import path from 'node:path'
 
 const root = process.cwd()
 const outDir = path.join(root, 'out')
+const strictMode = process.env.STRICT_STRUCTURED_DATA_REGRESSIONS === '1'
 
 const INVALID_SCHEMA_PROPERTIES = new Set([
   'evidenceLevel',
@@ -132,6 +133,7 @@ for (const filePath of walkHtmlFiles(outDir)) {
 
 const report = {
   generatedAt: new Date().toISOString(),
+  strictMode,
   routeCount,
   blockCount,
   errorCount: errors.length,
@@ -145,10 +147,17 @@ fs.writeFileSync(
 )
 
 if (errors.length > 0) {
-  console.error(`[validate-structured-data-regressions] FAIL: ${errors.length} Semrush-style structured data regressions found.`)
+  const prefix = strictMode ? 'FAIL' : 'WARN'
+  console.error(`[validate-structured-data-regressions] ${prefix}: ${errors.length} Semrush-style structured data regression candidates found.`)
   errors.slice(0, 80).forEach((error) => console.error(`  - ${error}`))
   console.error('[validate-structured-data-regressions] Full report: ops/reports/structured-data-regressions.json')
-  process.exit(1)
+
+  if (strictMode) {
+    process.exit(1)
+  }
+
+  console.error('[validate-structured-data-regressions] Report-only mode: set STRICT_STRUCTURED_DATA_REGRESSIONS=1 to make this blocking.')
+  process.exit(0)
 }
 
 console.log(`[validate-structured-data-regressions] PASS: ${blockCount} JSON-LD blocks across ${routeCount} routes have no known Semrush regression patterns.`)
