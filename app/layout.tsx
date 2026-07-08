@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import type { ReactNode } from 'react'
 import '@fontsource-variable/inter'
 import '@fontsource-variable/fraunces/wght.css'
@@ -40,6 +40,11 @@ const rootMetadata = buildPageMetadata({
   image: '/og-default.jpg',
   openGraphType: 'website',
 })
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
