@@ -1,6 +1,7 @@
 import { SITE_URL } from './site'
 
 export const DEFAULT_LOCALE = 'en-US'
+export const DEFAULT_OG_LOCALE = 'en_US'
 export const DEFAULT_LANGUAGE = 'en'
 export const DEFAULT_REGION = 'US'
 export const LOCALE_TEXT_DIRECTION = 'ltr'
@@ -48,12 +49,13 @@ export function getCurrentLocaleAlternates(path = '/'): LocaleAlternate[] {
   ]
 }
 
-export function getLocaleMetadata() {
+export function getLocaleMetadata(path = '/') {
   return {
     language: DEFAULT_LANGUAGE,
     locale: DEFAULT_LOCALE,
+    openGraphLocale: DEFAULT_OG_LOCALE,
     region: DEFAULT_REGION,
     textDirection: LOCALE_TEXT_DIRECTION,
-    alternates: getCurrentLocaleAlternates('/'),
+    alternates: getCurrentLocaleAlternates(path),
   }
 }
