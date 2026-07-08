@@ -8,7 +8,7 @@
  *  - relatedLink + ItemList helpers for cluster interlinking
  */
 
-import { SITE_NAME, SITE_URL, toAbsoluteUrl } from '../src/lib/seo'
+import { SITE_URL, toAbsoluteUrl } from '../src/lib/seo'
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Cluster types — consumed by lib/cluster-linking.ts and components
@@ -399,7 +399,7 @@ export function buildWorkbookEntitySchema(args: ProfileEntitySchemaArgs): Schema
   const mechanisms = textList(record?.mechanisms || record?.primary_mechanisms || record?.pathways, 8)
   const entityTypes =
     args.kind === 'herb'
-      ? ['DietarySupplement', 'MedicalSubstance', 'Thing']
+      ? ['MedicalSubstance', 'Thing']
       : molecularFormula || pubchemCid
         ? ['MolecularEntity', 'ChemicalSubstance']
         : ['ChemicalSubstance', 'Thing']
@@ -411,7 +411,6 @@ export function buildWorkbookEntitySchema(args: ProfileEntitySchemaArgs): Schema
     url: canonical,
     description: args.description,
     mainEntityOfPage: { '@id': `${canonical}#webpage` },
-    isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
     identifier: buildWorkbookIdentifiers({ kind: args.kind, slug: args.slug, record }),
     ...(scientificName ? { alternateName: scientificName } : {}),
     ...(category ? { category } : {}),

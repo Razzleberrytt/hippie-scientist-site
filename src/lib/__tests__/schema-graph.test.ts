@@ -70,7 +70,7 @@ describe('schema-graph', () => {
     const article = nodes.find(n => n['@type'] === 'Article')
     expect(article?.headline).toBe('Best Supplements for Sleep | The Hippie Scientist')
     expect(article?.url).toBe('https://thehippiescientist.net/best-supplements-for-sleep/')
-    expect(article?.breadcrumb).toEqual({ '@id': 'https://thehippiescientist.net/best-supplements-for-sleep/#breadcrumb' })
+    expect(article?.breadcrumb).toBeUndefined()
     expect(article?.hasPart).toEqual({ '@id': 'https://thehippiescientist.net/best-supplements-for-sleep/#faq' })
 
     const breadcrumb = nodes.find(n => n['@type'] === 'BreadcrumbList')

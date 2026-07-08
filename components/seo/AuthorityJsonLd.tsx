@@ -69,7 +69,7 @@ export default function AuthorityJsonLd({
     description,
     url: canonical,
     isPartOf: { '@type': 'WebSite', name: 'The Hippie Scientist', url: SITE_URL },
-    ...(breadcrumbs.length ? { breadcrumb: { '@id': breadcrumbId } } : {}),
+    ...(type !== 'Article' && breadcrumbs.length ? { breadcrumb: { '@id': breadcrumbId } } : {}),
     ...(meaningfulFaqItems.length ? { hasPart: { '@id': faqId } } : {}),
     ...(citationUrls.length ? { citation: [...new Set(citationUrls)].filter(Boolean) } : {}),
   }
