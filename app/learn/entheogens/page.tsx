@@ -5,7 +5,7 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import References from '@/components/References'
 export const metadata: Metadata = buildPageMetadata({
-  title: "Entheogens",
+  title: "Entheogens and Psychoactive Botanicals",
   description: "Educational exploration of entheogenic ethnobotany, psychoactive mechanisms, ceremonial traditions, and consciousness-oriented neuropharmacology.",
   path: "/learn/entheogens/",
 })
