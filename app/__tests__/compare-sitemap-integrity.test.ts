@@ -3,6 +3,7 @@ import { existsSync } from 'node:fs'
 import path from 'node:path'
 
 import { getBuiltCompareSlugs } from '@/lib/compare-pages'
+import { BUILT_COMPARE_SLUGS } from '@/lib/comparison-utils'
 import { COMPARE_COMBINATIONS } from '@/config/compare-combinations'
 
 /**
@@ -17,6 +18,13 @@ import { COMPARE_COMBINATIONS } from '@/config/compare-combinations'
 describe('compare sitemap integrity', () => {
   const built = getBuiltCompareSlugs()
   const builtSet = new Set(built)
+
+  it('BUILT_COMPARE_SLUGS (render-guard source of truth) matches the real page.tsx directories', () => {
+    // lib/comparison-utils.ts keeps a pure literal list (it is imported by RSC
+    // components and must not use node:fs). This asserts that literal never drifts
+    // from what the filesystem actually builds.
+    expect([...BUILT_COMPARE_SLUGS].sort()).toEqual([...built].sort())
+  })
 
   it('every built compare slug resolves to a real page.tsx', () => {
     expect(built.length).toBeGreaterThan(0)

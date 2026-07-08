@@ -1,52 +1,34 @@
-import { generatedComparisons } from '@/data/generated-comparisons'
-import { supplementComparisons } from '@/data/comparisons'
-import { COMPARE_COMBINATIONS } from '@/config/compare-combinations'
-
-const adjacentPairs = [
-  '11-keto-beta-boswellic-acid-vs-acemannan',
-  'acemannan-vs-acetyl-11-keto-beta-boswellic-acid',
-  'acetyl-11-keto-beta-boswellic-acid-vs-acetyl-beta-boswellic-acid',
-  'acetyl-beta-boswellic-acid-vs-acetylshikonin',
-  'acetylshikonin-vs-acteoside',
-  'acteoside-vs-aescin',
-  'aescin-vs-ajoene',
-  'ajoene-vs-albiflorin',
-  'albiflorin-vs-alpha-asarone',
-  'alpha-asarone-vs-alpha-mangostin',
-  'alpha-mangostin-vs-anabasine',
-  'anabasine-vs-anatabine',
-  'anatabine-vs-andrographolide',
-  'andrographolide-vs-anethole',
-  'anethole-vs-angelicin',
-  'angelicin-vs-apigenin',
-  'apigenin-vs-arjunolic-acid',
-  'arjunolic-acid-vs-artemisinin',
-  'artemisinin-vs-artemisinin-b',
-  'artemisinin-b-vs-artesunate',
-  'artesunate-vs-asiatic-acid',
-  'asiatic-acid-vs-asiaticoside',
-  'asiaticoside-vs-aspalathin',
-  'aspalathin-vs-astragalin',
-]
-
-const staticComparePages = [
+/**
+ * The comparison pages that are ACTUALLY built as static routes under
+ * `app/guides/compare/<slug>/page.tsx`.
+ *
+ * Under static export there is no `[slug]` route and no `generateStaticParams`, so a
+ * `/guides/compare/<slug>` page exists **only** when its directory exists. The config
+ * comparison lists (`COMPARE_COMBINATIONS`, `generatedComparisons`, `supplementComparisons`)
+ * and the historical hard-coded "adjacent pair" list enumerate *intended* comparisons
+ * that are NOT built — treating them as built is what emitted internal links (and the
+ * sitemap) to hundreds of pages that 404, the `/guides/compare/*` Search Console cluster.
+ *
+ * This is the single runtime source of truth for the guards below. It is kept **pure**
+ * (no `node:fs`) because this module is imported by RSC/authority components. Drift from
+ * the real page.tsx directories fails CI via
+ * `app/__tests__/compare-sitemap-integrity.test.ts` (which diffs this against
+ * `getBuiltCompareSlugs()`), so add the slug here when you add a compare page.
+ */
+export const BUILT_COMPARE_SLUGS = [
   'ashwagandha-vs-l-theanine-vs-magnesium',
+  'berberine-vs-metformin',
   'caffeine-vs-l-theanine-vs-bacopa-for-focus',
   'curcumin-vs-boswellia-vs-omega-3',
-  'melatonin-vs-valerian-vs-magnesium-for-sleep',
-  'berberine-vs-metformin',
   'kanna-vs-ssris',
   'kava-vs-alcohol',
+  'melatonin-vs-magnesium',
+  'melatonin-vs-valerian-vs-magnesium-for-sleep',
+  'rhodiola-vs-ashwagandha',
   'sleep-herbs-vs-melatonin',
-]
+] as const
 
-const validSlugs = new Set([
-  ...generatedComparisons,
-  ...supplementComparisons.map(c => c.slug),
-  ...COMPARE_COMBINATIONS,
-  ...adjacentPairs,
-  ...staticComparePages,
-])
+const validSlugs = new Set<string>(BUILT_COMPARE_SLUGS)
 
 export function getValidComparisonSlug(a: string, b: string): string | undefined {
   const slug1 = `${a}-vs-${b}`
@@ -58,7 +40,7 @@ export function getValidComparisonSlug(a: string, b: string): string | undefined
 
 /**
  * Returns true only when `slug` resolves to a comparison page that is actually
- * built (i.e. emitted by `generateStaticParams` in `app/guides/compare/[slug]/page.tsx`).
+ * built — i.e. a directory in `BUILT_COMPARE_SLUGS` / `app/guides/compare/<slug>/`.
  *
  * This is the single guard every dynamic `/guides/compare/...` link generator must pass
  * its candidate slug through. Under static export, linking to a `/guides/compare/...`
