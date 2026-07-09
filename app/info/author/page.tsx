@@ -1,140 +1,180 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import JsonLd from '@/components/seo/JsonLd'
+import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
+import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import FaqJsonLd from '@/components/seo/FaqJsonLd'
+import { buildPageMetadata } from '../../../src/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'About the Author — The Hippie Scientist',
-  description:
-    'Willie B. Randolph III is the independent author behind The Hippie Scientist. Learn about the editorial philosophy, methodology, and the person behind the database.',
-  alternates: {
-    canonical: '/info/author/',
+const TITLE = 'About the Author: Willie B. Randolph III'
+const DESCRIPTION =
+  'Learn about Willie B. Randolph III, the independent author behind The Hippie Scientist, including editorial philosophy, evidence standards, corrections, and review workflow.'
+
+export const metadata: Metadata = buildPageMetadata({
+  title: TITLE,
+  description: DESCRIPTION,
+  path: '/info/author/',
+  openGraphType: 'profile',
+})
+
+const productionSteps = [
+  {
+    title: 'Structured source data',
+    body: 'Ingredient profiles begin from structured workbook fields for evidence, safety, mechanisms, dosing context, interactions, and visibility rules.',
   },
-}
+  {
+    title: 'Evidence-grade language',
+    body: 'Human trials and meta-analyses receive the most weight. Mechanism-only findings are labeled as background, not treated as proven outcomes.',
+  },
+  {
+    title: 'Safety-first review',
+    body: 'Interaction context, population cautions, legal status, and uncertainty are kept visible before product or sourcing sections.',
+  },
+]
+
+const trustLinks = [
+  { href: '/info/methodology/', title: 'Methodology', body: 'How evidence grades and editorial standards work.' },
+  { href: '/learn/citation-explorer/', title: 'Citation explorer', body: 'How research sources are read before summaries are written.' },
+  { href: '/info/affiliate-disclosure/', title: 'Affiliate disclosure', body: 'How monetized links stay separate from evidence language.' },
+]
+
+const faqItems = [
+  {
+    question: 'Who writes The Hippie Scientist?',
+    answer:
+      'The Hippie Scientist is an independent project led by Willie B. Randolph III, focused on building readable, evidence-aware pages about herbs, supplements, compounds, and related mechanisms.',
+  },
+  {
+    question: 'How does the author handle uncertainty?',
+    answer:
+      'Pages are written to separate human outcome evidence, mechanism background, traditional use, mixed findings, and safety concerns instead of flattening everything into one confidence level.',
+  },
+  {
+    question: 'How can readers send corrections?',
+    answer:
+      'Readers can use the contact page to send corrections, updated studies, broken links, or examples of wording that may need more careful context.',
+  },
+]
 
 export default function AuthorPage() {
+  const personJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Willie B. Randolph III',
+    url: 'https://thehippiescientist.net/info/author/',
+    jobTitle: 'Founder and independent author',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'The Hippie Scientist',
+      url: 'https://thehippiescientist.net/',
+    },
+    knowsAbout: [
+      'supplement research literacy',
+      'herbal evidence synthesis',
+      'compound profiles',
+      'editorial content systems',
+      'supplement safety context',
+    ],
+  }
+
   return (
-    <div className="mx-auto max-w-4xl space-y-10 px-4 py-8 sm:py-12">
-      {/* Header */}
-      <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
-        <p className="eyebrow-label">Author</p>
-        <h1 className="mt-3 text-4xl font-bold tracking-tight text-ink sm:text-5xl">
-          Willie B. Randolph III
+    <div className='container-page py-10 space-y-10'>
+      <JsonLd schema={personJsonLd} />
+      <AuthorityJsonLd
+        title={TITLE}
+        description={DESCRIPTION}
+        url='https://thehippiescientist.net/info/author'
+        type='ProfilePage'
+        breadcrumbs={[
+          { name: 'Home', url: 'https://thehippiescientist.net' },
+          { name: 'Info', url: 'https://thehippiescientist.net/info' },
+          { name: 'Author', url: 'https://thehippiescientist.net/info/author' },
+        ]}
+      />
+      <FaqJsonLd items={faqItems} />
+
+      <AuthorityBreadcrumbs
+        items={[
+          { label: 'Home', href: '/' },
+          { label: 'Info', href: '/info' },
+          { label: 'Author' },
+        ]}
+      />
+
+      <section className='rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 lg:p-10'>
+        <p className='eyebrow-label'>Author</p>
+        <h1 className='mt-3 max-w-4xl text-4xl font-bold tracking-tight text-ink sm:text-5xl'>
+          Willie B. Randolph III, independent author of The Hippie Scientist.
         </h1>
-        <p className="mt-4 max-w-2xl text-base leading-7 text-muted sm:text-lg">
-          Age 34, father of two little girls, and based in Oak Ridge, Tennessee. He synthesizes peer-reviewed botanical science for curious, health-conscious readers in plain language, conservative claims, and honest uncertainty.
+        <p className='mt-5 max-w-3xl text-lg leading-8 text-muted'>
+          Willie builds The Hippie Scientist as an independent evidence-literacy project for readers who want herb,
+          supplement, and compound pages that feel calmer, clearer, and less like marketing copy.
         </p>
-        <div className="mt-6 flex flex-wrap gap-3">
-          <Link
-            href="/info/about/"
-            className="rounded-full bg-brand-800 px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-900"
-          >
+        <div className='mt-6 flex flex-wrap gap-3'>
+          <Link href='/info/about/' className='rounded-full bg-brand-800 px-5 py-3 text-sm font-semibold text-white transition hover:bg-brand-900'>
+            About the project
+          </Link>
+          <Link href='/info/methodology/' className='rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50'>
             Editorial standards
           </Link>
-          <Link
-            href="/herbs/"
-            className="rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50"
-          >
-            Herb library
+          <Link href='/info/contact/' className='rounded-full border border-brand-900/20 px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50'>
+            Send a correction
           </Link>
         </div>
       </section>
 
-      {/* Identity */}
-      <section className="grid gap-6 md:grid-cols-2">
-        <div className="rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-sm space-y-3">
-          <h2 className="text-lg font-bold text-ink">Independent Research Project</h2>
-          <p className="text-sm leading-6 text-muted">
-            This site is a one-person project. Content is researched, written, and maintained by a single author with a background in evidence synthesis and a deep interest in natural compounds.
-            It is not affiliated with any supplement brand, clinical institution, or commercial research group.
-          </p>
-        </div>
-        <div className="rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-sm space-y-3">
-          <h2 className="text-lg font-bold text-ink">Editorial Stance</h2>
-          <p className="text-sm leading-6 text-muted">
-            Every profile separates human clinical evidence from mechanistic or animal-model plausibility.
-            Dosing and safety language is kept conservative. Affiliate revenue is disclosed and structurally
-            separated from evidence grades — no brand can pay to change a rating or suppress a caution.
-          </p>
-        </div>
+      <section className='grid gap-5 md:grid-cols-3'>
+        {productionSteps.map((step) => (
+          <article key={step.title} className='card-premium p-6'>
+            <p className='eyebrow-label'>Editorial workflow</p>
+            <h2 className='mt-2 text-xl font-semibold tracking-tight text-ink'>{step.title}</h2>
+            <p className='mt-3 text-sm leading-7 text-muted'>{step.body}</p>
+          </article>
+        ))}
       </section>
 
-      <section className="rounded-[1.5rem] border border-brand-900/10 bg-gradient-to-br from-white to-emerald-50/60 p-6 shadow-sm sm:p-8">
-        <div className="grid gap-4 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+      <section className='rounded-[2rem] border border-brand-900/10 bg-brand-50/60 p-6 shadow-sm sm:p-8'>
+        <div className='grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-start'>
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Personal snapshot</p>
-            <h2 className="mt-2 text-2xl font-bold tracking-tight text-ink">Willie B. Randolph III</h2>
-            <p className="mt-3 max-w-2xl text-sm leading-7 text-muted">
-              Oak Ridge, Tennessee. Age 34. Father of two little girls. The work here is built around making supplement research feel premium, readable, and honest enough to trust when the stakes are health and money.
+            <p className='eyebrow-label'>Author philosophy</p>
+            <h2 className='mt-2 text-3xl font-semibold tracking-tight text-ink'>Make supplement research readable without making it sound more certain than it is.</h2>
+            <p className='mt-4 text-sm leading-7 text-muted'>
+              The site is built around a simple editorial tension: readers need clear summaries, but supplement science is often mixed,
+              dose-dependent, product-form-dependent, and sensitive to personal context. The author page exists so readers can quickly
+              understand who is behind the project and how corrections are handled.
             </p>
           </div>
-          <div className="grid grid-cols-3 gap-3 text-center">
-            <div className="rounded-2xl border border-brand-900/10 bg-white/95 px-3 py-3">
-              <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-brand-700">Age</p>
-              <p className="mt-1 text-lg font-semibold text-ink">34</p>
-            </div>
-            <div className="rounded-2xl border border-brand-900/10 bg-white/95 px-3 py-3">
-              <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-brand-700">Family</p>
-              <p className="mt-1 text-lg font-semibold text-ink">2 girls</p>
-            </div>
-            <div className="rounded-2xl border border-brand-900/10 bg-white/95 px-3 py-3">
-              <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-brand-700">City</p>
-              <p className="mt-1 text-lg font-semibold text-ink">Oak Ridge</p>
-            </div>
-          </div>
+          <aside className='rounded-2xl border border-brand-900/10 bg-white/85 p-5'>
+            <p className='text-xs font-bold uppercase tracking-[0.16em] text-brand-700'>Snapshot</p>
+            <h3 className='mt-2 text-xl font-semibold text-ink'>Willie B. Randolph III</h3>
+            <p className='mt-2 text-sm leading-7 text-muted'>
+              Independent author, father of two, based in Oak Ridge, Tennessee, focused on building practical research systems and clear supplement education.
+            </p>
+          </aside>
         </div>
       </section>
 
-      {/* Credentials / approach */}
-      <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 sm:p-8 shadow-sm space-y-5">
-        <div>
-          <p className="eyebrow-label">Approach</p>
-          <h2 className="mt-1 text-2xl font-bold text-ink">How Content Is Produced</h2>
+      <section className='grid gap-4 md:grid-cols-3'>
+        {trustLinks.map((item) => (
+          <Link key={item.href} href={item.href} className='card-premium p-6 transition motion-safe:hover:-translate-y-0.5'>
+            <p className='eyebrow-label'>Trust page</p>
+            <h2 className='mt-2 text-xl font-semibold tracking-tight text-ink'>{item.title}</h2>
+            <p className='mt-3 text-sm leading-7 text-muted'>{item.body}</p>
+          </Link>
+        ))}
+      </section>
+
+      <section className='rounded-2xl border border-brand-900/10 bg-white/90 p-6 shadow-sm'>
+        <h2 className='text-2xl font-semibold tracking-tight text-ink'>FAQ</h2>
+        <div className='mt-4 grid gap-4'>
+          {faqItems.map((item) => (
+            <article key={item.question} className='rounded-2xl border border-brand-900/10 bg-brand-50/40 p-4'>
+              <h3 className='font-bold text-ink'>{item.question}</h3>
+              <p className='mt-2 text-sm leading-7 text-muted'>{item.answer}</p>
+            </article>
+          ))}
         </div>
-        <ul className="space-y-3 text-sm leading-6 text-muted list-none">
-          <li className="flex gap-3">
-            <span className="text-emerald-700 font-bold flex-shrink-0">1.</span>
-            <span><strong className="font-semibold text-ink">Workbook sourcing:</strong> All ingredient data originates in a master spreadsheet with structured fields for evidence, safety, mechanisms, dosing context, and interactions — preventing ad-hoc additions without a paper trail.</span>
-          </li>
-          <li className="flex gap-3">
-            <span className="text-emerald-700 font-bold flex-shrink-0">2.</span>
-            <span><strong className="font-semibold text-ink">Evidence grading:</strong> Human randomized controlled trials and meta-analyses rank highest. Mechanistic studies and traditional use are labeled separately. Preclinical data is never presented as proven human outcome.</span>
-          </li>
-          <li className="flex gap-3">
-            <span className="text-emerald-700 font-bold flex-shrink-0">3.</span>
-            <span><strong className="font-semibold text-ink">Safety-first publication:</strong> Interaction risks, population exclusions, dosing uncertainty, and legal status warnings are surfaced before product recommendations. High-caution substances suppress affiliate CTAs programmatically.</span>
-          </li>
-          <li className="flex gap-3">
-            <span className="text-emerald-700 font-bold flex-shrink-0">4.</span>
-            <span><strong className="font-semibold text-ink">Ongoing review:</strong> Profiles are revisited when new RCT-level evidence is published. The last-reviewed date is displayed on each profile.</span>
-          </li>
-        </ul>
       </section>
-
-      {/* Contact / corrections */}
-      <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/85 p-6 shadow-sm space-y-3">
-        <h2 className="text-lg font-bold text-ink">Corrections & Feedback</h2>
-        <p className="text-sm leading-6 text-muted max-w-2xl">
-          Found an error, outdated citation, or evidence summary that overstates what the data supports? Please reach out. Corrections improve the resource for everyone and are taken seriously.
-        </p>
-        <Link
-          href="/info/contact/"
-          className="inline-block rounded-full border border-brand-900/20 px-5 py-2.5 text-sm font-semibold text-ink transition hover:border-brand-700 hover:bg-brand-50"
-        >
-          Send a correction →
-        </Link>
-      </section>
-
-      {/* Navigation */}
-      <nav aria-label="Content links" className="flex flex-wrap gap-3 text-sm">
-        <Link href="/herbs/" className="text-brand-800 hover:underline font-semibold">Herb library</Link>
-        <span className="text-muted">·</span>
-        <Link href="/compounds/" className="text-brand-800 hover:underline font-semibold">Compound library</Link>
-        <span className="text-muted">·</span>
-        <Link href="/guides/" className="text-brand-800 hover:underline font-semibold">Goal guides</Link>
-        <span className="text-muted">·</span>
-        <Link href="/info/about/" className="text-brand-800 hover:underline font-semibold">About</Link>
-        <span className="text-muted">·</span>
-        <Link href="/info/disclaimer/" className="text-brand-800 hover:underline font-semibold">Disclaimer</Link>
-      </nav>
     </div>
   )
 }
