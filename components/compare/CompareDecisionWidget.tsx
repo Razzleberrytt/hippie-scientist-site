@@ -419,7 +419,7 @@ export default function CompareDecisionWidget({
             {/* Stack suggestion */}
             <div className="border-t border-brand-900/10 pt-4 space-y-1">
               <p className="text-xs font-bold uppercase tracking-wider text-brand-700">
-                Or take both:
+                If considering both:
               </p>
               <p className="text-xs leading-relaxed text-muted">
                 {stackSuggestion}
