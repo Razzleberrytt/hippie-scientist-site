@@ -95,7 +95,7 @@ export default function GermanPageShell({
       <section className='mt-8 rounded-2xl border border-amber-900/10 bg-amber-50/70 p-5 text-sm leading-6 text-amber-950'>
         <h2 className='font-bold'>Redaktioneller Hinweis</h2>
         <p className='mt-2'>
-          Diese deutsche Version ist eine redaktionelle Übersetzung der wichtigsten Einstiegsseiten. Der Inhalt ist rein informativ und ersetzt keine persönliche medizinische Beratung.
+          Diese deutsche Version ist eine redaktionelle Übersetzung der wichtigsten Einstiegsseiten. Der Inhalt ist informativ und sollte mit dem persönlichen Kontext gelesen werden.
         </p>
         {note ? <p className='mt-2'>{note}</p> : null}
       </section>
