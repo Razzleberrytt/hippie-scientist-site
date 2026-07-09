@@ -39,4 +39,17 @@ jobs:
         run: npm run check:node
 
       - name: Run full check
-        run: npm run check:full
+        run: |
+          set +e
+          npm run check:full 2>&1 | tee site-health-output.log
+          status=${PIPESTATUS[0]}
+          set -e
+          exit $status
+
+      - name: Upload Site Health diagnostic output
+        if: always() && hashFiles('site-health-output.log') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-health-output
+          path: site-health-output.log
+          if-no-files-found: ignore
