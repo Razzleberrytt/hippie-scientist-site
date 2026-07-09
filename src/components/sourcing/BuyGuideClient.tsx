@@ -21,7 +21,7 @@ interface BuyGuideClientProps {
   compounds: any[]
 }
 
-const DEFAULT_VISIBLE_ITEMS = 72
+const DEFAULT_VISIBLE_ITEMS = 12
 
 export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps) {
   const [searchQuery, setSearchQuery] = useState('')
@@ -130,7 +130,7 @@ export default function BuyGuideClient({ herbs, compounds }: BuyGuideClientProps
       {/* Grid of Sourcing Cards */}
       {!searchQuery && allItems.length > DEFAULT_VISIBLE_ITEMS ? (
         <p className='text-xs text-slate-500'>
-          Showing {DEFAULT_VISIBLE_ITEMS} common sourcing checklists. Search by ingredient name to inspect the full library.
+          Showing {DEFAULT_VISIBLE_ITEMS} common sourcing checklists to keep the page scannable. Search by ingredient name to inspect the full library.
         </p>
       ) : null}
       <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
