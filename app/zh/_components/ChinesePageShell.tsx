@@ -95,7 +95,7 @@ export default function ChinesePageShell({
       <section className='mt-8 rounded-2xl border border-amber-900/10 bg-amber-50/70 p-5 text-sm leading-6 text-amber-950'>
         <h2 className='font-bold'>编辑说明</h2>
         <p className='mt-2'>
-          这是主要页面的中文编辑版。内容仅用于教育和信息整理，不能替代个人化的医疗建议。
+          这是主要页面的中文编辑版。内容仅用于教育和信息整理，应结合个人情况谨慎阅读。
         </p>
         {note ? <p className='mt-2'>{note}</p> : null}
       </section>
