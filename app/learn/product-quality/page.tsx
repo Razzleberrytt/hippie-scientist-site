@@ -7,13 +7,33 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import { isRestrictedRecord } from '../../../src/lib/restricted-ingredients'
 import { toBuyingToolRecord } from '../../../src/lib/tool-page-payloads'
 import type { RuntimeRecord } from '../../../src/types/content'
+import { buildPageMetadata } from '../../../src/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: 'Supplement Product Quality Guide',
   description:
     'Learn how to evaluate supplement labels, standardized extracts, third-party testing, certificates of analysis, and product-quality tradeoffs before buying.',
-  alternates: { canonical: '/learn/product-quality/' },
-}
+  path: '/learn/product-quality/',
+  openGraphType: 'article',
+})
+
+const qualityStartingPoints = [
+  {
+    title: 'Before buying for sleep',
+    href: '/guides/sleep/',
+    body: 'Match the product to the sleep bottleneck first: timing, relaxation, stress, or sleep maintenance.',
+  },
+  {
+    title: 'Before buying for stress',
+    href: '/guides/anxiety/',
+    body: 'Separate acute calm from adaptogen-style support before choosing a standardized extract.',
+  },
+  {
+    title: 'Before buying for focus',
+    href: '/guides/focus/',
+    body: 'Check stimulant load, caffeine timing, and anxiety or blood-pressure context before comparing nootropics.',
+  },
+]
 
 export default async function ProductQualityPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
@@ -78,6 +98,28 @@ export default async function ProductQualityPage() {
           <p className='text-xs leading-relaxed text-slate-500'>
             Proprietary blends can hide under-dosed or over-stacked formulas. Favor transparent products with clear ingredient amounts.
           </p>
+        </div>
+      </section>
+
+      <section className='rounded-3xl border border-brand-900/10 bg-white/90 p-5 shadow-sm'>
+        <div className='max-w-3xl space-y-2'>
+          <p className='eyebrow-label'>Use this page after intent is clear</p>
+          <h2 className='text-2xl font-bold tracking-tight text-ink'>Start with the goal, then judge product quality</h2>
+          <p className='text-sm leading-6 text-muted'>
+            A clean certificate of analysis does not make the wrong supplement useful. Pick the goal page first, then use this checklist to compare form, dose transparency, third-party testing, and safety context.
+          </p>
+        </div>
+        <div className='mt-5 grid gap-3 md:grid-cols-3'>
+          {qualityStartingPoints.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className='rounded-2xl border border-brand-900/10 bg-brand-50/50 p-4 transition hover:border-brand-300 hover:bg-white'
+            >
+              <h3 className='text-sm font-bold text-ink'>{item.title}</h3>
+              <p className='mt-2 text-xs leading-5 text-muted'>{item.body}</p>
+            </Link>
+          ))}
         </div>
       </section>
 
