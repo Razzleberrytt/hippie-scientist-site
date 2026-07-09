@@ -7,7 +7,7 @@ type AuthorityJsonLdProps = {
   title: string
   description: string
   url: string
-  type?: 'Article' | 'CollectionPage' | 'MedicalWebPage'
+  type?: 'Article' | 'CollectionPage' | 'ContactPage' | 'MedicalWebPage' | 'ProfilePage'
   breadcrumbs?: Array<{
     name: string
     url: string

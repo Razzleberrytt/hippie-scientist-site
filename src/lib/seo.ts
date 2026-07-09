@@ -69,7 +69,7 @@ function stripBrandSuffix(value: string): string {
     .trim()
 }
 
-export type PageType = 'website' | 'article'
+export type PageType = 'website' | 'article' | 'profile'
 
 export type IndexDecision = {
   index: boolean
@@ -158,7 +158,7 @@ export function normalizeCanonicalPath(path: string, keepQueryParams: string[] =
 }
 
 export type BuildPageMetadataArgs = BuildMetaArgs & {
-  openGraphType?: 'website' | 'article'
+  openGraphType?: PageType
   robots?: Metadata['robots']
   keywords?: string[] | string
 }
