@@ -148,7 +148,7 @@ export default function AuthorPage() {
             <p className='text-xs font-bold uppercase tracking-[0.16em] text-brand-700'>Snapshot</p>
             <h3 className='mt-2 text-xl font-semibold text-ink'>Willie B. Randolph III</h3>
             <p className='mt-2 text-sm leading-7 text-muted'>
-              Independent author, father of two, based in Oak Ridge, Tennessee, focused on building practical research systems and clear supplement education.
+              Independent author, father of two little girls, based in Oak Ridge, Tennessee, focused on building practical research systems and clear supplement education.
             </p>
           </aside>
         </div>
