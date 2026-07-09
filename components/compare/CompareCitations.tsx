@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import type { CompareItem } from '@/lib/compare'
 
 interface CompareCitationsProps {
@@ -105,6 +106,29 @@ export default function CompareCitations({ item1, item2 }: CompareCitationsProps
               Sources forthcoming. Data derived from herb and compound profiles.
             </p>
           )}
+
+          <div className="rounded-2xl border border-brand-900/10 bg-brand-50/70 p-4">
+            <p className="text-xs font-bold uppercase tracking-wider text-brand-700">
+              Want the full evidence context?
+            </p>
+            <p className="mt-1 text-sm leading-6 text-muted">
+              Open the full profiles for dosing notes, safety flags, mechanisms, and source-level context before deciding.
+            </p>
+            <div className="mt-3 flex flex-col gap-2 sm:flex-row">
+              <Link
+                href={item1.pageUrl}
+                className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-center text-xs font-bold text-brand-800 transition-colors hover:bg-brand-100"
+              >
+                Read {item1.name} profile →
+              </Link>
+              <Link
+                href={item2.pageUrl}
+                className="rounded-full border border-brand-900/10 bg-white px-4 py-2 text-center text-xs font-bold text-brand-800 transition-colors hover:bg-brand-100"
+              >
+                Read {item2.name} profile →
+              </Link>
+            </div>
+          </div>
 
           <p className="border-t border-brand-900/10 pt-4 text-xs text-muted">
             Last reviewed: 2026
