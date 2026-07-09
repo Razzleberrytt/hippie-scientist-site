@@ -158,6 +158,17 @@ export default function CompareHero({ item1, item2 }: CompareHeroProps) {
         <p className="text-base leading-relaxed text-muted">
           Compare evidence quality, mechanisms, dosing, and safety to identify the better fit for your goals.
         </p>
+        <div className="flex flex-col gap-2 pt-1 sm:flex-row sm:items-center">
+          <a
+            href="#compare-decision"
+            className="button-primary w-full px-5 py-2.5 text-center text-sm sm:w-auto"
+          >
+            Get a personal pick ↓
+          </a>
+          <p className="text-xs leading-5 text-muted sm:max-w-xs">
+            Takes about 20 seconds and keeps the recommendation evidence-first.
+          </p>
+        </div>
       </div>
 
       <div className="relative grid gap-6 md:grid-cols-2">
