@@ -23,7 +23,7 @@ export default function GermanAnxietyPage() {
     <GermanPageShell
       eyebrow='Ziel: Angst'
       title='Angst: Mit Vorsicht, Kontext und klarer Sprache beginnen.'
-      description='Diese Seite stellt Supplements nicht als Behandlung dar. Sie hilft, beruhigende Optionen, mögliche Interaktionen und den Unterschied zwischen Humanstudien und Marketing besser einzuordnen.'
+      description='Diese Seite stellt Supplements nicht als Antwort dar. Sie hilft, Optionen rund um Ruhe, wichtige Vergleichspunkte und den Unterschied zwischen Humanstudien und Marketing besser einzuordnen.'
       primaryHref='/goals/anxiety/'
       primaryLabel='Vollständigen englischen Guide ansehen'
       secondaryHref='/de/goals/stress/'
@@ -31,18 +31,18 @@ export default function GermanAnxietyPage() {
       cards={[
         {
           title: 'Nicht alles gleichsetzen',
-          body: 'Sorge, Anspannung, unruhiger Schlaf und Panikattacken sind nicht derselbe Kontext. Eine gute Seite sollte sie nicht in ein einziges Versprechen pressen.',
+          body: 'Sorge, Anspannung und unruhiger Schlaf sind nicht derselbe Kontext. Eine gute Seite sollte sie nicht in ein einziges Versprechen pressen.',
         },
         {
           title: 'Kombinationen beachten',
-          body: 'Beruhigende Optionen können besonders wichtig sein, wenn Medikamente für Stimmung, Schlaf, Blutdruck, Alkohol oder andere sedierende Produkte im Spiel sind.',
+          body: 'Wenn bereits Produkte für Stimmung, Schlaf oder Wachheit genutzt werden, sollten beruhigende Optionen besonders vorsichtig verglichen werden.',
         },
         {
           title: 'Echte Evidenz suchen',
           body: 'Nützliche Evidenz erklärt Studiengröße, Zielgruppe, Dosis, Dauer und Grenzen, statt nur zu sagen, dass etwas natürlich ist.',
         },
       ]}
-      note='Wenn Symptome stark, neu oder gefährlich sind, suche professionelle oder lokale Notfallhilfe. Diese Seite ordnet nur Bildungsinformationen.'
+      note='Wenn deine Situation dich beunruhigt, nutze passende professionelle Unterstützung. Diese Seite ordnet nur Bildungsinformationen.'
     />
   )
 }
