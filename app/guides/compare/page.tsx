@@ -96,6 +96,45 @@ const popularComparisonPairs = [
   { label: 'Dynamic Ingredient Comparison Matrix', href: '/guides/compare/dynamic/' },
 ]
 
+const goalStarterPaths = [
+  {
+    goal: 'Sleep',
+    title: 'Need help sleeping? Start with timing and next-day grogginess.',
+    href: '/guides/compare/melatonin-vs-magnesium/',
+    cta: 'Compare sleep options',
+  },
+  {
+    goal: 'Stress & calm',
+    title: 'Choosing between adaptogens? Compare steadiness, stimulation, and safety.',
+    href: '/guides/compare/rhodiola-vs-ashwagandha/',
+    cta: 'Compare stress support',
+  },
+  {
+    goal: 'Focus',
+    title: 'Need cleaner focus? Compare stimulation, onset, and evidence strength.',
+    href: '/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/',
+    cta: 'Compare focus options',
+  },
+  {
+    goal: 'Calm + sleep',
+    title: 'Balancing relaxation and sleep? Compare calming options side by side.',
+    href: '/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/',
+    cta: 'Compare calming options',
+  },
+  {
+    goal: 'Inflammation',
+    title: 'Comparing anti-inflammatory paths? Start with mechanism and safety fit.',
+    href: '/guides/compare/curcumin-vs-boswellia/',
+    cta: 'Compare inflammation options',
+  },
+  {
+    goal: 'Performance',
+    title: 'Need energy or training support? Compare performance tradeoffs first.',
+    href: '/guides/compare/creatine-vs-caffeine/',
+    cta: 'Compare performance options',
+  },
+]
+
 const guidanceCards = [
   {
     title: 'Scan evidence first',
@@ -150,8 +189,8 @@ export default async function ComparePage() {
         title="Herb & Supplement Comparison Center"
         description="Compare herbs and supplements by evidence strength, mechanism, stimulation profile, safety, and dosing. Each comparison page shows data-backed tradeoffs — not marketing claims."
         actions={[
-          { href: '#featured-comparisons', label: 'Browse comparisons' },
-          { href: '#comparison-table', label: 'Open full table', variant: 'secondary' },
+          { href: '#start-by-goal', label: 'Start by goal' },
+          { href: '#featured-comparisons', label: 'Browse comparisons', variant: 'secondary' },
         ]}
       >
         <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm">
@@ -173,6 +212,27 @@ export default async function ComparePage() {
             <p className="mt-2 text-sm leading-6 text-muted">{card.body}</p>
           </PremiumCard>
         ))}
+      </section>
+
+      <section id="start-by-goal" className="space-y-5 scroll-mt-24">
+        <PremiumSectionHeader
+          eyebrow="Start by goal"
+          title="Pick the decision you are actually trying to make"
+          description="Not sure which comparison to open first? Start with the goal, then use the side-by-side page to check evidence, timing, safety, and fit."
+        />
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {goalStarterPaths.map((path) => (
+            <Link
+              key={path.href}
+              href={path.href}
+              className="library-content-card rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-300 hover:shadow dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+            >
+              <p className="text-xs font-bold uppercase tracking-widest text-brand-700 dark:text-brand-100">{path.goal}</p>
+              <h2 className="mt-2 text-base font-semibold leading-6 text-ink">{path.title}</h2>
+              <p className="mt-3 text-xs font-bold text-brand-700 dark:text-brand-100">{path.cta} →</p>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section id="featured-comparisons" className="space-y-7 scroll-mt-24">
