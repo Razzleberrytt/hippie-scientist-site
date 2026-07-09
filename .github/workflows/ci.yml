@@ -68,7 +68,20 @@ jobs:
         run: npm run typecheck
 
       - name: Run tests (vitest + a11y gate)
-        run: npm run test
+        run: |
+          set +e
+          npm run test 2>&1 | tee vitest-output.log
+          status=${PIPESTATUS[0]}
+          set -e
+          exit $status
+
+      - name: Upload vitest diagnostic output
+        if: always() && hashFiles('vitest-output.log') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: vitest-output
+          path: vitest-output.log
+          if-no-files-found: ignore
 
       - name: Guard workbook source of truth
         run: npm run guard:source-of-truth
