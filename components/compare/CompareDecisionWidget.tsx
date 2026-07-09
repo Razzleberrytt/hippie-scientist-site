@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useState } from 'react'
 import type { CompareItem } from '@/lib/compare'
 
@@ -351,6 +352,34 @@ export default function CompareDecisionWidget({
             <p className="text-sm leading-relaxed text-ink">
               {reason}
             </p>
+
+            {/* Next-step CTAs */}
+            <div className="rounded-xl border border-brand-900/10 bg-white/75 p-4 space-y-3">
+              <div className="space-y-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-brand-700">
+                  Next best step
+                </p>
+                <p className="text-xs leading-relaxed text-muted">
+                  {isTie
+                    ? 'Open both full guides to compare dosing, safety, evidence quality, and interactions before choosing.'
+                    : `Open the full ${recommended.name} guide to check dosing, safety, evidence quality, and interactions before deciding.`}
+                </p>
+              </div>
+              <div className="flex flex-col gap-2 sm:flex-row">
+                <Link
+                  href={recommended.pageUrl}
+                  className="rounded-full bg-brand-700 px-4 py-2 text-center text-xs font-semibold text-white shadow-sm transition-colors hover:bg-brand-600 focus-visible:outline-2 focus-visible:outline-offset-4"
+                >
+                  {isTie ? `Read ${recommended.name}` : `Read ${recommended.name} guide`}
+                </Link>
+                <Link
+                  href={other.pageUrl}
+                  className="rounded-full border border-brand-900/15 bg-white px-4 py-2 text-center text-xs font-semibold text-ink shadow-sm transition-colors hover:border-brand-700/30 hover:bg-brand-50 focus-visible:outline-2 focus-visible:outline-offset-4"
+                >
+                  {isTie ? `Read ${other.name}` : `Compare ${other.name}`}
+                </Link>
+              </div>
+            </div>
 
             {/* Stack suggestion */}
             <div className="border-t border-brand-900/10 pt-4 space-y-1">
