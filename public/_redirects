@@ -2,9 +2,6 @@
 https://www.thehippiescientist.net/goals/ https://thehippiescientist.net/goals/ 301
 https://www.thehippiescientist.net/guides/supplements-for-brain-fog-and-fatigue/ https://thehippiescientist.net/guides/other/supplements-for-brain-fog-and-fatigue/ 301
 https://www.thehippiescientist.net/ https://thehippiescientist.net/ 301
-https://www.thehippiescientist.net/top/stress/ https://thehippiescientist.net/goals/stress/ 301
-https://www.thehippiescientist.net/top/sleep https://thehippiescientist.net/guides/sleep/best-natural-sleep-aids-that-work/ 301
-https://www.thehippiescientist.net/top/sleep/ https://thehippiescientist.net/guides/sleep/best-natural-sleep-aids-that-work/ 301
 https://www.thehippiescientist.net/guides/sleep-herbs-vs-melatonin/ https://thehippiescientist.net/guides/sleep/sleep-herbs-vs-melatonin/ 301
 https://www.thehippiescientist.net/guides/best-supplements-for-gut-health/ https://thehippiescientist.net/guides/best/supplements-for-gut-health/ 301
 https://www.thehippiescientist.net/guides/ https://thehippiescientist.net/guides/ 301
@@ -186,8 +183,6 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /citicoline-vs-alpha-gpc/ /guides/adhd/citicoline-vs-alpha-gpc/ 301
 /omega-3-for-adhd /guides/adhd/omega-3-and-adhd/ 301
 /omega-3-for-adhd/ /guides/adhd/omega-3-and-adhd/ 301
-/top/sleep /guides/sleep/best-natural-sleep-aids-that-work/ 301
-/top/sleep/ /guides/sleep/best-natural-sleep-aids-that-work/ 301
 # CONTENT TAXONOMY MIGRATION: Learn content is now surfaced from /guides;
 # keep /learn/ live for existing static learning-path content and sitemap hygiene.
 # Articles style category legacy redirect (field-notes → nootropics)
