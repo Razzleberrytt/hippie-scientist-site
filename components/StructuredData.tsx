@@ -12,6 +12,31 @@ const FAQ_FALLBACK_ANSWER_PREFIXES = [
   'See the page evidence section',
 ]
 
+function hasFileExtension(pathname: string): boolean {
+  const finalSegment = pathname.split('/').pop() ?? ''
+  return /\.[a-z0-9]+$/i.test(finalSegment)
+}
+
+function normalizeCanonicalUrl(value: string): string {
+  const trimmed = value.trim()
+  if (!trimmed) return trimmed
+
+  try {
+    const url = new URL(trimmed, SITE_URL)
+
+    // Preserve third-party URLs exactly as supplied. Internal page routes use
+    // the site's trailing-slash canonical convention, while root and assets do not.
+    if (url.origin !== SITE_URL) return trimmed
+    if (url.pathname !== '/' && !url.pathname.endsWith('/') && !hasFileExtension(url.pathname)) {
+      url.pathname = `${url.pathname}/`
+    }
+
+    return url.toString()
+  } catch {
+    return trimmed
+  }
+}
+
 export interface FAQItem {
   question: string
   answer: string
@@ -59,6 +84,7 @@ export default function StructuredData({
   zone = 'harm-reduction',
 }: StructuredDataProps) {
   const schemas: Record<string, unknown>[] = []
+  const canonicalPageUrl = normalizeCanonicalUrl(pageUrl)
 
   const isMonetized = zone === 'monetized'
   const meaningfulFaqs = faqs?.filter(isMeaningfulFaq) ?? []
@@ -67,12 +93,12 @@ export default function StructuredData({
     schemas.push({
       '@context': 'https://schema.org',
       '@type': ['DietarySupplement', 'WebPage'],
-      '@id': `${pageUrl}#supplement`,
+      '@id': `${canonicalPageUrl}#supplement`,
       name: headline,
       headline,
       description,
       image,
-      url: pageUrl,
+      url: canonicalPageUrl,
       datePublished,
       dateModified: dateModified ?? datePublished,
       author: {
@@ -91,19 +117,19 @@ export default function StructuredData({
       },
       mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': pageUrl,
+        '@id': canonicalPageUrl,
       },
     })
   } else {
     schemas.push({
       '@context': 'https://schema.org',
       '@type': ['MedicalWebPage', 'Article'],
-      '@id': `${pageUrl}#webpage`,
+      '@id': `${canonicalPageUrl}#webpage`,
       name: headline,
       headline,
       description,
       image,
-      url: pageUrl,
+      url: canonicalPageUrl,
       datePublished,
       dateModified: dateModified ?? datePublished,
       lastReviewed: dateModified ?? datePublished,
@@ -131,7 +157,7 @@ export default function StructuredData({
       },
       mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': pageUrl,
+        '@id': canonicalPageUrl,
       },
     })
   }
@@ -162,7 +188,7 @@ export default function StructuredData({
         '@type': 'ListItem',
         position: i + 1,
         name: crumb.label,
-        item: crumb.href.startsWith('http') ? crumb.href : `${SITE_URL}${crumb.href}`,
+        item: normalizeCanonicalUrl(crumb.href),
       })),
     })
   }
