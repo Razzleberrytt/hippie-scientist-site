@@ -4,9 +4,9 @@
   "entity_id": "ent_compound_740c04966b1d",
   "entity_type": "compound",
   "batch_hash": "9ad808cdffba8c7ed7e14039720002756d3c50ba38621dcf1d33ef46fe000c56",
-  "decision": "pending",
-  "reviewer": "",
-  "reviewed_at": null,
+  "decision": "approved",
+  "reviewer": "Willie Randolph",
+  "reviewed_at": "2026-07-11T23:55:00.000Z",
   "approved_patch_ids": [
     "scite-magnesium-glycinate-bioavailability-2026-07-11-003",
     "scite-magnesium-glycinate-renal-interactions-2026-07-11-006",
@@ -33,5 +33,5 @@
   ],
   "deprecated_claim_ids": [],
   "deprecated_source_ids": [],
-  "notes": ""
+  "notes": "Approved all six balanced claims. No active legacy claims were present. The final profile emphasizes one direct sleep trial, sparse formulation-specific evidence, repletion context, qualified in-vitro bioavailability evidence, gastrointestinal tolerability, renal risk, and medication-separation cautions."
 }
