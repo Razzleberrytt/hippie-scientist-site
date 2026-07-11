@@ -158,15 +158,33 @@ jobs:
           node scripts/ci/validate-workbook-patches.mjs
           npm run workbook:roundtrip-test --silent
 
-      - name: Commit applied workbook
+      - name: Commit and push applied workbook
+        id: publish
+        continue-on-error: true
         shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HEAD_BRANCH: ${{ github.event.pull_request.head.ref }}
         run: |
-          if git diff --quiet -- data-sources/herb_monograph_master.xlsx data-sources/workbook-patches/citicoline-scite-pilot.json; then
-            echo 'No workbook changes to commit.'
-            exit 0
-          fi
+          exec > >(tee workbook-publish-report.txt) 2>&1
+          set -x
+          git status --short
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data-sources/herb_monograph_master.xlsx data-sources/workbook-patches/citicoline-scite-pilot.json
           git commit -m 'data: apply reviewed Citicoline workbook patch'
-          git push origin HEAD:${{ github.event.pull_request.head.ref }}
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push origin "HEAD:${HEAD_BRANCH}"
+
+      - name: Upload workbook publish report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: workbook-publish-report
+          path: workbook-publish-report.txt
+          if-no-files-found: warn
+          retention-days: 3
+
+      - name: Enforce workbook publication
+        if: steps.publish.outcome != 'success'
+        run: exit 1
