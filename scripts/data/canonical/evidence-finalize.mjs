@@ -54,6 +54,11 @@ function normalizedClaimText(value) {
   return normalizeSeed(value)
 }
 
+function hasTraceableSource(source) {
+  const url = String(source?.url || '').trim()
+  return Boolean(source?.doi || source?.pmid || /^https?:\/\//i.test(url))
+}
+
 function claimPreview(patch, operation) {
   const predicate = operation.op === 'add_safety_warning'
     ? 'has_safety_warning'
@@ -88,8 +93,13 @@ export function buildEvidenceReview({ slug, patches, dataset }) {
     if (unsafe.length) {
       throw new Error(`${patch.patch_id}: unsupported evidence-finalize operation(s): ${unsafe.map((operation) => operation.op).join(', ')}`)
     }
-    if (!(patch.sources || []).length) {
+    const sources = patch.sources || []
+    if (!sources.length) {
       throw new Error(`${patch.patch_id}: evidence-finalize requires at least one traceable source`)
+    }
+    const untraceable = sources.filter((source) => !hasTraceableSource(source))
+    if (untraceable.length) {
+      throw new Error(`${patch.patch_id}: every source must have a DOI, PMID, or HTTP(S) URL`)
     }
   }
 
@@ -107,7 +117,10 @@ export function buildEvidenceReview({ slug, patches, dataset }) {
   )
   const plannedClaims = plannedDataset.claims.filter((claim) =>
     claim.subject_id === target.id
-      && previews.some((preview) => normalizedClaimText(preview.claim) === normalizedClaimText(claim.object_literal)),
+      && previews.some((preview) =>
+        preview.predicate === claim.predicate
+          && normalizedClaimText(preview.claim) === normalizedClaimText(claim.object_literal),
+      ),
   )
   const approvedClaimIds = [...new Set(plannedClaims.map((claim) => claim.id))].sort()
   const approvedSourceIds = sourceIdsForPatches(patches)
@@ -121,7 +134,8 @@ export function buildEvidenceReview({ slug, patches, dataset }) {
       claim: claim.object_literal || claim.notes || '',
       source_ids: claim.source_ids || [],
       exact_duplicate_of_proposal: previews.some(
-        (preview) => normalizedClaimText(preview.claim) === normalizedClaimText(claim.object_literal),
+        (preview) => preview.predicate === claim.predicate
+          && normalizedClaimText(preview.claim) === normalizedClaimText(claim.object_literal),
       ),
     }))
     .sort((a, b) => a.id.localeCompare(b.id))
@@ -228,6 +242,14 @@ export function validateReviewManifest(manifest, { slug, batchHash, availablePat
 
   for (const key of ['approved_claim_ids', 'approved_source_ids', 'deprecated_claim_ids', 'deprecated_source_ids']) {
     if (!Array.isArray(manifest?.[key])) errors.push(`${key} must be an array`)
+  }
+  const approvedClaims = new Set(Array.isArray(manifest?.approved_claim_ids) ? manifest.approved_claim_ids : [])
+  const approvedSources = new Set(Array.isArray(manifest?.approved_source_ids) ? manifest.approved_source_ids : [])
+  for (const id of Array.isArray(manifest?.deprecated_claim_ids) ? manifest.deprecated_claim_ids : []) {
+    if (approvedClaims.has(id)) errors.push(`claim cannot be both approved and deprecated: ${id}`)
+  }
+  for (const id of Array.isArray(manifest?.deprecated_source_ids) ? manifest.deprecated_source_ids : []) {
+    if (approvedSources.has(id)) errors.push(`source cannot be both approved and deprecated: ${id}`)
   }
 
   return { ok: errors.length === 0, errors }
