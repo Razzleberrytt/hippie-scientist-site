@@ -44,4 +44,18 @@ describe('site export adapter', () => {
     expect(again.herbs.map((h) => h.slug)).toEqual(herbs.map((h) => h.slug))
     expect(JSON.stringify(again.herbs[0])).toBe(JSON.stringify(herbs[0]))
   })
+
+  it('populates derived fields (mechanisms, indexability) from canonical data', () => {
+    // At least some herbs should have normalized mechanism categories + an
+    // indexability verdict, proving the derivation ran.
+    expect(herbs.some((h) => h.mechanism_categories.length > 0)).toBe(true)
+    expect(herbs.every((h) => typeof h.indexability_status === 'string' && h.indexability_status.length > 0)).toBe(true)
+    expect(herbs.every((h) => ['index,follow', 'noindex,follow', 'noindex,nofollow'].includes(h.robots))).toBe(true)
+    expect(['fully_mapped', 'partially_mapped', 'unmapped', 'no_raw_mechanisms']).toContain(herbs[0].mechanism_normalization_status)
+  })
+
+  it('omits compound-only fields from herb records', () => {
+    expect(herbs.every((h) => !('allow_restricted_reference_export' in h))).toBe(true)
+    expect(compounds.every((c) => 'allow_restricted_reference_export' in c)).toBe(true)
+  })
 })
