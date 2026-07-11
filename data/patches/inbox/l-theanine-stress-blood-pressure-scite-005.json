@@ -1,0 +1,37 @@
+{
+  "patch_id": "scite-l-theanine-stress-blood-pressure-2026-07-11-005",
+  "patch_version": "1",
+  "created_at": "2026-07-11T20:20:00.000Z",
+  "generator": "Scite literature enrichment via ChatGPT",
+  "target": {
+    "slug": "l-theanine",
+    "canonical_name": "L-theanine",
+    "entity_type": "compound"
+  },
+  "operations": [
+    {
+      "op": "add_claim",
+      "field": "effects",
+      "value": "In a small crossover study, 200 mg of L-theanine attenuated the rise in blood pressure during psychological stress only among participants who showed a large blood-pressure response under placebo; this subgroup finding does not establish a general antihypertensive effect.",
+      "confidence": 0.63,
+      "notes": "Participants were divided according to their blood-pressure response during placebo testing. The reported benefit was concentrated in the high-response group, whose placebo-condition systolic increases ranged from about 9.5 to 33.9 mmHg. The result should not be generalized to resting blood pressure or hypertension treatment."
+    }
+  ],
+  "sources": [
+    {
+      "doi": "10.1186/1880-6805-31-28",
+      "url": "https://doi.org/10.1186/1880-6805-31-28",
+      "title": "Effects of L-Theanine or Caffeine Intake on Changes in Blood Pressure under Physical and Psychological Stresses",
+      "year": "2012"
+    },
+    {
+      "doi": "10.1016/j.phrs.2019.104395",
+      "url": "https://doi.org/10.1016/j.phrs.2019.104395",
+      "title": "Psychotropic Effects of L-Theanine and Its Clinical Properties: From the Management of Anxiety and Stress to a Potential Use in Schizophrenia",
+      "year": "2019"
+    }
+  ],
+  "notes": "Fifth controlled enrichment-pipeline patch. Adds a narrowly qualified cardiovascular stress-response finding without making a hypertension-treatment claim.",
+  "confidence": 0.63,
+  "requires_review": true
+}
