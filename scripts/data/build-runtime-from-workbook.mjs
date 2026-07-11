@@ -358,8 +358,39 @@ function canonicalMechanismRow(row) {
   })
 }
 
+// Curated synonym overlay for canonical mechanisms, keyed by canonical_mechanism_id.
+// These are high-confidence aliases that appear frequently in workbook mechanism
+// fields as the bare concept or target system (e.g. "Nrf2" for "Nrf2 activation",
+// "Oxidative Stress" for "Antioxidant"). Kept in code, not the workbook, so it
+// survives data:build regeneration and stays reviewable. Only unambiguous terms
+// are mapped — genuinely ambiguous terms (e.g. "Neurotransmitter Modulation")
+// are deliberately left unmapped rather than guess a specific pathway.
+const MECHANISM_SYNONYM_OVERLAY = {
+  'nrf2-activation': ['Nrf2', 'Nrf2 signaling', 'Nrf2 pathway'],
+  'ampk-activation': ['AMPK', 'AMPK signaling', 'AMPK pathway'],
+  'nf-kb-inhibition': ['NF-kB', 'NF-kB signaling', 'NF-kB pathway'],
+  'mtor-modulation': ['mTOR', 'mTOR signaling', 'mTOR pathway'],
+  'neuroprotective-activity': ['neuroprotective', 'neuroprotection'],
+  'gut-microbiome-modulation': ['gut_microbiome', 'gut microbiome'],
+  'endocannabinoid-modulation': ['endocannabinoid', 'endocannabinoid system'],
+  'lipid-metabolism-support': ['Lipid Metabolism', 'lipid metabolism'],
+  'metabolic-regulation': ['metabolic', 'metabolism'],
+  'antioxidant': ['Oxidative Stress', 'oxidative stress', 'Antioxidant defense', 'antioxidant defense'],
+  'anti-inflammatory': ['inflammatory', 'inflammation'],
+  'glucose-regulation': ['Glucose Metabolism', 'glucose metabolism'],
+  'vascular-function-support': ['Endothelial Function', 'endothelial function', 'cardiovascular'],
+  'mitochondrial-biogenesis': ['mitochondrial', 'mitochondrial function'],
+  'hormonal-signaling-context': ['endocrine', 'endocrine signaling'],
+}
+
 function buildMechanismTaxonomy(rows) {
   const mechanisms = normalizeRows(rows, canonicalMechanismRow)
+  for (const mechanism of mechanisms) {
+    const overlay = MECHANISM_SYNONYM_OVERLAY[mechanism.canonical_mechanism_id]
+    if (overlay) {
+      mechanism.synonyms = uniqueList([mechanism.synonyms || [], overlay])
+    }
+  }
   const aliasToMechanism = new Map()
   for (const mechanism of mechanisms) {
     for (const alias of uniqueList([mechanism.canonical_label, mechanism.label, mechanism.synonyms || []])) {

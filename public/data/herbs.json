@@ -35,10 +35,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -335,24 +333,24 @@
       "Metabolic regulation",
       "Immune modulation",
       "AMPK activation",
-      "Glucose regulation"
+      "Glucose regulation",
+      "Gut microbiome modulation"
     ],
     "mechanism_categories": [
       "core",
       "immune",
-      "metabolic"
+      "metabolic",
+      "gut"
     ],
     "mechanism_classes": [
       "Physiological effect",
       "Signaling pathway modulation",
-      "Metabolic modulation"
+      "Metabolic modulation",
+      "Microbiome modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "inflammatory",
-      "gut_microbiome"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -457,10 +455,8 @@
       "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -564,7 +560,6 @@
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
       "Neurotransmitter Modulation",
-      "Oxidative Stress",
       "Neurotransmitter Signaling"
     ],
     "evidence_grade": "c",
@@ -670,10 +665,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -779,7 +772,8 @@
       "Metabolic regulation",
       "Neuroprotective activity",
       "AMPK activation",
-      "Nrf2 activation"
+      "Nrf2 activation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "core",
@@ -788,15 +782,12 @@
     ],
     "mechanism_classes": [
       "Physiological effect",
-      "Signaling pathway modulation"
+      "Signaling pathway modulation",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "Nrf2",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -901,11 +892,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Nrf2"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -1320,10 +1308,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -1543,12 +1529,8 @@
       "Signaling molecule modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress",
-      "Endothelial Function",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -1768,11 +1750,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -1878,11 +1857,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Nrf2"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -1992,11 +1968,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -2090,20 +2063,20 @@
     ],
     "canonical_mechanisms": [
       "Antioxidant",
-      "Metabolic regulation"
+      "Metabolic regulation",
+      "AMPK activation"
     ],
     "mechanism_categories": [
-      "core"
+      "core",
+      "metabolic"
     ],
     "mechanism_classes": [
-      "Physiological effect"
+      "Physiological effect",
+      "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -2433,23 +2406,26 @@
     "canonical_mechanisms": [
       "Anti-inflammatory",
       "Hormonal signaling context",
-      "HPA-axis modulation"
+      "HPA-axis modulation",
+      "NF-kB inhibition",
+      "Nrf2 activation",
+      "Antioxidant"
     ],
     "mechanism_categories": [
       "core",
-      "stress"
+      "stress",
+      "inflammatory",
+      "redox"
     ],
     "mechanism_classes": [
       "Physiological effect",
-      "Neuroendocrine modulation"
+      "Neuroendocrine modulation",
+      "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
       "Neurotransmitter Modulation",
-      "NF-kB",
-      "Nrf2",
-      "Oxidative Stress",
       "Neurotransmitter Signaling"
     ],
     "evidence_grade": "a",
@@ -2545,7 +2521,8 @@
     "canonical_mechanisms": [
       "Metabolic regulation",
       "Neuroprotective activity",
-      "Glucose regulation"
+      "Glucose regulation",
+      "Vascular function support"
     ],
     "mechanism_categories": [
       "core",
@@ -2556,11 +2533,8 @@
       "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Glucose Metabolism",
-      "Endothelial Function"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "C+",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -2781,7 +2755,8 @@
       "Hormonal signaling context",
       "HPA-axis modulation",
       "AMPK activation",
-      "NF-kB inhibition"
+      "NF-kB inhibition",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "core",
@@ -2793,15 +2768,12 @@
     "mechanism_classes": [
       "Physiological effect",
       "Neuroendocrine modulation",
-      "Signaling pathway modulation"
+      "Signaling pathway modulation",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "NF-kB",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -3011,10 +2983,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -3123,7 +3093,6 @@
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
       "Neurotransmitter Modulation",
-      "Oxidative Stress",
       "Neurotransmitter Signaling"
     ],
     "evidence_grade": "a",
@@ -3223,10 +3192,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -3332,11 +3299,8 @@
       "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -3433,10 +3397,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -3560,13 +3522,8 @@
       "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "NF-kB",
-      "Glucose Metabolism",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -3672,7 +3629,8 @@
     "canonical_mechanisms": [
       "Metabolic regulation",
       "AMPK activation",
-      "NF-kB inhibition"
+      "NF-kB inhibition",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "core",
@@ -3681,15 +3639,12 @@
     ],
     "mechanism_classes": [
       "Physiological effect",
-      "Signaling pathway modulation"
+      "Signaling pathway modulation",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "NF-kB",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -3797,11 +3752,8 @@
       "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -3904,10 +3856,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -4110,10 +4060,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -4234,12 +4182,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress",
-      "Endothelial Function",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -4452,25 +4396,23 @@
       "Metabolic regulation",
       "Vascular function support",
       "Neuroprotective activity",
-      "AMPK activation"
+      "AMPK activation",
+      "Nrf2 activation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "core",
-      "metabolic"
+      "metabolic",
+      "redox"
     ],
     "mechanism_classes": [
       "Physiological effect",
-      "Signaling pathway modulation"
+      "Signaling pathway modulation",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "Nrf2",
-      "Oxidative Stress",
-      "Endothelial Function",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -4754,10 +4696,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -4859,11 +4799,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Nrf2",
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -4965,11 +4902,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Nrf2",
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -5092,13 +5026,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Nrf2",
-      "Endothelial Function",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -5209,10 +5138,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -5315,10 +5242,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -5603,7 +5528,8 @@
     ],
     "canonical_mechanisms": [
       "Vascular function support",
-      "Nitric oxide modulation"
+      "Nitric oxide modulation",
+      "Lipid metabolism support"
     ],
     "mechanism_categories": [
       "core",
@@ -5614,11 +5540,8 @@
       "Signaling molecule modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Endothelial Function",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -5817,10 +5740,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -6305,10 +6226,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -6393,19 +6312,20 @@
       "Glucose Metabolism"
     ],
     "canonical_mechanisms": [
-      "Metabolic regulation"
+      "Metabolic regulation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
-      "core"
+      "core",
+      "metabolic"
     ],
     "mechanism_classes": [
-      "Physiological effect"
+      "Physiological effect",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -6504,10 +6424,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -6613,10 +6531,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "inflammatory"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -6932,8 +6848,6 @@
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
       "Neurotransmitter Modulation",
-      "NF-kB",
-      "Oxidative Stress",
       "Neurotransmitter Signaling"
     ],
     "evidence_grade": "c",
@@ -7055,10 +6969,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -7259,12 +7171,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Nrf2",
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -7484,11 +7392,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -7589,10 +7494,8 @@
       "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -7680,19 +7583,20 @@
     ],
     "canonical_mechanisms": [
       "Anti-inflammatory",
-      "Metabolic regulation"
+      "Metabolic regulation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
-      "core"
+      "core",
+      "metabolic"
     ],
     "mechanism_classes": [
-      "Physiological effect"
+      "Physiological effect",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -7778,19 +7682,20 @@
       "Glucose Metabolism"
     ],
     "canonical_mechanisms": [
-      "Neuroprotective activity"
+      "Neuroprotective activity",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
-      "core"
+      "core",
+      "metabolic"
     ],
     "mechanism_classes": [
-      "Physiological effect"
+      "Physiological effect",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -7888,24 +7793,24 @@
     "canonical_mechanisms": [
       "Neuroprotective activity",
       "Nrf2 activation",
-      "Mitochondrial biogenesis"
+      "Mitochondrial biogenesis",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "core",
       "redox",
-      "mitochondrial"
+      "mitochondrial",
+      "metabolic"
     ],
     "mechanism_classes": [
       "Physiological effect",
       "Signaling pathway modulation",
-      "Physiological/cellular effect"
+      "Physiological/cellular effect",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Nrf2",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -8135,13 +8040,8 @@
       "Signaling molecule modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "NF-kB",
-      "Endothelial Function",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -8244,23 +8144,22 @@
       "Antioxidant",
       "Metabolic regulation",
       "Vascular function support",
-      "NF-kB inhibition"
+      "NF-kB inhibition",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "core",
-      "inflammatory"
+      "inflammatory",
+      "metabolic"
     ],
     "mechanism_classes": [
       "Physiological effect",
-      "Signaling pathway modulation"
+      "Signaling pathway modulation",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Oxidative Stress",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -8772,12 +8671,8 @@
       "Physiological/cellular effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "Nrf2",
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -8997,11 +8892,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -9119,11 +9011,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -9223,7 +9112,8 @@
     "canonical_mechanisms": [
       "Metabolic regulation",
       "AMPK activation",
-      "NF-kB inhibition"
+      "NF-kB inhibition",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "core",
@@ -9232,15 +9122,12 @@
     ],
     "mechanism_classes": [
       "Physiological effect",
-      "Signaling pathway modulation"
+      "Signaling pathway modulation",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "NF-kB",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -9468,10 +9355,7 @@
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
       "Neurotransmitter Modulation",
-      "Nrf2",
-      "Neurotransmitter Signaling",
-      "Glucose Metabolism",
-      "Lipid Metabolism"
+      "Neurotransmitter Signaling"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
@@ -9575,23 +9459,22 @@
       "Antioxidant",
       "Metabolic regulation",
       "Hormonal signaling context",
-      "Nrf2 activation"
+      "Nrf2 activation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "core",
-      "redox"
+      "redox",
+      "metabolic"
     ],
     "mechanism_classes": [
       "Physiological effect",
-      "Signaling pathway modulation"
+      "Signaling pathway modulation",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Nrf2",
-      "Oxidative Stress",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -9787,10 +9670,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -9902,7 +9783,6 @@
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
       "Neurotransmitter Modulation",
-      "Oxidative Stress",
       "Neurotransmitter Signaling"
     ],
     "evidence_grade": "c",
@@ -10105,10 +9985,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -10202,7 +10080,8 @@
     "canonical_mechanisms": [
       "Anti-inflammatory",
       "Metabolic regulation",
-      "NF-kB inhibition"
+      "NF-kB inhibition",
+      "Antioxidant"
     ],
     "mechanism_categories": [
       "core",
@@ -10213,10 +10092,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -10306,20 +10183,20 @@
     ],
     "canonical_mechanisms": [
       "Antioxidant",
-      "Metabolic regulation"
+      "Metabolic regulation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
-      "core"
+      "core",
+      "metabolic"
     ],
     "mechanism_classes": [
-      "Physiological effect"
+      "Physiological effect",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -10421,10 +10298,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -10534,7 +10409,6 @@
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
       "Neurotransmitter Modulation",
-      "NF-kB",
       "Neurotransmitter Signaling"
     ],
     "evidence_grade": "c",
@@ -10730,22 +10604,21 @@
     ],
     "canonical_mechanisms": [
       "NF-kB inhibition",
-      "Nrf2 activation"
+      "Nrf2 activation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "inflammatory",
-      "redox"
+      "redox",
+      "metabolic"
     ],
     "mechanism_classes": [
-      "Signaling pathway modulation"
+      "Signaling pathway modulation",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Nrf2",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -10948,10 +10821,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -11046,10 +10917,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -11263,10 +11132,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -11361,10 +11228,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -11561,10 +11426,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -11665,7 +11528,8 @@
       "Anti-inflammatory",
       "Immune modulation",
       "HPA-axis modulation",
-      "AMPK activation"
+      "AMPK activation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "core",
@@ -11676,14 +11540,12 @@
     "mechanism_classes": [
       "Physiological effect",
       "Neuroendocrine modulation",
-      "Signaling pathway modulation"
+      "Signaling pathway modulation",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -11780,10 +11642,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -11890,10 +11750,8 @@
       "Physiological/cellular effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Endothelial Function"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -12006,10 +11864,8 @@
       "Physiological/cellular effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Endothelial Function"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -12501,11 +12357,8 @@
       "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Glucose Metabolism",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -12612,7 +12465,6 @@
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
       "Neurotransmitter Modulation",
-      "NF-kB",
       "Neurotransmitter Signaling"
     ],
     "evidence_grade": "c",
@@ -12723,11 +12575,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -12834,10 +12683,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -12948,11 +12795,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Nrf2"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -13146,23 +12990,22 @@
     "canonical_mechanisms": [
       "Antioxidant",
       "Metabolic regulation",
-      "NF-kB inhibition"
+      "NF-kB inhibition",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "core",
-      "inflammatory"
+      "inflammatory",
+      "metabolic"
     ],
     "mechanism_classes": [
       "Physiological effect",
-      "Signaling pathway modulation"
+      "Signaling pathway modulation",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Oxidative Stress",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -13270,11 +13113,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -13382,11 +13222,8 @@
       "Signaling molecule modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Endothelial Function",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -13499,10 +13336,8 @@
       "Signaling molecule modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -13714,8 +13549,7 @@
     "mechanism_target_systems": [],
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
-      "Neurotransmitter Modulation",
-      "Oxidative Stress"
+      "Neurotransmitter Modulation"
     ],
     "evidence_grade": "b+",
     "evidence_tier": "Moderate Human Evidence",
@@ -14011,7 +13845,8 @@
       "Anti-inflammatory",
       "Mitochondrial biogenesis",
       "AMPK activation",
-      "NF-kB inhibition"
+      "NF-kB inhibition",
+      "Neuroprotective activity"
     ],
     "mechanism_categories": [
       "core",
@@ -14027,7 +13862,6 @@
     "mechanism_target_systems": [],
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
-      "neuroprotective",
       "liver_detoxification"
     ],
     "evidence_grade": "c",
@@ -14142,9 +13976,7 @@
     "mechanism_target_systems": [],
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
-      "Neurotransmitter Modulation",
-      "cardiovascular",
-      "neuroprotective"
+      "Neurotransmitter Modulation"
     ],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
@@ -14248,7 +14080,8 @@
       "Antioxidant",
       "Vascular function support",
       "HPA-axis modulation",
-      "Nitric oxide modulation"
+      "Nitric oxide modulation",
+      "Lipid metabolism support"
     ],
     "mechanism_categories": [
       "core",
@@ -14261,12 +14094,8 @@
       "Signaling molecule modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress",
-      "Endothelial Function",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -14470,24 +14299,23 @@
       "Antioxidant",
       "Metabolic regulation",
       "Vascular function support",
-      "Nitric oxide modulation"
+      "Nitric oxide modulation",
+      "AMPK activation",
+      "Lipid metabolism support"
     ],
     "mechanism_categories": [
       "core",
-      "cardiovascular"
+      "cardiovascular",
+      "metabolic"
     ],
     "mechanism_classes": [
       "Physiological effect",
-      "Signaling molecule modulation"
+      "Signaling molecule modulation",
+      "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "Oxidative Stress",
-      "Endothelial Function",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -14574,7 +14402,8 @@
     ],
     "canonical_mechanisms": [
       "Metabolic regulation",
-      "Vascular function support"
+      "Vascular function support",
+      "Antioxidant"
     ],
     "mechanism_categories": [
       "core"
@@ -14583,10 +14412,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -14680,7 +14507,8 @@
     "canonical_mechanisms": [
       "Anti-inflammatory",
       "Antioxidant",
-      "Adenosine modulation"
+      "Adenosine modulation",
+      "Vascular function support"
     ],
     "mechanism_categories": [
       "core",
@@ -14691,10 +14519,8 @@
       "Receptor interaction"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "cardiovascular"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -14793,10 +14619,8 @@
       "Physiological/cellular effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -14908,11 +14732,8 @@
       "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -15012,10 +14833,8 @@
       "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -15114,10 +14933,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -15422,24 +15239,26 @@
       "Antioxidant",
       "Metabolic regulation",
       "Hormonal signaling context",
-      "HPA-axis modulation"
+      "HPA-axis modulation",
+      "AMPK activation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "core",
-      "stress"
+      "stress",
+      "metabolic"
     ],
     "mechanism_classes": [
       "Physiological effect",
-      "Neuroendocrine modulation"
+      "Neuroendocrine modulation",
+      "Signaling pathway modulation",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
       "Neurotransmitter Modulation",
-      "AMPK",
-      "Oxidative Stress",
-      "Neurotransmitter Signaling",
-      "Glucose Metabolism"
+      "Neurotransmitter Signaling"
     ],
     "evidence_grade": "b",
     "evidence_tier": "Strong Human Evidence",
@@ -15541,22 +15360,22 @@
       "Anti-inflammatory",
       "Antioxidant",
       "Metabolic regulation",
-      "HPA-axis modulation"
+      "HPA-axis modulation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "core",
-      "stress"
+      "stress",
+      "metabolic"
     ],
     "mechanism_classes": [
       "Physiological effect",
-      "Neuroendocrine modulation"
+      "Neuroendocrine modulation",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -15642,19 +15461,20 @@
       "Glucose Metabolism"
     ],
     "canonical_mechanisms": [
-      "Metabolic regulation"
+      "Metabolic regulation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
-      "core"
+      "core",
+      "metabolic"
     ],
     "mechanism_classes": [
-      "Physiological effect"
+      "Physiological effect",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -15758,10 +15578,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -15960,10 +15778,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -16382,11 +16198,8 @@
       "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -16607,11 +16420,7 @@
     "mechanism_target_systems": [],
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
-      "AMPK",
-      "NF-kB",
-      "Nrf2",
-      "SIRT1",
-      "Oxidative Stress"
+      "SIRT1"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -16804,22 +16613,22 @@
     ],
     "canonical_mechanisms": [
       "Antioxidant",
-      "HPA-axis modulation"
+      "HPA-axis modulation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "core",
-      "stress"
+      "stress",
+      "metabolic"
     ],
     "mechanism_classes": [
       "Physiological effect",
-      "Neuroendocrine modulation"
+      "Neuroendocrine modulation",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -17220,20 +17029,20 @@
     "canonical_mechanisms": [
       "Antioxidant",
       "Metabolic regulation",
-      "Vascular function support"
+      "Vascular function support",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
-      "core"
+      "core",
+      "metabolic"
     ],
     "mechanism_classes": [
-      "Physiological effect"
+      "Physiological effect",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -17344,10 +17153,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -17653,10 +17460,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -17769,7 +17574,6 @@
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
       "Neurotransmitter Modulation",
-      "Oxidative Stress",
       "Neurotransmitter Signaling"
     ],
     "evidence_grade": "b",
@@ -17873,10 +17677,8 @@
       "Neuroendocrine modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -18082,10 +17884,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -18203,10 +18003,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -18407,10 +18205,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "neuroprotective"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Mechanistic Evidence",
     "evidence_design_match": "",
@@ -18505,10 +18301,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -18704,10 +18498,8 @@
       "Neuroendocrine modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -18800,20 +18592,20 @@
     ],
     "canonical_mechanisms": [
       "Antioxidant",
-      "Metabolic regulation"
+      "Metabolic regulation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
-      "core"
+      "core",
+      "metabolic"
     ],
     "mechanism_classes": [
-      "Physiological effect"
+      "Physiological effect",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -18918,10 +18710,8 @@
       "Neuroendocrine modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "endocrine"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -19127,10 +18917,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -19238,7 +19026,8 @@
       "Metabolic regulation",
       "AMPK activation",
       "NF-kB inhibition",
-      "Nrf2 activation"
+      "Nrf2 activation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "core",
@@ -19248,17 +19037,12 @@
     ],
     "mechanism_classes": [
       "Physiological effect",
-      "Signaling pathway modulation"
+      "Signaling pathway modulation",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "NF-kB",
-      "Nrf2",
-      "Oxidative Stress",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -19359,10 +19143,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -19546,19 +19328,20 @@
       "Glucose Metabolism"
     ],
     "canonical_mechanisms": [
-      "Anti-inflammatory"
+      "Anti-inflammatory",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
-      "core"
+      "core",
+      "metabolic"
     ],
     "mechanism_classes": [
-      "Physiological effect"
+      "Physiological effect",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -19763,10 +19546,8 @@
       "Neuroendocrine modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -19872,10 +19653,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -19996,12 +19775,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Nrf2",
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -20116,7 +19891,8 @@
       "AMPK activation",
       "NF-kB inhibition",
       "Nrf2 activation",
-      "Glucose regulation"
+      "Glucose regulation",
+      "Lipid metabolism support"
     ],
     "mechanism_categories": [
       "core",
@@ -20130,15 +19906,8 @@
       "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "NF-kB",
-      "Nrf2",
-      "Oxidative Stress",
-      "Glucose Metabolism",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -20250,12 +20019,8 @@
       "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "Glucose Metabolism",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -20373,7 +20138,6 @@
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
       "Neurotransmitter Modulation",
-      "Oxidative Stress",
       "Neurotransmitter Signaling"
     ],
     "evidence_grade": "c",
@@ -20682,12 +20446,8 @@
       "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "Glucose Metabolism",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -20887,10 +20647,8 @@
       "Neuroendocrine modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -20984,20 +20742,21 @@
     "canonical_mechanisms": [
       "Anti-inflammatory",
       "Metabolic regulation",
-      "Immune modulation"
+      "Immune modulation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "core",
-      "immune"
+      "immune",
+      "metabolic"
     ],
     "mechanism_classes": [
-      "Physiological effect"
+      "Physiological effect",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -21104,7 +20863,8 @@
       "Metabolic regulation",
       "HPA-axis modulation",
       "AMPK activation",
-      "NF-kB inhibition"
+      "NF-kB inhibition",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "core",
@@ -21115,15 +20875,12 @@
     "mechanism_classes": [
       "Physiological effect",
       "Neuroendocrine modulation",
-      "Signaling pathway modulation"
+      "Signaling pathway modulation",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "NF-kB",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -21213,7 +20970,8 @@
     ],
     "canonical_mechanisms": [
       "Anti-inflammatory",
-      "Hormonal signaling context"
+      "Hormonal signaling context",
+      "Antioxidant"
     ],
     "mechanism_categories": [
       "core"
@@ -21222,10 +20980,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -21326,7 +21082,8 @@
       "AMPK activation",
       "NF-kB inhibition",
       "Nrf2 activation",
-      "Glucose regulation"
+      "Glucose regulation",
+      "Lipid metabolism support"
     ],
     "mechanism_categories": [
       "core",
@@ -21340,14 +21097,8 @@
       "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "NF-kB",
-      "Nrf2",
-      "Glucose Metabolism",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -21452,10 +21203,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -21769,12 +21518,14 @@
       "Antioxidant",
       "Metabolic regulation",
       "HPA-axis modulation",
-      "NF-kB inhibition"
+      "NF-kB inhibition",
+      "Nrf2 activation"
     ],
     "mechanism_categories": [
       "core",
       "stress",
-      "inflammatory"
+      "inflammatory",
+      "redox"
     ],
     "mechanism_classes": [
       "Physiological effect",
@@ -21785,9 +21536,6 @@
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
       "Neurotransmitter Modulation",
-      "NF-kB",
-      "Nrf2",
-      "Oxidative Stress",
       "Neurotransmitter Signaling"
     ],
     "evidence_grade": "c",
@@ -21999,7 +21747,8 @@
       "Metabolic regulation",
       "Vascular function support",
       "Glucose regulation",
-      "Nitric oxide modulation"
+      "Nitric oxide modulation",
+      "Lipid metabolism support"
     ],
     "mechanism_categories": [
       "core",
@@ -22012,13 +21761,8 @@
       "Signaling molecule modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress",
-      "Endothelial Function",
-      "Glucose Metabolism",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -22222,12 +21966,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "NF-kB",
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -22317,20 +22057,22 @@
       "Glucose Metabolism"
     ],
     "canonical_mechanisms": [
-      "Cellular protection"
+      "Cellular protection",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
-      "core"
+      "core",
+      "metabolic"
     ],
     "mechanism_classes": [
-      "Physiological effect"
+      "Physiological effect",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
       "Neurotransmitter Modulation",
-      "Neurotransmitter Signaling",
-      "Glucose Metabolism"
+      "Neurotransmitter Signaling"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -22443,10 +22185,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -22560,11 +22300,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Nrf2"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -22668,10 +22405,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -22785,8 +22520,6 @@
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
       "Neurotransmitter Modulation",
-      "Nrf2",
-      "Oxidative Stress",
       "Neurotransmitter Signaling"
     ],
     "evidence_grade": "c",
@@ -22990,10 +22723,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -23290,10 +23021,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -23409,11 +23138,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -23517,7 +23243,8 @@
       "Anti-inflammatory",
       "Metabolic regulation",
       "AMPK activation",
-      "NF-kB inhibition"
+      "NF-kB inhibition",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "core",
@@ -23526,15 +23253,12 @@
     ],
     "mechanism_classes": [
       "Physiological effect",
-      "Signaling pathway modulation"
+      "Signaling pathway modulation",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "NF-kB",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -23635,7 +23359,8 @@
       "Cellular protection",
       "Hormonal signaling context",
       "HPA-axis modulation",
-      "Neuroprotective activity"
+      "Neuroprotective activity",
+      "Lipid metabolism support"
     ],
     "mechanism_categories": [
       "core",
@@ -23646,10 +23371,8 @@
       "Neuroendocrine modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -23757,11 +23480,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -23869,10 +23589,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -23976,10 +23694,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -24085,11 +23801,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -24296,7 +24009,8 @@
       "Antioxidant",
       "Vascular function support",
       "NF-kB inhibition",
-      "Nrf2 activation"
+      "Nrf2 activation",
+      "Lipid metabolism support"
     ],
     "mechanism_categories": [
       "core",
@@ -24308,13 +24022,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Nrf2",
-      "Oxidative Stress",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -24536,10 +24245,8 @@
       "Neuroendocrine modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -24654,11 +24361,8 @@
       "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Glucose Metabolism",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -24769,11 +24473,8 @@
       "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -25082,11 +24783,8 @@
       "Neuroendocrine modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Endothelial Function",
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -25190,11 +24888,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Nrf2"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -25303,11 +24998,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -25405,7 +25097,8 @@
     "canonical_mechanisms": [
       "Anti-inflammatory",
       "Metabolic regulation",
-      "AMPK activation"
+      "AMPK activation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "core",
@@ -25413,14 +25106,12 @@
     ],
     "mechanism_classes": [
       "Physiological effect",
-      "Signaling pathway modulation"
+      "Signaling pathway modulation",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -25511,19 +25202,20 @@
     ],
     "canonical_mechanisms": [
       "Anti-inflammatory",
-      "Metabolic regulation"
+      "Metabolic regulation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
-      "core"
+      "core",
+      "metabolic"
     ],
     "mechanism_classes": [
-      "Physiological effect"
+      "Physiological effect",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -25727,10 +25419,8 @@
       "Neuroendocrine modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "D+",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -25838,24 +25528,24 @@
       "Antioxidant",
       "Mitochondrial biogenesis",
       "Metabolic regulation",
-      "Vascular function support"
+      "Vascular function support",
+      "AMPK activation"
     ],
     "mechanism_categories": [
       "core",
-      "mitochondrial"
+      "mitochondrial",
+      "metabolic"
     ],
     "mechanism_classes": [
       "Physiological effect",
-      "Physiological/cellular effect"
+      "Physiological/cellular effect",
+      "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
       "SIRT1 Signaling",
-      "AMPK",
-      "SIRT1",
-      "Endothelial Function",
-      "Oxidative Stress"
+      "SIRT1"
     ],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
@@ -25952,10 +25642,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -26066,7 +25754,6 @@
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
       "Neurotransmitter Modulation",
-      "AMPK",
       "Neurotransmitter Signaling"
     ],
     "evidence_grade": "C+",
@@ -26186,7 +25873,8 @@
       "Metabolic regulation",
       "Vascular function support",
       "AMPK activation",
-      "Nrf2 activation"
+      "Nrf2 activation",
+      "Lipid metabolism support"
     ],
     "mechanism_categories": [
       "core",
@@ -26198,13 +25886,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "Nrf2",
-      "Oxidative Stress",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -26302,7 +25985,8 @@
     "canonical_mechanisms": [
       "Antioxidant",
       "AMPK activation",
-      "Nrf2 activation"
+      "Nrf2 activation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "core",
@@ -26311,16 +25995,12 @@
     ],
     "mechanism_classes": [
       "Physiological effect",
-      "Signaling pathway modulation"
+      "Signaling pathway modulation",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "Nrf2",
-      "Oxidative Stress",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -26426,11 +26106,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -26525,20 +26202,20 @@
     "canonical_mechanisms": [
       "Antioxidant",
       "Metabolic regulation",
-      "Vascular function support"
+      "Vascular function support",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
-      "core"
+      "core",
+      "metabolic"
     ],
     "mechanism_classes": [
-      "Physiological effect"
+      "Physiological effect",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -26662,13 +26339,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "NF-kB",
-      "Nrf2",
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -26781,7 +26453,6 @@
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
       "Neurotransmitter Modulation",
-      "Oxidative Stress",
       "Neurotransmitter Signaling"
     ],
     "evidence_grade": "c",
@@ -26893,13 +26564,15 @@
       "HPA-axis modulation",
       "Neuroprotective activity",
       "AMPK activation",
-      "NF-kB inhibition"
+      "NF-kB inhibition",
+      "Nrf2 activation"
     ],
     "mechanism_categories": [
       "core",
       "stress",
       "metabolic",
-      "inflammatory"
+      "inflammatory",
+      "redox"
     ],
     "mechanism_classes": [
       "Physiological effect",
@@ -26907,13 +26580,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "AMPK",
-      "NF-kB",
-      "Nrf2",
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -27017,10 +26685,8 @@
       "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -27125,11 +26791,8 @@
       "Signaling molecule modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress",
-      "Endothelial Function"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -27212,7 +26875,8 @@
     "canonical_mechanisms": [
       "Anti-inflammatory",
       "Hormonal signaling context",
-      "Lipid metabolism support"
+      "Lipid metabolism support",
+      "Metabolic regulation"
     ],
     "mechanism_categories": [
       "core"
@@ -27221,11 +26885,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "endocrine",
-      "metabolic"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -27311,23 +26972,24 @@
     "canonical_mechanisms": [
       "Mitochondrial biogenesis",
       "HPA-axis modulation",
-      "Nrf2 activation"
+      "Nrf2 activation",
+      "Antioxidant"
     ],
     "mechanism_categories": [
       "mitochondrial",
       "stress",
-      "redox"
+      "redox",
+      "core"
     ],
     "mechanism_classes": [
       "Physiological/cellular effect",
       "Neuroendocrine modulation",
-      "Signaling pathway modulation"
+      "Signaling pathway modulation",
+      "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -27531,10 +27193,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Nrf2"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -27662,12 +27322,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB",
-      "Nrf2",
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -27773,10 +27429,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -27889,10 +27543,8 @@
       "Neuroendocrine modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -28290,10 +27942,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -28401,10 +28051,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -28503,10 +28151,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -28622,11 +28268,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress",
-      "Lipid Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -28828,10 +28471,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -28930,10 +28571,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -29037,10 +28676,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -29144,10 +28781,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -29353,10 +28988,8 @@
       "Neuroendocrine modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -29451,20 +29084,20 @@
     ],
     "canonical_mechanisms": [
       "Antioxidant",
-      "Metabolic regulation"
+      "Metabolic regulation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
-      "core"
+      "core",
+      "metabolic"
     ],
     "mechanism_classes": [
-      "Physiological effect"
+      "Physiological effect",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress",
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -29564,10 +29197,8 @@
       "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Glucose Metabolism"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -29660,10 +29291,8 @@
       "Signaling molecule modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Endothelial Function"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -29758,10 +29387,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -29879,7 +29506,6 @@
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
       "Neurotransmitter Modulation",
-      "NF-kB",
       "Neurotransmitter Signaling"
     ],
     "evidence_grade": "c",
@@ -29986,10 +29612,8 @@
       "Neuroendocrine modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "endocrine"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -30075,7 +29699,8 @@
       "endocrine"
     ],
     "canonical_mechanisms": [
-      "Vascular function support"
+      "Vascular function support",
+      "Hormonal signaling context"
     ],
     "mechanism_categories": [
       "core"
@@ -30084,10 +29709,8 @@
       "Physiological effect"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "endocrine"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
@@ -30191,10 +29814,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "a",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -30420,11 +30041,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Nrf2",
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "b+",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -30613,19 +30231,21 @@
       "neuroprotective"
     ],
     "canonical_mechanisms": [
-      "HPA-axis modulation"
+      "HPA-axis modulation",
+      "Neuroprotective activity"
     ],
     "mechanism_categories": [
-      "stress"
+      "stress",
+      "core"
     ],
     "mechanism_classes": [
-      "Neuroendocrine modulation"
+      "Neuroendocrine modulation",
+      "Physiological effect"
     ],
     "mechanism_target_systems": [],
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
-      "Neurotransmitter Modulation",
-      "neuroprotective"
+      "Neurotransmitter Modulation"
     ],
     "evidence_grade": "b",
     "evidence_tier": "Moderate Human Evidence",
@@ -30730,10 +30350,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "NF-kB"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
     "evidence_design_match": "",
@@ -30933,19 +30551,20 @@
       "Glucose Metabolism"
     ],
     "canonical_mechanisms": [
-      "PPAR activation"
+      "PPAR activation",
+      "Glucose regulation"
     ],
     "mechanism_categories": [
       "metabolic"
     ],
     "mechanism_classes": [
-      "Nuclear receptor modulation"
+      "Nuclear receptor modulation",
+      "Metabolic modulation"
     ],
     "mechanism_target_systems": [],
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
-      "PI3K/Akt modulation",
-      "Glucose Metabolism"
+      "PI3K/Akt modulation"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
@@ -31265,10 +30884,8 @@
       "Signaling pathway modulation"
     ],
     "mechanism_target_systems": [],
-    "mechanism_normalization_status": "partially_mapped",
-    "unmapped_mechanisms": [
-      "Oxidative Stress"
-    ],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
     "evidence_grade": "c",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
@@ -31363,19 +30980,21 @@
       "cardiovascular"
     ],
     "canonical_mechanisms": [
-      "HPA-axis modulation"
+      "HPA-axis modulation",
+      "Vascular function support"
     ],
     "mechanism_categories": [
-      "stress"
+      "stress",
+      "core"
     ],
     "mechanism_classes": [
-      "Neuroendocrine modulation"
+      "Neuroendocrine modulation",
+      "Physiological effect"
     ],
     "mechanism_target_systems": [],
     "mechanism_normalization_status": "partially_mapped",
     "unmapped_mechanisms": [
-      "Neurotransmitter Modulation",
-      "cardiovascular"
+      "Neurotransmitter Modulation"
     ],
     "evidence_grade": "c",
     "evidence_tier": "Limited Human Evidence",
