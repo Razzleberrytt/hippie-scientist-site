@@ -4,9 +4,9 @@
   "entity_id": "ent_herb_8ba84835a956",
   "entity_type": "herb",
   "batch_hash": "df0298ce4b7b449f3f12c68289ca9e8bf66a9d6f8db60a8f79c6ae49ad4c391a",
-  "decision": "pending",
-  "reviewer": "",
-  "reviewed_at": null,
+  "decision": "approved",
+  "reviewer": "Willie Randolph",
+  "reviewed_at": "2026-07-11T23:30:00.000Z",
   "approved_patch_ids": [
     "scite-ashwagandha-evidence-limitations-2026-07-11-003",
     "scite-ashwagandha-liver-safety-2026-07-11-005",
@@ -33,7 +33,18 @@
     "src_719fb976a856",
     "src_9030a59485e3"
   ],
-  "deprecated_claim_ids": [],
+  "deprecated_claim_ids": [
+    "clm_1697a35300c1",
+    "clm_54b6e09f2219",
+    "clm_5c31828c2d16",
+    "clm_7cc5e8f8c0ce",
+    "clm_7f80004c348f",
+    "clm_80e9f12d367c",
+    "clm_ab89d0e0ade5",
+    "clm_c8bb72051ea4",
+    "clm_d6a879f53dd3",
+    "clm_fcf7f8d542c4"
+  ],
   "deprecated_source_ids": [],
-  "notes": ""
+  "notes": "Approved six balanced, source-traceable claims covering stress, sleep, evidence limitations, short-term tolerability, liver injury, and thyroid/pregnancy/interaction cautions. Deprecated all ten legacy pending claims because they were metadata-like, vague, promotional, duplicated by stronger wording, or insufficiently sourced for this review cycle. A performance/strength claim can be reintroduced later through its own reviewed evidence pack."
 }
