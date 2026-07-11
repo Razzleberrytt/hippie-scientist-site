@@ -99,16 +99,36 @@ function normalizeRelationshipXml(xml) {
     .replace(new RegExp(`\\sxmlns:${prefix}=`, 'g'), ' xmlns=')
 }
 
-async function createNormalizedRelationshipCopy(filePath) {
+function normalizeWorkbookMetadataXml(xml) {
+  const namespaceMatch = xml.match(
+    /xmlns:([A-Za-z_][\w.-]*)="http:\/\/schemas\.openxmlformats\.org\/spreadsheetml\/2006\/main"/,
+  )
+  if (!namespaceMatch) return xml
+
+  const prefix = escapeRegExp(namespaceMatch[1])
+  return xml
+    .replace(new RegExp(`<(/?)${prefix}:`, 'g'), '<$1')
+    .replace(new RegExp(`\\sxmlns:${prefix}=`, 'g'), ' xmlns=')
+}
+
+async function createNormalizedWorkbookCopy(filePath) {
   const source = await readFile(filePath)
   const zip = await JSZip.loadAsync(source)
   let changedFiles = 0
 
   for (const entry of Object.values(zip.files)) {
-    if (entry.dir || !entry.name.endsWith('.rels')) continue
+    if (entry.dir) continue
+
+    let normalizeXml = null
+    if (entry.name.endsWith('.rels')) {
+      normalizeXml = normalizeRelationshipXml
+    } else if (entry.name === 'xl/workbook.xml') {
+      normalizeXml = normalizeWorkbookMetadataXml
+    }
+    if (!normalizeXml) continue
 
     const xml = await entry.async('string')
-    const normalized = normalizeRelationshipXml(xml)
+    const normalized = normalizeXml(xml)
     if (normalized === xml) continue
 
     zip.file(entry.name, normalized)
@@ -204,11 +224,11 @@ async function readWorkbookStreamingWithNamespaceFallback(filePath, originalErro
   } catch (streamingError) {
     if (!isRelationshipNamespaceError(streamingError)) throw streamingError
 
-    const normalizedCopy = await createNormalizedRelationshipCopy(filePath)
+    const normalizedCopy = await createNormalizedWorkbookCopy(filePath)
     if (!normalizedCopy) throw streamingError
 
     console.warn(
-      `[workbook-source] Normalized namespace-prefixed relationship XML in ${normalizedCopy.changedFiles} file(s); retrying streaming read from a temporary copy`,
+      `[workbook-source] Normalized namespace-prefixed OOXML in ${normalizedCopy.changedFiles} file(s); retrying streaming read from a temporary copy`,
     )
 
     try {
