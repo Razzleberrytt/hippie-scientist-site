@@ -69,6 +69,16 @@ function patchFixture() {
   }
 }
 
+function approvedManifest(review, overrides = {}) {
+  return {
+    ...review.manifest,
+    decision: 'approved',
+    reviewer: 'Reviewer Name',
+    reviewed_at: '2026-07-11T22:00:00.000Z',
+    ...overrides,
+  }
+}
+
 describe('buildEvidenceReview', () => {
   it('creates a slug-specific manifest from a successful dry run', () => {
     const review = buildEvidenceReview({
@@ -103,6 +113,20 @@ describe('buildEvidenceReview', () => {
       dataset: datasetFixture(),
     })).toThrow(/unsupported evidence-finalize operation/)
   })
+
+  it('rejects source labels that are not traceable scholarly locators', () => {
+    const patch = patchFixture()
+    patch.sources = [{
+      title: 'Unresolved search label',
+      url: 'PubMed example RCTs.',
+    }]
+
+    expect(() => buildEvidenceReview({
+      slug: 'example-compound',
+      patches: [patch],
+      dataset: datasetFixture(),
+    })).toThrow(/DOI, PMID, or HTTP\(S\) URL/)
+  })
 })
 
 describe('review approval and export', () => {
@@ -110,14 +134,10 @@ describe('review approval and export', () => {
     const dataset = datasetFixture()
     const patch = patchFixture()
     const review = buildEvidenceReview({ slug: 'example-compound', patches: [patch], dataset })
-    const manifest = {
-      ...review.manifest,
-      decision: 'approved',
-      reviewer: 'Reviewer Name',
-      reviewed_at: '2026-07-11T22:00:00.000Z',
+    const manifest = approvedManifest(review, {
       deprecated_claim_ids: ['clm_legacy'],
       deprecated_source_ids: ['src_legacy'],
-    }
+    })
 
     const validation = validateReviewManifest(manifest, {
       slug: 'example-compound',
@@ -152,17 +172,35 @@ describe('review approval and export', () => {
     expect(record.evidence.reviewStatus).toBe('sourced')
   })
 
+  it('can approve a valid existing claim and source in the same editorial pass', () => {
+    const dataset = datasetFixture()
+    const patch = patchFixture()
+    const review = buildEvidenceReview({ slug: 'example-compound', patches: [patch], dataset })
+    const manifest = approvedManifest(review, {
+      approved_claim_ids: [...review.manifest.approved_claim_ids, 'clm_legacy'],
+      approved_source_ids: [...review.manifest.approved_source_ids, 'src_legacy'],
+    })
+
+    const validation = validateReviewManifest(manifest, {
+      slug: 'example-compound',
+      batchHash: review.manifest.batch_hash,
+      availablePatchIds: new Set([patch.patch_id]),
+    })
+    expect(validation).toEqual({ ok: true, errors: [] })
+
+    const applied = applyBatch(dataset, [patch]).dataset
+    const finalized = applyReviewManifest(applied, manifest)
+    expect(finalized.claims.find((claim) => claim.id === 'clm_legacy').review_status).toBe('approved')
+    expect(finalized.sources.find((source) => source.id === 'src_legacy').review_status).toBe('approved')
+  })
+
   it('blocks source deprecation while an active claim still uses it', () => {
     const dataset = datasetFixture()
     const patch = patchFixture()
     const review = buildEvidenceReview({ slug: 'example-compound', patches: [patch], dataset })
-    const manifest = {
-      ...review.manifest,
-      decision: 'approved',
-      reviewer: 'Reviewer Name',
-      reviewed_at: '2026-07-11T22:00:00.000Z',
+    const manifest = approvedManifest(review, {
       deprecated_source_ids: ['src_legacy'],
-    }
+    })
 
     const applied = applyBatch(dataset, [patch]).dataset
     expect(() => applyReviewManifest(applied, manifest)).toThrow(/still referenced by active claim/)
@@ -174,13 +212,7 @@ describe('review approval and export', () => {
       patches: [patchFixture()],
       dataset: datasetFixture(),
     })
-    const manifest = {
-      ...review.manifest,
-      batch_hash: 'stale',
-      decision: 'approved',
-      reviewer: 'Reviewer Name',
-      reviewed_at: '2026-07-11T22:00:00.000Z',
-    }
+    const manifest = approvedManifest(review, { batch_hash: 'stale' })
 
     const validation = validateReviewManifest(manifest, {
       slug: 'example-compound',
@@ -189,5 +221,28 @@ describe('review approval and export', () => {
     })
     expect(validation.ok).toBe(false)
     expect(validation.errors).toContain('manifest batch_hash is stale; regenerate and review again')
+  })
+
+  it('rejects contradictory approve and deprecate decisions', () => {
+    const review = buildEvidenceReview({
+      slug: 'example-compound',
+      patches: [patchFixture()],
+      dataset: datasetFixture(),
+    })
+    const claimId = review.manifest.approved_claim_ids[0]
+    const sourceId = review.manifest.approved_source_ids[0]
+    const manifest = approvedManifest(review, {
+      deprecated_claim_ids: [claimId],
+      deprecated_source_ids: [sourceId],
+    })
+
+    const validation = validateReviewManifest(manifest, {
+      slug: 'example-compound',
+      batchHash: review.manifest.batch_hash,
+      availablePatchIds: new Set(['evidence-example-stress-001']),
+    })
+    expect(validation.ok).toBe(false)
+    expect(validation.errors).toContain(`claim cannot be both approved and deprecated: ${claimId}`)
+    expect(validation.errors).toContain(`source cannot be both approved and deprecated: ${sourceId}`)
   })
 })
