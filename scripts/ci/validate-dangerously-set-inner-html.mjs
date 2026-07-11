@@ -4,7 +4,7 @@ import path from 'node:path'
 
 const ROOT = process.cwd()
 
-const SCAN_DIRS = ['app', 'components', 'lib', 'src']
+const SCAN_DIRS = ['app', 'components', 'lib', 'pages', 'src']
 const ALLOWLIST = new Set([
   'app/about/page.tsx',
   'app/articles/[slug]/page.tsx',
@@ -41,51 +41,105 @@ const ALLOWLIST = new Set([
   'components/SchemaOrg.tsx',
   'components/articles/FocusAdhdArticlePage.tsx',
   'components/seo/AuthorityJsonLd.tsx',
-  'components/seo/FaqJsonLd.tsx',
   'components/seo/JsonLd.tsx',
   'src/app/protocols/[slug]/page.tsx',
-  'src/components/ecosystem-supernode.tsx',
 ])
 
-function scanDirectory(dir, violations = []) {
+// These are the only remaining raw JSON.stringify-based JSON-LD emitters.
+// Exact counts make the debt visible and prevent this baseline from growing.
+const RAW_JSON_LD_BASELINE = new Map([
+  ['app/compounds/[slug]/page.tsx', 1],
+  ['app/herbs/[slug]/page.tsx', 1],
+  ['components/articles/FocusAdhdArticlePage.tsx', 2],
+])
+
+const JSON_LD_SCRIPT_PATTERN = /<script\b(?=[^>]*\btype\s*=\s*["']application\/ld\+json["'])[^>]*\/>|<script\b(?=[^>]*\btype\s*=\s*["']application\/ld\+json["'])[^>]*>[\s\S]*?<\/script>/g
+
+function countRawJsonLdSerializations(content) {
+  return [...content.matchAll(JSON_LD_SCRIPT_PATTERN)]
+    .filter((match) => /JSON\.stringify\s*\(/.test(match[0]))
+    .length
+}
+
+function assertDetectorWorks() {
+  const unsafe = '<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />'
+  const safe = '<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }} />'
+  const mixed = `${safe}\n${unsafe}\n<script>unrelated()</script>`
+
+  if (
+    countRawJsonLdSerializations(unsafe) !== 1 ||
+    countRawJsonLdSerializations(safe) !== 0 ||
+    countRawJsonLdSerializations(mixed) !== 1
+  ) {
+    throw new Error('Raw JSON-LD detector self-test failed.')
+  }
+}
+
+function scanDirectory(dir, violations = [], rawJsonLdCounts = new Map()) {
   const absDir = path.join(ROOT, dir)
-  if (!fs.existsSync(absDir)) return violations
+  if (!fs.existsSync(absDir)) return { violations, rawJsonLdCounts }
 
   const entries = fs.readdirSync(absDir, { withFileTypes: true })
   for (const entry of entries) {
     const fullPath = path.join(absDir, entry.name)
     if (entry.isDirectory()) {
       if (['node_modules', '.next', 'out', 'legacy-quarantine', '__tests__'].includes(entry.name)) continue
-      scanDirectory(path.relative(ROOT, fullPath), violations)
+      scanDirectory(path.relative(ROOT, fullPath), violations, rawJsonLdCounts)
     } else if (entry.isFile() && /\.(tsx|ts|jsx|js)$/.test(entry.name)) {
       const relPath = path.relative(ROOT, fullPath).replace(/\\/g, '/')
-      if (ALLOWLIST.has(relPath)) continue
-
       const content = fs.readFileSync(fullPath, 'utf8')
-      if (content.includes('dangerouslySetInnerHTML')) {
+      const rawJsonLdCount = countRawJsonLdSerializations(content)
+
+      if (rawJsonLdCount > 0) rawJsonLdCounts.set(relPath, rawJsonLdCount)
+
+      if (!ALLOWLIST.has(relPath) && content.includes('dangerouslySetInnerHTML')) {
         violations.push({ file: relPath, text: 'dangerouslySetInnerHTML' })
       }
     }
   }
-  return violations
+  return { violations, rawJsonLdCounts }
+}
+
+function validateRawJsonLdBaseline(rawJsonLdCounts, violations) {
+  const files = new Set([...RAW_JSON_LD_BASELINE.keys(), ...rawJsonLdCounts.keys()])
+
+  for (const file of files) {
+    const expected = RAW_JSON_LD_BASELINE.get(file) ?? 0
+    const actual = rawJsonLdCounts.get(file) ?? 0
+    if (actual !== expected) {
+      violations.push({
+        file,
+        text: `raw JSON-LD serialization count changed (expected ${expected}, found ${actual})`,
+      })
+    }
+  }
 }
 
 function main() {
-  console.log('[validate-html-injection] Scanning active codebases for unapproved dangerouslySetInnerHTML...')
+  console.log('[validate-html-injection] Scanning active codebases for unapproved HTML injection...')
+  assertDetectorWorks()
+
   const violations = []
+  const rawJsonLdCounts = new Map()
   for (const dir of SCAN_DIRS) {
-    scanDirectory(dir, violations)
+    scanDirectory(dir, violations, rawJsonLdCounts)
   }
+  validateRawJsonLdBaseline(rawJsonLdCounts, violations)
 
   if (violations.length > 0) {
-    console.error('[validate-html-injection] FAIL: Unapproved dangerouslySetInnerHTML usage detected!')
-    violations.forEach(v => {
-      console.error(`  - ${v.file}: Contains dangerouslySetInnerHTML. Render structured data via components/seo/JsonLd.tsx instead.`)
+    console.error('[validate-html-injection] FAIL: Unapproved HTML or raw JSON-LD serialization detected!')
+    violations.forEach((violation) => {
+      if (violation.text === 'dangerouslySetInnerHTML') {
+        console.error(`  - ${violation.file}: Contains dangerouslySetInnerHTML. Render structured data via components/seo/JsonLd.tsx instead.`)
+      } else {
+        console.error(`  - ${violation.file}: ${violation.text}. Use JsonLd/SchemaOrg or serializeJsonLd, then update the baseline downward.`)
+      }
     })
     process.exit(1)
   }
 
-  console.log('[validate-html-injection] PASS: No unapproved dangerouslySetInnerHTML usages found.')
+  const remainingRawCount = [...rawJsonLdCounts.values()].reduce((sum, count) => sum + count, 0)
+  console.log(`[validate-html-injection] PASS: No unapproved usages found; raw JSON-LD baseline remains bounded at ${remainingRawCount}.`)
   process.exit(0)
 }
 

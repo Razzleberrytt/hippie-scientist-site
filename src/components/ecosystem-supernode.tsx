@@ -3,6 +3,7 @@ import Link from 'next/link'
 import DecisionVisualGrid from './decision-visual-grid'
 import WhyThisInsteadPanel from './why-this-instead-panel'
 import { formatDisplayLabel } from '@/lib/display-utils'
+import JsonLd from '@/components/seo/JsonLd'
 
 type EcosystemSupernodeProps = {
   hub: {
@@ -108,10 +109,7 @@ export default function EcosystemSupernode({ hub, profileHref }: EcosystemSupern
 
   return (
     <div className="space-y-6">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(hub)) }}
-      />
+      <JsonLd schema={faqSchema(hub)} />
 
       <DecisionVisualGrid record={record} title={`${hub.title}: decision map`} compact />
 

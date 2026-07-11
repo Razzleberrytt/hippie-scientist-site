@@ -76,10 +76,23 @@ export function ProfileDecisionPanel({
           aria-label="Compare before choosing"
           className="not-prose rounded-2xl border border-amber-500/25 bg-amber-50/50 p-5 dark:border-amber-400/15 dark:bg-[var(--surface-subtle)]"
         >
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-amber-700 dark:text-amber-300">
-            Compare before choosing
-          </p>
-          <ul className="mt-3 space-y-2.5">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+            <div className="space-y-1">
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-amber-700 dark:text-amber-300">
+                Compare before choosing
+              </p>
+              <p className="max-w-2xl text-sm leading-6 text-muted">
+                Use these side-by-side guides to compare timing, safety, evidence strength, and fit against nearby options.
+              </p>
+            </div>
+            <Link
+              href="/guides/compare/"
+              className="text-xs font-bold text-brand-800 underline underline-offset-4 hover:text-brand-900 dark:text-[var(--text-primary)]"
+            >
+              Browse all comparisons →
+            </Link>
+          </div>
+          <ul className="mt-4 space-y-2.5">
             {verdict.comparisons.map((c) => (
               <li key={c.href} className="text-sm leading-6">
                 <Link

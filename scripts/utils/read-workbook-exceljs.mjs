@@ -1,4 +1,8 @@
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import os from 'node:os'
+import path from 'node:path'
 import ExcelJS from 'exceljs'
+import JSZip from 'jszip'
 
 function normalizeCellValue(cell) {
   const value = cell?.value
@@ -75,6 +79,76 @@ function rowToRawValues(row) {
   return values.map((value) => value ?? '')
 }
 
+function isRelationshipNamespaceError(error) {
+  const message = String(error?.message || '')
+  return message.includes('Unexpected xml node in parseOpen') && message.includes('Relationships')
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+function normalizeRelationshipXml(xml) {
+  const rootMatch = xml.match(/<([A-Za-z_][\w.-]*):Relationships\b/)
+  if (!rootMatch) return xml
+
+  const prefix = escapeRegExp(rootMatch[1])
+  return xml
+    .replace(new RegExp(`<(/?)${prefix}:Relationships\\b`, 'g'), '<$1Relationships')
+    .replace(new RegExp(`<(/?)${prefix}:Relationship\\b`, 'g'), '<$1Relationship')
+    .replace(new RegExp(`\\sxmlns:${prefix}=`, 'g'), ' xmlns=')
+}
+
+function normalizeSpreadsheetMainXml(xml) {
+  const namespaceMatch = xml.match(
+    /xmlns:([A-Za-z_][\w.-]*)="http:\/\/schemas\.openxmlformats\.org\/spreadsheetml\/2006\/main"/,
+  )
+  if (!namespaceMatch) return xml
+
+  const prefix = escapeRegExp(namespaceMatch[1])
+  return xml
+    .replace(new RegExp(`<(/?)${prefix}:`, 'g'), '<$1')
+    .replace(new RegExp(`\\sxmlns:${prefix}=`, 'g'), ' xmlns=')
+}
+
+async function createNormalizedWorkbookCopy(filePath) {
+  const source = await readFile(filePath)
+  const zip = await JSZip.loadAsync(source)
+  let changedFiles = 0
+
+  for (const entry of Object.values(zip.files)) {
+    if (entry.dir) continue
+
+    let normalizeXml = null
+    if (entry.name.endsWith('.rels')) {
+      normalizeXml = normalizeRelationshipXml
+    } else if (entry.name.startsWith('xl/') && entry.name.endsWith('.xml')) {
+      normalizeXml = normalizeSpreadsheetMainXml
+    }
+    if (!normalizeXml) continue
+
+    const xml = await entry.async('string')
+    const normalized = normalizeXml(xml)
+    if (normalized === xml) continue
+
+    zip.file(entry.name, normalized)
+    changedFiles += 1
+  }
+
+  if (changedFiles === 0) return null
+
+  const tempDir = await mkdtemp(path.join(os.tmpdir(), 'hippie-workbook-'))
+  const tempPath = path.join(tempDir, path.basename(filePath))
+  const output = await zip.generateAsync({
+    type: 'nodebuffer',
+    compression: 'DEFLATE',
+    compressionOptions: { level: 6 },
+  })
+  await writeFile(tempPath, output)
+
+  return { tempDir, tempPath, changedFiles }
+}
+
 async function readWorkbookStreaming(filePath, originalError) {
   const workbookReader = new ExcelJS.stream.xlsx.WorkbookReader(filePath, {
     entries: 'emit',
@@ -144,6 +218,27 @@ async function readWorkbookStreaming(filePath, originalError) {
   }
 }
 
+async function readWorkbookStreamingWithNamespaceFallback(filePath, originalError) {
+  try {
+    return await readWorkbookStreaming(filePath, originalError)
+  } catch (streamingError) {
+    if (!isRelationshipNamespaceError(streamingError)) throw streamingError
+
+    const normalizedCopy = await createNormalizedWorkbookCopy(filePath)
+    if (!normalizedCopy) throw streamingError
+
+    console.warn(
+      `[workbook-source] Normalized namespace-prefixed OOXML in ${normalizedCopy.changedFiles} file(s); retrying streaming read from a temporary copy`,
+    )
+
+    try {
+      return await readWorkbookStreaming(normalizedCopy.tempPath, originalError)
+    } finally {
+      await rm(normalizedCopy.tempDir, { recursive: true, force: true })
+    }
+  }
+}
+
 export async function readWorkbookExcelJS(filePath) {
   const workbook = new ExcelJS.Workbook()
 
@@ -151,7 +246,7 @@ export async function readWorkbookExcelJS(filePath) {
     await workbook.xlsx.readFile(filePath)
   } catch (error) {
     console.warn(`[workbook-source] ExcelJS full workbook read failed; falling back to streaming row reader: ${error.message}`)
-    return readWorkbookStreaming(filePath, error)
+    return readWorkbookStreamingWithNamespaceFallback(filePath, error)
   }
 
   return {

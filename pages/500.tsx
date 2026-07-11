@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import JsonLd from '@/components/seo/JsonLd'
 
 const pageUrl = 'https://thehippiescientist.net/500/'
 
@@ -32,10 +33,7 @@ export default function Custom500() {
         <meta name="twitter:title" content="Server Error | The Hippie Scientist" />
         <meta name="twitter:description" content="Temporary server error page for The Hippie Scientist." />
       </Head>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
+      <JsonLd schema={structuredData} />
       <main style={{ margin: '0 auto', maxWidth: 720, padding: '4rem 1.5rem', fontFamily: 'system-ui, sans-serif' }}>
         <p style={{ color: '#66736b', fontSize: 14, fontWeight: 700, letterSpacing: '0.14em', textTransform: 'uppercase' }}>
           The Hippie Scientist

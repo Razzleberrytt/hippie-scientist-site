@@ -79,7 +79,7 @@ export default function ComparePageScaffold({
 
       <CompareHero item1={item1} item2={item2} />
 
-      <section>
+      <section id="compare-decision" className="scroll-mt-24">
         <CompareDecisionWidget item1={item1} item2={item2} isHarmReduction={isHarmReduction} />
       </section>
 

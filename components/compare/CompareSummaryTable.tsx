@@ -97,7 +97,19 @@ export default function CompareSummaryTable({ item1, item2 }: CompareSummaryTabl
   const highlightClass = 'bg-brand-50 font-semibold text-ink'
 
   return (
-    <section aria-label="Comparison summary table">
+    <section aria-labelledby="compare-summary-heading" className="space-y-4">
+      <div className="max-w-3xl space-y-1">
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">
+          Decision snapshot
+        </p>
+        <h2 id="compare-summary-heading" className="text-2xl font-semibold tracking-tight text-ink">
+          Scan the core tradeoffs first
+        </h2>
+        <p className="text-sm leading-6 text-muted">
+          Use this table for a quick read on fit, timing, evidence, and safety-adjacent factors before digging into the full details below.
+        </p>
+      </div>
+
       {/* Desktop / tablet: full table */}
       <div className="hidden sm:block overflow-x-auto rounded-card border border-brand-900/10 bg-white/80">
         <table className="w-full text-sm border-collapse">

@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useState } from 'react'
 import type { CompareItem } from '@/lib/compare'
 
@@ -113,6 +114,18 @@ const GOAL_LABELS: Record<Goal, string> = {
   athletic: 'Athletic Performance',
   mood: 'Mood Support',
   immune: 'Immune Health',
+}
+
+const TIMING_LABELS: Record<Timing, string> = {
+  morning: 'Morning',
+  evening: 'Evening',
+  flexible: 'Flexible',
+}
+
+const STIM_SENSITIVITY_LABELS: Record<StimSensitivity, string> = {
+  yes: 'Sensitive to stimulants',
+  no: 'Not stimulant-sensitive',
+  unsure: 'Not sure',
 }
 
 function buildReason(
@@ -316,22 +329,28 @@ export default function CompareDecisionWidget({
 
       {/* Result */}
       {allAnswered && (() => {
+        const resolved = selections as ResolvedSelections
         const { recommended, other, isTie } = chooseRecommendation(
           item1,
           item2,
-          selections as ResolvedSelections
+          resolved
         )
         const reason = buildReason(
           recommended,
           other,
-          selections as ResolvedSelections,
+          resolved,
           isTie
         )
         const stackSuggestion = buildStackSuggestion(
           item1,
           item2,
-          selections as ResolvedSelections
+          resolved
         )
+        const answerSummary = [
+          { label: 'Goal', value: GOAL_LABELS[resolved.goal] },
+          { label: 'Timing', value: TIMING_LABELS[resolved.timing] },
+          { label: 'Stimulants', value: STIM_SENSITIVITY_LABELS[resolved.stimSensitive] },
+        ]
 
         return (
           <div className="rounded-2xl border border-brand-200 bg-brand-50 px-5 py-5 space-y-4">
@@ -352,10 +371,55 @@ export default function CompareDecisionWidget({
               {reason}
             </p>
 
+            {/* Answer summary */}
+            <div className="rounded-xl border border-brand-900/10 bg-white/70 p-3 space-y-2">
+              <p className="text-xs font-bold uppercase tracking-wider text-brand-700">
+                Based on your answers
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {answerSummary.map(({ label, value }) => (
+                  <span
+                    key={label}
+                    className="rounded-full border border-brand-900/10 bg-paper-50 px-3 py-1 text-xs font-medium text-ink"
+                  >
+                    <span className="text-muted">{label}:</span> {value}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Next-step CTAs */}
+            <div className="rounded-xl border border-brand-900/10 bg-white/75 p-4 space-y-3">
+              <div className="space-y-1">
+                <p className="text-xs font-bold uppercase tracking-wider text-brand-700">
+                  Next best step
+                </p>
+                <p className="text-xs leading-relaxed text-muted">
+                  {isTie
+                    ? 'Open both full guides to compare dosing, safety, evidence quality, and interactions before choosing.'
+                    : `Open the full ${recommended.name} guide to check dosing, safety, evidence quality, and interactions before deciding.`}
+                </p>
+              </div>
+              <div className="flex flex-col gap-2 sm:flex-row">
+                <Link
+                  href={recommended.pageUrl}
+                  className="rounded-full bg-brand-700 px-4 py-2 text-center text-xs font-semibold text-white shadow-sm transition-colors hover:bg-brand-600 focus-visible:outline-2 focus-visible:outline-offset-4"
+                >
+                  {isTie ? `Read ${recommended.name}` : `Read ${recommended.name} guide`}
+                </Link>
+                <Link
+                  href={other.pageUrl}
+                  className="rounded-full border border-brand-900/15 bg-white px-4 py-2 text-center text-xs font-semibold text-ink shadow-sm transition-colors hover:border-brand-700/30 hover:bg-brand-50 focus-visible:outline-2 focus-visible:outline-offset-4"
+                >
+                  {isTie ? `Read ${other.name}` : `Compare ${other.name}`}
+                </Link>
+              </div>
+            </div>
+
             {/* Stack suggestion */}
             <div className="border-t border-brand-900/10 pt-4 space-y-1">
               <p className="text-xs font-bold uppercase tracking-wider text-brand-700">
-                Or take both:
+                If considering both:
               </p>
               <p className="text-xs leading-relaxed text-muted">
                 {stackSuggestion}
