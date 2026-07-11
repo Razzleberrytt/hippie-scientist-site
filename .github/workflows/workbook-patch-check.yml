@@ -66,6 +66,76 @@ jobs:
             exit 1
           fi
 
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          import JSZip from 'jszip'
+
+          const workbookPath = 'data-sources/herb_monograph_master.xlsx'
+          const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
+          function normalizeRelationshipXml(xml) {
+            const rootMatch = xml.match(/<([A-Za-z_][\w.-]*):Relationships\b/)
+            if (!rootMatch) return xml
+            const prefix = escapeRegExp(rootMatch[1])
+            return xml
+              .replace(new RegExp(`<(/?)${prefix}:Relationships\\b`, 'g'), '<$1Relationships')
+              .replace(new RegExp(`<(/?)${prefix}:Relationship\\b`, 'g'), '<$1Relationship')
+              .replace(new RegExp(`\\sxmlns:${prefix}=`, 'g'), ' xmlns=')
+          }
+
+          function normalizeSpreadsheetXml(xml) {
+            let output = xml
+            const mainMatch = output.match(
+              /xmlns:([A-Za-z_][\w.-]*)="http:\/\/schemas\.openxmlformats\.org\/spreadsheetml\/2006\/main"/,
+            )
+            if (mainMatch) {
+              const prefix = escapeRegExp(mainMatch[1])
+              output = output
+                .replace(new RegExp(`<(/?)${prefix}:`, 'g'), '<$1')
+                .replace(new RegExp(`\\sxmlns:${prefix}=`, 'g'), ' xmlns=')
+            }
+
+            const relMatch = output.match(
+              /xmlns:([A-Za-z_][\w.-]*)="http:\/\/schemas\.openxmlformats\.org\/officeDocument\/2006\/relationships"/,
+            )
+            if (relMatch && relMatch[1] !== 'r') {
+              const prefix = escapeRegExp(relMatch[1])
+              output = output
+                .replace(new RegExp(`\\sxmlns:${prefix}=`, 'g'), ' xmlns:r=')
+                .replace(new RegExp(`\\b${prefix}:`, 'g'), 'r:')
+            }
+            return output
+          }
+
+          const source = fs.readFileSync(workbookPath)
+          const zip = await JSZip.loadAsync(source)
+          let changedFiles = 0
+
+          for (const entry of Object.values(zip.files)) {
+            if (entry.dir) continue
+            let normalize = null
+            if (entry.name.endsWith('.rels')) normalize = normalizeRelationshipXml
+            else if (entry.name.startsWith('xl/') && entry.name.endsWith('.xml')) normalize = normalizeSpreadsheetXml
+            if (!normalize) continue
+
+            const xml = await entry.async('string')
+            const normalized = normalize(xml)
+            if (normalized === xml) continue
+            zip.file(entry.name, normalized)
+            changedFiles += 1
+          }
+
+          if (changedFiles > 0) {
+            const output = await zip.generateAsync({
+              type: 'nodebuffer',
+              compression: 'DEFLATE',
+              compressionOptions: { level: 6 },
+            })
+            fs.writeFileSync(workbookPath, output)
+          }
+          console.log(`Normalized namespace-prefixed OOXML in ${changedFiles} workbook part(s).`)
+          NODE
+
           node scripts/data/apply-workbook-patch.mjs \
             --patch data-sources/workbook-patches/citicoline-scite-pilot.json \
             --apply \
