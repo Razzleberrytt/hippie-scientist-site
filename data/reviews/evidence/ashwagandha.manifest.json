@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "slug": "ashwagandha",
+  "entity_id": "ent_herb_8ba84835a956",
+  "entity_type": "herb",
+  "batch_hash": "df0298ce4b7b449f3f12c68289ca9e8bf66a9d6f8db60a8f79c6ae49ad4c391a",
+  "decision": "pending",
+  "reviewer": "",
+  "reviewed_at": null,
+  "approved_patch_ids": [
+    "scite-ashwagandha-evidence-limitations-2026-07-11-003",
+    "scite-ashwagandha-liver-safety-2026-07-11-005",
+    "scite-ashwagandha-sleep-2026-07-11-002",
+    "scite-ashwagandha-stress-2026-07-11-001",
+    "scite-ashwagandha-thyroid-pregnancy-interactions-2026-07-11-006",
+    "scite-ashwagandha-tolerability-2026-07-11-004"
+  ],
+  "approved_claim_ids": [
+    "clm_554b74f570d4",
+    "clm_62d80de74d95",
+    "clm_78af0b376bf1",
+    "clm_9318758bf577",
+    "clm_d6711d6cd0c9",
+    "clm_ead0ae0bd2e4"
+  ],
+  "approved_source_ids": [
+    "src_05c07be46c26",
+    "src_0abbdfdf8b6d",
+    "src_2e4bcffedbaa",
+    "src_30bd3f31b793",
+    "src_45e522e1601f",
+    "src_65ad684f65bb",
+    "src_719fb976a856",
+    "src_9030a59485e3"
+  ],
+  "deprecated_claim_ids": [],
+  "deprecated_source_ids": [],
+  "notes": ""
+}

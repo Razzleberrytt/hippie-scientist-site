@@ -1,0 +1,464 @@
+{
+  "slug": "ashwagandha",
+  "entity_id": "ent_herb_8ba84835a956",
+  "entity_type": "herb",
+  "batch_hash": "df0298ce4b7b449f3f12c68289ca9e8bf66a9d6f8db60a8f79c6ae49ad4c391a",
+  "summary": {
+    "patches": 6,
+    "proposed_claims": 6,
+    "unique_sources": 8,
+    "dry_run_applied": 6,
+    "dry_run_noop": 0,
+    "existing_active_claims": 10,
+    "duplicate_sources": 2
+  },
+  "patches": [
+    {
+      "patch_id": "scite-ashwagandha-evidence-limitations-2026-07-11-003",
+      "original_filename": "ashwagandha-evidence-limitations-scite-003.json",
+      "requires_review": true,
+      "confidence": 0.84,
+      "operations": [
+        {
+          "op": "add_claim",
+          "claim": "The clinical evidence base remains limited by small trials, heterogeneous extracts and dosing regimens, variable outcome measures, and risk-of-bias concerns, so results from one preparation should not be generalized to all ashwagandha products.",
+          "confidence": 0.84
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_45e522e1601f",
+          "doi": "10.1002/ptr.7598",
+          "url": "https://doi.org/10.1002/ptr.7598",
+          "title": "Does Ashwagandha supplementation have a beneficial effect on the management of anxiety and stress? A systematic review and meta-analysis of randomized controlled trials",
+          "year": "2022"
+        },
+        {
+          "source_id": "src_05c07be46c26",
+          "doi": "10.1002/hup.2911",
+          "url": "https://doi.org/10.1002/hup.2911",
+          "title": "Safety and efficacy of Withania somnifera for anxiety and insomnia: Systematic review and meta-analysis",
+          "year": "2024"
+        }
+      ]
+    },
+    {
+      "patch_id": "scite-ashwagandha-liver-safety-2026-07-11-005",
+      "original_filename": "ashwagandha-liver-safety-scite-005.json",
+      "requires_review": true,
+      "confidence": 0.86,
+      "operations": [
+        {
+          "op": "add_safety_warning",
+          "claim": "Rare cases and case series of clinically significant liver injury have been associated with ashwagandha products, often with cholestatic or mixed patterns; discontinue use and seek medical evaluation if jaundice, dark urine, marked itching, or persistent upper-abdominal symptoms develop.",
+          "confidence": 0.86
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_30bd3f31b793",
+          "doi": "10.1097/hc9.0000000000000270",
+          "url": "https://doi.org/10.1097/hc9.0000000000000270",
+          "title": "Ashwagandha-induced liver injury—A case series from India and literature review",
+          "year": "2023"
+        },
+        {
+          "source_id": "src_9030a59485e3",
+          "doi": "10.3390/ph16081129",
+          "url": "https://doi.org/10.3390/ph16081129",
+          "title": "Herb-Induced Liver Injury by Ayurvedic Ashwagandha as Assessed for Causality by the Updated RUCAM: An Emerging Cause",
+          "year": "2023"
+        }
+      ]
+    },
+    {
+      "patch_id": "scite-ashwagandha-sleep-2026-07-11-002",
+      "original_filename": "ashwagandha-sleep-scite-002.json",
+      "requires_review": true,
+      "confidence": 0.74,
+      "operations": [
+        {
+          "op": "add_claim",
+          "claim": "A systematic review and meta-analysis found a modest overall improvement in sleep outcomes with ashwagandha extract, with a stronger signal in adults with insomnia, although the number of trials was limited and publication bias could not be assessed reliably.",
+          "confidence": 0.74
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_0abbdfdf8b6d",
+          "doi": "10.1371/journal.pone.0257843",
+          "pmid": "34559859",
+          "url": "https://doi.org/10.1371/journal.pone.0257843",
+          "title": "Effect of Ashwagandha (Withania somnifera) extract on sleep: A systematic review and meta-analysis",
+          "year": "2021"
+        }
+      ]
+    },
+    {
+      "patch_id": "scite-ashwagandha-stress-2026-07-11-001",
+      "original_filename": "ashwagandha-stress-scite-001.json",
+      "requires_review": true,
+      "confidence": 0.78,
+      "operations": [
+        {
+          "op": "add_claim",
+          "claim": "Systematic reviews of randomized trials suggest that some ashwagandha extracts may reduce perceived stress and anxiety symptoms in adults, but the evidence should be interpreted cautiously because formulations, doses, study populations, and outcome measures vary across trials.",
+          "confidence": 0.78
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_45e522e1601f",
+          "doi": "10.1002/ptr.7598",
+          "url": "https://doi.org/10.1002/ptr.7598",
+          "title": "Does Ashwagandha supplementation have a beneficial effect on the management of anxiety and stress? A systematic review and meta-analysis of randomized controlled trials",
+          "year": "2022"
+        }
+      ]
+    },
+    {
+      "patch_id": "scite-ashwagandha-thyroid-pregnancy-interactions-2026-07-11-006",
+      "original_filename": "ashwagandha-thyroid-pregnancy-interactions-scite-006.json",
+      "requires_review": true,
+      "confidence": 0.77,
+      "operations": [
+        {
+          "op": "add_safety_warning",
+          "claim": "Avoid ashwagandha during pregnancy unless specifically directed by a qualified clinician, and use extra caution with thyroid disease or thyroid medication, sedatives, antihypertensive or antidiabetic drugs, and immunosuppressants because human safety data and interaction evidence are limited and thyroid stimulation or additive effects are plausible.",
+          "confidence": 0.77
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_2e4bcffedbaa",
+          "doi": "10.7759/cureus.23494",
+          "url": "https://doi.org/10.7759/cureus.23494",
+          "title": "Ashwagandha as a Unique Cause of Thyrotoxicosis Presenting With Supraventricular Tachycardia",
+          "year": "2022"
+        },
+        {
+          "source_id": "src_719fb976a856",
+          "doi": "10.1007/s13530-022-00122-z",
+          "url": "https://doi.org/10.1007/s13530-022-00122-z",
+          "title": "Adrenal hypofunction associated with ashwagandha (Withania somnifera) supplementation: a case report",
+          "year": "2022"
+        },
+        {
+          "source_id": "src_65ad684f65bb",
+          "doi": "10.1002/ptr.6935",
+          "url": "https://doi.org/10.1002/ptr.6935",
+          "title": "Is it safe to consume traditional medicinal plants during pregnancy?",
+          "year": "2020"
+        }
+      ]
+    },
+    {
+      "patch_id": "scite-ashwagandha-tolerability-2026-07-11-004",
+      "original_filename": "ashwagandha-short-term-tolerability-scite-004.json",
+      "requires_review": true,
+      "confidence": 0.76,
+      "operations": [
+        {
+          "op": "add_claim",
+          "claim": "Short-term randomized trials generally report good tolerability, but mild gastrointestinal symptoms and drowsiness can occur, and the available trial evidence does not establish long-term safety across products or populations.",
+          "confidence": 0.76
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_05c07be46c26",
+          "doi": "10.1002/hup.2911",
+          "url": "https://doi.org/10.1002/hup.2911",
+          "title": "Safety and efficacy of Withania somnifera for anxiety and insomnia: Systematic review and meta-analysis",
+          "year": "2024"
+        }
+      ]
+    }
+  ],
+  "dry_run": [
+    {
+      "patch_id": "scite-ashwagandha-evidence-limitations-2026-07-11-003",
+      "target_id": "ent_herb_8ba84835a956",
+      "status": "applied",
+      "changes": [
+        {
+          "type": "add_source",
+          "id": "src_45e522e1601f"
+        },
+        {
+          "type": "add_source",
+          "id": "src_05c07be46c26"
+        },
+        {
+          "type": "add_claim",
+          "claim_id": "clm_554b74f570d4",
+          "predicate": "supports_outcome"
+        }
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "requires_review": true
+    },
+    {
+      "patch_id": "scite-ashwagandha-liver-safety-2026-07-11-005",
+      "target_id": "ent_herb_8ba84835a956",
+      "status": "applied",
+      "changes": [
+        {
+          "type": "add_source",
+          "id": "src_30bd3f31b793"
+        },
+        {
+          "type": "add_source",
+          "id": "src_9030a59485e3"
+        },
+        {
+          "type": "add_safety_warning",
+          "claim_id": "clm_d6711d6cd0c9",
+          "predicate": "has_safety_warning"
+        }
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "requires_review": true
+    },
+    {
+      "patch_id": "scite-ashwagandha-sleep-2026-07-11-002",
+      "target_id": "ent_herb_8ba84835a956",
+      "status": "applied",
+      "changes": [
+        {
+          "type": "add_source",
+          "id": "src_0abbdfdf8b6d"
+        },
+        {
+          "type": "add_claim",
+          "claim_id": "clm_ead0ae0bd2e4",
+          "predicate": "supports_outcome"
+        }
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "requires_review": true
+    },
+    {
+      "patch_id": "scite-ashwagandha-stress-2026-07-11-001",
+      "target_id": "ent_herb_8ba84835a956",
+      "status": "applied",
+      "changes": [
+        {
+          "type": "add_claim",
+          "claim_id": "clm_78af0b376bf1",
+          "predicate": "supports_outcome"
+        }
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "requires_review": true
+    },
+    {
+      "patch_id": "scite-ashwagandha-thyroid-pregnancy-interactions-2026-07-11-006",
+      "target_id": "ent_herb_8ba84835a956",
+      "status": "applied",
+      "changes": [
+        {
+          "type": "add_source",
+          "id": "src_2e4bcffedbaa"
+        },
+        {
+          "type": "add_source",
+          "id": "src_719fb976a856"
+        },
+        {
+          "type": "add_source",
+          "id": "src_65ad684f65bb"
+        },
+        {
+          "type": "add_safety_warning",
+          "claim_id": "clm_9318758bf577",
+          "predicate": "has_safety_warning"
+        }
+      ],
+      "conflicts": [
+        {
+          "type": "safety_conflict",
+          "existing": "Rare cases and case series of clinically significant liver injury have been associated with ashwagandha products, often with cholestatic or mixed patterns; discontinue use and seek medical evaluation if jaundice, dark urine, marked itching, or persistent upper-abdominal symptoms develop.",
+          "proposed": "Avoid ashwagandha during pregnancy unless specifically directed by a qualified clinician, and use extra caution with thyroid disease or thyroid medication, sedatives, antihypertensive or antidiabetic drugs, and immunosuppressants because human safety data and interaction evidence are limited and thyroid stimulation or additive effects are plausible."
+        }
+      ],
+      "warnings": [],
+      "requires_review": true
+    },
+    {
+      "patch_id": "scite-ashwagandha-tolerability-2026-07-11-004",
+      "target_id": "ent_herb_8ba84835a956",
+      "status": "applied",
+      "changes": [
+        {
+          "type": "add_claim",
+          "claim_id": "clm_62d80de74d95",
+          "predicate": "supports_outcome"
+        }
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "requires_review": true
+    }
+  ],
+  "proposed_claims": [
+    {
+      "patch_id": "scite-ashwagandha-evidence-limitations-2026-07-11-003",
+      "predicate": "supports_outcome",
+      "claim": "The clinical evidence base remains limited by small trials, heterogeneous extracts and dosing regimens, variable outcome measures, and risk-of-bias concerns, so results from one preparation should not be generalized to all ashwagandha products.",
+      "confidence": 0.84,
+      "evidence_level": "human_obs",
+      "source_count": 2
+    },
+    {
+      "patch_id": "scite-ashwagandha-liver-safety-2026-07-11-005",
+      "predicate": "has_safety_warning",
+      "claim": "Rare cases and case series of clinically significant liver injury have been associated with ashwagandha products, often with cholestatic or mixed patterns; discontinue use and seek medical evaluation if jaundice, dark urine, marked itching, or persistent upper-abdominal symptoms develop.",
+      "confidence": 0.86,
+      "evidence_level": "human_obs",
+      "source_count": 2
+    },
+    {
+      "patch_id": "scite-ashwagandha-tolerability-2026-07-11-004",
+      "predicate": "supports_outcome",
+      "claim": "Short-term randomized trials generally report good tolerability, but mild gastrointestinal symptoms and drowsiness can occur, and the available trial evidence does not establish long-term safety across products or populations.",
+      "confidence": 0.76,
+      "evidence_level": "human_obs",
+      "source_count": 1
+    },
+    {
+      "patch_id": "scite-ashwagandha-sleep-2026-07-11-002",
+      "predicate": "supports_outcome",
+      "claim": "A systematic review and meta-analysis found a modest overall improvement in sleep outcomes with ashwagandha extract, with a stronger signal in adults with insomnia, although the number of trials was limited and publication bias could not be assessed reliably.",
+      "confidence": 0.74,
+      "evidence_level": "human_obs",
+      "source_count": 1
+    },
+    {
+      "patch_id": "scite-ashwagandha-stress-2026-07-11-001",
+      "predicate": "supports_outcome",
+      "claim": "Systematic reviews of randomized trials suggest that some ashwagandha extracts may reduce perceived stress and anxiety symptoms in adults, but the evidence should be interpreted cautiously because formulations, doses, study populations, and outcome measures vary across trials.",
+      "confidence": 0.78,
+      "evidence_level": "human_obs",
+      "source_count": 1
+    },
+    {
+      "patch_id": "scite-ashwagandha-thyroid-pregnancy-interactions-2026-07-11-006",
+      "predicate": "has_safety_warning",
+      "claim": "Avoid ashwagandha during pregnancy unless specifically directed by a qualified clinician, and use extra caution with thyroid disease or thyroid medication, sedatives, antihypertensive or antidiabetic drugs, and immunosuppressants because human safety data and interaction evidence are limited and thyroid stimulation or additive effects are plausible.",
+      "confidence": 0.77,
+      "evidence_level": "human_obs",
+      "source_count": 3
+    }
+  ],
+  "existing_active_claims": [
+    {
+      "id": "clm_1697a35300c1",
+      "review_status": "pending",
+      "predicate": "supports_outcome",
+      "claim": "study_count=4; rct_count=3; meta_analysis_count=0; systematic_review_count=1; positive=4; neutral=0; negative=0",
+      "source_ids": [],
+      "exact_duplicate_of_proposal": false
+    },
+    {
+      "id": "clm_54b6e09f2219",
+      "review_status": "pending",
+      "predicate": "supports_outcome",
+      "claim": "improved sleep",
+      "source_ids": [
+        "src_70331e7bb12c"
+      ],
+      "exact_duplicate_of_proposal": false
+    },
+    {
+      "id": "clm_5c31828c2d16",
+      "review_status": "pending",
+      "predicate": "supports_outcome",
+      "claim": "consistent anxiolytic effects",
+      "source_ids": [
+        "src_f02e1ed9be7c"
+      ],
+      "exact_duplicate_of_proposal": false
+    },
+    {
+      "id": "clm_7cc5e8f8c0ce",
+      "review_status": "pending",
+      "predicate": "supports_outcome",
+      "claim": "Ashwagandha has the clearest anxiety fit when the pattern is anticipatory or ongoing worry rather than acute event-linked nervousness.",
+      "source_ids": [],
+      "exact_duplicate_of_proposal": false
+    },
+    {
+      "id": "clm_7f80004c348f",
+      "review_status": "pending",
+      "predicate": "supports_outcome",
+      "claim": "reduced cortisol and stress scores",
+      "source_ids": [
+        "src_0144d7359265"
+      ],
+      "exact_duplicate_of_proposal": false
+    },
+    {
+      "id": "clm_80e9f12d367c",
+      "review_status": "pending",
+      "predicate": "supports_outcome",
+      "claim": "Ashwagandha has the clearest stress fit when the issue is ongoing perceived stress rather than a single acute spike.",
+      "source_ids": [],
+      "exact_duplicate_of_proposal": false
+    },
+    {
+      "id": "clm_ab89d0e0ade5",
+      "review_status": "pending",
+      "predicate": "supports_outcome",
+      "claim": "reduced cortisol",
+      "source_ids": [
+        "src_0689dbee4a15"
+      ],
+      "exact_duplicate_of_proposal": false
+    },
+    {
+      "id": "clm_c8bb72051ea4",
+      "review_status": "pending",
+      "predicate": "supports_outcome",
+      "claim": "v9.4: Keep as monetizable, but maintain liver/thyroid/pregnancy cautions.",
+      "source_ids": [
+        "src_0144d7359265"
+      ],
+      "exact_duplicate_of_proposal": false
+    },
+    {
+      "id": "clm_d6a879f53dd3",
+      "review_status": "pending",
+      "predicate": "supports_outcome",
+      "claim": "increased strength",
+      "source_ids": [
+        "src_0689dbee4a15"
+      ],
+      "exact_duplicate_of_proposal": false
+    },
+    {
+      "id": "clm_fcf7f8d542c4",
+      "review_status": "pending",
+      "predicate": "supports_outcome",
+      "claim": "unspecified",
+      "source_ids": [],
+      "exact_duplicate_of_proposal": false
+    }
+  ],
+  "duplicate_sources": [
+    {
+      "source_id": "src_05c07be46c26",
+      "first_patch_id": "scite-ashwagandha-evidence-limitations-2026-07-11-003",
+      "duplicate_patch_id": "scite-ashwagandha-tolerability-2026-07-11-004"
+    },
+    {
+      "source_id": "src_45e522e1601f",
+      "first_patch_id": "scite-ashwagandha-evidence-limitations-2026-07-11-003",
+      "duplicate_patch_id": "scite-ashwagandha-stress-2026-07-11-001"
+    }
+  ]
+}
