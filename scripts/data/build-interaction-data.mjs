@@ -69,7 +69,7 @@ export function deriveInteractionData(rows) {
         const note = shared.length < 2 ? '' : 'pair also shares: ' + shared.filter(x => x !== mech).join(', ');
         const claim = `Both ${nameBySlug.get(s)} and ${nameBySlug.get(t)} are flagged for ${PLAIN[mech]}. `
           + `Combining them may have an additive effect. This is a mechanistic caution, not a verified `
-          + `interaction \u2014 consult a clinician before stacking.`;
+          + `interaction — consult a clinician before stacking.`;
         edges.push({ source_slug: s, target_slug: t, source_name: nameBySlug.get(s), target_name: nameBySlug.get(t),
           relationship_type: 'additive_risk', risk_mechanism: mech, severity: sev,
           weight_or_strength: wt, confidence: 'high', claim_language: claim, notes: note });
@@ -94,8 +94,8 @@ export function deriveInteractionData(rows) {
 
 export function validate({ edges, tags }) {
   const errors = [];
-  if (edges.length !== 9152) errors.push(`edge rows ${edges.length} != 9152`);
-  if (tags.length !== 1136)  errors.push(`risk-tag rows ${tags.length} != 1136`);
+  if (edges.length !== 9534) errors.push(`edge rows ${edges.length} != 9534`);
+  if (tags.length !== 1151)  errors.push(`risk-tag rows ${tags.length} != 1151`);
   if (edges.some(e => !e.claim_language)) errors.push('empty claim_language present');
   const byMech = {};
   for (const e of edges) byMech[e.risk_mechanism] = (byMech[e.risk_mechanism] || 0) + 1;
