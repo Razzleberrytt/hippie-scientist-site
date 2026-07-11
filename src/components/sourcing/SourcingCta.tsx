@@ -36,17 +36,14 @@ export function SourcingCta({ record, displayName }: SourcingCtaProps) {
   const finalUrl = getUrl()
 
   return (
-    <div className="rounded-3xl border border-brand-900/10 bg-white/95 p-5 shadow-sm space-y-4">
-      <div className="flex flex-wrap items-start justify-between gap-4">
+    <div className="rounded-2xl border border-brand-900/10 bg-white/95 p-4 shadow-sm space-y-3">
+      <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex-1 min-w-[280px]">
-          <h4 className="text-xs font-bold uppercase tracking-[0.16em] text-emerald-800">
-            Sourcing Options
-          </h4>
-          <h3 className="mt-1 text-lg font-semibold text-ink">
+          <h3 className="text-base font-semibold text-ink">
             Review available sources for {displayName}
           </h3>
-          <p className="mt-1 text-sm leading-6 text-muted">
-            Independent database mapping. Sourcing availability is evaluated separately from safety and clinical efficacy scores.
+          <p className="mt-0.5 text-xs leading-5 text-muted">
+            Independent database mapping — evaluated separately from safety and efficacy scores.
           </p>
         </div>
 
@@ -78,9 +75,9 @@ export function SourcingCta({ record, displayName }: SourcingCtaProps) {
       </div>
 
       {/* 4. Clear disclosure language */}
-      <div className="border-t border-brand-900/5 pt-3 text-[11px] leading-relaxed text-muted">
+      <div className="border-t border-brand-900/5 pt-2 text-[11px] leading-relaxed text-muted">
         <p>
-          <strong>Affiliate Disclosure:</strong> Clicking verification or shopping links may earn this site a commission at no additional cost to you. Sourcing links are selected strictly based on quality criteria and availability, never based on commission tiers. Safety warnings and evidence ratings remain independent of sourcing.
+          <strong>Affiliate Disclosure:</strong> Shopping links may earn this site a commission at no cost to you. Links are chosen on quality and availability, never commission tiers; safety warnings and evidence ratings stay independent.
         </p>
       </div>
     </div>

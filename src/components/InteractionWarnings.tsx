@@ -59,49 +59,57 @@ export function InteractionWarnings({ edges, slugTypeMap }: InteractionWarningsP
     <section id="interactions" className="space-y-4 scroll-mt-24">
       <h2 className="text-lg font-bold text-ink">Caution When Combined With</h2>
       <p className="text-sm leading-6 text-muted">
-        These pairings share a flagged risk mechanism. This is a mechanistic caution derived
-        from contraindication data, not a confirmed clinical interaction — consult a clinician
-        before combining.
+        These pairings share a flagged risk mechanism — an additive-effect caution derived from
+        contraindication data, not a confirmed clinical interaction. Consult a clinician before combining.
       </p>
 
       {bySeverity.map(({ severity, items }) => {
         const config = SEVERITY_CONFIG[severity]
+        // One compact chip list per mechanism instead of a paragraph per pairing.
+        const byMechanism = [...new Set(items.map(e => e.risk_mechanism))].map(mechanism => ({
+          mechanism,
+          edges: items.filter(e => e.risk_mechanism === mechanism),
+        }))
+
         return (
           <div key={severity} className={config.wrapper}>
             <h3 className={`text-xs font-bold uppercase tracking-wider ${config.heading}`}>
               {config.label} ({items.length})
             </h3>
-            <ul className="space-y-3">
-              {items.map(edge => {
-                const partnerType = slugTypeMap[edge.partner_slug]
-                const partnerHref = partnerType
-                  ? `/${partnerType === 'compound' ? 'compounds' : 'herbs'}/${edge.partner_slug}`
-                  : null
+            {byMechanism.map(({ mechanism, edges: mechanismEdges }) => (
+              <div key={mechanism} className="space-y-2">
+                <span
+                  className={`inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${config.badge}`}
+                >
+                  {MECHANISM_LABELS[mechanism] ?? mechanism}
+                </span>
+                <ul className="flex flex-wrap gap-1.5">
+                  {mechanismEdges.map(edge => {
+                    const partnerType = slugTypeMap[edge.partner_slug]
+                    const partnerHref = partnerType
+                      ? `/${partnerType === 'compound' ? 'compounds' : 'herbs'}/${edge.partner_slug}`
+                      : null
 
-                return (
-                  <li key={`${edge.partner_slug}-${edge.risk_mechanism}`} className="space-y-1">
-                    <div className="flex flex-wrap items-center gap-2">
-                      {partnerHref ? (
-                        <Link
-                          href={partnerHref}
-                          className="text-sm font-semibold text-ink underline decoration-amber-500/40 underline-offset-2 hover:decoration-amber-500"
-                        >
-                          {edge.partner_name}
-                        </Link>
-                      ) : (
-                        <span className="text-sm font-semibold text-ink">{edge.partner_name}</span>
-                      )}
-                      <span
-                        className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${config.badge}`}
-                      >
-                        {MECHANISM_LABELS[edge.risk_mechanism] ?? edge.risk_mechanism}
-                      </span>
-                    </div>
-                    <p className="text-sm leading-6 text-muted">{edge.claim_language}</p>
-                  </li>
-                )
-              })}
-            </ul>
+                    return (
+                      <li key={`${edge.partner_slug}-${edge.risk_mechanism}`} title={edge.claim_language}>
+                        {partnerHref ? (
+                          <Link
+                            href={partnerHref}
+                            className="inline-block rounded-full border border-amber-900/15 bg-white/70 px-2.5 py-1 text-xs font-semibold text-ink hover:bg-white"
+                          >
+                            {edge.partner_name}
+                          </Link>
+                        ) : (
+                          <span className="inline-block rounded-full border border-amber-900/15 bg-white/70 px-2.5 py-1 text-xs font-semibold text-ink">
+                            {edge.partner_name}
+                          </span>
+                        )}
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            ))}
           </div>
         )
       })}

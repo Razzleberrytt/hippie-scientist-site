@@ -37,15 +37,15 @@ export default function RecommendationSection({
   )
 
   return (
-    <section className='card-premium p-5 sm:p-8'>
+    <section className='card-premium p-4 sm:p-5'>
       <div className='max-w-3xl'>
         <p className='eyebrow-label'>Affiliate-ready sourcing</p>
-        <h2 className='mt-3 text-2xl font-semibold text-ink'>{title}</h2>
-        <p className='mt-3 text-sm leading-7 text-muted'>{description}</p>
-        <AffiliateDisclosure variant='compact' className='mt-3' />
+        <h2 className='mt-1 text-lg font-semibold text-ink'>{title}</h2>
+        <p className='mt-1 text-sm leading-6 text-muted'>{description}</p>
+        <AffiliateDisclosure variant='compact' className='mt-2' />
       </div>
 
-      <div className='mt-6 grid gap-4 md:grid-cols-3'>
+      <div className='mt-4 grid gap-4 md:grid-cols-3'>
         {ordered.map((product) => (
           <div key={`${product.slot}-${product.title || product.name}`} className='flex flex-col gap-2'>
             <p className='text-xs font-bold uppercase tracking-[0.16em] text-brand-700 dark:text-brand-200'>{slotLabels[product.slot]}</p>
@@ -61,7 +61,7 @@ export default function RecommendationSection({
         ))}
       </div>
 
-      <WhyWeRecommend className='mt-6' />
+      <WhyWeRecommend className='mt-4' />
     </section>
   )
 }

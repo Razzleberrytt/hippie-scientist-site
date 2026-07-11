@@ -48,7 +48,6 @@ import TrialDesignInsight from '@/components/education/TrialDesignInsight'
 import { extractCitationsFromRecord } from '@/lib/citations'
 import RecommendationSection from '../../../components/RecommendationSection'
 import StackRecommendationSection from '../../../components/StackRecommendationSection'
-import RecommendedProduct from '@/components/RecommendedProduct'
 import { getRevenueProductSet } from '@/config/revenue-products'
 import { getStackRecommendations } from '../../../src/lib/recommendation-engine'
 import { AshwagandhaStressClaim } from './AshwagandhaStressClaim'
@@ -518,7 +517,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
     : null
 
   const tocItems = [
-    { id: 'quick-stats', label: 'Quick stats' },
+    { id: 'overview', label: 'Overview' },
     ...(expansion ? [{ id: 'editorial-review', label: 'Editorial review' }] : []),
     { id: 'safety', label: 'Safety' },
     ...(interactionEdges.length > 0 ? [{ id: 'interactions', label: 'Interactions' }] : []),
@@ -535,7 +534,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
 
   return (
-    <div className="mx-auto max-w-4xl lg:max-w-6xl space-y-10 px-4 pb-28 pt-6">
+    <div className="mx-auto max-w-4xl lg:max-w-6xl space-y-6 px-4 pb-16 pt-6">
       <ScrollEngagementPrompt storageKey={`herb-prompt-${normalizedSlug}`} />
       <SchemaGraphScript graph={schemaGraph} />
       <HerbSchemaGenerator
@@ -555,7 +554,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       ) : null}
 
       <div className="flex gap-8 items-start">
-        <div className="flex-1 min-w-0 space-y-10">
+        <div className="flex-1 min-w-0 space-y-6">
           {/* Header Breadcrumb - use only common name, not scientific name */}
       <nav className="flex items-center gap-2 text-xs text-muted">
         <Link href="/herbs/" className="transition hover:text-ink">Herbs</Link>
@@ -563,66 +562,77 @@ export default async function HerbDetailPage({ params }: PageProps) {
         <span className="text-ink font-medium">{displayName}</span>
       </nav>
 
-      {/* Title Header */}
-      <div className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-sm sm:p-8 lg:p-10">
-        <header className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-start">
+      {/* Title Header — includes the quick-stat strip so the essentials fit in one screen */}
+      <div id="overview" className="hero-shell scroll-mt-24 rounded-[2rem] border border-brand-900/10 p-5 shadow-sm sm:p-6">
+        <header className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-start">
           <div className="space-y-3">
-          <div className="space-y-1">
-            <p className="eyebrow-label">Herb Profile</p>
-            <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              {displayName}
-            </h1>
-            {botanicalName ? <p className="text-sm italic text-muted">{botanicalName}</p> : null}
-          </div>
-          <p className="text-base leading-7 text-muted">{briefSummary}</p>
-          <div className="mt-3 flex flex-wrap items-center gap-3">
-            <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
-            <EvidenceScoreBadge record={herbRecord} />
-          </div>
+            <div className="space-y-1">
+              <p className="eyebrow-label">Herb Profile</p>
+              <h1 className="text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+                {displayName}
+              </h1>
+              {botanicalName ? <p className="text-sm italic text-muted">{botanicalName}</p> : null}
+            </div>
+            <p className="text-base leading-7 text-muted">{briefSummary}</p>
+            <div className="flex flex-wrap items-center gap-3">
+              <LastUpdatedBadge date={freshness.lastReviewed} citationCount={freshness.citationCount} />
+              <EvidenceScoreBadge record={herbRecord} />
+            </div>
 
-          {/* Safety Summary banner */}
-          <div
-            className={`rounded-xl border-2 px-4 py-3 ${
-              safetyTone === 'Standard caution'
-                ? 'border-emerald-600/30 bg-emerald-50/70 dark:border-emerald-300/20 dark:bg-emerald-300/10'
-                : 'border-amber-600/30 bg-amber-50/70 dark:border-amber-300/20 dark:bg-amber-300/10'
-            }`}
-          >
-            <p className="text-sm leading-6 text-ink">
-              <span
-                className={`font-bold ${
-                  safetyTone === 'Standard caution' ? 'text-emerald-800 dark:text-emerald-100' : 'text-amber-800 dark:text-amber-100'
-                }`}
-              >
-                Safety Summary:
-              </span>{' '}
-              <span className="font-semibold">{safetyTone}</span> — {safetySummary}
-            </p>
-          </div>
-          </div>
+            {/* Safety Summary — one line; full detail lives in the Safety section below */}
+            <div
+              className={`rounded-xl border px-3 py-2 ${
+                safetyTone === 'Standard caution'
+                  ? 'border-emerald-600/30 bg-emerald-50/70 dark:border-emerald-300/20 dark:bg-emerald-300/10'
+                  : 'border-amber-600/30 bg-amber-50/70 dark:border-amber-300/20 dark:bg-amber-300/10'
+              }`}
+            >
+              <p className="text-sm leading-6 text-ink">
+                <span
+                  className={`font-bold ${
+                    safetyTone === 'Standard caution' ? 'text-emerald-800 dark:text-emerald-100' : 'text-amber-800 dark:text-amber-100'
+                  }`}
+                >
+                  {safetyTone}
+                </span>{' '}
+                — {firstSentences(safetySummary, 1)}{' '}
+                <a href="#safety" className="font-semibold text-brand-800 hover:underline dark:text-brand-100">Details</a>
+              </p>
+            </div>
 
-          <div className="space-y-4">
-            <MonographHeroImage image={heroImage} label={displayName} eyebrow="Monograph visual" />
-
-            {/* Key Findings */}
-            {topUses.length > 0 && (
-              <div className="rounded-2xl border-2 border-emerald-600/25 bg-emerald-50/60 p-4 dark:border-emerald-300/20 dark:bg-emerald-300/10">
-                <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-100">Key Findings</h3>
-                <p className="mt-1 text-[11px] font-semibold text-muted">Primary reported uses</p>
-                <ul className="mt-3 space-y-2">
-                  {topUses.slice(0, 4).map((use) => (
-                    <li key={use} className="flex items-start gap-2 text-sm leading-5 text-ink">
-                      <CircleCheck aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-emerald-700 dark:text-emerald-200" strokeWidth={1.75} />
-                      <span>{use}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-4 border-t border-emerald-600/15 pt-3 dark:border-emerald-300/15">
-                  <EvidenceScoreBadge record={herbRecord} size="circle" />
-                </div>
+            {/* Quick stats strip */}
+            <dl className="grid gap-2 sm:grid-cols-3">
+              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] px-3 py-2">
+                <dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Evidence</dt>
+                <dd className="mt-0.5 text-sm font-semibold text-ink">{evidenceStrength || 'Mixed or uncertain'}</dd>
               </div>
-            )}
+              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] px-3 py-2">
+                <dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Typical onset</dt>
+                <dd className="mt-0.5 text-sm font-semibold text-ink">{timeline || 'Varies by prep'}</dd>
+              </div>
+              <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] px-3 py-2">
+                <dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Safety rating</dt>
+                <dd className="mt-0.5 text-sm font-semibold text-ink">{formatDisplayLabel(safetySensitivity)} caution</dd>
+              </div>
+              {topUses.length > 0 && (
+                <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] px-3 py-2 sm:col-span-2">
+                  <dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Best for</dt>
+                  <dd className="mt-0.5 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-sm text-ink">
+                    <CircleCheck aria-hidden="true" className="h-4 w-4 shrink-0 text-emerald-700 dark:text-emerald-200" strokeWidth={1.75} />
+                    {topUses.slice(0, 4).join(', ')}
+                  </dd>
+                </div>
+              )}
+              {avoidIf.length > 0 && (
+                <div className={`rounded-xl border border-amber-600/25 bg-amber-50/60 px-3 py-2 dark:border-amber-300/20 dark:bg-amber-300/10 ${topUses.length > 0 ? '' : 'sm:col-span-2'}`}>
+                  <dt className="text-[10px] font-bold uppercase tracking-wider text-amber-900 dark:text-amber-100">Avoid / review if</dt>
+                  <dd className="mt-0.5 text-sm text-amber-900 dark:text-amber-100">{avoidIf.slice(0, 3).join(', ')}</dd>
+                </div>
+              )}
+            </dl>
           </div>
+
+          <MonographHeroImage image={heroImage} label={displayName} eyebrow="Monograph visual" />
         </header>
       </div>
 
@@ -650,51 +660,17 @@ export default async function HerbDetailPage({ params }: PageProps) {
         ))}
       </nav>
 
-      {/* Section 1: Quick Stats */}
-      <section id="quick-stats" className="hero-shell rounded-2xl border border-brand-900/10 p-5 sm:p-6 space-y-4">
-        <h2 className="text-lg font-bold text-ink">Quick Stats</h2>
-        <div className="grid gap-3 sm:grid-cols-3">
-          <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Evidence level</p>
-            <p className="mt-1 text-sm font-semibold text-ink">{evidenceStrength || 'Mixed or uncertain'}</p>
-          </div>
-          <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Typical onset</p>
-            <p className="mt-1 text-sm font-semibold text-ink">{timeline || 'Varies by prep'}</p>
-          </div>
-          <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Safety rating</p>
-            <p className="mt-1 text-sm font-semibold text-ink">{safetyTone}: {formatDisplayLabel(safetySensitivity)} caution</p>
-          </div>
-        </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          {topUses.length > 0 && (
-            <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-muted font-semibold">Best for</p>
-              <p className="mt-1 text-sm text-ink">{topUses.slice(0, 3).join(', ')}</p>
-            </div>
-          )}
-          {avoidIf.length > 0 && (
-            <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] p-3">
-              <p className="text-[10px] font-bold uppercase tracking-wider text-amber-900 font-semibold">Avoid / review if</p>
-              <p className="mt-1 text-sm text-amber-900">{avoidIf.slice(0, 3).join(', ')}</p>
-            </div>
-          )}
-        </div>
-      </section>
-
       {normalizedSlug === 'ashwagandha' && <AshwagandhaStressClaim />}
 
       {expansion ? (
         <section id="editorial-review" className="card-premium scroll-mt-24 p-4 sm:p-5">
-          <details className="group" open>
+          <details className="group">
             <summary className="flex cursor-pointer items-center justify-between gap-4 text-lg font-bold text-ink select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:rounded">
               <span>Expanded editorial review</span>
               <span aria-hidden="true" className="text-brand-500 transition-transform group-open:rotate-180">v</span>
             </summary>
             <div className="mt-5 space-y-5 border-t border-brand-900/10 pt-5">
           <div className="space-y-2">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Expanded editorial review</p>
             <h2 className="text-lg font-bold text-ink">What this profile is built to answer</h2>
             <p className="text-sm leading-6 text-muted">{expansion.intent}</p>
           </div>
@@ -807,10 +783,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
       {/* Section 3: Evidence Summary */}
       <section id="evidence" className="card-premium scroll-mt-24 p-4 sm:p-5 space-y-4">
-        <div className="flex items-center gap-2 flex-wrap">
-          <h2 className="text-lg font-bold text-ink">Evidence Summary</h2>
-          <EvidenceScoreBadge record={herbRecord} size="circle" />
-        </div>
+        <h2 className="text-lg font-bold text-ink">Evidence Summary</h2>
         <ProfileEvidenceLens
           record={herbRecord}
           evidenceLevel={evidenceStrength}
@@ -921,37 +894,40 @@ export default async function HerbDetailPage({ params }: PageProps) {
       {/* Active compounds — internal links from the curated relationship map */}
       <div id="compounds" className="scroll-mt-24"><HerbCompoundLinks herbSlug={herb.slug} herbName={displayName} /></div>
 
-      {goalLinks.length > 0 ? (
-        <section id="goals" className="scroll-mt-24 rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4 sm:p-5">
-          <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Goal guides</p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {goalLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold capitalize text-brand-800 hover:bg-brand-50"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </section>
-      ) : null}
-
-      {conditionLinks.length > 0 ? (
-        <section id="conditions" className="scroll-mt-24 rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4 sm:p-5">
-          <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Condition guides</p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => (
-              <Link
-                key={link.slug}
-                href={link.href || '/guides/'}
-                className="rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-3 py-1.5 text-xs font-semibold text-brand-800 hover:bg-brand-50"
-              >
-                {link.label || formatDisplayLabel(link.slug)}
-              </Link>
-            ))}
-          </div>
+      {goalLinks.length > 0 || conditionLinks.length > 0 ? (
+        <section id="goals" className="scroll-mt-24 rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4 sm:p-5 space-y-3">
+          {goalLinks.length > 0 ? (
+            <div>
+              <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Goal guides</p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {goalLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold capitalize text-brand-800 hover:bg-brand-50"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ) : null}
+          {conditionLinks.length > 0 ? (
+            <div id="conditions" className="scroll-mt-24">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Condition guides</p>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => (
+                  <Link
+                    key={link.slug}
+                    href={link.href || '/guides/'}
+                    className="rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-3 py-1.5 text-xs font-semibold text-brand-800 hover:bg-brand-50"
+                  >
+                    {link.label || formatDisplayLabel(link.slug)}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ) : null}
         </section>
       ) : null}
 
@@ -1038,14 +1014,6 @@ export default async function HerbDetailPage({ params }: PageProps) {
           )}
         </div>
       </section>
-
-      {!suppressAffiliate && revenueProducts ? (
-        <RecommendedProduct
-          slug={normalizedSlug}
-          title={`Ready to try this? See top ${displayName} brands`}
-          compact
-        />
-      ) : null}
 
       <Disclaimer className="border-amber-900/15 bg-amber-50/70 !text-amber-950 [&_p]:!text-amber-950 [&_a]:!text-brand-800 mt-6" />
       <AuthorCredentials />
