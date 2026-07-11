@@ -87,3 +87,5 @@ jobs:
                   .github/workflows/apply-citicoline-workbook-patch.yml
           git commit -m 'data: apply reviewed Citicoline workbook patch'
           git push origin HEAD:${{ github.event.pull_request.head.ref }}
+
+# One-time reviewed application workflow; removes itself after a successful commit.
