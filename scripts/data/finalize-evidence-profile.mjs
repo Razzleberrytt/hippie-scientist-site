@@ -17,7 +17,11 @@ import { validateDataset } from './canonical/validate.mjs'
 import { createSnapshot } from './canonical/snapshot.mjs'
 import { recordAudit } from './canonical/audit-log.mjs'
 import { buildDatabase } from './build-sqlite.mjs'
-import { exportCanonicalCitationsToRuntime } from './canonical/citation-export.mjs'
+import {
+  buildCanonicalCitationOverlay,
+  exportCanonicalCitationsToRuntime,
+  mergeCanonicalCitationOverlay,
+} from './canonical/citation-export.mjs'
 import {
   applyReviewManifest,
   buildEvidenceReview,
@@ -68,6 +72,10 @@ function parseArgs(argv) {
 function fail(message, code = 1) {
   console.error(`✗ ${message}`)
   process.exit(code)
+}
+
+function unique(values) {
+  return [...new Set(values)].sort()
 }
 
 function listInboxFiles(args) {
@@ -143,7 +151,7 @@ function normalizeCandidates({ args, dataset, stagingDir }) {
   const duplicatePatchIds = selected
     .map((patch) => patch.patch_id)
     .filter((patchId, index, values) => values.indexOf(patchId) !== index)
-  if (duplicatePatchIds.length) fail(`duplicate patch IDs in batch: ${[...new Set(duplicatePatchIds)].join(', ')}`)
+  if (duplicatePatchIds.length) fail(`duplicate patch IDs in batch: ${unique(duplicatePatchIds).join(', ')}`)
   if (!selected.length) fail(`no inbox patches resolve to ${args.slug}`)
 
   return { patches: selected, sourceFiles, ignored }
@@ -162,7 +170,7 @@ function reportMarkdown(report, manifestPath) {
     `- Existing active claims: **${report.summary.existing_active_claims}**`,
     `- Duplicate sources inside batch: **${report.summary.duplicate_sources}**`,
     '',
-    `Review and edit \`${path.relative(ROOT, manifestPath)}\`. Add any superseded canonical IDs to the deprecation arrays before approval.`,
+    `Review and edit \`${path.relative(ROOT, manifestPath)}\`. Add valid older IDs to the approved arrays and superseded IDs to the deprecated arrays before approval.`,
     '',
     '## Proposed claims',
     '',
@@ -206,7 +214,7 @@ function loadOrCreateManifest({ args, review }) {
   const existing = readJson(manifestPath)
 
   if (existing && existing.batch_hash !== review.manifest.batch_hash && existing.decision === 'approved' && !args.refresh) {
-    fail(`approved review manifest is stale; rerun with --refresh, then review the new batch`)
+    fail('approved review manifest is stale; rerun with --refresh, then review the new batch')
   }
 
   let manifest = existing && existing.batch_hash === review.manifest.batch_hash
@@ -214,8 +222,14 @@ function loadOrCreateManifest({ args, review }) {
         ...review.manifest,
         ...existing,
         approved_patch_ids: review.manifest.approved_patch_ids,
-        approved_claim_ids: review.manifest.approved_claim_ids,
-        approved_source_ids: review.manifest.approved_source_ids,
+        approved_claim_ids: unique([
+          ...review.manifest.approved_claim_ids,
+          ...(Array.isArray(existing.approved_claim_ids) ? existing.approved_claim_ids : []),
+        ]),
+        approved_source_ids: unique([
+          ...review.manifest.approved_source_ids,
+          ...(Array.isArray(existing.approved_source_ids) ? existing.approved_source_ids : []),
+        ]),
       }
     : review.manifest
 
@@ -250,14 +264,12 @@ function assertManifestMatchesPlan(manifest, review, selectedPatches) {
     fail('partial batch approval is not supported; split rejected patches into a separate file/batch')
   }
 
-  const expectedClaims = [...review.manifest.approved_claim_ids].sort()
-  const expectedSources = [...review.manifest.approved_source_ids].sort()
-  if (JSON.stringify([...manifest.approved_claim_ids].sort()) !== JSON.stringify(expectedClaims)) {
-    fail('approved_claim_ids do not match the reviewed batch; regenerate the manifest')
-  }
-  if (JSON.stringify([...manifest.approved_source_ids].sort()) !== JSON.stringify(expectedSources)) {
-    fail('approved_source_ids do not match the reviewed batch; regenerate the manifest')
-  }
+  const approvedClaims = new Set(manifest.approved_claim_ids)
+  const approvedSources = new Set(manifest.approved_source_ids)
+  const missingClaims = review.manifest.approved_claim_ids.filter((id) => !approvedClaims.has(id))
+  const missingSources = review.manifest.approved_source_ids.filter((id) => !approvedSources.has(id))
+  if (missingClaims.length) fail(`approved_claim_ids are missing reviewed batch claims: ${missingClaims.join(', ')}`)
+  if (missingSources.length) fail(`approved_source_ids are missing reviewed batch sources: ${missingSources.join(', ')}`)
 }
 
 function appliedPatchRecord(patch, result, manifest) {
@@ -318,7 +330,7 @@ function main() {
 
     if (!args.apply) {
       if (args.approve) console.log('\n✓ manifest approved. Rerun with --apply to commit the reviewed batch.')
-      else console.log(`\nNext: review the report, add any deprecated IDs, then run:\n  npm run evidence:finalize -- --slug=${args.slug} --approve --reviewer="Your Name" --apply`)
+      else console.log(`\nNext: review the report, add approved/deprecated legacy IDs, then run:\n  npm run evidence:finalize -- --slug=${args.slug} --approve --reviewer="Your Name" --apply`)
       return
     }
 
@@ -332,6 +344,16 @@ function main() {
     const validation = validateDataset(finalizedDataset)
     if (!validation.ok) {
       fail(`finalized dataset failed validation (${validation.schemaErrorCount} schema, ${validation.refErrors.length} reference errors)`)
+    }
+
+    const currentDetail = readDetailRecord(args.dataDir, reviewFiles.manifest.entity_type, args.slug)
+    if (!currentDetail.record) fail(`runtime detail record not found: ${path.relative(ROOT, currentDetail.file)}`)
+    const overlay = buildCanonicalCitationOverlay(finalizedDataset).get(args.slug)
+    if (!overlay) fail(`no canonical citation overlay produced for ${args.slug}`)
+    const plannedRecord = mergeCanonicalCitationOverlay(currentDetail.record, overlay)
+    const plannedVerification = verifyFinalizedProfile({ record: plannedRecord, manifest: reviewFiles.manifest })
+    if (!plannedVerification.ok) {
+      fail(`pre-commit runtime verification failed:\n  - ${plannedVerification.errors.join('\n  - ')}`)
     }
 
     const snapshot = createSnapshot(`pre-evidence-finalize-${args.slug}`)
