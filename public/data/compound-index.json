@@ -947,7 +947,7 @@
   {
     "slug": "apigenin",
     "name": "Apigenin",
-    "summary": "Decision-ready summary: Apigenin is best framed for relaxation; sleep support; mild anxiety context; safety screen: sedatives; anticoagulants caution; pregnancy safety uncertainty.",
+    "summary": "No reliable human sleep/anxiety/cognition source was found in this pass.",
     "primary_effects": [
       "GABAergic signaling",
       "NF-κB",
@@ -962,7 +962,7 @@
       "PI3K/Akt",
       "inflammatory mediators"
     ],
-    "evidence_grade": "low",
+    "evidence_grade": "D",
     "evidence_tier": "Mechanistic Evidence",
     "profile_status": "commercial_ready",
     "runtime_export_decision": "research_archive_runtime",
@@ -3190,14 +3190,14 @@
   {
     "slug": "caffeine-l-theanine",
     "name": "caffeine l-theanine",
-    "summary": "caffeine l-theanine is tracked for Adenosine antagonism; GABA/glutamate modulation; Combines adenosine antagonism with glutamatergic modulation improving with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human.",
+    "summary": "May support acute attention and mood outcomes in healthy participants.",
     "primary_effects": [
       "adenosine glutamate"
     ],
     "effects": [
       "adenosine glutamate"
     ],
-    "evidence_grade": "a",
+    "evidence_grade": "B-",
     "evidence_tier": "Strong Human Evidence",
     "profile_status": "commercial_ready",
     "runtime_export_decision": "primary_runtime_priority",
@@ -3206,7 +3206,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -3215,7 +3215,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -4684,7 +4684,7 @@
   {
     "slug": "creatine",
     "name": "Creatine",
-    "summary": "Decision-ready summary: Creatine is best framed for strength and power output; lean mass support; cognitive fatigue resistance; safety screen: advanced kidney disease; active renal monitoring concerns.",
+    "summary": "May support memory and some attention/processing-speed outcomes, especially where brain energy demand is relevant.",
     "primary_effects": [
       "ATP regeneration",
       "muscle cells",
@@ -4695,7 +4695,7 @@
       "muscle cells",
       "phosphocreatine ATP"
     ],
-    "evidence_grade": "high",
+    "evidence_grade": "B",
     "evidence_tier": "Mechanistic Evidence",
     "profile_status": "commercial_ready",
     "runtime_export_decision": "primary_runtime_priority",
@@ -7992,7 +7992,7 @@
   {
     "slug": "glycine",
     "name": "Glycine",
-    "summary": "Glycine may support subjective sleep quality and bedtime relaxation without being a strong sedative.",
+    "summary": "Systematic review suggests sleep improvements in healthy populations with longer-term glycine administration, but sleep studies were small and high risk of bias.",
     "primary_effects": [
       "glycine receptor",
       "NMDA receptor",
@@ -9029,7 +9029,7 @@
   {
     "slug": "inositol",
     "name": "Inositol",
-    "summary": "Improves insulin sensitivity and ovulatory function in PCOS.",
+    "summary": "Can be discussed as PCOS/metabolic evidence if site scope expands.",
     "primary_effects": [
       "IP3 pathway",
       "insulin signaling"
@@ -9038,7 +9038,7 @@
       "IP3 pathway",
       "insulin signaling"
     ],
-    "evidence_grade": "b",
+    "evidence_grade": "B for PCOS; D for core goals",
     "evidence_tier": "Strong Human Evidence",
     "profile_status": "commercial_ready",
     "runtime_export_decision": "full_public_runtime",
@@ -9665,7 +9665,7 @@
   {
     "slug": "l-theanine-sleep",
     "name": "L-Theanine (Sleep Use)",
-    "summary": "L-theanine has limited-moderate evidence for sleep quality, especially stress-related sleep disturbance.",
+    "summary": "May support sleep quality, sleep-onset related outcomes, and next-day refreshment in some adult contexts.",
     "primary_effects": [
       "glutamate receptors",
       "GABA signaling"
@@ -9674,7 +9674,7 @@
       "glutamate receptors",
       "GABA signaling"
     ],
-    "evidence_grade": "b",
+    "evidence_grade": "B-",
     "evidence_tier": "Moderate Human Evidence",
     "profile_status": "commercial_ready",
     "runtime_export_decision": "primary_runtime_priority",
@@ -9699,14 +9699,14 @@
   {
     "slug": "l-tyrosine",
     "name": "L-Tyrosine",
-    "summary": "L-tyrosine is best framed for acute stress performance, sleep-deprivation focus, and cold or demanding-task resilience, with safety screening for MAOIs, hyperthyroidism, stimulant sensitivity, levodopa, and thyroid medication review.",
+    "summary": "May support cognition in sleep-deprivation or acute demanding stress contexts.",
     "primary_effects": [
       "catecholamine synthesis pathways"
     ],
     "effects": [
       "catecholamine synthesis pathways"
     ],
-    "evidence_grade": "moderate",
+    "evidence_grade": "C+",
     "evidence_tier": "Mechanistic Evidence",
     "profile_status": "commercial_ready",
     "runtime_export_decision": "full_public_runtime",
@@ -9715,7 +9715,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -9724,7 +9724,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -10435,7 +10435,7 @@
   {
     "slug": "magnesium",
     "name": "Magnesium",
-    "summary": "Magnesium is most useful when low intake, deficiency risk, muscle tension, or sleep-quality issues overlap.",
+    "summary": "Systematic review of 15 interventional trials found most sleep/anxiety studies improved at least one parameter, but evidence is limited by heterogeneity, small samples, formulation differences, and combination products. Strongest wording: may support sleep quality or mild anxiety especially where magnesium status is low.",
     "primary_effects": [
       "NMDA receptors",
       "vascular smooth muscle"
@@ -10912,7 +10912,7 @@
   {
     "slug": "melatonin",
     "name": "Melatonin",
-    "summary": "Decision-ready summary: Melatonin is best framed for sleep-onset latency; jet lag; circadian rhythm shift; safety screen: sedatives; pregnancy without clinician guidance; autoimmune conditions review.",
+    "summary": "Dose-response meta-analysis indicates melatonin effects depend heavily on timing and dose; adult chronic insomnia evidence is nuanced and not uniformly positive.",
     "primary_effects": [
       "melatonin receptors MT1/MT2",
       "suprachiasmatic nucleus",
@@ -15702,7 +15702,7 @@
   {
     "slug": "theanine",
     "name": "theanine",
-    "summary": "Non-protein amino acid from tea associated with calming and attention-related effects.",
+    "summary": "May support relaxation, subjective sleep quality, and some attention outcomes; standalone and caffeine-combination evidence must be separated.",
     "primary_effects": [
       "Glutamate receptors",
       "GABA-related signaling"
@@ -15711,7 +15711,7 @@
       "Glutamate receptors",
       "GABA-related signaling"
     ],
-    "evidence_grade": "b",
+    "evidence_grade": "B",
     "evidence_tier": "Moderate Human Evidence",
     "profile_status": "commercial_ready",
     "runtime_export_decision": "hidden_until_grounded",
@@ -16800,14 +16800,14 @@
   {
     "slug": "vitamin-d3",
     "name": "Vitamin D3",
-    "summary": "Decision-ready summary: Vitamin D3 is best framed for vitamin D deficiency correction; bone health; immune support when deficient; safety screen: hypercalcemia; sarcoidosis; high-dose use without labs.",
+    "summary": "May support depressive symptoms in some adults, especially short-term and likely status-context dependent.",
     "primary_effects": [
       "vitamin D receptor"
     ],
     "effects": [
       "vitamin D receptor"
     ],
-    "evidence_grade": "high",
+    "evidence_grade": "B",
     "evidence_tier": "Mechanistic Evidence",
     "profile_status": "commercial_ready",
     "runtime_export_decision": "primary_runtime_priority",

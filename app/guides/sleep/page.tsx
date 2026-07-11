@@ -166,6 +166,15 @@ const ADHD_SLEEP = [
   { href: '/guides/adhd/melatonin-for-adhd-sleep/', title: 'Melatonin for ADHD Sleep' },
 ]
 
+const DEPTH_LINKS = [
+  { href: '/compounds/l-theanine-sleep/', title: 'L-Theanine for Sleep', kind: 'Compound profile' },
+  { href: '/compounds/glycine-sleep/', title: 'Glycine for Sleep', kind: 'Compound profile' },
+  { href: '/compounds/magnesium-glycinate/', title: 'Magnesium Glycinate', kind: 'Compound profile' },
+  { href: '/herbs/ashwagandha/', title: 'Ashwagandha', kind: 'Herb profile' },
+  { href: '/herbs/valerian/', title: 'Valerian', kind: 'Herb profile' },
+  { href: '/herbs/passiflora-incarnata/', title: 'Passionflower', kind: 'Herb profile' },
+]
+
 export default function SleepGuideIndex() {
   return (
     <div className="mx-auto max-w-4xl px-4 pb-24 pt-8">
@@ -237,6 +246,28 @@ export default function SleepGuideIndex() {
           different problems — and none of them replaces consistent sleep habits or care for a
           diagnosed sleep disorder.
         </p>
+      </section>
+
+      <section className="mb-12">
+        <HubSectionHeading
+          eyebrow="Research deeper"
+          title="Sleep ingredient profiles"
+          sub="Use these monographs after choosing a guide to check safety notes, evidence context, and related compounds."
+        />
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {DEPTH_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-xl border border-brand-900/12 bg-white p-4 transition hover:border-brand-700/30 hover:bg-brand-50 dark:border-white/10 dark:bg-[var(--surface-card)] dark:hover:bg-white/10"
+            >
+              <span className="block text-[11px] font-bold uppercase tracking-widest text-muted">{link.kind}</span>
+              <span className="mt-1 block text-sm font-semibold text-brand-800 dark:text-[var(--text-primary)]">
+                {link.title} →
+              </span>
+            </Link>
+          ))}
+        </div>
       </section>
 
       {/* All guides — secondary */}

@@ -111,6 +111,42 @@ function normalizeSpreadsheetMainXml(xml) {
     .replace(new RegExp(`\\sxmlns:${prefix}=`, 'g'), ' xmlns=')
 }
 
+function getAttributeValue(tag, attributeName) {
+  const match = tag.match(new RegExp(`\\s${escapeRegExp(attributeName)}="([^"]*)"`, 'i'))
+  return match ? match[1] : ''
+}
+
+async function readSheetNameMapFromWorkbookXml(filePath) {
+  const source = await readFile(filePath)
+  const zip = await JSZip.loadAsync(source)
+  const workbookXmlFile = zip.file('xl/workbook.xml')
+  const workbookRelsFile = zip.file('xl/_rels/workbook.xml.rels')
+  if (!workbookXmlFile || !workbookRelsFile) return new Map()
+
+  const workbookXml = await workbookXmlFile.async('string')
+  const workbookRelsXml = await workbookRelsFile.async('string')
+
+  const relIdToSheetNo = new Map()
+  for (const relMatch of workbookRelsXml.matchAll(/<[^>]*Relationship\b[^>]*>/gi)) {
+    const tag = relMatch[0]
+    const id = getAttributeValue(tag, 'Id')
+    const target = getAttributeValue(tag, 'Target')
+    const sheetNo = String(target || '').match(/(?:^|\/)sheet(\d+)\.xml$/i)?.[1]
+    if (id && sheetNo) relIdToSheetNo.set(id, sheetNo)
+  }
+
+  const sheetNoToName = new Map()
+  for (const sheetMatch of workbookXml.matchAll(/<[^>]*sheet\b[^>]*>/gi)) {
+    const tag = sheetMatch[0]
+    const name = getAttributeValue(tag, 'name')
+    const relId = getAttributeValue(tag, 'r:id')
+    const sheetNo = relIdToSheetNo.get(relId)
+    if (sheetNo && name) sheetNoToName.set(sheetNo, name)
+  }
+
+  return sheetNoToName
+}
+
 async function createNormalizedWorkbookCopy(filePath) {
   const source = await readFile(filePath)
   const zip = await JSZip.loadAsync(source)
@@ -186,7 +222,7 @@ async function readWorkbookStreaming(filePath, originalError) {
   // After streaming completes, workbookReader.model.sheets and
   // workbookReader.workbookRels are both populated; use them to build a
   // sheetNo→realName map keyed by the number extracted from the filename.
-  const sheetNoToName = new Map()
+  let sheetNoToName = new Map()
   const model = workbookReader.model
   const rels = workbookReader.workbookRels
   if (model && Array.isArray(model.sheets) && Array.isArray(rels)) {
@@ -197,6 +233,9 @@ async function readWorkbookStreaming(filePath, originalError) {
       const sheet = model.sheets.find((s) => s.rId === rel.Id)
       if (sheet && sheet.name) sheetNoToName.set(sheetNo, sheet.name)
     }
+  }
+  if (sheetNoToName.size === 0) {
+    sheetNoToName = await readSheetNameMapFromWorkbookXml(filePath)
   }
 
   const sheetNames = []
@@ -246,6 +285,31 @@ export async function readWorkbookExcelJS(filePath) {
     await workbook.xlsx.readFile(filePath)
   } catch (error) {
     console.warn(`[workbook-source] ExcelJS full workbook read failed; falling back to streaming row reader: ${error.message}`)
+    const normalizedCopy = await createNormalizedWorkbookCopy(filePath)
+    if (normalizedCopy) {
+      console.warn(
+        `[workbook-source] Normalized namespace-prefixed OOXML in ${normalizedCopy.changedFiles} file(s); retrying workbook read from a temporary copy`,
+      )
+
+      try {
+        const normalizedWorkbook = new ExcelJS.Workbook()
+        await normalizedWorkbook.xlsx.readFile(normalizedCopy.tempPath)
+        return {
+          workbook: normalizedWorkbook,
+          getSheetNames() {
+            return normalizedWorkbook.worksheets.map((worksheet) => worksheet.name)
+          },
+          getSheetData(sheetName) {
+            return worksheetToRows(normalizedWorkbook.getWorksheet(sheetName))
+          },
+        }
+      } catch (normalizedError) {
+        console.warn(`[workbook-source] Normalized workbook read failed; falling back to streaming row reader: ${normalizedError.message}`)
+        return await readWorkbookStreaming(normalizedCopy.tempPath, error)
+      } finally {
+        await rm(normalizedCopy.tempDir, { recursive: true, force: true })
+      }
+    }
     return readWorkbookStreamingWithNamespaceFallback(filePath, error)
   }
 

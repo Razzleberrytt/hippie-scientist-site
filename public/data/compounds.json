@@ -3428,8 +3428,8 @@
   {
     "slug": "apigenin",
     "name": "Apigenin",
-    "summary": "Decision-ready summary: Apigenin is best framed for relaxation; sleep support; mild anxiety context; safety screen: sedatives; anticoagulants caution; pregnancy safety uncertainty.",
-    "description": "Decision-ready summary: Apigenin is best framed for relaxation; sleep support; mild anxiety context; safety screen: sedatives; anticoagulants caution; pregnancy safety uncertainty.",
+    "summary": "No reliable human sleep/anxiety/cognition source was found in this pass.",
+    "description": "No reliable human sleep/anxiety/cognition source was found in this pass. Caveat: Do not claim apigenin improves sleep, anxiety, or focus until human RCT evidence is sourced.",
     "effects": [
       "GABAergic signaling",
       "NF-κB",
@@ -3488,7 +3488,7 @@
       "Nrf2",
       "Oxidative Stress"
     ],
-    "evidence_grade": "low",
+    "evidence_grade": "D",
     "evidence_tier": "Mechanistic Evidence",
     "evidence_design_match": "",
     "evidence_risk_of_bias": "",
@@ -3500,8 +3500,8 @@
     ],
     "interactions": [],
     "side_effects": [],
-    "dosage": "standardized extract capsule",
-    "typical_dosage": "standardized extract capsule",
+    "dosage": "Common constituent in chamomile/other plants; not equivalent to chamomile clinical evidence. No validated dose from this pass.",
+    "typical_dosage": "Common constituent in chamomile/other plants; not equivalent to chamomile clinical evidence. No validated dose from this pass.",
     "forms": [],
     "available_forms": [],
     "conditions": [],
@@ -3515,8 +3515,8 @@
     "amazon_affiliate_url": "",
     "iherb_affiliate_url": "",
     "buying_criteria": [],
-    "last_updated": "",
-    "last_reviewed": "",
+    "last_updated": "2026-07-09",
+    "last_reviewed": "2026-07-09",
     "doNotMonetize": false,
     "doNotPromote": false,
     "allow_restricted_reference_export": false,
@@ -11375,8 +11375,8 @@
   {
     "slug": "caffeine-l-theanine",
     "name": "caffeine l-theanine",
-    "summary": "caffeine l-theanine is tracked for Adenosine antagonism; GABA/glutamate modulation; Combines adenosine antagonism with glutamatergic modulation improving with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human.",
-    "description": "caffeine l-theanine is tracked for Adenosine antagonism; GABA/glutamate modulation; Combines adenosine antagonism with glutamatergic modulation improving with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human.",
+    "summary": "May support acute attention and mood outcomes in healthy participants.",
+    "description": "May support acute attention and mood outcomes in healthy participants. Caveat: Do not imply sleep benefit or long-term cognitive enhancement.",
     "effects": [
       "adenosine glutamate"
     ],
@@ -11416,7 +11416,7 @@
       "Neurotransmitter Modulation",
       "neuroprotective"
     ],
-    "evidence_grade": "a",
+    "evidence_grade": "B-",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
     "evidence_risk_of_bias": "",
@@ -11428,8 +11428,8 @@
     ],
     "interactions": [],
     "side_effects": [],
-    "dosage": "powder or capsule",
-    "typical_dosage": "powder or capsule",
+    "dosage": "Theanine plus caffeine; tea/bioactive supplement context. Add timing/caffeine dose cautions; separate from standalone L-theanine.",
+    "typical_dosage": "Theanine plus caffeine; tea/bioactive supplement context. Add timing/caffeine dose cautions; separate from standalone L-theanine.",
     "forms": [],
     "available_forms": [],
     "conditions": [],
@@ -11443,8 +11443,8 @@
     "amazon_affiliate_url": "",
     "iherb_affiliate_url": "",
     "buying_criteria": [],
-    "last_updated": "",
-    "last_reviewed": "",
+    "last_updated": "2026-07-09",
+    "last_reviewed": "2026-07-09",
     "doNotMonetize": false,
     "doNotPromote": false,
     "allow_restricted_reference_export": false,
@@ -11468,7 +11468,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -11477,7 +11477,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -16743,8 +16743,8 @@
   {
     "slug": "creatine",
     "name": "Creatine",
-    "summary": "Decision-ready summary: Creatine is best framed for strength and power output; lean mass support; cognitive fatigue resistance; safety screen: advanced kidney disease; active renal monitoring concerns.",
-    "description": "Decision-ready summary: Creatine is best framed for strength and power output; lean mass support; cognitive fatigue resistance; safety screen: advanced kidney disease; active renal monitoring concerns.",
+    "summary": "May support memory and some attention/processing-speed outcomes, especially where brain energy demand is relevant.",
+    "description": "May support memory and some attention/processing-speed outcomes, especially where brain energy demand is relevant. Caveat: Do not imply universal nootropic effects, ADHD treatment, dementia prevention, or guaranteed focus boost.",
     "effects": [
       "ATP regeneration",
       "muscle cells",
@@ -16785,7 +16785,7 @@
     "unmapped_mechanisms": [
       "Oxidative Stress"
     ],
-    "evidence_grade": "high",
+    "evidence_grade": "B",
     "evidence_tier": "Mechanistic Evidence",
     "evidence_design_match": "",
     "evidence_risk_of_bias": "",
@@ -16797,8 +16797,8 @@
     ],
     "interactions": [],
     "side_effects": [],
-    "dosage": "powder or capsule",
-    "typical_dosage": "powder or capsule",
+    "dosage": "Creatine monohydrate; adult RCT evidence; domain-specific cognition outcomes. Use studied-dose table; do not invent one universal cognitive dose from meta-analysis alone.",
+    "typical_dosage": "Creatine monohydrate; adult RCT evidence; domain-specific cognition outcomes. Use studied-dose table; do not invent one universal cognitive dose from meta-analysis alone.",
     "forms": [],
     "available_forms": [],
     "conditions": [],
@@ -16812,8 +16812,8 @@
     "amazon_affiliate_url": "",
     "iherb_affiliate_url": "",
     "buying_criteria": [],
-    "last_updated": "",
-    "last_reviewed": "",
+    "last_updated": "2026-07-09",
+    "last_reviewed": "2026-07-09",
     "doNotMonetize": false,
     "doNotPromote": false,
     "allow_restricted_reference_export": false,
@@ -28216,8 +28216,8 @@
   {
     "slug": "glycine",
     "name": "Glycine",
-    "summary": "Glycine may support subjective sleep quality and bedtime relaxation without being a strong sedative.",
-    "description": "Glycine may support subjective sleep quality and bedtime relaxation without being a strong sedative.",
+    "summary": "Systematic review suggests sleep improvements in healthy populations with longer-term glycine administration, but sleep studies were small and high risk of bias.",
+    "description": "Systematic review suggests sleep improvements in healthy populations with longer-term glycine administration, but sleep studies were small and high risk of bias.",
     "effects": [
       "glycine receptor",
       "NMDA receptor",
@@ -28263,17 +28263,20 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May support subjective sleep quality; evidence is early and based on small trials. | Do not imply proven insomnia treatment or anti-aging benefits. | Use as secondary sleep-support page, not first-tier recommendation.",
     "contraindications": [
       "moderate"
     ],
     "interactions": [],
     "side_effects": [],
-    "dosage": "powder or capsule",
-    "typical_dosage": "powder or capsule",
+    "dosage": "Human sleep studies often use gram-level glycine, but exact dose should be tied to the specific cited trial. Avoid universal dosing if source row lacks dose. | Oral glycine powder/capsule; simple amino acid.",
+    "typical_dosage": "Human sleep studies often use gram-level glycine, but exact dose should be tied to the specific cited trial. Avoid universal dosing if source row lacks dose. | Oral glycine powder/capsule; simple amino acid.",
     "forms": [],
     "available_forms": [],
     "conditions": [],
-    "tags": [],
+    "tags": [
+      "Badge: Early sleep support"
+    ],
     "keywords": [],
     "affiliate_ready": false,
     "affiliate_url": "",
@@ -28284,7 +28287,7 @@
     "iherb_affiliate_url": "",
     "buying_criteria": [],
     "last_updated": "",
-    "last_reviewed": "",
+    "last_reviewed": "2026-07-09",
     "doNotMonetize": false,
     "doNotPromote": false,
     "allow_restricted_reference_export": false,
@@ -31926,8 +31929,8 @@
   {
     "slug": "inositol",
     "name": "Inositol",
-    "summary": "Improves insulin sensitivity and ovulatory function in PCOS.",
-    "description": "Improves insulin sensitivity and ovulatory function in PCOS.",
+    "summary": "Can be discussed as PCOS/metabolic evidence if site scope expands.",
+    "description": "Can be discussed as PCOS/metabolic evidence if site scope expands. Caveat: Do not convert PCOS evidence into sleep/stress/anxiety/focus claims.",
     "effects": [
       "IP3 pathway",
       "insulin signaling"
@@ -31966,7 +31969,7 @@
     "unmapped_mechanisms": [
       "Glucose Metabolism"
     ],
-    "evidence_grade": "b",
+    "evidence_grade": "B for PCOS; D for core goals",
     "evidence_tier": "Strong Human Evidence",
     "evidence_design_match": "",
     "evidence_risk_of_bias": "",
@@ -31978,8 +31981,8 @@
     ],
     "interactions": [],
     "side_effects": [],
-    "dosage": "capsule or standardized extract",
-    "typical_dosage": "capsule or standardized extract",
+    "dosage": "Myo-/D-chiro-inositol in PCOS RCT meta-analysis. No site-core dose claim from this source.",
+    "typical_dosage": "Myo-/D-chiro-inositol in PCOS RCT meta-analysis. No site-core dose claim from this source.",
     "forms": [],
     "available_forms": [],
     "conditions": [],
@@ -31993,8 +31996,8 @@
     "amazon_affiliate_url": "",
     "iherb_affiliate_url": "",
     "buying_criteria": [],
-    "last_updated": "",
-    "last_reviewed": "",
+    "last_updated": "2026-07-09",
+    "last_reviewed": "2026-07-09",
     "doNotMonetize": false,
     "doNotPromote": false,
     "allow_restricted_reference_export": false,
@@ -34237,8 +34240,8 @@
   {
     "slug": "l-theanine-sleep",
     "name": "L-Theanine (Sleep Use)",
-    "summary": "L-theanine has limited-moderate evidence for sleep quality, especially stress-related sleep disturbance.",
-    "description": "L-theanine has limited-moderate evidence for sleep quality, especially stress-related sleep disturbance.",
+    "summary": "May support sleep quality, sleep-onset related outcomes, and next-day refreshment in some adult contexts.",
+    "description": "May support sleep quality, sleep-onset related outcomes, and next-day refreshment in some adult contexts.",
     "effects": [
       "glutamate receptors",
       "GABA signaling"
@@ -34277,24 +34280,33 @@
       "Neurotransmitter Modulation",
       "neuroprotective"
     ],
-    "evidence_grade": "b",
+    "evidence_grade": "B-",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
     "evidence_risk_of_bias": "",
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid insomnia-treatment claim. | Claim gate: Use sleep-support language only; avoid “treats insomnia” wording. | Runtime gate: Do not make insomnia-treatment claims; do not duplicate as a separate canonical ingredient if the site already has L-theanine as canonical. | Resolve whether this remains a subentity or redirects/canonicalizes to L-theanine.",
     "contraindications": [
-      "low_to_moderate"
+      "Avoid insomnia-treatment claim",
+      "clinician review for pregnancy/breastfeeding",
+      "children",
+      "sedatives",
+      "sleep aids",
+      "psychiatric medications",
+      "or complex medical conditions."
     ],
     "interactions": [],
     "side_effects": [],
-    "dosage": "powder or capsule",
-    "typical_dosage": "powder or capsule",
+    "dosage": "Use L-theanine parent dose runtime: practical adult sleep-support range around 200–450 mg/day, with trials spanning 50–900 mg/day. | Standalone L-theanine preferred for this use-case; combination formulas need separate source rows. | This should probably be a goal/use-case view of L-theanine, not a separate ingredient entity unless the architecture needs use-specific slugs.",
+    "typical_dosage": "Use L-theanine parent dose runtime: practical adult sleep-support range around 200–450 mg/day, with trials spanning 50–900 mg/day. | Standalone L-theanine preferred for this use-case; combination formulas need separate source rows. | This should probably be a goal/use-case view of L-theanine, not a separate ingredient entity unless the architecture needs use-specific slugs.",
     "forms": [],
     "available_forms": [],
     "conditions": [],
-    "tags": [],
+    "tags": [
+      "Badge: Sleep-support use case — inherit L-theanine safety"
+    ],
     "keywords": [],
     "affiliate_ready": false,
     "affiliate_url": "",
@@ -34305,7 +34317,7 @@
     "iherb_affiliate_url": "",
     "buying_criteria": [],
     "last_updated": "",
-    "last_reviewed": "",
+    "last_reviewed": "2026-07-09",
     "doNotMonetize": false,
     "doNotPromote": false,
     "allow_restricted_reference_export": false,
@@ -34349,8 +34361,8 @@
   {
     "slug": "l-tyrosine",
     "name": "L-Tyrosine",
-    "summary": "L-tyrosine is best framed for acute stress performance, sleep-deprivation focus, and cold or demanding-task resilience, with safety screening for MAOIs, hyperthyroidism, stimulant sensitivity, levodopa, and thyroid medication review.",
-    "description": "L-tyrosine is best framed for acute stress performance, sleep-deprivation focus, and cold or demanding-task resilience, with safety screening for MAOIs, hyperthyroidism, stimulant sensitivity, levodopa, and thyroid medication review.",
+    "summary": "May support cognition in sleep-deprivation or acute demanding stress contexts.",
+    "description": "May support cognition in sleep-deprivation or acute demanding stress contexts. Caveat: Do not imply everyday focus enhancement, ADHD treatment, or anxiety reduction.",
     "effects": [
       "catecholamine synthesis pathways"
     ],
@@ -34393,7 +34405,7 @@
       "Neurotransmitter Modulation",
       "Oxidative Stress"
     ],
-    "evidence_grade": "moderate",
+    "evidence_grade": "C+",
     "evidence_tier": "Mechanistic Evidence",
     "evidence_design_match": "",
     "evidence_risk_of_bias": "",
@@ -34406,8 +34418,8 @@
     ],
     "interactions": [],
     "side_effects": [],
-    "dosage": "powder or capsule",
-    "typical_dosage": "powder or capsule",
+    "dosage": "Tyrosine; sleep-deprived/operational-stress context. Dose varied; needs dedicated dose/form pass before display.",
+    "typical_dosage": "Tyrosine; sleep-deprived/operational-stress context. Dose varied; needs dedicated dose/form pass before display.",
     "forms": [],
     "available_forms": [],
     "conditions": [],
@@ -34421,8 +34433,8 @@
     "amazon_affiliate_url": "",
     "iherb_affiliate_url": "",
     "buying_criteria": [],
-    "last_updated": "",
-    "last_reviewed": "",
+    "last_updated": "2026-07-09",
+    "last_reviewed": "2026-07-09",
     "doNotMonetize": false,
     "doNotPromote": false,
     "allow_restricted_reference_export": false,
@@ -34446,7 +34458,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -34455,7 +34467,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -36963,8 +36975,8 @@
   {
     "slug": "magnesium",
     "name": "Magnesium",
-    "summary": "Magnesium is most useful when low intake, deficiency risk, muscle tension, or sleep-quality issues overlap.",
-    "description": "Magnesium is most useful when low intake, deficiency risk, muscle tension, or sleep-quality issues overlap.",
+    "summary": "Systematic review of 15 interventional trials found most sleep/anxiety studies improved at least one parameter, but evidence is limited by heterogeneity, small samples, formulation differences, and combination products. Strongest wording: may support sleep quality or mild anxiety especially where magnesium status is low.",
+    "description": "Systematic review of 15 interventional trials found most sleep/anxiety studies improved at least one parameter, but evidence is limited by heterogeneity, small samples, formulation differences, and combination products. Strongest wording: may support sleep quality or mild anxiety especially where magnesium status is low.",
     "effects": [
       "NMDA receptors",
       "vascular smooth muscle"
@@ -37013,17 +37025,20 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May support sleep quality and mild anxiety/stress in selected adults; evidence is promising but heterogeneous. | Do not claim it treats insomnia or anxiety disorders; do not imply all forms are equivalent. | Create/upgrade as supportive sleep/anxiety page with form-specific dosing caveat.",
     "contraindications": [
       "low_to_moderate"
     ],
     "interactions": [],
     "side_effects": [],
-    "dosage": "chelated mineral capsule or powder",
-    "typical_dosage": "chelated mineral capsule or powder",
+    "dosage": "Varied by formulation; do not infer one universal dose. Common clinical supplementation studies often use hundreds of mg/day elemental magnesium; specific form and elemental dose must be surfaced when available. | Oral magnesium supplements; forms vary. Magnesium L-threonate has separate emerging sleep data and should not be generalized to all magnesium forms.",
+    "typical_dosage": "Varied by formulation; do not infer one universal dose. Common clinical supplementation studies often use hundreds of mg/day elemental magnesium; specific form and elemental dose must be surfaced when available. | Oral magnesium supplements; forms vary. Magnesium L-threonate has separate emerging sleep data and should not be generalized to all magnesium forms.",
     "forms": [],
     "available_forms": [],
     "conditions": [],
-    "tags": [],
+    "tags": [
+      "Badge: Promising but form-dependent"
+    ],
     "keywords": [],
     "affiliate_ready": false,
     "affiliate_url": "",
@@ -37034,7 +37049,7 @@
     "iherb_affiliate_url": "",
     "buying_criteria": [],
     "last_updated": "",
-    "last_reviewed": "",
+    "last_reviewed": "2026-07-09",
     "doNotMonetize": false,
     "doNotPromote": false,
     "allow_restricted_reference_export": false,
@@ -38622,8 +38637,8 @@
   {
     "slug": "melatonin",
     "name": "Melatonin",
-    "summary": "Decision-ready summary: Melatonin is best framed for sleep-onset latency; jet lag; circadian rhythm shift; safety screen: sedatives; pregnancy without clinician guidance; autoimmune conditions review.",
-    "description": "Decision-ready summary: Melatonin is best framed for sleep-onset latency; jet lag; circadian rhythm shift; safety screen: sedatives; pregnancy without clinician guidance; autoimmune conditions review.",
+    "summary": "Dose-response meta-analysis indicates melatonin effects depend heavily on timing and dose; adult chronic insomnia evidence is nuanced and not uniformly positive.",
+    "description": "Dose-response meta-analysis indicates melatonin effects depend heavily on timing and dose; adult chronic insomnia evidence is nuanced and not uniformly positive.",
     "effects": [
       "melatonin receptors MT1/MT2",
       "suprachiasmatic nucleus",
@@ -38672,17 +38687,20 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May help sleep onset/circadian timing in some people when timing and dose are appropriate. | Do not claim melatonin is a universal insomnia cure or harmless at any dose; do not ignore next-day drowsiness or timing. | Make timing/dose the core differentiator of the page.",
     "contraindications": [
       "Caution with sedatives."
     ],
     "interactions": [],
     "side_effects": [],
-    "dosage": "capsule or standardized extract",
-    "typical_dosage": "capsule or standardized extract",
+    "dosage": "Dose-response meta-analysis suggested sleep effects peaking around 4 mg/day and timing about 3 hours before desired bedtime in that analysis; common practice varies. | Oral melatonin; immediate vs prolonged-release and timing should be separated.",
+    "typical_dosage": "Dose-response meta-analysis suggested sleep effects peaking around 4 mg/day and timing about 3 hours before desired bedtime in that analysis; common practice varies. | Oral melatonin; immediate vs prolonged-release and timing should be separated.",
     "forms": [],
     "available_forms": [],
     "conditions": [],
-    "tags": [],
+    "tags": [
+      "Badge: Timing-sensitive sleep aid"
+    ],
     "keywords": [],
     "affiliate_ready": false,
     "affiliate_url": "",
@@ -38693,7 +38711,7 @@
     "iherb_affiliate_url": "",
     "buying_criteria": [],
     "last_updated": "",
-    "last_reviewed": "",
+    "last_reviewed": "2026-07-09",
     "doNotMonetize": false,
     "doNotPromote": false,
     "allow_restricted_reference_export": false,
@@ -55996,8 +56014,8 @@
   {
     "slug": "theanine",
     "name": "theanine",
-    "summary": "Non-protein amino acid from tea associated with calming and attention-related effects.",
-    "description": "Non-protein amino acid from tea associated with calming and attention-related effects.",
+    "summary": "May support relaxation, subjective sleep quality, and some attention outcomes; standalone and caffeine-combination evidence must be separated.",
+    "description": "May support relaxation, subjective sleep quality, and some attention outcomes; standalone and caffeine-combination evidence must be separated.",
     "effects": [
       "Glutamate receptors",
       "GABA-related signaling"
@@ -56036,24 +56054,34 @@
       "Neurotransmitter Modulation",
       "neuroprotective"
     ],
-    "evidence_grade": "b",
+    "evidence_grade": "B",
     "evidence_tier": "Moderate Human Evidence",
     "evidence_design_match": "",
     "evidence_risk_of_bias": "",
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid sedative certainty; safety pass needed. | Claim gate: Keep as low-risk/moderate-certainty compared with botanicals, but do not imply it treats anxiety, ADHD, insomnia, or psychiatric disorders. | Dose/form gate: Do not imply treatment of anxiety, ADHD, psychiatric disorders, or clinical insomnia. | allow_support_claims; require_context_for_caffeine_combo; block_disease_treatment_claims | Runtime gate: Do not say treats anxiety, ADHD, insomnia, psychiatric disorders, or sleep disorders. Do not merge tea, caffeine+theanine, and standalone L-theanine without labels. | Promote as one of the cleaner first-wave pages; keep claim wording supportive, not therapeutic.",
     "contraindications": [
-      "stimulant"
+      "Clinician review for pregnancy/breastfeeding",
+      "children",
+      "psychiatric conditions",
+      "or use alongside sedatives",
+      "sleep aids",
+      "blood-pressure medication",
+      "stimulants/caffeine combinations",
+      "or psychopharmacological drugs."
     ],
     "interactions": [],
     "side_effects": [],
-    "dosage": "powder or capsule",
-    "typical_dosage": "powder or capsule",
+    "dosage": "Standalone sleep trials span 50–900 mg/day; current practical adult sleep-support range is 200–450 mg/day. Acute stress evidence includes 200 mg single dose; 28-day stress/attention evidence includes 400 mg/day. | Standalone L-theanine; branded AlphaWave L-theanine; tea bioactives; L-theanine+caffeine combinations. | Standalone L-theanine, tea beverage, and L-theanine+caffeine stacks answer different questions and should not share one claim block.",
+    "typical_dosage": "Standalone sleep trials span 50–900 mg/day; current practical adult sleep-support range is 200–450 mg/day. Acute stress evidence includes 200 mg single dose; 28-day stress/attention evidence includes 400 mg/day. | Standalone L-theanine; branded AlphaWave L-theanine; tea bioactives; L-theanine+caffeine combinations. | Standalone L-theanine, tea beverage, and L-theanine+caffeine stacks answer different questions and should not share one claim block.",
     "forms": [],
     "available_forms": [],
     "conditions": [],
-    "tags": [],
+    "tags": [
+      "Badge: Cleaner evidence profile — still claim-limited"
+    ],
     "keywords": [],
     "affiliate_ready": false,
     "affiliate_url": "",
@@ -56064,7 +56092,7 @@
     "iherb_affiliate_url": "",
     "buying_criteria": [],
     "last_updated": "",
-    "last_reviewed": "",
+    "last_reviewed": "2026-07-09",
     "doNotMonetize": false,
     "doNotPromote": false,
     "allow_restricted_reference_export": false,
@@ -60076,8 +60104,8 @@
   {
     "slug": "vitamin-d3",
     "name": "Vitamin D3",
-    "summary": "Decision-ready summary: Vitamin D3 is best framed for vitamin D deficiency correction; bone health; immune support when deficient; safety screen: hypercalcemia; sarcoidosis; high-dose use without labs.",
-    "description": "Decision-ready summary: Vitamin D3 is best framed for vitamin D deficiency correction; bone health; immune support when deficient; safety screen: hypercalcemia; sarcoidosis; high-dose use without labs.",
+    "summary": "May support depressive symptoms in some adults, especially short-term and likely status-context dependent.",
+    "description": "May support depressive symptoms in some adults, especially short-term and likely status-context dependent. Caveat: Do not imply anxiety treatment, sleep treatment, or universal mood benefit.",
     "effects": [
       "vitamin D receptor"
     ],
@@ -60118,7 +60146,7 @@
       "Neurotransmitter Modulation",
       "endocrine"
     ],
-    "evidence_grade": "high",
+    "evidence_grade": "B",
     "evidence_tier": "Mechanistic Evidence",
     "evidence_design_match": "",
     "evidence_risk_of_bias": "",
@@ -60130,8 +60158,8 @@
     ],
     "interactions": [],
     "side_effects": [],
-    "dosage": "capsule or softgel",
-    "typical_dosage": "capsule or softgel",
+    "dosage": "Vitamin D3 supplementation; adult depression/anxiety RCT meta-analysis. Dose-response paper modeled per 1000 IU/day; do not recommend high doses without biomarker/medical context.",
+    "typical_dosage": "Vitamin D3 supplementation; adult depression/anxiety RCT meta-analysis. Dose-response paper modeled per 1000 IU/day; do not recommend high doses without biomarker/medical context.",
     "forms": [],
     "available_forms": [],
     "conditions": [],
@@ -60145,8 +60173,8 @@
     "amazon_affiliate_url": "",
     "iherb_affiliate_url": "",
     "buying_criteria": [],
-    "last_updated": "",
-    "last_reviewed": "",
+    "last_updated": "2026-07-09",
+    "last_reviewed": "2026-07-09",
     "doNotMonetize": false,
     "doNotPromote": false,
     "allow_restricted_reference_export": false,
