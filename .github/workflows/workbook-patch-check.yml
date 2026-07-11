@@ -68,6 +68,16 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
+      - name: Upload workbook for approved application
+        if: steps.patch_check.outcome == 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: workbook-source-for-application
+          path: data-sources/herb_monograph_master.xlsx
+          if-no-files-found: error
+          retention-days: 1
+          compression-level: 0
+
       - name: Enforce workbook patch result
         if: steps.patch_check.outcome != 'success'
         run: exit 1
