@@ -40,13 +40,13 @@ jobs:
           cache-dependency-path: package-lock.json
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --silent
 
       - name: Verify Node engine
-        run: npm run check:node
+        run: npm run check:node --silent
 
       - name: Validate workbook schema
-        run: npm run validate:workbook-schema
+        run: npm run validate:workbook-schema --silent
 
       - name: Validate patch proposals against current workbook
         run: node scripts/ci/validate-workbook-patches.mjs
