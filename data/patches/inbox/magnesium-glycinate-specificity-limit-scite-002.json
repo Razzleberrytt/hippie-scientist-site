@@ -1,0 +1,38 @@
+{
+  "patch_id": "scite-magnesium-glycinate-specificity-limit-2026-07-11-002",
+  "patch_version": "1",
+  "created_at": "2026-07-11T23:41:00.000Z",
+  "generator": "Scite literature enrichment via ChatGPT",
+  "target": {
+    "slug": "magnesium-glycinate",
+    "canonical_name": "Magnesium glycinate",
+    "entity_type": "compound"
+  },
+  "operations": [
+    {
+      "op": "add_claim",
+      "field": "effects",
+      "value": "Most research on magnesium for sleep or anxiety evaluates magnesium generally or uses other salts, so findings should not automatically be attributed to magnesium glycinate; direct formulation-specific clinical evidence remains sparse.",
+      "payload": {},
+      "confidence": 0.88,
+      "notes": "Central interpretation limit. Prevents general magnesium evidence from being presented as proof for the glycinate form."
+    }
+  ],
+  "sources": [
+    {
+      "doi": "10.7759/cureus.59317",
+      "url": "https://doi.org/10.7759/cureus.59317",
+      "title": "Examining the Effects of Supplemental Magnesium on Self-Reported Anxiety and Sleep Quality: A Systematic Review",
+      "year": "2024"
+    },
+    {
+      "doi": "10.2147/NSS.S524348",
+      "url": "https://doi.org/10.2147/NSS.S524348",
+      "title": "Magnesium Bisglycinate Supplementation in Healthy Adults Reporting Poor Sleep: A Randomized, Placebo-Controlled Trial",
+      "year": "2025"
+    }
+  ],
+  "notes": "Adds the key product-specific evidence limitation.",
+  "confidence": 0.88,
+  "requires_review": true
+}
