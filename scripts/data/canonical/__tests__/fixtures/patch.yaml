@@ -1,0 +1,11 @@
+generator: gpt-yaml
+target:
+  slug: ginkgo-biloba
+  entity_type: herb
+common_name: Ginkgo Biloba
+uses: cognitive support, circulation
+side_effects: bleeding risk with anticoagulants
+citations:
+  - pmid: "12456123"
+  - url: https://pubmed.ncbi.nlm.nih.gov/9null
+confidence: 0.6
