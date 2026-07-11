@@ -75,7 +75,7 @@ export const mainNavigation: NavigationItem[] = [
   {
     label: 'Compounds',
     href: '/compounds',
-    description: '557 active compounds with mechanism data and evidence summaries',
+    description: 'Evidence-graded compound profiles with mechanisms, safety context, and research summaries',
   },
   {
     label: 'Guides',
@@ -226,7 +226,7 @@ export const routeLabels: Record<string, RouteMetadata> = {
   },
   '/evidence/evidence-checker': {
     label: 'Evidence Lookup',
-    description: 'Search 557 compounds by clinical evidence grade (A-F)',
+    description: 'Search compounds by clinical evidence grade (A-F)',
     parent: '/',
   },
   '/info/infographics': {

@@ -5,8 +5,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Supplement Evidence Lookup — Search 557 Compounds by Clinical Trial Grade',
-  description: 'Search our database of 557 herbs and compounds for evidence grades (A-F) based on 816 peer-reviewed studies. See which supplements have real human evidence vs marketing claims.',
+  title: 'Supplement Evidence Lookup — Search Compounds by Clinical Evidence Grade',
+  description: 'Search herbs and compounds by evidence grade, from human clinical support to mechanism-only data. Compare what has real evidence with what remains preliminary.',
   path: '/evidence/evidence-checker/',
 })
 
@@ -66,8 +66,8 @@ export default function EvidenceCheckerPage() {
           Supplement Evidence Lookup
         </h1>
         <p className="text-lg leading-8 text-muted">
-          Browse {total} compounds by their clinical evidence grade — from strong human trials (Grade A) 
-          to mechanism-only data (Grade D). Grades are based on analysis of 816 peer-reviewed studies.
+          Browse {total} compounds by their clinical evidence grade — from strong human trials (Grade A)
+          to mechanism-only data (Grade D). The list is generated from the current research library, so it stays aligned as the workbook changes.
         </p>
       </section>
 
