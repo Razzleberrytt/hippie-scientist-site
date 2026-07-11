@@ -1,4 +1,4 @@
-name: Workbook Build Diagnostic
+name: Workbook Parser Diagnostic
 
 on:
   push:
@@ -20,26 +20,31 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci --silent
-      - name: Update diagnostic comment with workbook build result
+      - name: Inspect resolved sheets and Entity_Master rows
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          set +e
-          node --trace-uncaught --enable-source-maps scripts/data/build-runtime-from-workbook.mjs --out /tmp/workbook-output >/tmp/workbook.log 2>&1
-          status=$?
-          set -e
+          node --input-type=module <<'NODE' >/tmp/workbook.log 2>&1
+          import { readWorkbookExcelJS } from './scripts/utils/read-workbook-exceljs.mjs'
+          const workbook = await readWorkbookExcelJS('./data-sources/herb_monograph_master.xlsx')
+          const names = workbook.getSheetNames()
+          console.log('sheetNames:', JSON.stringify(names))
+          for (const name of ['Entity_Master', 'Evidence_Register', 'Entity_Relationships']) {
+            const rows = workbook.getSheetData(name)
+            console.log(`${name} rows:`, rows.length)
+            console.log(`${name} first keys:`, JSON.stringify(Object.keys(rows[0] || {})))
+            console.log(`${name} first sample:`, JSON.stringify(rows[0] || null).slice(0, 2000))
+          }
+          NODE
           {
-            echo "## Current workbook build diagnostic"
-            echo
-            echo "Exit code: ${status}"
+            echo "## Workbook parser diagnostic"
             echo
             echo '```text'
-            tail -n 120 /tmp/workbook.log
+            cat /tmp/workbook.log
             echo '```'
           } >/tmp/comment.md
           jq -n --rawfile body /tmp/comment.md '{body: $body}' >/tmp/payload.json
           gh api --method PATCH \
             "repos/${GITHUB_REPOSITORY}/issues/comments/4940844313" \
             --input /tmp/payload.json
-          exit "$status"
