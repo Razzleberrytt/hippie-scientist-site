@@ -14,9 +14,29 @@ const PathwayExplorerClient = dynamic(
   { loading: () => <SearchSkeleton /> }
 )
 
-const TITLE = 'Biological Pathway Explorer: Map Herbs and Compounds by Mechanism'
+const TITLE = 'Biological Pathway Explorer'
 const DESCRIPTION =
   'Explore biological pathway connections across GABA, dopamine, serotonin, acetylcholine, inflammation, and stress-response systems, then use evidence profiles to verify what the mechanism does and does not prove.'
+
+type ExplorerSourceRecord = Record<string, unknown>
+
+type ExplorerPayloadRecord = {
+  slug: string
+  name: string
+  displayName?: string
+  mechanism?: string
+  mechanisms?: string[]
+  pathway_bucket?: string
+  pathways?: string[]
+  description?: string
+  summary?: string
+  primary_effects?: string[]
+  primaryEffects?: string[]
+  effects?: string[]
+  evidence_tier?: string
+  evidenceLevel?: string
+  confidence?: string
+}
 
 export const metadata: Metadata = buildPageMetadata({
   title: TITLE,
@@ -65,36 +85,81 @@ const faqItems = [
   },
 ]
 
+function compactText(value: unknown, maxLength = 360): string | undefined {
+  const text = String(value || '').replace(/\s+/g, ' ').trim()
+  if (!text) return undefined
+  return text.length > maxLength ? `${text.slice(0, maxLength).trim()}…` : text
+}
+
+function compactList(value: unknown, maxItems = 8): string[] | undefined {
+  const values = Array.isArray(value) ? value : typeof value === 'string' ? value.split(/[;,|]/) : []
+  const cleaned = values
+    .map(item => compactText(item, 160))
+    .filter((item): item is string => Boolean(item))
+    .slice(0, maxItems)
+  return cleaned.length > 0 ? cleaned : undefined
+}
+
+function compactExplorerRecord(record: ExplorerSourceRecord): ExplorerPayloadRecord | null {
+  const slug = compactText(record.slug, 120)
+  const name = compactText(record.displayName || record.name || record.slug, 120)
+  if (!slug || !name) return null
+
+  return {
+    slug,
+    name,
+    displayName: compactText(record.displayName, 120),
+    mechanism: compactText(record.mechanism, 360),
+    mechanisms: compactList(record.mechanisms),
+    pathway_bucket: compactText(record.pathway_bucket, 160),
+    pathways: compactList(record.pathways),
+    description: compactText(record.description, 420),
+    summary: compactText(record.summary, 420),
+    primary_effects: compactList(record.primary_effects),
+    primaryEffects: compactList(record.primaryEffects),
+    effects: compactList(record.effects),
+    evidence_tier: compactText(record.evidence_tier, 40),
+    evidenceLevel: compactText(record.evidenceLevel, 40),
+    confidence: compactText(record.confidence, 40),
+  }
+}
+
+function compactExplorerPayload(records: ExplorerSourceRecord[]): ExplorerPayloadRecord[] {
+  return records
+    .map(compactExplorerRecord)
+    .filter((record): record is ExplorerPayloadRecord => Boolean(record))
+}
+
 export default async function PathwayExplorerPage() {
   const [rawHerbs, rawCompounds] = await Promise.all([getHerbs(), getCompounds()])
 
-  const herbs = rawHerbs.filter((h: Record<string, unknown>) => {
+  const herbs = compactExplorerPayload(rawHerbs.filter((h: Record<string, unknown>) => {
     try {
       return getRuntimeVisibility(h).canRender
     } catch {
       return true
     }
-  })
+  }))
 
-  const compounds = rawCompounds.filter((c: Record<string, unknown>) => {
+  const compounds = compactExplorerPayload(rawCompounds.filter((c: Record<string, unknown>) => {
     try {
       return getRuntimeVisibility(c).canRender
     } catch {
       return true
     }
-  })
+  }))
 
   return (
     <div className='mx-auto max-w-6xl space-y-10 px-4 py-8 sm:py-10'>
       <AuthorityJsonLd
         title={TITLE}
         description={DESCRIPTION}
-        url="https://thehippiescientist.net/learn/explorer"
+        url="https://thehippiescientist.net/learn/explorer/"
         type="Article"
         breadcrumbs={[
-          { name: 'Home', url: 'https://thehippiescientist.net' },
-          { name: 'Education', url: 'https://thehippiescientist.net/learn' },
-          { name: 'Pathway Explorer', url: 'https://thehippiescientist.net/learn/explorer' },
+          { name: 'Home', url: 'https://thehippiescientist.net/' },
+          { name: 'Education', url: 'https://thehippiescientist.net/learn/' },
+          { name: 'Pathway Explorer', url: 'https://thehippiescientist.net/learn/explorer/' },
         ]}
       />
       <FaqJsonLd items={faqItems} />
