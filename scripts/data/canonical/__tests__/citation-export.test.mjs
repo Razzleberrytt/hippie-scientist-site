@@ -92,7 +92,7 @@ describe('buildCanonicalCitationOverlay', () => {
 })
 
 describe('mergeCanonicalCitationOverlay', () => {
-  it('preserves existing detail citations and adds canonical claims without duplicates', () => {
+  it('preserves existing detail citations and enriches duplicates from canonical metadata', () => {
     const overlay = buildCanonicalCitationOverlay(fixtureDataset()).get('l-theanine')
     const existing = {
       slug: 'l-theanine',
@@ -111,6 +111,12 @@ describe('mergeCanonicalCitationOverlay', () => {
     const merged = mergeCanonicalCitationOverlay(existing, overlay)
 
     expect(merged.sources).toHaveLength(1)
+    expect(merged.sources[0]).toMatchObject({
+      id: 'src_stress',
+      title: 'Randomized placebo-controlled L-theanine trial',
+      doi: '10.1000/example-doi',
+      authors: 'Example et al.',
+    })
     expect(merged.claimMap).toHaveLength(2)
     expect(merged.evidence.sourceCount).toBe(1)
     expect(merged.evidence.claimCount).toBe(2)
