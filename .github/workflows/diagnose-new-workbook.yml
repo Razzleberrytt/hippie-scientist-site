@@ -7,12 +7,14 @@ on:
 
 permissions:
   contents: read
+  issues: write
+  pull-requests: write
 
 jobs:
   diagnose:
     runs-on: ubuntu-latest
     steps:
-      - name: Print final build failure
+      - name: Post final build failure to PR
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -26,6 +28,12 @@ jobs:
           npm run build:deploy >/tmp/build-deploy.log 2>&1
           status=$?
           set -e
-          echo "--- FINAL BUILD OUTPUT ---"
-          tail -n 80 /tmp/build-deploy.log
+          {
+            echo "## Temporary workbook diagnostic"
+            echo
+            echo '```text'
+            tail -n 60 /tmp/build-deploy.log
+            echo '```'
+          } >/tmp/pr-comment.md
+          gh pr comment 2162 --repo "$GITHUB_REPOSITORY" --body-file /tmp/pr-comment.md
           exit "$status"
