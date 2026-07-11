@@ -2,8 +2,8 @@
   "id": "garcinia-cambogia-extract",
   "slug": "garcinia-cambogia-extract",
   "name": "Garcinia Cambogia Extract",
-  "summary": "Garcinia Cambogia Extract is tracked for Hydroxycitric acid inhibits ATP citrate lyase reducing lipogenesis with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
-  "description": "Garcinia Cambogia Extract is tracked for Hydroxycitric acid inhibits ATP citrate lyase reducing lipogenesis with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "summary": "Compound profile with evidence, safety, and practical fit.",
+  "description": "Compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
     "Mitochondrial Support",
@@ -48,7 +48,7 @@
     "mechanism-context",
     "profile-status:commercial_ready",
     "safety-context",
-    "summary-depth",
+    "summary-present",
     "summary-quality-missing"
   ],
   "effects": [
@@ -82,6 +82,6 @@
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
-  "indexability_score": 100,
+  "indexability_score": 90,
   "safety": "Generally well tolerated for most users."
 }

@@ -224,7 +224,7 @@ Priority clusters used by the internal link engine.
 
 ## Energy
 - Signals: energy, fatigue, stamina, mitochondria, atp, vitality, performance
-- Pages: 535
+- Pages: 536
 - [11-keto-beta-boswellic acid](/compounds/11-keto-beta-boswellic-acid) (compound)
 - [23-epi-26-deoxyactein](/compounds/23-epi-26-deoxyactein) (compound)
 - [acemannan](/compounds/acemannan) (compound)

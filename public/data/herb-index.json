@@ -2,7 +2,7 @@
   {
     "slug": "acerola",
     "name": "Acerola",
-    "summary": "It is best framed as a vitamin-C-rich fruit botanical with food/supplement relevance.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant"
     ],
@@ -18,7 +18,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -27,7 +27,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -68,7 +68,7 @@
   {
     "slug": "ajwain",
     "name": "Ajwain",
-    "summary": "It is best framed as a culinary-medicinal seed with strong traditional GI positioning.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive"
     ],
@@ -84,7 +84,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -93,14 +93,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "aloe-vera",
     "name": "Aloe Vera",
-    "summary": "Internal cross-linking supports Aloe Vera through compounds such as aloin.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "immune",
       "metabolic",
@@ -136,7 +136,7 @@
   {
     "slug": "panax-quinquefolius",
     "name": "American Ginseng",
-    "summary": "Internal cross-linking supports American Ginseng through compounds such as ginsenosides (including rb1, rg1), rb2.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "metabolic"
     ],
@@ -152,7 +152,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -161,14 +161,14 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "american-yellow-lotus",
     "name": "American Yellow Lotus",
-    "summary": "Internal cross-linking supports American Yellow Lotus through compounds such as nuciferine, roemerine, n-methylasimilobine.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -184,7 +184,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -193,14 +193,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "andrographis-paniculata",
     "name": "Andrographis Paniculata",
-    "summary": "Andrographis paniculata lean herb row for high-speed phytochemical ingestion.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "respiratory"
     ],
@@ -232,7 +232,7 @@
   {
     "slug": "anemarrhena-asphodeloides",
     "name": "Anemarrhena Asphodeloides",
-    "summary": "Anemarrhena asphodeloides contains Timosaponin AIII and is linked here to PI3K/Akt modulation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "metabolic",
@@ -252,7 +252,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -261,14 +261,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "angelica-archangelica",
     "name": "Angelica Archangelica",
-    "summary": "Angelica archangelica lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "respiratory",
@@ -304,7 +304,7 @@
   {
     "slug": "angelica-dahurica",
     "name": "Angelica Dahurica",
-    "summary": "Angelica dahurica lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "analgesic",
@@ -340,7 +340,7 @@
   {
     "slug": "angelica-pubescens",
     "name": "Angelica Pubescens",
-    "summary": "Angelica pubescens lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "analgesic",
@@ -408,7 +408,7 @@
   {
     "slug": "angelica-sinensis",
     "name": "Angelica Sinensis",
-    "summary": "angelica sinensis is tracked for inflammation,cardiovascular,hormone with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "hormonal",
@@ -428,7 +428,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -437,14 +437,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "anise-hyssop",
     "name": "Anise Hyssop",
-    "summary": "Internal cross-linking supports Anise Hyssop through compounds such as limonene, anethole, estragole.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "respiratory",
@@ -464,7 +464,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -473,14 +473,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "arjuna",
     "name": "Arjuna",
-    "summary": "It is best framed around bark polyphenols and triterpenes with specific cardiotonic-support positioning.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "cardiovascular",
@@ -500,7 +500,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -509,14 +509,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "artemisia-absinthium",
     "name": "Artemisia Absinthium",
-    "summary": "Artemisia absinthium contains Thujone and is linked here to GABA-A receptor antagonism.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -532,7 +532,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -541,14 +541,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "artemisia-annua",
     "name": "Artemisia Annua",
-    "summary": "Artemisia annua contains Artemisinin and is linked here to ROS-mediated signaling modulation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antiviral",
       "immune",
@@ -568,7 +568,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -577,14 +577,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "artemisia-capillaris",
     "name": "Artemisia Capillaris",
-    "summary": "Artemisia capillaris lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "liver-protective",
       "digestive"
@@ -618,7 +618,7 @@
   {
     "slug": "artichoke",
     "name": "Artichoke",
-    "summary": "It is best framed around bitter-compound and phenolic support for digestion and bile-related positioning rather than broad detox claims.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "digestive",
@@ -638,7 +638,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -647,14 +647,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "ashitaba",
     "name": "Ashitaba",
-    "summary": "It is best framed around chalcone-rich chemistry with modest translational evidence.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "metabolic"
@@ -672,7 +672,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -681,7 +681,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -764,7 +764,7 @@
   {
     "slug": "ashwagandha",
     "name": "Ashwagandha (Withania somnifera)",
-    "summary": "Ashwagandha is tracked for sleep,stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -780,7 +780,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -789,7 +789,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -830,7 +830,7 @@
   {
     "slug": "astragalus",
     "name": "Astragalus",
-    "summary": "It is best framed around astragalosides and polysaccharides.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "immune_support",
       "adaptogen",
@@ -866,7 +866,7 @@
   {
     "slug": "astragalus-membranaceus",
     "name": "Astragalus Membranaceus",
-    "summary": "Astragalus membranaceus contains Astragaloside IV and is linked here to PI3K/Akt modulation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "immune_support",
       "adaptogen",
@@ -886,7 +886,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -895,14 +895,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "atractylodes",
     "name": "Atractylodes",
-    "summary": "It is best framed as a digestive-tonic rhizome with traditional-system relevance.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -918,7 +918,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -927,14 +927,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "atractylodes-macrocephala",
     "name": "Atractylodes Macrocephala",
-    "summary": "Atractylodes macrocephala contains Atractylenolide I and is linked here to PI3K/Akt modulation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "immune",
@@ -954,7 +954,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -963,7 +963,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -1006,7 +1006,7 @@
   {
     "slug": "bael",
     "name": "Bael",
-    "summary": "Internal cross-linking supports Bael through compounds such as skimmianine, aegeline, marmelosin.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "digestive"
@@ -1024,7 +1024,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1033,14 +1033,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "lagerstroemia-speciosa",
     "name": "Banaba",
-    "summary": "Lagerstroemia speciosa contains Corosolic acid and is linked here to AMPK activation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "metabolic"
     ],
@@ -1056,7 +1056,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -1065,14 +1065,14 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "bayberry",
     "name": "Bayberry",
-    "summary": "bayberry is tracked for inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -1088,7 +1088,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -1097,14 +1097,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "berberis",
     "name": "Berberis",
-    "summary": "It is best framed around berberine-bearing root bark with GI and medication-interaction caution.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "digestive",
@@ -1124,7 +1124,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1133,14 +1133,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "berberis-vulgaris",
     "name": "Berberis Vulgaris",
-    "summary": "Berberis vulgaris lean herb row for high-speed phytochemical ingestion.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "antimicrobial"
@@ -1232,7 +1232,7 @@
   {
     "slug": "piper-nigrum",
     "name": "Black Pepper",
-    "summary": "Piper nigrum contains Beta-caryophyllene and is linked here to CB2 receptor agonism.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "bioavailability_enhancer",
       "digestive_support",
@@ -1252,7 +1252,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1261,7 +1261,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -1304,7 +1304,7 @@
   {
     "slug": "black-tea",
     "name": "Black Tea",
-    "summary": "black tea is tracked for cognition,fat_loss,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -1324,7 +1324,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1333,14 +1333,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "blue-lotus",
     "name": "Blue Lotus",
-    "summary": "blue lotus is tracked for sleep,stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -1364,7 +1364,7 @@
   {
     "slug": "blueberry",
     "name": "Blueberry",
-    "summary": "blueberry is tracked for cognition,fat_loss,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -1384,7 +1384,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1393,14 +1393,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "boldo",
     "name": "Boldo",
-    "summary": "It is best framed as an aromatic bitter leaf botanical with modest human evidence.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive"
     ],
@@ -1416,7 +1416,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -1425,14 +1425,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "boswellia-serrata",
     "name": "Boswellia",
-    "summary": "Boswellia serrata contains Boswellic acid and is linked here to 5-lipoxygenase inhibition.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -1448,7 +1448,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -1457,14 +1457,14 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "boswellia-carterii",
     "name": "Boswellia Carterii",
-    "summary": "It is best framed around boswellic acids with 5-lipoxygenase relevance.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -1560,7 +1560,7 @@
   {
     "slug": "buckwheat",
     "name": "Buckwheat",
-    "summary": "buckwheat is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "cardiovascular",
@@ -1580,7 +1580,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1589,7 +1589,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -1666,7 +1666,7 @@
   {
     "slug": "burdock",
     "name": "Burdock",
-    "summary": "It is best framed as a traditional root botanical with modest modern evidence rather than a definitive detox herb.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "skin-support"
@@ -1684,7 +1684,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1693,7 +1693,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -1732,7 +1732,7 @@
   {
     "slug": "theobroma-cacao",
     "name": "Cacao",
-    "summary": "It is best framed around flavanols and methylxanthines with stimulant awareness.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "stimulant"
     ],
@@ -1748,7 +1748,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -1757,14 +1757,14 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "calamus",
     "name": "Calamus",
-    "summary": "Internal cross-linking supports Calamus through compounds such as eugenol, alpha-asarone, beta-asarone.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -1780,7 +1780,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -1789,14 +1789,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "calendula",
     "name": "Calendula",
-    "summary": "It is best framed around topical and tissue-soothing use rather than overextended systemic claims.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antimicrobial",
@@ -1816,7 +1816,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1825,14 +1825,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "eschscholzia-californica",
     "name": "California Poppy",
-    "summary": "California Poppy is tracked for sleep,stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -1922,7 +1922,7 @@
   {
     "slug": "caraway",
     "name": "Caraway",
-    "summary": "It is best framed as an aromatic seed with traditional GI relevance.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive"
     ],
@@ -1954,7 +1954,7 @@
   {
     "slug": "elettaria-cardamomum",
     "name": "Cardamom",
-    "summary": "It is best framed as an aromatic culinary seed with modest translational evidence.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "cardiovascular",
@@ -1974,7 +1974,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1983,14 +1983,14 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "carob",
     "name": "Carob",
-    "summary": "It is best framed as a food-form legume pod with fiber and polyphenol relevance rather than strong pharmacologic action.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "metabolic"
@@ -2008,7 +2008,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2017,14 +2017,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "cassia-alata",
     "name": "Cassia Alata",
-    "summary": "Internal cross-linking supports Cassia Alata through compounds such as aloe-emodin, chrysophanol.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -2040,7 +2040,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -2049,14 +2049,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "cat-s-claw",
     "name": "Cat's Claw",
-    "summary": "It is best framed around oxindole alkaloids with autoimmune and transplant-related caution.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "immune"
@@ -2118,7 +2118,7 @@
   {
     "slug": "cayenne",
     "name": "Cayenne",
-    "summary": "Internal cross-linking supports Cayenne through compounds such as capsaicin, capsorubin, dihydrocapsaicin.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -2134,7 +2134,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -2143,14 +2143,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "celastrus-paniculatus",
     "name": "Celastrus Paniculatus",
-    "summary": "Internal cross-linking supports Celastrus Paniculatus through compounds such as beta-amyrin, celastrine, lupeol.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cognitive_support",
       "neuroprotective",
@@ -2170,7 +2170,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2179,7 +2179,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -2246,7 +2246,7 @@
   {
     "slug": "chinese-skullcap",
     "name": "Chinese Skullcap",
-    "summary": "Internal cross-linking supports Chinese Skullcap through compounds such as baicalein, baicalin, wogonin.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant"
     ],
@@ -2262,7 +2262,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -2271,14 +2271,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "chuanxiong",
     "name": "Chuanxiong",
-    "summary": "Internal cross-linking supports Chuanxiong through compounds such as ligustilide, ferulic acid, tetramethylpyrazine.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -2294,7 +2294,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -2303,14 +2303,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "cichorium-intybus",
     "name": "Cichorium Intybus",
-    "summary": "Cichorium intybus lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "liver-protective"
@@ -2442,7 +2442,7 @@
   {
     "slug": "cistanche-deserticola",
     "name": "Cistanche Deserticola",
-    "summary": "Cistanche deserticola contains Echinacoside and is linked here to PI3K/Akt modulation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "energy",
       "reproductive",
@@ -2462,7 +2462,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2471,7 +2471,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -2514,7 +2514,7 @@
   {
     "slug": "citrus-bergamia",
     "name": "Citrus Bergamia",
-    "summary": "Citrus bergamia lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cardiovascular",
       "metabolic"
@@ -2616,7 +2616,7 @@
   {
     "slug": "cnidium-monnieri",
     "name": "Cnidium Monnieri",
-    "summary": "Cnidium monnieri lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "reproductive",
       "skin-support"
@@ -2650,7 +2650,7 @@
   {
     "slug": "codonopsis",
     "name": "Codonopsis",
-    "summary": "It is best framed as a gentler tonic-style root with modest modern evidence.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -2682,7 +2682,7 @@
   {
     "slug": "coffea-arabica",
     "name": "Coffee",
-    "summary": "Coffee is tracked for cognition,energy,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "energy",
       "stimulant",
@@ -2702,7 +2702,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2711,14 +2711,14 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "coffee-cherry",
     "name": "Coffee Cherry",
-    "summary": "Internal cross-linking supports Coffee Cherry through compounds such as caffeine, trigonelline, cafestol.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant"
     ],
@@ -2734,7 +2734,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -2743,14 +2743,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "coleus-forskohlii",
     "name": "Coleus Forskohlii",
-    "summary": "Coleus forskohlii contains Forskolin and is linked here to adenylyl cyclase activation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cognitive"
     ],
@@ -2766,7 +2766,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -2775,14 +2775,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "commiphora-mukul",
     "name": "Commiphora Mukul",
-    "summary": "Commiphora mukul contains Guggulsterone and is linked here to FXR antagonism.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "hormonal"
@@ -2816,7 +2816,7 @@
   {
     "slug": "coptis",
     "name": "Coptis",
-    "summary": "Internal cross-linking supports Coptis through compounds such as berberine, palmatine, coptisine.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -2832,7 +2832,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -2841,14 +2841,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "coptis-chinensis",
     "name": "Coptis Chinensis",
-    "summary": "Coptis chinensis lean herb row for high-speed phytochemical ingestion.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antimicrobial",
       "digestive"
@@ -2918,7 +2918,7 @@
   {
     "slug": "coriandrum-sativum",
     "name": "Coriandrum Sativum",
-    "summary": "Coriandrum sativum lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -2950,7 +2950,7 @@
   {
     "slug": "cornus-officinalis",
     "name": "Cornus Officinalis",
-    "summary": "Cornus officinalis contains Loganin and is linked here to PI3K/Akt modulation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "reproductive",
       "hormonal"
@@ -2984,7 +2984,7 @@
   {
     "slug": "corydalis",
     "name": "Corydalis",
-    "summary": "Internal cross-linking supports Corydalis through compounds such as corydaline, isocorypalmine, dehydrocorybulbine.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -3000,7 +3000,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -3009,14 +3009,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "cranberry",
     "name": "Cranberry (Vaccinium macrocarpon)",
-    "summary": "It is best framed around proanthocyanidin-rich urinary-support positioning rather than broad antimicrobial claims.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antimicrobial"
     ],
@@ -3032,7 +3032,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -3041,7 +3041,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -3084,7 +3084,7 @@
   {
     "slug": "curcuma-wenyujin",
     "name": "Curcuma Wenyujin",
-    "summary": "Curcuma wenyujin contains Beta-elemene and is linked here to PI3K/Akt modulation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "digestive"
@@ -3102,7 +3102,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3111,14 +3111,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "curcuma-zedoaria",
     "name": "Curcuma Zedoaria",
-    "summary": "Curcuma zedoaria contains Curcumol and is linked here to NF-κB inhibition.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "anti-inflammatory"
@@ -3152,7 +3152,7 @@
   {
     "slug": "curcumin",
     "name": "Curcumin",
-    "summary": "Curcumin is tracked for fat_loss,inflammation,pain with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "analgesic"
@@ -3170,7 +3170,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3179,14 +3179,14 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "curry-leaf",
     "name": "Curry Leaf",
-    "summary": "It is best framed as a culinary-medicinal leaf with food-form relevance.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "metabolic"
@@ -3220,7 +3220,7 @@
   {
     "slug": "cyclea-peltata",
     "name": "Cyclea Peltata",
-    "summary": "Cyclea peltata lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "digestive"
@@ -3254,7 +3254,7 @@
   {
     "slug": "cymbopogon-citratus",
     "name": "Cymbopogon Citratus",
-    "summary": "Cymbopogon citratus contains Nerolidol and is linked here to GABA-A modulation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -3286,7 +3286,7 @@
   {
     "slug": "damiana",
     "name": "Damiana",
-    "summary": "damiana is tracked for stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "libido",
       "mood_support",
@@ -3314,7 +3314,7 @@
   {
     "slug": "dandelion",
     "name": "Dandelion",
-    "summary": "It is best framed as a traditional food-like bitter herb rather than a strong cleansing intervention.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "diuretic"
@@ -3332,7 +3332,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3341,14 +3341,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "danshen",
     "name": "Danshen",
-    "summary": "It is best framed around tanshinones and salvianolic acids with specific vascular-support positioning.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cardiovascular"
     ],
@@ -3364,7 +3364,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -3373,14 +3373,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "daphne-odora",
     "name": "Daphne Odora",
-    "summary": "Daphne odora lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -3444,7 +3444,7 @@
   {
     "slug": "dong-quai",
     "name": "Dong Quai",
-    "summary": "dong quai is tracked for cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "hormonal",
@@ -3464,7 +3464,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3473,7 +3473,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -3504,7 +3504,7 @@
   {
     "slug": "elderberry",
     "name": "Elderberry",
-    "summary": "Internal cross-linking supports Elderberry through compounds such as sambunigrin.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antiviral",
       "respiratory"
@@ -3522,7 +3522,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3531,14 +3531,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "elecampane",
     "name": "Elecampane",
-    "summary": "It is best framed as a bitter aromatic root with traditional bronchial relevance.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "respiratory"
@@ -3556,7 +3556,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3565,14 +3565,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "elephantopus-scaber",
     "name": "Elephantopus Scaber",
-    "summary": "Elephantopus scaber contains Deoxyelephantopin and is linked here to NF-κB inhibition.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "liver-protective"
@@ -3590,7 +3590,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3599,7 +3599,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -3642,7 +3642,7 @@
   {
     "slug": "embelia-ribes",
     "name": "Embelia Ribes",
-    "summary": "Embelia ribes contains Embelin and is linked here to XIAP inhibition.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antimicrobial",
       "digestive"
@@ -3744,7 +3744,7 @@
   {
     "slug": "eucalyptus",
     "name": "Eucalyptus",
-    "summary": "eucalyptus is tracked for inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antimicrobial",
@@ -3764,7 +3764,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3773,7 +3773,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -3814,7 +3814,7 @@
   {
     "slug": "evening-primrose",
     "name": "Evening Primrose (Oenothera biennis)",
-    "summary": "Evening Primrose (Oenothera biennis) is tracked for mechanism-informed herb research in the workbook. Human-outcome claims should remain gated until source and dosage review are complete.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "skin-support"
     ],
@@ -3906,7 +3906,7 @@
   {
     "slug": "feverfew",
     "name": "Feverfew",
-    "summary": "feverfew is tracked for inflammation,pain with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "analgesic"
@@ -3924,7 +3924,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3933,14 +3933,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "ficus-carica",
     "name": "Ficus Carica",
-    "summary": "Ficus carica lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "hormonal"
@@ -3974,7 +3974,7 @@
   {
     "slug": "fingerroot",
     "name": "Fingerroot",
-    "summary": "Internal cross-linking supports Fingerroot through compounds such as pinostrobin, pinocembrin, panduratin a.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antimicrobial"
@@ -3992,7 +3992,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4001,14 +4001,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "fraxinus-rhynchophylla",
     "name": "Fraxinus Rhynchophylla",
-    "summary": "Fraxinus rhynchophylla lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "cardiovascular"
@@ -4042,7 +4042,7 @@
   {
     "slug": "galangal",
     "name": "Galangal",
-    "summary": "It is best framed as a culinary-medicinal rhizome with traditional GI relevance.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive"
     ],
@@ -4058,7 +4058,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4067,14 +4067,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "garcinia-indica",
     "name": "Garcinia Indica",
-    "summary": "Garcinia indica contains Garcinol and is linked here to NF-κB inhibition.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "metabolic"
@@ -4108,7 +4108,7 @@
   {
     "slug": "garcinia-mangostana",
     "name": "Garcinia Mangostana",
-    "summary": "Garcinia mangostana contains Mangostin and is linked here to NF-κB inhibition.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "anti-inflammatory"
@@ -4142,7 +4142,7 @@
   {
     "slug": "allium-sativum",
     "name": "Garlic",
-    "summary": "Garlic is tracked for fat_loss,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cardiovascular"
     ],
@@ -4158,7 +4158,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4167,7 +4167,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -4348,7 +4348,7 @@
   {
     "slug": "goldenseal",
     "name": "Goldenseal",
-    "summary": "Internal cross-linking supports Goldenseal through compounds such as berberine, hydrastine.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -4372,7 +4372,7 @@
   {
     "slug": "gotu-kola",
     "name": "Gotu Kola (Centella asiatica)",
-    "summary": "Centella asiatica contains Asiatic acid and is linked here to PI3K/Akt modulation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "microcirculation",
       "collagen pathways",
@@ -4392,7 +4392,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4401,14 +4401,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "vitis-vinifera",
     "name": "Grape",
-    "summary": "Grape is tracked for stress,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "cardiovascular",
@@ -4428,7 +4428,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4437,14 +4437,14 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "grapefruit",
     "name": "Grapefruit",
-    "summary": "grapefruit is tracked for fat_loss,gut with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive"
     ],
@@ -4460,7 +4460,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4469,14 +4469,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "camellia-sinensis",
     "name": "Green Tea",
-    "summary": "Internal cross-linking supports Green Tea through compounds such as caffeine, theanine, catechins (egcg).",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "metabolic",
@@ -4496,7 +4496,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4505,14 +4505,14 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "green-tea-extract",
     "name": "Green Tea Extract",
-    "summary": "Green Tea Extract is tracked for fat_loss with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "metabolic"
     ],
@@ -4528,7 +4528,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 80,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4537,14 +4537,14 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "guarana",
     "name": "Guarana",
-    "summary": "guarana is tracked for cognition,energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -4572,7 +4572,7 @@
   {
     "slug": "guayusa",
     "name": "Guayusa",
-    "summary": "Internal cross-linking supports Guayusa through compounds such as caffeine, theobromine.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant"
     ],
@@ -4588,7 +4588,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4597,7 +4597,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -4668,7 +4668,7 @@
   {
     "slug": "harpagophytum-procumbens",
     "name": "Harpagophytum Procumbens",
-    "summary": "Harpagophytum procumbens contains Harpagoside and is linked here to COX inhibition.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "analgesic"
@@ -4686,7 +4686,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4695,14 +4695,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "crataegus-monogyna",
     "name": "Hawthorn",
-    "summary": "It is best framed around procyanidins and flavonoids.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cardiovascular"
     ],
@@ -4734,7 +4734,7 @@
   {
     "slug": "hibiscus-sabdariffa",
     "name": "Hibiscus",
-    "summary": "Hibiscus is tracked for cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "stress-relief",
       "cardiovascular",
@@ -4754,7 +4754,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4763,7 +4763,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -4878,7 +4878,7 @@
   {
     "slug": "honeysuckle",
     "name": "Honeysuckle",
-    "summary": "Internal cross-linking supports Honeysuckle through compounds such as luteolin, chlorogenic acid.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -4894,7 +4894,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4903,14 +4903,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "hops",
     "name": "Hops",
-    "summary": "It is best framed around bitter-resin and prenylflavonoid chemistry with modest selected human evidence.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -4926,7 +4926,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4935,14 +4935,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "horse-chestnut",
     "name": "Horse Chestnut",
-    "summary": "Internal cross-linking supports Horse Chestnut through compounds such as aesculin, aescin, fraxin.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "tonic"
@@ -4960,7 +4960,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4969,7 +4969,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -5010,7 +5010,7 @@
   {
     "slug": "huperzia-serrata",
     "name": "Huperzia Serrata",
-    "summary": "Huperzia serrata contains Huperzine A and is linked here to acetylcholinesterase inhibition.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cognitive"
     ],
@@ -5026,7 +5026,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -5035,14 +5035,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "hypericum-perforatum",
     "name": "Hypericum Perforatum",
-    "summary": "Hypericum perforatum contains Hyperforin and is linked here to TRPC6 channel modulation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "mood_support",
       "antidepressant",
@@ -5062,7 +5062,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5071,14 +5071,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "berberis-aristata",
     "name": "Indian Barberry",
-    "summary": "Indian Barberry is tracked for fat_loss,gut with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "liver-protective",
@@ -5098,7 +5098,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5107,14 +5107,14 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "isatis",
     "name": "Isatis",
-    "summary": "It is best framed as a traditional-use herb with limited modern clinical depth.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "immune"
     ],
@@ -5210,7 +5210,7 @@
   {
     "slug": "jujube",
     "name": "Jujube",
-    "summary": "It is best framed as a food-like fruit/seed botanical with gentle traditional positioning.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -5226,7 +5226,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -5235,7 +5235,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -5274,7 +5274,7 @@
   {
     "slug": "kanna",
     "name": "Kanna",
-    "summary": "Internal cross-linking supports Kanna through compounds such as mesembrenone, mesembranol, mesembrine.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "mood_support",
       "anti_anxiety",
@@ -5368,7 +5368,7 @@
   {
     "slug": "kudzu",
     "name": "Kudzu",
-    "summary": "kudzu is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -5388,7 +5388,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5397,14 +5397,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "tyrosine",
     "name": "L-Tyrosine",
-    "summary": "L-Tyrosine is tracked for stress,cognition,energy with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cognitive_support",
       "dopamine_precursor",
@@ -5424,7 +5424,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5433,7 +5433,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -5472,7 +5472,7 @@
   {
     "slug": "lawsonia-inermis",
     "name": "Lawsonia Inermis",
-    "summary": "Lawsonia inermis contains Lawsone and is linked here to MAPK pathway modulation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "skin-support",
       "antimicrobial"
@@ -5490,7 +5490,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5499,7 +5499,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -5538,7 +5538,7 @@
   {
     "slug": "lemon-verbena",
     "name": "Lemon Verbena",
-    "summary": "It is best framed as a gentle aromatic botanical with modest evidence and pleasant tolerability.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -5554,7 +5554,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -5563,14 +5563,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "lemongrass",
     "name": "Lemongrass",
-    "summary": "It is best framed as an aromatic culinary-medicinal grass with modest clinical depth.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "antioxidant",
@@ -5590,7 +5590,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5599,14 +5599,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "licorice",
     "name": "Licorice",
-    "summary": "Internal cross-linking supports Licorice through compounds such as glycyrrhizin.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -5622,7 +5622,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -5631,14 +5631,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "ligusticum-chuanxiong",
     "name": "Ligusticum Chuanxiong",
-    "summary": "Ligusticum chuanxiong lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cardiovascular",
       "anti-inflammatory"
@@ -5732,7 +5732,7 @@
   {
     "slug": "lithospermum-erythrorhizon",
     "name": "Lithospermum Erythrorhizon",
-    "summary": "Lithospermum erythrorhizon contains Shikonin and is linked here to PKM2 inhibition.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "skin-support",
       "anti-inflammatory"
@@ -5750,7 +5750,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5759,7 +5759,41 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
+      "summary-quality-missing"
+    ]
+  },
+  {
+    "slug": "lobelia-inflata",
+    "name": "Lobelia Inflata",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "primary_effects": [
+      "respiratory",
+      "stimulant"
+    ],
+    "effects": [
+      "respiratory",
+      "stimulant"
+    ],
+    "evidence_grade": "c",
+    "evidence_tier": "Limited Human Evidence",
+    "profile_status": "partial",
+    "runtime_export_decision": "full_public_runtime",
+    "affiliate_ready": false,
+    "visibility_tier": "public",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 83,
+    "indexability_reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
+      "safety-context",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -5798,7 +5832,7 @@
   {
     "slug": "luo-han-guo",
     "name": "Luo Han Guo",
-    "summary": "It is best framed as a fruit botanical with sweet mogrosides and soothing traditional use.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "respiratory",
       "antioxidant"
@@ -5816,7 +5850,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5825,7 +5859,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -5932,7 +5966,7 @@
   {
     "slug": "mangifera-indica",
     "name": "Mangifera Indica",
-    "summary": "Mangifera indica contains Mangiferin and is linked here to AMPK activation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "metabolic"
@@ -6036,7 +6070,7 @@
   {
     "slug": "marshmallow",
     "name": "Marshmallow",
-    "summary": "Internal cross-linking supports Marshmallow through compounds such as pectin.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -6170,7 +6204,7 @@
   {
     "slug": "morinda-citrifolia",
     "name": "Morinda Citrifolia",
-    "summary": "Morinda citrifolia lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -6206,7 +6240,7 @@
   {
     "slug": "moringa",
     "name": "Moringa",
-    "summary": "It is best framed as a nutrient-dense botanical with mixed translational evidence rather than as a universal superfood -all.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "metabolic"
@@ -6224,7 +6258,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6233,14 +6267,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "morus-alba",
     "name": "Morus Alba",
-    "summary": "Morus alba contains Mulberroside A and is linked here to glucose absorption modulation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "metabolic"
     ],
@@ -6256,7 +6290,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -6265,14 +6299,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "mucuna",
     "name": "Mucuna",
-    "summary": "It is best framed around L-DOPA-rich seeds with clear neurologic and stimulation-related caution.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "dopamine_support",
       "neuroprotective",
@@ -6292,7 +6326,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6301,7 +6335,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -6340,7 +6374,7 @@
   {
     "slug": "muira-puama",
     "name": "Muira Puama",
-    "summary": "It is best framed as a traditional Amazonian botanical with modest modern evidence.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "libido",
       "cognitive_support",
@@ -6368,7 +6402,7 @@
   {
     "slug": "mulberry-leaf",
     "name": "Mulberry Leaf",
-    "summary": "It is best framed around alpha-glucosidase-adjacent positioning rather than generalized wellness language.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "metabolic"
     ],
@@ -6384,7 +6418,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -6393,14 +6427,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "myristica-fragrans",
     "name": "Myristica Fragrans",
-    "summary": "Myristica fragrans contains Elemicin and is linked here to monoamine oxidase inhibition.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "sedative"
@@ -6418,7 +6452,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6427,14 +6461,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "myrtle",
     "name": "Myrtle",
-    "summary": "It is best framed as an aromatic Mediterranean leaf botanical with modest modern evidence.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antimicrobial",
       "anti_inflammatory",
@@ -6454,7 +6488,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6463,7 +6497,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -6504,7 +6538,7 @@
   {
     "slug": "nelumbo-nucifera",
     "name": "Nelumbo Nucifera",
-    "summary": "Nelumbo nucifera lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sedative",
       "anti_inflammatory",
@@ -6628,7 +6662,7 @@
   {
     "slug": "notoginseng",
     "name": "Notoginseng",
-    "summary": "It is best framed as a saponin-rich Panax relative with specific vascular-support positioning.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cardiovascular",
       "anti-inflammatory",
@@ -6648,7 +6682,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6657,14 +6691,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "oatstraw",
     "name": "Oatstraw",
-    "summary": "It is best framed as a gentle nutritive herb with limited high-signal clinical depth.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "nervous_system",
       "cognitive_support",
@@ -6684,7 +6718,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6693,14 +6727,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "ocimum-basilicum",
     "name": "Ocimum Basilicum",
-    "summary": "Ocimum basilicum contains Methyleugenol and is linked here to TRP channel modulation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -6716,7 +6750,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -6725,14 +6759,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "ocotea-odorifera",
     "name": "Ocotea Odorifera",
-    "summary": "Ocotea odorifera contains Safrole and is linked here to TRP channel modulation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -6800,7 +6834,7 @@
   {
     "slug": "ophiopogon",
     "name": "Ophiopogon",
-    "summary": "It is best framed as a moistening tonic-style root with traditional-system relevance.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "respiratory",
       "tonic"
@@ -6818,7 +6852,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6827,7 +6861,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -6870,7 +6904,7 @@
   {
     "slug": "oregano",
     "name": "Oregano",
-    "summary": "oregano is tracked for sleep with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -6886,7 +6920,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -6895,14 +6929,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "paeonia-lactiflora",
     "name": "Paeonia Lactiflora",
-    "summary": "Paeonia lactiflora contains Paeoniflorin and is linked here to PI3K/Akt modulation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "hormonal",
@@ -6922,7 +6956,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6931,14 +6965,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "paeonia-suffruticosa",
     "name": "Paeonia Suffruticosa",
-    "summary": "Paeonia suffruticosa contains Paeonol and is linked here to NF-κB inhibition.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "cardiovascular"
@@ -6972,7 +7006,7 @@
   {
     "slug": "papaya-leaf",
     "name": "Papaya Leaf",
-    "summary": "Internal cross-linking supports Papaya Leaf through compounds such as carpaine, papain, benzyl isothiocyanate.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -6992,7 +7026,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7001,14 +7035,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "parsley",
     "name": "Parsley",
-    "summary": "parsley is tracked for sleep,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -7024,7 +7058,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7033,7 +7067,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -7072,7 +7106,7 @@
   {
     "slug": "pastinaca-sativa",
     "name": "Pastinaca Sativa",
-    "summary": "Pastinaca sativa lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "antioxidant"
@@ -7172,7 +7206,7 @@
   {
     "slug": "perilla",
     "name": "Perilla",
-    "summary": "It is best framed as a culinary-medicinal herb with modest but relevant translational evidence.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant"
     ],
@@ -7188,7 +7222,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7197,14 +7231,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "phellodendron",
     "name": "Phellodendron",
-    "summary": "Internal cross-linking supports Phellodendron through compounds such as berberine, jatrorrhizine, palmatine.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -7220,7 +7254,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7229,14 +7263,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "phellodendron-amurense",
     "name": "Phellodendron Amurense",
-    "summary": "Phellodendron amurense lean herb row for high-speed phytochemical ingestion.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antimicrobial",
       "anti-inflammatory",
@@ -7272,7 +7306,7 @@
   {
     "slug": "phosphatidylserine",
     "name": "Phosphatidylserine",
-    "summary": "Phosphatidylserine is tracked for stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cognitive_support",
       "cortisol_reduction",
@@ -7292,7 +7326,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7301,7 +7335,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -7344,7 +7378,7 @@
   {
     "slug": "plantago-lanceolata",
     "name": "Plantago Lanceolata",
-    "summary": "Plantago lanceolata contains Verbascoside and is linked here to NF-κB inhibition.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "respiratory",
       "anti_inflammatory",
@@ -7364,7 +7398,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7373,14 +7407,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "plantago-major",
     "name": "Plantago Major",
-    "summary": "Plantago major contains Aucubin and is linked here to NF-κB inhibition.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "wound_healing",
       "anti_inflammatory",
@@ -7416,7 +7450,7 @@
   {
     "slug": "plumbago-zeylanica",
     "name": "Plumbago Zeylanica",
-    "summary": "Plumbago zeylanica contains Plumbagin and is linked here to NF-κB inhibition.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "digestive_support",
@@ -7452,7 +7486,7 @@
   {
     "slug": "polygala",
     "name": "Polygala",
-    "summary": "It is best framed as a traditional nootropic-style root with limited modern clinical depth.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cognitive_support",
       "neuroprotective",
@@ -7472,7 +7506,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7481,14 +7515,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "pomegranate",
     "name": "Pomegranate",
-    "summary": "It is best framed as a polyphenol-rich fruit botanical with food-form relevance and moderate evidence.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant"
     ],
@@ -7504,7 +7538,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7513,14 +7547,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "poria",
     "name": "Poria",
-    "summary": "It is best framed as a traditional medicinal fungus with modest modern clinical depth.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "immune_support",
       "adaptogen",
@@ -7540,7 +7574,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7549,14 +7583,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "psoralea-corylifolia",
     "name": "Psoralea Corylifolia",
-    "summary": "Psoralea corylifolia lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "bone_health",
       "skin_support",
@@ -7626,7 +7660,7 @@
   {
     "slug": "pueraria-lobata",
     "name": "Pueraria Lobata",
-    "summary": "Pueraria lobata contains Puerarin and is linked here to PI3K/Akt modulation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "hormonal",
       "metabolic"
@@ -7692,7 +7726,7 @@
   {
     "slug": "punarnava",
     "name": "Punarnava",
-    "summary": "Internal cross-linking supports Punarnava through compounds such as punarnavine.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "diuretic"
@@ -7710,7 +7744,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7719,14 +7753,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "quercetin",
     "name": "Quercetin",
-    "summary": "Quercetin is tracked for stress,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "anti_inflammatory",
@@ -7746,7 +7780,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7755,14 +7789,14 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "raspberry-leaf",
     "name": "Raspberry Leaf",
-    "summary": "raspberry leaf is tracked for inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -7778,7 +7812,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7787,7 +7821,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -7828,7 +7862,7 @@
   {
     "slug": "rehmannia-glutinosa",
     "name": "Rehmannia Glutinosa",
-    "summary": "Rehmannia glutinosa contains Catalpol and is linked here to PI3K/Akt modulation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "adrenal_support",
       "blood_tonic",
@@ -7848,7 +7882,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7857,7 +7891,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -7896,7 +7930,7 @@
   {
     "slug": "ganoderma-lucidum",
     "name": "Reishi",
-    "summary": "Reishi is tracked for energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "energy"
@@ -7954,7 +7988,7 @@
   {
     "slug": "resveratrol",
     "name": "Resveratrol",
-    "summary": "Resveratrol is tracked for fat_loss,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant"
@@ -7972,7 +8006,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7981,7 +8015,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -8060,7 +8094,7 @@
   {
     "slug": "rice-bran",
     "name": "Rice Bran",
-    "summary": "rice bran is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -8080,7 +8114,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8089,14 +8123,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "rooibos",
     "name": "Rooibos",
-    "summary": "It is best framed as a mild tea herb with low-intensity wellness positioning.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant"
     ],
@@ -8192,7 +8226,7 @@
   {
     "slug": "rosemary",
     "name": "Rosemary",
-    "summary": "rosemary is tracked for cognition,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -8212,7 +8246,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8221,14 +8255,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "saffron",
     "name": "Saffron",
-    "summary": "Internal cross-linking supports Saffron through compounds such as picrocrocin, crocin, safranal.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "mood_support",
       "antidepressant",
@@ -8248,7 +8282,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8257,14 +8291,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "sage",
     "name": "Sage",
-    "summary": "sage is tracked for stress,cognition,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cognitive_support",
       "antimicrobial",
@@ -8284,7 +8318,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8293,14 +8327,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "salacia-reticulata",
     "name": "Salacia",
-    "summary": "Internal cross-linking supports Salacia through compounds such as mangiferin, kotalanol, salacinol.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "metabolic"
     ],
@@ -8316,7 +8350,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -8325,7 +8359,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -8560,7 +8594,7 @@
   {
     "slug": "serenoa-repens",
     "name": "Serenoa Repens",
-    "summary": "Serenoa repens contains Beta-sitosterol and is linked here to PPAR activation.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "prostate_health",
       "anti_androgenic",
@@ -8596,7 +8630,7 @@
   {
     "slug": "shankhpushpi",
     "name": "Shankhpushpi",
-    "summary": "It is best framed as a traditional cognitive-support herb with limited modern clinical depth.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cognitive_support",
       "nootropic",
@@ -8616,7 +8650,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8625,14 +8659,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "shatavari",
     "name": "Shatavari",
-    "summary": "It is best framed around steroidal saponins with hormonal-context caution.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "adaptogen",
       "hormonal_support",
@@ -8692,7 +8726,7 @@
   {
     "slug": "sophora-alopecuroides",
     "name": "Sophora Alopecuroides",
-    "summary": "Sophora alopecuroides lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "antimicrobial",
@@ -8728,7 +8762,7 @@
   {
     "slug": "sophora-flavescens",
     "name": "Sophora Flavescens",
-    "summary": "Sophora flavescens lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "antiparasitic",
@@ -8796,7 +8830,7 @@
   {
     "slug": "soybean",
     "name": "Soybean",
-    "summary": "soybean is tracked for fat_loss,inflammation,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -8816,7 +8850,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8825,7 +8859,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -8860,7 +8894,7 @@
   {
     "slug": "stellera-chamaejasme",
     "name": "Stellera Chamaejasme",
-    "summary": "Stellera chamaejasme lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "antitumor_research",
@@ -8896,7 +8930,7 @@
   {
     "slug": "stephania-cepharantha",
     "name": "Stephania Cepharantha",
-    "summary": "Stephania cepharantha lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "antitumor_research",
@@ -8932,7 +8966,7 @@
   {
     "slug": "stephania-japonica",
     "name": "Stephania Japonica",
-    "summary": "Stephania japonica lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "analgesic",
@@ -8968,7 +9002,7 @@
   {
     "slug": "stephania-tetrandra",
     "name": "Stephania Tetrandra",
-    "summary": "Stephania tetrandra lean monograph row enriched in bulk mode.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "diuretic",
@@ -9072,7 +9106,7 @@
   {
     "slug": "tamarind",
     "name": "Tamarind",
-    "summary": "It is best framed as a food-form fruit with digestive and polyphenol relevance.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "digestive"
@@ -9106,7 +9140,7 @@
   {
     "slug": "artemisia-dracunculus",
     "name": "Tarragon",
-    "summary": "Tarragon is tracked for fat_loss with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "metabolic"
     ],
@@ -9192,7 +9226,7 @@
   {
     "slug": "thyme",
     "name": "Thyme",
-    "summary": "thyme is tracked for sleep,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -9208,7 +9242,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -9217,14 +9251,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "tongkat-ali",
     "name": "Tongkat Ali",
-    "summary": "It is best framed as a bitter root extract with endocrine and stimulation-related caution.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "testosterone_support",
       "libido",
@@ -9244,7 +9278,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9253,14 +9287,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "tribulus-terrestris",
     "name": "Tribulus (Tribulus terrestris)",
-    "summary": "Tribulus terrestris lean herb row for high-speed phytochemical ingestion.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -9350,7 +9384,7 @@
   {
     "slug": "turmeric",
     "name": "Turmeric (Curcuma longa)",
-    "summary": "Curcuma longa contains Demethoxycurcumin and is linked here to NF-κB inhibition.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "antioxidant",
@@ -9370,7 +9404,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9379,7 +9413,7 @@
       "mechanism-context",
       "profile-status:near_complete",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -9450,7 +9484,7 @@
   {
     "slug": "verbena-officinalis",
     "name": "Verbena Officinalis",
-    "summary": "Verbena officinalis contains Acteoside and is linked here to NF-κB inhibition.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "nervine",
       "anti_anxiety",
@@ -9486,7 +9520,7 @@
   {
     "slug": "white-peony",
     "name": "White Peony",
-    "summary": "It is best framed as a paeoniflorin-rich root with traditional-system relevance.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "muscle_relaxant",
@@ -9506,7 +9540,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9515,14 +9549,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "wild-yam",
     "name": "Wild Yam",
-    "summary": "Wild Yam lean herb row for high-speed phytochemical ingestion.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "hormonal_support",
@@ -9558,7 +9592,7 @@
   {
     "slug": "wormwood",
     "name": "Wormwood",
-    "summary": "Internal cross-linking supports Wormwood through compounds such as alpha-thujone, absinthin, beta-thujone.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -9574,7 +9608,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -9583,14 +9617,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "yarrow",
     "name": "Yarrow",
-    "summary": "yarrow is tracked for inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "digestive"
@@ -9608,7 +9642,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9617,14 +9651,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "yerba-mate",
     "name": "Yerba Mate",
-    "summary": "yerba mate is tracked for fat_loss,energy,inflammation with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -9644,7 +9678,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 93,
+    "indexability_score": 83,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9653,7 +9687,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },

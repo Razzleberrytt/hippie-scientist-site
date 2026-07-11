@@ -40,7 +40,7 @@
   {
     "slug": "23-epi-26-deoxyactein",
     "name": "23-epi-26-deoxyactein",
-    "summary": "23-epi-26-deoxyactein is tracked for Added as site-safe referenced entity during workbook readiness pass; limited with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [],
     "effects": [],
     "evidence_grade": "c",
@@ -86,7 +86,7 @@
   {
     "slug": "acarbose",
     "name": "Acarbose",
-    "summary": "Acarbose is tracked for Inhibits intestinal alpha-glucosidases, delaying carbohydrate digestion and postprandial glucose absorption with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Metabolic Health",
       "Inflammation",
@@ -108,7 +108,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -117,7 +117,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context-missing",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -156,7 +156,7 @@
   {
     "slug": "acetate",
     "name": "acetate",
-    "summary": "acetate is tracked for short-chain fatty acid that activates FFAR2/3 to regulate appetite, insulin sensitivity, and lipid metabolism; short-chain with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "glucose_AMPK"
     ],
@@ -248,7 +248,7 @@
   {
     "slug": "acetyl-l-carnitine",
     "name": "Acetyl-L-Carnitine",
-    "summary": "Decision-ready summary: Acetyl-L-Carnitine is best framed for neuropathy symptoms; mental fatigue; mitochondrial energy context; safety screen: seizure disorder; warfarin; hypothyroid medication review.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "mitochondrial metabolism",
       "cholinergic system",
@@ -278,7 +278,7 @@
       "non-publishable-profile-status",
       "profile-status:research_only",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -317,7 +317,7 @@
   {
     "slug": "actein",
     "name": "Actein",
-    "summary": "Actein is a triterpene glycoside associated with black cohosh. Evidence level: mixed.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [],
     "effects": [],
     "evidence_grade": "b",
@@ -493,7 +493,7 @@
   {
     "slug": "agmatine-sulfate",
     "name": "Agmatine sulfate",
-    "summary": "Decision-ready summary: Agmatine sulfate is best framed for neuropathic pain research context; nitric oxide modulation; mood support context; safety screen: blood pressure medications; psychiatric medications; limited safety data.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "NO synthase imidazoline receptors"
     ],
@@ -573,7 +573,7 @@
   {
     "slug": "alkylamides",
     "name": "Alkylamides",
-    "summary": "Alkylamides is a fatty acid amides associated with echinacea-purpurea. Evidence level: mixed.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "CB2 receptor"
     ],
@@ -597,7 +597,7 @@
   {
     "slug": "allicin",
     "name": "Allicin",
-    "summary": "Allicin is a organosulfur compound associated with garlic. Evidence level: mixed.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "oxidative pathways"
     ],
@@ -655,7 +655,7 @@
   {
     "slug": "alpha-gpc",
     "name": "Alpha-GPC",
-    "summary": "Decision-ready summary: Alpha-GPC is best framed for cognitive performance; memory support; power output support; safety screen: low blood pressure; cholinergic sensitivity; anticholinergic medication conflicts.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cholinergic system",
       "neuronal membranes"
@@ -673,7 +673,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -682,14 +682,14 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "alpha-lipoic-acid",
     "name": "Alpha-Lipoic Acid",
-    "summary": "Decision-ready summary: Alpha-Lipoic Acid is best framed for diabetic neuropathy symptoms; oxidative stress; glucose-metabolism support; safety screen: hypoglycemia risk; thyroid medication timing; thiamine deficiency/alcohol use.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "oxidative stress",
       "mitochondrial enzymes"
@@ -793,7 +793,7 @@
   {
     "slug": "anandamide",
     "name": "Anandamide",
-    "summary": "Anandamide entry from SciSpace evidence pass. Evidence level: physiological role established.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "CB1 receptor",
       "FAAH"
@@ -853,7 +853,7 @@
   {
     "slug": "andrographolide",
     "name": "Andrographolide",
-    "summary": "Decision-ready summary: Andrographolide is best framed for upper respiratory symptom support; immune response modulation; safety screen: pregnancy; autoimmune disease caution; anticoagulants.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "NF-κB",
       "Nrf2",
@@ -979,7 +979,7 @@
   {
     "slug": "arabinoxylan",
     "name": "Arabinoxylan",
-    "summary": "Decision-ready summary: Arabinoxylan is best framed for prebiotic fiber support; glycemic response; gut microbiome; safety screen: IBS/FODMAP sensitivity; severe bloating.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "fiber_LDL"
     ],
@@ -1137,7 +1137,7 @@
   {
     "slug": "artichoke-extract",
     "name": "Artichoke Extract",
-    "summary": "Decision-ready summary: Artichoke Extract is best framed for indigestion support; cholesterol context; bile-flow support; safety screen: bile duct obstruction; gallstones; ragweed allergy.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "bile flow",
       "lipid metabolism",
@@ -1157,7 +1157,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1166,7 +1166,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -1214,7 +1214,7 @@
   {
     "slug": "ashwagandha-extract-ksm-66",
     "name": "Ashwagandha KSM-66 extract",
-    "summary": "Decision-ready summary: Ashwagandha KSM-66 extract is best framed for stress reduction; perceived anxiety; sleep quality; safety screen: pregnancy; thyroid disorders; autoimmune disease; liver injury history.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "HPA axis",
       "cortisol",
@@ -1234,7 +1234,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1243,7 +1243,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -1376,7 +1376,7 @@
   {
     "slug": "astaxanthin",
     "name": "Astaxanthin",
-    "summary": "Decision-ready summary: Astaxanthin is best framed for skin photoaging support; oxidative stress; exercise recovery context; safety screen: pregnancy; hormone-sensitive medication review.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "oxidative stress pathways",
       "mitochondrial membranes"
@@ -1394,7 +1394,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1403,7 +1403,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -1616,7 +1616,7 @@
   {
     "slug": "bacopa-extract-bacoside-standardized",
     "name": "Bacopa extract standardized",
-    "summary": "Decision-ready summary: Bacopa extract standardized is best framed for memory acquisition; cognitive performance over time; attention support; safety screen: pregnancy; thyroid medication monitoring; GI intolerance.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cholinergic system",
       "memory pathways"
@@ -1634,7 +1634,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1643,7 +1643,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -1818,7 +1818,7 @@
   {
     "slug": "banaba-leaf-extract",
     "name": "Banaba Leaf Extract",
-    "summary": "Banaba Leaf Extract is tracked for Corosolic acid-containing extracts may affect glucose transport and insulin signaling; mechanism-only pending stronger human with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Metabolic Health",
       "Oxidative Stress",
@@ -1908,7 +1908,7 @@
   {
     "slug": "beetroot-extract",
     "name": "Beetroot extract",
-    "summary": "Decision-ready summary: Beetroot extract is best framed for blood pressure support; endurance performance; nitric oxide support; safety screen: hypotension; nitrate medications; kidney-stone susceptibility.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "nitric oxide pathway",
       "vascular function"
@@ -1926,7 +1926,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1935,14 +1935,14 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "beetroot-nitrate",
     "name": "Beetroot nitrate",
-    "summary": "Decision-ready summary: Beetroot nitrate is best framed for endurance performance; blood pressure support; nitric oxide support; safety screen: hypotension; PDE-5 inhibitors/nitrate medication caution; kidney stone susceptibility.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "NO pathway"
     ],
@@ -1958,7 +1958,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -1967,7 +1967,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -2000,7 +2000,7 @@
   {
     "slug": "berberine",
     "name": "Berberine",
-    "summary": "Decision-ready summary: Berberine is best framed for fasting glucose support; insulin resistance context; triglyceride/LDL support; safety screen: pregnancy; breastfeeding; diabetes medications; CYP/P-gp medication review.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "AMPK",
       "glucose transporters"
@@ -2018,7 +2018,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2027,14 +2027,14 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "berberine-hcl",
     "name": "Berberine",
-    "summary": "Decision-ready summary: Berberine is best framed for fasting glucose support; insulin resistance context; triglyceride/LDL support; safety screen: pregnancy; breastfeeding; diabetes medications; CYP/P-gp medication review.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "AMPK",
       "mitochondrial respiratory chain",
@@ -2054,7 +2054,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2063,7 +2063,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -2100,7 +2100,7 @@
   {
     "slug": "bhb",
     "name": "beta- hydroxybutyrate",
-    "summary": "beta- hydroxybutyrate is tracked for Acts as ketone body providing alternative energy and signaling via HDAC inhibition with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "HDAC AMPK"
     ],
@@ -2124,7 +2124,7 @@
   {
     "slug": "beta-alanine",
     "name": "Beta-Alanine",
-    "summary": "Decision-ready summary: Beta-Alanine is best framed for high-intensity endurance; repeated sprint performance; muscular buffering; safety screen: paresthesia sensitivity.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "muscle carnosine system",
       "intracellular pH buffering",
@@ -2144,7 +2144,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2153,7 +2153,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -2190,7 +2190,7 @@
   {
     "slug": "beta-ecdysterone",
     "name": "beta-ecdysterone",
-    "summary": "beta-ecdysterone is tracked for Activates protein synthesis via PI3K/Akt pathway with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "PI3K Akt"
     ],
@@ -2244,7 +2244,7 @@
   {
     "slug": "beta-glucans",
     "name": "Beta-glucans",
-    "summary": "Decision-ready summary: Beta-glucans is best framed for LDL cholesterol reduction; immune support; glycemic response; safety screen: immunosuppressants caution; GI bloating.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "immune cells",
       "cytokine pathways"
@@ -2270,7 +2270,7 @@
   {
     "slug": "beta-sitosterol",
     "name": "Beta-sitosterol",
-    "summary": "Decision-ready summary: Beta-sitosterol is best framed for BPH urinary symptoms; cholesterol support; safety screen: sitosterolemia; fat-soluble vitamin absorption concerns.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "intestinal cholesterol transport"
     ],
@@ -2329,7 +2329,7 @@
   {
     "slug": "betaine-anhydrous",
     "name": "Betaine anhydrous",
-    "summary": "Decision-ready summary: Betaine anhydrous is best framed for homocysteine reduction; methylation support; power output context; safety screen: kidney disease; elevated LDL concern in some users.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "methylation cycle",
       "cellular hydration"
@@ -2357,7 +2357,7 @@
       "non-publishable-profile-status",
       "profile-status:research_only",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -2500,7 +2500,7 @@
   {
     "slug": "probiotic-strain-bifidobacterium",
     "name": "Bifidobacterium Probiotic",
-    "summary": "Decision-ready summary: Bifidobacterium Probiotic is best framed for IBS symptom support; stool regularity; microbiome support; safety screen: severely immunocompromised; central line; critical illness.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "gut health",
       "digestion",
@@ -2520,7 +2520,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2529,7 +2529,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -2730,7 +2730,7 @@
   {
     "slug": "black-seed-oil",
     "name": "Black Seed Oil",
-    "summary": "Black Seed Oil is tracked for Nigella sativa oil contains thymoquinone with antioxidant and metabolic pathway effects with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Oxidative Stress",
       "Metabolic Health",
@@ -2754,7 +2754,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2763,14 +2763,14 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "boron",
     "name": "Boron",
-    "summary": "Boron entry from SciSpace evidence pass. Evidence level: low.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "bone metabolism",
       "vitamin D metabolism"
@@ -2796,7 +2796,7 @@
   {
     "slug": "boswellia",
     "name": "Boswellia",
-    "summary": "Boswellia entry from SciSpace evidence pass. Evidence level: moderate.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "5-LOX",
       "leukotriene pathways"
@@ -2830,7 +2830,7 @@
   {
     "slug": "boswellia-akba-standardized",
     "name": "Boswellia AKBA standardized",
-    "summary": "Decision-ready summary: Boswellia AKBA standardized is best framed for osteoarthritis pain; joint function; inflammatory discomfort; safety screen: pregnancy caution; anticoagulants; GI irritation.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "5-lipoxygenase",
       "leukotriene pathways"
@@ -2848,7 +2848,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2857,7 +2857,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -2894,7 +2894,7 @@
   {
     "slug": "boswellic-acids",
     "name": "boswellic acids",
-    "summary": "boswellic acids is tracked for Inhibits 5-lipoxygenase reducing leukotriene synthesis with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "5- LOX"
     ],
@@ -2956,7 +2956,7 @@
   {
     "slug": "bromelain",
     "name": "Bromelain",
-    "summary": "Decision-ready summary: Bromelain is best framed for sinus inflammation context; post-exercise soreness context; protein digestion support; safety screen: pineapple allergy; anticoagulants; planned surgery.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "inflammatory mediators",
       "protein substrates"
@@ -3038,7 +3038,7 @@
   {
     "slug": "butyrate",
     "name": "butyrate",
-    "summary": "butyrate is tracked for Short- chain fatty acid improving gut barrier and insulin sensitivity via HDAC inhibition with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "HDAC inhibition"
     ],
@@ -3062,7 +3062,7 @@
   {
     "slug": "cacao",
     "name": "Cacao",
-    "summary": "Cacao entry from SciSpace evidence pass. Evidence level: moderate.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "nitric oxide",
       "endothelial function"
@@ -3148,7 +3148,7 @@
   {
     "slug": "caffeine",
     "name": "Caffeine",
-    "summary": "Decision-ready summary: Caffeine is best framed for alertness; reaction time; fatigue reduction; safety screen: anxiety disorder; uncontrolled hypertension; arrhythmia.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "adenosine A1 receptor",
       "adenosine A2A receptor",
@@ -3174,7 +3174,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3183,7 +3183,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -3256,7 +3256,7 @@
   {
     "slug": "calcium-d-glucarate",
     "name": "calcium d-glucarate",
-    "summary": "calcium d-glucarate is tracked for Inhibits beta-glucuronidase affecting detoxification pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "beta-glucuronidase"
     ],
@@ -3312,7 +3312,7 @@
   {
     "slug": "cannabidiol",
     "name": "Cannabidiol",
-    "summary": "Cannabidiol entry from SciSpace evidence pass. Evidence level: high indication-specific.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "5-HT1A",
       "TRPV1",
@@ -3340,7 +3340,7 @@
   {
     "slug": "capsaicin",
     "name": "Capsaicin",
-    "summary": "Capsaicin is a capsaicinoid associated with chili peppers. Evidence level: moderate.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "TRPV1 receptor"
     ],
@@ -3613,7 +3613,7 @@
   {
     "slug": "cbg",
     "name": "CBG",
-    "summary": "CBG entry from SciSpace evidence pass. Evidence level: preclinical.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "CB1/CB2",
       "alpha-2 adrenergic receptors",
@@ -3938,7 +3938,7 @@
   {
     "slug": "chondroitin",
     "name": "Chondroitin",
-    "summary": "Decision-ready summary: Chondroitin is best framed for knee osteoarthritis comfort; cartilage-support context; safety screen: warfarin; bleeding disorder; planned surgery.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cartilage extracellular matrix",
       "MMP-related pathways"
@@ -3964,7 +3964,7 @@
   {
     "slug": "chromium",
     "name": "Chromium",
-    "summary": "Chromium entry from SciSpace evidence pass. Evidence level: mixed.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "insulin signaling",
       "glucose metabolism"
@@ -3990,7 +3990,7 @@
   {
     "slug": "chromium-picolinate",
     "name": "chromium picolinate",
-    "summary": "chromium picolinate is tracked for Enhances insulin receptor signaling and glucose uptake with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "insulin receptor"
     ],
@@ -4014,7 +4014,7 @@
   {
     "slug": "cimifugoside",
     "name": "Cimifugoside",
-    "summary": "Cimifugoside is tracked for Added as site-safe referenced entity during workbook readiness pass; limited with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [],
     "effects": [],
     "evidence_grade": "c",
@@ -4060,7 +4060,7 @@
   {
     "slug": "cinnamon-extract",
     "name": "Cinnamon extract",
-    "summary": "Decision-ready summary: Cinnamon extract is best framed for blood glucose support; insulin sensitivity support; safety screen: liver disease; anticoagulant medication caution; pregnancy high-dose caution.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "GLUT4"
     ],
@@ -4076,7 +4076,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4085,7 +4085,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -4158,7 +4158,7 @@
   {
     "slug": "citrulline-malate",
     "name": "Citrulline Malate",
-    "summary": "Decision-ready summary: Citrulline Malate is best framed for exercise pump; high-rep performance; blood-flow support; safety screen: hypotension; nitrate/PDE5 medication review.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "nitric oxide pathways",
       "urea cycle"
@@ -4220,7 +4220,7 @@
   {
     "slug": "coconut-oil",
     "name": "Coconut Oil",
-    "summary": "Coconut Oil is tracked for Contains saturated fatty acids and medium-chain fatty acid fractions; effects depend on comparator fat and dietary context with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Metabolic Health",
       "Cardiovascular Health",
@@ -4336,7 +4336,7 @@
   {
     "slug": "coq10",
     "name": "Coenzyme Q10",
-    "summary": "Decision-ready summary: Coenzyme Q10 is best framed for statin-associated muscle symptoms; heart failure support; mitochondrial fatigue; safety screen: warfarin or anticoagulant management; planned surgery.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Oxidative Stress",
       "Mitochondrial Health",
@@ -4360,7 +4360,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4369,14 +4369,14 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "collagen-peptides",
     "name": "Collagen Peptides",
-    "summary": "Decision-ready summary: Collagen Peptides is best framed for skin elasticity; joint comfort; connective tissue support; safety screen: allergy to source material.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "connective tissue",
       "cartilage",
@@ -4396,7 +4396,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4405,7 +4405,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -4500,7 +4500,7 @@
   {
     "slug": "copper",
     "name": "Copper",
-    "summary": "Copper entry from SciSpace evidence pass. Evidence level: deficiency-only.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cytochrome c oxidase",
       "SOD",
@@ -4560,7 +4560,7 @@
   {
     "slug": "cordycepin",
     "name": "cordycepin",
-    "summary": "cordycepin is tracked for M odulates ATP production and AMPK pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "AMPK"
     ],
@@ -4584,7 +4584,7 @@
   {
     "slug": "cordyceps",
     "name": "Cordyceps",
-    "summary": "Decision-ready summary: Cordyceps is best framed for fatigue research context; exercise tolerance support; mushroom stack comparison; safety screen: autoimmune disease; anticoagulants; mushroom allergy.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cellular energy pathways",
       "immune pathways"
@@ -4612,14 +4612,14 @@
       "non-publishable-profile-status",
       "profile-status:research_only",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "cordyceps-militaris",
     "name": "cordyceps militaris",
-    "summary": "cordyceps militaris is tracked for Increases ATP production and oxygen utilization with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "ATP synthesis"
     ],
@@ -4645,7 +4645,7 @@
       "non-publishable-profile-status",
       "profile-status:research_only",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -4786,7 +4786,7 @@
   {
     "slug": "creatine-monohydrate",
     "name": "Creatine monohydrate",
-    "summary": "Decision-ready summary: Creatine monohydrate is best framed for strength and power output; lean mass support; cognitive fatigue resistance; safety screen: advanced kidney disease; active renal monitoring concerns.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cellular energy metabolism",
       "phosphocreatine system"
@@ -4804,7 +4804,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4813,7 +4813,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -4936,7 +4936,7 @@
   {
     "slug": "curcumin-piperine",
     "name": "Curcumin + piperine",
-    "summary": "Decision-ready summary: Curcumin + piperine is best framed for osteoarthritis pain; inflammation markers; bioavailability-enhanced curcumin use; safety screen: drug-interaction sensitive medications; anticoagulants; gallbladder disease.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory_COX"
     ],
@@ -4952,7 +4952,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4961,14 +4961,14 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "curcumin-phytosome",
     "name": "Curcumin phytosome",
-    "summary": "Decision-ready summary: Curcumin phytosome is best framed for osteoarthritis pain; inflammation markers; bioavailable curcumin use; safety screen: anticoagulants; gallbladder disease; surgery window.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "NF-κB",
       "inflammatory cytokines",
@@ -4988,7 +4988,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4997,7 +4997,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -5130,7 +5130,7 @@
   {
     "slug": "d-mannose",
     "name": "D-Mannose",
-    "summary": "Decision-ready summary: D-Mannose is best framed for recurrent UTI prevention context; urinary tract adhesion support; safety screen: diabetes medication review; active UTI needs medical care.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "urothelium",
       "bacterial fimbriae"
@@ -5560,7 +5560,7 @@
   {
     "slug": "digestive-enzymes",
     "name": "Digestive enzymes",
-    "summary": "Decision-ready summary: Digestive enzymes is best framed for meal-related digestive discomfort; enzyme insufficiency support; safety screen: pancreatitis unless clinician-directed; pork allergy for pancreatin forms.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "protein digestion",
       "fat digestion",
@@ -5656,7 +5656,7 @@
   {
     "slug": "dim",
     "name": "diindolylmethane",
-    "summary": "diindolylmethane is tracked for Modu lates estrogen metabolism via CYP1A1 and CYP1B1 pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "CYP1A1 CYP1B1"
     ],
@@ -5816,7 +5816,7 @@
   {
     "slug": "echinacea",
     "name": "Echinacea",
-    "summary": "Echinacea entry from SciSpace evidence pass. Evidence level: mixed.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "immune signaling"
     ],
@@ -5930,7 +5930,7 @@
   {
     "slug": "egcg-caffeine",
     "name": "EGCG + Caffeine",
-    "summary": "EGCG + Caffeine is tracked for AMPK; COMT; adenosine antagonism with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "stimulant_CNS",
       "glucose_AMPK"
@@ -5948,7 +5948,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5957,7 +5957,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -6532,7 +6532,7 @@
   {
     "slug": "exogenous-ketones",
     "name": "exogenous ketones",
-    "summary": "exogenous ketones is tracked for Elevate blood ketone levels providing alternative fuel substrate with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "BHB energy metabolism"
     ],
@@ -6556,7 +6556,7 @@
   {
     "slug": "melatonin-extended-release",
     "name": "Extended-release melatonin",
-    "summary": "Decision-ready summary: Extended-release melatonin is best framed for sleep maintenance; circadian rhythm support; safety screen: pregnancy without clinician guidance; sedatives; next-day drowsiness risk.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "melatonin receptors",
       "suprachiasmatic nucleus"
@@ -6574,7 +6574,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6583,7 +6583,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -6680,7 +6680,7 @@
   {
     "slug": "fenugreek",
     "name": "Fenugreek",
-    "summary": "Fenugreek entry from SciSpace evidence pass. Evidence level: moderate metabolic.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "insulin signaling",
       "sex-hormone enzymes proposed"
@@ -6698,7 +6698,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6707,14 +6707,14 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "fenugreek-extract",
     "name": "Fenugreek Extract",
-    "summary": "Fenugreek Extract is tracked for Contains saponins and soluble fiber that may affect glucose absorption and endocrine markers with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Metabolic Health",
       "Hormonal Health",
@@ -6736,7 +6736,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6745,7 +6745,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -6976,7 +6976,7 @@
   {
     "slug": "fos",
     "name": "Fructooligosaccharides",
-    "summary": "Fructooligosaccharides is tracked for Fermentable oligosaccharides selectively increase beneficial gut bacteria and SCFA production with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Digestive Health"
     ],
@@ -6992,7 +6992,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 80,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7001,14 +7001,14 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context-missing",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "fucoxanthin",
     "name": "Fucoxanthin",
-    "summary": "Fucoxanthin is tracked for May increase thermogenesis via UCP1 activation and fat oxidation pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "UCP1",
       "fat oxidation"
@@ -7026,7 +7026,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7035,14 +7035,14 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context-missing",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "fukinolic-acid",
     "name": "Fukinolic acid",
-    "summary": "Fukinolic acid is tracked for Added as site-safe referenced entity during workbook readiness pass; limited with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [],
     "effects": [],
     "evidence_grade": "c",
@@ -7220,7 +7220,7 @@
   {
     "slug": "garcinia-cambogia-extract",
     "name": "Garcinia Cambogia Extract",
-    "summary": "Garcinia Cambogia Extract is tracked for Hydroxycitric acid inhibits ATP citrate lyase reducing lipogenesis with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "ATP citrate lyase"
     ],
@@ -7236,7 +7236,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7245,7 +7245,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -7326,7 +7326,7 @@
   {
     "slug": "garlic-extract",
     "name": "Garlic Extract",
-    "summary": "Decision-ready summary: Garlic Extract is best framed for blood pressure support; LDL/cholesterol context; cardiovascular risk-factor support; safety screen: anticoagulants; planned surgery; bleeding disorder.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "NO HMG-CoA reductase"
     ],
@@ -7342,7 +7342,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7351,7 +7351,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -7452,7 +7452,7 @@
   {
     "slug": "gingerol",
     "name": "gingerol",
-    "summary": "gingerol is tracked for Inhibits COX-2 and reduces prostaglandin synthesis with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "COX-2 PGE2"
     ],
@@ -7468,7 +7468,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7477,7 +7477,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -7768,7 +7768,7 @@
   {
     "slug": "ginsenosides",
     "name": "Ginsenosides",
-    "summary": "Ginsenosides is a triterpenoid saponins associated with ginseng. Evidence level: moderate.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "NO pathways",
       "HPA axis"
@@ -7794,7 +7794,7 @@
   {
     "slug": "glucomannan",
     "name": "Glucomannan",
-    "summary": "Decision-ready summary: Glucomannan is best framed for satiety; LDL cholesterol support; constipation support; safety screen: swallowing difficulty; bowel obstruction; medication timing conflicts.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "fiber_LDL",
       "glucose_AMPK"
@@ -7846,7 +7846,7 @@
   {
     "slug": "glucosamine",
     "name": "Glucosamine",
-    "summary": "Decision-ready summary: Glucosamine is best framed for knee osteoarthritis symptom support; long-term joint comfort; safety screen: shellfish allergy; warfarin; diabetes medication review.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cartilage matrix",
       "joint tissue"
@@ -7864,7 +7864,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7873,7 +7873,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -8224,7 +8224,7 @@
   {
     "slug": "green-tea-extract-egcg",
     "name": "Green tea extract / EGCG",
-    "summary": "Decision-ready summary: Green tea extract / EGCG is best framed for fat oxidation support; cardiometabolic markers; antioxidant polyphenol intake; safety screen: liver disease; high-dose fasting use; stimulant sensitivity.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Oxidative Stress",
       "Mitochondrial Health",
@@ -8248,7 +8248,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8257,7 +8257,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -8558,7 +8558,7 @@
   {
     "slug": "hmb",
     "name": "HMB",
-    "summary": "Decision-ready summary: HMB is best framed for muscle preservation during training stress; older adult lean-mass support; recovery context; safety screen: serious kidney disease review.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Exercise Performance",
       "Oxidative Stress",
@@ -8592,7 +8592,7 @@
       "non-publishable-profile-status",
       "profile-status:research_only",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -8767,7 +8767,7 @@
   {
     "slug": "hyaluronic-acid",
     "name": "Hyaluronic Acid",
-    "summary": "Decision-ready summary: Hyaluronic Acid is best framed for skin hydration; joint comfort; dryness support; safety screen: pregnancy safety not established for high-dose supplements.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "synovial fluid",
       "cartilage"
@@ -8923,7 +8923,7 @@
   {
     "slug": "icariin",
     "name": "icariin",
-    "summary": "icariin is tracked for Inhibits PDE5 increasing nitric oxide signaling with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "PDE5 NO"
     ],
@@ -9001,7 +9001,7 @@
   {
     "slug": "indole-3-carbinol",
     "name": "Indole-3-carbinol",
-    "summary": "Indole-3-carbinol is a indole compound associated with cruciferous vegetables. Evidence level: moderate.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "estrogen receptors",
       "CYP enzymes",
@@ -9129,7 +9129,7 @@
   {
     "slug": "inulin",
     "name": "Inulin",
-    "summary": "Decision-ready summary: Inulin is best framed for prebiotic support; stool frequency; microbiome diversity context; safety screen: IBS/FODMAP sensitivity; bloating-prone users.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "SCFA"
     ],
@@ -9405,7 +9405,7 @@
   {
     "slug": "kava",
     "name": "Kava",
-    "summary": "Decision-ready summary: Kava is best framed for short-term anxiety reduction; relaxation without classic stimulation; safety screen: liver disease; alcohol; hepatotoxic medications; pregnancy.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "GABA-A",
       "ion channels",
@@ -9573,7 +9573,7 @@
   {
     "slug": "l-carnitine",
     "name": "L-Carnitine",
-    "summary": "Decision-ready summary: L-Carnitine is best framed for fatigue context; sperm motility research context; recovery support; safety screen: seizure disorder; warfarin; trimethylamine odor sensitivity.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "CPT1"
     ],
@@ -9589,7 +9589,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -9598,7 +9598,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -9631,7 +9631,7 @@
   {
     "slug": "l-theanine",
     "name": "L-theanine",
-    "summary": "Decision-ready summary: L-theanine is best framed for acute relaxation; calm focus; caffeine smoothing; safety screen: low blood pressure; sedative stacking caution.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "GABA",
       "glutamate"
@@ -9649,7 +9649,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9658,7 +9658,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -9731,7 +9731,7 @@
   {
     "slug": "probiotic-strain-lactobacillus",
     "name": "Lactobacillus Probiotic",
-    "summary": "Decision-ready summary: Lactobacillus Probiotic is best framed for antibiotic-associated diarrhea context; IBS symptom support; gut microbiome support; safety screen: severely immunocompromised; central line; critical illness.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "gut health",
       "digestion",
@@ -9751,7 +9751,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9760,7 +9760,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -10037,7 +10037,7 @@
   {
     "slug": "licorice-root",
     "name": "Licorice Root",
-    "summary": "Licorice Root entry from SciSpace evidence pass. Evidence level: limited/safety-limited.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "11β-HSD2",
       "mineralocorticoid/cortisol pathways"
@@ -10207,7 +10207,7 @@
   {
     "slug": "lutein",
     "name": "Lutein",
-    "summary": "Decision-ready summary: Lutein is best framed for macular pigment support; age-related eye health; screen-heavy lifestyle support; safety screen: none significant; review pregnancy supplement stack.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "macula",
       "retinal oxidative stress"
@@ -10225,7 +10225,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -10234,7 +10234,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -10341,7 +10341,7 @@
   {
     "slug": "macamides",
     "name": "Macamides",
-    "summary": "Macamides is a fatty acid amides associated with maca. Evidence level: mixed.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "endocannabinoid-related pathways"
     ],
@@ -10666,7 +10666,7 @@
   {
     "slug": "manganese",
     "name": "Manganese",
-    "summary": "Manganese entry from SciSpace evidence pass. Evidence level: deficiency-only.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "MnSOD",
       "metabolic enzymes"
@@ -10948,7 +10948,7 @@
   {
     "slug": "menthol",
     "name": "Menthol",
-    "summary": "Menthol is a monoterpene associated with peppermint. Evidence level: moderate.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "TRPM8",
       "calcium channels"
@@ -11368,7 +11368,7 @@
   {
     "slug": "mucuna-pruriens",
     "name": "Mucuna pruriens",
-    "summary": "Decision-ready summary: Mucuna pruriens is best framed for dopamine precursor support; Parkinsonian context; mood/motivation context; safety screen: psychosis/bipolar risk; levodopa medications; MAOIs.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "dopaminergic pathways"
     ],
@@ -11394,7 +11394,7 @@
       "non-publishable-profile-status",
       "profile-status:research_only",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -11827,7 +11827,7 @@
   {
     "slug": "nicotinamide-riboside",
     "name": "Nicotinamide riboside",
-    "summary": "Nicotinamide riboside is tracked for Acts as an NAD+ precursor affecting cellular energy metabolism and sirtuin-linked pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Mitochondrial Health",
       "Longevity",
@@ -11855,7 +11855,7 @@
   {
     "slug": "nr",
     "name": "Nicotinamide riboside",
-    "summary": "Decision-ready summary: Nicotinamide riboside is best framed for NAD+ support; cellular energy; aging research context; safety screen: active cancer treatment without clinician guidance; liver disease caution.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "NAD+ metabolism",
       "mitochondrial pathways"
@@ -11997,7 +11997,7 @@
   {
     "slug": "oleamide",
     "name": "Oleamide",
-    "summary": "Oleamide entry from SciSpace evidence pass. Evidence level: preclinical.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "GABAergic pathways",
       "serotonin receptors"
@@ -12256,7 +12256,7 @@
   {
     "slug": "omega-3",
     "name": "Omega-3 fatty acids",
-    "summary": "Decision-ready summary: Omega-3 fatty acids is best framed for triglyceride reduction; cardiovascular support; inflammation modulation; safety screen: bleeding disorder; anticoagulants at high dose; fish allergy.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "lipid metabolism",
       "eicosanoid pathways",
@@ -12278,7 +12278,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -12287,7 +12287,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -12326,7 +12326,7 @@
   {
     "slug": "oral-rehydration-salts",
     "name": "Oral rehydration salts",
-    "summary": "Decision-ready summary: Oral rehydration salts is best framed for dehydration from diarrhea; electrolyte replacement; heat illness support; safety screen: severe kidney disease; fluid restriction; hypernatremia risk.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "intestinal sodium-glucose transport",
       "fluid absorption"
@@ -12378,7 +12378,7 @@
   {
     "slug": "ornithine",
     "name": "ornithine",
-    "summary": "ornithine is tracked for facilitates urea cycle, reduces ammonia accumulation and modulates cortisol response with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep_GABA"
     ],
@@ -12618,7 +12618,7 @@
   {
     "slug": "palmitoylethanolamide",
     "name": "Palmitoylethanolamide",
-    "summary": "Palmitoylethanolamide entry from SciSpace evidence pass. Evidence level: moderate.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "PPAR-alpha",
       "mast cells"
@@ -12908,7 +12908,7 @@
   {
     "slug": "peppermint-oil",
     "name": "Peppermint Oil",
-    "summary": "Decision-ready summary: Peppermint Oil is best framed for IBS abdominal pain; gut spasm; bloating discomfort; safety screen: GERD; hiatal hernia; gallbladder disease; young children.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Digestive Health",
       "Sleep",
@@ -12930,7 +12930,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -12939,14 +12939,14 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "phenylalanine",
     "name": "Phenylalanine",
-    "summary": "Decision-ready summary: Phenylalanine is best framed for catecholamine precursor support; mood/focus context; safety screen: phenylketonuria; MAO inhibitors; pregnancy high-dose caution.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "dopamine",
       "norepinephrine"
@@ -13004,7 +13004,7 @@
   {
     "slug": "phosphatidic-acid",
     "name": "phosphatidic acid",
-    "summary": "phosphatidic acid is tracked for Activates mTOR signaling promoting muscle protein synthesis with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "mTOR"
     ],
@@ -13116,7 +13116,7 @@
   {
     "slug": "plant-sterols",
     "name": "Plant Sterols",
-    "summary": "Decision-ready summary: Plant Sterols is best framed for LDL cholesterol reduction; heart-health food/supplement strategy; safety screen: sitosterolemia; fat-soluble nutrient monitoring context.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Metabolic Health",
       "Cardiovascular Health",
@@ -13246,7 +13246,7 @@
   {
     "slug": "potassium",
     "name": "Potassium",
-    "summary": "Decision-ready summary: Potassium is best framed for potassium deficiency; blood pressure support; electrolyte balance; safety screen: kidney disease; ACE inhibitors/ARBs; potassium-sparing diuretics.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "membrane potential",
       "cardiovascular regulation"
@@ -13272,7 +13272,7 @@
   {
     "slug": "electrolytes-potassium",
     "name": "Potassium electrolytes",
-    "summary": "Decision-ready summary: Potassium electrolytes is best framed for electrolyte replacement; blood pressure support; muscle function; safety screen: kidney disease; ACE inhibitors/ARBs; potassium-sparing diuretics.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cardiovascular function",
       "neuromuscular function"
@@ -13290,7 +13290,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -13299,14 +13299,14 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "pqq",
     "name": "PQQ",
-    "summary": "PQQ entry from SciSpace evidence pass. Evidence level: low.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "PGC-1α",
       "mitochondrial pathways"
@@ -13367,7 +13367,7 @@
   {
     "slug": "proanthocyanidins",
     "name": "Proanthocyanidins",
-    "summary": "Proanthocyanidins is a polyphenols associated with cranberry. Evidence level: moderate.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "E. coli adhesion pathways"
     ],
@@ -13391,7 +13391,7 @@
   {
     "slug": "probiotic-multistrain",
     "name": "Probiotic Multistrain",
-    "summary": "Probiotic Multistrain is tracked for Modulates gut microbiota composition, pathogen colonization resistance, epithelial barrier function, and immune signaling with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Digestive Health",
       "Immune Function"
@@ -13409,7 +13409,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -13418,7 +13418,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -13537,7 +13537,7 @@
   {
     "slug": "proline",
     "name": "proline",
-    "summary": "proline is tracked for involved in collagen synthesis and connective tissue repair; key amino acid in collagen synthesis supporting connective with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "involved in collagen synthesis and connective tissue repair"
     ],
@@ -13561,7 +13561,7 @@
   {
     "slug": "propionate",
     "name": "propionate",
-    "summary": "propionate is tracked for short- chain fatty acid activating FFAR2/3, improving insulin sensitivity and satiety signaling; short- chain fatty acid with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "glucose_AMPK"
     ],
@@ -13585,7 +13585,7 @@
   {
     "slug": "protodioscin",
     "name": "Protodioscin",
-    "summary": "Protodioscin is a steroidal saponin associated with tribulus. Evidence level: mixed.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "androgen pathways"
     ],
@@ -13639,7 +13639,7 @@
   {
     "slug": "psyllium-husk",
     "name": "Psyllium husk",
-    "summary": "Decision-ready summary: Psyllium husk is best framed for LDL cholesterol reduction; constipation; glycemic response smoothing; safety screen: bowel obstruction; swallowing difficulty; medication timing conflicts.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "bile acid binding"
     ],
@@ -13655,7 +13655,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -13664,7 +13664,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -13769,7 +13769,7 @@
   {
     "slug": "pumpkin-seed-oil",
     "name": "Pumpkin seed oil",
-    "summary": "Decision-ready summary: Pumpkin seed oil is best framed for BPH urinary symptoms; hair support context; lipid support; safety screen: anticoagulants caution; seed allergy.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "prostate symptoms",
       "androgen metabolism (proposed)"
@@ -13821,7 +13821,7 @@
   {
     "slug": "putrescine",
     "name": "putrescine",
-    "summary": "putrescine is tracked for polyamine involved in cellular growth and gut mucosal integrity via modulation of cell proliferation pathways; polyamine with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Cardiovascular Health",
       "Digestive Health",
@@ -13927,7 +13927,7 @@
   {
     "slug": "pyridoxal-5-phosphate",
     "name": "Pyridoxal-5-phosphate",
-    "summary": "Decision-ready summary: Pyridoxal-5-phosphate is best framed for B6 repletion; homocysteine metabolism; neurotransmitter cofactor support; safety screen: high-dose chronic use; neuropathy risk.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "serotonin synthesis",
       "GABA synthesis",
@@ -14019,7 +14019,7 @@
   {
     "slug": "red-yeast-rice",
     "name": "Red Yeast Rice",
-    "summary": "Decision-ready summary: Red Yeast Rice is best framed for LDL cholesterol reduction when medically appropriate; statin-like supplement comparison; safety screen: statins; liver disease; pregnancy; CYP3A4 inhibitors.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "HMG-CoA reductase"
     ],
@@ -14043,7 +14043,7 @@
   {
     "slug": "resistant-starch",
     "name": "Resistant Starch",
-    "summary": "Decision-ready summary: Resistant Starch is best framed for gut microbiome support; insulin sensitivity context; satiety support; safety screen: IBS/FODMAP sensitivity; bloating-prone users.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Metabolic Health",
       "Digestive Health"
@@ -14289,7 +14289,7 @@
   {
     "slug": "saccharomyces-boulardii",
     "name": "Saccharomyces boulardii",
-    "summary": "Decision-ready summary: Saccharomyces boulardii is best framed for antibiotic-associated diarrhea risk; traveler’s diarrhea context; gut resilience; safety screen: central venous catheter; severe immunocompromise; critical illness.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "intestinal pathogens",
       "gut immune response"
@@ -14315,7 +14315,7 @@
   {
     "slug": "saffron-extract",
     "name": "Saffron Extract",
-    "summary": "Saffron Extract is tracked for May affect serotonergic signaling, antioxidant pathways, and inflammatory mediators with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Oxidative Stress",
       "Inflammation",
@@ -14339,7 +14339,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -14348,7 +14348,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -14501,7 +14501,7 @@
   {
     "slug": "sam-e",
     "name": "SAM-e",
-    "summary": "Decision-ready summary: SAM-e is best framed for depressive symptoms support; osteoarthritis discomfort; methylation context; safety screen: bipolar disorder; MAOIs; serotonergic medications.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "methylation pathways",
       "monoamine-related pathways"
@@ -14658,7 +14658,7 @@
   {
     "slug": "schisandrins",
     "name": "Schisandrins",
-    "summary": "Schisandrins is a lignans associated with schisandra. Evidence level: mixed.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "liver enzymes",
       "antioxidant pathways"
@@ -14818,7 +14818,7 @@
   {
     "slug": "serine",
     "name": "serine",
-    "summary": "serine is tracked for supports phosphatidylserine synthesis and neuronal membrane function; supports neuronal membrane synthesis and with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "supports phosphatidylserine synthesis and neuronal membrane function"
     ],
@@ -14900,7 +14900,7 @@
   {
     "slug": "shilajit",
     "name": "Shilajit",
-    "summary": "Shilajit entry from SciSpace evidence pass. Evidence level: low.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "mitochondrial pathways proposed"
     ],
@@ -14956,7 +14956,7 @@
   {
     "slug": "shogaol",
     "name": "shogaol",
-    "summary": "shogaol is tracked for Modulates inflammatory pathways via NF-kB inhibition with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "NF-kB"
     ],
@@ -15110,7 +15110,7 @@
   {
     "slug": "silymarin",
     "name": "Silymarin",
-    "summary": "Decision-ready summary: Silymarin is best framed for liver enzyme support context; antioxidant liver support; toxin-exposure research context; safety screen: ragweed allergy; estrogen-sensitive conditions; medication review.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "hepatocytes",
       "oxidative stress pathways"
@@ -15136,7 +15136,7 @@
   {
     "slug": "skullcap",
     "name": "Skullcap",
-    "summary": "Skullcap entry from SciSpace evidence pass. Evidence level: low.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "GABA-A receptor",
       "inflammatory pathways"
@@ -15234,7 +15234,7 @@
   {
     "slug": "electrolytes-sodium",
     "name": "Sodium electrolytes",
-    "summary": "Decision-ready summary: Sodium electrolytes is best framed for sweat replacement; endurance hydration; rehydration; safety screen: hypertension; heart failure; kidney disease; sodium restriction.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "fluid balance",
       "sodium channels",
@@ -15254,7 +15254,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -15263,14 +15263,14 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "spermidine",
     "name": "spermidine",
-    "summary": "spermidine is tracked for Indu ces autophagy via mTOR inhibition pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "mTOR autophagy"
     ],
@@ -15294,7 +15294,7 @@
   {
     "slug": "spirulina",
     "name": "Spirulina",
-    "summary": "Spirulina is tracked for Nutrient-dense cyanobacteria with antioxidant and lipid-metabolism mechanisms proposed with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Oxidative Stress",
       "Metabolic Health",
@@ -15318,7 +15318,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -15327,7 +15327,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -16036,7 +16036,7 @@
   {
     "slug": "tudca",
     "name": "TUDCA",
-    "summary": "Decision-ready summary: TUDCA is best framed for cholestatic bile-acid support research; liver enzyme support context; safety screen: bile obstruction without care; pregnancy safety uncertainty.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "ER stress bile acid signaling"
     ],
@@ -16060,7 +16060,7 @@
   {
     "slug": "turkesterone",
     "name": "turkesterone",
-    "summary": "turkesterone is tracked for ecdysteroid that may enhance protein synthesis via estrogen receptor beta activation with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Hormonal Health",
       "Exercise Performance"
@@ -16156,7 +16156,7 @@
   {
     "slug": "coenzyme-q10-ubiquinol",
     "name": "Ubiquinol CoQ10",
-    "summary": "Decision-ready summary: Ubiquinol CoQ10 is best framed for statin-associated muscle symptoms; heart failure support; mitochondrial fatigue; safety screen: warfarin or anticoagulant management; planned surgery.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "mitochondrial ETC",
       "oxidative stress pathways"
@@ -16182,7 +16182,7 @@
   {
     "slug": "uc-ii-collagen",
     "name": "Uc Ii Collagen",
-    "summary": "Uc Ii Collagen is tracked for May induce oral tolerance to type II collagen and reduce immune-mediated cartilage inflammation with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Inflammation",
       "Immune Function"
@@ -16200,7 +16200,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -16209,7 +16209,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -16490,7 +16490,7 @@
   {
     "slug": "valerian-root-extract",
     "name": "Valerian Root Extract",
-    "summary": "Valerian Root Extract is tracked for Enhances GABA signaling by inhibiting breakdown and increasing receptor activity with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "GABA signaling"
     ],
@@ -16506,7 +16506,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -16515,7 +16515,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -16702,7 +16702,7 @@
   {
     "slug": "vitamin-b6",
     "name": "Vitamin B6",
-    "summary": "Decision-ready summary: Vitamin B6 is best framed for B6 deficiency; PMS symptom support; homocysteine metabolism; safety screen: neuropathy risk with high-dose chronic use.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "amino acid metabolism",
       "neurotransmitter synthesis"
@@ -16764,7 +16764,7 @@
   {
     "slug": "vitamin-d",
     "name": "Vitamin D",
-    "summary": "Decision-ready summary: Vitamin D is best framed for vitamin D deficiency correction; bone health; immune support when deficient; safety screen: hypercalcemia; sarcoidosis; high-dose use without labs.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "vitamin D receptor",
       "calcium/phosphate metabolism",
@@ -16784,7 +16784,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -16793,7 +16793,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -16922,7 +16922,7 @@
   {
     "slug": "protein-whey-isolate",
     "name": "Whey protein isolate",
-    "summary": "Decision-ready summary: Whey protein isolate is best framed for protein intake support; muscle protein synthesis; lean mass support; safety screen: milk allergy; severe kidney disease requiring protein restriction.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Exercise Performance",
       "Longevity"
@@ -16940,7 +16940,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -16949,7 +16949,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -16980,7 +16980,7 @@
   {
     "slug": "willow-bark-extract",
     "name": "Willow Bark Extract",
-    "summary": "Willow Bark Extract is tracked for Contains salicin, metabolized to salicylate compounds that affect prostaglandin-mediated pain pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Inflammation",
       "Oxidative Stress",
@@ -17000,7 +17000,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -17009,7 +17009,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context-missing",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -17246,7 +17246,7 @@
   {
     "slug": "yohimbine",
     "name": "Yohimbine",
-    "summary": "Yohimbine is tracked for Alpha-2 adrenergic receptor antagonist increasing sympathetic activity and norepinephrine release with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "alpha-2 adrenergic receptor"
     ],
@@ -17262,7 +17262,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -17271,14 +17271,14 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "zeaxanthin",
     "name": "Zeaxanthin",
-    "summary": "Decision-ready summary: Zeaxanthin is best framed for macular pigment support; retinal antioxidant protection; eye-health stacks; safety screen: none significant; review pregnancy supplement stack.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "macula",
       "retinal oxidative stress"
@@ -17304,7 +17304,7 @@
   {
     "slug": "zinc",
     "name": "Zinc",
-    "summary": "Decision-ready summary: Zinc is best framed for zinc deficiency; immune support; wound healing support; safety screen: copper deficiency risk with high-dose chronic use; nausea.",
+    "summary": "Compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "immune function",
       "enzymatic systems",

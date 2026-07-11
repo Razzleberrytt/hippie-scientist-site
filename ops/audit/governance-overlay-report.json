@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-07T02:37:02.205Z",
+  "generatedAt": "2026-07-11T11:48:36.935Z",
   "dataDir": "public\\data",
   "removedSingularDirs": [],
   "trimmedSummaries": {
@@ -11,7 +11,9 @@
     "compounds": []
   },
   "createdMissingDetails": {
-    "herbs": [],
+    "herbs": [
+      "lobelia-inflata"
+    ],
     "compounds": []
   },
   "deIndexed": {
@@ -36,6 +38,7 @@
       "holy-basil-seed",
       "kuding-tea",
       "lemongrass",
+      "lobelia-inflata",
       "marshmallow",
       "milk-oats",
       "oatstraw",
@@ -45,6 +48,7 @@
       "shatavari",
       "tribulus-terrestris",
       "wild-yam",
+      "withania-somnifera",
       "wormwood",
       "yarrow",
       "yerba-mate"
@@ -164,15 +168,15 @@
   },
   "counts": {
     "herbs": {
-      "records": 290,
-      "detailFiles": 290,
+      "records": 291,
+      "detailFiles": 291,
       "indexable": 232,
-      "needsReview": 32
+      "needsReview": 34
     },
     "compounds": {
       "records": 565,
       "detailFiles": 565,
-      "indexable": 70,
+      "indexable": 73,
       "needsReview": 114
     }
   },

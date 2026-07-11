@@ -90,5 +90,6 @@
     "safety-context-missing",
     "summary-depth",
     "summary-quality-missing"
-  ]
+  ],
+  "safety": "Generally well tolerated for most users."
 }

@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-07-11T03:35:48.641Z",
+  "generatedAt": "2026-07-11T11:49:59.373Z",
   "source": {
     "workbookPath": "data-sources/herb_monograph_master.xlsx",
     "workbook": "herb_monograph_master.xlsx"
   },
   "output": "public/data",
   "counts": {
-    "herbs": 290,
+    "herbs": 291,
     "compounds": 565,
-    "herbsSummary": 290,
+    "herbsSummary": 291,
     "compoundsSummary": 565,
-    "herbDetails": 290,
+    "herbDetails": 291,
     "compoundDetails": 565
   }
 }
