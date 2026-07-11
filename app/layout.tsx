@@ -27,6 +27,7 @@ import '@/styles/resonant-theme-lighting.css'
 import '@/styles/premium-surface-details.css'
 import '@/styles/accessibility-wcag-22.css'
 import '@/styles/article-visual-polish.css'
+import '@/styles/compact-safety-cautions.css'
 
 const HOME_TITLE = 'The Hippie Scientist | Supplement Research'
 
