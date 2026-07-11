@@ -1,16 +1,16 @@
 name: Apply Citicoline Workbook Patch
 
 on:
-  pull_request:
+  push:
     branches:
-      - main
+      - workbook-patch-pilot-citicoline-20260710
     paths:
       - 'data-sources/workbook-patches/citicoline-scite-pilot.json'
       - 'data-sources/herb_monograph_master.xlsx'
       - '.github/workflows/apply-citicoline-workbook-patch.yml'
 
 concurrency:
-  group: apply-citicoline-workbook-patch-${{ github.event.pull_request.number }}
+  group: apply-citicoline-workbook-patch
   cancel-in-progress: true
 
 permissions:
@@ -18,15 +18,14 @@ permissions:
 
 jobs:
   apply:
-    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
     steps:
-      - name: Checkout pull-request branch
+      - name: Checkout patch branch
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
+          ref: ${{ github.ref_name }}
           fetch-depth: 0
 
       - name: Setup Node.js
@@ -86,6 +85,4 @@ jobs:
                   data-sources/workbook-patches/citicoline-scite-pilot.json \
                   .github/workflows/apply-citicoline-workbook-patch.yml
           git commit -m 'data: apply reviewed Citicoline workbook patch'
-          git push origin HEAD:${{ github.event.pull_request.head.ref }}
-
-# One-time reviewed application workflow; removes itself after a successful commit.
+          git push origin HEAD:${{ github.ref_name }}
