@@ -17,6 +17,7 @@ import {
   SITE_URL,
   BreadcrumbItem,
 } from '@/lib/navigation-config'
+import { serializeJsonLd } from '@/src/lib/schema-injector'
 
 /**
  * Generate BreadcrumbList schema from pathname
@@ -72,7 +73,7 @@ export function BreadcrumbSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(schema),
+        __html: serializeJsonLd(schema),
       }}
       suppressHydrationWarning
     />
