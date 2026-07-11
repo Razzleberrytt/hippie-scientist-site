@@ -124,6 +124,50 @@ function uniqueBy(values, keyFn) {
   return output
 }
 
+function mergeSources(existingSources, canonicalSources) {
+  const byKey = new Map()
+
+  for (const source of existingSources) {
+    const key = sourceKey(source)
+    if (key) byKey.set(key, source)
+  }
+
+  for (const source of canonicalSources) {
+    const key = sourceKey(source)
+    if (!key) continue
+    const existing = byKey.get(key)
+    if (existing && typeof existing === 'object' && typeof source === 'object') {
+      byKey.set(key, compact({ ...existing, ...source }))
+    } else {
+      byKey.set(key, source)
+    }
+  }
+
+  return [...byKey.values()]
+}
+
+function mergeClaims(existingClaims, canonicalClaims) {
+  const byKey = new Map()
+
+  for (const claim of existingClaims) {
+    const key = claimKey(claim)
+    if (key) byKey.set(key, claim)
+  }
+
+  for (const claim of canonicalClaims) {
+    const key = claimKey(claim)
+    if (!key) continue
+    const existing = byKey.get(key)
+    if (existing && typeof existing === 'object' && typeof claim === 'object') {
+      byKey.set(key, compact({ ...existing, ...claim }))
+    } else {
+      byKey.set(key, claim)
+    }
+  }
+
+  return [...byKey.values()]
+}
+
 export function buildCanonicalCitationOverlay(dataset) {
   const entities = Array.isArray(dataset?.entities) ? dataset.entities : []
   const claims = Array.isArray(dataset?.claims) ? dataset.claims : []
@@ -211,8 +255,8 @@ export function mergeCanonicalCitationOverlay(record, overlay) {
 
   const existingSources = Array.isArray(record.sources) ? record.sources : []
   const existingClaims = Array.isArray(record.claimMap) ? record.claimMap : []
-  const sources = uniqueBy([...existingSources, ...(overlay.sources || [])], sourceKey)
-  const claimMap = uniqueBy([...existingClaims, ...(overlay.claimMap || [])], claimKey)
+  const sources = mergeSources(existingSources, overlay.sources || [])
+  const claimMap = mergeClaims(existingClaims, overlay.claimMap || [])
   const existingEvidence = record.evidence && typeof record.evidence === 'object' ? record.evidence : {}
   const sourceIds = uniqueBy([
     ...(Array.isArray(existingEvidence.sourceIds) ? existingEvidence.sourceIds : []),
