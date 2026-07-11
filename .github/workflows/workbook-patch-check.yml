@@ -13,7 +13,6 @@ on:
       - 'scripts/ci/validate-workbook-schema.mjs'
       - 'scripts/utils/read-workbook-exceljs.mjs'
       - '.github/workflows/workbook-patch-check.yml'
-      - '.github/workflows/apply-citicoline-workbook-patch.yml'
   workflow_dispatch:
 
 concurrency:
@@ -21,20 +20,17 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  apply-reviewed-patch:
-    name: Apply reviewed Citicoline patch
+  validate:
+    name: Validate workbook patches
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
 
     steps:
-      - name: Checkout pull-request branch
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -46,146 +42,32 @@ jobs:
       - name: Install dependencies
         run: npm ci --silent
 
-      - name: Apply approved patch when pending
-        shell: bash
-        run: |
-          status=$(node --input-type=module <<'NODE'
-          import fs from 'node:fs'
-          const patch = JSON.parse(fs.readFileSync('data-sources/workbook-patches/citicoline-scite-pilot.json', 'utf8'))
-          process.stdout.write(patch.status)
-          NODE
-          )
+      - name: Verify Node engine
+        run: npm run check:node --silent
 
-          if [ "$status" = "applied" ]; then
-            echo 'Citicoline patch is already applied; validating current workbook.'
-            exit 0
-          fi
+      - name: Validate workbook schema
+        run: npm run validate:workbook-schema --silent
 
-          if [ "$status" != "approved" ]; then
-            echo "Expected approved or applied patch, found: $status" >&2
-            exit 1
-          fi
-
-          node --input-type=module <<'NODE'
-          import fs from 'node:fs'
-          import JSZip from 'jszip'
-
-          const workbookPath = 'data-sources/herb_monograph_master.xlsx'
-          const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-
-          function normalizeRelationshipXml(xml) {
-            const rootMatch = xml.match(/<([A-Za-z_][\w.-]*):Relationships\b/)
-            if (!rootMatch) return xml
-            const prefix = escapeRegExp(rootMatch[1])
-            return xml
-              .replace(new RegExp(`<(/?)${prefix}:Relationships\\b`, 'g'), '<$1Relationships')
-              .replace(new RegExp(`<(/?)${prefix}:Relationship\\b`, 'g'), '<$1Relationship')
-              .replace(new RegExp(`\\sxmlns:${prefix}=`, 'g'), ' xmlns=')
-          }
-
-          function normalizeSpreadsheetXml(xml) {
-            let output = xml
-            const mainMatch = output.match(
-              /xmlns:([A-Za-z_][\w.-]*)="http:\/\/schemas\.openxmlformats\.org\/spreadsheetml\/2006\/main"/,
-            )
-            if (mainMatch) {
-              const prefix = escapeRegExp(mainMatch[1])
-              output = output
-                .replace(new RegExp(`<(/?)${prefix}:`, 'g'), '<$1')
-                .replace(new RegExp(`\\sxmlns:${prefix}=`, 'g'), ' xmlns=')
-            }
-
-            const relMatch = output.match(
-              /xmlns:([A-Za-z_][\w.-]*)="http:\/\/schemas\.openxmlformats\.org\/officeDocument\/2006\/relationships"/,
-            )
-            if (relMatch && relMatch[1] !== 'r') {
-              const prefix = escapeRegExp(relMatch[1])
-              output = output
-                .replace(new RegExp(`\\sxmlns:${prefix}=`, 'g'), ' xmlns:r=')
-                .replace(new RegExp(`\\b${prefix}:`, 'g'), 'r:')
-            }
-            return output
-          }
-
-          const source = fs.readFileSync(workbookPath)
-          const zip = await JSZip.loadAsync(source)
-          let changedFiles = 0
-
-          for (const entry of Object.values(zip.files)) {
-            if (entry.dir) continue
-            let normalize = null
-            if (entry.name.endsWith('.rels')) normalize = normalizeRelationshipXml
-            else if (entry.name.startsWith('xl/') && entry.name.endsWith('.xml')) normalize = normalizeSpreadsheetXml
-            if (!normalize) continue
-
-            const xml = await entry.async('string')
-            const normalized = normalize(xml)
-            if (normalized === xml) continue
-            zip.file(entry.name, normalized)
-            changedFiles += 1
-          }
-
-          if (changedFiles > 0) {
-            const output = await zip.generateAsync({
-              type: 'nodebuffer',
-              compression: 'DEFLATE',
-              compressionOptions: { level: 6 },
-            })
-            fs.writeFileSync(workbookPath, output)
-          }
-          console.log(`Normalized namespace-prefixed OOXML in ${changedFiles} workbook part(s).`)
-          NODE
-
-          node scripts/data/apply-workbook-patch.mjs \
-            --patch data-sources/workbook-patches/citicoline-scite-pilot.json \
-            --apply \
-            --approve-human-review \
-            --in-place
-
-          node --input-type=module <<'NODE'
-          import fs from 'node:fs'
-          const file = 'data-sources/workbook-patches/citicoline-scite-pilot.json'
-          const patch = JSON.parse(fs.readFileSync(file, 'utf8'))
-          patch.status = 'applied'
-          patch.applied_at = '2026-07-10'
-          patch.applied_by = 'GitHub Actions reviewed patch runner'
-          fs.writeFileSync(file, `${JSON.stringify(patch, null, 2)}\n`, 'utf8')
-          NODE
-
-      - name: Verify workbook and applied record
-        run: |
-          npm run validate:workbook-schema --silent
-          node scripts/ci/validate-workbook-patches.mjs
-          npm run workbook:roundtrip-test --silent
-
-      - name: Commit and push applied workbook
-        id: publish
+      - name: Validate patch proposals against current workbook
+        id: patch_check
         continue-on-error: true
         shell: bash
-        env:
-          GH_TOKEN: ${{ github.token }}
-          HEAD_BRANCH: ${{ github.event.pull_request.head.ref }}
         run: |
-          exec > >(tee workbook-publish-report.txt) 2>&1
-          set -x
-          git status --short
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data-sources/herb_monograph_master.xlsx
-          git add -f data-sources/workbook-patches/citicoline-scite-pilot.json
-          git commit -m 'data: apply reviewed Citicoline workbook patch'
-          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          git push origin "HEAD:${HEAD_BRANCH}"
+          set +e
+          node scripts/ci/validate-workbook-patches.mjs > workbook-patch-report.txt 2>&1
+          status=$?
+          cat workbook-patch-report.txt
+          exit "$status"
 
-      - name: Upload workbook publish report
+      - name: Upload workbook patch report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: workbook-publish-report
-          path: workbook-publish-report.txt
-          if-no-files-found: warn
-          retention-days: 3
+          name: workbook-patch-report
+          path: workbook-patch-report.txt
+          if-no-files-found: error
+          retention-days: 14
 
-      - name: Enforce workbook publication
-        if: steps.publish.outcome != 'success'
+      - name: Enforce workbook patch result
+        if: steps.patch_check.outcome != 'success'
         run: exit 1
