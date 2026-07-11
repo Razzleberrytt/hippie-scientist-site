@@ -2,7 +2,7 @@
   "patch_version": 1,
   "id": "citicoline-scite-pilot-2026-07-10",
   "title": "Scite-grounded Citicoline enrichment pilot",
-  "status": "approved",
+  "status": "applied",
   "generated_at": "2026-07-10",
   "approved_at": "2026-07-10",
   "approved_by": "Willie Randolph",
@@ -103,5 +103,7 @@
       "requires_human_review": true,
       "rationale": "Replaces a generalized dose range with exact regimens reported in the retrieved human cognition literature."
     }
-  ]
+  ],
+  "applied_at": "2026-07-10",
+  "applied_by": "GitHub Actions reviewed patch runner"
 }
