@@ -13,7 +13,8 @@
     "This proposal does not alter evidence_tier, evidence_grade, profile_status, or publishing controls.",
     "The dosage field describes regimens studied in human trials and is not individualized advice.",
     "Positive memory findings are framed as preliminary and population-specific because study populations, doses, outcomes, and designs are heterogeneous.",
-    "The 12-week 500 mg/day trial used a branded citicoline ingredient; avoid generalizing one product-specific trial to all products."
+    "The 12-week 500 mg/day trial used a branded citicoline ingredient; avoid generalizing one product-specific trial to all products.",
+    "Parser-supported evidence_rationale and trial_design_insight fields were intentionally omitted because those columns are not present in the current Entity_Master schema."
   ],
   "sources": [
     {
@@ -70,19 +71,6 @@
         "claim-limitations"
       ],
       "access": "publisher-pdf"
-    },
-    {
-      "id": "doi:10.3390/brainsci3031395",
-      "doi": "10.3390/brainsci3031395",
-      "title": "The Role of Citicoline in Neuroprotection and Neurorepair in Ischemic Stroke",
-      "authors": "Álvarez-Sabín and Román",
-      "journal": "Brain Sciences",
-      "year": 2013,
-      "roles": [
-        "neutral-context",
-        "comparative-safety"
-      ],
-      "access": "publisher-pdf"
     }
   ],
   "changes": [
@@ -100,35 +88,6 @@
       ],
       "requires_human_review": false,
       "rationale": "Adds mechanism context, a specific human-trial anchor, and explicit limits against overgeneralizing heterogeneous cognition evidence."
-    },
-    {
-      "slug": "citicoline",
-      "column": "evidence_rationale",
-      "expected_old_value": "",
-      "new_value": "Human evidence includes small randomized placebo-controlled trials and systematic reviews across healthy older adults and people with cognitive impairment. A 12-week trial of 500 mg/day reported improvements in episodic and composite memory versus placebo, while reviews describe heterogeneous populations, outcomes, and study quality. Neutral findings in other neurological indications limit broad generalization.",
-      "confidence": "moderate",
-      "source_ids": [
-        "doi:10.1093/jn/nxab119",
-        "doi:10.3390/nu15020386",
-        "doi:10.14283/jarcp.2015.79",
-        "doi:10.3390/brainsci3031395"
-      ],
-      "requires_human_review": false,
-      "rationale": "Explains why the evidence should remain limited rather than upgrading the evidence tier from one favorable trial."
-    },
-    {
-      "slug": "citicoline",
-      "column": "trial_design_insight",
-      "expected_old_value": "",
-      "new_value": "Most favorable cognition findings come from short-term studies in selected older adults or cognitively impaired populations rather than large independent trials in broadly healthy adults. Doses, indications, comparators, and outcome measures vary, so findings are best treated as suggestive and population-specific.",
-      "confidence": "high",
-      "source_ids": [
-        "doi:10.1093/jn/nxab119",
-        "doi:10.3390/nu15020386",
-        "doi:10.14283/jarcp.2015.79"
-      ],
-      "requires_human_review": false,
-      "rationale": "Captures the key external-validity and heterogeneity limitations visible across the trial literature."
     },
     {
       "slug": "citicoline",
