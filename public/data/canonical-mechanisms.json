@@ -78,7 +78,9 @@
       "ampk upregulation",
       "amp-activated protein kinase activation",
       "cellular energy sensing",
-      "AMPK Signaling"
+      "AMPK Signaling",
+      "AMPK",
+      "AMPK pathway"
     ],
     "confidence_status": "active_needs_review"
   },
@@ -113,7 +115,9 @@
       "inflammation reduction",
       "prostaglandin modulation",
       "Inflammatory Signaling Modulation",
-      "inflammatory signaling"
+      "inflammatory signaling",
+      "inflammatory",
+      "inflammation"
     ],
     "confidence_status": "active_needs_review"
   },
@@ -131,7 +135,9 @@
       "free radical scavenger",
       "oxidative stress reduction",
       "Oxidative Stress Modulation",
-      "redox modulation"
+      "redox modulation",
+      "Oxidative Stress",
+      "Antioxidant defense"
     ],
     "confidence_status": "active_needs_review"
   },
@@ -319,7 +325,9 @@
       "endocannabinoid support",
       "cb1 modulation",
       "cb2 modulation",
-      "cannabinoid receptor modulation"
+      "cannabinoid receptor modulation",
+      "endocannabinoid",
+      "endocannabinoid system"
     ],
     "confidence_status": "active_needs_review"
   },
@@ -370,7 +378,8 @@
       "blood sugar support",
       "glycemic control",
       "blood glucose support",
-      "Glucose Metabolism Support"
+      "Glucose Metabolism Support",
+      "Glucose Metabolism"
     ],
     "confidence_status": "active_needs_review"
   },
@@ -417,7 +426,9 @@
       "microbiome support",
       "prebiotic effect",
       "gut flora modulation",
-      "microbial diversity"
+      "microbial diversity",
+      "gut_microbiome",
+      "gut microbiome"
     ],
     "confidence_status": "active_needs_review"
   },
@@ -448,7 +459,9 @@
       "Hormonal signaling context",
       "hormonal signaling",
       "endocrine modulation",
-      "endocrine support"
+      "endocrine support",
+      "endocrine",
+      "endocrine signaling"
     ],
     "confidence_status": "active_needs_review"
   },
@@ -512,7 +525,8 @@
       "Lipid metabolism support",
       "cholesterol metabolism support",
       "lipid regulation",
-      "fat metabolism support"
+      "fat metabolism support",
+      "Lipid Metabolism"
     ],
     "confidence_status": "active_needs_review"
   },
@@ -592,7 +606,9 @@
       "Metabolic regulation",
       "metabolic support",
       "metabolic signaling",
-      "metabolic modulation"
+      "metabolic modulation",
+      "metabolic",
+      "metabolism"
     ],
     "confidence_status": "active_needs_review"
   },
@@ -610,7 +626,8 @@
       "pgc-1alpha activation",
       "energy metabolism support",
       "energy metabolism",
-      "cellular energy support"
+      "cellular energy support",
+      "mitochondrial"
     ],
     "confidence_status": "active_needs_review"
   },
@@ -626,7 +643,9 @@
       "mtor inhibition",
       "mtor activation",
       "mechanistic target of rapamycin",
-      "mTOR Signaling"
+      "mTOR Signaling",
+      "mTOR",
+      "mTOR pathway"
     ],
     "confidence_status": "active_needs_review"
   },
@@ -641,7 +660,8 @@
       "Neuroprotective activity",
       "neuroprotection",
       "neural protection",
-      "neuronal protection"
+      "neuronal protection",
+      "neuroprotective"
     ],
     "confidence_status": "active_needs_review"
   },
@@ -660,7 +680,10 @@
       "nf-kb downregulation",
       "pro-inflammatory gene downregulation",
       "NF-kB Modulation",
-      "NF kB modulation"
+      "NF kB modulation",
+      "NF-kB",
+      "NF-kB signaling",
+      "NF-kB pathway"
     ],
     "confidence_status": "active_needs_review"
   },
@@ -694,7 +717,9 @@
       "nrf2 upregulation",
       "nrf2 pathway",
       "antioxidant response element",
-      "are activation"
+      "are activation",
+      "Nrf2",
+      "Nrf2 signaling"
     ],
     "confidence_status": "active_needs_review"
   },
@@ -852,7 +877,9 @@
       "Vascular function support",
       "circulatory support",
       "blood flow support",
-      "vascular tone support"
+      "vascular tone support",
+      "Endothelial Function",
+      "cardiovascular"
     ],
     "confidence_status": "active_needs_review"
   }
