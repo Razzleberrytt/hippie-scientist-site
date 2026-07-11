@@ -1,0 +1,56 @@
+name: Evidence Data Check
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - 'data/canonical/claims/**'
+      - 'data/canonical/sources/**'
+      - 'data/patches/**'
+      - 'data/reviews/evidence/**'
+      - 'public/data/herbs-detail/**'
+      - 'public/data/compounds-detail/**'
+      - 'scripts/data/canonical/citation-export.mjs'
+      - 'scripts/data/canonical/evidence-finalize.mjs'
+      - 'scripts/data/finalize-evidence-profile.mjs'
+      - 'scripts/ci/validate-evidence-reviews.mjs'
+      - 'package.json'
+  workflow_dispatch:
+
+concurrency:
+  group: evidence-data-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  evidence-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node from .nvmrc
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run focused evidence tests
+        run: |
+          npx vitest run \
+            scripts/data/canonical/__tests__/citation-export.test.mjs \
+            scripts/data/canonical/__tests__/evidence-finalize.test.mjs \
+            components/ui/__tests__/ShowMeTheStudies.test.tsx
+
+      - name: Validate canonical data
+        run: npm run data:canonical:validate
+
+      - name: Validate evidence review manifests
+        run: node scripts/ci/validate-evidence-reviews.mjs
