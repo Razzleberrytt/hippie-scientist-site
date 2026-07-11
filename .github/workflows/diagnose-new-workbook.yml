@@ -1,4 +1,4 @@
-name: Diagnose New Workbook
+name: Sync Workbook Compatibility Dependency
 
 on:
   push:
@@ -6,34 +6,30 @@ on:
       - repair-new-workbook-namespace-20260710
 
 permissions:
-  contents: read
-  issues: write
-  pull-requests: write
+  contents: write
 
 jobs:
-  diagnose:
+  sync-lockfile:
     runs-on: ubuntu-latest
     steps:
-      - name: Post final build failure to PR
+      - uses: actions/checkout@v4
+        with:
+          ref: repair-new-workbook-namespace-20260710
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - name: Declare jszip and update lockfile
+        run: npm install --save-dev --package-lock-only jszip@3.10.1
+      - name: Commit lockfile update
         shell: bash
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
-          set -uo pipefail
-          git clone --quiet --depth 1 --branch "$GITHUB_REF_NAME" \
-            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" repo
-          cd repo
-          npm ci --silent >/tmp/npm-install.log 2>&1
-          set +e
-          npm run build:deploy >/tmp/build-deploy.log 2>&1
-          status=$?
-          set -e
-          {
-            echo "## Temporary workbook diagnostic"
-            echo
-            echo '```text'
-            tail -n 60 /tmp/build-deploy.log
-            echo '```'
-          } >/tmp/pr-comment.md
-          gh pr comment 2162 --repo "$GITHUB_REPOSITORY" --body-file /tmp/pr-comment.md
-          exit "$status"
+          if git diff --quiet -- package.json package-lock.json; then
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          git commit -m "chore(deps): declare jszip workbook compatibility dependency"
+          git push origin HEAD:repair-new-workbook-namespace-20260710
