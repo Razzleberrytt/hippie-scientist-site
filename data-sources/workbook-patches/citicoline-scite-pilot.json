@@ -11,7 +11,7 @@
   "scope": "Entity_Master",
   "review_notes": [
     "This proposal does not alter evidence_tier, evidence_grade, profile_status, or publishing controls.",
-    "The dosage field describes regimens studied in human trials and is not individualized advice.",
+    "The dosage field describes specific regimens reported in human cognition studies and is not individualized advice.",
     "Positive memory findings are framed as preliminary and population-specific because study populations, doses, outcomes, and designs are heterogeneous.",
     "The 12-week 500 mg/day trial used a branded citicoline ingredient; avoid generalizing one product-specific trial to all products.",
     "Parser-supported evidence_rationale and trial_design_insight fields were intentionally omitted because those columns are not present in the current Entity_Master schema."
@@ -27,7 +27,7 @@
       "roles": [
         "human-efficacy",
         "studied-dose",
-        "short-term-safety"
+        "short-term-safety-monitoring"
       ],
       "access": "publisher-pdf"
     },
@@ -78,7 +78,7 @@
       "slug": "citicoline",
       "column": "summary",
       "expected_old_value": "Citicoline (CDP-choline) is a choline source studied as non-stimulant support for attention and focus, and for cognition in older adults. Human evidence is limited and the effects are modest — it is a supportive option rather than a dramatic cognitive enhancer, and works best alongside sleep and healthy habits.",
-      "new_value": "Citicoline (CDP-choline) supplies choline and cytidine-derived precursors used in phosphatidylcholine metabolism. Small randomized trials in selected older adults suggest possible short-term improvements in memory, including a 12-week study using 500 mg/day, but the broader evidence is heterogeneous and does not establish a large or universal cognitive-enhancing effect. Human studies generally report good short-term tolerability.",
+      "new_value": "Citicoline (CDP-choline) supplies choline and cytidine-derived precursors used in phosphatidylcholine metabolism. Small randomized trials in selected older adults suggest possible short-term improvements in memory, including a 12-week study using 500 mg/day, but the broader evidence is heterogeneous and does not establish a large or universal cognitive-enhancing effect.",
       "confidence": "moderate",
       "source_ids": [
         "doi:10.1093/jn/nxab119",
@@ -87,20 +87,19 @@
         "doi:10.3390/nu11071569"
       ],
       "requires_human_review": false,
-      "rationale": "Adds mechanism context, a specific human-trial anchor, and explicit limits against overgeneralizing heterogeneous cognition evidence."
+      "rationale": "Adds mechanism context, a specific human-trial anchor, and explicit limits against overgeneralizing heterogeneous cognition evidence while avoiding a broad tolerability claim not quantified in the retrieved excerpts."
     },
     {
       "slug": "citicoline",
       "column": "dosage_or_preferred_form",
       "expected_old_value": "",
-      "new_value": "Oral research regimens commonly use 500–1,000 mg/day for approximately 4–12 weeks. These are studied regimens, not individualized dosing advice.",
+      "new_value": "Human cognition studies cited here used 500 mg/day for 12 weeks and 1,000 mg/day for 28 days to 3 months. These are study regimens, not individualized dosing advice.",
       "confidence": "moderate",
       "source_ids": [
-        "doi:10.1093/jn/nxab119",
-        "doi:10.14283/jarcp.2015.79"
+        "doi:10.1093/jn/nxab119"
       ],
       "requires_human_review": true,
-      "rationale": "Adds a bounded description of human research regimens while explicitly avoiding a personal recommendation."
+      "rationale": "Replaces a generalized dose range with exact regimens reported in the retrieved human cognition literature."
     }
   ]
 }
