@@ -1,0 +1,31 @@
+{
+  "patch_id": "scite-l-theanine-short-term-safety-2026-07-11-006",
+  "patch_version": "1",
+  "created_at": "2026-07-11T20:25:00.000Z",
+  "generator": "Scite literature enrichment via ChatGPT",
+  "target": {
+    "slug": "l-theanine",
+    "canonical_name": "L-theanine",
+    "entity_type": "compound"
+  },
+  "operations": [
+    {
+      "op": "add_claim",
+      "field": "safety",
+      "value": "In one randomized, double-blind crossover trial of 30 healthy adults, 200 mg/day of L-theanine for four weeks produced no apparent adverse events or participant dropouts; this small, short trial cannot establish long-term safety or exclude rare adverse effects and interactions.",
+      "confidence": 0.68,
+      "notes": "The study reported 100% completion and no apparent adverse events during the intervention. Its size and four-week duration were insufficient to evaluate rare harms, long-term use, pregnancy, children, medically complex patients, or clinically important drug interactions."
+    }
+  ],
+  "sources": [
+    {
+      "doi": "10.3390/nu11102362",
+      "url": "https://doi.org/10.3390/nu11102362",
+      "title": "Effects of L-Theanine Administration on Stress-Related Symptoms and Cognitive Functions in Healthy Adults: A Randomized Controlled Trial",
+      "year": "2019"
+    }
+  ],
+  "notes": "Sixth controlled enrichment-pipeline patch. Adds only trial-specific short-term tolerability information and explicitly avoids claiming comprehensive safety.",
+  "confidence": 0.68,
+  "requires_review": true
+}
