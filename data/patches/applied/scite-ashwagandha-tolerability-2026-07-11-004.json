@@ -1,0 +1,41 @@
+{
+  "patch_id": "scite-ashwagandha-tolerability-2026-07-11-004",
+  "patch_version": "1",
+  "created_at": "2026-07-11T23:03:00.000Z",
+  "generator": "Scite literature enrichment via ChatGPT",
+  "target": {
+    "slug": "ashwagandha",
+    "canonical_name": "Ashwagandha Withania somnifera",
+    "entity_type": "herb"
+  },
+  "operations": [
+    {
+      "op": "add_claim",
+      "field": "effects",
+      "value": "Short-term randomized trials generally report good tolerability, but mild gastrointestinal symptoms and drowsiness can occur, and the available trial evidence does not establish long-term safety across products or populations.",
+      "payload": {},
+      "confidence": 0.76,
+      "notes": "The statement separates short-term trial tolerability from the unresolved question of long-term and product-wide safety."
+    }
+  ],
+  "sources": [
+    {
+      "doi": "10.1002/hup.2911",
+      "url": "https://doi.org/10.1002/hup.2911",
+      "title": "Safety and efficacy of Withania somnifera for anxiety and insomnia: Systematic review and meta-analysis",
+      "year": "2024"
+    }
+  ],
+  "notes": "Adds a balanced short-term tolerability and long-term uncertainty claim.",
+  "confidence": 0.76,
+  "requires_review": true,
+  "original_filename": "ashwagandha-short-term-tolerability-scite-004.json",
+  "original_hash": "d085ab32b9b0d1e421af887666e17e8e073aaa8755e4508174dffaa2a292b1c1",
+  "_apply_result": {
+    "status": "applied",
+    "changes": 1,
+    "reviewer": "Willie Randolph",
+    "reviewed_at": "2026-07-11T23:30:00.000Z",
+    "at": "2026-07-11T23:13:16.134Z"
+  }
+}
