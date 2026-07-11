@@ -1,0 +1,12 @@
+{
+  "patch_id": "gpt-canonical-001",
+  "generator": "gpt-4-analyst",
+  "created_at": "2026-02-01T12:00:00Z",
+  "target": { "slug": "ashwagandha", "entity_type": "herb" },
+  "operations": [
+    { "op": "update_field", "field": "description", "value": "A well-studied adaptogen." },
+    { "op": "add_claim", "field": "effects", "value": "reduces cortisol", "confidence": 0.8 }
+  ],
+  "sources": [{ "pmid": "23439798" }],
+  "confidence": 0.8
+}

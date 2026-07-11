@@ -70,6 +70,9 @@ jobs:
       - name: Run tests (vitest + a11y gate)
         run: npm run test
 
+      - name: Validate canonical data system (schema, SQLite, graph, freshness)
+        run: npm run data:ci
+
       - name: Guard workbook source of truth
         run: npm run guard:source-of-truth
 

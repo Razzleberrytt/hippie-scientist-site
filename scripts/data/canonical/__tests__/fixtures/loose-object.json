@@ -1,0 +1,9 @@
+{
+  "herb_name": "Rhodiola Rosea",
+  "slug": "rhodiola-rosea",
+  "benefits": "fatigue reduction; stress resilience",
+  "mechanism_of_action": "monoamine oxidase inhibition",
+  "also_known_as": "golden root, arctic root",
+  "references": ["PMID: 22228617", "https://pubmed.ncbi.nlm.nih.gov/19016404/"],
+  "author": "gpt-loose"
+}
