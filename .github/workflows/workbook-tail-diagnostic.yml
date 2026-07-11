@@ -1,4 +1,4 @@
-name: Workbook Tail Diagnostic
+name: Workbook XML Diagnostic
 
 on:
   push:
@@ -15,26 +15,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-          cache: npm
-      - run: npm ci --silent
-      - name: Run workbook build and post tail
+      - name: Update diagnostic comment with OOXML metadata
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          set +e
-          node --trace-uncaught --enable-source-maps scripts/data/build-runtime-from-workbook.mjs --out /tmp/workbook-output >/tmp/workbook.log 2>&1
-          status=$?
-          set -e
           {
-            echo "## Current workbook diagnostic"
+            echo "## Workbook XML diagnostic"
             echo
-            echo '```text'
-            tail -n 100 /tmp/workbook.log
+            echo "### xl/workbook.xml"
+            echo '```xml'
+            unzip -p data-sources/herb_monograph_master.xlsx xl/workbook.xml | head -c 6000
+            echo
+            echo '```'
+            echo
+            echo "### xl/_rels/workbook.xml.rels"
+            echo '```xml'
+            unzip -p data-sources/herb_monograph_master.xlsx xl/_rels/workbook.xml.rels | head -c 6000
+            echo
             echo '```'
           } >/tmp/comment.md
-          gh pr comment 2162 --repo "$GITHUB_REPOSITORY" --body-file /tmp/comment.md
-          exit "$status"
+          jq -n --rawfile body /tmp/comment.md '{body: $body}' >/tmp/payload.json
+          gh api --method PATCH \
+            "repos/${GITHUB_REPOSITORY}/issues/comments/4940844313" \
+            --input /tmp/payload.json
