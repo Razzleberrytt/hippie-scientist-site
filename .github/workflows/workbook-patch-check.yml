@@ -1,0 +1,52 @@
+name: Workbook Patch Check
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'data-sources/workbook-patches/**'
+      - 'data-sources/herb_monograph_master.xlsx'
+      - 'scripts/data/apply-workbook-patch.mjs'
+      - 'scripts/data/edit-entity-master-cell.mjs'
+      - 'scripts/ci/validate-workbook-patches.mjs'
+      - 'scripts/ci/validate-workbook-schema.mjs'
+      - 'scripts/utils/read-workbook-exceljs.mjs'
+      - '.github/workflows/workbook-patch-check.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: workbook-patch-check-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate workbook patches
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify Node engine
+        run: npm run check:node
+
+      - name: Validate workbook schema
+        run: npm run validate:workbook-schema
+
+      - name: Validate patch proposals against current workbook
+        run: node scripts/ci/validate-workbook-patches.mjs
