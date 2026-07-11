@@ -9,9 +9,11 @@
  * Informational herb profiles are not commercial product listings, so no
  * Product node is emitted here — Product schema was intentionally removed.
  *
- * Serialization: serializeJsonLd() centralises the HTML-safe escaping used when
- * writing JSON-LD script payloads.
+ * Serialization: serializeJsonLd() centralises schema sanitization and the
+ * HTML-safe escaping used when writing JSON-LD script payloads.
  */
+
+import { sanitizeJsonLdPayload } from '@/lib/json-ld-sanitize'
 
 export type JsonLdNode = Record<string, unknown>
 
@@ -20,12 +22,14 @@ export type JsonLdNode = Record<string, unknown>
 // ---------------------------------------------------------------------------
 
 /**
- * Serializes a JSON-LD node to a string safe for use in HTML script elements.
- * Escapes <, >, and & to their Unicode escape sequences so a malicious value
+ * Sanitizes and serializes a JSON-LD payload for use in an HTML script element.
+ * Escapes <, >, and & to their Unicode escape sequences so an untrusted value
  * cannot break out of the enclosing <script> tag.
  */
-export function serializeJsonLd(node: JsonLdNode): string {
-  return JSON.stringify(node)
+export function serializeJsonLd(node: unknown): string {
+  const sanitized = sanitizeJsonLdPayload(node)
+
+  return JSON.stringify(sanitized ?? {})
     .replace(/</g, '\\u003c')
     .replace(/>/g, '\\u003e')
     .replace(/&/g, '\\u0026')

@@ -1,17 +1,12 @@
-import React from 'react'
-import { sanitizeJsonLdPayload } from '@/lib/json-ld-sanitize'
+import { serializeJsonLd } from '@/src/lib/schema-injector'
 
-export default function JsonLd({ schema }: { schema: any }) {
+export default function JsonLd({ schema }: { schema: unknown }) {
   if (!schema) return null
-
-  // Safely serialize and escape HTML tags (like '<') to prevent XSS injection.
-  // Also normalize known schema.org validation traps before JSON-LD reaches the page.
-  const escapedJson = JSON.stringify(sanitizeJsonLdPayload(schema) ?? {}).replace(/</g, '\\u003c')
 
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: escapedJson }}
+      dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }}
     />
   )
 }

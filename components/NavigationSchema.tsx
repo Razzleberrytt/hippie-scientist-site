@@ -10,6 +10,7 @@
  */
 
 import { mainNavigation, SITE_URL } from '@/lib/navigation-config'
+import { serializeJsonLd } from '@/src/lib/schema-injector'
 
 /**
  * Generate SiteNavigationElement schema from navigation config
@@ -72,7 +73,7 @@ export function NavigationSchema() {
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(schema),
+        __html: serializeJsonLd(schema),
       }}
       suppressHydrationWarning
     />

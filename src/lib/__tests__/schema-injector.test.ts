@@ -33,6 +33,20 @@ describe('serializeJsonLd', () => {
     expect(result).toContain('\\u0026')
   })
 
+  it('sanitizes known invalid schema properties at the serialization boundary', () => {
+    const result = serializeJsonLd({
+      '@type': 'MedicalSubstance',
+      name: 'Example',
+      evidenceLevel: 'Strong',
+      safetyWarnings: 'Example warning',
+    })
+    const parsed = JSON.parse(result)
+
+    expect(parsed.name).toBe('Example')
+    expect(parsed.evidenceLevel).toBeUndefined()
+    expect(parsed.safetyWarnings).toBeUndefined()
+  })
+
   it('round-trips cleanly through JSON.parse', () => {
     const node = { '@type': 'Article', headline: 'A & B < C > D', url: 'https://example.com/' }
     const serialized = serializeJsonLd(node)

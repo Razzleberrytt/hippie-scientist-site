@@ -1,3 +1,5 @@
+import JsonLd from './JsonLd'
+
 type FaqItem = {
   question: string
   answer: string
@@ -56,12 +58,5 @@ export default function FaqJsonLd({ items }: FaqJsonLdProps) {
     })),
   }
 
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify(schema),
-      }}
-    />
-  )
+  return <JsonLd schema={schema} />
 }
