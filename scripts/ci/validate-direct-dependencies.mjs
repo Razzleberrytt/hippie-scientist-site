@@ -3,7 +3,16 @@ import os from 'node:os'
 import path from 'node:path'
 import { builtinModules } from 'node:module'
 
-const builtinSet = new Set([...builtinModules, ...builtinModules.map(m => `node:${m}`)])
+// `node:sqlite` is a genuine Node core module but is still flagged experimental,
+// so it is omitted from `builtinModules`. Add it explicitly (build-time only,
+// used by the canonical data SQLite build).
+const extraBuiltins = ['sqlite']
+const builtinSet = new Set([
+  ...builtinModules,
+  ...builtinModules.map(m => `node:${m}`),
+  ...extraBuiltins,
+  ...extraBuiltins.map(m => `node:${m}`),
+])
 const optionalProbes = new Set(['exceljs', 'glob', 'react-plotly.js'])
 const generatedImports = new Set(['content-collections'])
 const sourceRoots = ['app', 'components', 'src', 'lib', 'scripts', 'data', 'config']

@@ -16,6 +16,20 @@ function text(value) {
   return String(value ?? '').trim()
 }
 
+// The workbook build substitutes a generic fallback summary when an entity's
+// summary is empty or flagged as leaked pipeline text. Hundreds of records share
+// that identical string, which collides as a meta description. Replace the
+// generic fallback with a unique, name-based description for SEO metadata only
+// (the on-page summary is unaffected).
+const GENERIC_SUMMARY = /^(Botanical|Compound) profile with evidence, safety, and practical fit\.$/i
+
+function uniqueMetaDescription(name, desc, kind) {
+  const trimmed = text(desc)
+  if (trimmed && !GENERIC_SUMMARY.test(trimmed)) return trimmed
+  const label = kind === 'herb' ? 'botanical' : 'compound'
+  return `${name}: ${label} profile covering evidence, effects, dosage, and safety.`
+}
+
 function stableClone(value) {
   if (Array.isArray(value)) {
     return value.map(stableClone)
@@ -187,7 +201,7 @@ async function main() {
       const slug = normalizeSlug(record.slug)
       const name = record.name || slug
       const title = record.meta_title || `${name} Herb Profile: Benefits, Effects & Safety`
-      const desc = record.meta_description || record.generated_description || record.summary || ''
+      const desc = uniqueMetaDescription(name, record.meta_description || record.generated_description || record.summary || '', 'herb')
       return {
         ...routeEntry(`/herbs/${slug}`, 'herb'),
         meta_title: title,
@@ -203,7 +217,7 @@ async function main() {
       const slug = normalizeSlug(record.slug)
       const name = record.name || slug
       const title = record.meta_title || `${name} Benefits, Effects & Safety Guide`
-      const desc = record.meta_description || record.summary || ''
+      const desc = uniqueMetaDescription(name, record.meta_description || record.summary || '', 'compound')
       return {
         ...routeEntry(`/compounds/${slug}`, 'compound'),
         meta_title: title,
