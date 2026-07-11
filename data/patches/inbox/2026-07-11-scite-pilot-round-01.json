@@ -1,0 +1,117 @@
+[
+  {
+    "patch_id": "scite-2026-07-11-ashwagandha-sleep-001",
+    "patch_version": "1",
+    "generator": "scite-literature-enrichment",
+    "created_at": "2026-07-11T00:00:00.000Z",
+    "target": {
+      "slug": "ashwagandha",
+      "entity_type": "herb"
+    },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "In pooled randomized trials, ashwagandha extracts modestly improved sleep onset latency, total sleep time, and sleep efficiency compared with placebo; the evidence base was small and subgroup differences may reflect both dose and baseline anxiety severity.",
+        "confidence": 0.78,
+        "notes": "2024 systematic review and meta-analysis. Reported mean differences were -7.47 minutes for sleep onset latency, +27.74 minutes for total sleep time, and +4.11 percentage points for sleep efficiency. Product extracts, doses, and populations varied, and the number of studies was too small for meta-regression. Human review required before application."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1002/hup.2911",
+        "title": "Safety and efficacy of Withania somnifera for anxiety and insomnia: Systematic review and meta-analysis",
+        "year": 2024
+      }
+    ],
+    "notes": "Scite pilot enrichment. Claim-only patch; does not overwrite an existing field.",
+    "confidence": 0.78,
+    "requires_review": true
+  },
+  {
+    "patch_id": "scite-2026-07-11-l-theanine-stress-001",
+    "patch_version": "1",
+    "generator": "scite-literature-enrichment",
+    "created_at": "2026-07-11T00:00:00.000Z",
+    "target": {
+      "slug": "l-theanine",
+      "entity_type": "compound"
+    },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "Pure L-theanine at 200 to 400 mg per day may reduce short-term stress or anxiety symptoms in some adults, but the evidence is limited by small studies, heterogeneous outcomes, and unclear risk of bias.",
+        "confidence": 0.64,
+        "notes": "2019 systematic review of nine human studies; eight were randomized double-blind placebo-controlled trials and one was randomized single-blind. Some findings were short-term, and at least one intervention included co-ingredients that complicate attribution. Human review required before application."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1007/s11130-019-00771-5",
+        "title": "The Effects of Green Tea Amino Acid L-Theanine Consumption on the Ability to Manage Stress and Anxiety Levels: a Systematic Review",
+        "year": 2019
+      }
+    ],
+    "notes": "Scite pilot enrichment. Claim-only patch; does not overwrite an existing field.",
+    "confidence": 0.64,
+    "requires_review": true
+  },
+  {
+    "patch_id": "scite-2026-07-11-l-theanine-evidence-limits-002",
+    "patch_version": "1",
+    "generator": "scite-literature-enrichment",
+    "created_at": "2026-07-11T00:00:00.000Z",
+    "target": {
+      "slug": "l-theanine",
+      "entity_type": "compound"
+    },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "Evidence that L-theanine alone improves sleep or cognition in healthy adults remains inconclusive; attention benefits are more consistent for L-theanine combined with caffeine than for L-theanine alone.",
+        "confidence": 0.82,
+        "notes": "2025 systematic review and meta-analysis of randomized controlled trials. Sleep evidence was inconclusive, relaxation estimates were based on only two studies and were highly uncertain, and caffeine outperformed theanine alone on several acute cognitive outcomes. Human review required before application."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.1093/nutrit/nuaf054",
+        "title": "Effects of Tea (Camellia sinensis) or its Bioactive Compounds l-Theanine or l-Theanine plus Caffeine on Cognition, Sleep, and Mood in Healthy Participants: A Systematic Review and Meta-Analysis of Randomized Controlled Trials",
+        "year": 2025
+      }
+    ],
+    "notes": "Scite pilot enrichment. Claim-only patch; does not overwrite an existing field.",
+    "confidence": 0.82,
+    "requires_review": true
+  },
+  {
+    "patch_id": "scite-2026-07-11-citicoline-cognition-001",
+    "patch_version": "1",
+    "generator": "scite-literature-enrichment",
+    "created_at": "2026-07-11T00:00:00.000Z",
+    "target": {
+      "slug": "citicoline"
+    },
+    "operations": [
+      {
+        "op": "add_claim",
+        "field": "effects",
+        "value": "Clinical trials of citicoline for cognitive impairment have produced mixed results: some reported improvements in memory or MMSE scores, while others found no significant benefit, so broad cognitive-enhancement claims remain uncertain.",
+        "confidence": 0.76,
+        "notes": "2015 systematic review included 14 randomized double-blind placebo-controlled studies. Findings varied by population and outcome. This claim applies to studied cognitive-impairment populations and should not be generalized to healthy young adults. Human review required before application."
+      }
+    ],
+    "sources": [
+      {
+        "doi": "10.14283/jarcp.2015.79",
+        "title": "Citicoline efficiency on cognitive function: A systematic review",
+        "year": 2015
+      }
+    ],
+    "notes": "Scite pilot enrichment. Claim-only patch; does not overwrite an existing field.",
+    "confidence": 0.76,
+    "requires_review": true
+  }
+]
