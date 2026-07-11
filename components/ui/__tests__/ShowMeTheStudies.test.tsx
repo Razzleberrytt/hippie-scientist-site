@@ -37,7 +37,25 @@ describe('ShowMeTheStudies', () => {
     }
   })
 
-  it('shows a plain dash instead of a PubMed link when no pmid is present', () => {
+  it('links DOI-only studies to the DOI resolver', () => {
+    render(<ShowMeTheStudies citations={[citation({ title: 'L-theanine trial', doi: '10.1000/example-doi' })]} />)
+    const links = screen.getAllByRole('link', { name: /L-theanine trial|DOI/ })
+    expect(links).toHaveLength(2)
+    for (const link of links) {
+      expect(link).toHaveAttribute('href', 'https://doi.org/10.1000/example-doi')
+    }
+  })
+
+  it('uses an explicit source URL when one is provided', () => {
+    render(<ShowMeTheStudies citations={[citation({ title: 'Publisher study', url: 'https://example.com/study' })]} />)
+    const links = screen.getAllByRole('link', { name: /Publisher study|Source/ })
+    expect(links).toHaveLength(2)
+    for (const link of links) {
+      expect(link).toHaveAttribute('href', 'https://example.com/study')
+    }
+  })
+
+  it('shows a plain dash instead of a source link when no identifier is present', () => {
     render(<ShowMeTheStudies citations={[citation({ title: 'No PMID Study' })]} />)
     expect(screen.queryByRole('link')).toBeNull()
   })
