@@ -29,6 +29,13 @@ src/data/backups/
 *~
 .DS_Store
 
+# Canonical data system — disposable generated artifacts (JSONL canonical files
+# and committed patch records are NOT ignored; only rebuildable outputs are).
+data/db/
+data/generated/
+data/staging/
+data/snapshots/
+
 # Interim data pipeline artifacts
 herbs_final.json
 herbs_final_merged_and_normalized*.csv

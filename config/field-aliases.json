@@ -1,0 +1,30 @@
+{
+  "_comment": "Configurable field-alias map for patch normalization. Keys are canonical field names; arrays list the incoming variants (case/space/underscore-insensitive) that normalize to them. Edit here rather than hard-coding aliases in the parser.",
+  "entity_fields": {
+    "canonical_name": ["common_name", "name", "herb_name", "compound_name", "title", "display_name"],
+    "slug": ["slug", "url_slug", "handle"],
+    "latin_name": ["latin_name", "scientific_name", "binomial", "botanical_name"],
+    "aliases": ["aliases", "also_known_as", "aka", "synonyms", "other_names"],
+    "description": ["description", "summary", "overview", "about"],
+    "effects": ["benefits", "effects", "uses", "outcomes", "primary_effects", "actions"],
+    "mechanisms": ["mechanism", "mechanisms", "mechanism_of_action", "moa", "how_it_works"],
+    "dosage": ["dosage", "dose", "typical_dosage", "dosing", "dose_range"],
+    "forms": ["forms", "available_forms", "preparation", "preparations", "product_forms"],
+    "side_effects": ["side_effects", "adverse_effects", "adverse_events"],
+    "safety": ["safety", "safety_notes", "warnings", "cautions"],
+    "contraindications": ["contraindications", "contraindicated", "do_not_use_if"],
+    "interactions": ["interactions", "drug_interactions", "interacts_with"],
+    "conditions": ["conditions", "indications", "health_goals", "goals"],
+    "evidence_grade": ["evidence_grade", "evidence_tier", "grade", "evidence_level"],
+    "tags": ["tags", "keywords", "labels"]
+  },
+  "source_fields": {
+    "sources": ["citations", "references", "sources", "studies", "bibliography"],
+    "pmid": ["pmid", "pubmed_id", "pubmed"],
+    "doi": ["doi"],
+    "url": ["url", "link", "source_url"],
+    "title": ["title", "study_title", "paper_title"],
+    "year": ["year", "publication_year", "pub_year"],
+    "journal": ["journal", "publication", "venue"]
+  }
+}
