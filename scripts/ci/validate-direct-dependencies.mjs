@@ -4,7 +4,7 @@ import path from 'node:path'
 import { builtinModules } from 'node:module'
 
 const builtinSet = new Set([...builtinModules, ...builtinModules.map(m => `node:${m}`)])
-const optionalProbes = new Set(['exceljs', 'glob', 'react-plotly.js'])
+const optionalProbes = new Set(['exceljs', 'glob', 'jszip', 'react-plotly.js'])
 const generatedImports = new Set(['content-collections'])
 const sourceRoots = ['app', 'components', 'src', 'lib', 'scripts', 'data', 'config']
 const sourceFiles = ['next.config.mjs', 'tailwind.config.ts', 'postcss.config.js']
