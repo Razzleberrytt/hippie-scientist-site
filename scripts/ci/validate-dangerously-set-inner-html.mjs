@@ -53,7 +53,7 @@ const RAW_JSON_LD_BASELINE = new Map([
   ['components/articles/FocusAdhdArticlePage.tsx', 2],
 ])
 
-const JSON_LD_SCRIPT_PATTERN = /<script\b(?=[^>]*\btype\s*=\s*["']application\/ld\+json["'])[^>]*>[\s\S]*?<\/script>|<script\b(?=[^>]*\btype\s*=\s*["']application\/ld\+json["'])[^>]*\/>/g
+const JSON_LD_SCRIPT_PATTERN = /<script\b(?=[^>]*\btype\s*=\s*["']application\/ld\+json["'])[^>]*\/>|<script\b(?=[^>]*\btype\s*=\s*["']application\/ld\+json["'])[^>]*>[\s\S]*?<\/script>/g
 
 function countRawJsonLdSerializations(content) {
   return [...content.matchAll(JSON_LD_SCRIPT_PATTERN)]
@@ -64,8 +64,13 @@ function countRawJsonLdSerializations(content) {
 function assertDetectorWorks() {
   const unsafe = '<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />'
   const safe = '<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }} />'
+  const mixed = `${safe}\n${unsafe}\n<script>unrelated()</script>`
 
-  if (countRawJsonLdSerializations(unsafe) !== 1 || countRawJsonLdSerializations(safe) !== 0) {
+  if (
+    countRawJsonLdSerializations(unsafe) !== 1 ||
+    countRawJsonLdSerializations(safe) !== 0 ||
+    countRawJsonLdSerializations(mixed) !== 1
+  ) {
     throw new Error('Raw JSON-LD detector self-test failed.')
   }
 }
