@@ -1,13 +1,16 @@
 #!/usr/bin/env node
-// data:export — export canonical data into generated artifacts.
+// data:export — export canonical data into site-shaped generated artifacts.
 //
-// In this foundation pass the adapter simply emits sample/summary JSON into
-// data/generated/ so the pipeline is exercised end-to-end. Phase 6 extends this
-// into the full site-data adapter that reproduces the exact public/data shapes.
+// Writes deterministic herbs.json / compounds.json (site record shape) plus a
+// summary into data/generated/site/. Does NOT overwrite public/data — the site
+// keeps using the workbook-generated data until the comparison report proves
+// parity. Output is sorted by slug with stable keys and no wall-clock timestamps
+// so files only change when the data changes.
 
 import path from 'node:path'
-import { loadDataset } from './canonical/store.mjs'
 import { writeJson, ensureDir } from './canonical/jsonl.mjs'
+import { loadDataset } from './canonical/store.mjs'
+import { exportSiteRecords } from './canonical/site-export.mjs'
 import { generatedDir } from './canonical/paths.mjs'
 
 export function exportSampleSiteData({ outDir = generatedDir } = {}) {
@@ -29,18 +32,21 @@ export function exportSampleSiteData({ outDir = generatedDir } = {}) {
   }
   writeJson(path.join(outDir, 'canonical-summary.json'), summary)
 
-  // Deterministic sample of entities (first 10 by id) for smoke inspection.
-  const sample = [...entities]
-    .sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0))
-    .slice(0, 10)
-    .map((e) => ({ id: e.id, entity_type: e.entity_type, slug: e.slug, canonical_name: e.canonical_name }))
-  writeJson(path.join(outDir, 'canonical-sample.json'), { sample })
+  // Site-shaped exports.
+  const siteDir = path.join(outDir, 'site')
+  ensureDir(siteDir)
+  const { herbs, compounds } = exportSiteRecords()
+  writeJson(path.join(siteDir, 'herbs.json'), herbs)
+  writeJson(path.join(siteDir, 'compounds.json'), compounds)
+  summary.counts.site_herbs = herbs.length
+  summary.counts.site_compounds = compounds.length
+  writeJson(path.join(outDir, 'canonical-summary.json'), summary)
 
   return summary
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   const summary = exportSampleSiteData()
-  console.log('✓ exported canonical sample/summary to data/generated/')
-  console.log(`  entities=${summary.counts.entities} claims=${summary.counts.claims} edges=${summary.counts.edges} sources=${summary.counts.sources}`)
+  console.log('✓ exported canonical site data to data/generated/site/')
+  console.log(`  entities=${summary.counts.entities} → site herbs=${summary.counts.site_herbs} compounds=${summary.counts.site_compounds}`)
 }

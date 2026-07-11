@@ -32,7 +32,8 @@ src/data/backups/
 # Canonical data system — disposable generated artifacts (JSONL canonical files
 # and committed patch records are NOT ignored; only rebuildable outputs are).
 data/db/
-data/generated/
+data/generated/*
+!data/generated/site/
 data/staging/
 data/snapshots/
 
