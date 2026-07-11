@@ -14,6 +14,7 @@ import ConsentBanner from '../src/components/ConsentBanner'
 import CitationDrawerLazy from '@/components/education/CitationDrawerLazy'
 import GlobalTOC from '@/components/content/GlobalTOC'
 import { buildPageMetadata, DEFAULT_DESCRIPTION, SITE_URL, websiteJsonLd, organizationJsonLd } from '../src/lib/seo'
+import { serializeJsonLd } from '../src/lib/schema-injector'
 import { DEFAULT_LOCALE, DEFAULT_OG_LOCALE, LOCALE_TEXT_DIRECTION } from '../src/lib/international-seo'
 import { DarkModeProvider } from '@/lib/dark-mode-provider'
 import DarkModeToggle from '@/components/DarkModeToggle'
@@ -79,11 +80,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className='font-sans antialiased'>
         <script
           type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteWebsiteLd) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteWebsiteLd) }}
         />
         <script
           type='application/ld+json'
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteOrgLd) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(siteOrgLd) }}
         />
         <NavigationSchema />
         <BreadcrumbSchema />
