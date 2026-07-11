@@ -140,6 +140,102 @@ export function buildDatabase({ dbPath = sqliteDbPath } = {}) {
     CREATE INDEX idx_claim_sources_source ON claim_sources(source_id);
   `)
 
+  // Graph query views. These make the common traversals one SELECT away without
+  // any hosted graph database.
+  db.exec(`
+    -- Herb → contained compound.
+    CREATE VIEW v_herb_compounds AS
+      SELECT h.id AS herb_id, h.slug AS herb_slug, h.canonical_name AS herb_name,
+             c.id AS compound_id, c.slug AS compound_slug, c.canonical_name AS compound_name,
+             e.weight, e.review_status
+      FROM edges e
+      JOIN entities h ON h.id = e.from_id AND h.entity_type = 'herb'
+      JOIN entities c ON c.id = e.to_id AND c.entity_type = 'compound'
+      WHERE e.rel_type = 'contains_compound';
+
+    -- Entity → effect (via supports_outcome claims).
+    CREATE VIEW v_entity_effects AS
+      SELECT s.id AS subject_id, s.slug AS subject_slug, s.entity_type,
+             o.id AS effect_id, o.slug AS effect_slug, o.canonical_name AS effect_name,
+             cl.evidence_level, cl.confidence, cl.review_status
+      FROM claims cl
+      JOIN entities s ON s.id = cl.subject_id
+      JOIN entities o ON o.id = cl.object_id AND o.entity_type = 'effect'
+      WHERE cl.predicate = 'supports_outcome';
+
+    -- Herbs sharing a compound (undirected pair, a<b to dedupe).
+    CREATE VIEW v_herbs_sharing_compound AS
+      SELECT a.herb_id AS herb_a, a.herb_name AS herb_a_name,
+             b.herb_id AS herb_b, b.herb_name AS herb_b_name,
+             a.compound_id, a.compound_name
+      FROM v_herb_compounds a
+      JOIN v_herb_compounds b ON a.compound_id = b.compound_id AND a.herb_id < b.herb_id;
+
+    -- Entities sharing a mechanism/pathway overlap edge.
+    CREATE VIEW v_shared_mechanism AS
+      SELECT f.id AS a_id, f.canonical_name AS a_name, t.id AS b_id, t.canonical_name AS b_name, e.rel_type
+      FROM edges e
+      JOIN entities f ON f.id = e.from_id
+      JOIN entities t ON t.id = e.to_id
+      WHERE e.rel_type IN ('pathway_overlap', 'mechanism_overlap', 'shares_mechanism');
+
+    -- Degree (connectivity) per entity.
+    CREATE VIEW v_entity_degree AS
+      SELECT e.id, e.entity_type, e.slug, e.canonical_name,
+             (SELECT COUNT(*) FROM edges WHERE from_id = e.id) +
+             (SELECT COUNT(*) FROM edges WHERE to_id = e.id) AS degree,
+             (SELECT COUNT(*) FROM claims WHERE subject_id = e.id) AS claim_count
+      FROM entities e;
+
+    -- Isolated entities: no edges at all.
+    CREATE VIEW v_isolated_entities AS
+      SELECT id, entity_type, slug, canonical_name FROM v_entity_degree WHERE degree = 0;
+
+    -- Highly connected entities.
+    CREATE VIEW v_highly_connected AS
+      SELECT id, entity_type, slug, canonical_name, degree FROM v_entity_degree ORDER BY degree DESC;
+
+    -- Weakly sourced claims: no linked source or weak evidence.
+    CREATE VIEW v_weak_claims AS
+      SELECT cl.id, cl.subject_id, s.slug AS subject_slug, cl.predicate,
+             TRIM(cl.object_literal_json, '"') AS object_literal,
+             cl.evidence_level, cl.review_status,
+             (SELECT COUNT(*) FROM claim_sources WHERE claim_id = cl.id) AS source_count
+      FROM claims cl JOIN entities s ON s.id = cl.subject_id
+      WHERE (SELECT COUNT(*) FROM claim_sources WHERE claim_id = cl.id) = 0
+         OR cl.evidence_level IN ('none', 'anecdotal', 'traditional');
+
+    -- Safety warnings shared across multiple entities (same warning text).
+    CREATE VIEW v_shared_safety AS
+      SELECT LOWER(TRIM(object_literal_json, '"')) AS warning, COUNT(DISTINCT subject_id) AS entity_count,
+             GROUP_CONCAT(DISTINCT subject_id) AS entity_ids
+      FROM claims WHERE predicate = 'has_safety_warning' AND TRIM(object_literal_json, '"') <> ''
+      GROUP BY LOWER(TRIM(object_literal_json, '"')) HAVING entity_count > 1;
+
+    -- Conflicting claims: same subject + predicate, differing object literal.
+    CREATE VIEW v_conflicting_claims AS
+      SELECT a.subject_id, a.predicate, a.id AS claim_a, TRIM(a.object_literal_json, '"') AS object_a,
+             b.id AS claim_b, TRIM(b.object_literal_json, '"') AS object_b
+      FROM claims a JOIN claims b
+        ON a.subject_id = b.subject_id AND a.predicate = b.predicate
+       AND a.id < b.id
+       AND TRIM(a.object_literal_json, '"') <> '' AND TRIM(b.object_literal_json, '"') <> ''
+       AND LOWER(TRIM(a.object_literal_json, '"')) <> LOWER(TRIM(b.object_literal_json, '"'))
+      WHERE a.predicate IN ('has_dosage', 'has_safety_warning', 'contraindicated_in');
+
+    -- Potential duplicate entities: same canonical name, different id.
+    CREATE VIEW v_duplicate_candidates AS
+      SELECT a.id AS id_a, b.id AS id_b, a.canonical_name, a.entity_type
+      FROM entities a JOIN entities b
+        ON LOWER(a.canonical_name) = LOWER(b.canonical_name) AND a.id < b.id;
+
+    -- Compounds connected to multiple effects (potential multi-goal actives).
+    CREATE VIEW v_multi_effect_compounds AS
+      SELECT subject_id, subject_slug, COUNT(DISTINCT effect_id) AS effect_count
+      FROM v_entity_effects WHERE entity_type = 'compound'
+      GROUP BY subject_id HAVING effect_count > 1;
+  `)
+
   const counts = {
     entities: entities.length,
     claims: claims.length,

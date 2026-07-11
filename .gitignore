@@ -36,6 +36,12 @@ data/generated/*
 !data/generated/site/
 data/staging/
 data/snapshots/
+# Patch working areas are transient; keep only the committed example inputs.
+data/patches/inbox/*
+!data/patches/inbox/.gitkeep
+!data/patches/inbox/examples/
+data/patches/normalized/*
+!data/patches/normalized/.gitkeep
 
 # Interim data pipeline artifacts
 herbs_final.json
