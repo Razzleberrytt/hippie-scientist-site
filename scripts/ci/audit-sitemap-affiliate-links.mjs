@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 const ROOT = process.cwd()
-const AMAZON_TAG = process.env.AMAZON_AFFILIATE_TAG || 'dev-affiliate-00' // Central associate tag
+const AMAZON_TAG = process.env.AMAZON_AFFILIATE_TAG || 'razzleberry02-20' // Central associate tag
 
 function parseXmlUrls(xmlContent) {
   const urls = []
