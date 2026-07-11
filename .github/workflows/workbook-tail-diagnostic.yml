@@ -1,0 +1,40 @@
+name: Workbook Tail Diagnostic
+
+on:
+  push:
+    branches:
+      - repair-new-workbook-namespace-20260710
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci --silent
+      - name: Run workbook build and post tail
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          node --trace-uncaught --enable-source-maps scripts/data/build-runtime-from-workbook.mjs --out /tmp/workbook-output >/tmp/workbook.log 2>&1
+          status=$?
+          set -e
+          {
+            echo "## Current workbook diagnostic"
+            echo
+            echo '```text'
+            tail -n 100 /tmp/workbook.log
+            echo '```'
+          } >/tmp/comment.md
+          gh pr comment 2162 --repo "$GITHUB_REPOSITORY" --body-file /tmp/comment.md
+          exit "$status"
