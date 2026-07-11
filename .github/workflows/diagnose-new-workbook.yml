@@ -1,0 +1,31 @@
+name: Diagnose New Workbook
+
+on:
+  push:
+    branches:
+      - repair-new-workbook-namespace-20260710
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print final build failure
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -uo pipefail
+          git clone --quiet --depth 1 --branch "$GITHUB_REF_NAME" \
+            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" repo
+          cd repo
+          npm ci --silent >/tmp/npm-install.log 2>&1
+          set +e
+          npm run build:deploy >/tmp/build-deploy.log 2>&1
+          status=$?
+          set -e
+          echo "--- FINAL BUILD OUTPUT ---"
+          tail -n 80 /tmp/build-deploy.log
+          exit "$status"
