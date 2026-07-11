@@ -155,13 +155,23 @@ function normalizeEntityLabel(value) {
     .trim()
 }
 
+function isGenericProfileDescription(value) {
+  return /^(botanical|compound) profile with evidence, safety, and practical fit\.$/i.test(safeStr(value))
+}
+
+function entityFallbackDescription(name, kind) {
+  const label = normalizeEntityLabel(name) || (kind === 'compound' ? 'Compound' : 'Botanical')
+  return clip(`${label} ${kind === 'compound' ? 'compound' : 'botanical'} profile with evidence, safety, and practical fit.`)
+}
+
 function buildRouteFallbackDescription(entry, fallbackKind, fallbackName) {
   const explicit = clip(safeStr(entry?.description))
-  if (explicit && !/reference profile|compound profile|herb profile/i.test(explicit)) {
+  if (explicit && !/reference profile|compound profile|herb profile|botanical profile/i.test(explicit)) {
     return explicit
   }
   const summary = clip(safeStr(entry?.summary || entry?.hero || ''))
-  if (summary) return summary
+  if (summary && !isGenericProfileDescription(summary)) return summary
+  if (explicit || summary) return entityFallbackDescription(fallbackName, fallbackKind)
   if (fallbackKind === 'compound') {
     return clip(`${fallbackName} is tracked as a reported constituent in the workbook. This profile is pending deeper mechanism and safety review.`)
   }

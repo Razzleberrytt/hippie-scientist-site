@@ -251,6 +251,11 @@ function cleanUserFacingText(value, fallback) {
   return text
 }
 
+function profileTextFallback(name, type) {
+  const label = clean(name) || (type === 'herb' ? 'Botanical' : 'Compound')
+  return `${label} ${type === 'herb' ? 'botanical' : 'compound'} profile with evidence, safety, and practical fit.`
+}
+
 function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true })
 }
@@ -471,9 +476,9 @@ function profile(row, type, taxonomy) {
     slug: slug(first(row, ['slug', `${type}_slug`, `${type} slug`, 'name'])),
     name: clean(first(row, ['name', `${type}_name`, `${type} name`])),
     scientific_name: clean(first(row, ['scientific_name', 'scientific name', 'latin_name'])),
-    summary: cleanUserFacingText(first(row, ['summary', 'description', 'overview']), `${type === 'herb' ? 'Botanical' : 'Compound'} profile with evidence, safety, and practical fit.`),
+    summary: cleanUserFacingText(first(row, ['summary', 'description', 'overview']), profileTextFallback(first(row, ['name', `${type}_name`, `${type} name`]), type)),
     summary_quality: clean(first(row, ['summary_quality', 'summary quality'])),
-    description: cleanUserFacingText(first(row, ['description', 'overview', 'summary']), `${type === 'herb' ? 'Botanical' : 'Compound'} profile with evidence, safety, and practical fit.`),
+    description: cleanUserFacingText(first(row, ['description', 'overview', 'summary']), profileTextFallback(first(row, ['name', `${type}_name`, `${type} name`]), type)),
     primary_effects: firstList(row, ['primary_effects', 'primary effects', 'effects', 'primary_effects_or_targets']),
     effects: firstList(row, ['effects', 'primary_effects', 'primary effects', 'primary_effects_or_targets']),
     mechanisms: rawMechanisms,

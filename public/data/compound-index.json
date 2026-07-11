@@ -40,7 +40,7 @@
   {
     "slug": "23-epi-26-deoxyactein",
     "name": "23-epi-26-deoxyactein",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "23-epi-26-deoxyactein compound profile with evidence, safety, and practical fit.",
     "primary_effects": [],
     "effects": [],
     "evidence_grade": "c",
@@ -86,7 +86,7 @@
   {
     "slug": "acarbose",
     "name": "Acarbose",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Acarbose compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Metabolic Health",
       "Inflammation",
@@ -156,7 +156,7 @@
   {
     "slug": "acetate",
     "name": "acetate",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "acetate compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "glucose_AMPK"
     ],
@@ -248,7 +248,7 @@
   {
     "slug": "acetyl-l-carnitine",
     "name": "Acetyl-L-Carnitine",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Acetyl-L-Carnitine compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "mitochondrial metabolism",
       "cholinergic system",
@@ -317,7 +317,7 @@
   {
     "slug": "actein",
     "name": "Actein",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Actein compound profile with evidence, safety, and practical fit.",
     "primary_effects": [],
     "effects": [],
     "evidence_grade": "b",
@@ -493,7 +493,7 @@
   {
     "slug": "agmatine-sulfate",
     "name": "Agmatine sulfate",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Agmatine sulfate compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "NO synthase imidazoline receptors"
     ],
@@ -573,7 +573,7 @@
   {
     "slug": "alkylamides",
     "name": "Alkylamides",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Alkylamides compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "CB2 receptor"
     ],
@@ -597,7 +597,7 @@
   {
     "slug": "allicin",
     "name": "Allicin",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Allicin compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "oxidative pathways"
     ],
@@ -655,7 +655,7 @@
   {
     "slug": "alpha-gpc",
     "name": "Alpha-GPC",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Alpha-GPC compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cholinergic system",
       "neuronal membranes"
@@ -689,7 +689,7 @@
   {
     "slug": "alpha-lipoic-acid",
     "name": "Alpha-Lipoic Acid",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Alpha-Lipoic Acid compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "oxidative stress",
       "mitochondrial enzymes"
@@ -793,7 +793,7 @@
   {
     "slug": "anandamide",
     "name": "Anandamide",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Anandamide compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "CB1 receptor",
       "FAAH"
@@ -853,7 +853,7 @@
   {
     "slug": "andrographolide",
     "name": "Andrographolide",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Andrographolide compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "NF-κB",
       "Nrf2",
@@ -979,7 +979,7 @@
   {
     "slug": "arabinoxylan",
     "name": "Arabinoxylan",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Arabinoxylan compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "fiber_LDL"
     ],
@@ -1137,7 +1137,7 @@
   {
     "slug": "artichoke-extract",
     "name": "Artichoke Extract",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Artichoke Extract compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "bile flow",
       "lipid metabolism",
@@ -1214,7 +1214,7 @@
   {
     "slug": "ashwagandha-extract-ksm-66",
     "name": "Ashwagandha KSM-66 extract",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Ashwagandha KSM-66 extract compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "HPA axis",
       "cortisol",
@@ -1234,7 +1234,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1243,7 +1243,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -1376,7 +1376,7 @@
   {
     "slug": "astaxanthin",
     "name": "Astaxanthin",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Astaxanthin compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "oxidative stress pathways",
       "mitochondrial membranes"
@@ -1616,7 +1616,7 @@
   {
     "slug": "bacopa-extract-bacoside-standardized",
     "name": "Bacopa extract standardized",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Bacopa extract standardized compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cholinergic system",
       "memory pathways"
@@ -1634,7 +1634,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1643,7 +1643,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -1818,7 +1818,7 @@
   {
     "slug": "banaba-leaf-extract",
     "name": "Banaba Leaf Extract",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Banaba Leaf Extract compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Metabolic Health",
       "Oxidative Stress",
@@ -1908,7 +1908,7 @@
   {
     "slug": "beetroot-extract",
     "name": "Beetroot extract",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Beetroot extract compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "nitric oxide pathway",
       "vascular function"
@@ -1942,7 +1942,7 @@
   {
     "slug": "beetroot-nitrate",
     "name": "Beetroot nitrate",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Beetroot nitrate compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "NO pathway"
     ],
@@ -2000,7 +2000,7 @@
   {
     "slug": "berberine",
     "name": "Berberine",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Berberine compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "AMPK",
       "glucose transporters"
@@ -2034,7 +2034,7 @@
   {
     "slug": "berberine-hcl",
     "name": "Berberine",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Berberine compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "AMPK",
       "mitochondrial respiratory chain",
@@ -2100,7 +2100,7 @@
   {
     "slug": "bhb",
     "name": "beta- hydroxybutyrate",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "beta- hydroxybutyrate compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "HDAC AMPK"
     ],
@@ -2124,7 +2124,7 @@
   {
     "slug": "beta-alanine",
     "name": "Beta-Alanine",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Beta-Alanine compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "muscle carnosine system",
       "intracellular pH buffering",
@@ -2190,7 +2190,7 @@
   {
     "slug": "beta-ecdysterone",
     "name": "beta-ecdysterone",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "beta-ecdysterone compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "PI3K Akt"
     ],
@@ -2244,7 +2244,7 @@
   {
     "slug": "beta-glucans",
     "name": "Beta-glucans",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Beta-glucans compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "immune cells",
       "cytokine pathways"
@@ -2270,7 +2270,7 @@
   {
     "slug": "beta-sitosterol",
     "name": "Beta-sitosterol",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Beta-sitosterol compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "intestinal cholesterol transport"
     ],
@@ -2329,7 +2329,7 @@
   {
     "slug": "betaine-anhydrous",
     "name": "Betaine anhydrous",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Betaine anhydrous compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "methylation cycle",
       "cellular hydration"
@@ -2500,7 +2500,7 @@
   {
     "slug": "probiotic-strain-bifidobacterium",
     "name": "Bifidobacterium Probiotic",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Bifidobacterium Probiotic compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "gut health",
       "digestion",
@@ -2520,7 +2520,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2529,7 +2529,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -2730,7 +2730,7 @@
   {
     "slug": "black-seed-oil",
     "name": "Black Seed Oil",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Black Seed Oil compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Oxidative Stress",
       "Metabolic Health",
@@ -2770,7 +2770,7 @@
   {
     "slug": "boron",
     "name": "Boron",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Boron compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "bone metabolism",
       "vitamin D metabolism"
@@ -2796,7 +2796,7 @@
   {
     "slug": "boswellia",
     "name": "Boswellia",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Boswellia compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "5-LOX",
       "leukotriene pathways"
@@ -2830,7 +2830,7 @@
   {
     "slug": "boswellia-akba-standardized",
     "name": "Boswellia AKBA standardized",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Boswellia AKBA standardized compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "5-lipoxygenase",
       "leukotriene pathways"
@@ -2848,7 +2848,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2857,7 +2857,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -2894,7 +2894,7 @@
   {
     "slug": "boswellic-acids",
     "name": "boswellic acids",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "boswellic acids compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "5- LOX"
     ],
@@ -2956,7 +2956,7 @@
   {
     "slug": "bromelain",
     "name": "Bromelain",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Bromelain compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "inflammatory mediators",
       "protein substrates"
@@ -3038,7 +3038,7 @@
   {
     "slug": "butyrate",
     "name": "butyrate",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "butyrate compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "HDAC inhibition"
     ],
@@ -3062,7 +3062,7 @@
   {
     "slug": "cacao",
     "name": "Cacao",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Cacao compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "nitric oxide",
       "endothelial function"
@@ -3148,7 +3148,7 @@
   {
     "slug": "caffeine",
     "name": "Caffeine",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Caffeine compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "adenosine A1 receptor",
       "adenosine A2A receptor",
@@ -3256,7 +3256,7 @@
   {
     "slug": "calcium-d-glucarate",
     "name": "calcium d-glucarate",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "calcium d-glucarate compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "beta-glucuronidase"
     ],
@@ -3312,7 +3312,7 @@
   {
     "slug": "cannabidiol",
     "name": "Cannabidiol",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Cannabidiol compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "5-HT1A",
       "TRPV1",
@@ -3340,7 +3340,7 @@
   {
     "slug": "capsaicin",
     "name": "Capsaicin",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Capsaicin compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "TRPV1 receptor"
     ],
@@ -3613,7 +3613,7 @@
   {
     "slug": "cbg",
     "name": "CBG",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "CBG compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "CB1/CB2",
       "alpha-2 adrenergic receptors",
@@ -3938,7 +3938,7 @@
   {
     "slug": "chondroitin",
     "name": "Chondroitin",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Chondroitin compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cartilage extracellular matrix",
       "MMP-related pathways"
@@ -3964,7 +3964,7 @@
   {
     "slug": "chromium",
     "name": "Chromium",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Chromium compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "insulin signaling",
       "glucose metabolism"
@@ -3990,7 +3990,7 @@
   {
     "slug": "chromium-picolinate",
     "name": "chromium picolinate",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "chromium picolinate compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "insulin receptor"
     ],
@@ -4014,7 +4014,7 @@
   {
     "slug": "cimifugoside",
     "name": "Cimifugoside",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Cimifugoside compound profile with evidence, safety, and practical fit.",
     "primary_effects": [],
     "effects": [],
     "evidence_grade": "c",
@@ -4060,7 +4060,7 @@
   {
     "slug": "cinnamon-extract",
     "name": "Cinnamon extract",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Cinnamon extract compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "GLUT4"
     ],
@@ -4158,7 +4158,7 @@
   {
     "slug": "citrulline-malate",
     "name": "Citrulline Malate",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Citrulline Malate compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "nitric oxide pathways",
       "urea cycle"
@@ -4220,7 +4220,7 @@
   {
     "slug": "coconut-oil",
     "name": "Coconut Oil",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Coconut Oil compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Metabolic Health",
       "Cardiovascular Health",
@@ -4336,7 +4336,7 @@
   {
     "slug": "coq10",
     "name": "Coenzyme Q10",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Coenzyme Q10 compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Oxidative Stress",
       "Mitochondrial Health",
@@ -4376,7 +4376,7 @@
   {
     "slug": "collagen-peptides",
     "name": "Collagen Peptides",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Collagen Peptides compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "connective tissue",
       "cartilage",
@@ -4500,7 +4500,7 @@
   {
     "slug": "copper",
     "name": "Copper",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Copper compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cytochrome c oxidase",
       "SOD",
@@ -4560,7 +4560,7 @@
   {
     "slug": "cordycepin",
     "name": "cordycepin",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "cordycepin compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "AMPK"
     ],
@@ -4584,7 +4584,7 @@
   {
     "slug": "cordyceps",
     "name": "Cordyceps",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Cordyceps compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cellular energy pathways",
       "immune pathways"
@@ -4619,7 +4619,7 @@
   {
     "slug": "cordyceps-militaris",
     "name": "cordyceps militaris",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "cordyceps militaris compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "ATP synthesis"
     ],
@@ -4786,7 +4786,7 @@
   {
     "slug": "creatine-monohydrate",
     "name": "Creatine monohydrate",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Creatine monohydrate compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cellular energy metabolism",
       "phosphocreatine system"
@@ -4936,7 +4936,7 @@
   {
     "slug": "curcumin-piperine",
     "name": "Curcumin + piperine",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Curcumin + piperine compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory_COX"
     ],
@@ -4968,7 +4968,7 @@
   {
     "slug": "curcumin-phytosome",
     "name": "Curcumin phytosome",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Curcumin phytosome compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "NF-κB",
       "inflammatory cytokines",
@@ -5130,7 +5130,7 @@
   {
     "slug": "d-mannose",
     "name": "D-Mannose",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "D-Mannose compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "urothelium",
       "bacterial fimbriae"
@@ -5560,7 +5560,7 @@
   {
     "slug": "digestive-enzymes",
     "name": "Digestive enzymes",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Digestive enzymes compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "protein digestion",
       "fat digestion",
@@ -5656,7 +5656,7 @@
   {
     "slug": "dim",
     "name": "diindolylmethane",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "diindolylmethane compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "CYP1A1 CYP1B1"
     ],
@@ -5816,7 +5816,7 @@
   {
     "slug": "echinacea",
     "name": "Echinacea",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Echinacea compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "immune signaling"
     ],
@@ -5930,7 +5930,7 @@
   {
     "slug": "egcg-caffeine",
     "name": "EGCG + Caffeine",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "EGCG + Caffeine compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "stimulant_CNS",
       "glucose_AMPK"
@@ -6532,7 +6532,7 @@
   {
     "slug": "exogenous-ketones",
     "name": "exogenous ketones",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "exogenous ketones compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "BHB energy metabolism"
     ],
@@ -6556,7 +6556,7 @@
   {
     "slug": "melatonin-extended-release",
     "name": "Extended-release melatonin",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Extended-release melatonin compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "melatonin receptors",
       "suprachiasmatic nucleus"
@@ -6574,7 +6574,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6583,7 +6583,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -6680,7 +6680,7 @@
   {
     "slug": "fenugreek",
     "name": "Fenugreek",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Fenugreek compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "insulin signaling",
       "sex-hormone enzymes proposed"
@@ -6714,7 +6714,7 @@
   {
     "slug": "fenugreek-extract",
     "name": "Fenugreek Extract",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Fenugreek Extract compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Metabolic Health",
       "Hormonal Health",
@@ -6976,7 +6976,7 @@
   {
     "slug": "fos",
     "name": "Fructooligosaccharides",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Fructooligosaccharides compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Digestive Health"
     ],
@@ -6992,7 +6992,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 80,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7001,14 +7001,14 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context-missing",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "fucoxanthin",
     "name": "Fucoxanthin",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Fucoxanthin compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "UCP1",
       "fat oxidation"
@@ -7042,7 +7042,7 @@
   {
     "slug": "fukinolic-acid",
     "name": "Fukinolic acid",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Fukinolic acid compound profile with evidence, safety, and practical fit.",
     "primary_effects": [],
     "effects": [],
     "evidence_grade": "c",
@@ -7220,7 +7220,7 @@
   {
     "slug": "garcinia-cambogia-extract",
     "name": "Garcinia Cambogia Extract",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Garcinia Cambogia Extract compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "ATP citrate lyase"
     ],
@@ -7236,7 +7236,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7245,7 +7245,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -7326,7 +7326,7 @@
   {
     "slug": "garlic-extract",
     "name": "Garlic Extract",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Garlic Extract compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "NO HMG-CoA reductase"
     ],
@@ -7452,7 +7452,7 @@
   {
     "slug": "gingerol",
     "name": "gingerol",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "gingerol compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "COX-2 PGE2"
     ],
@@ -7768,7 +7768,7 @@
   {
     "slug": "ginsenosides",
     "name": "Ginsenosides",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Ginsenosides compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "NO pathways",
       "HPA axis"
@@ -7794,7 +7794,7 @@
   {
     "slug": "glucomannan",
     "name": "Glucomannan",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Glucomannan compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "fiber_LDL",
       "glucose_AMPK"
@@ -7846,7 +7846,7 @@
   {
     "slug": "glucosamine",
     "name": "Glucosamine",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Glucosamine compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cartilage matrix",
       "joint tissue"
@@ -8224,7 +8224,7 @@
   {
     "slug": "green-tea-extract-egcg",
     "name": "Green tea extract / EGCG",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Green tea extract / EGCG compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Oxidative Stress",
       "Mitochondrial Health",
@@ -8248,7 +8248,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8257,7 +8257,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -8558,7 +8558,7 @@
   {
     "slug": "hmb",
     "name": "HMB",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "HMB compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Exercise Performance",
       "Oxidative Stress",
@@ -8767,7 +8767,7 @@
   {
     "slug": "hyaluronic-acid",
     "name": "Hyaluronic Acid",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Hyaluronic Acid compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "synovial fluid",
       "cartilage"
@@ -8923,7 +8923,7 @@
   {
     "slug": "icariin",
     "name": "icariin",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "icariin compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "PDE5 NO"
     ],
@@ -9001,7 +9001,7 @@
   {
     "slug": "indole-3-carbinol",
     "name": "Indole-3-carbinol",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Indole-3-carbinol compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "estrogen receptors",
       "CYP enzymes",
@@ -9129,7 +9129,7 @@
   {
     "slug": "inulin",
     "name": "Inulin",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Inulin compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "SCFA"
     ],
@@ -9405,7 +9405,7 @@
   {
     "slug": "kava",
     "name": "Kava",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Kava compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "GABA-A",
       "ion channels",
@@ -9573,7 +9573,7 @@
   {
     "slug": "l-carnitine",
     "name": "L-Carnitine",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "L-Carnitine compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "CPT1"
     ],
@@ -9631,7 +9631,7 @@
   {
     "slug": "l-theanine",
     "name": "L-theanine",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "L-theanine compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "GABA",
       "glutamate"
@@ -9731,7 +9731,7 @@
   {
     "slug": "probiotic-strain-lactobacillus",
     "name": "Lactobacillus Probiotic",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Lactobacillus Probiotic compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "gut health",
       "digestion",
@@ -9751,7 +9751,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9760,7 +9760,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -10037,7 +10037,7 @@
   {
     "slug": "licorice-root",
     "name": "Licorice Root",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Licorice Root compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "11β-HSD2",
       "mineralocorticoid/cortisol pathways"
@@ -10207,7 +10207,7 @@
   {
     "slug": "lutein",
     "name": "Lutein",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Lutein compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "macula",
       "retinal oxidative stress"
@@ -10341,7 +10341,7 @@
   {
     "slug": "macamides",
     "name": "Macamides",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Macamides compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "endocannabinoid-related pathways"
     ],
@@ -10666,7 +10666,7 @@
   {
     "slug": "manganese",
     "name": "Manganese",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Manganese compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "MnSOD",
       "metabolic enzymes"
@@ -10948,7 +10948,7 @@
   {
     "slug": "menthol",
     "name": "Menthol",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Menthol compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "TRPM8",
       "calcium channels"
@@ -11368,7 +11368,7 @@
   {
     "slug": "mucuna-pruriens",
     "name": "Mucuna pruriens",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Mucuna pruriens compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "dopaminergic pathways"
     ],
@@ -11827,7 +11827,7 @@
   {
     "slug": "nicotinamide-riboside",
     "name": "Nicotinamide riboside",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Nicotinamide riboside compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Mitochondrial Health",
       "Longevity",
@@ -11855,7 +11855,7 @@
   {
     "slug": "nr",
     "name": "Nicotinamide riboside",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Nicotinamide riboside compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "NAD+ metabolism",
       "mitochondrial pathways"
@@ -11997,7 +11997,7 @@
   {
     "slug": "oleamide",
     "name": "Oleamide",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Oleamide compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "GABAergic pathways",
       "serotonin receptors"
@@ -12256,7 +12256,7 @@
   {
     "slug": "omega-3",
     "name": "Omega-3 fatty acids",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Omega-3 fatty acids compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "lipid metabolism",
       "eicosanoid pathways",
@@ -12326,7 +12326,7 @@
   {
     "slug": "oral-rehydration-salts",
     "name": "Oral rehydration salts",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Oral rehydration salts compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "intestinal sodium-glucose transport",
       "fluid absorption"
@@ -12378,7 +12378,7 @@
   {
     "slug": "ornithine",
     "name": "ornithine",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "ornithine compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep_GABA"
     ],
@@ -12618,7 +12618,7 @@
   {
     "slug": "palmitoylethanolamide",
     "name": "Palmitoylethanolamide",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Palmitoylethanolamide compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "PPAR-alpha",
       "mast cells"
@@ -12908,7 +12908,7 @@
   {
     "slug": "peppermint-oil",
     "name": "Peppermint Oil",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Peppermint Oil compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Digestive Health",
       "Sleep",
@@ -12946,7 +12946,7 @@
   {
     "slug": "phenylalanine",
     "name": "Phenylalanine",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Phenylalanine compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "dopamine",
       "norepinephrine"
@@ -13004,7 +13004,7 @@
   {
     "slug": "phosphatidic-acid",
     "name": "phosphatidic acid",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "phosphatidic acid compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "mTOR"
     ],
@@ -13116,7 +13116,7 @@
   {
     "slug": "plant-sterols",
     "name": "Plant Sterols",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Plant Sterols compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Metabolic Health",
       "Cardiovascular Health",
@@ -13246,7 +13246,7 @@
   {
     "slug": "potassium",
     "name": "Potassium",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Potassium compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "membrane potential",
       "cardiovascular regulation"
@@ -13272,7 +13272,7 @@
   {
     "slug": "electrolytes-potassium",
     "name": "Potassium electrolytes",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Potassium electrolytes compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cardiovascular function",
       "neuromuscular function"
@@ -13290,7 +13290,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -13299,14 +13299,14 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "pqq",
     "name": "PQQ",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "PQQ compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "PGC-1α",
       "mitochondrial pathways"
@@ -13367,7 +13367,7 @@
   {
     "slug": "proanthocyanidins",
     "name": "Proanthocyanidins",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Proanthocyanidins compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "E. coli adhesion pathways"
     ],
@@ -13391,7 +13391,7 @@
   {
     "slug": "probiotic-multistrain",
     "name": "Probiotic Multistrain",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Probiotic Multistrain compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Digestive Health",
       "Immune Function"
@@ -13409,7 +13409,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -13418,7 +13418,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -13537,7 +13537,7 @@
   {
     "slug": "proline",
     "name": "proline",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "proline compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "involved in collagen synthesis and connective tissue repair"
     ],
@@ -13561,7 +13561,7 @@
   {
     "slug": "propionate",
     "name": "propionate",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "propionate compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "glucose_AMPK"
     ],
@@ -13585,7 +13585,7 @@
   {
     "slug": "protodioscin",
     "name": "Protodioscin",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Protodioscin compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "androgen pathways"
     ],
@@ -13639,7 +13639,7 @@
   {
     "slug": "psyllium-husk",
     "name": "Psyllium husk",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Psyllium husk compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "bile acid binding"
     ],
@@ -13769,7 +13769,7 @@
   {
     "slug": "pumpkin-seed-oil",
     "name": "Pumpkin seed oil",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Pumpkin seed oil compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "prostate symptoms",
       "androgen metabolism (proposed)"
@@ -13821,7 +13821,7 @@
   {
     "slug": "putrescine",
     "name": "putrescine",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "putrescine compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Cardiovascular Health",
       "Digestive Health",
@@ -13927,7 +13927,7 @@
   {
     "slug": "pyridoxal-5-phosphate",
     "name": "Pyridoxal-5-phosphate",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Pyridoxal-5-phosphate compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "serotonin synthesis",
       "GABA synthesis",
@@ -14019,7 +14019,7 @@
   {
     "slug": "red-yeast-rice",
     "name": "Red Yeast Rice",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Red Yeast Rice compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "HMG-CoA reductase"
     ],
@@ -14043,7 +14043,7 @@
   {
     "slug": "resistant-starch",
     "name": "Resistant Starch",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Resistant Starch compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Metabolic Health",
       "Digestive Health"
@@ -14289,7 +14289,7 @@
   {
     "slug": "saccharomyces-boulardii",
     "name": "Saccharomyces boulardii",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Saccharomyces boulardii compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "intestinal pathogens",
       "gut immune response"
@@ -14315,7 +14315,7 @@
   {
     "slug": "saffron-extract",
     "name": "Saffron Extract",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Saffron Extract compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Oxidative Stress",
       "Inflammation",
@@ -14501,7 +14501,7 @@
   {
     "slug": "sam-e",
     "name": "SAM-e",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "SAM-e compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "methylation pathways",
       "monoamine-related pathways"
@@ -14658,7 +14658,7 @@
   {
     "slug": "schisandrins",
     "name": "Schisandrins",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Schisandrins compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "liver enzymes",
       "antioxidant pathways"
@@ -14818,7 +14818,7 @@
   {
     "slug": "serine",
     "name": "serine",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "serine compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "supports phosphatidylserine synthesis and neuronal membrane function"
     ],
@@ -14900,7 +14900,7 @@
   {
     "slug": "shilajit",
     "name": "Shilajit",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Shilajit compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "mitochondrial pathways proposed"
     ],
@@ -14956,7 +14956,7 @@
   {
     "slug": "shogaol",
     "name": "shogaol",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "shogaol compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "NF-kB"
     ],
@@ -15110,7 +15110,7 @@
   {
     "slug": "silymarin",
     "name": "Silymarin",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Silymarin compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "hepatocytes",
       "oxidative stress pathways"
@@ -15136,7 +15136,7 @@
   {
     "slug": "skullcap",
     "name": "Skullcap",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Skullcap compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "GABA-A receptor",
       "inflammatory pathways"
@@ -15234,7 +15234,7 @@
   {
     "slug": "electrolytes-sodium",
     "name": "Sodium electrolytes",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Sodium electrolytes compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "fluid balance",
       "sodium channels",
@@ -15270,7 +15270,7 @@
   {
     "slug": "spermidine",
     "name": "spermidine",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "spermidine compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "mTOR autophagy"
     ],
@@ -15294,7 +15294,7 @@
   {
     "slug": "spirulina",
     "name": "Spirulina",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Spirulina compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Oxidative Stress",
       "Metabolic Health",
@@ -16036,7 +16036,7 @@
   {
     "slug": "tudca",
     "name": "TUDCA",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "TUDCA compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "ER stress bile acid signaling"
     ],
@@ -16060,7 +16060,7 @@
   {
     "slug": "turkesterone",
     "name": "turkesterone",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "turkesterone compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Hormonal Health",
       "Exercise Performance"
@@ -16156,7 +16156,7 @@
   {
     "slug": "coenzyme-q10-ubiquinol",
     "name": "Ubiquinol CoQ10",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Ubiquinol CoQ10 compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "mitochondrial ETC",
       "oxidative stress pathways"
@@ -16182,7 +16182,7 @@
   {
     "slug": "uc-ii-collagen",
     "name": "Uc Ii Collagen",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Uc Ii Collagen compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Inflammation",
       "Immune Function"
@@ -16490,7 +16490,7 @@
   {
     "slug": "valerian-root-extract",
     "name": "Valerian Root Extract",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Valerian Root Extract compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "GABA signaling"
     ],
@@ -16506,7 +16506,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -16515,7 +16515,7 @@
       "mechanism-context",
       "profile-status:commercial_ready",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -16702,7 +16702,7 @@
   {
     "slug": "vitamin-b6",
     "name": "Vitamin B6",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Vitamin B6 compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "amino acid metabolism",
       "neurotransmitter synthesis"
@@ -16764,7 +16764,7 @@
   {
     "slug": "vitamin-d",
     "name": "Vitamin D",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Vitamin D compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "vitamin D receptor",
       "calcium/phosphate metabolism",
@@ -16922,7 +16922,7 @@
   {
     "slug": "protein-whey-isolate",
     "name": "Whey protein isolate",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Whey protein isolate compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Exercise Performance",
       "Longevity"
@@ -16980,7 +16980,7 @@
   {
     "slug": "willow-bark-extract",
     "name": "Willow Bark Extract",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Willow Bark Extract compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "Inflammation",
       "Oxidative Stress",
@@ -17246,7 +17246,7 @@
   {
     "slug": "yohimbine",
     "name": "Yohimbine",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Yohimbine compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "alpha-2 adrenergic receptor"
     ],
@@ -17278,7 +17278,7 @@
   {
     "slug": "zeaxanthin",
     "name": "Zeaxanthin",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Zeaxanthin compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "macula",
       "retinal oxidative stress"
@@ -17304,7 +17304,7 @@
   {
     "slug": "zinc",
     "name": "Zinc",
-    "summary": "Compound profile with evidence, safety, and practical fit.",
+    "summary": "Zinc compound profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "immune function",
       "enzymatic systems",

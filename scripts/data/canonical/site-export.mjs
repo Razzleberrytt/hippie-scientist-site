@@ -72,7 +72,7 @@ function mapEntity(entity, taxonomy) {
   rec.name = entity.canonical_name
   // Summary/description are cleaned through the same leak filter + fallback the
   // workbook build uses, so suppressed pipeline text matches the live site.
-  const textFallback = `${type === 'herb' ? 'Botanical' : 'Compound'} profile with evidence, safety, and practical fit.`
+  const textFallback = `${rec.name || (type === 'herb' ? 'Botanical' : 'Compound')} ${type === 'herb' ? 'botanical' : 'compound'} profile with evidence, safety, and practical fit.`
   const rawText = entity.description || cleanString(d.summary)
   rec.summary = cleanUserFacingText(rawText, textFallback)
   rec.description = cleanUserFacingText(cleanString(lg.description) || rawText, textFallback)

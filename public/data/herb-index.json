@@ -2,7 +2,7 @@
   {
     "slug": "acerola",
     "name": "Acerola",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Acerola botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant"
     ],
@@ -68,7 +68,7 @@
   {
     "slug": "ajwain",
     "name": "Ajwain",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Ajwain botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive"
     ],
@@ -100,7 +100,7 @@
   {
     "slug": "aloe-vera",
     "name": "Aloe Vera",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Aloe Vera botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "immune",
       "metabolic",
@@ -136,7 +136,7 @@
   {
     "slug": "panax-quinquefolius",
     "name": "American Ginseng",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "American Ginseng botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "metabolic"
     ],
@@ -168,7 +168,7 @@
   {
     "slug": "american-yellow-lotus",
     "name": "American Yellow Lotus",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "American Yellow Lotus botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -184,7 +184,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "indexability_score": 88,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -193,14 +193,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "andrographis-paniculata",
     "name": "Andrographis Paniculata",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Andrographis Paniculata botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "respiratory"
     ],
@@ -216,7 +216,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "indexability_score": 88,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -225,14 +225,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "anemarrhena-asphodeloides",
     "name": "Anemarrhena Asphodeloides",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Anemarrhena Asphodeloides botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "metabolic",
@@ -252,7 +252,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -261,14 +261,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "angelica-archangelica",
     "name": "Angelica Archangelica",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Angelica Archangelica botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "respiratory",
@@ -288,7 +288,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -297,14 +297,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "angelica-dahurica",
     "name": "Angelica Dahurica",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Angelica Dahurica botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "analgesic",
@@ -340,7 +340,7 @@
   {
     "slug": "angelica-pubescens",
     "name": "Angelica Pubescens",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Angelica Pubescens botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "analgesic",
@@ -408,7 +408,7 @@
   {
     "slug": "angelica-sinensis",
     "name": "Angelica Sinensis",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Angelica Sinensis botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "hormonal",
@@ -444,7 +444,7 @@
   {
     "slug": "anise-hyssop",
     "name": "Anise Hyssop",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Anise Hyssop botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "respiratory",
@@ -480,7 +480,7 @@
   {
     "slug": "arjuna",
     "name": "Arjuna",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Arjuna botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "cardiovascular",
@@ -516,7 +516,7 @@
   {
     "slug": "artemisia-absinthium",
     "name": "Artemisia Absinthium",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Artemisia Absinthium botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -532,7 +532,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "indexability_score": 88,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -541,14 +541,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "artemisia-annua",
     "name": "Artemisia Annua",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Artemisia Annua botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antiviral",
       "immune",
@@ -584,7 +584,7 @@
   {
     "slug": "artemisia-capillaris",
     "name": "Artemisia Capillaris",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Artemisia Capillaris botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "liver-protective",
       "digestive"
@@ -602,7 +602,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -611,14 +611,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "artichoke",
     "name": "Artichoke",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Artichoke botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "digestive",
@@ -654,7 +654,7 @@
   {
     "slug": "ashitaba",
     "name": "Ashitaba",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Ashitaba botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "metabolic"
@@ -764,7 +764,7 @@
   {
     "slug": "ashwagandha",
     "name": "Ashwagandha (Withania somnifera)",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Ashwagandha (Withania somnifera) botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -780,7 +780,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -789,7 +789,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -830,7 +830,7 @@
   {
     "slug": "astragalus",
     "name": "Astragalus",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Astragalus botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "immune_support",
       "adaptogen",
@@ -866,7 +866,7 @@
   {
     "slug": "astragalus-membranaceus",
     "name": "Astragalus Membranaceus",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Astragalus Membranaceus botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "immune_support",
       "adaptogen",
@@ -886,7 +886,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -895,14 +895,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "atractylodes",
     "name": "Atractylodes",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Atractylodes botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -934,7 +934,7 @@
   {
     "slug": "atractylodes-macrocephala",
     "name": "Atractylodes Macrocephala",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Atractylodes Macrocephala botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "immune",
@@ -954,7 +954,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -963,7 +963,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -1006,7 +1006,7 @@
   {
     "slug": "bael",
     "name": "Bael",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Bael botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "digestive"
@@ -1040,7 +1040,7 @@
   {
     "slug": "lagerstroemia-speciosa",
     "name": "Banaba",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Banaba botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "metabolic"
     ],
@@ -1072,7 +1072,7 @@
   {
     "slug": "bayberry",
     "name": "Bayberry",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Bayberry botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -1104,7 +1104,7 @@
   {
     "slug": "berberis",
     "name": "Berberis",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Berberis botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "digestive",
@@ -1140,7 +1140,7 @@
   {
     "slug": "berberis-vulgaris",
     "name": "Berberis Vulgaris",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Berberis Vulgaris botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "antimicrobial"
@@ -1232,7 +1232,7 @@
   {
     "slug": "piper-nigrum",
     "name": "Black Pepper",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Black Pepper botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "bioavailability_enhancer",
       "digestive_support",
@@ -1304,7 +1304,7 @@
   {
     "slug": "black-tea",
     "name": "Black Tea",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Black Tea botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -1340,7 +1340,7 @@
   {
     "slug": "blue-lotus",
     "name": "Blue Lotus",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Blue Lotus botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -1364,7 +1364,7 @@
   {
     "slug": "blueberry",
     "name": "Blueberry",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Blueberry botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -1400,7 +1400,7 @@
   {
     "slug": "boldo",
     "name": "Boldo",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Boldo botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive"
     ],
@@ -1432,7 +1432,7 @@
   {
     "slug": "boswellia-serrata",
     "name": "Boswellia",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Boswellia botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -1464,7 +1464,7 @@
   {
     "slug": "boswellia-carterii",
     "name": "Boswellia Carterii",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Boswellia Carterii botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -1560,7 +1560,7 @@
   {
     "slug": "buckwheat",
     "name": "Buckwheat",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Buckwheat botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "cardiovascular",
@@ -1666,7 +1666,7 @@
   {
     "slug": "burdock",
     "name": "Burdock",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Burdock botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "skin-support"
@@ -1732,7 +1732,7 @@
   {
     "slug": "theobroma-cacao",
     "name": "Cacao",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Cacao botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "stimulant"
     ],
@@ -1764,7 +1764,7 @@
   {
     "slug": "calamus",
     "name": "Calamus",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Calamus botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -1796,7 +1796,7 @@
   {
     "slug": "calendula",
     "name": "Calendula",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Calendula botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antimicrobial",
@@ -1832,7 +1832,7 @@
   {
     "slug": "eschscholzia-californica",
     "name": "California Poppy",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "California Poppy botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -1922,7 +1922,7 @@
   {
     "slug": "caraway",
     "name": "Caraway",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Caraway botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive"
     ],
@@ -1954,7 +1954,7 @@
   {
     "slug": "elettaria-cardamomum",
     "name": "Cardamom",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Cardamom botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "cardiovascular",
@@ -1990,7 +1990,7 @@
   {
     "slug": "carob",
     "name": "Carob",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Carob botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "metabolic"
@@ -2024,7 +2024,7 @@
   {
     "slug": "cassia-alata",
     "name": "Cassia Alata",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Cassia Alata botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -2056,7 +2056,7 @@
   {
     "slug": "cat-s-claw",
     "name": "Cat's Claw",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Cat's Claw botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "immune"
@@ -2118,7 +2118,7 @@
   {
     "slug": "cayenne",
     "name": "Cayenne",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Cayenne botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -2150,7 +2150,7 @@
   {
     "slug": "celastrus-paniculatus",
     "name": "Celastrus Paniculatus",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Celastrus Paniculatus botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cognitive_support",
       "neuroprotective",
@@ -2170,7 +2170,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2179,7 +2179,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -2246,7 +2246,7 @@
   {
     "slug": "chinese-skullcap",
     "name": "Chinese Skullcap",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Chinese Skullcap botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant"
     ],
@@ -2278,7 +2278,7 @@
   {
     "slug": "chuanxiong",
     "name": "Chuanxiong",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Chuanxiong botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -2310,7 +2310,7 @@
   {
     "slug": "cichorium-intybus",
     "name": "Cichorium Intybus",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Cichorium Intybus botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "liver-protective"
@@ -2442,7 +2442,7 @@
   {
     "slug": "cistanche-deserticola",
     "name": "Cistanche Deserticola",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Cistanche Deserticola botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "energy",
       "reproductive",
@@ -2462,7 +2462,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2471,7 +2471,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -2514,7 +2514,7 @@
   {
     "slug": "citrus-bergamia",
     "name": "Citrus Bergamia",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Citrus Bergamia botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cardiovascular",
       "metabolic"
@@ -2616,7 +2616,7 @@
   {
     "slug": "cnidium-monnieri",
     "name": "Cnidium Monnieri",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Cnidium Monnieri botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "reproductive",
       "skin-support"
@@ -2650,7 +2650,7 @@
   {
     "slug": "codonopsis",
     "name": "Codonopsis",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Codonopsis botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -2682,7 +2682,7 @@
   {
     "slug": "coffea-arabica",
     "name": "Coffee",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Coffee botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "energy",
       "stimulant",
@@ -2718,7 +2718,7 @@
   {
     "slug": "coffee-cherry",
     "name": "Coffee Cherry",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Coffee Cherry botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant"
     ],
@@ -2750,7 +2750,7 @@
   {
     "slug": "coleus-forskohlii",
     "name": "Coleus Forskohlii",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Coleus Forskohlii botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cognitive"
     ],
@@ -2782,7 +2782,7 @@
   {
     "slug": "commiphora-mukul",
     "name": "Commiphora Mukul",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Commiphora Mukul botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "hormonal"
@@ -2816,7 +2816,7 @@
   {
     "slug": "coptis",
     "name": "Coptis",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Coptis botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -2848,7 +2848,7 @@
   {
     "slug": "coptis-chinensis",
     "name": "Coptis Chinensis",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Coptis Chinensis botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antimicrobial",
       "digestive"
@@ -2918,7 +2918,7 @@
   {
     "slug": "coriandrum-sativum",
     "name": "Coriandrum Sativum",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Coriandrum Sativum botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -2950,7 +2950,7 @@
   {
     "slug": "cornus-officinalis",
     "name": "Cornus Officinalis",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Cornus Officinalis botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "reproductive",
       "hormonal"
@@ -2984,7 +2984,7 @@
   {
     "slug": "corydalis",
     "name": "Corydalis",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Corydalis botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -3016,7 +3016,7 @@
   {
     "slug": "cranberry",
     "name": "Cranberry (Vaccinium macrocarpon)",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Cranberry (Vaccinium macrocarpon) botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antimicrobial"
     ],
@@ -3032,7 +3032,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "indexability_score": 88,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -3041,7 +3041,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -3084,7 +3084,7 @@
   {
     "slug": "curcuma-wenyujin",
     "name": "Curcuma Wenyujin",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Curcuma Wenyujin botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "digestive"
@@ -3118,7 +3118,7 @@
   {
     "slug": "curcuma-zedoaria",
     "name": "Curcuma Zedoaria",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Curcuma Zedoaria botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "anti-inflammatory"
@@ -3152,7 +3152,7 @@
   {
     "slug": "curcumin",
     "name": "Curcumin",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Curcumin botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "analgesic"
@@ -3186,7 +3186,7 @@
   {
     "slug": "curry-leaf",
     "name": "Curry Leaf",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Curry Leaf botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "metabolic"
@@ -3220,7 +3220,7 @@
   {
     "slug": "cyclea-peltata",
     "name": "Cyclea Peltata",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Cyclea Peltata botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "digestive"
@@ -3254,7 +3254,7 @@
   {
     "slug": "cymbopogon-citratus",
     "name": "Cymbopogon Citratus",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Cymbopogon Citratus botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -3286,7 +3286,7 @@
   {
     "slug": "damiana",
     "name": "Damiana",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Damiana botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "libido",
       "mood_support",
@@ -3314,7 +3314,7 @@
   {
     "slug": "dandelion",
     "name": "Dandelion",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Dandelion botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "diuretic"
@@ -3348,7 +3348,7 @@
   {
     "slug": "danshen",
     "name": "Danshen",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Danshen botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cardiovascular"
     ],
@@ -3380,7 +3380,7 @@
   {
     "slug": "daphne-odora",
     "name": "Daphne Odora",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Daphne Odora botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -3444,7 +3444,7 @@
   {
     "slug": "dong-quai",
     "name": "Dong Quai",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Dong Quai botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "hormonal",
@@ -3504,7 +3504,7 @@
   {
     "slug": "elderberry",
     "name": "Elderberry",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Elderberry botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antiviral",
       "respiratory"
@@ -3538,7 +3538,7 @@
   {
     "slug": "elecampane",
     "name": "Elecampane",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Elecampane botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "respiratory"
@@ -3572,7 +3572,7 @@
   {
     "slug": "elephantopus-scaber",
     "name": "Elephantopus Scaber",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Elephantopus Scaber botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "liver-protective"
@@ -3642,7 +3642,7 @@
   {
     "slug": "embelia-ribes",
     "name": "Embelia Ribes",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Embelia Ribes botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antimicrobial",
       "digestive"
@@ -3744,7 +3744,7 @@
   {
     "slug": "eucalyptus",
     "name": "Eucalyptus",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Eucalyptus botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antimicrobial",
@@ -3814,7 +3814,7 @@
   {
     "slug": "evening-primrose",
     "name": "Evening Primrose (Oenothera biennis)",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Evening Primrose (Oenothera biennis) botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "skin-support"
     ],
@@ -3906,7 +3906,7 @@
   {
     "slug": "feverfew",
     "name": "Feverfew",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Feverfew botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "analgesic"
@@ -3940,7 +3940,7 @@
   {
     "slug": "ficus-carica",
     "name": "Ficus Carica",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Ficus Carica botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "hormonal"
@@ -3974,7 +3974,7 @@
   {
     "slug": "fingerroot",
     "name": "Fingerroot",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Fingerroot botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antimicrobial"
@@ -4008,7 +4008,7 @@
   {
     "slug": "fraxinus-rhynchophylla",
     "name": "Fraxinus Rhynchophylla",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Fraxinus Rhynchophylla botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "cardiovascular"
@@ -4026,7 +4026,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4035,14 +4035,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "galangal",
     "name": "Galangal",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Galangal botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive"
     ],
@@ -4074,7 +4074,7 @@
   {
     "slug": "garcinia-indica",
     "name": "Garcinia Indica",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Garcinia Indica botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "metabolic"
@@ -4108,7 +4108,7 @@
   {
     "slug": "garcinia-mangostana",
     "name": "Garcinia Mangostana",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Garcinia Mangostana botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "anti-inflammatory"
@@ -4142,7 +4142,7 @@
   {
     "slug": "allium-sativum",
     "name": "Garlic",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Garlic botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cardiovascular"
     ],
@@ -4348,7 +4348,7 @@
   {
     "slug": "goldenseal",
     "name": "Goldenseal",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Goldenseal botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -4372,7 +4372,7 @@
   {
     "slug": "gotu-kola",
     "name": "Gotu Kola (Centella asiatica)",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Gotu Kola (Centella asiatica) botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "microcirculation",
       "collagen pathways",
@@ -4392,7 +4392,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4401,14 +4401,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "vitis-vinifera",
     "name": "Grape",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Grape botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "cardiovascular",
@@ -4444,7 +4444,7 @@
   {
     "slug": "grapefruit",
     "name": "Grapefruit",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Grapefruit botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive"
     ],
@@ -4476,7 +4476,7 @@
   {
     "slug": "camellia-sinensis",
     "name": "Green Tea",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Green Tea botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "metabolic",
@@ -4512,7 +4512,7 @@
   {
     "slug": "green-tea-extract",
     "name": "Green Tea Extract",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Green Tea Extract botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "metabolic"
     ],
@@ -4544,7 +4544,7 @@
   {
     "slug": "guarana",
     "name": "Guarana",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Guarana botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -4572,7 +4572,7 @@
   {
     "slug": "guayusa",
     "name": "Guayusa",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Guayusa botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant"
     ],
@@ -4668,7 +4668,7 @@
   {
     "slug": "harpagophytum-procumbens",
     "name": "Harpagophytum Procumbens",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Harpagophytum Procumbens botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "analgesic"
@@ -4686,7 +4686,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4695,14 +4695,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "crataegus-monogyna",
     "name": "Hawthorn",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Hawthorn botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cardiovascular"
     ],
@@ -4734,7 +4734,7 @@
   {
     "slug": "hibiscus-sabdariffa",
     "name": "Hibiscus",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Hibiscus botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "stress-relief",
       "cardiovascular",
@@ -4878,7 +4878,7 @@
   {
     "slug": "honeysuckle",
     "name": "Honeysuckle",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Honeysuckle botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -4910,7 +4910,7 @@
   {
     "slug": "hops",
     "name": "Hops",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Hops botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -4942,7 +4942,7 @@
   {
     "slug": "horse-chestnut",
     "name": "Horse Chestnut",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Horse Chestnut botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "tonic"
@@ -5010,7 +5010,7 @@
   {
     "slug": "huperzia-serrata",
     "name": "Huperzia Serrata",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Huperzia Serrata botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cognitive"
     ],
@@ -5042,7 +5042,7 @@
   {
     "slug": "hypericum-perforatum",
     "name": "Hypericum Perforatum",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Hypericum Perforatum botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "mood_support",
       "antidepressant",
@@ -5062,7 +5062,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5071,14 +5071,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "berberis-aristata",
     "name": "Indian Barberry",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Indian Barberry botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "liver-protective",
@@ -5114,7 +5114,7 @@
   {
     "slug": "isatis",
     "name": "Isatis",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Isatis botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "immune"
     ],
@@ -5210,7 +5210,7 @@
   {
     "slug": "jujube",
     "name": "Jujube",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Jujube botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -5274,7 +5274,7 @@
   {
     "slug": "kanna",
     "name": "Kanna",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Kanna botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "mood_support",
       "anti_anxiety",
@@ -5368,7 +5368,7 @@
   {
     "slug": "kudzu",
     "name": "Kudzu",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Kudzu botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -5404,7 +5404,7 @@
   {
     "slug": "tyrosine",
     "name": "L-Tyrosine",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "L-Tyrosine botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cognitive_support",
       "dopamine_precursor",
@@ -5472,7 +5472,7 @@
   {
     "slug": "lawsonia-inermis",
     "name": "Lawsonia Inermis",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Lawsonia Inermis botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "skin-support",
       "antimicrobial"
@@ -5538,7 +5538,7 @@
   {
     "slug": "lemon-verbena",
     "name": "Lemon Verbena",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Lemon Verbena botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -5570,7 +5570,7 @@
   {
     "slug": "lemongrass",
     "name": "Lemongrass",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Lemongrass botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "antioxidant",
@@ -5606,7 +5606,7 @@
   {
     "slug": "licorice",
     "name": "Licorice",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Licorice botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -5638,7 +5638,7 @@
   {
     "slug": "ligusticum-chuanxiong",
     "name": "Ligusticum Chuanxiong",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Ligusticum Chuanxiong botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cardiovascular",
       "anti-inflammatory"
@@ -5656,7 +5656,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5665,7 +5665,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -5732,7 +5732,7 @@
   {
     "slug": "lithospermum-erythrorhizon",
     "name": "Lithospermum Erythrorhizon",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Lithospermum Erythrorhizon botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "skin-support",
       "anti-inflammatory"
@@ -5750,7 +5750,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5759,14 +5759,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "lobelia-inflata",
     "name": "Lobelia Inflata",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Lobelia Inflata botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "respiratory",
       "stimulant"
@@ -5832,7 +5832,7 @@
   {
     "slug": "luo-han-guo",
     "name": "Luo Han Guo",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Luo Han Guo botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "respiratory",
       "antioxidant"
@@ -5966,7 +5966,7 @@
   {
     "slug": "mangifera-indica",
     "name": "Mangifera Indica",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Mangifera Indica botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "metabolic"
@@ -6070,7 +6070,7 @@
   {
     "slug": "marshmallow",
     "name": "Marshmallow",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Marshmallow botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -6204,7 +6204,7 @@
   {
     "slug": "morinda-citrifolia",
     "name": "Morinda Citrifolia",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Morinda Citrifolia botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -6240,7 +6240,7 @@
   {
     "slug": "moringa",
     "name": "Moringa",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Moringa botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "metabolic"
@@ -6274,7 +6274,7 @@
   {
     "slug": "morus-alba",
     "name": "Morus Alba",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Morus Alba botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "metabolic"
     ],
@@ -6306,7 +6306,7 @@
   {
     "slug": "mucuna",
     "name": "Mucuna",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Mucuna botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "dopamine_support",
       "neuroprotective",
@@ -6374,7 +6374,7 @@
   {
     "slug": "muira-puama",
     "name": "Muira Puama",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Muira Puama botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "libido",
       "cognitive_support",
@@ -6402,7 +6402,7 @@
   {
     "slug": "mulberry-leaf",
     "name": "Mulberry Leaf",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Mulberry Leaf botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "metabolic"
     ],
@@ -6434,7 +6434,7 @@
   {
     "slug": "myristica-fragrans",
     "name": "Myristica Fragrans",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Myristica Fragrans botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "sedative"
@@ -6468,7 +6468,7 @@
   {
     "slug": "myrtle",
     "name": "Myrtle",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Myrtle botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antimicrobial",
       "anti_inflammatory",
@@ -6538,7 +6538,7 @@
   {
     "slug": "nelumbo-nucifera",
     "name": "Nelumbo Nucifera",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Nelumbo Nucifera botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sedative",
       "anti_inflammatory",
@@ -6662,7 +6662,7 @@
   {
     "slug": "notoginseng",
     "name": "Notoginseng",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Notoginseng botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cardiovascular",
       "anti-inflammatory",
@@ -6698,7 +6698,7 @@
   {
     "slug": "oatstraw",
     "name": "Oatstraw",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Oatstraw botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "nervous_system",
       "cognitive_support",
@@ -6734,7 +6734,7 @@
   {
     "slug": "ocimum-basilicum",
     "name": "Ocimum Basilicum",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Ocimum Basilicum botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -6766,7 +6766,7 @@
   {
     "slug": "ocotea-odorifera",
     "name": "Ocotea Odorifera",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Ocotea Odorifera botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -6834,7 +6834,7 @@
   {
     "slug": "ophiopogon",
     "name": "Ophiopogon",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Ophiopogon botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "respiratory",
       "tonic"
@@ -6904,7 +6904,7 @@
   {
     "slug": "oregano",
     "name": "Oregano",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Oregano botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -6936,7 +6936,7 @@
   {
     "slug": "paeonia-lactiflora",
     "name": "Paeonia Lactiflora",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Paeonia Lactiflora botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "hormonal",
@@ -6972,7 +6972,7 @@
   {
     "slug": "paeonia-suffruticosa",
     "name": "Paeonia Suffruticosa",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Paeonia Suffruticosa botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "cardiovascular"
@@ -6990,7 +6990,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6999,14 +6999,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "papaya-leaf",
     "name": "Papaya Leaf",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Papaya Leaf botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -7042,7 +7042,7 @@
   {
     "slug": "parsley",
     "name": "Parsley",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Parsley botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -7106,7 +7106,7 @@
   {
     "slug": "pastinaca-sativa",
     "name": "Pastinaca Sativa",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Pastinaca Sativa botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "digestive",
       "antioxidant"
@@ -7206,7 +7206,7 @@
   {
     "slug": "perilla",
     "name": "Perilla",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Perilla botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant"
     ],
@@ -7238,7 +7238,7 @@
   {
     "slug": "phellodendron",
     "name": "Phellodendron",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Phellodendron botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -7270,7 +7270,7 @@
   {
     "slug": "phellodendron-amurense",
     "name": "Phellodendron Amurense",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Phellodendron Amurense botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antimicrobial",
       "anti-inflammatory",
@@ -7290,7 +7290,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7299,14 +7299,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "phosphatidylserine",
     "name": "Phosphatidylserine",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Phosphatidylserine botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cognitive_support",
       "cortisol_reduction",
@@ -7378,7 +7378,7 @@
   {
     "slug": "plantago-lanceolata",
     "name": "Plantago Lanceolata",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Plantago Lanceolata botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "respiratory",
       "anti_inflammatory",
@@ -7414,7 +7414,7 @@
   {
     "slug": "plantago-major",
     "name": "Plantago Major",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Plantago Major botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "wound_healing",
       "anti_inflammatory",
@@ -7450,7 +7450,7 @@
   {
     "slug": "plumbago-zeylanica",
     "name": "Plumbago Zeylanica",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Plumbago Zeylanica botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "digestive_support",
@@ -7486,7 +7486,7 @@
   {
     "slug": "polygala",
     "name": "Polygala",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Polygala botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cognitive_support",
       "neuroprotective",
@@ -7522,7 +7522,7 @@
   {
     "slug": "pomegranate",
     "name": "Pomegranate",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Pomegranate botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant"
     ],
@@ -7554,7 +7554,7 @@
   {
     "slug": "poria",
     "name": "Poria",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Poria botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "immune_support",
       "adaptogen",
@@ -7590,7 +7590,7 @@
   {
     "slug": "psoralea-corylifolia",
     "name": "Psoralea Corylifolia",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Psoralea Corylifolia botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "bone_health",
       "skin_support",
@@ -7610,7 +7610,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7619,7 +7619,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -7660,7 +7660,7 @@
   {
     "slug": "pueraria-lobata",
     "name": "Pueraria Lobata",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Pueraria Lobata botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "hormonal",
       "metabolic"
@@ -7726,7 +7726,7 @@
   {
     "slug": "punarnava",
     "name": "Punarnava",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Punarnava botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "diuretic"
@@ -7760,7 +7760,7 @@
   {
     "slug": "quercetin",
     "name": "Quercetin",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Quercetin botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "anti_inflammatory",
@@ -7796,7 +7796,7 @@
   {
     "slug": "raspberry-leaf",
     "name": "Raspberry Leaf",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Raspberry Leaf botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory"
     ],
@@ -7862,7 +7862,7 @@
   {
     "slug": "rehmannia-glutinosa",
     "name": "Rehmannia Glutinosa",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Rehmannia Glutinosa botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "adrenal_support",
       "blood_tonic",
@@ -7930,7 +7930,7 @@
   {
     "slug": "ganoderma-lucidum",
     "name": "Reishi",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Reishi botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "energy"
@@ -7988,7 +7988,7 @@
   {
     "slug": "resveratrol",
     "name": "Resveratrol",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Resveratrol botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant"
@@ -8094,7 +8094,7 @@
   {
     "slug": "rice-bran",
     "name": "Rice Bran",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Rice Bran botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -8130,7 +8130,7 @@
   {
     "slug": "rooibos",
     "name": "Rooibos",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Rooibos botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant"
     ],
@@ -8226,7 +8226,7 @@
   {
     "slug": "rosemary",
     "name": "Rosemary",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Rosemary botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -8262,7 +8262,7 @@
   {
     "slug": "saffron",
     "name": "Saffron",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Saffron botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "mood_support",
       "antidepressant",
@@ -8298,7 +8298,7 @@
   {
     "slug": "sage",
     "name": "Sage",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Sage botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cognitive_support",
       "antimicrobial",
@@ -8334,7 +8334,7 @@
   {
     "slug": "salacia-reticulata",
     "name": "Salacia",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Salacia botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "metabolic"
     ],
@@ -8594,7 +8594,7 @@
   {
     "slug": "serenoa-repens",
     "name": "Serenoa Repens",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Serenoa Repens botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "prostate_health",
       "anti_androgenic",
@@ -8630,7 +8630,7 @@
   {
     "slug": "shankhpushpi",
     "name": "Shankhpushpi",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Shankhpushpi botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "cognitive_support",
       "nootropic",
@@ -8666,7 +8666,7 @@
   {
     "slug": "shatavari",
     "name": "Shatavari",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Shatavari botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "adaptogen",
       "hormonal_support",
@@ -8726,7 +8726,7 @@
   {
     "slug": "sophora-alopecuroides",
     "name": "Sophora Alopecuroides",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Sophora Alopecuroides botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "antimicrobial",
@@ -8746,7 +8746,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8755,14 +8755,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "sophora-flavescens",
     "name": "Sophora Flavescens",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Sophora Flavescens botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "antiparasitic",
@@ -8830,7 +8830,7 @@
   {
     "slug": "soybean",
     "name": "Soybean",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Soybean botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",
@@ -8894,7 +8894,7 @@
   {
     "slug": "stellera-chamaejasme",
     "name": "Stellera Chamaejasme",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Stellera Chamaejasme botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "antitumor_research",
@@ -8914,7 +8914,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8923,14 +8923,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "stephania-cepharantha",
     "name": "Stephania Cepharantha",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Stephania Cepharantha botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "antitumor_research",
@@ -8950,7 +8950,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8959,14 +8959,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "stephania-japonica",
     "name": "Stephania Japonica",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Stephania Japonica botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "analgesic",
@@ -9002,7 +9002,7 @@
   {
     "slug": "stephania-tetrandra",
     "name": "Stephania Tetrandra",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Stephania Tetrandra botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "diuretic",
@@ -9106,7 +9106,7 @@
   {
     "slug": "tamarind",
     "name": "Tamarind",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Tamarind botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "antioxidant",
       "digestive"
@@ -9140,7 +9140,7 @@
   {
     "slug": "artemisia-dracunculus",
     "name": "Tarragon",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Tarragon botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "metabolic"
     ],
@@ -9226,7 +9226,7 @@
   {
     "slug": "thyme",
     "name": "Thyme",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Thyme botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -9258,7 +9258,7 @@
   {
     "slug": "tongkat-ali",
     "name": "Tongkat Ali",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Tongkat Ali botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "testosterone_support",
       "libido",
@@ -9294,7 +9294,7 @@
   {
     "slug": "tribulus-terrestris",
     "name": "Tribulus (Tribulus terrestris)",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Tribulus (Tribulus terrestris) botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -9310,7 +9310,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "indexability_score": 88,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -9319,7 +9319,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -9384,7 +9384,7 @@
   {
     "slug": "turmeric",
     "name": "Turmeric (Curcuma longa)",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Turmeric (Curcuma longa) botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "antioxidant",
@@ -9404,7 +9404,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9413,7 +9413,7 @@
       "mechanism-context",
       "profile-status:near_complete",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -9484,7 +9484,7 @@
   {
     "slug": "verbena-officinalis",
     "name": "Verbena Officinalis",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Verbena Officinalis botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "nervine",
       "anti_anxiety",
@@ -9520,7 +9520,7 @@
   {
     "slug": "white-peony",
     "name": "White Peony",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "White Peony botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "muscle_relaxant",
@@ -9556,7 +9556,7 @@
   {
     "slug": "wild-yam",
     "name": "Wild Yam",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Wild Yam botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti_inflammatory",
       "hormonal_support",
@@ -9592,7 +9592,7 @@
   {
     "slug": "wormwood",
     "name": "Wormwood",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Wormwood botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "sleep"
     ],
@@ -9624,7 +9624,7 @@
   {
     "slug": "yarrow",
     "name": "Yarrow",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Yarrow botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "digestive"
@@ -9658,7 +9658,7 @@
   {
     "slug": "yerba-mate",
     "name": "Yerba Mate",
-    "summary": "Botanical profile with evidence, safety, and practical fit.",
+    "summary": "Yerba Mate botanical profile with evidence, safety, and practical fit.",
     "primary_effects": [
       "anti-inflammatory",
       "antioxidant",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-11T11:48:36.935Z",
+  "generatedAt": "2026-07-11T15:04:28.352Z",
   "dataDir": "public\\data",
   "removedSingularDirs": [],
   "trimmedSummaries": {
@@ -11,9 +11,7 @@
     "compounds": []
   },
   "createdMissingDetails": {
-    "herbs": [
-      "lobelia-inflata"
-    ],
+    "herbs": [],
     "compounds": []
   },
   "deIndexed": {
