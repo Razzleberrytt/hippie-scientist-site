@@ -1,7 +1,6 @@
-import type { JsonLdNode } from '@/src/lib/schema-injector'
 import { serializeJsonLd } from '@/src/lib/schema-injector'
 
-export default function JsonLd({ schema }: { schema: JsonLdNode }) {
+export default function JsonLd({ schema }: { schema: unknown }) {
   if (!schema) return null
 
   return (
