@@ -4,9 +4,9 @@
   "entity_id": "ent_compound_bef25933d324",
   "entity_type": "compound",
   "batch_hash": "0fefd707b3a3a2c0c65e303e9660e0ddc5c0aaa8e23f56d3889098a41535cbfb",
-  "decision": "pending",
-  "reviewer": "",
-  "reviewed_at": null,
+  "decision": "approved",
+  "reviewer": "Willie Randolph",
+  "reviewed_at": "2026-07-12T00:10:00.000Z",
   "approved_patch_ids": [
     "scite-glycine-daytime-function-2026-07-11-003",
     "scite-glycine-evidence-limit-2026-07-12-004",
@@ -29,7 +29,14 @@
     "src_89f993a22b43",
     "src_9bbf4e7cfe18"
   ],
-  "deprecated_claim_ids": [],
+  "deprecated_claim_ids": [
+    "clm_0ed51fc246a8",
+    "clm_66afba382594",
+    "clm_877832505025",
+    "clm_bac1397968e3",
+    "clm_d58fae2b0e69",
+    "clm_ff89362c0906"
+  ],
   "deprecated_source_ids": [],
-  "notes": ""
+  "notes": "Approved six cautious glycine claims and retired six vague or placeholder legacy claims. The profile now distinguishes subjective sleep findings, limited polysomnographic evidence, short-term sleep-restriction outcomes, proposed thermoregulation, preliminary overall certainty, and limited long-term safety data."
 }
