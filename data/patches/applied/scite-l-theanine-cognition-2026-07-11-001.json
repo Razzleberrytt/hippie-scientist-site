@@ -13,6 +13,7 @@
       "op": "add_claim",
       "field": "effects",
       "value": "Randomized-trial evidence does not establish L-theanine alone as a reliable cognitive enhancer; L-theanine combined with caffeine may improve some attention-task outcomes, although the overall evidence base has substantial risk-of-bias concerns.",
+      "payload": {},
       "confidence": 0.72,
       "notes": "A 2025 systematic review and meta-analysis found advantages for theanine plus caffeine on several attention-related outcomes, while comparisons generally favored caffeine over theanine alone. The review judged zero included studies at low risk of bias, so this claim is deliberately cautious and requires human review."
     }
@@ -27,5 +28,12 @@
   ],
   "notes": "First controlled enrichment-pipeline pilot. Adds one sourced cognition claim to the existing L-theanine compound record and intentionally avoids overwriting curated fields.",
   "confidence": 0.72,
-  "requires_review": true
+  "requires_review": true,
+  "original_filename": "l-theanine-cognition-scite-001.json",
+  "original_hash": "47b75b2a1d14728c013e832f27aa45f931b671c065afd3874b608804cab4186b",
+  "_apply_result": {
+    "status": "applied",
+    "changes": 2,
+    "at": "2026-07-11T20:46:37.237Z"
+  }
 }

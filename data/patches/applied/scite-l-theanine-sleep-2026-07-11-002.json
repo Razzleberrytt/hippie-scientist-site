@@ -13,6 +13,7 @@
       "op": "add_claim",
       "field": "effects",
       "value": "In one small randomized, double-blind crossover trial of healthy adults, 200 mg/day of L-theanine for four weeks improved some sleep-quality subscales, including sleep latency and sleep disturbance, more than placebo; the total sleep-quality score did not improve significantly versus placebo, so the evidence remains preliminary.",
+      "payload": {},
       "confidence": 0.62,
       "notes": "The trial enrolled 30 healthy adults. Between-treatment comparisons favored L-theanine for PSQI sleep-latency, sleep-disturbance, and sleep-medication-use subscales, while the total PSQI difference showed only a non-significant trend. No apparent adverse events were reported during the intervention. This patch intentionally avoids a broad insomnia-treatment claim."
     }
@@ -27,5 +28,12 @@
   ],
   "notes": "Second controlled enrichment-pipeline pilot. Adds one narrowly scoped, sourced sleep claim to the existing L-theanine compound record without changing dosage or safety guidance.",
   "confidence": 0.62,
-  "requires_review": true
+  "requires_review": true,
+  "original_filename": "l-theanine-sleep-scite-002.json",
+  "original_hash": "24666e5c389695479966ef8fe047ecbc892aef099eaf550a841861fe967e8572",
+  "_apply_result": {
+    "status": "applied",
+    "changes": 1,
+    "at": "2026-07-11T20:46:37.242Z"
+  }
 }

@@ -29,13 +29,345 @@
     "reason": "curated_allowlist"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 13,
+    "sourceIds": [
+      "src_007e539d5b28",
+      "src_042e8f442539",
+      "src_11b852f129b3",
+      "src_1b56d3987ae1",
+      "src_26805f9d23c4",
+      "src_31b5b5b5a562",
+      "src_713fa356b5be",
+      "src_78f497058f11",
+      "src_7fb914c1aece",
+      "src_8c223571a4d9",
+      "src_9c5d345eb8af",
+      "src_ab3dacfeda2c",
+      "src_c81887683f55"
+    ],
+    "claimCount": 12,
+    "claimIds": [
+      "clm_180b5f6a572b",
+      "clm_1c6f8ef18694",
+      "clm_324f56d1fe6d",
+      "clm_536416fd7202",
+      "clm_57db73f124e1",
+      "clm_9b7e8890480e",
+      "clm_9cba3e060690",
+      "clm_bf0f9b1568ec",
+      "clm_e2f7a00c9a21",
+      "clm_ea53ecebd001",
+      "clm_f6cf48fbab00",
+      "clm_fa83282fb79f"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_180b5f6a572b",
+      "claim": "reduced stress",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "reduced stress",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "200 mg; acute",
+        "population": "adults",
+        "study_id": "ent_study_ce2f442e1c2e"
+      },
+      "sourceRefIds": [
+        "src_8c223571a4d9"
+      ]
+    },
+    {
+      "id": "clm_1c6f8ef18694",
+      "claim": "In one small randomized, double-blind crossover trial of healthy adults, 200 mg/day of L-theanine for four weeks improved some sleep-quality subscales, including sleep latency and sleep disturbance, more than placebo; the total sleep-quality score did not improve significantly versus placebo, so the evidence remains preliminary.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.62,
+      "reviewStatus": "pending",
+      "notes": "The trial enrolled 30 healthy adults. Between-treatment comparisons favored L-theanine for PSQI sleep-latency, sleep-disturbance, and sleep-medication-use subscales, while the total PSQI difference showed only a non-significant trend. No apparent adverse events were reported during the intervention. This patch intentionally avoids a broad insomnia-treatment claim.",
+      "qualifiers": {},
+      "sourceRefIds": [
+        "src_007e539d5b28"
+      ]
+    },
+    {
+      "id": "clm_324f56d1fe6d",
+      "claim": "attention improvement",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "attention improvement",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "200 mg; acute",
+        "population": "adults",
+        "study_id": "ent_study_508320bdc3d0"
+      },
+      "sourceRefIds": [
+        "src_26805f9d23c4"
+      ]
+    },
+    {
+      "id": "clm_536416fd7202",
+      "claim": "In a small placebo-controlled study of 16 healthy volunteers, a single 200 mg dose of L-theanine modestly improved one resting-state anxiety subscale but did not reduce anxiety during experimentally induced anticipatory anxiety; this does not support a reliable acute anxiolytic effect under intense induced stress.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.64,
+      "reviewStatus": "pending",
+      "notes": "The study compared L-theanine with alprazolam and placebo. Reviews report an improvement on the tranquil-troubled subscale at rest, but no reduction in anxiety while participants anticipated an electric shock. Alprazolam also failed in that experimental condition, suggesting the stressor or model may have limited sensitivity.",
+      "qualifiers": {},
+      "sourceRefIds": [
+        "src_713fa356b5be",
+        "src_ab3dacfeda2c"
+      ]
+    },
+    {
+      "id": "clm_57db73f124e1",
+      "claim": "In one randomized, double-blind crossover trial of 30 healthy adults, 200 mg/day of L-theanine for four weeks produced no apparent adverse events or participant dropouts; this small, short trial cannot establish long-term safety or exclude rare adverse effects and interactions.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.68,
+      "reviewStatus": "pending",
+      "notes": "The study reported 100% completion and no apparent adverse events during the intervention. Its size and four-week duration were insufficient to evaluate rare harms, long-term use, pregnancy, children, medically complex patients, or clinically important drug interactions.",
+      "qualifiers": {},
+      "sourceRefIds": [
+        "src_007e539d5b28"
+      ]
+    },
+    {
+      "id": "clm_9b7e8890480e",
+      "claim": "Relaxation/focus (with caffeine).",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Relaxation/focus (with caffeine).",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_7bd4154e565e"
+      },
+      "sourceRefIds": [
+        "src_7fb914c1aece"
+      ]
+    },
+    {
+      "id": "clm_9cba3e060690",
+      "claim": "sleep improvement",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "sleep improvement",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "200 mg; 4 weeks",
+        "population": "adults",
+        "study_id": "ent_study_dc3a603684dc"
+      },
+      "sourceRefIds": [
+        "src_78f497058f11"
+      ]
+    },
+    {
+      "id": "clm_bf0f9b1568ec",
+      "claim": "Insufficient reliable evidence identified.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Insufficient reliable evidence identified.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_7bd4154e565e"
+      },
+      "sourceRefIds": [
+        "src_7fb914c1aece"
+      ]
+    },
+    {
+      "id": "clm_e2f7a00c9a21",
+      "claim": "In a small crossover study, 200 mg of L-theanine attenuated the rise in blood pressure during psychological stress only among participants who showed a large blood-pressure response under placebo; this subgroup finding does not establish a general antihypertensive effect.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.63,
+      "reviewStatus": "pending",
+      "notes": "Participants were divided according to their blood-pressure response during placebo testing. The reported benefit was concentrated in the high-response group, whose placebo-condition systolic increases ranged from about 9.5 to 33.9 mmHg. The result should not be generalized to resting blood pressure or hypertension treatment.",
+      "qualifiers": {},
+      "sourceRefIds": [
+        "src_11b852f129b3",
+        "src_c81887683f55"
+      ]
+    },
+    {
+      "id": "clm_ea53ecebd001",
+      "claim": "Randomized-trial evidence does not establish L-theanine alone as a reliable cognitive enhancer; L-theanine combined with caffeine may improve some attention-task outcomes, although the overall evidence base has substantial risk-of-bias concerns.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.72,
+      "reviewStatus": "pending",
+      "notes": "A 2025 systematic review and meta-analysis found advantages for theanine plus caffeine on several attention-related outcomes, while comparisons generally favored caffeine over theanine alone. The review judged zero included studies at low risk of bias, so this claim is deliberately cautious and requires human review.",
+      "qualifiers": {},
+      "sourceRefIds": [
+        "src_042e8f442539"
+      ]
+    },
+    {
+      "id": "clm_f6cf48fbab00",
+      "claim": "In a small placebo-controlled study, a single 200 mg dose of L-theanine reduced subjective stress, heart-rate response, and salivary immunoglobulin A response during a mental-arithmetic stress task; systematic-review evidence suggests possible anti-stress effects, but the overall literature remains limited and includes risk-of-bias concerns.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.66,
+      "reviewStatus": "pending",
+      "notes": "The primary study tested acute psychological and physiological stress responses during a mental arithmetic task. Later reviews describe lower subjective stress, heart rate, and salivary IgA with 200 mg L-theanine versus placebo, while also noting that the small evidence base is not fully consistent and often has unclear methodological bias. This is not a general anxiety-treatment claim.",
+      "qualifiers": {},
+      "sourceRefIds": [
+        "src_1b56d3987ae1",
+        "src_31b5b5b5a562"
+      ]
+    },
+    {
+      "id": "clm_fa83282fb79f",
+      "claim": "reduces stress response",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "reduces stress response",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "200 mg; acute",
+        "population": "adults with stress",
+        "study_id": "ent_study_78b0607e0a24"
+      },
+      "sourceRefIds": [
+        "src_9c5d345eb8af"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_007e539d5b28",
+      "title": "Effects of L-Theanine Administration on Stress-Related Symptoms and Cognitive Functions in Healthy Adults: A Randomized Controlled Trial",
+      "url": "https://doi.org/10.3390/nu11102362",
+      "doi": "10.3390/nu11102362",
+      "year": "2019",
+      "studyType": "Randomized controlled trial",
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "src_042e8f442539",
+      "title": "Effects of Tea (Camellia sinensis) or its Bioactive Compounds L-Theanine or L-Theanine plus Caffeine on Cognition, Sleep, and Mood in Healthy Participants: A Systematic Review and Meta-Analysis of Randomized Controlled Trials",
+      "url": "https://doi.org/10.1093/nutrit/nuaf054",
+      "doi": "10.1093/nutrit/nuaf054",
+      "year": "2025",
+      "studyType": "Meta-analysis",
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "src_11b852f129b3",
+      "title": "Psychotropic Effects of L-Theanine and Its Clinical Properties: From the Management of Anxiety and Stress to a Potential Use in Schizophrenia",
+      "url": "https://doi.org/10.1016/j.phrs.2019.104395",
+      "doi": "10.1016/j.phrs.2019.104395",
+      "year": "2019",
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "src_1b56d3987ae1",
+      "title": "The Effects of Green Tea Amino Acid L-Theanine Consumption on the Ability to Manage Stress and Anxiety Levels: A Systematic Review",
+      "url": "https://doi.org/10.1007/s11130-019-00771-5",
+      "doi": "10.1007/s11130-019-00771-5",
+      "year": "2019",
+      "studyType": "Systematic review",
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "src_26805f9d23c4",
+      "title": "PubMed PMID 21040626. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21040626/",
+      "pmid": "21040626",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 21040626. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_31b5b5b5a562",
+      "title": "L-Theanine Reduces Psychological and Physiological Stress Responses",
+      "url": "https://doi.org/10.1016/j.biopsycho.2006.06.006",
+      "doi": "10.1016/j.biopsycho.2006.06.006",
+      "year": "2007",
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "src_713fa356b5be",
+      "title": "Psychological Effects of Dietary Components of Tea: Caffeine and L-Theanine",
+      "url": "https://doi.org/10.1111/j.1753-4887.2007.00011.x",
+      "doi": "10.1111/j.1753-4887.2007.00011.x",
+      "year": "2008",
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "src_78f497058f11",
+      "title": "PubMed PMID 22214254. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22214254/",
+      "pmid": "22214254",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 22214254. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_7fb914c1aece",
+      "title": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
+      "url": "PubMed theanine RCTs.",
+      "citation": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
+      "note": "gap identification only; not used to populate factual fields",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_8c223571a4d9",
+      "title": "PubMed PMID 16930802. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16930802/",
+      "pmid": "16930802",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 16930802. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_9c5d345eb8af",
+      "title": "PubMed PMID 18296328. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18296328/",
+      "pmid": "18296328",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 18296328. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_ab3dacfeda2c",
+      "title": "The Acute Effects of L-Theanine in Comparison with Alprazolam on Anticipatory Anxiety in Humans",
+      "url": "https://doi.org/10.1002/hup.611",
+      "doi": "10.1002/hup.611",
+      "year": "2004",
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "src_c81887683f55",
+      "title": "Effects of L-Theanine or Caffeine Intake on Changes in Blood Pressure under Physical and Psychological Stresses",
+      "url": "https://doi.org/10.1186/1880-6805-31-28",
+      "doi": "10.1186/1880-6805-31-28",
+      "year": "2012",
+      "reviewStatus": "pending"
+    }
+  ]
 }

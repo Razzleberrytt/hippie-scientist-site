@@ -13,6 +13,7 @@
       "op": "add_claim",
       "field": "effects",
       "value": "In a small placebo-controlled study of 16 healthy volunteers, a single 200 mg dose of L-theanine modestly improved one resting-state anxiety subscale but did not reduce anxiety during experimentally induced anticipatory anxiety; this does not support a reliable acute anxiolytic effect under intense induced stress.",
+      "payload": {},
       "confidence": 0.64,
       "notes": "The study compared L-theanine with alprazolam and placebo. Reviews report an improvement on the tranquil-troubled subscale at rest, but no reduction in anxiety while participants anticipated an electric shock. Alprazolam also failed in that experimental condition, suggesting the stressor or model may have limited sensitivity."
     }
@@ -33,5 +34,12 @@
   ],
   "notes": "Fourth controlled enrichment-pipeline patch. Adds balancing negative evidence and avoids presenting L-theanine as a proven treatment for anxiety disorders.",
   "confidence": 0.64,
-  "requires_review": true
+  "requires_review": true,
+  "original_filename": "l-theanine-anticipatory-anxiety-scite-004.json",
+  "original_hash": "5c994d169f2443a959a822df0c455e01acf0b8a55cdf45fee29c36f1f2bb48ef",
+  "_apply_result": {
+    "status": "applied",
+    "changes": 3,
+    "at": "2026-07-11T20:46:37.233Z"
+  }
 }

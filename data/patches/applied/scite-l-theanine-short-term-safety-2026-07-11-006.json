@@ -13,6 +13,7 @@
       "op": "add_claim",
       "field": "safety",
       "value": "In one randomized, double-blind crossover trial of 30 healthy adults, 200 mg/day of L-theanine for four weeks produced no apparent adverse events or participant dropouts; this small, short trial cannot establish long-term safety or exclude rare adverse effects and interactions.",
+      "payload": {},
       "confidence": 0.68,
       "notes": "The study reported 100% completion and no apparent adverse events during the intervention. Its size and four-week duration were insufficient to evaluate rare harms, long-term use, pregnancy, children, medically complex patients, or clinically important drug interactions."
     }
@@ -27,5 +28,12 @@
   ],
   "notes": "Sixth controlled enrichment-pipeline patch. Adds only trial-specific short-term tolerability information and explicitly avoids claiming comprehensive safety.",
   "confidence": 0.68,
-  "requires_review": true
+  "requires_review": true,
+  "original_filename": "l-theanine-short-term-safety-scite-006.json",
+  "original_hash": "9aad7e8cae750a28698659f26c29acd376fedc17a3ab52915c81c059b0e1623d",
+  "_apply_result": {
+    "status": "applied",
+    "changes": 2,
+    "at": "2026-07-11T20:46:37.240Z"
+  }
 }
