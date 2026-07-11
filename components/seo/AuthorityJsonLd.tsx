@@ -1,4 +1,5 @@
 import { buildSchemaGraph } from '../../src/lib/schema-graph'
+import { serializeJsonLd } from '../../src/lib/schema-injector'
 import { SITE_URL } from '../../src/lib/seo'
 
 type FaqItem = { question: string; answer: string }
@@ -108,7 +109,7 @@ export default function AuthorityJsonLd({
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
-        __html: JSON.stringify(graph).replace(/</g, '\u003c'),
+        __html: serializeJsonLd(graph),
       }}
     />
   )
