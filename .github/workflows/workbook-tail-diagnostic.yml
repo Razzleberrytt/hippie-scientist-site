@@ -1,4 +1,4 @@
-name: Entity Master XML Diagnostic
+name: Workbook Build Diagnostic
 
 on:
   push:
@@ -15,20 +15,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Inspect Entity_Master worksheet XML
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci --silent
+      - name: Verify newer workbook runtime generation
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          set +e
+          node --trace-uncaught --enable-source-maps scripts/data/build-runtime-from-workbook.mjs --out /tmp/workbook-output >/tmp/workbook.log 2>&1
+          status=$?
+          set -e
           {
-            echo "## Entity_Master worksheet XML diagnostic"
+            echo "## Repaired newer workbook diagnostic"
             echo
-            echo '```xml'
-            unzip -p data-sources/herb_monograph_master.xlsx xl/worksheets/sheet7.xml | head -c 12000
+            echo "Exit code: ${status}"
             echo
+            echo '```text'
+            tail -n 160 /tmp/workbook.log
             echo '```'
           } >/tmp/comment.md
           jq -n --rawfile body /tmp/comment.md '{body: $body}' >/tmp/payload.json
           gh api --method PATCH \
             "repos/${GITHUB_REPOSITORY}/issues/comments/4940844313" \
             --input /tmp/payload.json
+          exit "$status"
