@@ -249,7 +249,7 @@ The most useful application is not chasing the most complicated stack. It is mat
 | Decision point | Better question | Practical implication |
 |---|---|---|
 | Full-spectrum vs isolate | Was the human evidence on a whole extract, a standardized extract, or a purified compound? | Prefer the form used in human trials when possible. |
-| Standardization | Which marker compounds are guaranteed, and what contaminants are limited? | "10:1 extract" is less useful than a transparent chemical fingerprint. |
+| Standardization | Which marker compounds are specified, and what contaminants are limited? | "10:1 extract" is less useful than a transparent chemical fingerprint. |
 | Stacking | Do ingredients cover different mechanisms or duplicate the same risk? | Complementary mechanisms are more rational than piling sedatives. |
 | Bioavailability boosters | Does the booster alter CYP enzymes or transporters? | Piperine-like add-ons can raise interaction risk. |
 | Outcome fit | Is the goal sleep onset, anxiety, focus, pain, or inflammation? | Entourage logic should serve a goal, not decorate a label. |
