@@ -44,6 +44,14 @@ function fixtureDataset() {
         source_ids: [],
         review_status: 'pending',
       },
+      {
+        id: 'clm_deprecated',
+        subject_id: 'ent_compound_l_theanine',
+        predicate: 'supports_outcome',
+        object_literal: 'Superseded claim.',
+        source_ids: ['src_deprecated'],
+        review_status: 'deprecated',
+      },
     ],
     sources: [
       {
@@ -53,6 +61,12 @@ function fixtureDataset() {
         year: '2024',
         author_or_label: 'Example et al.',
         review_status: 'approved',
+      },
+      {
+        id: 'src_deprecated',
+        url: 'PubMed theanine RCTs.',
+        title: 'Unresolved legacy source',
+        review_status: 'deprecated',
       },
     ],
   }
@@ -89,37 +103,65 @@ describe('buildCanonicalCitationOverlay', () => {
 
     expect(buildCanonicalCitationOverlay(dataset).has('l-theanine')).toBe(false)
   })
+
+  it('excludes deprecated claims and deprecated sources', () => {
+    const overlay = buildCanonicalCitationOverlay(fixtureDataset()).get('l-theanine')
+
+    expect(overlay.claimMap.map((claim) => claim.id)).not.toContain('clm_deprecated')
+    expect(overlay.sources.map((source) => source.id)).not.toContain('src_deprecated')
+  })
 })
 
 describe('mergeCanonicalCitationOverlay', () => {
-  it('preserves existing detail citations and enriches duplicates from canonical metadata', () => {
+  it('preserves non-canonical citations and replaces the previous canonical slice', () => {
     const overlay = buildCanonicalCitationOverlay(fixtureDataset()).get('l-theanine')
     const existing = {
       slug: 'l-theanine',
-      sources: [{
-        id: 'src_stress',
-        title: 'Existing title',
-        url: 'https://doi.org/10.1000/example-doi',
-      }],
-      claimMap: [overlay.claimMap[0]],
+      sources: [
+        {
+          id: 'src_old_canonical',
+          title: 'Old canonical source',
+          url: 'https://example.com/old',
+        },
+        {
+          id: 'manual_source',
+          title: 'Manual editorial source',
+          url: 'https://example.com/manual',
+        },
+      ],
+      claimMap: [
+        {
+          id: 'clm_old_canonical',
+          claim: 'Old canonical claim',
+          sourceRefIds: ['src_old_canonical'],
+        },
+        {
+          id: 'manual_claim',
+          claim: 'Manual editorial claim',
+          sourceRefIds: ['manual_source'],
+        },
+      ],
       evidence: {
         reviewStatus: 'sourced',
-        sourceIds: ['src_stress'],
+        sourceIds: ['src_old_canonical'],
+        claimIds: ['clm_old_canonical'],
       },
     }
 
     const merged = mergeCanonicalCitationOverlay(existing, overlay)
 
-    expect(merged.sources).toHaveLength(1)
-    expect(merged.sources[0]).toMatchObject({
-      id: 'src_stress',
-      title: 'Randomized placebo-controlled L-theanine trial',
-      doi: '10.1000/example-doi',
-      authors: 'Example et al.',
-    })
-    expect(merged.claimMap).toHaveLength(2)
+    expect(merged.sources.map((source) => source.id)).toEqual([
+      'manual_source',
+      'src_stress',
+    ])
+    expect(merged.claimMap.map((claim) => claim.id)).toEqual([
+      'manual_claim',
+      'clm_sleep',
+      'clm_stress',
+    ])
     expect(merged.evidence.sourceCount).toBe(1)
     expect(merged.evidence.claimCount).toBe(2)
     expect(merged.evidence.sourceIds).toEqual(['src_stress'])
+    expect(merged.evidence.claimIds).toEqual(['clm_sleep', 'clm_stress'])
   })
 })
