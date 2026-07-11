@@ -46,6 +46,7 @@ const INCLUDE_WORKTREE = !IS_CI || String(process.env.GUARD_GENERATED_DATA_INCLU
 // Recognized "source of change" paths/globs. If any of these are touched
 // in the same diff as public/data, we allow the data change (build produced it).
 const SOURCE_PATHS = [
+  'data/canonical/',
   'data-sources/',
   'scripts/data/',
   'scripts/build-blog.mjs',
