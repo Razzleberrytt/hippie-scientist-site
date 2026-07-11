@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - ux/compact-safety-cautions
+  pull_request:
+    types: [opened, reopened, synchronize]
 
 permissions:
   contents: write
