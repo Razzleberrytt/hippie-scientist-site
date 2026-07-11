@@ -1,0 +1,37 @@
+{
+  "patch_id": "scite-l-theanine-anticipatory-anxiety-2026-07-11-004",
+  "patch_version": "1",
+  "created_at": "2026-07-11T20:15:00.000Z",
+  "generator": "Scite literature enrichment via ChatGPT",
+  "target": {
+    "slug": "l-theanine",
+    "canonical_name": "L-theanine",
+    "entity_type": "compound"
+  },
+  "operations": [
+    {
+      "op": "add_claim",
+      "field": "effects",
+      "value": "In a small placebo-controlled study of 16 healthy volunteers, a single 200 mg dose of L-theanine modestly improved one resting-state anxiety subscale but did not reduce anxiety during experimentally induced anticipatory anxiety; this does not support a reliable acute anxiolytic effect under intense induced stress.",
+      "confidence": 0.64,
+      "notes": "The study compared L-theanine with alprazolam and placebo. Reviews report an improvement on the tranquil-troubled subscale at rest, but no reduction in anxiety while participants anticipated an electric shock. Alprazolam also failed in that experimental condition, suggesting the stressor or model may have limited sensitivity."
+    }
+  ],
+  "sources": [
+    {
+      "doi": "10.1002/hup.611",
+      "url": "https://doi.org/10.1002/hup.611",
+      "title": "The Acute Effects of L-Theanine in Comparison with Alprazolam on Anticipatory Anxiety in Humans",
+      "year": "2004"
+    },
+    {
+      "doi": "10.1111/j.1753-4887.2007.00011.x",
+      "url": "https://doi.org/10.1111/j.1753-4887.2007.00011.x",
+      "title": "Psychological Effects of Dietary Components of Tea: Caffeine and L-Theanine",
+      "year": "2008"
+    }
+  ],
+  "notes": "Fourth controlled enrichment-pipeline patch. Adds balancing negative evidence and avoids presenting L-theanine as a proven treatment for anxiety disorders.",
+  "confidence": 0.64,
+  "requires_review": true
+}
