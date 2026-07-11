@@ -1,0 +1,47 @@
+{
+  "patch_id": "scite-magnesium-glycinate-tolerability-2026-07-11-005",
+  "patch_version": "1",
+  "created_at": "2026-07-11T23:44:00.000Z",
+  "generator": "Scite literature enrichment via ChatGPT",
+  "target": {
+    "slug": "magnesium-glycinate",
+    "canonical_name": "Magnesium glycinate",
+    "entity_type": "compound"
+  },
+  "operations": [
+    {
+      "op": "add_safety_warning",
+      "field": "safety",
+      "value": "Oral magnesium commonly causes dose-related gastrointestinal effects such as loose stools, cramping, or diarrhea; glycinate may be marketed as gentler, but comparative human tolerability evidence is limited and product elemental-magnesium content still determines exposure.",
+      "payload": {},
+      "confidence": 0.82,
+      "notes": "Uses oral-magnesium safety evidence while explicitly avoiding a strong comparative tolerability claim for glycinate."
+    }
+  ],
+  "sources": [
+    {
+      "doi": "10.1007/s00280-017-3392-8",
+      "url": "https://doi.org/10.1007/s00280-017-3392-8",
+      "title": "Electrolyte disorders with platinum-based chemotherapy: mechanisms, manifestations and management",
+      "year": "2017"
+    },
+    {
+      "doi": "10.2147/NSS.S524348",
+      "url": "https://doi.org/10.2147/NSS.S524348",
+      "title": "Magnesium Bisglycinate Supplementation in Healthy Adults Reporting Poor Sleep: A Randomized, Placebo-Controlled Trial",
+      "year": "2025"
+    }
+  ],
+  "notes": "Adds a practical gastrointestinal tolerability warning and elemental-magnesium context.",
+  "confidence": 0.82,
+  "requires_review": true,
+  "original_filename": "magnesium-glycinate-tolerability-scite-005.json",
+  "original_hash": "c3517ff8bce8977f86edc0056b56531f7c65d8e03d84cb58ffee7d6cc70e2ce4",
+  "_apply_result": {
+    "status": "applied",
+    "changes": 2,
+    "reviewer": "Willie Randolph",
+    "reviewed_at": "2026-07-11T23:55:00.000Z",
+    "at": "2026-07-11T23:30:21.169Z"
+  }
+}
