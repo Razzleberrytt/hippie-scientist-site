@@ -37,6 +37,18 @@ const EDGE_TYPE_MAP = {
   'mechanism-overlap': 'mechanism_overlap',
 }
 
+// Split on the same delimiters the workbook build uses ([\n|;,]) and dedupe
+// case-insensitively, so mechanism synonyms tokenize identically downstream.
+function splitDelimited(values) {
+  const parts = (Array.isArray(values) ? values : [values]).flatMap((v) =>
+    cleanString(v)
+      .split(/[\n|;,]+/)
+      .map((s) => cleanString(s).replace(/^[-*•]\s*/, ''))
+      .filter(Boolean),
+  )
+  return dedupeStrings(parts)
+}
+
 function provenance(sheet, row, column) {
   return { source: 'workbook', source_ref: `${sheet}!row${row}${column ? `:${column}` : ''}`, migrated_from: { sheet, row, column: column || undefined }, at: FIXED_TS }
 }
@@ -187,6 +199,7 @@ export function mapWorkbook(workbook) {
   const edgesById = new Map()
   const effectsById = new Map()
   const studiesById = new Map()
+  const mechanismsById = new Map()
   const unmatched = { claims: [], edges: [] }
 
   // Entities
@@ -305,6 +318,42 @@ export function mapWorkbook(workbook) {
     if (!claimsById.has(claim.id)) claimsById.set(claim.id, claim)
   })
 
+  // Canonical mechanism taxonomy → mechanism entities (Taxonomy_Rules rows with
+  // source_table = 'Canonical_Mechanisms'). Carries category / class / target
+  // system / synonyms used to normalize entity mechanisms during site export.
+  const taxonomyName = 'Taxonomy_Rules'
+  sheet(taxonomyName).forEach((row, i) => {
+    const sourceTable = cleanString(row.source_table)
+    if (sourceTable !== 'Canonical_Mechanisms' && sourceTable !== 'Canonical Mechanisms') return
+    const label = cleanString(row.label_or_name || row.canonical_label || row.label || row.name)
+    if (!label) return
+    const slug = slugify(cleanString(row.key) || label)
+    const id = entityId('mechanism', slug)
+    if (mechanismsById.has(id)) return
+    // synonyms mirror the workbook build: label + pipe-delimited rule_or_value +
+    // alias_or_context, split on the same delimiters.
+    const synonyms = splitDelimited([label, row.rule_or_value, row.alias_or_context])
+    mechanismsById.set(id, {
+      id,
+      entity_type: 'mechanism',
+      canonical_name: label,
+      slug,
+      aliases: synonyms.filter((s) => s.toLowerCase() !== label.toLowerCase()),
+      description: cleanString(row.notes),
+      review_status: 'approved',
+      ...baseTimestamps(),
+      provenance: [provenance(taxonomyName, i + 1)],
+      data: {
+        category: cleanString(row.category),
+        mechanism_class: cleanString(row.mechanism_class || row.sub_category),
+        target_system: cleanString(row.target_system),
+        synonyms,
+        derived: true,
+      },
+      legacy: {},
+    })
+  })
+
   // Edges from Entity_Relationships
   const relName = 'Entity_Relationships'
   sheet(relName).forEach((row, i) => {
@@ -342,6 +391,7 @@ export function mapWorkbook(workbook) {
     ...entitiesById.values(),
     ...effectsById.values(),
     ...studiesById.values(),
+    ...mechanismsById.values(),
   ]
 
   return {
@@ -356,6 +406,7 @@ export function mapWorkbook(workbook) {
         compounds: [...entitiesById.values()].filter((e) => e.entity_type === 'compound').length,
         effects: effectsById.size,
         studies: studiesById.size,
+        mechanisms: mechanismsById.size,
         sources: sourcesById.size,
         claims: claimsById.size,
         edges: edgesById.size,

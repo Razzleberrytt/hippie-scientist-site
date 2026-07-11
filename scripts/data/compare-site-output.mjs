@@ -55,6 +55,31 @@ function compareCollection(label, canonicalRows, siteRows) {
     if (a.name !== b.name) nameChanges.push({ slug, canonical: a.name, site: b.name })
   }
 
+  // Value-level parity for the ported derived fields: count shared records whose
+  // canonical value differs from the live value (order-insensitive for arrays).
+  const norm = (v) => (Array.isArray(v) ? [...v].map((x) => String(x)).sort().join('|') : String(v ?? ''))
+  const PARITY_FIELDS = [
+    'name', 'summary', 'evidence_grade', 'evidence_tier', 'dosage',
+    'effects', 'primary_effects', 'mechanisms', 'raw_mechanisms', 'canonical_mechanisms',
+    'mechanism_categories', 'mechanism_classes', 'mechanism_normalization_status', 'unmapped_mechanisms',
+    'indexability_status', 'indexability_score', 'indexability_reasons', 'robots', 'visibility_tier',
+    'affiliate_label', 'regulatory_status', 'allow_restricted_reference_export',
+  ]
+  const valueDiffs = {}
+  for (const field of PARITY_FIELDS) {
+    let mismatches = 0
+    const examples = []
+    for (const slug of shared) {
+      const cv = norm(canon.get(slug)?.[field])
+      const sv = norm(site.get(slug)?.[field])
+      if (cv !== sv) {
+        mismatches += 1
+        if (examples.length < 5) examples.push({ slug, canonical: canon.get(slug)?.[field], site: site.get(slug)?.[field] })
+      }
+    }
+    valueDiffs[field] = { mismatches, of: shared.length, examples: mismatches ? examples : undefined }
+  }
+
   return {
     label,
     counts: { canonical: canonicalRows.length, site: siteRows.length },
@@ -64,6 +89,7 @@ function compareCollection(label, canonicalRows, siteRows) {
       shared: shared.length,
     },
     name_changes: { count: nameChanges.length, sample: nameChanges.slice(0, 25) },
+    value_parity: valueDiffs,
     field_coverage: coverage,
   }
 }
@@ -100,6 +126,10 @@ function main() {
     console.log(`  shared slugs:      ${r.slug_diff.shared}`)
     console.log(`  name changes:      ${r.name_changes.count}`)
     console.log(`  fields not yet ported (${r.fields_not_yet_ported.length}): ${r.fields_not_yet_ported.join(', ') || 'none'}`)
+    const parityCount = Object.keys(r.value_parity).length
+    const mismatched = Object.entries(r.value_parity).filter(([, v]) => v.mismatches > 0)
+    console.log(`  value parity: ${parityCount - mismatched.length}/${parityCount} fields exact`)
+    for (const [field, v] of mismatched) console.log(`    ≠ ${field}: ${v.mismatches}/${v.of} differ`)
   }
   console.log('\nreport → data/generated/reports/site-comparison-latest.json')
 

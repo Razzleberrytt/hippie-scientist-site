@@ -1,8 +1,9 @@
-# Site Integration (Phase 6)
+# Site Integration (Phase 6, + derived-field parity follow-up)
 
-> Status: **adapter + comparison implemented**. The live site still reads the
-> workbook-generated `public/data` (fallback kept) — the switch is deferred until
-> derived fields reach parity (see gap below).
+> Status: **full field parity achieved**. The canonical export now reproduces the
+> live `public/data` records exactly (slugs, names, and all tracked derived
+> fields). The workbook path is retained as a fallback; switching the site over is
+> now a safe, mechanical change (swap the export target to `public/data`).
 
 ## Goal
 
@@ -32,33 +33,47 @@ npm run data:site-pipeline           # validate canonical → build SQLite → e
 
 ## Comparison result (canonical export vs live `public/data`)
 
-| Collection | Canonical | Site | Only in canonical | Only in site | Name changes |
-|---|---|---|---|---|---|
-| Herbs | 291 | 291 | 0 | 0 | 0 |
-| Compounds | 565 | 565 | 0 | 0 | 0 |
+| Collection | Canonical | Site | Only in canonical | Only in site | Name changes | Fields not ported | Value parity |
+|---|---|---|---|---|---|---|---|
+| Herbs | 291 | 291 | 0 | 0 | 0 | 0 | **22/22 exact** |
+| Compounds | 565 | 565 | 0 | 0 | 0 | 0 | **22/22 exact** |
 
-**Slug sets and names match exactly** — the route contract
-(`/herbs/:slug`, `/compounds/:slug`), canonical URLs, and sitemap membership are
-fully preserved. Report: `data/generated/reports/site-comparison-latest.json`.
+Slug sets, names, and every tracked field match exactly. The comparison now does
+**value-level diffing** (order-insensitive for arrays) across 22 key fields —
+name, summary, evidence grade/tier, dosage, all mechanism fields, indexability
+status/score/reasons, robots, visibility tier, affiliate label, regulatory
+fields — and reports **zero mismatches**. Report:
+`data/generated/reports/site-comparison-latest.json`.
 
-## Remaining parity gap (why we don't switch yet)
+## How the derived fields are reproduced (parity follow-up)
 
-The adapter ports raw/source fields (name, summary, effects, mechanisms, dosage,
-evidence grade, contraindications, tags, governance/legal status). It does **not**
-yet reproduce these **derived** fields, which the 905-line workbook build computes
-(indexability policy, mechanism normalization, evidence engine, affiliate/SEO):
+The derived fields the 905-line workbook build computes are now reproduced by a
+shared derivation module (`scripts/data/canonical/derive.mjs`) that the export
+adapter uses:
 
-- Herbs (10): `raw_mechanisms, mechanism_categories, mechanism_classes,
-  mechanism_normalization_status, unmapped_mechanisms, affiliate_label,
-  visibility_tier, robots, indexability_status, indexability_reasons`.
-- Compounds (15): the above plus `allow_restricted_reference_export,
-  regulatory_status, regulatory_federal, last_regulatory_check,
-  regulatory_changelog`.
+- **Mechanism normalization** — the 53 canonical-mechanism rows
+  (`Taxonomy_Rules` where `source_table = Canonical_Mechanisms`) are migrated into
+  `mechanism` entities; the adapter rebuilds the alias→mechanism map and runs the
+  same `normalizeMechanisms` to derive `raw_mechanisms`, `canonical_mechanisms`,
+  `mechanism_categories`, `mechanism_classes`, `mechanism_target_systems`,
+  `mechanism_normalization_status`, `unmapped_mechanisms`.
+- **Indexability / visibility** — reuses the existing `scoreIndexability` policy
+  module with a base assembled from canonical data, producing identical
+  `visibility_tier`, `robots`, `sitemap_included`, `indexability_status`,
+  `indexability_score`, `indexability_reasons`.
+- **User-facing text hygiene** — the same leaked-pipeline-text filter + fallback
+  is applied to `summary`/`description`, so suppressed text matches the live site.
+- **Regulatory / affiliate / evidence detail fields** — mapped from the
+  provenance-preserving `legacy` blob captured at migration.
+- **Per-type field sets** — compound-only fields
+  (`allow_restricted_reference_export`, `regulatory_federal`,
+  `last_regulatory_check`, `regulatory_changelog`) are omitted from herb records,
+  matching the workbook build's runtime field whitelist.
 
-These are computed, not authored — porting them means moving the derivation
-steps (indexability scorer, mechanism normalizer, meta builder) to run on
-canonical data. Until then the workbook path remains the site's source and the
-canonical export is a shadow output validated by the comparison.
+To guarantee no drift, the string tokenizers (`clean`/`splitList`/`uniqueList`/
+`normalizeAlias`), the mechanism normalizer, the leak filter, and the visibility
+wrapper are faithful copies of the workbook build's, and the indexability step
+imports the same policy module.
 
 ## Recommended build flow (once parity closes)
 
@@ -72,16 +87,20 @@ validate canonical  (data:canonical:validate)
 Cloudflare Pages never needs the workbook or a writable SQLite DB — all runtime
 data is generated JSON produced before `next build`, exactly as today.
 
-## Files created
+## Files created / changed
 
-- `scripts/data/canonical/site-export.mjs` — export adapter (deterministic, governed).
-- `scripts/data/compare-site-output.mjs` — comparison report.
+- `scripts/data/canonical/site-export.mjs` — export adapter (deterministic, governed, derived-field-complete).
+- `scripts/data/canonical/derive.mjs` — shared derivation module (mechanism normalization, indexability/visibility, text hygiene).
+- `scripts/data/canonical/workbook-map.mjs` — migrates the 53 canonical-mechanism rows into `mechanism` entities.
+- `scripts/data/compare-site-output.mjs` — comparison report with value-level parity diffing.
 - `scripts/ci/validate-generated-freshness.mjs` — staleness guard.
 - `data/generated/site/{herbs,compounds}.json` — committed canonical-derived export (un-ignored for review/diffing).
+- `data/canonical/entities/mechanism.jsonl` — 53 migrated mechanism entities.
 - npm scripts: `data:compare-site`, `data:site-pipeline`, `validate:generated-freshness`.
 
 ## Verification
 
-Export + comparison run clean; slug/name parity is exact (0 unexplained losses);
-freshness check passes; existing site build/tests unaffected (workbook path
-untouched).
+Export + comparison run clean; **exact slug/name/value parity (22/22 fields) with
+zero mismatches**; 0 fields unported; freshness check passes; canonical validation
+(1677 entities) + full test suite (553) + production build all green; existing
+workbook path untouched.

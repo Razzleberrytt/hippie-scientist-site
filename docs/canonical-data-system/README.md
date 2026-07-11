@@ -87,7 +87,9 @@ npm run validate:generated-freshness
 - Canonical data populated from the workbook: **1624 entities** (293 herbs, 588
   compounds, 223 effects, 520 studies), **572 claims**, **2819 edges**, **479
   sources** — all schema-valid.
-- Site export matches live `public/data` on **slugs and names exactly** (herbs
-  291/291, compounds 565/565). The workbook path remains the site's source until
-  derived fields (indexability, mechanism categories, SEO meta) are ported — see
+- Site export matches live `public/data` **exactly** — slugs, names, and all 22
+  tracked derived fields (mechanisms, indexability, robots, visibility,
+  regulatory, affiliate, summary) with **zero value mismatches** (herbs 291/291,
+  compounds 565/565). The workbook path is kept as a fallback; switching the site
+  to canonical-sourced data is now a safe mechanical change — see
   `05-site-integration.md`.
