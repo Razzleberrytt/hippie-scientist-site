@@ -28,7 +28,7 @@ function normalizeDoi(value) {
 
 function sourceUrl(source) {
   const direct = text(source?.url)
-  if (direct) return direct
+  if (/^https?:\/\//i.test(direct)) return direct
   const doi = normalizeDoi(source?.doi)
   if (doi) return `https://doi.org/${doi}`
   const pmid = text(source?.pmid)
@@ -56,6 +56,7 @@ function inferStudyType(source) {
 
 function normalizeSource(source) {
   if (!source || typeof source !== 'object') return null
+  if (EXCLUDED_REVIEW_STATUSES.has(text(source.review_status).toLowerCase())) return null
 
   const id = text(source.id)
   if (!id) return null
@@ -186,7 +187,10 @@ export function buildCanonicalCitationOverlay(dataset) {
     const sourceIds = uniqueBy(
       (Array.isArray(claim?.source_ids) ? claim.source_ids : [])
         .map(text)
-        .filter((id) => sourceById.has(id)),
+        .filter((id) => {
+          const source = sourceById.get(id)
+          return source && !EXCLUDED_REVIEW_STATUSES.has(text(source.review_status).toLowerCase())
+        }),
       (id) => id,
     ).sort()
     if (!sourceIds.length) continue
@@ -255,17 +259,14 @@ export function mergeCanonicalCitationOverlay(record, overlay) {
 
   const existingSources = Array.isArray(record.sources) ? record.sources : []
   const existingClaims = Array.isArray(record.claimMap) ? record.claimMap : []
-  const sources = mergeSources(existingSources, overlay.sources || [])
-  const claimMap = mergeClaims(existingClaims, overlay.claimMap || [])
   const existingEvidence = record.evidence && typeof record.evidence === 'object' ? record.evidence : {}
-  const sourceIds = uniqueBy([
-    ...(Array.isArray(existingEvidence.sourceIds) ? existingEvidence.sourceIds : []),
-    ...(overlay.evidence?.sourceIds || []),
-  ].map(text).filter(Boolean), (id) => id).sort()
-  const claimIds = uniqueBy([
-    ...(Array.isArray(existingEvidence.claimIds) ? existingEvidence.claimIds : []),
-    ...(overlay.evidence?.claimIds || []),
-  ].map(text).filter(Boolean), (id) => id).sort()
+  const previousSourceIds = new Set(Array.isArray(existingEvidence.sourceIds) ? existingEvidence.sourceIds.map(text) : [])
+  const previousClaimIds = new Set(Array.isArray(existingEvidence.claimIds) ? existingEvidence.claimIds.map(text) : [])
+
+  const retainedSources = existingSources.filter((source) => !previousSourceIds.has(text(source?.id)))
+  const retainedClaims = existingClaims.filter((claim) => !previousClaimIds.has(text(claim?.id)))
+  const sources = mergeSources(retainedSources, overlay.sources || [])
+  const claimMap = mergeClaims(retainedClaims, overlay.claimMap || [])
 
   return {
     ...record,
@@ -273,11 +274,11 @@ export function mergeCanonicalCitationOverlay(record, overlay) {
     claimMap,
     evidence: {
       ...existingEvidence,
-      reviewStatus: overlay.evidence?.reviewStatus || existingEvidence.reviewStatus || 'needs_review',
-      sourceCount: sourceIds.length,
-      sourceIds,
-      claimCount: claimMap.length,
-      claimIds,
+      reviewStatus: overlay.evidence?.reviewStatus || 'needs_review',
+      sourceCount: overlay.evidence?.sourceCount || 0,
+      sourceIds: overlay.evidence?.sourceIds || [],
+      claimCount: overlay.evidence?.claimCount || 0,
+      claimIds: overlay.evidence?.claimIds || [],
     },
   }
 }
@@ -295,17 +296,32 @@ function writeJson(filePath, value) {
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8')
 }
 
-export function exportCanonicalCitationsToRuntime({ dataDir = 'public/data', dataset = loadDataset() } = {}) {
+export function exportCanonicalCitationsToRuntime({
+  dataDir = 'public/data',
+  dataset = loadDataset(),
+  slugs = null,
+} = {}) {
   const resolvedDataDir = path.resolve(process.cwd(), dataDir)
   const overlays = buildCanonicalCitationOverlay(dataset)
+  const slugFilter = slugs ? new Set([...slugs].map(text).filter(Boolean)) : null
   const report = {
     dataDir: path.relative(process.cwd(), resolvedDataDir),
-    profilesWithCanonicalClaims: overlays.size,
+    profilesWithCanonicalClaims: slugFilter
+      ? [...overlays.keys()].filter((slug) => slugFilter.has(slug)).length
+      : overlays.size,
     updated: [],
     skippedMissingDetail: [],
+    skippedNoOverlay: [],
   }
 
-  for (const [slug, overlay] of overlays.entries()) {
+  const targetSlugs = slugFilter ? [...slugFilter].sort() : [...overlays.keys()].sort()
+  for (const slug of targetSlugs) {
+    const overlay = overlays.get(slug)
+    if (!overlay) {
+      report.skippedNoOverlay.push(slug)
+      continue
+    }
+
     const detailDir = overlay.entityType === 'herb' ? 'herbs-detail' : 'compounds-detail'
     const detailPath = path.join(resolvedDataDir, detailDir, `${slug}.json`)
     const record = readJson(detailPath)
@@ -327,5 +343,6 @@ export function exportCanonicalCitationsToRuntime({ dataDir = 'public/data', dat
 
   report.updated.sort((a, b) => a.slug.localeCompare(b.slug))
   report.skippedMissingDetail.sort()
+  report.skippedNoOverlay.sort()
   return report
 }
