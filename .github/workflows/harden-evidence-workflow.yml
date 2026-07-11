@@ -1,0 +1,177 @@
+name: Harden Evidence Workflow
+
+on:
+  push:
+    branches:
+      - feat/evidence-finalize-workflow
+
+permissions:
+  contents: write
+
+jobs:
+  harden-and-test:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: feat/evidence-finalize-workflow
+          fetch-depth: 0
+
+      - name: Setup Node from .nvmrc
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Apply hardening edits
+        run: |
+          python <<'PY'
+          from pathlib import Path
+
+          core = Path('scripts/data/canonical/evidence-finalize.mjs')
+          text = core.read_text()
+          old = """function normalizedClaimText(value) {
+            return normalizeSeed(value)
+          }
+
+          function claimPreview(patch, operation) {"""
+          new = """function normalizedClaimText(value) {
+            return normalizeSeed(value)
+          }
+
+          function hasTraceableSource(source) {
+            const url = String(source?.url || '').trim()
+            return Boolean(source?.doi || source?.pmid || /^https?:\\/\\//i.test(url))
+          }
+
+          function claimPreview(patch, operation) {"""
+          assert old in text
+          text = text.replace(old, new)
+
+          old = """    if (!(patch.sources || []).length) {
+              throw new Error(`${patch.patch_id}: evidence-finalize requires at least one traceable source`)
+            }
+          }"""
+          new = """    const sources = patch.sources || []
+            if (!sources.length) {
+              throw new Error(`${patch.patch_id}: evidence-finalize requires at least one traceable source`)
+            }
+            const untraceable = sources.filter((source) => !hasTraceableSource(source))
+            if (untraceable.length) {
+              throw new Error(`${patch.patch_id}: every source must have a DOI, PMID, or HTTP(S) URL`)
+            }
+          }"""
+          assert old in text
+          text = text.replace(old, new)
+
+          old = """  const plannedClaims = plannedDataset.claims.filter((claim) =>
+            claim.subject_id === target.id
+              && previews.some((preview) => normalizedClaimText(preview.claim) === normalizedClaimText(claim.object_literal)),
+          )"""
+          new = """  const plannedClaims = plannedDataset.claims.filter((claim) =>
+            claim.subject_id === target.id
+              && previews.some((preview) =>
+                preview.predicate === claim.predicate
+                  && normalizedClaimText(preview.claim) === normalizedClaimText(claim.object_literal),
+              ),
+          )"""
+          assert old in text
+          text = text.replace(old, new)
+
+          old = """  for (const key of ['approved_claim_ids', 'approved_source_ids', 'deprecated_claim_ids', 'deprecated_source_ids']) {
+            if (!Array.isArray(manifest?.[key])) errors.push(`${key} must be an array`)
+          }
+
+          return { ok: errors.length === 0, errors }"""
+          new = """  for (const key of ['approved_claim_ids', 'approved_source_ids', 'deprecated_claim_ids', 'deprecated_source_ids']) {
+            if (!Array.isArray(manifest?.[key])) errors.push(`${key} must be an array`)
+          }
+          const approvedClaims = new Set(Array.isArray(manifest?.approved_claim_ids) ? manifest.approved_claim_ids : [])
+          const approvedSources = new Set(Array.isArray(manifest?.approved_source_ids) ? manifest.approved_source_ids : [])
+          for (const id of Array.isArray(manifest?.deprecated_claim_ids) ? manifest.deprecated_claim_ids : []) {
+            if (approvedClaims.has(id)) errors.push(`claim cannot be both approved and deprecated: ${id}`)
+          }
+          for (const id of Array.isArray(manifest?.deprecated_source_ids) ? manifest.deprecated_source_ids : []) {
+            if (approvedSources.has(id)) errors.push(`source cannot be both approved and deprecated: ${id}`)
+          }
+
+          return { ok: errors.length === 0, errors }"""
+          assert old in text
+          text = text.replace(old, new)
+          core.write_text(text)
+
+          cli = Path('scripts/data/finalize-evidence-profile.mjs')
+          text = cli.read_text()
+          old = """import { exportCanonicalCitationsToRuntime } from './canonical/citation-export.mjs'"""
+          new = """import {
+            buildCanonicalCitationOverlay,
+            exportCanonicalCitationsToRuntime,
+            mergeCanonicalCitationOverlay,
+          } from './canonical/citation-export.mjs'"""
+          assert old in text
+          text = text.replace(old, new)
+
+          old = """  const expectedClaims = [...review.manifest.approved_claim_ids].sort()
+            const expectedSources = [...review.manifest.approved_source_ids].sort()
+            if (JSON.stringify([...manifest.approved_claim_ids].sort()) !== JSON.stringify(expectedClaims)) {
+              fail('approved_claim_ids do not match the reviewed batch; regenerate the manifest')
+            }
+            if (JSON.stringify([...manifest.approved_source_ids].sort()) !== JSON.stringify(expectedSources)) {
+              fail('approved_source_ids do not match the reviewed batch; regenerate the manifest')
+            }"""
+          new = """  const expectedClaims = [...review.manifest.approved_claim_ids].sort()
+            const expectedSources = [...review.manifest.approved_source_ids].sort()
+            const approvedClaims = new Set(manifest.approved_claim_ids)
+            const approvedSources = new Set(manifest.approved_source_ids)
+            const missingClaims = expectedClaims.filter((id) => !approvedClaims.has(id))
+            const missingSources = expectedSources.filter((id) => !approvedSources.has(id))
+            if (missingClaims.length) {
+              fail(`approved_claim_ids are missing reviewed batch claims: ${missingClaims.join(', ')}`)
+            }
+            if (missingSources.length) {
+              fail(`approved_source_ids are missing reviewed batch sources: ${missingSources.join(', ')}`)
+            }"""
+          assert old in text
+          text = text.replace(old, new)
+
+          old = """    const snapshot = createSnapshot(`pre-evidence-finalize-${args.slug}`)
+            writeEntities(finalizedDataset.entities)"""
+          new = """    const currentDetail = readDetailRecord(args.dataDir, reviewFiles.manifest.entity_type, args.slug)
+            if (!currentDetail.record) fail(`runtime detail record not found: ${path.relative(ROOT, currentDetail.file)}`)
+            const overlay = buildCanonicalCitationOverlay(finalizedDataset).get(args.slug)
+            if (!overlay) fail(`no canonical citation overlay produced for ${args.slug}`)
+            const plannedRecord = mergeCanonicalCitationOverlay(currentDetail.record, overlay)
+            const plannedVerification = verifyFinalizedProfile({ record: plannedRecord, manifest: reviewFiles.manifest })
+            if (!plannedVerification.ok) {
+              fail(`pre-commit runtime verification failed:\\n  - ${plannedVerification.errors.join('\\n  - ')}`)
+            }
+
+            const snapshot = createSnapshot(`pre-evidence-finalize-${args.slug}`)
+            writeEntities(finalizedDataset.entities)"""
+          assert old in text
+          text = text.replace(old, new)
+          cli.write_text(text)
+          PY
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run focused evidence checks
+        run: npm run evidence:check
+
+      - name: Remove one-time workflow
+        run: rm .github/workflows/harden-evidence-workflow.yml
+
+      - name: Commit hardening
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/data/canonical/evidence-finalize.mjs \
+            scripts/data/finalize-evidence-profile.mjs \
+            .github/workflows/harden-evidence-workflow.yml
+          git commit -m "data: harden evidence review and export checks"
+          git push origin HEAD:feat/evidence-finalize-workflow
