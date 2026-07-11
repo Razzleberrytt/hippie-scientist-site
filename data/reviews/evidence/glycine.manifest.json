@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "slug": "glycine",
+  "entity_id": "ent_compound_bef25933d324",
+  "entity_type": "compound",
+  "batch_hash": "0fefd707b3a3a2c0c65e303e9660e0ddc5c0aaa8e23f56d3889098a41535cbfb",
+  "decision": "pending",
+  "reviewer": "",
+  "reviewed_at": null,
+  "approved_patch_ids": [
+    "scite-glycine-daytime-function-2026-07-11-003",
+    "scite-glycine-evidence-limit-2026-07-12-004",
+    "scite-glycine-objective-sleep-2026-07-11-002",
+    "scite-glycine-safety-2026-07-12-006",
+    "scite-glycine-subjective-sleep-2026-07-11-001",
+    "scite-glycine-thermoregulation-2026-07-12-005"
+  ],
+  "approved_claim_ids": [
+    "clm_1e57639afb08",
+    "clm_270b8b01d1f6",
+    "clm_380f8e3e8765",
+    "clm_3d0d4f902bc9",
+    "clm_c53c12f35b68",
+    "clm_ece83be8597c"
+  ],
+  "approved_source_ids": [
+    "src_5e09e4476c4d",
+    "src_859ee6fc372d",
+    "src_89f993a22b43",
+    "src_9bbf4e7cfe18"
+  ],
+  "deprecated_claim_ids": [],
+  "deprecated_source_ids": [],
+  "notes": ""
+}

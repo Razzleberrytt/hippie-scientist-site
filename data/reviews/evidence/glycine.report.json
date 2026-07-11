@@ -1,0 +1,423 @@
+{
+  "slug": "glycine",
+  "entity_id": "ent_compound_bef25933d324",
+  "entity_type": "compound",
+  "batch_hash": "0fefd707b3a3a2c0c65e303e9660e0ddc5c0aaa8e23f56d3889098a41535cbfb",
+  "summary": {
+    "patches": 6,
+    "proposed_claims": 6,
+    "unique_sources": 4,
+    "dry_run_applied": 6,
+    "dry_run_noop": 0,
+    "existing_active_claims": 6,
+    "duplicate_sources": 6
+  },
+  "patches": [
+    {
+      "patch_id": "scite-glycine-daytime-function-2026-07-11-003",
+      "original_filename": "glycine-daytime-function-scite-003.json",
+      "requires_review": true,
+      "confidence": 0.77,
+      "operations": [
+        {
+          "op": "add_claim",
+          "claim": "Under short-term partial sleep restriction, 3 g of glycine before bedtime improved some next-day fatigue and performance measures versus placebo, but the study was small and does not show that glycine reverses the broader effects of chronic sleep loss.",
+          "confidence": 0.77
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_859ee6fc372d",
+          "doi": "10.3389/fneur.2012.00061",
+          "url": "https://doi.org/10.3389/fneur.2012.00061",
+          "title": "The Effects of Glycine on Subjective Daytime Performance in Partially Sleep-Restricted Healthy Volunteers",
+          "year": "2012"
+        }
+      ]
+    },
+    {
+      "patch_id": "scite-glycine-evidence-limit-2026-07-12-004",
+      "original_filename": "glycine-evidence-limit-scite-004.json",
+      "requires_review": true,
+      "confidence": 0.91,
+      "operations": [
+        {
+          "op": "add_claim",
+          "claim": "Evidence for glycine as a sleep aid remains preliminary: trials are few, generally small, short, and concentrated in adults with subjective sleep dissatisfaction rather than patients with formally diagnosed chronic insomnia.",
+          "confidence": 0.91
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_89f993a22b43",
+          "doi": "10.1007/s11357-023-00970-8",
+          "url": "https://doi.org/10.1007/s11357-023-00970-8",
+          "title": "The effect of glycine administration on the characteristics of physiological systems in human adults: A systematic review",
+          "year": "2023"
+        },
+        {
+          "source_id": "src_9bbf4e7cfe18",
+          "doi": "10.1111/j.1479-8425.2006.00193.x",
+          "url": "https://doi.org/10.1111/j.1479-8425.2006.00193.x",
+          "title": "Subjective effects of glycine ingestion before bedtime on sleep quality",
+          "year": "2006"
+        },
+        {
+          "source_id": "src_5e09e4476c4d",
+          "doi": "10.1111/j.1479-8425.2007.00262.x",
+          "url": "https://doi.org/10.1111/j.1479-8425.2007.00262.x",
+          "title": "Glycine ingestion improves subjective sleep quality in human volunteers, correlating with polysomnographic changes",
+          "year": "2007"
+        }
+      ]
+    },
+    {
+      "patch_id": "scite-glycine-objective-sleep-2026-07-11-002",
+      "original_filename": "glycine-objective-sleep-scite-002.json",
+      "requires_review": true,
+      "confidence": 0.76,
+      "operations": [
+        {
+          "op": "add_claim",
+          "claim": "One small polysomnography crossover study reported shorter sleep-onset latency and selected sleep-quality improvements after 3 g of bedtime glycine, while overall sleep-stage proportions were not materially altered.",
+          "confidence": 0.76
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_5e09e4476c4d",
+          "doi": "10.1111/j.1479-8425.2007.00262.x",
+          "url": "https://doi.org/10.1111/j.1479-8425.2007.00262.x",
+          "title": "Glycine ingestion improves subjective sleep quality in human volunteers, correlating with polysomnographic changes",
+          "year": "2007"
+        }
+      ]
+    },
+    {
+      "patch_id": "scite-glycine-safety-2026-07-12-006",
+      "original_filename": "glycine-safety-scite-006.json",
+      "requires_review": true,
+      "confidence": 0.78,
+      "operations": [
+        {
+          "op": "add_safety_warning",
+          "claim": "Short sleep studies using 3 g near bedtime did not identify a strong next-day sedative signal, but they were too small and brief to establish long-term safety; gastrointestinal discomfort can occur with amino-acid supplements, and people who are pregnant, have significant kidney or liver disease, or take prescription medicines should seek clinical guidance before regular high-dose use.",
+          "confidence": 0.78
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_89f993a22b43",
+          "doi": "10.1007/s11357-023-00970-8",
+          "url": "https://doi.org/10.1007/s11357-023-00970-8",
+          "title": "The effect of glycine administration on the characteristics of physiological systems in human adults: A systematic review",
+          "year": "2023"
+        },
+        {
+          "source_id": "src_859ee6fc372d",
+          "doi": "10.3389/fneur.2012.00061",
+          "url": "https://doi.org/10.3389/fneur.2012.00061",
+          "title": "The Effects of Glycine on Subjective Daytime Performance in Partially Sleep-Restricted Healthy Volunteers",
+          "year": "2012"
+        }
+      ]
+    },
+    {
+      "patch_id": "scite-glycine-subjective-sleep-2026-07-11-001",
+      "original_filename": "glycine-subjective-sleep-scite-001.json",
+      "requires_review": true,
+      "confidence": 0.78,
+      "operations": [
+        {
+          "op": "add_claim",
+          "claim": "Small randomized crossover studies in adults dissatisfied with their sleep found that 3 g of glycine taken shortly before bedtime improved some subjective ratings of sleep quality and next-morning refreshment compared with placebo.",
+          "confidence": 0.78
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_9bbf4e7cfe18",
+          "doi": "10.1111/j.1479-8425.2006.00193.x",
+          "url": "https://doi.org/10.1111/j.1479-8425.2006.00193.x",
+          "title": "Subjective effects of glycine ingestion before bedtime on sleep quality",
+          "year": "2006"
+        },
+        {
+          "source_id": "src_5e09e4476c4d",
+          "doi": "10.1111/j.1479-8425.2007.00262.x",
+          "url": "https://doi.org/10.1111/j.1479-8425.2007.00262.x",
+          "title": "Glycine ingestion improves subjective sleep quality in human volunteers, correlating with polysomnographic changes",
+          "year": "2007"
+        }
+      ]
+    },
+    {
+      "patch_id": "scite-glycine-thermoregulation-2026-07-12-005",
+      "original_filename": "glycine-thermoregulation-scite-005.json",
+      "requires_review": true,
+      "confidence": 0.72,
+      "operations": [
+        {
+          "op": "add_claim",
+          "claim": "A proposed sleep-related mechanism is enhanced heat dissipation and the normal pre-sleep decline in core body temperature, but this mechanism is supported more strongly by physiological and preclinical work than by definitive human mediation studies.",
+          "confidence": 0.72
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_859ee6fc372d",
+          "doi": "10.3389/fneur.2012.00061",
+          "url": "https://doi.org/10.3389/fneur.2012.00061",
+          "title": "The Effects of Glycine on Subjective Daytime Performance in Partially Sleep-Restricted Healthy Volunteers",
+          "year": "2012"
+        }
+      ]
+    }
+  ],
+  "dry_run": [
+    {
+      "patch_id": "scite-glycine-daytime-function-2026-07-11-003",
+      "target_id": "ent_compound_bef25933d324",
+      "status": "applied",
+      "changes": [
+        {
+          "type": "add_source",
+          "id": "src_859ee6fc372d"
+        },
+        {
+          "type": "add_claim",
+          "claim_id": "clm_c53c12f35b68",
+          "predicate": "supports_outcome"
+        }
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "requires_review": true
+    },
+    {
+      "patch_id": "scite-glycine-evidence-limit-2026-07-12-004",
+      "target_id": "ent_compound_bef25933d324",
+      "status": "applied",
+      "changes": [
+        {
+          "type": "add_source",
+          "id": "src_89f993a22b43"
+        },
+        {
+          "type": "add_source",
+          "id": "src_9bbf4e7cfe18"
+        },
+        {
+          "type": "add_source",
+          "id": "src_5e09e4476c4d"
+        },
+        {
+          "type": "add_claim",
+          "claim_id": "clm_ece83be8597c",
+          "predicate": "supports_outcome"
+        }
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "requires_review": true
+    },
+    {
+      "patch_id": "scite-glycine-objective-sleep-2026-07-11-002",
+      "target_id": "ent_compound_bef25933d324",
+      "status": "applied",
+      "changes": [
+        {
+          "type": "add_claim",
+          "claim_id": "clm_270b8b01d1f6",
+          "predicate": "supports_outcome"
+        }
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "requires_review": true
+    },
+    {
+      "patch_id": "scite-glycine-safety-2026-07-12-006",
+      "target_id": "ent_compound_bef25933d324",
+      "status": "applied",
+      "changes": [
+        {
+          "type": "add_safety_warning",
+          "claim_id": "clm_380f8e3e8765",
+          "predicate": "has_safety_warning"
+        }
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "requires_review": true
+    },
+    {
+      "patch_id": "scite-glycine-subjective-sleep-2026-07-11-001",
+      "target_id": "ent_compound_bef25933d324",
+      "status": "applied",
+      "changes": [
+        {
+          "type": "add_claim",
+          "claim_id": "clm_3d0d4f902bc9",
+          "predicate": "supports_outcome"
+        }
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "requires_review": true
+    },
+    {
+      "patch_id": "scite-glycine-thermoregulation-2026-07-12-005",
+      "target_id": "ent_compound_bef25933d324",
+      "status": "applied",
+      "changes": [
+        {
+          "type": "add_claim",
+          "claim_id": "clm_1e57639afb08",
+          "predicate": "supports_outcome"
+        }
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "requires_review": true
+    }
+  ],
+  "proposed_claims": [
+    {
+      "patch_id": "scite-glycine-daytime-function-2026-07-11-003",
+      "predicate": "supports_outcome",
+      "claim": "Under short-term partial sleep restriction, 3 g of glycine before bedtime improved some next-day fatigue and performance measures versus placebo, but the study was small and does not show that glycine reverses the broader effects of chronic sleep loss.",
+      "confidence": 0.77,
+      "evidence_level": "human_obs",
+      "source_count": 1
+    },
+    {
+      "patch_id": "scite-glycine-evidence-limit-2026-07-12-004",
+      "predicate": "supports_outcome",
+      "claim": "Evidence for glycine as a sleep aid remains preliminary: trials are few, generally small, short, and concentrated in adults with subjective sleep dissatisfaction rather than patients with formally diagnosed chronic insomnia.",
+      "confidence": 0.91,
+      "evidence_level": "human_obs",
+      "source_count": 3
+    },
+    {
+      "patch_id": "scite-glycine-objective-sleep-2026-07-11-002",
+      "predicate": "supports_outcome",
+      "claim": "One small polysomnography crossover study reported shorter sleep-onset latency and selected sleep-quality improvements after 3 g of bedtime glycine, while overall sleep-stage proportions were not materially altered.",
+      "confidence": 0.76,
+      "evidence_level": "human_obs",
+      "source_count": 1
+    },
+    {
+      "patch_id": "scite-glycine-safety-2026-07-12-006",
+      "predicate": "has_safety_warning",
+      "claim": "Short sleep studies using 3 g near bedtime did not identify a strong next-day sedative signal, but they were too small and brief to establish long-term safety; gastrointestinal discomfort can occur with amino-acid supplements, and people who are pregnant, have significant kidney or liver disease, or take prescription medicines should seek clinical guidance before regular high-dose use.",
+      "confidence": 0.78,
+      "evidence_level": "human_obs",
+      "source_count": 2
+    },
+    {
+      "patch_id": "scite-glycine-subjective-sleep-2026-07-11-001",
+      "predicate": "supports_outcome",
+      "claim": "Small randomized crossover studies in adults dissatisfied with their sleep found that 3 g of glycine taken shortly before bedtime improved some subjective ratings of sleep quality and next-morning refreshment compared with placebo.",
+      "confidence": 0.78,
+      "evidence_level": "human_obs",
+      "source_count": 2
+    },
+    {
+      "patch_id": "scite-glycine-thermoregulation-2026-07-12-005",
+      "predicate": "supports_outcome",
+      "claim": "A proposed sleep-related mechanism is enhanced heat dissipation and the normal pre-sleep decline in core body temperature, but this mechanism is supported more strongly by physiological and preclinical work than by definitive human mediation studies.",
+      "confidence": 0.72,
+      "evidence_level": "human_obs",
+      "source_count": 1
+    }
+  ],
+  "existing_active_claims": [
+    {
+      "id": "clm_0ed51fc246a8",
+      "review_status": "pending",
+      "predicate": "supports_outcome",
+      "claim": "Glycine may improve sleep in healthy populations, but evidence is based on small high-risk-of-bias studies.",
+      "source_ids": [
+        "src_0217dfa78f0e"
+      ],
+      "exact_duplicate_of_proposal": false
+    },
+    {
+      "id": "clm_66afba382594",
+      "review_status": "pending",
+      "predicate": "supports_outcome",
+      "claim": "unspecified",
+      "source_ids": [],
+      "exact_duplicate_of_proposal": false
+    },
+    {
+      "id": "clm_877832505025",
+      "review_status": "pending",
+      "predicate": "supports_outcome",
+      "claim": "improved cognition",
+      "source_ids": [
+        "src_4eb1d0f18bbc"
+      ],
+      "exact_duplicate_of_proposal": false
+    },
+    {
+      "id": "clm_bac1397968e3",
+      "review_status": "pending",
+      "predicate": "supports_outcome",
+      "claim": "study_count=1; rct_count=1; meta_analysis_count=0; systematic_review_count=0; positive=1; neutral=0; negative=0",
+      "source_ids": [],
+      "exact_duplicate_of_proposal": false
+    },
+    {
+      "id": "clm_d58fae2b0e69",
+      "review_status": "pending",
+      "predicate": "supports_outcome",
+      "claim": "Glycine may be worth researching when the goal is subjective sleep quality without a strongly sedating approach.",
+      "source_ids": [],
+      "exact_duplicate_of_proposal": false
+    },
+    {
+      "id": "clm_ff89362c0906",
+      "review_status": "pending",
+      "predicate": "supports_outcome",
+      "claim": "sleep improvement",
+      "source_ids": [
+        "src_4eb1d0f18bbc"
+      ],
+      "exact_duplicate_of_proposal": false
+    }
+  ],
+  "duplicate_sources": [
+    {
+      "source_id": "src_5e09e4476c4d",
+      "first_patch_id": "scite-glycine-evidence-limit-2026-07-12-004",
+      "duplicate_patch_id": "scite-glycine-objective-sleep-2026-07-11-002"
+    },
+    {
+      "source_id": "src_89f993a22b43",
+      "first_patch_id": "scite-glycine-evidence-limit-2026-07-12-004",
+      "duplicate_patch_id": "scite-glycine-safety-2026-07-12-006"
+    },
+    {
+      "source_id": "src_859ee6fc372d",
+      "first_patch_id": "scite-glycine-daytime-function-2026-07-11-003",
+      "duplicate_patch_id": "scite-glycine-safety-2026-07-12-006"
+    },
+    {
+      "source_id": "src_9bbf4e7cfe18",
+      "first_patch_id": "scite-glycine-evidence-limit-2026-07-12-004",
+      "duplicate_patch_id": "scite-glycine-subjective-sleep-2026-07-11-001"
+    },
+    {
+      "source_id": "src_5e09e4476c4d",
+      "first_patch_id": "scite-glycine-evidence-limit-2026-07-12-004",
+      "duplicate_patch_id": "scite-glycine-subjective-sleep-2026-07-11-001"
+    },
+    {
+      "source_id": "src_859ee6fc372d",
+      "first_patch_id": "scite-glycine-daytime-function-2026-07-11-003",
+      "duplicate_patch_id": "scite-glycine-thermoregulation-2026-07-12-005"
+    }
+  ]
+}
