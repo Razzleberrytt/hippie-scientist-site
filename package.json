@@ -59,6 +59,7 @@
     "validate:deterministic-json-order": "node scripts/ci/validate-deterministic-json-order.mjs",
     "validate:semantic-graph-health": "node scripts/ci/validate-semantic-graph-health.mjs",
     "data:audit": "node scripts/data/audit-source-of-truth.mjs && node scripts/data/audit-workbook-gaps.mjs",
+    "data:migrate-workbook": "node scripts/data/migrate-workbook.mjs",
     "data:canonical:validate": "node scripts/data/validate-canonical.mjs",
     "data:build-db": "node scripts/data/build-sqlite.mjs",
     "data:export": "node scripts/data/export-site-data.mjs",
