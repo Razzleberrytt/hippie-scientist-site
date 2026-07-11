@@ -13,6 +13,7 @@
       "op": "add_claim",
       "field": "effects",
       "value": "In a small crossover study, 200 mg of L-theanine attenuated the rise in blood pressure during psychological stress only among participants who showed a large blood-pressure response under placebo; this subgroup finding does not establish a general antihypertensive effect.",
+      "payload": {},
       "confidence": 0.63,
       "notes": "Participants were divided according to their blood-pressure response during placebo testing. The reported benefit was concentrated in the high-response group, whose placebo-condition systolic increases ranged from about 9.5 to 33.9 mmHg. The result should not be generalized to resting blood pressure or hypertension treatment."
     }
@@ -33,5 +34,12 @@
   ],
   "notes": "Fifth controlled enrichment-pipeline patch. Adds a narrowly qualified cardiovascular stress-response finding without making a hypertension-treatment claim.",
   "confidence": 0.63,
-  "requires_review": true
+  "requires_review": true,
+  "original_filename": "l-theanine-stress-blood-pressure-scite-005.json",
+  "original_hash": "0d5ba86fa7aad74f9e118411c04668da1227d7980b3dd0f07dc0e44bad504672",
+  "_apply_result": {
+    "status": "applied",
+    "changes": 3,
+    "at": "2026-07-11T20:46:37.245Z"
+  }
 }
