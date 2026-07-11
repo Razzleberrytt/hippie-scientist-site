@@ -31,13 +31,164 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced",
+    "sourceCount": 6,
+    "sourceIds": [
+      "src_1c9c8edaaf1d",
+      "src_82fdf318c66c",
+      "src_cb4a8d87c043",
+      "src_d7ee28ebfc07",
+      "src_d9d0116e9ae8",
+      "src_fd015615b208"
+    ],
+    "claimCount": 6,
+    "claimIds": [
+      "clm_5eb4be32838a",
+      "clm_9ddf0520ddaf",
+      "clm_cb1599b416e0",
+      "clm_cd84caa326ef",
+      "clm_d4ceac1ee149",
+      "clm_e1d6f5888096"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_5eb4be32838a",
+      "claim": "In a four-week randomized placebo-controlled trial of adults reporting poor sleep, magnesium bisglycinate produced a small additional improvement in insomnia severity beyond a substantial placebo response; the result supports possible short-term benefit but does not establish treatment efficacy for chronic insomnia.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.79,
+      "reviewStatus": "approved",
+      "notes": "Direct formulation-specific evidence. Wording preserves the short duration, self-reported population, and placebo response.",
+      "qualifiers": {},
+      "sourceRefIds": [
+        "src_d7ee28ebfc07"
+      ]
+    },
+    {
+      "id": "clm_9ddf0520ddaf",
+      "claim": "Laboratory digestion models suggest magnesium bisglycinate can release a relatively high proportion of available magnesium, but in-vitro bioavailability findings do not prove superior absorption or better health outcomes in people.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.75,
+      "reviewStatus": "approved",
+      "notes": "Separates formulation chemistry from clinical efficacy and avoids overstating an in-vitro comparison.",
+      "qualifiers": {},
+      "sourceRefIds": [
+        "src_82fdf318c66c"
+      ]
+    },
+    {
+      "id": "clm_cb1599b416e0",
+      "claim": "Oral magnesium is an established approach for correcting mild to moderate magnesium deficiency, but improvement from repletion should not be generalized to people with adequate magnesium status or interpreted as proof that magnesium glycinate treats sleep, anxiety, or muscle symptoms.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.84,
+      "reviewStatus": "approved",
+      "notes": "Distinguishes mineral repletion from broader symptom-treatment claims.",
+      "qualifiers": {},
+      "sourceRefIds": [
+        "src_1c9c8edaaf1d"
+      ]
+    },
+    {
+      "id": "clm_cd84caa326ef",
+      "claim": "Most research on magnesium for sleep or anxiety evaluates magnesium generally or uses other salts, so findings should not automatically be attributed to magnesium glycinate; direct formulation-specific clinical evidence remains sparse.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.88,
+      "reviewStatus": "approved",
+      "notes": "Central interpretation limit. Prevents general magnesium evidence from being presented as proof for the glycinate form.",
+      "qualifiers": {},
+      "sourceRefIds": [
+        "src_d7ee28ebfc07",
+        "src_d9d0116e9ae8"
+      ]
+    },
+    {
+      "id": "clm_d4ceac1ee149",
+      "claim": "Oral magnesium commonly causes dose-related gastrointestinal effects such as loose stools, cramping, or diarrhea; glycinate may be marketed as gentler, but comparative human tolerability evidence is limited and product elemental-magnesium content still determines exposure.",
+      "predicate": "has_safety_warning",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.82,
+      "reviewStatus": "approved",
+      "notes": "Uses oral-magnesium safety evidence while explicitly avoiding a strong comparative tolerability claim for glycinate.",
+      "qualifiers": {},
+      "sourceRefIds": [
+        "src_cb4a8d87c043",
+        "src_d7ee28ebfc07"
+      ]
+    },
+    {
+      "id": "clm_e1d6f5888096",
+      "claim": "People with impaired kidney function should not use high-dose magnesium supplements without clinical guidance because reduced excretion can cause hypermagnesemia; magnesium can also reduce absorption of tetracycline or quinolone antibiotics, bisphosphonates, and some other medicines, so dosing separation may be needed.",
+      "predicate": "has_safety_warning",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.91,
+      "reviewStatus": "approved",
+      "notes": "High-priority renal and medication-interaction warning. The interaction evidence applies to magnesium salts generally.",
+      "qualifiers": {},
+      "sourceRefIds": [
+        "src_1c9c8edaaf1d",
+        "src_fd015615b208"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_1c9c8edaaf1d",
+      "title": "An Update on Hypomagnesemia and Hypermagnesemia",
+      "url": "https://doi.org/10.3390/kidneydial4010001",
+      "doi": "10.3390/kidneydial4010001",
+      "year": "2023",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_82fdf318c66c",
+      "title": "In Vitro Evaluation of Bioavailability of Mg from Daily Food Rations, Dietary Supplements and Medicinal Products from the Polish Market",
+      "url": "https://doi.org/10.3390/nu17050748",
+      "doi": "10.3390/nu17050748",
+      "year": "2025",
+      "studyType": "Mechanistic",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_cb4a8d87c043",
+      "title": "Electrolyte disorders with platinum-based chemotherapy: mechanisms, manifestations and management",
+      "url": "https://doi.org/10.1007/s00280-017-3392-8",
+      "doi": "10.1007/s00280-017-3392-8",
+      "year": "2017",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_d7ee28ebfc07",
+      "title": "Magnesium Bisglycinate Supplementation in Healthy Adults Reporting Poor Sleep: A Randomized, Placebo-Controlled Trial",
+      "url": "https://doi.org/10.2147/NSS.S524348",
+      "doi": "10.2147/NSS.S524348",
+      "year": "2025",
+      "studyType": "Randomized controlled trial",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_d9d0116e9ae8",
+      "title": "Examining the Effects of Supplemental Magnesium on Self-Reported Anxiety and Sleep Quality: A Systematic Review",
+      "url": "https://doi.org/10.7759/cureus.59317",
+      "doi": "10.7759/cureus.59317",
+      "year": "2024",
+      "studyType": "Systematic review",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_fd015615b208",
+      "title": "Magnesium Oxide in Constipation",
+      "url": "https://doi.org/10.3390/nu13020421",
+      "doi": "10.3390/nu13020421",
+      "year": "2021",
+      "reviewStatus": "approved"
+    }
+  ]
 }

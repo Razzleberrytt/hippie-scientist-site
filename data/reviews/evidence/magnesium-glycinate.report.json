@@ -1,0 +1,360 @@
+{
+  "slug": "magnesium-glycinate",
+  "entity_id": "ent_compound_740c04966b1d",
+  "entity_type": "compound",
+  "batch_hash": "9ad808cdffba8c7ed7e14039720002756d3c50ba38621dcf1d33ef46fe000c56",
+  "summary": {
+    "patches": 6,
+    "proposed_claims": 6,
+    "unique_sources": 6,
+    "dry_run_applied": 6,
+    "dry_run_noop": 0,
+    "existing_active_claims": 0,
+    "duplicate_sources": 3
+  },
+  "patches": [
+    {
+      "patch_id": "scite-magnesium-glycinate-bioavailability-2026-07-11-003",
+      "original_filename": "magnesium-glycinate-bioavailability-scite-003.json",
+      "requires_review": true,
+      "confidence": 0.75,
+      "operations": [
+        {
+          "op": "add_claim",
+          "claim": "Laboratory digestion models suggest magnesium bisglycinate can release a relatively high proportion of available magnesium, but in-vitro bioavailability findings do not prove superior absorption or better health outcomes in people.",
+          "confidence": 0.75
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_82fdf318c66c",
+          "doi": "10.3390/nu17050748",
+          "url": "https://doi.org/10.3390/nu17050748",
+          "title": "In Vitro Evaluation of Bioavailability of Mg from Daily Food Rations, Dietary Supplements and Medicinal Products from the Polish Market",
+          "year": "2025"
+        }
+      ]
+    },
+    {
+      "patch_id": "scite-magnesium-glycinate-renal-interactions-2026-07-11-006",
+      "original_filename": "magnesium-glycinate-renal-interactions-scite-006.json",
+      "requires_review": true,
+      "confidence": 0.91,
+      "operations": [
+        {
+          "op": "add_safety_warning",
+          "claim": "People with impaired kidney function should not use high-dose magnesium supplements without clinical guidance because reduced excretion can cause hypermagnesemia; magnesium can also reduce absorption of tetracycline or quinolone antibiotics, bisphosphonates, and some other medicines, so dosing separation may be needed.",
+          "confidence": 0.91
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_1c9c8edaaf1d",
+          "doi": "10.3390/kidneydial4010001",
+          "url": "https://doi.org/10.3390/kidneydial4010001",
+          "title": "An Update on Hypomagnesemia and Hypermagnesemia",
+          "year": "2023"
+        },
+        {
+          "source_id": "src_fd015615b208",
+          "doi": "10.3390/nu13020421",
+          "url": "https://doi.org/10.3390/nu13020421",
+          "title": "Magnesium Oxide in Constipation",
+          "year": "2021"
+        }
+      ]
+    },
+    {
+      "patch_id": "scite-magnesium-glycinate-repletion-context-2026-07-11-004",
+      "original_filename": "magnesium-glycinate-repletion-context-scite-004.json",
+      "requires_review": true,
+      "confidence": 0.84,
+      "operations": [
+        {
+          "op": "add_claim",
+          "claim": "Oral magnesium is an established approach for correcting mild to moderate magnesium deficiency, but improvement from repletion should not be generalized to people with adequate magnesium status or interpreted as proof that magnesium glycinate treats sleep, anxiety, or muscle symptoms.",
+          "confidence": 0.84
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_1c9c8edaaf1d",
+          "doi": "10.3390/kidneydial4010001",
+          "url": "https://doi.org/10.3390/kidneydial4010001",
+          "title": "An Update on Hypomagnesemia and Hypermagnesemia",
+          "year": "2023"
+        }
+      ]
+    },
+    {
+      "patch_id": "scite-magnesium-glycinate-sleep-2026-07-11-001",
+      "original_filename": "magnesium-glycinate-sleep-scite-001.json",
+      "requires_review": true,
+      "confidence": 0.79,
+      "operations": [
+        {
+          "op": "add_claim",
+          "claim": "In a four-week randomized placebo-controlled trial of adults reporting poor sleep, magnesium bisglycinate produced a small additional improvement in insomnia severity beyond a substantial placebo response; the result supports possible short-term benefit but does not establish treatment efficacy for chronic insomnia.",
+          "confidence": 0.79
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_d7ee28ebfc07",
+          "doi": "10.2147/NSS.S524348",
+          "url": "https://doi.org/10.2147/NSS.S524348",
+          "title": "Magnesium Bisglycinate Supplementation in Healthy Adults Reporting Poor Sleep: A Randomized, Placebo-Controlled Trial",
+          "year": "2025"
+        }
+      ]
+    },
+    {
+      "patch_id": "scite-magnesium-glycinate-specificity-limit-2026-07-11-002",
+      "original_filename": "magnesium-glycinate-specificity-limit-scite-002.json",
+      "requires_review": true,
+      "confidence": 0.88,
+      "operations": [
+        {
+          "op": "add_claim",
+          "claim": "Most research on magnesium for sleep or anxiety evaluates magnesium generally or uses other salts, so findings should not automatically be attributed to magnesium glycinate; direct formulation-specific clinical evidence remains sparse.",
+          "confidence": 0.88
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_d9d0116e9ae8",
+          "doi": "10.7759/cureus.59317",
+          "url": "https://doi.org/10.7759/cureus.59317",
+          "title": "Examining the Effects of Supplemental Magnesium on Self-Reported Anxiety and Sleep Quality: A Systematic Review",
+          "year": "2024"
+        },
+        {
+          "source_id": "src_d7ee28ebfc07",
+          "doi": "10.2147/NSS.S524348",
+          "url": "https://doi.org/10.2147/NSS.S524348",
+          "title": "Magnesium Bisglycinate Supplementation in Healthy Adults Reporting Poor Sleep: A Randomized, Placebo-Controlled Trial",
+          "year": "2025"
+        }
+      ]
+    },
+    {
+      "patch_id": "scite-magnesium-glycinate-tolerability-2026-07-11-005",
+      "original_filename": "magnesium-glycinate-tolerability-scite-005.json",
+      "requires_review": true,
+      "confidence": 0.82,
+      "operations": [
+        {
+          "op": "add_safety_warning",
+          "claim": "Oral magnesium commonly causes dose-related gastrointestinal effects such as loose stools, cramping, or diarrhea; glycinate may be marketed as gentler, but comparative human tolerability evidence is limited and product elemental-magnesium content still determines exposure.",
+          "confidence": 0.82
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_cb4a8d87c043",
+          "doi": "10.1007/s00280-017-3392-8",
+          "url": "https://doi.org/10.1007/s00280-017-3392-8",
+          "title": "Electrolyte disorders with platinum-based chemotherapy: mechanisms, manifestations and management",
+          "year": "2017"
+        },
+        {
+          "source_id": "src_d7ee28ebfc07",
+          "doi": "10.2147/NSS.S524348",
+          "url": "https://doi.org/10.2147/NSS.S524348",
+          "title": "Magnesium Bisglycinate Supplementation in Healthy Adults Reporting Poor Sleep: A Randomized, Placebo-Controlled Trial",
+          "year": "2025"
+        }
+      ]
+    }
+  ],
+  "dry_run": [
+    {
+      "patch_id": "scite-magnesium-glycinate-bioavailability-2026-07-11-003",
+      "target_id": "ent_compound_740c04966b1d",
+      "status": "applied",
+      "changes": [
+        {
+          "type": "add_source",
+          "id": "src_82fdf318c66c"
+        },
+        {
+          "type": "add_claim",
+          "claim_id": "clm_9ddf0520ddaf",
+          "predicate": "supports_outcome"
+        }
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "requires_review": true
+    },
+    {
+      "patch_id": "scite-magnesium-glycinate-renal-interactions-2026-07-11-006",
+      "target_id": "ent_compound_740c04966b1d",
+      "status": "applied",
+      "changes": [
+        {
+          "type": "add_source",
+          "id": "src_1c9c8edaaf1d"
+        },
+        {
+          "type": "add_source",
+          "id": "src_fd015615b208"
+        },
+        {
+          "type": "add_safety_warning",
+          "claim_id": "clm_e1d6f5888096",
+          "predicate": "has_safety_warning"
+        }
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "requires_review": true
+    },
+    {
+      "patch_id": "scite-magnesium-glycinate-repletion-context-2026-07-11-004",
+      "target_id": "ent_compound_740c04966b1d",
+      "status": "applied",
+      "changes": [
+        {
+          "type": "add_claim",
+          "claim_id": "clm_cb1599b416e0",
+          "predicate": "supports_outcome"
+        }
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "requires_review": true
+    },
+    {
+      "patch_id": "scite-magnesium-glycinate-sleep-2026-07-11-001",
+      "target_id": "ent_compound_740c04966b1d",
+      "status": "applied",
+      "changes": [
+        {
+          "type": "add_source",
+          "id": "src_d7ee28ebfc07"
+        },
+        {
+          "type": "add_claim",
+          "claim_id": "clm_5eb4be32838a",
+          "predicate": "supports_outcome"
+        }
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "requires_review": true
+    },
+    {
+      "patch_id": "scite-magnesium-glycinate-specificity-limit-2026-07-11-002",
+      "target_id": "ent_compound_740c04966b1d",
+      "status": "applied",
+      "changes": [
+        {
+          "type": "add_source",
+          "id": "src_d9d0116e9ae8"
+        },
+        {
+          "type": "add_claim",
+          "claim_id": "clm_cd84caa326ef",
+          "predicate": "supports_outcome"
+        }
+      ],
+      "conflicts": [],
+      "warnings": [],
+      "requires_review": true
+    },
+    {
+      "patch_id": "scite-magnesium-glycinate-tolerability-2026-07-11-005",
+      "target_id": "ent_compound_740c04966b1d",
+      "status": "applied",
+      "changes": [
+        {
+          "type": "add_source",
+          "id": "src_cb4a8d87c043"
+        },
+        {
+          "type": "add_safety_warning",
+          "claim_id": "clm_d4ceac1ee149",
+          "predicate": "has_safety_warning"
+        }
+      ],
+      "conflicts": [
+        {
+          "type": "safety_conflict",
+          "existing": "People with impaired kidney function should not use high-dose magnesium supplements without clinical guidance because reduced excretion can cause hypermagnesemia; magnesium can also reduce absorption of tetracycline or quinolone antibiotics, bisphosphonates, and some other medicines, so dosing separation may be needed.",
+          "proposed": "Oral magnesium commonly causes dose-related gastrointestinal effects such as loose stools, cramping, or diarrhea; glycinate may be marketed as gentler, but comparative human tolerability evidence is limited and product elemental-magnesium content still determines exposure."
+        }
+      ],
+      "warnings": [],
+      "requires_review": true
+    }
+  ],
+  "proposed_claims": [
+    {
+      "patch_id": "scite-magnesium-glycinate-bioavailability-2026-07-11-003",
+      "predicate": "supports_outcome",
+      "claim": "Laboratory digestion models suggest magnesium bisglycinate can release a relatively high proportion of available magnesium, but in-vitro bioavailability findings do not prove superior absorption or better health outcomes in people.",
+      "confidence": 0.75,
+      "evidence_level": "human_obs",
+      "source_count": 1
+    },
+    {
+      "patch_id": "scite-magnesium-glycinate-renal-interactions-2026-07-11-006",
+      "predicate": "has_safety_warning",
+      "claim": "People with impaired kidney function should not use high-dose magnesium supplements without clinical guidance because reduced excretion can cause hypermagnesemia; magnesium can also reduce absorption of tetracycline or quinolone antibiotics, bisphosphonates, and some other medicines, so dosing separation may be needed.",
+      "confidence": 0.91,
+      "evidence_level": "human_obs",
+      "source_count": 2
+    },
+    {
+      "patch_id": "scite-magnesium-glycinate-repletion-context-2026-07-11-004",
+      "predicate": "supports_outcome",
+      "claim": "Oral magnesium is an established approach for correcting mild to moderate magnesium deficiency, but improvement from repletion should not be generalized to people with adequate magnesium status or interpreted as proof that magnesium glycinate treats sleep, anxiety, or muscle symptoms.",
+      "confidence": 0.84,
+      "evidence_level": "human_obs",
+      "source_count": 1
+    },
+    {
+      "patch_id": "scite-magnesium-glycinate-sleep-2026-07-11-001",
+      "predicate": "supports_outcome",
+      "claim": "In a four-week randomized placebo-controlled trial of adults reporting poor sleep, magnesium bisglycinate produced a small additional improvement in insomnia severity beyond a substantial placebo response; the result supports possible short-term benefit but does not establish treatment efficacy for chronic insomnia.",
+      "confidence": 0.79,
+      "evidence_level": "human_obs",
+      "source_count": 1
+    },
+    {
+      "patch_id": "scite-magnesium-glycinate-specificity-limit-2026-07-11-002",
+      "predicate": "supports_outcome",
+      "claim": "Most research on magnesium for sleep or anxiety evaluates magnesium generally or uses other salts, so findings should not automatically be attributed to magnesium glycinate; direct formulation-specific clinical evidence remains sparse.",
+      "confidence": 0.88,
+      "evidence_level": "human_obs",
+      "source_count": 2
+    },
+    {
+      "patch_id": "scite-magnesium-glycinate-tolerability-2026-07-11-005",
+      "predicate": "has_safety_warning",
+      "claim": "Oral magnesium commonly causes dose-related gastrointestinal effects such as loose stools, cramping, or diarrhea; glycinate may be marketed as gentler, but comparative human tolerability evidence is limited and product elemental-magnesium content still determines exposure.",
+      "confidence": 0.82,
+      "evidence_level": "human_obs",
+      "source_count": 2
+    }
+  ],
+  "existing_active_claims": [],
+  "duplicate_sources": [
+    {
+      "source_id": "src_1c9c8edaaf1d",
+      "first_patch_id": "scite-magnesium-glycinate-renal-interactions-2026-07-11-006",
+      "duplicate_patch_id": "scite-magnesium-glycinate-repletion-context-2026-07-11-004"
+    },
+    {
+      "source_id": "src_d7ee28ebfc07",
+      "first_patch_id": "scite-magnesium-glycinate-sleep-2026-07-11-001",
+      "duplicate_patch_id": "scite-magnesium-glycinate-specificity-limit-2026-07-11-002"
+    },
+    {
+      "source_id": "src_d7ee28ebfc07",
+      "first_patch_id": "scite-magnesium-glycinate-sleep-2026-07-11-001",
+      "duplicate_patch_id": "scite-magnesium-glycinate-tolerability-2026-07-11-005"
+    }
+  ]
+}

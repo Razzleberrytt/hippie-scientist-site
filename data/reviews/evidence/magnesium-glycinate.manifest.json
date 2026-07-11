@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "slug": "magnesium-glycinate",
+  "entity_id": "ent_compound_740c04966b1d",
+  "entity_type": "compound",
+  "batch_hash": "9ad808cdffba8c7ed7e14039720002756d3c50ba38621dcf1d33ef46fe000c56",
+  "decision": "approved",
+  "reviewer": "Willie Randolph",
+  "reviewed_at": "2026-07-11T23:55:00.000Z",
+  "approved_patch_ids": [
+    "scite-magnesium-glycinate-bioavailability-2026-07-11-003",
+    "scite-magnesium-glycinate-renal-interactions-2026-07-11-006",
+    "scite-magnesium-glycinate-repletion-context-2026-07-11-004",
+    "scite-magnesium-glycinate-sleep-2026-07-11-001",
+    "scite-magnesium-glycinate-specificity-limit-2026-07-11-002",
+    "scite-magnesium-glycinate-tolerability-2026-07-11-005"
+  ],
+  "approved_claim_ids": [
+    "clm_5eb4be32838a",
+    "clm_9ddf0520ddaf",
+    "clm_cb1599b416e0",
+    "clm_cd84caa326ef",
+    "clm_d4ceac1ee149",
+    "clm_e1d6f5888096"
+  ],
+  "approved_source_ids": [
+    "src_1c9c8edaaf1d",
+    "src_82fdf318c66c",
+    "src_cb4a8d87c043",
+    "src_d7ee28ebfc07",
+    "src_d9d0116e9ae8",
+    "src_fd015615b208"
+  ],
+  "deprecated_claim_ids": [],
+  "deprecated_source_ids": [],
+  "notes": "Approved all six balanced claims. No active legacy claims were present. The final profile emphasizes one direct sleep trial, sparse formulation-specific evidence, repletion context, qualified in-vitro bioavailability evidence, gastrointestinal tolerability, renal risk, and medication-separation cautions."
+}
