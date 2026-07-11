@@ -1,0 +1,67 @@
+name: Apply Ashwagandha Evidence Review
+
+on:
+  push:
+    branches:
+      - data/ashwagandha-evidence-review
+
+permissions:
+  contents: write
+
+jobs:
+  apply-review:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: data/ashwagandha-evidence-review
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Apply approved Ashwagandha evidence batch
+        run: npm run evidence:finalize -- --slug=ashwagandha --apply
+
+      - name: Run focused evidence validation
+        run: npm run evidence:check
+
+      - name: Verify runtime profile
+        run: |
+          node <<'NODE'
+          const fs = require('fs')
+          const record = JSON.parse(fs.readFileSync('public/data/herbs-detail/ashwagandha.json', 'utf8'))
+          if (!Array.isArray(record.claimMap) || record.claimMap.length !== 6) {
+            throw new Error(`Expected exactly 6 reviewed runtime claims, found ${record.claimMap?.length}`)
+          }
+          if (!Array.isArray(record.sources) || record.sources.length < 8) {
+            throw new Error(`Expected at least 8 runtime sources, found ${record.sources?.length}`)
+          }
+          if (record.evidence?.reviewStatus !== 'sourced') {
+            throw new Error(`Expected sourced review status, found ${record.evidence?.reviewStatus}`)
+          }
+          console.log({ claims: record.claimMap.length, sources: record.sources.length, status: record.evidence.reviewStatus })
+          NODE
+
+      - name: Remove temporary trigger and workflow
+        run: |
+          rm -f data/reviews/evidence/.ashwagandha-review-trigger
+          rm .github/workflows/apply-ashwagandha-evidence.yml
+
+      - name: Commit finalized evidence data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "data: finalize Ashwagandha evidence profile"
+          git push origin HEAD:data/ashwagandha-evidence-review
