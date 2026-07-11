@@ -1,0 +1,31 @@
+{
+  "patch_id": "scite-l-theanine-cognition-2026-07-11-001",
+  "patch_version": "1",
+  "created_at": "2026-07-11T19:00:00.000Z",
+  "generator": "Scite literature enrichment via ChatGPT",
+  "target": {
+    "slug": "l-theanine",
+    "canonical_name": "L-theanine",
+    "entity_type": "compound"
+  },
+  "operations": [
+    {
+      "op": "add_claim",
+      "field": "effects",
+      "value": "Randomized-trial evidence does not establish L-theanine alone as a reliable cognitive enhancer; L-theanine combined with caffeine may improve some attention-task outcomes, although the overall evidence base has substantial risk-of-bias concerns.",
+      "confidence": 0.72,
+      "notes": "A 2025 systematic review and meta-analysis found advantages for theanine plus caffeine on several attention-related outcomes, while comparisons generally favored caffeine over theanine alone. The review judged zero included studies at low risk of bias, so this claim is deliberately cautious and requires human review."
+    }
+  ],
+  "sources": [
+    {
+      "doi": "10.1093/nutrit/nuaf054",
+      "url": "https://doi.org/10.1093/nutrit/nuaf054",
+      "title": "Effects of Tea (Camellia sinensis) or its Bioactive Compounds L-Theanine or L-Theanine plus Caffeine on Cognition, Sleep, and Mood in Healthy Participants: A Systematic Review and Meta-Analysis of Randomized Controlled Trials",
+      "year": "2025"
+    }
+  ],
+  "notes": "First controlled enrichment-pipeline pilot. Adds one sourced cognition claim to the existing L-theanine compound record and intentionally avoids overwriting curated fields.",
+  "confidence": 0.72,
+  "requires_review": true
+}
