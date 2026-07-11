@@ -99,7 +99,7 @@ function normalizeRelationshipXml(xml) {
     .replace(new RegExp(`\\sxmlns:${prefix}=`, 'g'), ' xmlns=')
 }
 
-function normalizeWorkbookMetadataXml(xml) {
+function normalizeSpreadsheetMainXml(xml) {
   const namespaceMatch = xml.match(
     /xmlns:([A-Za-z_][\w.-]*)="http:\/\/schemas\.openxmlformats\.org\/spreadsheetml\/2006\/main"/,
   )
@@ -122,8 +122,8 @@ async function createNormalizedWorkbookCopy(filePath) {
     let normalizeXml = null
     if (entry.name.endsWith('.rels')) {
       normalizeXml = normalizeRelationshipXml
-    } else if (entry.name === 'xl/workbook.xml') {
-      normalizeXml = normalizeWorkbookMetadataXml
+    } else if (entry.name.startsWith('xl/') && entry.name.endsWith('.xml')) {
+      normalizeXml = normalizeSpreadsheetMainXml
     }
     if (!normalizeXml) continue
 
