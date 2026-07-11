@@ -49,4 +49,25 @@ jobs:
         run: npm run validate:workbook-schema --silent
 
       - name: Validate patch proposals against current workbook
-        run: node scripts/ci/validate-workbook-patches.mjs
+        id: patch_check
+        continue-on-error: true
+        shell: bash
+        run: |
+          set +e
+          node scripts/ci/validate-workbook-patches.mjs > workbook-patch-report.txt 2>&1
+          status=$?
+          cat workbook-patch-report.txt
+          exit "$status"
+
+      - name: Upload workbook patch report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: workbook-patch-report
+          path: workbook-patch-report.txt
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Enforce workbook patch result
+        if: steps.patch_check.outcome != 'success'
+        run: exit 1
