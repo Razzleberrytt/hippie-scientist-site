@@ -61,7 +61,15 @@ function getCheckoutToken() {
 }
 
 function changedPaths() {
-  const output = runGit(['status', '--porcelain=v1', '-z'])
+  const result = spawnSync('git', ['status', '--porcelain=v1', '-z'], {
+    cwd: repoRoot,
+    encoding: 'utf8',
+  })
+  if (result.status !== 0) {
+    const output = [result.stdout, result.stderr].filter(Boolean).join('\n').trim()
+    throw new Error(`git status failed${output ? `:\n${output}` : ''}`)
+  }
+  const output = result.stdout
   if (!output) return []
 
   const entries = output.split('\0').filter(Boolean)
