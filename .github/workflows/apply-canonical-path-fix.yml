@@ -1,0 +1,128 @@
+name: Apply Canonical Patch Path Fix
+
+on:
+  push:
+    branches:
+      - fix/preserve-canonical-patch-paths
+
+permissions:
+  contents: write
+
+jobs:
+  apply-fix:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/preserve-canonical-patch-paths
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Preserve explicit canonical field paths
+        run: |
+          python <<'PY'
+          from pathlib import Path
+
+          normalizer = Path('scripts/data/canonical/patch-normalize.mjs')
+          text = normalizer.read_text()
+          old = '''function normalizeExplicitOp(op, warnings) {
+            if (!op || typeof op !== 'object') { warnings.push('operation was not an object'); return null }
+            const rawOp = cleanString(op.op || op.operation || op.action).toLowerCase().replace(/[\\s-]+/g, '_')
+            if (!OP_SET.has(rawOp)) {
+              warnings.push(`unknown operation "${op.op || op.operation || op.action}" — flagged for review`)
+              return { op: 'update_field', field: op.field ? resolveFieldName(op.field) || `legacy.${op.field}` : 'legacy.unknown_op', value: op.value, payload: { original: op }, notes: 'unrecognized operation' }
+            }
+            const field = op.field ? (resolveFieldName(op.field) || `legacy.${op.field}`) : undefined
+            return {
+              op: rawOp,
+              field,
+              value: op.value,
+              payload: op.payload && typeof op.payload === 'object' ? op.payload : {},
+              confidence: typeof op.confidence === 'number' ? op.confidence : undefined,
+              notes: op.notes ? cleanString(op.notes) : undefined,
+            }
+          }
+          '''
+          old = '\n'.join(line[10:] if line.startswith('          ') else line for line in old.splitlines()) + '\n'
+          new = '''function normalizeExplicitField(value) {
+            const field = cleanString(value)
+            if (!field) return undefined
+            if (/^(?:data|legacy)\\.[a-z0-9_.-]+$/i.test(field)) return field
+            return resolveFieldName(field) || `legacy.${field}`
+          }
+
+          function normalizeExplicitOp(op, warnings) {
+            if (!op || typeof op !== 'object') { warnings.push('operation was not an object'); return null }
+            const rawOp = cleanString(op.op || op.operation || op.action).toLowerCase().replace(/[\\s-]+/g, '_')
+            if (!OP_SET.has(rawOp)) {
+              warnings.push(`unknown operation "${op.op || op.operation || op.action}" — flagged for review`)
+              return { op: 'update_field', field: normalizeExplicitField(op.field) || 'legacy.unknown_op', value: op.value, payload: { original: op }, notes: 'unrecognized operation' }
+            }
+            const field = normalizeExplicitField(op.field)
+            return {
+              op: rawOp,
+              field,
+              value: op.value,
+              payload: op.payload && typeof op.payload === 'object' ? op.payload : {},
+              confidence: typeof op.confidence === 'number' ? op.confidence : undefined,
+              notes: op.notes ? cleanString(op.notes) : undefined,
+            }
+          }
+          '''
+          new = '\n'.join(line[10:] if line.startswith('          ') else line for line in new.splitlines()) + '\n'
+          if old not in text:
+              raise SystemExit('normalizer target block not found')
+          normalizer.write_text(text.replace(old, new, 1))
+
+          tests = Path('scripts/data/canonical/__tests__/patch-normalize.test.mjs')
+          text = tests.read_text()
+          marker = '''  it('flags destructive operations (deprecate/merge) for review', () => {'''
+          test = '''  it('preserves explicit canonical data and legacy field paths', () => {
+            const raw = JSON.stringify({
+              patch_id: 'paths-1',
+              target: { slug: 'x', entity_type: 'herb' },
+              operations: [
+                { op: 'update_field', field: 'legacy.forms', value: 'extract' },
+                { op: 'update_field', field: 'legacy.evidence_risk_of_bias', value: 'high' },
+                { op: 'update_field', field: 'data.custom_context', value: 'context' },
+              ],
+            })
+            const res = normalizePatch({ filename: 'paths.json', raw })
+            const fields = res.patches[0].operations.map((operation) => operation.field)
+            expect(fields).toEqual([
+              'legacy.forms',
+              'legacy.evidence_risk_of_bias',
+              'data.custom_context',
+            ])
+            expectValid(res.patches)
+          })
+
+          '''
+          if marker not in text:
+              raise SystemExit('test insertion marker not found')
+          tests.write_text(text.replace(marker, test + marker, 1))
+          PY
+
+      - name: Run focused regression tests
+        run: npx vitest run scripts/data/canonical/__tests__/patch-normalize.test.mjs
+
+      - name: Commit fix and remove one-time workflow
+        run: |
+          rm .github/workflows/apply-canonical-path-fix.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/data/canonical/patch-normalize.mjs \
+            scripts/data/canonical/__tests__/patch-normalize.test.mjs \
+            .github/workflows/apply-canonical-path-fix.yml
+          git commit -m "fix: preserve explicit canonical patch paths"
+          git push origin HEAD:fix/preserve-canonical-patch-paths
