@@ -1,35 +1,36 @@
-# One-time repair workflow; restored after the namespace write fix lands.
-name: Repair Workbook Namespace Write Path
+name: Workbook Patch Check
 
 on:
   pull_request:
     branches:
       - main
     paths:
+      - 'data-sources/workbook-patches/**'
+      - 'data-sources/herb_monograph_master.xlsx'
+      - 'scripts/data/apply-workbook-patch.mjs'
+      - 'scripts/data/edit-entity-master-cell.mjs'
+      - 'scripts/ci/validate-workbook-patches.mjs'
+      - 'scripts/ci/validate-workbook-schema.mjs'
+      - 'scripts/utils/read-workbook-exceljs.mjs'
       - '.github/workflows/workbook-patch-check.yml'
   workflow_dispatch:
 
 concurrency:
-  group: repair-workbook-namespace-${{ github.ref }}
+  group: workbook-patch-check-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  repair:
-    name: Repair and test namespace write path
-    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+  validate:
+    name: Validate workbook patches
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
-      - name: Checkout pull request branch
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 1
-          show-progress: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -41,108 +42,42 @@ jobs:
       - name: Install dependencies
         run: npm ci --silent
 
-      - name: Apply namespace bridge
+      - name: Verify Node engine
+        run: npm run check:node --silent
+
+      - name: Validate workbook schema
+        run: npm run validate:workbook-schema --silent
+
+      - name: Validate patch proposals against current workbook
+        id: patch_check
+        continue-on-error: true
         shell: bash
         run: |
-          python <<'PY'
-          from pathlib import Path
+          set +e
+          node scripts/ci/validate-workbook-patches.mjs > workbook-patch-report.txt 2>&1
+          status=$?
+          cat workbook-patch-report.txt
+          exit "$status"
 
-          def replace_once(text: str, old: str, new: str, label: str) -> str:
-              count = text.count(old)
-              if count != 1:
-                  raise SystemExit(f'{label}: expected exactly one match, found {count}')
-              return text.replace(old, new, 1)
+      - name: Upload workbook patch report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: workbook-patch-report
+          path: workbook-patch-report.txt
+          if-no-files-found: error
+          retention-days: 14
 
-          utility_path = Path('scripts/utils/read-workbook-exceljs.mjs')
-          utility = utility_path.read_text()
-          utility = replace_once(
-              utility,
-              'async function createNormalizedWorkbookCopy(filePath) {',
-              'export async function createNormalizedWorkbookCopy(filePath) {',
-              'export normalized workbook helper',
-          )
-          utility_path.write_text(utility)
+      - name: Upload workbook for approved application
+        if: steps.patch_check.outcome == 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: workbook-source-for-application
+          path: data-sources/herb_monograph_master.xlsx
+          if-no-files-found: error
+          retention-days: 1
+          compression-level: 0
 
-          runner_path = Path('scripts/data/apply-workbook-patch.mjs')
-          runner = runner_path.read_text()
-          runner = replace_once(
-              runner,
-              "import { readWorkbookExcelJS } from '../utils/read-workbook-exceljs.mjs'",
-              "import { createNormalizedWorkbookCopy, readWorkbookExcelJS } from '../utils/read-workbook-exceljs.mjs'",
-              'import normalized workbook helper',
-          )
-          runner = replace_once(
-              runner,
-              'function applyPatch({ patch, changes, workbookPath, outPath, inPlace, approveHumanReview, entitySheet }) {',
-              'async function applyPatch({ patch, changes, workbookPath, outPath, inPlace, approveHumanReview, entitySheet }) {',
-              'make applyPatch async',
-          )
-          runner = replace_once(
-              runner,
-              """  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hippie-workbook-patch-'))
-  let currentInput = workbookPath
-  try {
-    for (const [index, change] of changes.entries()) {""",
-              """  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hippie-workbook-patch-'))
-  let normalizedCopy = null
-  let currentInput = workbookPath
-  try {
-    normalizedCopy = await createNormalizedWorkbookCopy(workbookPath)
-    if (normalizedCopy) {
-      currentInput = normalizedCopy.tempPath
-      console.log(
-        `[workbook-patch] Normalized namespace-prefixed OOXML in ${normalizedCopy.changedFiles} file(s) before writing`,
-      )
-    }
-
-    for (const [index, change] of changes.entries()) {""",
-              'normalize before surgical edits',
-          )
-          runner = replace_once(
-              runner,
-              """  } finally {
-    fs.rmSync(tempDir, { recursive: true, force: true })
-  }
-}""",
-              """  } finally {
-    fs.rmSync(tempDir, { recursive: true, force: true })
-    if (normalizedCopy) fs.rmSync(normalizedCopy.tempDir, { recursive: true, force: true })
-  }
-}""",
-              'clean normalized temporary copy',
-          )
-          runner = replace_once(
-              runner,
-              """  applyPatch({
-    patch,""",
-              """  await applyPatch({
-    patch,""",
-              'await applyPatch',
-          )
-          runner_path.write_text(runner)
-          PY
-
-      - name: Syntax-check repaired scripts
-        run: |
-          node --check scripts/utils/read-workbook-exceljs.mjs
-          node --check scripts/data/apply-workbook-patch.mjs
-          node --check scripts/data/edit-entity-master-cell.mjs
-
-      - name: Test safe review-copy application
-        run: |
-          node scripts/data/apply-workbook-patch.mjs \
-            --patch data-sources/workbook-patches/citicoline-scite-pilot.json \
-            --apply \
-            --approve-human-review \
-            --out /tmp/herb_monograph_master.citicoline-review.xlsx
-          test -s /tmp/herb_monograph_master.citicoline-review.xlsx
-
-      - name: Commit namespace write fix
-        shell: bash
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add scripts/utils/read-workbook-exceljs.mjs scripts/data/apply-workbook-patch.mjs
-          git diff --cached --check
-          git commit -m 'fix: normalize workbook namespaces before patch writes'
-          git push origin HEAD:${{ github.event.pull_request.head.ref }}
+      - name: Enforce workbook patch result
+        if: steps.patch_check.outcome != 'success'
+        run: exit 1
