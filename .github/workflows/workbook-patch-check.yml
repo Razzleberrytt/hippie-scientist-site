@@ -1,4 +1,4 @@
-name: Apply Approved Citicoline Patch
+name: Repair Workbook Namespace Write Path
 
 on:
   pull_request:
@@ -9,18 +9,18 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: apply-citicoline-patch-${{ github.ref }}
+  group: repair-workbook-namespace-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
   contents: write
 
 jobs:
-  apply:
-    name: Apply and verify Citicoline patch
+  repair:
+    name: Repair and test namespace write path
     if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
 
     steps:
       - name: Checkout pull request branch
@@ -40,109 +40,108 @@ jobs:
       - name: Install dependencies
         run: npm ci --silent
 
-      - name: Validate approved patch before writing
-        run: |
-          npm run check:node --silent
-          node scripts/data/apply-workbook-patch.mjs \
-            --patch data-sources/workbook-patches/citicoline-scite-pilot.json
-
-      - name: Apply patch atomically
-        id: apply_patch
+      - name: Apply namespace bridge
         shell: bash
         run: |
-          set +e
+          python <<'PY'
+          from pathlib import Path
+
+          def replace_once(text: str, old: str, new: str, label: str) -> str:
+              count = text.count(old)
+              if count != 1:
+                  raise SystemExit(f'{label}: expected exactly one match, found {count}')
+              return text.replace(old, new, 1)
+
+          utility_path = Path('scripts/utils/read-workbook-exceljs.mjs')
+          utility = utility_path.read_text()
+          utility = replace_once(
+              utility,
+              'async function createNormalizedWorkbookCopy(filePath) {',
+              'export async function createNormalizedWorkbookCopy(filePath) {',
+              'export normalized workbook helper',
+          )
+          utility_path.write_text(utility)
+
+          runner_path = Path('scripts/data/apply-workbook-patch.mjs')
+          runner = runner_path.read_text()
+          runner = replace_once(
+              runner,
+              "import { readWorkbookExcelJS } from '../utils/read-workbook-exceljs.mjs'",
+              "import { createNormalizedWorkbookCopy, readWorkbookExcelJS } from '../utils/read-workbook-exceljs.mjs'",
+              'import normalized workbook helper',
+          )
+          runner = replace_once(
+              runner,
+              'function applyPatch({ patch, changes, workbookPath, outPath, inPlace, approveHumanReview, entitySheet }) {',
+              'async function applyPatch({ patch, changes, workbookPath, outPath, inPlace, approveHumanReview, entitySheet }) {',
+              'make applyPatch async',
+          )
+          runner = replace_once(
+              runner,
+              """  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hippie-workbook-patch-'))
+  let currentInput = workbookPath
+  try {
+    for (const [index, change] of changes.entries()) {""",
+              """  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hippie-workbook-patch-'))
+  let normalizedCopy = null
+  let currentInput = workbookPath
+  try {
+    normalizedCopy = await createNormalizedWorkbookCopy(workbookPath)
+    if (normalizedCopy) {
+      currentInput = normalizedCopy.tempPath
+      console.log(
+        `[workbook-patch] Normalized namespace-prefixed OOXML in ${normalizedCopy.changedFiles} file(s) before writing`,
+      )
+    }
+
+    for (const [index, change] of changes.entries()) {""",
+              'normalize before surgical edits',
+          )
+          runner = replace_once(
+              runner,
+              """  } finally {
+    fs.rmSync(tempDir, { recursive: true, force: true })
+  }
+}""",
+              """  } finally {
+    fs.rmSync(tempDir, { recursive: true, force: true })
+    if (normalizedCopy) fs.rmSync(normalizedCopy.tempDir, { recursive: true, force: true })
+  }
+}""",
+              'clean normalized temporary copy',
+          )
+          runner = replace_once(
+              runner,
+              """  applyPatch({
+    patch,""",
+              """  await applyPatch({
+    patch,""",
+              'await applyPatch',
+          )
+          runner_path.write_text(runner)
+          PY
+
+      - name: Syntax-check repaired scripts
+        run: |
+          node --check scripts/utils/read-workbook-exceljs.mjs
+          node --check scripts/data/apply-workbook-patch.mjs
+          node --check scripts/data/edit-entity-master-cell.mjs
+
+      - name: Test safe review-copy application
+        run: |
           node scripts/data/apply-workbook-patch.mjs \
             --patch data-sources/workbook-patches/citicoline-scite-pilot.json \
             --apply \
             --approve-human-review \
-            --in-place > citicoline-apply-diagnostic.txt 2>&1
-          status=$?
-          cat citicoline-apply-diagnostic.txt
-          echo "status=$status" >> "$GITHUB_OUTPUT"
-          exit 0
+            --out /tmp/herb_monograph_master.citicoline-review.xlsx
+          test -s /tmp/herb_monograph_master.citicoline-review.xlsx
 
-      - name: Upload apply diagnostic
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: citicoline-apply-diagnostic
-          path: citicoline-apply-diagnostic.txt
-          if-no-files-found: error
-          retention-days: 1
-
-      - name: Mark patch applied
-        if: steps.apply_patch.outputs.status == '0'
-        shell: bash
-        run: |
-          python <<'PY'
-          import json
-          from pathlib import Path
-
-          path = Path('data-sources/workbook-patches/citicoline-scite-pilot.json')
-          patch = json.loads(path.read_text())
-          if patch.get('status') != 'approved':
-              raise SystemExit(f"Expected approved status before marking applied; found {patch.get('status')!r}")
-          patch['status'] = 'applied'
-          patch['applied_at'] = '2026-07-12'
-          patch['applied_by'] = 'Willie Randolph'
-          path.write_text(json.dumps(patch, indent=2, ensure_ascii=False) + '\n')
-          PY
-
-      - name: Rebuild and verify canonical outputs
-        if: steps.apply_patch.outputs.status == '0'
-        run: |
-          npm run workbook:roundtrip-test --silent
-          npm run data:build:core --silent
-          npm run guard:source-of-truth --silent
-          npm run validate:evidence-language --silent
-          node scripts/ci/validate-workbook-patches.mjs
-
-      - name: Enforce narrow change boundary
-        if: steps.apply_patch.outputs.status == '0'
-        shell: bash
-        run: |
-          python <<'PY'
-          import subprocess
-
-          output = subprocess.check_output(['git', 'status', '--porcelain=v1'], text=True)
-          paths = []
-          for line in output.splitlines():
-              if not line.strip():
-                  continue
-              path = line[3:]
-              if ' -> ' in path:
-                  path = path.split(' -> ', 1)[1]
-              paths.append(path)
-
-          allowed_exact = {
-              'data-sources/herb_monograph_master.xlsx',
-              'data-sources/workbook-patches/citicoline-scite-pilot.json',
-          }
-          unexpected = [path for path in paths if path not in allowed_exact and not path.startswith('public/data/')]
-          if unexpected:
-              raise SystemExit('Unexpected changed paths:\n- ' + '\n- '.join(unexpected))
-          if len(paths) > 50:
-              raise SystemExit(f'Refusing broad patch: {len(paths)} changed paths exceeds the 50-file boundary')
-          print(f'Validated narrow patch boundary: {len(paths)} changed path(s)')
-          for path in paths:
-              print(f'- {path}')
-          PY
-          git diff --check
-          git diff --stat
-
-      - name: Commit applied patch
-        if: steps.apply_patch.outputs.status == '0'
+      - name: Commit namespace write fix
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data-sources/herb_monograph_master.xlsx \
-            data-sources/workbook-patches/citicoline-scite-pilot.json \
-            public/data
+          git add scripts/utils/read-workbook-exceljs.mjs scripts/data/apply-workbook-patch.mjs
           git diff --cached --check
-          git commit -m 'data: apply approved Citicoline evidence patch'
+          git commit -m 'fix: normalize workbook namespaces before patch writes'
           git push origin HEAD:${{ github.event.pull_request.head.ref }}
-
-      - name: Enforce apply result
-        if: steps.apply_patch.outputs.status != '0'
-        run: exit 1
