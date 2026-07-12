@@ -30,7 +30,10 @@ html {
   left: 1rem;
   top: 1rem;
   z-index: 9999;
-  transform: translateY(-140%);
+  /* Clear the viewport entirely when unfocused — the focus ring and drop
+     shadow extend well past the element box, so -140% leaves a visible
+     glow bleeding into the top-left corner of every page. */
+  transform: translateY(calc(-100% - 4rem));
   border: 2px solid var(--a11y-focus-ring);
   border-radius: 999px;
   background: var(--a11y-focus-bg);

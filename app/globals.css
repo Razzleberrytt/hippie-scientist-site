@@ -796,6 +796,7 @@ html.dark :is(
   [class~="bg-white"],
   [class~="bg-white/50"],
   [class~="bg-white/60"],
+  [class~="bg-white/70"],
   [class~="bg-white/75"],
   [class~="bg-white/80"],
   [class~="bg-white/85"],
@@ -819,6 +820,7 @@ html.dark :is(
 
 html.dark :is(
   [class~="hover:bg-white"]:hover,
+  [class~="hover:bg-white/70"]:hover,
   [class~="hover:bg-white/90"]:hover,
   [class~="hover:bg-brand-50"]:hover,
   [class~="hover:bg-brand-50/20"]:hover,

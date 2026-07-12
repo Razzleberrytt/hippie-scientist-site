@@ -56,7 +56,7 @@ export function Navigation() {
         <div className='flex h-[4.35rem] items-center justify-between gap-3 sm:h-[4.8rem]'>
           <Link
             href='/'
-            className='flex min-w-0 items-center gap-2.5 font-display text-[1.08rem] font-semibold tracking-[-0.025em] text-[#123c2f] transition hover:text-[#315f50] dark:text-[var(--text-primary)] sm:text-[1.28rem]'
+            className='flex min-w-0 items-center gap-2.5 font-display text-[clamp(0.8rem,calc((100vw-15.2rem)/9.4),1rem)] font-semibold tracking-[-0.025em] text-[#123c2f] transition hover:text-[#315f50] dark:text-[var(--text-primary)] sm:text-[1.28rem]'
             aria-label='The Hippie Scientist home'
           >
             <span className='editorial-icon-disc h-9 w-9 shrink-0 border-none bg-transparent shadow-none sm:h-10 sm:w-10'>

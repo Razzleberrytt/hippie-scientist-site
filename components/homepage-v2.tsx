@@ -213,7 +213,7 @@ export default function HomepageV2() {
                       <h3 className='text-sm font-bold text-[#123c2f] dark:text-[var(--text-primary)]'>{tool.title}</h3>
                       <p className='mt-1 text-sm leading-6 text-muted'>{tool.description}</p>
                     </div>
-                    <ArrowRight className='mt-1 h-4 w-4 shrink-0 text-[#315f50] transition group-hover:translate-x-1' aria-hidden='true' />
+                    <ArrowRight className='mt-1 h-4 w-4 shrink-0 text-[#315f50] transition group-hover:translate-x-1 dark:text-[var(--accent-teal)]' aria-hidden='true' />
                   </div>
                 </Link>
               ))}
@@ -248,7 +248,7 @@ export default function HomepageV2() {
                     <h3 className='font-display text-xl font-semibold text-[#123c2f] dark:text-[var(--text-primary)] sm:text-2xl'>{goal.title}</h3>
                     <p className='mt-2 text-[0.8rem] leading-5 text-muted sm:text-sm sm:leading-6'>{goal.prompt}</p>
                   </div>
-                  <span className='mt-4 inline-flex items-center gap-1.5 text-[0.8rem] font-bold text-[#315f50] transition group-hover:gap-2.5 sm:text-sm'>
+                  <span className='mt-4 inline-flex items-center gap-1.5 text-[0.8rem] font-bold text-[#315f50] transition group-hover:gap-2.5 dark:text-[var(--accent-teal)] sm:text-sm'>
                     Start here <ArrowRight className='h-3.5 w-3.5' aria-hidden='true' />
                   </span>
                 </Link>

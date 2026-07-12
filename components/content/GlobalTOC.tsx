@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
+import { usePathname } from 'next/navigation'
 
 type Heading = {
   id: string
@@ -14,8 +15,22 @@ export default function GlobalTOC() {
   const [visible, setVisible] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const observer = useRef<IntersectionObserver | null>(null)
+  const pathname = usePathname()
 
   useEffect(() => {
+    // This component lives in the persistent root layout, so re-scan the new
+    // page's headings on every route change instead of only on first mount.
+    setActiveId('')
+    setMobileOpen(false)
+
+    // Profile pages ship their own curated section nav (ProfileTOC). Rendering
+    // this generic TOC there produces a second "On this page" box that overlaps
+    // the sticky sidebar, so stand down when one exists.
+    if (document.querySelector('nav[aria-label="Page sections"]')) {
+      setVisible(false)
+      return
+    }
+
     // Find all h2/h3 with ids in the main content area
     const selector = 'article h2[id], article h3[id], main h2[id], main h3[id], .content-prose h2[id], .content-prose h3[id], .article-body h2[id], .article-body h3[id]'
     const elements = document.querySelectorAll(selector)
@@ -60,7 +75,7 @@ export default function GlobalTOC() {
     })
 
     return () => observer.current?.disconnect()
-  }, [])
+  }, [pathname])
 
   if (!visible) return null
 
