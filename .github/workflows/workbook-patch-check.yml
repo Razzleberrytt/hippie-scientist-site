@@ -40,6 +40,16 @@ jobs:
           script_path = Path('.github/scripts/repair-workbook-patch.py')
           source = script_path.read_text()
           source = source.replace(
+              "\"\"\"      '--workbook', currentInput,\n      '--slug', change.slug,\"\"\"",
+              "\"\"\"        '--workbook', currentInput,\n        '--slug', change.slug,\"\"\"",
+              1,
+          )
+          source = source.replace(
+              "\"\"\"      '--workbook', currentInput,\n      '--sheet', entitySheet,\n      '--slug', change.slug,\"\"\"",
+              "\"\"\"        '--workbook', currentInput,\n        '--sheet', entitySheet,\n        '--slug', change.slug,\"\"\"",
+              1,
+          )
+          source = source.replace(
               "    count = text.count(old)\n",
               "    count = text.count(old)\n    print(f'{label}: matches={count}', flush=True)\n",
               1,
