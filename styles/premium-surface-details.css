@@ -1,6 +1,6 @@
 /*
   Premium surface detail layer.
-  Extends the resonant visual language into navigation, footer, forms, tables,
+  Extends the resonant visual language into navigation, forms, tables,
   chips, FAQ/detail elements, and dense utility surfaces.
 */
 
@@ -54,38 +54,6 @@ header [role='navigation'] a:hover {
 html.dark header nav a:hover,
 html.dark header [role='navigation'] a:hover {
   text-shadow: 0 0 20px rgba(203, 216, 192, 0.20);
-}
-
-/* Footer: forest-green closing surface — brand-consistent in both themes. */
-footer {
-  position: relative;
-  overflow: hidden;
-  border-top: 1px solid rgba(245, 240, 224, 0.1) !important;
-  background:
-    radial-gradient(circle at 14% 0%, rgba(142, 186, 143, 0.14), transparent 24rem),
-    radial-gradient(circle at 88% 20%, rgba(196, 125, 46, 0.10), transparent 24rem),
-    linear-gradient(180deg, rgba(18, 38, 28, 0.97), rgba(9, 23, 16, 0.99)) !important;
-}
-
-html.dark footer {
-  background:
-    radial-gradient(circle at 14% 0%, rgba(142, 186, 143, 0.10), transparent 24rem),
-    radial-gradient(circle at 88% 20%, rgba(196, 125, 46, 0.11), transparent 24rem),
-    linear-gradient(180deg, rgba(11, 29, 20, 0.98), rgba(6, 16, 11, 1)) !important;
-}
-
-footer::before {
-  content: '';
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(192, 138, 53, 0.34), rgba(142, 186, 143, 0.34), transparent);
-  pointer-events: none;
-}
-
-footer > * {
-  position: relative;
-  z-index: 1;
 }
 
 /* Tables: better reading rhythm and premium row separation. */
