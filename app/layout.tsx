@@ -30,6 +30,7 @@ import '@/styles/article-visual-polish.css'
 import '@/styles/compact-safety-cautions.css'
 import '@/styles/editorial-global-tokens.css'
 import '@/styles/editorial-botanical-refresh.css'
+import '@/styles/editorial-content-surfaces.css'
 
 const HOME_TITLE = 'The Hippie Scientist | Supplement Research'
 
