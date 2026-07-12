@@ -10,7 +10,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '../..')
 const DEFAULT_WORKBOOK = path.join(repoRoot, 'data-sources/herb_monograph_master.xlsx')
-const ENTITY_SHEET = 'Entity_Master'
+const ENTITY_SHEET_CANDIDATES = ['Entity_Master', 'Sheet7', 'Herb Master V3']
 const EDITOR = path.join(repoRoot, 'scripts/data/edit-entity-master-cell.mjs')
 const SCHEMA_VALIDATOR = path.join(repoRoot, 'scripts/ci/validate-workbook-schema.mjs')
 
@@ -236,13 +236,17 @@ async function loadEntityRows(workbookPath) {
   if (!fs.existsSync(workbookPath)) throw new Error(`Workbook not found: ${workbookPath}`)
   const workbook = await readWorkbookExcelJS(workbookPath)
   const sheetNames = workbook.getSheetNames()
-  if (!sheetNames.includes(ENTITY_SHEET)) {
-    throw new Error(`Workbook is missing required sheet ${ENTITY_SHEET}`)
+  const entitySheet = ENTITY_SHEET_CANDIDATES.find((name) => sheetNames.includes(name))
+  if (!entitySheet) {
+    throw new Error(
+      `Workbook is missing required entity sheet. Looked for: ${ENTITY_SHEET_CANDIDATES.join(', ')}. ` +
+      `Present: ${sheetNames.join(', ')}`,
+    )
   }
-  return workbook.getSheetData(ENTITY_SHEET)
+  return { entitySheet, rows: workbook.getSheetData(entitySheet) }
 }
 
-function validateAgainstWorkbook(patch, rows, patchPath) {
+function validateAgainstWorkbook(patch, rows, patchPath, entitySheet) {
   const bySlug = new Map()
   for (const row of rows) {
     const slug = normalizeSlug(row.slug)
@@ -261,7 +265,7 @@ function validateAgainstWorkbook(patch, rows, patchPath) {
     }
     const row = matches[0]
     if (!Object.prototype.hasOwnProperty.call(row, column)) {
-      throw new Error(`${patchPath}: changes[${index}] column ${column} does not exist in ${ENTITY_SHEET}`)
+      throw new Error(`${patchPath}: changes[${index}] column ${column} does not exist in ${entitySheet}`)
     }
     const actual = normalizeText(row[column])
     const expected = normalizeText(change.expected_old_value)
@@ -290,7 +294,7 @@ function runNode(scriptPath, args, options = {}) {
   return result.stdout?.trim() || ''
 }
 
-function applyPatch({ patch, changes, workbookPath, outPath, inPlace, approveHumanReview }) {
+function applyPatch({ patch, changes, workbookPath, outPath, inPlace, approveHumanReview, entitySheet }) {
   if (patch.status !== 'approved') {
     throw new Error(`Patch status must be approved before writing; current status is ${patch.status}`)
   }
@@ -308,6 +312,7 @@ function applyPatch({ patch, changes, workbookPath, outPath, inPlace, approveHum
       const nextOutput = path.join(tempDir, `step-${String(index + 1).padStart(3, '0')}.xlsx`)
       runNode(EDITOR, [
         '--workbook', currentInput,
+        '--sheet', entitySheet,
         '--slug', change.slug,
         '--column', change.column,
         '--value', normalizeText(change.new_value),
@@ -327,7 +332,11 @@ function applyPatch({ patch, changes, workbookPath, outPath, inPlace, approveHum
     }
 
     const schemaOutput = runNode(SCHEMA_VALIDATOR, [], {
-      env: { ...process.env, HERB_XLSX_PATH: finalPath },
+      env: {
+        ...process.env,
+        HERB_XLSX_PATH: finalPath,
+        ...(inPlace ? {} : { ALLOW_EXTERNAL_WORKBOOK_PATH: 'true' }),
+      },
     })
     if (schemaOutput) console.log(schemaOutput)
     console.log(`[workbook-patch] Applied ${changes.length} change(s) to ${path.relative(repoRoot, finalPath) || finalPath}`)
@@ -343,8 +352,8 @@ async function main() {
   const workbookPath = path.resolve(args.workbook)
   const patch = readJson(patchPath)
   validatePatchStructure(patch, patchPath)
-  const rows = await loadEntityRows(workbookPath)
-  const changes = validateAgainstWorkbook(patch, rows, patchPath)
+  const { entitySheet, rows } = await loadEntityRows(workbookPath)
+  const changes = validateAgainstWorkbook(patch, rows, patchPath, entitySheet)
 
   console.log(`[workbook-patch] ${args.apply ? 'APPLY' : 'CHECK'} ${patch.id}: ${changes.length} change(s)`)
   for (const change of changes) {
@@ -366,6 +375,7 @@ async function main() {
     outPath: args.out,
     inPlace: args.inPlace,
     approveHumanReview: args.approveHumanReview,
+    entitySheet,
   })
 }
 
