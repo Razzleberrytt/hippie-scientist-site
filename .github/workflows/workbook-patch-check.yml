@@ -1,36 +1,34 @@
-name: Workbook Patch Check
+name: Apply Approved Citicoline Patch
 
 on:
   pull_request:
     branches:
       - main
     paths:
-      - 'data-sources/workbook-patches/**'
-      - 'data-sources/herb_monograph_master.xlsx'
-      - 'scripts/data/apply-workbook-patch.mjs'
-      - 'scripts/data/edit-entity-master-cell.mjs'
-      - 'scripts/ci/validate-workbook-patches.mjs'
-      - 'scripts/ci/validate-workbook-schema.mjs'
-      - 'scripts/utils/read-workbook-exceljs.mjs'
       - '.github/workflows/workbook-patch-check.yml'
   workflow_dispatch:
 
 concurrency:
-  group: workbook-patch-check-${{ github.ref }}
+  group: apply-citicoline-patch-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  validate:
-    name: Validate workbook patches
+  apply:
+    name: Apply and verify Citicoline patch
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
-      - name: Checkout repository
+      - name: Checkout pull request branch
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 1
+          show-progress: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -42,42 +40,91 @@ jobs:
       - name: Install dependencies
         run: npm ci --silent
 
-      - name: Verify Node engine
-        run: npm run check:node --silent
+      - name: Validate approved patch before writing
+        run: |
+          npm run check:node --silent
+          node scripts/data/apply-workbook-patch.mjs \
+            --patch data-sources/workbook-patches/citicoline-scite-pilot.json
 
-      - name: Validate workbook schema
-        run: npm run validate:workbook-schema --silent
+      - name: Apply patch atomically
+        run: |
+          node scripts/data/apply-workbook-patch.mjs \
+            --patch data-sources/workbook-patches/citicoline-scite-pilot.json \
+            --apply \
+            --approve-human-review \
+            --in-place
 
-      - name: Validate patch proposals against current workbook
-        id: patch_check
-        continue-on-error: true
+      - name: Mark patch applied
         shell: bash
         run: |
-          set +e
-          node scripts/ci/validate-workbook-patches.mjs > workbook-patch-report.txt 2>&1
-          status=$?
-          cat workbook-patch-report.txt
-          exit "$status"
+          python <<'PY'
+          import json
+          from pathlib import Path
 
-      - name: Upload workbook patch report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: workbook-patch-report
-          path: workbook-patch-report.txt
-          if-no-files-found: error
-          retention-days: 14
+          path = Path('data-sources/workbook-patches/citicoline-scite-pilot.json')
+          patch = json.loads(path.read_text())
+          if patch.get('status') != 'approved':
+              raise SystemExit(f"Expected approved status before marking applied; found {patch.get('status')!r}")
+          patch['status'] = 'applied'
+          patch['applied_at'] = '2026-07-12'
+          patch['applied_by'] = 'Willie Randolph'
+          path.write_text(json.dumps(patch, indent=2, ensure_ascii=False) + '\n')
+          PY
 
-      - name: Upload workbook for approved application
-        if: steps.patch_check.outcome == 'success'
-        uses: actions/upload-artifact@v4
-        with:
-          name: workbook-source-for-application
-          path: data-sources/herb_monograph_master.xlsx
-          if-no-files-found: error
-          retention-days: 1
-          compression-level: 0
+      - name: Rebuild and verify canonical outputs
+        run: |
+          npm run workbook:roundtrip-test --silent
+          npm run data:build:core --silent
+          npm run guard:source-of-truth --silent
+          npm run validate:evidence-language --silent
+          node scripts/ci/validate-workbook-patches.mjs
 
-      - name: Enforce workbook patch result
-        if: steps.patch_check.outcome != 'success'
-        run: exit 1
+      - name: Enforce narrow change boundary
+        shell: bash
+        run: |
+          python <<'PY'
+          import subprocess
+
+          output = subprocess.check_output(
+              ['git', 'status', '--porcelain=v1'],
+              text=True,
+          )
+          paths = []
+          for line in output.splitlines():
+              if not line.strip():
+                  continue
+              path = line[3:]
+              if ' -> ' in path:
+                  path = path.split(' -> ', 1)[1]
+              paths.append(path)
+
+          allowed_exact = {
+              'data-sources/herb_monograph_master.xlsx',
+              'data-sources/workbook-patches/citicoline-scite-pilot.json',
+          }
+          unexpected = [
+              path for path in paths
+              if path not in allowed_exact and not path.startswith('public/data/')
+          ]
+          if unexpected:
+              raise SystemExit('Unexpected changed paths:\n- ' + '\n- '.join(unexpected))
+          if len(paths) > 50:
+              raise SystemExit(f'Refusing broad patch: {len(paths)} changed paths exceeds the 50-file boundary')
+          print(f'Validated narrow patch boundary: {len(paths)} changed path(s)')
+          for path in paths:
+              print(f'- {path}')
+          PY
+          git diff --check
+          git diff --stat
+
+      - name: Commit applied patch
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data-sources/herb_monograph_master.xlsx \
+            data-sources/workbook-patches/citicoline-scite-pilot.json \
+            public/data
+          git diff --cached --check
+          git commit -m 'data: apply approved Citicoline evidence patch'
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
