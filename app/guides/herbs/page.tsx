@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_URL } from '@/src/lib/seo'
+import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
+import { buildGuideHubSchemaGraph } from '../../../src/lib/schema-graph'
 
 export const metadata: Metadata = {
   title: 'Herb Deep-Dive Guides',
@@ -112,8 +114,23 @@ const readingWorkflow = [
 ]
 
 export default function HerbsGuideIndex() {
+  const schemaGraph = buildGuideHubSchemaGraph({
+    path: '/guides/herbs/',
+    title: 'Herb Deep-Dive Guides',
+    description:
+      'Herb deep-dive guide hub covering evidence, safety, dosing, product quality, and practical fit for ashwagandha, kava, passionflower, rhodiola, turmeric, elderberry, and more.',
+    breadcrumbs: [
+      { name: 'Home', url: `${SITE_URL}/` },
+      { name: 'Guides', url: `${SITE_URL}/guides/` },
+      { name: 'Herb Profiles', url: `${SITE_URL}/guides/herbs/` },
+    ],
+    itemListName: 'Herb Deep-Dive Guides',
+    items: GUIDES.map((g) => ({ name: g.title, url: `/guides/herbs/${g.slug}/` })),
+  })
+
   return (
     <div className="mx-auto max-w-6xl space-y-10 px-4 pb-24 pt-8 sm:pt-10">
+      <SchemaGraphScript graph={schemaGraph} />
       <nav className="text-xs text-muted">
         <Link href="/guides/" className="hover:text-ink">Guides</Link>
         <span className="mx-1.5">/</span>

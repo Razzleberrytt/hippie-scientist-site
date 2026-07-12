@@ -4,6 +4,8 @@ import { SITE_URL } from '@/src/lib/seo'
 import { HubSectionHeading } from '@/components/guides/HubSectionHeading'
 import { DecisionRouter, type IntentRoute } from '@/components/guides/DecisionRouter'
 import { GuideCardGrid, type GuideCard } from '@/components/guides/GuideCardGrid'
+import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
+import { buildGuideHubSchemaGraph } from '../../../src/lib/schema-graph'
 
 export const metadata: Metadata = {
   title: 'Anxiety & Stress Supplement Guides',
@@ -130,8 +132,23 @@ const ALL_GUIDES = [
 ]
 
 export default function AnxietyGuideIndex() {
+  const schemaGraph = buildGuideHubSchemaGraph({
+    path: '/guides/anxiety/',
+    title: 'Anxiety & Stress Supplement Guides',
+    description:
+      'Choose the right natural support based on the kind of anxiety or stress you have — overthinking, situational nerves, chronic stress, or nighttime worry.',
+    breadcrumbs: [
+      { name: 'Home', url: `${SITE_URL}/` },
+      { name: 'Guides', url: `${SITE_URL}/guides/` },
+      { name: 'Anxiety & Stress', url: `${SITE_URL}/guides/anxiety/` },
+    ],
+    itemListName: 'Anxiety & Stress Supplement Guides',
+    items: ALL_GUIDES.map((g) => ({ name: g.title, url: `/guides/anxiety/${g.slug}/` })),
+  })
+
   return (
     <div className="mx-auto max-w-4xl px-4 pb-24 pt-8">
+      <SchemaGraphScript graph={schemaGraph} />
       <nav className="mb-4 text-xs text-muted">
         <Link href="/guides/" className="hover:text-ink">
           Guides

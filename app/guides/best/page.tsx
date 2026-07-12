@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { buildPageMetadata } from '@/src/lib/seo'
+import { buildPageMetadata, SITE_URL } from '@/src/lib/seo'
+import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
+import { buildGuideHubSchemaGraph } from '../../../src/lib/schema-graph'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Best Supplement Guides by Goal',
@@ -77,8 +79,23 @@ const workflows = [
 ]
 
 export default function BestSupplementGuidesHub() {
+  const schemaGraph = buildGuideHubSchemaGraph({
+    path: '/guides/best/',
+    title: 'Best Supplement Guides by Goal',
+    description:
+      'Browse evidence-informed best supplement guides for ADHD, stress, blood pressure, fat loss, gut health, and joint support, with safety-first decision context.',
+    breadcrumbs: [
+      { name: 'Home', url: `${SITE_URL}/` },
+      { name: 'Guides', url: `${SITE_URL}/guides/` },
+      { name: 'Best Supplement Guides', url: `${SITE_URL}/guides/best/` },
+    ],
+    itemListName: 'Best Supplement Guides by Goal',
+    items: bestGuides.map((g) => ({ name: g.title, url: g.href })),
+  })
+
   return (
     <div className="mx-auto max-w-6xl space-y-10 px-4 pb-24 pt-8 sm:pt-10">
+      <SchemaGraphScript graph={schemaGraph} />
       <header className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 dark:border-white/10 dark:bg-white/5">
         <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-700 dark:text-brand-200">
           Curated supplement guides
