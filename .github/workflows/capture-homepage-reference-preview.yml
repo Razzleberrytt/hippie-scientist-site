@@ -1,0 +1,77 @@
+name: Capture Homepage Reference Preview
+
+on:
+  push:
+    branches:
+      - design/homepage-reference-match
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: design/homepage-reference-match
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build:deploy
+
+      - name: Install screenshot browser
+        run: |
+          npm install --no-save --package-lock=false playwright@1.51.1
+          npx playwright install --with-deps chromium
+
+      - name: Capture rendered homepage
+        run: |
+          npx serve@14 out -p 3000 >/tmp/homepage-serve.log 2>&1 &
+          SERVER_PID=$!
+          timeout 30 bash -c 'until curl -sf http://127.0.0.1:3000/ >/dev/null; do sleep 1; done'
+          mkdir -p design-review
+          node <<'NODE'
+          const { chromium } = require('playwright')
+          ;(async () => {
+            const browser = await chromium.launch({ headless: true })
+
+            const mobile = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 })
+            await mobile.goto('http://127.0.0.1:3000/', { waitUntil: 'networkidle' })
+            await mobile.screenshot({ path: 'design-review/homepage-reference-mobile.png', fullPage: true })
+
+            const desktop = await browser.newPage({ viewport: { width: 1440, height: 1100 }, deviceScaleFactor: 1 })
+            await desktop.goto('http://127.0.0.1:3000/', { waitUntil: 'networkidle' })
+            await desktop.screenshot({ path: 'design-review/homepage-reference-desktop.png', fullPage: true })
+
+            await browser.close()
+          })().catch((error) => {
+            console.error(error)
+            process.exit(1)
+          })
+          NODE
+          kill $SERVER_PID 2>/dev/null || true
+
+      - name: Remove one-time workflow
+        run: rm .github/workflows/capture-homepage-reference-preview.yml
+
+      - name: Commit previews
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add design-review/homepage-reference-mobile.png \
+            design-review/homepage-reference-desktop.png \
+            .github/workflows/capture-homepage-reference-preview.yml
+          git commit -m "chore: capture homepage reference previews"
+          git push origin HEAD:design/homepage-reference-match
