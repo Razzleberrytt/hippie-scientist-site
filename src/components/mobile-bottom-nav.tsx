@@ -23,9 +23,9 @@ export default function MobileBottomNav() {
   return (
     <nav
       aria-label='Primary mobile navigation'
-      className='editorial-mobile-dock mobile-bottom-nav fixed inset-x-2 bottom-[calc(env(safe-area-inset-bottom)+0.35rem)] z-[90] mx-auto max-w-[34rem] rounded-2xl md:hidden'
+      className='editorial-mobile-dock mobile-bottom-nav fixed inset-x-3 bottom-[calc(env(safe-area-inset-bottom)+0.5rem)] z-[90] mx-auto max-w-[34rem] overflow-hidden rounded-[1.25rem] md:hidden'
     >
-      <div className='flex items-center gap-0.5 px-1.5 py-1.5'>
+      <div className='flex items-center gap-0.5 px-1 py-1'>
         {mobileBottomNavItems.map((item) => {
           const active = pathname === item.href || pathname.startsWith(`${item.href}/`)
           const isSearch = item.label === 'Search'
@@ -36,7 +36,7 @@ export default function MobileBottomNav() {
               key={item.href}
               href={toCanonicalHref(item.href)}
               aria-current={active ? 'page' : undefined}
-              className={`group relative flex min-h-[3rem] min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-xl px-0.5 text-center transition ${
+              className={`group relative flex min-h-[2.9rem] min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-xl px-0.5 text-center transition ${
                 active && !isSearch
                   ? 'text-[#123c2f] dark:text-[var(--text-primary)]'
                   : 'text-[#526159] hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]'
