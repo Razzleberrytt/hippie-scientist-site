@@ -1,0 +1,169 @@
+.page {
+  min-height: 100%;
+  background:
+    radial-gradient(circle at 92% 4%, rgba(203, 220, 200, 0.38), transparent 22rem),
+    linear-gradient(180deg, #fbf8f1 0%, #fffdf8 42%, #f8f2e7 100%);
+}
+
+.hero {
+  display: grid;
+  gap: 2.25rem;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(18, 60, 47, 0.11);
+  border-radius: 2rem;
+  background: rgba(255, 253, 248, 0.84);
+  box-shadow: 0 22px 58px rgba(58, 45, 24, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.heroCopy {
+  padding: 2rem 1.25rem 0;
+}
+
+.heroVisual {
+  position: relative;
+  min-height: 29rem;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 70% 24%, rgba(255, 255, 255, 0.78), transparent 15rem),
+    linear-gradient(145deg, #dde8d9, #efe6d7);
+}
+
+.primaryPhoto {
+  position: absolute;
+  inset: 1.15rem 1.15rem 7.25rem 1.15rem;
+  overflow: hidden;
+  border-radius: 1.45rem;
+  background: #dce6d9;
+  box-shadow: 0 18px 42px rgba(45, 58, 50, 0.16);
+}
+
+.photoWash {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 42%, rgba(255, 253, 248, 0.92) 100%);
+}
+
+.imageLabel {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  border: 1px solid rgba(18, 60, 47, 0.09);
+  border-radius: 1rem;
+  background: rgba(255, 253, 248, 0.88);
+  padding: 0.85rem 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.smallPhotoTop,
+.smallPhotoBottom {
+  position: absolute;
+  bottom: 1.15rem;
+  overflow: hidden;
+  width: calc(50% - 1.725rem);
+  height: 5.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 1rem;
+  box-shadow: 0 12px 28px rgba(45, 58, 50, 0.12);
+}
+
+.smallPhotoTop {
+  left: 1.15rem;
+}
+
+.smallPhotoBottom {
+  right: 1.15rem;
+}
+
+.visualBadge {
+  position: absolute;
+  top: 1.8rem;
+  right: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(18, 60, 47, 0.11);
+  border-radius: 999px;
+  background: rgba(255, 253, 248, 0.88);
+  padding: 0.55rem 0.75rem;
+  color: #315f50;
+  font-size: 0.72rem;
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgba(58, 45, 24, 0.10);
+  backdrop-filter: blur(10px);
+}
+
+.safetyPanel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(18, 60, 47, 0.11);
+  border-radius: 1.6rem;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(203, 220, 200, 0.48), transparent 18rem),
+    linear-gradient(145deg, #fffdf8, #eef4eb);
+  padding: 1.4rem;
+  box-shadow: 0 18px 42px rgba(58, 45, 24, 0.08);
+}
+
+@media (min-width: 768px) {
+  .hero {
+    grid-template-columns: minmax(0, 1.02fr) minmax(24rem, 0.98fr);
+    min-height: 39rem;
+  }
+
+  .heroCopy {
+    padding: 3rem 0 3rem 3rem;
+  }
+
+  .heroVisual {
+    min-height: 100%;
+    border-left: 1px solid rgba(18, 60, 47, 0.10);
+  }
+
+  .primaryPhoto {
+    inset: 2rem 2rem 9.25rem 2rem;
+  }
+
+  .smallPhotoTop,
+  .smallPhotoBottom {
+    bottom: 2rem;
+    width: calc(50% - 3rem);
+    height: 6.2rem;
+  }
+
+  .smallPhotoTop {
+    left: 2rem;
+  }
+
+  .smallPhotoBottom {
+    right: 2rem;
+  }
+
+  .safetyPanel {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroCopy {
+    padding-left: 3.5rem;
+  }
+}
+
+:global(.dark) .page {
+  background:
+    radial-gradient(circle at 90% 4%, rgba(66, 105, 86, 0.20), transparent 22rem),
+    linear-gradient(180deg, #102019, #0d1712 52%, #102019);
+}
+
+:global(.dark) .hero,
+:global(.dark) .safetyPanel {
+  border-color: rgba(180, 210, 190, 0.15);
+  background: rgba(23, 43, 35, 0.94);
+}
+
+:global(.dark) .heroVisual {
+  background: linear-gradient(145deg, #1c372c, #263c31);
+}
