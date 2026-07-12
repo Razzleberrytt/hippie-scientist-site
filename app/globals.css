@@ -356,6 +356,13 @@ html.theme-ready body * {
     content: 'Close';
   }
 
+  /* Summaries that render their own chevron (an aria-hidden marker span)
+     don't need the generated Open/Close label on top of it. */
+  summary:has(span[aria-hidden])::after,
+  details[open] summary:has(span[aria-hidden])::after {
+    content: none;
+  }
+
   details > * + * {
     @apply mt-4;
   }

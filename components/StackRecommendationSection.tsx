@@ -24,9 +24,9 @@ export default function StackRecommendationSection({
         <AffiliateDisclosure variant='compact' className='mt-2' />
       </div>
 
-      <div className='mt-4 grid gap-4 md:grid-cols-3'>
+      <div className='mt-4 flex gap-3 overflow-x-auto pb-2 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin] md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:pb-0'>
         {recommendations.map((rec) => (
-          <div key={rec.targetSlug} className='flex flex-col gap-2'>
+          <div key={rec.targetSlug} className='flex w-[16rem] shrink-0 flex-col gap-2 md:w-auto md:shrink'>
             <p className='text-xs font-bold uppercase tracking-[0.16em] text-brand-700'>Pairs well</p>
             <AffiliateProductCard
               product={{

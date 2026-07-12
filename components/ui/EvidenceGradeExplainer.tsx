@@ -37,7 +37,7 @@ export default function EvidenceGradeExplainer() {
   return (
     <details className="group">
       <summary className="flex cursor-pointer items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted select-none hover:text-ink transition-colors">
-        <span className="text-brand-500 group-open:rotate-90 transition-transform inline-block">▶</span>
+        <span aria-hidden="true" className="text-brand-500 group-open:rotate-90 transition-transform inline-block">▶</span>
         How evidence grades work
       </summary>
       <div className="mt-3 rounded-xl border border-brand-900/10 bg-white/70 p-3 space-y-2">

@@ -217,8 +217,8 @@ main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto {
   scrollbar-width: thin;
 }
 
-#ashwagandha-stress-claim .overflow-x-auto::after,
-main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto::after {
+#ashwagandha-stress-claim .overflow-x-auto:has(table)::after,
+main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto:has(table)::after {
   content: 'Swipe table →';
   display: none;
   padding: 0.7rem 0.85rem;
@@ -230,8 +230,8 @@ main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto::after {
   text-transform: uppercase;
 }
 
-html:not(.dark) #ashwagandha-stress-claim .overflow-x-auto::after,
-html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto::after {
+html:not(.dark) #ashwagandha-stress-claim .overflow-x-auto:has(table)::after,
+html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto:has(table)::after {
   border-top-color: rgba(29, 74, 47, 0.1);
   color: #5f6f66;
 }
@@ -307,8 +307,8 @@ main:has(nav[aria-label="Jump to profile sections"]) a {
     line-height: 1.18 !important;
   }
 
-  #ashwagandha-stress-claim .overflow-x-auto::after,
-  main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto::after {
+  #ashwagandha-stress-claim .overflow-x-auto:has(table)::after,
+  main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto:has(table)::after {
     display: block;
   }
 
