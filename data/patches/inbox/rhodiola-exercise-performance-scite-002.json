@@ -1,0 +1,44 @@
+{
+  "patch_id": "scite-rhodiola-exercise-performance-2026-07-12-002",
+  "patch_version": "1",
+  "created_at": "2026-07-12T14:41:00.000Z",
+  "generator": "Scite literature enrichment via ChatGPT",
+  "target": {
+    "slug": "rhodiola",
+    "canonical_name": "Rhodiola rosea",
+    "entity_type": "herb"
+  },
+  "operations": [
+    {
+      "op": "add_claim",
+      "field": "effects",
+      "value": "Exercise trials use diverse acute and short-term Rhodiola protocols and report mixed effects on endurance, perceived exertion, power, muscle damage, and recovery; current evidence does not support a broad claim that Rhodiola reliably improves athletic performance.",
+      "payload": {},
+      "confidence": 0.82,
+      "notes": "Reflects heterogeneous protocols and outcomes across systematic reviews while avoiding a generalized ergogenic claim."
+    }
+  ],
+  "sources": [
+    {
+      "doi": "10.1002/ptr.7950",
+      "url": "https://doi.org/10.1002/ptr.7950",
+      "title": "Rhodiola rosea supplementation on sports performance: A systematic review of randomized controlled trials",
+      "year": "2023"
+    },
+    {
+      "doi": "10.3389/fnut.2022.856287",
+      "url": "https://doi.org/10.3389/fnut.2022.856287",
+      "title": "Effects of Rhodiola Rosea Supplementation on Exercise and Sport: A Systematic Review",
+      "year": "2022"
+    },
+    {
+      "doi": "10.1186/1472-6882-12-70",
+      "url": "https://doi.org/10.1186/1472-6882-12-70",
+      "title": "Rhodiola rosea for physical and mental fatigue: a systematic review",
+      "year": "2012"
+    }
+  ],
+  "notes": "Adds a conservative exercise-performance interpretation rather than a product-level performance promise.",
+  "confidence": 0.82,
+  "requires_review": true
+}
