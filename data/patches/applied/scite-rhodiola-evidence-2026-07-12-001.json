@@ -35,7 +35,7 @@
     },
     {
       "op": "add_claim",
-      "field": "evidence_quality",
+      "field": "legacy.evidence_quality",
       "value": "Historical Rhodiola trials include unclear randomization, unvalidated outcome measures, inappropriate statistical comparisons, reporting errors, and exaggerated conclusions; evidence summaries should privilege better-controlled trials and systematic reviews.",
       "payload": {},
       "confidence": 0.9,
@@ -76,5 +76,12 @@
   ],
   "notes": "Second controlled Scite enrichment pass. Adds cautious fatigue, exercise, product-standardization, and evidence-quality context without changing publishing controls, governance status, or evidence grades.",
   "confidence": 0.8,
-  "requires_review": true
+  "requires_review": true,
+  "original_filename": "rhodiola-scite-enrichment-2026-07-12.json",
+  "original_hash": "629fde959e55e045ca606d36329c182c37dc6054c825411ab5d39d643e89b553",
+  "_apply_result": {
+    "status": "applied",
+    "changes": 9,
+    "at": "2026-07-12T14:36:38.650Z"
+  }
 }
