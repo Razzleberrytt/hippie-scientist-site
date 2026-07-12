@@ -1,0 +1,12 @@
+{
+  "patch_id": "example-canonical-001",
+  "generator": "example-gpt",
+  "created_at": "2026-03-01T00:00:00Z",
+  "target": { "slug": "ashwagandha", "entity_type": "herb" },
+  "operations": [
+    { "op": "update_field", "field": "description", "value": "Ashwagandha (Withania somnifera) is a well-studied adaptogen." },
+    { "op": "add_alias", "field": "aliases", "value": "Indian ginseng" }
+  ],
+  "sources": [{ "pmid": "23439798" }],
+  "confidence": 0.8
+}

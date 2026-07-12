@@ -2,6 +2,7 @@ name: Fast UI Check
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
     paths:
       - 'app/**'
       - 'components/**'
@@ -21,6 +22,7 @@ permissions:
 
 jobs:
   fast-ui-check:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     runs-on: ubuntu-latest
     timeout-minutes: 15
 

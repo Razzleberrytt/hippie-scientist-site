@@ -1,0 +1,38 @@
+{
+  "patch_id": "scite-ashwagandha-liver-safety-2026-07-11-005",
+  "patch_version": "1",
+  "created_at": "2026-07-11T23:04:00.000Z",
+  "generator": "Scite literature enrichment via ChatGPT",
+  "target": {
+    "slug": "ashwagandha",
+    "canonical_name": "Ashwagandha Withania somnifera",
+    "entity_type": "herb"
+  },
+  "operations": [
+    {
+      "op": "add_safety_warning",
+      "field": "safety",
+      "value": "Rare cases and case series of clinically significant liver injury have been associated with ashwagandha products, often with cholestatic or mixed patterns; discontinue use and seek medical evaluation if jaundice, dark urine, marked itching, or persistent upper-abdominal symptoms develop.",
+      "payload": {},
+      "confidence": 0.86,
+      "notes": "The warning is based on case-series and causality-assessment literature. It does not imply that liver injury is common."
+    }
+  ],
+  "sources": [
+    {
+      "doi": "10.1097/hc9.0000000000000270",
+      "url": "https://doi.org/10.1097/hc9.0000000000000270",
+      "title": "Ashwagandha-induced liver injury—A case series from India and literature review",
+      "year": "2023"
+    },
+    {
+      "doi": "10.3390/ph16081129",
+      "url": "https://doi.org/10.3390/ph16081129",
+      "title": "Herb-Induced Liver Injury by Ayurvedic Ashwagandha as Assessed for Causality by the Updated RUCAM: An Emerging Cause",
+      "year": "2023"
+    }
+  ],
+  "notes": "Adds a rare-but-important liver safety warning with symptom-based escalation guidance.",
+  "confidence": 0.86,
+  "requires_review": true
+}

@@ -1,0 +1,82 @@
+/* Compact safety/caution details without hiding the underlying content.
+   Herb profiles already render detailed safety groups inside a closed <details>.
+   When opened, turn the tall grid into a horizontally scrollable card rail. */
+
+#safety details > div.mt-4.grid {
+  display: flex !important;
+  grid-template-columns: none !important;
+  gap: 0.75rem !important;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  padding-bottom: 0.75rem;
+  padding-right: 0.25rem;
+  scroll-padding-inline: 0.125rem;
+  scroll-snap-type: inline mandatory;
+  scrollbar-gutter: stable;
+  -webkit-overflow-scrolling: touch;
+}
+
+#safety details > div.mt-4.grid > div {
+  flex: 0 0 min(86%, 22rem);
+  max-height: 13rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+  scrollbar-gutter: stable;
+  border: 1px solid rgb(120 72 18 / 0.14);
+  border-radius: 0.875rem;
+  background: rgb(255 255 255 / 0.72);
+  padding: 0.875rem;
+  box-shadow: 0 1px 2px rgb(72 42 12 / 0.05);
+}
+
+#safety details > div.mt-4.grid > div > h3 {
+  position: sticky;
+  top: -0.875rem;
+  z-index: 1;
+  margin: -0.875rem -0.875rem 0.5rem;
+  padding: 0.875rem 0.875rem 0.625rem;
+  background: rgb(255 255 255 / 0.94);
+  backdrop-filter: blur(6px);
+}
+
+#safety details > div.mt-4.grid > div li {
+  line-height: 1.45;
+}
+
+#safety details[open] > summary {
+  margin-bottom: 0.125rem;
+}
+
+#safety details[open] > summary span:first-child::after {
+  content: ' · swipe sideways';
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  opacity: 0.68;
+}
+
+@media (min-width: 640px) {
+  #safety details > div.mt-4.grid > div {
+    flex-basis: 20rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #safety details > div.mt-4.grid {
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+  }
+}
+
+.dark #safety details > div.mt-4.grid > div {
+  border-color: rgb(252 211 77 / 0.14);
+  background: rgb(120 72 18 / 0.18);
+  box-shadow: none;
+}
+
+.dark #safety details > div.mt-4.grid > div > h3 {
+  background: rgb(55 36 12 / 0.94);
+}

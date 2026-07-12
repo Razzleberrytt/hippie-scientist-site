@@ -1,6 +1,8 @@
 export interface Citation {
   title: string
   pmid?: string
+  doi?: string
+  url?: string
   year?: number | string
   authors?: string
   studyType?: string
@@ -66,19 +68,26 @@ function sortByStudyType(a: Citation, b: Citation) {
   return aRank - bRank
 }
 
+function citationKey(citation: Citation, index: number) {
+  return citation.pmid || citation.doi || citation.url || citation.title || index
+}
+
 function StudyRow({ citation, index }: { citation: Citation; index: number }) {
   const pubmedUrl = citation.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${citation.pmid}/` : null
+  const doiLink = citation.doi ? `https://doi.org/${citation.doi}` : null
+  const sourceUrl = citation.url || pubmedUrl || doiLink
+  const sourceLabel = citation.pmid ? 'PubMed' : citation.doi ? 'DOI' : sourceUrl ? 'Source' : ''
 
   return (
     <tr
-      key={citation.pmid || citation.title || index}
+      key={citationKey(citation, index)}
       className="border-t border-brand-900/10 dark:border-white/10"
     >
       <td className="px-3 py-3 align-top sm:px-4">
         <p className="text-[13px] font-semibold leading-snug text-ink">
-          {pubmedUrl ? (
+          {sourceUrl ? (
             <a
-              href={pubmedUrl}
+              href={sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-brand-700 hover:underline dark:hover:text-brand-100"
@@ -103,14 +112,14 @@ function StudyRow({ citation, index }: { citation: Citation; index: number }) {
         {citation.sampleSize ? `n=${citation.sampleSize}` : '—'}
       </td>
       <td className="px-3 py-3 text-right align-top sm:px-4">
-        {pubmedUrl ? (
+        {sourceUrl ? (
           <a
-            href={pubmedUrl}
+            href={sourceUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-[11px] font-semibold text-brand-700 hover:underline dark:text-brand-100"
           >
-            PubMed →
+            {sourceLabel} →
           </a>
         ) : (
           <span className="text-xs text-muted">—</span>
@@ -128,14 +137,17 @@ export default function ShowMeTheStudies({ citations }: Props) {
   const overflow = sorted.slice(VISIBLE_ROWS)
 
   return (
-    <div className="overflow-hidden rounded-2xl border-2 border-brand-900/10 dark:border-white/10">
-      <div className="border-b border-brand-900/10 bg-brand-50/70 px-4 py-3 dark:border-white/10 dark:bg-[var(--surface-subtle)]">
-        <h3 className="text-sm font-bold text-ink">Clinical Study Summaries</h3>
-        <p className="mt-0.5 text-[11px] leading-5 text-muted">
-          {citations.length} cited stud{citations.length === 1 ? 'y' : 'ies'} informing this profile. RCTs and reviews shown first.
-        </p>
-      </div>
-      <div className="overflow-x-auto">
+    <details className="group/studies overflow-hidden rounded-2xl border-2 border-brand-900/10 dark:border-white/10">
+      <summary className="flex cursor-pointer items-center justify-between gap-3 bg-brand-50/70 px-4 py-3 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 dark:bg-[var(--surface-subtle)]">
+        <span>
+          <span className="block text-sm font-bold text-ink">Clinical Study Summaries ({citations.length})</span>
+          <span className="mt-0.5 block text-[11px] leading-5 text-muted">
+            Cited studies informing this profile. RCTs and reviews shown first.
+          </span>
+        </span>
+        <span aria-hidden="true" className="shrink-0 text-brand-500 transition-transform group-open/studies:rotate-180">v</span>
+      </summary>
+      <div className="overflow-x-auto border-t border-brand-900/10 dark:border-white/10">
         <table className="w-full min-w-[560px] border-collapse text-left text-sm">
           <thead>
             <tr className="bg-[var(--surface-card)] text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -147,7 +159,7 @@ export default function ShowMeTheStudies({ citations }: Props) {
           </thead>
           <tbody>
             {visible.map((citation, index) => (
-              <StudyRow key={citation.pmid || citation.title || index} citation={citation} index={index} />
+              <StudyRow key={citationKey(citation, index)} citation={citation} index={index} />
             ))}
           </tbody>
         </table>
@@ -162,13 +174,13 @@ export default function ShowMeTheStudies({ citations }: Props) {
             <table className="w-full min-w-[560px] border-collapse text-left text-sm">
               <tbody>
                 {overflow.map((citation, index) => (
-                  <StudyRow key={citation.pmid || citation.title || index} citation={citation} index={index} />
+                  <StudyRow key={citationKey(citation, index)} citation={citation} index={index} />
                 ))}
               </tbody>
             </table>
           </div>
         </details>
       )}
-    </div>
+    </details>
   )
 }

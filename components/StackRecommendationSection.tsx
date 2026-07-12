@@ -14,19 +14,19 @@ export default function StackRecommendationSection({
   if (!recommendations.length) return null
 
   return (
-    <section className='rounded-[1.5rem] border border-brand-900/10 bg-white/80 p-6 shadow-sm sm:p-8'>
+    <section className='rounded-[1.5rem] border border-brand-900/10 bg-white/80 p-4 shadow-sm sm:p-5'>
       <div className='max-w-3xl'>
         <p className='text-xs font-bold uppercase tracking-[0.18em] text-brand-700'>Supplement stacking</p>
-        <h2 className='mt-3 text-2xl font-semibold text-ink'>Stack {productName} With</h2>
-        <p className='mt-3 text-sm leading-7 text-muted'>
-          Products commonly paired with {productName} for synergistic effects. Review interactions and dosage before combining supplements.
+        <h2 className='mt-1 text-lg font-semibold text-ink'>Stack {productName} With</h2>
+        <p className='mt-1 text-sm leading-6 text-muted'>
+          Commonly paired with {productName}. Review interactions and dosage before combining.
         </p>
-        <AffiliateDisclosure variant='compact' className='mt-3' />
+        <AffiliateDisclosure variant='compact' className='mt-2' />
       </div>
 
-      <div className='mt-6 grid gap-4 md:grid-cols-3'>
+      <div className='mt-4 flex gap-3 overflow-x-auto pb-2 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin] md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:pb-0'>
         {recommendations.map((rec) => (
-          <div key={rec.targetSlug} className='flex flex-col gap-2'>
+          <div key={rec.targetSlug} className='flex w-[16rem] shrink-0 flex-col gap-2 md:w-auto md:shrink'>
             <p className='text-xs font-bold uppercase tracking-[0.16em] text-brand-700'>Pairs well</p>
             <AffiliateProductCard
               product={{

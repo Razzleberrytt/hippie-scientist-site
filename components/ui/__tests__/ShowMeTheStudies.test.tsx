@@ -18,14 +18,14 @@ describe('ShowMeTheStudies', () => {
     expect(container).toBeEmptyDOMElement()
   })
 
-  it('uses singular "study" wording for exactly one citation', () => {
+  it('shows the citation count in the collapsed summary heading', () => {
     render(<ShowMeTheStudies citations={[citation()]} />)
-    expect(screen.getByText(/1 cited study informing/)).toBeTruthy()
+    expect(screen.getByText(/Clinical Study Summaries \(1\)/)).toBeTruthy()
   })
 
-  it('uses plural "studies" wording for more than one citation', () => {
+  it('shows the total count for more than one citation', () => {
     render(<ShowMeTheStudies citations={[citation({ title: 'A' }), citation({ title: 'B' })]} />)
-    expect(screen.getByText(/2 cited studies informing/)).toBeTruthy()
+    expect(screen.getByText(/Clinical Study Summaries \(2\)/)).toBeTruthy()
   })
 
   it('links the study title and "PubMed" cell to PubMed when a pmid is present', () => {
@@ -37,7 +37,25 @@ describe('ShowMeTheStudies', () => {
     }
   })
 
-  it('shows a plain dash instead of a PubMed link when no pmid is present', () => {
+  it('links DOI-only studies to the DOI resolver', () => {
+    render(<ShowMeTheStudies citations={[citation({ title: 'L-theanine trial', doi: '10.1000/example-doi' })]} />)
+    const links = screen.getAllByRole('link', { name: /L-theanine trial|DOI/ })
+    expect(links).toHaveLength(2)
+    for (const link of links) {
+      expect(link).toHaveAttribute('href', 'https://doi.org/10.1000/example-doi')
+    }
+  })
+
+  it('uses an explicit source URL when one is provided', () => {
+    render(<ShowMeTheStudies citations={[citation({ title: 'Publisher study', url: 'https://example.com/study' })]} />)
+    const links = screen.getAllByRole('link', { name: /Publisher study|Source/ })
+    expect(links).toHaveLength(2)
+    for (const link of links) {
+      expect(link).toHaveAttribute('href', 'https://example.com/study')
+    }
+  })
+
+  it('shows a plain dash instead of a source link when no identifier is present', () => {
     render(<ShowMeTheStudies citations={[citation({ title: 'No PMID Study' })]} />)
     expect(screen.queryByRole('link')).toBeNull()
   })
@@ -57,7 +75,8 @@ describe('ShowMeTheStudies', () => {
 
   it('omits the overflow disclosure entirely when 6 or fewer citations are given', () => {
     const citations = Array.from({ length: 6 }, (_, i) => citation({ title: `Study ${i}` }))
-    const { container } = render(<ShowMeTheStudies citations={citations} />)
-    expect(container.querySelector('details')).toBeNull()
+    render(<ShowMeTheStudies citations={citations} />)
+    // The whole module is one collapsed <details>; no nested "Show N more" disclosure.
+    expect(screen.queryByText(/Show \d+ more/)).toBeNull()
   })
 })

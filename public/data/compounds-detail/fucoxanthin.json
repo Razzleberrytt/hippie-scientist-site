@@ -2,8 +2,8 @@
   "id": "fucoxanthin",
   "slug": "fucoxanthin",
   "name": "Fucoxanthin",
-  "summary": "Fucoxanthin is tracked for May increase thermogenesis via UCP1 activation and fat oxidation pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
-  "description": "Fucoxanthin is tracked for May increase thermogenesis via UCP1 activation and fat oxidation pathways with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "summary": "Fucoxanthin compound profile with evidence, safety, and practical fit.",
+  "description": "Fucoxanthin compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
@@ -73,7 +73,7 @@
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "sitemap_included": true,
-  "indexability_score": 95,
+  "indexability_score": 85,
   "indexability_reasons": [
     "effect-coverage",
     "evidence-signal",
@@ -82,7 +82,7 @@
     "mechanism-context",
     "profile-status:commercial_ready",
     "safety-context-missing",
-    "summary-depth",
+    "summary-present",
     "summary-quality-missing"
   ],
   "safety": "Generally well tolerated for most users."

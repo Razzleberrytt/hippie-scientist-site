@@ -19,19 +19,27 @@ export default function ResponsiveTable({
   hint = 'This table scrolls horizontally on small screens. Use Tab to focus the table region, then scroll with arrow keys or touch.',
 }: ResponsiveTableProps) {
   const hintId = `${slugifyLabel(label)}-scroll-hint`
+  const showTitle = !/^article table$/i.test(label.trim())
 
   return (
-    <div
-      role="region"
-      aria-label={label}
-      aria-describedby={hintId}
-      tabIndex={0}
-      className={`accessible-table-region overflow-x-auto rounded-xl border border-brand-900/10 bg-white shadow-sm dark:border-[var(--border-soft)] dark:bg-[var(--surface-card-strong)] ${className}`}
-    >
-      <p id={hintId} className="sr-only">
-        {hint}
-      </p>
-      {children}
+    <div className={`responsive-table-shell ${className}`}>
+      {showTitle ? (
+        <div className="responsive-table-title" aria-hidden="true">
+          {label}
+        </div>
+      ) : null}
+      <div
+        role="region"
+        aria-label={label}
+        aria-describedby={hintId}
+        tabIndex={0}
+        className="accessible-table-region"
+      >
+        <p id={hintId} className="sr-only">
+          {hint}
+        </p>
+        {children}
+      </div>
     </div>
   )
 }

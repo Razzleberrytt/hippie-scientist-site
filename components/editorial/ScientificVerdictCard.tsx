@@ -126,7 +126,7 @@ export function ScientificVerdictCard({
 
       <div className="px-5 py-4">
         {(best.length > 0 || not.length > 0) && (
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid grid-cols-2 gap-4">
             {best.length > 0 && (
               <div>
                 <p className="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
@@ -165,7 +165,7 @@ export function ScientificVerdictCard({
         )}
 
         {stats.length > 0 && (
-          <dl className="mt-4 grid grid-cols-1 gap-3 border-t border-brand-900/10 pt-4 dark:border-white/10 sm:grid-cols-3">
+          <dl className="mt-4 grid grid-cols-3 gap-3 border-t border-brand-900/10 pt-4 dark:border-white/10">
             {stats.map((stat) => (
               <div key={stat.label}>
                 <dt className="text-[0.7rem] font-bold uppercase tracking-wider text-muted">{stat.label}</dt>

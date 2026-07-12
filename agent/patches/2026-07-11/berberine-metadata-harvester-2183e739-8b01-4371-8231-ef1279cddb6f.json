@@ -1,0 +1,73 @@
+{
+  "patch_id": "2183e739-8b01-4371-8231-ef1279cddb6f",
+  "schema_version": "2.0",
+  "source_agent": "metadata-harvester",
+  "agent_version": "2.0",
+  "created_at": "2026-07-11T17:38:26.366Z",
+  "slug": "berberine",
+  "patch_type": "evidence",
+  "research_depth": "metadata_only",
+  "metadata_sources": [
+    "pubmed",
+    "clinicaltrials"
+  ],
+  "confidence_notes": [
+    "Validation layer identified inconsistent or incomplete evidence.",
+    "Evidence confidence downgraded due to weak or conflicting support."
+  ],
+  "seo_assets": {
+    "faq_candidates": [
+      "What is berberine used for?",
+      "Is berberine evidence-based?"
+    ],
+    "seo_topics": [
+      "berberine benefits",
+      "berberine safety",
+      "berberine evidence"
+    ],
+    "internal_link_targets": [
+      "sleep",
+      "focus",
+      "recovery"
+    ],
+    "comparison_candidates": [
+      "berberine vs magnesium"
+    ],
+    "best_for": [
+      "general wellness"
+    ],
+    "avoid_if": [
+      "medication interactions"
+    ],
+    "product_quality_notes": [
+      "Prefer reputable third-party tested brands"
+    ]
+  },
+  "review_flags": [
+    "validation_conflicts",
+    "low_confidence"
+  ],
+  "evidence": [],
+  "validation": {
+    "patch_type": "validated_evidence",
+    "patch_id": "14efb889-3bbc-4cb5-a3fb-b631af691e4e",
+    "schema_version": "1.0",
+    "source_agent": "validation-agent",
+    "agent_version": "1.5",
+    "slug": "berberine",
+    "created_at": "2026-07-11T17:38:26.365Z",
+    "system_prompt": "You are the Validation Firewall for The Hippie Scientist.\nReject hallucinated citations, animal-only data, in-vitro-only data, vague claims, unsupported medical claims, and low-quality entries.\nBe extremely strict and conservative.",
+    "validation_status": "rejected",
+    "rejection_reasons": [
+      "no_approved_entries"
+    ],
+    "entries": []
+  },
+  "scoring": {
+    "confidence_score": 0.25,
+    "evidence_strength": "low",
+    "confidence_reasoning": [
+      "Scoring Rules:\n- Human meta-analysis > randomized trial > observational > pilot.\n- Small sample sizes reduce confidence.\n- Missing source attribution reduces confidence.\n- Evidence confidence must remain conservative.\n- Never output certainty language."
+    ]
+  }
+}

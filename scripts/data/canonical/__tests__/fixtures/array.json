@@ -1,0 +1,4 @@
+[
+  { "slug": "kava", "entity_type": "herb", "side_effects": "hepatotoxicity risk with extracts", "sources": ["10.1016/j.jep.2003.08.003"] },
+  { "slug": "valerian", "entity_type": "herb", "uses": "sleep onset support" }
+]

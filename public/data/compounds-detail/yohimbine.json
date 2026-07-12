@@ -2,8 +2,8 @@
   "id": "yohimbine",
   "slug": "yohimbine",
   "name": "Yohimbine",
-  "summary": "Yohimbine is tracked for Alpha-2 adrenergic receptor antagonist increasing sympathetic activity and norepinephrine release with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
-  "description": "Yohimbine is tracked for Alpha-2 adrenergic receptor antagonist increasing sympathetic activity and norepinephrine release with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "summary": "Yohimbine compound profile with evidence, safety, and practical fit.",
+  "description": "Yohimbine compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
@@ -49,7 +49,7 @@
     "mechanism-context",
     "profile-status:commercial_ready",
     "safety-context",
-    "summary-depth",
+    "summary-present",
     "summary-quality-missing"
   ],
   "effects": [
@@ -85,6 +85,6 @@
   "evidence_tier": "Strong Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
-  "indexability_score": 100,
+  "indexability_score": 90,
   "safety": "Generally well tolerated for most users."
 }

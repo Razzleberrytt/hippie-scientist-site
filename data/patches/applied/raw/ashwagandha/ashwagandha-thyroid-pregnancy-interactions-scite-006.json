@@ -1,0 +1,44 @@
+{
+  "patch_id": "scite-ashwagandha-thyroid-pregnancy-interactions-2026-07-11-006",
+  "patch_version": "1",
+  "created_at": "2026-07-11T23:05:00.000Z",
+  "generator": "Scite literature enrichment via ChatGPT",
+  "target": {
+    "slug": "ashwagandha",
+    "canonical_name": "Ashwagandha Withania somnifera",
+    "entity_type": "herb"
+  },
+  "operations": [
+    {
+      "op": "add_safety_warning",
+      "field": "safety",
+      "value": "Avoid ashwagandha during pregnancy unless specifically directed by a qualified clinician, and use extra caution with thyroid disease or thyroid medication, sedatives, antihypertensive or antidiabetic drugs, and immunosuppressants because human safety data and interaction evidence are limited and thyroid stimulation or additive effects are plausible.",
+      "payload": {},
+      "confidence": 0.77,
+      "notes": "The warning combines limited pregnancy safety evidence with thyroid case reports and review-based interaction cautions. It is intentionally framed as precautionary rather than as proof of a frequent interaction."
+    }
+  ],
+  "sources": [
+    {
+      "doi": "10.7759/cureus.23494",
+      "url": "https://doi.org/10.7759/cureus.23494",
+      "title": "Ashwagandha as a Unique Cause of Thyrotoxicosis Presenting With Supraventricular Tachycardia",
+      "year": "2022"
+    },
+    {
+      "doi": "10.1007/s13530-022-00122-z",
+      "url": "https://doi.org/10.1007/s13530-022-00122-z",
+      "title": "Adrenal hypofunction associated with ashwagandha (Withania somnifera) supplementation: a case report",
+      "year": "2022"
+    },
+    {
+      "doi": "10.1002/ptr.6935",
+      "url": "https://doi.org/10.1002/ptr.6935",
+      "title": "Is it safe to consume traditional medicinal plants during pregnancy?",
+      "year": "2020"
+    }
+  ],
+  "notes": "Adds the broader pregnancy, thyroid, sedative, metabolic-drug, and immunosuppressant caution needed for a balanced profile.",
+  "confidence": 0.77,
+  "requires_review": true
+}

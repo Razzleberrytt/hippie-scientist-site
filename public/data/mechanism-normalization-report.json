@@ -1,79 +1,23 @@
 {
   "reportVersion": 1,
   "canonicalMechanisms": 53,
-  "records": 855,
-  "fullyMappedRecords": 91,
-  "partiallyMappedRecords": 702,
-  "unmappedRecords": 62,
+  "records": 856,
+  "fullyMappedRecords": 622,
+  "partiallyMappedRecords": 179,
+  "unmappedRecords": 55,
   "noRawMechanismRecords": 0,
   "unmappedMechanisms": [
     {
-      "term": "Oxidative Stress",
-      "count": 283
-    },
-    {
       "term": "Neurotransmitter Modulation",
-      "count": 157
-    },
-    {
-      "term": "Glucose Metabolism",
-      "count": 131
-    },
-    {
-      "term": "Nrf2",
-      "count": 111
-    },
-    {
-      "term": "AMPK",
-      "count": 109
-    },
-    {
-      "term": "Lipid Metabolism",
-      "count": 106
-    },
-    {
-      "term": "NF-kB",
-      "count": 80
-    },
-    {
-      "term": "Endothelial Function",
-      "count": 71
-    },
-    {
-      "term": "inflammatory",
-      "count": 63
-    },
-    {
-      "term": "neuroprotective",
-      "count": 45
-    },
-    {
-      "term": "metabolic",
-      "count": 40
+      "count": 158
     },
     {
       "term": "Neurotransmitter Signaling",
-      "count": 39
-    },
-    {
-      "term": "endocrine",
-      "count": 23
-    },
-    {
-      "term": "cardiovascular",
-      "count": 12
-    },
-    {
-      "term": "mitochondrial",
-      "count": 12
+      "count": 40
     },
     {
       "term": "liver_detoxification",
       "count": 11
-    },
-    {
-      "term": "mTOR",
-      "count": 8
     },
     {
       "term": "SIRT1",
@@ -84,16 +28,8 @@
       "count": 7
     },
     {
-      "term": "gut_microbiome",
-      "count": 6
-    },
-    {
       "term": "SIRT1 Signaling",
       "count": 5
-    },
-    {
-      "term": "endocannabinoid",
-      "count": 4
     },
     {
       "term": "Added as site-safe referenced entity during workbook readiness pass",
@@ -209,10 +145,6 @@
     },
     {
       "term": "Antioxidant and Anti-Inflammatory Activity",
-      "count": 1
-    },
-    {
-      "term": "Antioxidant defense",
       "count": 1
     },
     {

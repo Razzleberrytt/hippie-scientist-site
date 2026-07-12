@@ -170,8 +170,16 @@ async function main() {
         })),
       ]
 
-      const validation = runValidationAgent(evidenceRows)
-      const dedupedEvidence = runDedupeAgent(validation.approved_rows || [])
+      const validationResult = await runValidationAgent({
+        slug: result.slug,
+        evidence: evidenceRows,
+      })
+      const validation = validationResult?.data || {
+        validation_status: 'rejected',
+        rejection_reasons: ['validation_unavailable'],
+        entries: [],
+      }
+      const dedupedEvidence = runDedupeAgent(validation.entries || [])
       const scoring = runScoringAgent(dedupedEvidence)
 
       const arbitration = confidenceArbitration(validation, scoring)

@@ -1,5 +1,15 @@
 import Link from 'next/link'
-import { Cloud, Leaf, Moon, Zap } from 'lucide-react'
+import {
+  ArrowRight,
+  BookOpen,
+  Cloud,
+  FlaskConical,
+  Leaf,
+  Moon,
+  ShieldCheck,
+  Sparkles,
+  Zap,
+} from 'lucide-react'
 import articlesData from '@/data/articles/articles.json'
 
 type SectionHeaderProps = { title: string; subtitle?: string; as?: 'h2' | 'h3' }
@@ -10,40 +20,24 @@ const heroGoals = [
     title: 'Sleep',
     icon: Moon,
     prompt: 'Fall asleep, stay asleep, and compare sleep supplements without guessing.',
-    accent: 'text-[#1a3d5c]',
-    darkAccent: 'dark:text-[#8fbfe0]',
-    ring: 'ring-[#a8c8e0]/40',
-    bgHover: 'hover:bg-[#f0f6fa]',
   },
   {
     slug: 'stress',
     title: 'Stress',
     icon: Leaf,
     prompt: 'Sort adaptogens and calming supports by fatigue pattern, timing, and safety.',
-    accent: 'text-[#1e4a2c]',
-    darkAccent: 'dark:text-[#8dc49a]',
-    ring: 'ring-[#8dc49a]/40',
-    bgHover: 'hover:bg-[#f0f7f1]',
   },
   {
     slug: 'anxiety',
     title: 'Anxiety',
     icon: Cloud,
     prompt: 'Find grounded options for calm, overthinking, and daytime tension.',
-    accent: 'text-[#4a2d6e]',
-    darkAccent: 'dark:text-[#c4aadf]',
-    ring: 'ring-[#c4aadf]/40',
-    bgHover: 'hover:bg-[#f5f1fa]',
   },
   {
     slug: 'focus',
     title: 'Focus',
     icon: Zap,
     prompt: 'Compare non-stimulant focus supports and caffeine-adjacent options.',
-    accent: 'text-[#5c3f0e]',
-    darkAccent: 'dark:text-[#d4aa62]',
-    ring: 'ring-[#d4aa62]/40',
-    bgHover: 'hover:bg-[#faf6ed]',
   },
 ]
 
@@ -63,16 +57,19 @@ function categoryTagClass(category: string): string {
 
 const trustItems = [
   {
-    label: 'Evidence tiered, not flattened',
-    body: 'Clinical evidence is separated from mechanism-only claims so you know what actually has human trial data.',
+    label: 'Evidence-first',
+    body: 'Cite and verify',
+    icon: FlaskConical,
   },
   {
-    label: 'Safety before recommendations',
-    body: 'Interactions, contraindications, and uncertainty are surfaced before any product comparison.',
+    label: 'Safety aware',
+    body: 'Context matters',
+    icon: ShieldCheck,
   },
   {
-    label: 'Methodology is public',
-    body: 'Every guide links to the evidence grading system so you can audit the claims yourself.',
+    label: 'Clear and honest',
+    body: 'No marketing fluff',
+    icon: BookOpen,
   },
 ]
 
@@ -87,25 +84,25 @@ const toolLinks = [
   {
     href: '/safety-checker/',
     title: 'Safety interaction checker',
-    description: 'Screen supplement combinations for overlapping cautions before stacking.',
+    description: 'Screen combinations for overlapping cautions before stacking.',
   },
   {
     href: '/info/supplement-safety-checklist/',
     title: 'Supplement safety checklist',
-    description: 'Use five safety questions before comparing products or buying.',
+    description: 'Use five practical questions before comparing products or buying.',
   },
   {
     href: '/evidence/evidence-checker/',
-    title: 'Decision tools',
-    description: 'Open the site tools built for safety, dosing, and practical comparison.',
+    title: 'Evidence decision tools',
+    description: 'Check evidence strength, dosing context, and uncertainty.',
   },
 ]
 
 function SectionHeader({ title, subtitle, as: HeadingTag = 'h2' }: SectionHeaderProps) {
   return (
-    <div className='max-w-3xl space-y-1.5'>
-      <HeadingTag className='font-display text-2xl font-bold tracking-tight text-ink sm:text-3xl'>{title}</HeadingTag>
-      {subtitle ? <p className='text-sm leading-6 text-muted sm:text-base'>{subtitle}</p> : null}
+    <div className='max-w-3xl space-y-2'>
+      <HeadingTag className='editorial-display text-[2rem] sm:text-[2.65rem]'>{title}</HeadingTag>
+      {subtitle ? <p className='max-w-2xl text-sm leading-6 text-muted sm:text-base sm:leading-7'>{subtitle}</p> : null}
     </div>
   )
 }
@@ -113,118 +110,146 @@ function SectionHeader({ title, subtitle, as: HeadingTag = 'h2' }: SectionHeader
 export default function HomepageV2() {
   const articles = Array.isArray(articlesData) ? articlesData : (articlesData as any).articles || []
   const featuredArticles = articles
-    .filter((a: any) => a.date && a.published !== false)
+    .filter((article: any) => article.date && article.published !== false)
     .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .slice(0, 6)
 
   return (
-    <div className='overflow-x-clip bg-white'>
-      <div className='mx-auto max-w-6xl space-y-8 px-4 pb-12 pt-2 sm:px-6 sm:space-y-12 sm:pb-16 sm:pt-6 lg:px-8'>
+    <div className='editorial-site-shell'>
+      <div className='relative mx-auto max-w-6xl space-y-6 px-4 pb-16 pt-4 sm:space-y-12 sm:px-6 sm:pb-20 sm:pt-8 lg:px-8'>
+        <section className='editorial-hero px-5 pb-0 pt-8 sm:px-10 sm:pt-12 lg:px-14 lg:pt-16'>
+          <div className='editorial-botanical-orbit' aria-hidden='true'>
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
 
-        {/* ── Hero ─────────────────────────────────────────────── */}
-        <section className='relative px-2 py-6 sm:px-8 sm:py-14'>
-          <div className='relative mx-auto max-w-4xl'>
-            <div className='flex flex-col items-center text-center'>
-              <h1 className='font-display text-[2.5rem] font-bold leading-[1.05] tracking-[-0.02em] text-ink break-words sm:text-5xl md:text-[3.75rem]'>
-                Herbs & supplements,<br />actually explained.
-              </h1>
-              <p className='mt-4 max-w-2xl text-[0.95rem] leading-7 text-muted sm:mt-5 sm:text-lg sm:leading-8'>
-                Evidence-based guides for sleep, stress, anxiety, and focus — mechanisms, safety context, and practical comparisons without marketing fluff.
-              </p>
+          <div className='relative max-w-3xl pb-10 sm:pb-12 lg:pb-14'>
+            <p className='editorial-eyebrow'>Evidence-based supplement guidance</p>
+            <h1 className='editorial-display mt-4 max-w-[12ch] text-[2.55rem] sm:text-[4.6rem] lg:text-[5.6rem]'>
+              Herbs &amp; supplements, actually explained.
+            </h1>
+            <p className='mt-5 max-w-xl text-base leading-7 text-[#33433c] sm:mt-6 sm:text-lg sm:leading-8 dark:text-[var(--text-secondary)]'>
+              Evidence-based guides for sleep, stress, anxiety, and focus — mechanisms, safety context, and practical comparisons without marketing fluff.
+            </p>
 
-              <div className='mt-6 flex w-full max-w-sm flex-col sm:mt-8'>
-                <Link
-                  href='#choose-a-path'
-                  className='rounded-full bg-brand-700 px-8 py-4 text-base font-bold text-white shadow-[0_4px_16px_rgba(13,23,18,0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-[0_8px_24px_rgba(13,23,18,0.24)] active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 text-center'
-                >
+            <div className='mt-7 sm:mt-9'>
+              <Link
+                href='#choose-a-path'
+                className='editorial-cta inline-flex w-full max-w-md items-center justify-between rounded-full px-5 py-4 text-base font-bold transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#b88a42] focus-visible:ring-offset-2 sm:px-7'
+              >
+                <span className='inline-flex items-center gap-3'>
+                  <Leaf className='h-5 w-5 text-[#dec69b]' aria-hidden='true' strokeWidth={1.8} />
                   Browse by Health Goal
-                </Link>
-              </div>
+                </span>
+                <ArrowRight className='h-5 w-5 text-[#dec69b]' aria-hidden='true' />
+              </Link>
             </div>
+          </div>
+
+          <div className='editorial-trust-strip -mx-5 grid grid-cols-1 gap-2 px-5 py-4 sm:-mx-10 sm:grid-cols-3 sm:px-10 lg:-mx-14 lg:px-14'>
+            {trustItems.map((item) => {
+              const Icon = item.icon
+              return (
+                <div key={item.label} className='flex items-center gap-3 py-1'>
+                  <span className='editorial-icon-disc h-10 w-10 shrink-0'>
+                    <Icon className='h-5 w-5' aria-hidden='true' strokeWidth={1.8} />
+                  </span>
+                  <div>
+                    <p className='text-sm font-bold text-[#123c2f] dark:text-[var(--text-primary)]'>{item.label}</p>
+                    <p className='text-xs text-muted'>{item.body}</p>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </section>
 
-        {/* Comparisons and tools */}
-        <section className='grid gap-4 lg:grid-cols-[1fr_0.9fr]'>
-          <div className='rounded-xl bg-white p-6 shadow-[0_1px_2px_rgba(13,23,18,0.06)] sm:p-7 dark:bg-[var(--surface-card)]'>
-            <SectionHeader
-              title='Compare before you choose'
-              subtitle='Side-by-side pages help answer the high-intent questions people search before buying or stacking.'
-              as='h2'
-            />
-            <div className='mt-5 grid gap-2 sm:grid-cols-2'>
+        <section className='grid gap-5 lg:grid-cols-[1.15fr_0.85fr]'>
+          <div className='editorial-card-strong border-x-0 p-5 sm:rounded-[2rem] sm:border-x sm:p-8'>
+            <p className='editorial-eyebrow'>Smarter choices</p>
+            <div className='mt-3 flex items-start justify-between gap-4'>
+              <SectionHeader
+                title='Compare before you choose'
+                subtitle='Side-by-side guides answer the questions people ask before buying, combining, or switching products.'
+              />
+              <span className='editorial-icon-disc hidden h-16 w-16 shrink-0 sm:inline-flex'>
+                <Sparkles className='h-7 w-7' aria-hidden='true' strokeWidth={1.6} />
+              </span>
+            </div>
+            <div className='mt-6 grid gap-3 sm:grid-cols-2'>
               {comparisonLinks.map((comparison) => (
                 <Link
                   key={comparison.href}
                   href={comparison.href}
-                  className='rounded-lg bg-brand-50 px-4 py-3 text-sm font-bold text-brand-800 transition hover:bg-brand-100 dark:bg-[var(--surface-subtle)] dark:hover:bg-[var(--surface-code)]'
+                  className='editorial-link-tile group flex items-center justify-between rounded-2xl px-4 py-3.5 text-sm font-bold text-[#123c2f] transition duration-200 dark:text-[var(--text-primary)]'
                 >
-                  {comparison.title} →
+                  <span>{comparison.title}</span>
+                  <ArrowRight className='h-4 w-4 shrink-0 transition group-hover:translate-x-1' aria-hidden='true' />
                 </Link>
               ))}
             </div>
-            <Link href='/guides/compare/' className='mt-5 inline-flex text-sm font-bold text-brand-700 transition hover:text-brand-800'>
-              Browse all comparisons →
+            <Link href='/guides/compare/' className='mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#315f50] transition hover:text-[#123c2f] dark:text-[var(--accent-teal)]'>
+              Browse all comparisons <ArrowRight className='h-4 w-4' aria-hidden='true' />
             </Link>
           </div>
 
-          <div className='rounded-xl bg-white p-6 shadow-[0_1px_2px_rgba(13,23,18,0.06)] sm:p-7 dark:bg-[var(--surface-card)]'>
+          <div className='editorial-card border-x-0 p-5 sm:rounded-[2rem] sm:border-x sm:p-8'>
+            <p className='editorial-eyebrow'>Safety first</p>
             <SectionHeader
               title='Use the safety tools'
-              subtitle='The fastest win is avoiding mismatched products, risky stacks, and unclear supplement forms.'
-              as='h2'
+              subtitle='Avoid mismatched products, risky stacks, and unclear supplement forms before they become expensive mistakes.'
             />
-            <div className='mt-5 space-y-3'>
+            <div className='mt-6 space-y-3'>
               {toolLinks.map((tool) => (
                 <Link
                   key={tool.href}
                   href={tool.href}
-                  className='block rounded-lg bg-brand-50/70 p-4 transition hover:bg-brand-100 dark:bg-[var(--surface-subtle)] dark:hover:bg-[var(--surface-code)]'
+                  className='editorial-link-tile group block rounded-2xl p-4 transition duration-200'
                 >
-                  <h3 className='text-sm font-bold text-ink'>{tool.title}</h3>
-                  <p className='mt-1 text-sm leading-6 text-muted'>{tool.description}</p>
+                  <div className='flex items-start justify-between gap-3'>
+                    <div>
+                      <h3 className='text-sm font-bold text-[#123c2f] dark:text-[var(--text-primary)]'>{tool.title}</h3>
+                      <p className='mt-1 text-sm leading-6 text-muted'>{tool.description}</p>
+                    </div>
+                    <ArrowRight className='mt-1 h-4 w-4 shrink-0 text-[#315f50] transition group-hover:translate-x-1 dark:text-[var(--accent-teal)]' aria-hidden='true' />
+                  </div>
                 </Link>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Goal Pathways */}
-        <section id='choose-a-path' className='scroll-mt-24 space-y-4'>
-          <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
+        <section id='choose-a-path' className='editorial-card border-x-0 p-5 scroll-mt-24 sm:rounded-[2rem] sm:border-x sm:p-8'>
+          <div className='flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between'>
             <SectionHeader
               title='Choose one path'
-              subtitle='Most visitors should start here. Pick the outcome you care about, then compare options inside that guide.'
-              as='h2'
+              subtitle='Start with the outcome you care about, then compare evidence and safety inside that guide.'
             />
-            <Link href='/guides/' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
-              View all guides →
+            <Link href='/guides/' className='inline-flex shrink-0 items-center gap-2 text-sm font-bold text-[#315f50] transition hover:text-[#123c2f] dark:text-[var(--accent-teal)]'>
+              View all guides <ArrowRight className='h-4 w-4' aria-hidden='true' />
             </Link>
           </div>
 
-          <div className='grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4'>
-            {heroGoals.map((hGoal) => {
-              const Icon = hGoal.icon
+          <div className='mt-6 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4'>
+            {heroGoals.map((goal) => {
+              const Icon = goal.icon
               return (
                 <Link
-                  key={hGoal.slug}
-                  href={hGoal.slug === 'stress' || hGoal.slug === 'anxiety' ? '/guides/anxiety/' : `/guides/${hGoal.slug}/`}
-                  className={`group flex min-h-40 flex-col justify-between rounded-xl bg-white p-4 shadow-[0_1px_2px_rgba(13,23,18,0.06)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_24px_rgba(13,23,18,0.12)] sm:min-h-48 sm:p-5 dark:bg-[var(--surface-card)]`}
+                  key={goal.slug}
+                  href={goal.slug === 'stress' || goal.slug === 'anxiety' ? '/guides/anxiety/' : `/guides/${goal.slug}/`}
+                  className='editorial-link-tile group flex min-h-44 flex-col justify-between rounded-[1.4rem] p-4 transition duration-200 sm:min-h-52 sm:p-5'
                 >
                   <div>
-                    <span
-                      className={`mb-2.5 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white ${hGoal.ring} ring-1 sm:mb-3 sm:h-12 sm:w-12 dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]`}
-                      aria-hidden='true'
-                    >
-                      <Icon className={`h-5 w-5 ${hGoal.accent} ${hGoal.darkAccent} sm:h-6 sm:w-6`} strokeWidth={1.75} />
+                    <span className='editorial-icon-disc mb-3 h-11 w-11 sm:h-12 sm:w-12'>
+                      <Icon className='h-5 w-5 sm:h-6 sm:w-6' aria-hidden='true' strokeWidth={1.7} />
                     </span>
-                    <h3 className={`text-xl font-bold tracking-tight ${hGoal.accent} sm:text-2xl dark:text-[var(--text-primary)]`}>
-                      {hGoal.title}
-                    </h3>
-                    <p className='mt-2 text-[0.8rem] leading-5 text-muted sm:mt-3 sm:text-sm sm:leading-6 dark:text-[var(--text-secondary)]'>{hGoal.prompt}</p>
+                    <h3 className='font-display text-xl font-semibold text-[#123c2f] dark:text-[var(--text-primary)] sm:text-2xl'>{goal.title}</h3>
+                    <p className='mt-2 text-[0.8rem] leading-5 text-muted sm:text-sm sm:leading-6'>{goal.prompt}</p>
                   </div>
-                  <span className='mt-4 inline-flex text-[0.8rem] font-bold text-brand-700 transition group-hover:translate-x-1 group-hover:text-brand-800 sm:mt-5 sm:text-sm'>
-                    Start with {hGoal.title} <span aria-hidden='true' className='ml-1'>→</span>
+                  <span className='mt-4 inline-flex items-center gap-1.5 text-[0.8rem] font-bold text-[#315f50] transition group-hover:gap-2.5 dark:text-[var(--accent-teal)] sm:text-sm'>
+                    Start here <ArrowRight className='h-3.5 w-3.5' aria-hidden='true' />
                   </span>
                 </Link>
               )
@@ -232,17 +257,15 @@ export default function HomepageV2() {
           </div>
         </section>
 
-        {/* Featured Articles */}
         {featuredArticles.length > 0 && (
-          <section className='space-y-4'>
+          <section className='space-y-5'>
             <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
               <SectionHeader
                 title='Latest research'
                 subtitle='Evidence reviews, mechanism deep-dives, and practical guides — updated regularly.'
-                as='h2'
               />
-              <Link href='/guides/' className='text-sm font-bold text-brand-700 transition hover:text-brand-800 shrink-0'>
-                Browse all guides →
+              <Link href='/guides/' className='inline-flex shrink-0 items-center gap-2 text-sm font-bold text-[#315f50] transition hover:text-[#123c2f] dark:text-[var(--accent-teal)]'>
+                Browse all guides <ArrowRight className='h-4 w-4' aria-hidden='true' />
               </Link>
             </div>
             <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
@@ -250,7 +273,7 @@ export default function HomepageV2() {
                 <Link
                   key={article.slug}
                   href={`/articles/${article.slug}/`}
-                  className='group flex flex-col gap-3 rounded-xl bg-white p-5 shadow-[0_1px_2px_rgba(13,23,18,0.06)] transition-all duration-200 hover:shadow-[0_8px_24px_rgba(13,23,18,0.12)] dark:bg-[var(--surface-card)]'
+                  className='editorial-card group flex flex-col gap-3 rounded-[1.4rem] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#b88a42]/30'
                 >
                   <div className='flex items-center gap-2'>
                     {article.category && (
@@ -258,46 +281,56 @@ export default function HomepageV2() {
                         {article.category}
                       </span>
                     )}
-                    {article.readingTime && (
-                      <span className='text-[0.72rem] text-muted'>{article.readingTime}</span>
-                    )}
+                    {article.readingTime && <span className='text-[0.72rem] text-muted'>{article.readingTime}</span>}
                   </div>
-                  <h3 className='text-base font-semibold leading-snug text-ink group-hover:text-brand-700 dark:group-hover:text-[var(--text-primary)]'>
+                  <h3 className='font-display text-lg font-semibold leading-snug text-[#123c2f] transition group-hover:text-[#315f50] dark:text-[var(--text-primary)]'>
                     {article.title}
                   </h3>
-                  {article.excerpt && (
-                    <p className='line-clamp-2 text-sm leading-6 text-muted'>{article.excerpt}</p>
-                  )}
+                  {article.excerpt && <p className='line-clamp-2 text-sm leading-6 text-muted'>{article.excerpt}</p>}
                 </Link>
               ))}
             </div>
           </section>
         )}
 
-        {/* Trust */}
-        <section className='rounded-xl bg-white p-6 shadow-[0_1px_2px_rgba(13,23,18,0.06)] sm:p-8 dark:bg-[var(--surface-card)]'>
-          <div className='grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start'>
-            <SectionHeader
-              title='Why trust the guide?'
-              subtitle='The site is built for cautious decisions: what has human evidence, what is only plausible, and what needs safety review before use.'
-              as='h2'
-            />
+        <section className='editorial-card-strong relative overflow-hidden rounded-[2rem] p-6 sm:p-9'>
+          <div className='editorial-botanical-orbit !-right-20 !-bottom-20 !opacity-40' aria-hidden='true'>
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
+          <div className='relative grid gap-7 lg:grid-cols-[0.8fr_1.2fr] lg:items-start'>
+            <div>
+              <span className='editorial-icon-disc mb-4 h-14 w-14'>
+                <Leaf className='h-7 w-7' aria-hidden='true' strokeWidth={1.7} />
+              </span>
+              <h2 className='editorial-display text-[2.25rem] sm:text-[3rem]'>Built on evidence, not trends.</h2>
+              <p className='mt-4 max-w-lg text-sm leading-7 text-muted sm:text-base'>
+                We evaluate the research so you do not have to. Transparent source notes help you understand the “why” behind every claim.
+              </p>
+              <Link href='/info/methodology/' className='mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#315f50] transition hover:text-[#123c2f] dark:text-[var(--accent-teal)]'>
+                Read the evidence methodology <ArrowRight className='h-4 w-4' aria-hidden='true' />
+              </Link>
+            </div>
             <div className='grid gap-4 sm:grid-cols-3'>
-              {trustItems.map((item) => (
-                <div key={item.label} className='dark:text-[var(--text-secondary)]'>
-                  <p className='text-sm font-semibold text-ink'>{item.label}</p>
-                  <p className='mt-1.5 text-sm leading-6 text-muted'>{item.body}</p>
-                </div>
-              ))}
+              {trustItems.map((item) => {
+                const Icon = item.icon
+                return (
+                  <div key={item.label} className='editorial-link-tile flex items-center gap-3.5 rounded-[1.3rem] p-4 sm:block'>
+                    <span className='editorial-icon-disc h-10 w-10 shrink-0'>
+                      <Icon className='h-5 w-5' aria-hidden='true' strokeWidth={1.8} />
+                    </span>
+                    <div>
+                      <p className='text-sm font-bold text-[#123c2f] sm:mt-3 dark:text-[var(--text-primary)]'>{item.label}</p>
+                      <p className='mt-0.5 text-xs leading-5 text-muted sm:mt-1'>{item.body}</p>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
-          <div className='mt-6 text-sm font-bold'>
-            <Link href='/info/methodology/' className='text-brand-700 transition hover:text-brand-800'>
-              Read the evidence methodology →
-            </Link>
-          </div>
         </section>
-
       </div>
     </div>
   )

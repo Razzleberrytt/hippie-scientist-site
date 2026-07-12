@@ -1,0 +1,37 @@
+/* Global light-theme tokens for the editorial botanical direction. */
+html:not(.dark) {
+  --color-background: #fbf8f1;
+  --color-surface: #f5efe2;
+  --color-ink: #123c2f;
+  --color-muted: #526159;
+  --bg: #fbf8f1;
+  --surface: #f5efe2;
+  --surface-elevated: #fffdf8;
+  --text-primary: #123c2f;
+  --text-secondary: #526159;
+  --text-muted: #647168;
+  --surface-card: rgba(255, 253, 248, 0.92);
+  --surface-card-strong: rgba(255, 253, 248, 0.98);
+  --surface-subtle: rgba(245, 239, 226, 0.78);
+  --surface-code: #f7f1e6;
+  --surface-warning: rgba(248, 240, 223, 0.92);
+  --surface-danger: rgba(255, 241, 238, 0.92);
+  --surface-info: rgba(239, 246, 242, 0.92);
+  --surface-neutral: rgba(250, 247, 240, 0.94);
+  --border-soft: rgba(18, 60, 47, 0.10);
+  --border-strong: rgba(18, 60, 47, 0.18);
+  --ring-brand: rgba(184, 138, 66, 0.34);
+  --accent-primary: #123c2f;
+  --accent-secondary: #b88a42;
+  --accent-teal: #315f50;
+}
+
+html:not(.dark) body,
+html:not(.dark) main {
+  background-color: #fbf8f1;
+}
+
+html:not(.dark) ::selection {
+  background: rgba(203, 220, 200, 0.78);
+  color: #123c2f;
+}

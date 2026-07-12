@@ -332,7 +332,7 @@ Natural compounds research clusters represent a powerful convergence of genomics
 
 Biosynthetic Gene Cluster mapping (via antiSMASH and plantiSMASH) provides the biological blueprints to produce pure, standardized, and ecologically sustainable compounds, moving beyond the agricultural variability of crude herbs. Simultaneously, cheminformatic space mapping (via TMAP and databases like COCONUT) allows developers to navigate the chemical universe, identifying novel molecules and designing synergistic supplement stacks with clinical precision.
 
-While bottlenecks in heterologous expression and regulatory safety must be addressed, the integration of artificial intelligence and metagenomics guarantees that the untapped potential of natural products will continue to drive wellness innovation. For the consumer, this science represents a transition away from historical folklore and supplement marketing hype, ushering in an era of precision, evidence-first natural health.
+While bottlenecks in heterologous expression and regulatory safety must be addressed, the integration of artificial intelligence and metagenomics makes it more likely that the untapped potential of natural products will continue to drive wellness innovation. For the consumer, this science represents a transition away from historical folklore and supplement marketing hype, ushering in an era of precision, evidence-first natural health.
 
 ---
 

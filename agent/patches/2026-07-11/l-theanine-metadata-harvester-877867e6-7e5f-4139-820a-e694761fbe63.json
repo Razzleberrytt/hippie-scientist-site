@@ -1,0 +1,73 @@
+{
+  "patch_id": "877867e6-7e5f-4139-820a-e694761fbe63",
+  "schema_version": "2.0",
+  "source_agent": "metadata-harvester",
+  "agent_version": "2.0",
+  "created_at": "2026-07-11T17:38:26.368Z",
+  "slug": "l-theanine",
+  "patch_type": "evidence",
+  "research_depth": "metadata_only",
+  "metadata_sources": [
+    "pubmed",
+    "clinicaltrials"
+  ],
+  "confidence_notes": [
+    "Validation layer identified inconsistent or incomplete evidence.",
+    "Evidence confidence downgraded due to weak or conflicting support."
+  ],
+  "seo_assets": {
+    "faq_candidates": [
+      "What is l-theanine used for?",
+      "Is l-theanine evidence-based?"
+    ],
+    "seo_topics": [
+      "l-theanine benefits",
+      "l-theanine safety",
+      "l-theanine evidence"
+    ],
+    "internal_link_targets": [
+      "sleep",
+      "focus",
+      "recovery"
+    ],
+    "comparison_candidates": [
+      "l-theanine vs magnesium"
+    ],
+    "best_for": [
+      "general wellness"
+    ],
+    "avoid_if": [
+      "medication interactions"
+    ],
+    "product_quality_notes": [
+      "Prefer reputable third-party tested brands"
+    ]
+  },
+  "review_flags": [
+    "validation_conflicts",
+    "low_confidence"
+  ],
+  "evidence": [],
+  "validation": {
+    "patch_type": "validated_evidence",
+    "patch_id": "c015cfab-0e24-4746-8fea-2197b1322050",
+    "schema_version": "1.0",
+    "source_agent": "validation-agent",
+    "agent_version": "1.5",
+    "slug": "l-theanine",
+    "created_at": "2026-07-11T17:38:26.368Z",
+    "system_prompt": "You are the Validation Firewall for The Hippie Scientist.\nReject hallucinated citations, animal-only data, in-vitro-only data, vague claims, unsupported medical claims, and low-quality entries.\nBe extremely strict and conservative.",
+    "validation_status": "rejected",
+    "rejection_reasons": [
+      "no_approved_entries"
+    ],
+    "entries": []
+  },
+  "scoring": {
+    "confidence_score": 0.25,
+    "evidence_strength": "low",
+    "confidence_reasoning": [
+      "Scoring Rules:\n- Human meta-analysis > randomized trial > observational > pilot.\n- Small sample sizes reduce confidence.\n- Missing source attribution reduces confidence.\n- Evidence confidence must remain conservative.\n- Never output certainty language."
+    ]
+  }
+}

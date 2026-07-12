@@ -84,18 +84,18 @@ export default function GuidesHub() {
         </p>
       </header>
 
-      <div className="grid gap-8 md:grid-cols-2">
+      <div className="grid gap-0 border-y border-brand-900/10 md:grid-cols-2 md:gap-6 md:border-0">
         {SECTIONS.map((section) => (
           <Link
             key={section.href}
             href={section.href}
-            className={`rounded-2xl border border-brand-900/10 bg-white p-6 transition hover:shadow-md hover:border-brand-700/20 ${section.color} border-l-4`}
+            className="border-b border-brand-900/10 py-6 transition hover:bg-brand-50/30 md:rounded-lg md:border md:bg-white md:p-6 md:hover:border-brand-700/20"
           >
             <h2 className="text-xl font-bold text-ink">{section.title}</h2>
             <p className="mt-2 text-sm text-muted leading-relaxed">{section.desc}</p>
             <div className="mt-4 flex flex-wrap gap-1.5">
               {section.articles.map((a) => (
-                <span key={a} className="rounded-full bg-brand-50 px-2.5 py-0.5 text-xs text-brand-700 font-medium">{a}</span>
+                <span key={a} className="border-b border-brand-900/10 px-0.5 py-1 text-xs font-medium text-brand-700 md:rounded-full md:border-0 md:bg-brand-50 md:px-2.5 md:py-0.5">{a}</span>
               ))}
             </div>
           </Link>

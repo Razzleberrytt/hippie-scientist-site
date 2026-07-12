@@ -1,0 +1,42 @@
+{
+  "patch_id": "scite-ashwagandha-sleep-2026-07-11-002",
+  "patch_version": "1",
+  "created_at": "2026-07-11T23:01:00.000Z",
+  "generator": "Scite literature enrichment via ChatGPT",
+  "target": {
+    "slug": "ashwagandha",
+    "canonical_name": "Ashwagandha Withania somnifera",
+    "entity_type": "herb"
+  },
+  "operations": [
+    {
+      "op": "add_claim",
+      "field": "effects",
+      "value": "A systematic review and meta-analysis found a modest overall improvement in sleep outcomes with ashwagandha extract, with a stronger signal in adults with insomnia, although the number of trials was limited and publication bias could not be assessed reliably.",
+      "payload": {},
+      "confidence": 0.74,
+      "notes": "This wording preserves the review's limited-trial caveat and avoids presenting the result as established treatment efficacy."
+    }
+  ],
+  "sources": [
+    {
+      "pmid": "34559859",
+      "doi": "10.1371/journal.pone.0257843",
+      "url": "https://doi.org/10.1371/journal.pone.0257843",
+      "title": "Effect of Ashwagandha (Withania somnifera) extract on sleep: A systematic review and meta-analysis",
+      "year": "2021"
+    }
+  ],
+  "notes": "Adds a cautious sleep synthesis claim tied to the existing systematic-review source.",
+  "confidence": 0.74,
+  "requires_review": true,
+  "original_filename": "ashwagandha-sleep-scite-002.json",
+  "original_hash": "407f656d622a9295a48c00b64205e322651911574127f7475a8ef4a901190c10",
+  "_apply_result": {
+    "status": "applied",
+    "changes": 2,
+    "reviewer": "Willie Randolph",
+    "reviewed_at": "2026-07-11T23:30:00.000Z",
+    "at": "2026-07-11T23:13:16.134Z"
+  }
+}

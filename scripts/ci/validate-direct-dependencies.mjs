@@ -3,7 +3,8 @@ import os from 'node:os'
 import path from 'node:path'
 import { builtinModules } from 'node:module'
 
-const builtinSet = new Set([...builtinModules, ...builtinModules.map(m => `node:${m}`)])
+const experimentalBuiltins = ['node:sqlite']
+const builtinSet = new Set([...builtinModules, ...builtinModules.map(m => `node:${m}`), ...experimentalBuiltins])
 const optionalProbes = new Set(['exceljs', 'glob', 'react-plotly.js'])
 const generatedImports = new Set(['content-collections'])
 const sourceRoots = ['app', 'components', 'src', 'lib', 'scripts', 'data', 'config']

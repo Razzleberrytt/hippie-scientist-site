@@ -10,14 +10,39 @@ const allowlistPath = path.join(repoRoot, 'security', 'audit-allowlist.json')
 const allowlist = JSON.parse(fs.readFileSync(allowlistPath, 'utf8'))
 const rules = Array.isArray(allowlist.rules) ? allowlist.rules : []
 
-const npmCommand = process.platform === 'win32' ? 'npm' : 'npm'
-const auditRun = spawnSync(npmCommand, ['audit', '--json'], {
+function getNpmInvocation() {
+  const npmExecPath = process.env.npm_execpath
+  if (npmExecPath && fs.existsSync(npmExecPath)) {
+    return {
+      command: process.execPath,
+      args: [npmExecPath, 'audit', '--json'],
+      label: 'npm audit --json',
+    }
+  }
+
+  const bundledNpmCli = path.join(path.dirname(process.execPath), 'node_modules', 'npm', 'bin', 'npm-cli.js')
+  if (fs.existsSync(bundledNpmCli)) {
+    return {
+      command: process.execPath,
+      args: [bundledNpmCli, 'audit', '--json'],
+      label: 'npm audit --json',
+    }
+  }
+
+  return {
+    command: 'npm',
+    args: ['audit', '--json'],
+    label: 'npm audit --json',
+  }
+}
+
+const npmInvocation = getNpmInvocation()
+const auditRun = spawnSync(npmInvocation.command, npmInvocation.args, {
   cwd: repoRoot,
   encoding: 'utf8',
-  shell: process.platform === 'win32',
 })
 if (auditRun.error) {
-  console.error(`[audit:high] FAIL: unable to run ${npmCommand} audit --json`)
+  console.error(`[audit:high] FAIL: unable to run ${npmInvocation.label}`)
   console.error(auditRun.error.message)
   process.exit(1)
 }

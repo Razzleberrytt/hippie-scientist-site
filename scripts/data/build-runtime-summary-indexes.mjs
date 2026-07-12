@@ -6,6 +6,7 @@ import {
   createStageTimer,
   printBuildTimingReport,
 } from '../ci/report-build-stage-timings.mjs'
+import { exportCanonicalCitationsToRuntime } from './canonical/citation-export.mjs'
 
 const DATA_DIR_ARG = process.argv.find((arg) => arg.startsWith('--data-dir='))
 const DATA_DIR = DATA_DIR_ARG
@@ -229,6 +230,13 @@ function buildAlphaEntityShards(records) {
 
 async function main() {
   const totalTimer = createStageTimer('summary-index-build')
+  const citationTimer = createStageTimer('canonical-citation-export')
+  const citationReport = exportCanonicalCitationsToRuntime({ dataDir: DATA_DIR })
+  citationTimer.finish({
+    profiles: citationReport.profilesWithCanonicalClaims,
+    updated: citationReport.updated.length,
+    missingDetails: citationReport.skippedMissingDetail.length,
+  })
 
   const herbs = await readJson(path.join(DATA_DIR, 'herbs.json'))
   const compounds = await readJson(path.join(DATA_DIR, 'compounds.json'))

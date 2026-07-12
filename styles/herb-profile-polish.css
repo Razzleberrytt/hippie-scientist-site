@@ -42,11 +42,23 @@ main:has(nav[aria-label="Jump to profile sections"]) nav[aria-label="Jump to pro
   position: sticky;
   top: 4.75rem;
   z-index: 20;
+  /* Span the full content column: as an inline-flex island, page content
+     scrolled visibly past the bar's open right edge while stuck. */
+  display: flex;
+  width: 100%;
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18);
 }
 
 html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) nav[aria-label="Jump to profile sections"] {
   box-shadow: 0 12px 32px rgba(16, 32, 24, 0.08);
+}
+
+/* Dark mode: the active pill's bg-white utility is remapped to the dark card
+   surface by the global overrides, leaving it indistinguishable from the
+   track. Restore a light pill with dark text. */
+html.dark main:has(nav[aria-label="Jump to profile sections"]) nav[aria-label="Jump to profile sections"] a:first-child {
+  background: #95b99a;
+  color: #07150c;
 }
 
 main:has(nav[aria-label="Jump to profile sections"]) h1,
@@ -217,8 +229,8 @@ main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto {
   scrollbar-width: thin;
 }
 
-#ashwagandha-stress-claim .overflow-x-auto::after,
-main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto::after {
+#ashwagandha-stress-claim .overflow-x-auto:has(table)::after,
+main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto:has(table)::after {
   content: 'Swipe table →';
   display: none;
   padding: 0.7rem 0.85rem;
@@ -230,8 +242,8 @@ main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto::after {
   text-transform: uppercase;
 }
 
-html:not(.dark) #ashwagandha-stress-claim .overflow-x-auto::after,
-html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto::after {
+html:not(.dark) #ashwagandha-stress-claim .overflow-x-auto:has(table)::after,
+html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto:has(table)::after {
   border-top-color: rgba(29, 74, 47, 0.1);
   color: #5f6f66;
 }
@@ -307,8 +319,8 @@ main:has(nav[aria-label="Jump to profile sections"]) a {
     line-height: 1.18 !important;
   }
 
-  #ashwagandha-stress-claim .overflow-x-auto::after,
-  main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto::after {
+  #ashwagandha-stress-claim .overflow-x-auto:has(table)::after,
+  main:has(nav[aria-label="Jump to profile sections"]) .overflow-x-auto:has(table)::after {
     display: block;
   }
 

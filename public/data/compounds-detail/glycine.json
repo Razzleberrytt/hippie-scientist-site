@@ -31,13 +31,145 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced",
+    "sourceCount": 4,
+    "sourceIds": [
+      "src_5e09e4476c4d",
+      "src_859ee6fc372d",
+      "src_89f993a22b43",
+      "src_9bbf4e7cfe18"
+    ],
+    "claimCount": 6,
+    "claimIds": [
+      "clm_1e57639afb08",
+      "clm_270b8b01d1f6",
+      "clm_380f8e3e8765",
+      "clm_3d0d4f902bc9",
+      "clm_c53c12f35b68",
+      "clm_ece83be8597c"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_1e57639afb08",
+      "claim": "A proposed sleep-related mechanism is enhanced heat dissipation and the normal pre-sleep decline in core body temperature, but this mechanism is supported more strongly by physiological and preclinical work than by definitive human mediation studies.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.72,
+      "reviewStatus": "approved",
+      "notes": "Mechanistic claim is explicitly labeled proposed and distinguishes preclinical support from demonstrated clinical mediation.",
+      "qualifiers": {},
+      "sourceRefIds": [
+        "src_859ee6fc372d"
+      ]
+    },
+    {
+      "id": "clm_270b8b01d1f6",
+      "claim": "One small polysomnography crossover study reported shorter sleep-onset latency and selected sleep-quality improvements after 3 g of bedtime glycine, while overall sleep-stage proportions were not materially altered.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.76,
+      "reviewStatus": "approved",
+      "notes": "Separates selected objective findings from broad claims about total sleep architecture.",
+      "qualifiers": {},
+      "sourceRefIds": [
+        "src_5e09e4476c4d"
+      ]
+    },
+    {
+      "id": "clm_380f8e3e8765",
+      "claim": "Short sleep studies using 3 g near bedtime did not identify a strong next-day sedative signal, but they were too small and brief to establish long-term safety; gastrointestinal discomfort can occur with amino-acid supplements, and people who are pregnant, have significant kidney or liver disease, or take prescription medicines should seek clinical guidance before regular high-dose use.",
+      "predicate": "has_safety_warning",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.78,
+      "reviewStatus": "approved",
+      "notes": "Combines the limited short-term sleep-study safety signal with an explicit limitation on long-term certainty and prudent higher-risk-group guidance.",
+      "qualifiers": {},
+      "sourceRefIds": [
+        "src_859ee6fc372d",
+        "src_89f993a22b43"
+      ]
+    },
+    {
+      "id": "clm_3d0d4f902bc9",
+      "claim": "Small randomized crossover studies in adults dissatisfied with their sleep found that 3 g of glycine taken shortly before bedtime improved some subjective ratings of sleep quality and next-morning refreshment compared with placebo.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.78,
+      "reviewStatus": "approved",
+      "notes": "Direct human evidence, conservatively framed around small crossover studies and subjective outcomes.",
+      "qualifiers": {},
+      "sourceRefIds": [
+        "src_5e09e4476c4d",
+        "src_9bbf4e7cfe18"
+      ]
+    },
+    {
+      "id": "clm_c53c12f35b68",
+      "claim": "Under short-term partial sleep restriction, 3 g of glycine before bedtime improved some next-day fatigue and performance measures versus placebo, but the study was small and does not show that glycine reverses the broader effects of chronic sleep loss.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.77,
+      "reviewStatus": "approved",
+      "notes": "Keeps the sleep-restriction context and avoids presenting glycine as a substitute for sufficient sleep.",
+      "qualifiers": {},
+      "sourceRefIds": [
+        "src_859ee6fc372d"
+      ]
+    },
+    {
+      "id": "clm_ece83be8597c",
+      "claim": "Evidence for glycine as a sleep aid remains preliminary: trials are few, generally small, short, and concentrated in adults with subjective sleep dissatisfaction rather than patients with formally diagnosed chronic insomnia.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.91,
+      "reviewStatus": "approved",
+      "notes": "Central evidence limitation based on the small sleep-trial base and broader systematic review.",
+      "qualifiers": {},
+      "sourceRefIds": [
+        "src_5e09e4476c4d",
+        "src_89f993a22b43",
+        "src_9bbf4e7cfe18"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_5e09e4476c4d",
+      "title": "Glycine ingestion improves subjective sleep quality in human volunteers, correlating with polysomnographic changes",
+      "url": "https://doi.org/10.1111/j.1479-8425.2007.00262.x",
+      "doi": "10.1111/j.1479-8425.2007.00262.x",
+      "year": "2007",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_859ee6fc372d",
+      "title": "The Effects of Glycine on Subjective Daytime Performance in Partially Sleep-Restricted Healthy Volunteers",
+      "url": "https://doi.org/10.3389/fneur.2012.00061",
+      "doi": "10.3389/fneur.2012.00061",
+      "year": "2012",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_89f993a22b43",
+      "title": "The effect of glycine administration on the characteristics of physiological systems in human adults: A systematic review",
+      "url": "https://doi.org/10.1007/s11357-023-00970-8",
+      "doi": "10.1007/s11357-023-00970-8",
+      "year": "2023",
+      "studyType": "Systematic review",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_9bbf4e7cfe18",
+      "title": "Subjective effects of glycine ingestion before bedtime on sleep quality",
+      "url": "https://doi.org/10.1111/j.1479-8425.2006.00193.x",
+      "doi": "10.1111/j.1479-8425.2006.00193.x",
+      "year": "2006",
+      "reviewStatus": "approved"
+    }
+  ]
 }

@@ -1,8 +1,8 @@
 {
   "name": "Elderberry",
   "slug": "elderberry",
-  "summary": "Internal cross-linking supports Elderberry through compounds such as sambunigrin.",
-  "description": "Internal cross-linking supports Elderberry through compounds such as sambunigrin.",
+  "summary": "Elderberry botanical profile with evidence, safety, and practical fit.",
+  "description": "Elderberry botanical profile with evidence, safety, and practical fit.",
   "primaryActions": [
     "antiviral",
     "respiratory"
@@ -111,7 +111,7 @@
   "robots": "index,follow",
   "sitemap_included": true,
   "indexability_status": "PUBLISH",
-  "indexability_score": 93,
+  "indexability_score": 83,
   "indexability_reasons": [
     "effect-coverage",
     "evidence-signal",
@@ -120,7 +120,7 @@
     "mechanism-context",
     "profile-status:partial",
     "safety-context",
-    "summary-depth",
+    "summary-present",
     "summary-quality-missing"
   ],
   "safety": "Generally well tolerated for most users."

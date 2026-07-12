@@ -1,0 +1,38 @@
+{
+  "patch_id": "scite-ashwagandha-evidence-limitations-2026-07-11-003",
+  "patch_version": "1",
+  "created_at": "2026-07-11T23:02:00.000Z",
+  "generator": "Scite literature enrichment via ChatGPT",
+  "target": {
+    "slug": "ashwagandha",
+    "canonical_name": "Ashwagandha Withania somnifera",
+    "entity_type": "herb"
+  },
+  "operations": [
+    {
+      "op": "add_claim",
+      "field": "effects",
+      "value": "The clinical evidence base remains limited by small trials, heterogeneous extracts and dosing regimens, variable outcome measures, and risk-of-bias concerns, so results from one preparation should not be generalized to all ashwagandha products.",
+      "payload": {},
+      "confidence": 0.84,
+      "notes": "This is an evidence-quality and product-generalizability limitation rather than a benefit claim."
+    }
+  ],
+  "sources": [
+    {
+      "doi": "10.1002/ptr.7598",
+      "url": "https://doi.org/10.1002/ptr.7598",
+      "title": "Does Ashwagandha supplementation have a beneficial effect on the management of anxiety and stress? A systematic review and meta-analysis of randomized controlled trials",
+      "year": "2022"
+    },
+    {
+      "doi": "10.1002/hup.2911",
+      "url": "https://doi.org/10.1002/hup.2911",
+      "title": "Safety and efficacy of Withania somnifera for anxiety and insomnia: Systematic review and meta-analysis",
+      "year": "2024"
+    }
+  ],
+  "notes": "Adds a cross-cutting interpretation limitation to prevent overgeneralization across extracts and products.",
+  "confidence": 0.84,
+  "requires_review": true
+}

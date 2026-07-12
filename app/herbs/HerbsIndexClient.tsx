@@ -238,15 +238,6 @@ function buildEvidenceHref(evidenceValue: string, query: string, context: string
   return suffix ? `/herbs?${suffix}` : '/herbs'
 }
 
-function StatCard({ value, label }: { value: number; label: string }) {
-  return (
-    <div className="min-w-0 rounded-[0.8rem] border border-brand-900/10 bg-[var(--surface-card)] p-2.5 shadow-sm sm:p-3">
-      <p className="text-xl font-semibold tracking-tight text-ink sm:text-2xl">{value}</p>
-      <p className="mt-0.5 text-[0.62rem] font-bold uppercase leading-snug tracking-[0.1em] text-[var(--text-muted)]">{label}</p>
-    </div>
-  )
-}
-
 // Unused local empty state
 export function EmptyLibraryState() {
   return (
@@ -339,47 +330,12 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
     ? `Showing ${showingFrom}–${showingTo} of ${totalProfiles}`
     : `${totalProfiles}`
 
-  const readyProfiles = baseHerbs.filter((herb: RuntimeRecord) =>
-    /complete|strong|high|ready/i.test(
-      text(herb.profile_status || herb.summary_quality || herb.safety?.confidence)
-    )
-  ).length
-
-  const evidenceForward = baseHerbs.filter((herb: RuntimeRecord) =>
-    /human|clinical|strong|high/i.test(
-      text(herb.evidence_tier || herb.evidence_grade || herb.evidenceLevel)
-    )
-  ).length
-
   const featuredHerbs = hasActiveFilters || paginated ? [] : baseHerbs.slice(0, 6)
   const libraryHerbs = hasActiveFilters ? visibleHerbs : paginated ? herbs : baseHerbs.slice(featuredHerbs.length)
 
   return (
     <div className="px-2 pb-28 pt-2 text-ink sm:px-3 sm:pt-3">
       <div className="mx-auto max-w-7xl space-y-3 sm:space-y-4">
-        <section className="hero-shell relative overflow-hidden rounded-[0.95rem] border border-brand-900/10 px-3 py-4 shadow-sm sm:px-4 sm:py-5">
-          <div className="relative grid gap-3 lg:grid-cols-[1.05fr_.95fr] lg:items-end">
-            <div className="max-w-3xl space-y-2">
-              <p className="eyebrow-label">Botanical research library</p>
-              <h2 className="max-w-[18ch] text-balance font-display text-2xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-4xl">
-                Herbal research library
-              </h2>
-              <p className="max-w-2xl text-sm leading-6 text-muted">
-                Scan by practical context first, then compare evidence, timing, and caution notes where source data supports them.
-              </p>
-            </div>
-
-            <div className="rounded-[0.8rem] border border-brand-900/10 bg-[var(--surface-card)] p-2.5 shadow-sm">
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-800">Library signal</p>
-              <div className="mt-2 grid grid-cols-3 gap-2">
-                <StatCard value={totalProfiles} label="Profiles" />
-                <StatCard value={evidenceForward} label="Evidence-led" />
-                <StatCard value={readyProfiles || 12} label="Safety expanding" />
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section className="rounded-[0.85rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm sm:p-4" aria-labelledby="herb-search-heading">
           <div className="flex flex-col gap-1.5 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-2xl space-y-1">
@@ -411,8 +367,7 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
           <details className="mt-3 group" open={hasActiveFilters}>
             <summary className="flex min-h-11 cursor-pointer list-none items-center justify-between rounded-full border border-brand-900/10 px-4 py-2 text-sm font-bold text-ink/80 transition hover:bg-[var(--surface-card-strong)] [&::-webkit-details-marker]:hidden">
               <span>Advanced filters</span>
-              <span className="text-xs text-muted group-open:hidden">Open</span>
-              <span className="hidden text-xs text-muted group-open:inline">Close</span>
+              <span className="text-xs text-muted">Options</span>
             </summary>
 
             <div className="mt-3 space-y-3 border-t border-brand-900/10 pt-3">

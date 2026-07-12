@@ -2,8 +2,8 @@
   "id": "acarbose",
   "slug": "acarbose",
   "name": "Acarbose",
-  "summary": "Acarbose is tracked for Inhibits intestinal alpha-glucosidases, delaying carbohydrate digestion and postprandial glucose absorption with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
-  "description": "Acarbose is tracked for Inhibits intestinal alpha-glucosidases, delaying carbohydrate digestion and postprandial glucose absorption with conservative evidence framing. Treat dosing and outcomes as review-gated unless PMID-backed human evidence is present.",
+  "summary": "Acarbose compound profile with evidence, safety, and practical fit.",
+  "description": "Acarbose compound profile with evidence, safety, and practical fit.",
   "compoundClass": "",
   "mechanisms": [
     "Metabolic Regulation",
@@ -48,7 +48,7 @@
     "mechanism-context",
     "profile-status:commercial_ready",
     "safety-context-missing",
-    "summary-depth",
+    "summary-present",
     "summary-quality-missing"
   ],
   "effects": [
@@ -88,6 +88,6 @@
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
-  "indexability_score": 95,
+  "indexability_score": 85,
   "safety": "Generally well tolerated for most users."
 }

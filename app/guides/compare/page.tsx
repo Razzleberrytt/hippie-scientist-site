@@ -63,7 +63,7 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
     pairs: [
       { slug: 'creatine-vs-beta-alanine', label: 'Creatine vs Beta-Alanine' },
       { slug: 'creatine-vs-bcaa', label: 'Creatine vs BCAAs' },
-      { slug: 'creatine-vs-caffeine', label: 'Creatine vs Caffeine' },
+      { slug: 'dynamic', label: 'Performance comparison matrix' },
       { slug: 'cordyceps-vs-beta-alanine', label: 'Cordyceps vs Beta-Alanine' },
     ],
   },
@@ -80,7 +80,7 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
     label: 'Gut & Cardiovascular',
     pairs: [
       { slug: 'turmeric-vs-ginger', label: 'Turmeric vs Ginger' },
-      { slug: 'curcumin-vs-boswellia', label: 'Curcumin vs Boswellia' },
+      { slug: 'curcumin-vs-boswellia-vs-omega-3', label: 'Curcumin vs Boswellia vs Omega-3' },
       { slug: 'hawthorn-vs-coq10', label: 'Hawthorn vs CoQ10' },
       { slug: 'berberine-vs-metformin', label: 'Berberine vs Metformin' },
     ],
@@ -124,13 +124,13 @@ const goalStarterPaths = [
   {
     goal: 'Inflammation',
     title: 'Comparing anti-inflammatory paths? Start with mechanism and safety fit.',
-    href: '/guides/compare/curcumin-vs-boswellia/',
+    href: '/guides/compare/curcumin-vs-boswellia-vs-omega-3/',
     cta: 'Compare inflammation options',
   },
   {
     goal: 'Performance',
     title: 'Need energy or training support? Compare performance tradeoffs first.',
-    href: '/guides/compare/creatine-vs-caffeine/',
+    href: '/guides/compare/dynamic/',
     cta: 'Compare performance options',
   },
 ]

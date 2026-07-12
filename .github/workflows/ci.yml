@@ -2,6 +2,7 @@ name: CI
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
   push:
     branches:
       - main
@@ -15,6 +16,7 @@ permissions:
 
 jobs:
   quality-gate:
+    if: github.event_name != 'pull_request' || github.event.pull_request.draft == false
     runs-on: ubuntu-latest
 
     steps:
@@ -69,6 +71,9 @@ jobs:
 
       - name: Run tests (vitest + a11y gate)
         run: npm run test
+
+      - name: Validate canonical data system (schema, SQLite, graph, freshness)
+        run: npm run data:ci
 
       - name: Guard workbook source of truth
         run: npm run guard:source-of-truth

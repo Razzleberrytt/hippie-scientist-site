@@ -227,6 +227,35 @@ function compact(v) {
   return clean(v).replace(/\s+/g, ' ').trim()
 }
 
+const USER_FACING_LEAK_PATTERNS = [
+  /is linked here to/i,
+  /lean herb row|lean monograph row/i,
+  /high.speed phytochemical/i,
+  /internal cross-linking supports/i,
+  /\bis tracked for\b/i,
+  /it is best framed (as|around|for)/i,
+  /decision-ready summary/i,
+  /evidence level:/i,
+  /scispace evidence pass|evidence pass/i,
+  /enriched in bulk|bulk mode/i,
+]
+
+function isLeakedUserFacingText(value) {
+  const text = compact(value)
+  return Boolean(text && USER_FACING_LEAK_PATTERNS.some((pattern) => pattern.test(text)))
+}
+
+function cleanUserFacingText(value, fallback) {
+  const text = compact(value)
+  if (!text || isLeakedUserFacingText(text)) return fallback
+  return text
+}
+
+function profileTextFallback(name, type) {
+  const label = clean(name) || (type === 'herb' ? 'Botanical' : 'Compound')
+  return `${label} ${type === 'herb' ? 'botanical' : 'compound'} profile with evidence, safety, and practical fit.`
+}
+
 function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true })
 }
@@ -329,8 +358,39 @@ function canonicalMechanismRow(row) {
   })
 }
 
+// Curated synonym overlay for canonical mechanisms, keyed by canonical_mechanism_id.
+// These are high-confidence aliases that appear frequently in workbook mechanism
+// fields as the bare concept or target system (e.g. "Nrf2" for "Nrf2 activation",
+// "Oxidative Stress" for "Antioxidant"). Kept in code, not the workbook, so it
+// survives data:build regeneration and stays reviewable. Only unambiguous terms
+// are mapped — genuinely ambiguous terms (e.g. "Neurotransmitter Modulation")
+// are deliberately left unmapped rather than guess a specific pathway.
+const MECHANISM_SYNONYM_OVERLAY = {
+  'nrf2-activation': ['Nrf2', 'Nrf2 signaling', 'Nrf2 pathway'],
+  'ampk-activation': ['AMPK', 'AMPK signaling', 'AMPK pathway'],
+  'nf-kb-inhibition': ['NF-kB', 'NF-kB signaling', 'NF-kB pathway'],
+  'mtor-modulation': ['mTOR', 'mTOR signaling', 'mTOR pathway'],
+  'neuroprotective-activity': ['neuroprotective', 'neuroprotection'],
+  'gut-microbiome-modulation': ['gut_microbiome', 'gut microbiome'],
+  'endocannabinoid-modulation': ['endocannabinoid', 'endocannabinoid system'],
+  'lipid-metabolism-support': ['Lipid Metabolism', 'lipid metabolism'],
+  'metabolic-regulation': ['metabolic', 'metabolism'],
+  'antioxidant': ['Oxidative Stress', 'oxidative stress', 'Antioxidant defense', 'antioxidant defense'],
+  'anti-inflammatory': ['inflammatory', 'inflammation'],
+  'glucose-regulation': ['Glucose Metabolism', 'glucose metabolism'],
+  'vascular-function-support': ['Endothelial Function', 'endothelial function', 'cardiovascular'],
+  'mitochondrial-biogenesis': ['mitochondrial', 'mitochondrial function'],
+  'hormonal-signaling-context': ['endocrine', 'endocrine signaling'],
+}
+
 function buildMechanismTaxonomy(rows) {
   const mechanisms = normalizeRows(rows, canonicalMechanismRow)
+  for (const mechanism of mechanisms) {
+    const overlay = MECHANISM_SYNONYM_OVERLAY[mechanism.canonical_mechanism_id]
+    if (overlay) {
+      mechanism.synonyms = uniqueList([mechanism.synonyms || [], overlay])
+    }
+  }
   const aliasToMechanism = new Map()
   for (const mechanism of mechanisms) {
     for (const alias of uniqueList([mechanism.canonical_label, mechanism.label, mechanism.synonyms || []])) {
@@ -447,9 +507,9 @@ function profile(row, type, taxonomy) {
     slug: slug(first(row, ['slug', `${type}_slug`, `${type} slug`, 'name'])),
     name: clean(first(row, ['name', `${type}_name`, `${type} name`])),
     scientific_name: clean(first(row, ['scientific_name', 'scientific name', 'latin_name'])),
-    summary: compact(first(row, ['summary', 'description', 'overview'])),
+    summary: cleanUserFacingText(first(row, ['summary', 'description', 'overview']), profileTextFallback(first(row, ['name', `${type}_name`, `${type} name`]), type)),
     summary_quality: clean(first(row, ['summary_quality', 'summary quality'])),
-    description: compact(first(row, ['description', 'overview', 'summary'])),
+    description: cleanUserFacingText(first(row, ['description', 'overview', 'summary']), profileTextFallback(first(row, ['name', `${type}_name`, `${type} name`]), type)),
     primary_effects: firstList(row, ['primary_effects', 'primary effects', 'effects', 'primary_effects_or_targets']),
     effects: firstList(row, ['effects', 'primary_effects', 'primary effects', 'primary_effects_or_targets']),
     mechanisms: rawMechanisms,

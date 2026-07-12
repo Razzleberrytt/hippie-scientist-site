@@ -85,7 +85,7 @@ function firstReadable(value: unknown): string {
   return (sentences[0] || source).slice(0, 220)
 }
 
-function SignalCard({
+function SignalRow({
   title,
   value,
   detail,
@@ -93,23 +93,25 @@ function SignalCard({
 }: {
   title: string
   value: string
-  detail: string
+  detail?: string
   tone?: 'clinical' | 'mechanism' | 'caution' | 'neutral'
 }) {
-  const toneClass =
+  const dotClass =
     tone === 'clinical'
-      ? 'border-emerald-600/20 bg-emerald-50/80 text-emerald-950 dark:border-emerald-200/20 dark:bg-emerald-300/10 dark:text-emerald-50'
+      ? 'bg-emerald-600 dark:bg-emerald-300'
       : tone === 'mechanism'
-        ? 'border-blue-600/20 bg-blue-50/75 text-blue-950 dark:border-blue-200/20 dark:bg-blue-300/10 dark:text-blue-50'
+        ? 'bg-blue-600 dark:bg-blue-300'
         : tone === 'caution'
-          ? 'border-amber-700/20 bg-amber-50/80 text-amber-950 dark:border-amber-200/20 dark:bg-amber-300/10 dark:text-amber-50'
-          : 'border-brand-900/10 bg-white/80 text-ink dark:border-white/10 dark:bg-white/5'
+          ? 'bg-amber-500 dark:bg-amber-300'
+          : 'bg-stone-400 dark:bg-stone-300'
 
   return (
-    <div className={`rounded-xl border p-3 ${toneClass}`}>
-      <p className="text-[10px] font-bold uppercase tracking-[0.12em] opacity-75">{title}</p>
-      <p className="mt-1 text-sm font-semibold leading-6">{value}</p>
-      <p className="mt-1 text-xs leading-5 opacity-85">{detail}</p>
+    <div className="flex items-baseline gap-2 py-1.5">
+      <span aria-hidden="true" className={`mt-1 h-2 w-2 shrink-0 self-start rounded-full ${dotClass}`} />
+      <p className="text-xs leading-5 text-ink">
+        <span className="font-bold">{title}:</span> <span className="font-semibold">{value}</span>
+        {detail ? <span className="text-muted"> — {detail}</span> : null}
+      </p>
     </div>
   )
 }
@@ -135,26 +137,23 @@ export default function ProfileEvidenceLens({
 
   return (
     <section
-      className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 shadow-sm sm:p-5 dark:border-white/10 dark:bg-white/5"
+      className="rounded-2xl border border-brand-900/10 bg-white/80 p-4 shadow-sm dark:border-white/10 dark:bg-white/5"
       aria-labelledby="profile-evidence-lens-heading"
     >
-      <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-        <div className="max-w-2xl space-y-2">
-          <p className="eyebrow-label">Evidence lens</p>
-          <h3 id="profile-evidence-lens-heading" className="text-base font-bold leading-6 text-ink">
-            What kind of evidence supports this profile?
+      <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+        <div>
+          <h3 id="profile-evidence-lens-heading" className="text-sm font-bold leading-6 text-ink">
+            Evidence lens
           </h3>
-          <p className="text-sm leading-6 text-muted">
-            {meter.note}
-          </p>
+          <p className="text-xs leading-5 text-muted">{meter.note}</p>
         </div>
-        <div className="min-w-[12rem] rounded-xl border border-brand-900/10 bg-brand-50/60 p-3 dark:border-white/10 dark:bg-white/5">
+        <div className="min-w-[11rem] flex-1 sm:max-w-[14rem]">
           <div className="flex items-center justify-between gap-3">
             <span className="text-xs font-bold text-brand-900 dark:text-brand-100">{meter.label}</span>
             <span className="text-[11px] font-semibold text-muted">{label}</span>
           </div>
           <div
-            className="mt-3 h-2 overflow-hidden rounded-full bg-white dark:bg-white/10"
+            className="mt-1.5 h-2 overflow-hidden rounded-full bg-brand-50 dark:bg-white/10"
             role="progressbar"
             aria-label={`Evidence strength: ${label}`}
             aria-valuemin={0}
@@ -166,35 +165,34 @@ export default function ProfileEvidenceLens({
         </div>
       </div>
 
-      <div className="mt-4 grid gap-3 md:grid-cols-2">
-        <SignalCard
+      <div className="mt-3 grid gap-x-6 border-t border-brand-900/10 pt-2 dark:border-white/10 md:grid-cols-2">
+        <SignalRow
           title="Human clinical evidence"
           value={humanSignal ? 'Present in source signals' : 'Not the primary signal'}
-          detail={humanSignal ? 'Human or clinical-study language is present in the reviewed fields.' : 'Interpret practical claims through mechanisms, safety, and limitations first.'}
           tone={humanSignal ? 'clinical' : 'caution'}
         />
-        <SignalCard
+        <SignalRow
           title="Mechanistic / preclinical"
-          value={mechanismSignal ? 'Mechanism mapped' : 'Mechanism detail limited'}
-          detail={mechanisms.length ? mechanisms.join(' | ') : 'No strong mechanism list is available in the current source fields.'}
+          value={mechanismSignal ? 'Mechanism mapped' : 'Limited detail'}
+          detail={mechanisms.length ? mechanisms.join(' · ') : undefined}
           tone={mechanismSignal ? 'mechanism' : 'neutral'}
         />
-        <SignalCard
+        <SignalRow
           title="Research maturity"
           value={preliminarySignal ? 'Preliminary or mixed' : 'More interpretable'}
-          detail={limitation || (effects.length ? `Main use contexts: ${effects.join(' | ')}` : 'Review the full evidence notes before making practical decisions.')}
+          detail={limitation || (effects.length ? `main contexts: ${effects.join(' · ')}` : undefined)}
           tone={preliminarySignal ? 'caution' : 'clinical'}
         />
-        <SignalCard
+        <SignalRow
           title="Safety boundary"
-          value={safety ? 'Safety note available' : 'Read with standard caution'}
-          detail={safety || 'Medication use, pregnancy status, chronic conditions, and dose all change practical fit.'}
+          value={safety ? 'Safety note available' : 'Standard caution'}
+          detail={safety || undefined}
           tone="caution"
         />
       </div>
 
       {citationsCount > 0 ? (
-        <p className="mt-3 text-xs leading-5 text-muted">
+        <p className="mt-2 text-xs leading-5 text-muted">
           This profile cites {citationsCount} human stud{citationsCount === 1 ? 'y' : 'ies'}.
         </p>
       ) : null}

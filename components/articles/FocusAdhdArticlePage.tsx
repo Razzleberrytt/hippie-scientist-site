@@ -447,13 +447,13 @@ export default function FocusAdhdArticlePage({ slug, basePath = ADHD_GUIDE_BASE 
         <span className="line-clamp-1 text-ink">{article.title}</span>
       </nav>
 
-      <section className="rounded-[1.25rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+      <section className="border-b border-brand-900/15 pb-8 pt-4 sm:pb-10 sm:pt-6">
         <div className="flex flex-wrap items-center gap-2 text-xs">
           <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2.5 py-0.5 font-bold uppercase tracking-wider text-brand-800">{article.category}</span>
           {article.tags.slice(0, 4).map((tag) => <span key={tag} className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted">{tag}</span>)}
           <span className="text-muted">{article.readingTime}</span>
         </div>
-        <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">{article.title}</h1>
+        <h1 className="mt-4 max-w-[22ch] font-display text-2xl font-bold leading-[1.08] text-ink sm:text-4xl lg:text-5xl">{article.title}</h1>
         <div className="mt-3"><LastUpdatedBadge date={article.date} label="Last updated" /></div>
         <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{article.description}</p>
 

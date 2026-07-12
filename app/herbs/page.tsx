@@ -65,9 +65,9 @@ export default async function HerbsPage() {
         </p>
       </div>
 
-      <nav className="rounded-[0.8rem] border border-brand-900/10 bg-white/80 p-3 text-sm" aria-label="Herb pagination">
+      <nav className="flex items-center gap-3 border-y border-brand-900/10 py-3 text-sm" aria-label="Herb pagination">
         <p className="font-semibold">Page 1 of {pageData.totalPages}</p>
-        {pageData.hasNext ? <Link rel="next" href="/herbs/page/2">Next page →</Link> : null}
+        {pageData.hasNext ? <Link rel="next" href="/herbs/page/2" className="font-semibold text-brand-800">Next page →</Link> : null}
       </nav>
 
       <nav aria-label="Herb profiles index" className="sr-only">
