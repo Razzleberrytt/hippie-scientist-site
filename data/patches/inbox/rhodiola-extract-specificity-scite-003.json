@@ -1,0 +1,38 @@
+{
+  "patch_id": "scite-rhodiola-extract-specificity-2026-07-12-003",
+  "patch_version": "1",
+  "created_at": "2026-07-12T14:42:00.000Z",
+  "generator": "Scite literature enrichment via ChatGPT",
+  "target": {
+    "slug": "rhodiola",
+    "canonical_name": "Rhodiola rosea",
+    "entity_type": "herb"
+  },
+  "operations": [
+    {
+      "op": "add_claim",
+      "field": "effects",
+      "value": "Most clinical exercise studies test Rhodiola root or root-and-rhizome extracts, often standardized near 3% total rosavins and 1% salidroside, but extraction methods and marker reporting vary and some trials omit composition details; findings should not be generalized to unverified powders or differently standardized products.",
+      "payload": {},
+      "confidence": 0.85,
+      "notes": "Adds product-generalizability context using the formulations and reporting limitations described in the exercise review literature."
+    }
+  ],
+  "sources": [
+    {
+      "doi": "10.3389/fnut.2022.856287",
+      "url": "https://doi.org/10.3389/fnut.2022.856287",
+      "title": "Effects of Rhodiola Rosea Supplementation on Exercise and Sport: A Systematic Review",
+      "year": "2022"
+    },
+    {
+      "doi": "10.1002/ptr.7950",
+      "url": "https://doi.org/10.1002/ptr.7950",
+      "title": "Rhodiola rosea supplementation on sports performance: A systematic review of randomized controlled trials",
+      "year": "2023"
+    }
+  ],
+  "notes": "Prevents evidence from standardized extracts being silently transferred to any Rhodiola powder or commercial preparation.",
+  "confidence": 0.85,
+  "requires_review": true
+}
