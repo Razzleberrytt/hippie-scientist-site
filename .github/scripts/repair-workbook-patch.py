@@ -20,6 +20,12 @@ if branch != 'workbook-patch-pilot-citicoline-20260710':
 
 run(['git', 'config', 'user.name', 'github-actions[bot]'])
 run(['git', 'config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com'])
+
+is_shallow = run(['git', 'rev-parse', '--is-shallow-repository']).stdout.strip() == 'true'
+if is_shallow:
+    run(['git', 'fetch', '--unshallow', 'origin'])
+else:
+    run(['git', 'fetch', '--prune', 'origin'])
 run(['git', 'fetch', 'origin', 'main'])
 
 merge = run(['git', 'merge', '--no-commit', '--no-ff', 'origin/main'], check=False)
