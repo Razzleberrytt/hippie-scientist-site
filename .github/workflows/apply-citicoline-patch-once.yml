@@ -1,0 +1,92 @@
+name: Apply Citicoline Patch Once
+
+on:
+  push:
+    branches:
+      - workbook-patch-pilot-citicoline-20260710
+    paths:
+      - '.github/workflows/apply-citicoline-patch-once.yml'
+      - 'data-sources/workbook-patches/citicoline-scite-pilot.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: apply-citicoline-patch-once
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    if: ${{ !contains(github.event.head_commit.message, '[workbook patch applied]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout patch branch
+        uses: actions/checkout@v4
+        with:
+          ref: workbook-patch-pilot-citicoline-20260710
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --silent
+
+      - name: Restore verified workbook from main
+        run: |
+          git fetch origin main
+          git checkout origin/main -- data-sources/herb_monograph_master.xlsx
+
+      - name: Set patch to approved for application
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          const path = 'data-sources/workbook-patches/citicoline-scite-pilot.json'
+          const patch = JSON.parse(fs.readFileSync(path, 'utf8'))
+          patch.status = 'approved'
+          patch.approved_at = patch.approved_at || '2026-07-10'
+          patch.approved_by = patch.approved_by || 'Willie Randolph'
+          delete patch.applied_at
+          delete patch.applied_by
+          fs.writeFileSync(path, `${JSON.stringify(patch, null, 2)}\n`)
+          NODE
+
+      - name: Apply approved patch with human-review acknowledgement
+        run: |
+          node scripts/data/apply-workbook-patch.mjs \
+            --patch data-sources/workbook-patches/citicoline-scite-pilot.json \
+            --apply \
+            --approve-human-review \
+            --in-place
+
+      - name: Mark patch record applied
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          const path = 'data-sources/workbook-patches/citicoline-scite-pilot.json'
+          const patch = JSON.parse(fs.readFileSync(path, 'utf8'))
+          patch.status = 'applied'
+          patch.applied_at = '2026-07-10'
+          patch.applied_by = 'GitHub Actions via GPT-5.6 Thinking'
+          fs.writeFileSync(path, `${JSON.stringify(patch, null, 2)}\n`)
+          NODE
+
+      - name: Validate workbook and applied record
+        run: |
+          npm run workbook:roundtrip-test
+          npm run validate:workbook-schema
+          node scripts/ci/validate-workbook-patches.mjs
+
+      - name: Commit corrected workbook
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data-sources/herb_monograph_master.xlsx data-sources/workbook-patches/citicoline-scite-pilot.json
+          git commit -m 'data: apply Scite-grounded Citicoline patch [workbook patch applied]'
+          git push origin HEAD:workbook-patch-pilot-citicoline-20260710
