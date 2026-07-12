@@ -33,15 +33,51 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:rg-0453",
-      "https://pubmed.ncbi.nlm.nih.gov/25484177/",
-      "pmid:25484177"
+      "src_c0b82f29307a"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_355bf4eb182b",
+      "clm_d83b3261c123"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_355bf4eb182b",
+      "claim": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_9505721df592"
+      },
+      "sourceRefIds": [
+        "src_c0b82f29307a"
+      ]
+    },
+    {
+      "id": "clm_d83b3261c123",
+      "claim": "Antidepressant adjunct, anti-inflammatory.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Antidepressant adjunct, anti-inflammatory.",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_9505721df592"
+      },
+      "sourceRefIds": [
+        "src_c0b82f29307a"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -83,13 +119,15 @@
     "Antioxidant",
     "Mitochondrial biogenesis",
     "HPA-axis modulation",
-    "NF-kB inhibition"
+    "NF-kB inhibition",
+    "Nrf2 activation"
   ],
   "mechanism_categories": [
     "core",
     "mitochondrial",
     "stress",
-    "inflammatory"
+    "inflammatory",
+    "redox"
   ],
   "mechanism_classes": [
     "Physiological effect",
@@ -100,13 +138,26 @@
   "mechanism_target_systems": [],
   "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Neurotransmitter Modulation",
-    "Nrf2",
-    "Oxidative Stress"
+    "Neurotransmitter Modulation"
   ],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_c0b82f29307a",
+      "title": "Crocin, the main active saffron constituent, as an adjunctive treatment in major depressive disorder: a randomized, double-blind, placebo-controlled, pilot clinical trial.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25484177/",
+      "doi": "10.1016/j.jad.2014.11.035",
+      "pmid": "25484177",
+      "year": "2015",
+      "journal": "J Affect Disord",
+      "citation": "Author not retrieved (2015). J Affect Disord. PMID: 25484177. DOI: 10.1016/j.jad.2014.11.035.",
+      "note": "source-backed gap-fill audit only; not a full monograph field extraction",
+      "studyType": "Randomized controlled trial",
+      "reviewStatus": "approved"
+    }
+  ]
 }

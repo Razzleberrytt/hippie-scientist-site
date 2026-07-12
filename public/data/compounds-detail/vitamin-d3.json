@@ -28,13 +28,52 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_2624fc605180"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_61ff24d5876a"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_61ff24d5876a",
+      "claim": "Vitamin D3 may modestly support depressive symptoms, especially short term, but does not show significant anxiety effects in this review.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Vitamin D3 may modestly support depressive symptoms, especially short term, but does not show significant anxiety effects in this review.",
+      "qualifiers": {
+        "direction": "supportive_if_deficient_or_low_status_context",
+        "dose_or_duration": "Per 1000 IU/day modeled; strongest short-term effect in depressive symptoms",
+        "population": "Adults with and without depression",
+        "study_id": "ent_study_f5d51fcd225e"
+      },
+      "sourceRefIds": [
+        "src_2624fc605180"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_2624fc605180",
+      "title": "The effect of vitamin D supplementation on depression: a systematic review and dose-response meta-analysis of randomized controlled trials",
+      "url": "https://consensus.app/papers/the-effect-of-vitamin-d-supplementation-on-depression-a-ghaemi-zeraattalab-motlagh/27635710ab285174913487b32352b0f5/?utm_source=chatgpt",
+      "year": "2024",
+      "authors": "Ghaemi et al.",
+      "journal": "Psychological Medicine",
+      "citation": "31 RCTs/24,189 participants; depressive symptoms modest short-term improvement; no significant anxiety effect.",
+      "note": "evidence;dose_form;runtime_claim_gate",
+      "studyType": "Meta-analysis",
+      "reviewStatus": "approved"
+    }
+  ]
 }

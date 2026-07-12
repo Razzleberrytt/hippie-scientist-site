@@ -114,7 +114,93 @@
   "featured": false,
   "controlled_substance": false,
   "safety": "Generally well tolerated for most users.",
-  "sources": [],
+  "sources": [
+    {
+      "id": "src_18a7804781ad",
+      "title": "Back to the Roots: Safety and Tolerability of Standardised Ashwagandha Root Extract",
+      "url": "https://consensus.app/papers/back-to-the-roots-safety-and-tolerability-of-standardised-coope-willems/c5b5877b7b295eb18ae4d7b3d3532197/?utm_source=chatgpt",
+      "year": "2026",
+      "authors": "Coope et al.",
+      "journal": "Pharmaceuticals",
+      "citation": "23 studies; 2317 healthy adults; 125-600 mg/day; up to 180 days; no serious adverse events attributable to standardized root-only extract; long-term data limited",
+      "note": "ashwagandha short-term safety",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_1b3544f3df14",
+      "title": "Does Ashwagandha supplementation have a beneficial effect on the management of anxiety and stress?",
+      "url": "https://consensus.app/papers/does-ashwagandha-supplementation-have-a-beneficial-akhgarjand-asoudeh/c1f83cbc4aba5182b315c33049a0c276/?utm_source=chatgpt",
+      "year": "2022",
+      "authors": "Akhgarjand et al.",
+      "journal": "Phytotherapy Research",
+      "citation": "12 RCTs; 1002 participants; low certainty",
+      "note": "stress/anxiety evidence",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_3922d0deba42",
+      "title": "Effect of Ashwagandha (Withania somnifera) extract on sleep: A systematic review and meta-analysis",
+      "url": "https://consensus.app/papers/effect-of-ashwagandha-withania-somnifera-extract-on-sleep-cheah-norhayati/feb55754e0d655ac8afb0bf0c3e31816/?utm_source=chatgpt",
+      "year": "2021",
+      "authors": "Cheah; Norhayati; Yaacob; Rahman",
+      "journal": "PLoS ONE",
+      "citation": "5 RCTs; 400 adults; safety data limited",
+      "note": "sleep evidence",
+      "studyType": "Meta-analysis",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_5c8f28c15213",
+      "title": "Ashwagandha-induced liver injury: A case series from Iceland and the US DILIN",
+      "url": "https://consensus.app/papers/ashwagandhainduced-liver-injury-a-case-series-from-bjrnsson-bjrnsson/2c336e748bd457b1bef79176525bef85/?utm_source=chatgpt",
+      "year": "2020",
+      "authors": "Björnsson et al.",
+      "journal": "Liver International",
+      "citation": "5 cases; cholestatic/mixed liver injury; jaundice/pruritus; latency 2-12 weeks; normalized in most within 1-5 months",
+      "note": "ashwagandha liver injury safety signal",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_7c79e1e704e6",
+      "title": "Evaluating the Safety of Ashwagandha as a Food Additive",
+      "url": "https://consensus.app/papers/evaluating-the-safety-of-ashwagandha-as-a-food-additive-a-li-zhang/859fef337db75ddbb659d1845fbb7327/?utm_source=chatgpt",
+      "year": "2025",
+      "authors": "Li et al.",
+      "journal": "Phytotherapy Research",
+      "citation": "Caution for pregnancy, thyroid disorders, liver/kidney dysfunction; long-term safety concerns",
+      "note": "ashwagandha risk population guardrail",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_bc69cc193119",
+      "title": "Effects of Withania somnifera Extract in Chronically Stressed Adults",
+      "url": "https://consensus.app/papers/effects-of-withania-somnifera-extract-in-chronically-pandit-srivastav/3d6ca263c3e55451945ab309c2e63159/?utm_source=chatgpt",
+      "year": "2024",
+      "authors": "Pandit et al.",
+      "journal": "Nutrients",
+      "citation": "Root-and-leaf aqueous extract; 125/250/500 mg/day; 8 weeks; 98 analyzed adults with high stress",
+      "note": "ashwagandha dose/form",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_d7761bb98937",
+      "title": "Use short-term, cautious structure/function wording; include liver, thyroid, pregnancy, sedative, antidiabetes, antihypertensive, and immunosuppressant cautions.",
+      "url": "https://ods.od.nih.gov/factsheets/Ashwagandha-HealthProfessional/ | https://www.ncbi.nlm.nih.gov/books/NBK548536/",
+      "note": "authoritative safety/regulatory reference",
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "src_e07d9eef19a2",
+      "title": "Efficacy and Safety of Ashwagandha Root Extract on Cognitive Functions in Healthy, Stressed Adults",
+      "url": "https://consensus.app/papers/efficacy-and-safety-of-ashwagandha-root-extract-on-gopukumar-thanawala/3262090dccbb5903a3755d2aca33da35/?utm_source=chatgpt",
+      "year": "2021",
+      "authors": "Gopukumar et al.",
+      "journal": "Evidence-based Complementary and Alternative Medicine",
+      "citation": "Sustained-release root extract capsule 300 mg/day for 90 days; 125 completed",
+      "note": "ashwagandha dose/form",
+      "reviewStatus": "approved"
+    }
+  ],
   "governance": {
     "reviewStatus": "needs_review",
     "legalRisk": "none",
@@ -126,9 +212,212 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 8,
+    "sourceIds": [
+      "src_18a7804781ad",
+      "src_1b3544f3df14",
+      "src_3922d0deba42",
+      "src_5c8f28c15213",
+      "src_7c79e1e704e6",
+      "src_bc69cc193119",
+      "src_d7761bb98937",
+      "src_e07d9eef19a2"
+    ],
+    "claimCount": 10,
+    "claimIds": [
+      "clm_0b1f4db0b5a8",
+      "clm_4318b05ac30a",
+      "clm_5093147f268d",
+      "clm_6d1e755c6a9f",
+      "clm_835e8fd1a840",
+      "clm_86768e01ab4d",
+      "clm_9cb8da592da4",
+      "clm_c3127c489527",
+      "clm_ce13b1c186c1",
+      "clm_f5ec550e77ad"
+    ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_0b1f4db0b5a8",
+      "claim": "Ashwagandha extract may support sleep quality, with stronger signals in insomnia populations at ≥600 mg/day for ≥8 weeks.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "preclinical",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Ashwagandha extract may support sleep quality, with stronger signals in insomnia populations at ≥600 mg/day for ≥8 weeks.",
+      "qualifiers": {
+        "direction": "small significant sleep support signal; subgroup dose/duration clue",
+        "dose_or_duration": "Effects more prominent with ≥600 mg/day and duration ≥8 weeks",
+        "population": "Adults; subgroup more prominent in adults with insomnia",
+        "study_id": "ent_study_e537786483bc"
+      },
+      "sourceRefIds": [
+        "src_3922d0deba42"
+      ]
+    },
+    {
+      "id": "clm_4318b05ac30a",
+      "claim": "Standardized single-ingredient root-only ashwagandha extract appears generally tolerated in healthy adults at studied doses and durations, but do not imply long-term safety.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Standardized single-ingredient root-only ashwagandha extract appears generally tolerated in healthy adults at studied doses and durations, but do not imply long-term safety.",
+      "qualifiers": {
+        "direction": "generally tolerated short-term; long-term unknown",
+        "dose_or_duration": "125-600 mg/day; single dose to 180 days",
+        "population": "Healthy adults",
+        "study_id": "ent_study_550749221478"
+      },
+      "sourceRefIds": [
+        "src_18a7804781ad"
+      ]
+    },
+    {
+      "id": "clm_5093147f268d",
+      "claim": "A specific aqueous root-and-leaf ashwagandha extract was studied at 125–500 mg/day for 8 weeks for mild-to-moderate chronic stress support.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "preclinical",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "A specific aqueous root-and-leaf ashwagandha extract was studied at 125–500 mg/day for 8 weeks for mild-to-moderate chronic stress support.",
+      "qualifiers": {
+        "direction": "supportive but extract-specific",
+        "dose_or_duration": "Aqueous Withania somnifera root-and-leaf extract; 125, 250, or 500 mg/day for 8 weeks",
+        "population": "Adults with self-reported high stress",
+        "study_id": "ent_study_69a383ce0c89"
+      },
+      "sourceRefIds": [
+        "src_bc69cc193119"
+      ]
+    },
+    {
+      "id": "clm_6d1e755c6a9f",
+      "claim": "Ashwagandha extract may modestly improve sleep quality, especially in insomnia studies and longer/higher-dose protocols, but long-term safety evidence is limited.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Ashwagandha extract may modestly improve sleep quality, especially in insomnia studies and longer/higher-dose protocols, but long-term safety evidence is limited.",
+      "qualifiers": {
+        "direction": "positive but limited/heterogeneous",
+        "dose_or_duration": "Ashwagandha extract; stronger subgroup signal at >=600 mg/day and >=8 weeks",
+        "population": "Adults 18+",
+        "study_id": "ent_study_62299dd4d6dc"
+      },
+      "sourceRefIds": [
+        "src_3922d0deba42"
+      ]
+    },
+    {
+      "id": "clm_835e8fd1a840",
+      "claim": "Across RCTs, ashwagandha showed stress/anxiety support signals, with stress effects most interpretable around 300–600 mg/day; certainty was low.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Across RCTs, ashwagandha showed stress/anxiety support signals, with stress effects most interpretable around 300–600 mg/day; certainty was low.",
+      "qualifiers": {
+        "direction": "supportive; low certainty",
+        "dose_or_duration": "Stress dose-response signal favored 300–600 mg/day; anxiety analysis included wide dose range not directly interchangeable",
+        "population": "Adults in RCTs; age range 25–48 reported",
+        "study_id": "ent_study_206a0cdf35ad"
+      },
+      "sourceRefIds": [
+        "src_1b3544f3df14"
+      ]
+    },
+    {
+      "id": "clm_86768e01ab4d",
+      "claim": "A sustained-release ashwagandha root extract at 300 mg/day for about 90 days was studied for stress, sleep quality, memory, and focus in healthy stressed adults.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "preclinical",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "A sustained-release ashwagandha root extract at 300 mg/day for about 90 days was studied for stress, sleep quality, memory, and focus in healthy stressed adults.",
+      "qualifiers": {
+        "direction": "supportive but branded/sustained-release specific",
+        "dose_or_duration": "Sustained-release ashwagandha root extract capsule 300 mg once daily for 90 days",
+        "population": "Healthy stressed adults age 20–55 with PSS 14–24",
+        "study_id": "ent_study_8046e6762bb8"
+      },
+      "sourceRefIds": [
+        "src_e07d9eef19a2"
+      ]
+    },
+    {
+      "id": "clm_9cb8da592da4",
+      "claim": "Use short-term, cautious structure/function wording; include liver, thyroid, pregnancy, sedative, antidiabetes, antihypertensive, and immunosuppressant cautions.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Use short-term, cautious structure/function wording; include liver, thyroid, pregnancy, sedative, antidiabetes, antihypertensive, and immunosuppressant cautions.",
+      "qualifiers": {
+        "direction": "caution; not long-term proven",
+        "dose_or_duration": "NIH notes up to about 3 months tolerance; long-term unknown",
+        "population": "General supplement users",
+        "study_id": "ent_study_823aecd094a9"
+      },
+      "sourceRefIds": [
+        "src_d7761bb98937"
+      ]
+    },
+    {
+      "id": "clm_c3127c489527",
+      "claim": "Ashwagandha should carry caution language for pregnancy, thyroid disorders, liver/kidney dysfunction, and long-term safety uncertainty.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Ashwagandha should carry caution language for pregnancy, thyroid disorders, liver/kidney dysfunction, and long-term safety uncertainty.",
+      "qualifiers": {
+        "direction": "caution / avoid in risk groups",
+        "dose_or_duration": "not applicable",
+        "population": "Specific risk populations",
+        "study_id": "ent_study_eb795888d16c"
+      },
+      "sourceRefIds": [
+        "src_7c79e1e704e6"
+      ]
+    },
+    {
+      "id": "clm_ce13b1c186c1",
+      "claim": "Ashwagandha has rare case-report evidence of clinically apparent liver injury, usually cholestatic or mixed with jaundice/pruritus.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Ashwagandha has rare case-report evidence of clinically apparent liver injury, usually cholestatic or mixed with jaundice/pruritus.",
+      "qualifiers": {
+        "direction": "rare but serious safety signal",
+        "dose_or_duration": "Latency 2-12 weeks in reported cases",
+        "population": "5 adults from Iceland/US DILIN",
+        "study_id": "ent_study_72c01799bd09"
+      },
+      "sourceRefIds": [
+        "src_5c8f28c15213"
+      ]
+    },
+    {
+      "id": "clm_f5ec550e77ad",
+      "claim": "Ashwagandha may reduce stress and anxiety compared with placebo, but certainty is low and heterogeneity is high.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Ashwagandha may reduce stress and anxiety compared with placebo, but certainty is low and heterogeneity is high.",
+      "qualifiers": {
+        "direction": "positive but low-certainty/heterogeneous",
+        "dose_or_duration": "Stress signal around 300-600 mg/day in dose-response analysis",
+        "population": "Adults in RCTs, age range 25-48",
+        "study_id": "ent_study_0865a95e5426"
+      },
+      "sourceRefIds": [
+        "src_1b3544f3df14"
+      ]
+    }
+  ]
 }

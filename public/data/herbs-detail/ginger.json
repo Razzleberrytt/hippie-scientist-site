@@ -48,6 +48,26 @@
       "authors": "Mao QQ et al.",
       "year": 2019,
       "url": "https://pubmed.ncbi.nlm.nih.gov/31151279/"
+    },
+    {
+      "id": "src_608a1375392c",
+      "title": "PubMed PMID 12542115. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12542115/",
+      "pmid": "12542115",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 12542115. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_69af43e333e7",
+      "title": "PubMed PMID 11275030. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11275030/",
+      "pmid": "11275030",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 11275030. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -61,15 +81,56 @@
     "reason": "curated_allowlist"
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
     "sourceIds": [
-      "31151279",
-      "36364048",
-      "38903613"
+      "src_608a1375392c",
+      "src_69af43e333e7"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_21d32363a410",
+      "clm_e280657ced11"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_21d32363a410",
+      "claim": "Pregnancy nausea RCT",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Pregnancy nausea RCT",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "1 g/day ginger; 4 days",
+        "population": "pregnant women with nausea/vomiting before 17 weeks gestation",
+        "study_id": "ent_study_fd7d664e41e8"
+      },
+      "sourceRefIds": [
+        "src_69af43e333e7"
+      ]
+    },
+    {
+      "id": "clm_e280657ced11",
+      "claim": "nausea reduction",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "nausea reduction",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "1 g; 4 days",
+        "population": "pregnant",
+        "study_id": "ent_study_51fa815a4afa"
+      },
+      "sourceRefIds": [
+        "src_608a1375392c"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true

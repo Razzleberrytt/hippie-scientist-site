@@ -46,6 +46,16 @@
       "authors": "Leitão AE et al.",
       "year": 2021,
       "url": "https://pubmed.ncbi.nlm.nih.gov/33541567/"
+    },
+    {
+      "id": "src_a2c634d38f77",
+      "title": "PubMed PMID 23754792. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23754792/",
+      "pmid": "23754792",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 23754792. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -59,13 +69,33 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "33541567",
-      "36013514",
-      "39527684"
+      "src_a2c634d38f77"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_797888c2aae5"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_797888c2aae5",
+      "claim": "v9.4: Human evidence suggests possible stress/testosterone benefits, but effects are context-dependent and quality varies.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.4: Human evidence suggests possible stress/testosterone benefits, but effects are context-dependent and quality varies.",
+      "qualifiers": {
+        "direction": "testosterone, stress",
+        "dose_or_duration": "200–400 mg/day standardized Eurycoma longifolia extract in human studies",
+        "study_id": "ent_study_62c7bd247f3a"
+      },
+      "sourceRefIds": [
+        "src_a2c634d38f77"
+      ]
+    }
+  ]
 }

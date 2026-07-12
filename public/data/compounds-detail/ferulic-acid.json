@@ -35,15 +35,51 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:rg-0516",
-      "https://pubmed.ncbi.nlm.nih.gov/9878519/",
-      "pmid:9878519"
+      "src_7065245038a3"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_835ca9b9a75c",
+      "clm_e70e0d466b27"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_835ca9b9a75c",
+      "claim": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_ba0db823d798"
+      },
+      "sourceRefIds": [
+        "src_7065245038a3"
+      ]
+    },
+    {
+      "id": "clm_e70e0d466b27",
+      "claim": "Nrf2/PI3K/Akt bioavailability.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Nrf2/PI3K/Akt bioavailability.",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_ba0db823d798"
+      },
+      "sourceRefIds": [
+        "src_7065245038a3"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -90,30 +126,43 @@
     "Mitochondrial biogenesis",
     "Metabolic regulation",
     "NF-kB inhibition",
-    "Nrf2 activation"
+    "Nrf2 activation",
+    "Glucose regulation",
+    "Lipid metabolism support"
   ],
   "mechanism_categories": [
     "core",
     "mitochondrial",
     "inflammatory",
-    "redox"
+    "redox",
+    "metabolic"
   ],
   "mechanism_classes": [
     "Physiological effect",
     "Physiological/cellular effect",
-    "Signaling pathway modulation"
+    "Signaling pathway modulation",
+    "Metabolic modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "Nrf2",
-    "Glucose Metabolism",
-    "Lipid Metabolism",
-    "Oxidative Stress"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 95,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_7065245038a3",
+      "title": "Bioavailability of ferulic acid.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9878519/",
+      "doi": "10.1006/bbrc.1998.9681",
+      "pmid": "9878519",
+      "year": "1998",
+      "journal": "Biochem Biophys Res Commun",
+      "citation": "Author not retrieved (1998). Biochem Biophys Res Commun. PMID: 9878519. DOI: 10.1006/bbrc.1998.9681.",
+      "note": "source-backed gap-fill audit only; not a full monograph field extraction",
+      "reviewStatus": "approved"
+    }
+  ]
 }

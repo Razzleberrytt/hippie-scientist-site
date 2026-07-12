@@ -28,15 +28,36 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:study-row-100",
-      "https://pubmed.ncbi.nlm.nih.gov/37405785/",
-      "pmid:37405785"
+      "src_10624494092d"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_6ecc50821318"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_6ecc50821318",
+      "claim": "Emerging human RCT",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Emerging human RCT",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "dose_or_duration": "12 mg/day; 12 weeks",
+        "population": "metabolic syndrome patients",
+        "study_id": "ent_study_55c1836e03c4"
+      },
+      "sourceRefIds": [
+        "src_10624494092d"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [
@@ -65,10 +86,8 @@
     "Metabolic modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "Glucose Metabolism"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Strong Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
@@ -85,5 +104,17 @@
     "summary-present",
     "summary-quality-missing"
   ],
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_10624494092d",
+      "title": "PubMed PMID 37405785. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37405785/",
+      "pmid": "37405785",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 37405785. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

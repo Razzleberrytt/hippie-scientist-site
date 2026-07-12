@@ -1,0 +1,124 @@
+{
+  "patch_id": "adb1c7ae-7b57-4d6d-a336-c966ba7043e6",
+  "schema_version": "2.0",
+  "source_agent": "metadata-harvester",
+  "agent_version": "2.0",
+  "created_at": "2026-07-12T22:09:22.597Z",
+  "slug": "berberine",
+  "patch_type": "evidence",
+  "research_depth": "lightweight_enrichment",
+  "metadata_sources": [
+    "pubmed",
+    "clinicaltrials"
+  ],
+  "confidence_notes": [],
+  "seo_assets": {
+    "faq_candidates": [
+      "What is berberine used for?",
+      "Is berberine evidence-based?"
+    ],
+    "seo_topics": [
+      "berberine benefits",
+      "berberine safety",
+      "berberine evidence"
+    ],
+    "internal_link_targets": [
+      "sleep",
+      "focus",
+      "recovery"
+    ],
+    "comparison_candidates": [
+      "berberine vs magnesium"
+    ],
+    "best_for": [
+      "general wellness"
+    ],
+    "avoid_if": [
+      "medication interactions"
+    ],
+    "product_quality_notes": [
+      "Prefer reputable third-party tested brands"
+    ]
+  },
+  "review_flags": [],
+  "evidence": [
+    {
+      "compound_slug": "berberine",
+      "pmid_or_source": "42356246",
+      "doi": "10.3390/nu18121858",
+      "study_type": "systematic_review",
+      "population": "humans (PubMed-indexed)",
+      "title": "The Integrative Role of Berberine in Gut Microbiota Modulation and Cardiometabolic Outcomes: A Systematic Review of Randomised Clinical Trials.",
+      "publication_date": "2026 Jun 9"
+    },
+    {
+      "compound_slug": "berberine",
+      "pmid_or_source": "42213651",
+      "doi": "10.1371/journal.pone.0348907",
+      "study_type": "meta_analysis",
+      "population": "humans (PubMed-indexed)",
+      "title": "Probiotics, synbiotics and berberine in Type 2 diabetes mellitus: A systematic review, meta-analysis, and molecular dynamics simulation study.",
+      "publication_date": "2026"
+    },
+    {
+      "compound_slug": "berberine",
+      "pmid_or_source": "42204774",
+      "doi": "10.14814/phy2.70937",
+      "study_type": "rct",
+      "population": "humans (PubMed-indexed)",
+      "title": "Dietary berberine supplementation improves select physiological and psychological responses during exertional heat stress: A pilot study in young adults.",
+      "publication_date": "2026 May"
+    }
+  ],
+  "validation": {
+    "patch_type": "validated_evidence",
+    "patch_id": "d551d78e-330c-46c0-aaf1-b0aeba83e9ef",
+    "schema_version": "1.0",
+    "source_agent": "validation-agent",
+    "agent_version": "1.5",
+    "slug": "berberine",
+    "created_at": "2026-07-12T22:09:22.596Z",
+    "system_prompt": "You are the Validation Firewall for The Hippie Scientist.\nReject hallucinated citations, animal-only data, in-vitro-only data, vague claims, unsupported medical claims, and low-quality entries.\nBe extremely strict and conservative.",
+    "validation_status": "approved",
+    "rejection_reasons": [],
+    "entries": [
+      {
+        "compound_slug": "berberine",
+        "pmid_or_source": "42356246",
+        "doi": "10.3390/nu18121858",
+        "study_type": "systematic_review",
+        "population": "humans (PubMed-indexed)",
+        "title": "The Integrative Role of Berberine in Gut Microbiota Modulation and Cardiometabolic Outcomes: A Systematic Review of Randomised Clinical Trials.",
+        "publication_date": "2026 Jun 9"
+      },
+      {
+        "compound_slug": "berberine",
+        "pmid_or_source": "42213651",
+        "doi": "10.1371/journal.pone.0348907",
+        "study_type": "meta_analysis",
+        "population": "humans (PubMed-indexed)",
+        "title": "Probiotics, synbiotics and berberine in Type 2 diabetes mellitus: A systematic review, meta-analysis, and molecular dynamics simulation study.",
+        "publication_date": "2026"
+      },
+      {
+        "compound_slug": "berberine",
+        "pmid_or_source": "42204774",
+        "doi": "10.14814/phy2.70937",
+        "study_type": "rct",
+        "population": "humans (PubMed-indexed)",
+        "title": "Dietary berberine supplementation improves select physiological and psychological responses during exertional heat stress: A pilot study in young adults.",
+        "publication_date": "2026 May"
+      }
+    ]
+  },
+  "scoring": {
+    "confidence_score": 1,
+    "evidence_strength": "high",
+    "confidence_reasoning": [
+      "Scoring Rules:\n- Human meta-analysis > randomized trial > observational > pilot.\n- Small sample sizes reduce confidence.\n- Missing source attribution reduces confidence.\n- Evidence confidence must remain conservative.\n- Never output certainty language.",
+      "systematic_review_detected",
+      "meta_analysis_detected",
+      "randomized_trial_detected"
+    ]
+  }
+}

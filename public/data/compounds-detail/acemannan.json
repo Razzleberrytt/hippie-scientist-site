@@ -29,14 +29,51 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 2,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "PubMed aloe polysaccharide studies.",
-      "claim:rg-0297"
+      "src_641600177dcb"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_21dfca3e375e",
+      "clm_f4f72a5ce0f7"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_21dfca3e375e",
+      "claim": "Insufficient reliable evidence identified.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Insufficient reliable evidence identified.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_81aee27a4913"
+      },
+      "sourceRefIds": [
+        "src_641600177dcb"
+      ]
+    },
+    {
+      "id": "clm_f4f72a5ce0f7",
+      "claim": "Immunomodulatory/wound-healing (preclinical dominant).",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Immunomodulatory/wound-healing (preclinical dominant).",
+      "qualifiers": {
+        "direction": "needs_source_check",
+        "study_id": "ent_study_81aee27a4913"
+      },
+      "sourceRefIds": [
+        "src_641600177dcb"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -78,13 +115,20 @@
     "Signaling pathway modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "inflammatory"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_641600177dcb",
+      "title": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
+      "citation": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
+      "note": "gap identification only; not used to populate factual fields",
+      "reviewStatus": "approved"
+    }
+  ]
 }

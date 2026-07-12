@@ -34,14 +34,51 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 2,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "PubMed olive polyphenol studies.",
-      "claim:rg-0650"
+      "src_6565dbc9d8b6"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_433a333b60df",
+      "clm_d93d075bcee9"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_433a333b60df",
+      "claim": "Olive antioxidant/cardiovascular.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Olive antioxidant/cardiovascular.",
+      "qualifiers": {
+        "direction": "needs_source_check",
+        "study_id": "ent_study_d802f058fec5"
+      },
+      "sourceRefIds": [
+        "src_6565dbc9d8b6"
+      ]
+    },
+    {
+      "id": "clm_d93d075bcee9",
+      "claim": "Insufficient reliable evidence identified.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Insufficient reliable evidence identified.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_d802f058fec5"
+      },
+      "sourceRefIds": [
+        "src_6565dbc9d8b6"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -87,13 +124,15 @@
     "Mitochondrial biogenesis",
     "Vascular function support",
     "HPA-axis modulation",
-    "NF-kB inhibition"
+    "NF-kB inhibition",
+    "Nrf2 activation"
   ],
   "mechanism_categories": [
     "core",
     "mitochondrial",
     "stress",
-    "inflammatory"
+    "inflammatory",
+    "redox"
   ],
   "mechanism_classes": [
     "Physiological effect",
@@ -102,15 +141,20 @@
     "Signaling pathway modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "Nrf2",
-    "Endothelial Function",
-    "Oxidative Stress"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Strong Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 95,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_6565dbc9d8b6",
+      "title": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
+      "citation": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
+      "note": "gap identification only; not used to populate factual fields",
+      "reviewStatus": "approved"
+    }
+  ]
 }

@@ -28,11 +28,95 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
+    "sourceIds": [
+      "src_52dfe1333a89",
+      "src_63a59e474b8d"
+    ],
+    "claimCount": 3,
+    "claimIds": [
+      "clm_3c7aea9c68b8",
+      "clm_8f9f6ca0bf7b",
+      "clm_a2f9d2a0001b"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_3c7aea9c68b8",
+      "claim": "HERB CHF trial; safety caution",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "HERB CHF trial; safety caution",
+      "qualifiers": {
+        "direction": "0",
+        "dose_or_duration": "450 mg twice daily; 6 months",
+        "population": "NYHA class II-III chronic heart failure",
+        "study_id": "ent_study_dacf1ee8b767"
+      },
+      "sourceRefIds": [
+        "src_63a59e474b8d"
+      ]
+    },
+    {
+      "id": "clm_8f9f6ca0bf7b",
+      "claim": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_7086ed4806e6"
+      },
+      "sourceRefIds": [
+        "src_52dfe1333a89"
+      ]
+    },
+    {
+      "id": "clm_a2f9d2a0001b",
+      "claim": "Mild heart failure support.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Mild heart failure support.",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_7086ed4806e6"
+      },
+      "sourceRefIds": [
+        "src_52dfe1333a89"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "sources": [
+    {
+      "id": "src_52dfe1333a89",
+      "title": "Hematospermia associated with congenital arteriovenous malformation of internal iliac vessels.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17470176/",
+      "doi": "10.1111/j.1442-2042.2007.01576.x",
+      "pmid": "17470176",
+      "year": "2007",
+      "journal": "Int J Urol",
+      "citation": "Author not retrieved (2007). Int J Urol. PMID: 17470176. DOI: 10.1111/j.1442-2042.2007.01576.x.",
+      "note": "source-backed gap-fill audit only; not a full monograph field extraction",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_63a59e474b8d",
+      "title": "PubMed PMID 19789403. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19789403/",
+      "pmid": "19789403",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 19789403. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

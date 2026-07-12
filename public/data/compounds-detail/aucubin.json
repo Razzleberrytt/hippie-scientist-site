@@ -31,15 +31,51 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "PMID 1924160.",
-      "claim:rg-0347",
-      "pmid:1924160"
+      "src_23380c161d65"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_7984a72db603",
+      "clm_cc2f9b9e82d6"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_7984a72db603",
+      "claim": "Hepatoprotective/anti-inflammatory; rat PK.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Hepatoprotective/anti-inflammatory; rat PK.",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_3bbddab808a6"
+      },
+      "sourceRefIds": [
+        "src_23380c161d65"
+      ]
+    },
+    {
+      "id": "clm_cc2f9b9e82d6",
+      "claim": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_3bbddab808a6"
+      },
+      "sourceRefIds": [
+        "src_23380c161d65"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -91,13 +127,25 @@
     "Signaling pathway modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "Oxidative Stress"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 95,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_23380c161d65",
+      "title": "Pharmacokinetic study of an iridoid glucoside: aucubin.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/1924160/",
+      "doi": "10.1023/a:1015821527621",
+      "pmid": "1924160",
+      "year": "1991",
+      "journal": "Pharm Res",
+      "citation": "Author not retrieved (1991). Pharm Res. PMID: 1924160. DOI: 10.1023/a:1015821527621.",
+      "note": "source-backed gap-fill audit only; not a full monograph field extraction",
+      "reviewStatus": "approved"
+    }
+  ]
 }

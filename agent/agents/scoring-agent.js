@@ -15,12 +15,23 @@ export function runScoringAgent(rows = []) {
     const studyType = String(row.study_type || '').toLowerCase()
     const sampleSize = Number.parseInt(row.sample_size || '0', 10)
 
+    if (String(row.pmid_or_source || '').startsWith('NCT') && row.registry_has_results !== true) {
+      reasoning.push('trial_registration_without_results')
+      continue
+    }
+
     if (studyType.includes('meta')) {
       score += 0.35
       reasoning.push('meta_analysis_detected')
-    } else if (studyType.includes('randomized')) {
+    } else if (studyType.includes('systematic')) {
+      score += 0.3
+      reasoning.push('systematic_review_detected')
+    } else if (studyType.includes('randomized') || studyType === 'rct') {
       score += 0.25
       reasoning.push('randomized_trial_detected')
+    } else if (studyType.includes('interventional') || studyType.includes('clinical_trial')) {
+      score += 0.15
+      reasoning.push('interventional_trial_detected')
     } else if (studyType.includes('observational')) {
       score += 0.1
       reasoning.push('observational_human_data_detected')
@@ -32,7 +43,7 @@ export function runScoringAgent(rows = []) {
     if (sampleSize > 150) {
       score += 0.2
       reasoning.push('larger_sample_size')
-    } else if (sampleSize < 25) {
+    } else if (sampleSize > 0 && sampleSize < 25) {
       score -= 0.15
       reasoning.push('small_sample_size')
     }

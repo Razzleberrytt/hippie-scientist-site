@@ -29,15 +29,36 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:study-row-111",
-      "https://pubmed.ncbi.nlm.nih.gov/35118966/",
-      "pmid:35118966"
+      "src_0f44264f53df"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_efebb9372fba"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_efebb9372fba",
+      "claim": "High safety caution",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "High safety caution",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "yohimbine; variable",
+        "population": "erectile dysfunction patients",
+        "study_id": "ent_study_883c6ee726bc"
+      },
+      "sourceRefIds": [
+        "src_0f44264f53df"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -78,13 +99,23 @@
     "Receptor interaction"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "metabolic"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Strong Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 90,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_0f44264f53df",
+      "title": "PubMed PMID 35118966. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35118966/",
+      "pmid": "35118966",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 35118966. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

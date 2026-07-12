@@ -16530,8 +16530,8 @@
   {
     "slug": "creatine",
     "name": "Creatine",
-    "summary": "May support memory and some attention/processing-speed outcomes, especially where brain energy demand is relevant.",
-    "description": "May support memory and some attention/processing-speed outcomes, especially where brain energy demand is relevant. Caveat: Do not imply universal nootropic effects, ADHD treatment, dementia prevention, or guaranteed focus boost.",
+    "summary": "Creatine monohydrate has strong human evidence for selected high-intensity exercise outcomes and can modestly support lean mass and strength, particularly alongside resistance training. Cognitive findings are more context-dependent and do not establish a universal nootropic effect.",
+    "description": "Meta-analytic evidence supports creatine for several high-intensity performance outcomes. In postmenopausal women, trials suggest small gains in lean mass and strength, especially when at least 5 g/day was paired with resistance training, while bone-density effects remain unclear. These population-specific study regimens are not universal dosing advice.",
     "effects": [
       "ATP regeneration",
       "muscle cells",
@@ -33686,7 +33686,7 @@
     "slug": "l-theanine",
     "name": "L-theanine",
     "summary": "L-theanine compound profile with evidence, safety, and practical fit.",
-    "description": "L-theanine compound profile with evidence, safety, and practical fit.",
+    "description": "A 2025 systematic review identified 13 human trials of standalone L-theanine for sleep-related outcomes and reported possible benefits across subjective and objective measures. Trial designs, doses, and populations varied, and better studies in people with clinical insomnia are still needed; this supports cautious sleep-support language, not an insomnia-treatment claim.",
     "effects": [
       "GABA",
       "glutamate"

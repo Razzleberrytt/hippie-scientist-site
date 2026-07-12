@@ -31,13 +31,68 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_87d243b041d4"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_3b4fe1712312",
+      "clm_97a960daa724"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_3b4fe1712312",
+      "claim": "Nootropic/apoptosis.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Nootropic/apoptosis.",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_0e88ef03419b"
+      },
+      "sourceRefIds": [
+        "src_87d243b041d4"
+      ]
+    },
+    {
+      "id": "clm_97a960daa724",
+      "claim": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_0e88ef03419b"
+      },
+      "sourceRefIds": [
+        "src_87d243b041d4"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_87d243b041d4",
+      "title": "The Purified Extract from the Medicinal Plant Bacopa monnieri, Bacopaside II, Inhibits Growth of Colon Cancer Cells In Vitro by Inducing Cell Cycle Arrest and Apoptosis.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30037060/",
+      "doi": "10.3390/cells7070081",
+      "pmid": "30037060",
+      "year": "2018",
+      "journal": "Cells",
+      "citation": "Author not retrieved (2018). Cells. PMID: 30037060. DOI: 10.3390/cells7070081.",
+      "note": "source-backed gap-fill audit only; not a full monograph field extraction",
+      "studyType": "Mechanistic",
+      "reviewStatus": "approved"
+    }
+  ]
 }

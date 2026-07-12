@@ -31,15 +31,51 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:rg-0512",
-      "https://pubmed.ncbi.nlm.nih.gov/31958255/",
-      "pmid:31958255"
+      "src_01811d8113ac"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_377ad916561b",
+      "clm_d5d9a5ad1b51"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_377ad916561b",
+      "claim": "Mechanism/background only; do not publish clinical benefit claims without human evidence.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Mechanism/background only; do not publish clinical benefit claims without human evidence.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_e479a531b94c"
+      },
+      "sourceRefIds": [
+        "src_01811d8113ac"
+      ]
+    },
+    {
+      "id": "clm_d5d9a5ad1b51",
+      "claim": "Antimicrobial/antitumor (preclinical).",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Antimicrobial/antitumor (preclinical).",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_e479a531b94c"
+      },
+      "sourceRefIds": [
+        "src_01811d8113ac"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -89,12 +125,25 @@
   "mechanism_target_systems": [],
   "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Neurotransmitter Modulation",
-    "Lipid Metabolism"
+    "Neurotransmitter Modulation"
   ],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 95,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_01811d8113ac",
+      "title": "Pharmacological applications of farnesol (C15H26O): a patent review.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31958255/",
+      "doi": "10.1080/13543776.2020.1718653",
+      "pmid": "31958255",
+      "year": "2020",
+      "journal": "Expert Opin Ther Pat",
+      "citation": "Author not retrieved (2020). Expert Opin Ther Pat. PMID: 31958255. DOI: 10.1080/13543776.2020.1718653.",
+      "note": "source-backed gap-fill audit only; not a full monograph field extraction",
+      "reviewStatus": "approved"
+    }
+  ]
 }

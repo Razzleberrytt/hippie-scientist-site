@@ -45,6 +45,13 @@
       "authors": "Wang X et al.",
       "year": 2025,
       "url": "https://pubmed.ncbi.nlm.nih.gov/41106096/"
+    },
+    {
+      "id": "src_b5b0b0a73b41",
+      "title": "v9.4: Mostly animal/preclinical and influencer hype; keep out of monetization until human evidence exists. | Source citation missing in workbook; queued for PMID/source verification before publication.",
+      "note": "needs_classification",
+      "studyType": "Animal",
+      "reviewStatus": "pending"
     }
   ],
   "governance": {
@@ -58,13 +65,33 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "27659301",
-      "29344414",
-      "41106096"
+      "src_b5b0b0a73b41"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_86dc74b5f5ce"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_86dc74b5f5ce",
+      "claim": "v9.4: Promising preclinical/traditional profile but not enough direct human outcome evidence for monetized recommendation. | Source citation missing in workbook; queued for PMID/source verification before publication.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.4: Promising preclinical/traditional profile but not enough direct human outcome evidence for monetized recommendation. | Source citation missing in workbook; queued for PMID/source verification before publication.",
+      "qualifiers": {
+        "direction": "energy, cognition",
+        "dose_or_duration": "Product-specific extract dosing varies; direct human outcome dose support is limited",
+        "study_id": "ent_study_589801351d56"
+      },
+      "sourceRefIds": [
+        "src_b5b0b0a73b41"
+      ]
+    }
+  ]
 }

@@ -49,6 +49,28 @@
       "authors": "Sirotkin AV et al.",
       "year": 2023,
       "url": "https://pubmed.ncbi.nlm.nih.gov/37493973/"
+    },
+    {
+      "id": "src_78113367eaf6",
+      "title": "Food-grade red chili extract in overweight subjects",
+      "url": "https://consensus.app/papers/influence-of-a-novel-foodgrade-formulation-of-red-chili-msc-phd/0708be05089558f6ae71ff919b6fab60/?utm_source=chatgpt",
+      "year": "2020",
+      "authors": "Joseph et al.",
+      "journal": "Journal of Dietary Supplements",
+      "citation": "Capsifen 200 mg/day providing 4 mg capsaicinoids/day for 28 days; n=24",
+      "note": "Capsicum formulation dose",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_862d85e3eb53",
+      "title": "Estimation of Dietary Capsaicinoid Exposure in Korea and Assessment of Its Health Effects",
+      "url": "https://consensus.app/papers/estimation-of-dietary-capsaicinoid-exposure-in-korea-and-kwon/c060344aae1a57aa8b0a5ace9318fa73/?utm_source=chatgpt",
+      "year": "2021",
+      "authors": "Kwon",
+      "journal": "Nutrients",
+      "citation": "Mean capsaicinoid intake 3.25 mg/day; abdominal pain reported; 30 mg/day may be max tolerable for long-term repeated consumption",
+      "note": "capsaicin exposure and GI tolerance",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -62,13 +84,54 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
     "sourceIds": [
-      "29083760",
-      "30000884",
-      "37493973"
+      "src_78113367eaf6",
+      "src_862d85e3eb53"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_1f8747f8f8d9",
+      "clm_5fed11c2cffc"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_1f8747f8f8d9",
+      "claim": "A sustained-release red chili extract formulation providing 4 mg capsaicinoids/day for 28 days was studied for appetite/body-weight outcomes in overweight adults.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "A sustained-release red chili extract formulation providing 4 mg capsaicinoids/day for 28 days was studied for appetite/body-weight outcomes in overweight adults.",
+      "qualifiers": {
+        "direction": "formulation-specific metabolic/appetite signal; not cognition",
+        "dose_or_duration": "Capsifen 200 mg once daily providing 4 mg capsaicinoids/day for 28 days",
+        "population": "24 healthy overweight subjects",
+        "study_id": "ent_study_686b18618858"
+      },
+      "sourceRefIds": [
+        "src_78113367eaf6"
+      ]
+    },
+    {
+      "id": "clm_5fed11c2cffc",
+      "claim": "Capsaicinoid dosing is dose-dependent and context-specific; typical dietary exposure may be below adverse-effect levels, but long-term higher-dose supplementation needs caution.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Capsaicinoid dosing is dose-dependent and context-specific; typical dietary exposure may be below adverse-effect levels, but long-term higher-dose supplementation needs caution.",
+      "qualifiers": {
+        "direction": "dose-dependent; benefits inconsistent",
+        "dose_or_duration": "Estimated typical intake 1–30 mg capsaicinoids/day; clinical studies used 2–135 mg; 30 mg may be maximum tolerable dose for repeated long-term consumption in this context",
+        "population": "Korean population dietary intake estimate; clinical studies summarized",
+        "study_id": "ent_study_e0499b59f893"
+      },
+      "sourceRefIds": [
+        "src_862d85e3eb53"
+      ]
+    }
+  ]
 }

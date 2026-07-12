@@ -30,13 +30,140 @@
     "reason": "curated_allowlist"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 4,
+    "sourceIds": [
+      "src_3360127d4eb9",
+      "src_46d014a9f663",
+      "src_5ec9a8f4ea44",
+      "src_fe3eabf330c8"
+    ],
+    "claimCount": 4,
+    "claimIds": [
+      "clm_34a6c07f6148",
+      "clm_5297cd0f52bb",
+      "clm_9bc3ec7c2f98",
+      "clm_f1c55367c574"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_34a6c07f6148",
+      "claim": "glucose reduction comparable to metformin",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "glucose reduction comparable to metformin",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "500 mg TID; 3 months",
+        "population": "type 2 diabetes",
+        "study_id": "ent_study_03db07bf5224"
+      },
+      "sourceRefIds": [
+        "src_5ec9a8f4ea44"
+      ]
+    },
+    {
+      "id": "clm_5297cd0f52bb",
+      "claim": "glucose reduction",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "glucose reduction",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "500 mg TID; varies",
+        "population": "diabetics",
+        "study_id": "ent_study_41a0bf417544"
+      },
+      "sourceRefIds": [
+        "src_fe3eabf330c8"
+      ]
+    },
+    {
+      "id": "clm_9bc3ec7c2f98",
+      "claim": "improved lipid profile",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "improved lipid profile",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "500 mg TID; varies",
+        "population": "adults",
+        "study_id": "ent_study_804e42b7fa4b"
+      },
+      "sourceRefIds": [
+        "src_3360127d4eb9"
+      ]
+    },
+    {
+      "id": "clm_f1c55367c574",
+      "claim": "improved insulin response",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "improved insulin response",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "500 mg; 12 weeks",
+        "population": "diabetics",
+        "study_id": "ent_study_e2e6e9a22e7e"
+      },
+      "sourceRefIds": [
+        "src_46d014a9f663"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_3360127d4eb9",
+      "title": "PubMed PMID 25676062. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25676062/",
+      "pmid": "25676062",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 25676062. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_46d014a9f663",
+      "title": "PubMed PMID 21346706. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21346706/",
+      "pmid": "21346706",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 21346706. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_5ec9a8f4ea44",
+      "title": "PubMed PMID 18442638. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18442638/",
+      "pmid": "18442638",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 18442638. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_fe3eabf330c8",
+      "title": "PubMed PMID 22739410. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22739410/",
+      "pmid": "22739410",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 22739410. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

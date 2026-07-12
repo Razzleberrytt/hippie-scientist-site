@@ -44,6 +44,30 @@
       "authors": "Dai YL et al.",
       "year": 2022,
       "url": "https://pubmed.ncbi.nlm.nih.gov/36615326/"
+    },
+    {
+      "id": "src_260b165ed8d2",
+      "title": "The Effect of Oral Chamomile on Anxiety: A Systematic Review of Clinical Trials",
+      "url": "https://consensus.app/papers/the-effect-of-oral-chamomile-on-anxiety-a-systematic-review-saadatmand-zohroudi/7de23efdbf525d5986abf12902117c10/?utm_source=chatgpt",
+      "year": "2024",
+      "authors": "Sogand Saadatmand; Foad Zohroudi; Hadith Tangestani",
+      "journal": "Clinical Nutrition Research",
+      "citation": "Consensus result; citation_count=15; record_type=systematic_review",
+      "note": "chamomile oral anxiety evidence",
+      "studyType": "Systematic review",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_fa1aef801f0c",
+      "title": "Effects of chamomile (Matricaria chamomilla L.) on sleep: A systematic review and meta-analysis of clinical trials",
+      "url": "https://consensus.app/papers/effects-of-chamomile-matricaria-chamomilla-l-on-sleep-a-kazemi-shojaeizarghani/fa93a0e564ed53d7aca5465ee56772c3/?utm_source=chatgpt",
+      "year": "2024",
+      "authors": "Asma Kazemi; S. Shojaei-Zarghani; Parham Eskandarzadeh; Mohammad Hashem Hashempur",
+      "journal": "Complementary Therapies in Medicine",
+      "citation": "Consensus result; citation_count=28; record_type=systematic_review_meta_analysis",
+      "note": "chamomile sleep quality evidence and limitation flags",
+      "studyType": "Meta-analysis",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -57,13 +81,54 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
     "sourceIds": [
-      "29280987",
-      "32478963",
-      "36615326"
+      "src_260b165ed8d2",
+      "src_fa1aef801f0c"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_26966a34f7b0",
+      "clm_6047bbde7aa0"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_26966a34f7b0",
+      "claim": "Oral chamomile may reduce anxiety symptoms, but evidence needs stronger standardization.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Oral chamomile may reduce anxiety symptoms, but evidence needs stronger standardization.",
+      "qualifiers": {
+        "direction": "supportive",
+        "dose_or_duration": "oral chamomile; varied forms",
+        "population": "Clinical trial participants with anxiety symptoms",
+        "study_id": "ent_study_ef8bd7eb7848"
+      },
+      "sourceRefIds": [
+        "src_260b165ed8d2"
+      ]
+    },
+    {
+      "id": "clm_6047bbde7aa0",
+      "claim": "Chamomile may improve sleep quality, especially subjective PSQI scores and nighttime awakenings, but evidence has heterogeneity and limited objective data.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Chamomile may improve sleep quality, especially subjective PSQI scores and nighttime awakenings, but evidence has heterogeneity and limited objective data.",
+      "qualifiers": {
+        "direction": "supportive_subjective",
+        "dose_or_duration": "varied chamomile preparations",
+        "population": "Adults healthy or diseased populations",
+        "study_id": "ent_study_85afd92052a7"
+      },
+      "sourceRefIds": [
+        "src_fa1aef801f0c"
+      ]
+    }
+  ]
 }

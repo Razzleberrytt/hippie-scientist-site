@@ -29,15 +29,51 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:rg-0291",
-      "https://pubmed.ncbi.nlm.nih.gov/15070181/; https://pubmed.ncbi.nlm.nih.gov/22167571/",
-      "pmid:15070181; 22167571"
+      "src_3bc3ceb5a629"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_9f397ee5715f",
+      "clm_a81cd305c800"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_9f397ee5715f",
+      "claim": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_f58bc658e59c"
+      },
+      "sourceRefIds": [
+        "src_3bc3ceb5a629"
+      ]
+    },
+    {
+      "id": "clm_a81cd305c800",
+      "claim": "PK/bioavailability confirmed; food effect increases absorption; 5-LOX/inflammation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "PK/bioavailability confirmed; food effect increases absorption; 5-LOX/inflammation.",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_f58bc658e59c"
+      },
+      "sourceRefIds": [
+        "src_3bc3ceb5a629"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -85,13 +121,21 @@
     "Signaling pathway modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "inflammatory"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_3bc3ceb5a629",
+      "title": "PK/bioavailability confirmed; food effect increases absorption; 5-LOX/inflammation.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15070181/; https://pubmed.ncbi.nlm.nih.gov/22167571/",
+      "pmid": "15070181; 22167571",
+      "note": "human_pk",
+      "reviewStatus": "pending"
+    }
+  ]
 }

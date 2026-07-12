@@ -27,17 +27,55 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 5,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
     "sourceIds": [
-      "claim:study-row-217",
-      "claim:study-row-63",
-      "https://ods.od.nih.gov/factsheets/Iodine-HealthProfessional/",
-      "https://pubmed.ncbi.nlm.nih.gov/15734706/",
-      "pmid:15734706"
+      "src_0abece3aa01b",
+      "src_991903c9ff62"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_173feb9f336a",
+      "clm_39991709464b"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_173feb9f336a",
+      "claim": "v10.0: Iodine is essential but over-supplementation can worsen thyroid problems; position as adequacy support only.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v10.0: Iodine is essential but over-supplementation can worsen thyroid problems; position as adequacy support only.",
+      "qualifiers": {
+        "direction": "thyroid_health",
+        "dose_or_duration": "Adult RDA 150 mcg/day iodine; pregnancy 220 mcg/day; lactation 290 mcg/day; adult UL 1100 mcg/day",
+        "study_id": "ent_study_0dd829423d9a"
+      },
+      "sourceRefIds": [
+        "src_991903c9ff62"
+      ]
+    },
+    {
+      "id": "clm_39991709464b",
+      "claim": "improved cognition",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "improved cognition",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "150 mcg; 24 weeks",
+        "population": "children",
+        "study_id": "ent_study_16aefa1c62dc"
+      },
+      "sourceRefIds": [
+        "src_0abece3aa01b"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [
@@ -60,10 +98,8 @@
     "Physiological effect"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "endocrine"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Mechanistic Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
@@ -80,5 +116,24 @@
     "summary-present",
     "summary-quality-missing"
   ],
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_0abece3aa01b",
+      "title": "PubMed PMID 15734706. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15734706/",
+      "pmid": "15734706",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 15734706. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_991903c9ff62",
+      "title": "v10.0: Iodine is essential but over-supplementation can worsen thyroid problems; position as adequacy support only.",
+      "url": "https://ods.od.nih.gov/factsheets/Iodine-HealthProfessional/",
+      "note": "needs_classification",
+      "reviewStatus": "pending"
+    }
+  ]
 }

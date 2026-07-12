@@ -85,7 +85,42 @@
   "featured": false,
   "controlled_substance": false,
   "safety": "Generally well tolerated for most users.",
-  "sources": [],
+  "sources": [
+    {
+      "id": "src_6b0972925707",
+      "title": "Spicy Food and Chili Peppers and Multiple Health Outcomes: Umbrella Review",
+      "url": "https://consensus.app/papers/spicy-food-and-chili-peppers-and-multiple-health-outcomes-ao-huang/3c578e8dc02759e09f8fe1f74f33f490/?utm_source=chatgpt",
+      "year": "2022",
+      "authors": "Ao, Huang, Liu",
+      "journal": "Molecular Nutrition & Food Research",
+      "citation": "11 systematic reviews/meta-analyses; health effects unclear; side effects confirmed; context matters",
+      "note": "capsicum/capsaicin claim caution",
+      "studyType": "Systematic review",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_862d85e3eb53",
+      "title": "Estimation of Dietary Capsaicinoid Exposure in Korea and Assessment of Its Health Effects",
+      "url": "https://consensus.app/papers/estimation-of-dietary-capsaicinoid-exposure-in-korea-and-kwon/c060344aae1a57aa8b0a5ace9318fa73/?utm_source=chatgpt",
+      "year": "2021",
+      "authors": "Kwon",
+      "journal": "Nutrients",
+      "citation": "Mean capsaicinoid intake 3.25 mg/day; abdominal pain reported; 30 mg/day may be max tolerable for long-term repeated consumption",
+      "note": "capsaicin exposure and GI tolerance",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_f2f784543ec2",
+      "title": "Capsaicin: A Potential Treatment to Improve Cerebrovascular Function and Cognition",
+      "url": "https://consensus.app/papers/capsaicin-a-potential-treatment-to-improve-thornton-mills/bb3af088d00b5315aaf398cbe7741512/?utm_source=chatgpt",
+      "year": "2023",
+      "authors": "Thornton; Mills; Bliss",
+      "journal": "Nutrients",
+      "citation": "Adequate human cognition/cerebrovascular studies do not exist",
+      "note": "cognition caution",
+      "reviewStatus": "approved"
+    }
+  ],
   "governance": {
     "reviewStatus": "needs_review",
     "legalRisk": "none",
@@ -97,9 +132,74 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 3,
+    "sourceIds": [
+      "src_6b0972925707",
+      "src_862d85e3eb53",
+      "src_f2f784543ec2"
+    ],
+    "claimCount": 3,
+    "claimIds": [
+      "clm_3f2c6fdfb42b",
+      "clm_8d85bf0ea6e8",
+      "clm_e50de9e3cd2b"
+    ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_3f2c6fdfb42b",
+      "claim": "Capsaicin safety is dose-dependent; typical dietary exposures may be tolerated, but abdominal pain/GI distress can occur and high-dose supplemental use needs caution.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Capsaicin safety is dose-dependent; typical dietary exposures may be tolerated, but abdominal pain/GI distress can occur and high-dose supplemental use needs caution.",
+      "qualifiers": {
+        "direction": "generally below adverse-effect levels; abdominal pain signal",
+        "dose_or_duration": "Common exposure 1-30 mg capsaicinoids/day; 30 mg/day may be max tolerable for repeated long-term intake",
+        "population": "Korean dietary exposure context",
+        "study_id": "ent_study_480b0a993d1b"
+      },
+      "sourceRefIds": [
+        "src_862d85e3eb53"
+      ]
+    },
+    {
+      "id": "clm_8d85bf0ea6e8",
+      "claim": "Capsicum/capsaicin should not be over-positioned for broad health claims; benefits are disputed and context-dependent.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Capsicum/capsaicin should not be over-positioned for broad health claims; benefits are disputed and context-dependent.",
+      "qualifiers": {
+        "direction": "mixed/unclear health effects; side effects confirmed",
+        "dose_or_duration": "Dietary spicy food/chili contexts",
+        "population": "Humans across systematic reviews/meta-analyses",
+        "study_id": "ent_study_9472a79dd018"
+      },
+      "sourceRefIds": [
+        "src_6b0972925707"
+      ]
+    },
+    {
+      "id": "clm_e50de9e3cd2b",
+      "claim": "Capsaicin has promising animal/mechanistic cognition data, but adequate human studies on cognition/cerebrovascular outcomes do not exist yet.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Capsaicin has promising animal/mechanistic cognition data, but adequate human studies on cognition/cerebrovascular outcomes do not exist yet.",
+      "qualifiers": {
+        "direction": "insufficient human evidence for claim",
+        "dose_or_duration": "not applicable",
+        "population": "Human cognition/cerebrovascular trials lacking",
+        "study_id": "ent_study_2258cfb6ce2b"
+      },
+      "sourceRefIds": [
+        "src_f2f784543ec2"
+      ]
+    }
+  ]
 }

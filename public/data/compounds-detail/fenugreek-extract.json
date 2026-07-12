@@ -28,13 +28,68 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_3186bb29bfe3"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_15b6fc907fa9",
+      "clm_64cf1f20e0ec"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_15b6fc907fa9",
+      "claim": "Testosterone/metabolic in RCTs.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Testosterone/metabolic in RCTs.",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_a89dddab1468"
+      },
+      "sourceRefIds": [
+        "src_3186bb29bfe3"
+      ]
+    },
+    {
+      "id": "clm_64cf1f20e0ec",
+      "claim": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_a89dddab1468"
+      },
+      "sourceRefIds": [
+        "src_3186bb29bfe3"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_3186bb29bfe3",
+      "title": "Effect of fenugreek extract supplement on testosterone levels in male: A meta-analysis of clinical trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32048383/",
+      "doi": "10.1002/ptr.6627",
+      "pmid": "32048383",
+      "year": "2020",
+      "journal": "Phytother Res",
+      "citation": "Author not retrieved (2020). Phytother Res. PMID: 32048383. DOI: 10.1002/ptr.6627.",
+      "note": "source-backed gap-fill audit only; not a full monograph field extraction",
+      "studyType": "Meta-analysis",
+      "reviewStatus": "approved"
+    }
+  ]
 }

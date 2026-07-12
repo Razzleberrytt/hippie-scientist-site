@@ -34,15 +34,51 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:rg-0452",
-      "https://pubmed.ncbi.nlm.nih.gov/35095483/",
-      "pmid:35095483"
+      "src_63b46f54ccdd"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_3427bf06027d",
+      "clm_cb0aa66d3325"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_3427bf06027d",
+      "claim": "PI3K/Akt/Nrf2 antioxidant.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "PI3K/Akt/Nrf2 antioxidant.",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_07fdd89cbfa7"
+      },
+      "sourceRefIds": [
+        "src_63b46f54ccdd"
+      ]
+    },
+    {
+      "id": "clm_cb0aa66d3325",
+      "claim": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_07fdd89cbfa7"
+      },
+      "sourceRefIds": [
+        "src_63b46f54ccdd"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -88,28 +124,43 @@
     "Mitochondrial biogenesis",
     "Metabolic regulation",
     "Vascular function support",
-    "HPA-axis modulation"
+    "HPA-axis modulation",
+    "Nrf2 activation",
+    "Lipid metabolism support"
   ],
   "mechanism_categories": [
     "core",
     "mitochondrial",
-    "stress"
+    "stress",
+    "redox"
   ],
   "mechanism_classes": [
     "Physiological effect",
     "Physiological/cellular effect",
-    "Neuroendocrine modulation"
+    "Neuroendocrine modulation",
+    "Signaling pathway modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "Nrf2",
-    "Lipid Metabolism",
-    "Oxidative Stress"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_63b46f54ccdd",
+      "title": "Crocetin: A Systematic Review.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35095483/",
+      "doi": "10.3389/fphar.2021.745683",
+      "pmid": "35095483",
+      "year": "2021",
+      "journal": "Front Pharmacol",
+      "citation": "Author not retrieved (2021). Front Pharmacol. PMID: 35095483. DOI: 10.3389/fphar.2021.745683.",
+      "note": "source-backed gap-fill audit only; not a full monograph field extraction",
+      "studyType": "Systematic review",
+      "reviewStatus": "approved"
+    }
+  ]
 }

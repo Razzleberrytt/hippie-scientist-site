@@ -28,11 +28,47 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_36895c5bc0d1"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_ffe6364b7c92"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_ffe6364b7c92",
+      "claim": "v9.7: Chondroitin evidence is mixed and product quality varies; conservative OA symptom support only.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.7: Chondroitin evidence is mixed and product quality varies; conservative OA symptom support only.",
+      "qualifiers": {
+        "direction": "joints, pain",
+        "dose_or_duration": "800–1200 mg/day chondroitin sulfate in osteoarthritis trials",
+        "study_id": "ent_study_046d4e930818"
+      },
+      "sourceRefIds": [
+        "src_36895c5bc0d1"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "sources": [
+    {
+      "id": "src_36895c5bc0d1",
+      "title": "PubMed PMID 17470980. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17470980/",
+      "pmid": "17470980",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 17470980. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

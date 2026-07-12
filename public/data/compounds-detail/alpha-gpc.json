@@ -31,13 +31,67 @@
     "reason": "curated_allowlist"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_27246dab02a6"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_1bf5eb8f335b",
+      "clm_9a29339ab37a"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_1bf5eb8f335b",
+      "claim": "v9.8: Alpha-GPC has more clinical-impairment evidence than healthy nootropic evidence; keep low priority.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.8: Alpha-GPC has more clinical-impairment evidence than healthy nootropic evidence; keep low priority.",
+      "qualifiers": {
+        "direction": "focus, cognition",
+        "dose_or_duration": "600 mg acute for performance contexts; 1200 mg/day used in cognitive impairment contexts",
+        "study_id": "ent_study_da1eec75e537"
+      },
+      "sourceRefIds": [
+        "src_27246dab02a6"
+      ]
+    },
+    {
+      "id": "clm_9a29339ab37a",
+      "claim": "v8.2: Alpha-GPC has clinical trial evidence in cognitive impairment contexts; consumer nootropic evidence is more limited.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v8.2: Alpha-GPC has clinical trial evidence in cognitive impairment contexts; consumer nootropic evidence is more limited.",
+      "qualifiers": {
+        "direction": "focus, cognition",
+        "dose_or_duration": "600 mg acute for performance contexts; 1200 mg/day used in cognitive impairment contexts",
+        "study_id": "ent_study_523395f631fa"
+      },
+      "sourceRefIds": [
+        "src_27246dab02a6"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_27246dab02a6",
+      "title": "PubMed PMID 14767959. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/14767959/",
+      "pmid": "14767959",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 14767959. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

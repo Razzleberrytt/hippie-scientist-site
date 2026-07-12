@@ -49,6 +49,16 @@
       "authors": "Hawkins J et al.",
       "year": 2019,
       "url": "https://pubmed.ncbi.nlm.nih.gov/30670267/"
+    },
+    {
+      "id": "src_28c26c941797",
+      "title": "PubMed PMID 30670267. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30670267/",
+      "pmid": "30670267",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 30670267. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -62,18 +72,35 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 6,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "30670267",
-      "33827515",
-      "35348337",
-      "claim:study-row-205",
-      "https://pubmed.ncbi.nlm.nih.gov/30670267/ | https://pubmed.ncbi.nlm.nih.gov/15080016/",
-      "pmid:30670267"
+      "src_28c26c941797"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_a3259e2394ab"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_a3259e2394ab",
+      "claim": "v9.9: Some human evidence suggests shorter respiratory symptoms, but study sizes and products are limited.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.9: Some human evidence suggests shorter respiratory symptoms, but study sizes and products are limited.",
+      "qualifiers": {
+        "direction": "immunity, respiratory",
+        "dose_or_duration": "Elderberry syrup/extract dosing varies by product; trial regimens are product-specific",
+        "study_id": "ent_study_fb54c2bb30e3"
+      },
+      "sourceRefIds": [
+        "src_28c26c941797"
+      ]
+    }
+  ],
   "effects": [
     "antiviral",
     "respiratory"
@@ -101,10 +128,8 @@
     "Physiological effect"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "Oxidative Stress"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Strong Human Evidence",
   "profile_status": "partial",
   "runtime_export_decision": "full_public_runtime",

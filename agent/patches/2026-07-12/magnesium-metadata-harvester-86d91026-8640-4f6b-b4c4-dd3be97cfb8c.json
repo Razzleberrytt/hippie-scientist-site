@@ -1,0 +1,125 @@
+{
+  "patch_id": "86d91026-8640-4f6b-b4c4-dd3be97cfb8c",
+  "schema_version": "2.0",
+  "source_agent": "metadata-harvester",
+  "agent_version": "2.0",
+  "created_at": "2026-07-12T22:09:22.604Z",
+  "slug": "magnesium",
+  "patch_type": "evidence",
+  "research_depth": "lightweight_enrichment",
+  "metadata_sources": [
+    "pubmed",
+    "clinicaltrials"
+  ],
+  "confidence_notes": [],
+  "seo_assets": {
+    "faq_candidates": [
+      "What is magnesium used for?",
+      "Is magnesium evidence-based?"
+    ],
+    "seo_topics": [
+      "magnesium benefits",
+      "magnesium safety",
+      "magnesium evidence"
+    ],
+    "internal_link_targets": [
+      "sleep",
+      "focus",
+      "recovery"
+    ],
+    "comparison_candidates": [
+      "magnesium vs magnesium"
+    ],
+    "best_for": [
+      "general wellness"
+    ],
+    "avoid_if": [
+      "medication interactions"
+    ],
+    "product_quality_notes": [
+      "Prefer reputable third-party tested brands"
+    ]
+  },
+  "review_flags": [],
+  "evidence": [
+    {
+      "compound_slug": "magnesium",
+      "pmid_or_source": "42417898",
+      "doi": "10.1007/s11916-026-01522-3",
+      "study_type": "meta_analysis",
+      "population": "humans (PubMed-indexed)",
+      "title": "Safety and Efficacy of Perioperative Magnesium Sulfate Injection for Postoperative Pain Management and Opioid Sparing Effects in Surgeries of the Nervous System: A Systematic Review and Meta Analysis.",
+      "publication_date": "2026 Jul 8"
+    },
+    {
+      "compound_slug": "magnesium",
+      "pmid_or_source": "42206948",
+      "doi": "10.1097/CCM.0000000000007162",
+      "study_type": "rct",
+      "population": "humans (PubMed-indexed)",
+      "title": "Magnesium Sulfate to Prevent Perioperative Atrial Fibrillation in Cardiac Surgery: A Randomized Clinical Trial.",
+      "publication_date": "2026 Jul 1"
+    },
+    {
+      "compound_slug": "magnesium",
+      "pmid_or_source": "NCT03265483",
+      "study_type": "interventional",
+      "population": "ALL, 40 Years–85 Years",
+      "sample_size": "180",
+      "registry_has_results": true,
+      "title": "Magnesium Treatment on Vitamin D Metabolism in Participants Completed Personalized Prevention of Colorectal Cancer Trial"
+    }
+  ],
+  "validation": {
+    "patch_type": "validated_evidence",
+    "patch_id": "60719724-97c6-472f-9bcc-1fa2a097603e",
+    "schema_version": "1.0",
+    "source_agent": "validation-agent",
+    "agent_version": "1.5",
+    "slug": "magnesium",
+    "created_at": "2026-07-12T22:09:22.604Z",
+    "system_prompt": "You are the Validation Firewall for The Hippie Scientist.\nReject hallucinated citations, animal-only data, in-vitro-only data, vague claims, unsupported medical claims, and low-quality entries.\nBe extremely strict and conservative.",
+    "validation_status": "approved",
+    "rejection_reasons": [],
+    "entries": [
+      {
+        "compound_slug": "magnesium",
+        "pmid_or_source": "42417898",
+        "doi": "10.1007/s11916-026-01522-3",
+        "study_type": "meta_analysis",
+        "population": "humans (PubMed-indexed)",
+        "title": "Safety and Efficacy of Perioperative Magnesium Sulfate Injection for Postoperative Pain Management and Opioid Sparing Effects in Surgeries of the Nervous System: A Systematic Review and Meta Analysis.",
+        "publication_date": "2026 Jul 8"
+      },
+      {
+        "compound_slug": "magnesium",
+        "pmid_or_source": "42206948",
+        "doi": "10.1097/CCM.0000000000007162",
+        "study_type": "rct",
+        "population": "humans (PubMed-indexed)",
+        "title": "Magnesium Sulfate to Prevent Perioperative Atrial Fibrillation in Cardiac Surgery: A Randomized Clinical Trial.",
+        "publication_date": "2026 Jul 1"
+      },
+      {
+        "compound_slug": "magnesium",
+        "pmid_or_source": "NCT03265483",
+        "study_type": "interventional",
+        "population": "ALL, 40 Years–85 Years",
+        "sample_size": "180",
+        "registry_has_results": true,
+        "title": "Magnesium Treatment on Vitamin D Metabolism in Participants Completed Personalized Prevention of Colorectal Cancer Trial"
+      }
+    ]
+  },
+  "scoring": {
+    "confidence_score": 1,
+    "evidence_strength": "high",
+    "confidence_reasoning": [
+      "Scoring Rules:\n- Human meta-analysis > randomized trial > observational > pilot.\n- Small sample sizes reduce confidence.\n- Missing source attribution reduces confidence.\n- Evidence confidence must remain conservative.\n- Never output certainty language.",
+      "meta_analysis_detected",
+      "randomized_trial_detected",
+      "interventional_trial_detected",
+      "larger_sample_size"
+    ]
+  }
+}

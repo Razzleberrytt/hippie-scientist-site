@@ -29,15 +29,51 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:rg-0478",
-      "https://pubmed.ncbi.nlm.nih.gov/21908763/",
-      "pmid:21908763"
+      "src_8758602026c9"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_799998d54c36",
+      "clm_e62f439562a5"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_799998d54c36",
+      "claim": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_353a3a3427e0"
+      },
+      "sourceRefIds": [
+        "src_8758602026c9"
+      ]
+    },
+    {
+      "id": "clm_e62f439562a5",
+      "claim": "GABAergic/monoamine.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "GABAergic/monoamine.",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_353a3a3427e0"
+      },
+      "sourceRefIds": [
+        "src_8758602026c9"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -85,12 +121,25 @@
   "mechanism_target_systems": [],
   "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Neurotransmitter Modulation",
-    "neuroprotective"
+    "Neurotransmitter Modulation"
   ],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_8758602026c9",
+      "title": "Methysticin and 7,8-dihydromethysticin are two major kavalactones in kava extract to induce CYP1A1.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21908763/",
+      "doi": "10.1093/toxsci/kfr235",
+      "pmid": "21908763",
+      "year": "2011",
+      "journal": "Toxicol Sci",
+      "citation": "Author not retrieved (2011). Toxicol Sci. PMID: 21908763. DOI: 10.1093/toxsci/kfr235.",
+      "note": "source-backed gap-fill audit only; not a full monograph field extraction",
+      "reviewStatus": "approved"
+    }
+  ]
 }

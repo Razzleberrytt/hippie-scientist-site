@@ -26,15 +26,35 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:study-row-145",
-      "https://pubmed.ncbi.nlm.nih.gov/11752510/ | https://pubmed.ncbi.nlm.nih.gov/12244878/",
-      "pmid:11752510"
+      "src_0faf9710cf5a"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_2e3514fa9598"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_2e3514fa9598",
+      "claim": "v9.2: Human low-back-pain data used 240 mg salicin/day; salicylate safety cautions are essential.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.2: Human low-back-pain data used 240 mg salicin/day; salicylate safety cautions are essential.",
+      "qualifiers": {
+        "direction": "pain, inflammation",
+        "dose_or_duration": "120–240 mg/day salicin-equivalent willow bark extract",
+        "study_id": "ent_study_e513f6c2918f"
+      },
+      "sourceRefIds": [
+        "src_0faf9710cf5a"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -78,5 +98,17 @@
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 85,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_0faf9710cf5a",
+      "title": "PubMed PMID 11752510. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11752510/",
+      "pmid": "11752510",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 11752510. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

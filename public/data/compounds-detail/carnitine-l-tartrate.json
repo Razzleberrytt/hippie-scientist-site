@@ -28,15 +28,35 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:study-row-137",
-      "https://pubmed.ncbi.nlm.nih.gov/12930169/",
-      "pmid:12930169"
+      "src_9b85ebb8daf4"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_b2fee3be9168"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_b2fee3be9168",
+      "claim": "v8.2: L-carnitine L-tartrate has human exercise recovery evidence, but claims should stay recovery-specific.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v8.2: L-carnitine L-tartrate has human exercise recovery evidence, but claims should stay recovery-specific.",
+      "qualifiers": {
+        "direction": "performance, recovery",
+        "dose_or_duration": "1–2 g/day L-carnitine L-tartrate in exercise recovery studies",
+        "study_id": "ent_study_d17bd980eee6"
+      },
+      "sourceRefIds": [
+        "src_9b85ebb8daf4"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -83,13 +103,23 @@
     "Neuroendocrine modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "Oxidative Stress"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 95,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_9b85ebb8daf4",
+      "title": "PubMed PMID 12930169. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12930169/",
+      "pmid": "12930169",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 12930169. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

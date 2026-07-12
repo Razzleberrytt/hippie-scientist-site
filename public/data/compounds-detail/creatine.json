@@ -28,13 +28,180 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 4,
+    "sourceIds": [
+      "src_319bf8dafaf1",
+      "src_9ba65a7d6204",
+      "src_b08316272e24",
+      "src_da5119881f63"
+    ],
+    "claimCount": 6,
+    "claimIds": [
+      "clm_09966084228d",
+      "clm_1a3a1aaa5675",
+      "clm_2d1b60e13000",
+      "clm_aedffdaf92ed",
+      "clm_c038938275d8",
+      "clm_d43d935230dc"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_09966084228d",
+      "claim": "increased muscle mass",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "increased muscle mass",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "3–5 g; varies",
+        "population": "athletes",
+        "study_id": "ent_study_1613b2337f0c"
+      },
+      "sourceRefIds": [
+        "src_b08316272e24"
+      ]
+    },
+    {
+      "id": "clm_1a3a1aaa5675",
+      "claim": "strength increase",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "strength increase",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "3–5 g; varies",
+        "population": "athletes",
+        "study_id": "ent_study_78582033ecb9"
+      },
+      "sourceRefIds": [
+        "src_b08316272e24"
+      ]
+    },
+    {
+      "id": "clm_2d1b60e13000",
+      "claim": "improved working memory and intelligence tasks",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "improved working memory and intelligence tasks",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "5 g/day; 6 weeks",
+        "population": "healthy adults",
+        "study_id": "ent_study_f370c977f8b8"
+      },
+      "sourceRefIds": [
+        "src_319bf8dafaf1"
+      ]
+    },
+    {
+      "id": "clm_aedffdaf92ed",
+      "claim": "Creatine monohydrate may support memory and some attention/processing-speed outcomes in adults, but evidence is domain-specific rather than a broad cognition guarantee.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Creatine monohydrate may support memory and some attention/processing-speed outcomes in adults, but evidence is domain-specific rather than a broad cognition guarantee.",
+      "qualifiers": {
+        "direction": "supportive_form_specific",
+        "dose_or_duration": "Creatine monohydrate; intervention durations varied; dose not standardized in row",
+        "population": "Adults; healthy and disease-specific populations",
+        "study_id": "ent_study_599f567606f4"
+      },
+      "sourceRefIds": [
+        "src_da5119881f63"
+      ]
+    },
+    {
+      "id": "clm_c038938275d8",
+      "claim": "improved cognitive resilience",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "improved cognitive resilience",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "5 g; acute",
+        "population": "sleep-deprived adults",
+        "study_id": "ent_study_fb254facbe55"
+      },
+      "sourceRefIds": [
+        "src_9ba65a7d6204"
+      ]
+    },
+    {
+      "id": "clm_d43d935230dc",
+      "claim": "reduced fatigue",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "reduced fatigue",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "5 g; 6 weeks",
+        "population": "adults",
+        "study_id": "ent_study_9cdd880b2869"
+      },
+      "sourceRefIds": [
+        "src_319bf8dafaf1"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_319bf8dafaf1",
+      "title": "PubMed PMID 19773644. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19773644/",
+      "pmid": "19773644",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 19773644. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_9ba65a7d6204",
+      "title": "PubMed PMID 16416332. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/16416332/",
+      "pmid": "16416332",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 16416332. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_b08316272e24",
+      "title": "PubMed PMID 28615996. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28615996/",
+      "pmid": "28615996",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 28615996. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_da5119881f63",
+      "title": "The effects of creatine supplementation on cognitive function in adults: a systematic review and meta-analysis",
+      "url": "https://consensus.app/papers/the-effects-of-creatine-supplementation-on-cognitive-xu-bi/54813b2512da51388b5b582d3efdfa9d/?utm_source=chatgpt",
+      "year": "2024",
+      "authors": "Xu et al.",
+      "journal": "Frontiers in Nutrition",
+      "citation": "Sixteen RCTs; creatine monohydrate; memory evidence moderate certainty; processing speed/attention lower certainty.",
+      "note": "evidence;dose_form;runtime_claim_gate",
+      "studyType": "Meta-analysis",
+      "reviewStatus": "approved"
+    }
+  ]
 }

@@ -49,6 +49,26 @@
       "authors": "Inchingolo AD et al.",
       "year": 2022,
       "url": "https://pubmed.ncbi.nlm.nih.gov/36079777/"
+    },
+    {
+      "id": "src_341679e94c68",
+      "title": "PubMed PMID 23347199. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23347199/",
+      "pmid": "23347199",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 23347199. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_b60492c555a2",
+      "title": "PubMed PMID 22271614. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22271614/",
+      "pmid": "22271614",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 22271614. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -62,13 +82,73 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
     "sourceIds": [
-      "30934670",
-      "31756276",
-      "36079777"
+      "src_341679e94c68",
+      "src_b60492c555a2"
+    ],
+    "claimCount": 3,
+    "claimIds": [
+      "clm_40c92e1f52ef",
+      "clm_6e2d570210aa",
+      "clm_7c55280fa414"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_40c92e1f52ef",
+      "claim": "memory improvement",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "memory improvement",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "200 mg; 26 weeks",
+        "population": "adults",
+        "study_id": "ent_study_c6b89c09e944"
+      },
+      "sourceRefIds": [
+        "src_b60492c555a2"
+      ]
+    },
+    {
+      "id": "clm_6e2d570210aa",
+      "claim": "improved cerebral blood flow",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "improved cerebral blood flow",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "150 mg; 6 weeks",
+        "population": "adults",
+        "study_id": "ent_study_cf4d619a8da2"
+      },
+      "sourceRefIds": [
+        "src_341679e94c68"
+      ]
+    },
+    {
+      "id": "clm_7c55280fa414",
+      "claim": "insulin sensitivity",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "insulin sensitivity",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "150 mg; 4 weeks",
+        "population": "obese",
+        "study_id": "ent_study_dd7e48062182"
+      },
+      "sourceRefIds": [
+        "src_b60492c555a2"
+      ]
+    }
+  ]
 }

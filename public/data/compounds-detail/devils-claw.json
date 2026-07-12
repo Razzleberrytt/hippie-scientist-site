@@ -26,18 +26,55 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 6,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
     "sourceIds": [
-      "claim:study-row-191",
-      "claim:study-row-98",
-      "https://pubmed.ncbi.nlm.nih.gov/11406863/ | https://pubmed.ncbi.nlm.nih.gov/16437442/",
-      "https://pubmed.ncbi.nlm.nih.gov/17212570/",
-      "pmid:11406863",
-      "pmid:17212570"
+      "src_8b0e655d4aa1",
+      "src_d9d362d72071"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_3e955379fd91",
+      "clm_61e2be3f1d3f"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_3e955379fd91",
+      "claim": "v9.7: Devil’s claw has some pain evidence but GI/ulcer cautions matter.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.7: Devil’s claw has some pain evidence but GI/ulcer cautions matter.",
+      "qualifiers": {
+        "direction": "pain, inflammation",
+        "dose_or_duration": "50–100 mg/day harpagoside-equivalent in several pain studies",
+        "study_id": "ent_study_d90b8ffee58b"
+      },
+      "sourceRefIds": [
+        "src_8b0e655d4aa1"
+      ]
+    },
+    {
+      "id": "clm_61e2be3f1d3f",
+      "claim": "Quality caveats; not definitive",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Quality caveats; not definitive",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "harpagoside-standardized extracts; variable",
+        "population": "osteoarthritis/back pain trial populations",
+        "study_id": "ent_study_9c312817b239"
+      },
+      "sourceRefIds": [
+        "src_d9d362d72071"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -83,5 +120,27 @@
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 95,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_8b0e655d4aa1",
+      "title": "PubMed PMID 11406863. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11406863/",
+      "pmid": "11406863",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 11406863. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_d9d362d72071",
+      "title": "PubMed PMID 17212570. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17212570/",
+      "pmid": "17212570",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 17212570. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

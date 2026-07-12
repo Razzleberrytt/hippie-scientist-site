@@ -7879,8 +7879,8 @@
   {
     "slug": "citicoline",
     "name": "Citicoline",
-    "summary": "Citicoline (CDP-choline) is a choline source studied as non-stimulant support for attention and focus, and for cognition in older adults. Human evidence is limited and the effects are modest — it is a supportive option rather than a dramatic cognitive enhancer, and works best alongside sleep and healthy habits.",
-    "description": "Citicoline (CDP-choline) is a choline source studied as non-stimulant support for attention and focus, and for cognition in older adults. Human evidence is limited and the effects are modest — it is a supportive option rather than a dramatic cognitive enhancer, and works best alongside sleep and healthy habits.",
+    "summary": "Citicoline (CDP-choline) supplies choline and cytidine-derived precursors used in phosphatidylcholine metabolism. Small randomized trials in selected older adults suggest possible short-term improvements in memory, including a 12-week study using 500 mg/day, but the broader evidence is heterogeneous and does not establish a large or universal cognitive-enhancing effect.",
+    "description": "Citicoline (CDP-choline) supplies choline and cytidine-derived precursors used in phosphatidylcholine metabolism. Small randomized trials in selected older adults suggest possible short-term improvements in memory, including a 12-week study using 500 mg/day, but the broader evidence is heterogeneous and does not establish a large or universal cognitive-enhancing effect.",
     "effects": [
       "Mitochondrial Health",
       "Cognition",
@@ -7933,8 +7933,8 @@
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
-    "dosage": "",
-    "typical_dosage": "",
+    "dosage": "Human cognition studies cited here used 500 mg/day for 12 weeks and 1,000 mg/day for 28 days to 3 months. These are study regimens, not individualized dosing advice.",
+    "typical_dosage": "Human cognition studies cited here used 500 mg/day for 12 weeks and 1,000 mg/day for 28 days to 3 months. These are study regimens, not individualized dosing advice.",
     "forms": [],
     "available_forms": [],
     "conditions": [],

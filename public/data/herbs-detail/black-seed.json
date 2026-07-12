@@ -55,6 +55,16 @@
       "authors": "PubMed indexed authors",
       "year": 2006,
       "url": "https://pubmed.ncbi.nlm.nih.gov/30000936/"
+    },
+    {
+      "id": "src_91535100ff5c",
+      "title": "PubMed PMID 26875640. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26875640/",
+      "pmid": "26875640",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 26875640. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -68,15 +78,36 @@
     "reason": "curated_allowlist"
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "30000936",
-      "34073784",
-      "37184195"
+      "src_91535100ff5c"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_52c77e864a4f"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_52c77e864a4f",
+      "claim": "Meta-analysis of randomized placebo-controlled trials on lipid outcomes",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Meta-analysis of randomized placebo-controlled trials on lipid outcomes",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "Nigella sativa seed/oil preparations",
+        "population": "participants in Nigella sativa RCTs",
+        "study_id": "ent_study_6da5cd17a845"
+      },
+      "sourceRefIds": [
+        "src_91535100ff5c"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true

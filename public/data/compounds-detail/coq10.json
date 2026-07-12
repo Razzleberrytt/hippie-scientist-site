@@ -28,13 +28,80 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
+    "sourceIds": [
+      "src_131a3ccd6bf5",
+      "src_ad46e361d8f8"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_23361c17c204",
+      "clm_afff4d1e08e2"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_23361c17c204",
+      "claim": "improved outcomes",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "improved outcomes",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "100–300 mg; varies",
+        "population": "heart failure",
+        "study_id": "ent_study_e1c32ad2fcbe"
+      },
+      "sourceRefIds": [
+        "src_131a3ccd6bf5"
+      ]
+    },
+    {
+      "id": "clm_afff4d1e08e2",
+      "claim": "fatigue reduction",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "fatigue reduction",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "200 mg; 12 weeks",
+        "population": "adults",
+        "study_id": "ent_study_69e6e52ca076"
+      },
+      "sourceRefIds": [
+        "src_ad46e361d8f8"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_131a3ccd6bf5",
+      "title": "PubMed PMID 25282031. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25282031/",
+      "pmid": "25282031",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 25282031. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_ad46e361d8f8",
+      "title": "PubMed PMID 25174896. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25174896/",
+      "pmid": "25174896",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 25174896. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

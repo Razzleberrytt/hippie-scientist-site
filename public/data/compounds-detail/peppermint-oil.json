@@ -29,13 +29,104 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 3,
+    "sourceIds": [
+      "src_8e18d4094410",
+      "src_daaebe6b0244",
+      "src_e4c8a349570e"
+    ],
+    "claimCount": 3,
+    "claimIds": [
+      "clm_0494700fe982",
+      "clm_26cd09f04ba6",
+      "clm_c639a187e552"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_0494700fe982",
+      "claim": "Meta-analysis of RCTs found benefit for global IBS symptoms and abdominal pain",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Meta-analysis of RCTs found benefit for global IBS symptoms and abdominal pain",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "enteric-coated peppermint oil; minimum 2 weeks",
+        "population": "adults with IBS",
+        "study_id": "ent_study_1574104d8c31"
+      },
+      "sourceRefIds": [
+        "src_8e18d4094410"
+      ]
+    },
+    {
+      "id": "clm_26cd09f04ba6",
+      "claim": "v10.4: Meta-analysis of 12 RCTs found enteric-coated peppermint oil improved IBS global symptoms and abdominal pain.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v10.4: Meta-analysis of 12 RCTs found enteric-coated peppermint oil improved IBS global symptoms and abdominal pain.",
+      "qualifiers": {
+        "direction": "gut_health, pain",
+        "dose_or_duration": "Enteric-coated peppermint oil products vary; clinical IBS trials generally use enteric-coated capsules taken before meals",
+        "study_id": "ent_study_2289c5a2a17d"
+      },
+      "sourceRefIds": [
+        "src_daaebe6b0244"
+      ]
+    },
+    {
+      "id": "clm_c639a187e552",
+      "claim": "Colpermin trial",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Colpermin trial",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "enteric-coated delayed-release peppermint oil TID; 8 weeks",
+        "population": "IBS outpatients",
+        "study_id": "ent_study_075ade91b64f"
+      },
+      "sourceRefIds": [
+        "src_e4c8a349570e"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_8e18d4094410",
+      "title": "Meta-analysis of RCTs found benefit for global IBS symptoms and abdominal pain",
+      "note": "review_or_meta_analysis",
+      "studyType": "Meta-analysis",
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "src_daaebe6b0244",
+      "title": "v10.4: Meta-analysis of 12 RCTs found enteric-coated peppermint oil improved IBS global symptoms and abdominal pain.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6337770/",
+      "note": "review_or_meta_analysis",
+      "studyType": "Meta-analysis",
+      "reviewStatus": "pending"
+    },
+    {
+      "id": "src_e4c8a349570e",
+      "title": "PubMed PMID 19507027. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19507027/",
+      "pmid": "19507027",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 19507027. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

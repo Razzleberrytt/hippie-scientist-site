@@ -31,11 +31,47 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_21d61628ee99"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_93a5d5ef9b7a"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_93a5d5ef9b7a",
+      "claim": "v8.2: Human evidence primarily supports standardized Andrographis extracts, not isolated andrographolide consumer use.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v8.2: Human evidence primarily supports standardized Andrographis extracts, not isolated andrographolide consumer use.",
+      "qualifiers": {
+        "direction": "immunity, inflammation",
+        "dose_or_duration": "research-only isolated constituent; use parent herb extract unless human dose is specified",
+        "study_id": "ent_study_bb1de3bf5348"
+      },
+      "sourceRefIds": [
+        "src_21d61628ee99"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "sources": [
+    {
+      "id": "src_21d61628ee99",
+      "title": "PubMed PMID 15095142. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15095142/",
+      "pmid": "15095142",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 15095142. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

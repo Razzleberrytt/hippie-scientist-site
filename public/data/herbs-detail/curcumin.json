@@ -46,6 +46,46 @@
       "authors": "Kocaadam B et al.",
       "year": 2017,
       "url": "https://pubmed.ncbi.nlm.nih.gov/26528921/"
+    },
+    {
+      "id": "src_690ac9bb5f89",
+      "title": "PubMed PMID 27403209. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27403209/",
+      "pmid": "27403209",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 27403209. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_7dce165a398a",
+      "title": "PubMed PMID 23832433. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23832433/",
+      "pmid": "23832433",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 23832433. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_c3f7857d2f8d",
+      "title": "PubMed PMID 19594223. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19594223/",
+      "pmid": "19594223",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 19594223. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_fc1b62a1b742",
+      "title": "PubMed PMID 27533649. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27533649/",
+      "pmid": "27533649",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 27533649. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -59,13 +99,113 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 4,
     "sourceIds": [
-      "26528921",
-      "27837604",
-      "35935936"
+      "src_690ac9bb5f89",
+      "src_7dce165a398a",
+      "src_c3f7857d2f8d",
+      "src_fc1b62a1b742"
+    ],
+    "claimCount": 5,
+    "claimIds": [
+      "clm_27f06fd892d1",
+      "clm_376f7c36a69a",
+      "clm_acc966d767cf",
+      "clm_e0d10311460b",
+      "clm_f75b77c75685"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_27f06fd892d1",
+      "claim": "reduced inflammatory cytokines",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "reduced inflammatory cytokines",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "1000 mg/day; 8 weeks",
+        "population": "adults",
+        "study_id": "ent_study_04abc5c98100"
+      },
+      "sourceRefIds": [
+        "src_c3f7857d2f8d"
+      ]
+    },
+    {
+      "id": "clm_376f7c36a69a",
+      "claim": "pain reduction",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "pain reduction",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "1000 mg; varies",
+        "population": "osteoarthritis",
+        "study_id": "ent_study_c9d81886052f"
+      },
+      "sourceRefIds": [
+        "src_fc1b62a1b742"
+      ]
+    },
+    {
+      "id": "clm_acc966d767cf",
+      "claim": "reduced depressive symptoms",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "reduced depressive symptoms",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "1000 mg; 8 weeks",
+        "population": "depressed",
+        "study_id": "ent_study_182ef35e7753"
+      },
+      "sourceRefIds": [
+        "src_7dce165a398a"
+      ]
+    },
+    {
+      "id": "clm_e0d10311460b",
+      "claim": "CRP reduction",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "CRP reduction",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "500–1500 mg; varies",
+        "population": "adults",
+        "study_id": "ent_study_679fe810ef68"
+      },
+      "sourceRefIds": [
+        "src_690ac9bb5f89"
+      ]
+    },
+    {
+      "id": "clm_f75b77c75685",
+      "claim": "reduced depressive symptoms",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "reduced depressive symptoms",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "1000 mg; 8 weeks",
+        "population": "adults",
+        "study_id": "ent_study_44323dc3e7e9"
+      },
+      "sourceRefIds": [
+        "src_7dce165a398a"
+      ]
+    }
+  ]
 }

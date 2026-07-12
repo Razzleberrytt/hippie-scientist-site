@@ -28,15 +28,35 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:study-row-149",
-      "https://www.sciencedirect.com/science/article/abs/pii/S0002934300006045 | https://pubmed.ncbi.nlm.nih.gov/15748367/",
-      "pmid:15748367"
+      "src_dd5ae5c1300e"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_86be0785f0bb"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_86be0785f0bb",
+      "claim": "v9.2: Older meta-analysis suggests possible BPH benefit, but a pygeum/nettle combination RCT showed placebo-like results.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.2: Older meta-analysis suggests possible BPH benefit, but a pygeum/nettle combination RCT showed placebo-like results.",
+      "qualifiers": {
+        "direction": "prostate_health",
+        "dose_or_duration": "Pygeum dose is product-specific; older studies often used extract preparations for ≥30 days",
+        "study_id": "ent_study_e1d1de48b3b4"
+      },
+      "sourceRefIds": [
+        "src_dd5ae5c1300e"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [
@@ -63,10 +83,8 @@
     "Physiological effect"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "Oxidative Stress"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Moderate Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
@@ -83,5 +101,17 @@
     "summary-depth",
     "summary-quality-missing"
   ],
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_dd5ae5c1300e",
+      "title": "PubMed PMID 15748367. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15748367/",
+      "pmid": "15748367",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 15748367. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

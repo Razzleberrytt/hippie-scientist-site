@@ -29,13 +29,50 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_a269a9f84c29"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_856dadd0c792"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_856dadd0c792",
+      "claim": "8 RCT meta-analysis",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "8 RCT meta-analysis",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "pomegranate juice; dose varied",
+        "population": "adults in pomegranate juice RCTs",
+        "study_id": "ent_study_a131f452b028"
+      },
+      "sourceRefIds": [
+        "src_a269a9f84c29"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_a269a9f84c29",
+      "title": "PubMed PMID 27888156. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27888156/",
+      "pmid": "27888156",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 27888156. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

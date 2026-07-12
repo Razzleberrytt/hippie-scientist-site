@@ -29,15 +29,35 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:study-row-166",
-      "https://pubmed.ncbi.nlm.nih.gov/18499602/ | https://pubmed.ncbi.nlm.nih.gov/11679027/",
-      "pmid:18499602"
+      "src_3213bd269e3f"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_54766b1a73d2"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_54766b1a73d2",
+      "claim": "v9.5: Human evidence includes acute preoperative anxiety and opiate-withdrawal adjunct contexts; general anxiety claims should stay conservative.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.5: Human evidence includes acute preoperative anxiety and opiate-withdrawal adjunct contexts; general anxiety claims should stay conservative.",
+      "qualifiers": {
+        "direction": "anxiety",
+        "dose_or_duration": "500 mg oral Passiflora incarnata used 90 minutes before surgery in a preoperative anxiety RCT",
+        "study_id": "ent_study_aa7a87919930"
+      },
+      "sourceRefIds": [
+        "src_3213bd269e3f"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "runtime_export_decision": "full_public_runtime",
@@ -70,8 +90,7 @@
   "mechanism_target_systems": [],
   "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Neurotransmitter Modulation",
-    "neuroprotective"
+    "Neurotransmitter Modulation"
   ],
   "evidence_tier": "Mechanistic Evidence",
   "profile_status": "commercial_ready",
@@ -86,5 +105,17 @@
     "summary-depth",
     "summary-quality-missing"
   ],
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_3213bd269e3f",
+      "title": "PubMed PMID 18499602. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18499602/",
+      "pmid": "18499602",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 18499602. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

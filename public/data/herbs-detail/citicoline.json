@@ -1,8 +1,8 @@
 {
   "slug": "citicoline",
   "name": "Citicoline",
-  "summary": "Citicoline (CDP-choline) is a choline source studied as non-stimulant support for attention and focus, and for cognition in older adults. Human evidence is limited and the effects are modest — it is a supportive option rather than a dramatic cognitive enhancer, and works best alongside sleep and healthy habits.",
-  "description": "Citicoline (CDP-choline) is a choline source studied as non-stimulant support for attention and focus, and for cognition in older adults. Human evidence is limited and the effects are modest — it is a supportive option rather than a dramatic cognitive enhancer, and works best alongside sleep and healthy habits.",
+  "summary": "Citicoline (CDP-choline) supplies choline and cytidine-derived precursors used in phosphatidylcholine metabolism. Small randomized trials in selected older adults suggest possible short-term improvements in memory, including a 12-week study using 500 mg/day, but the broader evidence is heterogeneous and does not establish a large or universal cognitive-enhancing effect.",
+  "description": "Citicoline (CDP-choline) supplies choline and cytidine-derived precursors used in phosphatidylcholine metabolism. Small randomized trials in selected older adults suggest possible short-term improvements in memory, including a 12-week study using 500 mg/day, but the broader evidence is heterogeneous and does not establish a large or universal cognitive-enhancing effect.",
   "effects": [
     "Mitochondrial Health",
     "Cognition",
@@ -105,7 +105,18 @@
   "featured": false,
   "controlled_substance": false,
   "safety": "Generally well tolerated for most users.",
-  "sources": [],
+  "sources": [
+    {
+      "id": "src_ad8ff3b198d3",
+      "title": "PubMed PMID 33978188. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33978188/",
+      "pmid": "33978188",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 33978188. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ],
   "governance": {
     "reviewStatus": "approved",
     "legalRisk": "none",
@@ -117,14 +128,51 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 4,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:study-row-139",
-      "claim:study-row-193",
-      "https://pubmed.ncbi.nlm.nih.gov/33978188/ | https://pmc.ncbi.nlm.nih.gov/articles/PMC8349115/",
-      "pmid:33978188"
+      "src_ad8ff3b198d3"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_be2a3ee91305",
+      "clm_f98e2dbc2bbc"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_be2a3ee91305",
+      "claim": "v9.8: Citicoline has RCT evidence for memory in older adults; avoid claiming broad stimulant-like focus benefits.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.8: Citicoline has RCT evidence for memory in older adults; avoid claiming broad stimulant-like focus benefits.",
+      "qualifiers": {
+        "direction": "focus, cognition",
+        "dose_or_duration": "500 mg/day citicoline for 12 weeks in healthy older adults with age-associated memory impairment",
+        "study_id": "ent_study_c83c791110c6"
+      },
+      "sourceRefIds": [
+        "src_ad8ff3b198d3"
+      ]
+    },
+    {
+      "id": "clm_f98e2dbc2bbc",
+      "claim": "v9.2: 500 mg/day improved episodic and composite memory in a 12-week RCT of healthy older adults with age-associated memory impairment.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.2: 500 mg/day improved episodic and composite memory in a 12-week RCT of healthy older adults with age-associated memory impairment.",
+      "qualifiers": {
+        "direction": "focus, cognition",
+        "dose_or_duration": "500 mg/day citicoline for 12 weeks in healthy older adults with age-associated memory impairment",
+        "study_id": "ent_study_68c3eb12e43b"
+      },
+      "sourceRefIds": [
+        "src_ad8ff3b198d3"
+      ]
+    }
+  ]
 }

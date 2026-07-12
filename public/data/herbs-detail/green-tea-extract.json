@@ -46,6 +46,16 @@
       "authors": "Chen IJ et al.",
       "year": 2016,
       "url": "https://pubmed.ncbi.nlm.nih.gov/26093535/"
+    },
+    {
+      "id": "src_280a9a995334",
+      "title": "PubMed PMID 15598647. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15598647/",
+      "pmid": "15598647",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 15598647. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -59,13 +69,34 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "26093535",
-      "28762712",
-      "31643260"
+      "src_280a9a995334"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_be5600da9985"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_be5600da9985",
+      "claim": "modest fat loss",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "modest fat loss",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "500 mg; 12 weeks",
+        "population": "overweight",
+        "study_id": "ent_study_85b4dbaed6a1"
+      },
+      "sourceRefIds": [
+        "src_280a9a995334"
+      ]
+    }
+  ]
 }

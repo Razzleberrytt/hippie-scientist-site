@@ -45,6 +45,13 @@
       "authors": "Chen CQ et al.",
       "year": 2013,
       "url": "https://pubmed.ncbi.nlm.nih.gov/30722342/"
+    },
+    {
+      "id": "src_660c3852670e",
+      "title": "v9.4: Interesting adaptogen pharmacology, but direct consumer outcome evidence is not strong enough for monetized recommendation.",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK548496/",
+      "note": "human_clinical_or_pk",
+      "reviewStatus": "pending"
     }
   ],
   "governance": {
@@ -58,13 +65,33 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "30722342",
-      "30731931",
-      "31431019"
+      "src_660c3852670e"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_315ad8811777"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_315ad8811777",
+      "claim": "v9.4: Interesting adaptogen pharmacology, but direct consumer outcome evidence is not strong enough for monetized recommendation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.4: Interesting adaptogen pharmacology, but direct consumer outcome evidence is not strong enough for monetized recommendation.",
+      "qualifiers": {
+        "direction": "energy, stress",
+        "dose_or_duration": "Product-specific extract dosing varies; direct human clinical dose support is limited",
+        "study_id": "ent_study_c23641258830"
+      },
+      "sourceRefIds": [
+        "src_660c3852670e"
+      ]
+    }
+  ]
 }

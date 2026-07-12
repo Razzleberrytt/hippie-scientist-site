@@ -30,15 +30,35 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:study-row-138",
-      "https://pubmed.ncbi.nlm.nih.gov/19593179/ | https://pubmed.ncbi.nlm.nih.gov/27912875/",
-      "pmid:19593179"
+      "src_2ab07cb6684b"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_94265c161b52"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_94265c161b52",
+      "claim": "v9.2: Chamomile has RCT evidence for generalized anxiety symptoms; sleep use should remain secondary/traditional unless direct sleep evidence is added.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.2: Chamomile has RCT evidence for generalized anxiety symptoms; sleep use should remain secondary/traditional unless direct sleep evidence is added.",
+      "qualifiers": {
+        "direction": "anxiety, sleep",
+        "dose_or_duration": "Chamomile extract 220–1500 mg/day in GAD trials; tea dosing is product-dependent",
+        "study_id": "ent_study_4daf121dddff"
+      },
+      "sourceRefIds": [
+        "src_2ab07cb6684b"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [
@@ -72,8 +92,7 @@
   "mechanism_target_systems": [],
   "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Neurotransmitter Modulation",
-    "neuroprotective"
+    "Neurotransmitter Modulation"
   ],
   "evidence_tier": "Mechanistic Evidence",
   "profile_status": "commercial_ready",
@@ -91,5 +110,17 @@
     "summary-depth",
     "summary-quality-missing"
   ],
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_2ab07cb6684b",
+      "title": "PubMed PMID 19593179. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19593179/",
+      "pmid": "19593179",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 19593179. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

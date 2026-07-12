@@ -49,6 +49,30 @@
       "authors": "Kenda M et al.",
       "year": 2021,
       "url": "https://pubmed.ncbi.nlm.nih.gov/34946512/"
+    },
+    {
+      "id": "src_1bcdfb0b0168",
+      "title": "Valerian Root in Treating Sleep Problems and Associated Disorders—A Systematic Review and Meta-Analysis",
+      "url": "https://consensus.app/papers/valerian-root-in-treating-sleep-problems-and-associated-shinjyo-waddell/256f974f235d53c7a338c40d12481df9/?utm_source=chatgpt",
+      "year": "2020",
+      "authors": "N. Shinjyo; G. Waddell; Julia Green",
+      "journal": "Journal of Evidence-based Integrative Medicine",
+      "citation": "Consensus result; citation_count=102; record_type=systematic_review_meta_analysis",
+      "note": "valerian subjective sleep/anxiety, extract quality, severe adverse events",
+      "studyType": "Meta-analysis",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_f085ef23cc53",
+      "title": "Standardized Extract of Valeriana officinalis Improves Overall Sleep Quality in Human Subjects with Sleep Complaints: A Randomized, Double-Blind, Placebo-Controlled, Clinical Study",
+      "url": "https://consensus.app/papers/standardized-extract-of-valeriana-officinalis-improves-shekhar-joshua/352cb285a2c253f0958adc62758b1d4b/?utm_source=chatgpt",
+      "year": "2023",
+      "authors": "Harshith Chandra Shekhar; Lincy Joshua; Jestin Thomas",
+      "journal": "Advances in Therapy",
+      "citation": "Consensus result; citation_count=32; record_type=rct",
+      "note": "valerian standardized extract, 8-week sleep complaint RCT, safety/tolerability",
+      "studyType": "Randomized controlled trial",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -62,13 +86,54 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
     "sourceIds": [
-      "30058034",
-      "33086877",
-      "34946512"
+      "src_1bcdfb0b0168",
+      "src_f085ef23cc53"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_9fe7f61b34e2",
+      "clm_a4b72377b349"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_9fe7f61b34e2",
+      "claim": "Valerian may improve subjective sleep quality and reduce anxiety in some studies, but results depend heavily on preparation quality.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Valerian may improve subjective sleep quality and reduce anxiety in some studies, but results depend heavily on preparation quality.",
+      "qualifiers": {
+        "direction": "mixed_supportive",
+        "dose_or_duration": "varied; whole root/rhizome may be more reliable; combination products common",
+        "population": "Broad clinical trial populations aged 7-80",
+        "study_id": "ent_study_f1730a8c44ed"
+      },
+      "sourceRefIds": [
+        "src_1bcdfb0b0168"
+      ]
+    },
+    {
+      "id": "clm_a4b72377b349",
+      "claim": "A standardized valerian extract improved several subjective and objective sleep measures over 8 weeks in adults with sleep complaints.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "A standardized valerian extract improved several subjective and objective sleep measures over 8 weeks in adults with sleep complaints.",
+      "qualifiers": {
+        "direction": "supportive_form_specific",
+        "dose_or_duration": "8 weeks standardized Valeriana officinalis extract",
+        "population": "Adults with sleep complaints",
+        "study_id": "ent_study_1efae3833aad"
+      },
+      "sourceRefIds": [
+        "src_f085ef23cc53"
+      ]
+    }
+  ]
 }

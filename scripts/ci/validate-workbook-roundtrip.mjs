@@ -2,6 +2,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { execFileSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
 import { readWorkbookExcelJS } from '../utils/read-workbook-exceljs.mjs'
 import { resolveWorkbookPath, assertWorkbookExists } from '../workbook-source.mjs'
 
@@ -19,7 +20,7 @@ import { resolveWorkbookPath, assertWorkbookExists } from '../workbook-source.mj
  * on any drift.
  */
 
-const repoRoot = path.resolve(path.dirname(new URL(import.meta.url).pathname), '../..')
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const editor = path.join(repoRoot, 'scripts/data/edit-entity-master-cell.mjs')
 
 const workbookPath = resolveWorkbookPath(repoRoot)

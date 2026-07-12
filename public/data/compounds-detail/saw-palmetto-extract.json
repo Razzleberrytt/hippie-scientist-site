@@ -30,14 +30,35 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 2,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:study-row-147",
-      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3326341/ | https://jamanetwork.com/journals/jama/fullarticle/1104439"
+      "src_e220f13ccd17"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_e0609c5917cc"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_e0609c5917cc",
+      "claim": "v9.2: Large JAMA RCT found saw palmetto no better than placebo at 320–960 mg/day; block monetized recommendation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.2: Large JAMA RCT found saw palmetto no better than placebo at 320–960 mg/day; block monetized recommendation.",
+      "qualifiers": {
+        "direction": "prostate_health",
+        "dose_or_duration": "320 mg/day extract was tested; up to 960 mg/day showed no benefit in a large RCT",
+        "study_id": "ent_study_cf9114472db4"
+      },
+      "sourceRefIds": [
+        "src_e220f13ccd17"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -80,13 +101,21 @@
     "Physiological effect"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "Oxidative Stress"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 95,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_e220f13ccd17",
+      "title": "v9.2: Large JAMA RCT found saw palmetto no better than placebo at 320–960 mg/day; block monetized recommendation.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3326341/ | https://jamanetwork.com/journals/jama/fullarticle/1104439",
+      "note": "human_rct",
+      "studyType": "Randomized controlled trial",
+      "reviewStatus": "pending"
+    }
+  ]
 }

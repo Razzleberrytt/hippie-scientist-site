@@ -1,5 +1,8 @@
 function emit(level, message, meta = null) {
-  const suffix = meta ? ` ${JSON.stringify(meta)}` : ''
+  const normalizedMeta = meta instanceof Error
+    ? { name: meta.name, message: meta.message, stack: meta.stack }
+    : meta
+  const suffix = normalizedMeta ? ` ${JSON.stringify(normalizedMeta)}` : ''
   console[level](`[agent:${level}] ${message}${suffix}`)
 }
 

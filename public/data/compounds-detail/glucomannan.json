@@ -29,13 +29,97 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
+    "sourceIds": [
+      "src_143bc8055d65",
+      "src_cc31fbab8401"
+    ],
+    "claimCount": 3,
+    "claimIds": [
+      "clm_3050377c16c4",
+      "clm_655eb71f68cc",
+      "clm_7b59492e28a8"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_3050377c16c4",
+      "claim": "Weight/glucose in meta-analyses.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Weight/glucose in meta-analyses.",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_7ed88ddccfb3"
+      },
+      "sourceRefIds": [
+        "src_143bc8055d65"
+      ]
+    },
+    {
+      "id": "clm_655eb71f68cc",
+      "claim": "v10.3: Glucomannan evidence for weight loss is mixed; strongest consumer value is fiber/satiety with strict water/choking cautions.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v10.3: Glucomannan evidence for weight loss is mixed; strongest consumer value is fiber/satiety with strict water/choking cautions.",
+      "qualifiers": {
+        "direction": "weight, gut_health",
+        "dose_or_duration": "About 2–4 g/day split before meals with plenty of water; follow product-specific instructions",
+        "study_id": "ent_study_243c35c6fb2d"
+      },
+      "sourceRefIds": [
+        "src_cc31fbab8401"
+      ]
+    },
+    {
+      "id": "clm_7b59492e28a8",
+      "claim": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_7ed88ddccfb3"
+      },
+      "sourceRefIds": [
+        "src_143bc8055d65"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_143bc8055d65",
+      "title": "The efficacy of glucomannan supplementation in overweight and obesity: a systematic review and meta-analysis of randomized clinical trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24533610/",
+      "doi": "10.1080/07315724.2014.870013",
+      "pmid": "24533610",
+      "year": "2014",
+      "journal": "J Am Coll Nutr",
+      "citation": "Author not retrieved (2014). J Am Coll Nutr. PMID: 24533610. DOI: 10.1080/07315724.2014.870013.",
+      "note": "source-backed gap-fill audit only; not a full monograph field extraction",
+      "studyType": "Meta-analysis",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_cc31fbab8401",
+      "title": "PubMed PMID 18842808. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18842808/",
+      "pmid": "18842808",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 18842808. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

@@ -47,6 +47,24 @@
       "authors": "Khan A et al.",
       "year": 2022,
       "url": "https://pubmed.ncbi.nlm.nih.gov/33480339/"
+    },
+    {
+      "id": "src_63fe90f947a8",
+      "title": "PubMed PMID 17145239. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17145239/",
+      "pmid": "17145239",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 17145239. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_911a7102c58d",
+      "title": "v9.5: Systematic review suggests possible sleep-quality benefit but trials were heterogeneous and often methodologically weak; keep below melatonin/magnesium.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4394901/",
+      "note": "review_or_meta_analysis",
+      "studyType": "Systematic review",
+      "reviewStatus": "pending"
     }
   ],
   "governance": {
@@ -60,15 +78,55 @@
     "reason": "curated_allowlist"
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
     "sourceIds": [
-      "33086877",
-      "33480339",
-      "34946512"
+      "src_63fe90f947a8",
+      "src_911a7102c58d"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_311973ea99b6",
+      "clm_8dc962da0a18"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_311973ea99b6",
+      "claim": "mild sleep improvement",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "mild sleep improvement",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "varies; varies",
+        "population": "adults",
+        "study_id": "ent_study_58723dffd1f0"
+      },
+      "sourceRefIds": [
+        "src_63fe90f947a8"
+      ]
+    },
+    {
+      "id": "clm_8dc962da0a18",
+      "claim": "v9.5: Systematic review suggests possible sleep-quality benefit but trials were heterogeneous and often methodologically weak; keep below melatonin/magnesium.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.5: Systematic review suggests possible sleep-quality benefit but trials were heterogeneous and often methodologically weak; keep below melatonin/magnesium.",
+      "qualifiers": {
+        "direction": "sleep",
+        "dose_or_duration": "Valerian extract doses vary; many sleep trials used 300–600 mg before bed",
+        "study_id": "ent_study_9dabb1189163"
+      },
+      "sourceRefIds": [
+        "src_911a7102c58d"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true

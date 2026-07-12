@@ -49,6 +49,26 @@
       "authors": "Mlcek J et al.",
       "year": 2016,
       "url": "https://pubmed.ncbi.nlm.nih.gov/27187333/"
+    },
+    {
+      "id": "src_0ee85759f520",
+      "title": "PubMed PMID 26907242. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26907242/",
+      "pmid": "26907242",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 26907242. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_8fa47d3b8cbe",
+      "title": "PubMed PMID 19589961. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19589961/",
+      "pmid": "19589961",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 19589961. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -62,13 +82,72 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
     "sourceIds": [
-      "27187333",
-      "34087741",
-      "35458696"
+      "src_0ee85759f520",
+      "src_8fa47d3b8cbe"
+    ],
+    "claimCount": 3,
+    "claimIds": [
+      "clm_1459c4aff3e9",
+      "clm_86e09b6fa77b",
+      "clm_e2fcd5d9fc6d"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_1459c4aff3e9",
+      "claim": "v9.9: Quercetin is plausible but not a top-tier immune pick; bioavailability and drug-interaction cautions are central.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.9: Quercetin is plausible but not a top-tier immune pick; bioavailability and drug-interaction cautions are central.",
+      "qualifiers": {
+        "direction": "inflammation, immunity",
+        "dose_or_duration": "500–1000 mg/day quercetin used in many human studies; bioavailability varies substantially",
+        "study_id": "ent_study_2371f57bf423"
+      },
+      "sourceRefIds": [
+        "src_0ee85759f520"
+      ]
+    },
+    {
+      "id": "clm_86e09b6fa77b",
+      "claim": "small endurance benefit",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "small endurance benefit",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "1000 mg; 7 days",
+        "population": "athletes",
+        "study_id": "ent_study_e00411e34083"
+      },
+      "sourceRefIds": [
+        "src_8fa47d3b8cbe"
+      ]
+    },
+    {
+      "id": "clm_e2fcd5d9fc6d",
+      "claim": "reduced illness incidence",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "reduced illness incidence",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "1000 mg; 5 weeks",
+        "population": "athletes",
+        "study_id": "ent_study_157658e83da6"
+      },
+      "sourceRefIds": [
+        "src_8fa47d3b8cbe"
+      ]
+    }
+  ]
 }

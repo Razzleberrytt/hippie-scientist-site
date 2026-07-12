@@ -160,13 +160,23 @@ async function main() {
   for (const result of metadataResults) {
     try {
       const evidenceRows = [
-        ...(result.pubmed?.pmids || []).map(pmid => ({
-          pmid_or_source: pmid,
-          study_type: 'unknown',
+        ...(result.pubmed?.articles || []).map(article => ({
+          compound_slug: result.slug,
+          pmid_or_source: article.pmid,
+          doi: article.doi,
+          study_type: article.study_type || 'unknown',
+          population: 'humans (PubMed-indexed)',
+          title: article.title,
+          publication_date: article.publication_date,
         })),
-        ...(result.clinical_trials?.trial_ids || []).map(id => ({
-          pmid_or_source: id,
-          study_type: 'clinical_trial',
+        ...(result.clinical_trials?.trial_metadata || []).map(trial => ({
+          compound_slug: result.slug,
+          pmid_or_source: trial.nct_id,
+          study_type: trial.study_type || 'clinical_trial',
+          population: trial.population || 'human participants',
+          sample_size: trial.sample_size,
+          registry_has_results: trial.has_results,
+          title: trial.title,
         })),
       ]
 

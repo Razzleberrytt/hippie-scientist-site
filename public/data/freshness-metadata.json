@@ -1,32 +1,32 @@
 {
   "homepage": {
     "lastReviewed": "2026-06-06",
-    "citationCount": 865
+    "citationCount": 971
   },
   "goals": {
     "pain": {
       "lastReviewed": "2026-05-10",
-      "citationCount": 17
+      "citationCount": 20
     },
     "inflammation": {
       "lastReviewed": "2026-05-10",
-      "citationCount": 17
+      "citationCount": 19
     },
     "focus": {
       "lastReviewed": "2026-05-10",
-      "citationCount": 29
+      "citationCount": 50
     },
     "sleep": {
       "lastReviewed": "2026-05-10",
-      "citationCount": 17
+      "citationCount": 29
     },
     "stress": {
       "lastReviewed": "2026-05-10",
-      "citationCount": 25
+      "citationCount": 52
     },
     "anxiety": {
       "lastReviewed": "2026-05-10",
-      "citationCount": 13
+      "citationCount": 28
     },
     "energy": {
       "lastReviewed": "2026-06-06",
@@ -34,7 +34,7 @@
     },
     "cognition": {
       "lastReviewed": "2026-05-10",
-      "citationCount": 10
+      "citationCount": 11
     },
     "longevity": {
       "lastReviewed": "2026-05-10",
@@ -42,7 +42,7 @@
     },
     "gut-health": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 9
+      "citationCount": 10
     },
     "joint-support": {
       "lastReviewed": "2026-06-06",
@@ -50,7 +50,7 @@
     },
     "recovery": {
       "lastReviewed": "2026-05-10",
-      "citationCount": 14
+      "citationCount": 16
     },
     "fat-loss": {
       "lastReviewed": "2026-06-06",
@@ -58,11 +58,11 @@
     },
     "blood-pressure": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 10
+      "citationCount": 11
     },
     "testosterone-support": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 15
+      "citationCount": 24
     }
   },
   "profiles": {
@@ -152,15 +152,15 @@
     },
     "withania-somnifera": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 10
+      "citationCount": 18
     },
     "ashwagandha": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 6
+      "citationCount": 13
     },
     "panax-ginseng": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 1
+      "citationCount": 2
     },
     "astragalus": {
       "lastReviewed": "2026-06-06",
@@ -180,7 +180,7 @@
     },
     "bacopa": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 5
+      "citationCount": 6
     },
     "bael": {
       "lastReviewed": "2026-06-06",
@@ -288,11 +288,11 @@
     },
     "capsicum-annuum": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 5
+      "citationCount": 7
     },
     "capsicum-frutescens": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 3
+      "citationCount": 6
     },
     "caraway": {
       "lastReviewed": "2026-06-06",
@@ -332,7 +332,7 @@
     },
     "matricaria-chamomilla": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 5
+      "citationCount": 7
     },
     "chinese-skullcap": {
       "lastReviewed": "2026-06-06",
@@ -356,7 +356,7 @@
     },
     "cistanche": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 4
+      "citationCount": 5
     },
     "cistanche-deserticola": {
       "lastReviewed": "2026-06-06",
@@ -432,7 +432,7 @@
     },
     "crocus-sativus": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 4
+      "citationCount": 5
     },
     "curcuma-wenyujin": {
       "lastReviewed": "2026-06-06",
@@ -592,7 +592,7 @@
     },
     "gotu-kola": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 2
+      "citationCount": 3
     },
     "vitis-vinifera": {
       "lastReviewed": "2026-06-06",
@@ -656,7 +656,7 @@
     },
     "hops": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 4
+      "citationCount": 5
     },
     "horse-chestnut": {
       "lastReviewed": "2026-06-06",
@@ -720,7 +720,7 @@
     },
     "lavandula-angustifolia": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 4
+      "citationCount": 5
     },
     "lawsonia-inermis": {
       "lastReviewed": "2026-06-06",
@@ -728,7 +728,7 @@
     },
     "melissa-officinalis": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 5
+      "citationCount": 6
     },
     "lemon-verbena": {
       "lastReviewed": "2026-06-06",
@@ -748,7 +748,7 @@
     },
     "hericium-erinaceus": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 11
+      "citationCount": 18
     },
     "lions-mane": {
       "lastReviewed": "2026-06-06",
@@ -772,7 +772,7 @@
     },
     "maca": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 6
+      "citationCount": 7
     },
     "magnolia-officinalis": {
       "lastReviewed": "2026-07-09",
@@ -916,7 +916,7 @@
     },
     "passiflora-incarnata": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 5
+      "citationCount": 6
     },
     "pastinaca-sativa": {
       "lastReviewed": "2026-06-06",
@@ -1020,7 +1020,7 @@
     },
     "reishi": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 1
+      "citationCount": 2
     },
     "resveratrol": {
       "lastReviewed": "2026-06-06",
@@ -1032,7 +1032,7 @@
     },
     "rhodiola": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 13
+      "citationCount": 25
     },
     "rice-bran": {
       "lastReviewed": "2026-06-06",
@@ -1196,7 +1196,7 @@
     },
     "valeriana-officinalis": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 5
+      "citationCount": 7
     },
     "valerian": {
       "lastReviewed": "2026-06-06",
@@ -1488,7 +1488,7 @@
     },
     "berberine": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 4
     },
     "berberine-hcl": {
       "lastReviewed": "2026-06-06",
@@ -1588,7 +1588,7 @@
     },
     "boswellia": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 2
     },
     "boswellia-akba-standardized": {
       "lastReviewed": "2026-06-06",
@@ -1640,11 +1640,11 @@
     },
     "caffeine-l-theanine": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 1
+      "citationCount": 2
     },
     "calcium": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 2
     },
     "calcium-d-glucarate": {
       "lastReviewed": "2026-06-06",
@@ -1740,7 +1740,7 @@
     },
     "chromium": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 2
     },
     "chromium-picolinate": {
       "lastReviewed": "2026-06-06",
@@ -1792,7 +1792,7 @@
     },
     "coq10": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 2
     },
     "collagen-peptides": {
       "lastReviewed": "2026-06-06",
@@ -1836,7 +1836,7 @@
     },
     "creatine": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 1
+      "citationCount": 4
     },
     "creatine-beta-alanine": {
       "lastReviewed": "2026-06-06",
@@ -1932,7 +1932,7 @@
     },
     "devils-claw": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 2
     },
     "dhea": {
       "lastReviewed": "2026-06-06",
@@ -2072,7 +2072,7 @@
     },
     "fadogia-agrestis": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 2
     },
     "farnesol": {
       "lastReviewed": "2026-06-06",
@@ -2220,7 +2220,7 @@
     },
     "glucomannan": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 2
     },
     "glucomoringin": {
       "lastReviewed": "2026-06-06",
@@ -2248,7 +2248,7 @@
     },
     "glycine": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 1
+      "citationCount": 4
     },
     "glycine-sleep": {
       "lastReviewed": "2026-06-06",
@@ -2308,7 +2308,7 @@
     },
     "hawthorn-extract": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 2
     },
     "hcg-diet": {
       "lastReviewed": "2026-06-06",
@@ -2400,7 +2400,7 @@
     },
     "iodine": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 2
     },
     "ipamorelin": {
       "lastReviewed": "2026-06-30",
@@ -2408,7 +2408,7 @@
     },
     "iron": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 3
     },
     "isoimperatorin": {
       "lastReviewed": "2026-06-06",
@@ -2464,7 +2464,7 @@
     },
     "l-theanine": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 8
     },
     "l-theanine-sleep": {
       "lastReviewed": "2026-07-09",
@@ -2484,11 +2484,11 @@
     },
     "lavender": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 2
     },
     "lavender-extract": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 2
     },
     "lawsone": {
       "lastReviewed": "2026-06-06",
@@ -2540,7 +2540,7 @@
     },
     "lutein": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 2
     },
     "luteolin": {
       "lastReviewed": "2026-06-06",
@@ -2568,7 +2568,7 @@
     },
     "magnesium": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 1
+      "citationCount": 5
     },
     "magnesium-citrate": {
       "lastReviewed": "2026-06-06",
@@ -2576,7 +2576,7 @@
     },
     "magnesium-glycinate": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 0
+      "citationCount": 6
     },
     "magnesium-oxide": {
       "lastReviewed": "2026-06-06",
@@ -2628,7 +2628,7 @@
     },
     "melatonin": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 1
+      "citationCount": 6
     },
     "menthol": {
       "lastReviewed": "2026-06-06",
@@ -2804,7 +2804,7 @@
     },
     "omega-3": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 5
     },
     "ononin": {
       "lastReviewed": "2026-06-06",
@@ -2892,7 +2892,7 @@
     },
     "peppermint-oil": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 3
     },
     "phenylalanine": {
       "lastReviewed": "2026-06-06",
@@ -2960,7 +2960,7 @@
     },
     "probiotics": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 2
     },
     "probiotics-bifidobacterium": {
       "lastReviewed": "2026-06-06",
@@ -3072,7 +3072,7 @@
     },
     "saccharomyces-boulardii": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 2
     },
     "saffron-extract": {
       "lastReviewed": "2026-06-06",
@@ -3128,7 +3128,7 @@
     },
     "selenium": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 2
     },
     "semaglutide": {
       "lastReviewed": "2026-06-30",
@@ -3264,7 +3264,7 @@
     },
     "theanine": {
       "lastReviewed": "2026-07-09",
-      "citationCount": 1
+      "citationCount": 6
     },
     "thearubigin": {
       "lastReviewed": "2026-06-06",
@@ -3328,7 +3328,7 @@
     },
     "uc-ii-collagen": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 2
     },
     "umbelliferone": {
       "lastReviewed": "2026-06-06",
@@ -3388,7 +3388,7 @@
     },
     "vitamin-a": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 2
     },
     "cobalamin": {
       "lastReviewed": "2026-06-06",
@@ -3404,11 +3404,11 @@
     },
     "vitamin-c": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 2
     },
     "vitamin-d": {
       "lastReviewed": "2026-06-06",
-      "citationCount": 1
+      "citationCount": 3
     },
     "vitamin-d3": {
       "lastReviewed": "2026-07-09",

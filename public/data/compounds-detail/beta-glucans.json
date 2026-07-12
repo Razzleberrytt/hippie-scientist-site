@@ -31,11 +31,47 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_320c9c51472e"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_828d27ff727d"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_828d27ff727d",
+      "claim": "v8.2: Yeast beta-glucan has randomized evidence in URTI severity/incidence contexts, but product source matters.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v8.2: Yeast beta-glucan has randomized evidence in URTI severity/incidence contexts, but product source matters.",
+      "qualifiers": {
+        "direction": "immunity, heart_health",
+        "dose_or_duration": "yeast beta-glucan 900 mg/day studied for URTI severity; oat beta-glucan dosing differs for cholesterol",
+        "study_id": "ent_study_677b4643994d"
+      },
+      "sourceRefIds": [
+        "src_320c9c51472e"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "sources": [
+    {
+      "id": "src_320c9c51472e",
+      "title": "PubMed PMID 30198828. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30198828/",
+      "pmid": "30198828",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 30198828. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

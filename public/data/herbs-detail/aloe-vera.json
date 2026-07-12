@@ -58,6 +58,16 @@
       "authors": "Catalano A et al.",
       "year": 2024,
       "url": "https://pubmed.ncbi.nlm.nih.gov/38998660/"
+    },
+    {
+      "id": "src_96fe08d35f48",
+      "title": "PubMed PMID 27347994. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27347994/",
+      "pmid": "27347994",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 27347994. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -71,19 +81,53 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 7,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "32183224",
-      "37915246",
-      "38998660",
-      "claim:study-row-131",
-      "claim:study-row-240",
-      "https://pubmed.ncbi.nlm.nih.gov/27347994/",
-      "pmid:27347994"
+      "src_96fe08d35f48"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_cb7b1c3f5263",
+      "clm_e6cba7374936"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_cb7b1c3f5263",
+      "claim": "v10.4: Aloe has metabolic meta-analysis evidence, but safety/product distinction between gel/extract and latex is critical.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v10.4: Aloe has metabolic meta-analysis evidence, but safety/product distinction between gel/extract and latex is critical.",
+      "qualifiers": {
+        "direction": "gut_health, metabolism",
+        "dose_or_duration": "Aloe gel/extract dosing is product-specific; avoid anthraquinone/laxative aloe latex confusion",
+        "study_id": "ent_study_1b221a1b9c79"
+      },
+      "sourceRefIds": [
+        "src_96fe08d35f48"
+      ]
+    },
+    {
+      "id": "clm_e6cba7374936",
+      "claim": "v8.2: A meta-analysis of five RCTs reported improvements in FBG, HbA1c, and lipids in prediabetes/early untreated diabetes.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v8.2: A meta-analysis of five RCTs reported improvements in FBG, HbA1c, and lipids in prediabetes/early untreated diabetes.",
+      "qualifiers": {
+        "direction": "metabolism, gut_health",
+        "dose_or_duration": "product-specific aloe gel/extract dosing varies; avoid anthraquinone laxative confusion",
+        "study_id": "ent_study_150834238aea"
+      },
+      "sourceRefIds": [
+        "src_96fe08d35f48"
+      ]
+    }
+  ],
   "effects": [
     "immune",
     "metabolic",
@@ -108,24 +152,24 @@
     "Metabolic regulation",
     "Immune modulation",
     "AMPK activation",
-    "Glucose regulation"
+    "Glucose regulation",
+    "Gut microbiome modulation"
   ],
   "mechanism_categories": [
     "core",
     "immune",
-    "metabolic"
+    "metabolic",
+    "gut"
   ],
   "mechanism_classes": [
     "Physiological effect",
     "Signaling pathway modulation",
-    "Metabolic modulation"
+    "Metabolic modulation",
+    "Microbiome modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "inflammatory",
-    "gut_microbiome"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Strong Human Evidence",
   "profile_status": "partial",
   "runtime_export_decision": "full_public_runtime",

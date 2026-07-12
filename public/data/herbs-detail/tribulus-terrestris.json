@@ -22,7 +22,18 @@
   "evidenceLevel": "",
   "relatedHerbs": [],
   "region": "",
-  "sources": [],
+  "sources": [
+    {
+      "id": "src_fc06f95d7d33",
+      "title": "PubMed PMID 17530942. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17530942/",
+      "pmid": "17530942",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 17530942. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ],
   "governance": {
     "reviewStatus": "needs_review",
     "legalRisk": "none",
@@ -34,11 +45,35 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_fc06f95d7d33"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_6783f9e07f1c"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_6783f9e07f1c",
+      "claim": "v9.4: Human trials do not support broad testosterone boosting; block testosterone monetization.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.4: Human trials do not support broad testosterone boosting; block testosterone monetization.",
+      "qualifiers": {
+        "direction": "libido",
+        "dose_or_duration": "Human studies vary; testosterone claims not supported reliably",
+        "study_id": "ent_study_fdb6b2fabd86"
+      },
+      "sourceRefIds": [
+        "src_fc06f95d7d33"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,

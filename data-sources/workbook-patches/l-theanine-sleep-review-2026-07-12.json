@@ -1,0 +1,51 @@
+{
+  "patch_version": 1,
+  "id": "l-theanine-sleep-review-2026-07-12",
+  "title": "L-theanine sleep evidence context",
+  "status": "applied",
+  "generated_at": "2026-07-12",
+  "approved_at": "2026-07-12",
+  "approved_by": "Willie Randolph",
+  "applied_at": "2026-07-12",
+  "applied_by": "Codex",
+  "generated_by": [
+    "Codex",
+    "PubMed"
+  ],
+  "scope": "Entity_Master",
+  "review_notes": [
+    "Uses a systematic review of standalone L-theanine trials rather than caffeine-combination studies.",
+    "Avoids an insomnia-treatment claim and preserves uncertainty about clinical populations and objective outcomes.",
+    "No evidence tier, dosage, safety, governance, or publishing-control fields are changed."
+  ],
+  "sources": [
+    {
+      "id": "doi:10.1080/1028415X.2025.2556925",
+      "doi": "10.1080/1028415X.2025.2556925",
+      "title": "Examining the effect of L-theanine on sleep: a systematic review of dietary supplementation trials",
+      "authors": "Systematic-review authors",
+      "journal": "Nutritional Neuroscience",
+      "year": 2025,
+      "roles": [
+        "systematic-review",
+        "sleep",
+        "claim-limitations"
+      ],
+      "access": "pubmed-abstract"
+    }
+  ],
+  "changes": [
+    {
+      "slug": "l-theanine",
+      "column": "description",
+      "expected_old_value": "",
+      "new_value": "A 2025 systematic review identified 13 human trials of standalone L-theanine for sleep-related outcomes and reported possible benefits across subjective and objective measures. Trial designs, doses, and populations varied, and better studies in people with clinical insomnia are still needed; this supports cautious sleep-support language, not an insomnia-treatment claim.",
+      "confidence": "moderate",
+      "source_ids": [
+        "doi:10.1080/1028415X.2025.2556925"
+      ],
+      "requires_human_review": false,
+      "rationale": "Adds a current synthesis of standalone L-theanine evidence while explicitly limiting the claim to sleep support."
+    }
+  ]
+}

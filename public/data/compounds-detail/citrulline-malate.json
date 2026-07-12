@@ -28,11 +28,47 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_518c663921d5"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_5ac824292899"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_5ac824292899",
+      "claim": "v9.2: Recent acute RCT used 4.4 g pre-workout; earlier performance studies often use higher 6–8 g dosing.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.2: Recent acute RCT used 4.4 g pre-workout; earlier performance studies often use higher 6–8 g dosing.",
+      "qualifiers": {
+        "direction": "blood_flow, performance",
+        "dose_or_duration": "4.4–8 g acute pre-workout citrulline malate, depending on study and product ratio",
+        "study_id": "ent_study_f529dbfb7ce3"
+      },
+      "sourceRefIds": [
+        "src_518c663921d5"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "sources": [
+    {
+      "id": "src_518c663921d5",
+      "title": "PubMed PMID 39408204. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39408204/",
+      "pmid": "39408204",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 39408204. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

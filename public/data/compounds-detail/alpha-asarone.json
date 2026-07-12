@@ -30,15 +30,51 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "PMID 28732807.",
-      "claim:rg-0315",
-      "pmid:28732807"
+      "src_ad6d412d2f8e"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_b6cd744c6303",
+      "clm_f02d8875af8d"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_b6cd744c6303",
+      "claim": "Mechanism/background only; do not publish clinical benefit claims without human evidence.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Mechanism/background only; do not publish clinical benefit claims without human evidence.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_011428f76581"
+      },
+      "sourceRefIds": [
+        "src_ad6d412d2f8e"
+      ]
+    },
+    {
+      "id": "clm_f02d8875af8d",
+      "claim": "CNS/cholinergic; preclinical anxiolytic.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "CNS/cholinergic; preclinical anxiolytic.",
+      "qualifiers": {
+        "direction": "partial verified",
+        "study_id": "ent_study_011428f76581"
+      },
+      "sourceRefIds": [
+        "src_ad6d412d2f8e"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -86,12 +122,25 @@
   "mechanism_target_systems": [],
   "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Neurotransmitter Modulation",
-    "neuroprotective"
+    "Neurotransmitter Modulation"
   ],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_ad6d412d2f8e",
+      "title": "Pharmacology and toxicology of α- and β-Asarone: A review of preclinical evidence.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28732807/",
+      "doi": "10.1016/j.phymed.2017.04.003",
+      "pmid": "28732807",
+      "year": "2017",
+      "journal": "Phytomedicine",
+      "citation": "Author not retrieved (2017). Phytomedicine. PMID: 28732807. DOI: 10.1016/j.phymed.2017.04.003.",
+      "note": "source-backed gap-fill audit only; not a full monograph field extraction",
+      "reviewStatus": "approved"
+    }
+  ]
 }
