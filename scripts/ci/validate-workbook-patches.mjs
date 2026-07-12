@@ -159,6 +159,20 @@ async function commitAppliedDataWithGitApi() {
   console.log(`[validate-workbook-patches] Committed ${paths.length} applied data path(s) through GitHub Git data API: ${commit.sha}`)
 }
 
+async function commitAppliedDataWithDiagnostic() {
+  try {
+    await commitAppliedDataWithGitApi()
+  } catch (error) {
+    const branch = process.env.GITHUB_HEAD_REF || runGit(['branch', '--show-current'])
+    const diagnosticPath = 'public/data/git-api-commit-error.txt'
+    fs.writeFileSync(path.join(repoRoot, diagnosticPath), `${error.stack || error.message}\n`, 'utf8')
+    runGit(['add', diagnosticPath])
+    runGit(['commit', '-m', 'chore: capture Git data commit failure'])
+    runGit(['push', 'origin', `HEAD:${branch}`])
+    throw error
+  }
+}
+
 const failures = []
 for (const name of patchFiles) {
   const patchPath = path.join(patchDir, name)
@@ -209,4 +223,4 @@ if (failures.length > 0) {
 }
 
 console.log(`[validate-workbook-patches] PASS: validated ${patchFiles.length} patch record(s) against the current workbook.`)
-await commitAppliedDataWithGitApi()
+await commitAppliedDataWithDiagnostic()
