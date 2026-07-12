@@ -4,6 +4,7 @@ import os from 'node:os'
 import path from 'node:path'
 import { spawnSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
+import JSZip from 'jszip'
 import { readWorkbookExcelJS } from '../utils/read-workbook-exceljs.mjs'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -13,6 +14,71 @@ const DEFAULT_WORKBOOK = path.join(repoRoot, 'data-sources/herb_monograph_master
 const ENTITY_SHEET_CANDIDATES = ['Entity_Master', 'Sheet7', 'Herb Master V3']
 const EDITOR = path.join(repoRoot, 'scripts/data/edit-entity-master-cell.mjs')
 const SCHEMA_VALIDATOR = path.join(repoRoot, 'scripts/ci/validate-workbook-schema.mjs')
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+function normalizeRelationshipXml(xml) {
+  const rootMatch = xml.match(/<([A-Za-z_][\w.-]*):Relationships\b/)
+  if (!rootMatch) return xml
+
+  const prefix = escapeRegExp(rootMatch[1])
+  return xml
+    .replace(new RegExp(`<(/?)${prefix}:Relationships\\b`, 'g'), '<$1Relationships')
+    .replace(new RegExp(`<(/?)${prefix}:Relationship\\b`, 'g'), '<$1Relationship')
+    .replace(new RegExp(`\\sxmlns:${prefix}=`, 'g'), ' xmlns=')
+}
+
+function normalizeSpreadsheetMainXml(xml) {
+  const namespaceMatch = xml.match(
+    /xmlns:([A-Za-z_][\w.-]*)="http:\/\/schemas\.openxmlformats\.org\/spreadsheetml\/2006\/main"/,
+  )
+  if (!namespaceMatch) return xml
+
+  const prefix = escapeRegExp(namespaceMatch[1])
+  return xml
+    .replace(new RegExp(`<(/?)${prefix}:`, 'g'), '<$1')
+    .replace(new RegExp(`\\sxmlns:${prefix}=`, 'g'), ' xmlns=')
+}
+
+async function createNormalizedWorkbookCopy(filePath) {
+  const source = fs.readFileSync(filePath)
+  const zip = await JSZip.loadAsync(source)
+  let changedFiles = 0
+
+  for (const entry of Object.values(zip.files)) {
+    if (entry.dir) continue
+
+    let normalizeXml = null
+    if (entry.name.endsWith('.rels')) {
+      normalizeXml = normalizeRelationshipXml
+    } else if (entry.name.startsWith('xl/') && entry.name.endsWith('.xml')) {
+      normalizeXml = normalizeSpreadsheetMainXml
+    }
+    if (!normalizeXml) continue
+
+    const xml = await entry.async('string')
+    const normalized = normalizeXml(xml)
+    if (normalized === xml) continue
+
+    zip.file(entry.name, normalized)
+    changedFiles += 1
+  }
+
+  if (changedFiles === 0) return null
+
+  const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hippie-workbook-normalized-'))
+  const tempPath = path.join(tempDir, path.basename(filePath))
+  const output = await zip.generateAsync({
+    type: 'nodebuffer',
+    compression: 'DEFLATE',
+    compressionOptions: { level: 6 },
+  })
+  fs.writeFileSync(tempPath, output)
+
+  return { tempDir, tempPath, changedFiles }
+}
 
 const PATCH_STATUSES = new Set(['proposal', 'approved', 'applied'])
 const CONFIDENCE_LEVELS = new Set(['low', 'moderate', 'high'])
@@ -294,7 +360,7 @@ function runNode(scriptPath, args, options = {}) {
   return result.stdout?.trim() || ''
 }
 
-function applyPatch({ patch, changes, workbookPath, outPath, inPlace, approveHumanReview, entitySheet }) {
+async function applyPatch({ patch, changes, workbookPath, outPath, inPlace, approveHumanReview, entitySheet }) {
   if (patch.status !== 'approved') {
     throw new Error(`Patch status must be approved before writing; current status is ${patch.status}`)
   }
@@ -306,8 +372,17 @@ function applyPatch({ patch, changes, workbookPath, outPath, inPlace, approveHum
   }
 
   const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'hippie-workbook-patch-'))
+  let normalizedCopy = null
   let currentInput = workbookPath
   try {
+    normalizedCopy = await createNormalizedWorkbookCopy(workbookPath)
+    if (normalizedCopy) {
+      currentInput = normalizedCopy.tempPath
+      console.log(
+        `[workbook-patch] Normalized namespace-prefixed OOXML in ${normalizedCopy.changedFiles} file(s) before writing`,
+      )
+    }
+
     for (const [index, change] of changes.entries()) {
       const nextOutput = path.join(tempDir, `step-${String(index + 1).padStart(3, '0')}.xlsx`)
       runNode(EDITOR, [
@@ -343,6 +418,7 @@ function applyPatch({ patch, changes, workbookPath, outPath, inPlace, approveHum
     console.log('[workbook-patch] Next: npm run data:build:core && npm run guard:source-of-truth')
   } finally {
     fs.rmSync(tempDir, { recursive: true, force: true })
+    if (normalizedCopy) fs.rmSync(normalizedCopy.tempDir, { recursive: true, force: true })
   }
 }
 
@@ -368,7 +444,7 @@ async function main() {
     return
   }
 
-  applyPatch({
+  await applyPatch({
     patch,
     changes,
     workbookPath,
