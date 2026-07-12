@@ -74,7 +74,7 @@
       "year": "2009"
     }
   ],
-  "notes": "Corrected review-only Rhodiola patch. It proposes two cautious outcome claims plus export-visible form and risk-of-bias context. It does not modify canonical data, publishing controls, governance status, or evidence grades until separately approved and explicitly applied by file.",
+  "notes": "Corrected review-only Rhodiola patch. Scite full-text review completed 2026-07-12 with no retraction, correction, erratum, or expression-of-concern notice returned for the five cited records. The patch proposes two cautious outcome claims plus export-visible form and risk-of-bias context. It does not modify canonical data, publishing controls, governance status, or evidence grades until separately approved and explicitly applied by file.",
   "confidence": 0.8,
   "requires_review": true
 }
