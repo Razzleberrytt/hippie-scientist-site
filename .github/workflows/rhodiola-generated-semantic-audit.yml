@@ -1,0 +1,94 @@
+name: Rhodiola Generated Semantic Audit
+
+on:
+  push:
+    branches:
+      - patch/rhodiola-reviewable-v2
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Compare generated records against main
+        run: |
+          git fetch origin main
+          node <<'NODE'
+          const fs = require('fs')
+          const { execFileSync } = require('child_process')
+
+          function fromMain(path) {
+            return JSON.parse(execFileSync('git', ['show', `origin/main:${path}`], { encoding: 'utf8' }))
+          }
+
+          function fromHead(path) {
+            return JSON.parse(fs.readFileSync(path, 'utf8'))
+          }
+
+          function stable(value) {
+            if (Array.isArray(value)) return value.map(stable)
+            if (value && typeof value === 'object') {
+              return Object.fromEntries(Object.keys(value).sort().map((key) => [key, stable(value[key])]))
+            }
+            return value
+          }
+
+          function changedSlugs(base, head) {
+            const before = new Map(base.map((record) => [record.slug, record]))
+            const after = new Map(head.map((record) => [record.slug, record]))
+            const slugs = [...new Set([...before.keys(), ...after.keys()])].sort()
+            return slugs.filter((slug) => JSON.stringify(stable(before.get(slug))) !== JSON.stringify(stable(after.get(slug))))
+          }
+
+          const herbsPath = 'data/generated/site/herbs.json'
+          const compoundsPath = 'data/generated/site/compounds.json'
+          const baseHerbs = fromMain(herbsPath)
+          const headHerbs = fromHead(herbsPath)
+          const baseCompounds = fromMain(compoundsPath)
+          const headCompounds = fromHead(compoundsPath)
+
+          const changedHerbs = changedSlugs(baseHerbs, headHerbs)
+          const changedCompounds = changedSlugs(baseCompounds, headCompounds)
+
+          if (JSON.stringify(changedHerbs) !== JSON.stringify(['rhodiola'])) {
+            throw new Error(`unexpected changed herb records: ${JSON.stringify(changedHerbs)}`)
+          }
+          if (changedCompounds.length !== 0) {
+            throw new Error(`unexpected changed compound records: ${JSON.stringify(changedCompounds)}`)
+          }
+
+          const rhodiola = headHerbs.find((record) => record.slug === 'rhodiola')
+          if (!rhodiola) throw new Error('Rhodiola export missing')
+          if (!Array.isArray(rhodiola.forms) || !rhodiola.forms.some((value) => /3% rosavins/i.test(value))) {
+            throw new Error(`Rhodiola forms were not exported correctly: ${JSON.stringify(rhodiola.forms)}`)
+          }
+          if (!/unclear randomization/i.test(rhodiola.evidence_risk_of_bias || '')) {
+            throw new Error(`Rhodiola risk-of-bias context missing: ${JSON.stringify(rhodiola.evidence_risk_of_bias)}`)
+          }
+
+          const report = {
+            changedHerbs,
+            changedCompounds,
+            rhodiola: {
+              forms: rhodiola.forms,
+              evidence_risk_of_bias: rhodiola.evidence_risk_of_bias,
+            },
+          }
+          fs.writeFileSync('rhodiola-generated-semantic-audit.json', JSON.stringify(report, null, 2) + '\n')
+          console.log(JSON.stringify(report, null, 2))
+          NODE
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rhodiola-generated-semantic-audit
+          path: rhodiola-generated-semantic-audit.json
+          if-no-files-found: error
