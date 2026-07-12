@@ -788,9 +788,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       </section>
 
       {interactionEdges.length > 0 && (
-        <div id="interactions" className="scroll-mt-24">
-          <InteractionWarnings edges={interactionEdges} slugTypeMap={slugTypeMap} />
-        </div>
+        <InteractionWarnings edges={interactionEdges} slugTypeMap={slugTypeMap} />
       )}
 
       {/* Section 3: Evidence Summary */}
