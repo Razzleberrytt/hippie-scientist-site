@@ -9,6 +9,7 @@ import { COMPOUNDS_PAGE_SIZE, paginateItems } from '@/lib/pagination'
 import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
 import CompoundsIndexClient from './CompoundsIndexClient'
 import type { RuntimeRecord } from '../../src/types/content'
+import Pagination from '@/components/Pagination'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Compound Library',
@@ -43,6 +44,8 @@ export default async function CompoundsPage() {
         <p className="mt-2 text-sm font-semibold text-muted">Browsing {allCompounds.length} compounds</p>
       </section>
 
+      <Pagination basePath="/compounds" currentPage={1} totalPages={pageData.totalPages} itemLabel="Compound profiles" />
+
       {/* SEO-crawlable index (hidden from visual users, served to Googlebot) */}
       <nav aria-label="Compound profiles index" className="sr-only">
         <ul>
@@ -68,6 +71,7 @@ export default async function CompoundsPage() {
           totalPages={pageData.totalPages}
         />
       </Suspense>
+      <Pagination basePath="/compounds" currentPage={1} totalPages={pageData.totalPages} itemLabel="Compound profiles" />
     </div>
   )
 }
