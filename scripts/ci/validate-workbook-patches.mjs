@@ -166,6 +166,8 @@ async function commitAppliedDataWithDiagnostic() {
     const branch = process.env.GITHUB_HEAD_REF || runGit(['branch', '--show-current'])
     const diagnosticPath = 'public/data/git-api-commit-error.txt'
     fs.writeFileSync(path.join(repoRoot, diagnosticPath), `${error.stack || error.message}\n`, 'utf8')
+    runGit(['config', 'user.name', 'github-actions[bot]'])
+    runGit(['config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com'])
     runGit(['add', diagnosticPath])
     runGit(['commit', '-m', 'chore: capture Git data commit failure'])
     runGit(['push', 'origin', `HEAD:${branch}`])
