@@ -660,7 +660,19 @@ export default async function HerbDetailPage({ params }: PageProps) {
         ))}
       </nav>
 
-      {normalizedSlug === 'ashwagandha' && <AshwagandhaStressClaim />}
+      {normalizedSlug === 'ashwagandha' && (
+        <section className="card-premium p-4 sm:p-5">
+          <details className="group">
+            <summary className="flex cursor-pointer items-center justify-between gap-4 text-lg font-bold text-ink select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:rounded">
+              <span>Evidence deep dive: the stress claim</span>
+              <span aria-hidden="true" className="text-brand-500 transition-transform group-open:rotate-180">v</span>
+            </summary>
+            <div className="mt-4 border-t border-brand-900/10 pt-4">
+              <AshwagandhaStressClaim />
+            </div>
+          </details>
+        </section>
+      )}
 
       {expansion ? (
         <section id="editorial-review" className="card-premium scroll-mt-24 p-4 sm:p-5">
@@ -899,12 +911,12 @@ export default async function HerbDetailPage({ params }: PageProps) {
           {goalLinks.length > 0 ? (
             <div>
               <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Goal guides</p>
-              <div className="mt-2 flex flex-wrap gap-2">
+              <div className="mt-2 flex gap-2 overflow-x-auto pb-1.5 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin]">
                 {goalLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold capitalize text-brand-800 hover:bg-brand-50"
+                    className="shrink-0 whitespace-nowrap rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold capitalize text-brand-800 hover:bg-brand-50"
                   >
                     {link.label}
                   </Link>
@@ -915,12 +927,12 @@ export default async function HerbDetailPage({ params }: PageProps) {
           {conditionLinks.length > 0 ? (
             <div id="conditions" className="scroll-mt-24">
               <p className="text-[10px] font-bold uppercase tracking-wider text-brand-700">Condition guides</p>
-              <div className="mt-2 flex flex-wrap gap-2">
+              <div className="mt-2 flex gap-2 overflow-x-auto pb-1.5 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin]">
                 {conditionLinks.slice(0, 5).map((link: RuntimeMapEntry) => (
                   <Link
                     key={link.slug}
                     href={link.href || '/guides/'}
-                    className="rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-3 py-1.5 text-xs font-semibold text-brand-800 hover:bg-brand-50"
+                    className="shrink-0 whitespace-nowrap rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-3 py-1.5 text-xs font-semibold text-brand-800 hover:bg-brand-50"
                   >
                     {link.label || formatDisplayLabel(link.slug)}
                   </Link>

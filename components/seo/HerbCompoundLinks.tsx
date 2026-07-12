@@ -25,10 +25,13 @@ export default async function HerbCompoundLinks({ herbSlug, herbName }: HerbComp
           Key constituents studied in {herbName || 'this herb'}, with full pharmacology and safety profiles.
         </p>
       </div>
-      <ul className="space-y-2">
+      <ul className="flex gap-2 overflow-x-auto pb-1.5 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin]">
         {links.map((link) => (
-          <li key={link.slug}>
-            <Link href={link.href} className="text-sm font-semibold text-brand-800 hover:underline">
+          <li key={link.slug} className="shrink-0">
+            <Link
+              href={link.href}
+              className="inline-block whitespace-nowrap rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold text-brand-800 hover:bg-brand-50"
+            >
               {link.anchor}
             </Link>
           </li>

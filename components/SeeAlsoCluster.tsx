@@ -91,13 +91,13 @@ export default function SeeAlsoCluster({
               </Link>
             </div>
           )}
-          <div className='flex flex-wrap gap-2'>
+          <div className='flex gap-2 overflow-x-auto pb-1.5 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin]'>
             {group.entries.map((entry) => (
               <Link
                 key={`${entry.kind}:${entry.slug}`}
                 href={entry.href}
                 title={entry.reason}
-                className='rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold capitalize text-brand-800 hover:bg-brand-50 transition'
+                className='shrink-0 whitespace-nowrap rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold capitalize text-brand-800 hover:bg-brand-50 transition'
               >
                 {entry.label}
               </Link>

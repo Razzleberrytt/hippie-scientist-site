@@ -41,12 +41,16 @@ export function EvidenceConfidence({
 }) {
   const gradeStyle = GRADE_STYLE[String(grade).toLowerCase()] ?? GRADE_STYLE.moderate
   return (
-    <section className="not-prose my-6 rounded-2xl border border-brand-900/12 bg-white p-5 shadow-[0_1px_2px_rgba(13,23,18,0.05)] dark:border-white/10 dark:bg-[var(--surface-card)]">
-      <div className="flex flex-wrap items-center gap-3">
-        <h2 className="text-xl font-bold tracking-tight text-ink sm:text-2xl">{title}</h2>
-        <span className={`rounded-full border px-3 py-0.5 text-sm font-bold ${gradeStyle}`}>{grade}</span>
-      </div>
-      <div className="mt-4 grid gap-4 sm:grid-cols-2">
+    <section className="not-prose my-4 rounded-2xl border border-brand-900/12 bg-white p-4 shadow-[0_1px_2px_rgba(13,23,18,0.05)] dark:border-white/10 dark:bg-[var(--surface-card)]">
+      <details className="group">
+        <summary className="flex cursor-pointer flex-wrap items-center justify-between gap-3 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700/40 focus-visible:rounded">
+          <span className="flex flex-wrap items-center gap-3">
+            <span className="text-base font-bold tracking-tight text-ink">{title}</span>
+            <span className={`rounded-full border px-3 py-0.5 text-sm font-bold ${gradeStyle}`}>{grade}</span>
+          </span>
+          <span aria-hidden="true" className="shrink-0 text-brand-500 transition-transform group-open:rotate-180">v</span>
+        </summary>
+      <div className="mt-4 grid gap-4 border-t border-brand-900/10 pt-4 sm:grid-cols-2 dark:border-white/10">
         <div>
           <p className="text-xs font-bold uppercase tracking-wider text-muted">Why not higher</p>
           <ul className="mt-2 space-y-1.5">
@@ -82,6 +86,7 @@ export function EvidenceConfidence({
         <span className="font-bold">Practical takeaway: </span>
         {practicalTakeaway}
       </p>
+      </details>
     </section>
   )
 }
