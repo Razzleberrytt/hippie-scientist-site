@@ -116,8 +116,8 @@ export default function HomepageV2() {
 
   return (
     <div className='editorial-site-shell'>
-      <div className='relative mx-auto max-w-6xl space-y-8 px-4 pb-16 pt-4 sm:space-y-12 sm:px-6 sm:pb-20 sm:pt-8 lg:px-8'>
-        <section className='editorial-hero px-6 pb-0 pt-9 sm:px-10 sm:pt-12 lg:px-14 lg:pt-16'>
+      <div className='relative mx-auto max-w-6xl space-y-6 px-4 pb-16 pt-4 sm:space-y-12 sm:px-6 sm:pb-20 sm:pt-8 lg:px-8'>
+        <section className='editorial-hero px-5 pb-0 pt-8 sm:px-10 sm:pt-12 lg:px-14 lg:pt-16'>
           <div className='editorial-botanical-orbit' aria-hidden='true'>
             <span />
             <span />
@@ -127,7 +127,7 @@ export default function HomepageV2() {
 
           <div className='relative max-w-3xl pb-10 sm:pb-12 lg:pb-14'>
             <p className='editorial-eyebrow'>Evidence-based supplement guidance</p>
-            <h1 className='editorial-display mt-4 max-w-[11ch] text-[3.25rem] sm:text-[4.6rem] lg:text-[5.6rem]'>
+            <h1 className='editorial-display mt-4 max-w-[12ch] text-[2.55rem] sm:text-[4.6rem] lg:text-[5.6rem]'>
               Herbs &amp; supplements, actually explained.
             </h1>
             <p className='mt-5 max-w-xl text-base leading-7 text-[#33433c] sm:mt-6 sm:text-lg sm:leading-8 dark:text-[var(--text-secondary)]'>
@@ -148,7 +148,7 @@ export default function HomepageV2() {
             </div>
           </div>
 
-          <div className='editorial-trust-strip -mx-6 grid grid-cols-1 gap-3 px-6 py-4 sm:-mx-10 sm:grid-cols-3 sm:px-10 lg:-mx-14 lg:px-14'>
+          <div className='editorial-trust-strip -mx-5 grid grid-cols-1 gap-2 px-5 py-4 sm:-mx-10 sm:grid-cols-3 sm:px-10 lg:-mx-14 lg:px-14'>
             {trustItems.map((item) => {
               const Icon = item.icon
               return (
@@ -167,7 +167,7 @@ export default function HomepageV2() {
         </section>
 
         <section className='grid gap-5 lg:grid-cols-[1.15fr_0.85fr]'>
-          <div className='editorial-card-strong rounded-[2rem] p-6 sm:p-8'>
+          <div className='editorial-card-strong border-x-0 p-5 sm:rounded-[2rem] sm:border-x sm:p-8'>
             <p className='editorial-eyebrow'>Smarter choices</p>
             <div className='mt-3 flex items-start justify-between gap-4'>
               <SectionHeader
@@ -195,7 +195,7 @@ export default function HomepageV2() {
             </Link>
           </div>
 
-          <div className='editorial-card rounded-[2rem] p-6 sm:p-8'>
+          <div className='editorial-card border-x-0 p-5 sm:rounded-[2rem] sm:border-x sm:p-8'>
             <p className='editorial-eyebrow'>Safety first</p>
             <SectionHeader
               title='Use the safety tools'
@@ -221,7 +221,7 @@ export default function HomepageV2() {
           </div>
         </section>
 
-        <section id='choose-a-path' className='editorial-card rounded-[2rem] p-6 scroll-mt-24 sm:p-8'>
+        <section id='choose-a-path' className='editorial-card border-x-0 p-5 scroll-mt-24 sm:rounded-[2rem] sm:border-x sm:p-8'>
           <div className='flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between'>
             <SectionHeader
               title='Choose one path'

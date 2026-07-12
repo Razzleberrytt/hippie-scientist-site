@@ -17,7 +17,6 @@ import { buildPageMetadata, DEFAULT_DESCRIPTION, SITE_URL, websiteJsonLd, organi
 import { serializeJsonLd } from '../src/lib/schema-injector'
 import { DEFAULT_LOCALE, DEFAULT_OG_LOCALE, LOCALE_TEXT_DIRECTION } from '../src/lib/international-seo'
 import { DarkModeProvider } from '@/lib/dark-mode-provider'
-import DarkModeToggle from '@/components/DarkModeToggle'
 import './globals.css'
 import '@/styles/foundation-readability.css'
 import '@/styles/premium-library-polish.css'
@@ -102,7 +101,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <main
               id='main-content'
               data-pagefind-body
-              className='pb-[calc(env(safe-area-inset-bottom)+9rem)] md:pb-8'
+              className='pb-[calc(env(safe-area-inset-bottom)+6rem)] md:pb-8'
               tabIndex={-1}
             >
               <GlobalTOC />
@@ -114,9 +113,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <CitationDrawerLazy />
             <ClickTracker />
             <ConsentBanner />
-            <div className='fixed bottom-[6.75rem] right-4 z-[86] md:hidden'>
-              <DarkModeToggle />
-            </div>
           </div>
         </DarkModeProvider>
       </body>

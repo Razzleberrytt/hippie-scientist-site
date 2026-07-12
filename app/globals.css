@@ -1163,6 +1163,39 @@ html.dark :is(
   color: var(--text-primary);
 }
 
+.safety-disclaimer {
+  color: #5b3a12;
+}
+
+html.dark .safety-disclaimer {
+  border-color: rgba(245, 190, 85, 0.55);
+  background: rgba(89, 55, 14, 0.28);
+}
+
+html.dark .safety-disclaimer,
+html.dark .safety-disclaimer * {
+  color: #fff1cf !important;
+}
+
+@media (max-width: 767px) {
+  .profile-hero {
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .profile-quick-stats > div {
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+}
+
 html.dark :is(
   [class~="text-red-700/80"],
   [class~="text-red-950"],

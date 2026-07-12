@@ -563,7 +563,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
       </nav>
 
       {/* Title Header — includes the quick-stat strip so the essentials fit in one screen */}
-      <div id="overview" className="hero-shell scroll-mt-24 rounded-[2rem] border border-brand-900/10 p-5 shadow-sm sm:p-6">
+      <div id="overview" className="profile-hero hero-shell scroll-mt-24 rounded-[2rem] border border-brand-900/10 p-5 shadow-sm sm:p-6">
         <header className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-start">
           <div className="space-y-3">
             <div className="space-y-1">
@@ -601,7 +601,7 @@ export default async function HerbDetailPage({ params }: PageProps) {
             </div>
 
             {/* Quick stats strip */}
-            <dl className="grid gap-2 sm:grid-cols-3">
+            <dl className="profile-quick-stats grid gap-2 sm:grid-cols-3">
               <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-card)] px-3 py-2">
                 <dt className="text-[10px] font-bold uppercase tracking-wider text-muted">Evidence</dt>
                 <dd className="mt-0.5 text-sm font-semibold text-ink">{evidenceStrength || 'Mixed or uncertain'}</dd>
