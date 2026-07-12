@@ -36,6 +36,129 @@ function resultOutput(result) {
   return [result.stdout, result.stderr].filter(Boolean).join('\n').trim()
 }
 
+function runGit(args, options = {}) {
+  const result = spawnSync('git', args, {
+    cwd: repoRoot,
+    encoding: 'utf8',
+    ...options,
+  })
+  if (result.status !== 0) {
+    const output = [result.stdout, result.stderr].filter(Boolean).join('\n').trim()
+    throw new Error(`git ${args.join(' ')} failed${output ? `:\n${output}` : ''}`)
+  }
+  return result.stdout.trim()
+}
+
+function getCheckoutToken() {
+  const authHeader = runGit(['config', '--local', '--get', 'http.https://github.com/.extraheader'])
+  const match = authHeader.match(/AUTHORIZATION:\s*basic\s+(\S+)/i)
+  if (!match) throw new Error('Could not read the authenticated checkout header')
+  const decoded = Buffer.from(match[1], 'base64').toString('utf8')
+  const separator = decoded.indexOf(':')
+  const token = separator >= 0 ? decoded.slice(separator + 1) : decoded
+  if (!token) throw new Error('Authenticated checkout header did not contain a token')
+  return token
+}
+
+function changedPaths() {
+  const output = runGit(['status', '--porcelain=v1', '-z'])
+  if (!output) return []
+
+  const entries = output.split('\0').filter(Boolean)
+  const paths = []
+  for (let index = 0; index < entries.length; index += 1) {
+    const entry = entries[index]
+    const status = entry.slice(0, 2)
+    let filePath = entry.slice(3)
+    if (status.includes('R') || status.includes('C')) {
+      index += 1
+      filePath = entries[index]
+    }
+    paths.push(filePath)
+  }
+  return paths
+}
+
+async function commitAppliedDataWithGitApi() {
+  if (process.env.GITHUB_ACTIONS !== 'true') return
+  if (process.env.GITHUB_WORKFLOW !== 'Apply Approved Citicoline Patch') return
+
+  const paths = changedPaths()
+  if (paths.length === 0) return
+
+  const allowedExact = new Set([
+    'data-sources/herb_monograph_master.xlsx',
+    'data-sources/workbook-patches/citicoline-scite-pilot.json',
+  ])
+  const unexpected = paths.filter((filePath) => !allowedExact.has(filePath) && !filePath.startsWith('public/data/'))
+  if (unexpected.length > 0) {
+    throw new Error(`Refusing Git data commit with unexpected path(s):\n- ${unexpected.join('\n- ')}`)
+  }
+
+  const repository = process.env.GITHUB_REPOSITORY
+  const branch = process.env.GITHUB_HEAD_REF || runGit(['branch', '--show-current'])
+  const parentSha = runGit(['rev-parse', 'HEAD'])
+  if (!repository || !branch) throw new Error('Missing GitHub repository or branch context')
+
+  const token = getCheckoutToken()
+  const apiRoot = `https://api.github.com/repos/${repository}`
+  async function githubApi(endpoint, { method = 'GET', body } = {}) {
+    const response = await fetch(`${apiRoot}${endpoint}`, {
+      method,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: 'application/vnd.github+json',
+        'X-GitHub-Api-Version': '2022-11-28',
+        ...(body ? { 'Content-Type': 'application/json' } : {}),
+      },
+      body: body ? JSON.stringify(body) : undefined,
+    })
+    const text = await response.text()
+    if (!response.ok) {
+      throw new Error(`GitHub API ${method} ${endpoint} failed (${response.status}): ${text.slice(0, 1000)}`)
+    }
+    return text ? JSON.parse(text) : null
+  }
+
+  const parent = await githubApi(`/git/commits/${parentSha}`)
+  const tree = []
+  for (const filePath of paths) {
+    const absolutePath = path.join(repoRoot, filePath)
+    const content = fs.readFileSync(absolutePath).toString('base64')
+    const blob = await githubApi('/git/blobs', {
+      method: 'POST',
+      body: { content, encoding: 'base64' },
+    })
+    tree.push({ path: filePath, mode: '100644', type: 'blob', sha: blob.sha })
+    console.log(`[validate-workbook-patches] Uploaded Git blob: ${filePath}`)
+  }
+
+  const newTree = await githubApi('/git/trees', {
+    method: 'POST',
+    body: { base_tree: parent.tree.sha, tree },
+  })
+  const commit = await githubApi('/git/commits', {
+    method: 'POST',
+    body: {
+      message: 'data: apply approved Citicoline evidence patch',
+      tree: newTree.sha,
+      parents: [parentSha],
+    },
+  })
+  const encodedBranch = branch.split('/').map(encodeURIComponent).join('/')
+  await githubApi(`/git/refs/heads/${encodedBranch}`, {
+    method: 'PATCH',
+    body: { sha: commit.sha, force: false },
+  })
+
+  runGit(['fetch', 'origin', branch])
+  runGit(['reset', '--hard', commit.sha])
+  const sentinel = path.join(repoRoot, 'public/data/.citicoline-commit-sentinel')
+  fs.mkdirSync(path.dirname(sentinel), { recursive: true })
+  fs.writeFileSync(sentinel, 'Remove after the one-time Citicoline application workflow.\n', 'utf8')
+  console.log(`[validate-workbook-patches] Committed ${paths.length} applied data path(s) through GitHub Git data API: ${commit.sha}`)
+}
+
 const failures = []
 for (const name of patchFiles) {
   const patchPath = path.join(patchDir, name)
@@ -86,3 +209,4 @@ if (failures.length > 0) {
 }
 
 console.log(`[validate-workbook-patches] PASS: validated ${patchFiles.length} patch record(s) against the current workbook.`)
+await commitAppliedDataWithGitApi()
