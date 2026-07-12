@@ -459,4 +459,3 @@ main().catch((error) => {
   console.error(`[workbook-patch] ERROR: ${error.message}`)
   process.exit(1)
 })
-// TEMP_MERGE_RESOLVER_CHECKPOINT
