@@ -11,6 +11,7 @@ import { formatDisplayLabel } from '@/lib/display-utils'
 import { isRedirectedDuplicate } from '@/lib/deprecated-herb-canonicals'
 import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
 import HerbsIndexClient from './HerbsIndexClient'
+import Pagination from '@/components/Pagination'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Herb Profiles & Research Library',
@@ -57,18 +58,15 @@ export default async function HerbsPage() {
 
   return (
     <div className="mx-auto max-w-6xl space-y-5 px-4 py-4 sm:py-6">
-      <div className="space-y-1 pb-1">
+      <header className="hero-shell rounded-[0.95rem] border border-brand-900/10 px-4 py-5 shadow-sm sm:px-6 sm:py-6">
         <p className="eyebrow-label">Botanical Research Library</p>
-        <h1 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">Herb Profiles</h1>
-        <p className="text-sm text-muted">
+        <h1 className="mt-2 max-w-3xl text-balance font-display text-3xl font-semibold leading-[1.08] text-ink sm:text-5xl">Herb Profiles</h1>
+        <p className="mt-2 max-w-2xl text-pretty text-sm leading-6 text-muted">
           Mechanisms, safety notes, active compounds, and research context for {herbs.length} herbs — plain language, conservative claims.
         </p>
-      </div>
+      </header>
 
-      <nav className="flex items-center gap-3 border-y border-brand-900/10 py-3 text-sm" aria-label="Herb pagination">
-        <p className="font-semibold">Page 1 of {pageData.totalPages}</p>
-        {pageData.hasNext ? <Link rel="next" href="/herbs/page/2" className="font-semibold text-brand-800">Next page →</Link> : null}
-      </nav>
+      <Pagination basePath="/herbs" currentPage={1} totalPages={pageData.totalPages} itemLabel="Herb profiles" />
 
       <nav aria-label="Herb profiles index" className="sr-only">
         <ul>
@@ -100,6 +98,7 @@ export default async function HerbsPage() {
       <Suspense fallback={<HerbsLoadingSkeleton />}>
         <HerbsIndexClient herbs={leanPageItems} allHerbs={leanHerbs} paginated page={1} totalPages={pageData.totalPages} />
       </Suspense>
+      <Pagination basePath="/herbs" currentPage={1} totalPages={pageData.totalPages} itemLabel="Herb profiles" />
     </div>
   )
 }

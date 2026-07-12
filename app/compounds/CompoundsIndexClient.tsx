@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 import { Suspense } from 'react'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeDecisionEvidence, normalizeDecisionSafety } from '@/lib/decision-primitives'
@@ -299,9 +300,10 @@ const browsePaths = [
   },
 ]
 
-export default function CompoundsIndexClient({ compounds: sourceCompounds, allCompounds, initialQuery = '', initialContext = '', paginated = false, page = 1, totalPages = 1}: { compounds: RuntimeRecord[]; allCompounds?: RuntimeRecord[]; initialQuery?: string; initialContext?: string; paginated?: boolean; page?: number; totalPages?: number }) {
-  const query = firstParam(initialQuery)
-  const context = firstParam(initialContext)
+export default function CompoundsIndexClient({ compounds: sourceCompounds, allCompounds, initialQuery = '', initialContext = '', paginated = false, page: _page = 1, totalPages: _totalPages = 1}: { compounds: RuntimeRecord[]; allCompounds?: RuntimeRecord[]; initialQuery?: string; initialContext?: string; paginated?: boolean; page?: number; totalPages?: number }) {
+  const urlParams = useSearchParams()
+  const query = urlParams?.get('q') || firstParam(initialQuery)
+  const context = urlParams?.get('context') || firstParam(initialContext)
   const activeFilter = filterOptions.some(option => option.value === context) ? context : 'all'
 
   const baseCompounds = [...(allCompounds || sourceCompounds)].sort((a: RuntimeRecord, b: RuntimeRecord) => scoreCompound(b) - scoreCompound(a))
@@ -341,7 +343,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
           </div>
         </section>
 
-        <section className="rounded-[0.85rem] border border-brand-900/10 bg-white/85 p-3 shadow-sm sm:p-4" aria-labelledby="compound-search-heading">
+        <section className="rounded-[0.85rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm sm:p-4" aria-labelledby="compound-search-heading">
           <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-2xl space-y-1.5">
               <p className="eyebrow-label">Search and filter</p>
@@ -358,10 +360,10 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
               type="search"
               defaultValue={query}
               placeholder="Search compound, mechanism, source herb, or safety note"
-              className="min-h-10 w-full rounded-full border border-brand-900/10 bg-white px-4 text-sm text-ink shadow-sm placeholder:text-muted/60 dark:placeholder:text-[var(--text-muted)]/50"
+              className="min-h-11 w-full rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 text-base text-ink shadow-sm placeholder:text-muted/60 focus:outline-none focus:ring-2 focus:ring-brand-700/30 dark:placeholder:text-[var(--text-muted)]/50"
             />
             {activeFilter !== 'all' ? <input type="hidden" name="context" value={activeFilter} /> : null}
-            <button type="submit" className="button-primary min-h-10 px-4 py-2">
+            <button type="submit" className="button-primary min-h-11 px-5 py-2.5 text-sm">
               Search
             </button>
           </form>
@@ -375,7 +377,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
           />
         </section>
 
-        <section className="rounded-[0.85rem] border border-brand-900/10 bg-white/75 p-3 shadow-sm">
+        <section className="rounded-[0.85rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm">
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
             <div className="max-w-2xl space-y-1.5">
               <p className="eyebrow-label">Common starting points</p>
@@ -388,7 +390,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
               <Link
                 key={path.label}
                 href={path.href}
-                className="group rounded-[0.75rem] border border-brand-900/10 bg-white/85 p-2.5 shadow-sm transition hover:border-brand-700/20 hover:bg-white"
+                className="group rounded-[0.75rem] border border-brand-900/10 bg-[var(--surface-card)] p-2.5 shadow-sm transition hover:border-brand-700/20 hover:bg-[var(--surface-card-strong)]"
               >
                 <h3 className="text-base font-semibold tracking-tight text-ink transition group-hover:text-brand-800">{path.label}</h3>
                 <p className="mt-1 text-sm leading-5 text-muted">{path.description}</p>
@@ -447,9 +449,6 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
                   </div>
                 </Suspense>
               </section>
-            ) : null}
-            {paginated && !hasActiveFilters && totalPages > 1 ? (
-              <p className="text-sm text-muted">Showing page {page} of {totalPages}. Use previous/next links above for crawl-safe navigation.</p>
             ) : null}
           </>
         )}

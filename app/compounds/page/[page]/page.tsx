@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { Suspense } from 'react'
 import { getAllCompounds } from '@/lib/server/runtime-data'
 import { getRuntimeVisibility } from '../../../../lib/runtime-visibility'
@@ -7,6 +6,7 @@ import { COMPOUNDS_PAGE_SIZE, clampPositiveInt, paginateItems } from '@/lib/pagi
 import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
 import CompoundsIndexClient from '../../CompoundsIndexClient'
 import type { RuntimeRecord } from '../../../../src/types/content'
+import Pagination from '@/components/Pagination'
 
 type P = {
   params: Promise<{ page: string }>
@@ -43,32 +43,18 @@ export default async function CompoundsPageN({ params }: P) {
   const leanPageItems = toLeanProfileIndexRecords(p.pageItems as RuntimeRecord[])
 
   return (
-    <div className="mx-auto max-w-6xl space-y-8 px-4 py-8 sm:py-10">
-      <header className="rounded-xl border border-brand-900/10 bg-white/85 p-4 shadow-sm sm:p-5">
+    <div className="mx-auto max-w-6xl space-y-6 px-4 py-6 sm:py-8">
+      <header className="hero-shell rounded-[0.95rem] border border-brand-900/10 px-4 py-5 shadow-sm sm:px-6 sm:py-6">
         <p className="eyebrow-label">Compound research library</p>
-        <h1 className="mt-2 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-          Compound Profiles &amp; Research Library — Page {p.currentPage}
+        <h1 className="mt-2 max-w-3xl text-balance font-display text-3xl font-semibold leading-[1.08] text-ink sm:text-5xl">
+          Compound Library <span className="text-muted">— Page {p.currentPage}</span>
         </h1>
-        <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
+        <p className="mt-2 max-w-2xl text-pretty text-sm leading-6 text-muted">
           Browse evidence, mechanism, and safety summaries for published compound profiles.
         </p>
       </header>
 
-      <nav className="rounded-xl border border-brand-900/10 bg-white/80 p-4 text-sm">
-        <p className="font-semibold">Page {p.currentPage} of {p.totalPages}</p>
-        <div className="mt-2 flex gap-4">
-          {p.hasPrev ? (
-            <Link rel="prev" href={p.currentPage === 2 ? '/compounds' : `/compounds/page/${p.currentPage - 1}`}>
-              ← Previous page
-            </Link>
-          ) : null}
-          {p.hasNext ? (
-            <Link rel="next" href={`/compounds/page/${p.currentPage + 1}`}>
-              Next page →
-            </Link>
-          ) : null}
-        </div>
-      </nav>
+      <Pagination basePath="/compounds" currentPage={p.currentPage} totalPages={p.totalPages} itemLabel="Compound profiles" />
 
       <Suspense fallback={null}>
         <CompoundsIndexClient
@@ -79,6 +65,7 @@ export default async function CompoundsPageN({ params }: P) {
           totalPages={p.totalPages}
         />
       </Suspense>
+      <Pagination basePath="/compounds" currentPage={p.currentPage} totalPages={p.totalPages} itemLabel="Compound profiles" />
     </div>
   )
 }
