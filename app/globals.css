@@ -793,6 +793,7 @@ html.dark :is(
   .compact-card,
   .semantic-rail-card,
   .accordion-readable,
+  .chip-readable,
   [class~="bg-white"],
   [class~="bg-white/50"],
   [class~="bg-white/60"],
@@ -1135,6 +1136,13 @@ html.dark :is(.btn-primary) {
   color: #07150c;
 }
 
+/* Sticky conversion CTA buttons: anchor elements whose light-mode colors are
+   hardcoded; this must sit after the html.dark link-color rule to win. */
+html.dark .sticky-cta-btn {
+  background-color: #95b99a;
+  color: #07150c;
+}
+
 html.dark input::placeholder,
 html.dark textarea::placeholder,
 html.dark [class*="placeholder:text"]::placeholder {
@@ -1163,6 +1171,15 @@ html.dark :is(
   [class~="text-amber-950"]
 ) {
   color: var(--text-primary);
+}
+
+/* Warm brown copy inside amber caution surfaces (article/compound/NPS
+   disclaimers) — the light-mode hex vanishes on the dark warning surface. */
+html.dark :is(
+  [class~="text-[#5b4a2c]"],
+  [class~="text-[#5f4a24]"]
+) {
+  color: #e9d8b2;
 }
 
 .safety-disclaimer {
