@@ -305,7 +305,7 @@ const browsePaths = [
   },
 ]
 
-export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initialQuery = '', initialContext = '', paginated = false, page = 1, totalPages = 1}: { herbs: RuntimeRecord[]; allHerbs?: RuntimeRecord[]; initialQuery?: string; initialContext?: string; paginated?: boolean; page?: number; totalPages?: number }) {
+export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initialQuery = '', initialContext = '', paginated = false, page = 1, totalPages: _totalPages = 1}: { herbs: RuntimeRecord[]; allHerbs?: RuntimeRecord[]; initialQuery?: string; initialContext?: string; paginated?: boolean; page?: number; totalPages?: number }) {
   const urlParams = useSearchParams()
   const query = urlParams?.get('q') || firstParam(initialQuery)
   const context = urlParams?.get('context') || firstParam(initialContext)
@@ -477,9 +477,6 @@ export default function HerbsIndexClient({ herbs: sourceHerbs, allHerbs, initial
                   ))}
                 </div>
               </section>
-            ) : null}
-            {paginated && !hasActiveFilters && totalPages > 1 ? (
-              <p className="text-sm text-muted">Showing page {page} of {totalPages}. Use previous/next links above for crawl-safe navigation.</p>
             ) : null}
           </>
         )}
