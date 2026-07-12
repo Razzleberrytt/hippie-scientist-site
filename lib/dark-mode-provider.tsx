@@ -13,7 +13,7 @@ type DarkModeContextValue = {
 
 const DarkModeContext = createContext<DarkModeContextValue>({
   isDark: false,
-  themePreference: 'system',
+  themePreference: 'light',
   toggle: () => undefined,
   setThemePreference: () => undefined,
 })
@@ -26,12 +26,12 @@ function getSystemPrefersDark() {
 }
 
 function getStoredPreference(): ThemePreference {
-  if (typeof window === 'undefined') return 'system'
+  if (typeof window === 'undefined') return 'light'
   try {
     const stored = localStorage.getItem(THEME_STORAGE_KEY)
-    return stored === 'light' || stored === 'dark' ? stored : 'system'
+    return stored === 'light' || stored === 'dark' || stored === 'system' ? stored : 'light'
   } catch {
-    return 'system'
+    return 'light'
   }
 }
 
@@ -47,7 +47,7 @@ function applyTheme(isDark: boolean) {
 
 export function DarkModeProvider({ children }: { children: ReactNode }) {
   const [isDark, setIsDark] = useState(false)
-  const [themePreference, setThemePreferenceState] = useState<ThemePreference>('system')
+  const [themePreference, setThemePreferenceState] = useState<ThemePreference>('light')
 
   useEffect(() => {
     const preference = getStoredPreference()
@@ -77,11 +77,7 @@ export function DarkModeProvider({ children }: { children: ReactNode }) {
     applyTheme(nextIsDark)
 
     try {
-      if (preference === 'system') {
-        localStorage.removeItem(THEME_STORAGE_KEY)
-      } else {
-        localStorage.setItem(THEME_STORAGE_KEY, preference)
-      }
+      localStorage.setItem(THEME_STORAGE_KEY, preference)
     } catch {
       // localStorage can be unavailable in private contexts.
     }
