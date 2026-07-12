@@ -122,8 +122,8 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     description: 'Evidence-based review of zinc and ADHD. Covers deficiency, hyperactivity, attention, stimulant response, dosing, safety, and copper balance.',
     category: 'Nutrient Deficiencies',
     tags: ['Focus', 'ADHD', 'Nutrient Deficiencies', 'Supplement Evidence'],
-    date: '2026-06-11',
-    readingTime: '11 min read',
+    date: '2026-07-12',
+    readingTime: '8 min read',
   },
   {
     slug: 'iron-ferritin-and-adhd',
