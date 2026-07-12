@@ -1,16 +1,19 @@
 name: Rhodiola Generated Semantic Audit
 
 on:
-  push:
+  pull_request:
     branches:
-      - patch/rhodiola-reviewable-v2
+      - main
+    paths:
+      - data/generated/site/herbs.json
+      - data/generated/site/compounds.json
+      - .github/workflows/rhodiola-generated-semantic-audit.yml
 
 permissions:
   contents: read
 
 jobs:
   audit:
-    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
