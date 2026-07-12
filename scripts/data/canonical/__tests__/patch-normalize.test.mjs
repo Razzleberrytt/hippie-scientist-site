@@ -154,6 +154,26 @@ describe('safeguards', () => {
     expect(p.requires_review).toBe(true)
   })
 
+  it('preserves explicit canonical data and legacy field paths', () => {
+  const raw = JSON.stringify({
+    patch_id: 'paths-1',
+    target: { slug: 'x', entity_type: 'herb' },
+    operations: [
+      { op: 'update_field', field: 'legacy.forms', value: 'extract' },
+      { op: 'update_field', field: 'legacy.evidence_risk_of_bias', value: 'high' },
+      { op: 'update_field', field: 'data.custom_context', value: 'context' },
+    ],
+  })
+  const res = normalizePatch({ filename: 'paths.json', raw })
+  const fields = res.patches[0].operations.map((operation) => operation.field)
+  expect(fields).toEqual([
+    'legacy.forms',
+    'legacy.evidence_risk_of_bias',
+    'data.custom_context',
+  ])
+  expectValid(res.patches)
+})
+
   it('flags destructive operations (deprecate/merge) for review', () => {
     const raw = JSON.stringify({ patch_id: 'd1', target: { slug: 'x', entity_type: 'herb' }, operations: [{ op: 'deprecate', field: 'description' }] })
     const res = normalizePatch({ filename: 'd.json', raw })
