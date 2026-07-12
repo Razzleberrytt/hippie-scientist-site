@@ -29,15 +29,51 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "PMID 34269984.",
-      "claim:rg-0344",
-      "pmid:34269984"
+      "src_540ff3495bcd"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_3e7117426460",
+      "clm_69e31dd603cb"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_3e7117426460",
+      "claim": "Immune/survival signaling (preclinical).",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Immune/survival signaling (preclinical).",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_b7c62adff150"
+      },
+      "sourceRefIds": [
+        "src_540ff3495bcd"
+      ]
+    },
+    {
+      "id": "clm_69e31dd603cb",
+      "claim": "Mechanism/background only; do not publish clinical benefit claims without human evidence.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Mechanism/background only; do not publish clinical benefit claims without human evidence.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_b7c62adff150"
+      },
+      "sourceRefIds": [
+        "src_540ff3495bcd"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -81,13 +117,25 @@
     "Signaling pathway modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "inflammatory"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_540ff3495bcd",
+      "title": "Atractylenolides (I, II, and III): a review of their pharmacology and pharmacokinetics.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34269984/",
+      "doi": "10.1007/s12272-021-01342-6",
+      "pmid": "34269984",
+      "year": "2021",
+      "journal": "Arch Pharm Res",
+      "citation": "Author not retrieved (2021). Arch Pharm Res. PMID: 34269984. DOI: 10.1007/s12272-021-01342-6.",
+      "note": "source-backed gap-fill audit only; not a full monograph field extraction",
+      "reviewStatus": "approved"
+    }
+  ]
 }

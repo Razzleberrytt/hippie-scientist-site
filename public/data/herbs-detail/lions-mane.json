@@ -42,6 +42,16 @@
       "authors": "Gregory J et al.",
       "year": 2021,
       "url": "https://pubmed.ncbi.nlm.nih.gov/33917843/"
+    },
+    {
+      "id": "src_79eae7626c5c",
+      "title": "PubMed PMID 18844328. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18844328/",
+      "pmid": "18844328",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 18844328. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -55,15 +65,35 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "33917843",
-      "37958943",
-      "40284172"
+      "src_79eae7626c5c"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_2bf6f53036e4"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_2bf6f53036e4",
+      "claim": "v9.8: Lion's mane is promising but evidence is still small/emerging; keep below bacopa/citicoline for cognition.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.8: Lion's mane is promising but evidence is still small/emerging; keep below bacopa/citicoline for cognition.",
+      "qualifiers": {
+        "direction": "focus, cognition",
+        "dose_or_duration": "1–3 g/day fruiting-body powder or extract-equivalent in small human trials; product-specific dosing matters",
+        "study_id": "ent_study_f435022566a3"
+      },
+      "sourceRefIds": [
+        "src_79eae7626c5c"
+      ]
+    }
+  ],
   "effects": [
     "cognitive",
     "neuroprotective",

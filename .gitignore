@@ -106,6 +106,8 @@ DATA_QUALITY_REPORT.md
 data-sources/*
 !data-sources/.gitkeep
 !data-sources/herb_monograph_master.xlsx
+!data-sources/workbook-patches/
+!data-sources/workbook-patches/*.json
 data-sources/*.csv
 data-sources/*.json
 

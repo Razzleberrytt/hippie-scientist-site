@@ -43,6 +43,86 @@
       "authors": "PubMed indexed authors",
       "year": 2012,
       "url": "https://pubmed.ncbi.nlm.nih.gov/38289992/"
+    },
+    {
+      "id": "src_3eb0f5163a0f",
+      "title": "Improvement of cognitive functions by oral intake of Hericium erinaceus",
+      "url": "https://consensus.app/papers/improvement-of-cognitive-functions-by-oral-intake-of-saitsu-nishide/bb8bf1a9c44759b4ac8d0144f78a8db5/?utm_source=chatgpt",
+      "year": "2019",
+      "authors": "Saitsu et al.",
+      "journal": "Biomedical Research",
+      "citation": "12-week RCT; MMSE improved",
+      "note": "cognition evidence",
+      "studyType": "Randomized controlled trial",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_50fc6db1c39d",
+      "title": "Acute effects of Guayusa tea and Nordic Lion’s Mane extracts",
+      "url": "https://consensus.app/papers/acute-effects-of-naturally-occurring-guayusa-tea-and-monica-raub/36c46a7ef805574b8bcf43d00f22e1f9/?utm_source=chatgpt",
+      "year": "2023",
+      "authors": "La Monica et al.",
+      "journal": "Nutrients",
+      "citation": "Single 1 g Nordic-grown Lion’s Mane extract; assessed 1–2 hours post-ingestion",
+      "note": "Lion’s Mane acute dose",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_5e316f37b06b",
+      "title": "Acute effects of Hericium erinaceus extract on cognition and mood",
+      "url": "https://consensus.app/papers/acute-effects-of-a-standardised-extract-of-hericium-surendran-saye/ac702d1769b25d6d8a6491dbdab363e5/?utm_source=chatgpt",
+      "year": "2025",
+      "authors": "Surendran et al.",
+      "journal": "Frontiers in Nutrition",
+      "citation": "3 g 10:1 fruiting-body extract; acute; 18 healthy young adults; mostly null global outcomes",
+      "note": "Lion’s Mane dose/form",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_7ec91d639edd",
+      "title": "Use of Hericium erinaceus as a potential therapeutic of mental disorders",
+      "url": "https://consensus.app/papers/use-of-hericium-erinaceus-as-a-potential-therapeutic-of-cortonesi-almeida/f1bf1dab7e125e8e82dbdffe6d271686/?utm_source=chatgpt",
+      "year": "2023",
+      "authors": "Cortonesi et al.",
+      "journal": "Debates em Psiquiatria",
+      "citation": "3 Japanese randomized double-blind trials",
+      "note": "cognition evidence",
+      "studyType": "Randomized controlled trial",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_8a8821f2d159",
+      "title": "Benefits, side effects, and uses of Hericium erinaceus as a supplement",
+      "url": "https://consensus.app/papers/benefits-side-effects-and-uses-of-hericium-erinaceus-as-a-menon-jalal/d1048d1d305659fa9b8b8e69c89d7b2f/?utm_source=chatgpt",
+      "year": "2025",
+      "authors": "Menon et al.",
+      "journal": "Frontiers in Nutrition",
+      "citation": "Potential side effects include stomach discomfort, headache, allergic reactions; safety reporting limited",
+      "note": "Lion’s Mane side effects",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_cc4c0f8ceb17",
+      "title": "Neuroprotective and Cognitive Benefits of Hericium erinaceus",
+      "url": "https://consensus.app/papers/neuroprotective-and-cognitive-benefits-of-hericium-komo-romaczuk/e02f2160dff0590f90e63288711e1f6a/?utm_source=chatgpt",
+      "year": "2024",
+      "authors": "Komoń et al.",
+      "journal": "Biuletyn Głównej Biblioteki Lekarskiej",
+      "citation": "4 key studies; rare adverse effects; mild GI discomfort; one study 14.3% withdrawal due to side effects",
+      "note": "Lion’s Mane clinical safety review",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_f1a6df75b99a",
+      "title": "Acute and Chronic Effects of Lion's Mane Mushroom Supplementation",
+      "url": "https://consensus.app/papers/the-acute-and-chronic-effects-of-lions-mane-mushroom-docherty-doughty/aea9396d0f075cf283410b4a7d37454c/?utm_source=chatgpt",
+      "year": "2023",
+      "authors": "Docherty et al.",
+      "journal": "Nutrients",
+      "citation": "41 healthy adults; pilot RCT",
+      "note": "healthy adult cognition/stress",
+      "studyType": "Randomized controlled trial",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -56,13 +136,173 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 7,
     "sourceIds": [
-      "37958943",
-      "38289992",
-      "40284172"
+      "src_3eb0f5163a0f",
+      "src_50fc6db1c39d",
+      "src_5e316f37b06b",
+      "src_7ec91d639edd",
+      "src_8a8821f2d159",
+      "src_cc4c0f8ceb17",
+      "src_f1a6df75b99a"
+    ],
+    "claimCount": 8,
+    "claimIds": [
+      "clm_10cd7d42f1f7",
+      "clm_1877e9d5c31e",
+      "clm_1f1f7000b065",
+      "clm_31dc35986461",
+      "clm_9ff4bc53d196",
+      "clm_cd63174d3a52",
+      "clm_d1d451d901f0",
+      "clm_f66429060c96"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_10cd7d42f1f7",
+      "claim": "A 12-week human trial found MMSE improvement with Lion's Mane, but other cognitive tests were less clearly positive.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "A 12-week human trial found MMSE improvement with Lion's Mane, but other cognitive tests were less clearly positive.",
+      "qualifiers": {
+        "direction": "positive on MMSE only; mixed tests",
+        "dose_or_duration": "Fruiting-body supplement for 12 weeks",
+        "population": "Japanese cognitive testing population",
+        "study_id": "ent_study_a6d4780d413f"
+      },
+      "sourceRefIds": [
+        "src_3eb0f5163a0f"
+      ]
+    },
+    {
+      "id": "clm_1877e9d5c31e",
+      "claim": "Lion's Mane showed tentative speed-of-performance and stress signals in healthy young adults, but the small pilot design limits confidence.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Lion's Mane showed tentative speed-of-performance and stress signals in healthy young adults, but the small pilot design limits confidence.",
+      "qualifiers": {
+        "direction": "tentative; small sample",
+        "dose_or_duration": "1.8 g/day; acute and 28-day testing",
+        "population": "41 healthy adults aged 18-45",
+        "study_id": "ent_study_c802a6f7fee3"
+      },
+      "sourceRefIds": [
+        "src_f1a6df75b99a"
+      ]
+    },
+    {
+      "id": "clm_1f1f7000b065",
+      "claim": "Lion's Mane has limited human RCT evidence suggesting possible cognitive support, but mood/anxiety evidence is not convincing.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Lion's Mane has limited human RCT evidence suggesting possible cognitive support, but mood/anxiety evidence is not convincing.",
+      "qualifiers": {
+        "direction": "positive for cognitive impairment; not for depression/anxiety",
+        "dose_or_duration": "At least 12 weeks may be needed per review conclusion",
+        "population": "Japanese randomized double-blind controlled trials",
+        "study_id": "ent_study_ff9f378ef9da"
+      },
+      "sourceRefIds": [
+        "src_7ec91d639edd"
+      ]
+    },
+    {
+      "id": "clm_31dc35986461",
+      "claim": "A single 3 g dose of 10:1 Lion’s Mane fruiting-body extract did not improve global cognition/mood, though one task-specific signal was observed.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "preclinical",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "A single 3 g dose of 10:1 Lion’s Mane fruiting-body extract did not improve global cognition/mood, though one task-specific signal was observed.",
+      "qualifiers": {
+        "direction": "mostly null; task-specific signal only",
+        "dose_or_duration": "Single acute dose: 3 g of 10:1 Hericium erinaceus fruiting body extract; assessed 90 minutes post-dose",
+        "population": "18 healthy adults age 18–35",
+        "study_id": "ent_study_24c02bbc35b4"
+      },
+      "sourceRefIds": [
+        "src_5e316f37b06b"
+      ]
+    },
+    {
+      "id": "clm_9ff4bc53d196",
+      "claim": "Lion’s Mane at 1.8 g/day for 28 days has only tentative pilot evidence for speed of performance and stress trends in healthy young adults.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "preclinical",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Lion’s Mane at 1.8 g/day for 28 days has only tentative pilot evidence for speed of performance and stress trends in healthy young adults.",
+      "qualifiers": {
+        "direction": "tentative; small pilot",
+        "dose_or_duration": "Hericium erinaceus 1.8 g/day; acute 60-minute assessment and chronic 28-day intervention",
+        "population": "41 healthy adults age 18–45",
+        "study_id": "ent_study_95a9deca5a22"
+      },
+      "sourceRefIds": [
+        "src_f1a6df75b99a"
+      ]
+    },
+    {
+      "id": "clm_cd63174d3a52",
+      "claim": "Lion's Mane should be framed as generally food-like but not risk-free; potential side effects include stomach discomfort, headache, and allergic reactions.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Lion's Mane should be framed as generally food-like but not risk-free; potential side effects include stomach discomfort, headache, and allergic reactions.",
+      "qualifiers": {
+        "direction": "limited safety reporting; mild side effects possible",
+        "dose_or_duration": "Varied",
+        "population": "Clinical and lab literature",
+        "study_id": "ent_study_2fab2d7d8f36"
+      },
+      "sourceRefIds": [
+        "src_8a8821f2d159"
+      ]
+    },
+    {
+      "id": "clm_d1d451d901f0",
+      "claim": "Clinical studies report rare adverse effects, mostly mild GI discomfort, but long-term safety and efficacy need larger trials.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Clinical studies report rare adverse effects, mostly mild GI discomfort, but long-term safety and efficacy need larger trials.",
+      "qualifiers": {
+        "direction": "rare adverse effects; limited trials",
+        "dose_or_duration": "4-49 weeks",
+        "population": "Recent clinical studies, participants 31-68 per study",
+        "study_id": "ent_study_4f7eb81f9fa7"
+      },
+      "sourceRefIds": [
+        "src_cc4c0f8ceb17"
+      ]
+    },
+    {
+      "id": "clm_f66429060c96",
+      "claim": "A single 1 g Nordic-grown Lion’s Mane extract dose showed task-specific acute cognitive effects in one crossover study.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "A single 1 g Nordic-grown Lion’s Mane extract dose showed task-specific acute cognitive effects in one crossover study.",
+      "qualifiers": {
+        "direction": "task-specific acute signal",
+        "dose_or_duration": "Single dose: 1 g Nordic-grown Lion’s Mane extract; assessed at 1 and 2 hours post-ingestion",
+        "population": "Adults in acute cognition testing study",
+        "study_id": "ent_study_bb02ce84b700"
+      },
+      "sourceRefIds": [
+        "src_50fc6db1c39d"
+      ]
+    }
+  ]
 }

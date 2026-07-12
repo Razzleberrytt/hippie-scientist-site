@@ -46,6 +46,18 @@
       "authors": "Yeung KS et al.",
       "year": 2018,
       "url": "https://pubmed.ncbi.nlm.nih.gov/29464801/"
+    },
+    {
+      "id": "src_525198d2adf3",
+      "title": "Efficacy of Silexan in patients with anxiety disorders: a meta-analysis of randomized, placebo-controlled trials",
+      "url": "https://consensus.app/papers/efficacy-of-silexan-in-patients-with-anxiety-disorders-a-dold-bartova/041f3cbbb2b05d4cacdc107ebb82a836/?utm_source=chatgpt",
+      "year": "2023",
+      "authors": "M. Dold; L. Bartova; H. Volz; E. Seifritz; H. Möller; S. Schläfke; S. Kasper",
+      "journal": "European Archives of Psychiatry and Clinical Neuroscience",
+      "citation": "Consensus result; citation_count=22; record_type=meta_analysis",
+      "note": "oral lavender oil/Silexan 80 mg/day anxiety evidence and tolerability",
+      "studyType": "Meta-analysis",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -59,13 +71,34 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "12112282",
-      "29464801",
-      "31655395"
+      "src_525198d2adf3"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_c61695039dfb"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_c61695039dfb",
+      "claim": "Oral Silexan 80 mg/day for 10 weeks reduced anxiety symptoms versus placebo in adult anxiety trials.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Oral Silexan 80 mg/day for 10 weeks reduced anxiety symptoms versus placebo in adult anxiety trials.",
+      "qualifiers": {
+        "direction": "supportive_form_specific",
+        "dose_or_duration": "Silexan 80 mg/day for 10 weeks",
+        "population": "Adult outpatients with subthreshold anxiety, MADD, or GAD",
+        "study_id": "ent_study_28f48fc3ddf7"
+      },
+      "sourceRefIds": [
+        "src_525198d2adf3"
+      ]
+    }
+  ]
 }

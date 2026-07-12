@@ -28,15 +28,36 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:study-row-102",
-      "https://pubmed.ncbi.nlm.nih.gov/9820262/",
-      "pmid:9820262"
+      "src_36a6058bc2c4"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_e006d5d3bbfd"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_e006d5d3bbfd",
+      "claim": "Negative key RCT",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Negative key RCT",
+      "qualifiers": {
+        "direction": "0",
+        "dose_or_duration": "1500 mg/day hydroxycitric acid; 12 weeks",
+        "population": "overweight adults",
+        "study_id": "ent_study_4cfecdac0bba"
+      },
+      "sourceRefIds": [
+        "src_36a6058bc2c4"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -75,13 +96,23 @@
     "Physiological effect"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "metabolic"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_36a6058bc2c4",
+      "title": "PubMed PMID 9820262. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9820262/",
+      "pmid": "9820262",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 9820262. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

@@ -28,11 +28,47 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_dc5e91c8cd2f"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_c4e65166bec9"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_c4e65166bec9",
+      "claim": "v9.6: Plant sterols/stanols have consistent LDL-lowering evidence at gram-level doses.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.6: Plant sterols/stanols have consistent LDL-lowering evidence at gram-level doses.",
+      "qualifiers": {
+        "direction": "heart_health",
+        "dose_or_duration": "1.5–3 g/day plant sterols/stanols with meals",
+        "study_id": "ent_study_a3c9fc8d5023"
+      },
+      "sourceRefIds": [
+        "src_dc5e91c8cd2f"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "sources": [
+    {
+      "id": "src_dc5e91c8cd2f",
+      "title": "PubMed PMID 24780090. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24780090/",
+      "pmid": "24780090",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 24780090. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

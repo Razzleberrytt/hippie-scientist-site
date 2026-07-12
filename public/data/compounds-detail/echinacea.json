@@ -28,13 +28,49 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_4dd8f9af54c4"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_f2c06f7b99a9"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_f2c06f7b99a9",
+      "claim": "v9.9: Evidence is mixed and product-specific; keep standard priority, not top-tier.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.9: Evidence is mixed and product-specific; keep standard priority, not top-tier.",
+      "qualifiers": {
+        "direction": "immunity, respiratory",
+        "dose_or_duration": "Echinacea dosing is product-specific; extract species/preparation must match clinical product",
+        "study_id": "ent_study_d96d4e307b9e"
+      },
+      "sourceRefIds": [
+        "src_4dd8f9af54c4"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_4dd8f9af54c4",
+      "title": "PubMed PMID 24554461. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24554461/",
+      "pmid": "24554461",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 24554461. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

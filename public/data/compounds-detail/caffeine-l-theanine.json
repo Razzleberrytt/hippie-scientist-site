@@ -29,13 +29,80 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
+    "sourceIds": [
+      "src_a051bced3154",
+      "src_e2df05e4dcb4"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_589d5cfc3f7d",
+      "clm_e511c7aa9bc0"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_589d5cfc3f7d",
+      "claim": "Theanine plus caffeine may support acute attention and mood outcomes, but uncertainty remains and dosing/tea-equivalence should be explicit.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Theanine plus caffeine may support acute attention and mood outcomes, but uncertainty remains and dosing/tea-equivalence should be explicit.",
+      "qualifiers": {
+        "direction": "supportive_acute_context",
+        "dose_or_duration": "Theanine plus caffeine; tea/bioactive doses varied",
+        "population": "Healthy participants",
+        "study_id": "ent_study_8f2458b909e7"
+      },
+      "sourceRefIds": [
+        "src_a051bced3154"
+      ]
+    },
+    {
+      "id": "clm_e511c7aa9bc0",
+      "claim": "v8.2: Caffeine plus L-theanine has acute evidence for attention-related outcomes.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v8.2: Caffeine plus L-theanine has acute evidence for attention-related outcomes.",
+      "qualifiers": {
+        "direction": "focus, energy",
+        "dose_or_duration": "caffeine 50–150 mg plus L-theanine 100–200 mg acute",
+        "study_id": "ent_study_f20a5c7c1f08"
+      },
+      "sourceRefIds": [
+        "src_e2df05e4dcb4"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_a051bced3154",
+      "title": "Effects of Tea or its Bioactive Compounds l-Theanine or l-Theanine plus Caffeine on Cognition, Sleep, and Mood",
+      "url": "https://consensus.app/papers/effects-of-tea-camellia-sinensis-or-its-bioactive-payne-aceves-martins/939e00c0c8a153ea8489e05d78184f5d/?utm_source=chatgpt",
+      "year": "2025",
+      "authors": "Payne et al.",
+      "journal": "Nutrition Reviews",
+      "citation": "50 RCTs; 15 meta-analyzed",
+      "note": "cognition/mood evidence",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_e2df05e4dcb4",
+      "title": "PubMed PMID 18681988. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18681988/",
+      "pmid": "18681988",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 18681988. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

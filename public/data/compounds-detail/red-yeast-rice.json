@@ -28,11 +28,47 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_3aa4c686d649"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_69d501d81e12"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_69d501d81e12",
+      "claim": "v9.6: Red yeast rice can lower LDL, but monacolin K variability/statin-like risk makes it inappropriate for casual affiliate promotion.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.6: Red yeast rice can lower LDL, but monacolin K variability/statin-like risk makes it inappropriate for casual affiliate promotion.",
+      "qualifiers": {
+        "direction": "heart_health",
+        "dose_or_duration": "Product monacolin K content varies widely; consumer dose cannot be assumed from label",
+        "study_id": "ent_study_827d4a9d0c98"
+      },
+      "sourceRefIds": [
+        "src_3aa4c686d649"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "sources": [
+    {
+      "id": "src_3aa4c686d649",
+      "title": "PubMed PMID 27282571. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27282571/",
+      "pmid": "27282571",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 27282571. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

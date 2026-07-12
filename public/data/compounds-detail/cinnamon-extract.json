@@ -31,13 +31,49 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_7895c4d03ee1"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_8316301bd4fa"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_8316301bd4fa",
+      "claim": "v9.2: Meta-analyses report mixed but potentially favorable glycemic effects; keep claims conservative.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.2: Meta-analyses report mixed but potentially favorable glycemic effects; keep claims conservative.",
+      "qualifiers": {
+        "direction": "metabolism",
+        "dose_or_duration": "Cinnamon trial doses vary; commonly 1–6 g/day powder or extract-equivalent in diabetes trials",
+        "study_id": "ent_study_389838e8d501"
+      },
+      "sourceRefIds": [
+        "src_7895c4d03ee1"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_7895c4d03ee1",
+      "title": "PubMed PMID 37818728. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37818728/",
+      "pmid": "37818728",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 37818728. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

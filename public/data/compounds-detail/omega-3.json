@@ -31,13 +31,170 @@
     "reason": "curated_allowlist"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 5,
+    "sourceIds": [
+      "src_04928558bfad",
+      "src_4431416626da",
+      "src_938e1bdb63fd",
+      "src_a190dcbbb452",
+      "src_aef42e549429"
+    ],
+    "claimCount": 5,
+    "claimIds": [
+      "clm_32560207bd4c",
+      "clm_5656dc719c93",
+      "clm_5e6c824d00b5",
+      "clm_99271442ade8",
+      "clm_f4935c554a64"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_32560207bd4c",
+      "claim": "anxiety reduction",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "anxiety reduction",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "1–2 g EPA/DHA; varies",
+        "population": "adults",
+        "study_id": "ent_study_72a920591281"
+      },
+      "sourceRefIds": [
+        "src_aef42e549429"
+      ]
+    },
+    {
+      "id": "clm_5656dc719c93",
+      "claim": "reduced cardiac risk",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "reduced cardiac risk",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "1–2 g; varies",
+        "population": "adults",
+        "study_id": "ent_study_bfe4c1e38f86"
+      },
+      "sourceRefIds": [
+        "src_4431416626da"
+      ]
+    },
+    {
+      "id": "clm_5e6c824d00b5",
+      "claim": "CRP reduction",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "CRP reduction",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "varies; varies",
+        "population": "adults",
+        "study_id": "ent_study_3802c6269cea"
+      },
+      "sourceRefIds": [
+        "src_938e1bdb63fd"
+      ]
+    },
+    {
+      "id": "clm_99271442ade8",
+      "claim": "reduced depressive symptoms",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "reduced depressive symptoms",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "1–2 g; varies",
+        "population": "adults",
+        "study_id": "ent_study_8baec8ec6148"
+      },
+      "sourceRefIds": [
+        "src_a190dcbbb452"
+      ]
+    },
+    {
+      "id": "clm_f4935c554a64",
+      "claim": "reduced triglycerides",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "reduced triglycerides",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "2 g; 12 weeks",
+        "population": "adults",
+        "study_id": "ent_study_fc65c1d15a2d"
+      },
+      "sourceRefIds": [
+        "src_04928558bfad"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_04928558bfad",
+      "title": "PubMed PMID 18497367. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18497367/",
+      "pmid": "18497367",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 18497367. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_4431416626da",
+      "title": "PubMed PMID 30415628. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30415628/",
+      "pmid": "30415628",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 30415628. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_938e1bdb63fd",
+      "title": "PubMed PMID 25287985. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25287985/",
+      "pmid": "25287985",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 25287985. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_a190dcbbb452",
+      "title": "PubMed PMID 27132744. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27132744/",
+      "pmid": "27132744",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 27132744. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_aef42e549429",
+      "title": "PubMed PMID 30686880. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30686880/",
+      "pmid": "30686880",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 30686880. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

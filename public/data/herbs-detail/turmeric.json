@@ -52,6 +52,16 @@
       "authors": "Patibandla S et al.",
       "year": 2024,
       "url": "https://pubmed.ncbi.nlm.nih.gov/38558676/"
+    },
+    {
+      "id": "src_90b27b328f33",
+      "title": "PubMed PMID 24672232. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24672232/",
+      "pmid": "24672232",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 24672232. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -65,15 +75,36 @@
     "reason": "curated_allowlist"
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "26528921",
-      "27213821",
-      "38558676"
+      "src_90b27b328f33"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_36b62f5d6aba"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_36b62f5d6aba",
+      "claim": "pain reduction",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "pain reduction",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "1000 mg; 6 weeks",
+        "population": "osteoarthritis",
+        "study_id": "ent_study_f76e0cd64df3"
+      },
+      "sourceRefIds": [
+        "src_90b27b328f33"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true

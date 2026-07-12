@@ -48,6 +48,18 @@
       "authors": "El Midaoui A et al.",
       "year": 2022,
       "url": "https://pubmed.ncbi.nlm.nih.gov/35276955/"
+    },
+    {
+      "id": "src_dc98fa665a32",
+      "title": "New horizons for the study of saffron (Crocus sativus L.) and its active ingredients in the management of neurological and psychiatric disorders: A systematic review of clinical evidence and mechanisms",
+      "url": "https://consensus.app/papers/new-horizons-for-the-study-of-saffron-crocus-sativus-l-and-han-cao/19ab8608dc545ce5bc9de537b9207509/?utm_source=chatgpt",
+      "year": "2024",
+      "authors": "Shufen Han; Yifei Cao; Xingrong Wu; Jiaoyang Xu; Zizheng Nie; Yue Qiu",
+      "journal": "Phytotherapy Research",
+      "citation": "Consensus result; citation_count=14; record_type=systematic_review_meta_analysis",
+      "note": "saffron depression/anxiety/sleep/cognition/ADHD broad evidence and safety/tolerability",
+      "studyType": "Systematic review",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -61,13 +73,34 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "30036891",
-      "35276955",
-      "37864351"
+      "src_dc98fa665a32"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_b72c0eaee55e"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_b72c0eaee55e",
+      "claim": "Saffron shows promising multi-domain evidence for mood, anxiety, sleep, cognition, ADHD/OCD contexts, with few side effects in trials.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Saffron shows promising multi-domain evidence for mood, anxiety, sleep, cognition, ADHD/OCD contexts, with few side effects in trials.",
+      "qualifiers": {
+        "direction": "supportive_multi_domain",
+        "dose_or_duration": "4 to 48 weeks; saffron or saffron extracts",
+        "population": "Healthy and clinical neuropsychiatric populations",
+        "study_id": "ent_study_3c19efa62c5d"
+      },
+      "sourceRefIds": [
+        "src_dc98fa665a32"
+      ]
+    }
+  ]
 }

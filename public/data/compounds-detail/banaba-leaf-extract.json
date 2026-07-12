@@ -29,11 +29,48 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_681b9bde8e6f"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_dc941395a4f8"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_dc941395a4f8",
+      "claim": "Evaluate insulin sensitivity/secretion and MetS components",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Evaluate insulin sensitivity/secretion and MetS components",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "500 mg twice daily; 12 weeks",
+        "population": "metabolic syndrome patients",
+        "study_id": "ent_study_c175b69b4197"
+      },
+      "sourceRefIds": [
+        "src_681b9bde8e6f"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "sources": [
+    {
+      "id": "src_681b9bde8e6f",
+      "title": "PubMed PMID 34726501. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34726501/",
+      "pmid": "34726501",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 34726501. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

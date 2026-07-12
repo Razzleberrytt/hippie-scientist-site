@@ -29,14 +29,51 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 2,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "Boswellia PK/RCT PMIDs.",
-      "claim:rg-0299"
+      "src_de66fcd0ec6f"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_3b5bc19f1e51",
+      "clm_ff79b849e942"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_3b5bc19f1e51",
+      "claim": "Anti-inflammatory (NF-κB/5-LOX); extract OA trials.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Anti-inflammatory (NF-κB/5-LOX); extract OA trials.",
+      "qualifiers": {
+        "direction": "partial verified",
+        "study_id": "ent_study_5f48cef0dce1"
+      },
+      "sourceRefIds": [
+        "src_de66fcd0ec6f"
+      ]
+    },
+    {
+      "id": "clm_ff79b849e942",
+      "claim": "Insufficient reliable evidence identified.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Insufficient reliable evidence identified.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_5f48cef0dce1"
+      },
+      "sourceRefIds": [
+        "src_de66fcd0ec6f"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -84,13 +121,20 @@
     "Signaling pathway modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "inflammatory"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_de66fcd0ec6f",
+      "title": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
+      "citation": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
+      "note": "gap identification only; not used to populate factual fields",
+      "reviewStatus": "approved"
+    }
+  ]
 }

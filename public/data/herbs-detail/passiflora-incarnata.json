@@ -47,6 +47,28 @@
       "authors": "Zhang W et al.",
       "year": 2022,
       "url": "https://pubmed.ncbi.nlm.nih.gov/35378276/"
+    },
+    {
+      "id": "src_3213bd269e3f",
+      "title": "PubMed PMID 18499602. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18499602/",
+      "pmid": "18499602",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 18499602. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_cde5874cd342",
+      "title": "Passiflora incarnata in Neuropsychiatric Disorders—A Systematic Review",
+      "url": "https://consensus.app/papers/passiflora-incarnata-in-neuropsychiatric-disordersa-janda-wojtkowska/50bff026091f52e8bf012ac1556a8121/?utm_source=chatgpt",
+      "year": "2020",
+      "authors": "K. Janda; Karolina Wojtkowska; K. Jakubczyk; Justyna Antoniewicz; K. Skonieczna-Żydecka",
+      "journal": "Nutrients",
+      "citation": "Consensus result; citation_count=59; record_type=systematic_review",
+      "note": "passionflower anxiety/sleep neuropsychiatric evidence and safety",
+      "studyType": "Systematic review",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -60,13 +82,53 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
     "sourceIds": [
-      "29464801",
-      "33352740",
-      "35378276"
+      "src_3213bd269e3f",
+      "src_cde5874cd342"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_58b8433d3043",
+      "clm_7a859c2ebe61"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_58b8433d3043",
+      "claim": "v9.5: Mapped to passionflower evidence.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.5: Mapped to passionflower evidence.",
+      "qualifiers": {
+        "direction": "anxiety",
+        "dose_or_duration": "500 mg oral Passiflora incarnata used 90 minutes before surgery in a preoperative anxiety RCT",
+        "study_id": "ent_study_b6ae6bd5185c"
+      },
+      "sourceRefIds": [
+        "src_3213bd269e3f"
+      ]
+    },
+    {
+      "id": "clm_7a859c2ebe61",
+      "claim": "Passionflower may reduce anxiety symptoms in some clinical contexts; effects in mild anxiety are less evident.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Passionflower may reduce anxiety symptoms in some clinical contexts; effects in mild anxiety are less evident.",
+      "qualifiers": {
+        "direction": "supportive_but_limited",
+        "dose_or_duration": "duration 1 to 30 days; varied preparations",
+        "population": "Adults in nine clinical trials",
+        "study_id": "ent_study_bd7a6c13c5d5"
+      },
+      "sourceRefIds": [
+        "src_cde5874cd342"
+      ]
+    }
+  ]
 }

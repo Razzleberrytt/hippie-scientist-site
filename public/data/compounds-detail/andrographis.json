@@ -29,15 +29,35 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:study-row-121",
-      "https://pubmed.ncbi.nlm.nih.gov/15095142/ | https://www.ncbi.nlm.nih.gov/books/NBK70784/",
-      "pmid:15095142"
+      "src_21d61628ee99"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_ba731cede1f9"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_ba731cede1f9",
+      "claim": "v8.2: Systematic reviews found Andrographis paniculata superior to placebo for uncomplicated upper respiratory infection symptom relief.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v8.2: Systematic reviews found Andrographis paniculata superior to placebo for uncomplicated upper respiratory infection symptom relief.",
+      "qualifiers": {
+        "direction": "immunity",
+        "dose_or_duration": "andrographis extract dosing varies by product; use standardized andrographolide-labeled products",
+        "study_id": "ent_study_d698d397ed42"
+      },
+      "sourceRefIds": [
+        "src_21d61628ee99"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [
@@ -69,10 +89,8 @@
     "Signaling pathway modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "inflammatory"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Moderate Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
@@ -89,5 +107,17 @@
     "summary-depth",
     "summary-quality-missing"
   ],
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_21d61628ee99",
+      "title": "PubMed PMID 15095142. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15095142/",
+      "pmid": "15095142",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 15095142. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

@@ -35,7 +35,18 @@
   "evidenceLevel": "",
   "relatedHerbs": [],
   "region": "",
-  "sources": [],
+  "sources": [
+    {
+      "id": "src_c9c95a2ed78b",
+      "title": "PubMed PMID 28400848. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28400848/",
+      "pmid": "28400848",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 28400848. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ],
   "governance": {
     "reviewStatus": "approved",
     "legalRisk": "none",
@@ -47,15 +58,35 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:study-row-153",
-      "https://pubmed.ncbi.nlm.nih.gov/28400848/",
-      "pmid:28400848"
+      "src_c9c95a2ed78b"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_ee76cc800315"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_ee76cc800315",
+      "claim": "v9.4: Human studies exist but are small/heterogeneous; keep conservative and non-top-pick.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.4: Human studies exist but are small/heterogeneous; keep conservative and non-top-pick.",
+      "qualifiers": {
+        "direction": "stress, metabolism",
+        "dose_or_duration": "Tulsi extract dosing varies widely; product-specific clinical dose required",
+        "study_id": "ent_study_dc77f3f0bc0c"
+      },
+      "sourceRefIds": [
+        "src_c9c95a2ed78b"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -101,24 +132,26 @@
     "Antioxidant",
     "Metabolic regulation",
     "Hormonal signaling context",
-    "HPA-axis modulation"
+    "HPA-axis modulation",
+    "AMPK activation",
+    "Glucose regulation"
   ],
   "mechanism_categories": [
     "core",
-    "stress"
+    "stress",
+    "metabolic"
   ],
   "mechanism_classes": [
     "Physiological effect",
-    "Neuroendocrine modulation"
+    "Neuroendocrine modulation",
+    "Signaling pathway modulation",
+    "Metabolic modulation"
   ],
   "mechanism_target_systems": [],
   "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
     "Neurotransmitter Modulation",
-    "AMPK",
-    "Oxidative Stress",
-    "Neurotransmitter Signaling",
-    "Glucose Metabolism"
+    "Neurotransmitter Signaling"
   ],
   "evidence_tier": "Strong Human Evidence",
   "profile_status": "partial",

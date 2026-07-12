@@ -47,6 +47,16 @@
       "authors": "Petersen M et al.",
       "year": 2003,
       "url": "https://pubmed.ncbi.nlm.nih.gov/12482446/"
+    },
+    {
+      "id": "src_a3adb67a41f3",
+      "title": "PubMed PMID 8629725. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/8629725/",
+      "pmid": "8629725",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 8629725. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -60,13 +70,33 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "12482446",
-      "22554242",
-      "30000526"
+      "src_a3adb67a41f3"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_d098d900f4e3"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_d098d900f4e3",
+      "claim": "v9.8: Tyrosine evidence is strongest under stress/sleep-deprivation challenge, not everyday cognition.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.8: Tyrosine evidence is strongest under stress/sleep-deprivation challenge, not everyday cognition.",
+      "qualifiers": {
+        "direction": "focus, energy",
+        "dose_or_duration": "500–2000 mg acute common in supplements; several stress studies used higher mg/kg protocols",
+        "study_id": "ent_study_bf30d1dcdb19"
+      },
+      "sourceRefIds": [
+        "src_a3adb67a41f3"
+      ]
+    }
+  ]
 }

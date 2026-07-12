@@ -26,17 +26,55 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 5,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
     "sourceIds": [
-      "claim:study-row-211",
-      "claim:study-row-64",
-      "https://ods.od.nih.gov/factsheets/VitaminA-HealthProfessional/",
-      "https://pubmed.ncbi.nlm.nih.gov/11311045/",
-      "pmid:11311045"
+      "src_a44ba08ccc12",
+      "src_c8f67d93ed2d"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_54a3c32cd95b",
+      "clm_e1e48331e704"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_54a3c32cd95b",
+      "claim": "reduced infection rates",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "reduced infection rates",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "200000 IU; 6 months",
+        "population": "children",
+        "study_id": "ent_study_dae5abc77a4e"
+      },
+      "sourceRefIds": [
+        "src_a44ba08ccc12"
+      ]
+    },
+    {
+      "id": "clm_e1e48331e704",
+      "claim": "v9.9: Useful as nutrient guidance, but high-dose retinol should be de-emphasized for safety.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.9: Useful as nutrient guidance, but high-dose retinol should be de-emphasized for safety.",
+      "qualifiers": {
+        "direction": "immunity, vision",
+        "dose_or_duration": "Adult RDA: 900 mcg RAE/day men, 700 mcg RAE/day women; upper limit 3000 mcg RAE/day preformed vitamin A",
+        "study_id": "ent_study_fcbfaff4eb40"
+      },
+      "sourceRefIds": [
+        "src_c8f67d93ed2d"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [
@@ -82,5 +120,24 @@
     "summary-present",
     "summary-quality-missing"
   ],
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_a44ba08ccc12",
+      "title": "PubMed PMID 11311045. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11311045/",
+      "pmid": "11311045",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 11311045. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_c8f67d93ed2d",
+      "title": "v9.9: Useful as nutrient guidance, but high-dose retinol should be de-emphasized for safety.",
+      "url": "https://ods.od.nih.gov/factsheets/VitaminA-HealthProfessional/",
+      "note": "needs_classification",
+      "reviewStatus": "pending"
+    }
+  ]
 }

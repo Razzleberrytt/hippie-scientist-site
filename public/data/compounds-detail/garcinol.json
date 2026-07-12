@@ -30,15 +30,51 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:rg-0532",
-      "https://pubmed.ncbi.nlm.nih.gov/33799504/; https://pubmed.ncbi.nlm.nih.gov/33034447/",
-      "pmid:33799504; 33034447"
+      "src_2da296428064"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_757b31acf71a",
+      "clm_bed52940034e"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_757b31acf71a",
+      "claim": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_a65db2cf06d5"
+      },
+      "sourceRefIds": [
+        "src_2da296428064"
+      ]
+    },
+    {
+      "id": "clm_bed52940034e",
+      "claim": "HAT/HDAC inhibition; anti-inflammatory.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "HAT/HDAC inhibition; anti-inflammatory.",
+      "qualifiers": {
+        "direction": "high",
+        "study_id": "ent_study_a65db2cf06d5"
+      },
+      "sourceRefIds": [
+        "src_2da296428064"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -88,13 +124,21 @@
     "Signaling pathway modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "Oxidative Stress"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_2da296428064",
+      "title": "HAT/HDAC inhibition; anti-inflammatory.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33799504/; https://pubmed.ncbi.nlm.nih.gov/33034447/",
+      "pmid": "33799504; 33034447",
+      "note": "needs_classification",
+      "reviewStatus": "pending"
+    }
+  ]
 }

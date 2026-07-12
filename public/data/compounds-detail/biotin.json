@@ -29,14 +29,35 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 2,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:study-row-128",
-      "https://ods.od.nih.gov/factsheets/Biotin-HealthProfessional/"
+      "src_dbca2219df1e"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_fe92c4e702cd"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_fe92c4e702cd",
+      "claim": "v8.2: ODS notes deficiency is rare and biotin can interfere with laboratory tests; strong consumer claims should be restricted.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v8.2: ODS notes deficiency is rare and biotin can interfere with laboratory tests; strong consumer claims should be restricted.",
+      "qualifiers": {
+        "direction": "skin_hair_nails, metabolism",
+        "dose_or_duration": "30 mcg/day adequate intake for adults; high-dose use can interfere with lab tests",
+        "study_id": "ent_study_952868e1c887"
+      },
+      "sourceRefIds": [
+        "src_dbca2219df1e"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -79,13 +100,20 @@
     "Metabolic modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "Glucose Metabolism"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Moderate Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 95,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_dbca2219df1e",
+      "title": "v8.2: ODS notes deficiency is rare and biotin can interfere with laboratory tests; strong consumer claims should be restricted.",
+      "url": "https://ods.od.nih.gov/factsheets/Biotin-HealthProfessional/",
+      "note": "needs_classification",
+      "reviewStatus": "pending"
+    }
+  ]
 }

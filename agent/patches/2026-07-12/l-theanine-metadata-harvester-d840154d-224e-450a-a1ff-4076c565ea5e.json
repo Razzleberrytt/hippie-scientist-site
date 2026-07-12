@@ -1,0 +1,160 @@
+{
+  "patch_id": "d840154d-224e-450a-a1ff-4076c565ea5e",
+  "schema_version": "2.0",
+  "source_agent": "metadata-harvester",
+  "agent_version": "2.0",
+  "created_at": "2026-07-12T22:09:22.602Z",
+  "slug": "l-theanine",
+  "patch_type": "evidence",
+  "research_depth": "lightweight_enrichment",
+  "metadata_sources": [
+    "pubmed",
+    "clinicaltrials"
+  ],
+  "confidence_notes": [],
+  "seo_assets": {
+    "faq_candidates": [
+      "What is l-theanine used for?",
+      "Is l-theanine evidence-based?"
+    ],
+    "seo_topics": [
+      "l-theanine benefits",
+      "l-theanine safety",
+      "l-theanine evidence"
+    ],
+    "internal_link_targets": [
+      "sleep",
+      "focus",
+      "recovery"
+    ],
+    "comparison_candidates": [
+      "l-theanine vs magnesium"
+    ],
+    "best_for": [
+      "general wellness"
+    ],
+    "avoid_if": [
+      "medication interactions"
+    ],
+    "product_quality_notes": [
+      "Prefer reputable third-party tested brands"
+    ]
+  },
+  "review_flags": [],
+  "evidence": [
+    {
+      "compound_slug": "l-theanine",
+      "pmid_or_source": "42176572",
+      "doi": "10.1016/j.nutres.2026.04.007",
+      "study_type": "rct",
+      "population": "humans (PubMed-indexed)",
+      "title": "Synergistic effects of caffeine, l-theanine, and diaphragmatic breathing on esports performance: A randomized controlled crossover trial.",
+      "publication_date": "2026 Jul"
+    },
+    {
+      "compound_slug": "l-theanine",
+      "pmid_or_source": "41176609",
+      "doi": "10.1080/1028415X.2025.2556925",
+      "study_type": "systematic_review",
+      "population": "humans (PubMed-indexed)",
+      "title": "Examining the effect of L-theanine on sleep: a systematic review of dietary supplementation trials.",
+      "publication_date": "2026 Feb"
+    },
+    {
+      "compound_slug": "l-theanine",
+      "pmid_or_source": "40977612",
+      "doi": "10.1080/15502783.2025.2564238",
+      "study_type": "rct",
+      "population": "humans (PubMed-indexed)",
+      "title": "Performance-enhancing effects of caffeine and L-Theanine among Iranian elite wrestlers: a focus on cognitive and specific physical performance.",
+      "publication_date": "2025 Dec"
+    },
+    {
+      "compound_slug": "l-theanine",
+      "pmid_or_source": "40314930",
+      "doi": "10.1093/nutrit/nuaf054",
+      "study_type": "meta_analysis",
+      "population": "humans (PubMed-indexed)",
+      "title": "Effects of Tea (Camellia sinensis) or its Bioactive Compounds l-Theanine or l-Theanine plus Caffeine on Cognition, Sleep, and Mood in Healthy Participants: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+      "publication_date": "2025 Oct 1"
+    },
+    {
+      "compound_slug": "l-theanine",
+      "pmid_or_source": "40789769",
+      "doi": "10.1017/S0007114525104169",
+      "study_type": "rct",
+      "population": "humans (PubMed-indexed)",
+      "title": "High-dose L-theanine-caffeine combination improves neurobehavioural and neurophysiological measures of selective attention in acutely sleep-deprived young adults: a double-blind, placebo-controlled crossover study.",
+      "publication_date": "2025 Aug 14"
+    }
+  ],
+  "validation": {
+    "patch_type": "validated_evidence",
+    "patch_id": "09d54e77-fbc2-4048-ac99-d775775d2807",
+    "schema_version": "1.0",
+    "source_agent": "validation-agent",
+    "agent_version": "1.5",
+    "slug": "l-theanine",
+    "created_at": "2026-07-12T22:09:22.602Z",
+    "system_prompt": "You are the Validation Firewall for The Hippie Scientist.\nReject hallucinated citations, animal-only data, in-vitro-only data, vague claims, unsupported medical claims, and low-quality entries.\nBe extremely strict and conservative.",
+    "validation_status": "approved",
+    "rejection_reasons": [],
+    "entries": [
+      {
+        "compound_slug": "l-theanine",
+        "pmid_or_source": "42176572",
+        "doi": "10.1016/j.nutres.2026.04.007",
+        "study_type": "rct",
+        "population": "humans (PubMed-indexed)",
+        "title": "Synergistic effects of caffeine, l-theanine, and diaphragmatic breathing on esports performance: A randomized controlled crossover trial.",
+        "publication_date": "2026 Jul"
+      },
+      {
+        "compound_slug": "l-theanine",
+        "pmid_or_source": "41176609",
+        "doi": "10.1080/1028415X.2025.2556925",
+        "study_type": "systematic_review",
+        "population": "humans (PubMed-indexed)",
+        "title": "Examining the effect of L-theanine on sleep: a systematic review of dietary supplementation trials.",
+        "publication_date": "2026 Feb"
+      },
+      {
+        "compound_slug": "l-theanine",
+        "pmid_or_source": "40977612",
+        "doi": "10.1080/15502783.2025.2564238",
+        "study_type": "rct",
+        "population": "humans (PubMed-indexed)",
+        "title": "Performance-enhancing effects of caffeine and L-Theanine among Iranian elite wrestlers: a focus on cognitive and specific physical performance.",
+        "publication_date": "2025 Dec"
+      },
+      {
+        "compound_slug": "l-theanine",
+        "pmid_or_source": "40314930",
+        "doi": "10.1093/nutrit/nuaf054",
+        "study_type": "meta_analysis",
+        "population": "humans (PubMed-indexed)",
+        "title": "Effects of Tea (Camellia sinensis) or its Bioactive Compounds l-Theanine or l-Theanine plus Caffeine on Cognition, Sleep, and Mood in Healthy Participants: A Systematic Review and Meta-Analysis of Randomized Controlled Trials.",
+        "publication_date": "2025 Oct 1"
+      },
+      {
+        "compound_slug": "l-theanine",
+        "pmid_or_source": "40789769",
+        "doi": "10.1017/S0007114525104169",
+        "study_type": "rct",
+        "population": "humans (PubMed-indexed)",
+        "title": "High-dose L-theanine-caffeine combination improves neurobehavioural and neurophysiological measures of selective attention in acutely sleep-deprived young adults: a double-blind, placebo-controlled crossover study.",
+        "publication_date": "2025 Aug 14"
+      }
+    ]
+  },
+  "scoring": {
+    "confidence_score": 1,
+    "evidence_strength": "high",
+    "confidence_reasoning": [
+      "Scoring Rules:\n- Human meta-analysis > randomized trial > observational > pilot.\n- Small sample sizes reduce confidence.\n- Missing source attribution reduces confidence.\n- Evidence confidence must remain conservative.\n- Never output certainty language.",
+      "randomized_trial_detected",
+      "systematic_review_detected",
+      "meta_analysis_detected"
+    ]
+  }
+}

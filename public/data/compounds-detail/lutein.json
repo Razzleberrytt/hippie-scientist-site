@@ -28,13 +28,91 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
+    "sourceIds": [
+      "src_56cc494303b2",
+      "src_926aac42dc97"
+    ],
+    "claimCount": 3,
+    "claimIds": [
+      "clm_3ddf8e0ffb15",
+      "clm_5f0c4ffcba08",
+      "clm_d5d96f8f33d3"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_3ddf8e0ffb15",
+      "claim": "Eye health/macula.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Eye health/macula.",
+      "qualifiers": {
+        "direction": "needs_source_check",
+        "study_id": "ent_study_606cbaf66e9a"
+      },
+      "sourceRefIds": [
+        "src_926aac42dc97"
+      ]
+    },
+    {
+      "id": "clm_5f0c4ffcba08",
+      "claim": "Insufficient reliable evidence identified.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Insufficient reliable evidence identified.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_606cbaf66e9a"
+      },
+      "sourceRefIds": [
+        "src_926aac42dc97"
+      ]
+    },
+    {
+      "id": "clm_d5d96f8f33d3",
+      "claim": "v10.0: Lutein/zeaxanthin strongest context is AREDS2-style macular support, not generic eyesight claims.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v10.0: Lutein/zeaxanthin strongest context is AREDS2-style macular support, not generic eyesight claims.",
+      "qualifiers": {
+        "direction": "eye_health",
+        "dose_or_duration": "AREDS2 formula uses lutein 10 mg plus zeaxanthin 2 mg/day",
+        "study_id": "ent_study_f90f9930da9c"
+      },
+      "sourceRefIds": [
+        "src_56cc494303b2"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_56cc494303b2",
+      "title": "PubMed PMID 23644932. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/23644932/",
+      "pmid": "23644932",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 23644932. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_926aac42dc97",
+      "title": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
+      "citation": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
+      "note": "gap identification only; not used to populate factual fields",
+      "reviewStatus": "approved"
+    }
+  ]
 }

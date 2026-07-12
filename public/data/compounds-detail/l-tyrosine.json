@@ -30,14 +30,53 @@
     "reason": "curated_allowlist"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_aea5d4a48620"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_fa028bbac973"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_fa028bbac973",
+      "claim": "Tyrosine may be considered for cognitive performance under sleep deprivation or demanding operational stress, but evidence quality is limited.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Tyrosine may be considered for cognitive performance under sleep deprivation or demanding operational stress, but evidence quality is limited.",
+      "qualifiers": {
+        "direction": "context_specific_support",
+        "dose_or_duration": "Tyrosine doses varied across underlying studies",
+        "population": "Healthy young adults; military-relevant settings",
+        "study_id": "ent_study_6fa5eb681ef0"
+      },
+      "sourceRefIds": [
+        "src_aea5d4a48620"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
   "runtime_export_decision": "full_public_runtime",
-  "indexability_score": 100
+  "indexability_score": 100,
+  "sources": [
+    {
+      "id": "src_aea5d4a48620",
+      "title": "A Systematic Review of the Effect of Dietary Supplements on Cognitive Performance in Healthy Young Adults and Military Personnel",
+      "url": "https://consensus.app/papers/a-systematic-review-of-the-effect-of-dietary-supplements-on-pomeroy-tooley/be9aab8f3df35859a85ce0fcb2b16507/?utm_source=chatgpt",
+      "year": "2020",
+      "authors": "Pomeroy et al.",
+      "journal": "Nutrients",
+      "citation": "Dietary supplement cognition review; suggests tyrosine or caffeine may help in sleep-deprived military/young adult contexts; most research low quality.",
+      "note": "evidence;runtime_claim_gate",
+      "studyType": "Systematic review",
+      "reviewStatus": "approved"
+    }
+  ]
 }

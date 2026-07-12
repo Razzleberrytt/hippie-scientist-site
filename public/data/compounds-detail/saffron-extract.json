@@ -28,13 +28,50 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_9f508d2c359c"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_c9173c4480a5"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_c9173c4480a5",
+      "claim": "Dose-specific effect; 22 mg not effective",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Dose-specific effect; 22 mg not effective",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "affron 28 mg/day; 4 weeks",
+        "population": "healthy adults with low mood",
+        "study_id": "ent_study_8de86393c167"
+      },
+      "sourceRefIds": [
+        "src_9f508d2c359c"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_9f508d2c359c",
+      "title": "PubMed PMID 28735826. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28735826/",
+      "pmid": "28735826",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 28735826. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

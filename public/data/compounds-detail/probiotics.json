@@ -29,13 +29,80 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
+    "sourceIds": [
+      "src_74aff507b53f",
+      "src_c0401bbdfecb"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_409f125c1882",
+      "clm_7d9f4b56852a"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_409f125c1882",
+      "claim": "reduced anxiety symptoms",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "reduced anxiety symptoms",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "varies; 8 weeks",
+        "population": "adults",
+        "study_id": "ent_study_9a612fe71364"
+      },
+      "sourceRefIds": [
+        "src_74aff507b53f"
+      ]
+    },
+    {
+      "id": "clm_7d9f4b56852a",
+      "claim": "microbiome improvement",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "microbiome improvement",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "varies; varies",
+        "population": "adults",
+        "study_id": "ent_study_75f6317dc395"
+      },
+      "sourceRefIds": [
+        "src_c0401bbdfecb"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_74aff507b53f",
+      "title": "PubMed PMID 25808252. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25808252/",
+      "pmid": "25808252",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 25808252. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_c0401bbdfecb",
+      "title": "PubMed PMID 24912386. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24912386/",
+      "pmid": "24912386",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 24912386. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

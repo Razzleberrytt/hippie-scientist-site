@@ -30,11 +30,45 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_9255cb1dfdee"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_13ff725ab524"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_13ff725ab524",
+      "claim": "v10.0: The 2024 JAMA Internal Medicine RCT used 2 g/day for 6 months in 598 women and found no significant prevention benefit; block monetized recommendation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v10.0: The 2024 JAMA Internal Medicine RCT used 2 g/day for 6 months in 598 women and found no significant prevention benefit; block monetized recommendation.",
+      "qualifiers": {
+        "direction": "urinary_health",
+        "dose_or_duration": "2 g/day was tested for 6 months in a large UK primary-care RCT and did not significantly reduce medically attended recurrent UTI",
+        "study_id": "ent_study_be28edb67ffd"
+      },
+      "sourceRefIds": [
+        "src_9255cb1dfdee"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "sources": [
+    {
+      "id": "src_9255cb1dfdee",
+      "title": "v10.0: The 2024 JAMA Internal Medicine RCT used 2 g/day for 6 months in 598 women and found no significant prevention benefit; block monetized recommendation.",
+      "url": "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2817488 | https://pmc.ncbi.nlm.nih.gov/articles/PMC11002776/ | https://pmc.ncbi.nlm.nih.gov/articles/PMC12471090/",
+      "note": "human_rct",
+      "studyType": "Randomized controlled trial",
+      "reviewStatus": "pending"
+    }
+  ]
 }

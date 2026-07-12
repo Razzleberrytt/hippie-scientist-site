@@ -7,15 +7,17 @@ const SYSTEM_PROMPT = `You are the Validation Firewall for The Hippie Scientist.
 Reject hallucinated citations, animal-only data, in-vitro-only data, vague claims, unsupported medical claims, and low-quality entries.
 Be extremely strict and conservative.`
 
-const INVALID_TERMS = [
-  'mouse',
-  'mice',
-  'murine',
-  'rat',
-  'rodent',
-  'in vitro',
-  'cell culture',
+const INVALID_TERM_PATTERNS = [
+  /\bmouse\b/,
+  /\bmice\b/,
+  /\bmurine\b/,
+  /\brats?\b/,
+  /\brodents?\b/,
+  /\bin vitro\b/,
+  /\bcell cultures?\b/,
 ]
+
+const INVALID_STUDY_TYPES = new Set(['', 'unknown', 'animal', 'in_vitro'])
 
 function isInvalidPmid(source) {
   return /^\d+$/.test(source) && source.length < 6
@@ -43,6 +45,11 @@ export async function runValidation(discoveryData) {
         continue
       }
 
+      if (INVALID_STUDY_TYPES.has(String(row.study_type).toLowerCase())) {
+        rejectionReasons.push('unsupported_study_type')
+        continue
+      }
+
       const source = String(row?.pmid_or_source || '').trim()
 
       if (source && isInvalidPmid(source)) {
@@ -52,7 +59,7 @@ export async function runValidation(discoveryData) {
 
       const blob = JSON.stringify(row).toLowerCase()
 
-      if (INVALID_TERMS.some(term => blob.includes(term))) {
+      if (INVALID_TERM_PATTERNS.some(pattern => pattern.test(blob))) {
         rejectionReasons.push('non_human_or_preclinical_evidence')
         continue
       }

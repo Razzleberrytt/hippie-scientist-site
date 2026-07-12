@@ -28,7 +28,20 @@
   "evidenceLevel": "",
   "relatedHerbs": [],
   "region": "",
-  "sources": [],
+  "sources": [
+    {
+      "id": "src_9e3090651583",
+      "title": "Neuroprotective, neurogenic, and anticholinergic evidence of Ganoderma lucidum cognitive effects: Crucial knowledge is still lacking",
+      "url": "https://consensus.app/papers/neuroprotective-neurogenic-and-anticholinergic-luz-pinheiro/b769fa72870d5aefabcd1201a40422cf/?utm_source=chatgpt",
+      "year": "2023",
+      "authors": "Luz et al.",
+      "journal": "Medicinal Research Reviews",
+      "citation": "Mechanistic/preclinical-heavy cognitive review; explicitly highlights crucial knowledge gaps for future studies.",
+      "note": "evidence_gap;runtime_claim_gate",
+      "studyType": "Mechanistic",
+      "reviewStatus": "approved"
+    }
+  ],
   "governance": {
     "reviewStatus": "needs_review",
     "legalRisk": "none",
@@ -40,11 +53,36 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_9e3090651583"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_193ec11a17ff"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_193ec11a17ff",
+      "claim": "Reishi has mechanistic/preclinical cognitive interest, but current evidence is not strong enough for human nootropic claims.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Reishi has mechanistic/preclinical cognitive interest, but current evidence is not strong enough for human nootropic claims.",
+      "qualifiers": {
+        "direction": "insufficient_human_claim_support",
+        "dose_or_duration": "No validated human nootropic dose from this source",
+        "population": "Preclinical-heavy literature",
+        "study_id": "ent_study_2b8d2c707aff"
+      },
+      "sourceRefIds": [
+        "src_9e3090651583"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,

@@ -46,6 +46,16 @@
       "authors": "Calzada E et al.",
       "year": 2016,
       "url": "https://pubmed.ncbi.nlm.nih.gov/26811286/"
+    },
+    {
+      "id": "src_48f7980a9212",
+      "title": "PubMed PMID 12140984. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12140984/",
+      "pmid": "12140984",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 12140984. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -59,13 +69,33 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "25933483",
-      "26811286",
-      "31051106"
+      "src_48f7980a9212"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_e9deeb8bfb0d"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_e9deeb8bfb0d",
+      "claim": "v9.8: Evidence is plausible but smaller/older; avoid overranking compared with stronger cognition compounds.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.8: Evidence is plausible but smaller/older; avoid overranking compared with stronger cognition compounds.",
+      "qualifiers": {
+        "direction": "focus, stress",
+        "dose_or_duration": "300 mg/day used in memory/cognition contexts; higher doses studied for stress/cortisol response",
+        "study_id": "ent_study_3d69f0a830a4"
+      },
+      "sourceRefIds": [
+        "src_48f7980a9212"
+      ]
+    }
+  ]
 }

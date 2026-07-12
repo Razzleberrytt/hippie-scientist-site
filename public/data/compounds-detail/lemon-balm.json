@@ -32,15 +32,35 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:study-row-161",
-      "https://pubmed.ncbi.nlm.nih.gov/34449930/",
-      "pmid:34449930"
+      "src_826d7cae36e1"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_f2e20bbcaca0"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_f2e20bbcaca0",
+      "claim": "v9.5: Meta-analysis found lemon balm improved anxiety and depression scores vs placebo; sleep claims should stay secondary unless direct sleep data is added.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.5: Meta-analysis found lemon balm improved anxiety and depression scores vs placebo; sleep claims should stay secondary unless direct sleep data is added.",
+      "qualifiers": {
+        "direction": "anxiety, sleep",
+        "dose_or_duration": "Lemon balm dose varies by extract; clinical trials commonly use standardized Melissa officinalis preparations rather than loose tea",
+        "study_id": "ent_study_848e9fe402d2"
+      },
+      "sourceRefIds": [
+        "src_826d7cae36e1"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [
@@ -79,9 +99,7 @@
   "mechanism_target_systems": [],
   "mechanism_normalization_status": "partially_mapped",
   "unmapped_mechanisms": [
-    "Neurotransmitter Modulation",
-    "metabolic",
-    "neuroprotective"
+    "Neurotransmitter Modulation"
   ],
   "evidence_tier": "Mechanistic Evidence",
   "profile_status": "commercial_ready",
@@ -99,5 +117,17 @@
     "summary-depth",
     "summary-quality-missing"
   ],
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_826d7cae36e1",
+      "title": "PubMed PMID 34449930. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34449930/",
+      "pmid": "34449930",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 34449930. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

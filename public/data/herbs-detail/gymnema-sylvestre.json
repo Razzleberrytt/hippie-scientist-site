@@ -44,6 +44,16 @@
       "authors": "Devangan S et al.",
       "year": 2021,
       "url": "https://pubmed.ncbi.nlm.nih.gov/34467577/"
+    },
+    {
+      "id": "src_5f132d994c7e",
+      "title": "PubMed PMID 22592140. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22592140/",
+      "pmid": "22592140",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 22592140. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -57,13 +67,33 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "23472485",
-      "34467577",
-      "39666848"
+      "src_5f132d994c7e"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_375c080e184b"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_375c080e184b",
+      "claim": "v9.6: Promising diabetes-support tradition, but modern evidence quality/quantity is insufficient for monetized recommendation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.6: Promising diabetes-support tradition, but modern evidence quality/quantity is insufficient for monetized recommendation.",
+      "qualifiers": {
+        "direction": "metabolism",
+        "dose_or_duration": "Gymnema extract dosing varies; product-specific gymnemic acid content should be disclosed",
+        "study_id": "ent_study_712dfd25c12e"
+      },
+      "sourceRefIds": [
+        "src_5f132d994c7e"
+      ]
+    }
+  ]
 }

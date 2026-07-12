@@ -46,6 +46,23 @@
       "authors": "Minich DM et al.",
       "year": 2024,
       "url": "https://pubmed.ncbi.nlm.nih.gov/38398854/"
+    },
+    {
+      "id": "src_1f49196ffdbf",
+      "title": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
+      "citation": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
+      "note": "gap identification only; not used to populate factual fields",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_3910aa71f4eb",
+      "title": "PubMed PMID 18072817. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18072817/",
+      "pmid": "18072817",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 18072817. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -59,13 +76,68 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
     "sourceIds": [
-      "31951246",
-      "38398854",
-      "38440178"
+      "src_1f49196ffdbf",
+      "src_3910aa71f4eb"
+    ],
+    "claimCount": 3,
+    "claimIds": [
+      "clm_210f972e45a4",
+      "clm_22802f29e888",
+      "clm_ada4e0ca6714"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_210f972e45a4",
+      "claim": "Energy/libido in trials.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Energy/libido in trials.",
+      "qualifiers": {
+        "direction": "needs_source_check",
+        "study_id": "ent_study_403878c2c752"
+      },
+      "sourceRefIds": [
+        "src_1f49196ffdbf"
+      ]
+    },
+    {
+      "id": "clm_22802f29e888",
+      "claim": "Insufficient reliable evidence identified.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Insufficient reliable evidence identified.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_403878c2c752"
+      },
+      "sourceRefIds": [
+        "src_1f49196ffdbf"
+      ]
+    },
+    {
+      "id": "clm_ada4e0ca6714",
+      "claim": "v9.4: Maca has limited human evidence for sexual desire, but hormone/testosterone claims should be avoided.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.4: Maca has limited human evidence for sexual desire, but hormone/testosterone claims should be avoided.",
+      "qualifiers": {
+        "direction": "energy, libido",
+        "dose_or_duration": "1.5–3 g/day gelatinized or powdered maca used in libido trials",
+        "study_id": "ent_study_8ca35537f350"
+      },
+      "sourceRefIds": [
+        "src_3910aa71f4eb"
+      ]
+    }
+  ]
 }

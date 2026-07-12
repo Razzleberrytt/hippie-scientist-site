@@ -29,14 +29,68 @@
     "reason": "curated_allowlist"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_ad8ff3b198d3"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_763ff93923bd",
+      "clm_b102c0b06e9c"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_763ff93923bd",
+      "claim": "v9.2: Mapped to citicoline evidence; avoid overgeneralizing to all choline forms.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.2: Mapped to citicoline evidence; avoid overgeneralizing to all choline forms.",
+      "qualifiers": {
+        "direction": "focus, cognition",
+        "dose_or_duration": "500 mg/day citicoline for 12 weeks in healthy older adults with age-associated memory impairment",
+        "study_id": "ent_study_e537f7d15255"
+      },
+      "sourceRefIds": [
+        "src_ad8ff3b198d3"
+      ]
+    },
+    {
+      "id": "clm_b102c0b06e9c",
+      "claim": "v9.8: Mapped to citicoline evidence; avoid extrapolating to all choline products.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.8: Mapped to citicoline evidence; avoid extrapolating to all choline products.",
+      "qualifiers": {
+        "direction": "focus, cognition",
+        "dose_or_duration": "500 mg/day citicoline for 12 weeks in healthy older adults with age-associated memory impairment",
+        "study_id": "ent_study_3fe32885a7eb"
+      },
+      "sourceRefIds": [
+        "src_ad8ff3b198d3"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
   "runtime_export_decision": "full_public_runtime",
-  "indexability_score": 100
+  "indexability_score": 100,
+  "sources": [
+    {
+      "id": "src_ad8ff3b198d3",
+      "title": "PubMed PMID 33978188. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33978188/",
+      "pmid": "33978188",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 33978188. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

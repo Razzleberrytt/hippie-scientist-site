@@ -28,13 +28,68 @@
     "reason": "curated_allowlist"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_c988432a2651"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_17fc0822d8af",
+      "clm_5bfe4de6bc9e"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_17fc0822d8af",
+      "claim": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_78b98f7aa60e"
+      },
+      "sourceRefIds": [
+        "src_c988432a2651"
+      ]
+    },
+    {
+      "id": "clm_5bfe4de6bc9e",
+      "claim": "OA pain/inflammation (RCTs/meta).",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "OA pain/inflammation (RCTs/meta).",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_78b98f7aa60e"
+      },
+      "sourceRefIds": [
+        "src_c988432a2651"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_c988432a2651",
+      "title": "The Effects of Curcumin Plus Piperine Co-administration on Inflammation and Oxidative Stress: A Systematic Review and Meta-analysis of Randomized Controlled Trials.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38561618/",
+      "doi": "10.2174/0109298673260515240322074849",
+      "pmid": "38561618",
+      "year": "2025",
+      "journal": "Curr Med Chem",
+      "citation": "Author not retrieved (2025). Curr Med Chem. PMID: 38561618. DOI: 10.2174/0109298673260515240322074849.",
+      "note": "source-backed gap-fill audit only; not a full monograph field extraction",
+      "studyType": "Meta-analysis",
+      "reviewStatus": "approved"
+    }
+  ]
 }

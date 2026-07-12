@@ -26,14 +26,36 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 2,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "PMCID:PMC9413759",
-      "claim:study-row-99"
+      "src_20d072168304"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_b08e289f92a7"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_b08e289f92a7",
+      "claim": "Microbiota modulation; GI tolerance matters",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Microbiota modulation; GI tolerance matters",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "fructooligosaccharides; variable",
+        "population": "human prebiotic trials",
+        "study_id": "ent_study_6b3a57098f5d"
+      },
+      "sourceRefIds": [
+        "src_20d072168304"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -69,5 +91,13 @@
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 90,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_20d072168304",
+      "title": "Microbiota modulation; GI tolerance matters",
+      "note": "review_or_meta_analysis",
+      "reviewStatus": "pending"
+    }
+  ]
 }

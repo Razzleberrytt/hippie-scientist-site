@@ -51,6 +51,26 @@
       "authors": "Fugh-Berman A et al.",
       "year": 2000,
       "url": "https://pubmed.ncbi.nlm.nih.gov/10675182/"
+    },
+    {
+      "id": "src_580ec4d8897a",
+      "title": "PubMed PMID 22492349. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22492349/",
+      "pmid": "22492349",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 22492349. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_b2edf411006a",
+      "title": "PubMed PMID 24035939. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24035939/",
+      "pmid": "24035939",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 24035939. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -64,13 +84,53 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
     "sourceIds": [
-      "10675182",
-      "25153873",
-      "32213941"
+      "src_580ec4d8897a",
+      "src_b2edf411006a"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_8f6e1ef26622",
+      "clm_b30b1807c759"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_8f6e1ef26622",
+      "claim": "LDL reduction",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "LDL reduction",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "varies; varies",
+        "population": "adults",
+        "study_id": "ent_study_e9cd013ee21e"
+      },
+      "sourceRefIds": [
+        "src_580ec4d8897a"
+      ]
+    },
+    {
+      "id": "clm_b30b1807c759",
+      "claim": "v9.6: Garlic/aged garlic extract has human evidence for modest blood-pressure support; bleeding cautions are important.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.6: Garlic/aged garlic extract has human evidence for modest blood-pressure support; bleeding cautions are important.",
+      "qualifiers": {
+        "direction": "heart_health, immunity",
+        "dose_or_duration": "Aged garlic extract commonly 600–1200 mg/day in BP/lipid studies",
+        "study_id": "ent_study_c6f399b99a02"
+      },
+      "sourceRefIds": [
+        "src_b2edf411006a"
+      ]
+    }
+  ]
 }

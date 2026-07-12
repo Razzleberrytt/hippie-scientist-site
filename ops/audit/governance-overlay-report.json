@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-11T15:04:28.352Z",
+  "generatedAt": "2026-07-12T22:14:05.014Z",
   "dataDir": "public\\data",
   "removedSingularDirs": [],
   "trimmedSummaries": {
@@ -106,7 +106,6 @@
       "ginseng-panax-white",
       "glucosamine",
       "glycinate-magnesium-complex",
-      "glycine",
       "glycine-sleep",
       "green-tea-egcg-isolated",
       "green-tea-extract-egcg",
@@ -119,7 +118,6 @@
       "lutein",
       "maca-root-extract",
       "macamides",
-      "magnesium-glycinate",
       "magnesium-oxide",
       "magnesium-threonate",
       "melatonin",
@@ -174,8 +172,8 @@
     "compounds": {
       "records": 565,
       "detailFiles": 565,
-      "indexable": 73,
-      "needsReview": 114
+      "indexable": 75,
+      "needsReview": 112
     }
   },
   "curatedAllowlist": {

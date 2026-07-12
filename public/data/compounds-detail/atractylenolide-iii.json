@@ -30,15 +30,51 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "PMID 30981186.",
-      "claim:rg-0346",
-      "pmid:30981186"
+      "src_a26e15b61e67"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_921bf7627b07",
+      "clm_bafdbaae26de"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_921bf7627b07",
+      "claim": "Cytoprotective/ischemia.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Cytoprotective/ischemia.",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_693952151e45"
+      },
+      "sourceRefIds": [
+        "src_a26e15b61e67"
+      ]
+    },
+    {
+      "id": "clm_bafdbaae26de",
+      "claim": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_693952151e45"
+      },
+      "sourceRefIds": [
+        "src_a26e15b61e67"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -84,13 +120,25 @@
     "Signaling pathway modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "inflammatory"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_a26e15b61e67",
+      "title": "Atractylenolide III ameliorates cerebral ischemic injury and neuroinflammation associated with inhibiting JAK2/STAT3/Drp1-dependent mitochondrial fission in microglia.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30981186/",
+      "doi": "10.1016/j.phymed.2019.152922",
+      "pmid": "30981186",
+      "year": "2019",
+      "journal": "Phytomedicine",
+      "citation": "Author not retrieved (2019). Phytomedicine. PMID: 30981186. DOI: 10.1016/j.phymed.2019.152922.",
+      "note": "source-backed gap-fill audit only; not a full monograph field extraction",
+      "reviewStatus": "approved"
+    }
+  ]
 }

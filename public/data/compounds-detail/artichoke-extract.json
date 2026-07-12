@@ -31,13 +31,49 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_38b3994acf96"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_a5e7fa9af029"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_a5e7fa9af029",
+      "claim": "v8.2: A randomized placebo-controlled trial found HDL-cholesterol improvement in primary mild hypercholesterolemia.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v8.2: A randomized placebo-controlled trial found HDL-cholesterol improvement in primary mild hypercholesterolemia.",
+      "qualifiers": {
+        "direction": "heart_health, metabolism",
+        "dose_or_duration": "artichoke leaf extract doses vary; 250–2700 mg/day has been used in human studies",
+        "study_id": "ent_study_c07c39188a71"
+      },
+      "sourceRefIds": [
+        "src_38b3994acf96"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_38b3994acf96",
+      "title": "PubMed PMID 22746542. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22746542/",
+      "pmid": "22746542",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 22746542. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

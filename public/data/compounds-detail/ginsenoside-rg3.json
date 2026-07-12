@@ -30,15 +30,51 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:rg-0557",
-      "https://pubmed.ncbi.nlm.nih.gov/28098857/",
-      "pmid:28098857"
+      "src_3e4f7b35b245"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_36cc260cede5",
+      "clm_fe356556b255"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_36cc260cede5",
+      "claim": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_dca4674b43aa"
+      },
+      "sourceRefIds": [
+        "src_3e4f7b35b245"
+      ]
+    },
+    {
+      "id": "clm_fe356556b255",
+      "claim": "Anticancer/anti-inflammatory.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Anticancer/anti-inflammatory.",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_dca4674b43aa"
+      },
+      "sourceRefIds": [
+        "src_3e4f7b35b245"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -90,13 +126,25 @@
     "Signaling pathway modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "inflammatory"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 95,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_3e4f7b35b245",
+      "title": "Anticancer effects of ginsenoside Rg3 (Review).",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28098857/",
+      "doi": "10.3892/ijmm.2017.2857",
+      "pmid": "28098857",
+      "year": "2017",
+      "journal": "Int J Mol Med",
+      "citation": "Author not retrieved (2017). Int J Mol Med. PMID: 28098857. DOI: 10.3892/ijmm.2017.2857.",
+      "note": "source-backed gap-fill audit only; not a full monograph field extraction",
+      "reviewStatus": "approved"
+    }
+  ]
 }

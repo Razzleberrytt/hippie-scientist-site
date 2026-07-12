@@ -29,11 +29,47 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_0140e760e912"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_74d806102cf5"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_74d806102cf5",
+      "claim": "v9.6: Nattokinase has mechanistic/cardiovascular marker evidence but bleeding-risk context blocks casual monetization.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.6: Nattokinase has mechanistic/cardiovascular marker evidence but bleeding-risk context blocks casual monetization.",
+      "qualifiers": {
+        "direction": "heart_health, circulation",
+        "dose_or_duration": "Nattokinase FU dose varies; product-specific fibrinolytic units must be disclosed",
+        "study_id": "ent_study_f5e86d30ae33"
+      },
+      "sourceRefIds": [
+        "src_0140e760e912"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "sources": [
+    {
+      "id": "src_0140e760e912",
+      "title": "PubMed PMID 18971533. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18971533/",
+      "pmid": "18971533",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 18971533. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

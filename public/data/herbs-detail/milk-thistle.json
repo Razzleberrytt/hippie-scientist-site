@@ -48,6 +48,16 @@
       "authors": "PubMed indexed authors",
       "year": 2006,
       "url": "https://pubmed.ncbi.nlm.nih.gov/30000830/"
+    },
+    {
+      "id": "src_e4d69d9267bd",
+      "title": "PubMed PMID 28419855. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/28419855/",
+      "pmid": "28419855",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 28419855. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -61,13 +71,34 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "30000830",
-      "30080294",
-      "31069872"
+      "src_e4d69d9267bd"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_b7d75ed81b69"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_b7d75ed81b69",
+      "claim": "NASH trial; do not market as detox/hangover cure",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "NASH trial; do not market as detox/hangover cure",
+      "qualifiers": {
+        "direction": "0",
+        "dose_or_duration": "silymarin 700 mg TID; 48 weeks",
+        "population": "adults with biopsy-proven NASH",
+        "study_id": "ent_study_e9b4fd065740"
+      },
+      "sourceRefIds": [
+        "src_e4d69d9267bd"
+      ]
+    }
+  ]
 }

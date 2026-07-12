@@ -30,15 +30,51 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "PMID 21254395.",
-      "claim:rg-0317",
-      "pmid:21254395"
+      "src_4c21efcc7dd4"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_219a9fdefd56",
+      "clm_b24993135f56"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_219a9fdefd56",
+      "claim": "Inflammatory/apoptotic; rat PK.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Inflammatory/apoptotic; rat PK.",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_8274cc603298"
+      },
+      "sourceRefIds": [
+        "src_4c21efcc7dd4"
+      ]
+    },
+    {
+      "id": "clm_b24993135f56",
+      "claim": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_8274cc603298"
+      },
+      "sourceRefIds": [
+        "src_4c21efcc7dd4"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -88,13 +124,25 @@
     "Signaling pathway modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "Oxidative Stress"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_4c21efcc7dd4",
+      "title": "Pharmacokinetics of α-mangostin in rats after intravenous and oral application.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21254395/",
+      "doi": "10.1002/mnfr.201000511",
+      "pmid": "21254395",
+      "year": "2011",
+      "journal": "Mol Nutr Food Res",
+      "citation": "Author not retrieved (2011). Mol Nutr Food Res. PMID: 21254395. DOI: 10.1002/mnfr.201000511.",
+      "note": "source-backed gap-fill audit only; not a full monograph field extraction",
+      "reviewStatus": "approved"
+    }
+  ]
 }

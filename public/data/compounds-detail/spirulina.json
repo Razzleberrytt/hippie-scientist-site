@@ -28,13 +28,49 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_b06318b9c33e"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_9a49d797c09b"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_9a49d797c09b",
+      "claim": "v9.9: Spirulina evidence exists for lipid/metabolic markers but quality and contamination control are key.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.9: Spirulina evidence exists for lipid/metabolic markers but quality and contamination control are key.",
+      "qualifiers": {
+        "direction": "metabolism, immunity",
+        "dose_or_duration": "1–8 g/day spirulina used in human studies; dose depends on outcome/product",
+        "study_id": "ent_study_533825b088a8"
+      },
+      "sourceRefIds": [
+        "src_b06318b9c33e"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_b06318b9c33e",
+      "title": "PubMed PMID 20301409. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20301409/",
+      "pmid": "20301409",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 20301409. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

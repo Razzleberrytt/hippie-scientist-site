@@ -43,6 +43,16 @@
       "authors": "Dugoua JJ et al.",
       "year": 2008,
       "url": "https://pubmed.ncbi.nlm.nih.gov/18204103/"
+    },
+    {
+      "id": "src_c9055177bf1f",
+      "title": "PubMed PMID 37068952. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37068952/",
+      "pmid": "37068952",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 37068952. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -56,13 +66,33 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "18204103",
-      "30000897",
-      "32752183"
+      "src_c9055177bf1f"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_f35861085ba7"
     ]
   },
-  "claimMap": []
+  "claimMap": [
+    {
+      "id": "clm_f35861085ba7",
+      "claim": "v10.0: Cochrane 2023 found cranberry products may reduce symptomatic culture-verified UTIs in women with recurrent UTIs, children, and post-intervention bladder-susceptible groups, but not elderly institutionalized adults, neuromuscular bladder, incomplete emptying, or pregnant women.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v10.0: Cochrane 2023 found cranberry products may reduce symptomatic culture-verified UTIs in women with recurrent UTIs, children, and post-intervention bladder-susceptible groups, but not elderly institutionalized adults, neuromuscular bladder, incomplete emptying, or pregnant women.",
+      "qualifiers": {
+        "direction": "urinary_health, immunity",
+        "dose_or_duration": "Product-specific cranberry dose; PAC content should be disclosed, commonly targeting 36 mg PAC/day in UTI-focused products",
+        "study_id": "ent_study_75627b6e4285"
+      },
+      "sourceRefIds": [
+        "src_c9055177bf1f"
+      ]
+    }
+  ]
 }

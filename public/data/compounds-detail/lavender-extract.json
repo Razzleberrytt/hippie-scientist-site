@@ -29,18 +29,55 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 6,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
     "sourceIds": [
-      "claim:study-row-106",
-      "claim:study-row-164",
-      "https://pubmed.ncbi.nlm.nih.gov/21170695/",
-      "https://pubmed.ncbi.nlm.nih.gov/24456909/ | https://pubmed.ncbi.nlm.nih.gov/21170695/",
-      "pmid:21170695",
-      "pmid:24456909"
+      "src_724799cfc414",
+      "src_d0f31504cef6"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_4824fa5d2e7c",
+      "clm_692acb4b15a1"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_4824fa5d2e7c",
+      "claim": "Oral lavender oil preparation",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Oral lavender oil preparation",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "Silexan 80 mg/day; 6–10 weeks",
+        "population": "subthreshold anxiety/GAD/restlessness",
+        "study_id": "ent_study_a0e810c5d4a8"
+      },
+      "sourceRefIds": [
+        "src_d0f31504cef6"
+      ]
+    },
+    {
+      "id": "clm_692acb4b15a1",
+      "claim": "v9.5: Mapped to oral lavender/Silexan evidence.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.5: Mapped to oral lavender/Silexan evidence.",
+      "qualifiers": {
+        "direction": "anxiety",
+        "dose_or_duration": "80 mg/day oral Silexan lavender oil; some studies used 160 mg/day",
+        "study_id": "ent_study_7b2476d390d8"
+      },
+      "sourceRefIds": [
+        "src_724799cfc414"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -92,5 +129,27 @@
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_724799cfc414",
+      "title": "PubMed PMID 24456909. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/24456909/",
+      "pmid": "24456909",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 24456909. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_d0f31504cef6",
+      "title": "PubMed PMID 21170695. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21170695/",
+      "pmid": "21170695",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 21170695. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

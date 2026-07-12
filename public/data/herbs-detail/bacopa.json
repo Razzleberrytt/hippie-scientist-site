@@ -49,6 +49,27 @@
       "authors": "Malík M et al.",
       "year": 2023,
       "url": "https://pubmed.ncbi.nlm.nih.gov/36987052/"
+    },
+    {
+      "id": "src_9e2ace19600b",
+      "title": "PubMed PMID 18611150. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18611150/",
+      "pmid": "18611150",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 18611150. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_fe0411c48dea",
+      "title": "The effectiveness of Bacopamonnieri (Linn.) Wettst. as a nootropic, neuroprotective, or antidepressant supplement: analysis of the available clinical data",
+      "url": "https://consensus.app/papers/the-effectiveness-of-bacopamonnieri-linn-wettst-as-a-brimson-brimson/77d6361fc8f65ff8b0e31540e4ead3bf/?utm_source=chatgpt",
+      "year": "2021",
+      "authors": "J. Brimson; S. Brimson; M. Prasanth; Premrutai Thitilertdecha; D. Malar; T. Tencomnao",
+      "journal": "Scientific Reports",
+      "citation": "Consensus result; citation_count=62; record_type=systematic_review_meta_analysis",
+      "note": "bacopa cognition/nootropic evidence and limitation flags",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -62,15 +83,56 @@
     "reason": "curated_allowlist"
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
     "sourceIds": [
-      "34978226",
-      "36061899",
-      "36987052"
+      "src_9e2ace19600b",
+      "src_fe0411c48dea"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_24f6ebeda199",
+      "clm_e102dae3bcb0"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_24f6ebeda199",
+      "claim": "Bacopa may provide modest memory/learning support, but clinical evidence is limited and not consistently significant across the same cognitive tests.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Bacopa may provide modest memory/learning support, but clinical evidence is limited and not consistently significant across the same cognitive tests.",
+      "qualifiers": {
+        "direction": "mixed_modest",
+        "dose_or_duration": "varied Bacopa extracts and combinations",
+        "population": "Healthy subjects and memory-loss/neuro conditions",
+        "study_id": "ent_study_164d432987f1"
+      },
+      "sourceRefIds": [
+        "src_fe0411c48dea"
+      ]
+    },
+    {
+      "id": "clm_e102dae3bcb0",
+      "claim": "memory improvement",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "memory improvement",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "300 mg; 12 weeks",
+        "population": "adults",
+        "study_id": "ent_study_d5ddd6b96ff6"
+      },
+      "sourceRefIds": [
+        "src_9e2ace19600b"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true

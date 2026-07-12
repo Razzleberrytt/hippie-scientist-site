@@ -52,6 +52,28 @@
       "authors": "Chang JY et al.",
       "year": 2023,
       "url": "https://pubmed.ncbi.nlm.nih.gov/37376614/"
+    },
+    {
+      "id": "src_826d7cae36e1",
+      "title": "PubMed PMID 34449930. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34449930/",
+      "pmid": "34449930",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 34449930. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_a05ea67138e7",
+      "title": "The effects of lemon balm (Melissa officinalis L.) on depression and anxiety in clinical trials: A systematic review and meta-analysis",
+      "url": "https://consensus.app/papers/the-effects-of-lemon-balm-melissa-officinalis-l-on-ghazizadeh-sadigh-eteghad/19f8f254886b5b539004eb23a4778f39/?utm_source=chatgpt",
+      "year": "2021",
+      "authors": "Javid Ghazizadeh; S. Sadigh-Eteghad; W. Marx; A. Fakhari; S. Hamedeyazdan; Mohammadali Torbati; Somaiyeh Taheri-Tarighi; Mostafa Araj-khodaei; M. Mirghafourvand",
+      "journal": "Phytotherapy Research",
+      "citation": "Consensus result; citation_count=47; record_type=systematic_review_meta_analysis",
+      "note": "lemon balm anxiety/depression evidence and heterogeneity caution",
+      "studyType": "Meta-analysis",
+      "reviewStatus": "approved"
     }
   ],
   "governance": {
@@ -65,15 +87,55 @@
     "reason": "curated_allowlist"
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
     "sourceIds": [
-      "36144755",
-      "36902200",
-      "37376614"
+      "src_826d7cae36e1",
+      "src_a05ea67138e7"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_b4102d524d4e",
+      "clm_eb432268c675"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_b4102d524d4e",
+      "claim": "Lemon balm may improve anxiety and depressive symptom scores, particularly acutely, but evidence is heterogeneous.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Lemon balm may improve anxiety and depressive symptom scores, particularly acutely, but evidence is heterogeneous.",
+      "qualifiers": {
+        "direction": "supportive_but_heterogeneous",
+        "dose_or_duration": "varied acute/chronic lemon balm interventions",
+        "population": "Patients with anxiety/depressive symptoms",
+        "study_id": "ent_study_0c6bd2514258"
+      },
+      "sourceRefIds": [
+        "src_a05ea67138e7"
+      ]
+    },
+    {
+      "id": "clm_eb432268c675",
+      "claim": "v9.5: Mapped to lemon balm evidence; keep claims mild and anxiety-focused.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.5: Mapped to lemon balm evidence; keep claims mild and anxiety-focused.",
+      "qualifiers": {
+        "direction": "anxiety, sleep",
+        "dose_or_duration": "Lemon balm dose varies by extract; clinical trials commonly use standardized Melissa officinalis preparations rather than loose tea",
+        "study_id": "ent_study_e5bac96876c4"
+      },
+      "sourceRefIds": [
+        "src_826d7cae36e1"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true

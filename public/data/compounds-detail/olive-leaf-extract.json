@@ -34,11 +34,47 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_7ae7a5ea3481"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_bdf9edc8b3f4"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_bdf9edc8b3f4",
+      "claim": "v9.6: Evidence is promising but not strong enough for high-priority placement.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.6: Evidence is promising but not strong enough for high-priority placement.",
+      "qualifiers": {
+        "direction": "heart_health, metabolism",
+        "dose_or_duration": "Olive leaf extract doses vary; 500–1000 mg/day studied in cardiometabolic trials",
+        "study_id": "ent_study_1b6342793d94"
+      },
+      "sourceRefIds": [
+        "src_7ae7a5ea3481"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "sources": [
+    {
+      "id": "src_7ae7a5ea3481",
+      "title": "PubMed PMID 21443487. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/21443487/",
+      "pmid": "21443487",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 21443487. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

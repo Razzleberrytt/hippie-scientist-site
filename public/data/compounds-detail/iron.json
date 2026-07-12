@@ -29,21 +29,75 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 9,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 3,
     "sourceIds": [
-      "claim:study-row-216",
-      "claim:study-row-33",
-      "claim:study-row-34",
-      "https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/ | https://pubmed.ncbi.nlm.nih.gov/18711167/",
-      "https://pubmed.ncbi.nlm.nih.gov/12706309/",
-      "https://pubmed.ncbi.nlm.nih.gov/17344500/",
-      "pmid:12706309",
-      "pmid:17344500",
-      "pmid:18711167"
+      "src_2c881e8d3299",
+      "src_35249a83e723",
+      "src_4a32a37af842"
+    ],
+    "claimCount": 3,
+    "claimIds": [
+      "clm_89f218b2e687",
+      "clm_ac25585b7586",
+      "clm_b184df20b889"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_89f218b2e687",
+      "claim": "improved cognition",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "improved cognition",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "80 mg; 16 weeks",
+        "population": "women",
+        "study_id": "ent_study_6925b3e9b9a3"
+      },
+      "sourceRefIds": [
+        "src_2c881e8d3299"
+      ]
+    },
+    {
+      "id": "clm_ac25585b7586",
+      "claim": "v10.0: Iron can improve fatigue in iron-deficient women, but should be lab-guided and safety-gated.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v10.0: Iron can improve fatigue in iron-deficient women, but should be lab-guided and safety-gated.",
+      "qualifiers": {
+        "direction": "energy, blood_health",
+        "dose_or_duration": "RDA: 8 mg/day adult men, 18 mg/day premenopausal women; therapeutic iron dosing should be clinician-guided; adult UL 45 mg/day",
+        "study_id": "ent_study_b2e4463b0483"
+      },
+      "sourceRefIds": [
+        "src_4a32a37af842"
+      ]
+    },
+    {
+      "id": "clm_b184df20b889",
+      "claim": "reduced fatigue",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "reduced fatigue",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "80 mg; 12 weeks",
+        "population": "iron-deficient women",
+        "study_id": "ent_study_f37bfee7d23b"
+      },
+      "sourceRefIds": [
+        "src_35249a83e723"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [
@@ -73,11 +127,8 @@
     "Physiological effect"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "metabolic",
-    "mitochondrial"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Strong Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
@@ -94,5 +145,37 @@
     "summary-present",
     "summary-quality-missing"
   ],
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_2c881e8d3299",
+      "title": "PubMed PMID 17344500. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17344500/",
+      "pmid": "17344500",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 17344500. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_35249a83e723",
+      "title": "PubMed PMID 12706309. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12706309/",
+      "pmid": "12706309",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 12706309. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_4a32a37af842",
+      "title": "PubMed PMID 18711167. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18711167/",
+      "pmid": "18711167",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 18711167. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

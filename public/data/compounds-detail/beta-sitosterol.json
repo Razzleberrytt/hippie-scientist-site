@@ -30,11 +30,47 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_ad26988bf771"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_766a00f56d1b"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_766a00f56d1b",
+      "claim": "v8.2: A multicenter placebo-controlled trial found beta-sitosterol improved BPH symptom score and urinary flow measures.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v8.2: A multicenter placebo-controlled trial found beta-sitosterol improved BPH symptom score and urinary flow measures.",
+      "qualifiers": {
+        "direction": "prostate_health",
+        "dose_or_duration": "130 mg/day free beta-sitosterol in BPH trial; study-specific dosing matters",
+        "study_id": "ent_study_5397008eb505"
+      },
+      "sourceRefIds": [
+        "src_ad26988bf771"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "sources": [
+    {
+      "id": "src_ad26988bf771",
+      "title": "PubMed PMID 9313662. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/9313662/",
+      "pmid": "9313662",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 9313662. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

@@ -27,17 +27,55 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 5,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 2,
     "sourceIds": [
-      "claim:study-row-118",
-      "claim:study-row-223",
-      "https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/",
-      "https://pubmed.ncbi.nlm.nih.gov/31860103/",
-      "pmid:31860103"
+      "src_738081654367",
+      "src_e60ce5d9aaa2"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_57ada932cbd1",
+      "clm_bc84e5f9b54c"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_57ada932cbd1",
+      "claim": "Combination evidence; calcium alone/general use should not be overclaimed",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Combination evidence; calcium alone/general use should not be overclaimed",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "calcium 1000–1200 mg/day plus vitamin D 400–800 IU/day",
+        "population": "adults in fracture-prevention RCTs",
+        "study_id": "ent_study_6bf2ceabacdb"
+      },
+      "sourceRefIds": [
+        "src_738081654367"
+      ]
+    },
+    {
+      "id": "clm_bc84e5f9b54c",
+      "claim": "v10.0: Calcium should be positioned around dietary gap-filling and safety limits.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v10.0: Calcium should be positioned around dietary gap-filling and safety limits.",
+      "qualifiers": {
+        "direction": "bone_health",
+        "dose_or_duration": "Adult RDA generally 1000–1200 mg/day total calcium from diet + supplements; adult UL 2000–2500 mg/day by age",
+        "study_id": "ent_study_a5274ea38451"
+      },
+      "sourceRefIds": [
+        "src_e60ce5d9aaa2"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [
@@ -82,5 +120,24 @@
     "summary-present",
     "summary-quality-missing"
   ],
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_738081654367",
+      "title": "PubMed PMID 31860103. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31860103/",
+      "pmid": "31860103",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 31860103. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_e60ce5d9aaa2",
+      "title": "v10.0: Calcium should be positioned around dietary gap-filling and safety limits.",
+      "url": "https://ods.od.nih.gov/factsheets/Calcium-HealthProfessional/",
+      "note": "needs_classification",
+      "reviewStatus": "pending"
+    }
+  ]
 }

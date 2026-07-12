@@ -30,15 +30,35 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:study-row-148",
-      "https://pubmed.ncbi.nlm.nih.gov/31763928/ | https://pubmed.ncbi.nlm.nih.gov/18037769/",
-      "pmid:31763928"
+      "src_4a4d5861f666"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_c41c217d7b6b"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_c41c217d7b6b",
+      "claim": "v9.2: Meta-analysis did not find significant BP benefit; endothelial-function evidence exists but claims should stay limited.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v9.2: Meta-analysis did not find significant BP benefit; endothelial-function evidence exists but claims should stay limited.",
+      "qualifiers": {
+        "direction": "heart_health",
+        "dose_or_duration": "Pycnogenol doses vary by trial; 100–200 mg/day often studied",
+        "study_id": "ent_study_d12006311e38"
+      },
+      "sourceRefIds": [
+        "src_4a4d5861f666"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [
@@ -76,11 +96,8 @@
     "Signaling molecule modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "Endothelial Function",
-    "Oxidative Stress"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Mechanistic Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
@@ -97,5 +114,17 @@
     "summary-present",
     "summary-quality-missing"
   ],
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_4a4d5861f666",
+      "title": "PubMed PMID 31763928. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31763928/",
+      "pmid": "31763928",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 31763928. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

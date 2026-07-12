@@ -1,0 +1,104 @@
+{
+  "patch_id": "7c3ac372-1bae-44dc-b919-9dc0bdc04a2c",
+  "schema_version": "2.0",
+  "source_agent": "metadata-harvester",
+  "agent_version": "2.0",
+  "created_at": "2026-07-12T22:09:22.599Z",
+  "slug": "creatine",
+  "patch_type": "evidence",
+  "research_depth": "lightweight_enrichment",
+  "metadata_sources": [
+    "pubmed",
+    "clinicaltrials"
+  ],
+  "confidence_notes": [],
+  "seo_assets": {
+    "faq_candidates": [
+      "What is creatine used for?",
+      "Is creatine evidence-based?"
+    ],
+    "seo_topics": [
+      "creatine benefits",
+      "creatine safety",
+      "creatine evidence"
+    ],
+    "internal_link_targets": [
+      "sleep",
+      "focus",
+      "recovery"
+    ],
+    "comparison_candidates": [
+      "creatine vs magnesium"
+    ],
+    "best_for": [
+      "general wellness"
+    ],
+    "avoid_if": [
+      "medication interactions"
+    ],
+    "product_quality_notes": [
+      "Prefer reputable third-party tested brands"
+    ]
+  },
+  "review_flags": [],
+  "evidence": [
+    {
+      "compound_slug": "creatine",
+      "pmid_or_source": "42384726",
+      "doi": "10.1080/15502783.2026.2695133",
+      "study_type": "meta_analysis",
+      "population": "humans (PubMed-indexed)",
+      "title": "Effects of combined versus single supplementation of creatine and beta-alanine on aerobic and anerobic performance: a systematic review and network meta-analysis.",
+      "publication_date": "2026 Dec 31"
+    },
+    {
+      "compound_slug": "creatine",
+      "pmid_or_source": "42141930",
+      "doi": "10.1080/15502783.2026.2668435",
+      "study_type": "meta_analysis",
+      "population": "humans (PubMed-indexed)",
+      "title": "Creatine monohydrate for lean mass, strength, and bone density in postmenopausal women: a systematic review and meta-analysis.",
+      "publication_date": "2026 Dec 31"
+    }
+  ],
+  "validation": {
+    "patch_type": "validated_evidence",
+    "patch_id": "689c80eb-6186-4b64-99b0-802893fbedc5",
+    "schema_version": "1.0",
+    "source_agent": "validation-agent",
+    "agent_version": "1.5",
+    "slug": "creatine",
+    "created_at": "2026-07-12T22:09:22.598Z",
+    "system_prompt": "You are the Validation Firewall for The Hippie Scientist.\nReject hallucinated citations, animal-only data, in-vitro-only data, vague claims, unsupported medical claims, and low-quality entries.\nBe extremely strict and conservative.",
+    "validation_status": "approved",
+    "rejection_reasons": [],
+    "entries": [
+      {
+        "compound_slug": "creatine",
+        "pmid_or_source": "42384726",
+        "doi": "10.1080/15502783.2026.2695133",
+        "study_type": "meta_analysis",
+        "population": "humans (PubMed-indexed)",
+        "title": "Effects of combined versus single supplementation of creatine and beta-alanine on aerobic and anerobic performance: a systematic review and network meta-analysis.",
+        "publication_date": "2026 Dec 31"
+      },
+      {
+        "compound_slug": "creatine",
+        "pmid_or_source": "42141930",
+        "doi": "10.1080/15502783.2026.2668435",
+        "study_type": "meta_analysis",
+        "population": "humans (PubMed-indexed)",
+        "title": "Creatine monohydrate for lean mass, strength, and bone density in postmenopausal women: a systematic review and meta-analysis.",
+        "publication_date": "2026 Dec 31"
+      }
+    ]
+  },
+  "scoring": {
+    "confidence_score": 0.95,
+    "evidence_strength": "high",
+    "confidence_reasoning": [
+      "Scoring Rules:\n- Human meta-analysis > randomized trial > observational > pilot.\n- Small sample sizes reduce confidence.\n- Missing source attribution reduces confidence.\n- Evidence confidence must remain conservative.\n- Never output certainty language.",
+      "meta_analysis_detected"
+    ]
+  }
+}

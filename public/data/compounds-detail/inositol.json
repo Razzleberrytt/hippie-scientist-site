@@ -31,13 +31,52 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_518d61ac9c61"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_309abf2147d3"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_309abf2147d3",
+      "claim": "Inositol has relatively strong PCOS/metabolic evidence, but this source does not justify Sleep/Stress/Anxiety/Focus claims.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Inositol has relatively strong PCOS/metabolic evidence, but this source does not justify Sleep/Stress/Anxiety/Focus claims.",
+      "qualifiers": {
+        "direction": "supportive_outside_core_site_goals",
+        "dose_or_duration": "Inositol forms varied; PCOS context",
+        "population": "Women with PCOS",
+        "study_id": "ent_study_d84b6e5c9e8a"
+      },
+      "sourceRefIds": [
+        "src_518d61ac9c61"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_518d61ac9c61",
+      "title": "Inositol is an effective and safe treatment in polycystic ovary syndrome: a systematic review and meta-analysis of randomized controlled trials",
+      "url": "https://consensus.app/papers/inositol-is-an-effective-and-safe-treatment-in-polycystic-greff-juhsz/b7421e93fb58532f849c54da7bff4972/?utm_source=chatgpt",
+      "year": "2023",
+      "authors": "Greff et al.",
+      "journal": "Reproductive Biology and Endocrinology",
+      "citation": "26 RCTs/1691 PCOS patients; good metabolic/reproductive evidence but not a direct Sleep/Stress/Anxiety/Focus source.",
+      "note": "evidence;scope_boundary;runtime_claim_gate",
+      "studyType": "Meta-analysis",
+      "reviewStatus": "approved"
+    }
+  ]
 }

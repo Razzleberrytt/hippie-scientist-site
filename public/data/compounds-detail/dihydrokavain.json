@@ -28,11 +28,66 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_ac23c912c881"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_520223378062",
+      "clm_bf01c62abf0e"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_520223378062",
+      "claim": "GABAergic calming.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "GABAergic calming.",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_3a6b70d28f72"
+      },
+      "sourceRefIds": [
+        "src_ac23c912c881"
+      ]
+    },
+    {
+      "id": "clm_bf01c62abf0e",
+      "claim": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_3a6b70d28f72"
+      },
+      "sourceRefIds": [
+        "src_ac23c912c881"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "sources": [
+    {
+      "id": "src_ac23c912c881",
+      "title": "Kavalactones and dihydrokavain modulate GABAergic activity in a rat gastric-brainstem preparation.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12494336/",
+      "doi": "10.1055/s-2002-36338",
+      "pmid": "12494336",
+      "year": "2002",
+      "journal": "Planta Med",
+      "citation": "Author not retrieved (2002). Planta Med. PMID: 12494336. DOI: 10.1055/s-2002-36338.",
+      "note": "source-backed gap-fill audit only; not a full monograph field extraction",
+      "studyType": "Animal",
+      "reviewStatus": "approved"
+    }
+  ]
 }

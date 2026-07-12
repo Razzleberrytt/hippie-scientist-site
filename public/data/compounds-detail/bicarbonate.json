@@ -27,15 +27,35 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:study-row-134",
-      "https://pubmed.ncbi.nlm.nih.gov/34503527/",
-      "pmid:34503527"
+      "src_005702379a61"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_a948798d6170"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_a948798d6170",
+      "claim": "v8.2: Sodium bicarbonate has sports-performance evidence, but dosing is sodium-heavy and GI-limited.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v8.2: Sodium bicarbonate has sports-performance evidence, but dosing is sodium-heavy and GI-limited.",
+      "qualifiers": {
+        "direction": "performance",
+        "dose_or_duration": "0.2–0.3 g/kg sodium bicarbonate pre-exercise is commonly studied",
+        "study_id": "ent_study_079a0371f76d"
+      },
+      "sourceRefIds": [
+        "src_005702379a61"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [
@@ -82,5 +102,17 @@
     "summary-present",
     "summary-quality-missing"
   ],
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_005702379a61",
+      "title": "PubMed PMID 34503527. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34503527/",
+      "pmid": "34503527",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 34503527. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

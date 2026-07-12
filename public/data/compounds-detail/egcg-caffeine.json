@@ -29,13 +29,49 @@
     "reason": "missing_record_level_sources"
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_72eadc586f7b"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_57b3a779611f"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_57b3a779611f",
+      "claim": "v10.3: Green tea catechin/caffeine effects are modest; liver/caffeine cautions are essential.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v10.3: Green tea catechin/caffeine effects are modest; liver/caffeine cautions are essential.",
+      "qualifiers": {
+        "direction": "weight, energy",
+        "dose_or_duration": "EGCG/caffeine trial doses vary; avoid high-dose EGCG and fasting use",
+        "study_id": "ent_study_ca7b9014641c"
+      },
+      "sourceRefIds": [
+        "src_72eadc586f7b"
+      ]
+    }
+  ],
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "sources": [
+    {
+      "id": "src_72eadc586f7b",
+      "title": "PubMed PMID 19597519. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19597519/",
+      "pmid": "19597519",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 19597519. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

@@ -29,11 +29,48 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
+    "sourceIds": [
+      "src_215b4cf4fb91"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_26e9ab686324"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_26e9ab686324",
+      "claim": "reduced fatigue",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "reduced fatigue",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "5 g; acute",
+        "population": "athletes",
+        "study_id": "ent_study_b82e7943e22c"
+      },
+      "sourceRefIds": [
+        "src_215b4cf4fb91"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "sources": [
+    {
+      "id": "src_215b4cf4fb91",
+      "title": "PubMed PMID 17095909. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/17095909/",
+      "pmid": "17095909",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 17095909. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

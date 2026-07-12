@@ -28,11 +28,242 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "needs_review",
-    "sourceCount": 0,
-    "sourceIds": []
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 6,
+    "sourceIds": [
+      "src_1f0ad41dbb5d",
+      "src_52ce6f875b02",
+      "src_688f5fce89b2",
+      "src_6e3f93db02b9",
+      "src_9e60f08a489e",
+      "src_a051bced3154"
+    ],
+    "claimCount": 8,
+    "claimIds": [
+      "clm_95c61f30f194",
+      "clm_a18768943fbe",
+      "clm_a97d2b862153",
+      "clm_ac5105b49890",
+      "clm_af7e42e8d589",
+      "clm_cc40876ecf34",
+      "clm_d7d0a5b1b55e",
+      "clm_ea2e7e85f3fe"
+    ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_95c61f30f194",
+      "claim": "400 mg/day L-theanine for 28 days has been studied in healthy adults with moderate stress, with signals for perceived stress and attention but small sample limitations.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "preclinical",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "400 mg/day L-theanine for 28 days has been studied in healthy adults with moderate stress, with signals for perceived stress and attention but small sample limitations.",
+      "qualifiers": {
+        "direction": "supportive but small sample",
+        "dose_or_duration": "AlphaWave L-Theanine 400 mg/day for 28 days",
+        "population": "Healthy adults age 18–65 with moderate stress",
+        "study_id": "ent_study_694ae3a37a0a"
+      },
+      "sourceRefIds": [
+        "src_688f5fce89b2"
+      ]
+    },
+    {
+      "id": "clm_a18768943fbe",
+      "claim": "L-theanine was tolerated in a small 28-day trial, but the sample was small and not enough for broad safety certainty.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "L-theanine was tolerated in a small 28-day trial, but the sample was small and not enough for broad safety certainty.",
+      "qualifiers": {
+        "direction": "generally tolerated in small trial",
+        "dose_or_duration": "400 mg/day for 28 days",
+        "population": "30 healthy adults with moderate stress",
+        "study_id": "ent_study_b09fe97db487"
+      },
+      "sourceRefIds": [
+        "src_688f5fce89b2"
+      ]
+    },
+    {
+      "id": "clm_a97d2b862153",
+      "claim": "Standalone L-theanine has been studied across 50–900 mg/day; 200–450 mg/day appears to be the most useful adult sleep-support range in current review evidence.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "preclinical",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Standalone L-theanine has been studied across 50–900 mg/day; 200–450 mg/day appears to be the most useful adult sleep-support range in current review evidence.",
+      "qualifiers": {
+        "direction": "supportive but not conclusive",
+        "dose_or_duration": "Standalone L-theanine 50–900 mg/day studied; review suggests 200–450 mg/day may support healthy sleep in adults",
+        "population": "Humans; adult-focused interpretation for sleep support",
+        "study_id": "ent_study_dab09e64a74b"
+      },
+      "sourceRefIds": [
+        "src_9e60f08a489e"
+      ]
+    },
+    {
+      "id": "clm_ac5105b49890",
+      "claim": "Theanine, especially with caffeine, may support some attention and mood outcomes, but confidence intervals often show uncertainty.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Theanine, especially with caffeine, may support some attention and mood outcomes, but confidence intervals often show uncertainty.",
+      "qualifiers": {
+        "direction": "mixed-positive; uncertainty remains",
+        "dose_or_duration": "Theanine alone or with caffeine; acute outcomes",
+        "population": "Healthy participants",
+        "study_id": "ent_study_63b63cd48543"
+      },
+      "sourceRefIds": [
+        "src_a051bced3154"
+      ]
+    },
+    {
+      "id": "clm_af7e42e8d589",
+      "claim": "A single 200 mg dose of AlphaWave L-theanine has been studied for acute stress response/relaxation markers in healthy moderately stressed adults.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "A single 200 mg dose of AlphaWave L-theanine has been studied for acute stress response/relaxation markers in healthy moderately stressed adults.",
+      "qualifiers": {
+        "direction": "acute calming signal",
+        "dose_or_duration": "Single dose of AlphaWave L-Theanine 200 mg; effects assessed up to 3 hours post-dose",
+        "population": "Healthy moderately stressed adults",
+        "study_id": "ent_study_da25c52fa0dd"
+      },
+      "sourceRefIds": [
+        "src_6e3f93db02b9"
+      ]
+    },
+    {
+      "id": "clm_cc40876ecf34",
+      "claim": "A small 28-day trial found safety/tolerability and some perceived stress, sleep-quality, and attention signals.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "A small 28-day trial found safety/tolerability and some perceived stress, sleep-quality, and attention signals.",
+      "qualifiers": {
+        "direction": "small RCT; suggestive",
+        "dose_or_duration": "400 mg/day for 28 days",
+        "population": "30 healthy adults with moderate stress, age 18-65",
+        "study_id": "ent_study_197583750285"
+      },
+      "sourceRefIds": [
+        "src_688f5fce89b2"
+      ]
+    },
+    {
+      "id": "clm_d7d0a5b1b55e",
+      "claim": "L-theanine may be studied as an adjunct in mental health contexts, but pages should not imply it treats psychiatric disorders or replaces medication.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "L-theanine may be studied as an adjunct in mental health contexts, but pages should not imply it treats psychiatric disorders or replaces medication.",
+      "qualifiers": {
+        "direction": "promising but needs validation",
+        "dose_or_duration": "Varied by trial",
+        "population": "People with schizophrenia, ADHD, OCD, MDD, sleep disorders, GAD, Tourette syndrome",
+        "study_id": "ent_study_705e96ec896d"
+      },
+      "sourceRefIds": [
+        "src_52ce6f875b02"
+      ]
+    },
+    {
+      "id": "clm_ea2e7e85f3fe",
+      "claim": "L-theanine may support subjective sleep quality and sleep-onset related outcomes, but more pure L-theanine trials are needed.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "L-theanine may support subjective sleep quality and sleep-onset related outcomes, but more pure L-theanine trials are needed.",
+      "qualifiers": {
+        "direction": "positive but more pure-L-theanine trials needed",
+        "dose_or_duration": "50-900 mg/day review range; 200-450 mg/day appears common for sleep-support contexts",
+        "population": "Humans of varied ages/health statuses",
+        "study_id": "ent_study_f5d853a6a4e1"
+      },
+      "sourceRefIds": [
+        "src_1f0ad41dbb5d"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "sources": [
+    {
+      "id": "src_1f0ad41dbb5d",
+      "title": "The effects of L-theanine consumption on sleep outcomes",
+      "url": "https://consensus.app/papers/the-effects-of-ltheanine-consumption-on-sleep-outcomes-a-bulman-cunha/f04f46df5cfa5ac490eed2104e55ae78/?utm_source=chatgpt",
+      "year": "2025",
+      "authors": "Bulman et al.",
+      "journal": "Sleep Medicine Reviews",
+      "citation": "19 articles; 897 participants per search result",
+      "note": "sleep evidence",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_52ce6f875b02",
+      "title": "The effects of L-theanine supplementation on outcomes of patients with mental disorders",
+      "url": "https://consensus.app/papers/the-effects-of-ltheanine-supplementation-on-the-outcomes-moshfeghinia-sanaei/d80025c23e0a5a76bc2db097fde335bf/?utm_source=chatgpt",
+      "year": "2024",
+      "authors": "Moshfeghinia et al.",
+      "journal": "BMC Psychiatry",
+      "citation": "11 RCTs; psychiatric populations; further studies needed to validate effects",
+      "note": "claim framing for mental health adjunct contexts",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_688f5fce89b2",
+      "title": "Safety and Efficacy of AlphaWave L-Theanine Supplementation for 28 Days",
+      "url": "https://consensus.app/papers/safety-and-efficacy-of-alphawave-ltheanine-moulin-crowley/483ed255c48e5a30a5f3714f3c3082fe/?utm_source=chatgpt",
+      "year": "2024",
+      "authors": "Moulin et al.",
+      "journal": "Neurology and Therapy",
+      "citation": "30 healthy adults; 400 mg/day for 28 days",
+      "note": "stress/safety/cognition evidence",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_6e3f93db02b9",
+      "title": "Single dose AlphaWave L-Theanine on stress",
+      "url": "https://consensus.app/papers/a-randomized-tripleblind-placebocontrolled-crossover-evans-mcdonald/d3b94ebb1cb75700884a46cc775e9bda/?utm_source=chatgpt",
+      "year": "2021",
+      "authors": "Evans et al.",
+      "journal": "Neurology and Therapy",
+      "citation": "Single 200 mg AlphaWave L-Theanine; stress challenge; 1–3 hour markers",
+      "note": "L-theanine acute dose",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_9e60f08a489e",
+      "title": "Examining the effect of L-theanine on sleep",
+      "url": "https://consensus.app/papers/examining-the-effect-of-ltheanine-on-sleep-a-systematic-cotter-caddick/fc34d2ccf3715609a856171a6e3821d9/?utm_source=chatgpt",
+      "year": "2025",
+      "authors": "Cotter et al.",
+      "journal": "Nutritional Neuroscience",
+      "citation": "13 trials; 550 participants; standalone 50–900 mg/day; 200–450 mg/day useful adult sleep-support range",
+      "note": "L-theanine dose/form",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_a051bced3154",
+      "title": "Effects of Tea or its Bioactive Compounds l-Theanine or l-Theanine plus Caffeine on Cognition, Sleep, and Mood",
+      "url": "https://consensus.app/papers/effects-of-tea-camellia-sinensis-or-its-bioactive-payne-aceves-martins/939e00c0c8a153ea8489e05d78184f5d/?utm_source=chatgpt",
+      "year": "2025",
+      "authors": "Payne et al.",
+      "journal": "Nutrition Reviews",
+      "citation": "50 RCTs; 15 meta-analyzed",
+      "note": "cognition/mood evidence",
+      "reviewStatus": "approved"
+    }
+  ]
 }

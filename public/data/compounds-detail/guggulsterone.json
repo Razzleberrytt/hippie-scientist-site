@@ -34,15 +34,51 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:rg-0580",
-      "https://pubmed.ncbi.nlm.nih.gov/27771932/",
-      "pmid:27771932"
+      "src_d67c6da69b0d"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_9e414ed4aec7",
+      "clm_e1f750472832"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_9e414ed4aec7",
+      "claim": "FXR/lipid-lowering.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "FXR/lipid-lowering.",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_753c659835b2"
+      },
+      "sourceRefIds": [
+        "src_d67c6da69b0d"
+      ]
+    },
+    {
+      "id": "clm_e1f750472832",
+      "claim": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_753c659835b2"
+      },
+      "sourceRefIds": [
+        "src_d67c6da69b0d"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -88,7 +124,9 @@
     "Cellular protection",
     "Immune modulation",
     "AMPK activation",
-    "NF-kB inhibition"
+    "NF-kB inhibition",
+    "Glucose regulation",
+    "Lipid metabolism support"
   ],
   "mechanism_categories": [
     "core",
@@ -98,18 +136,29 @@
   ],
   "mechanism_classes": [
     "Physiological effect",
-    "Signaling pathway modulation"
+    "Signaling pathway modulation",
+    "Metabolic modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "AMPK",
-    "Glucose Metabolism",
-    "Lipid Metabolism"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_d67c6da69b0d",
+      "title": "Guggulsterone and Its Role in Chronic Diseases.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/27771932/",
+      "doi": "10.1007/978-3-319-41342-6_15",
+      "pmid": "27771932",
+      "year": "2016",
+      "journal": "Adv Exp Med Biol",
+      "citation": "Author not retrieved (2016). Adv Exp Med Biol. PMID: 27771932. DOI: 10.1007/978-3-319-41342-6_15.",
+      "note": "source-backed gap-fill audit only; not a full monograph field extraction",
+      "reviewStatus": "approved"
+    }
+  ]
 }

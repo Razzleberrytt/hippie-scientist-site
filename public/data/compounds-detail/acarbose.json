@@ -28,15 +28,36 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:study-row-96",
-      "https://pubmed.ncbi.nlm.nih.gov/10372249/",
-      "pmid:10372249"
+      "src_785db79c7b8b"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_1bca48bce12a"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_1bca48bce12a",
+      "claim": "UKPDS 44; prescription drug evidence only",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_rct",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "UKPDS 44; prescription drug evidence only",
+      "qualifiers": {
+        "direction": "+",
+        "dose_or_duration": "up to 100 mg three times daily; 3 years",
+        "population": "type 2 diabetes patients",
+        "study_id": "ent_study_68c7873e6718"
+      },
+      "sourceRefIds": [
+        "src_785db79c7b8b"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -81,13 +102,23 @@
     "Metabolic modulation"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "Glucose Metabolism"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 85,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_785db79c7b8b",
+      "title": "PubMed PMID 10372249. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/10372249/",
+      "pmid": "10372249",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 10372249. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }

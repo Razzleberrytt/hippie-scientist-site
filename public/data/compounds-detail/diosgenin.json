@@ -30,15 +30,51 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:rg-0480",
-      "https://pubmed.ncbi.nlm.nih.gov/35677108/",
-      "pmid:35677108"
+      "src_a12cb51cb676"
+    ],
+    "claimCount": 2,
+    "claimIds": [
+      "clm_4222ed97fe12",
+      "clm_db6c9368d783"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_4222ed97fe12",
+      "claim": "Endocrine/metabolic/osteogenic.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Endocrine/metabolic/osteogenic.",
+      "qualifiers": {
+        "direction": "verified",
+        "study_id": "ent_study_5efa3addc820"
+      },
+      "sourceRefIds": [
+        "src_a12cb51cb676"
+      ]
+    },
+    {
+      "id": "clm_db6c9368d783",
+      "claim": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "none",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "Use cautious, source-specific language; do not generalize beyond the cited population/preparation.",
+      "qualifiers": {
+        "direction": "needs_validation",
+        "study_id": "ent_study_5efa3addc820"
+      },
+      "sourceRefIds": [
+        "src_a12cb51cb676"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
@@ -86,13 +122,25 @@
     "Physiological effect"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "Lipid Metabolism"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Strong Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_a12cb51cb676",
+      "title": "Diosgenin: An Updated Pharmacological Review and Therapeutic Perspectives.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35677108/",
+      "doi": "10.1155/2022/1035441",
+      "pmid": "35677108",
+      "year": "2022",
+      "journal": "Oxid Med Cell Longev",
+      "citation": "Author not retrieved (2022). Oxid Med Cell Longev. PMID: 35677108. DOI: 10.1155/2022/1035441.",
+      "note": "source-backed gap-fill audit only; not a full monograph field extraction",
+      "reviewStatus": "approved"
+    }
+  ]
 }

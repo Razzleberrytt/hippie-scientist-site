@@ -28,15 +28,35 @@
     "reason": ""
   },
   "evidence": {
-    "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "reviewStatus": "sourced_pending_review",
+    "sourceCount": 1,
     "sourceIds": [
-      "claim:study-row-230",
-      "https://pubmed.ncbi.nlm.nih.gov/18326600/ | https://pubmed.ncbi.nlm.nih.gov/25636220/",
-      "pmid:18326600"
+      "src_0071dad30187"
+    ],
+    "claimCount": 1,
+    "claimIds": [
+      "clm_c3d66e4b581c"
     ]
   },
-  "claimMap": [],
+  "claimMap": [
+    {
+      "id": "clm_c3d66e4b581c",
+      "claim": "v10.3: MCT effects on body composition are modest/context-dependent; emphasize tolerance and calorie context.",
+      "predicate": "supports_outcome",
+      "evidenceLevel": "human_obs",
+      "confidence": 0.5,
+      "reviewStatus": "pending",
+      "notes": "v10.3: MCT effects on body composition are modest/context-dependent; emphasize tolerance and calorie context.",
+      "qualifiers": {
+        "direction": "energy, weight",
+        "dose_or_duration": "MCT oil dosing is product/tolerance-specific; start low (for example 5–15 mL) to reduce GI effects",
+        "study_id": "ent_study_ac609ac55815"
+      },
+      "sourceRefIds": [
+        "src_0071dad30187"
+      ]
+    }
+  ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "effects": [
@@ -69,10 +89,8 @@
     "Physiological effect"
   ],
   "mechanism_target_systems": [],
-  "mechanism_normalization_status": "partially_mapped",
-  "unmapped_mechanisms": [
-    "Lipid Metabolism"
-  ],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
   "evidence_tier": "Mechanistic Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
@@ -89,5 +107,17 @@
     "summary-depth",
     "summary-quality-missing"
   ],
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "sources": [
+    {
+      "id": "src_0071dad30187",
+      "title": "PubMed PMID 18326600. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18326600/",
+      "pmid": "18326600",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 18326600. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    }
+  ]
 }
