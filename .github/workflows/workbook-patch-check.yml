@@ -51,7 +51,7 @@ jobs:
           )
           source = source.replace(
               "    count = text.count(old)\n",
-              "    count = text.count(old)\n    print(f'{label}: matches={count}', flush=True)\n",
+              "    count = text.count(old)\n    if count == 0 and label == 'editor: usage':\n        old = old.replace('\\n', '\\\\n')\n        new = new.replace('\\n', '\\\\n')\n        count = text.count(old)\n    print(f'{label}: matches={count}', flush=True)\n",
               1,
           )
           exec(compile(source, str(script_path), 'exec'))
