@@ -58,7 +58,7 @@ describe('Rendering and Content Quality Tests', () => {
     )
     
     // The main title in the client component must be an h2, since the server page page.tsx renders the h1
-    const heading = screen.getByRole('heading', { name: /Herbal research library/i })
+    const heading = screen.getByRole('heading', { name: /Find an herb/i })
     expect(heading.tagName).toBe('H2')
   })
 
