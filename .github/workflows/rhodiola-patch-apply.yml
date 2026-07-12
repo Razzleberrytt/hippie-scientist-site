@@ -1,0 +1,85 @@
+name: Apply Reviewed Rhodiola Patch
+
+on:
+  push:
+    branches:
+      - patch/rhodiola-reviewable-v2
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: patch/rhodiola-reviewable-v2
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Normalize exact reviewed inbox patch
+        run: |
+          rm -rf data/patches/normalized
+          mkdir -p data/patches/normalized
+          npm run data:normalize-patch -- --file data/patches/inbox/rhodiola-scite-enrichment-2026-07-12-v2.json | tee /tmp/rhodiola-normalize.log
+          NORMALIZED=$(find data/patches/normalized -maxdepth 1 -type f -name '*.json' ! -name '*.report.json' | head -n 1)
+          test -n "$NORMALIZED"
+          echo "NORMALIZED_FILE=$NORMALIZED" >> "$GITHUB_ENV"
+
+      - name: Assert isolated target and canonical field paths
+        run: |
+          node <<'NODE'
+          const fs = require('fs')
+          const patch = JSON.parse(fs.readFileSync(process.env.NORMALIZED_FILE, 'utf8'))
+          const expectedId = 'scite-rhodiola-evidence-2026-07-12-002'
+          if (patch.patch_id !== expectedId) throw new Error(`unexpected patch id: ${patch.patch_id}`)
+          if (patch.target?.slug !== 'rhodiola' || patch.target?.entity_type !== 'herb') {
+            throw new Error(`unexpected target: ${JSON.stringify(patch.target)}`)
+          }
+          if (patch.operations?.length !== 4 || patch.sources?.length !== 5) {
+            throw new Error(`unexpected patch scope: ${patch.operations?.length} ops, ${patch.sources?.length} sources`)
+          }
+          const fields = patch.operations.map((operation) => operation.field).filter(Boolean)
+          if (fields.some((field) => field.startsWith('legacy.legacy.'))) {
+            throw new Error(`double-prefixed legacy field: ${fields.join(', ')}`)
+          }
+          for (const required of ['legacy.forms', 'legacy.evidence_risk_of_bias']) {
+            if (!fields.includes(required)) throw new Error(`missing required field: ${required}`)
+          }
+          NODE
+
+      - name: Repeat exact-file dry run
+        run: npm run data:patches:dry-run -- --file "$NORMALIZED_FILE" | tee /tmp/rhodiola-dry-run.log
+
+      - name: Apply exact normalized patch
+        run: npm run data:patches:apply -- --file "$NORMALIZED_FILE" | tee /tmp/rhodiola-apply.log
+
+      - name: Refresh and validate canonical exports
+        run: npm run data:ci
+
+      - name: Verify archive and clean inbox
+        run: |
+          test -f data/patches/applied/scite-rhodiola-evidence-2026-07-12-002.json
+          rm data/patches/inbox/rhodiola-scite-enrichment-2026-07-12-v2.json
+          test ! -e data/patches/inbox/rhodiola-scite-enrichment-2026-07-12-v2.json
+
+      - name: Remove one-time workflows and commit applied transaction
+        run: |
+          rm .github/workflows/rhodiola-patch-apply.yml
+          rm .github/workflows/rhodiola-patch-dry-run.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "data: apply corrected Rhodiola evidence patch"
+          git push origin HEAD:patch/rhodiola-reviewable-v2
