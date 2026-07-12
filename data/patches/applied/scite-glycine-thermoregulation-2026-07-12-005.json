@@ -1,0 +1,41 @@
+{
+  "patch_id": "scite-glycine-thermoregulation-2026-07-12-005",
+  "patch_version": "1",
+  "created_at": "2026-07-12T00:02:00.000Z",
+  "generator": "Scite literature enrichment via ChatGPT",
+  "target": {
+    "slug": "glycine",
+    "canonical_name": "Glycine",
+    "entity_type": "compound"
+  },
+  "operations": [
+    {
+      "op": "add_claim",
+      "field": "effects",
+      "value": "A proposed sleep-related mechanism is enhanced heat dissipation and the normal pre-sleep decline in core body temperature, but this mechanism is supported more strongly by physiological and preclinical work than by definitive human mediation studies.",
+      "payload": {},
+      "confidence": 0.72,
+      "notes": "Mechanistic claim is explicitly labeled proposed and distinguishes preclinical support from demonstrated clinical mediation."
+    }
+  ],
+  "sources": [
+    {
+      "doi": "10.3389/fneur.2012.00061",
+      "url": "https://doi.org/10.3389/fneur.2012.00061",
+      "title": "The Effects of Glycine on Subjective Daytime Performance in Partially Sleep-Restricted Healthy Volunteers",
+      "year": "2012"
+    }
+  ],
+  "notes": "Adds a qualified thermoregulation mechanism rather than a causal certainty.",
+  "confidence": 0.72,
+  "requires_review": true,
+  "original_filename": "glycine-thermoregulation-scite-005.json",
+  "original_hash": "aa33ae478a2a5dc62fd4447ee57819e6927b8e62e97f9e3eecad81fcf448a6a0",
+  "_apply_result": {
+    "status": "applied",
+    "changes": 1,
+    "reviewer": "Willie Randolph",
+    "reviewed_at": "2026-07-12T00:10:00.000Z",
+    "at": "2026-07-11T23:59:57.958Z"
+  }
+}

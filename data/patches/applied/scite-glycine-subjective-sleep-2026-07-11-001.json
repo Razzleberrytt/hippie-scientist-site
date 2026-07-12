@@ -1,0 +1,47 @@
+{
+  "patch_id": "scite-glycine-subjective-sleep-2026-07-11-001",
+  "patch_version": "1",
+  "created_at": "2026-07-11T23:58:00.000Z",
+  "generator": "Scite literature enrichment via ChatGPT",
+  "target": {
+    "slug": "glycine",
+    "canonical_name": "Glycine",
+    "entity_type": "compound"
+  },
+  "operations": [
+    {
+      "op": "add_claim",
+      "field": "effects",
+      "value": "Small randomized crossover studies in adults dissatisfied with their sleep found that 3 g of glycine taken shortly before bedtime improved some subjective ratings of sleep quality and next-morning refreshment compared with placebo.",
+      "payload": {},
+      "confidence": 0.78,
+      "notes": "Direct human evidence, conservatively framed around small crossover studies and subjective outcomes."
+    }
+  ],
+  "sources": [
+    {
+      "doi": "10.1111/j.1479-8425.2006.00193.x",
+      "url": "https://doi.org/10.1111/j.1479-8425.2006.00193.x",
+      "title": "Subjective effects of glycine ingestion before bedtime on sleep quality",
+      "year": "2006"
+    },
+    {
+      "doi": "10.1111/j.1479-8425.2007.00262.x",
+      "url": "https://doi.org/10.1111/j.1479-8425.2007.00262.x",
+      "title": "Glycine ingestion improves subjective sleep quality in human volunteers, correlating with polysomnographic changes",
+      "year": "2007"
+    }
+  ],
+  "notes": "Adds the best-supported direct sleep claim.",
+  "confidence": 0.78,
+  "requires_review": true,
+  "original_filename": "glycine-subjective-sleep-scite-001.json",
+  "original_hash": "4e82d969fb2aa701121322cc378baa65183332a8f0d30acfd02309120a08a5af",
+  "_apply_result": {
+    "status": "applied",
+    "changes": 1,
+    "reviewer": "Willie Randolph",
+    "reviewed_at": "2026-07-12T00:10:00.000Z",
+    "at": "2026-07-11T23:59:57.958Z"
+  }
+}

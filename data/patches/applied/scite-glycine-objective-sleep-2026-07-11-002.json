@@ -1,0 +1,41 @@
+{
+  "patch_id": "scite-glycine-objective-sleep-2026-07-11-002",
+  "patch_version": "1",
+  "created_at": "2026-07-11T23:59:00.000Z",
+  "generator": "Scite literature enrichment via ChatGPT",
+  "target": {
+    "slug": "glycine",
+    "canonical_name": "Glycine",
+    "entity_type": "compound"
+  },
+  "operations": [
+    {
+      "op": "add_claim",
+      "field": "effects",
+      "value": "One small polysomnography crossover study reported shorter sleep-onset latency and selected sleep-quality improvements after 3 g of bedtime glycine, while overall sleep-stage proportions were not materially altered.",
+      "payload": {},
+      "confidence": 0.76,
+      "notes": "Separates selected objective findings from broad claims about total sleep architecture."
+    }
+  ],
+  "sources": [
+    {
+      "doi": "10.1111/j.1479-8425.2007.00262.x",
+      "url": "https://doi.org/10.1111/j.1479-8425.2007.00262.x",
+      "title": "Glycine ingestion improves subjective sleep quality in human volunteers, correlating with polysomnographic changes",
+      "year": "2007"
+    }
+  ],
+  "notes": "Adds the limited objective-sleep evidence.",
+  "confidence": 0.76,
+  "requires_review": true,
+  "original_filename": "glycine-objective-sleep-scite-002.json",
+  "original_hash": "80a30b4b2b7b80e8d9fd10177b4213f07e5109c1bd355384f70580e49091dc75",
+  "_apply_result": {
+    "status": "applied",
+    "changes": 1,
+    "reviewer": "Willie Randolph",
+    "reviewed_at": "2026-07-12T00:10:00.000Z",
+    "at": "2026-07-11T23:59:57.958Z"
+  }
+}
