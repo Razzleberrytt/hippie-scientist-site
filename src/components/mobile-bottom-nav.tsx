@@ -23,9 +23,9 @@ export default function MobileBottomNav() {
   return (
     <nav
       aria-label='Primary mobile navigation'
-      className='editorial-mobile-dock mobile-bottom-nav fixed inset-x-3 bottom-[calc(env(safe-area-inset-bottom)+0.55rem)] z-[90] mx-auto max-w-[34rem] rounded-[1.75rem] md:hidden'
+      className='editorial-mobile-dock mobile-bottom-nav fixed inset-x-2 bottom-[calc(env(safe-area-inset-bottom)+0.35rem)] z-[90] mx-auto max-w-[34rem] rounded-2xl md:hidden'
     >
-      <div className='flex items-end gap-0.5 px-2 pb-2 pt-2'>
+      <div className='flex items-center gap-0.5 px-1.5 py-1.5'>
         {mobileBottomNavItems.map((item) => {
           const active = pathname === item.href || pathname.startsWith(`${item.href}/`)
           const isSearch = item.label === 'Search'
@@ -36,9 +36,7 @@ export default function MobileBottomNav() {
               key={item.href}
               href={toCanonicalHref(item.href)}
               aria-current={active ? 'page' : undefined}
-              className={`group relative flex min-h-[3.45rem] min-w-0 flex-1 flex-col items-center justify-end gap-1 rounded-2xl px-0.5 pb-1 text-center transition ${
-                isSearch ? 'pt-0' : 'pt-1.5'
-              } ${
+              className={`group relative flex min-h-[3rem] min-w-0 flex-1 flex-col items-center justify-center gap-0.5 rounded-xl px-0.5 text-center transition ${
                 active && !isSearch
                   ? 'text-[#123c2f] dark:text-[var(--text-primary)]'
                   : 'text-[#526159] hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]'
@@ -47,13 +45,13 @@ export default function MobileBottomNav() {
               <span
                 className={`inline-flex items-center justify-center transition ${
                   isSearch
-                    ? 'editorial-mobile-search -mt-5 h-14 w-14 rounded-full'
+                    ? 'editorial-mobile-search h-8 w-10 rounded-full'
                     : active
                       ? 'h-7 w-9 rounded-full bg-[#dfe9dc] dark:bg-[rgba(255,255,255,0.09)]'
                       : 'h-7 w-9 rounded-full'
                 }`}
               >
-                <Icon aria-hidden='true' className={isSearch ? 'h-6 w-6' : 'h-5 w-5'} strokeWidth={active || isSearch ? 2.35 : 1.9} />
+                <Icon aria-hidden='true' className='h-5 w-5' strokeWidth={active || isSearch ? 2.2 : 1.8} />
               </span>
               <span className={`max-w-full whitespace-nowrap text-[0.69rem] leading-none ${active ? 'font-bold' : 'font-semibold'}`}>
                 {item.label}

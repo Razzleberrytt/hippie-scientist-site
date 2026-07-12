@@ -315,3 +315,26 @@ html:not(.dark) body {
   border-color: rgba(180, 210, 190, 0.14);
   background: rgba(29, 53, 43, 0.92);
 }
+
+.dark .editorial-trust-strip {
+  border-color: rgba(180, 210, 190, 0.14);
+  background: rgba(12, 27, 21, 0.72);
+}
+
+.dark .editorial-trust-strip .editorial-icon-disc {
+  background: rgba(238, 242, 233, 0.92);
+  color: #174837;
+}
+
+@media (max-width: 767px) {
+  .editorial-card,
+  .editorial-card-strong {
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .editorial-link-tile:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
