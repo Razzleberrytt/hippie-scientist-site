@@ -74,7 +74,7 @@
       "year": "2009"
     }
   ],
-  "notes": "Second controlled Scite enrichment pass. Adds cautious fatigue, exercise, product-standardization, and evidence-quality context without changing publishing controls, governance status, or evidence grades.",
+  "notes": "Second controlled Scite enrichment pass. Applied through one isolated canonical patch file; adds cautious fatigue, exercise, product-standardization, and evidence-quality context without changing publishing controls, governance status, or evidence grades.",
   "confidence": 0.8,
   "requires_review": true,
   "original_filename": "rhodiola-scite-enrichment-2026-07-12.json",
