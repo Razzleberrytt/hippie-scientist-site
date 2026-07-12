@@ -25,70 +25,76 @@ jobs:
       - name: Build generated-record comparison report
         run: |
           git fetch origin main
-          node <<'NODE'
-          const fs = require('fs')
-          const { execFileSync } = require('child_process')
+          python <<'PY'
+          import json
+          import subprocess
+          import traceback
+          from pathlib import Path
 
-          function fromMain(path) {
-            return JSON.parse(execFileSync('git', ['show', `origin/main:${path}`], { encoding: 'utf8' }))
-          }
+          report_path = Path('rhodiola-generated-semantic-audit.json')
 
-          function fromHead(path) {
-            return JSON.parse(fs.readFileSync(path, 'utf8'))
-          }
+          def load_main(path):
+              raw = subprocess.check_output(['git', 'show', f'origin/main:{path}'], text=True)
+              return json.loads(raw)
 
-          function stable(value) {
-            if (Array.isArray(value)) return value.map(stable)
-            if (value && typeof value === 'object') {
-              return Object.fromEntries(Object.keys(value).sort().map((key) => [key, stable(value[key])]))
-            }
-            return value
-          }
+          def load_head(path):
+              return json.loads(Path(path).read_text())
 
-          function changedSlugs(base, head) {
-            const before = new Map(base.map((record) => [record.slug, record]))
-            const after = new Map(head.map((record) => [record.slug, record]))
-            const slugs = [...new Set([...before.keys(), ...after.keys()])].sort()
-            return slugs.filter((slug) => JSON.stringify(stable(before.get(slug))) !== JSON.stringify(stable(after.get(slug))))
-          }
+          def changed_slugs(base, head):
+              before = {record['slug']: record for record in base}
+              after = {record['slug']: record for record in head}
+              slugs = sorted(set(before) | set(after))
+              return [slug for slug in slugs if before.get(slug) != after.get(slug)]
 
-          const herbsPath = 'data/generated/site/herbs.json'
-          const compoundsPath = 'data/generated/site/compounds.json'
-          const baseHerbs = fromMain(herbsPath)
-          const headHerbs = fromHead(herbsPath)
-          const baseCompounds = fromMain(compoundsPath)
-          const headCompounds = fromHead(compoundsPath)
+          try:
+              herbs_path = 'data/generated/site/herbs.json'
+              compounds_path = 'data/generated/site/compounds.json'
+              base_herbs = load_main(herbs_path)
+              head_herbs = load_head(herbs_path)
+              base_compounds = load_main(compounds_path)
+              head_compounds = load_head(compounds_path)
 
-          const changedHerbs = changedSlugs(baseHerbs, headHerbs)
-          const changedCompounds = changedSlugs(baseCompounds, headCompounds)
-          const rhodiola = headHerbs.find((record) => record.slug === 'rhodiola') || null
+              changed_herbs = changed_slugs(base_herbs, head_herbs)
+              changed_compounds = changed_slugs(base_compounds, head_compounds)
+              rhodiola = next((record for record in head_herbs if record.get('slug') == 'rhodiola'), None)
 
-          const scopeOk = JSON.stringify(changedHerbs) === JSON.stringify(['rhodiola'])
-            && changedCompounds.length === 0
-          const formsOk = Boolean(rhodiola && Array.isArray(rhodiola.forms)
-            && rhodiola.forms.some((value) => /3% rosavins/i.test(value)))
-          const riskOfBiasOk = Boolean(rhodiola
-            && /unclear randomization/i.test(rhodiola.evidence_risk_of_bias || ''))
+              scope_ok = changed_herbs == ['rhodiola'] and not changed_compounds
+              forms = rhodiola.get('forms', []) if rhodiola else []
+              risk = rhodiola.get('evidence_risk_of_bias', '') if rhodiola else ''
+              forms_ok = isinstance(forms, list) and any('3% rosavins' in str(value).lower() for value in forms)
+              risk_ok = 'unclear randomization' in str(risk).lower()
 
-          const report = {
-            ok: scopeOk && formsOk && riskOfBiasOk,
-            scopeOk,
-            formsOk,
-            riskOfBiasOk,
-            changedHerbs,
-            changedCompounds,
-            counts: {
-              changedHerbs: changedHerbs.length,
-              changedCompounds: changedCompounds.length,
-            },
-            rhodiola: rhodiola ? {
-              forms: rhodiola.forms,
-              evidence_risk_of_bias: rhodiola.evidence_risk_of_bias,
-            } : null,
-          }
-          fs.writeFileSync('rhodiola-generated-semantic-audit.json', JSON.stringify(report, null, 2) + '\n')
-          console.log(JSON.stringify(report, null, 2))
-          NODE
+              report = {
+                  'ok': scope_ok and forms_ok and risk_ok,
+                  'scopeOk': scope_ok,
+                  'formsOk': forms_ok,
+                  'riskOfBiasOk': risk_ok,
+                  'changedHerbs': changed_herbs,
+                  'changedCompounds': changed_compounds,
+                  'counts': {
+                      'changedHerbs': len(changed_herbs),
+                      'changedCompounds': len(changed_compounds),
+                  },
+                  'rhodiola': {
+                      'forms': forms,
+                      'evidence_risk_of_bias': risk,
+                  } if rhodiola else None,
+              }
+          except Exception as error:
+              report = {
+                  'ok': False,
+                  'scopeOk': False,
+                  'formsOk': False,
+                  'riskOfBiasOk': False,
+                  'changedHerbs': [],
+                  'changedCompounds': [],
+                  'error': str(error),
+                  'traceback': traceback.format_exc(),
+              }
+
+          report_path.write_text(json.dumps(report, indent=2) + '\n')
+          print(json.dumps(report, indent=2))
+          PY
 
       - name: Upload semantic comparison report
         if: always()
@@ -100,15 +106,19 @@ jobs:
 
       - name: Enforce generated-record scope
         run: |
-          node <<'NODE'
-          const fs = require('fs')
-          const report = JSON.parse(fs.readFileSync('rhodiola-generated-semantic-audit.json', 'utf8'))
-          if (!report.ok) {
-            throw new Error(`semantic export audit failed: ${JSON.stringify({
-              changedHerbs: report.changedHerbs,
-              changedCompounds: report.changedCompounds,
-              formsOk: report.formsOk,
-              riskOfBiasOk: report.riskOfBiasOk,
-            })}`)
-          }
-          NODE
+          python <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(Path('rhodiola-generated-semantic-audit.json').read_text())
+          if not report.get('ok'):
+              raise SystemExit(
+                  'semantic export audit failed: ' + json.dumps({
+                      'changedHerbs': report.get('changedHerbs'),
+                      'changedCompounds': report.get('changedCompounds'),
+                      'formsOk': report.get('formsOk'),
+                      'riskOfBiasOk': report.get('riskOfBiasOk'),
+                      'error': report.get('error'),
+                  })
+              )
+          PY
