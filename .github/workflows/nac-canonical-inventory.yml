@@ -1,0 +1,71 @@
+name: NAC Canonical Inventory
+
+on:
+  push:
+    branches:
+      - patch/n-acetylcysteine-reviewable
+
+permissions:
+  contents: read
+
+jobs:
+  inventory:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build NAC canonical inventory
+        run: |
+          node <<'NODE'
+          const fs = require('fs')
+
+          function readJsonl(path) {
+            return fs.readFileSync(path, 'utf8')
+              .split(/\r?\n/)
+              .filter(Boolean)
+              .map((line) => JSON.parse(line))
+          }
+
+          const compounds = readJsonl('data/canonical/entities/compound.jsonl')
+          const claims = readJsonl('data/canonical/claims/claims.jsonl')
+          const sources = readJsonl('data/canonical/sources/sources.jsonl')
+
+          const target = compounds.find((entity) =>
+            entity.slug === 'n-acetylcysteine'
+            || /n-?acetylcysteine|\bnac\b/i.test(`${entity.canonical_name} ${(entity.aliases || []).join(' ')}`)
+          )
+          if (!target) throw new Error('NAC canonical compound not found')
+
+          const activeClaims = claims
+            .filter((claim) => claim.subject_id === target.id && claim.review_status !== 'deprecated')
+            .sort((a, b) => a.id.localeCompare(b.id))
+          const sourceIds = [...new Set(activeClaims.flatMap((claim) => claim.source_ids || []))].sort()
+          const linkedSources = sources
+            .filter((source) => sourceIds.includes(source.id))
+            .sort((a, b) => a.id.localeCompare(b.id))
+
+          const report = {
+            target,
+            activeClaims,
+            linkedSources,
+            summary: {
+              activeClaimCount: activeClaims.length,
+              linkedSourceCount: linkedSources.length,
+              approvedClaimCount: activeClaims.filter((claim) => claim.review_status === 'approved').length,
+              pendingClaimCount: activeClaims.filter((claim) => claim.review_status === 'pending').length,
+              needsReviewClaimCount: activeClaims.filter((claim) => claim.review_status === 'needs_review').length,
+            },
+          }
+
+          fs.writeFileSync('nac-canonical-inventory.json', JSON.stringify(report, null, 2) + '\n')
+          console.log(JSON.stringify(report, null, 2))
+          NODE
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nac-canonical-inventory
+          path: nac-canonical-inventory.json
+          if-no-files-found: error
