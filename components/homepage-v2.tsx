@@ -317,12 +317,14 @@ export default function HomepageV2() {
               {trustItems.map((item) => {
                 const Icon = item.icon
                 return (
-                  <div key={item.label} className='editorial-link-tile rounded-[1.3rem] p-4'>
-                    <span className='editorial-icon-disc h-10 w-10'>
+                  <div key={item.label} className='editorial-link-tile flex items-center gap-3.5 rounded-[1.3rem] p-4 sm:block'>
+                    <span className='editorial-icon-disc h-10 w-10 shrink-0'>
                       <Icon className='h-5 w-5' aria-hidden='true' strokeWidth={1.8} />
                     </span>
-                    <p className='mt-3 text-sm font-bold text-[#123c2f] dark:text-[var(--text-primary)]'>{item.label}</p>
-                    <p className='mt-1 text-xs leading-5 text-muted'>{item.body}</p>
+                    <div>
+                      <p className='text-sm font-bold text-[#123c2f] sm:mt-3 dark:text-[var(--text-primary)]'>{item.label}</p>
+                      <p className='mt-0.5 text-xs leading-5 text-muted sm:mt-1'>{item.body}</p>
+                    </div>
                   </div>
                 )
               })}

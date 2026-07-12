@@ -77,13 +77,13 @@ export default function Footer() {
             </p>
 
             <div className='mt-6 flex flex-wrap gap-2'>
-              <a href='https://twitter.com/HippieScientist' target='_blank' rel='noopener noreferrer' className='rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/75 px-4 py-2 text-xs font-bold text-[#315f50] transition hover:border-[#b88a42]/35 hover:bg-[#fffdf8]'>
+              <a href='https://twitter.com/HippieScientist' target='_blank' rel='noopener noreferrer' className='rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/75 px-4 py-2 text-xs font-bold text-[#315f50] transition hover:border-[#b88a42]/35 hover:bg-[#fffdf8] dark:border-white/10 dark:bg-white/5 dark:text-[#a9c6b3] dark:hover:border-[#dec69b]/30 dark:hover:bg-white/10 dark:hover:text-[#d9e8de]'>
                 Twitter
               </a>
-              <a href='https://www.instagram.com/thehippiescientist' target='_blank' rel='noopener noreferrer' className='rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/75 px-4 py-2 text-xs font-bold text-[#315f50] transition hover:border-[#b88a42]/35 hover:bg-[#fffdf8]'>
+              <a href='https://www.instagram.com/thehippiescientist' target='_blank' rel='noopener noreferrer' className='rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/75 px-4 py-2 text-xs font-bold text-[#315f50] transition hover:border-[#b88a42]/35 hover:bg-[#fffdf8] dark:border-white/10 dark:bg-white/5 dark:text-[#a9c6b3] dark:hover:border-[#dec69b]/30 dark:hover:bg-white/10 dark:hover:text-[#d9e8de]'>
                 Instagram
               </a>
-              <a href='https://www.youtube.com/@HippieScientist' target='_blank' rel='noopener noreferrer' className='rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/75 px-4 py-2 text-xs font-bold text-[#315f50] transition hover:border-[#b88a42]/35 hover:bg-[#fffdf8]'>
+              <a href='https://www.youtube.com/@HippieScientist' target='_blank' rel='noopener noreferrer' className='rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/75 px-4 py-2 text-xs font-bold text-[#315f50] transition hover:border-[#b88a42]/35 hover:bg-[#fffdf8] dark:border-white/10 dark:bg-white/5 dark:text-[#a9c6b3] dark:hover:border-[#dec69b]/30 dark:hover:bg-white/10 dark:hover:text-[#d9e8de]'>
                 YouTube
               </a>
             </div>
@@ -93,7 +93,7 @@ export default function Footer() {
               <p className='mt-3 text-sm leading-6 text-[#526159] dark:text-[var(--text-secondary)]'>
                 Use this library as an evidence map, not a prescription pad. Compare human evidence, dose realism, product standardization, and safety before buying or stacking.
               </p>
-              <Link className='mt-4 inline-flex text-sm font-bold text-[#315f50] hover:text-[#123c2f]' to='/info/methodology/' prefetch={true}>
+              <Link className='mt-4 inline-flex text-sm font-bold text-[#315f50] hover:text-[#123c2f] dark:text-[#8dc49a] dark:hover:text-[#c9e4d2]' to='/info/methodology/' prefetch={true}>
                 Read the evidence methodology →
               </Link>
             </div>
@@ -109,7 +109,7 @@ export default function Footer() {
                   prefetch={true}
                   className='editorial-link-tile group flex min-h-20 flex-col justify-between rounded-2xl p-4 text-[#123c2f] transition dark:text-[var(--text-primary)]'
                 >
-                  <Icon className='h-5 w-5 text-[#315f50]' aria-hidden='true' strokeWidth={1.7} />
+                  <Icon className='h-5 w-5 text-[#315f50] dark:text-[#8dc49a]' aria-hidden='true' strokeWidth={1.7} />
                   <span className='mt-3 text-sm font-bold'>{label}</span>
                 </Link>
               ))}
@@ -117,11 +117,11 @@ export default function Footer() {
 
             <div className='mt-8 grid gap-7 sm:grid-cols-3'>
               <div>
-                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[#315f50]'>Popular goals</h3>
+                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[#315f50] dark:text-[#8dc49a]'>Popular goals</h3>
                 <ul className='mt-3 space-y-2'>
                   {priorityGoalLinks.map((link) => (
                     <li key={`${link.href}-${link.label}`}>
-                      <Link className='text-sm font-medium text-[#526159] transition hover:text-[#123c2f]' to={link.href} prefetch={true}>
+                      <Link className='text-sm font-medium text-[#526159] transition hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]' to={link.href} prefetch={true}>
                         {link.label}
                       </Link>
                     </li>
@@ -130,17 +130,17 @@ export default function Footer() {
               </div>
 
               <div>
-                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[#315f50]'>Safety</h3>
+                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[#315f50] dark:text-[#8dc49a]'>Safety</h3>
                 <ul className='mt-3 space-y-2'>
                   {safetyLinks.map((link) => (
                     <li key={link.href}>
-                      <Link className='text-sm font-medium text-[#526159] transition hover:text-[#123c2f]' to={link.href} prefetch={true}>
+                      <Link className='text-sm font-medium text-[#526159] transition hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]' to={link.href} prefetch={true}>
                         {link.label}
                       </Link>
                     </li>
                   ))}
                   <li>
-                    <button className='text-sm font-medium text-[#526159] transition hover:text-[#123c2f]' type='button' onClick={() => setOpen(true)}>
+                    <button className='text-sm font-medium text-[#526159] transition hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]' type='button' onClick={() => setOpen(true)}>
                       Privacy settings
                     </button>
                   </li>
@@ -148,11 +148,11 @@ export default function Footer() {
               </div>
 
               <div>
-                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[#315f50]'>Legal</h3>
+                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[#315f50] dark:text-[#8dc49a]'>Legal</h3>
                 <ul className='mt-3 space-y-2'>
                   {availableLegalLinks.map((link) => (
                     <li key={link.href}>
-                      <Link className='text-sm font-medium text-[#526159] transition hover:text-[#123c2f]' to={link.href} prefetch={true}>
+                      <Link className='text-sm font-medium text-[#526159] transition hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]' to={link.href} prefetch={true}>
                         {link.label}
                       </Link>
                     </li>
@@ -163,7 +163,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className='mt-10 flex flex-col justify-between gap-3 border-t border-[#123c2f]/10 pt-6 text-xs text-[#647168] sm:flex-row'>
+        <div className='mt-10 flex flex-col justify-between gap-3 border-t border-[#123c2f]/10 pt-6 text-xs text-[#647168] sm:flex-row dark:border-white/10 dark:text-[#93a89b]'>
           <div>© 2024–{copyrightYear} The Hippie Scientist. All rights reserved.</div>
           <div className='flex flex-wrap gap-x-4 gap-y-2'>
             <span>Educational use only</span>
