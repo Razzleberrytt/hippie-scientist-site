@@ -5,31 +5,11 @@ import { usePathname } from 'next/navigation'
 import { BookOpenCheck, Leaf, Search, Sparkles, Library } from 'lucide-react'
 
 export const mobileBottomNavItems = [
-  {
-    href: '/guides',
-    label: 'Guides',
-    Icon: Library,
-  },
-  {
-    href: '/herbs',
-    label: 'Herbs',
-    Icon: Leaf,
-  },
-  {
-    href: '/search',
-    label: 'Search',
-    Icon: Search,
-  },
-  {
-    href: '/compounds',
-    label: 'Compounds',
-    Icon: Sparkles,
-  },
-  {
-    href: '/guides/best',
-    label: 'Best',
-    Icon: BookOpenCheck,
-  },
+  { href: '/guides', label: 'Guides', Icon: Library },
+  { href: '/herbs', label: 'Herbs', Icon: Leaf },
+  { href: '/search', label: 'Search', Icon: Search },
+  { href: '/compounds', label: 'Compounds', Icon: Sparkles },
+  { href: '/guides/best', label: 'Best', Icon: BookOpenCheck },
 ]
 
 function toCanonicalHref(href: string) {
@@ -41,10 +21,14 @@ export default function MobileBottomNav() {
   const pathname = usePathname() || '/'
 
   return (
-    <nav aria-label="Primary mobile navigation" className="mobile-bottom-nav fixed inset-x-0 bottom-0 z-[90] border-t border-brand-900/15 bg-white/94 shadow-[0_-10px_28px_rgba(16,32,24,0.10)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/88 dark:border-[var(--border-strong)] dark:bg-[rgba(28,52,41,0.92)] dark:shadow-[0_-10px_28px_rgba(0,0,0,0.30)] dark:supports-[backdrop-filter]:bg-[rgba(28,52,41,0.86)] md:hidden">
-      <div className="mx-auto flex max-w-2xl items-stretch gap-1 px-2 pb-[calc(env(safe-area-inset-bottom)+0.45rem)] pt-1.5">
+    <nav
+      aria-label='Primary mobile navigation'
+      className='editorial-mobile-dock mobile-bottom-nav fixed inset-x-3 bottom-[calc(env(safe-area-inset-bottom)+0.55rem)] z-[90] mx-auto max-w-[34rem] rounded-[1.75rem] md:hidden'
+    >
+      <div className='flex items-end gap-0.5 px-2 pb-2 pt-2'>
         {mobileBottomNavItems.map((item) => {
-          const active = pathname === item.href || pathname?.startsWith(`${item.href}/`)
+          const active = pathname === item.href || pathname.startsWith(`${item.href}/`)
+          const isSearch = item.label === 'Search'
           const Icon = item.Icon
 
           return (
@@ -52,14 +36,26 @@ export default function MobileBottomNav() {
               key={item.href}
               href={toCanonicalHref(item.href)}
               aria-current={active ? 'page' : undefined}
-              className={`flex min-h-[3rem] min-w-0 flex-1 flex-col items-center justify-center gap-1 rounded-xl px-0.5 py-1.5 text-center transition ${
-                active
-                  ? 'bg-brand-50 text-brand-900 opacity-100 shadow-sm ring-1 ring-brand-700/20 dark:bg-[rgba(255,255,255,0.08)] dark:text-[var(--text-primary)] dark:ring-white/15'
-                  : 'text-[#405047] opacity-75 hover:opacity-100 hover:text-ink dark:text-[var(--text-secondary)] dark:opacity-70 dark:hover:text-[var(--text-primary)]'
+              className={`group relative flex min-h-[3.45rem] min-w-0 flex-1 flex-col items-center justify-end gap-1 rounded-2xl px-0.5 pb-1 text-center transition ${
+                isSearch ? 'pt-0' : 'pt-1.5'
+              } ${
+                active && !isSearch
+                  ? 'text-[#123c2f] dark:text-[var(--text-primary)]'
+                  : 'text-[#526159] hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]'
               }`}
             >
-              <Icon aria-hidden="true" className="h-5 w-5" strokeWidth={active ? 2.45 : 2.1} />
-              <span className={`max-w-full whitespace-nowrap text-xs leading-none ${active ? 'font-semibold' : 'font-medium'}`}>
+              <span
+                className={`inline-flex items-center justify-center transition ${
+                  isSearch
+                    ? 'editorial-mobile-search -mt-5 h-14 w-14 rounded-full'
+                    : active
+                      ? 'h-7 w-9 rounded-full bg-[#dfe9dc] dark:bg-[rgba(255,255,255,0.09)]'
+                      : 'h-7 w-9 rounded-full'
+                }`}
+              >
+                <Icon aria-hidden='true' className={isSearch ? 'h-6 w-6' : 'h-5 w-5'} strokeWidth={active || isSearch ? 2.35 : 1.9} />
+              </span>
+              <span className={`max-w-full whitespace-nowrap text-[0.69rem] leading-none ${active ? 'font-bold' : 'font-semibold'}`}>
                 {item.label}
               </span>
             </Link>

@@ -1,21 +1,20 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Leaf } from 'lucide-react'
+import { BookOpen, FlaskConical, Leaf, Scale, Search, Shapes } from 'lucide-react'
 import { Link } from '../lib/router-compat'
 import ConsentManager from './ConsentManager'
 import { onOpenConsent } from '../lib/consentBus'
-import NonEmpty from './NonEmpty'
 import { isAnalyticsRouteEnabled } from '../lib/analyticsAccess'
 import { PUBLIC_ROUTES } from '../lib/public-routes'
 
 const exploreLinks = [
-  { href: PUBLIC_ROUTES.herbs, label: 'Herb Database' },
-  { href: PUBLIC_ROUTES.compounds, label: 'Compounds' },
-  { href: '/guides/compare/', label: 'Compare' },
-  { href: PUBLIC_ROUTES.guides, label: 'Guides' },
-  { href: '/learn/', label: 'Learn the Science' },
-  { href: '/search/', label: 'Search' },
+  { href: PUBLIC_ROUTES.herbs, label: 'Herb Database', Icon: Leaf },
+  { href: PUBLIC_ROUTES.compounds, label: 'Compounds', Icon: Shapes },
+  { href: '/guides/compare/', label: 'Compare', Icon: Scale },
+  { href: PUBLIC_ROUTES.guides, label: 'Guides', Icon: BookOpen },
+  { href: '/learn/', label: 'Learn the Science', Icon: FlaskConical },
+  { href: '/search/', label: 'Search', Icon: Search },
 ]
 
 const priorityGoalLinks = [
@@ -39,9 +38,7 @@ const legalLinks = [
 
 function formatBuildDate(isoDate: string) {
   const timestamp = Date.parse(isoDate)
-  if (Number.isNaN(timestamp)) {
-    return null
-  }
+  if (Number.isNaN(timestamp)) return null
   return new Date(timestamp).toISOString().slice(0, 10)
 }
 
@@ -54,140 +51,125 @@ export default function Footer() {
   useEffect(() => onOpenConsent(() => setOpen(true)), [])
 
   const showBuildMeta = process.env.NEXT_PUBLIC_SHOW_BUILD_META === 'true'
-  // typeof guard: DefinePlugin injects these for webpack; Turbopack dev leaves them undeclared.
   const buildDate = formatBuildDate(typeof __BUILD_DATE__ !== 'undefined' ? __BUILD_DATE__ : '')
   const copyrightYear = buildDate ? new Date(buildDate).getUTCFullYear() : new Date().getFullYear()
   const rawHash = typeof __COMMIT_HASH__ !== 'undefined' ? __COMMIT_HASH__ : 'dev'
   const commitHash = typeof rawHash === 'string' ? rawHash.slice(0, 7) : 'dev'
   const appVersion = typeof __APP_VERSION__ !== 'undefined' ? __APP_VERSION__ : '1.0.0'
   const versionStampParts = [`v${appVersion}`, commitHash]
-  if (buildDate) {
-    versionStampParts.push(buildDate)
-  }
+  if (buildDate) versionStampParts.push(buildDate)
 
   return (
-    <footer className='mt-8 w-full px-4 py-12'>
-      <div className='mx-auto w-full max-w-screen-lg'>
-        <div className='grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4'>
+    <footer className='editorial-footer mt-12 w-full px-4 pb-28 pt-12 sm:px-6 sm:pt-16 md:pb-12'>
+      <div className='relative z-10 mx-auto w-full max-w-6xl'>
+        <div className='grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16'>
           <div>
-            <div className='flex items-center gap-2'>
-              <Leaf aria-hidden='true' className='h-5 w-5 text-[#8dc49a]' strokeWidth={1.75} />
-              <p className='font-display text-lg italic text-white'>The Hippie Scientist</p>
+            <div className='flex items-center gap-3'>
+              <span className='editorial-icon-disc h-12 w-12'>
+                <Leaf aria-hidden='true' className='h-6 w-6 text-[#315f50]' strokeWidth={1.7} />
+              </span>
+              <p className='font-display text-2xl font-semibold tracking-[-0.025em] text-[#123c2f] dark:text-[var(--text-primary)]'>
+                The Hippie Scientist
+              </p>
             </div>
-            <p className='mt-1.5 text-[0.8rem] tracking-[0.02em] text-white/55'>
-              Evidence-first botanical research. Not medical advice.
+            <p className='mt-4 max-w-md text-sm leading-7 text-[#526159] dark:text-[var(--text-secondary)]'>
+              Evidence-first botanical research for clearer, safer supplement decisions. Educational only — not medical advice.
             </p>
-            <div className='mt-4 flex flex-wrap items-center gap-x-2 text-xs text-white/50'>
-              <a href='https://twitter.com/HippieScientist' target='_blank' rel='noopener noreferrer' aria-label='The Hippie Scientist on Twitter' className='flex min-h-[44px] items-center gap-1.5 rounded-md px-2 text-xs font-medium text-white/55 transition-all duration-200 hover:bg-white/10 hover:text-white'>
+
+            <div className='mt-6 flex flex-wrap gap-2'>
+              <a href='https://twitter.com/HippieScientist' target='_blank' rel='noopener noreferrer' className='rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/75 px-4 py-2 text-xs font-bold text-[#315f50] transition hover:border-[#b88a42]/35 hover:bg-[#fffdf8]'>
                 Twitter
               </a>
-              <span>•</span>
-              <a href='https://www.instagram.com/thehippiescientist' target='_blank' rel='noopener noreferrer' aria-label='The Hippie Scientist on Instagram' className='flex min-h-[44px] items-center gap-1.5 rounded-md px-2 text-xs font-medium text-white/55 transition-all duration-200 hover:bg-white/10 hover:text-white'>
+              <a href='https://www.instagram.com/thehippiescientist' target='_blank' rel='noopener noreferrer' className='rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/75 px-4 py-2 text-xs font-bold text-[#315f50] transition hover:border-[#b88a42]/35 hover:bg-[#fffdf8]'>
                 Instagram
               </a>
-              <span>•</span>
-              <a href='https://www.youtube.com/@HippieScientist' target='_blank' rel='noopener noreferrer' aria-label='The Hippie Scientist on YouTube' className='flex min-h-[44px] items-center gap-1.5 rounded-md px-2 text-xs font-medium text-white/55 transition-all duration-200 hover:bg-white/10 hover:text-white'>
+              <a href='https://www.youtube.com/@HippieScientist' target='_blank' rel='noopener noreferrer' className='rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/75 px-4 py-2 text-xs font-bold text-[#315f50] transition hover:border-[#b88a42]/35 hover:bg-[#fffdf8]'>
                 YouTube
               </a>
             </div>
+
+            <div className='editorial-card mt-7 rounded-2xl p-5'>
+              <p className='editorial-eyebrow'>Built on evidence, not trends</p>
+              <p className='mt-3 text-sm leading-6 text-[#526159] dark:text-[var(--text-secondary)]'>
+                Use this library as an evidence map, not a prescription pad. Compare human evidence, dose realism, product standardization, and safety before buying or stacking.
+              </p>
+              <Link className='mt-4 inline-flex text-sm font-bold text-[#315f50] hover:text-[#123c2f]' to='/info/methodology/' prefetch={true}>
+                Read the evidence methodology →
+              </Link>
+            </div>
           </div>
 
-          <NonEmpty>
-            {exploreLinks.length > 0 && (
+          <div>
+            <p className='editorial-eyebrow'>Explore</p>
+            <div className='mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3'>
+              {exploreLinks.map(({ href, label, Icon }) => (
+                <Link
+                  key={href}
+                  to={href}
+                  prefetch={true}
+                  className='editorial-link-tile group flex min-h-20 flex-col justify-between rounded-2xl p-4 text-[#123c2f] transition dark:text-[var(--text-primary)]'
+                >
+                  <Icon className='h-5 w-5 text-[#315f50]' aria-hidden='true' strokeWidth={1.7} />
+                  <span className='mt-3 text-sm font-bold'>{label}</span>
+                </Link>
+              ))}
+            </div>
+
+            <div className='mt-8 grid gap-7 sm:grid-cols-3'>
               <div>
-                <h3 className='section-label mb-3 !text-white/60'>Explore</h3>
-                <ul className='space-y-2'>
-                  {exploreLinks.map(link => (
-                    <li key={link.href}>
-                      <Link className='text-[0.85rem] text-white/65 transition-colors hover:text-white' to={link.href} prefetch={true}>
+                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[#315f50]'>Popular goals</h3>
+                <ul className='mt-3 space-y-2'>
+                  {priorityGoalLinks.map((link) => (
+                    <li key={`${link.href}-${link.label}`}>
+                      <Link className='text-sm font-medium text-[#526159] transition hover:text-[#123c2f]' to={link.href} prefetch={true}>
                         {link.label}
                       </Link>
                     </li>
                   ))}
                 </ul>
               </div>
-            )}
-          </NonEmpty>
 
-          <NonEmpty>
-            {priorityGoalLinks.length > 0 && (
               <div>
-                <h3 className='section-label mb-3 !text-white/60'>Popular Goals</h3>
-                <ul className='space-y-2'>
-                  {priorityGoalLinks.map(link => (
+                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[#315f50]'>Safety</h3>
+                <ul className='mt-3 space-y-2'>
+                  {safetyLinks.map((link) => (
                     <li key={link.href}>
-                      <Link className='text-[0.85rem] text-white/65 transition-colors hover:text-white' to={link.href} prefetch={true}>
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </NonEmpty>
-
-          <NonEmpty>
-            {safetyLinks.length > 0 && (
-              <div>
-                <h3 className='section-label mb-3 !text-white/60'>Safety</h3>
-                <ul className='space-y-2'>
-                  {safetyLinks.map(link => (
-                    <li key={link.href}>
-                      <Link className='text-[0.85rem] text-white/65 transition-colors hover:text-white' to={link.href} prefetch={true}>
+                      <Link className='text-sm font-medium text-[#526159] transition hover:text-[#123c2f]' to={link.href} prefetch={true}>
                         {link.label}
                       </Link>
                     </li>
                   ))}
                   <li>
-                    <button
-                      className='text-[0.85rem] text-white/65 transition-colors hover:text-white'
-                      type='button'
-                      onClick={() => setOpen(true)}
-                    >
+                    <button className='text-sm font-medium text-[#526159] transition hover:text-[#123c2f]' type='button' onClick={() => setOpen(true)}>
                       Privacy settings
                     </button>
                   </li>
                 </ul>
               </div>
-            )}
-          </NonEmpty>
 
-          <NonEmpty>
-            {availableLegalLinks.length > 0 && (
               <div>
-                <h3 className='section-label mb-3 !text-white/60'>Legal</h3>
-                <ul className='space-y-2'>
-                  {availableLegalLinks.map(link => (
+                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[#315f50]'>Legal</h3>
+                <ul className='mt-3 space-y-2'>
+                  {availableLegalLinks.map((link) => (
                     <li key={link.href}>
-                      <Link className='text-[0.85rem] text-white/65 transition-colors hover:text-white' to={link.href} prefetch={true}>
+                      <Link className='text-sm font-medium text-[#526159] transition hover:text-[#123c2f]' to={link.href} prefetch={true}>
                         {link.label}
                       </Link>
                     </li>
                   ))}
                 </ul>
               </div>
-            )}
-          </NonEmpty>
+            </div>
+          </div>
         </div>
 
-        <section className='mt-10 rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-sm leading-6 text-white/62' aria-label='How to use this research library'>
-          <p className='section-label mb-3 !text-white/55'>How to use this research</p>
-          <div className='grid gap-4 md:grid-cols-3'>
-            <p>
-              Use The Hippie Scientist as an evidence map, not a prescription pad. Herb, compound, guide, and comparison pages are designed to help you separate human evidence from mechanism speculation, marketing language, and traditional-use context.
-            </p>
-            <p>
-              Before buying or stacking supplements, compare the goal, evidence quality, dose realism, product standardization, and safety cautions. Pregnancy, medications, chronic illness, surgery, dependence risk, and use in children all deserve qualified clinical review.
-            </p>
-            <p>
-              Product links and affiliate disclosures should never outweigh safety or evidence. The safest workflow is simple: define the goal, read the profile, check interactions, avoid duplicate mechanisms, and choose transparent products only when the risk-benefit picture still makes sense.
-            </p>
+        <div className='mt-10 flex flex-col justify-between gap-3 border-t border-[#123c2f]/10 pt-6 text-xs text-[#647168] sm:flex-row'>
+          <div>© 2024–{copyrightYear} The Hippie Scientist. All rights reserved.</div>
+          <div className='flex flex-wrap gap-x-4 gap-y-2'>
+            <span>Educational use only</span>
+            <span>Not medical advice</span>
+            {showBuildMeta && <span>Build {versionStampParts.join(' · ')}</span>}
           </div>
-        </section>
-
-        <div className='mt-10 flex flex-col justify-between gap-2 border-t border-white/10 pt-5 text-xs text-white/65 sm:flex-row'>
-          {showBuildMeta && <div>Build {versionStampParts.join(' · ')}</div>}
-          <div>© 2024–{copyrightYear} The Hippie Scientist – Educational use only. Not medical advice.</div>
         </div>
       </div>
       <ConsentManager open={open} onClose={() => setOpen(false)} />
