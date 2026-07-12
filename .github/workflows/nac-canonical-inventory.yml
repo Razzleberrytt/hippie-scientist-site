@@ -1,16 +1,20 @@
 name: NAC Canonical Inventory
 
 on:
-  push:
+  pull_request:
     branches:
-      - patch/n-acetylcysteine-reviewable
+      - main
+    paths:
+      - .github/workflows/nac-canonical-inventory.yml
+      - data/canonical/entities/compound.jsonl
+      - data/canonical/claims/claims.jsonl
+      - data/canonical/sources/sources.jsonl
 
 permissions:
   contents: read
 
 jobs:
   inventory:
-    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
