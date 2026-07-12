@@ -255,17 +255,17 @@ html:not(.dark) body {
 }
 
 .editorial-mobile-dock {
-  border: 1px solid rgba(18, 60, 47, 0.12);
-  background: rgba(255, 253, 248, 0.94);
-  box-shadow: 0 -10px 36px rgba(58, 45, 24, 0.13);
-  backdrop-filter: blur(20px);
+  border: 1px solid rgba(18, 60, 47, 0.10);
+  background: rgba(255, 253, 248, 0.98);
+  box-shadow: none;
+  backdrop-filter: blur(14px);
 }
 
 .editorial-mobile-search {
   border: 1px solid rgba(222, 198, 155, 0.82);
   background: linear-gradient(145deg, #123c2f, #245846);
   color: #fffdf8;
-  box-shadow: 0 8px 22px rgba(18, 60, 47, 0.24);
+  box-shadow: 0 3px 10px rgba(18, 60, 47, 0.18);
 }
 
 @media (max-width: 767px) {
