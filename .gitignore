@@ -54,6 +54,7 @@ dist/
 build/
 .netlify/
 *.log
+citicoline-apply-diagnostic.txt
 assets/
 dist-clean/*
 !dist-clean/README.md
