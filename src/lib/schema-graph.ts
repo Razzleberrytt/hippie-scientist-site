@@ -352,6 +352,50 @@ export function buildCompareHubSchemaGraph(args: {
   return buildSchemaGraph([webpage, breadcrumb, itemList])
 }
 
+export function buildGuideHubSchemaGraph(args: {
+  path: string
+  title: string
+  description: string
+  breadcrumbs: Array<{ name: string; url: string }>
+  itemListName: string
+  items: Array<{ name: string; url: string }>
+}) {
+  const canonical = normalizeCanonical(toAbsoluteUrl(args.path))
+  const webpageId = `${canonical}#webpage`
+  const breadcrumbId = `${canonical}#breadcrumb`
+  const itemListId = `${canonical}#item-list`
+
+  const webpage = {
+    '@type': 'CollectionPage',
+    '@id': webpageId,
+    name: args.title,
+    description: args.description,
+    url: canonical,
+    isPartOf: { '@type': 'WebSite', name: 'The Hippie Scientist', url: SITE_URL },
+    breadcrumb: { '@id': breadcrumbId },
+    mainEntity: { '@id': itemListId },
+  }
+
+  const breadcrumb = {
+    ...stripSchemaContext(breadcrumbJsonLd(args.breadcrumbs, { id: breadcrumbId })),
+    '@id': breadcrumbId,
+  }
+
+  const itemList = {
+    ...stripSchemaContext(
+      itemListJsonLd({
+        id: itemListId,
+        name: args.itemListName,
+        path: args.path,
+        items: args.items,
+      }),
+    ),
+    isPartOf: { '@id': webpageId },
+  }
+
+  return buildSchemaGraph([webpage, breadcrumb, itemList])
+}
+
 export function buildCompareDetailSchemaGraph(args: {
   path: string
   title: string

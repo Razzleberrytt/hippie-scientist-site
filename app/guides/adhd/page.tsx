@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_URL } from '@/src/lib/seo'
 import References from '@/components/References'
+import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
+import { buildGuideHubSchemaGraph } from '../../../src/lib/schema-graph'
 
 export const metadata: Metadata = {
   title: 'ADHD Supplement Guides & Research',
@@ -47,8 +49,23 @@ const ADHD_REFS = [
 ]
 
 export default function AdhdGuideIndex() {
+  const schemaGraph = buildGuideHubSchemaGraph({
+    path: '/guides/adhd/',
+    title: 'ADHD Supplement Guides & Research',
+    description:
+      'Evidence-based guides on ADHD supplements, nutrient deficiencies, and medication context. Magnesium, omega-3, L-theanine, iron, zinc, and more.',
+    breadcrumbs: [
+      { name: 'Home', url: `${SITE_URL}/` },
+      { name: 'Guides', url: `${SITE_URL}/guides/` },
+      { name: 'ADHD', url: `${SITE_URL}/guides/adhd/` },
+    ],
+    itemListName: 'ADHD Supplement Guides',
+    items: GUIDES.map((g) => ({ name: g.title, url: `/guides/adhd/${g.slug}/` })),
+  })
+
   return (
     <div className="mx-auto max-w-4xl px-4 pb-24 pt-8">
+      <SchemaGraphScript graph={schemaGraph} />
       <nav className="text-xs text-muted mb-4">
         <Link href="/guides/" className="hover:text-ink">Guides</Link>
         <span className="mx-1.5">/</span>

@@ -4,6 +4,8 @@ import { SITE_URL } from '@/src/lib/seo'
 import { HubSectionHeading } from '@/components/guides/HubSectionHeading'
 import { DecisionRouter, type IntentRoute } from '@/components/guides/DecisionRouter'
 import { GuideCardGrid, type GuideCard } from '@/components/guides/GuideCardGrid'
+import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
+import { buildGuideHubSchemaGraph } from '../../../src/lib/schema-graph'
 
 export const metadata: Metadata = {
   title: 'Focus & Cognition Supplement Guides',
@@ -112,8 +114,23 @@ const ALL_GUIDES = [
 ]
 
 export default function FocusGuideIndex() {
+  const schemaGraph = buildGuideHubSchemaGraph({
+    path: '/guides/focus/',
+    title: 'Focus & Cognition Supplement Guides',
+    description:
+      'Match the right focus support to why your attention slips — energy crashes, caffeine jitters, or slow-building memory.',
+    breadcrumbs: [
+      { name: 'Home', url: `${SITE_URL}/` },
+      { name: 'Guides', url: `${SITE_URL}/guides/` },
+      { name: 'Focus & Cognition', url: `${SITE_URL}/guides/focus/` },
+    ],
+    itemListName: 'Focus & Cognition Supplement Guides',
+    items: ALL_GUIDES.map((g) => ({ name: g.title, url: `/guides/focus/${g.slug}/` })),
+  })
+
   return (
     <div className="mx-auto max-w-4xl px-4 pb-24 pt-8">
+      <SchemaGraphScript graph={schemaGraph} />
       <nav className="mb-4 text-xs text-muted">
         <Link href="/guides/" className="hover:text-ink">
           Guides

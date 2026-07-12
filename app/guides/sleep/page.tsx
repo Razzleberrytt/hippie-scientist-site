@@ -4,6 +4,8 @@ import { SITE_URL } from '@/src/lib/seo'
 import { HubSectionHeading } from '@/components/guides/HubSectionHeading'
 import { DecisionRouter, type IntentRoute } from '@/components/guides/DecisionRouter'
 import { GuideCardGrid, type GuideCard } from '@/components/guides/GuideCardGrid'
+import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
+import { buildGuideHubSchemaGraph } from '../../../src/lib/schema-graph'
 
 export const metadata: Metadata = {
   title: 'Sleep Supplement Guides & Natural Sleep Aids',
@@ -176,8 +178,23 @@ const DEPTH_LINKS = [
 ]
 
 export default function SleepGuideIndex() {
+  const schemaGraph = buildGuideHubSchemaGraph({
+    path: '/guides/sleep/',
+    title: 'Sleep Supplement Guides & Natural Sleep Aids',
+    description:
+      'Choose the right natural sleep support based on what is actually keeping you awake — racing thoughts, physical tension, stress, or timing.',
+    breadcrumbs: [
+      { name: 'Home', url: `${SITE_URL}/` },
+      { name: 'Guides', url: `${SITE_URL}/guides/` },
+      { name: 'Sleep', url: `${SITE_URL}/guides/sleep/` },
+    ],
+    itemListName: 'Sleep Supplement Guides',
+    items: ALL_GUIDES.map((g) => ({ name: g.title, url: `/guides/sleep/${g.slug}/` })),
+  })
+
   return (
     <div className="mx-auto max-w-4xl px-4 pb-24 pt-8">
+      <SchemaGraphScript graph={schemaGraph} />
       <nav className="mb-4 text-xs text-muted">
         <Link href="/guides/" className="hover:text-ink">
           Guides
