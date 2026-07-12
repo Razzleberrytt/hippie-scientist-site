@@ -76,5 +76,12 @@
   ],
   "notes": "Corrected review-only Rhodiola patch. Scite full-text review completed 2026-07-12 with no retraction, correction, erratum, or expression-of-concern notice returned for the five cited records. The patch proposes two cautious outcome claims plus export-visible form and risk-of-bias context. It does not modify canonical data, publishing controls, governance status, or evidence grades until separately approved and explicitly applied by file.",
   "confidence": 0.8,
-  "requires_review": true
+  "requires_review": true,
+  "original_filename": "rhodiola-scite-enrichment-2026-07-12-v2.json",
+  "original_hash": "ca99859b682887c43c6672eda01e91833df0bfdc9305479fd9a0775dcf1aa6fd",
+  "_apply_result": {
+    "status": "applied",
+    "changes": 9,
+    "at": "2026-07-12T15:56:08.114Z"
+  }
 }
