@@ -1,3 +1,4 @@
+# Validates workbook patch records and applied values against the canonical workbook.
 name: Workbook Patch Check
 
 on:
