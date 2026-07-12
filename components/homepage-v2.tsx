@@ -167,7 +167,7 @@ export default function HomepageV2() {
         </section>
 
         <section className='grid gap-5 lg:grid-cols-[1.15fr_0.85fr]'>
-          <div className='editorial-card-strong border-x-0 p-5 sm:rounded-[2rem] sm:border-x sm:p-8'>
+          <div className='editorial-card-strong rounded-[2rem] p-5 sm:p-8'>
             <p className='editorial-eyebrow'>Smarter choices</p>
             <div className='mt-3 flex items-start justify-between gap-4'>
               <SectionHeader
@@ -195,7 +195,7 @@ export default function HomepageV2() {
             </Link>
           </div>
 
-          <div className='editorial-card border-x-0 p-5 sm:rounded-[2rem] sm:border-x sm:p-8'>
+          <div className='editorial-card rounded-[2rem] p-5 sm:p-8'>
             <p className='editorial-eyebrow'>Safety first</p>
             <SectionHeader
               title='Use the safety tools'
@@ -221,7 +221,7 @@ export default function HomepageV2() {
           </div>
         </section>
 
-        <section id='choose-a-path' className='editorial-card border-x-0 p-5 scroll-mt-24 sm:rounded-[2rem] sm:border-x sm:p-8'>
+        <section id='choose-a-path' className='editorial-card rounded-[2rem] p-5 scroll-mt-24 sm:p-8'>
           <div className='flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between'>
             <SectionHeader
               title='Choose one path'
