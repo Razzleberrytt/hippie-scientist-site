@@ -22,7 +22,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Compare generated records against main
+      - name: Build generated-record comparison report
         run: |
           git fetch origin main
           node <<'NODE'
@@ -61,37 +61,54 @@ jobs:
 
           const changedHerbs = changedSlugs(baseHerbs, headHerbs)
           const changedCompounds = changedSlugs(baseCompounds, headCompounds)
+          const rhodiola = headHerbs.find((record) => record.slug === 'rhodiola') || null
 
-          if (JSON.stringify(changedHerbs) !== JSON.stringify(['rhodiola'])) {
-            throw new Error(`unexpected changed herb records: ${JSON.stringify(changedHerbs)}`)
-          }
-          if (changedCompounds.length !== 0) {
-            throw new Error(`unexpected changed compound records: ${JSON.stringify(changedCompounds)}`)
-          }
-
-          const rhodiola = headHerbs.find((record) => record.slug === 'rhodiola')
-          if (!rhodiola) throw new Error('Rhodiola export missing')
-          if (!Array.isArray(rhodiola.forms) || !rhodiola.forms.some((value) => /3% rosavins/i.test(value))) {
-            throw new Error(`Rhodiola forms were not exported correctly: ${JSON.stringify(rhodiola.forms)}`)
-          }
-          if (!/unclear randomization/i.test(rhodiola.evidence_risk_of_bias || '')) {
-            throw new Error(`Rhodiola risk-of-bias context missing: ${JSON.stringify(rhodiola.evidence_risk_of_bias)}`)
-          }
+          const scopeOk = JSON.stringify(changedHerbs) === JSON.stringify(['rhodiola'])
+            && changedCompounds.length === 0
+          const formsOk = Boolean(rhodiola && Array.isArray(rhodiola.forms)
+            && rhodiola.forms.some((value) => /3% rosavins/i.test(value)))
+          const riskOfBiasOk = Boolean(rhodiola
+            && /unclear randomization/i.test(rhodiola.evidence_risk_of_bias || ''))
 
           const report = {
+            ok: scopeOk && formsOk && riskOfBiasOk,
+            scopeOk,
+            formsOk,
+            riskOfBiasOk,
             changedHerbs,
             changedCompounds,
-            rhodiola: {
+            counts: {
+              changedHerbs: changedHerbs.length,
+              changedCompounds: changedCompounds.length,
+            },
+            rhodiola: rhodiola ? {
               forms: rhodiola.forms,
               evidence_risk_of_bias: rhodiola.evidence_risk_of_bias,
-            },
+            } : null,
           }
           fs.writeFileSync('rhodiola-generated-semantic-audit.json', JSON.stringify(report, null, 2) + '\n')
           console.log(JSON.stringify(report, null, 2))
           NODE
 
-      - uses: actions/upload-artifact@v4
+      - name: Upload semantic comparison report
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
           name: rhodiola-generated-semantic-audit
           path: rhodiola-generated-semantic-audit.json
           if-no-files-found: error
+
+      - name: Enforce generated-record scope
+        run: |
+          node <<'NODE'
+          const fs = require('fs')
+          const report = JSON.parse(fs.readFileSync('rhodiola-generated-semantic-audit.json', 'utf8'))
+          if (!report.ok) {
+            throw new Error(`semantic export audit failed: ${JSON.stringify({
+              changedHerbs: report.changedHerbs,
+              changedCompounds: report.changedCompounds,
+              formsOk: report.formsOk,
+              riskOfBiasOk: report.riskOfBiasOk,
+            })}`)
+          }
+          NODE
