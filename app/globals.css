@@ -417,6 +417,7 @@ html.dark ::selection {
 
   .content-prose {
     @apply max-w-reading space-y-4 text-[1rem] leading-[1.72] text-[#36483e];
+    text-wrap: pretty;
   }
 
   .content-prose > * {
@@ -431,6 +432,11 @@ html.dark ::selection {
 
   .content-prose p {
     @apply max-w-reading leading-[1.74] text-[#36483e];
+  }
+
+  .content-prose p,
+  .content-prose li {
+    max-width: min(100%, 68ch);
   }
 
   .content-prose ul,
@@ -455,7 +461,8 @@ html.dark ::selection {
   }
 
   .content-prose table {
-    @apply w-full border-collapse text-left text-sm;
+    @apply w-full text-left text-sm;
+    border-collapse: separate;
     border-spacing: 0;
   }
 
@@ -464,12 +471,14 @@ html.dark ::selection {
   }
 
   .content-prose th {
-    @apply bg-brand-50/60 px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.10em] text-brand-800 whitespace-nowrap;
+    @apply bg-brand-50/60 px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.08em] text-brand-800;
     border-bottom: 2px solid rgba(30, 60, 40, 0.15);
+    vertical-align: bottom;
   }
 
   .content-prose td {
     @apply border-b border-brand-900/10 px-4 py-3 align-top leading-6 text-[#36483e];
+    min-width: 11rem;
   }
 
   .content-prose tbody tr:nth-child(even) {
@@ -493,6 +502,93 @@ html.dark ::selection {
 
   .content-prose .article-table {
     @apply my-6 max-w-full bg-[var(--surface-card)];
+  }
+
+  .article-card-flow {
+    @apply space-y-0;
+  }
+
+  .article-section-card {
+    @apply my-0 max-w-none border-t border-brand-900/15 py-8 sm:py-10;
+  }
+
+  .article-section-card > h2:first-child {
+    @apply mb-4 max-w-[22ch] font-display text-[1.75rem] leading-tight text-ink;
+  }
+
+  .article-section-card > h2 + p,
+  .article-intro-card > p:first-child {
+    @apply text-[1.02rem] leading-8 text-[#2f4137];
+  }
+
+  .article-section-card > ul,
+  .article-section-card > ol {
+    @apply py-1 pl-5;
+  }
+
+  .article-section-card > ul li,
+  .article-section-card > ol li {
+    @apply pl-1;
+  }
+
+  .article-caution-block {
+    @apply my-5 overflow-hidden border-l-2 border-amber-600/60 bg-amber-50/40;
+  }
+
+  .responsive-table-shell {
+    @apply my-7 max-w-full overflow-hidden border-y border-brand-900/15 bg-transparent;
+  }
+
+  .responsive-table-title {
+    @apply border-b border-brand-900/10 px-4 py-3 font-display text-sm font-semibold text-ink;
+  }
+
+  .accessible-table-region {
+    @apply max-w-full overflow-x-auto bg-white;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(31, 77, 41, 0.38) transparent;
+  }
+
+  .accessible-table-region:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: -2px;
+  }
+
+  .accessible-table-region table {
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  .accessible-table-region th {
+    @apply bg-brand-50/50 px-4 py-3 text-left text-xs font-semibold text-ink;
+    vertical-align: bottom;
+  }
+
+  .accessible-table-region td {
+    @apply border-t border-brand-900/10 px-4 py-3 align-top text-sm leading-6 text-muted;
+    min-width: 11rem;
+  }
+
+  .accessible-table-region :is(th, td):first-child {
+    @apply sticky left-0 z-10 border-r border-brand-900/10 bg-[var(--bg)] font-semibold text-ink;
+    min-width: 12rem;
+  }
+
+  .accessible-table-region th:first-child {
+    @apply bg-brand-50/70;
+    z-index: 20;
+  }
+
+  .accessible-table-region tbody tr:nth-child(even) td {
+    background-color: rgba(243, 245, 238, 0.42);
+  }
+
+  .accessible-table-region tbody tr:nth-child(even) td:first-child {
+    background-color: #f8faf4;
+  }
+
+  .accessible-table-region tbody tr:hover td {
+    background-color: rgba(230, 240, 230, 0.55);
   }
 
   .detail-reading {
@@ -892,6 +988,55 @@ html.dark .content-prose tbody tr:nth-child(even) {
 
 html.dark .content-prose .article-table {
   background-color: var(--surface-card-strong);
+}
+
+html.dark :is(.article-section-card, .responsive-table-shell, .accessible-table-region) {
+  border-color: var(--border-soft);
+  background-color: transparent;
+}
+
+html.dark .article-section-card {
+  box-shadow: none;
+}
+
+html.dark .article-section-card > h2:first-child {
+  border-color: var(--border-soft);
+}
+
+html.dark .article-section-card > :is(ul, ol) {
+  background-color: transparent;
+}
+
+html.dark .article-caution-block {
+  border-color: rgba(196, 125, 46, 0.32);
+  background-color: var(--surface-warning);
+}
+
+html.dark .responsive-table-title,
+html.dark .accessible-table-region th,
+html.dark .accessible-table-region th:first-child {
+  background-color: rgba(168, 189, 169, 0.14);
+  color: var(--text-primary);
+}
+
+html.dark .accessible-table-region :is(th, td):first-child {
+  border-color: var(--border-soft);
+  background-color: var(--surface-card-strong);
+  color: var(--text-primary);
+}
+
+html.dark .accessible-table-region td {
+  border-color: var(--border-soft);
+  color: var(--text-muted);
+}
+
+html.dark .accessible-table-region tbody tr:nth-child(even) td,
+html.dark .accessible-table-region tbody tr:nth-child(even) td:first-child {
+  background-color: rgba(168, 189, 169, 0.07);
+}
+
+html.dark .accessible-table-region tbody tr:hover td {
+  background-color: rgba(168, 189, 169, 0.12);
 }
 
 html.dark :is(
