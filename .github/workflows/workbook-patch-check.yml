@@ -1,92 +1,83 @@
-name: Workbook Patch Repair
+name: Workbook Patch Check
 
 on:
   pull_request:
     branches:
       - main
     paths:
+      - 'data-sources/workbook-patches/**'
+      - 'data-sources/herb_monograph_master.xlsx'
+      - 'scripts/data/apply-workbook-patch.mjs'
+      - 'scripts/data/edit-entity-master-cell.mjs'
+      - 'scripts/ci/validate-workbook-patches.mjs'
+      - 'scripts/ci/validate-workbook-schema.mjs'
+      - 'scripts/utils/read-workbook-exceljs.mjs'
       - '.github/workflows/workbook-patch-check.yml'
   workflow_dispatch:
 
 concurrency:
-  group: workbook-patch-repair-${{ github.ref }}
+  group: workbook-patch-check-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  repair:
-    name: Repair workbook patch runner
-    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+  validate:
+    name: Validate workbook patches
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
 
     steps:
-      - name: Checkout pull request branch
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 2
-          show-progress: false
 
-      - name: Apply surgical repair
-        id: repair
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install dependencies
+        run: npm ci --silent
+
+      - name: Verify Node engine
+        run: npm run check:node --silent
+
+      - name: Validate workbook schema
+        run: npm run validate:workbook-schema --silent
+
+      - name: Validate patch proposals against current workbook
+        id: patch_check
+        continue-on-error: true
         shell: bash
         run: |
           set +e
-          python <<'PY' > repair-diagnostic.txt 2>&1
-          from pathlib import Path
-          script_path = Path('.github/scripts/repair-workbook-patch.py')
-          source = script_path.read_text()
-          source = source.replace(
-              "\"\"\"      '--workbook', currentInput,\n      '--slug', change.slug,\"\"\"",
-              "\"\"\"        '--workbook', currentInput,\n        '--slug', change.slug,\"\"\"",
-              1,
-          )
-          source = source.replace(
-              "\"\"\"      '--workbook', currentInput,\n      '--sheet', entitySheet,\n      '--slug', change.slug,\"\"\"",
-              "\"\"\"        '--workbook', currentInput,\n        '--sheet', entitySheet,\n        '--slug', change.slug,\"\"\"",
-              1,
-          )
-          source = source.replace(
-              "    count = text.count(old)\n",
-              "    count = text.count(old)\n    if count == 0 and label == 'editor: usage':\n        old = old.replace('\\n', '\\\\n')\n        new = new.replace('\\n', '\\\\n')\n        count = text.count(old)\n    print(f'{label}: matches={count}', flush=True)\n",
-              1,
-          )
-          exec(compile(source, str(script_path), 'exec'))
-          PY
+          node scripts/ci/validate-workbook-patches.mjs > workbook-patch-report.txt 2>&1
           status=$?
-          cat repair-diagnostic.txt
-          echo "status=$status" >> "$GITHUB_OUTPUT"
-          exit 0
+          cat workbook-patch-report.txt
+          exit "$status"
 
-      - name: Upload repair diagnostic
+      - name: Upload workbook patch report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: workbook-patch-repair-diagnostic
-          path: repair-diagnostic.txt
+          name: workbook-patch-report
+          path: workbook-patch-report.txt
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload workbook for approved application
+        if: steps.patch_check.outcome == 'success'
+        uses: actions/upload-artifact@v4
+        with:
+          name: workbook-source-for-application
+          path: data-sources/herb_monograph_master.xlsx
           if-no-files-found: error
           retention-days: 1
+          compression-level: 0
 
-      - name: Check repaired scripts
-        if: steps.repair.outputs.status == '0'
-        run: |
-          node --check scripts/data/apply-workbook-patch.mjs
-          node --check scripts/data/edit-entity-master-cell.mjs
-
-      - name: Commit repaired scripts
-        if: steps.repair.outputs.status == '0'
-        shell: bash
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add scripts/data/apply-workbook-patch.mjs scripts/data/edit-entity-master-cell.mjs
-          git diff --cached --check
-          git commit -m 'fix: make workbook patches use resolved entity sheet'
-          git push origin HEAD:${{ github.event.pull_request.head.ref }}
-
-      - name: Enforce repair result
-        if: steps.repair.outputs.status != '0'
+      - name: Enforce workbook patch result
+        if: steps.patch_check.outcome != 'success'
         run: exit 1
