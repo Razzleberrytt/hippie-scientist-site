@@ -724,7 +724,7 @@
   {
     "slug": "withania-somnifera",
     "name": "Ashwagandha",
-    "summary": "",
+    "summary": "May support stress resilience and sleep quality in adults when using studied extract-specific forms; use safety box before recommendation language.",
     "primary_effects": [
       "Stress Response",
       "Sleep",
@@ -739,16 +739,16 @@
       "Inflammation",
       "Hormonal Health"
     ],
-    "evidence_grade": "",
+    "evidence_grade": "B",
     "evidence_tier": "Strong Human Evidence",
     "profile_status": "needs_review",
     "runtime_export_decision": "primary_runtime_priority",
     "affiliate_ready": false,
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 55,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -756,9 +756,9 @@
       "identity-present",
       "mechanism-context",
       "profile-status:needs_review",
-      "safety-context-missing",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
     ]
   },
   {
@@ -796,7 +796,7 @@
   {
     "slug": "panax-ginseng",
     "name": "Asian Ginseng",
-    "summary": "Panax ginseng lean herb row for high-speed phytochemical ingestion.",
+    "summary": "May modestly support memory outcomes, but evidence is mixed for broader cognition.",
     "primary_effects": [
       "cognitive",
       "metabolic"
@@ -805,7 +805,7 @@
       "cognitive",
       "metabolic"
     ],
-    "evidence_grade": "b",
+    "evidence_grade": "C+",
     "evidence_tier": "Moderate Human Evidence",
     "profile_status": "top50_authority_patched",
     "runtime_export_decision": "full_public_runtime",
@@ -814,7 +814,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -823,7 +823,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -970,7 +970,7 @@
   {
     "slug": "bacopa",
     "name": "Bacopa",
-    "summary": "Bacopa monnieri lean herb row for high-speed phytochemical ingestion.",
+    "summary": "Clinical-data analysis found limited/modest evidence for memory/nootropic effects; no two healthy-subject studies showed the same significant cognitive-test changes, and more studies are needed.",
     "primary_effects": [
       "antioxidant",
       "cognitive",
@@ -990,7 +990,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -999,7 +999,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -1856,7 +1856,7 @@
   {
     "slug": "capsicum-annuum",
     "name": "Capsicum",
-    "summary": "Pepper species used for topical and metabolic effects.",
+    "summary": "Capsicum/capsaicinoid evidence is dose-dependent and mostly stronger for metabolic/appetite or pain-related contexts than cognition.",
     "primary_effects": [
       "metabolic",
       "analgesic",
@@ -1876,7 +1876,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -1885,14 +1885,14 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
   {
     "slug": "capsicum-frutescens",
     "name": "Capsicum Frutescens",
-    "summary": "",
+    "summary": "May discuss capsaicin/capsaicinoids as food-derived compounds with metabolic/appetite and topical-pain contexts; cognition should be described as mostly preclinical/hypothesis-level.",
     "primary_effects": [
       "Cognition",
       "Neurobiology",
@@ -1905,8 +1905,8 @@
       "Metabolic Health",
       "Inflammation"
     ],
-    "evidence_grade": "",
-    "evidence_tier": "Evidence-Limited",
+    "evidence_grade": "C",
+    "evidence_tier": "Limited/Contextual Human Evidence",
     "profile_status": "needs_review",
     "runtime_export_decision": "hidden_until_grounded",
     "affiliate_ready": false,
@@ -2214,7 +2214,7 @@
   {
     "slug": "matricaria-chamomilla",
     "name": "Chamomile",
-    "summary": "Chamomile may support mild anxiety or sleep quality, especially as evening tea or standardized extract.",
+    "summary": "Sleep meta-analysis reports PSQI improvement and some sleep-onset/awakening improvements, but limited objective data; oral anxiety review found most included studies reported anxiety reduction.",
     "primary_effects": [
       "sleep"
     ],
@@ -2478,7 +2478,7 @@
   {
     "slug": "citicoline",
     "name": "Citicoline",
-    "summary": "Citicoline (CDP-choline) is a choline source studied as non-stimulant support for attention and focus, and for cognition in older adults. Human evidence is limited and the effects are modest — it is a supportive option rather than a dramatic cognitive enhancer, and works best alongside sleep and healthy habits.",
+    "summary": "Citicoline (CDP-choline) supplies choline and cytidine-derived precursors used in phosphatidylcholine metabolism. Small randomized trials in selected older adults suggest possible short-term improvements in memory, including a 12-week study using 500 mg/day, but the broader evidence is heterogeneous and does not establish a large or universal cognitive-enhancing effect.",
     "primary_effects": [
       "Mitochondrial Health",
       "Cognition",
@@ -3048,7 +3048,7 @@
   {
     "slug": "crocus-sativus",
     "name": "Crocus Sativus",
-    "summary": "Crocus sativus (Saffron) is a highly valued spice botanical containing crocin, crocetin, and safranal, with emerging evidence for mood support.",
+    "summary": "Broad systematic review/meta-analysis of 46 RCTs reports improvements versus placebo in cognition, depression, anxiety, and sleep disorders, with good tolerance/few side effects; indication breadth requires strong claim separation.",
     "primary_effects": [
       "mood_support",
       "antidepressant",
@@ -4280,7 +4280,7 @@
   {
     "slug": "ginkgo-biloba",
     "name": "Ginkgo",
-    "summary": "Ginkgo Biloba centers on the leaf.",
+    "summary": "EGb 761 has evidence in mild neurocognitive impairment contexts.",
     "primary_effects": [
       "cognitive",
       "cardiovascular",
@@ -4291,7 +4291,7 @@
       "cardiovascular",
       "neuroprotective"
     ],
-    "evidence_grade": "a",
+    "evidence_grade": "B",
     "evidence_tier": "Strong Human Evidence",
     "profile_status": "top50_authority_patched",
     "runtime_export_decision": "full_public_runtime",
@@ -4300,7 +4300,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4309,8 +4309,8 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "summary-present",
+      "summary-quality-missing"
     ]
   },
   {
@@ -5440,7 +5440,7 @@
   {
     "slug": "lavandula-angustifolia",
     "name": "Lavender",
-    "summary": "Lavandula angustifolia (Lavender) is an aromatic herb widely used for its calming and sleep-promoting properties.",
+    "summary": "Oral lavender oil preparation Silexan has stronger anxiety evidence than generic lavender/aromatherapy claims; meta-analysis of 5 placebo-controlled trials used 80 mg/day for 10 weeks and showed anxiolytic effects with favorable tolerability.",
     "primary_effects": [
       "sleep"
     ],
@@ -5506,7 +5506,7 @@
   {
     "slug": "melissa-officinalis",
     "name": "Lemon Balm",
-    "summary": "Lemon balm may support gentle calm, stress-related sleep, and relaxed focus without heavy sedation.",
+    "summary": "Systematic review/meta-analysis suggests improved anxiety and depression scores without serious side effects, but high heterogeneity and small number of trials limit confidence.",
     "primary_effects": [
       "sleep"
     ],
@@ -5672,15 +5672,15 @@
   {
     "slug": "hericium-erinaceus",
     "name": "Lion's Mane",
-    "summary": "Lion's Mane (Hericium erinaceus) is a culinary-medicinal mushroom that stimulates Nerve Growth Factor (NGF) synthesis via hericenones and erinacines. Human RCTs demonstrate cognitive improvements in older adults with mild cognitive impairment, and emerging data support mood and nerve regeneration applications.",
+    "summary": "May support certain cognitive-task outcomes in small human studies; evidence is early, mixed, and preparation-specific.",
     "primary_effects": [
       "cognitive"
     ],
     "effects": [
       "cognitive"
     ],
-    "evidence_grade": "b",
-    "evidence_tier": "Moderate Human Evidence",
+    "evidence_grade": "C+",
+    "evidence_tier": "Early Human Evidence",
     "profile_status": "top50_authority_patched",
     "runtime_export_decision": "full_public_runtime",
     "affiliate_ready": false,
@@ -5868,14 +5868,14 @@
   {
     "slug": "magnolia-officinalis",
     "name": "Magnolia",
-    "summary": "Magnolia is tracked for sleep,stress with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+    "summary": "Needs dedicated human sleep/anxiety evidence before claims.",
     "primary_effects": [
       "sleep"
     ],
     "effects": [
       "sleep"
     ],
-    "evidence_grade": "b",
+    "evidence_grade": "D+",
     "evidence_tier": "Moderate Human Evidence",
     "profile_status": "top50_authority_patched",
     "runtime_export_decision": "full_public_runtime",
@@ -5884,7 +5884,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -5893,7 +5893,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -7040,7 +7040,7 @@
   {
     "slug": "passiflora-incarnata",
     "name": "Passionflower",
-    "summary": "Passionflower is used for mild mental stress and sleep tension; evidence is traditional/emerging rather than strong.",
+    "summary": "Systematic review included 9 clinical trials with study durations from 1 to 30 days; most reported reduced anxiety, with less clear effects in mild anxiety and limited standardization.",
     "primary_effects": [
       "sleep"
     ],
@@ -7922,14 +7922,14 @@
   {
     "slug": "reishi",
     "name": "Reishi (Ganoderma lucidum)",
-    "summary": "Reishi (Ganoderma lucidum) is a medicinal mushroom used across East Asian traditions for immune regulation and adaptogenic support. Its beta-glucan polysaccharides and triterpenes (ganoderic acids) modulate innate and adaptive immunity, NK cell activity, and inflammatory signaling. Clinical evidence supports immunomodulatory effects; sleep and fatigue data are emerging.",
+    "summary": "Educational page may discuss mechanistic interest only.",
     "primary_effects": [
       "sleep"
     ],
     "effects": [
       "sleep"
     ],
-    "evidence_grade": "b",
+    "evidence_grade": "D+",
     "evidence_tier": "Moderate Human Evidence",
     "profile_status": "partial",
     "runtime_export_decision": "full_public_runtime",
@@ -7938,7 +7938,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 88,
+    "indexability_score": 78,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7947,7 +7947,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-depth",
+      "summary-present",
       "summary-quality-missing"
     ]
   },
@@ -8024,7 +8024,7 @@
   {
     "slug": "rhodiola",
     "name": "Rhodiola",
-    "summary": "Rhodiola may support stress-related fatigue and mental stamina; avoid framing it as a bedtime calming herb.",
+    "summary": "May support fatigue resilience or exercise/performance outcomes in some contexts; mood/stress evidence should stay cautious.",
     "primary_effects": [
       "adaptogen",
       "stress_resilience",
@@ -8035,8 +8035,8 @@
       "stress_resilience",
       "fatigue_reduction"
     ],
-    "evidence_grade": "b",
-    "evidence_tier": "Moderate Human Evidence",
+    "evidence_grade": "C+",
+    "evidence_tier": "Moderate/Limited Human Evidence",
     "profile_status": "top50_authority_patched",
     "runtime_export_decision": "full_public_runtime",
     "affiliate_ready": false,
@@ -9386,7 +9386,7 @@
   {
     "slug": "valeriana-officinalis",
     "name": "Valerian",
-    "summary": "Valerenic acid modulates GABA-A receptors improving sleep latency.",
+    "summary": "Valerian evidence is mixed: older systematic review/meta-analysis found possible subjective sleep/anxiety benefit and no severe adverse events, while umbrella-review evidence remains weak/inconclusive for insomnia. Extract quality and whole-root/rhizome preparation matter.",
     "primary_effects": [
       "sleep"
     ],
@@ -9402,7 +9402,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -9411,7 +9411,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },

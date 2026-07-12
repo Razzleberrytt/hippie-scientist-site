@@ -441,6 +441,214 @@
     "profile_slug": "bacopa"
   },
   {
+    "id": "dose-capsaicinoids-dietary-exposure-1-30mg-2021",
+    "title": "Capsaicinoid dosing is dose-dependent and context-specific; typical dietary exposure may be below adverse-effect levels, but long-term higher-dose supplementation needs caution.",
+    "claim": "Capsaicinoid dosing is dose-dependent and context-specific; typical dietary exposure may be below adverse-effect levels, but long-term higher-dose supplementation needs caution.",
+    "source_url": "https://consensus.app/papers/estimation-of-dietary-capsaicinoid-exposure-in-korea-and-kwon/c060344aae1a57aa8b0a5ace9318fa73/?utm_source=chatgpt",
+    "evidence_tier": "dietary exposure assessment plus clinical-study context review",
+    "profile_slug": "capsicum-annuum"
+  },
+  {
+    "id": "dose-capsifen-4mg-capsaicinoids-28d-2020",
+    "title": "A sustained-release red chili extract formulation providing 4 mg capsaicinoids/day for 28 days was studied for appetite/body-weight outcomes in overweight adults.",
+    "claim": "A sustained-release red chili extract formulation providing 4 mg capsaicinoids/day for 28 days was studied for appetite/body-weight outcomes in overweight adults.",
+    "source_url": "https://consensus.app/papers/influence-of-a-novel-foodgrade-formulation-of-red-chili-msc-phd/0708be05089558f6ae71ff919b6fab60/?utm_source=chatgpt",
+    "evidence_tier": "randomized double-blind placebo-controlled study",
+    "profile_slug": "capsicum-annuum"
+  },
+  {
+    "id": "dose-hericium-1-8g-28d-young-adults-2023",
+    "title": "Lion’s Mane at 1.8 g/day for 28 days has only tentative pilot evidence for speed of performance and stress trends in healthy young adults.",
+    "claim": "Lion’s Mane at 1.8 g/day for 28 days has only tentative pilot evidence for speed of performance and stress trends in healthy young adults.",
+    "source_url": "https://consensus.app/papers/the-acute-and-chronic-effects-of-lions-mane-mushroom-docherty-doughty/aea9396d0f075cf283410b4a7d37454c/?utm_source=chatgpt",
+    "evidence_tier": "randomized double-blind placebo-controlled pilot trial",
+    "profile_slug": "hericium-erinaceus"
+  },
+  {
+    "id": "dose-hericium-1g-nordic-extract-acute-2023",
+    "title": "A single 1 g Nordic-grown Lion’s Mane extract dose showed task-specific acute cognitive effects in one crossover study.",
+    "claim": "A single 1 g Nordic-grown Lion’s Mane extract dose showed task-specific acute cognitive effects in one crossover study.",
+    "source_url": "https://consensus.app/papers/acute-effects-of-naturally-occurring-guayusa-tea-and-monica-raub/36c46a7ef805574b8bcf43d00f22e1f9/?utm_source=chatgpt",
+    "evidence_tier": "randomized double-blind placebo-controlled crossover trial",
+    "profile_slug": "hericium-erinaceus"
+  },
+  {
+    "id": "dose-hericium-3g-10to1-fruiting-body-acute-2025",
+    "title": "A single 3 g dose of 10:1 Lion’s Mane fruiting-body extract did not improve global cognition/mood, though one task-specific signal was observed.",
+    "claim": "A single 3 g dose of 10:1 Lion’s Mane fruiting-body extract did not improve global cognition/mood, though one task-specific signal was observed.",
+    "source_url": "https://consensus.app/papers/acute-effects-of-a-standardised-extract-of-hericium-surendran-saye/ac702d1769b25d6d8a6491dbdab363e5/?utm_source=chatgpt",
+    "evidence_tier": "randomized double-blind placebo-controlled crossover trial",
+    "profile_slug": "hericium-erinaceus"
+  },
+  {
+    "id": "dose-ltheanine-400mg-28d-stress-attention-2024",
+    "title": "400 mg/day L-theanine for 28 days has been studied in healthy adults with moderate stress, with signals for perceived stress and attention but small sample limitations.",
+    "claim": "400 mg/day L-theanine for 28 days has been studied in healthy adults with moderate stress, with signals for perceived stress and attention but small sample limitations.",
+    "source_url": "https://consensus.app/papers/safety-and-efficacy-of-alphawave-ltheanine-moulin-crowley/483ed255c48e5a30a5f3714f3c3082fe/?utm_source=chatgpt",
+    "evidence_tier": "randomized double-blind placebo-controlled trial",
+    "profile_slug": "theanine"
+  },
+  {
+    "id": "dose-ltheanine-acute-200mg-stress-2021",
+    "title": "A single 200 mg dose of AlphaWave L-theanine has been studied for acute stress response/relaxation markers in healthy moderately stressed adults.",
+    "claim": "A single 200 mg dose of AlphaWave L-theanine has been studied for acute stress response/relaxation markers in healthy moderately stressed adults.",
+    "source_url": "https://consensus.app/papers/a-randomized-tripleblind-placebocontrolled-crossover-evans-mcdonald/d3b94ebb1cb75700884a46cc775e9bda/?utm_source=chatgpt",
+    "evidence_tier": "randomized triple-blind placebo-controlled crossover study",
+    "profile_slug": "theanine"
+  },
+  {
+    "id": "dose-ltheanine-sleep-200-450mg-review-2025",
+    "title": "Standalone L-theanine has been studied across 50–900 mg/day; 200–450 mg/day appears to be the most useful adult sleep-support range in current review evidence.",
+    "claim": "Standalone L-theanine has been studied across 50–900 mg/day; 200–450 mg/day appears to be the most useful adult sleep-support range in current review evidence.",
+    "source_url": "https://consensus.app/papers/examining-the-effect-of-ltheanine-on-sleep-a-systematic-cotter-caddick/fc34d2ccf3715609a856171a6e3821d9/?utm_source=chatgpt",
+    "evidence_tier": "systematic review of dietary supplementation trials",
+    "profile_slug": "theanine"
+  },
+  {
+    "id": "dose-rhodiola-1500-2400mg-shortterm-exercise-2023",
+    "title": "Higher short-term Rhodiola doses around 1500–2400 mg/day for 4–30 days have been studied mainly for exercise-performance contexts.",
+    "claim": "Higher short-term Rhodiola doses around 1500–2400 mg/day for 4–30 days have been studied mainly for exercise-performance contexts.",
+    "source_url": "https://consensus.app/papers/rhodiola-rosea-as-an-adaptogen-to-enhance-exercise-tinsley-jagim/e40c8bb5c0ca5043b95e2df8b7180297/?utm_source=chatgpt",
+    "evidence_tier": "review of human exercise-performance studies",
+    "profile_slug": "rhodiola"
+  },
+  {
+    "id": "dose-rhodiola-200mg-standardized-acute-exercise-2023",
+    "title": "For exercise-related fatigue/performance, some acute studies use ~200 mg standardized Rhodiola rosea about 60 minutes before exercise.",
+    "claim": "For exercise-related fatigue/performance, some acute studies use ~200 mg standardized Rhodiola rosea about 60 minutes before exercise.",
+    "source_url": "https://consensus.app/papers/rhodiola-rosea-as-an-adaptogen-to-enhance-exercise-tinsley-jagim/e40c8bb5c0ca5043b95e2df8b7180297/?utm_source=chatgpt",
+    "evidence_tier": "review of human exercise-performance studies",
+    "profile_slug": "rhodiola"
+  },
+  {
+    "id": "dose-salidroside-60mg-16d-exercise-2024",
+    "title": "Pure salidroside at 60 mg/day for 16 days has exploratory evidence in active young adults, but it is not interchangeable with whole Rhodiola extract.",
+    "claim": "Pure salidroside at 60 mg/day for 16 days has exploratory evidence in active young adults, but it is not interchangeable with whole Rhodiola extract.",
+    "source_url": "https://consensus.app/papers/salidroside-and-exercise-performance-in-healthy-active-schwarz-stratton/45b932e0296a59a9ba3ed70286a9570d/?utm_source=chatgpt",
+    "evidence_tier": "exploratory randomized double-blind placebo-controlled study",
+    "profile_slug": "rhodiola"
+  },
+  {
+    "id": "dose-withania-sleep-meta-600mg-8wk-2021",
+    "title": "Ashwagandha extract may support sleep quality, with stronger signals in insomnia populations at ≥600 mg/day for ≥8 weeks.",
+    "claim": "Ashwagandha extract may support sleep quality, with stronger signals in insomnia populations at ≥600 mg/day for ≥8 weeks.",
+    "source_url": "https://consensus.app/papers/effect-of-ashwagandha-withania-somnifera-extract-on-sleep-cheah-norhayati/feb55754e0d655ac8afb0bf0c3e31816/?utm_source=chatgpt",
+    "evidence_tier": "systematic review and meta-analysis of randomized trials",
+    "profile_slug": "withania-somnifera"
+  },
+  {
+    "id": "dose-withania-sr-root-300mg-90d-2021",
+    "title": "A sustained-release ashwagandha root extract at 300 mg/day for about 90 days was studied for stress, sleep quality, memory, and focus in healthy stressed adults.",
+    "claim": "A sustained-release ashwagandha root extract at 300 mg/day for about 90 days was studied for stress, sleep quality, memory, and focus in healthy stressed adults.",
+    "source_url": "https://consensus.app/papers/efficacy-and-safety-of-ashwagandha-root-extract-on-gopukumar-thanawala/3262090dccbb5903a3755d2aca33da35/?utm_source=chatgpt",
+    "evidence_tier": "randomized double-blind placebo-controlled trial",
+    "profile_slug": "withania-somnifera"
+  },
+  {
+    "id": "dose-withania-stress-300-600mg-meta-2022",
+    "title": "Across RCTs, ashwagandha showed stress/anxiety support signals, with stress effects most interpretable around 300–600 mg/day; certainty was low.",
+    "claim": "Across RCTs, ashwagandha showed stress/anxiety support signals, with stress effects most interpretable around 300–600 mg/day; certainty was low.",
+    "source_url": "https://consensus.app/papers/does-ashwagandha-supplementation-have-a-beneficial-akhgarjand-asoudeh/c1f83cbc4aba5182b315c33049a0c276/?utm_source=chatgpt",
+    "evidence_tier": "systematic review and dose-response meta-analysis of randomized trials",
+    "profile_slug": "withania-somnifera"
+  },
+  {
+    "id": "dose-withania-ws-root-leaf-125-500mg-8wk-2024",
+    "title": "A specific aqueous root-and-leaf ashwagandha extract was studied at 125–500 mg/day for 8 weeks for mild-to-moderate chronic stress support.",
+    "claim": "A specific aqueous root-and-leaf ashwagandha extract was studied at 125–500 mg/day for 8 weeks for mild-to-moderate chronic stress support.",
+    "source_url": "https://consensus.app/papers/effects-of-withania-somnifera-extract-in-chronically-pandit-srivastav/3d6ca263c3e55451945ab309c2e63159/?utm_source=chatgpt",
+    "evidence_tier": "randomized double-blind placebo-controlled trial",
+    "profile_slug": "withania-somnifera"
+  },
+  {
+    "id": "ev-capsicum-cognition-caution-2023",
+    "title": "Capsaicin has promising animal/mechanistic cognition data, but adequate human studies on cognition/cerebrovascular outcomes do not exist yet.",
+    "claim": "Capsaicin has promising animal/mechanistic cognition data, but adequate human studies on cognition/cerebrovascular outcomes do not exist yet.",
+    "source_url": "https://consensus.app/papers/capsaicin-a-potential-treatment-to-improve-thornton-mills/bb3af088d00b5315aaf398cbe7741512/?utm_source=chatgpt",
+    "evidence_tier": "narrative review",
+    "profile_slug": "capsicum-frutescens"
+  },
+  {
+    "id": "ev-hericium-cognition-rct-2019",
+    "title": "A 12-week human trial found MMSE improvement with Lion's Mane, but other cognitive tests were less clearly positive.",
+    "claim": "A 12-week human trial found MMSE improvement with Lion's Mane, but other cognitive tests were less clearly positive.",
+    "source_url": "https://consensus.app/papers/improvement-of-cognitive-functions-by-oral-intake-of-saitsu-nishide/bb8bf1a9c44759b4ac8d0144f78a8db5/?utm_source=chatgpt",
+    "evidence_tier": "randomized double-blind placebo-controlled parallel-group trial",
+    "profile_slug": "hericium-erinaceus"
+  },
+  {
+    "id": "ev-hericium-cognition-review-2023",
+    "title": "Lion's Mane has limited human RCT evidence suggesting possible cognitive support, but mood/anxiety evidence is not convincing.",
+    "claim": "Lion's Mane has limited human RCT evidence suggesting possible cognitive support, but mood/anxiety evidence is not convincing.",
+    "source_url": "https://consensus.app/papers/use-of-hericium-erinaceus-as-a-potential-therapeutic-of-cortonesi-almeida/f1bf1dab7e125e8e82dbdffe6d271686/?utm_source=chatgpt",
+    "evidence_tier": "systematic review",
+    "profile_slug": "hericium-erinaceus"
+  },
+  {
+    "id": "ev-hericium-young-adult-pilot-2023",
+    "title": "Lion's Mane showed tentative speed-of-performance and stress signals in healthy young adults, but the small pilot design limits confidence.",
+    "claim": "Lion's Mane showed tentative speed-of-performance and stress signals in healthy young adults, but the small pilot design limits confidence.",
+    "source_url": "https://consensus.app/papers/the-acute-and-chronic-effects-of-lions-mane-mushroom-docherty-doughty/aea9396d0f075cf283410b4a7d37454c/?utm_source=chatgpt",
+    "evidence_tier": "pilot randomized double-blind placebo-controlled trial",
+    "profile_slug": "hericium-erinaceus"
+  },
+  {
+    "id": "ev-rhodiola-mood-review-2020",
+    "title": "Rhodiola may help mild depression/anxiety/mood outcomes, but evidence is not definitive and better RCTs are needed.",
+    "claim": "Rhodiola may help mild depression/anxiety/mood outcomes, but evidence is not definitive and better RCTs are needed.",
+    "source_url": "https://consensus.app/papers/the-effects-of-rhodiola-rosea-supplementation-on-konstantinos-heun/dd008355eaf7512282ea0ce62ac33dd6/?utm_source=chatgpt",
+    "evidence_tier": "systematic review of RCTs",
+    "profile_slug": "rhodiola"
+  },
+  {
+    "id": "ev-rhodiola-stress-review-2022",
+    "title": "Rhodiola has encouraging clinical evidence for stress-related fatigue and mental performance, but extract standardization and study design vary.",
+    "claim": "Rhodiola has encouraging clinical evidence for stress-related fatigue and mental performance, but extract standardization and study design vary.",
+    "source_url": "https://consensus.app/papers/the-effectiveness-of-rhodiola-rosea-l-preparations-in-stojcheva-quintela/68d64312d2e45d6997b1e72746373150/?utm_source=chatgpt",
+    "evidence_tier": "clinical evidence review",
+    "profile_slug": "rhodiola"
+  },
+  {
+    "id": "ev-theanine-cognition-mood-meta-2025",
+    "title": "Theanine, especially with caffeine, may support some attention and mood outcomes, but confidence intervals often show uncertainty.",
+    "claim": "Theanine, especially with caffeine, may support some attention and mood outcomes, but confidence intervals often show uncertainty.",
+    "source_url": "https://consensus.app/papers/effects-of-tea-camellia-sinensis-or-its-bioactive-payne-aceves-martins/939e00c0c8a153ea8489e05d78184f5d/?utm_source=chatgpt",
+    "evidence_tier": "systematic review and meta-analysis of RCTs",
+    "profile_slug": "theanine"
+  },
+  {
+    "id": "ev-theanine-sleep-meta-2025",
+    "title": "L-theanine may support subjective sleep quality and sleep-onset related outcomes, but more pure L-theanine trials are needed.",
+    "claim": "L-theanine may support subjective sleep quality and sleep-onset related outcomes, but more pure L-theanine trials are needed.",
+    "source_url": "https://consensus.app/papers/the-effects-of-ltheanine-consumption-on-sleep-outcomes-a-bulman-cunha/f04f46df5cfa5ac490eed2104e55ae78/?utm_source=chatgpt",
+    "evidence_tier": "systematic review and meta-analysis of RCTs",
+    "profile_slug": "theanine"
+  },
+  {
+    "id": "ev-theanine-stress-rct-2024",
+    "title": "A small 28-day trial found safety/tolerability and some perceived stress, sleep-quality, and attention signals.",
+    "claim": "A small 28-day trial found safety/tolerability and some perceived stress, sleep-quality, and attention signals.",
+    "source_url": "https://consensus.app/papers/safety-and-efficacy-of-alphawave-ltheanine-moulin-crowley/483ed255c48e5a30a5f3714f3c3082fe/?utm_source=chatgpt",
+    "evidence_tier": "randomized double-blind placebo-controlled trial",
+    "profile_slug": "theanine"
+  },
+  {
+    "id": "ev-withania-sleep-meta-2021",
+    "title": "Ashwagandha extract may modestly improve sleep quality, especially in insomnia studies and longer/higher-dose protocols, but long-term safety evidence is limited.",
+    "claim": "Ashwagandha extract may modestly improve sleep quality, especially in insomnia studies and longer/higher-dose protocols, but long-term safety evidence is limited.",
+    "source_url": "https://consensus.app/papers/effect-of-ashwagandha-withania-somnifera-extract-on-sleep-cheah-norhayati/feb55754e0d655ac8afb0bf0c3e31816/?utm_source=chatgpt",
+    "evidence_tier": "systematic review and meta-analysis of RCTs",
+    "profile_slug": "withania-somnifera"
+  },
+  {
+    "id": "ev-withania-stress-anxiety-meta-2022",
+    "title": "Ashwagandha may reduce stress and anxiety compared with placebo, but certainty is low and heterogeneity is high.",
+    "claim": "Ashwagandha may reduce stress and anxiety compared with placebo, but certainty is low and heterogeneity is high.",
+    "source_url": "https://consensus.app/papers/does-ashwagandha-supplementation-have-a-beneficial-akhgarjand-asoudeh/c1f83cbc4aba5182b315c33049a0c276/?utm_source=chatgpt",
+    "evidence_tier": "systematic review and meta-analysis of RCTs",
+    "profile_slug": "withania-somnifera"
+  },
+  {
     "id": "ginkgo-attention-maintenance",
     "title": "Ginkgo biloba has moderate human evidence for supporting attention speed and accuracy, particularly in populations with attention-related concerns.",
     "claim": "Ginkgo biloba has moderate human evidence for supporting attention speed and accuracy, particularly in populations with attention-related concerns.",
@@ -560,6 +768,182 @@
     "profile_slug": "melatonin"
   },
   {
+    "id": "p5-ev-bac-001",
+    "title": "Bacopa may provide modest memory/learning support, but clinical evidence is limited and not consistently significant across the same cognitive tests.",
+    "claim": "Bacopa may provide modest memory/learning support, but clinical evidence is limited and not consistently significant across the same cognitive tests.",
+    "source_url": "https://consensus.app/papers/the-effectiveness-of-bacopamonnieri-linn-wettst-as-a-brimson-brimson/77d6361fc8f65ff8b0e31540e4ead3bf/?utm_source=chatgpt",
+    "evidence_tier": "systematic review/meta-analysis of clinical data",
+    "profile_slug": "bacopa"
+  },
+  {
+    "id": "p5-ev-cha-001",
+    "title": "Chamomile may improve sleep quality, especially subjective PSQI scores and nighttime awakenings, but evidence has heterogeneity and limited objective data.",
+    "claim": "Chamomile may improve sleep quality, especially subjective PSQI scores and nighttime awakenings, but evidence has heterogeneity and limited objective data.",
+    "source_url": "https://consensus.app/papers/effects-of-chamomile-matricaria-chamomilla-l-on-sleep-a-kazemi-shojaeizarghani/fa93a0e564ed53d7aca5465ee56772c3/?utm_source=chatgpt",
+    "evidence_tier": "systematic review/meta-analysis of clinical trials",
+    "profile_slug": "matricaria-chamomilla"
+  },
+  {
+    "id": "p5-ev-cha-002",
+    "title": "Oral chamomile may reduce anxiety symptoms, but evidence needs stronger standardization.",
+    "claim": "Oral chamomile may reduce anxiety symptoms, but evidence needs stronger standardization.",
+    "source_url": "https://consensus.app/papers/the-effect-of-oral-chamomile-on-anxiety-a-systematic-review-saadatmand-zohroudi/7de23efdbf525d5986abf12902117c10/?utm_source=chatgpt",
+    "evidence_tier": "systematic review of clinical trials",
+    "profile_slug": "matricaria-chamomilla"
+  },
+  {
+    "id": "p5-ev-gly-001",
+    "title": "Glycine may improve sleep in healthy populations, but evidence is based on small high-risk-of-bias studies.",
+    "claim": "Glycine may improve sleep in healthy populations, but evidence is based on small high-risk-of-bias studies.",
+    "source_url": "https://consensus.app/papers/the-effect-of-glycine-administration-on-the-soh-raventhiran/8d047e7baa8d54a7a36aa52002815ad1/?utm_source=chatgpt",
+    "evidence_tier": "systematic review",
+    "profile_slug": "glycine"
+  },
+  {
+    "id": "p5-ev-lav-001",
+    "title": "Oral Silexan 80 mg/day for 10 weeks reduced anxiety symptoms versus placebo in adult anxiety trials.",
+    "claim": "Oral Silexan 80 mg/day for 10 weeks reduced anxiety symptoms versus placebo in adult anxiety trials.",
+    "source_url": "https://consensus.app/papers/efficacy-of-silexan-in-patients-with-anxiety-disorders-a-dold-bartova/041f3cbbb2b05d4cacdc107ebb82a836/?utm_source=chatgpt",
+    "evidence_tier": "meta-analysis of placebo-controlled RCTs",
+    "profile_slug": "lavandula-angustifolia"
+  },
+  {
+    "id": "p5-ev-lem-001",
+    "title": "Lemon balm may improve anxiety and depressive symptom scores, particularly acutely, but evidence is heterogeneous.",
+    "claim": "Lemon balm may improve anxiety and depressive symptom scores, particularly acutely, but evidence is heterogeneous.",
+    "source_url": "https://consensus.app/papers/the-effects-of-lemon-balm-melissa-officinalis-l-on-ghazizadeh-sadigh-eteghad/19f8f254886b5b539004eb23a4778f39/?utm_source=chatgpt",
+    "evidence_tier": "systematic review/meta-analysis of clinical trials",
+    "profile_slug": "melissa-officinalis"
+  },
+  {
+    "id": "p5-ev-mag-001",
+    "title": "Magnesium may support mild anxiety or sleep quality in selected adults, especially where magnesium status is low, but evidence is heterogeneous.",
+    "claim": "Magnesium may support mild anxiety or sleep quality in selected adults, especially where magnesium status is low, but evidence is heterogeneous.",
+    "source_url": "https://consensus.app/papers/examining-the-effects-of-supplemental-magnesium-on-rawji-peltier/b4312fdaf15c5708937709697920ef7d/?utm_source=chatgpt",
+    "evidence_tier": "systematic review of interventional trials",
+    "profile_slug": "magnesium"
+  },
+  {
+    "id": "p5-ev-mel-001",
+    "title": "Melatonin may help sleep timing/onset when dose and timing are matched to the sleep problem.",
+    "claim": "Melatonin may help sleep timing/onset when dose and timing are matched to the sleep problem.",
+    "source_url": "https://consensus.app/papers/optimizing-the-time-and-dose-of-melatonin-as-a-cruz-sanabria-bruno/bae0ee234b6350a4b2b427a03a96a39f/?utm_source=chatgpt",
+    "evidence_tier": "dose-response meta-analysis of RCTs",
+    "profile_slug": "melatonin"
+  },
+  {
+    "id": "p5-ev-mel-002",
+    "title": "Higher-dose melatonin did not show a detectable SAE increase in a limited low-risk subset but increased drowsiness/headache/dizziness; safety reporting was limited.",
+    "claim": "Higher-dose melatonin did not show a detectable SAE increase in a limited low-risk subset but increased drowsiness/headache/dizziness; safety reporting was limited.",
+    "source_url": "https://consensus.app/papers/safety-of-higher-doses-of-melatonin-in-adults-a-systematic-schrire-phillips/99b1be443f505288a9bf6c6d22c6a986/?utm_source=chatgpt",
+    "evidence_tier": "systematic review/meta-analysis of high-dose RCTs",
+    "profile_slug": "melatonin"
+  },
+  {
+    "id": "p5-ev-pas-001",
+    "title": "Passionflower may reduce anxiety symptoms in some clinical contexts; effects in mild anxiety are less evident.",
+    "claim": "Passionflower may reduce anxiety symptoms in some clinical contexts; effects in mild anxiety are less evident.",
+    "source_url": "https://consensus.app/papers/passiflora-incarnata-in-neuropsychiatric-disordersa-janda-wojtkowska/50bff026091f52e8bf012ac1556a8121/?utm_source=chatgpt",
+    "evidence_tier": "systematic review",
+    "profile_slug": "passiflora-incarnata"
+  },
+  {
+    "id": "p5-ev-saf-001",
+    "title": "Saffron shows promising multi-domain evidence for mood, anxiety, sleep, cognition, ADHD/OCD contexts, with few side effects in trials.",
+    "claim": "Saffron shows promising multi-domain evidence for mood, anxiety, sleep, cognition, ADHD/OCD contexts, with few side effects in trials.",
+    "source_url": "https://consensus.app/papers/new-horizons-for-the-study-of-saffron-crocus-sativus-l-and-han-cao/19ab8608dc545ce5bc9de537b9207509/?utm_source=chatgpt",
+    "evidence_tier": "systematic review/meta-analysis of RCTs",
+    "profile_slug": "crocus-sativus"
+  },
+  {
+    "id": "p5-ev-val-001",
+    "title": "Valerian may improve subjective sleep quality and reduce anxiety in some studies, but results depend heavily on preparation quality.",
+    "claim": "Valerian may improve subjective sleep quality and reduce anxiety in some studies, but results depend heavily on preparation quality.",
+    "source_url": "https://consensus.app/papers/valerian-root-in-treating-sleep-problems-and-associated-shinjyo-waddell/256f974f235d53c7a338c40d12481df9/?utm_source=chatgpt",
+    "evidence_tier": "systematic review/meta-analysis",
+    "profile_slug": "valeriana-officinalis"
+  },
+  {
+    "id": "p5-ev-val-002",
+    "title": "A standardized valerian extract improved several subjective and objective sleep measures over 8 weeks in adults with sleep complaints.",
+    "claim": "A standardized valerian extract improved several subjective and objective sleep measures over 8 weeks in adults with sleep complaints.",
+    "source_url": "https://consensus.app/papers/standardized-extract-of-valeriana-officinalis-improves-shekhar-joshua/352cb285a2c253f0958adc62758b1d4b/?utm_source=chatgpt",
+    "evidence_tier": "double-blind placebo-controlled RCT",
+    "profile_slug": "valeriana-officinalis"
+  },
+  {
+    "id": "pass9-caffeine-ltheanine-acute-attention-mood-2025",
+    "title": "Theanine plus caffeine may support acute attention and mood outcomes, but uncertainty remains and dosing/tea-equivalence should be explicit.",
+    "claim": "Theanine plus caffeine may support acute attention and mood outcomes, but uncertainty remains and dosing/tea-equivalence should be explicit.",
+    "source_url": "https://consensus.app/papers/effects-of-tea-camellia-sinensis-or-its-bioactive-payne-aceves-martins/939e00c0c8a153ea8489e05d78184f5d/?utm_source=chatgpt",
+    "evidence_tier": "RCT systematic review/meta-analysis",
+    "profile_slug": "caffeine-l-theanine"
+  },
+  {
+    "id": "pass9-creatine-cognition-memory-attention-2024",
+    "title": "Creatine monohydrate may support memory and some attention/processing-speed outcomes in adults, but evidence is domain-specific rather than a broad cognition guarantee.",
+    "claim": "Creatine monohydrate may support memory and some attention/processing-speed outcomes in adults, but evidence is domain-specific rather than a broad cognition guarantee.",
+    "source_url": "https://consensus.app/papers/the-effects-of-creatine-supplementation-on-cognitive-xu-bi/54813b2512da51388b5b582d3efdfa9d/?utm_source=chatgpt",
+    "evidence_tier": "RCT meta-analysis",
+    "profile_slug": "creatine"
+  },
+  {
+    "id": "pass9-ginkgo-egb761-mild-ncd-cognition-2023",
+    "title": "EGb 761 has human evidence for mild neurocognitive impairment contexts, but generic ginkgo and healthy-focus claims should be separated.",
+    "claim": "EGb 761 has human evidence for mild neurocognitive impairment contexts, but generic ginkgo and healthy-focus claims should be separated.",
+    "source_url": "https://consensus.app/papers/ginkgo-biloba-extract-egb-761-in-the-treatment-of-patients-hort-duning/bddd84a5daf1508eb40e2d83ec58c38f/?utm_source=chatgpt",
+    "evidence_tier": "Systematic review of randomized placebo-controlled double-blind trials",
+    "profile_slug": "ginkgo"
+  },
+  {
+    "id": "pass9-inositol-pcos-boundary-2023",
+    "title": "Inositol has relatively strong PCOS/metabolic evidence, but this source does not justify Sleep/Stress/Anxiety/Focus claims.",
+    "claim": "Inositol has relatively strong PCOS/metabolic evidence, but this source does not justify Sleep/Stress/Anxiety/Focus claims.",
+    "source_url": "https://consensus.app/papers/inositol-is-an-effective-and-safe-treatment-in-polycystic-greff-juhsz/b7421e93fb58532f849c54da7bff4972/?utm_source=chatgpt",
+    "evidence_tier": "RCT meta-analysis",
+    "profile_slug": "inositol"
+  },
+  {
+    "id": "pass9-magnolia-neolignan-cognition-gap-2024",
+    "title": "Magnolia/honokiol/magnolol needs a dedicated human sleep/anxiety search before recommendation claims.",
+    "claim": "Magnolia/honokiol/magnolol needs a dedicated human sleep/anxiety search before recommendation claims.",
+    "source_url": "https://consensus.app/papers/neolignans-in-magnolia-officinalis-as-natural-li-liang/8d1e4ba2234459c2afc4b6ca25027e46/?utm_source=chatgpt",
+    "evidence_tier": "Systematic review metadata; abstract unavailable in fetch",
+    "profile_slug": "magnolia"
+  },
+  {
+    "id": "pass9-panax-ginseng-memory-cognition-meta-2024",
+    "title": "Ginseng may have a small memory-support signal, but not enough to claim broad cognition, attention, or executive-function benefits.",
+    "claim": "Ginseng may have a small memory-support signal, but not enough to claim broad cognition, attention, or executive-function benefits.",
+    "source_url": "https://consensus.app/papers/effects-of-ginseng-on-cognitive-function-a-systematic-zeng-zhang/960465ac4f6a54cba41fbadf49486813/?utm_source=chatgpt",
+    "evidence_tier": "RCT meta-analysis",
+    "profile_slug": "panax-ginseng"
+  },
+  {
+    "id": "pass9-reishi-cognition-gap-2023",
+    "title": "Reishi has mechanistic/preclinical cognitive interest, but current evidence is not strong enough for human nootropic claims.",
+    "claim": "Reishi has mechanistic/preclinical cognitive interest, but current evidence is not strong enough for human nootropic claims.",
+    "source_url": "https://consensus.app/papers/neuroprotective-neurogenic-and-anticholinergic-luz-pinheiro/b769fa72870d5aefabcd1201a40422cf/?utm_source=chatgpt",
+    "evidence_tier": "Narrative/systematic-style review of cognitive mechanisms",
+    "profile_slug": "reishi"
+  },
+  {
+    "id": "pass9-tyrosine-stress-sleep-deprivation-cognition-2020",
+    "title": "Tyrosine may be considered for cognitive performance under sleep deprivation or demanding operational stress, but evidence quality is limited.",
+    "claim": "Tyrosine may be considered for cognitive performance under sleep deprivation or demanding operational stress, but evidence quality is limited.",
+    "source_url": "https://consensus.app/papers/a-systematic-review-of-the-effect-of-dietary-supplements-on-pomeroy-tooley/be9aab8f3df35859a85ce0fcb2b16507/?utm_source=chatgpt",
+    "evidence_tier": "Systematic review of supplement trials",
+    "profile_slug": "l-tyrosine"
+  },
+  {
+    "id": "pass9-vitamin-d3-depression-not-anxiety-2024",
+    "title": "Vitamin D3 may modestly support depressive symptoms, especially short term, but does not show significant anxiety effects in this review.",
+    "claim": "Vitamin D3 may modestly support depressive symptoms, especially short term, but does not show significant anxiety effects in this review.",
+    "source_url": "https://consensus.app/papers/the-effect-of-vitamin-d-supplementation-on-depression-a-ghaemi-zeraattalab-motlagh/27635710ab285174913487b32352b0f5/?utm_source=chatgpt",
+    "evidence_tier": "RCT dose-response meta-analysis",
+    "profile_slug": "vitamin-d3"
+  },
+  {
     "id": "passionflower-racing-thoughts",
     "title": "Passionflower is a plausible option when racing thoughts or cognitive restlessness dominate the anxiety pattern.",
     "claim": "Passionflower is a plausible option when racing thoughts or cognitive restlessness dominate the anxiety pattern.",
@@ -572,6 +956,14 @@
     "claim": "Phosphatidylserine is a niche option for stress-reactivity questions involving cortisol or ACTH response patterns.",
     "evidence_tier": "needs_classification",
     "profile_slug": "phosphatidylserine"
+  },
+  {
+    "id": "reg-fda-dietary-supplements-claims-2024",
+    "title": "Use structure/function wording only; avoid diagnosing, treating, curing, or preventing disease unless an authorized health claim applies.",
+    "claim": "Use structure/function wording only; avoid diagnosing, treating, curing, or preventing disease unless an authorized health claim applies.",
+    "source_url": "https://www.fda.gov/food/dietary-supplements",
+    "evidence_tier": "FDA regulatory overview",
+    "profile_slug": "global"
   },
   {
     "id": "rg-0291",
@@ -1530,6 +1922,110 @@
     "claim": "Rhodiola rosea has the clearest evidence base among adaptogens for reducing mental fatigue and cognitive performance decline under sustained demands.",
     "evidence_tier": "needs_classification",
     "profile_slug": "rhodiola"
+  },
+  {
+    "id": "safe-capsaicin-dietary-exposure-2021",
+    "title": "Capsaicin safety is dose-dependent; typical dietary exposures may be tolerated, but abdominal pain/GI distress can occur and high-dose supplemental use needs caution.",
+    "claim": "Capsaicin safety is dose-dependent; typical dietary exposures may be tolerated, but abdominal pain/GI distress can occur and high-dose supplemental use needs caution.",
+    "source_url": "https://consensus.app/papers/estimation-of-dietary-capsaicinoid-exposure-in-korea-and-kwon/c060344aae1a57aa8b0a5ace9318fa73/?utm_source=chatgpt",
+    "evidence_tier": "dietary exposure assessment + clinical-study discussion",
+    "profile_slug": "capsicum-frutescens"
+  },
+  {
+    "id": "safe-capsaicin-umbrella-2022",
+    "title": "Capsicum/capsaicin should not be over-positioned for broad health claims; benefits are disputed and context-dependent.",
+    "claim": "Capsicum/capsaicin should not be over-positioned for broad health claims; benefits are disputed and context-dependent.",
+    "source_url": "https://consensus.app/papers/spicy-food-and-chili-peppers-and-multiple-health-outcomes-ao-huang/3c578e8dc02759e09f8fe1f74f33f490/?utm_source=chatgpt",
+    "evidence_tier": "umbrella review",
+    "profile_slug": "capsicum-frutescens"
+  },
+  {
+    "id": "safe-hericium-clinical-review-2024",
+    "title": "Clinical studies report rare adverse effects, mostly mild GI discomfort, but long-term safety and efficacy need larger trials.",
+    "claim": "Clinical studies report rare adverse effects, mostly mild GI discomfort, but long-term safety and efficacy need larger trials.",
+    "source_url": "https://consensus.app/papers/neuroprotective-and-cognitive-benefits-of-hericium-komo-romaczuk/e02f2160dff0590f90e63288711e1f6a/?utm_source=chatgpt",
+    "evidence_tier": "clinical review",
+    "profile_slug": "hericium-erinaceus"
+  },
+  {
+    "id": "safe-hericium-side-effects-2025",
+    "title": "Lion's Mane should be framed as generally food-like but not risk-free; potential side effects include stomach discomfort, headache, and allergic reactions.",
+    "claim": "Lion's Mane should be framed as generally food-like but not risk-free; potential side effects include stomach discomfort, headache, and allergic reactions.",
+    "source_url": "https://consensus.app/papers/benefits-side-effects-and-uses-of-hericium-erinaceus-as-a-menon-jalal/d1048d1d305659fa9b8b8e69c89d7b2f/?utm_source=chatgpt",
+    "evidence_tier": "systematic review",
+    "profile_slug": "hericium-erinaceus"
+  },
+  {
+    "id": "safe-rhodiola-exercise-review-2022",
+    "title": "Rhodiola appears tolerated in short exercise/sport studies, but safety claims should stay modest because the evidence base is small.",
+    "claim": "Rhodiola appears tolerated in short exercise/sport studies, but safety claims should stay modest because the evidence base is small.",
+    "source_url": "https://consensus.app/papers/effects-of-rhodiola-rosea-supplementation-on-exercise-and-lu-deng/01346ae303f25c20ab8a3be83f26aad7/?utm_source=chatgpt",
+    "evidence_tier": "systematic review",
+    "profile_slug": "rhodiola"
+  },
+  {
+    "id": "safe-rhodiola-interactions-review-2023",
+    "title": "Rhodiola pages should include potential drug-interaction/contraindication warnings and avoid disease-treatment claims.",
+    "claim": "Rhodiola pages should include potential drug-interaction/contraindication warnings and avoid disease-treatment claims.",
+    "source_url": "https://consensus.app/papers/adaptogenic-botanicals-with-emphasis-on-rhodiola-rosea-machn-florido/bee9a6b2e3505a70ab7f4c286d2a177d/?utm_source=chatgpt",
+    "evidence_tier": "review",
+    "profile_slug": "rhodiola"
+  },
+  {
+    "id": "safe-rhodiola-rct-quality-2021",
+    "title": "Rhodiola evidence and safety pages should disclose that RCT reporting quality has been generally poor, limiting confidence in safety and efficacy conclusions.",
+    "claim": "Rhodiola evidence and safety pages should disclose that RCT reporting quality has been generally poor, limiting confidence in safety and efficacy conclusions.",
+    "source_url": "https://consensus.app/papers/quality-evaluation-of-randomized-controlled-trials-of-li-chen/66a9da6ff0305e1a8b44b201feb14218/?utm_source=chatgpt",
+    "evidence_tier": "systematic review of RCT reporting quality",
+    "profile_slug": "rhodiola"
+  },
+  {
+    "id": "safe-theanine-mental-disorders-review-2024",
+    "title": "L-theanine may be studied as an adjunct in mental health contexts, but pages should not imply it treats psychiatric disorders or replaces medication.",
+    "claim": "L-theanine may be studied as an adjunct in mental health contexts, but pages should not imply it treats psychiatric disorders or replaces medication.",
+    "source_url": "https://consensus.app/papers/the-effects-of-ltheanine-supplementation-on-the-outcomes-moshfeghinia-sanaei/d80025c23e0a5a76bc2db097fde335bf/?utm_source=chatgpt",
+    "evidence_tier": "systematic review of RCTs",
+    "profile_slug": "theanine"
+  },
+  {
+    "id": "safe-theanine-moulin-2024",
+    "title": "L-theanine was tolerated in a small 28-day trial, but the sample was small and not enough for broad safety certainty.",
+    "claim": "L-theanine was tolerated in a small 28-day trial, but the sample was small and not enough for broad safety certainty.",
+    "source_url": "https://consensus.app/papers/safety-and-efficacy-of-alphawave-ltheanine-moulin-crowley/483ed255c48e5a30a5f3714f3c3082fe/?utm_source=chatgpt",
+    "evidence_tier": "randomized double-blind placebo-controlled trial",
+    "profile_slug": "theanine"
+  },
+  {
+    "id": "safe-withania-liver-injury-case-series-2020",
+    "title": "Ashwagandha has rare case-report evidence of clinically apparent liver injury, usually cholestatic or mixed with jaundice/pruritus.",
+    "claim": "Ashwagandha has rare case-report evidence of clinically apparent liver injury, usually cholestatic or mixed with jaundice/pruritus.",
+    "source_url": "https://consensus.app/papers/ashwagandhainduced-liver-injury-a-case-series-from-bjrnsson-bjrnsson/2c336e748bd457b1bef79176525bef85/?utm_source=chatgpt",
+    "evidence_tier": "case series",
+    "profile_slug": "withania-somnifera"
+  },
+  {
+    "id": "safe-withania-nih-livertox-2024-2025",
+    "title": "Use short-term, cautious structure/function wording; include liver, thyroid, pregnancy, sedative, antidiabetes, antihypertensive, and immunosuppressant cautions.",
+    "claim": "Use short-term, cautious structure/function wording; include liver, thyroid, pregnancy, sedative, antidiabetes, antihypertensive, and immunosuppressant cautions.",
+    "source_url": "https://ods.od.nih.gov/factsheets/Ashwagandha-HealthProfessional/ | https://www.ncbi.nlm.nih.gov/books/NBK548536/",
+    "evidence_tier": "official health-professional fact sheet + LiverTox monograph",
+    "profile_slug": "withania-somnifera"
+  },
+  {
+    "id": "safe-withania-shortterm-sare-2026",
+    "title": "Standardized single-ingredient root-only ashwagandha extract appears generally tolerated in healthy adults at studied doses and durations, but do not imply long-term safety.",
+    "claim": "Standardized single-ingredient root-only ashwagandha extract appears generally tolerated in healthy adults at studied doses and durations, but do not imply long-term safety.",
+    "source_url": "https://consensus.app/papers/back-to-the-roots-safety-and-tolerability-of-standardised-coope-willems/c5b5877b7b295eb18ae4d7b3d3532197/?utm_source=chatgpt",
+    "evidence_tier": "systematic review of randomized trials",
+    "profile_slug": "withania-somnifera"
+  },
+  {
+    "id": "safe-withania-thyroid-pregnancy-liver-2025",
+    "title": "Ashwagandha should carry caution language for pregnancy, thyroid disorders, liver/kidney dysfunction, and long-term safety uncertainty.",
+    "claim": "Ashwagandha should carry caution language for pregnancy, thyroid disorders, liver/kidney dysfunction, and long-term safety uncertainty.",
+    "source_url": "https://consensus.app/papers/evaluating-the-safety-of-ashwagandha-as-a-food-additive-a-li-zhang/859fef337db75ddbb659d1845fbb7327/?utm_source=chatgpt",
+    "evidence_tier": "review",
+    "profile_slug": "withania-somnifera"
   },
   {
     "id": "study-row-10",
