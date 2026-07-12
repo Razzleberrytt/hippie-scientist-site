@@ -1,0 +1,38 @@
+{
+  "patch_id": "scite-rhodiola-stress-fatigue-2026-07-12-001",
+  "patch_version": "1",
+  "created_at": "2026-07-12T14:40:00.000Z",
+  "generator": "Scite literature enrichment via ChatGPT",
+  "target": {
+    "slug": "rhodiola",
+    "canonical_name": "Rhodiola rosea",
+    "entity_type": "herb"
+  },
+  "operations": [
+    {
+      "op": "add_claim",
+      "field": "effects",
+      "value": "Some small randomized trials report reduced stress-related fatigue or improved mental performance with standardized Rhodiola rosea extracts, but results are inconsistent and a rigorously conducted nursing-student trial did not establish benefit; the evidence should be considered preliminary rather than definitive.",
+      "payload": {},
+      "confidence": 0.79,
+      "notes": "Balances potentially positive fatigue findings with the inconclusive nursing-student randomized trial and review-level risk-of-bias concerns."
+    }
+  ],
+  "sources": [
+    {
+      "doi": "10.1186/1472-6882-12-70",
+      "url": "https://doi.org/10.1186/1472-6882-12-70",
+      "title": "Rhodiola rosea for physical and mental fatigue: a systematic review",
+      "year": "2012"
+    },
+    {
+      "doi": "10.1371/journal.pone.0108416",
+      "url": "https://doi.org/10.1371/journal.pone.0108416",
+      "title": "Rhodiola Rosea for Mental and Physical Fatigue in Nursing Students: A Randomized Controlled Trial",
+      "year": "2014"
+    }
+  ],
+  "notes": "Adds a cautious stress-related fatigue synthesis without implying established treatment efficacy.",
+  "confidence": 0.79,
+  "requires_review": true
+}
