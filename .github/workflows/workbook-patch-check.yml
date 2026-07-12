@@ -76,13 +76,10 @@ jobs:
           node --check scripts/data/apply-workbook-patch.mjs
           node --check scripts/data/edit-entity-master-cell.mjs
 
-      - name: Commit repair and restore normal validation
+      - name: Commit repaired scripts
         if: steps.repair.outputs.status == '0'
         shell: bash
         run: |
-          git checkout HEAD^ -- .github/workflows/workbook-patch-check.yml
-          git rm .github/workflows/repair-workbook-patch-runner.yml
-          git rm .github/scripts/repair-workbook-patch.py
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add scripts/data/apply-workbook-patch.mjs scripts/data/edit-entity-master-cell.mjs
