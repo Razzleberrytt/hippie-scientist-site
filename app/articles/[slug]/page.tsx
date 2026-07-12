@@ -112,7 +112,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
         ]}
       />
 
-      <header className="mt-6 rounded-[1rem] border-2 border-brand-900/15 bg-white p-6 shadow-md ring-1 ring-brand-900/5 sm:p-8 lg:p-10">
+      <header className="mt-6 border-b border-brand-900/15 pb-8 pt-4 sm:pb-10 sm:pt-6">
         <div className="flex flex-wrap items-center gap-2 text-xs">
           <span className="rounded-full border border-brand-700/20 bg-brand-50 px-2.5 py-0.5 font-bold uppercase tracking-wider text-brand-800">
             {page.category}
@@ -129,7 +129,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
           <span className="text-muted">{typeof page.readingTime === 'number' ? `${page.readingTime} min read` : page.readingTime}</span>
         </div>
 
-        <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
+        <h1 className="mt-4 max-w-[22ch] font-display text-2xl font-bold leading-[1.08] text-ink sm:text-4xl lg:text-5xl">
           {page.title}
         </h1>
 
@@ -181,7 +181,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
       </div>
 
       {page.references.length > 0 ? (
-        <section id="references" className="mt-8 scroll-mt-24 rounded-[0.9rem] border-2 border-brand-900/15 bg-white p-5 shadow-md ring-1 ring-brand-900/5">
+        <section id="references" className="mt-8 scroll-mt-24 border-t border-brand-900/15 py-8">
           <h2 className="text-lg font-bold text-ink">References</h2>
           <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm leading-6 text-muted marker:font-semibold marker:text-brand-800">
             {page.references.map((ref, index) => (
@@ -204,14 +204,14 @@ export default async function ArticleMonographPage({ params }: PageProps) {
       ) : null}
 
       {relatedPages.length > 0 ? (
-        <section className="mt-8 rounded-[0.9rem] border-2 border-brand-900/15 bg-white p-5 shadow-md ring-1 ring-brand-900/5">
+        <section className="mt-8 border-t border-brand-900/15 py-8">
           <h2 className="text-lg font-bold text-ink">Related Articles</h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {relatedPages.map((relatedPage) => (
               <Link
                 key={relatedPage.slug}
                 href={relatedPage.url}
-                className="rounded-[0.75rem] border-2 border-brand-700/15 bg-brand-50/60 p-4 text-sm font-semibold leading-6 text-brand-800 shadow-sm hover:border-brand-700/30 hover:bg-brand-50 hover:shadow-md transition-all"
+                className="border-b border-brand-900/10 py-3 text-sm font-semibold leading-6 text-brand-800 transition hover:border-brand-700/30 hover:text-brand-700"
               >
                 {relatedPage.title}
               </Link>
@@ -220,7 +220,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
         </section>
       ) : null}
 
-      <footer className="mt-8 rounded-[0.9rem] border-2 border-amber-600/30 bg-amber-50 p-4 shadow-sm text-sm leading-6 text-[#5b4a2c]">
+      <footer className="mt-8 border-l-2 border-amber-600/50 bg-amber-50/50 px-4 py-3 text-sm leading-6 text-[#5b4a2c]">
         Educational disclaimer: this article is for evidence review and educational context only. It is not medical advice, legal advice, or a recommendation to use any substance discussed.
         <div className="mt-3 flex flex-wrap gap-4 font-semibold text-brand-800">
           <Link href="/articles/" className="hover:underline">All articles</Link>
