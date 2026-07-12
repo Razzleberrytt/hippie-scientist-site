@@ -235,14 +235,21 @@ function objectToOperations(obj, warnings) {
   return operations
 }
 
+function normalizeExplicitField(value) {
+  const field = cleanString(value)
+  if (!field) return undefined
+  if (/^(?:data|legacy)\.[a-z0-9_.-]+$/i.test(field)) return field
+  return resolveFieldName(field) || `legacy.${field}`
+}
+
 function normalizeExplicitOp(op, warnings) {
   if (!op || typeof op !== 'object') { warnings.push('operation was not an object'); return null }
   const rawOp = cleanString(op.op || op.operation || op.action).toLowerCase().replace(/[\s-]+/g, '_')
   if (!OP_SET.has(rawOp)) {
     warnings.push(`unknown operation "${op.op || op.operation || op.action}" — flagged for review`)
-    return { op: 'update_field', field: op.field ? resolveFieldName(op.field) || `legacy.${op.field}` : 'legacy.unknown_op', value: op.value, payload: { original: op }, notes: 'unrecognized operation' }
+    return { op: 'update_field', field: normalizeExplicitField(op.field) || 'legacy.unknown_op', value: op.value, payload: { original: op }, notes: 'unrecognized operation' }
   }
-  const field = op.field ? (resolveFieldName(op.field) || `legacy.${op.field}`) : undefined
+  const field = normalizeExplicitField(op.field)
   return {
     op: rawOp,
     field,
