@@ -1,0 +1,41 @@
+{
+  "patch_id": "scite-glycine-daytime-function-2026-07-11-003",
+  "patch_version": "1",
+  "created_at": "2026-07-12T00:00:00.000Z",
+  "generator": "Scite literature enrichment via ChatGPT",
+  "target": {
+    "slug": "glycine",
+    "canonical_name": "Glycine",
+    "entity_type": "compound"
+  },
+  "operations": [
+    {
+      "op": "add_claim",
+      "field": "effects",
+      "value": "Under short-term partial sleep restriction, 3 g of glycine before bedtime improved some next-day fatigue and performance measures versus placebo, but the study was small and does not show that glycine reverses the broader effects of chronic sleep loss.",
+      "payload": {},
+      "confidence": 0.77,
+      "notes": "Keeps the sleep-restriction context and avoids presenting glycine as a substitute for sufficient sleep."
+    }
+  ],
+  "sources": [
+    {
+      "doi": "10.3389/fneur.2012.00061",
+      "url": "https://doi.org/10.3389/fneur.2012.00061",
+      "title": "The Effects of Glycine on Subjective Daytime Performance in Partially Sleep-Restricted Healthy Volunteers",
+      "year": "2012"
+    }
+  ],
+  "notes": "Adds qualified next-day fatigue and performance findings.",
+  "confidence": 0.77,
+  "requires_review": true,
+  "original_filename": "glycine-daytime-function-scite-003.json",
+  "original_hash": "2710ede0c05b3bdb5f7e760ec0917e4f53d9557f7cae5b4e8e890643b6c7d3fa",
+  "_apply_result": {
+    "status": "applied",
+    "changes": 2,
+    "reviewer": "Willie Randolph",
+    "reviewed_at": "2026-07-12T00:10:00.000Z",
+    "at": "2026-07-11T23:59:57.958Z"
+  }
+}
