@@ -21,8 +21,6 @@ if branch != 'workbook-patch-pilot-citicoline-20260710':
 
 run(['git', 'config', 'user.name', 'github-actions[bot]'])
 run(['git', 'config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com'])
-run(['git', 'fetch', 'origin', 'main'])
-run(['git', 'merge-base', '--is-ancestor', 'origin/main', 'HEAD'])
 
 run(['npm', 'ci', '--silent'])
 run(['npm', 'run', 'data:build', '--silent'])
