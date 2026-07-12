@@ -23,7 +23,7 @@ run(['git', 'config', 'user.name', 'github-actions[bot]'])
 run(['git', 'config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com'])
 
 run(['npm', 'ci', '--silent'])
-run(['npm', 'run', 'data:build', '--silent'])
+run(['npm', 'run', 'data:build:core', '--silent'])
 run(['node', 'scripts/ci/validate-workbook-patches.mjs'])
 run(['npm', 'run', 'guard:source-of-truth', '--silent'])
 run(['npm', 'run', 'validate:evidence-language', '--silent'])
