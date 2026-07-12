@@ -4,7 +4,7 @@ import path from 'node:path'
 import zlib from 'node:zlib'
 
 const DEFAULT_WORKBOOK = 'data-sources/herb_monograph_master.xlsx'
-const ENTITY_SHEET_NAME = 'Entity_Master'
+const ENTITY_SHEET_CANDIDATES = ['Entity_Master', 'Sheet7', 'Herb Master V3']
 const REQUIRED_FIELDS = new Set([
   'entity_type',
   'slug',
@@ -50,13 +50,14 @@ const PROFILE_STATUSES = new Set([
 
 function usage(exitCode = 0) {
   const stream = exitCode === 0 ? process.stdout : process.stderr
-  stream.write(`Targeted Entity_Master XLSX cell editor\n\nUsage:\n  node scripts/data/edit-entity-master-cell.mjs --slug nac --column summary --value "..." --dry-run\n  node scripts/data/edit-entity-master-cell.mjs --slug nac --column summary --value "..." --out /tmp/edited.xlsx\n  node scripts/data/edit-entity-master-cell.mjs --roundtrip --out /tmp/roundtrip.xlsx\n\nOptions:\n  --workbook <path>  Workbook path. Default: ${DEFAULT_WORKBOOK}\n  --slug <slug>      Entity_Master slug to edit. Required unless --roundtrip is used.\n  --column <name>    Entity_Master column to edit. Required unless --roundtrip is used.\n  --value <value>    New cell value. Required unless --roundtrip is used.\n  --out <path>       Output workbook path. Required for writes unless --in-place is used.\n  --in-place         Replace the workbook atomically through a temporary file.\n  --dry-run          Print the target cell and proposed value without writing.\n  --roundtrip        Repack the workbook without changing Entity_Master values. Requires --out.\n  --help             Show this help.\n`)
+  stream.write(`Targeted Entity_Master XLSX cell editor\n\nUsage:\n  node scripts/data/edit-entity-master-cell.mjs --slug nac --column summary --value "..." --dry-run\n  node scripts/data/edit-entity-master-cell.mjs --slug nac --column summary --value "..." --out /tmp/edited.xlsx\n  node scripts/data/edit-entity-master-cell.mjs --roundtrip --out /tmp/roundtrip.xlsx\n\nOptions:\n  --workbook <path>  Workbook path. Default: ${DEFAULT_WORKBOOK}\n  --sheet <name>     Entity sheet name. Defaults to the first supported sheet present.\n  --slug <slug>      Entity sheet slug to edit. Required unless --roundtrip is used.\n  --column <name>    Entity_Master column to edit. Required unless --roundtrip is used.\n  --value <value>    New cell value. Required unless --roundtrip is used.\n  --out <path>       Output workbook path. Required for writes unless --in-place is used.\n  --in-place         Replace the workbook atomically through a temporary file.\n  --dry-run          Print the target cell and proposed value without writing.\n  --roundtrip        Repack the workbook without changing Entity_Master values. Requires --out.\n  --help             Show this help.\n`)
   process.exit(exitCode)
 }
 
 function parseArgs(argv) {
   const args = {
     workbook: DEFAULT_WORKBOOK,
+    sheet: '',
     slug: '',
     column: '',
     value: undefined,
@@ -81,6 +82,9 @@ function parseArgs(argv) {
         break
       case '--workbook':
         args.workbook = nextValue()
+        break
+      case '--sheet':
+        args.sheet = nextValue()
         break
       case '--slug':
         args.slug = nextValue()
@@ -348,22 +352,25 @@ function parseRelationships(xml) {
   return rels
 }
 
-function locateEntityMasterWorksheet(entryMap) {
+function locateEntityMasterWorksheet(entryMap, requestedSheet = '') {
   const workbookXml = getXml(entryMap, 'xl/workbook.xml')
   const rels = parseRelationships(getXml(entryMap, 'xl/_rels/workbook.xml.rels'))
-
-  for (const sheetMatch of workbookXml.matchAll(/<sheet\b[^>]*>/g)) {
+  const sheets = [...workbookXml.matchAll(/<sheet\b[^>]*>/g)].map((sheetMatch) => {
     const tag = sheetMatch[0]
-    if (getAttribute(tag, 'name') !== ENTITY_SHEET_NAME) continue
-    const relId = getAttribute(tag, 'r:id')
-    const target = rels.get(relId)
-    if (!target) fail(`${ENTITY_SHEET_NAME} references missing relationship ${relId}`)
-    const normalized = target.startsWith('/') ? target.slice(1) : target.startsWith('xl/') ? target : `xl/${target}`
-    if (!entryMap.has(normalized)) fail(`${ENTITY_SHEET_NAME} points to missing worksheet part: ${normalized}`)
-    return normalized
+    return { name: getAttribute(tag, 'name'), relId: getAttribute(tag, 'r:id') }
+  })
+  const candidates = requestedSheet ? [requestedSheet] : ENTITY_SHEET_CANDIDATES
+  const resolved = candidates.map((candidate) => sheets.find((sheet) => sheet.name === candidate)).find(Boolean)
+
+  if (!resolved) {
+    fail(`Workbook entity sheet is missing. Looked for: ${candidates.join(', ')}. Present: ${sheets.map((sheet) => sheet.name).join(', ')}`)
   }
 
-  fail(`Workbook sheet ${ENTITY_SHEET_NAME} is missing`)
+  const target = rels.get(resolved.relId)
+  if (!target) fail(`${resolved.name} references missing relationship ${resolved.relId}`)
+  const worksheetPath = target.startsWith('/') ? target.slice(1) : target.startsWith('xl/') ? target : `xl/${target}`
+  if (!entryMap.has(worksheetPath)) fail(`${resolved.name} points to missing worksheet part: ${worksheetPath}`)
+  return { sheetName: resolved.name, worksheetPath }
 }
 
 function parseSharedStrings(entryMap) {
@@ -408,9 +415,9 @@ function parseRows(sheetXml, sharedStrings) {
   return rows
 }
 
-function getHeaderMap(rows) {
+function getHeaderMap(rows, sheetName) {
   const headerRow = rows.find((row) => row.rowNumber === 1)
-  if (!headerRow) fail(`${ENTITY_SHEET_NAME} is missing header row 1`)
+  if (!headerRow) fail(`${sheetName} is missing header row 1`)
   const headers = new Map()
   for (const [column, cell] of headerRow.cells.entries()) {
     const header = normalize(cell.value)
@@ -467,41 +474,41 @@ function patchSheetXml(sheetXml, row, targetColumn, value) {
   return sheetXml.slice(0, row.start) + patchedRow + sheetXml.slice(row.end)
 }
 
-function findTargetRow(rows, slugColumn, wantedSlug) {
+function findTargetRow(rows, slugColumn, wantedSlug, sheetName) {
   const matches = []
   for (const row of rows) {
     if (row.rowNumber === 1) continue
     const slug = normalizeSlug(row.cells.get(slugColumn)?.value)
     if (slug === wantedSlug) matches.push(row)
   }
-  if (matches.length === 0) fail(`Slug not found in ${ENTITY_SHEET_NAME}: ${wantedSlug}`)
-  if (matches.length > 1) fail(`Duplicate slug in ${ENTITY_SHEET_NAME}: ${wantedSlug} appears on rows ${matches.map((row) => row.rowNumber).join(', ')}`)
+  if (matches.length === 0) fail(`Slug not found in ${sheetName}: ${wantedSlug}`)
+  if (matches.length > 1) fail(`Duplicate slug in ${sheetName}: ${wantedSlug} appears on rows ${matches.map((row) => row.rowNumber).join(', ')}`)
   return matches[0]
 }
 
-function editCell({ workbookPath, slug, column, value, dryRun }) {
+function editCell({ workbookPath, sheet, slug, column, value, dryRun }) {
   const entries = readZip(workbookPath)
   const entryMap = entriesByName(entries)
-  const worksheetPath = locateEntityMasterWorksheet(entryMap)
+  const { sheetName, worksheetPath } = locateEntityMasterWorksheet(entryMap, sheet)
   const sharedStrings = parseSharedStrings(entryMap)
   const sheetXml = getXml(entryMap, worksheetPath)
   const rows = parseRows(sheetXml, sharedStrings)
-  const headers = getHeaderMap(rows)
+  const headers = getHeaderMap(rows, sheetName)
   const slugColumn = headers.get('slug')
-  if (!slugColumn) fail(`${ENTITY_SHEET_NAME} is missing required slug column`)
+  if (!slugColumn) fail(`${sheetName} is missing required slug column`)
 
   const normalizedColumn = normalize(column)
   const targetColumn = headers.get(normalizedColumn)
-  if (!targetColumn) fail(`${ENTITY_SHEET_NAME} is missing target column: ${normalizedColumn}`)
+  if (!targetColumn) fail(`${sheetName} is missing target column: ${normalizedColumn}`)
   validateProposedValue(normalizedColumn, value)
 
   const wantedSlug = normalizeSlug(slug)
-  const targetRow = findTargetRow(rows, slugColumn, wantedSlug)
+  const targetRow = findTargetRow(rows, slugColumn, wantedSlug, sheetName)
   const targetCell = targetRow.cells.get(targetColumn)
   const oldValue = targetCell?.value ?? ''
   const cellRef = `${columnNumberToName(targetColumn)}${targetRow.rowNumber}`
   const report = {
-    sheet: ENTITY_SHEET_NAME,
+    sheet: sheetName,
     worksheetPath,
     row: targetRow.rowNumber,
     slug: wantedSlug,
@@ -554,6 +561,7 @@ function main() {
 
   const { entries, report, changed } = editCell({
     workbookPath,
+    sheet: args.sheet,
     slug: args.slug,
     column: args.column,
     value: args.value,

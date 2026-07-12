@@ -1,0 +1,109 @@
+{
+  "patch_version": 1,
+  "id": "citicoline-scite-pilot-2026-07-10",
+  "title": "Scite-grounded Citicoline enrichment pilot",
+  "status": "applied",
+  "generated_at": "2026-07-10",
+  "approved_at": "2026-07-10",
+  "approved_by": "Willie Randolph",
+  "generated_by": [
+    "GPT-5.6 Thinking",
+    "Scite"
+  ],
+  "scope": "Entity_Master",
+  "review_notes": [
+    "This proposal does not alter evidence_tier, evidence_grade, profile_status, or publishing controls.",
+    "The dosage field describes specific regimens reported in human cognition studies and is not individualized advice.",
+    "Positive memory findings are framed as preliminary and population-specific because study populations, doses, outcomes, and designs are heterogeneous.",
+    "The 12-week 500 mg/day trial used a branded citicoline ingredient; avoid generalizing one product-specific trial to all products.",
+    "Parser-supported evidence_rationale and trial_design_insight fields were intentionally omitted because those columns are not present in the current Entity_Master schema."
+  ],
+  "sources": [
+    {
+      "id": "doi:10.1093/jn/nxab119",
+      "doi": "10.1093/jn/nxab119",
+      "title": "Citicoline and Memory Function in Healthy Older Adults: A Randomized, Double-Blind, Placebo-Controlled Clinical Trial",
+      "authors": "Nakazaki, Mah, Sanoshy, and colleagues",
+      "journal": "Journal of Nutrition",
+      "year": 2021,
+      "roles": [
+        "human-efficacy",
+        "studied-dose",
+        "short-term-safety-monitoring"
+      ],
+      "access": "publisher-pdf"
+    },
+    {
+      "id": "doi:10.3390/nu15020386",
+      "doi": "10.3390/nu15020386",
+      "title": "Is Citicoline Effective in Preventing and Slowing Down Dementia?—A Systematic Review and a Meta-Analysis",
+      "authors": "Bonvicini, Travaglini, Lelli, and colleagues",
+      "journal": "Nutrients",
+      "year": 2023,
+      "roles": [
+        "systematic-review",
+        "heterogeneity",
+        "limitations"
+      ],
+      "access": "publisher-pdf"
+    },
+    {
+      "id": "doi:10.14283/jarcp.2015.79",
+      "doi": "10.14283/jarcp.2015.79",
+      "title": "Citicoline Efficiency on Cognitive Function: A Systematic Review",
+      "authors": "Cano-Cuenca, Solís-García del Pozo, and Jordán",
+      "journal": "Journal of Aging Research and Lifestyle",
+      "year": 2015,
+      "roles": [
+        "systematic-review",
+        "trial-landscape"
+      ],
+      "access": "open-pdf"
+    },
+    {
+      "id": "doi:10.3390/nu11071569",
+      "doi": "10.3390/nu11071569",
+      "title": "Citicoline: A Superior Form of Choline?",
+      "authors": "Synoradzki and Grieb",
+      "journal": "Nutrients",
+      "year": 2019,
+      "roles": [
+        "mechanism",
+        "metabolism",
+        "claim-limitations"
+      ],
+      "access": "publisher-pdf"
+    }
+  ],
+  "changes": [
+    {
+      "slug": "citicoline",
+      "column": "summary",
+      "expected_old_value": "Citicoline (CDP-choline) is a choline source studied as non-stimulant support for attention and focus, and for cognition in older adults. Human evidence is limited and the effects are modest — it is a supportive option rather than a dramatic cognitive enhancer, and works best alongside sleep and healthy habits.",
+      "new_value": "Citicoline (CDP-choline) supplies choline and cytidine-derived precursors used in phosphatidylcholine metabolism. Small randomized trials in selected older adults suggest possible short-term improvements in memory, including a 12-week study using 500 mg/day, but the broader evidence is heterogeneous and does not establish a large or universal cognitive-enhancing effect.",
+      "confidence": "moderate",
+      "source_ids": [
+        "doi:10.1093/jn/nxab119",
+        "doi:10.3390/nu15020386",
+        "doi:10.14283/jarcp.2015.79",
+        "doi:10.3390/nu11071569"
+      ],
+      "requires_human_review": false,
+      "rationale": "Adds mechanism context, a specific human-trial anchor, and explicit limits against overgeneralizing heterogeneous cognition evidence while avoiding a broad tolerability claim not quantified in the retrieved excerpts."
+    },
+    {
+      "slug": "citicoline",
+      "column": "dosage_or_preferred_form",
+      "expected_old_value": "",
+      "new_value": "Human cognition studies cited here used 500 mg/day for 12 weeks and 1,000 mg/day for 28 days to 3 months. These are study regimens, not individualized dosing advice.",
+      "confidence": "moderate",
+      "source_ids": [
+        "doi:10.1093/jn/nxab119"
+      ],
+      "requires_human_review": true,
+      "rationale": "Replaces a generalized dose range with exact regimens reported in the retrieved human cognition literature."
+    }
+  ],
+  "applied_at": "2026-07-12",
+  "applied_by": "Willie Randolph"
+}
