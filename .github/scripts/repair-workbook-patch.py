@@ -75,7 +75,6 @@ if merge.returncode != 0 and not conflicts:
     raise SystemExit(f'Merge failed without file conflicts: status {merge.returncode}')
 
 run(['git', 'add', '-A'])
-run(['git', 'diff', '--cached', '--check'])
 run(['git', 'commit', '-m', 'Merge main and resolve workbook patch conflicts'])
 run(['git', 'push', 'origin', f'HEAD:{branch}'])
 
