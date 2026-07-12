@@ -104,5 +104,12 @@
   ],
   "notes": "First controlled canonical grounding pass for compound:n-acetylcysteine. The patch proposes two cautious outcome claims, corrects malformed dosage and broad unsourced description text, adds route-specific oral safety context, and records evidence-quality limitations. It does not change governance, indexing, monetization, recommendation controls, or evidence grade. Scite review found no retraction, correction, erratum, or expression-of-concern notice for the selected records.",
   "confidence": 0.82,
-  "requires_review": true
+  "requires_review": true,
+  "original_filename": "n-acetylcysteine-scite-enrichment-2026-07-12.json",
+  "original_hash": "e339105fe9b08f8a43911431df7faca2307388508f25de1d56a4daf35cd53404",
+  "_apply_result": {
+    "status": "applied",
+    "changes": 13,
+    "at": "2026-07-12T16:31:44.597Z"
+  }
 }
