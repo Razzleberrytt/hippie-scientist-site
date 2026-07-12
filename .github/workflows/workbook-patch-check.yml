@@ -47,14 +47,31 @@ jobs:
             --patch data-sources/workbook-patches/citicoline-scite-pilot.json
 
       - name: Apply patch atomically
+        id: apply_patch
+        shell: bash
         run: |
+          set +e
           node scripts/data/apply-workbook-patch.mjs \
             --patch data-sources/workbook-patches/citicoline-scite-pilot.json \
             --apply \
             --approve-human-review \
-            --in-place
+            --in-place > citicoline-apply-diagnostic.txt 2>&1
+          status=$?
+          cat citicoline-apply-diagnostic.txt
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Upload apply diagnostic
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: citicoline-apply-diagnostic
+          path: citicoline-apply-diagnostic.txt
+          if-no-files-found: error
+          retention-days: 1
 
       - name: Mark patch applied
+        if: steps.apply_patch.outputs.status == '0'
         shell: bash
         run: |
           python <<'PY'
@@ -72,6 +89,7 @@ jobs:
           PY
 
       - name: Rebuild and verify canonical outputs
+        if: steps.apply_patch.outputs.status == '0'
         run: |
           npm run workbook:roundtrip-test --silent
           npm run data:build:core --silent
@@ -80,15 +98,13 @@ jobs:
           node scripts/ci/validate-workbook-patches.mjs
 
       - name: Enforce narrow change boundary
+        if: steps.apply_patch.outputs.status == '0'
         shell: bash
         run: |
           python <<'PY'
           import subprocess
 
-          output = subprocess.check_output(
-              ['git', 'status', '--porcelain=v1'],
-              text=True,
-          )
+          output = subprocess.check_output(['git', 'status', '--porcelain=v1'], text=True)
           paths = []
           for line in output.splitlines():
               if not line.strip():
@@ -102,10 +118,7 @@ jobs:
               'data-sources/herb_monograph_master.xlsx',
               'data-sources/workbook-patches/citicoline-scite-pilot.json',
           }
-          unexpected = [
-              path for path in paths
-              if path not in allowed_exact and not path.startswith('public/data/')
-          ]
+          unexpected = [path for path in paths if path not in allowed_exact and not path.startswith('public/data/')]
           if unexpected:
               raise SystemExit('Unexpected changed paths:\n- ' + '\n- '.join(unexpected))
           if len(paths) > 50:
@@ -118,6 +131,7 @@ jobs:
           git diff --stat
 
       - name: Commit applied patch
+        if: steps.apply_patch.outputs.status == '0'
         shell: bash
         run: |
           git config user.name 'github-actions[bot]'
@@ -128,3 +142,7 @@ jobs:
           git diff --cached --check
           git commit -m 'data: apply approved Citicoline evidence patch'
           git push origin HEAD:${{ github.event.pull_request.head.ref }}
+
+      - name: Enforce apply result
+        if: steps.apply_patch.outputs.status != '0'
+        run: exit 1
