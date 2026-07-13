@@ -179,16 +179,18 @@ export const NPD_REVIEW: MentalHealthReference = {
 
 export const OCPD_REVIEW: MentalHealthReference = {
   id: 'ocpd-review',
-  citation: 'Diedrich A, Voderholzer U. Obsessive-compulsive personality disorder: a current review. Current Psychiatry Reports. 2015;17:2.',
-  url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%22Obsessive-compulsive+personality+disorder%3A+a+current+review%22',
+  citation: 'Gečaitė-Stončienė J, Löchner C, Marincowitz C, Fineberg NA, Stein DJ. Obsessive-compulsive (anankastic) personality disorder in the ICD-11: a scoping review. Frontiers in Psychiatry. 2021;12:646030.',
+  url: 'https://doi.org/10.3389/fpsyt.2021.646030',
   tier: 'Peer-reviewed clinical review',
+  note: 'Indexed in PubMed, Crossref, and DOAJ.',
 }
 
 export const PARANOID_REVIEW: MentalHealthReference = {
   id: 'paranoid-review',
-  citation: 'Lee RJ. Mistrustful and misunderstood: a review of paranoid personality disorder. Current Behavioral Neuroscience Reports. 2017;4:151-165.',
-  url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%22Mistrustful+and+Misunderstood%3A+a+Review+of+Paranoid+Personality+Disorder%22',
+  citation: 'Fanti E, Di Sarno M, Di Pierro R. In search of hidden threats: a scoping review on paranoid presentations in personality disorders. Clinical Psychology & Psychotherapy. Published online September 20, 2023.',
+  url: 'https://doi.org/10.1002/cpp.2913',
   tier: 'Peer-reviewed clinical review',
+  note: 'Indexed in PubMed and Crossref.',
 }
 
 export const SCHIZOTYPAL_SYSTEMATIC_REVIEW: MentalHealthReference = {
