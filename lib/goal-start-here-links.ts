@@ -48,7 +48,7 @@ export const GOAL_START_HERE_LINKS: Record<string, GoalStartHereLink[]> = {
     {
       role: 'Beginner guide',
       title: 'Best supplements for stress',
-      href: '/best-supplements-for-stress/',
+      href: '/guides/best/supplements-for-stress/',
       note: 'A broad entry point for comparing calming support, adaptogens, and safety flags.',
     },
     {

@@ -160,32 +160,32 @@ const FOCUS_CLUSTER_KEYWORDS = /\b(adhd|attention|focus|concentration|cognition|
 export const focusClusterSeeAlsoLinks: FocusClusterLink[] = [
   {
     title: 'Best Supplements for ADHD',
-    href: '/best-supplements-for-adhd/',
+    href: '/guides/adhd/best-supplements-for-adhd/',
     description: 'Cluster overview for ADHD-adjacent supplement questions.',
   },
   {
     title: 'Omega-3 for ADHD',
-    href: '/omega-3-for-adhd/',
+    href: '/guides/adhd/omega-3-and-adhd/',
     description: 'EPA/DHA context for attention-support research.',
   },
   {
     title: 'Magnesium for ADHD',
-    href: '/magnesium-for-adhd/',
+    href: '/guides/adhd/magnesium-for-adhd/',
     description: 'Magnesium status, sleep, and focus-adjacent framing.',
   },
   {
     title: 'L-Theanine for ADHD',
-    href: '/l-theanine-for-adhd/',
+    href: '/guides/adhd/l-theanine-for-adhd/',
     description: 'Calm-focus positioning without stimulant claims.',
   },
   {
     title: 'Citicoline vs Alpha-GPC',
-    href: '/citicoline-vs-alpha-gpc/',
+    href: '/guides/adhd/citicoline-vs-alpha-gpc/',
     description: 'Choline donor comparison for focus stacks.',
   },
   {
     title: 'Best Supplements for Focus Without Caffeine',
-    href: '/best-supplements-for-focus-without-caffeine',
+    href: '/guides/focus/focus-without-caffeine-crash/',
     description: 'Non-caffeine focus options and tradeoffs.',
   },
 ]
@@ -532,7 +532,7 @@ export function buildFocusClusterBreadcrumb(args: {
       { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
       { '@type': 'ListItem', position: 2, name: 'Goals', item: `${SITE_URL}/goals/` },
       { '@type': 'ListItem', position: 3, name: 'Focus', item: `${SITE_URL}/guides/focus/` },
-      { '@type': 'ListItem', position: 4, name: 'Focus & ADHD cluster', item: `${SITE_URL}/best-supplements-for-adhd/` },
+      { '@type': 'ListItem', position: 4, name: 'Focus & ADHD cluster', item: `${SITE_URL}/guides/adhd/best-supplements-for-adhd/` },
       { '@type': 'ListItem', position: 5, name: args.currentName, item: currentUrl },
     ],
   }

@@ -1,6 +1,6 @@
 # GSC redirect cleanup (2026-07-03): preserve workbook www URLs to canonical paths.
 https://www.thehippiescientist.net/goals/ https://thehippiescientist.net/goals/ 301
-https://www.thehippiescientist.net/guides/supplements-for-brain-fog-and-fatigue/ https://thehippiescientist.net/guides/other/supplements-for-brain-fog-and-fatigue/ 301
+https://www.thehippiescientist.net/guides/other/supplements-for-brain-fog-and-fatigue/ https://thehippiescientist.net/guides/other/supplements-for-brain-fog-and-fatigue/ 301
 https://www.thehippiescientist.net/ https://thehippiescientist.net/ 301
 https://www.thehippiescientist.net/guides/sleep-herbs-vs-melatonin/ https://thehippiescientist.net/guides/sleep/sleep-herbs-vs-melatonin/ 301
 https://www.thehippiescientist.net/guides/best-supplements-for-gut-health/ https://thehippiescientist.net/guides/best/supplements-for-gut-health/ 301
@@ -140,6 +140,19 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /articles/ashwagandha/ /guides/herbs/ashwagandha/ 301
 /articles/l-theanine /guides/herbs/l-theanine/ 301
 /articles/l-theanine/ /guides/herbs/l-theanine/ 301
+
+# Legacy best-of entry points consolidated under guide taxonomy.
+/best-supplements-for-stress /guides/best/supplements-for-stress/ 301
+/best-supplements-for-stress/ /guides/best/supplements-for-stress/ 301
+/best-supplements-for-gut-health /guides/best/supplements-for-gut-health/ 301
+/best-supplements-for-gut-health/ /guides/best/supplements-for-gut-health/ 301
+/best-supplements-for-blood-pressure /guides/best/supplements-for-blood-pressure/ 301
+/best-supplements-for-blood-pressure/ /guides/best/supplements-for-blood-pressure/ 301
+/best-supplements-for-joint-support /guides/best/supplements-for-joint-support/ 301
+/best-supplements-for-joint-support/ /guides/best/supplements-for-joint-support/ 301
+/performance-supplements /guides/other/supplements-for-brain-fog-and-fatigue/ 301
+/performance-supplements/ /guides/other/supplements-for-brain-fog-and-fatigue/ 301
+
 /best-supplements-for-sleep /guides/sleep/best-supplements-for-sleep/ 301
 /best-supplements-for-sleep/ /guides/sleep/best-supplements-for-sleep/ 301
 /best-herbs-for-anxiety /guides/anxiety/best-herbs-for-anxiety/ 301
@@ -188,11 +201,11 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 # Articles style category legacy redirect (field-notes → nootropics)
 /articles/style/field-notes /articles/style/nootropics/ 301
 /articles/style/field-notes/ /articles/style/nootropics/ 301
-/best-herbs-for-anxiety /guides/best-herbs-for-anxiety/ 301
+/best-herbs-for-anxiety /guides/anxiety/best-herbs-for-anxiety/ 301
 /herbs-for-sleep /articles/best-herbs-for-sleep/ 301
-/best-nootropics-for-focus /guides/best-nootropics-for-focus/ 301
-/best-adaptogens-for-stress /guides/best-adaptogens-for-stress/ 301
-/natural-testosterone-boosters /guides/natural-testosterone-boosters/ 301
+/best-nootropics-for-focus /guides/focus/best-nootropics-for-focus/ 301
+/best-adaptogens-for-stress /guides/anxiety/best-adaptogens-for-stress/ 301
+/natural-testosterone-boosters /guides/other/testosterone-supplements/ 301
 /comparisons/rhodiola-vs-ashwagandha /compare/rhodiola-vs-ashwagandha/ 301
 /compare/ashwagandha-vs-rhodiola /compare/rhodiola-vs-ashwagandha/ 301
 /compare/ashwagandha-vs-rhodiola-for-stress /compare/rhodiola-vs-ashwagandha/ 301
