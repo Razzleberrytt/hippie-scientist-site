@@ -96,6 +96,14 @@ jobs:
           fi
           exit "$status"
 
+      - name: Upload verify-output diagnostics
+        if: always() && hashFiles('verify-output.log') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: verify-output-log
+          path: verify-output.log
+          if-no-files-found: error
+
       - name: Generate SEO audit reports
         if: always()
         run: npm run audit:seo-reports
@@ -134,5 +142,5 @@ jobs:
           echo "- Purpose: enforce lint, typecheck, workbook/data correctness, build verification, and security audit" >> "$GITHUB_STEP_SUMMARY"
           echo "- Branch/ref: $GITHUB_REF" >> "$GITHUB_STEP_SUMMARY"
           echo "- Key commands: npm ci; npm run check:node; npm run validate:workbook-source; npm run validate:static-export; npm run routes:inventory; npm run lint; npm run typecheck; npm run data:build; npm run data:validate; npm run guard:source-of-truth; npm run build:deploy; npm run verify:output; npm run audit:seo-reports; npm run validate:route-seo; npm run audit:high" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Artifacts: seo-audit-reports; npm-audit-after" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Artifacts: verify-output-log; seo-audit-reports; npm-audit-after" >> "$GITHUB_STEP_SUMMARY"
           echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
