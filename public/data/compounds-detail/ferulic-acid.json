@@ -164,5 +164,14 @@
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "standardized extract capsule",
+  "typical_dosage": "standardized extract capsule",
+  "contraindications": [
+    "Anticoagulant or antiplatelet medications (may have antiplatelet activity warranting caution)",
+    "scheduled surgery (discontinue beforehand due to theoretical bleeding risk)",
+    "antihypertensive medications (possible additive blood-pressure-lowering effect)",
+    "pregnancy or breastfeeding (insufficient safety data for oral supplemental doses)",
+    "topical use (can cause mild skin irritation or photosensitivity in some users)"
   ]
 }

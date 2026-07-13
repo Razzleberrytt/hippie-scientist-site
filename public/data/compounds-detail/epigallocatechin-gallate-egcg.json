@@ -40,5 +40,11 @@
   "robots": "index,follow",
   "sitemap_included": true,
   "runtime_export_decision": "full_public_runtime",
-  "indexability_score": 100
+  "indexability_score": 100,
+  "dosage": "standardized extract capsule",
+  "typical_dosage": "standardized extract capsule",
+  "contraindications": [
+    "stimulant",
+    "liver"
+  ]
 }

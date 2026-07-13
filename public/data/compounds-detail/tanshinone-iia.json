@@ -37,5 +37,7 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
+  "typical_dosage": "standardized extract or essential-oil-free preparation when oral use is intended"
 }

@@ -275,6 +275,46 @@ function mirrorRecordFieldsIntoDetail(detailRecord, record) {
   }
 }
 
+// Workbook-sourced fields that the pipeline otherwise never re-syncs onto an
+// *existing* detail file (mirrorRecordFieldsIntoDetail above only runs for a
+// narrow claim-sourced-promotion allowlist). Detail records are allowed to
+// diverge from the flat record here (editorial curation may split/expand
+// content), so this only backfills a field that is currently empty on the
+// detail record — it never overwrites existing detail content. This closes
+// the staleness gap described in docs/LOOP_NOTES.md (2026-07-13) where a
+// workbook edit landed in herbs.json/compounds.json but a pre-existing
+// detail file kept stale empty dosage/contraindications/mechanisms.
+const BACKFILL_IF_EMPTY_FIELDS = ['dosage', 'typical_dosage', 'contraindications', 'mechanisms']
+
+// A subset of workbook `contraindications` values are actually a mismapped
+// interaction-severity tier (e.g. a compound's whole contraindications array
+// is just `["moderate"]` or `["low_to_moderate"]`) rather than real safety
+// prose — a separate, pre-existing workbook/parser data-quality issue. Never
+// backfill those tokens onto a detail page: an unlabeled severity word read
+// as a contraindication is actively misleading, worse than showing nothing.
+const SEVERITY_TIER_ONLY = /^(low|moderate|high|low_to_moderate|moderate_to_high|high_to_severe|severe)$/i
+
+function isEmptyValue(value) {
+  if (value === undefined || value === null || value === '') return true
+  if (Array.isArray(value) && value.length === 0) return true
+  return false
+}
+
+function isUsableBackfillValue(field, value) {
+  if (field !== 'contraindications') return true
+  if (!Array.isArray(value)) return true
+  return !value.every((entry) => SEVERITY_TIER_ONLY.test(String(entry).trim()))
+}
+
+function backfillEmptyDetailFields(detailRecord, record) {
+  for (const field of BACKFILL_IF_EMPTY_FIELDS) {
+    if (!(field in record)) continue
+    if (isEmptyValue(detailRecord[field]) && !isEmptyValue(record[field]) && isUsableBackfillValue(field, record[field])) {
+      detailRecord[field] = record[field]
+    }
+  }
+}
+
 /**
  * Build the governance object for a record.
  * `wasIndexable` is the stable, re-run-safe notion of "this profile is meant to be
@@ -465,6 +505,7 @@ function processKind(kind, listFile, detailDirName, report) {
       if (claimSourceIds.length > 0) {
         mirrorRecordFieldsIntoDetail(detailEntry.record, record)
       }
+      backfillEmptyDetailFields(detailEntry.record, record)
       const sourceIds = [...new Set([...extractSourceIds(detailEntry.record), ...claimSourceIds])].sort()
       detailEntry.record.governance = record.governance
       detailEntry.record.evidence = {

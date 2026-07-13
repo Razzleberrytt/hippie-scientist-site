@@ -34,5 +34,7 @@
   },
   "claimMap": [],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "dosage": "softgel or liquid oil",
+  "typical_dosage": "softgel or liquid oil"
 }

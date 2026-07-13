@@ -161,5 +161,14 @@
       "note": "gap identification only; not used to populate factual fields",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
+  "typical_dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
+  "contraindications": [
+    "Known allergy to lavender or other Lamiaceae/mint-family plants",
+    "pregnancy or breastfeeding without clinician guidance for oral lavender oil preparations",
+    "planned procedures requiring general anesthesia (discontinue oral lavender oil beforehand due to additive sedation)",
+    "May potentiate sedatives or alcohol or benzodiazepines or opioids through additive CNS depression",
+    "repeated topical use of lavender oil in prepubertal children has been associated with case reports of gynecomastia (possible endocrine-disrupting activity) and is not advised without clinician guidance."
   ]
 }

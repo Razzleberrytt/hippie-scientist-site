@@ -39,5 +39,10 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "dosage": "Common constituent in chamomile/other plants; not equivalent to chamomile clinical evidence. No validated dose from this pass.",
+  "typical_dosage": "Common constituent in chamomile/other plants; not equivalent to chamomile clinical evidence. No validated dose from this pass.",
+  "contraindications": [
+    "pregnancy"
+  ]
 }

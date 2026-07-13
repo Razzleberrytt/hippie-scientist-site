@@ -104,5 +104,7 @@
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved"
     }
-  ]
+  ],
+  "dosage": "long",
+  "typical_dosage": "long"
 }

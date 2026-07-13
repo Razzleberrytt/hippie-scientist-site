@@ -118,5 +118,13 @@
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "capsule or standardized extract",
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Anticoagulant or antiplatelet medications (theoretical additive bleeding risk from platelet effects)",
+    "scheduled surgery (discontinue beforehand due to theoretical bleeding risk)",
+    "pregnancy or breastfeeding (insufficient safety data)",
+    "high doses (dose-dependent GI upset such as bloating or diarrhea or nausea)"
   ]
 }

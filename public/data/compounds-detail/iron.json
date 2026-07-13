@@ -177,5 +177,10 @@
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "chelated mineral capsule or powder",
+  "typical_dosage": "chelated mineral capsule or powder",
+  "contraindications": [
+    "Avoid in hemochromatosis."
   ]
 }

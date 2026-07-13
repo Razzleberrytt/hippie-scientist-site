@@ -39,5 +39,11 @@
   },
   "claimMap": [],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "dosage": "standardized extract capsule",
+  "typical_dosage": "standardized extract capsule",
+  "contraindications": [
+    "stimulant",
+    "liver"
+  ]
 }

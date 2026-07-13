@@ -136,5 +136,10 @@
       "note": "gap identification only; not used to populate factual fields",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
+  "typical_dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
+  "contraindications": [
+    "pregnancy"
   ]
 }

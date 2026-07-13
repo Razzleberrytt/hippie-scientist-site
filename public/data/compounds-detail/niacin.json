@@ -37,5 +37,10 @@
   },
   "claimMap": [],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "dosage": "extended-release or immediate-release per clinician context",
+  "typical_dosage": "extended-release or immediate-release per clinician context",
+  "contraindications": [
+    "liver"
+  ]
 }

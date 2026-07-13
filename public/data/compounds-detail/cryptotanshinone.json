@@ -140,5 +140,12 @@
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "capsule or standardized extract",
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Potent competitive inhibitor of CYP1A2 and a moderate mixed-type inhibitor of CYP2C9 so may raise blood levels of drugs cleared by those enzymes such as caffeine or theophylline or warfarin or phenytoin",
+    "lowers testosterone and androgen synthesis so avoid in pregnancy or when using androgen-dependent hormone therapy",
+    "derived from Salvia miltiorrhiza (danshen) whose extracts carry a well-documented bleeding-risk interaction with anticoagulant or antiplatelet drugs."
   ]
 }

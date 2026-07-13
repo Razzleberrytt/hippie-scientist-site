@@ -40,5 +40,16 @@
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "dosage": "Use L-theanine parent dose runtime: practical adult sleep-support range around 200–450 mg/day, with trials spanning 50–900 mg/day. | Standalone L-theanine preferred for this use-case; combination formulas need separate source rows. | This should probably be a goal/use-case view of L-theanine, not a separate ingredient entity unless the architecture needs use-specific slugs.",
+  "typical_dosage": "Use L-theanine parent dose runtime: practical adult sleep-support range around 200–450 mg/day, with trials spanning 50–900 mg/day. | Standalone L-theanine preferred for this use-case; combination formulas need separate source rows. | This should probably be a goal/use-case view of L-theanine, not a separate ingredient entity unless the architecture needs use-specific slugs.",
+  "contraindications": [
+    "Avoid insomnia-treatment claim",
+    "clinician review for pregnancy/breastfeeding",
+    "children",
+    "sedatives",
+    "sleep aids",
+    "psychiatric medications",
+    "or complex medical conditions."
+  ]
 }

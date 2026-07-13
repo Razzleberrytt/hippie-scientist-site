@@ -37,5 +37,16 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "dosage": "softgel or liquid oil",
+  "typical_dosage": "softgel or liquid oil",
+  "contraindications": [
+    "Pregnancy/breastfeeding for concentrated essential-oil use (traditional emmenagogue/uterine-stimulant use)",
+    "infants and young children (concentrated anise/fennel essential-oil preparations linked to case reports of neurotoxicity and seizures)",
+    "hormone-sensitive conditions without clinician review (phytoestrogenic activity reported)",
+    "Apiaceae (celery-carrot-mugwort-spice) allergy cross-reactivity",
+    "Potential additive effects with hormone therapies given estrogenic activity",
+    "theoretical CYP-mediated interactions at high essential-oil doses",
+    "avoid combining with other photosensitizing or hepatotoxic essential oils."
+  ]
 }

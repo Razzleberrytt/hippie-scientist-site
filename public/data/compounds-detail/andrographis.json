@@ -119,5 +119,16 @@
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "capsule or standardized extract",
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Pregnancy (animal and traditional-use evidence of uterine-stimulant/antifertility effects)",
+    "autoimmune disease or immunosuppressant therapy without clinician review (andrographis stimulates immune signaling)",
+    "known Acanthaceae family allergy",
+    "anticoagulant/antiplatelet or antihypertensive therapy without monitoring",
+    "May potentiate antihypertensive and antidiabetic medications",
+    "caution with anticoagulants/antiplatelets and immunosuppressants",
+    "rare reports of anaphylaxis and elevated liver enzymes at high doses."
   ]
 }

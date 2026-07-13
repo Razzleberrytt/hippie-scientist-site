@@ -34,5 +34,7 @@
   },
   "claimMap": [],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "dosage": "not recommended for consumer purchase",
+  "typical_dosage": "not recommended for consumer purchase"
 }

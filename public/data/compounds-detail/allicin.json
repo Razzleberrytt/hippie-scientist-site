@@ -85,5 +85,16 @@
       "note": "gap identification only; not used to populate factual fields",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "capsule or standardized extract",
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Bleeding disorders or anticoagulant/antiplatelet therapy without clinician review",
+    "scheduled surgery (discontinue high-dose garlic-derived supplements 1-2 weeks prior)",
+    "active GI ulcer or reflux",
+    "pregnancy/breastfeeding at concentrated supplemental doses without guidance",
+    "May increase bleeding risk with anticoagulants/antiplatelets such as warfarin or aspirin or clopidogrel",
+    "may potentiate antidiabetic and antihypertensive medications",
+    "garlic constituents have been reported to reduce plasma levels of saquinavir and other CYP3A4-metabolized drugs."
   ]
 }

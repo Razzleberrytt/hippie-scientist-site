@@ -67,5 +67,7 @@
       "studyType": "Animal",
       "reviewStatus": "pending"
     }
-  ]
+  ],
+  "dosage": "capsule or standardized extract",
+  "typical_dosage": "capsule or standardized extract"
 }

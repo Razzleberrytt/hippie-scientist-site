@@ -40,5 +40,15 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "dosage": "No established consumer dosing protocol; see full guide article for regulatory and safety context.",
+  "typical_dosage": "No established consumer dosing protocol; see full guide article for regulatory and safety context.",
+  "contraindications": [
+    "Uncontrolled hypertension",
+    "known cardiovascular disease (including prior stroke or myocardial infarction or unstable angina)",
+    "pregnancy/breastfeeding",
+    "use in postmenopausal women is not well studied",
+    "Significantly reduces oral naltrexone absorption by about 60% -- avoid combining with oral naltrexone for alcohol or opioid use disorder",
+    "transient blood-pressure rise may add to other blood-pressure-active or cardiovascular medications."
+  ]
 }

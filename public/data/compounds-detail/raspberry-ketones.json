@@ -66,5 +66,7 @@
       "studyType": "Animal",
       "reviewStatus": "pending"
     }
-  ]
+  ],
+  "dosage": "—",
+  "typical_dosage": "—"
 }

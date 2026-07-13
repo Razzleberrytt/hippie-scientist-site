@@ -94,5 +94,10 @@
       "studyType": "Mechanistic",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "standardized botanical extract capsule",
+  "typical_dosage": "standardized botanical extract capsule",
+  "contraindications": [
+    "pregnancy"
   ]
 }

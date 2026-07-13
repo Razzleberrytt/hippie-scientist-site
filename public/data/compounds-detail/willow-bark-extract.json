@@ -110,5 +110,19 @@
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "—",
+  "typical_dosage": "—",
+  "contraindications": [
+    "Aspirin or salicylate allergy or NSAID hypersensitivity (salicin is metabolized to salicylic acid and shares cross-reactive risk)",
+    "children or teenagers with a current or recent viral infection (theoretical Reye syndrome risk similar to aspirin)",
+    "bleeding disorders or anticoagulant or antiplatelet therapy without clinician review",
+    "active GI ulcer or reflux disease",
+    "asthma with known aspirin or NSAID sensitivity",
+    "significant renal impairment",
+    "May increase bleeding risk with anticoagulants or antiplatelets or NSAIDs",
+    "may reduce the effectiveness of ACE inhibitors or diuretics",
+    "may increase methotrexate toxicity at high doses",
+    "pregnancy or breastfeeding without clinician guidance."
   ]
 }

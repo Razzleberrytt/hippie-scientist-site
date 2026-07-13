@@ -34,5 +34,7 @@
   },
   "claimMap": [],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "dosage": "research_only",
+  "typical_dosage": "research_only"
 }

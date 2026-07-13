@@ -36,5 +36,14 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "dosage": "capsule or standardized extract",
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Bleeding disorders or anticoagulant/antiplatelet therapy without clinician review",
+    "scheduled surgery",
+    "pregnancy/breastfeeding at concentrated supplemental doses without guidance",
+    "May increase bleeding risk with anticoagulants/antiplatelets given ajoene's fibrinogen-binding antiplatelet activity",
+    "may potentiate antidiabetic and antihypertensive medications."
+  ]
 }

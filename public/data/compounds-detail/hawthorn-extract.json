@@ -118,5 +118,10 @@
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "standardized extract",
+  "typical_dosage": "standardized extract",
+  "contraindications": [
+    "cardiovascular"
   ]
 }

@@ -113,5 +113,12 @@
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "capsule or standardized extract",
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Pregnancy or breastfeeding (insufficient safety data)",
+    "other benign-prostatic-hyperplasia medications such as alpha-blockers or 5-alpha-reductase inhibitors (theoretical additive effect warrants monitoring)",
+    "sensitive stomach (can cause nausea or abdominal pain or constipation)"
   ]
 }

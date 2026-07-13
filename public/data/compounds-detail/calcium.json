@@ -139,5 +139,10 @@
       "note": "needs_classification",
       "reviewStatus": "pending"
     }
+  ],
+  "dosage": "chelated mineral capsule or powder",
+  "typical_dosage": "chelated mineral capsule or powder",
+  "contraindications": [
+    "kidney"
   ]
 }

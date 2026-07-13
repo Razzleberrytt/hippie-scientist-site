@@ -126,5 +126,14 @@
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "—",
+  "typical_dosage": "—",
+  "contraindications": [
+    "Anticoagulant or antiplatelet therapy such as warfarin or aspirin (antiplatelet activity may increase bleeding risk)",
+    "planned surgery (discontinue at least two weeks beforehand due to bleeding risk)",
+    "autoimmune conditions (immunostimulant activity may theoretically worsen disease activity)",
+    "diabetes medications (may lower blood glucose and increase hypoglycemia risk)",
+    "pregnancy or breastfeeding without clinician guidance (insufficient safety data)"
   ]
 }

@@ -34,5 +34,7 @@
   },
   "claimMap": [],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "dosage": "powder or capsule",
+  "typical_dosage": "powder or capsule"
 }

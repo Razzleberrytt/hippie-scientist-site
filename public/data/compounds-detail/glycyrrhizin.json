@@ -41,5 +41,7 @@
   },
   "claimMap": [],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "dosage": "chelated mineral capsule or powder",
+  "typical_dosage": "chelated mineral capsule or powder"
 }

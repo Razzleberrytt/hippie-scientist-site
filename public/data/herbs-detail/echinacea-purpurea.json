@@ -45,5 +45,7 @@
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "dosage": "Extracts (variable alkylamide/cichoric acid content): 300-1000 mg/day equivalent; significant variability by species and preparation",
+  "typical_dosage": "Extracts (variable alkylamide/cichoric acid content): 300-1000 mg/day equivalent; significant variability by species and preparation"
 }

@@ -144,5 +144,10 @@
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "standardized extract capsule",
+  "typical_dosage": "standardized extract capsule",
+  "contraindications": [
+    "liver"
   ]
 }

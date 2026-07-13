@@ -120,5 +120,17 @@
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "long",
+  "typical_dosage": "long",
+  "contraindications": [
+    "Type 1 diabetes or diabetic ketoacidosis",
+    "inflammatory bowel disease or colonic ulceration or partial intestinal obstruction",
+    "cirrhosis or significant hepatic impairment",
+    "severe renal impairment",
+    "pregnancy/breastfeeding without clinician guidance",
+    "Additive hypoglycemia risk when combined with insulin or sulfonylureas",
+    "reduces digoxin absorption",
+    "efficacy is blunted by concurrent digestive-enzyme or activated-charcoal products."
   ]
 }

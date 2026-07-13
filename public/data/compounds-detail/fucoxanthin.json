@@ -116,5 +116,13 @@
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "standardized extract",
+  "typical_dosage": "standardized extract",
+  "contraindications": [
+    "Seaweed-derived extracts can carry meaningful iodine content so people with hyperthyroidism or hypothyroidism or Hashimoto thyroiditis should consult a clinician before use",
+    "theoretical antiplatelet or blood-thinning activity means caution with anticoagulant or antiplatelet drugs and discontinuation roughly two weeks before surgery",
+    "insufficient safety data in pregnancy and breastfeeding so avoid unless advised otherwise",
+    "may interact with diabetes medication and potentiate hypoglycemia."
   ]
 }

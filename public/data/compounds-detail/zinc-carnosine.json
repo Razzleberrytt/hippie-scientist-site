@@ -35,5 +35,7 @@
   },
   "claimMap": [],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "dosage": "standardized oral supplement form",
+  "typical_dosage": "standardized oral supplement form"
 }

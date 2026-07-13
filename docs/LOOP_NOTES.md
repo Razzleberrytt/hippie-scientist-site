@@ -683,3 +683,63 @@ script or component that reads `herb.interactions`/`compound.interactions`
 directly (rather than joining against `interaction_edges.json` by slug) is
 reading a field that will always be empty — grep for `\.interactions\b`
 before trusting it.
+
+---
+
+## 2026-07-13 — Fixed the systemic detail-file staleness gap: `dosage`/`typical_dosage`/`contraindications`/`mechanisms` were silently missing from ~854 herb/compound detail pages, including ashwagandha (a curated, indexed, high-traffic profile)
+
+Two prior entries above documented (but deliberately didn't fix broadly) a
+root cause: `apply-governance-overlay.mjs`'s `mirrorRecordFieldsIntoDetail()`
+only re-syncs a handful of fields, and only for a narrow
+`SOURCE_BACKED_PROMOTION_SLUGS` allowlist — so once a detail JSON file
+exists for a slug, `dosage`, `typical_dosage`, `contraindications`, and
+`mechanisms` from the flat/workbook record never reach it, even when the
+flat record has real, sourced content and the detail record has it
+missing or empty. Checked how big this actually is: `withania-somnifera`
+(ashwagandha — `CURATED_HERB_SLUGS`, `PUBLISH`, sitemapped, one of the
+site's flagship pages) had `dosage: ""`, `typical_dosage: ""`,
+`contraindications: []` on its live detail page despite `herbs.json`
+carrying a fully-sourced dosage range and a 9-item contraindications list.
+Scanning every herb/compound detail file the same way found the gap was
+sitewide: 289/291 herb and 565/565 compound detail files were missing at
+least one of these fields versus their flat record.
+
+Fixed at the pipeline level, not per-entity: added
+`backfillEmptyDetailFields()` in `apply-governance-overlay.mjs`, called
+unconditionally (not gated by the claim-sourced-promotion allowlist) for
+every herb/compound on every build. It only ever fills a field that is
+currently empty/missing on the detail record with the flat record's value
+— it never overwrites existing detail content, so any intentional
+editorial divergence (e.g. `interactions`, which the flat record doesn't
+even carry — no `Entity_Master` column, see the entry above — but detail
+sometimes does, curated separately) is untouched. This is the
+"dedicated future cycle" the two prior entries called for, scoped down to
+a mechanical, reversible, empty-field-only backfill rather than a full
+field re-sync, to keep the blast radius auditable.
+
+One additional guard was necessary: profiling the flat `contraindications`
+field across all 856 entities found ~85 compounds (e.g. `vitamin-d3`,
+`magnesium`, `l-theanine`, `creatine-monohydrate`) where the entire
+contraindications array is just an interaction-severity tier token —
+`["moderate"]`, `["low_to_moderate"]` — evidently a mismapped column from
+elsewhere in the workbook/parser, not real contraindication prose. Blindly
+backfilling those would have put a bare, context-free word like "moderate"
+on a live safety-relevant field, which is worse than showing nothing. Added
+a `SEVERITY_TIER_ONLY` filter so the backfill skips a contraindications
+value when every entry in it matches that pattern; terser-but-real
+category tags (`"pregnancy"`, `"liver"`, `"stimulant"`, etc.) are still
+backfilled since they carry real signal, just tersely.
+
+Net effect after `npm run data:build`: 854 of 856 detail files gained at
+least `dosage`/`typical_dosage` (which had zero known data-quality issues
+across the full corpus — every flat record's dosage field is real prose),
+262 gained a clean `contraindications` array, and 1 (`evening-primrose`)
+gained a `mechanisms` entry. `data:validate`, `guard:source-of-truth`, and
+the full Vitest suite (578 tests) all pass. The workbook-level
+`vitamin-d3`-style severity-token mismapping and the still-open
+`interactions` schema gap (documented above) are unresolved and are
+existing, separate issues — worth a future cycle each, but out of scope
+here since fixing the parser's column mapping needs the workbook's actual
+Entity_Master layout inspected by a human, and this cycle's fix only
+consumes already-published flat-record values without touching the
+workbook.

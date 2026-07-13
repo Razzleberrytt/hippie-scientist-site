@@ -72,5 +72,7 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "dosage": "Standardized extract (e.g., 2.5% triterpene glycosides): 20-80 mg/day; variability across products",
+  "typical_dosage": "Standardized extract (e.g., 2.5% triterpene glycosides): 20-80 mg/day; variability across products"
 }

@@ -6,7 +6,9 @@
   "primaryActions": [
     "skin-support"
   ],
-  "mechanisms": [],
+  "mechanisms": [
+    "Systematic reviews show no consistent benefit for eczema"
+  ],
   "activeCompounds": [],
   "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
@@ -63,5 +65,7 @@
       "34946512"
     ]
   },
-  "claimMap": []
+  "claimMap": [],
+  "dosage": "Oil providing gamma-linolenic acid (GLA): 240-540 mg GLA/day (~1-3 g oil); variability across formulations",
+  "typical_dosage": "Oil providing gamma-linolenic acid (GLA): 240-540 mg GLA/day (~1-3 g oil); variability across formulations"
 }
