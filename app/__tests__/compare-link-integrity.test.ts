@@ -4,6 +4,7 @@ import { isBuiltComparisonSlug } from '@/lib/comparison-utils'
 import { buildComparisonRecommendations } from '@/lib/semantic/buildComparisonRecommendations'
 import { getComparisonCandidates } from '@/lib/semantic-runtime'
 import { buildCompareCTA } from '@/lib/conversion-aware-layouts'
+import { buildSemanticLinkSuggestions } from '@/lib/semantic-internal-linking'
 
 /**
  * Guards against the regression that produced a large "Not found (404)" cluster
@@ -64,6 +65,35 @@ describe('compare link integrity', () => {
       expect(candidate.href.startsWith('/guides/compare/')).toBe(true)
       expect(isBuiltComparisonSlug(compareSlug(candidate.href))).toBe(true)
     }
+  })
+
+
+  it('buildSemanticLinkSuggestions keeps built comparisons and drops unbuilt comparisons', () => {
+    const source = {
+      slug: 'ashwagandha',
+      name: 'Ashwagandha',
+      effects: ['stress'],
+      mechanisms: ['cortisol'],
+    }
+
+    const suggestions = buildSemanticLinkSuggestions(source, [
+      {
+        slug: 'rhodiola-vs-ashwagandha',
+        name: 'Rhodiola vs Ashwagandha',
+        entityType: 'compare',
+        effects: ['stress'],
+        mechanisms: ['cortisol'],
+      },
+      {
+        slug: 'ashwagandha-vs-random-unbuilt-topic',
+        name: 'Ashwagandha vs Random Unbuilt Topic',
+        entityType: 'compare',
+        effects: ['stress'],
+        mechanisms: ['cortisol'],
+      },
+    ])
+
+    expect(suggestions.map((item) => item.href)).toEqual(['/guides/compare/rhodiola-vs-ashwagandha'])
   })
 
   it('buildCompareCTA falls back to the /guides/compare hub for unbuilt topics', () => {
