@@ -95,7 +95,7 @@ function findRelatedGuides(pageTitle, pageSlug, guides, topN = 5) {
   for (const guide of guides) {
     if (guide.slug === pageSlug) continue
     const { score, reason } = scoreMatch(guide.title, guide.slug, [], pageTitle, pageSlug)
-    if (score > 0) scored.push({ slug: guide.slug, title: guide.title, route: `/guides/${guide.slug}`, matchReason: reason, score })
+    if (score > 0) scored.push({ slug: guide.slug, title: guide.title, route: guide.route ?? `/guides/${guide.slug}`, matchReason: reason, score })
   }
   return scored.sort((a, b) => b.score - a.score).slice(0, topN).map(({ score: _s, ...rest }) => rest)
 }
@@ -105,7 +105,7 @@ function findRelatedComparisons(pageTitle, pageSlug, comparisons, topN = 5) {
   for (const comparison of comparisons) {
     if (comparison.slug === pageSlug) continue
     const { score, reason } = scoreMatch(comparison.title, comparison.slug, [], pageTitle, pageSlug)
-    if (score > 0) scored.push({ slug: comparison.slug, title: comparison.title, route: `/compare/${comparison.slug}`, matchReason: reason, score })
+    if (score > 0) scored.push({ slug: comparison.slug, title: comparison.title, route: comparison.route ?? `/compare/${comparison.slug}`, matchReason: reason, score })
   }
   return scored.sort((a, b) => b.score - a.score).slice(0, topN).map(({ score: _s, ...rest }) => rest)
 }
@@ -137,12 +137,32 @@ function loadCompounds() {
 
 const DYNAMIC_DIRS = new Set(['[slug]', '[goal]', '[id]', 'dynamic', 'style'])
 
-function getStaticDirs(appSubdir) {
-  const base = path.join(ROOT, 'app', appSubdir)
+function isAuditableStaticSegment(segment) {
+  return !DYNAMIC_DIRS.has(segment) && !segment.startsWith('[') && !segment.startsWith('_')
+}
+
+function collectStaticPageRoutes(appSubdir, segments = []) {
+  const base = path.join(ROOT, 'app', appSubdir, ...segments)
   if (!fs.existsSync(base)) return []
-  return fs.readdirSync(base, { withFileTypes: true })
-    .filter((d) => d.isDirectory() && !DYNAMIC_DIRS.has(d.name) && !d.name.startsWith('['))
-    .map((d) => d.name)
+
+  const routes = []
+  const pagePath = path.join(base, 'page.tsx')
+  if (fs.existsSync(pagePath)) {
+    const routeSegments = [appSubdir, ...segments].filter(Boolean)
+    routes.push({
+      family: appSubdir,
+      slug: segments.at(-1) ?? appSubdir,
+      route: `/${routeSegments.join('/')}`,
+      routeSlug: routeSegments.join('-'),
+    })
+  }
+
+  for (const entry of fs.readdirSync(base, { withFileTypes: true })) {
+    if (!entry.isDirectory() || !isAuditableStaticSegment(entry.name)) continue
+    routes.push(...collectStaticPageRoutes(appSubdir, [...segments, entry.name]))
+  }
+
+  return routes
 }
 
 function slugToTitle(slug) {
@@ -154,26 +174,26 @@ function slugToTitle(slug) {
 
 function collectPages() {
   const families = ['articles', 'guides', 'compare', 'goals', 'stacks']
-  const pages = []
-
-  for (const family of families) {
-    const slugs = getStaticDirs(family)
-    for (const slug of slugs) {
-      const pagePath = path.join(ROOT, 'app', family, slug, 'page.tsx')
-      if (!fs.existsSync(pagePath)) continue
-      pages.push({ family, slug, route: `/${family}/${slug}` })
-    }
-  }
-
-  return pages
+  return families.flatMap((family) => collectStaticPageRoutes(family))
 }
 
 function buildGuideEntries() {
-  return getStaticDirs('guides').map((slug) => ({ slug, title: slugToTitle(slug) }))
+  return collectStaticPageRoutes('guides').map((page) => ({
+    slug: page.routeSlug,
+    title: slugToTitle(page.slug),
+    route: page.route,
+  }))
 }
 
 function buildComparisonEntries() {
-  return getStaticDirs('compare').map((slug) => ({ slug, title: slugToTitle(slug) }))
+  return [
+    ...collectStaticPageRoutes('compare'),
+    ...collectStaticPageRoutes(path.join('guides', 'compare')),
+  ].map((page) => ({
+    slug: page.routeSlug,
+    title: slugToTitle(page.slug),
+    route: page.route,
+  }))
 }
 
 // ─── Main ──────────────────────────────────────────────────────────────────────
@@ -202,11 +222,12 @@ function main() {
 
   const pageResults = pages.map((page) => {
     const title = slugToTitle(page.slug)
+    const matchSlug = page.routeSlug ?? page.slug
 
-    const relatedHerbs = findRelatedHerbs(title, page.slug, herbs)
-    const relatedCompounds = findRelatedCompounds(title, page.slug, compounds)
-    const relatedGuides = findRelatedGuides(title, page.slug, guides)
-    const relatedComparisons = findRelatedComparisons(title, page.slug, comparisons)
+    const relatedHerbs = findRelatedHerbs(title, matchSlug, herbs)
+    const relatedCompounds = findRelatedCompounds(title, matchSlug, compounds)
+    const relatedGuides = findRelatedGuides(title, matchSlug, guides)
+    const relatedComparisons = findRelatedComparisons(title, matchSlug, comparisons)
 
     const suggestionCount =
       relatedHerbs.length + relatedCompounds.length + relatedGuides.length + relatedComparisons.length
