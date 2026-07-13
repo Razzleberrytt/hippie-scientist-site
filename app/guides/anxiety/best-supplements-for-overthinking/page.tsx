@@ -133,7 +133,7 @@ export default function Page() {
             effects typically within 30–60 minutes, no sedation, no dependency. It works by raising
             calming alpha-wave activity and dialing down anxious mental chatter. If overthinking
             peaks at night with physical tension, add{' '}
-            <Link href="/compounds/magnesium-glycinate" className="font-semibold text-brand-700 hover:underline">
+            <Link href="/compounds/magnesium-glycinate/" className="font-semibold text-brand-700 hover:underline">
               magnesium glycinate
             </Link>{' '}
             in the evening. See the{' '}
@@ -199,7 +199,7 @@ export default function Page() {
 
           <article className="card-premium p-6">
             <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/compounds/l-theanine" className="hover:underline">L-theanine</Link>{' '}
+              <Link href="/compounds/l-theanine/" className="hover:underline">L-theanine</Link>{' '}
               <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">First choice</span>
             </h3>
             <p className="mt-3 text-sm text-muted">
@@ -207,13 +207,13 @@ export default function Page() {
               glutamate. Trials show reduced stress and a quieter, calmer focus without drowsiness. It is
               the cleanest way to take the volume down on mental chatter, and it pairs perfectly with
               magnesium. Compare them in{' '}
-              <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium" className="font-medium text-brand-700 hover:underline">L-theanine vs magnesium</Link>.
+              <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/" className="font-medium text-brand-700 hover:underline">L-theanine vs magnesium</Link>.
             </p>
           </article>
 
           <article className="card-premium p-6">
             <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/compounds/magnesium-glycinate" className="hover:underline">Magnesium glycinate</Link>
+              <Link href="/compounds/magnesium-glycinate/" className="hover:underline">Magnesium glycinate</Link>
             </h3>
             <p className="mt-3 text-sm text-muted">
               Magnesium lowers nervous-system excitability and supports relaxation, and many people who
@@ -224,7 +224,7 @@ export default function Page() {
 
           <article className="card-premium p-6">
             <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/herbs/melissa-officinalis" className="hover:underline">Lemon balm &amp; saffron</Link>
+              <Link href="/herbs/melissa-officinalis/" className="hover:underline">Lemon balm &amp; saffron</Link>
             </h3>
             <p className="mt-3 text-sm text-muted">
               Lemon balm is a gentle calming herb with some trial support for reducing stress and
@@ -236,14 +236,14 @@ export default function Page() {
 
           <article className="card-premium p-6">
             <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/herbs/ashwagandha" className="hover:underline">Ashwagandha</Link>{' '}
+              <Link href="/herbs/ashwagandha/" className="hover:underline">Ashwagandha</Link>{' '}
               <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">For chronic loops</span>
             </h3>
             <p className="mt-3 text-sm text-muted">
               When overthinking is really chronic stress wearing a different mask, ashwagandha addresses
               the root by lowering cortisol and perceived stress over 4–8 weeks. It will not stop a single
               spiral tonight, but it lowers the baseline that makes spirals more likely. See our{' '}
-              <Link href="/guides/how-to-lower-cortisol-naturally" className="font-medium text-brand-700 hover:underline">how to lower cortisol naturally</Link>{' '}
+              <Link href="/guides/how-to-lower-cortisol-naturally/" className="font-medium text-brand-700 hover:underline">how to lower cortisol naturally</Link>{' '}
               guide.
             </p>
           </article>
@@ -299,12 +299,12 @@ export default function Page() {
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Related guides &amp; comparisons</h2>
           <div className="grid gap-3 sm:grid-cols-2">
-            <Link href="/guides/anxiety/best-herbs-for-anxiety" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Anxiety →</Link>
-            <Link href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Natural Anxiolytics Beyond Ashwagandha →</Link>
-            <Link href="/guides/best-herbs-for-stress-and-anxiety-at-night" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Stress &amp; Anxiety at Night →</Link>
-            <Link href="/guides/how-to-lower-cortisol-naturally" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">How to Lower Cortisol Naturally →</Link>
-            <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Ashwagandha vs L-theanine vs Magnesium →</Link>
-            <Link href="/guides/anxiety" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Anxiety Guides →</Link>
+            <Link href="/guides/anxiety/best-herbs-for-anxiety/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Anxiety →</Link>
+            <Link href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Natural Anxiolytics Beyond Ashwagandha →</Link>
+            <Link href="/guides/best-herbs-for-stress-and-anxiety-at-night/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Stress &amp; Anxiety at Night →</Link>
+            <Link href="/guides/how-to-lower-cortisol-naturally/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">How to Lower Cortisol Naturally →</Link>
+            <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Ashwagandha vs L-theanine vs Magnesium →</Link>
+            <Link href="/guides/anxiety/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Anxiety Guides →</Link>
           </div>
         </section>
       </div>

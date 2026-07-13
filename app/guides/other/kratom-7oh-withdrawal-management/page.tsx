@@ -86,7 +86,7 @@ export default function Page() {
         <div id="understanding" className="scroll-mt-20">
           <h2 className="text-2xl font-semibold text-ink mt-6 mb-4">Understanding 7-OH and Withdrawal</h2>
           <p className="text-muted leading-relaxed">
-            7-Hydroxymitragynine (7-OH) is a kratom alkaloid with mu-opioid receptor activity, similar in mechanism to pharmaceutical opioids but occurring naturally in Mitragyna speciosa leaves. Chronic 7-OH use can lead to physical dependence, resulting in withdrawal symptoms when discontinuing or reducing dosage. The intensity and duration of withdrawal depend on dose, frequency, duration of use, individual metabolism, and co-occurring conditions. For pharmacology and regulatory context, read the <Link href="/compounds/7-hydroxymitragynine" className="font-semibold text-brand-800 hover:underline">full 7-OH evidence monograph</Link>.
+            7-Hydroxymitragynine (7-OH) is a kratom alkaloid with mu-opioid receptor activity, similar in mechanism to pharmaceutical opioids but occurring naturally in Mitragyna speciosa leaves. Chronic 7-OH use can lead to physical dependence, resulting in withdrawal symptoms when discontinuing or reducing dosage. The intensity and duration of withdrawal depend on dose, frequency, duration of use, individual metabolism, and co-occurring conditions. For pharmacology and regulatory context, read the <Link href="/compounds/7-hydroxymitragynine/" className="font-semibold text-brand-800 hover:underline">full 7-OH evidence monograph</Link>.
           </p>
         </div>
 
@@ -329,12 +329,12 @@ export default function Page() {
 
       <div className="mt-8 flex gap-4 flex-wrap">
         <Link href="/guides/" className="text-sm font-medium text-emerald-700 hover:underline">Back to guides →</Link>
-        <Link href="/compounds/7-hydroxymitragynine" className="text-sm font-medium text-emerald-700 hover:underline">Read the 7-OH monograph →</Link>
-        <Link href="/compounds/mitragynine" className="text-sm font-medium text-emerald-700 hover:underline">Read the mitragynine monograph →</Link>
-        <Link href="/guides/other/kratom-7oh-withdrawal-management" className="text-sm font-medium text-emerald-700 hover:underline">Compare mitragynine vs 7-OH →</Link>
-        <Link href="/compounds/mitragynine" className="text-sm font-medium text-emerald-700 hover:underline">View mitragynine profile →</Link>
+        <Link href="/compounds/7-hydroxymitragynine/" className="text-sm font-medium text-emerald-700 hover:underline">Read the 7-OH monograph →</Link>
+        <Link href="/compounds/mitragynine/" className="text-sm font-medium text-emerald-700 hover:underline">Read the mitragynine monograph →</Link>
+        <Link href="/guides/other/kratom-7oh-withdrawal-management/" className="text-sm font-medium text-emerald-700 hover:underline">Compare mitragynine vs 7-OH →</Link>
+        <Link href="/compounds/mitragynine/" className="text-sm font-medium text-emerald-700 hover:underline">View mitragynine profile →</Link>
         <Link href="/compounds/kratom/" className="text-sm font-medium text-emerald-700 hover:underline">View kratom profile →</Link>
-        <Link href="/compounds/7-hydroxymitragynine" className="text-sm font-medium text-emerald-700 hover:underline">View 7-OH compound profile →</Link>
+        <Link href="/compounds/7-hydroxymitragynine/" className="text-sm font-medium text-emerald-700 hover:underline">View 7-OH compound profile →</Link>
       </div>
     </div>
     <References refs={KRATOM_7OH_WITHDRAWAL_MANAGEMENT_REFS} />

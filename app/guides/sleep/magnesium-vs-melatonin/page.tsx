@@ -216,9 +216,9 @@ export default function MagnesiumVsMelatoninGuidePage() {
             Magnesium and melatonin are complementary tools. Choose emphasis based on whether your main need is relaxation/quality support or circadian timing/onset. Thoughtful stacking is common. Prioritize sleep hygiene and use the compare tool for deeper evidence views.
           </p>
           <div className="mt-4 flex flex-wrap gap-4 text-sm">
-            <Link href="/guides/sleep/magnesium-vs-melatonin" className="font-semibold text-emerald-700 hover:underline">Open side-by-side compare →</Link>
-            <Link href="/compounds/magnesium" className="font-semibold text-emerald-700 hover:underline">Magnesium profile →</Link>
-            <Link href="/compounds/melatonin" className="font-semibold text-emerald-700 hover:underline">Melatonin profile →</Link>
+            <Link href="/guides/sleep/magnesium-vs-melatonin/" className="font-semibold text-emerald-700 hover:underline">Open side-by-side compare →</Link>
+            <Link href="/compounds/magnesium/" className="font-semibold text-emerald-700 hover:underline">Magnesium profile →</Link>
+            <Link href="/compounds/melatonin/" className="font-semibold text-emerald-700 hover:underline">Melatonin profile →</Link>
           </div>
         </section>
       </div>

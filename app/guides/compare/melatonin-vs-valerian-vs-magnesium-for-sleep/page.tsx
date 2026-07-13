@@ -95,7 +95,7 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
             </p>
           </div>
           <div className="pt-4">
-            <Link href="/compounds/melatonin" className="chip-readable text-xs font-bold">
+            <Link href="/compounds/melatonin/" className="chip-readable text-xs font-bold">
               Explore Melatonin →
             </Link>
           </div>
@@ -112,7 +112,7 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
             </p>
           </div>
           <div className="pt-4">
-            <Link href="/herbs/valerian" className="chip-readable text-xs font-bold">
+            <Link href="/herbs/valerian/" className="chip-readable text-xs font-bold">
               Explore Valerian →
             </Link>
           </div>
@@ -129,7 +129,7 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
             </p>
           </div>
           <div className="pt-4">
-            <Link href="/compounds/magnesium" className="chip-readable text-xs font-bold">
+            <Link href="/compounds/magnesium/" className="chip-readable text-xs font-bold">
               Explore Magnesium →
             </Link>
           </div>

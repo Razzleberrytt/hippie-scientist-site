@@ -94,16 +94,16 @@ export default function NaturalAnxiolyticsPage() {
         </p>
 
         <div className="mt-6 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
-          <Link href="/herbs/ashwagandha" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/herbs/ashwagandha/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Read Ashwagandha Profile →
           </Link>
-          <Link href="/guides/anxiety/best-herbs-for-anxiety" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/guides/anxiety/best-herbs-for-anxiety/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Best Herbs for Anxiety Guide →
           </Link>
-          <Link href="/guides/compare/kanna-vs-ssris" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/guides/compare/kanna-vs-ssris/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Kanna vs SSRIs Guide →
           </Link>
-          <Link href="/guides/compare/kava-vs-alcohol" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/guides/compare/kava-vs-alcohol/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Kava vs Alcohol Guide →
           </Link>
         </div>

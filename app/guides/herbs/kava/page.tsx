@@ -258,17 +258,17 @@ export default function KavaGuidePage() {
           For most people managing anxiety, the options below have more favorable risk profiles than kava.
         </p>
         <div className="grid gap-3 sm:grid-cols-3">
-          <Link href="/guides/passionflower" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
+          <Link href="/guides/passionflower/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Guide</p>
             <p className="mt-1 text-sm font-semibold text-ink">Passionflower</p>
             <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">Modest anxiety reduction with a more favorable safety profile.</p>
           </Link>
-          <Link href="/guides/anxiety/best-adaptogens-for-stress" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
+          <Link href="/guides/anxiety/best-adaptogens-for-stress/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Guide</p>
             <p className="mt-1 text-sm font-semibold text-ink">Ashwagandha & Adaptogens</p>
             <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">Adaptogen with the strongest stress/anxiety evidence base.</p>
           </Link>
-          <Link href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
+          <Link href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Guide</p>
             <p className="mt-1 text-sm font-semibold text-ink">Natural Anxiolytics</p>
             <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">Evidence-ranked anxiolytic options beyond the usual picks.</p>

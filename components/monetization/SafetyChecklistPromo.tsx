@@ -32,7 +32,7 @@ export default function SafetyChecklistPromo({
           One-page safety workflow: meds, dose, form, and stacking — not medical advice.
         </p>
         <Link
-          href='/info/supplement-safety-checklist'
+          href='/info/supplement-safety-checklist/'
           className='mt-4 inline-flex min-h-11 items-center justify-center rounded-full bg-brand-950 px-5 py-2.5 text-sm font-bold text-white hover:bg-brand-900 dark:bg-brand-200 dark:text-brand-950 dark:hover:bg-brand-100'
         >
           Get the free safety checklist →
@@ -66,7 +66,7 @@ export default function SafetyChecklistPromo({
             ))}
           </ul>
           <Link
-            href='/info/supplement-safety-checklist'
+            href='/info/supplement-safety-checklist/'
             className='mt-5 inline-flex text-sm font-bold text-brand-800 hover:underline dark:text-brand-100'
           >
             See what&apos;s inside the checklist →

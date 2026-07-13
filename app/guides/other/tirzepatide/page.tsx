@@ -140,7 +140,7 @@ export default function Page() {
 
       <div className="mt-8 flex gap-4 flex-wrap">
         <Link href="/guides/" className="text-sm font-medium text-emerald-700 hover:underline">Back to guides &rarr;</Link>
-        <Link href="/compounds/tirzepatide" className="text-sm font-medium text-emerald-700 hover:underline">View Tirzepatide compound profile &rarr;</Link>
+        <Link href="/compounds/tirzepatide/" className="text-sm font-medium text-emerald-700 hover:underline">View Tirzepatide compound profile &rarr;</Link>
         <Link href="/guides/other/semaglutide/" className="text-sm font-medium text-emerald-700 hover:underline">Read the Semaglutide guide &rarr;</Link>
 
       </div>

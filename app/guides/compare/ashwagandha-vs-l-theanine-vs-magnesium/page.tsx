@@ -96,7 +96,7 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
             </p>
           </div>
           <div className="pt-4">
-            <Link href="/herbs/ashwagandha" className="chip-readable text-xs font-bold">
+            <Link href="/herbs/ashwagandha/" className="chip-readable text-xs font-bold">
               Explore Ashwagandha →
             </Link>
           </div>
@@ -113,7 +113,7 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
             </p>
           </div>
           <div className="pt-4">
-            <Link href="/compounds/l-theanine" className="chip-readable text-xs font-bold">
+            <Link href="/compounds/l-theanine/" className="chip-readable text-xs font-bold">
               Explore L-Theanine →
             </Link>
           </div>
@@ -130,7 +130,7 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
             </p>
           </div>
           <div className="pt-4">
-            <Link href="/compounds/magnesium" className="chip-readable text-xs font-bold">
+            <Link href="/compounds/magnesium/" className="chip-readable text-xs font-bold">
               Explore Magnesium →
             </Link>
           </div>

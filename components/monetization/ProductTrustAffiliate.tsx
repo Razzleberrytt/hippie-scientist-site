@@ -69,7 +69,7 @@ export default function ProductTrustAffiliate({
       </a>
       <p className='mt-2 text-[10px] text-muted'>
         Affiliate link.{' '}
-        <Link href='/info/affiliate-disclosure' className='font-semibold text-emerald-800 hover:underline dark:text-brand-100'>
+        <Link href='/info/affiliate-disclosure/' className='font-semibold text-emerald-800 hover:underline dark:text-brand-100'>
           Disclosure
         </Link>
       </p>

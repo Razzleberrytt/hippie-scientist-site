@@ -32,7 +32,7 @@ describe('a11y (axe-core)', () => {
   it('DecisionProfileCard renders with semantic structure and no serious a11y violations', async () => {
     const { container } = render(
       <DecisionProfileCard
-        href="/herbs/ashwagandha"
+        href="/herbs/ashwagandha/"
         name="Ashwagandha"
         summary="Evidence summary for stress."
         bestFor="Stress support"
@@ -50,7 +50,7 @@ describe('a11y (axe-core)', () => {
   it('Profile card renders without evidence/safety boxes', async () => {
     const { container } = render(
       <DecisionProfileCard
-        href="/herbs/unknown"
+        href="/herbs/unknown/"
         name="Unknown Herb"
         summary="Profile summary."
         bestFor="General"

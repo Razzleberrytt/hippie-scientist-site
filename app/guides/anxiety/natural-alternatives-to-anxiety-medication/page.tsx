@@ -61,8 +61,8 @@ export default function Page() {
       )}
       <EmailCapture location="guides-natural-alternatives-to-anxiety-medication" className="mt-6" />
       <div className="flex flex-wrap gap-4">
-        <Link href="/guides/anxiety/best-herbs-for-anxiety" className="text-sm font-medium text-emerald-700 hover:underline">Top anxiety herbs</Link>
-        <Link href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha" className="text-sm font-medium text-emerald-700 hover:underline">Natural anxiolytics cluster</Link>
+        <Link href="/guides/anxiety/best-herbs-for-anxiety/" className="text-sm font-medium text-emerald-700 hover:underline">Top anxiety herbs</Link>
+        <Link href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha/" className="text-sm font-medium text-emerald-700 hover:underline">Natural anxiolytics cluster</Link>
       </div>
     </ArticleLayout>
   )

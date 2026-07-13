@@ -293,7 +293,7 @@ export default function SleepStackGuidePage() {
                 </Link>{' '}
                 ·{' '}
                 <Link
-                  href="/guides/sleep/magnesium-types-for-sleep"
+                  href="/guides/sleep/magnesium-types-for-sleep/"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   Magnesium Types for Sleep
@@ -314,7 +314,7 @@ export default function SleepStackGuidePage() {
               <p className="mt-2 text-sm text-muted">
                 Full evidence review:{' '}
                 <Link
-                  href="/guides/sleep/l-theanine-for-sleep"
+                  href="/guides/sleep/l-theanine-for-sleep/"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   L-Theanine for Sleep
@@ -336,14 +336,14 @@ export default function SleepStackGuidePage() {
               <p className="mt-2 text-sm text-muted">
                 Full evidence review:{' '}
                 <Link
-                  href="/guides/sleep/ashwagandha-for-sleep"
+                  href="/guides/sleep/ashwagandha-for-sleep/"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   Ashwagandha for Sleep
                 </Link>{' '}
                 ·{' '}
                 <Link
-                  href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep"
+                  href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep/"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   Ashwagandha vs Magnesium
@@ -669,7 +669,7 @@ export default function SleepStackGuidePage() {
               <p className="mt-3 text-sm text-muted">
                 See the full comparison:{' '}
                 <Link
-                  href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep"
+                  href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep/"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   Ashwagandha vs Magnesium for Sleep
@@ -1228,7 +1228,7 @@ export default function SleepStackGuidePage() {
                       Add ashwagandha (KSM-66 or Sensoril) to magnesium. Commit to 6–8 weeks.
                       See{' '}
                       <Link
-                        href="/guides/sleep/ashwagandha-for-sleep"
+                        href="/guides/sleep/ashwagandha-for-sleep/"
                         className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                       >
                         Ashwagandha for Sleep
@@ -1306,7 +1306,7 @@ export default function SleepStackGuidePage() {
               </h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 <Link
-                  href="/guides/sleep/best-herbs-for-sleep"
+                  href="/guides/sleep/best-herbs-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1336,7 +1336,7 @@ export default function SleepStackGuidePage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/magnesium-types-for-sleep"
+                  href="/guides/sleep/magnesium-types-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1351,7 +1351,7 @@ export default function SleepStackGuidePage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/l-theanine-for-sleep"
+                  href="/guides/sleep/l-theanine-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1366,7 +1366,7 @@ export default function SleepStackGuidePage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/ashwagandha-for-sleep"
+                  href="/guides/sleep/ashwagandha-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1381,7 +1381,7 @@ export default function SleepStackGuidePage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep"
+                  href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1523,14 +1523,14 @@ export default function SleepStackGuidePage() {
                 </Link>
                 {', '}
                 <Link
-                  href="/guides/sleep/l-theanine-for-sleep"
+                  href="/guides/sleep/l-theanine-for-sleep/"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   L-Theanine for Sleep
                 </Link>
                 {', and '}
                 <Link
-                  href="/guides/sleep/ashwagandha-for-sleep"
+                  href="/guides/sleep/ashwagandha-for-sleep/"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   Ashwagandha for Sleep
@@ -1597,7 +1597,7 @@ export default function SleepStackGuidePage() {
             </p>
             <div className="mt-3 space-y-2">
               <Link
-                href="/guides/sleep/best-herbs-for-sleep"
+                href="/guides/sleep/best-herbs-for-sleep/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Best herbs for sleep →
@@ -1609,31 +1609,31 @@ export default function SleepStackGuidePage() {
                 Magnesium for sleep →
               </Link>
               <Link
-                href="/guides/sleep/magnesium-types-for-sleep"
+                href="/guides/sleep/magnesium-types-for-sleep/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Magnesium types for sleep →
               </Link>
               <Link
-                href="/guides/sleep/l-theanine-for-sleep"
+                href="/guides/sleep/l-theanine-for-sleep/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 L-Theanine for sleep →
               </Link>
               <Link
-                href="/guides/sleep/ashwagandha-for-sleep"
+                href="/guides/sleep/ashwagandha-for-sleep/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Ashwagandha for sleep →
               </Link>
               <Link
-                href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep"
+                href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Ashwagandha vs magnesium →
               </Link>
               <Link
-                href="/guides/sleep-herbs-vs-melatonin"
+                href="/guides/sleep-herbs-vs-melatonin/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Sleep herbs vs melatonin →

@@ -93,15 +93,15 @@ export default function ResearchMethodologyPage() {
         </div>
 
         <div className="flex flex-wrap gap-3">
-          <Link href="/learn/what-is-neuropharmacology" className="chip-readable">
+          <Link href="/learn/what-is-neuropharmacology/" className="chip-readable">
             Neuropharmacology
           </Link>
 
-          <Link href="/learn/harm-reduction" className="chip-readable">
+          <Link href="/learn/harm-reduction/" className="chip-readable">
             Harm Reduction
           </Link>
 
-          <Link href="/learn/how-herbal-psychoactives-differ-from-pharmaceuticals" className="chip-readable">
+          <Link href="/learn/how-herbal-psychoactives-differ-from-pharmaceuticals/" className="chip-readable">
             Herbal vs Pharmaceutical Systems
           </Link>
         </div>

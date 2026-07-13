@@ -94,13 +94,13 @@ export default function SleepHerbsVsMelatoninPage() {
         </p>
 
         <div className="mt-6 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
-          <Link href="/guides/compare/sleep-herbs-vs-melatonin" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/guides/compare/sleep-herbs-vs-melatonin/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Full Evidence Comparison →
           </Link>
-          <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/" className="text-brand-700 hover:text-brand-800 hover:underline">
             L-Theanine vs Magnesium →
           </Link>
-          <Link href="/guides/sleep/magnesium-vs-melatonin" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/guides/sleep/magnesium-vs-melatonin/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Magnesium vs Melatonin Guide →
           </Link>
           <Link href="/best-supplements-for-sleep/" className="text-brand-700 hover:text-brand-800 hover:underline">

@@ -252,7 +252,7 @@ export default function AshwagandhaForAnxietyPage() {
             </p>
             <p>
               Many people use them together or at different times of day. See our comparison in the{' '}
-              <Link href="/guides/sleep/l-theanine-for-sleep" className="text-primary underline">L-Theanine for Sleep</Link>, the umbrella{' '}
+              <Link href="/guides/sleep/l-theanine-for-sleep/" className="text-primary underline">L-Theanine for Sleep</Link>, the umbrella{' '}
               <Link href="/guides/herbs/l-theanine/" className="text-primary underline">L-Theanine article</Link>, and the{' '}
               <Link href="/guides/anxiety/natural-anxiety-relief/" className="text-primary underline">Natural Anxiety Relief</Link>{' '}
               hub. For the full{' '}
@@ -276,7 +276,7 @@ export default function AshwagandhaForAnxietyPage() {
             <p>
               See related content:{' '}
               <Link href="/guides/sleep/magnesium-for-sleep/" className="text-primary underline">Magnesium for Sleep</Link> and{' '}
-              <Link href="/guides/sleep/best-herbs-for-sleep" className="text-primary underline">Best Herbs for Sleep</Link>.
+              <Link href="/guides/sleep/best-herbs-for-sleep/" className="text-primary underline">Best Herbs for Sleep</Link>.
             </p>
           </div>
         </section>
@@ -393,19 +393,19 @@ export default function AshwagandhaForAnxietyPage() {
             <Link href="/guides/anxiety/l-theanine-for-anxiety/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               L-Theanine for Anxiety
             </Link>
-            <Link href="/guides/anxiety/cbd-vs-ashwagandha-for-anxiety" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+            <Link href="/guides/anxiety/cbd-vs-ashwagandha-for-anxiety/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               CBD vs Ashwagandha for Anxiety
             </Link>
-            <Link href="/guides/anxiety/anxiety-stack-guide" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+            <Link href="/guides/anxiety/anxiety-stack-guide/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               Anxiety Stack Guide
             </Link>
-            <Link href="/guides/sleep/ashwagandha-for-sleep" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+            <Link href="/guides/sleep/ashwagandha-for-sleep/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               Ashwagandha for Sleep
             </Link>
             <Link href="/guides/herbs/l-theanine/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               L-Theanine: Full Guide
             </Link>
-            <Link href="/guides/anxiety" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+            <Link href="/guides/anxiety/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               Anxiety Goal Hub
             </Link>
           </div>

@@ -109,7 +109,7 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
             </p>
           </div>
           <div className="pt-4">
-            <Link href="/compounds/caffeine" className="chip-readable text-xs font-bold">
+            <Link href="/compounds/caffeine/" className="chip-readable text-xs font-bold">
               Explore Caffeine →
             </Link>
           </div>
@@ -126,7 +126,7 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
             </p>
           </div>
           <div className="pt-4">
-            <Link href="/compounds/l-theanine" className="chip-readable text-xs font-bold">
+            <Link href="/compounds/l-theanine/" className="chip-readable text-xs font-bold">
               Explore L-Theanine →
             </Link>
           </div>
@@ -143,7 +143,7 @@ export default function CaffeineVsLTheanineVsBacopaForFocusPage() {
             </p>
           </div>
           <div className="pt-4">
-            <Link href="/herbs/bacopa" className="chip-readable text-xs font-bold">
+            <Link href="/herbs/bacopa/" className="chip-readable text-xs font-bold">
               Explore Bacopa →
             </Link>
           </div>

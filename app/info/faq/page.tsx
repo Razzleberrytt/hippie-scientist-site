@@ -88,21 +88,21 @@ export default function FaqPage() {
 
         <div className='mt-6 flex flex-wrap gap-3'>
           <Link
-            href='/info/about'
+            href='/info/about/'
             className='rounded-full bg-emerald-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-700 shadow-sm'
           >
             Read About
           </Link>
 
           <Link
-            href='/info/contact'
+            href='/info/contact/'
             className='rounded-full border border-stone-200 px-5 py-3 text-sm font-semibold text-stone-700 transition hover:bg-stone-50 hover:text-stone-900'
           >
             Contact
           </Link>
 
           <Link
-            href='/info/disclaimer'
+            href='/info/disclaimer/'
             className='rounded-full border border-stone-200 px-5 py-3 text-sm font-semibold text-stone-700 transition hover:bg-stone-50 hover:text-stone-900'
           >
             Disclaimer
@@ -151,7 +151,7 @@ export default function FaqPage() {
 
           <div className='mt-4 space-y-3'>
             <Link
-              href='/herbs'
+              href='/herbs/'
               className='block rounded-2xl border border-brand-900/10 px-4 py-4 transition hover:bg-stone-50/50 hover:border-brand-900/20'
             >
               <p className='text-sm font-semibold text-ink'>Herbs</p>
@@ -161,7 +161,7 @@ export default function FaqPage() {
             </Link>
 
             <Link
-              href='/compounds'
+              href='/compounds/'
               className='block rounded-2xl border border-brand-900/10 px-4 py-4 transition hover:bg-stone-50/50 hover:border-brand-900/20'
             >
               <p className='text-sm font-semibold text-ink'>Compounds</p>
@@ -171,7 +171,7 @@ export default function FaqPage() {
             </Link>
 
             <Link
-              href='/articles'
+              href='/articles/'
               className='block rounded-2xl border border-brand-900/10 px-4 py-4 transition hover:bg-stone-50/50 hover:border-brand-900/20'
             >
               <p className='text-sm font-semibold text-ink'>Articles</p>

@@ -213,13 +213,13 @@ export default function Page() {
               restless sleep. It is one of the gentlest ways to take the edge off bedtime worry, used as a
               tea or extract. A practical first choice when the issue is anxiety rather than deep
               tiredness. See the dedicated{' '}
-              <Link href="/guides/passionflower" className="font-medium text-brand-700 hover:underline">passionflower guide</Link>.
+              <Link href="/guides/passionflower/" className="font-medium text-brand-700 hover:underline">passionflower guide</Link>.
             </p>
           </article>
 
           <article className="card-premium p-6">
             <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/herbs/melissa-officinalis" className="hover:underline">Lemon balm (Melissa)</Link>
+              <Link href="/herbs/melissa-officinalis/" className="hover:underline">Lemon balm (Melissa)</Link>
             </h3>
             <p className="mt-3 text-sm text-muted">
               A mild, pleasant calming herb with traditional and some clinical support for reducing
@@ -230,24 +230,24 @@ export default function Page() {
 
           <article className="card-premium p-6">
             <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/herbs/ashwagandha" className="hover:underline">Ashwagandha</Link>{' '}
+              <Link href="/herbs/ashwagandha/" className="hover:underline">Ashwagandha</Link>{' '}
               <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">Best for &ldquo;wired but tired&rdquo;</span>
             </h3>
             <p className="mt-3 text-sm text-muted">
               The most clinically studied adaptogen for stress. By moderating the HPA axis and lowering
               cortisol, evening ashwagandha targets the root of stress-driven wakefulness rather than
               just sedating you. Allow 2–6 weeks of consistent use. Learn how it compares in{' '}
-              <Link href="/guides/compare/rhodiola-vs-ashwagandha" className="font-medium text-brand-700 hover:underline">rhodiola vs ashwagandha</Link>{' '}
+              <Link href="/guides/compare/rhodiola-vs-ashwagandha/" className="font-medium text-brand-700 hover:underline">rhodiola vs ashwagandha</Link>{' '}
               and our{' '}
-              <Link href="/guides/how-to-lower-cortisol-naturally" className="font-medium text-brand-700 hover:underline">how to lower cortisol naturally</Link>{' '}
+              <Link href="/guides/how-to-lower-cortisol-naturally/" className="font-medium text-brand-700 hover:underline">how to lower cortisol naturally</Link>{' '}
               guide.
             </p>
           </article>
 
           <article className="card-premium p-6">
             <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/herbs/magnolia-officinalis" className="hover:underline">Magnolia bark</Link> &amp;{' '}
-              <Link href="/herbs/valerian" className="hover:underline">valerian</Link>
+              <Link href="/herbs/magnolia-officinalis/" className="hover:underline">Magnolia bark</Link> &amp;{' '}
+              <Link href="/herbs/valerian/" className="hover:underline">valerian</Link>
             </h3>
             <p className="mt-3 text-sm text-muted">
               Magnolia&rsquo;s honokiol acts on GABA receptors and is used traditionally for evening
@@ -258,14 +258,14 @@ export default function Page() {
 
           <article className="card-premium p-6">
             <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/compounds/l-theanine" className="hover:underline">L-theanine</Link>{' '}
+              <Link href="/compounds/l-theanine/" className="hover:underline">L-theanine</Link>{' '}
               <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">Fastest for racing thoughts</span>
             </h3>
             <p className="mt-3 text-sm text-muted">
               Not a herb but the most reliable fast-acting option for mental noise: 100–200&nbsp;mg quiets
               stress-driven arousal within an hour without sedation, and it stacks cleanly with magnesium
               or passionflower. See{' '}
-              <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium" className="font-medium text-brand-700 hover:underline">L-theanine vs magnesium</Link>.
+              <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/" className="font-medium text-brand-700 hover:underline">L-theanine vs magnesium</Link>.
             </p>
           </article>
         </section>
@@ -323,11 +323,11 @@ export default function Page() {
           <h2 className="text-2xl font-semibold text-ink">Related guides &amp; comparisons</h2>
           <div className="grid gap-3 sm:grid-cols-2">
             <Link href="/guides/best-natural-sleep-aids-that-work/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Natural Sleep Aids That Work →</Link>
-            <Link href="/guides/anxiety/best-herbs-for-anxiety" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Anxiety →</Link>
-            <Link href="/guides/how-to-lower-cortisol-naturally" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">How to Lower Cortisol Naturally →</Link>
-            <Link href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Natural Anxiolytics Beyond Ashwagandha →</Link>
-            <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Ashwagandha vs L-theanine vs Magnesium →</Link>
-            <Link href="/guides/anxiety" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Anxiety Guides →</Link>
+            <Link href="/guides/anxiety/best-herbs-for-anxiety/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Anxiety →</Link>
+            <Link href="/guides/how-to-lower-cortisol-naturally/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">How to Lower Cortisol Naturally →</Link>
+            <Link href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Natural Anxiolytics Beyond Ashwagandha →</Link>
+            <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Ashwagandha vs L-theanine vs Magnesium →</Link>
+            <Link href="/guides/anxiety/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Anxiety Guides →</Link>
           </div>
         </section>
       </div>

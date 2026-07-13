@@ -191,7 +191,7 @@ export default function NaturalAnxietyReliefPage() {
                 ashwagandha guide
               </Link>
               , and the{' '}
-              <Link href="/guides/anxiety/anxiety-stack-guide" className="font-semibold text-brand-700 hover:underline">
+              <Link href="/guides/anxiety/anxiety-stack-guide/" className="font-semibold text-brand-700 hover:underline">
                 anxiety stack guide
               </Link>
               .
@@ -332,7 +332,7 @@ export default function NaturalAnxietyReliefPage() {
                         <td className="py-3 pr-4 text-muted">Avoid with sedatives; caution in pregnancy</td>
                         <td className="py-3">
                           <Link
-                            href="/guides/passionflower"
+                            href="/guides/passionflower/"
                             className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                           >
                             Full guide →
@@ -355,7 +355,7 @@ export default function NaturalAnxietyReliefPage() {
                         <td className="py-3 pr-4 text-muted">Hepatotoxicity risk; avoid with alcohol/sedatives</td>
                         <td className="py-3">
                           <Link
-                            href="/guides/kava"
+                            href="/guides/kava/"
                             className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                           >
                             Full guide →
@@ -370,7 +370,7 @@ export default function NaturalAnxietyReliefPage() {
                         <td className="py-3 pr-4 text-muted">Sedation; avoid with CNS depressants</td>
                         <td className="py-3">
                           <Link
-                            href="/guides/sleep/best-herbs-for-sleep"
+                            href="/guides/sleep/best-herbs-for-sleep/"
                             className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                           >
                             Sleep hub →
@@ -485,7 +485,7 @@ export default function NaturalAnxietyReliefPage() {
                   </p>
                   <p>
                     <Link
-                      href="/guides/sleep/ashwagandha-for-sleep"
+                      href="/guides/sleep/ashwagandha-for-sleep/"
                       className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                     >
                       Related: Ashwagandha for Sleep →
@@ -534,7 +534,7 @@ export default function NaturalAnxietyReliefPage() {
                   </p>
                   <p>
                     <Link
-                      href="/guides/sleep/l-theanine-for-sleep"
+                      href="/guides/sleep/l-theanine-for-sleep/"
                       className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                     >
                       Related: L-Theanine for Sleep →
@@ -728,7 +728,7 @@ export default function NaturalAnxietyReliefPage() {
                   <span className="mt-0.5 flex-shrink-0 text-brand-700">→</span>
                   <p className="text-[1.01rem] leading-[1.85] text-muted">
                     <strong>Chronic stress + poor sleep:</strong> Start with{' '}
-                    <Link href="/guides/sleep/ashwagandha-for-sleep" className="font-semibold text-brand-700 hover:underline">
+                    <Link href="/guides/sleep/ashwagandha-for-sleep/" className="font-semibold text-brand-700 hover:underline">
                       ashwagandha
                     </Link>{' '}
                     (KSM-66 or Sensoril, 300–600 mg/day). Allow 6–8 weeks. Consider adding{' '}
@@ -853,7 +853,7 @@ export default function NaturalAnxietyReliefPage() {
               </p>
               <div className="grid gap-3 sm:grid-cols-2">
                 <Link
-                  href="/guides/sleep/best-herbs-for-sleep"
+                  href="/guides/sleep/best-herbs-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4 transition hover:border-brand-700/30"
                 >
                   <p className="font-semibold text-ink transition group-hover:text-brand-700">
@@ -864,7 +864,7 @@ export default function NaturalAnxietyReliefPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/ashwagandha-for-sleep"
+                  href="/guides/sleep/ashwagandha-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4 transition hover:border-brand-700/30"
                 >
                   <p className="font-semibold text-ink transition group-hover:text-brand-700">
@@ -875,7 +875,7 @@ export default function NaturalAnxietyReliefPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/l-theanine-for-sleep"
+                  href="/guides/sleep/l-theanine-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4 transition hover:border-brand-700/30"
                 >
                   <p className="font-semibold text-ink transition group-hover:text-brand-700">
@@ -897,7 +897,7 @@ export default function NaturalAnxietyReliefPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/sleep-stack-guide"
+                  href="/guides/sleep/sleep-stack-guide/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4 transition hover:border-brand-700/30"
                 >
                   <p className="font-semibold text-ink transition group-hover:text-brand-700">
@@ -1120,7 +1120,7 @@ export default function NaturalAnxietyReliefPage() {
               </h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 <Link
-                  href="/guides/sleep/best-herbs-for-sleep"
+                  href="/guides/sleep/best-herbs-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1135,7 +1135,7 @@ export default function NaturalAnxietyReliefPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/ashwagandha-for-sleep"
+                  href="/guides/sleep/ashwagandha-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1149,7 +1149,7 @@ export default function NaturalAnxietyReliefPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/l-theanine-for-sleep"
+                  href="/guides/sleep/l-theanine-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1177,7 +1177,7 @@ export default function NaturalAnxietyReliefPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/sleep-stack-guide"
+                  href="/guides/sleep/sleep-stack-guide/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1191,7 +1191,7 @@ export default function NaturalAnxietyReliefPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/anxiety/ashwagandha-for-anxiety"
+                  href="/guides/anxiety/ashwagandha-for-anxiety/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1211,7 +1211,7 @@ export default function NaturalAnxietyReliefPage() {
                   <p className="mt-1 text-xs text-muted">Calm focus and racing thoughts without sedation.</p>
                 </Link>
                 <Link
-                  href="/guides/anxiety/anxiety-stack-guide"
+                  href="/guides/anxiety/anxiety-stack-guide/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1386,7 +1386,7 @@ export default function NaturalAnxietyReliefPage() {
             </p>
             <div className="mt-3 space-y-2">
               <Link
-                href="/guides/anxiety/ashwagandha-for-anxiety"
+                href="/guides/anxiety/ashwagandha-for-anxiety/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Ashwagandha for anxiety →
@@ -1398,7 +1398,7 @@ export default function NaturalAnxietyReliefPage() {
                 L-theanine for anxiety →
               </Link>
               <Link
-                href="/guides/anxiety/anxiety-stack-guide"
+                href="/guides/anxiety/anxiety-stack-guide/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Anxiety stack guide →
@@ -1413,13 +1413,13 @@ export default function NaturalAnxietyReliefPage() {
             </p>
             <div className="mt-3 space-y-2">
               <Link
-                href="/guides/sleep/best-herbs-for-sleep"
+                href="/guides/sleep/best-herbs-for-sleep/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Best herbs for sleep →
               </Link>
               <Link
-                href="/guides/sleep/ashwagandha-for-sleep"
+                href="/guides/sleep/ashwagandha-for-sleep/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Ashwagandha for sleep →
@@ -1431,7 +1431,7 @@ export default function NaturalAnxietyReliefPage() {
                 Magnesium for sleep →
               </Link>
               <Link
-                href="/guides/sleep/sleep-stack-guide"
+                href="/guides/sleep/sleep-stack-guide/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Sleep stack guide →

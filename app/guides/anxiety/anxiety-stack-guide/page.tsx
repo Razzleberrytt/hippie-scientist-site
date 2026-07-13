@@ -273,7 +273,7 @@ export default function AnxietyStackGuidePage() {
               This is a more comprehensive stack that addresses chronic stress (ashwagandha), mental tension (L-theanine), and physical relaxation/sleep (magnesium). It is best suited for people whose anxiety significantly impacts sleep.
             </p>
             <p>
-              See also: <Link href="/guides/sleep/sleep-stack-guide" className="text-primary underline">Sleep Stack Guide</Link> and <Link href="/guides/sleep/best-herbs-for-sleep" className="text-primary underline">Best Herbs for Sleep</Link>.
+              See also: <Link href="/guides/sleep/sleep-stack-guide/" className="text-primary underline">Sleep Stack Guide</Link> and <Link href="/guides/sleep/best-herbs-for-sleep/" className="text-primary underline">Best Herbs for Sleep</Link>.
             </p>
           </div>
         </section>
@@ -407,13 +407,13 @@ export default function AnxietyStackGuidePage() {
             <Link href="/guides/herbs/l-theanine/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               L-Theanine: Full Guide
             </Link>
-            <Link href="/guides/anxiety/cbd-vs-ashwagandha-for-anxiety" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+            <Link href="/guides/anxiety/cbd-vs-ashwagandha-for-anxiety/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               CBD vs Ashwagandha for Anxiety
             </Link>
-            <Link href="/guides/sleep/sleep-stack-guide" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+            <Link href="/guides/sleep/sleep-stack-guide/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               Sleep Stack Guide
             </Link>
-            <Link href="/guides/anxiety" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
+            <Link href="/guides/anxiety/" className="block p-4 border rounded-lg hover:bg-muted transition-colors">
               Anxiety Goal Hub
             </Link>
           </div>

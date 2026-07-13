@@ -100,7 +100,7 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
             </p>
           </div>
           <div className="pt-4">
-            <Link href="/compounds/curcumin" className="chip-readable text-xs font-bold">
+            <Link href="/compounds/curcumin/" className="chip-readable text-xs font-bold">
               Explore Curcumin →
             </Link>
           </div>
@@ -119,7 +119,7 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
             </p>
           </div>
           <div className="pt-4">
-            <Link href="/compounds/boswellia" className="chip-readable text-xs font-bold">
+            <Link href="/compounds/boswellia/" className="chip-readable text-xs font-bold">
               Explore Boswellia →
             </Link>
           </div>
@@ -138,7 +138,7 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
             </p>
           </div>
           <div className="pt-4">
-            <Link href="/compounds/omega-3" className="chip-readable text-xs font-bold">
+            <Link href="/compounds/omega-3/" className="chip-readable text-xs font-bold">
               Explore Omega-3 →
             </Link>
           </div>

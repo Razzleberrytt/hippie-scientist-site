@@ -172,10 +172,10 @@ export default function RhodiolaCompleteGuidePage() {
           most herbs, what the evidence supports, and how to dose it correctly — no hype, no filler.
         </p>
         <div className="mt-6 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
-          <Link href="/herbs/rhodiola" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/herbs/rhodiola/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Rhodiola Herb Profile →
           </Link>
-          <Link href="/compounds/salidroside" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/compounds/salidroside/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Salidroside Compound →
           </Link>
         </div>
@@ -311,17 +311,17 @@ export default function RhodiolaCompleteGuidePage() {
       <section className="space-y-3">
         <h2 className="text-xl font-semibold text-ink">Explore the Rhodiola Hub</h2>
         <div className="grid gap-3 sm:grid-cols-3">
-          <Link href="/guides/rhodiola-energy" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
+          <Link href="/guides/rhodiola-energy/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Guide</p>
             <p className="mt-1 text-sm font-semibold text-ink">Rhodiola for Energy</p>
             <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">Sustained energy without the stimulant crash — and how it compares to caffeine.</p>
           </Link>
-          <Link href="/guides/rhodiola-extract-vs-powder" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
+          <Link href="/guides/rhodiola-extract-vs-powder/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Guide</p>
             <p className="mt-1 text-sm font-semibold text-ink">Extract vs Powder</p>
             <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">Which form actually works — absorption, cost, and evidence compared.</p>
           </Link>
-          <Link href="/guides/rhodiola-sleep-stack" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
+          <Link href="/guides/rhodiola-sleep-stack/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Stack Guide</p>
             <p className="mt-1 text-sm font-semibold text-ink">Rhodiola + Magnesium for Sleep</p>
             <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">The adaptogen stack for the &quot;wired but tired&quot; cycle.</p>

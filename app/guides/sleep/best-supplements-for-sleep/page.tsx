@@ -199,9 +199,9 @@ export default function BestSupplementsForSleepPage() {
             <strong>Fastest useful choice:</strong> for racing thoughts, start with{' '}
             <Link href="/guides/herbs/l-theanine/" className="font-semibold text-brand-800 hover:underline">L-theanine</Link>;
             for muscle tension or night waking, start with{' '}
-            <Link href="/compounds/magnesium-glycinate" className="font-semibold text-brand-800 hover:underline">magnesium glycinate</Link>;
+            <Link href="/compounds/magnesium-glycinate/" className="font-semibold text-brand-800 hover:underline">magnesium glycinate</Link>;
             for jet lag or a shifted sleep schedule, start with low-dose{' '}
-            <Link href="/compounds/melatonin" className="font-semibold text-brand-800 hover:underline">melatonin</Link>.
+            <Link href="/compounds/melatonin/" className="font-semibold text-brand-800 hover:underline">melatonin</Link>.
           </div>
 
         <figure className="mt-6">
@@ -397,10 +397,10 @@ export default function BestSupplementsForSleepPage() {
         {/* Related */}
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
           <Link href="/guides/herbs/l-theanine/" className="hover:text-brand-800">L-Theanine for Calm Sleep →</Link>
-          <Link href="/guides/sleep/magnesium-vs-melatonin" className="hover:text-brand-800">Magnesium vs Melatonin →</Link>
-          <Link href="/guides/compare/sleep-herbs-vs-melatonin" className="hover:text-brand-800">Sleep Herbs vs Melatonin →</Link>
+          <Link href="/guides/sleep/magnesium-vs-melatonin/" className="hover:text-brand-800">Magnesium vs Melatonin →</Link>
+          <Link href="/guides/compare/sleep-herbs-vs-melatonin/" className="hover:text-brand-800">Sleep Herbs vs Melatonin →</Link>
           <Link href="/guides/sleep/magnesium-for-sleep/" className="hover:text-brand-800">Magnesium for Sleep Guide →</Link>
-          <Link href="/guides/sleep/magnesium-types-for-sleep" className="hover:text-brand-800">Magnesium Types for Sleep →</Link>
+          <Link href="/guides/sleep/magnesium-types-for-sleep/" className="hover:text-brand-800">Magnesium Types for Sleep →</Link>
           <Link href="/guides/" className="hover:text-brand-800">All Guides →</Link>
         </nav>
       </div>

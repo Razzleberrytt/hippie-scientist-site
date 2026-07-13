@@ -159,7 +159,7 @@ export default function LTheanineWithoutCaffeinePage() {
               stimulant-free ADHD focus.</strong> Effects within 30–60 minutes, no crash, no sleep
               disruption, no dependency. If 100&nbsp;mg is not enough, increase to 200&nbsp;mg before
               considering other compounds. For comparison with the caffeine combination, see{' '}
-              <Link href="/guides/focus/l-theanine-vs-caffeine-for-focus" className="font-semibold text-brand-700 hover:underline">
+              <Link href="/guides/focus/l-theanine-vs-caffeine-for-focus/" className="font-semibold text-brand-700 hover:underline">
                 L-Theanine vs Caffeine for Focus
               </Link>
               . For the broader evidence review, see the{' '}
@@ -315,7 +315,7 @@ export default function LTheanineWithoutCaffeinePage() {
               </p>
               <p className="mt-3 text-sm text-muted">
                 For the full comparison, see{' '}
-                <Link href="/guides/focus/l-theanine-vs-caffeine-for-focus"
+                <Link href="/guides/focus/l-theanine-vs-caffeine-for-focus/"
                   className="font-semibold text-brand-700 hover:underline">
                   L-Theanine vs Caffeine for Focus
                 </Link>.

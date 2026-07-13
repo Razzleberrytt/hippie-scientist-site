@@ -50,21 +50,21 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
           </Link>
 
           <Link
-            href='/herbs'
+            href='/herbs/'
             className='button-secondary px-5 py-3 text-sm'
           >
             Herbs
           </Link>
 
           <Link
-            href='/articles'
+            href='/articles/'
             className='button-secondary px-5 py-3 text-sm'
           >
             Articles
           </Link>
 
           <Link
-            href='/compounds'
+            href='/compounds/'
             className='button-secondary px-5 py-3 text-sm'
           >
             Compounds

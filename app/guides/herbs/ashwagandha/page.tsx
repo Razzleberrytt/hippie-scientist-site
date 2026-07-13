@@ -236,7 +236,7 @@ export default function AshwagandhaArticlePage() {
                 Whether you are considering ashwagandha for stress, anxiety, sleep, focus, or general
                 resilience, this hub will help you decide if it is right for you, what dose and form
                 to use, and what to expect over time. All claims are tied to primary studies or the{' '}
-                <Link href="/herbs/ashwagandha" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">
+                <Link href="/herbs/ashwagandha/" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">
                   Ashwagandha herb profile
                 </Link>
                 .
@@ -301,7 +301,7 @@ export default function AshwagandhaArticlePage() {
                       <td className="p-4 text-brand-700 font-medium">Strong</td>
                       <td className="p-4 text-muted">4–8 weeks</td>
                       <td className="p-4">
-                        <Link href="/guides/how-to-lower-cortisol-naturally" className="text-brand-700 hover:underline font-medium">
+                        <Link href="/guides/how-to-lower-cortisol-naturally/" className="text-brand-700 hover:underline font-medium">
                           Cortisol guide →
                         </Link>
                       </td>
@@ -321,7 +321,7 @@ export default function AshwagandhaArticlePage() {
                       <td className="p-4 text-brand-700 font-medium">Moderate</td>
                       <td className="p-4 text-muted">6–10 weeks</td>
                       <td className="p-4">
-                        <Link href="/guides/sleep/ashwagandha-for-sleep" className="text-brand-700 hover:underline font-medium">
+                        <Link href="/guides/sleep/ashwagandha-for-sleep/" className="text-brand-700 hover:underline font-medium">
                           Ashwagandha for sleep →
                         </Link>
                       </td>
@@ -331,7 +331,7 @@ export default function AshwagandhaArticlePage() {
                       <td className="p-4 text-muted">Emerging–Moderate</td>
                       <td className="p-4 text-muted">4–8 weeks</td>
                       <td className="p-4">
-                        <Link href="/guides/adhd/ashwagandha-for-adhd" className="text-brand-700 hover:underline font-medium">
+                        <Link href="/guides/adhd/ashwagandha-for-adhd/" className="text-brand-700 hover:underline font-medium">
                           Ashwagandha for ADHD/focus →
                         </Link>
                       </td>
@@ -352,7 +352,7 @@ export default function AshwagandhaArticlePage() {
                 For most readers, the right entry point is the chronic stress / cortisol evidence —
                 that is the strongest and most consistent body of research, and it underlies the
                 benefits seen in anxiety and sleep. If your primary goal is sleep, see the{' '}
-                <Link href="/guides/sleep/ashwagandha-for-sleep" className="font-semibold text-brand-700 hover:underline">
+                <Link href="/guides/sleep/ashwagandha-for-sleep/" className="font-semibold text-brand-700 hover:underline">
                   dedicated sleep article
                 </Link>
                 . If anxiety is primary, see the{' '}
@@ -360,11 +360,11 @@ export default function AshwagandhaArticlePage() {
                   anxiety article
                 </Link>
                 . If you want a head-to-head with magnesium, see{' '}
-                <Link href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep" className="font-semibold text-brand-700 hover:underline">
+                <Link href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep/" className="font-semibold text-brand-700 hover:underline">
                   ashwagandha vs magnesium for sleep
                 </Link>
                 . If you want the herb-level monograph, see{' '}
-                <Link href="/herbs/ashwagandha" className="font-semibold text-brand-700 hover:underline">
+                <Link href="/herbs/ashwagandha/" className="font-semibold text-brand-700 hover:underline">
                   the full Ashwagandha herb profile
                 </Link>
                 .
@@ -614,7 +614,7 @@ export default function AshwagandhaArticlePage() {
               <p className="mt-3 text-sm text-muted">
                 For a complete breakdown of adverse events, drug interactions, and contraindications,
                 see the{' '}
-                <Link href="/herbs/ashwagandha" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">
+                <Link href="/herbs/ashwagandha/" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">
                   full Ashwagandha safety profile
                 </Link>
                 .
@@ -651,7 +651,7 @@ export default function AshwagandhaArticlePage() {
                   <p className="mt-1 text-xs leading-5 text-muted">
                     Stress baseline (ashwagandha) plus evening relaxation and muscle tension
                     support (magnesium). Compare in{' '}
-                    <Link href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep" className="font-semibold text-brand-700 hover:underline">
+                    <Link href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep/" className="font-semibold text-brand-700 hover:underline">
                       ashwagandha vs magnesium for sleep
                     </Link>
                     .
@@ -722,7 +722,7 @@ export default function AshwagandhaArticlePage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/ashwagandha-for-sleep"
+                  href="/guides/sleep/ashwagandha-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -737,7 +737,7 @@ export default function AshwagandhaArticlePage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/adhd/ashwagandha-for-adhd"
+                  href="/guides/adhd/ashwagandha-for-adhd/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -752,7 +752,7 @@ export default function AshwagandhaArticlePage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep"
+                  href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -766,7 +766,7 @@ export default function AshwagandhaArticlePage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/anxiety/cbd-vs-ashwagandha-for-anxiety"
+                  href="/guides/anxiety/cbd-vs-ashwagandha-for-anxiety/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -781,7 +781,7 @@ export default function AshwagandhaArticlePage() {
                   </p>
                 </Link>
                 <Link
-                  href="/herbs/ashwagandha"
+                  href="/herbs/ashwagandha/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -991,7 +991,7 @@ export default function AshwagandhaArticlePage() {
                 Ashwagandha for anxiety →
               </Link>
               <Link
-                href="/guides/sleep/ashwagandha-for-sleep"
+                href="/guides/sleep/ashwagandha-for-sleep/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Ashwagandha for sleep →
@@ -1003,13 +1003,13 @@ export default function AshwagandhaArticlePage() {
                 L-theanine article →
               </Link>
               <Link
-                href="/herbs/ashwagandha"
+                href="/herbs/ashwagandha/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Ashwagandha herb profile →
               </Link>
               <Link
-                href="/guides/anxiety"
+                href="/guides/anxiety/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Stress goal hub →

@@ -408,10 +408,10 @@ export default function Page() {
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Related Hippie Scientist pages</h2>
           <div className="grid gap-3 sm:grid-cols-2">
-            <Link href="/compounds/nicotine" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Nicotine compound profile -&gt;</Link>
-            <Link href="/learn/inflammation" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Inflammation guide -&gt;</Link>
-            <Link href="/guides/best/supplements-for-blood-pressure" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Supplements for blood pressure -&gt;</Link>
-            <Link href="/guides/compare/curcumin-vs-boswellia-vs-omega-3" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Curcumin vs boswellia vs omega-3 -&gt;</Link>
+            <Link href="/compounds/nicotine/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Nicotine compound profile -&gt;</Link>
+            <Link href="/learn/inflammation/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Inflammation guide -&gt;</Link>
+            <Link href="/guides/best/supplements-for-blood-pressure/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Supplements for blood pressure -&gt;</Link>
+            <Link href="/guides/compare/curcumin-vs-boswellia-vs-omega-3/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Curcumin vs boswellia vs omega-3 -&gt;</Link>
           </div>
         </section>
       </div>
