@@ -77,5 +77,14 @@
     }
   ],
   "dosage": "Vitamin D3 supplementation; adult depression/anxiety RCT meta-analysis. Dose-response paper modeled per 1000 IU/day; do not recommend high doses without biomarker/medical context.",
-  "typical_dosage": "Vitamin D3 supplementation; adult depression/anxiety RCT meta-analysis. Dose-response paper modeled per 1000 IU/day; do not recommend high doses without biomarker/medical context."
+  "typical_dosage": "Vitamin D3 supplementation; adult depression/anxiety RCT meta-analysis. Dose-response paper modeled per 1000 IU/day; do not recommend high doses without biomarker/medical context.",
+  "contraindications": [
+    "Hypercalcemia or hypervitaminosis D",
+    "sarcoidosis or other granulomatous disease due to hypercalcemia risk from unregulated calcitriol production",
+    "parathyroid gland disorders that raise blood calcium levels",
+    "kidney disease without clinician guidance due to altered calcitriol conversion",
+    "May raise hypercalcemia risk with thiazide diuretics and increase digoxin toxicity risk",
+    "corticosteroids or anticonvulsants such as phenytoin or phenobarbital can reduce effectiveness",
+    "orlistat or cholestyramine can reduce absorption."
+  ]
 }
