@@ -44,7 +44,11 @@
   "dosage": "standardized extract capsule",
   "typical_dosage": "standardized extract capsule",
   "contraindications": [
-    "stimulant",
-    "liver"
+    "concentrated high-dose extract of 800 mg per day or more especially taken fasting carries a rare but serious liver-toxicity risk",
+    "existing liver disease warrants clinician guidance and discontinuation if nausea or abdominal pain or jaundice or dark urine develop",
+    "iron supplements or iron-deficiency anemia due to reduced non-heme iron absorption unless doses are separated by at least two hours",
+    "warfarin due to reported INR variability requiring bleeding-risk monitoring",
+    "nadolol due to reduced drug absorption",
+    "bortezomib chemotherapy due to antagonism of the drug's anticancer effect"
   ]
 }
