@@ -13304,7 +13304,14 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Known ragweed or Asteraceae/Compositae family allergy (cross-reactive allergic reactions including rare anaphylaxis)",
+      "pregnancy or breastfeeding without clinician guidance (traditional uterine-stimulant use)",
+      "bleeding disorders or anticoagulant/antiplatelet therapy without clinician review (coumarin-like constituents may add to bleeding risk)",
+      "May potentiate sedatives or alcohol or benzodiazepines through additive CNS depression",
+      "case reports describe increased warfarin effect (elevated INR) with chronic chamomile tea use",
+      "theoretical CYP3A4 and CYP1A2 interactions with hepatically metabolized drugs."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -13347,7 +13354,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -13355,7 +13362,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -15329,7 +15336,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Warfarin or other vitamin-K-antagonist blood-thinning medication without clinician monitoring (CoQ10 structural similarity to vitamin K can reduce drug effectiveness and lower INR)",
+      "chemotherapy without oncologist review (antioxidant activity is a theoretical concern for oxidative-stress-dependent chemotherapy agents)",
+      "May have additive effects with antihypertensive or antidiabetic medications given mild blood-pressure-lowering and blood-glucose-lowering activity",
+      "pregnancy or breastfeeding without clinician guidance due to limited safety data",
+      "mild GI upset such as nausea or heartburn or diarrhea at high doses."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -15372,7 +15385,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -15380,7 +15393,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -34349,7 +34362,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Known allergy to lavender or other Lamiaceae/mint-family plants",
+      "pregnancy or breastfeeding without clinician guidance for oral lavender oil preparations",
+      "planned procedures requiring general anesthesia (discontinue oral lavender oil beforehand due to additive sedation)",
+      "May potentiate sedatives or alcohol or benzodiazepines or opioids through additive CNS depression",
+      "repeated topical use of lavender oil in prepubertal children has been associated with case reports of gynecomastia (possible endocrine-disrupting activity) and is not advised without clinician guidance."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
@@ -34392,7 +34411,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -34400,7 +34419,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -34814,7 +34833,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Known allergy to lemon balm or other Lamiaceae/mint-family plants",
+      "hypothyroidism or thyroid hormone replacement therapy without clinician review (lemon balm has shown TSH-inhibiting and thyroid-hormone-binding activity in preclinical studies)",
+      "planned procedures requiring general anesthesia (discontinue lemon balm several days beforehand due to sedative effects)",
+      "May potentiate sedatives or alcohol or benzodiazepines or other CNS depressants through additive drowsiness",
+      "pregnancy or breastfeeding without clinician guidance due to limited safety data."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -34857,7 +34882,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -34865,7 +34890,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -51171,7 +51196,14 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Pregnancy or breastfeeding without clinician guidance (anti-androgenic hormone activity)",
+      "hormone-sensitive conditions such as prostate cancer without clinician review",
+      "anticoagulant or antiplatelet therapy or planned surgery (case reports of increased intraoperative and postoperative bleeding)",
+      "May interact with hormonal contraceptives or other hormone therapies given anti-androgenic activity",
+      "not studied in children",
+      "mild GI upset such as nausea or diarrhea is the most common side effect."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "softgel or liquid oil",
@@ -51214,7 +51246,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -51222,7 +51254,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -60080,7 +60112,18 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Aspirin or salicylate allergy or NSAID hypersensitivity (salicin is metabolized to salicylic acid and shares cross-reactive risk)",
+      "children or teenagers with a current or recent viral infection (theoretical Reye syndrome risk similar to aspirin)",
+      "bleeding disorders or anticoagulant or antiplatelet therapy without clinician review",
+      "active GI ulcer or reflux disease",
+      "asthma with known aspirin or NSAID sensitivity",
+      "significant renal impairment",
+      "May increase bleeding risk with anticoagulants or antiplatelets or NSAIDs",
+      "may reduce the effectiveness of ACE inhibitors or diuretics",
+      "may increase methotrexate toxicity at high doses",
+      "pregnancy or breastfeeding without clinician guidance."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -60123,7 +60166,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -60131,7 +60174,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
