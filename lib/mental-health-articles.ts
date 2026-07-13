@@ -20,6 +20,11 @@ export const mentalHealthArticles: MentalHealthArticle[] = [
   ...clusterCMentalHealthArticles,
 ]
 
+const SEO_TITLE_MIN_LENGTH = 30
+const SEO_TITLE_MAX_LENGTH = 65
+const SEO_DESCRIPTION_MIN_LENGTH = 110
+const SEO_DESCRIPTION_MAX_LENGTH = 190
+
 function citedPassages(article: MentalHealthArticle): CitedText[] {
   return [
     ...article.keyPoints,
@@ -40,7 +45,18 @@ export function assertMentalHealthArticleIntegrity(article: MentalHealthArticle)
   const malformedUrls = article.references
     .filter((reference) => !/^https:\/\//i.test(reference.url))
     .map((reference) => reference.id)
+  const seoTitleLength = article.seoTitle.trim().length
+  const descriptionLength = article.description.trim().length
 
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(article.slug)) {
+    throw new Error(`${article.slug}: slug must be lowercase, descriptive, and hyphen-separated`)
+  }
+  if (seoTitleLength < SEO_TITLE_MIN_LENGTH || seoTitleLength > SEO_TITLE_MAX_LENGTH) {
+    throw new Error(`${article.slug}: SEO title must be ${SEO_TITLE_MIN_LENGTH}-${SEO_TITLE_MAX_LENGTH} characters, found ${seoTitleLength}`)
+  }
+  if (descriptionLength < SEO_DESCRIPTION_MIN_LENGTH || descriptionLength > SEO_DESCRIPTION_MAX_LENGTH) {
+    throw new Error(`${article.slug}: meta description must be ${SEO_DESCRIPTION_MIN_LENGTH}-${SEO_DESCRIPTION_MAX_LENGTH} characters, found ${descriptionLength}`)
+  }
   if (missingReferences.length > 0) {
     throw new Error(`${article.slug}: missing reference definitions for ${missingReferences.join(', ')}`)
   }
@@ -58,12 +74,22 @@ export function assertMentalHealthArticleIntegrity(article: MentalHealthArticle)
   }
 }
 
-const duplicateSlugs = mentalHealthArticles
-  .map((article) => article.slug)
-  .filter((slug, index, slugs) => slugs.indexOf(slug) !== index)
+function duplicates(values: string[]): string[] {
+  return values.filter((value, index) => values.indexOf(value) !== index)
+}
+
+const duplicateSlugs = duplicates(mentalHealthArticles.map((article) => article.slug))
+const duplicateSeoTitles = duplicates(mentalHealthArticles.map((article) => article.seoTitle.trim().toLowerCase()))
+const duplicateDescriptions = duplicates(mentalHealthArticles.map((article) => article.description.trim().toLowerCase()))
 
 if (duplicateSlugs.length > 0) {
   throw new Error(`Duplicate mental health article slugs: ${[...new Set(duplicateSlugs)].join(', ')}`)
+}
+if (duplicateSeoTitles.length > 0) {
+  throw new Error(`Duplicate mental health SEO titles: ${[...new Set(duplicateSeoTitles)].join(', ')}`)
+}
+if (duplicateDescriptions.length > 0) {
+  throw new Error(`Duplicate mental health meta descriptions: ${[...new Set(duplicateDescriptions)].join(', ')}`)
 }
 
 mentalHealthArticles.forEach(assertMentalHealthArticleIntegrity)
