@@ -83,3 +83,31 @@ audit reports a suspiciously round or empty number, check whether its
 `SHEETS`/`getSheet()` reference still matches current `Entity_Master`
 sheet names before trusting the number — don't assume 0/0 means "no
 issues."
+
+---
+
+## 2026-07-13 — Upgraded `/guides/adhd` off the `thin_page` list; 3 hubs remain
+
+Picked up the thin-hub-page thread from the previous entry. `/guides/adhd`
+(~378w, the thinnest of the four) used the old flat-grid pattern — a
+one-line intro + a plain card grid of all 22 guides, no editorial
+framing. Rebuilt it on the same `HubSectionHeading` /
+`DecisionRouter` / `GuideCardGrid` components that `/guides/sleep` and
+`/guides/best` already use: a "what's your situation?" decision router
+(8 intents → specific guides), a "best first reads" grid, a
+comparisons grid (citicoline vs alpha-GPC, magnesium glycinate vs
+citrate), an editorial safety note (medication interactions, test-before-
+supplementing framing), a "research deeper" grid linking out to the
+relevant herb/compound profiles (verified every slug exists in
+`public/data/herbs.json` / `compounds.json` before linking), and the
+original full-library grid kept as a secondary section. Word count
+cleared 500 without padding — every added sentence routes to a real
+page or states a real caveat.
+
+`/guides/anxiety` (~417w), `/guides/compare` (~421w), and `/guides/focus`
+(~398w) are still on the flat-grid pattern and still read thin — same
+fix applies, same components, just needs someone to actually map each
+guide list into intents/comparisons/depth-links. That's the
+highest-ROI target for the next content cycle; do one hub per cycle
+rather than batching all three, so each diff stays reviewable and the
+`audit:content` before/after is unambiguous.
