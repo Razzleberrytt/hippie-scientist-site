@@ -370,3 +370,26 @@ more `full_public_runtime` compounds with empty `contraindications_or_flags`
 — the next enrichment cycle should re-run `npm run audit:safety` fresh
 rather than assuming this list, since new compounds may have been promoted
 to `full_public_runtime` or added since this entry.
+
+**Post-merge addendum:** the repo's automated `chatgpt-codex-connector`
+PR review caught a real bug in this batch before merge: the
+`ginsenoside-rg3` clause used the phrase "cesarean delivery", and
+`deriveInteractionData()`'s hepatic keyword list (`['hepat','liver']` in
+`scripts/data/build-interaction-data.mjs`) matches via plain
+`String.includes()` with no word-boundary check — "delivery" contains
+"liver" as a literal substring, so the derived `entity_risk_tags.json`
+falsely labeled this compound's pregnancy/bleeding caution as a hepatic
+risk too. Fixed by rewording to "cesarean section childbirth" (verified
+against a throwaway keyword-matcher simulation) rather than touching the
+shared matcher, to keep the fix scoped to this PR. Takeaway for future
+cycles: the keyword matcher has *no word-boundary protection at all* —
+before writing any `contraindications_or_flags` clause, mentally (or via
+a quick `node -e` check) scan it for the substrings `hepat`, `liver`,
+`kidney`, `renal`, `allerg`, `thyroid`, `bleeding`, `surgery`,
+`pregnan`, `breastfeed`, `lactation`, `sedat`, `glucose`, `hypoglyc`,
+`diabet`, `hypotens`, `hypertens`, `seroton`, `immunosuppress` appearing
+*inside an unrelated word* (like "delivery" → "liver", or "regeneration"
+→ "renal"-adjacent near-misses) — not just for the intended keyword
+matches. This is a standing landmine in the matcher itself and worth
+fixing properly (word-boundary regex) in a future cycle if it keeps
+tripping up enrichment batches.
