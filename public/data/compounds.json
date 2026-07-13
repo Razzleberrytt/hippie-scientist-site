@@ -11445,7 +11445,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "kidney"
+      "hypercalcemia or other conditions causing chronically elevated blood calcium levels",
+      "history of calcium-containing kidney stones",
+      "digoxin and other cardiac glycosides without clinician monitoring due to arrhythmia risk from elevated calcium",
+      "may reduce absorption of certain antibiotics thyroid hormone medication and bisphosphonates unless doses are separated by several hours",
+      "avoid exceeding the 2500 mg per day tolerable upper intake level."
     ],
     "interactions": [],
     "side_effects": [],
@@ -14603,7 +14607,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "stimulant"
+      "pregnancy/breastfeeding without clinician guidance",
+      "known hypersensitivity to choline-containing supplements",
+      "caution with levodopa and other dopaminergic Parkinson's medications",
+      "may cause dose-dependent stimulation such as anxiety restlessness or insomnia along with mild GI upset and headache."
     ],
     "interactions": [],
     "side_effects": [],
@@ -26387,7 +26394,12 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "moderate"
+      "seizure disorder or epilepsy history",
+      "pregnancy/breastfeeding without clinician guidance",
+      "discontinue at least 2 weeks before surgery due to bleeding risk",
+      "anticoagulant or antiplatelet medications such as warfarin aspirin or clopidogrel carry additive bleeding risk",
+      "may reduce effectiveness of omeprazole or other proton-pump inhibitors",
+      "may interact with oral diabetes medications or alprazolam."
     ],
     "interactions": [],
     "side_effects": [],
@@ -33671,7 +33683,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "moderate"
+      "seizure disorder without clinician review",
+      "hypothyroidism on levothyroxine due to reduced cellular thyroid-hormone uptake",
+      "warfarin or other anticoagulant medications due to potentiated bleeding risk",
+      "fishy body odor and dose-dependent GI upset are common",
+      "long-term high-dose use raises TMAO a gut-microbiome metabolite linked to cardiovascular risk in observational research."
     ],
     "interactions": [],
     "side_effects": [],
@@ -58501,7 +58517,12 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "sedative"
+      "pregnancy/breastfeeding without clinician guidance",
+      "children under 12 without medical supervision",
+      "pre-existing liver disease such as hepatitis or cirrhosis",
+      "additive sedation with alcohol benzodiazepines opioids or other CNS depressants",
+      "discontinue before surgery due to anesthesia-interacting sedative effects",
+      "theoretical CYP3A4 interaction that may slow clearance of drugs such as simvastatin or felodipine."
     ],
     "interactions": [],
     "side_effects": [],
@@ -59363,7 +59384,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "kidney"
+      "history of calcium-oxalate kidney stones especially at doses of 1000 mg per day or more",
+      "hemochromatosis thalassemia or other iron-overload disorders due to enhanced iron absorption",
+      "G6PD deficiency at high supplemental or IV doses due to hemolysis risk",
+      "may reduce effectiveness of some chemotherapy agents",
+      "discuss high-dose use with an oncologist during cancer treatment."
     ],
     "interactions": [],
     "side_effects": [],
