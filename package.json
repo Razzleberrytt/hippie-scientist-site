@@ -83,6 +83,7 @@
     "data:ci": "node scripts/data/validate-canonical.mjs && node scripts/data/build-sqlite.mjs && node scripts/data/canonical/__tests__/graph-smoke.mjs && node scripts/data/export-site-data.mjs && node scripts/ci/validate-generated-freshness.mjs",
     "audit:source-of-truth": "STRICT_SOURCE_AUDIT=true node scripts/data/audit-source-of-truth.mjs",
     "audit:safety": "node scripts/audit-safety-fill-rate.mjs",
+    "audit:risk-tag-collisions": "node scripts/audit-risk-tag-collisions.mjs",
     "audit:duplicates": "node scripts/audit/find-duplicate-slugs.mjs",
     "audit:content-gaps": "node scripts/audit/content-gap-report.mjs",
     "audit:sitemap": "node scripts/audit/validate-sitemap-canonicals.mjs",
