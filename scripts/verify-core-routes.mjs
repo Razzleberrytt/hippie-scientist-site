@@ -76,7 +76,7 @@ const routeContentExpectations = [
   },
   {
     route: '/guides',
-    required: ['Supplement Guides', 'Browse by database'],
+    required: ['Evidence Library', 'Browse the reference databases'],
     forbidden: [LOADING_SENTINEL, 'Find the right supplement path for your goals.'],
   },
 ]
