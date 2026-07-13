@@ -5013,7 +5013,14 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "known hypersensitivity or shellfish or krill-source allergy",
+      "antihypertensive medication due to additive blood pressure lowering and risk of dizziness or fainting",
+      "anticoagulant or antiplatelet medication such as warfarin or aspirin or clopidogrel due to a mild theoretical antiplatelet effect",
+      "diabetes medication requires blood glucose monitoring due to a possible glucose-lowering effect",
+      "pregnancy or breastfeeding without clinician guidance due to insufficient safety data",
+      "autoimmune conditions or immunosuppressant therapy warrant clinician guidance due to immune-modulating activity"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -5056,7 +5063,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5064,7 +5071,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -9886,7 +9893,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "known allergy to boswellia or other Burseraceae family plants such as frankincense or myrrh",
+      "warfarin due to documented case reports of increased INR and bleeding risk from slowed warfarin breakdown",
+      "NSAIDs or aspirin or other anticoagulant or antiplatelet medication due to an additive bleeding-risk effect",
+      "severe liver or kidney disease warrants clinician guidance due to CYP2C9 or CYP2C19 or CYP3A4 enzyme inhibition affecting drug metabolism",
+      "pregnancy without clinician guidance due to case reports of abortifacient effects at medicinal doses"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -9929,7 +9942,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9937,7 +9950,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -15552,7 +15565,11 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "known allergy to bovine or marine or poultry collagen sources depending on formulation",
+      "chronic kidney disease warrants clinician guidance due to added dietary protein load",
+      "hypercalcemia caution with calcium-fortified collagen formulations"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -15595,7 +15612,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -15603,7 +15620,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -20718,8 +20735,12 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "stimulant",
-      "liver"
+      "concentrated high-dose extract of 800 mg per day or more especially taken fasting carries a rare but serious liver-toxicity risk",
+      "existing liver disease warrants clinician guidance and discontinuation if nausea or abdominal pain or jaundice or dark urine develop",
+      "iron supplements or iron-deficiency anemia due to reduced non-heme iron absorption unless doses are separated by at least two hours",
+      "warfarin due to reported INR variability requiring bleeding-risk monitoring",
+      "nadolol due to reduced drug absorption",
+      "bortezomib chemotherapy due to antagonism of the drug's anticancer effect"
     ],
     "interactions": [],
     "side_effects": [],
@@ -25688,7 +25709,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "bleeding disorders or anticoagulant or antiplatelet medication such as warfarin or aspirin or clopidogrel or direct oral anticoagulants due to additive bleeding risk",
+      "discontinue at least 14 days before surgery per American Society of Anesthesiologists guidance classifying garlic as a high-risk herbal product",
+      "antihypertensive medication may cause additive blood pressure lowering and dizziness or fainting",
+      "diabetes medication requires blood glucose monitoring due to additive glucose-lowering effect",
+      "saquinavir and other HIV protease inhibitor medications due to reduced drug effectiveness"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -25731,7 +25758,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 80,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -25739,7 +25766,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -35891,7 +35918,11 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "known allergy to marigold or Tagetes or other Asteraceae family plants due to common extraction source",
+      "pregnancy or breastfeeding without clinician guidance due to limited safety data at supplemental doses",
+      "very high-dose long-term use may cause carotenodermia (a harmless yellow-orange skin discoloration)"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -35934,7 +35965,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -35942,7 +35973,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -54046,7 +54077,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "autoimmune conditions such as lupus or multiple sclerosis or rheumatoid arthritis due to immune-stimulating activity that may trigger flares",
+      "immunosuppressant medication for organ transplant or autoimmune disease due to counteracting immune-modulating effects",
+      "known allergy to blue-green algae or seafood-processing cross-contamination",
+      "phenylketonuria due to phenylalanine content",
+      "unregulated or wild-harvested sources due to microcystin toxin or heavy-metal contamination risk warrants a reputable tested supplier"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -54089,7 +54126,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -54097,7 +54134,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],

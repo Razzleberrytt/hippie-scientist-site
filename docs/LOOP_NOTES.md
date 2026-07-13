@@ -1059,3 +1059,79 @@ single-field patch demonstrated here — never a full-record sync unless the
 detail record really is an empty stub, diff every shared field first to
 tell which case you're in). Re-run the detection query fresh each cycle;
 don't trust a cached count or name list from a prior entry.
+
+---
+
+## 2026-07-13 — Filled 7 more mainstream token-only compound `contraindications_or_flags` gaps
+
+Re-ran the token-only detection query fresh (queried the live workbook
+directly via `readWorkbook`/`getSheet`/`sheetToRows` rather than trusting
+any prior entry's count — it's drifted across several concurrent cycles):
+87 `full_public_runtime` compounds still carry a bare severity/category
+token. Picked 7 of the most mainstream, highest-search-familiarity names
+still open: `astaxanthin`, `spirulina`, `collagen-peptides`, `boswellia`,
+`lutein`, `garlic-extract`, and `epigallocatechin-gallate-egcg` (EGCG).
+Sourced real pharmacology via `WebSearch` against independent results for
+each (blood-pressure/antiplatelet/glucose/autoimmune cautions for
+astaxanthin; autoimmune-flare case reports and immunosuppressant
+interaction for spirulina; allergy/renal-load/hypercalcemia for collagen
+peptides; Burseraceae allergy, warfarin-INR case reports, and CYP2C9/
+2C19/3A4 inhibition for boswellia; Asteraceae/marigold allergy and
+carotenodermia for lutein; ASA pre-surgical high-risk classification and
+warfarin/antihypertensive/HIV-protease-inhibitor interactions for garlic;
+dose-dependent hepatotoxicity, iron-chelation, and warfarin/nadolol/
+bortezomib interactions for EGCG).
+
+Simulated the real `splitList()` `/[\n|;,]+/` regex (from
+`build-runtime-from-workbook.mjs`) and `findSuspectMatches()`
+(`KEYWORDS` + `ALLOWED_PREFIXES` from `build-interaction-data.mjs`/
+`audit-risk-tag-collisions.mjs`) against every draft clause in a
+throwaway script before writing anything — all 7 came back with correct
+clause counts and zero suspect collisions on the first draft (no rewrite
+needed this cycle, unlike several prior entries). Wrote all 7 via
+`edit-entity-master-cell.mjs --in-place`, confirmed with
+`--dry-run` first that every slug resolved to the expected row/cell.
+
+`workbook:roundtrip-test` passed (22 sheets byte-for-byte). `data:build:core`
+regenerated cleanly (edges 13217→14688, tags 1291→1342 — both counts have
+grown well past the last few entries' snapshots since other concurrent
+cycles have been filling this same population; don't use these numbers as
+a baseline either). `data:validate`, `guard:source-of-truth`, and
+`audit:risk-tag-collisions` all passed clean. All 7 are `full_public_runtime`
+with `indexability_score` 90-100.
+
+Checked every target's existing `compounds-detail/*.json` file before
+committing (per the standing takeaway): 6 of 7 (`astaxanthin`, `spirulina`,
+`collagen-peptides`, `boswellia`, `lutein`, `garlic-extract`) had **no**
+`contraindications` key at all in their detail file, so the pipeline's
+`backfillEmptyDetailFields()` will pick them up cleanly on the next full
+`data:build`. `epigallocatechin-gallate-egcg` was the non-empty-but-stale
+case (`["stimulant","liver"]`) — diffed every shared field between flat
+and detail first and found only two diverged (`mechanisms`, whitespace-only,
+left untouched, and `contraindications`), unlike the earlier `alpha-gpc`/
+`l-tyrosine` case where dozens of fields differed — so a narrow single-field
+patch (parse, overwrite only `.contraindications`, re-serialize with the
+same 2-space-indent/trailing-newline convention) was the right call here
+too, not a full-record sync.
+
+Also found (but explicitly did not fix, out of scope for a data cycle):
+`npm run test` has one pre-existing failure,
+`route-consolidation-guardrails.test.ts` expecting the mobile bottom nav's
+first item to be `/guides`, but the actual value is `/library` — confirmed
+via `git stash` that this fails identically on `origin/main` with zero
+data changes, so it's stale from the recent "Point mobile Library nav item
+to Library page" / "Rename mobile bottom nav Guides label to Library"
+commits (`473313a`'s history), not something this cycle introduced. A
+future app-code cycle should update that test's expectation to `/library`.
+
+**~80 `full_public_runtime` compounds with token-only
+`contraindications_or_flags` remain** (87 minus this cycle's 7) — re-run
+the detection query fresh next cycle; don't trust this count, since
+concurrent cycles keep shifting it in both directions (new fills reduce
+it, new promotions to `full_public_runtime` can add to it). Same approach
+applies: `WebSearch`-verified pharmacology, simulate `splitList()` +
+`findSuspectMatches()` before writing, `edit-entity-master-cell.mjs
+--in-place`, diff each target's own detail file to tell an
+empty-auto-backfill case from a stale-needs-narrow-patch case, then
+`data:build:core` (never the full `data:build`, per the long-standing
+guard-generated-data / drift-timestamp convention above).
