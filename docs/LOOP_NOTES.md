@@ -431,3 +431,48 @@ reason. Future cycles: run `npm run audit:risk-tag-collisions` after
 editing any `contraindications_or_flags` clause instead of eyeballing the
 keyword list by hand; if it flags a genuine new compound term, extend
 `ALLOWED_PREFIXES` rather than reword the clause.
+
+---
+
+## 2026-07-13 — `audit:content-gaps` was reading a field that doesn't exist, reporting 2.9% "Safety Data Fill Rate" against a real ~74%
+
+With the safety-fill-rate thread above finally closed (only `aucubin`
+deferred), I went looking for the next audit to trust and instead found
+`scripts/audit/content-gap-report.mjs`'s `checkSafety()` reads
+`item.safety` from `public/data/herbs.json` / `compounds.json` — but
+neither file has ever had a `safety` field; the real field is
+`contraindications` (confirmed via `Object.keys()` on a live record and
+cross-checked against `scripts/audit-safety-fill-rate.mjs`, which reads
+the correct field and reports 100% herbs / 73% combined). Every single
+profile was being flagged as missing safety data, tanking the reported
+fill rate to 2.9% (25/856) and marking high-traffic pages like
+`ashwagandha`/`turmeric`/`ginger` — which are fully filled — as only 71%
+complete with a phantom "safety" gap. `checkInteractions`, `checkBestFor`,
+and `checkDosing` in the same file were already reading the right field
+names (`interactions`, `effects`/`primary_effects`, `dosage`/
+`typical_dosage`) — only `checkSafety` was stale, presumably from an
+earlier data-model field name that got renamed to `contraindications`
+without this audit being updated.
+
+Fixed by pointing `checkSafety` at `item.contraindications` and teaching
+it to handle the array shape that field actually uses (it was
+string-only, matching the never-populated `safety` field's assumed
+shape). Re-ran `audit:content-gaps`: fill rate jumped to 74.1% (634/856),
+matching `audit:safety`'s 73% within the expected small-denominator
+difference (856 profiles here vs. 881 workbook rows there — this script
+only counts `full_public_runtime`-shaped entries already in `public/data`,
+not every workbook row). The priority-slug table now correctly shows
+`ashwagandha`/`turmeric`/etc. at 86% with only `interactions` missing,
+not a fabricated `safety` gap. Not wired into any CI gate or test, so
+the fix is low-risk and standalone — `git grep` confirmed
+`content-gap-report.mjs` is only referenced by its own `package.json`
+script entry.
+
+Takeaway: when triaging "what's the next enrichment target," check the
+*audit script's own field-name assumptions* against the current
+`public/data` shape before trusting its numbers — a stale field name is
+a silent, total false positive (100% of rows affected), not a partial
+one, and can send a future cycle chasing a "gap" that isn't real (or, as
+here, hide the real remaining gap — `interactions` is now the actual
+dominant missing field across the catalog and is worth a future cycle's
+attention).

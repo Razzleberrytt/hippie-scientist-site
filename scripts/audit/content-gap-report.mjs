@@ -28,10 +28,6 @@ function checkDescription(value) {
 }
 
 function checkSafety(value) {
-  if (!value || typeof value !== 'string') return false;
-  const val = value.toLowerCase().trim();
-  if (val.length === 0) return false;
-
   const placeholders = [
     'needs review',
     'safety review pending',
@@ -39,7 +35,17 @@ function checkSafety(value) {
     'placeholder'
   ];
 
-  return !placeholders.some(p => val.includes(p));
+  const checkVal = (v) => {
+    if (!v || typeof v !== 'string') return false;
+    const val = v.toLowerCase().trim();
+    if (val.length === 0) return false;
+    return !placeholders.some(p => val.includes(p));
+  };
+
+  if (Array.isArray(value)) {
+    return value.length > 0 && value.some(checkVal);
+  }
+  return checkVal(value);
 }
 
 function checkEvidenceLevel(item) {
@@ -120,7 +126,7 @@ function runGapAnalysis() {
   const processItems = (items, type) => {
     items.forEach(item => {
       const descFilled = checkDescription(item.description);
-      const safetyFilled = checkSafety(item.safety);
+      const safetyFilled = checkSafety(item.contraindications);
       const evidenceFilled = checkEvidenceLevel(item);
       const mechFilled = checkMechanism(item);
       const bestForFilled = checkBestFor(item);
