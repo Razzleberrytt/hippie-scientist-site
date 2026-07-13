@@ -82,7 +82,9 @@
   "dosage": "Tyrosine; sleep-deprived/operational-stress context. Dose varied; needs dedicated dose/form pass before display.",
   "typical_dosage": "Tyrosine; sleep-deprived/operational-stress context. Dose varied; needs dedicated dose/form pass before display.",
   "contraindications": [
-    "ssri",
-    "stimulant"
+    "monoamine oxidase inhibitor medications due to hypertensive crisis risk",
+    "hyperthyroidism or Graves disease may worsen with added thyroid hormone production",
+    "levodopa or other dopaminergic Parkinson's medications may have altered absorption",
+    "stimulant medications may compound overstimulation"
   ]
 }

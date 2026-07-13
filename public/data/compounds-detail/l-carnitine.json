@@ -75,5 +75,12 @@
     }
   ],
   "dosage": "softgel or liquid oil",
-  "typical_dosage": "softgel or liquid oil"
+  "typical_dosage": "softgel or liquid oil",
+  "contraindications": [
+    "seizure disorder without clinician review",
+    "hypothyroidism on levothyroxine due to reduced cellular thyroid-hormone uptake",
+    "warfarin or other anticoagulant medications due to potentiated bleeding risk",
+    "fishy body odor and dose-dependent GI upset are common",
+    "long-term high-dose use raises TMAO a gut-microbiome metabolite linked to cardiovascular risk in observational research."
+  ]
 }

@@ -2446,7 +2446,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "stimulant"
+      "known hypersensitivity to alpha-GPC or its excipients",
+      "cardiovascular conditions or autonomic dysfunction warrant clinician guidance before use",
+      "may potentiate cholinesterase inhibitors such as donepezil or rivastigmine",
+      "pregnancy or breastfeeding without clinician guidance due to insufficient safety data"
     ],
     "interactions": [],
     "side_effects": [],
@@ -20434,7 +20437,12 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "autoimmune disorders such as multiple sclerosis or Hashimoto's thyroiditis due to immune-activating effects",
+      "organ transplant or immunosuppressant medications due to reduced drug effectiveness",
+      "ragweed or marigold or daisy family allergy due to cross-reactivity",
+      "long-term use beyond eight weeks is not well studied"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -20477,7 +20485,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 80,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -20485,7 +20493,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -23454,7 +23462,12 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "pregnancy due to documented uterine-stimulant effects and birth-defect risk at supplemental doses",
+      "legume family allergy including chickpea or peanut or coriander due to cross-reactivity",
+      "anticoagulant medications such as warfarin due to potentiated bleeding risk",
+      "diabetes medications due to additive blood-sugar-lowering effect"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized botanical extract capsule",
@@ -23497,7 +23510,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -23505,7 +23518,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -27448,7 +27461,11 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "shellfish allergy unless a vegetarian or corn-fermented source is confirmed",
+      "anticoagulant medications such as warfarin due to case reports of potentiated bleeding",
+      "diabetes due to possible blood-glucose elevation in some users"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -27491,7 +27508,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -27499,7 +27516,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -34046,8 +34063,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "ssri",
-      "stimulant"
+      "monoamine oxidase inhibitor medications due to hypertensive crisis risk",
+      "hyperthyroidism or Graves disease may worsen with added thyroid hormone production",
+      "levodopa or other dopaminergic Parkinson's medications may have altered absorption",
+      "stimulant medications may compound overstimulation"
     ],
     "interactions": [],
     "side_effects": [],
@@ -61102,7 +61121,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "cardiovascular"
+      "monoamine oxidase inhibitor medications due to hypertensive crisis risk",
+      "hypertension or other cardiovascular disease including recent heart attack or arrhythmia",
+      "anxiety or panic disorder or PTSD or bipolar disorder due to symptom-worsening sympathetic activation",
+      "SSRIs or SNRIs or tricyclic antidepressants due to serotonin syndrome or blood-pressure risk",
+      "severe kidney or liver disease reduces clearance"
     ],
     "interactions": [],
     "side_effects": [],

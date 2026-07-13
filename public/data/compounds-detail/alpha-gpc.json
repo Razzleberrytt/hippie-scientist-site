@@ -97,6 +97,9 @@
   "dosage": "capsule or standardized extract",
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [
-    "stimulant"
+    "known hypersensitivity to alpha-GPC or its excipients",
+    "cardiovascular conditions or autonomic dysfunction warrant clinician guidance before use",
+    "may potentiate cholinesterase inhibitors such as donepezil or rivastigmine",
+    "pregnancy or breastfeeding without clinician guidance due to insufficient safety data"
   ]
 }
