@@ -620,3 +620,66 @@ gaps are running out — future cycles may need to look at more scattered,
 lower-priority-tier fixes (individual compound `contraindications_or_flags`
 entries, per the still-open backlog a few entries back) rather than
 expecting another single obvious highest-ROI target to exist.
+
+---
+
+## 2026-07-13 — `checkInteractions` in the same audit was the same bug: `item.interactions` is dead, real data lives in `interaction_edges.json`
+
+Supersedes the "schema gap" framing in the entry directly above. That entry
+concluded `interactions` was permanently unfillable per-entity (no
+`Entity_Master` column exists) and excluded it from the completeness score
+entirely (7→6 fields, `missingFields` labeled `interactions (schema gap,
+not yet sourced)`). That premise was only half right: there's no *source*
+column, but there's already a real, derived, per-entity dataset that the
+audit never looked at. `scripts/data/build-runtime-from-workbook.mjs`'s
+`profile()` sets `interactions: firstList(row, ['interactions'])`, but no
+`Entity_Master` column named `interactions` (or any `interact*` variant) has
+ever existed — confirmed by reading every header via
+`readWorkbookExcelJS(...).getSheetData('Entity_Master')` and grepping for
+`/interact/i`, zero matches. So `item.interactions` is `[]` on all 856
+records in `public/data/herbs.json`/`compounds.json`, unconditionally.
+
+That field being empty does **not** mean the live pages lack interaction
+content, though: `app/herbs/[slug]/page.tsx` and the compound equivalent
+render a separate, correctly-wired "Interactions" section
+(`InteractionWarnings`) sourced from `getInteractionEdges()` →
+`public/data/interaction_edges.json` — the derived interaction graph built
+by `build-interaction-data.mjs` from `contraindications_or_flags` text (the
+same pipeline touched in several entries above). 245 of 856 profiles
+(`ashwagandha-extract-ksm-66`, `bacopa`, `rhodiola`, `valerian-root-extract`,
+etc.) have real, rendered interaction-partner content on their live page
+right now via that section — `checkInteractions` just couldn't see it
+because it only ever looked at the always-empty `item.interactions` field
+and never loaded `interaction_edges.json` at all.
+
+Fixed `checkInteractions` in `scripts/audit/content-gap-report.mjs` to also
+check `interactionEdgesMap[item.slug]` (loaded once per run, empty-object
+fallback if the file is missing) before flagging a profile as missing
+interactions, restored `interactions` to the completeness denominator
+(6→7 fields, since it's a real per-entity signal again rather than a
+uniform schema gap), and added an `Interactions Fill Rate` line to the
+summary stats for parity with the other three tracked fields. Re-running
+`audit:content-gaps` after the fix: interactions fill rate is 28.6%
+(245/856) instead of the prior 0/856, and several priority slugs
+(`bacopa-monnieri`, `rhodiola-rosea`, `valerian-root`) that were falsely
+pinned at 86% "missing interactions" now correctly read 100% complete.
+
+The remaining 611 profiles without an `interaction_edges.json` entry are a
+mix of: (a) genuinely low-risk entities with no keyword-matched interaction
+partners (not a gap), and (b) entities whose `contraindications_or_flags`
+text doesn't yet trip the `KEYWORDS` matcher in `build-interaction-data.mjs`
+(a real, if softer, gap — same root cause as the earlier
+`contraindications_or_flags` fill-rate thread, since richer safety text
+feeds this matcher). Distinguishing the two would take cross-referencing
+against the `audit:safety` fill-rate list from the earlier entries — a
+reasonable next step for a future cycle, but out of scope here since this
+cycle was strictly an audit-accuracy fix, not a data-enrichment pass.
+
+Takeaway: the `item.interactions` field name on herb/compound runtime
+records is dead entirely — the same landmine class flagged in the
+`checkSafety`/`item.safety` entry above (a plausible-looking field name that
+was never wired to real data after a schema/pipeline evolution). Any future
+script or component that reads `herb.interactions`/`compound.interactions`
+directly (rather than joining against `interaction_edges.json` by slug) is
+reading a field that will always be empty — grep for `\.interactions\b`
+before trusting it.
