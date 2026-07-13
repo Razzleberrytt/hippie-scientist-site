@@ -26,12 +26,14 @@ export const metadata: Metadata = buildPageMetadata({
 
 type CompareCategory = {
   label: string
+  blurb: string
   pairs: { slug: string; label: string }[]
 }
 
 const FEATURED_CATEGORIES: CompareCategory[] = [
   {
     label: 'Adaptogens',
+    blurb: 'Stress-response herbs compared by onset speed, stimulation profile, and how long each takes to build an effect.',
     pairs: [
       { slug: 'ashwagandha-vs-rhodiola', label: 'Ashwagandha vs Rhodiola' },
       { slug: 'ashwagandha-vs-eleuthero', label: 'Ashwagandha vs Eleuthero' },
@@ -41,6 +43,7 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
   },
   {
     label: 'Cognitive',
+    blurb: 'Nootropics contrasted by mechanism — cholinergic support, neuroprotective herbs, and calm-focus amino acids work differently and are not interchangeable.',
     pairs: [
       { slug: 'bacopa-vs-lions-mane', label: "Bacopa vs Lion's Mane" },
       { slug: 'bacopa-vs-ginkgo-biloba', label: 'Bacopa vs Ginkgo Biloba' },
@@ -50,6 +53,7 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
   },
   {
     label: 'Sleep',
+    blurb: 'Sleep aids compared by next-day grogginess risk, dependency potential, and whether they help with falling asleep, staying asleep, or both.',
     pairs: [
       { slug: 'melatonin-vs-valerian', label: 'Melatonin vs Valerian' },
       { slug: 'valerian-vs-passionflower', label: 'Valerian vs Passionflower' },
@@ -60,6 +64,7 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
   },
   {
     label: 'Athletic',
+    blurb: 'Performance compounds compared by evidence strength and use case — strength and power output differ from endurance and recovery support.',
     pairs: [
       { slug: 'creatine-vs-beta-alanine', label: 'Creatine vs Beta-Alanine' },
       { slug: 'creatine-vs-bcaa', label: 'Creatine vs BCAAs' },
@@ -69,6 +74,7 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
   },
   {
     label: 'Immune',
+    blurb: 'Immune and general-health compounds compared by mechanism overlap, so you are not paying for two ingredients that do the same thing.',
     pairs: [
       { slug: 'echinacea-vs-elderberry', label: 'Echinacea vs Elderberry' },
       { slug: 'vitamin-d-vs-magnesium', label: 'Vitamin D vs Magnesium' },
@@ -78,6 +84,7 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
   },
   {
     label: 'Gut & Cardiovascular',
+    blurb: 'Anti-inflammatory and metabolic options compared by mechanism and drug-interaction risk, since several of these overlap with common prescriptions.',
     pairs: [
       { slug: 'turmeric-vs-ginger', label: 'Turmeric vs Ginger' },
       { slug: 'curcumin-vs-boswellia-vs-omega-3', label: 'Curcumin vs Boswellia vs Omega-3' },
@@ -150,6 +157,29 @@ const guidanceCards = [
   },
 ]
 
+const compareFaqs = [
+  {
+    question: 'What does "strong evidence" mean on this site?',
+    answer:
+      'Strong evidence means human clinical trials — ideally randomized and controlled — consistently support the effect. Moderate evidence has fewer or smaller human trials, limited evidence relies mostly on mechanism or small studies, and traditional or preliminary tiers rely on historical use or early-stage research rather than confirmed clinical outcomes.',
+  },
+  {
+    question: 'Why do two supplements compare differently depending on the goal?',
+    answer:
+      'Mechanism relevance shifts with the goal. Ashwagandha and rhodiola are both adaptogens, but ashwagandha leans calming and better fits evening stress or sleep-adjacent anxiety, while rhodiola is more stimulating and fits daytime fatigue. The same pair can rank differently on a sleep comparison than on a focus comparison.',
+  },
+  {
+    question: 'Does a higher price mean better quality?',
+    answer:
+      'Not necessarily. Price often reflects extraction method, standardization, or dose form rather than efficacy. Check the actual dose and standardized-extract percentage against what was used in supporting research before assuming a pricier product performs better.',
+  },
+  {
+    question: 'Can these comparisons replace medical advice?',
+    answer:
+      'No. Comparisons here are educational and summarize published research patterns, not individualized guidance. Review current medications, health conditions, and pregnancy or nursing status with a clinician or pharmacist before starting or combining supplements.',
+  },
+]
+
 export default async function ComparePage() {
   const compounds = await getCompounds()
   const safeCompounds = compounds
@@ -179,6 +209,7 @@ export default async function ComparePage() {
       name: pair.label,
       url: pair.href,
     })),
+    faqQuestions: compareFaqs,
   })
 
   return (
@@ -243,7 +274,10 @@ export default async function ComparePage() {
         />
         {FEATURED_CATEGORIES.map((cat) => (
           <div key={cat.label} className="space-y-3">
-            <h3 className="text-xs font-bold uppercase tracking-widest text-brand-700 dark:text-brand-200">{cat.label}</h3>
+            <div>
+              <h3 className="text-xs font-bold uppercase tracking-widest text-brand-700 dark:text-brand-200">{cat.label}</h3>
+              <p className="mt-1 text-sm leading-6 text-muted">{cat.blurb}</p>
+            </div>
             <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {cat.pairs.map((pair) => (
                 <li key={pair.slug}>
@@ -298,6 +332,22 @@ export default async function ComparePage() {
           </Link>
         </div>
       </PremiumCard>
+
+      <section id="faq" className="space-y-4 scroll-mt-24">
+        <PremiumSectionHeader
+          eyebrow="Questions"
+          title="How to read these comparisons"
+          description="What the evidence tiers mean, and what a comparison can and cannot tell you."
+        />
+        <div className="grid gap-3 sm:grid-cols-2">
+          {compareFaqs.map((item) => (
+            <PremiumCard key={item.question} as="article" className="p-5">
+              <h3 className="text-base font-semibold text-ink">{item.question}</h3>
+              <p className="mt-2 text-sm leading-6 text-muted">{item.answer}</p>
+            </PremiumCard>
+          ))}
+        </div>
+      </section>
 
       <section id="comparison-table" className="space-y-4 scroll-mt-24">
         <PremiumSectionHeader
