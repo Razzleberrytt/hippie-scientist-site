@@ -2,7 +2,7 @@ import { text } from '@/lib/display-utils'
 
 export const canonicalRouteFamilies = {
   guides: '/guides',
-  compare: '/compare',
+  compare: '/guides/compare',
   ecosystems: '/ecosystems',
   herbs: '/herbs',
   compounds: '/compounds',

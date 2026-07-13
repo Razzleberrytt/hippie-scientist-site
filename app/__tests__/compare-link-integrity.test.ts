@@ -18,7 +18,7 @@ import { buildCompareCTA } from '@/lib/conversion-aware-layouts'
  */
 
 function compareSlug(href: string): string {
-  return href.replace(/^\/compare\//, '').replace(/\/$/, '')
+  return href.replace(/^\/(?:guides\/)?compare\//, '').replace(/\/$/, '')
 }
 
 describe('compare link integrity', () => {
@@ -66,13 +66,13 @@ describe('compare link integrity', () => {
     }
   })
 
-  it('buildCompareCTA falls back to the /compare hub for unbuilt topics', () => {
+  it('buildCompareCTA falls back to the /guides/compare hub for unbuilt topics', () => {
     const cta = buildCompareCTA({ name: 'Sleep Herbs', slug: 'sleep-herbs' })
     // Either the comparison hub, or a genuinely built comparison page.
-    if (cta.href !== '/compare') {
+    if (cta.href !== '/guides/compare') {
       expect(isBuiltComparisonSlug(compareSlug(cta.href))).toBe(true)
     } else {
-      expect(cta.href).toBe('/compare')
+      expect(cta.href).toBe('/guides/compare')
     }
   })
 })

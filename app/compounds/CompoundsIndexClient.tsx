@@ -324,7 +324,7 @@ const browsePaths = [
   },
   {
     label: 'Compare options',
-    href: '/compare',
+    href: '/guides/compare',
     description: 'Review alternatives without treating compound lists as recommendations.',
   },
 ]

@@ -48,7 +48,7 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Compare', href: '/compare' },
+          { label: 'Compare', href: '/guides/compare' },
           { label: 'Curcumin vs Boswellia vs Omega-3' },
         ]}
       />

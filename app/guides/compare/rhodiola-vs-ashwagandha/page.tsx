@@ -46,7 +46,7 @@ export default function RhodiolaVsAshwagandhaComparePage() {
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Compare', href: '/compare' },
+          { label: 'Compare', href: '/guides/compare' },
           { label: 'Rhodiola vs Ashwagandha' },
         ]}
       />

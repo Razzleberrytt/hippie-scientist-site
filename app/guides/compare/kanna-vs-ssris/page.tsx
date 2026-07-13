@@ -67,7 +67,7 @@ export default function KannaVsSSRIsPage() {
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Compare', href: '/compare' },
+          { label: 'Compare', href: '/guides/compare' },
           { label: 'Kanna vs SSRIs' },
         ]}
       />

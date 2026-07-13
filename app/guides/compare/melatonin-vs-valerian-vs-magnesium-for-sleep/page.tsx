@@ -48,7 +48,7 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Compare', href: '/compare' },
+          { label: 'Compare', href: '/guides/compare' },
           { label: 'Melatonin vs Valerian vs Magnesium for Sleep' },
         ]}
       />

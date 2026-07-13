@@ -50,7 +50,7 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Compare', href: '/compare' },
+          { label: 'Compare', href: '/guides/compare' },
           { label: 'Ashwagandha vs L-Theanine vs Magnesium' },
         ]}
       />
