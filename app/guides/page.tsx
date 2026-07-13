@@ -3,12 +3,12 @@ import Link from 'next/link'
 import { SITE_URL } from '@/lib/navigation-config'
 
 export const metadata: Metadata = {
-  title: 'Supplement Guides — By Health Goal',
-  description: 'Evidence-based supplement guides organized by health goal: ADHD, sleep, anxiety, stress, focus, cognition, and individual herb deep-dives.',
+  title: 'Evidence-Based Guides — Supplements & Mental Health',
+  description: 'Evidence-based guides to ADHD, sleep, anxiety, stress, focus, mental health, OCD, personality disorders, and individual herbs and supplements.',
   alternates: { canonical: `${SITE_URL}/guides/` },
   openGraph: {
-    title: 'Supplement Guides — The Hippie Scientist',
-    description: 'Browse supplement guides by health goal. ADHD, sleep, anxiety, focus — evidence-graded with safety context.',
+    title: 'Evidence-Based Guides — The Hippie Scientist',
+    description: 'Browse citation-rich guides to supplements, health goals, OCD, personality disorders, safety, and treatment evidence.',
     url: `${SITE_URL}/guides/`,
     type: 'website',
     images: ['/og-default.jpg'],
@@ -36,6 +36,13 @@ const SECTIONS = [
     desc: 'Adaptogens, anxiolytics, and stress management — 14 evidence-graded guides with safety warnings.',
     color: 'border-l-amber-500',
     articles: ['Best herbs for anxiety', 'Best adaptogens for stress', 'How to lower cortisol', 'Ashwagandha for anxiety', 'L-theanine for calm'],
+  },
+  {
+    title: 'Mental Health',
+    href: '/guides/mental-health/',
+    desc: 'OCD, BPD, and every named DSM-5-TR personality disorder — citation-rich guides covering diagnosis, differential diagnosis, treatment, safety, and stigma.',
+    color: 'border-l-cyan-600',
+    articles: ['OCD', 'Borderline personality disorder', 'Personality disorders overview', 'OCD vs OCPD', 'Avoidant personality disorder'],
   },
   {
     title: 'Focus & Cognition',
@@ -78,9 +85,9 @@ export default function GuidesHub() {
   return (
     <div className="mx-auto max-w-5xl px-4 pb-24 pt-8">
       <header className="mb-12">
-        <h1 className="text-3xl font-bold text-ink sm:text-4xl">Supplement Guides</h1>
-        <p className="mt-3 text-lg text-muted max-w-2xl">
-          Evidence-based guides organized by health goal. Every guide is referenced to published research — no marketing, no bro-science.
+        <h1 className="text-3xl font-bold text-ink sm:text-4xl">Evidence-Based Guides</h1>
+        <p className="mt-3 max-w-2xl text-lg text-muted">
+          Citation-rich guides organized by health goal and topic. Published research, visible references, safety context, and no bro-science.
         </p>
       </header>
 
@@ -89,13 +96,13 @@ export default function GuidesHub() {
           <Link
             key={section.href}
             href={section.href}
-            className="border-b border-brand-900/10 py-6 transition hover:bg-brand-50/30 md:rounded-lg md:border md:bg-white md:p-6 md:hover:border-brand-700/20"
+            className={`border-b border-brand-900/10 py-6 transition hover:bg-brand-50/30 md:rounded-lg md:border md:border-l-4 md:bg-white md:p-6 md:hover:border-brand-700/20 ${section.color}`}
           >
             <h2 className="text-xl font-bold text-ink">{section.title}</h2>
-            <p className="mt-2 text-sm text-muted leading-relaxed">{section.desc}</p>
+            <p className="mt-2 text-sm leading-relaxed text-muted">{section.desc}</p>
             <div className="mt-4 flex flex-wrap gap-1.5">
-              {section.articles.map((a) => (
-                <span key={a} className="border-b border-brand-900/10 px-0.5 py-1 text-xs font-medium text-brand-700 md:rounded-full md:border-0 md:bg-brand-50 md:px-2.5 md:py-0.5">{a}</span>
+              {section.articles.map((article) => (
+                <span key={article} className="border-b border-brand-900/10 px-0.5 py-1 text-xs font-medium text-brand-700 md:rounded-full md:border-0 md:bg-brand-50 md:px-2.5 md:py-0.5">{article}</span>
               ))}
             </div>
           </Link>
@@ -106,8 +113,8 @@ export default function GuidesHub() {
         <h2 className="text-xl font-bold text-ink">Browse by database</h2>
         <p className="mt-2 text-muted">Prefer to search structured data? Explore 290 herbs and 557 active compounds.</p>
         <div className="mt-4 flex justify-center gap-3">
-          <Link href="/herbs/" className="rounded-full bg-brand-700 px-6 py-2.5 text-sm font-semibold text-white hover:bg-brand-800 transition">Browse Herbs →</Link>
-          <Link href="/compounds/" className="rounded-full border border-brand-700 px-6 py-2.5 text-sm font-semibold text-brand-700 hover:bg-brand-50 transition">Browse Compounds →</Link>
+          <Link href="/herbs/" className="rounded-full bg-brand-700 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-800">Browse Herbs →</Link>
+          <Link href="/compounds/" className="rounded-full border border-brand-700 px-6 py-2.5 text-sm font-semibold text-brand-700 transition hover:bg-brand-50">Browse Compounds →</Link>
         </div>
       </div>
     </div>
