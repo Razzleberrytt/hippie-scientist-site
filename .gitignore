@@ -75,6 +75,7 @@ dist-clean/*
 # Build reports / temp artifacts
 *_REPORT.md
 *_NOTES.md
+!docs/LOOP_NOTES.md
 *.md.bak
 *_patch.json
 *_merged.json

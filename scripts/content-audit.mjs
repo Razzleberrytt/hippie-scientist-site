@@ -62,14 +62,32 @@ function collectPages() {
 
 // ─── Word count ───────────────────────────────────────────────────────────────
 
+// Object-literal keys that hold user-facing copy in data-driven hub/card
+// components (e.g. GUIDES.map(...), DecisionRouter items, GuideCardGrid
+// cards). Blanket-stripping every `{...}` block below would otherwise
+// discard this prose entirely and make data-driven pages look thin even
+// when the rendered page has substantial text.
+const PROSE_KEYS = /\b(title|desc|description|problem|why|cta|body|caution|bestFor|fit|label|goal|role|summary|name|kind|sub|eyebrow|text|note|question|answer)\s*:\s*(['"`])((?:(?!\2)[^\\]|\\.)*)\2/g
+
 function countWords(source) {
-  // Strip JSX/HTML tags, imports, JS keywords, template strings
-  const stripped = source
+  const withoutImports = source
     .replace(/import\s+.*?from\s+['"][^'"]+['"]/g, '')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/\{[^}]*\}/g, ' ')
     .replace(/\/\/.*$/gm, '')
     .replace(/\/\*[\s\S]*?\*\//g, '')
+
+  let proseLiterals = ''
+  let match
+  PROSE_KEYS.lastIndex = 0
+  while ((match = PROSE_KEYS.exec(withoutImports))) {
+    proseLiterals += ' ' + match[3]
+  }
+
+  // Strip JSX/HTML tags and remaining braces (interpolation, non-prose objects)
+  const jsxText = withoutImports
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\{[^}]*\}/g, ' ')
+
+  const stripped = (jsxText + ' ' + proseLiterals)
     .replace(/[^a-zA-Z\s'-]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim()
