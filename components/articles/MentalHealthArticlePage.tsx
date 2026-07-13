@@ -11,12 +11,44 @@ import {
   type CitedText,
   type MentalHealthArticle,
 } from '@/lib/mental-health-articles'
-import { blogJsonLd, breadcrumbJsonLd, buildPageMetadata } from '@/src/lib/seo'
+import {
+  blogJsonLd,
+  breadcrumbJsonLd,
+  buildPageMetadata,
+  canonicalUrl,
+  DEFAULT_OG_IMAGE,
+  SITE_NAME,
+  SITE_URL,
+} from '@/src/lib/seo'
 
 const BASE_PATH = '/guides/mental-health'
+const AUTHOR_NAME = 'Will Thomas'
+const AUTHOR_URL = `${SITE_URL}/info/about/`
 
 function citationNumbers(article: MentalHealthArticle): Map<string, number> {
   return new Map(article.references.map((reference, index) => [reference.id, index + 1]))
+}
+
+function sectionAnchor(title: string): string {
+  return title
+    .toLowerCase()
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
+function articleKeywords(article: MentalHealthArticle): string[] {
+  return [
+    article.title,
+    article.seoTitle,
+    article.slug.replace(/-/g, ' '),
+    article.category,
+    article.cluster ?? 'mental health',
+    `${article.category} symptoms`,
+    `${article.category} diagnosis`,
+    `${article.category} treatment`,
+    'evidence-based mental health guide',
+  ]
 }
 
 function CitedPassage({ passage, article, as = 'p' }: {
@@ -76,19 +108,33 @@ export function mentalHealthMetadata(slug: string): Metadata {
   const article = getMentalHealthArticle(slug)
   if (!article) return { title: 'Page Not Found', robots: { index: false, follow: true } }
 
-  return buildPageMetadata({
+  const metadata = buildPageMetadata({
     title: article.seoTitle,
     description: article.description,
     path: `${BASE_PATH}/${article.slug}`,
+    image: DEFAULT_OG_IMAGE,
     openGraphType: 'article',
-    keywords: [
-      article.title,
-      article.category,
-      article.cluster ?? 'mental health',
-      'evidence-based mental health guide',
-      'personality disorder treatment',
-    ],
+    keywords: articleKeywords(article),
   })
+
+  return {
+    ...metadata,
+    authors: [{ name: AUTHOR_NAME, url: AUTHOR_URL }],
+    creator: AUTHOR_NAME,
+    publisher: SITE_NAME,
+    category: article.category,
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+        'max-video-preview': -1,
+      },
+    },
+  }
 }
 
 export default function MentalHealthArticlePage({ slug }: { slug: string }) {
@@ -96,22 +142,51 @@ export default function MentalHealthArticlePage({ slug }: { slug: string }) {
   if (!article) notFound()
 
   const articlePath = `${BASE_PATH}/${article.slug}`
+  const articleUrl = canonicalUrl(articlePath)
+  const breadcrumbId = `${articleUrl}#breadcrumb`
+  const collectionId = `${canonicalUrl(BASE_PATH)}#collection`
+  const keywords = articleKeywords(article)
   const related = relatedArticles(article)
-  const articleLd = blogJsonLd({
-    title: article.title,
-    slug: article.slug,
-    date: article.datePublished,
-    updated: article.dateReviewed,
-    excerpt: article.description,
-  }, articlePath)
+  const articleLd = {
+    ...blogJsonLd({
+      title: article.title,
+      slug: article.slug,
+      date: article.datePublished,
+      updated: article.dateReviewed,
+      excerpt: article.description,
+      image: DEFAULT_OG_IMAGE,
+    }, `${articlePath}/`),
+    '@id': `${articleUrl}#article`,
+    url: articleUrl,
+    mainEntityOfPage: articleUrl,
+    image: {
+      '@type': 'ImageObject',
+      url: canonicalUrl(DEFAULT_OG_IMAGE),
+      width: 1200,
+      height: 630,
+    },
+    articleSection: article.category,
+    keywords: keywords.join(', '),
+    inLanguage: 'en-US',
+    isPartOf: {
+      '@type': 'CollectionPage',
+      '@id': collectionId,
+      name: 'Mental Health Guides',
+      url: canonicalUrl(BASE_PATH),
+    },
+    breadcrumb: { '@id': breadcrumbId },
+  }
   const breadcrumbLd = breadcrumbJsonLd([
-    { name: 'Guides', url: 'https://thehippiescientist.net/guides' },
-    { name: 'Mental Health', url: 'https://thehippiescientist.net/guides/mental-health' },
-    { name: article.title, url: `https://thehippiescientist.net${articlePath}` },
-  ])
+    { name: 'Guides', url: canonicalUrl('/guides') },
+    { name: 'Mental Health', url: canonicalUrl(BASE_PATH) },
+    { name: article.title, url: articleUrl },
+  ], { id: breadcrumbId })
   const faqLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    '@id': `${articleUrl}#faq`,
+    url: articleUrl,
+    isPartOf: { '@id': `${articleUrl}#article` },
     mainEntity: article.faq.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
@@ -176,6 +251,21 @@ export default function MentalHealthArticlePage({ slug }: { slug: string }) {
         </div>
       </section>
 
+      <nav className="mt-6 rounded-2xl border border-brand-900/10 bg-white p-5 sm:p-6" aria-labelledby="on-this-page">
+        <h2 id="on-this-page" className="text-lg font-bold text-ink">On this page</h2>
+        <ol className="mt-3 grid gap-x-6 gap-y-2 text-sm sm:grid-cols-2">
+          {article.sections.map((section) => (
+            <li key={section.title}>
+              <a href={`#${sectionAnchor(section.title)}`} className="font-medium text-brand-700 hover:text-brand-900 hover:underline">
+                {section.title}
+              </a>
+            </li>
+          ))}
+          <li><a href="#faq" className="font-medium text-brand-700 hover:text-brand-900 hover:underline">Frequently asked questions</a></li>
+          <li><a href="#references" className="font-medium text-brand-700 hover:text-brand-900 hover:underline">References</a></li>
+        </ol>
+      </nav>
+
       <section className="mt-6 rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm sm:p-7" aria-labelledby="key-points">
         <h2 id="key-points" className="text-xl font-bold tracking-tight text-ink">Key points</h2>
         <ul className="mt-4 ml-5 list-disc space-y-3">
@@ -186,27 +276,30 @@ export default function MentalHealthArticlePage({ slug }: { slug: string }) {
       </section>
 
       <div className="mt-7 space-y-7">
-        {article.sections.map((section) => (
-          <section key={section.title} className="rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm sm:p-8">
-            <h2 className="text-2xl font-semibold tracking-tight text-ink">{section.title}</h2>
-            <div className="mt-4 space-y-4">
-              {section.paragraphs.map((paragraph) => (
-                <CitedPassage key={paragraph.text} passage={paragraph} article={article} />
-              ))}
-            </div>
-            {section.bullets && section.bullets.length > 0 && (
-              <ul className="mt-4 ml-5 list-disc space-y-2">
-                {section.bullets.map((bullet) => (
-                  <CitedPassage key={bullet.text} passage={bullet} article={article} as="li" />
+        {article.sections.map((section) => {
+          const id = sectionAnchor(section.title)
+          return (
+            <section key={section.title} className="rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm sm:p-8" aria-labelledby={id}>
+              <h2 id={id} className="scroll-mt-24 text-2xl font-semibold tracking-tight text-ink">{section.title}</h2>
+              <div className="mt-4 space-y-4">
+                {section.paragraphs.map((paragraph) => (
+                  <CitedPassage key={paragraph.text} passage={paragraph} article={article} />
                 ))}
-              </ul>
-            )}
-          </section>
-        ))}
+              </div>
+              {section.bullets && section.bullets.length > 0 && (
+                <ul className="mt-4 ml-5 list-disc space-y-2">
+                  {section.bullets.map((bullet) => (
+                    <CitedPassage key={bullet.text} passage={bullet} article={article} as="li" />
+                  ))}
+                </ul>
+              )}
+            </section>
+          )
+        })}
       </div>
 
       <section className="mt-7 rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm sm:p-8" aria-labelledby="faq">
-        <h2 id="faq" className="text-2xl font-semibold tracking-tight text-ink">Frequently asked questions</h2>
+        <h2 id="faq" className="scroll-mt-24 text-2xl font-semibold tracking-tight text-ink">Frequently asked questions</h2>
         <div className="mt-5 divide-y divide-brand-900/10">
           {article.faq.map((faq) => (
             <div key={faq.question} className="py-5 first:pt-0 last:pb-0">
