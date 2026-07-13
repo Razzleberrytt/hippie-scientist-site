@@ -7930,7 +7930,14 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Known hypersensitivity or allergy to citicoline",
+      "pregnancy/breastfeeding without clinician guidance due to insufficient safety data",
+      "caution with levodopa or other dopaminergic Parkinson's medications since citicoline may potentiate dopaminergic activity and require dose adjustment",
+      "caution with other cholinergic agents such as donepezil or rivastigmine or galantamine due to additive cholinergic stimulation",
+      "caution with anticoagulant or antiplatelet medications given reported effects on platelet aggregation and clotting",
+      "most reported side effects are mild and include GI upset or headache or insomnia or rare hypotension at higher doses."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "Human cognition studies cited here used 500 mg/day for 12 weeks and 1,000 mg/day for 28 days to 3 months. These are study regimens, not individualized dosing advice.",
@@ -7966,7 +7973,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 75,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7974,7 +7981,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:needs_review",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],

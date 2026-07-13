@@ -2498,7 +2498,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 75,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2506,7 +2506,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:needs_review",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ]

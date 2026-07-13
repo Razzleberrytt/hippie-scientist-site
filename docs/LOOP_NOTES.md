@@ -476,3 +476,102 @@ one, and can send a future cycle chasing a "gap" that isn't real (or, as
 here, hide the real remaining gap — `interactions` is now the actual
 dominant missing field across the catalog and is worth a future cycle's
 attention).
+
+---
+
+## 2026-07-13 — Filled the last `full_public_runtime` compound contraindications gap (`citicoline`) via `npm run audit:safety`
+
+Re-ran `npm run audit:safety` fresh per the prior entry's own advice rather
+than assuming the "obscure tail" list was still current. Cross-checked its
+"TOP 20 MISSING" output against `public/data`'s `runtime_export_decision`
+field (that report's own priority score is a flat constant `0.9` for every
+row, so its ranking is really just alphabetical — worth knowing before
+trusting it as a real traffic proxy) and confirmed 19 of the 20 are
+`hidden_until_grounded` or excluded entirely (controlled substances like
+`5-meo-dmt`, `amanita-muscaria`, `anabasine`, `anatabine`,
+`7-hydroxymitragynine` aren't exported to runtime at all). The 20th,
+`aucubin`, is the compound already deliberately deferred two entries ago.
+Directly querying `public/data/compounds.json` for
+`runtime_export_decision === 'full_public_runtime'` with empty
+`contraindications` turned up exactly one live-page gap outside that
+already-audited compound list: **`citicoline`**, filed under `entity_type:
+herb` in the workbook despite being a synthetic nucleotide-derivative
+nootropic, `full_public_runtime`/indexed/sitemapped, with completely empty
+contraindications, interactions, and forms.
+
+Verified real pharmacology via `WebSearch` (direct `WebFetch` on
+webmd/drugs.com/rxlist/alzdiscovery.org all returned HTTP 403 — those sites
+block fetcher user agents — so relied on cross-corroborating multiple
+independent search snippets instead) before writing anything: citicoline's
+established cautions are hypersensitivity/allergy, pregnancy/breastfeeding
+without clinician guidance (insufficient safety data), potentiation of
+levodopa/dopaminergic Parkinson's medications (documented, may need dose
+adjustment), additive stimulation with other cholinergic drugs (donepezil,
+rivastigmine, galantamine), a mixed-but-recurring anticoagulant/platelet-
+aggregation caution, and mild dose-dependent side effects including rare
+hypotension. Simulated both the `splitList()` `/[\n|;,]+/` regex and the
+`KEYWORDS`/`ALLOWED_PREFIXES` collision matcher from
+`build-interaction-data.mjs`/`audit-risk-tag-collisions.mjs` against the
+draft in a throwaway `node -e` script *before* touching the workbook (per
+the standing takeaway from two entries back) — 6 clean clauses, matches
+only on `allergy`, `pregnancy`, `anticoagulant`, and `blood_pressure`, no
+collisions. Wrote it with `edit-entity-master-cell.mjs --in-place`.
+`data:build:core` regenerated cleanly (edges 12817, tags 1279),
+`data:validate`, `guard:source-of-truth`, `audit:risk-tag-collisions`, the
+full Vitest suite (578 tests), and `npm run check` all passed. Confirmed
+citicoline's own `indexability_score` rose 75 → 85 and its
+`safety-context-missing` reason flag cleared, so this reaches a real
+indexed page. This closes out the `full_public_runtime` contraindications
+gap entirely (`aucubin` remains the sole documented exception).
+
+(Note: this cycle independently found and fixed the same
+`content-gap-report.mjs` `item.safety` field bug documented in the entry
+directly above — landed as a separate PR that merged to `main` first, so
+that fix isn't duplicated here.)
+
+---
+
+## 2026-07-13 — Codex PR review caught that `data:build:core` doesn't refresh existing `herbs-detail`/`compounds-detail` payloads; patched `citicoline`'s detail file directly, found the gap is systemic
+
+The automated `chatgpt-codex-connector` review on the PR from the previous
+entry flagged a real P1 bug: `src/lib/runtime-data.ts`'s `getHerbBySlug()`
+renders `{ ...herb, ...detail }` — the per-slug `public/data/herbs-detail/
+${slug}.json` file wins over the aggregate `herbs.json` on every shared
+field. `citicoline.json`'s detail file still had the old empty
+`contraindications: []` (and, on inspection, stale empty `dosage`/
+`typical_dosage` too, plus the pre-fix `indexability_score`/reasons) even
+after `data:build:core` regenerated `herbs.json` correctly. So the citicoline
+enrichment from the previous entry would never have reached the live page.
+
+Root cause is bigger than "forgot a build step": neither `data:build:core`
+nor the full `data:build` pipeline actually re-syncs an *existing* detail
+file's fields from the regenerated flat record. `apply-governance-overlay.mjs`
+(`processKind()`) only seeds a detail file from the flat record when one is
+*missing entirely* — for a slug that already has a detail file, it calls
+`mirrorRecordFieldsIntoDetail()` only `if (claimSourceIds.length > 0)`, and
+even then that function's field allowlist doesn't include `contraindications`,
+`dosage`, or `typical_dosage` at all. `postprocess-workbook-payloads.mjs`'s
+`patchDetailDir()` only touches the `sources` field. In other words: **once
+a detail JSON file exists for a slug, none of the current pipeline steps
+will ever refresh its content fields from a workbook edit** — only a
+brand-new slug gets a fresh detail file. This likely means other prior
+enrichment cycles' edits (contraindications, dosage, etc.) for any slug
+that already had a `herbs-detail`/`compounds-detail` file before the edit
+may have the same silent staleness. This is worth a dedicated future cycle
+to fix properly (e.g. make `mirrorRecordFieldsIntoDetail()` run
+unconditionally and cover the full field set the flat record and detail
+record share, not just the claim-sourced subset) rather than patched
+piecemeal per-entity.
+
+For this cycle, fixed only the one entity the review flagged: read both
+`public/data/herbs.json` (citicoline's flat record) and
+`public/data/herbs-detail/citicoline.json`, and overwrote every field on
+the detail record with the flat record's value *except* the five fields
+that only exist on the detail record (`safety`, `sources`, `governance`,
+`evidence`, `claimMap` — these are detail-only enrichments the flat record
+doesn't carry and must not be clobbered). Verified zero remaining field
+diffs afterward and that `data:validate`/full Vitest suite (578 tests)
+still pass. Deliberately did not write a generalized re-sync-all-slugs
+script in the same cycle — that would touch potentially hundreds of
+detail files at once, a much bigger blast radius than one Codex-flagged
+entity warrants; future cycle should scope that as its own reviewed change.
