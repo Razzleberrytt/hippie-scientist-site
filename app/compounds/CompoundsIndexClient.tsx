@@ -180,7 +180,23 @@ function getSearchCorpus(item: RuntimeRecord) {
     .join(' ')
 }
 
-function filterCompounds(compounds: RuntimeRecord[], query: string, context: string) {
+const EVIDENCE_FILTER_OPTIONS = [
+  { label: 'Any evidence', value: 'all' },
+  { label: 'Strong', value: 'strong' },
+  { label: 'Moderate', value: 'moderate' },
+  { label: 'Limited / prelim', value: 'limited' },
+]
+
+function matchesEvidence(compound: RuntimeRecord, evidenceValue: string): boolean {
+  if (evidenceValue === 'all') return true
+  const ev = getEvidence(compound).toLowerCase()
+  if (evidenceValue === 'strong') return ev.includes('strong')
+  if (evidenceValue === 'moderate') return ev.includes('moderate')
+  if (evidenceValue === 'limited') return ev.includes('limited') || ev.includes('prelim') || ev.includes('traditional') || ev.includes('insufficient')
+  return true
+}
+
+function filterCompounds(compounds: RuntimeRecord[], query: string, context: string, evidenceFilter: string) {
   const normalizedQuery = query.trim().toLowerCase()
   const option = filterOptions.find(item => item.value === context)
 
@@ -188,15 +204,27 @@ function filterCompounds(compounds: RuntimeRecord[], query: string, context: str
     const corpus = getSearchCorpus(compound)
     const queryMatches = !normalizedQuery || normalizedQuery.split(/\s+/).every(term => corpus.includes(term))
     const contextMatches = !option || option.terms.some(term => corpus.includes(term))
+    const evMatches = matchesEvidence(compound, evidenceFilter)
 
-    return queryMatches && contextMatches
+    return queryMatches && contextMatches && evMatches
   })
 }
 
-function buildFilterHref(value: string, query: string) {
+function buildFilterHref(value: string, query: string, evidence?: string) {
   const params = new URLSearchParams()
   if (query.trim()) params.set('q', query.trim())
   if (value !== 'all') params.set('context', value)
+  if (evidence && evidence !== 'all') params.set('evidence', evidence)
+
+  const suffix = params.toString()
+  return suffix ? `/compounds?${suffix}` : '/compounds'
+}
+
+function buildEvidenceHref(evidenceValue: string, query: string, context: string) {
+  const params = new URLSearchParams()
+  if (query.trim()) params.set('q', query.trim())
+  if (context !== 'all') params.set('context', context)
+  if (evidenceValue !== 'all') params.set('evidence', evidenceValue)
 
   const suffix = params.toString()
   return suffix ? `/compounds?${suffix}` : '/compounds'
@@ -226,9 +254,10 @@ function EmptyLibraryState() {
   )
 }
 
-function EmptyFilteredState({ query, context }: { query: string; context: string }) {
+function EmptyFilteredState({ query, context, evidence }: { query: string; context: string; evidence: string }) {
   const activeContext = filterOptions.find(option => option.value === context)?.label
-  const currentScan = [query ? `“${query}”` : '', activeContext || ''].filter(Boolean).join(' + ')
+  const activeEvLabel = EVIDENCE_FILTER_OPTIONS.find(option => option.value === evidence && evidence !== 'all')?.label
+  const currentScan = [query ? `“${query}”` : '', activeContext || '', activeEvLabel || ''].filter(Boolean).join(' + ')
 
   return (
     <DecisionEmptyState
@@ -304,16 +333,18 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
   const urlParams = useSearchParams()
   const query = urlParams?.get('q') || firstParam(initialQuery)
   const context = urlParams?.get('context') || firstParam(initialContext)
+  const evidenceFilter = urlParams?.get('evidence') || 'all'
   const activeFilter = filterOptions.some(option => option.value === context) ? context : 'all'
+  const activeEvidence = EVIDENCE_FILTER_OPTIONS.some(option => option.value === evidenceFilter) ? evidenceFilter : 'all'
 
   const baseCompounds = [...(allCompounds || sourceCompounds)].sort((a: RuntimeRecord, b: RuntimeRecord) => scoreCompound(b) - scoreCompound(a))
   const compounds = [...sourceCompounds].sort((a: RuntimeRecord, b: RuntimeRecord) => scoreCompound(b) - scoreCompound(a))
 
-  const visibleCompounds = filterCompounds(baseCompounds, query, activeFilter)
-  const hasActiveFilters = Boolean(query.trim()) || activeFilter !== 'all'
+  const visibleCompounds = filterCompounds(baseCompounds, query, activeFilter, activeEvidence)
+  const hasActiveFilters = Boolean(query.trim()) || activeFilter !== 'all' || activeEvidence !== 'all'
   const totalProfiles = baseCompounds.length
   const evidenceForward = baseCompounds.filter((compound: RuntimeRecord) => /human|clinical|strong|high/i.test(text(compound?.evidence_tier || compound?.evidence_grade || compound?.evidenceLevel))).length
-  const _safetyMapped = baseCompounds.filter((compound: RuntimeRecord) => getSafety(compound) !== 'Safety review pending').length
+  const safetyMapped = baseCompounds.filter((compound: RuntimeRecord) => getSafety(compound) !== 'Safety review pending').length
   const featuredCompounds = hasActiveFilters || paginated ? [] : baseCompounds.slice(0, 6)
   const libraryCompounds = hasActiveFilters ? visibleCompounds : paginated ? compounds : baseCompounds.slice(featuredCompounds.length)
 
@@ -337,7 +368,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
               <div className="mt-2 grid grid-cols-3 gap-2">
                 <StatCard value={totalProfiles} label="Profiles" />
                 <StatCard value={evidenceForward} label="Evidence-led" />
-                <StatCard value={Math.max(featuredCompounds.length || 6, 8)} label="Safety expanding" />
+                <StatCard value={safetyMapped} label="Safety mapped" />
               </div>
             </div>
           </div>
@@ -363,6 +394,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
               className="min-h-11 w-full rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 text-base text-ink shadow-sm placeholder:text-muted/60 focus:outline-none focus:ring-2 focus:ring-brand-700/30 dark:placeholder:text-[var(--text-muted)]/50"
             />
             {activeFilter !== 'all' ? <input type="hidden" name="context" value={activeFilter} /> : null}
+            {activeEvidence !== 'all' ? <input type="hidden" name="evidence" value={activeEvidence} /> : null}
             <button type="submit" className="button-primary min-h-11 px-5 py-2.5 text-sm">
               Search
             </button>
@@ -372,9 +404,28 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
             options={filterOptions}
             activeFilter={activeFilter}
             query={query}
-            buildHref={buildFilterHref}
+            buildHref={(value, q) => buildFilterHref(value, q, activeEvidence)}
             open={hasActiveFilters}
           />
+
+          <div className="mt-3 rounded-[0.8rem] border border-brand-900/10 bg-[#fbfaf6]/80 p-3 shadow-none">
+            <div className="mb-2 text-xs font-bold uppercase tracking-[0.12em] text-muted">Evidence level</div>
+            <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
+              {EVIDENCE_FILTER_OPTIONS.map(opt => {
+                const href = buildEvidenceHref(opt.value, query, activeFilter)
+                const active = activeEvidence === opt.value
+                return (
+                  <Link
+                    key={opt.value}
+                    href={href}
+                    className={`rounded-full border px-2.5 py-1.5 text-center text-xs font-semibold transition ${active ? 'border-brand-700/25 bg-brand-50 text-brand-900' : 'border-brand-900/10 bg-white/80 text-[#33443a] hover:border-brand-700/20'}`}
+                  >
+                    {opt.label}
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
         </section>
 
         <section className="rounded-[0.85rem] border border-brand-900/10 bg-[var(--surface-card)] p-3 shadow-sm">
@@ -402,7 +453,7 @@ export default function CompoundsIndexClient({ compounds: sourceCompounds, allCo
         {compounds.length === 0 ? (
           <EmptyLibraryState />
         ) : visibleCompounds.length === 0 ? (
-          <EmptyFilteredState query={query} context={activeFilter} />
+          <EmptyFilteredState query={query} context={activeFilter} evidence={activeEvidence} />
         ) : (
           <>
             {featuredCompounds.length > 0 ? (
