@@ -4,9 +4,12 @@ Operating task: make the highest-value `noindex` curated profiles (5-HTP, GABA,
 NAC, Citicoline, Apigenin; plus Lavender, Lemon balm, Chamomile) legitimately
 indexable through the existing workbook/governance system.
 
-**Outcome of this pass:** diagnosis + a ready-to-apply promotion plan + a blocking
-tooling defect. No source-of-truth or generated data was mutated (see
-[§4 Why nothing was auto-applied](#4-why-nothing-was-auto-applied)).
+**Current status update:** most originally targeted profiles have already been
+promoted or cleaned. The remaining high-value blocked profiles are 5-HTP and
+GABA, which still require editorial certification before indexing. Apigenin is
+content-ready by score, but the promotion tool currently reports it as not
+source-backed in `claims.json`, so do not promote it until a real
+`Evidence_Register` citation is connected.
 
 Re-run the live readout any time: `npm run audit:why-noindex [slug ...]`.
 
@@ -34,12 +37,12 @@ decide on the **current content** if the holdback were lifted.
 
 | Profile | Canonical slug | Held by | If promoted | Leaked summary? | Verdict |
 |---|---|---|---|---|---|
-| NAC | `n-acetylcysteine` (compound) | `hidden_until_grounded` | **PUBLISH (100)** | yes | Ready to promote |
-| Apigenin | `apigenin` (compound) | `research_archive_runtime` | **PUBLISH (100)** | yes | Ready to promote |
-| Lemon balm | `lemon-balm` (compound) | `hidden_until_grounded` | **PUBLISH (100)** | no | Ready to promote |
-| Chamomile | `chamomile` (compound) | `hidden_until_grounded` | **PUBLISH (100)** | yes | Ready to promote |
-| Lavender | `lavender` (compound) | `hidden_until_grounded` | **PUBLISH (95)** | yes | Ready to promote |
-| Citicoline | `citicoline` (herb sheet) | `hidden_until_grounded` | NEEDS_REVIEW (65) | yes | Needs content (summary is a placeholder) |
+| NAC | `n-acetylcysteine` (compound) | already publishable | **PUBLISH (100)** | no | Promoted / no action |
+| Citicoline | `citicoline` (herb sheet) | already publishable | **PUBLISH (85)** | no | Promoted / no action |
+| Lemon balm | `lemon-balm` (compound) | already publishable | **PUBLISH (100)** | no | Promoted / no action |
+| Chamomile | `chamomile` (compound) | already publishable | **PUBLISH (100)** | no | Promoted / no action |
+| Lavender | `lavender` (compound) | already publishable | **PUBLISH (100)** | no | Promoted / no action |
+| Apigenin | `apigenin` (compound) | `research_archive_runtime` | **PUBLISH (95)** | no | Content-ready, but source gate reports missing `claims.json` citation |
 | GABA | `gaba` (compound) | `hidden_until_grounded` | NEEDS_REVIEW (50) | no | Needs editorial certification |
 | 5-HTP | `5-htp` (compound) | `hidden_until_grounded` | NEEDS_REVIEW (50) | no | Needs editorial certification |
 
@@ -49,22 +52,16 @@ Notes:
 - **5-HTP and GABA** are capped at 50 by `profile_status: research_only`
   (`non-publishable-profile-status`). They cannot reach PUBLISH by content edits
   alone — a human must certify editorial completeness (`profile_status`).
-- **Citicoline** is not capped; it just needs a real summary (currently the
-  placeholder `"No summary available yet."`) — then it scores PUBLISH.
+- **Apigenin** should not be promoted solely because the score says PUBLISH;
+  `npm run promote:check -- --slug apigenin` reports that no source-backed
+  claim is present in `claims.json`. Add a real Evidence_Register citation first.
 
 ## 3. Content issue: leaked pipeline text in summaries
 
-Several summaries contain build-pipeline/placeholder strings that must **not** be
-indexed (they would also fail `npm run audit:leaked-text`). Clean these to real,
-user-facing, careful, evidence-aligned sentences as part of grounding:
-
-- `n-acetylcysteine`, `apigenin`, `chamomile` — begin with `"Decision-ready summary:"`
-- `lavender` — `"Lavender entry from SciSpace evidence pass. Evidence level: moderate."`
-- `citicoline` — `"No summary available yet."`
-
-Preserve all safety cautions when rewriting (e.g. 5-HTP serotonin-syndrome
-interaction, apigenin/chamomile sedative + pregnancy notes, NAC's *targeted*
-compulsive-behavior framing — not broad "anxiety supplement").
+The current live audit reports no leaked summary text for the tracked profiles.
+Keep `npm run audit:leaked-text` in the promotion checklist so future generated
+or manually edited summaries do not reintroduce pipeline phrases such as
+"Decision-ready summary" or placeholder text.
 
 ## 4. Why nothing was auto-applied
 
@@ -98,21 +95,18 @@ profile. The gate stays the arbiter — content-ready profiles publish, capped o
 
 In the workbook, per row (matched by slug in column 1):
 
-1. **Clean leaked summaries** (§3) → real grounded sentences, safety preserved.
-2. **Citicoline**: write a real summary + set `summary_quality: moderate`.
-3. **Lift the holdback** for the ready set — set `runtime_export_decision`
-   `hidden_until_grounded` / `research_archive_runtime` → `full_public_runtime`
-   for: `n-acetylcysteine`, `apigenin`, `lemon-balm`, `chamomile`, `lavender`,
-   and `citicoline` (after step 2).
-4. **5-HTP, GABA**: leave held. To promote later, a human editor must raise
+1. **Apigenin**: add/connect a real source-backed claim first; current
+   `promote:check` reports no `claims.json` citation, so promotion would be
+   fragile under governance review.
+2. **5-HTP, GABA**: leave held. To promote later, a human editor must raise
    `profile_status` off `research_only` (an editorial-completeness certification),
    which is appropriate to keep gated for 5-HTP given its serotonergic risk.
-5. Regenerate: `npm run data:build:core` (NOT full `npm run data:build` — that
+3. Regenerate: `npm run data:build:core` (NOT full `npm run data:build` — that
    rewrites ~855 unrelated records; see docs/promoting-profiles.md), then run the
    validation suite (§7). The `promote:profile` tool does this rebuild for you.
 
-Expected result: 6 profiles flip to `index,follow` and enter the sitemap; 5-HTP
-and GABA remain `noindex` (correctly held by the quality gate + governance).
+Expected result: Apigenin can be promoted only after source-backed evidence is
+connected; 5-HTP and GABA remain `noindex` until editorial certification.
 
 ## 6. Blocking tooling fix — ✅ RESOLVED
 
@@ -133,7 +127,7 @@ that asserts every sheet's parsed data is unchanged). See docs/workbook-pipeline
 ```
 npm run data:build:core                 # drift-free; promote:profile runs this for you
 npm run validate:evidence-language      # promoted summaries now audited
-npm run validate:data-governance        # governance/indexability metadata
+npm run audit:data-governance           # governance/indexability metadata
 node scripts/ci/validate-indexability-metadata.mjs
 npm run validate:profile-verdicts
 npm run validate:safety-visibility
