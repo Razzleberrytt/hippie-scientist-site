@@ -29,7 +29,7 @@ export const topicClusters: TopicCluster[] = [
   {
     slug: 'metabolism',
     label: 'Metabolism',
-    href: '/best-supplements-for-fat-loss',
+    href: '/guides/best/supplements-for-fat-loss',
     description: 'Energy balance, glucose context, body-composition research, and metabolic resilience signals.',
     systems: ['Energy balance', 'Glucose context', 'Body composition'],
     keywords: ['metabolism', 'metabolic', 'glucose', 'insulin', 'fat', 'weight'],
@@ -37,7 +37,7 @@ export const topicClusters: TopicCluster[] = [
   {
     slug: 'stress-response',
     label: 'Stress response',
-    href: '/best-supplements-for-stress',
+    href: '/guides/best/supplements-for-stress',
     description: 'HPA-axis language, adaptation, calm, sleep overlap, and nervous-system resilience.',
     systems: ['HPA axis', 'Adaptation', 'Calm'],
     keywords: ['stress', 'cortisol', 'adaptogen', 'anxiety', 'calm', 'relaxation'],
@@ -53,7 +53,7 @@ export const topicClusters: TopicCluster[] = [
   {
     slug: 'mitochondrial-function',
     label: 'Mitochondrial function',
-    href: '/performance-supplements',
+    href: '/guides/other/supplements-for-brain-fog-and-fatigue',
     description: 'Cellular energy, fatigue, exercise performance, and recovery-adjacent mechanism context.',
     systems: ['Cellular energy', 'Fatigue', 'Performance'],
     keywords: ['mitochondria', 'mitochondrial', 'atp', 'energy', 'fatigue', 'performance'],
@@ -85,7 +85,7 @@ export const topicClusters: TopicCluster[] = [
   {
     slug: 'cardiovascular-function',
     label: 'Cardiovascular function',
-    href: '/best-supplements-for-blood-pressure',
+    href: '/guides/best/supplements-for-blood-pressure',
     description: 'Blood-pressure context, vascular tone, circulation, metabolic overlap, and endothelial themes.',
     systems: ['Vascular tone', 'Circulation', 'Blood pressure'],
     keywords: ['cardio', 'vascular', 'blood pressure', 'circulation', 'heart', 'endothelial'],

@@ -63,7 +63,7 @@ export const scientificCollections: ScientificCollection[] = [
     related: [
       { title: 'Best-Studied Sleep Compounds', href: '/guides/sleep', description: 'Sleep and relaxation records that often overlap with stress physiology.' },
       { title: 'GABA Pathways', href: '/learn/gaba', description: 'Calming pathway records related to inhibitory tone and relaxation.' },
-      { title: 'Stress Goal Guide', href: '/best-supplements-for-stress', description: 'Intent-oriented stress support navigation from the goal layer.' },
+      { title: 'Stress Goal Guide', href: '/guides/best/supplements-for-stress', description: 'Intent-oriented stress support navigation from the goal layer.' },
       { title: 'Natural Anxiolytics', href: '/guides/anxiety/natural-anxiolytics-beyond-ashwagandha', description: 'Broader harm-aware discovery for calming botanicals beyond one headline herb.' },
     ],
   },
@@ -79,9 +79,9 @@ export const scientificCollections: ScientificCollection[] = [
     chips: ['Acetylcholine', 'Memory', 'Focus', 'Neuro signaling', 'Cognition'],
     related: [
       { title: 'Dopamine Pathways', href: '/learn/dopamine', description: 'Cognition and attention records with dopaminergic or motivation-adjacent signals.' },
-      { title: 'Focus Supplements', href: '/best-supplements-for-focus', description: 'Intent entry page for focus-oriented supplement discovery.' },
+      { title: 'Focus Supplements', href: '/guides/focus/best-supplements-for-focus', description: 'Intent entry page for focus-oriented supplement discovery.' },
       { title: 'Cognition Compounds', href: '/guides/focus', description: 'Goal-oriented discovery for cognition, attention, and memory signals.' },
-      { title: 'Brain Fog Guide', href: '/guides/supplements-for-brain-fog-and-fatigue', description: 'Decision-oriented discovery for cognitive clarity intent.' },
+      { title: 'Brain Fog Guide', href: '/guides/other/supplements-for-brain-fog-and-fatigue', description: 'Decision-oriented discovery for cognitive clarity intent.' },
     ],
   },
   {
@@ -97,8 +97,8 @@ export const scientificCollections: ScientificCollection[] = [
     related: [
       { title: 'Inflammation Pathways', href: '/learn/inflammation', description: 'Pathway hub for inflammatory, immune, oxidative, and antioxidant records.' },
       { title: 'Recovery Support', href: '/guides/sleep', description: 'Recovery signals that can overlap with inflammatory and oxidative-stress context.' },
-      { title: 'Joint Support Supplements', href: '/best-supplements-for-joint-support', description: 'Intent entry page for joint-support discovery.' },
-      { title: 'Gut Health Supplements', href: '/best-supplements-for-gut-health', description: 'Adjacent discovery for immune and inflammation-adjacent wellness intent.' },
+      { title: 'Joint Support Supplements', href: '/guides/best/supplements-for-joint-support', description: 'Intent entry page for joint-support discovery.' },
+      { title: 'Gut Health Supplements', href: '/guides/best/supplements-for-gut-health', description: 'Adjacent discovery for immune and inflammation-adjacent wellness intent.' },
     ],
   },
 ]
