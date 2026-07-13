@@ -9,10 +9,25 @@ import { getSheet, readWorkbook, sheetToRows } from './data/workbook-parser.mjs'
 // is tracked via the free-text contraindications_or_flags column, backed by
 // safety_notes. Legacy field names are still checked as a fallback in case a
 // future workbook revision reintroduces a dedicated enum column.
-const ENTITY_SHEET = 'Entity_Master'
+//
+// Sheet name resolution mirrors scripts/data/build-runtime-from-workbook.mjs's
+// candidate-list approach: the unified sheet is sometimes saved under the
+// 'Sheet7' alias, and older workbooks may still carry the pre-consolidation
+// split herb/compound sheets. Resolving via a single hard-coded name here
+// previously caused a silent 0/0 report (see docs/LOOP_NOTES.md) — any sheet
+// this script can't find must fail loudly instead of reporting zero rows.
+const ENTITY_SHEET_CANDIDATES = ['Entity_Master', 'Sheet7']
+const LEGACY_SHEET_CANDIDATES = {
+  herbs: ['Herb Master V3', 'Herb Monographs', 'Site Export Herbs'],
+  compounds: ['Compound Master V3', 'Site Export Compounds'],
+}
 const ENTITY_TYPES = {
   herbs: 'herb',
   compounds: 'compound',
+}
+
+function resolveSheetName(workbook, candidates) {
+  return candidates.find((candidate) => getSheet(workbook, candidate)) || null
 }
 
 function clean(value) {
@@ -104,15 +119,31 @@ function linesForReport(herbSummary, compoundSummary) {
   ]
 }
 
+function resolveRows(workbook, type) {
+  const entitySheetName = resolveSheetName(workbook, ENTITY_SHEET_CANDIDATES)
+  if (entitySheetName) {
+    const entityRows = sheetToRows(getSheet(workbook, entitySheetName))
+    return entityRows.filter((row) => clean(row.entity_type).toLowerCase() === ENTITY_TYPES[type])
+  }
+
+  const legacySheetName = resolveSheetName(workbook, LEGACY_SHEET_CANDIDATES[type])
+  if (legacySheetName) {
+    return sheetToRows(getSheet(workbook, legacySheetName))
+  }
+
+  throw new Error(
+    `[audit:safety] could not find a ${type} sheet — tried ${[...ENTITY_SHEET_CANDIDATES, ...LEGACY_SHEET_CANDIDATES[type]].join(', ')}`,
+  )
+}
+
 async function main() {
   const repoRoot = process.cwd()
   const workbookPath = resolveWorkbookPath(repoRoot)
   assertWorkbookExists(workbookPath)
   const workbook = await readWorkbook(workbookPath)
-  const entityRows = sheetToRows(getSheet(workbook, ENTITY_SHEET))
 
-  const herbRows = entityRows.filter((row) => clean(row.entity_type).toLowerCase() === ENTITY_TYPES.herbs)
-  const compoundRows = entityRows.filter((row) => clean(row.entity_type).toLowerCase() === ENTITY_TYPES.compounds)
+  const herbRows = resolveRows(workbook, 'herbs')
+  const compoundRows = resolveRows(workbook, 'compounds')
   const report = linesForReport(
     summarize(herbRows, 'herb'),
     summarize(compoundRows, 'compound'),
