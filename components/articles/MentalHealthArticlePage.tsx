@@ -65,7 +65,7 @@ function relatedArticles(article: MentalHealthArticle): MentalHealthArticle[] {
     ...mentalHealthArticles.filter((candidate) => candidate.cluster === article.cluster && candidate.slug !== article.slug),
     ...preferredSlugs
       .map((slug) => getMentalHealthArticle(slug))
-      .filter((candidate): candidate is MentalHealthArticle => Boolean(candidate) && candidate.slug !== article.slug),
+      .filter((candidate): candidate is MentalHealthArticle => candidate !== undefined && candidate.slug !== article.slug),
   ]
 
   return [...new Map(related.map((candidate) => [candidate.slug, candidate])).values()].slice(0, 6)
