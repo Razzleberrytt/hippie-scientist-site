@@ -22,9 +22,27 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          show-progress: false
 
       - name: Run entity generator smoke test
-        run: node scripts/data/ai-entity-enrichment-smoke.mjs
+        id: smoke
+        continue-on-error: true
+        shell: bash
+        run: node scripts/data/ai-entity-enrichment-smoke.mjs > smoke-test.log 2>&1
+
+      - name: Upload smoke test log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-entity-smoke-log
+          path: smoke-test.log
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Stop after smoke test failure
+        if: steps.smoke.outcome == 'failure'
+        run: exit 1
 
       - name: Set up Node
         uses: actions/setup-node@v4
