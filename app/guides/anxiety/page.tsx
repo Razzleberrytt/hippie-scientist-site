@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_URL } from '@/src/lib/seo'
+import References from '@/components/References'
 import { HubSectionHeading } from '@/components/guides/HubSectionHeading'
 import { DecisionRouter, type IntentRoute } from '@/components/guides/DecisionRouter'
 import { GuideCardGrid, type GuideCard } from '@/components/guides/GuideCardGrid'
@@ -113,6 +114,28 @@ const COMPARISONS: GuideCard[] = [
   },
 ]
 
+const DEPTH_LINKS = [
+  { href: '/herbs/ashwagandha/', title: 'Ashwagandha', kind: 'Herb profile' },
+  { href: '/compounds/l-theanine/', title: 'L-Theanine', kind: 'Compound profile' },
+  { href: '/compounds/kava/', title: 'Kava', kind: 'Compound profile' },
+  { href: '/herbs/rhodiola/', title: 'Rhodiola Rosea', kind: 'Herb profile' },
+  { href: '/compounds/magnesium-glycinate/', title: 'Magnesium Glycinate', kind: 'Compound profile' },
+  { href: '/compounds/cannabidiol/', title: 'CBD (Cannabidiol)', kind: 'Compound profile' },
+  { href: '/herbs/kanna/', title: 'Kanna', kind: 'Herb profile' },
+  { href: '/herbs/schisandra/', title: 'Schisandra', kind: 'Herb profile' },
+  { href: '/herbs/eleuthero/', title: 'Eleuthero', kind: 'Herb profile' },
+  { href: '/compounds/lemon-balm/', title: 'Lemon Balm', kind: 'Compound profile' },
+  { href: '/compounds/passionflower/', title: 'Passionflower', kind: 'Compound profile' },
+  { href: '/herbs/holy-basil/', title: 'Holy Basil (Tulsi)', kind: 'Herb profile' },
+]
+
+const ANXIETY_REFS = [
+  { n: 1, text: 'Chandrasekhar K, et al. (2012). A prospective, randomized, double-blind, placebo-controlled study of Withania somnifera (ashwagandha) in reducing stress and anxiety. Indian J Psychol Med, 34(3): 255-262.', url: 'https://pubmed.ncbi.nlm.nih.gov/23439798/' },
+  { n: 2, text: 'Hidese S, et al. (2019). Effects of L-theanine administration on stress-related symptoms and cognitive functions in healthy adults. Nutrients, 11(10): 2362.', url: 'https://pubmed.ncbi.nlm.nih.gov/31581491/' },
+  { n: 3, text: 'Sarris J, et al. (2020). Kava for generalised anxiety disorder: A 16-week double-blind, randomised, placebo-controlled study. Aust N Z J Psychiatry, 54(3): 288-297.', url: 'https://pubmed.ncbi.nlm.nih.gov/31665900/' },
+  { n: 4, text: 'Panossian A, Wikman G. (2010). Effects of adaptogens on the central nervous system and the molecular mechanisms associated with their stress-protective activity. Pharmaceuticals, 3(1): 188-224.', url: 'https://pubmed.ncbi.nlm.nih.gov/27713248/' },
+]
+
 // Full library — kept, but secondary to the decision sections above.
 const ALL_GUIDES = [
   { slug: 'natural-anxiety-relief', title: 'Natural Anxiety Relief' },
@@ -203,8 +226,30 @@ export default function AnxietyGuideIndex() {
         </p>
       </section>
 
+      <section className="mb-12">
+        <HubSectionHeading
+          eyebrow="Research deeper"
+          title="Anxiety-relevant ingredient profiles"
+          sub="Use these monographs after choosing a guide to check safety notes, evidence context, and related compounds."
+        />
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {DEPTH_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-xl border border-brand-900/12 bg-white p-4 transition hover:border-brand-700/30 hover:bg-brand-50 dark:border-white/10 dark:bg-[var(--surface-card)] dark:hover:bg-white/10"
+            >
+              <span className="block text-[11px] font-bold uppercase tracking-widest text-muted">{link.kind}</span>
+              <span className="mt-1 block text-sm font-semibold text-brand-800 dark:text-[var(--text-primary)]">
+                {link.title} →
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* All guides — secondary */}
-      <section>
+      <section className="mb-12">
         <HubSectionHeading eyebrow="Full library" title="All anxiety & stress guides" />
         <ul className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
           {ALL_GUIDES.map((g) => (
@@ -219,6 +264,7 @@ export default function AnxietyGuideIndex() {
           ))}
         </ul>
       </section>
+      <References refs={ANXIETY_REFS} />
     </div>
   )
 }
