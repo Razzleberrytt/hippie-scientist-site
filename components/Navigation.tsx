@@ -66,20 +66,51 @@ export function Navigation() {
           </Link>
 
           <div className='hidden items-center gap-6 text-sm md:flex lg:gap-8'>
-            {primaryLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={toCanonicalHref(link.href)}
-                aria-current={isActive(link.href) ? 'page' : undefined}
-                className={`relative py-2 font-semibold transition-colors ${
-                  isActive(link.href)
-                    ? 'text-[#123c2f] after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-[#b88a42] dark:text-[var(--text-primary)]'
-                    : 'text-[#44544d] hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {primaryLinks.map((link) => {
+              const hasChildren = Boolean(link.children?.length)
+
+              return (
+                <div key={link.href} className='group relative'>
+                  <Link
+                    href={toCanonicalHref(link.href)}
+                    aria-current={isActive(link.href) ? 'page' : undefined}
+                    aria-haspopup={hasChildren ? 'true' : undefined}
+                    className={`relative flex items-center gap-1 py-2 font-semibold transition-colors ${
+                      isActive(link.href)
+                        ? 'text-[#123c2f] after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-[#b88a42] dark:text-[var(--text-primary)]'
+                        : 'text-[#44544d] hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]'
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    {hasChildren ? (
+                      <span aria-hidden='true' className='text-[0.65rem] leading-none text-[#8a6a38] transition-transform group-hover:rotate-180 group-focus-within:rotate-180 dark:text-[var(--accent-gold)]'>
+                        ▾
+                      </span>
+                    ) : null}
+                  </Link>
+
+                  {hasChildren ? (
+                    <div className='invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-3 opacity-0 transition duration-150 ease-out group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100'>
+                      <div className='overflow-hidden rounded-3xl border border-[#123c2f]/10 bg-[#fffdf8] p-2 shadow-[0_18px_48px_rgba(45,35,19,0.14)] ring-1 ring-white/60 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)] dark:ring-white/5'>
+                        {link.children?.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={toCanonicalHref(child.href)}
+                            aria-current={isActive(child.href) ? 'page' : undefined}
+                            className='block rounded-2xl px-4 py-3 transition hover:bg-[#f5efe2] focus-visible:bg-[#f5efe2] focus-visible:outline-none dark:hover:bg-[var(--surface-subtle)] dark:focus-visible:bg-[var(--surface-subtle)]'
+                          >
+                            <span className='block text-sm font-semibold text-[#123c2f] dark:text-[var(--text-primary)]'>{child.label}</span>
+                            {child.description ? (
+                              <span className='mt-1 block text-xs leading-snug text-[#526159] dark:text-[var(--text-secondary)]'>{child.description}</span>
+                            ) : null}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
+              )
+            })}
           </div>
 
           <div className='flex shrink-0 items-center gap-2'>
