@@ -87,7 +87,7 @@ export default function RhodiolaVsAshwagandhaComparePage() {
           <p className="text-sm leading-7 text-muted">
             Better for mental fatigue, stress resilience, and daytime output when you do not want a sedating option.
           </p>
-          <Link href="/herbs/rhodiola" className="chip-readable text-xs font-bold">Explore Rhodiola →</Link>
+          <Link href="/herbs/rhodiola/" className="chip-readable text-xs font-bold">Explore Rhodiola →</Link>
         </article>
 
         <article className="card-premium p-6 space-y-4">
@@ -96,7 +96,7 @@ export default function RhodiolaVsAshwagandhaComparePage() {
           <p className="text-sm leading-7 text-muted">
             Better for steady stress support, evening settling, and routines where calm matters more than activation.
           </p>
-          <Link href="/herbs/ashwagandha" className="chip-readable text-xs font-bold">Explore Ashwagandha →</Link>
+          <Link href="/herbs/ashwagandha/" className="chip-readable text-xs font-bold">Explore Ashwagandha →</Link>
         </article>
       </section>
 

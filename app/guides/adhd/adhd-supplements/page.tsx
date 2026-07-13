@@ -149,7 +149,7 @@ export default function AdhdSupplementsHub() {
           <Link href="/guides/adhd/best-supplements-for-adhd/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Read Pillar Review →
           </Link>
-          <Link href="/guides/adhd/adhd-stack-guide" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/guides/adhd/adhd-stack-guide/" className="text-brand-700 hover:text-brand-800 hover:underline">
             View Stack Builder Guide →
           </Link>
         </div>
@@ -377,19 +377,19 @@ export default function AdhdSupplementsHub() {
           <div className="rounded-xl border border-brand-900/5 bg-brand-50/30 p-4">
             <h3 className="font-semibold text-ink text-sm">L-Theanine for Calm</h3>
             <p className="mt-1.5 text-xs text-muted leading-relaxed">
-              Promotes alpha brain wave activity to quiet a racing mind at bedtime. Learn more in our guide on <Link href="/guides/sleep/l-theanine-for-sleep" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">L-Theanine for Sleep</Link>.
+              Promotes alpha brain wave activity to quiet a racing mind at bedtime. Learn more in our guide on <Link href="/guides/sleep/l-theanine-for-sleep/" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">L-Theanine for Sleep</Link>.
             </p>
           </div>
           <div className="rounded-xl border border-brand-900/5 bg-brand-50/30 p-4">
             <h3 className="font-semibold text-ink text-sm">Magnesium Selection</h3>
             <p className="mt-1.5 text-xs text-muted leading-relaxed">
-              Supports neuromuscular relaxation and GABA. It is vital to prioritize deficiency testing. Compare forms in our guide on <Link href="/guides/sleep/magnesium-types-for-sleep" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">Magnesium Types for Sleep</Link>.
+              Supports neuromuscular relaxation and GABA. It is vital to prioritize deficiency testing. Compare forms in our guide on <Link href="/guides/sleep/magnesium-types-for-sleep/" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">Magnesium Types for Sleep</Link>.
             </p>
           </div>
           <div className="rounded-xl border border-brand-900/5 bg-brand-50/30 p-4">
             <h3 className="font-semibold text-ink text-sm">Botanical Sleep Support</h3>
             <p className="mt-1.5 text-xs text-muted leading-relaxed">
-              Herbs like chamomile, lemon balm, or valerian are commonly used for general relaxation. Explore the research in <Link href="/guides/sleep/best-herbs-for-sleep" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">Best Herbs for Sleep</Link>.
+              Herbs like chamomile, lemon balm, or valerian are commonly used for general relaxation. Explore the research in <Link href="/guides/sleep/best-herbs-for-sleep/" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">Best Herbs for Sleep</Link>.
             </p>
           </div>
         </div>

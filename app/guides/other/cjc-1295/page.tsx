@@ -147,7 +147,7 @@ export default function Page() {
 
       <div className="mt-8 flex gap-4 flex-wrap">
         <Link href="/guides/" className="text-sm font-medium text-emerald-700 hover:underline">Back to guides &rarr;</Link>
-        <Link href="/compounds/cjc-1295" className="text-sm font-medium text-emerald-700 hover:underline">View CJC-1295 compound profile &rarr;</Link>
+        <Link href="/compounds/cjc-1295/" className="text-sm font-medium text-emerald-700 hover:underline">View CJC-1295 compound profile &rarr;</Link>
         <Link href="/guides/other/ipamorelin/" className="text-sm font-medium text-emerald-700 hover:underline">Read the Ipamorelin guide &rarr;</Link>
 
       </div>

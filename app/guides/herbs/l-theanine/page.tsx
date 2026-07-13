@@ -186,7 +186,7 @@ export default function LTheanineArticlePage() {
               increase to 200 mg before adding other compounds. The L-theanine + caffeine 2:1 stack
               is the most-studied nootropic combination in the literature and a natural upgrade if
               you also want alertness. See the{' '}
-              <Link href="/guides/focus/l-theanine-vs-caffeine-for-focus" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">
+              <Link href="/guides/focus/l-theanine-vs-caffeine-for-focus/" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">
                 head-to-head comparison
               </Link>
               .
@@ -261,7 +261,7 @@ export default function LTheanineArticlePage() {
               <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 For a complete breakdown of chemistry, mechanisms, and research across all uses,
                 see the{' '}
-                <Link href="/compounds/l-theanine" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">
+                <Link href="/compounds/l-theanine/" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">
                   L-theanine compound profile
                 </Link>
                 .
@@ -297,7 +297,7 @@ export default function LTheanineArticlePage() {
                       <td className="p-4 text-brand-700 font-medium">Strong</td>
                       <td className="p-4 text-muted">30–60 min</td>
                       <td className="p-4">
-                        <Link href="/guides/focus/l-theanine-vs-caffeine-for-focus" className="text-brand-700 hover:underline font-medium">
+                        <Link href="/guides/focus/l-theanine-vs-caffeine-for-focus/" className="text-brand-700 hover:underline font-medium">
                           vs Caffeine →
                         </Link>
                       </td>
@@ -317,7 +317,7 @@ export default function LTheanineArticlePage() {
                       <td className="p-4 text-brand-700 font-medium">Moderate</td>
                       <td className="p-4 text-muted">30–60 min</td>
                       <td className="p-4">
-                        <Link href="/guides/sleep/l-theanine-for-sleep" className="text-brand-700 hover:underline font-medium">
+                        <Link href="/guides/sleep/l-theanine-for-sleep/" className="text-brand-700 hover:underline font-medium">
                           L-theanine for sleep →
                         </Link>
                       </td>
@@ -352,15 +352,15 @@ export default function LTheanineArticlePage() {
                   anxiety deep-dive
                 </Link>
                 . If sleep is primary, see{' '}
-                <Link href="/guides/sleep/l-theanine-for-sleep" className="font-semibold text-brand-700 hover:underline">
+                <Link href="/guides/sleep/l-theanine-for-sleep/" className="font-semibold text-brand-700 hover:underline">
                   L-theanine for sleep
                 </Link>
                 . If you want a stack that combines L-theanine with magnesium, see the{' '}
-                <Link href="/guides/adhd/l-theanine-magnesium-adhd-stack" className="font-semibold text-brand-700 hover:underline">
+                <Link href="/guides/adhd/l-theanine-magnesium-adhd-stack/" className="font-semibold text-brand-700 hover:underline">
                   L-theanine + magnesium stack
                 </Link>
                 . For caffeine-free focus, see{' '}
-                <Link href="/guides/focus/l-theanine-without-caffeine" className="font-semibold text-brand-700 hover:underline">
+                <Link href="/guides/focus/l-theanine-without-caffeine/" className="font-semibold text-brand-700 hover:underline">
                   L-theanine without caffeine
                 </Link>
                 .
@@ -611,7 +611,7 @@ export default function LTheanineArticlePage() {
                 L-theanine has one of the cleanest safety profiles of any supplement reviewed on
                 this site. The main cautions are additive effects with sedatives and mild
                 blood-pressure reduction at higher chronic doses. For a complete breakdown, see the{' '}
-                <Link href="/compounds/l-theanine" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">
+                <Link href="/compounds/l-theanine/" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">
                   full L-theanine compound profile
                 </Link>
                 .
@@ -637,7 +637,7 @@ export default function LTheanineArticlePage() {
                   <p className="mt-1 text-xs leading-5 text-muted">
                     100–200 mg L-theanine with 50–100 mg caffeine (2:1 ratio). The most-studied
                     nootropic stack — calm focus without jitters. See{' '}
-                    <Link href="/guides/focus/l-theanine-vs-caffeine-for-focus" className="font-semibold text-brand-700 hover:underline">
+                    <Link href="/guides/focus/l-theanine-vs-caffeine-for-focus/" className="font-semibold text-brand-700 hover:underline">
                       head-to-head comparison
                     </Link>
                     .
@@ -648,7 +648,7 @@ export default function LTheanineArticlePage() {
                   <p className="mt-1 text-xs leading-5 text-muted">
                     Acute calming (L-theanine) plus evening muscle tension and nervous-system
                     support (magnesium). See the{' '}
-                    <Link href="/guides/adhd/l-theanine-magnesium-adhd-stack" className="font-semibold text-brand-700 hover:underline">
+                    <Link href="/guides/adhd/l-theanine-magnesium-adhd-stack/" className="font-semibold text-brand-700 hover:underline">
                       L-theanine + magnesium stack
                     </Link>
                     .
@@ -670,7 +670,7 @@ export default function LTheanineArticlePage() {
                   <p className="mt-1 text-xs leading-5 text-muted">
                     For sleep: L-theanine quiets racing thoughts; melatonin signals circadian
                     onset. Different mechanisms — complementary. See{' '}
-                    <Link href="/guides/sleep/l-theanine-for-sleep" className="font-semibold text-brand-700 hover:underline">
+                    <Link href="/guides/sleep/l-theanine-for-sleep/" className="font-semibold text-brand-700 hover:underline">
                       L-theanine for sleep
                     </Link>
                     .
@@ -729,7 +729,7 @@ export default function LTheanineArticlePage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/l-theanine-for-sleep"
+                  href="/guides/sleep/l-theanine-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -759,7 +759,7 @@ export default function LTheanineArticlePage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/focus/l-theanine-vs-caffeine-for-focus"
+                  href="/guides/focus/l-theanine-vs-caffeine-for-focus/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -773,7 +773,7 @@ export default function LTheanineArticlePage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/adhd/l-theanine-magnesium-adhd-stack"
+                  href="/guides/adhd/l-theanine-magnesium-adhd-stack/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -787,7 +787,7 @@ export default function LTheanineArticlePage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/focus/l-theanine-without-caffeine"
+                  href="/guides/focus/l-theanine-without-caffeine/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -989,7 +989,7 @@ export default function LTheanineArticlePage() {
                 L-theanine for anxiety →
               </Link>
               <Link
-                href="/guides/sleep/l-theanine-for-sleep"
+                href="/guides/sleep/l-theanine-for-sleep/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 L-theanine for sleep →
@@ -1007,19 +1007,19 @@ export default function LTheanineArticlePage() {
                 Ashwagandha article →
               </Link>
               <Link
-                href="/compounds/l-theanine"
+                href="/compounds/l-theanine/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 L-theanine compound profile →
               </Link>
               <Link
-                href="/guides/anxiety"
+                href="/guides/anxiety/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Anxiety goal hub →
               </Link>
               <Link
-                href="/guides/focus"
+                href="/guides/focus/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Focus goal hub →

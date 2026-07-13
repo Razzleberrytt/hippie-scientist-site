@@ -172,7 +172,7 @@ export default function RhodiolaEnergyGuidePage() {
           <Link href="/guides/rhodiola-complete-guide/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Complete Rhodiola Guide →
           </Link>
-          <Link href="/herbs/rhodiola" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/herbs/rhodiola/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Rhodiola Herb Profile →
           </Link>
         </div>
@@ -301,12 +301,12 @@ export default function RhodiolaEnergyGuidePage() {
             <p className="mt-1 text-sm font-semibold text-ink">Complete Rhodiola Guide</p>
             <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">Forms, benefits, dosing, and the full evidence base in one place.</p>
           </Link>
-          <Link href="/guides/rhodiola-extract-vs-powder" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
+          <Link href="/guides/rhodiola-extract-vs-powder/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Guide</p>
             <p className="mt-1 text-sm font-semibold text-ink">Extract vs Powder</p>
             <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">Which form actually works — absorption, dosing, and evidence compared.</p>
           </Link>
-          <Link href="/guides/rhodiola-sleep-stack" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
+          <Link href="/guides/rhodiola-sleep-stack/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Stack Guide</p>
             <p className="mt-1 text-sm font-semibold text-ink">Rhodiola + Magnesium for Sleep</p>
             <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">The adaptogen stack for the &quot;wired but tired&quot; cycle.</p>

@@ -189,7 +189,7 @@ export default function AshwagandhaForSleepPage() {
               an acute sleep aid. See the{' '}
               <Link href="/guides/herbs/ashwagandha/" className="font-semibold text-brand-700 hover:underline">full ashwagandha article</Link>{' '}
               and the{' '}
-              <Link href="/guides/sleep/best-herbs-for-sleep" className="font-semibold text-brand-700 hover:underline">best herbs for sleep hub</Link>.
+              <Link href="/guides/sleep/best-herbs-for-sleep/" className="font-semibold text-brand-700 hover:underline">best herbs for sleep hub</Link>.
             </p>
           </section>
 
@@ -232,7 +232,7 @@ export default function AshwagandhaForSleepPage() {
                 supplements, and flags the safety considerations that matter most for long-term use.
                 All claims are referenced to primary studies or the{' '}
                 <Link
-                  href="/herbs/ashwagandha"
+                  href="/herbs/ashwagandha/"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   Ashwagandha herb profile
@@ -269,7 +269,7 @@ export default function AshwagandhaForSleepPage() {
               <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
                 For a complete breakdown of chemistry, evidence, and uses beyond sleep, see the{' '}
                 <Link
-                  href="/herbs/ashwagandha"
+                  href="/herbs/ashwagandha/"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   full Ashwagandha herb profile
@@ -526,7 +526,7 @@ export default function AshwagandhaForSleepPage() {
               <p className="mt-3 text-sm text-muted">
                 See the{' '}
                 <Link
-                  href="/herbs/ashwagandha"
+                  href="/herbs/ashwagandha/"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   full Ashwagandha safety profile
@@ -598,7 +598,7 @@ export default function AshwagandhaForSleepPage() {
               <p className="mt-3 text-sm text-muted">
                 See the full{' '}
                 <Link
-                  href="/guides/sleep-herbs-vs-melatonin"
+                  href="/guides/sleep-herbs-vs-melatonin/"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   sleep herbs vs melatonin comparison
@@ -636,7 +636,7 @@ export default function AshwagandhaForSleepPage() {
               </h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 <Link
-                  href="/guides/sleep/best-herbs-for-sleep"
+                  href="/guides/sleep/best-herbs-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -651,7 +651,7 @@ export default function AshwagandhaForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep-herbs-vs-melatonin"
+                  href="/guides/sleep-herbs-vs-melatonin/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -666,7 +666,7 @@ export default function AshwagandhaForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/herbs/ashwagandha"
+                  href="/herbs/ashwagandha/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -681,7 +681,7 @@ export default function AshwagandhaForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha"
+                  href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -696,7 +696,7 @@ export default function AshwagandhaForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep"
+                  href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -711,7 +711,7 @@ export default function AshwagandhaForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/l-theanine-for-sleep"
+                  href="/guides/sleep/l-theanine-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -768,7 +768,7 @@ export default function AshwagandhaForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep"
+                  href="/guides/sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -970,19 +970,19 @@ export default function AshwagandhaForSleepPage() {
             </p>
             <div className="mt-3 space-y-2">
               <Link
-                href="/herbs/ashwagandha"
+                href="/herbs/ashwagandha/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Ashwagandha herb profile →
               </Link>
               <Link
-                href="/guides/sleep-herbs-vs-melatonin"
+                href="/guides/sleep-herbs-vs-melatonin/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Sleep herbs vs melatonin →
               </Link>
               <Link
-                href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha"
+                href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Natural anxiolytics →

@@ -464,19 +464,19 @@ export default function CbdVsAshwagandhaForAnxietyPage() {
               L-Theanine for Anxiety
             </Link>
             <Link
-              href="/guides/anxiety/anxiety-stack-guide"
+              href="/guides/anxiety/anxiety-stack-guide/"
               className="block p-4 border rounded-lg hover:bg-muted transition-colors"
             >
               Anxiety Stack Guide
             </Link>
             <Link
-              href="/guides/sleep/ashwagandha-for-sleep"
+              href="/guides/sleep/ashwagandha-for-sleep/"
               className="block p-4 border rounded-lg hover:bg-muted transition-colors"
             >
               Ashwagandha for Sleep
             </Link>
             <Link
-              href="/guides/sleep/sleep-stack-guide"
+              href="/guides/sleep/sleep-stack-guide/"
               className="block p-4 border rounded-lg hover:bg-muted transition-colors"
             >
               Sleep Stack Guide

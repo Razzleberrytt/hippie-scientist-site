@@ -41,10 +41,10 @@ export default function WhyWeRecommend({
           ))}
         </ul>
         <div className='mt-3 flex flex-wrap gap-3 text-xs font-semibold'>
-          <Link href='/learn/product-quality' className='text-emerald-800 hover:underline'>
+          <Link href='/learn/product-quality/' className='text-emerald-800 hover:underline'>
             Product quality guide →
           </Link>
-          <Link href='/info/affiliate-disclosure' className='text-emerald-800 hover:underline'>
+          <Link href='/info/affiliate-disclosure/' className='text-emerald-800 hover:underline'>
             Affiliate disclosure →
           </Link>
         </div>

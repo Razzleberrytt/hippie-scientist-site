@@ -37,21 +37,21 @@ export default function NotFound() {
           </Link>
 
           <Link
-            href='/herbs'
+            href='/herbs/'
             className='button-secondary px-5 py-3 text-sm'
           >
             Herbs
           </Link>
 
           <Link
-            href='/articles'
+            href='/articles/'
             className='button-secondary px-5 py-3 text-sm'
           >
             Articles
           </Link>
 
           <Link
-            href='/guides'
+            href='/guides/'
             className='button-secondary px-5 py-3 text-sm'
           >
             Goals

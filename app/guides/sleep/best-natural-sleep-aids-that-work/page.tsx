@@ -197,7 +197,7 @@ export default function Page() {
           <div className="space-y-3">
             <article className="card-premium p-6">
               <h3 className="text-xl font-semibold text-brand-800">
-                <Link href="/compounds/magnesium-glycinate" className="hover:underline">Magnesium glycinate</Link>{' '}
+                <Link href="/compounds/magnesium-glycinate/" className="hover:underline">Magnesium glycinate</Link>{' '}
                 <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">Grade B · Foundation</span>
               </h3>
               <p className="mt-3 text-sm text-muted">
@@ -206,14 +206,14 @@ export default function Page() {
                 in stressed, high-caffeine populations. The glycinate form is well absorbed and gentle on
                 the gut. Typical evening dose is 200–400&nbsp;mg of elemental magnesium. It pairs naturally
                 with L-theanine; see{' '}
-                <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium" className="font-medium text-brand-700 hover:underline">L-theanine vs magnesium</Link>{' '}
+                <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/" className="font-medium text-brand-700 hover:underline">L-theanine vs magnesium</Link>{' '}
                 for how to choose between or combine them.
               </p>
             </article>
 
             <article className="card-premium p-6">
               <h3 className="text-xl font-semibold text-brand-800">
-                <Link href="/compounds/l-theanine" className="hover:underline">L-theanine</Link>{' '}
+                <Link href="/compounds/l-theanine/" className="hover:underline">L-theanine</Link>{' '}
                 <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">Grade B · Calm</span>
               </h3>
               <p className="mt-3 text-sm text-muted">
@@ -226,30 +226,30 @@ export default function Page() {
 
             <article className="card-premium p-6">
               <h3 className="text-xl font-semibold text-brand-800">
-                <Link href="/compounds/melatonin" className="hover:underline">Melatonin (low dose)</Link>{' '}
+                <Link href="/compounds/melatonin/" className="hover:underline">Melatonin (low dose)</Link>{' '}
                 <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">Grade A (circadian)</span>
               </h3>
               <p className="mt-3 text-sm text-muted">
                 Melatonin is a circadian signal, not a knockout drug. It is strongly evidenced for jet
                 lag, shift work and delayed sleep phase, and moderately helpful for general sleep-onset
                 latency. Use 0.5–1&nbsp;mg — higher doses rarely help more and can cause grogginess. See{' '}
-                <Link href="/guides/compare/melatonin-vs-magnesium" className="font-medium text-brand-700 hover:underline">melatonin vs magnesium</Link>{' '}
+                <Link href="/guides/compare/melatonin-vs-magnesium/" className="font-medium text-brand-700 hover:underline">melatonin vs magnesium</Link>{' '}
                 and{' '}
-                <Link href="/guides/sleep/magnesium-vs-melatonin" className="font-medium text-brand-700 hover:underline">our magnesium vs melatonin guide</Link>{' '}
+                <Link href="/guides/sleep/magnesium-vs-melatonin/" className="font-medium text-brand-700 hover:underline">our magnesium vs melatonin guide</Link>{' '}
                 to decide which mechanism fits your problem.
               </p>
             </article>
 
             <article className="card-premium p-6">
               <h3 className="text-xl font-semibold text-brand-800">
-                <Link href="/herbs/valerian" className="hover:underline">Valerian root</Link>{' '}
+                <Link href="/herbs/valerian/" className="hover:underline">Valerian root</Link>{' '}
                 <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">Grade C–B · Sedating</span>
               </h3>
               <p className="mt-3 text-sm text-muted">
                 Valerian acts on GABA-A receptors and has a genuine mild sedative effect, though trial
                 results are mixed and depend heavily on extract quality. It works best with consistent
                 use over a couple of weeks and pairs traditionally with{' '}
-                <Link href="/herbs/hops" className="font-medium text-brand-700 hover:underline">hops</Link>{' '}
+                <Link href="/herbs/hops/" className="font-medium text-brand-700 hover:underline">hops</Link>{' '}
                 and lemon balm. Avoid combining with alcohol or other sedatives.
               </p>
             </article>
@@ -263,7 +263,7 @@ export default function Page() {
                 Both raise GABA tone and have a long traditional record for anxiety-related, restless
                 sleep. The evidence base is smaller, but they are gentle, low-risk options for mild
                 difficulty winding down. Read the full{' '}
-                <Link href="/guides/passionflower" className="font-medium text-brand-700 hover:underline">passionflower guide</Link>{' '}
+                <Link href="/guides/passionflower/" className="font-medium text-brand-700 hover:underline">passionflower guide</Link>{' '}
                 for preparation and dosing.
               </p>
             </article>
@@ -340,12 +340,12 @@ export default function Page() {
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Related guides &amp; comparisons</h2>
           <div className="grid gap-3 sm:grid-cols-2">
-            <Link href="/guides/sleep/best-supplements-for-sleep" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Supplements for Sleep →</Link>
+            <Link href="/guides/sleep/best-supplements-for-sleep/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Supplements for Sleep →</Link>
             <Link href="/guides/sleep/magnesium-for-sleep/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Magnesium for Sleep →</Link>
-            <Link href="/guides/best-herbs-for-stress-and-anxiety-at-night" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Stress &amp; Anxiety at Night →</Link>
-            <Link href="/guides/compare/melatonin-vs-valerian-vs-magnesium-for-sleep" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Melatonin vs Valerian vs Magnesium →</Link>
-            <Link href="/guides/compare/sleep-herbs-vs-melatonin" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Sleep Herbs vs Melatonin →</Link>
-            <Link href="/guides/sleep" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Sleep Guides →</Link>
+            <Link href="/guides/best-herbs-for-stress-and-anxiety-at-night/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Stress &amp; Anxiety at Night →</Link>
+            <Link href="/guides/compare/melatonin-vs-valerian-vs-magnesium-for-sleep/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Melatonin vs Valerian vs Magnesium →</Link>
+            <Link href="/guides/compare/sleep-herbs-vs-melatonin/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Sleep Herbs vs Melatonin →</Link>
+            <Link href="/guides/sleep/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Sleep Guides →</Link>
           </div>
         </section>
       </div>

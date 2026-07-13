@@ -75,7 +75,7 @@ export default function KavaVsAlcoholPage() {
           <p className="text-sm leading-7 text-muted">
             Kava (Piper methysticum) modulates GABA-A receptors via kavalactones, producing relaxation without the cognitive impairment or dependence profile associated with alcohol. Traditional Pacific Island use spans centuries in social and ceremonial contexts.
           </p>
-          <Link href="/herbs/kava" className="chip-readable">
+          <Link href="/herbs/kava/" className="chip-readable">
             Explore Kava
           </Link>
         </div>
@@ -173,11 +173,11 @@ export default function KavaVsAlcoholPage() {
         </p>
 
         <div className="flex flex-wrap gap-3">
-          <Link href="/learn/harm-reduction" className="chip-readable">
+          <Link href="/learn/harm-reduction/" className="chip-readable">
             Harm Reduction
           </Link>
 
-          <Link href="/learn/gaba" className="chip-readable">
+          <Link href="/learn/gaba/" className="chip-readable">
             GABA Pathway
           </Link>
         </div>

@@ -109,7 +109,7 @@ export default function KannaVsSSRIsPage() {
           <p className="text-sm leading-7 text-muted">
             Kanna (Sceletium tortuosum) contains mesembrine and related alkaloids that act as serotonin reuptake inhibitors and PDE4 inhibitors. Traditional South African use includes mood elevation, stress reduction, and social bonding — but the pharmacology is under-studied compared to pharmaceutical antidepressants.
           </p>
-          <Link href="/herbs/kanna" className="chip-readable">Explore Kanna</Link>
+          <Link href="/herbs/kanna/" className="chip-readable">Explore Kanna</Link>
         </div>
 
         <div className="card-premium p-6 space-y-4">
@@ -149,8 +149,8 @@ export default function KannaVsSSRIsPage() {
           Kanna has serotonergic activity. Combining it with SSRIs, SNRIs, MAOIs, tramadol, St. John's Wort, or other serotonergic substances increases the risk of serotonin syndrome — a potentially life-threatening condition. Symptoms include agitation, confusion, rapid heart rate, high blood pressure, dilated pupils, muscle rigidity, and hyperthermia. If you take any serotonergic medication, do not use kanna.
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
-          <Link href="/learn/serotonin" className="rounded-full bg-red-100 px-3 py-1.5 text-xs font-bold text-red-800">Serotonin Pathway</Link>
-          <Link href="/learn/serotonergic-stacking-risks" className="rounded-full bg-red-100 px-3 py-1.5 text-xs font-bold text-red-800">Serotonergic Risks</Link>
+          <Link href="/learn/serotonin/" className="rounded-full bg-red-100 px-3 py-1.5 text-xs font-bold text-red-800">Serotonin Pathway</Link>
+          <Link href="/learn/serotonergic-stacking-risks/" className="rounded-full bg-red-100 px-3 py-1.5 text-xs font-bold text-red-800">Serotonergic Risks</Link>
         </div>
       </section>
 
@@ -192,11 +192,11 @@ export default function KannaVsSSRIsPage() {
         </p>
 
         <div className="flex flex-wrap gap-3">
-          <Link href="/learn/serotonin" className="chip-readable">
+          <Link href="/learn/serotonin/" className="chip-readable">
             Serotonin Pathway
           </Link>
 
-          <Link href="/learn/serotonergic-stacking-risks" className="chip-readable">
+          <Link href="/learn/serotonergic-stacking-risks/" className="chip-readable">
             Serotonergic Risks
           </Link>
         </div>

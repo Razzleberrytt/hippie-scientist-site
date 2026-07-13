@@ -93,7 +93,7 @@ export default function NewsletterSignup({
           <p className={`mt-3 text-sm leading-7 ${mutedColor}`}>{description}</p>
           <p className={`mt-2 text-xs leading-5 ${mutedColor}`}>
             {safetyChecklistLeadMagnet.privacyNote}{' '}
-            <Link href='/info/privacy' className={isFooter ? 'text-emerald-300 hover:underline' : 'text-brand-800 hover:underline'}>
+            <Link href='/info/privacy/' className={isFooter ? 'text-emerald-300 hover:underline' : 'text-brand-800 hover:underline'}>
               Privacy policy
             </Link>
             .
@@ -149,7 +149,7 @@ export default function NewsletterSignup({
             >
               {message}{' '}
               {status === 'success' ? (
-                <Link href='/info/supplement-safety-checklist' className={isFooter ? 'text-emerald-300 hover:underline' : 'text-brand-800 hover:underline'}>
+                <Link href='/info/supplement-safety-checklist/' className={isFooter ? 'text-emerald-300 hover:underline' : 'text-brand-800 hover:underline'}>
                   Open checklist
                 </Link>
               ) : null}

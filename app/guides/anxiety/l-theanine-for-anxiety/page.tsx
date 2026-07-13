@@ -253,7 +253,7 @@ export default function LTheanineForAnxietyPage() {
                 Magnesium for Sleep
               </Link>
               , and{' '}
-              <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium" className="text-primary underline">
+              <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/" className="text-primary underline">
                 L-Theanine vs Magnesium
               </Link>
               .
@@ -272,11 +272,11 @@ export default function LTheanineForAnxietyPage() {
             </p>
             <p>
               For sleep-specific context, read{' '}
-              <Link href="/guides/sleep/l-theanine-for-sleep" className="text-primary underline">
+              <Link href="/guides/sleep/l-theanine-for-sleep/" className="text-primary underline">
                 L-Theanine for Sleep
               </Link>
               {' '}and{' '}
-              <Link href="/guides/sleep/sleep-stack-guide" className="text-primary underline">
+              <Link href="/guides/sleep/sleep-stack-guide/" className="text-primary underline">
                 Sleep Stack Guide
               </Link>
               .

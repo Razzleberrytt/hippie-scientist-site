@@ -155,10 +155,10 @@ export default function MethodologyPage() {
           Our editorial grades are set solely by our research team based on peer-reviewed literature. While we use affiliate links to support our hosting costs, product placement has zero impact on evidence grades, safety warnings, or brand reviews. If an ingredient carries risk or fails clinical standards, we state it plainly.
         </p>
         <div className='pt-2 flex flex-wrap gap-4'>
-          <Link href='/info/affiliate-disclosure' className='text-sm font-semibold text-emerald-800 hover:underline'>
+          <Link href='/info/affiliate-disclosure/' className='text-sm font-semibold text-emerald-800 hover:underline'>
             Affiliate Disclosure →
           </Link>
-          <Link href='/info/disclaimer' className='text-sm font-semibold text-emerald-800 hover:underline'>
+          <Link href='/info/disclaimer/' className='text-sm font-semibold text-emerald-800 hover:underline'>
             Medical Disclaimer →
           </Link>
         </div>

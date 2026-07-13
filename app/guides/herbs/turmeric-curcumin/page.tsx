@@ -210,13 +210,13 @@ export default function TurmericCurcuminGuidePage() {
         </p>
         <div className="mt-6 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
           <Link
-            href="/herbs/turmeric"
+            href="/herbs/turmeric/"
             className="text-brand-700 hover:text-brand-800 hover:underline"
           >
             Turmeric Herb Profile →
           </Link>
           <Link
-            href="/compounds/curcumin"
+            href="/compounds/curcumin/"
             className="text-brand-700 hover:text-brand-800 hover:underline"
           >
             Curcumin Compound Profile →
@@ -354,7 +354,7 @@ export default function TurmericCurcuminGuidePage() {
         <h2 className="text-xl font-semibold text-ink">Referenced Profiles</h2>
         <div className="grid gap-3 sm:grid-cols-3">
           <Link
-            href="/herbs/turmeric"
+            href="/herbs/turmeric/"
             className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white"
           >
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">
@@ -364,7 +364,7 @@ export default function TurmericCurcuminGuidePage() {
             <p className="mt-1 text-xs text-muted">Full herb profile with mechanism map and safety data</p>
           </Link>
           <Link
-            href="/compounds/curcumin"
+            href="/compounds/curcumin/"
             className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white"
           >
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">
@@ -374,7 +374,7 @@ export default function TurmericCurcuminGuidePage() {
             <p className="mt-1 text-xs text-muted">Molecular mechanism, evidence grading, and interaction data</p>
           </Link>
           <Link
-            href="/compounds/piperine"
+            href="/compounds/piperine/"
             className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white"
           >
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">

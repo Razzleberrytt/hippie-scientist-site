@@ -112,7 +112,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
             syndrome. At low doses (0.3–1 mg), it mimics physiological release without receptor
             downregulation.
           </p>
-          <Link href="/compounds/melatonin" className="chip-readable">Explore Melatonin</Link>
+          <Link href="/compounds/melatonin/" className="chip-readable">Explore Melatonin</Link>
         </div>
 
         <div className="card-premium p-6 space-y-4">
@@ -125,7 +125,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
             depth. Most adults are below optimal intake. Magnesium glycinate is the preferred form for
             sleep due to high bioavailability and low GI impact.
           </p>
-          <Link href="/compounds/magnesium" className="chip-readable">Explore Magnesium</Link>
+          <Link href="/compounds/magnesium/" className="chip-readable">Explore Magnesium</Link>
         </div>
 
         <div className="card-premium p-6 space-y-4">
@@ -138,7 +138,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
             for sleep onset when the problem is mental chatter rather than a shifted schedule or physical
             tension.
           </p>
-          <Link href="/compounds/l-theanine" className="chip-readable">Explore L-Theanine</Link>
+          <Link href="/compounds/l-theanine/" className="chip-readable">Explore L-Theanine</Link>
         </div>
 
         <div className="card-premium p-6 space-y-4">
@@ -151,7 +151,7 @@ export default function SleepHerbsVsMelatoninComparePage() {
             and effect sizes are often modest. It may be better tolerated in combination with hops or
             lemon balm than as a standalone option.
           </p>
-          <Link href="/herbs/valerian" className="chip-readable">Explore Valerian</Link>
+          <Link href="/herbs/valerian/" className="chip-readable">Explore Valerian</Link>
         </div>
       </section>
 
@@ -670,11 +670,11 @@ export default function SleepHerbsVsMelatoninComparePage() {
       </div>
 
       <div className="flex flex-wrap gap-3">
-        <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium" className="chip-readable">L-Theanine vs Magnesium</Link>
-        <Link href="/guides/sleep/magnesium-types-for-sleep" className="chip-readable">Magnesium Glycinate vs L-Threonate</Link>
-        <Link href="/guides/sleep/magnesium-types-for-sleep" className="chip-readable">Magnesium Glycinate vs Oxide</Link>
-        <Link href="/guides/sleep" className="chip-readable">Sleep Goals</Link>
-        <Link href="/learn/gaba" className="chip-readable">GABA Pathway</Link>
+        <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/" className="chip-readable">L-Theanine vs Magnesium</Link>
+        <Link href="/guides/sleep/magnesium-types-for-sleep/" className="chip-readable">Magnesium Glycinate vs L-Threonate</Link>
+        <Link href="/guides/sleep/magnesium-types-for-sleep/" className="chip-readable">Magnesium Glycinate vs Oxide</Link>
+        <Link href="/guides/sleep/" className="chip-readable">Sleep Goals</Link>
+        <Link href="/learn/gaba/" className="chip-readable">GABA Pathway</Link>
         <Link href="/guides/compare/" className="chip-readable">All Comparisons</Link>
       </div>
       <ConversionStickyCTA

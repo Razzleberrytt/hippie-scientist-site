@@ -191,14 +191,14 @@ export default function GabaPathwayPage() {
 
         <div className="flex flex-wrap gap-3">
           <Link
-            href="/learn/gaba-vs-serotonin"
+            href="/learn/gaba-vs-serotonin/"
             className="chip-readable hover:bg-white transition"
           >
             GABA vs Serotonin
           </Link>
 
           <Link
-            href="/learn/calming"
+            href="/learn/calming/"
             className="chip-readable hover:bg-white transition"
           >
             Calming Psychoactives
@@ -212,7 +212,7 @@ export default function GabaPathwayPage() {
           </Link>
 
           <Link
-            href="/learn/harm-reduction"
+            href="/learn/harm-reduction/"
             className="chip-readable hover:bg-white transition"
           >
             GABAergic Safety

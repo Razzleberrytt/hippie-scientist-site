@@ -101,7 +101,7 @@ export default function BerberineVsMetforminPage() {
             AMPK activation — the same upstream target as metformin. Also modulates the gut microbiome,
             inhibits PTP1B, and upregulates GLUT4. Available OTC; typically dosed 500mg three times daily.
           </p>
-          <Link href="/compounds/berberine" className="chip-readable">Explore Berberine</Link>
+          <Link href="/compounds/berberine/" className="chip-readable">Explore Berberine</Link>
         </div>
 
         <div className="card-premium p-6 space-y-4">
@@ -510,10 +510,10 @@ export default function BerberineVsMetforminPage() {
       </div>
 
       <div className="flex flex-wrap gap-3">
-        <Link href="/guides/compare/berberine-vs-metformin" className="chip-readable">Berberine vs Inositol</Link>
-        <Link href="/guides/compare/berberine-vs-metformin" className="chip-readable">Berberine vs Psyllium</Link>
-        <Link href="/guides/best/supplements-for-gut-health" className="chip-readable">Gut Health Goals</Link>
-        <Link href="/guides/best/supplements-for-fat-loss" className="chip-readable">Fat Loss Goals</Link>
+        <Link href="/guides/compare/berberine-vs-metformin/" className="chip-readable">Berberine vs Inositol</Link>
+        <Link href="/guides/compare/berberine-vs-metformin/" className="chip-readable">Berberine vs Psyllium</Link>
+        <Link href="/guides/best/supplements-for-gut-health/" className="chip-readable">Gut Health Goals</Link>
+        <Link href="/guides/best/supplements-for-fat-loss/" className="chip-readable">Fat Loss Goals</Link>
         <Link href="/guides/compare/" className="chip-readable">All Comparisons</Link>
       </div>
       <ConversionStickyCTA

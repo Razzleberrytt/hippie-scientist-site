@@ -137,7 +137,7 @@ export default function Page() {
 
       <div className="mt-8 flex gap-4 flex-wrap">
         <Link href="/guides/" className="text-sm font-medium text-emerald-700 hover:underline">Back to guides &rarr;</Link>
-        <Link href="/compounds/pt-141" className="text-sm font-medium text-emerald-700 hover:underline">View PT-141 compound profile &rarr;</Link>
+        <Link href="/compounds/pt-141/" className="text-sm font-medium text-emerald-700 hover:underline">View PT-141 compound profile &rarr;</Link>
 
       </div>
     </div>

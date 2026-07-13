@@ -265,7 +265,7 @@ export default function BestHerbsForSleepPage() {
                         <td className="py-3 pr-4 text-muted">300–600 mg/day (KSM-66 or Sensoril), evening</td>
                         <td className="py-3">
                           <Link
-                            href="/guides/sleep/ashwagandha-for-sleep"
+                            href="/guides/sleep/ashwagandha-for-sleep/"
                             className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                           >
                             Full guide →
@@ -280,7 +280,7 @@ export default function BestHerbsForSleepPage() {
                         <td className="py-3 pr-4 text-muted">100–200 mg, 30–60 min before bed</td>
                         <td className="py-3 text-xs">
                           <Link
-                            href="/guides/sleep/l-theanine-for-sleep"
+                            href="/guides/sleep/l-theanine-for-sleep/"
                             className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                           >
                             Full guide →
@@ -470,7 +470,7 @@ export default function BestHerbsForSleepPage() {
                   </p>
                   <p>
                     <Link
-                      href="/guides/sleep/ashwagandha-for-sleep"
+                      href="/guides/sleep/ashwagandha-for-sleep/"
                       className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                     >
                       Full guide: Ashwagandha for Sleep →
@@ -627,7 +627,7 @@ export default function BestHerbsForSleepPage() {
                     <strong>If stress is clearly the main sleep blocker</strong> — you find it hard
                     to wind down, your mind is active, or you notice elevated stress throughout the
                     day: try{' '}
-                    <Link href="/guides/sleep/ashwagandha-for-sleep" className="font-semibold text-brand-700 hover:underline">
+                    <Link href="/guides/sleep/ashwagandha-for-sleep/" className="font-semibold text-brand-700 hover:underline">
                       ashwagandha
                     </Link>{' '}
                     (KSM-66 or Sensoril, 300–600 mg/day). Allow 6–8 weeks.
@@ -812,7 +812,7 @@ export default function BestHerbsForSleepPage() {
               </h2>
               <div className="grid gap-3 sm:grid-cols-2">
                 <Link
-                  href="/guides/sleep/ashwagandha-for-sleep"
+                  href="/guides/sleep/ashwagandha-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -842,7 +842,7 @@ export default function BestHerbsForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/l-theanine-for-sleep"
+                  href="/guides/sleep/l-theanine-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -857,7 +857,7 @@ export default function BestHerbsForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/magnesium-types-for-sleep"
+                  href="/guides/sleep/magnesium-types-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -872,7 +872,7 @@ export default function BestHerbsForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep"
+                  href="/guides/sleep/ashwagandha-vs-magnesium-for-sleep/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -887,7 +887,7 @@ export default function BestHerbsForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep/sleep-stack-guide"
+                  href="/guides/sleep/sleep-stack-guide/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -917,7 +917,7 @@ export default function BestHerbsForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/adhd/sleep-and-adhd"
+                  href="/guides/adhd/sleep-and-adhd/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -1107,13 +1107,13 @@ export default function BestHerbsForSleepPage() {
                 Magnesium for sleep →
               </Link>
               <Link
-                href="/guides/sleep/ashwagandha-for-sleep"
+                href="/guides/sleep/ashwagandha-for-sleep/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Ashwagandha for sleep →
               </Link>
               <Link
-                href="/guides/sleep-herbs-vs-melatonin"
+                href="/guides/sleep-herbs-vs-melatonin/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Sleep herbs vs melatonin →

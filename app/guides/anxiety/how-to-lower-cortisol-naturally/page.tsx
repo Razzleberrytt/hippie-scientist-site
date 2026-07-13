@@ -132,12 +132,12 @@ export default function Page() {
             poor night measurably raises next-day cortisol, while a consistent sleep-and-wake schedule
             restores the natural morning-peak / evening-trough rhythm that supplements cannot replicate.
             For acute stress moments,{' '}
-            <Link href="/compounds/l-theanine" className="font-semibold text-brand-700 hover:underline">
+            <Link href="/compounds/l-theanine/" className="font-semibold text-brand-700 hover:underline">
               L-theanine
             </Link>{' '}
             (100&ndash;200&nbsp;mg) blunts cortisol within an hour. For chronic baseline elevation over
             weeks,{' '}
-            <Link href="/herbs/ashwagandha" className="font-semibold text-brand-700 hover:underline">
+            <Link href="/herbs/ashwagandha/" className="font-semibold text-brand-700 hover:underline">
               ashwagandha
             </Link>{' '}
             (300&ndash;600&nbsp;mg, KSM-66 or Sensoril) has the strongest supplement evidence.
@@ -211,7 +211,7 @@ export default function Page() {
 
           <article className="card-premium p-6">
             <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/herbs/ashwagandha" className="hover:underline">Ashwagandha</Link>{' '}
+              <Link href="/herbs/ashwagandha/" className="hover:underline">Ashwagandha</Link>{' '}
               <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">Strongest evidence</span>
             </h3>
             <p className="mt-3 text-sm text-muted">
@@ -219,13 +219,13 @@ export default function Page() {
               stressed adults across randomized trials. Typical dose is 300–600&nbsp;mg of a standardized
               extract, given 4–8 weeks. It is the closest thing to a direct cortisol-lowering supplement —
               see how it stacks up in{' '}
-              <Link href="/guides/compare/rhodiola-vs-ashwagandha" className="font-medium text-brand-700 hover:underline">rhodiola vs ashwagandha</Link>.
+              <Link href="/guides/compare/rhodiola-vs-ashwagandha/" className="font-medium text-brand-700 hover:underline">rhodiola vs ashwagandha</Link>.
             </p>
           </article>
 
           <article className="card-premium p-6">
             <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/herbs/rhodiola" className="hover:underline">Rhodiola rosea</Link>
+              <Link href="/herbs/rhodiola/" className="hover:underline">Rhodiola rosea</Link>
             </h3>
             <p className="mt-3 text-sm text-muted">
               Rhodiola targets the <em>experience</em> of stress — fatigue, mental tiredness and burnout —
@@ -238,7 +238,7 @@ export default function Page() {
 
           <article className="card-premium p-6">
             <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/herbs/holy-basil" className="hover:underline">Holy basil (tulsi)</Link>
+              <Link href="/herbs/holy-basil/" className="hover:underline">Holy basil (tulsi)</Link>
             </h3>
             <p className="mt-3 text-sm text-muted">
               A traditional adaptogen with emerging trial support for reducing stress symptoms. A gentle,
@@ -248,15 +248,15 @@ export default function Page() {
 
           <article className="card-premium p-6">
             <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/compounds/magnesium-glycinate" className="hover:underline">Magnesium</Link> &amp;{' '}
-              <Link href="/compounds/l-theanine" className="hover:underline">L-theanine</Link>
+              <Link href="/compounds/magnesium-glycinate/" className="hover:underline">Magnesium</Link> &amp;{' '}
+              <Link href="/compounds/l-theanine/" className="hover:underline">L-theanine</Link>
             </h3>
             <p className="mt-3 text-sm text-muted">
               Magnesium supports HPA-axis regulation and is often depleted in stressed people; deficiency
               amplifies the stress response. L-theanine is the best acute tool, blunting cortisol and the
               feeling of stress within an hour without sedation. Together they cover the moment-to-moment
               side of stress while adaptogens work on the baseline. See{' '}
-              <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium" className="font-medium text-brand-700 hover:underline">ashwagandha vs L-theanine vs magnesium</Link>.
+              <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/" className="font-medium text-brand-700 hover:underline">ashwagandha vs L-theanine vs magnesium</Link>.
             </p>
           </article>
         </section>
@@ -302,11 +302,11 @@ export default function Page() {
           <h2 className="text-2xl font-semibold text-ink">Related guides &amp; comparisons</h2>
           <div className="grid gap-3 sm:grid-cols-2">
             <Link href="/guides/best/supplements-for-stress/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Supplements for Stress →</Link>
-            <Link href="/guides/anxiety/best-adaptogens-for-stress" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Adaptogens for Stress →</Link>
-            <Link href="/guides/best-herbs-for-stress-and-anxiety-at-night" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Stress &amp; Anxiety at Night →</Link>
+            <Link href="/guides/anxiety/best-adaptogens-for-stress/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Adaptogens for Stress →</Link>
+            <Link href="/guides/best-herbs-for-stress-and-anxiety-at-night/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Stress &amp; Anxiety at Night →</Link>
             <Link href="/guides/rhodiola-complete-guide/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Complete Rhodiola Guide →</Link>
-            <Link href="/guides/compare/rhodiola-vs-ashwagandha" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Rhodiola vs Ashwagandha →</Link>
-            <Link href="/guides/anxiety" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Stress Guides →</Link>
+            <Link href="/guides/compare/rhodiola-vs-ashwagandha/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Rhodiola vs Ashwagandha →</Link>
+            <Link href="/guides/anxiety/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Stress Guides →</Link>
           </div>
         </section>
       </div>
