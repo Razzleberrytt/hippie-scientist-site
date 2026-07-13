@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { BookOpen, FlaskConical, Leaf, Scale, Search, Shapes } from 'lucide-react'
+import { BookOpen, Brain, Leaf, Scale, Search, Shapes } from 'lucide-react'
 import { Link } from '../lib/router-compat'
 import ConsentManager from './ConsentManager'
 import { onOpenConsent } from '../lib/consentBus'
@@ -9,18 +9,19 @@ import { isAnalyticsRouteEnabled } from '../lib/analyticsAccess'
 import { PUBLIC_ROUTES } from '../lib/public-routes'
 
 const exploreLinks = [
-  { href: PUBLIC_ROUTES.guides, label: 'All Guides', Icon: BookOpen },
+  { href: PUBLIC_ROUTES.guides, label: 'Library', Icon: BookOpen },
+  { href: '/guides/mental-health/', label: 'Mental Health', Icon: Brain },
   { href: PUBLIC_ROUTES.herbs, label: 'Herb Database', Icon: Leaf },
   { href: PUBLIC_ROUTES.compounds, label: 'Compounds', Icon: Shapes },
   { href: '/guides/compare/', label: 'Compare', Icon: Scale },
-  { href: '/learn/', label: 'Learn the Science', Icon: FlaskConical },
   { href: '/search/', label: 'Search', Icon: Search },
 ]
 
 const priorityGoalLinks = [
+  { href: '/guides/mental-health/', label: 'Mental Health' },
   { href: '/guides/sleep/', label: 'Sleep' },
-  { href: '/guides/anxiety/', label: 'Stress' },
-  { href: '/guides/anxiety/', label: 'Anxiety' },
+  { href: '/guides/adhd/', label: 'ADHD' },
+  { href: '/guides/anxiety/', label: 'Anxiety & Stress' },
   { href: '/guides/focus/', label: 'Focus' },
 ]
 
@@ -121,7 +122,7 @@ export default function Footer() {
 
             <div className='mt-8 grid gap-7 sm:grid-cols-3'>
               <div>
-                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[#315f50] dark:text-[#8dc49a]'>Popular goals</h3>
+                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[#315f50] dark:text-[#8dc49a]'>Popular topics</h3>
                 <ul className='mt-3 space-y-2'>
                   {priorityGoalLinks.map((link) => (
                     <li key={`${link.href}-${link.label}`}>
