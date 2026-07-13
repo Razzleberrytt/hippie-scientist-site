@@ -743,3 +743,49 @@ here since fixing the parser's column mapping needs the workbook's actual
 Entity_Master layout inspected by a human, and this cycle's fix only
 consumes already-published flat-record values without touching the
 workbook.
+
+---
+
+## 2026-07-13 — Closed the loop on the mismapped severity-token `contraindications` at the parser, not just the detail backfill
+
+Two prior entries flagged that ~88 compounds carry a bare
+interaction-severity tier as their entire `contraindications_or_flags`
+workbook cell (`moderate`, `low_to_moderate`, etc.) instead of real safety
+prose — a pre-existing workbook mismapping. The earlier cycle added a
+`SEVERITY_TIER_ONLY` guard, but *only* inside
+`apply-governance-overlay.mjs`'s detail backfill, so the flat
+`compounds.json` record still shipped `contraindications: ["moderate"]`.
+That flat token was live, not dormant: `app/compounds/[slug]/page.tsx`'s
+`getAvoidIf()` reads `compound.contraindications` and
+`formatDisplayLabel("moderate")` → renders an **"Avoid if: Moderate"**
+bullet on all 88 pages; it also falsely tripped the search "Has
+contraindications" facet (`components/search/GlobalSearch.tsx`) and the
+compare-table safety-notes fallback (`components/compare-table-client.tsx`).
+`WEAK_PATTERN` in the page filters `minimal`/`unknown` but never the
+`low|moderate|high|severe` family, so nothing downstream caught it.
+
+Fixed at the source: added the same `SEVERITY_TIER_ONLY` filter to
+`build-runtime-from-workbook.mjs` via a `contraindicationList()` helper on
+the `contraindications` field, so a list where *every* entry is a bare tier
+token collapses to `[]` before it ever reaches `compounds.json`/`herbs.json`
+and every downstream consumer at once. Real prose contraindications are
+untouched (115 compounds keep multi-item lists; the whole corpus keeps
+every non-tier entry). After `data:build:core`: 0 severity-token-only
+contraindications remain (was 88), those pages now fall back to the safe
+generic safety summary instead of a meaningless "Moderate" bullet.
+
+Indexability side effect, checked and benign: 71 compounds lost ~7.6
+indexability points on average (max 10) because they no longer get
+completeness credit for a "contraindication" that was never real — but
+**zero** pages changed `robots`/`seo_indexing_recommendation`, i.e. nothing
+crossed an index/noindex threshold. `indexability:validate` reports 0
+errors, `data:validate` and `guard:source-of-truth` pass, full Vitest suite
+(578 tests) passes. Diff scope: the one script + regenerated core data
+(compounds.json, compound-index, summary-indexes/search); `build-info.json`
+timestamp reverted per convention.
+
+Root cause still upstream: the workbook's `contraindications_or_flags`
+column holds a tier token for these entities while the real safety signal
+lives in `safety_notes`/`summary`. Parser-level suppression is the correct
+runtime defense, but a future cycle with the workbook open could remap or
+re-source those 88 cells so the field carries real prose again.
