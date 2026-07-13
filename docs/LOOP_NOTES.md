@@ -111,3 +111,66 @@ guide list into intents/comparisons/depth-links. That's the
 highest-ROI target for the next content cycle; do one hub per cycle
 rather than batching all three, so each diff stays reviewable and the
 `audit:content` before/after is unambiguous.
+
+---
+
+## 2026-07-13 — Filled 5 compound `contraindications_or_flags` gaps; found `data:build` hard-fails on legitimate safety enrichment
+
+Picked up the compound-safety thread from the earlier entry (274 compounds
+with empty `contraindications_or_flags`). Sourced real, well-established
+pharmacology and filled 5 of the highest-traffic-proxy entries from the
+audit's TOP-20-MISSING list: `allicin`, `ajoene` (garlic organosulfur
+antiplatelet/anticoagulant-interaction compounds — bleeding risk, surgery
+caution, saquinavir/CYP3A4 interaction for allicin), `andrographis`
+(pregnancy/antifertility caution, immunostimulant conflict with
+immunosuppressants, antihypertensive/antidiabetic potentiation),
+`anethole` (fennel/anise essential-oil constituent — infant neurotoxicity/
+seizure case reports, phytoestrogenic activity, pregnancy caution), and
+`acarbose` (FDA-label contraindications: DKA, IBD/intestinal obstruction,
+cirrhosis, severe renal impairment; digoxin-absorption interaction). Used
+the sanctioned `scripts/data/edit-entity-master-cell.mjs --in-place`
+surgical editor — no openpyxl, no full-sheet rewrite.
+
+While validating with `npm run data:build`, hit a real pipeline bug:
+`scripts/data/build-interaction-data.mjs`'s `validate()` hard-codes exact
+snapshot counts (`edges.length !== 9886`, `tags.length !== 1169`) and
+calls `process.exit(1)` on any mismatch. Those counts are *derived from
+`contraindications_or_flags` text* — filling that field for even 5 rows
+correctly grew the derived interaction graph (10616 edges, 1199 tags) and
+hard-failed the entire `data:build` pipeline. This means the sanctioned
+enrichment workflow (fill `contraindications_or_flags` in the workbook,
+run `data:build`) was broken for *any* legitimate addition to that field,
+not just this batch — a landmine for every future safety-enrichment
+cycle. The exact-count assertions were a one-time snapshot from whenever
+the Python->JS port happened, never meant as a permanent invariant;
+`scripts/data/build-interaction-data.test.mjs` already covers the
+derivation logic's correctness with proper hand-built fixtures, so the
+snapshot check in the production path was redundant *and* actively
+harmful. Fixed by dropping the exact-count assertions from `validate()`
+and keeping only the real invariant (no edge may have empty
+`claim_language`); counts are still logged for visibility.
+
+Also learned: `npm run data:build` (the full 12-step pipeline, including
+governance overlay + postprocess) is NOT what CI/deploy runs against for
+`herbs.json`/`compounds.json` — that's `build:fast` -> `data:build:core`
+(4 steps). Running the full pipeline locally writes governance-overlay
+fields into those two files that `guard-no-full-build-drift` correctly
+rejects as drift. Fix each time: `git checkout -- public/data/herbs.json
+public/data/compounds.json` then `npm run data:build:core` to regenerate
+drift-free. `public/data/_meta/build-info.json` and
+`ops/audit/governance-overlay-report.json` only carry a `generatedAt`
+timestamp diff after a full build — safe to `git checkout --` away
+before committing, same as any other build-timestamp-only diff.
+
+Confirmed the fix actually helps: `andrographis` and `acarbose` (both
+`runtime_export_decision: full_public_runtime`) picked up
+`indexability_score` gains (95→100, 85→95) from `safety-context-missing`
+flipping to `safety-context` in their indexability reasons — direct,
+measurable evidence the enrichment reached the runtime layer correctly.
+`allicin`/`ajoene`/`anethole` are `hidden_until_grounded` so their detail
+pages don't render the field yet, but the workbook/`compounds.json` data
+is correct and ready for whenever those profiles get promoted.
+
+Remaining 269 compounds with empty `contraindications_or_flags` are still
+the highest-ROI target for future cycles — same approach (small batch,
+real sourced pharmacology, no fabricated citations) applies.

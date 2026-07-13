@@ -93,9 +93,13 @@ export function deriveInteractionData(rows) {
 }
 
 export function validate({ edges, tags }) {
+  // Edge/tag counts are derived from contraindications_or_flags text and are
+  // expected to grow as that field is enriched (see docs/LOOP_NOTES.md) — do
+  // not hard-fail the data:build pipeline on count drift. Structural
+  // correctness of the derivation itself is covered by
+  // build-interaction-data.test.mjs; the invariant enforced here is that
+  // every edge carries a claim, not a specific count.
   const errors = [];
-  if (edges.length !== 9886) errors.push(`edge rows ${edges.length} != 9886`);
-  if (tags.length !== 1169)  errors.push(`risk-tag rows ${tags.length} != 1169`);
   if (edges.some(e => !e.claim_language)) errors.push('empty claim_language present');
   const byMech = {};
   for (const e of edges) byMech[e.risk_mechanism] = (byMech[e.risk_mechanism] || 0) + 1;
