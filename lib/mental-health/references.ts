@@ -209,7 +209,8 @@ export const SCHEMA_PD_TRIAL: MentalHealthReference = {
 
 export const CLUSTER_A_REVIEW: MentalHealthReference = {
   id: 'cluster-a-review',
-  citation: 'Cheli S, Wisepape CN, Witten CDY, et al. Psychosocial and pharmacological interventions for cluster A personality disorders: a systematic review and exploratory meta-analyses. Personality Disorders: Theory, Research, and Treatment. 2025.',
-  url: 'https://pubmed.ncbi.nlm.nih.gov/?term=%22Psychosocial+and+pharmacological+interventions+for+cluster+A+personality+disorders%22',
+  citation: 'Cheli S, Wisepape CN, Witten CDY, et al. Psychosocial and pharmacological interventions for Cluster A personality disorders: a systematic review and two exploratory meta-analyses. Personality Disorders: Theory, Research, and Treatment. 2025;16(6):589-602.',
+  url: 'https://doi.org/10.1037/per0000732',
   tier: 'Systematic review',
+  note: 'Indexed in PubMed; PMID 40111791.',
 }
