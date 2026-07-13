@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import React from 'react'
 
+import JsonLd from '@/components/seo/JsonLd'
 import LastUpdatedBadge from '@/src/components/editorial/LastUpdatedBadge'
 import {
   getMentalHealthArticle,
@@ -123,9 +124,9 @@ export default function MentalHealthArticlePage({ slug }: { slug: string }) {
 
   return (
     <article className="mx-auto max-w-5xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <JsonLd schema={articleLd} />
+      <JsonLd schema={breadcrumbLd} />
+      <JsonLd schema={faqLd} />
 
       <nav className="mb-6 flex flex-wrap items-center gap-2 text-sm text-muted" aria-label="Breadcrumb">
         <Link href="/guides/" className="transition hover:text-ink">Guides</Link>
