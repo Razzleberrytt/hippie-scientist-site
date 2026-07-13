@@ -4,7 +4,7 @@ type SchemaGraphScriptProps = {
   graph: Record<string, unknown>
 }
 
-type EntityArtifact = {
+export type EntityArtifact = {
   href: string
   absoluteUrl: string
   canonicalUrl: string
@@ -12,7 +12,7 @@ type EntityArtifact = {
   name: string
 }
 
-function getEntityArtifact(graph: Record<string, unknown>): EntityArtifact | null {
+export function getEntityArtifact(graph: Record<string, unknown>): EntityArtifact | null {
   const nodes = graph['@graph']
   if (!Array.isArray(nodes)) return null
 
@@ -45,7 +45,7 @@ function getEntityArtifact(graph: Record<string, unknown>): EntityArtifact | nul
   return null
 }
 
-function attachEntityDataset(
+export function attachEntityDataset(
   graph: Record<string, unknown>,
   artifact: EntityArtifact | null,
 ): Record<string, unknown> {
