@@ -85,7 +85,7 @@ export default function GuidesHub() {
   return (
     <div className="mx-auto max-w-5xl px-4 pb-24 pt-8">
       <header className="mb-12">
-        <h1 className="text-3xl font-bold text-ink sm:text-4xl">Evidence-Based Guides</h1>
+        <h1 className="text-3xl font-bold text-ink sm:text-4xl">Supplement Guides &amp; Mental Health</h1>
         <p className="mt-3 max-w-2xl text-lg text-muted">
           Citation-rich guides organized by health goal and topic. Published research, visible references, safety context, and no bro-science.
         </p>
