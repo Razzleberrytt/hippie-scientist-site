@@ -9,7 +9,8 @@
  * @component
  */
 
-import { mainNavigation, SITE_URL } from '@/lib/navigation-config'
+import { SITE_URL } from '@/lib/navigation-config'
+import { primaryNavigation } from '@/lib/primary-navigation'
 import { serializeJsonLd } from '@/src/lib/schema-injector'
 
 /**
@@ -27,7 +28,7 @@ function generateNavigationSchema() {
    * Flatten hierarchical navigation into flat array for schema
    */
   const flattenNav = (
-    items: typeof mainNavigation
+    items: typeof primaryNavigation
   ): Array<{ label: string; href: string }> => {
     const result: Array<{ label: string; href: string }> = []
 
@@ -41,7 +42,7 @@ function generateNavigationSchema() {
     return result
   }
 
-  const flatItems = flattenNav(mainNavigation)
+  const flatItems = flattenNav(primaryNavigation)
 
   for (const item of flatItems) {
     hasPart.push({
