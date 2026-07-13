@@ -144,10 +144,17 @@ function runGapAnalysis() {
       if (!mechFilled) missing.push('mechanism');
       if (!bestForFilled) missing.push('best_for');
       if (!dosingFilled) missing.push('dosing');
-      if (!interactionsFilled) missing.push('interactions');
 
-      const totalFields = 7;
+      // `interactions` has no source column anywhere in Entity_Master (0/856 profiles have
+      // ever had it filled — verified via `node scripts/data/edit-entity-master-cell.mjs
+      // --column interactions --dry-run`, which reports the column missing). It's a
+      // pipeline/schema gap, not a per-entity content gap, so it's excluded from the
+      // completeness denominator below (it would otherwise cap every profile under 100%
+      // regardless of real fill progress) but still listed for visibility. See
+      // docs/LOOP_NOTES.md for the full investigation.
+      const totalFields = 6;
       const completeness = (totalFields - missing.length) / totalFields;
+      if (!interactionsFilled) missing.push('interactions (schema gap, not yet sourced)');
 
       allProfiles.push({
         name: item.name,

@@ -575,3 +575,48 @@ still pass. Deliberately did not write a generalized re-sync-all-slugs
 script in the same cycle — that would touch potentially hundreds of
 detail files at once, a much bigger blast radius than one Codex-flagged
 entity warrants; future cycle should scope that as its own reviewed change.
+
+---
+
+## 2026-07-13 — A second, parallel cycle independently hit the same `citicoline` gap; `content-gap-report.mjs`'s `interactions` field is a separate, still-unfixed false signal
+
+Ran in parallel with the cycle documented in the two entries above and
+picked the same target (`citicoline` — it really is the only
+`full_public_runtime`, indexed entity with an empty safety field, so two
+independent audits converging on it isn't a coincidence). By the time this
+cycle went to open its PR, the other one had already merged directly to
+`main`, so this cycle's own citicoline contraindications + detail-file
+edits were dropped as redundant (the merged version is also better
+sourced — cross-verified via `WebSearch` against independent sources,
+where this cycle's version was written from general pharmacological
+knowledge without live source verification). Branch was reset onto the
+latest `main` rather than opening a conflicting/duplicate PR.
+
+One finding from this cycle *wasn't* covered by the other one, though:
+`scripts/audit/content-gap-report.mjs` was still counting `interactions`
+in its 7-field `completeness` score even after the `item.safety`-field fix
+landed. `interactions` has no source column anywhere in `Entity_Master` —
+confirmed via `node scripts/data/edit-entity-master-cell.mjs --slug
+ashwagandha --column interactions --value x --dry-run`, which fails with
+"Entity_Master is missing target column: interactions" — so it's 0/856
+filled for every herb and compound, including fully-complete ones. That's
+a pipeline/schema gap, not a per-entity content gap, and it was
+mathematically capping every profile at ≤86% regardless of real progress
+(ashwagandha/turmeric/etc. all showed 86% with "interactions" as the only
+gap, right up until this fix). Excluded it from the completeness
+denominator (7→6 fields) but kept it in `missingFields` (labeled
+`interactions (schema gap, not yet sourced)`) so it's still visible.
+Verified afterward that the high-traffic priority slugs table now
+correctly shows 100% for fully-filled profiles.
+
+Takeaway for future cycles: fixing `interactions` for real would need a
+new `Entity_Master` column (the surgical zip/XML cell editor only edits
+existing columns, it can't insert one yet) or a relational model in
+`Entity_Relationships` — a data-modeling call for a human, not something
+to guess at solo. Don't spend a cycle trying to "fill interactions"
+per-entity; it isn't fillable that way. Also: if two parallel cycles can
+converge on the same single-entity gap, that's a signal the easy/obvious
+gaps are running out — future cycles may need to look at more scattered,
+lower-priority-tier fixes (individual compound `contraindications_or_flags`
+entries, per the still-open backlog a few entries back) rather than
+expecting another single obvious highest-ROI target to exist.
