@@ -1,10 +1,14 @@
 #!/usr/bin/env node
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import path from 'node:path'
+import { spawnSync } from 'node:child_process'
 
 const ROOT = process.cwd()
 const COMPARE_DIR = path.join(ROOT, 'app', 'guides', 'compare')
 const LLMS_FILE = path.join(ROOT, 'public', 'llms.txt')
+const HERBS_DATA = path.join(ROOT, 'public', 'data', 'herbs.json')
+const COMPOUNDS_DATA = path.join(ROOT, 'public', 'data', 'compounds.json')
+const ENTITY_AUDIT = path.join(ROOT, 'scripts', 'ci', 'audit-ai-entity-completeness.mjs')
 
 const REQUIRED_MELATONIN_HEADINGS = [
   'Melatonin vs magnesium: quick answer',
@@ -17,13 +21,10 @@ const REQUIRED_MELATONIN_HEADINGS = [
 function readComparePages(dir = COMPARE_DIR, prefix = '') {
   if (!existsSync(dir)) return []
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
-    if (!entry.isDirectory()) return []
-    if (/^\[/.test(entry.name)) return []
-
+    if (!entry.isDirectory() || /^\[/.test(entry.name)) return []
     const childDir = path.join(dir, entry.name)
     const pageFile = path.join(childDir, 'page.tsx')
     const slug = prefix ? `${prefix}/${entry.name}` : entry.name
-
     return [
       ...(existsSync(pageFile) ? [{ slug, file: pageFile }] : []),
       ...readComparePages(childDir, slug),
@@ -38,7 +39,8 @@ function hasCanonicalComparePath(source, slug) {
 }
 
 function hasNoncanonicalCompareLink(source) {
-  return /href=(?:{)?["'`]\/compare(?:\/|["'`])/.test(source) || /url:\s*["'`]https:\/\/thehippiescientist\.net\/compare(?:\/|["'`])/.test(source)
+  return /href=(?:{)?["'`]\/compare(?:\/|["'`])/.test(source)
+    || /url:\s*["'`]https:\/\/thehippiescientist\.net\/compare(?:\/|["'`])/.test(source)
 }
 
 function auditPage({ slug, file }) {
@@ -66,14 +68,8 @@ function auditPage({ slug, file }) {
   return { slug, file: path.relative(ROOT, file), warnings }
 }
 
-const pages = readComparePages()
-const results = pages.map(auditPage)
-const warned = results.filter((result) => result.warnings.length > 0)
-
 function auditLlmsTxt() {
-  if (!existsSync(LLMS_FILE)) {
-    return ['public/llms.txt is missing']
-  }
+  if (!existsSync(LLMS_FILE)) return ['public/llms.txt is missing']
 
   const source = readFileSync(LLMS_FILE, 'utf8')
   const urls = [...source.matchAll(/https:\/\/thehippiescientist\.net\/[^\s)]+/g)].map((match) => match[0])
@@ -84,37 +80,62 @@ function auditLlmsTxt() {
     if (parsed.hostname !== 'thehippiescientist.net') warnings.push(`noncanonical host in llms.txt: ${url}`)
     if (parsed.pathname.startsWith('/compare/')) warnings.push(`noncanonical compare URL in llms.txt: ${url}`)
     if (parsed.pathname.startsWith('/goals/')) warnings.push(`legacy goals URL in llms.txt; prefer /guides/*: ${url}`)
-    if (/\/(?:api|data|draft|preview|tmp|temp|ops|agent)\//.test(parsed.pathname)) {
-      warnings.push(`internal or generated route listed in llms.txt: ${url}`)
+    if (/\/(?:api|draft|preview|tmp|temp|ops|agent)\//.test(parsed.pathname)) {
+      warnings.push(`internal route listed in llms.txt: ${url}`)
     }
   }
 
   if (!/\/guides\/compare\//.test(source)) warnings.push('llms.txt missing canonical /guides/compare/ citation guidance')
   if (!/\/info\/disclaimer\//.test(source)) warnings.push('llms.txt missing disclaimer citation target')
   if (!/\/safety-checker\//.test(source)) warnings.push('llms.txt missing safety checker citation target')
+  if (!/AI entity data/i.test(source)) warnings.push('llms.txt missing AI entity data discovery guidance')
 
   return warnings
 }
 
+function runEntityAudit() {
+  if (!existsSync(ENTITY_AUDIT)) {
+    return { skipped: true, reason: 'entity completeness audit script is missing' }
+  }
+  if (!existsSync(HERBS_DATA) || !existsSync(COMPOUNDS_DATA)) {
+    return { skipped: true, reason: 'public/data/herbs.json or compounds.json has not been built' }
+  }
+
+  const result = spawnSync(process.execPath, [ENTITY_AUDIT], {
+    cwd: ROOT,
+    stdio: 'inherit',
+  })
+  return { skipped: false, status: result.status ?? 1 }
+}
+
+const results = readComparePages().map(auditPage)
+const warned = results.filter((result) => result.warnings.length > 0)
 const llmsWarnings = auditLlmsTxt()
 
 console.log(`[audit-ai-citations] scanned ${results.length} compare page(s) under app/guides/compare`)
-console.log(`[audit-ai-citations] scanned public/llms.txt for canonical AI citation targets`)
+console.log('[audit-ai-citations] scanned public/llms.txt for canonical AI citation targets')
 
 if (!warned.length && !llmsWarnings.length) {
-  console.log('[audit-ai-citations] advisory PASS: no citation-readiness warnings found.')
-  process.exit(0)
+  console.log('[audit-ai-citations] citation-readiness PASS: no page or llms.txt warnings found.')
+} else {
+  console.log(`[audit-ai-citations] advisory warnings: ${warned.length} page(s) need review; ${llmsWarnings.length} llms.txt issue(s).`)
+  for (const result of warned) {
+    console.log(`\n- /guides/compare/${result.slug}/ (${result.file})`)
+    for (const warning of result.warnings) console.log(`  - ${warning}`)
+  }
+  if (llmsWarnings.length) {
+    console.log('\n- public/llms.txt')
+    for (const warning of llmsWarnings) console.log(`  - ${warning}`)
+  }
 }
 
-console.log(`[audit-ai-citations] advisory warnings: ${warned.length} page(s) need review; ${llmsWarnings.length} llms.txt issue(s).`)
-for (const result of warned) {
-  console.log(`\n- /guides/compare/${result.slug}/ (${result.file})`)
-  for (const warning of result.warnings) console.log(`  - ${warning}`)
+console.log('\n[audit-ai-citations] running entity identity, claim, citation, relationship, safety, and freshness audit')
+const entityAudit = runEntityAudit()
+if (entityAudit.skipped) {
+  console.log(`[audit-ai-citations] entity audit skipped: ${entityAudit.reason}`)
+} else if (entityAudit.status !== 0) {
+  console.error(`[audit-ai-citations] entity audit exited with status ${entityAudit.status}`)
+  process.exit(entityAudit.status)
 }
 
-if (llmsWarnings.length) {
-  console.log('\n- public/llms.txt')
-  for (const warning of llmsWarnings) console.log(`  - ${warning}`)
-}
-
-console.log('\n[audit-ai-citations] Advisory only; not failing CI yet.')
+console.log('\n[audit-ai-citations] Advisory page warnings do not fail CI; explicit entity score thresholds can be enabled separately.')
