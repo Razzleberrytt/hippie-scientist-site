@@ -15337,7 +15337,7 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "Warfarin or other vitamin-K-antagonist anticoagulant therapy without clinician monitoring (CoQ10 structural similarity to vitamin K can reduce anticoagulant effect and lower INR)",
+      "Warfarin or other vitamin-K-antagonist blood-thinning medication without clinician monitoring (CoQ10 structural similarity to vitamin K can reduce drug effectiveness and lower INR)",
       "chemotherapy without oncologist review (antioxidant activity is a theoretical concern for oxidative-stress-dependent chemotherapy agents)",
       "May have additive effects with antihypertensive or antidiabetic medications given mild blood-pressure-lowering and blood-glucose-lowering activity",
       "pregnancy or breastfeeding without clinician guidance due to limited safety data",
@@ -34365,7 +34365,7 @@
     "contraindications": [
       "Known allergy to lavender or other Lamiaceae/mint-family plants",
       "pregnancy or breastfeeding without clinician guidance for oral lavender oil preparations",
-      "planned surgery (discontinue oral lavender oil beforehand due to additive sedation with anesthesia)",
+      "planned procedures requiring general anesthesia (discontinue oral lavender oil beforehand due to additive sedation)",
       "May potentiate sedatives or alcohol or benzodiazepines or opioids through additive CNS depression",
       "repeated topical use of lavender oil in prepubertal children has been associated with case reports of gynecomastia (possible endocrine-disrupting activity) and is not advised without clinician guidance."
     ],
@@ -34836,7 +34836,7 @@
     "contraindications": [
       "Known allergy to lemon balm or other Lamiaceae/mint-family plants",
       "hypothyroidism or thyroid hormone replacement therapy without clinician review (lemon balm has shown TSH-inhibiting and thyroid-hormone-binding activity in preclinical studies)",
-      "planned surgery (discontinue several days beforehand due to sedative effects)",
+      "planned procedures requiring general anesthesia (discontinue lemon balm several days beforehand due to sedative effects)",
       "May potentiate sedatives or alcohol or benzodiazepines or other CNS depressants through additive drowsiness",
       "pregnancy or breastfeeding without clinician guidance due to limited safety data."
     ],
