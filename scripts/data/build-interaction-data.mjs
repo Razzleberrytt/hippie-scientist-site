@@ -5,7 +5,7 @@
 import { readFileSync } from 'node:fs';
 import { writeFileSync } from 'node:fs';
 
-const KEYWORDS = {
+export const KEYWORDS = {
   serotonergic:      ['seroton','ssri','snri','maoi'],
   anticoagulant:     ['anticoagul','antiplatelet','bleeding','pre-surgery','surgery'],
   cns_sedation:      ['sedat','cns depress','drowsi'],

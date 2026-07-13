@@ -393,3 +393,41 @@ a quick `node -e` check) scan it for the substrings `hepat`, `liver`,
 matches. This is a standing landmine in the matcher itself and worth
 fixing properly (word-boundary regex) in a future cycle if it keeps
 tripping up enrichment batches.
+
+---
+
+## 2026-07-13 — Added `audit:risk-tag-collisions` guard for the substring-collision bug class above, instead of touching the matcher
+
+Followed up on the previous entry's "worth fixing properly" note, but
+concluded a blanket word-boundary regex fix on `deriveInteractionData()`
+itself would be the wrong move: a full scan of every `contraindications_or_flags`
+value in the live workbook (881 Entity_Master rows, not just the
+`full_public_runtime` subset in `public/data`) found 124 matches where the
+matched keyword is immediately preceded by a letter — but on inspection
+*every single one* is a legitimate compound medical term formed by gluing a
+prefix straight onto the keyword with no separator (`antidiabetic` →
+`diabet`, `antihypertensive` → `hypertens`, `hyperthyroidism` → `thyroid`,
+etc.). A naive "require a non-letter before the match" fix would have
+silently dropped the `blood_glucose`/`blood_pressure`/`thyroid` risk tags on
+all 124 of those real entities — a much bigger regression than the one
+collision bug it would have fixed. Safety-critical derived data like this
+needs a human (or at least a scoped, reviewable allowlist) in the loop, not
+a blanket regex change in a single autonomous cycle.
+
+Instead added `scripts/audit-risk-tag-collisions.mjs` (`npm run
+audit:risk-tag-collisions`), which runs the exact same `KEYWORDS` table
+(now exported from `build-interaction-data.mjs` instead of duplicated) over
+every workbook row and flags only matches preceded by a letter that does
+*not* form one of a small curated `ALLOWED_PREFIXES` (`anti`, `hyper`,
+`hypo`, `para`, `non`, `pre`, `post`, `sub`, `poly`, `dys`, `over`, `under`,
+`co`, `re`). Verified it reports zero findings against the current
+workbook (i.e. all 124 real matches are covered by the allowlist) and, via
+`scripts/audit-risk-tag-collisions.test.mjs`, that it correctly flags the
+exact `"cesarean delivery"` → `liver` collision the prior cycle's PR review
+caught by hand. It's informational (exit 0) by default — pass `--strict`
+for a hard-fail exit code once the allowlist has proven itself over more
+cycles — and is *not* wired into `check`/`check:full` yet for the same
+reason. Future cycles: run `npm run audit:risk-tag-collisions` after
+editing any `contraindications_or_flags` clause instead of eyeballing the
+keyword list by hand; if it flags a genuine new compound term, extend
+`ALLOWED_PREFIXES` rather than reword the clause.
