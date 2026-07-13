@@ -956,3 +956,48 @@ just be re-committing already-approved backfill logic's correct output,
 not new judgment calls — and is worth doing as its own dedicated,
 easy-to-review PR before continuing the remaining 83-of-88
 severity-tier-only compound thread.
+
+---
+
+## 2026-07-13 — Third `thin_page` false positive from the same word-count blind spot; generalized the fix instead of patching one page
+
+Skipped the compound-safety thread this cycle — three concurrent open PRs
+(#2242, #2255, #2256) already cover it, no sense stacking a fourth. Ran
+`npm run audit:content` fresh instead and found a new instance of the
+exact word-count blind spot documented in the very first entry of this
+file: `/guides/mental-health` (the new OCD/personality-disorder hub added
+in #2252) flagged `thin_page` at ~297 words. Unlike the earlier
+DecisionRouter-pattern hubs, this page doesn't hold its card copy as
+inline object literals — it imports `mentalHealthArticles` from
+`lib/mental-health-articles.ts` (itself re-exporting from four
+`lib/mental-health/articles-*.ts` files) and renders `article.title` /
+`article.description` per card via JSX member-expression, not a string
+literal `countWords()`'s `PROSE_KEYS` regex can see. Manually summing
+just the imported card titles+descriptions added ~328 words the audit
+was blind to — enough alone to clear the 500 threshold once combined with
+the page's own real inline copy.
+
+Rather than special-case this one page, generalized `countWords()` in
+`scripts/content-audit.mjs` to follow local project imports (`@/...` and
+relative specifiers, resolved against `.ts`/`.tsx`/`.js`/`.mjs`/`/index.*`,
+external packages skipped since they never resolve to a local file) up to
+depth 3 / 25 files, running the same `PROSE_KEYS` extraction on each
+imported file and folding the result into the page's word count. Bounded
+recursion + a visited-set keeps it cheap and cycle-safe; external/
+node_modules imports are inert since `resolveLocalImport` returns `null`
+for anything that isn't `@/` or relative. This is a strict superset of the
+old in-file-only behavior — it can only add words an audited page
+genuinely renders, never invent thinness or hide it, so it should
+generalize to future hub pages that adopt the "imported array +
+JSX-rendered `.title`/`.description`" pattern instead of inline literals,
+without needing another one-off fix each time. `audit:content` now
+reports 0 issues (was 1); full `npm run check` (typecheck, lint,
+article-quality/claim-discipline/safety-visibility validators,
+`data:build:core`) passes clean, and the generated-data diff was reverted
+per the standing build-timestamp-only convention.
+
+Takeaway for future cycles: before trusting a fresh `thin_page` flag,
+check whether the page's card/list copy comes from an imported data
+module rather than an inline literal — if so, this is very likely another
+instance of the same blind spot, now fixed generically rather than
+needing a bespoke patch per page.
