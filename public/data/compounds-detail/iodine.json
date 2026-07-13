@@ -104,7 +104,7 @@
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "sitemap_included": true,
-  "indexability_score": 80,
+  "indexability_score": 90,
   "indexability_reasons": [
     "effect-present",
     "evidence-signal",
@@ -112,7 +112,7 @@
     "identity-present",
     "mechanism-context",
     "profile-status:commercial_ready",
-    "safety-context-missing",
+    "safety-context",
     "summary-present",
     "summary-quality-missing"
   ],

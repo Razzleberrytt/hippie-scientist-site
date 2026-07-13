@@ -96,7 +96,7 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "runtime_export_decision": "full_public_runtime",
-  "indexability_score": 95,
+  "indexability_score": 100,
   "sitemap_included": true,
   "effects": [
     "GABA-A",
@@ -138,7 +138,7 @@
     "identity-present",
     "mechanism-context",
     "profile-status:commercial_ready",
-    "safety-context-missing",
+    "safety-context",
     "summary-depth",
     "summary-quality-missing"
   ],
