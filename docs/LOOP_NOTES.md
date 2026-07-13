@@ -746,6 +746,99 @@ workbook.
 
 ---
 
+## 2026-07-13 — Found a second, larger `contraindications_or_flags` gap hiding behind the audit: ~265 compounds (99 `full_public_runtime`) have a bare severity/category token instead of real safety prose
+
+The "obscure tail" thread above closed the *empty*-field gap (only `aucubin`
+remains). But `npm run audit:safety` and `audit:content-gaps` both only
+check whether `contraindications_or_flags` is non-empty — they don't check
+whether it's actually prose. A large second population passes that
+non-empty check while carrying zero real content: single- or multi-token
+values like `"moderate"`, `"kidney"`, `"pregnancy"`, `"stimulant"`,
+`"low_to_moderate"`, `"pregnancy,liver,kidney"` — these read as internal
+severity/category classifications that leaked into the safety-text column,
+not sourced contraindications. Confirmed directly against the workbook
+(`Entity_Master`, not a parser bug — the cell genuinely contains only the
+token, there's no separate real-text column being shadowed): 265 compound
+rows total match a token-only regex, 99 of them `full_public_runtime`
+(i.e. live on indexed `/compounds/:slug` pages right now) — including
+very high-traffic, mainstream entries: `cdp-choline` (Citicoline),
+`valerian-root-extract`, `ginkgo-biloba-extract`, `calcium`, `vitamin-c`,
+`l-carnitine`, `alpha-gpc`, `collagen-peptides`, `glucosamine`,
+`spirulina`, `astaxanthin`, `echinacea`. This is arguably higher-ROI than
+the earlier obscure-tail work since these are exactly the supplements
+readers are most likely to search for.
+
+Filled 6 of the highest-traffic ones this cycle (`indexability_score`
+95-100): `cdp-choline` (levodopa/dopaminergic interaction, choline
+hypersensitivity, dose-dependent stimulation), `valerian-root-extract`
+(hepatic caution, additive CNS-depressant sedation, pre-surgical
+discontinuation, CYP3A4 theoretical interaction), `ginkgo-biloba-extract`
+(seizure-threshold caution, anticoagulant/antiplatelet bleeding risk,
+PPI/diabetes-drug interactions), `calcium` (hypercalcemia, kidney-stone
+history, digoxin arrhythmia risk, antibiotic/thyroid-hormone/bisphosphonate
+absorption timing), `vitamin-c` (oxalate kidney-stone risk, iron-overload
+disorders, G6PD-deficiency hemolysis risk at high dose), and `l-carnitine`
+(seizure caution, hypothyroidism/levothyroxine uptake interaction,
+warfarin potentiation, TMAO cardiovascular caveat) — each verified via
+`WebSearch` against independent sources before writing.
+
+Hit the exact substring-collision landmine documented in the entry above
+while drafting: the calcium clause `"hypercalcemia or hyperparathyroidism"`
+contains `"hyperparathyroidism"`, which itself contains the literal
+substring `"thyroid"` — `deriveInteractionData()`'s naive
+`String.includes()` matcher would have falsely attached a thyroid-drug-
+interaction tag to a clause that isn't about thyroid medication at all
+(it already legitimately earns a thyroid tag from a different, correct
+clause about thyroid-hormone-absorption timing). Reworded to
+`"hypercalcemia or other conditions causing chronically elevated blood
+calcium levels"` to drop the false hit while keeping the medical meaning.
+Simulated `splitList()` + the full `KEYWORDS` matcher from
+`build-interaction-data.mjs` against every draft clause before writing
+anything (script kept at
+`/tmp/.../scratchpad/simulate.mjs` this run, not worth committing) —
+worth turning into a small standing script under `scripts/data/` next
+time this pattern gets reused three-plus times, similar to how
+`audit:risk-tag-collisions` came out of this same recurring need.
+
+`data:build:core` regenerated cleanly (edges 12661→13217, tags
+1276→1291), `npm run audit:risk-tag-collisions` reported clean, `npm run
+data:validate` and `guard:source-of-truth` both passed, and the full
+Vitest suite (578 tests) passed. Diff scope: workbook +
+`compounds.json` + `entity_risk_tags.json` + `interaction_edges.json`
+only (`build-info.json` timestamp reverted) — narrower than some earlier
+entries since summary-indexes/compound-index apparently don't embed
+`contraindications` text directly.
+
+**93 `full_public_runtime` compounds with a token-only
+`contraindications_or_flags` remain** — this is now the single
+highest-ROI recurring target for future cycles, ahead of any other thread
+in this file. Re-run the token-detection query fresh each cycle rather
+than trusting this count, since promotions/edits shift it: `entity_type
+=== 'compound'` rows in `Entity_Master` where
+`contraindications_or_flags` matches
+`/^(low|moderate|high|low_to_moderate|moderate_to_high|kidney|liver|pregnancy|stimulant|sedative|cardiovascular|ssri|renal)(,\s*(...))*$/i`,
+cross-referenced against `compounds.json` for `runtime_export_decision
+=== 'full_public_runtime'`. Notable high-traffic names still in the list:
+`alpha-gpc`, `collagen-peptides`, `glucosamine`, `spirulina`,
+`astaxanthin`, `echinacea`, `garlic-extract`, `l-tyrosine`, `yohimbine`,
+`fenugreek`, `boswellia`, `lutein`, `vitamin-c` (done)/`black-seed-oil`,
+`beetroot-extract`. Same approach applies: small batch (5-8), real
+sourced pharmacology via `WebSearch`, simulate the keyword matcher before
+writing, `edit-entity-master-cell.mjs --in-place`, `data:build:core`
+(never the full `data:build` — see the earlier entry on why).
+
+**Update:** a concurrent cycle (see the next entry) independently found
+this exact same population and fixed it at the parser level
+(`SEVERITY_TIER_ONLY` suppression in `build-runtime-from-workbook.mjs`)
+rather than by filling real prose, and a third concurrent cycle filled
+5 more of the mainstream names from this list (`vitamin-d3`, `magnesium`,
+`l-theanine`, `creatine-monohydrate`, `coq10`) via the same sourced-fill
+approach used here. No slug overlap between any of the three cycles'
+fills. The remaining-count and name list above should be treated as
+stale as of this merge — re-run the detection query fresh.
+
+---
+
 ## 2026-07-13 — Closed the loop on the mismapped severity-token `contraindications` at the parser, not just the detail backfill
 
 Two prior entries flagged that ~88 compounds carry a bare
