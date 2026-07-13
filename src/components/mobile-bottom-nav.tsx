@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import { BookOpenCheck, Leaf, Search, Sparkles, Library } from 'lucide-react'
 
 export const mobileBottomNavItems = [
-  { href: '/guides', label: 'Library', Icon: Library },
+  { href: '/library', label: 'Library', Icon: Library },
   { href: '/herbs', label: 'Herbs', Icon: Leaf },
   { href: '/search', label: 'Search', Icon: Search },
   { href: '/compounds', label: 'Compounds', Icon: Sparkles },
