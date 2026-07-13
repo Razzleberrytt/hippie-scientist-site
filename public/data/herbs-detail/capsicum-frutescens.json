@@ -122,7 +122,7 @@
     }
   ],
   "governance": {
-    "reviewStatus": "needs_review",
+    "reviewStatus": "approved",
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
