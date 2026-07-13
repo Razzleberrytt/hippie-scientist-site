@@ -72,9 +72,10 @@ export const OCD_NETWORK_META: MentalHealthReference = {
 
 export const OCD_ERP_REVIEW: MentalHealthReference = {
   id: 'ocd-erp-review',
-  citation: 'Hezel DM, Simpson HB. Exposure and response prevention for obsessive-compulsive disorder: a review and new directions. Indian Journal of Psychiatry. 2019;61(Suppl 1):S85-S92.',
-  url: 'https://doi.org/10.4103/psychiatry.IndianJPsychiatry_516_18',
-  tier: 'Peer-reviewed clinical review',
+  citation: 'Reid JE, Laws KR, Drummond L, et al. Cognitive behavioural therapy with exposure and response prevention in the treatment of obsessive-compulsive disorder: a systematic review and meta-analysis of randomised controlled trials. Comprehensive Psychiatry. 2021;106:152223.',
+  url: 'https://doi.org/10.1016/j.comppsych.2021.152223',
+  tier: 'Meta-analysis',
+  note: 'Indexed in PubMed and Crossref.',
 }
 
 export const OCD_POTS_TRIAL: MentalHealthReference = {
@@ -100,9 +101,10 @@ export const NICE_BPD: MentalHealthReference = {
 
 export const BPD_JAMA_REVIEW: MentalHealthReference = {
   id: 'bpd-jama-review',
-  citation: 'Leichsenring F, Heim N, Leweke F, Spitzer C, Steinert C, Kernberg OF. Borderline personality disorder: a review. JAMA. 2023;329(8):670-679.',
-  url: 'https://doi.org/10.1001/jama.2023.0589',
+  citation: 'Leichsenring F, Fonagy P, Heim N, et al. Borderline personality disorder: a comprehensive review of diagnosis and clinical presentation, etiology, treatment, and current controversies. World Psychiatry. 2024;23(1):4-25.',
+  url: 'https://doi.org/10.1002/wps.21156',
   tier: 'Peer-reviewed clinical review',
+  note: 'Indexed in PubMed; PMID 38214629.',
 }
 
 export const BPD_PSYCH_COCHRANE: MentalHealthReference = {
