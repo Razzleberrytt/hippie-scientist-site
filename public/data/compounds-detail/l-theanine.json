@@ -208,5 +208,10 @@
     }
   ],
   "dosage": "powder or capsule",
-  "typical_dosage": "powder or capsule"
+  "typical_dosage": "powder or capsule",
+  "contraindications": [
+    "Hypotension or antihypertensive medication use given a mild blood-pressure-lowering effect",
+    "May add to sedation with benzodiazepines or alcohol or other CNS depressants",
+    "limited safety data in pregnancy or breastfeeding."
+  ]
 }

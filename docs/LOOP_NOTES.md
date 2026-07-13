@@ -789,3 +789,77 @@ column holds a tier token for these entities while the real safety signal
 lives in `safety_notes`/`summary`. Parser-level suppression is the correct
 runtime defense, but a future cycle with the workbook open could remap or
 re-source those 88 cells so the field carries real prose again.
+
+---
+
+## 2026-07-13 — Filled 5 of the 88 severity-tier-only compound gaps; found the detail-file backfill fix's own output was never committed
+
+Picked up the exact thread flagged at the end of the prior entry: 88
+compounds still carry a bare severity-tier token (`moderate`,
+`low_to_moderate`, etc.) in `contraindications_or_flags` instead of real
+prose, which the parser correctly collapses to `[]` at both the flat-record
+and detail-record level rather than showing a meaningless "Avoid if:
+Moderate" bullet. Re-ran the query fresh (88 rows, unchanged from the prior
+entry) and picked 5 of the highest-traffic `primary_runtime_priority`
+entries: `vitamin-d3` (hypercalcemia/sarcoidosis/hyperparathyroidism
+contraindications, thiazide/digoxin/corticosteroid/anticonvulsant
+interactions), `magnesium` (renal impairment, myasthenia gravis, bowel
+obstruction from laxative-effect salts, tetracycline/fluoroquinolone/
+bisphosphonate absorption interactions), `l-theanine` (hypotension/
+antihypertensive caution, additive sedation), `creatine-monohydrate` (renal
+impairment, hydration requirement, nephrotoxic-drug caution), and `coq10`
+(reused the identical, already-sourced `coenzyme-q10` pharmacology verbatim
+— confirmed via `public/data/compounds.json` that `coq10` and
+`coenzyme-q10` are two separate workbook rows for the literal same
+compound, so mirroring rather than re-deriving was correct, not lazy).
+
+Simulated both `splitList()`'s `/[\n|;,]+/` regex and
+`audit-risk-tag-collisions.mjs`'s `findSuspectMatches()` against every draft
+before writing (per the standing takeaway from several entries back) —
+caught one real collision this way: "primary hyperparathyroidism" glues
+`hyper`+`para` directly onto `thyroid` with no separator, and
+`ALLOWED_PREFIXES` only covers single prefixes (`hyper`, `para`
+individually), not the stacked `hyperpara`. Reworded to "parathyroid gland
+disorders that raise blood calcium levels" (drops the compound clinical
+term but keeps the same medical meaning) rather than extending the
+allowlist for a one-off stacked-prefix case. Wrote all 5 via
+`edit-entity-master-cell.mjs --in-place`; `workbook:roundtrip-test`,
+`data:build:core`, `data:validate`, `guard:source-of-truth`, and
+`audit:risk-tag-collisions` all passed clean (edges 12817→13147, tags
+1279→1290).
+
+Bigger finding: running the full `npm run data:build` (to reach
+`compounds-detail/*.json`, since `data:build:core` never touches that
+directory) showed that the `backfillEmptyDetailFields()` fix documented
+several entries back — "unconditional, every build" — has apparently never
+had its own regenerated output committed to `main`. 33 `compounds-detail`
+files and 3 `herbs-detail` files came back dirty from a from-scratch full
+build with zero workbook changes of my own behind most of them: exactly the
+compounds fixed across the five-or-six-entry `contraindications_or_flags`
+thread above (`chamomile`, `lavender`, `saw-palmetto-extract`,
+`willow-bark-extract`, `msm`, `mct-oil`, `iberogast`, `pygeum`,
+`ferulic-acid`, `bicarbonate`, `biotin`, `iodine`, `devils-claw`,
+`passionflower`, `pycnogenol`, `carnitine-l-tartrate`, `cryptotanshinone`,
+`farnesol`, `fos`, `fucoxanthin`, `ginsenoside-rg3`, `hydroxytyrosol`, and
+more) still show a stale `indexability_score`/`safety-context-missing` on
+their detail record despite `compounds.json` carrying the correct sourced
+contraindications for a while now. `ashwagandha`/`maca`/`rhodiola` also came
+back dirty but that diff is pure non-deterministic `sources` array
+reordering, unrelated noise, not a real content gap.
+
+Kept this cycle narrow: committed only the detail-file backfill for the 5
+compounds this cycle itself sourced (`coq10`, `creatine-monohydrate`,
+`l-theanine`, `magnesium`, `vitamin-d3` — via
+`git checkout -- public/data/compounds.json public/data/herbs.json ...`
+to drop the full-build overlay-drift contamination, keep the 5 target
+`compounds-detail` files, revert the other 31+3 unrelated detail-file
+diffs, then `data:build:core` to regenerate the top-level files
+drift-free), rather than shipping a 36-file indexability-score-recompute
+alongside 5 newly-sourced entries in one PR. **Next cycle: running
+`npm run data:build` once, keeping every `compounds-detail`/`herbs-detail`
+diff except the `ashwagandha`/`maca`/`rhodiola`-style pure source-reorder
+noise, is a real, low-risk, mechanical fix in its own right** — it would
+just be re-committing already-approved backfill logic's correct output,
+not new judgment calls — and is worth doing as its own dedicated,
+easy-to-review PR before continuing the remaining 83-of-88
+severity-tier-only compound thread.

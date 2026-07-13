@@ -15436,7 +15436,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Warfarin or other vitamin-K-antagonist blood-thinning medication without clinician monitoring (CoQ10 structural similarity to vitamin K can reduce drug effectiveness and lower INR)",
+      "chemotherapy without oncologist review (antioxidant activity is a theoretical concern for oxidative-stress-dependent chemotherapy agents)",
+      "May have additive effects with antihypertensive or antidiabetic medications given mild blood-pressure-lowering and blood-glucose-lowering activity",
+      "pregnancy or breastfeeding without clinician guidance due to limited safety data",
+      "mild GI upset such as nausea or heartburn or diarrhea at high doses."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -15479,7 +15485,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -15487,7 +15493,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -16931,7 +16937,12 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Pre-existing kidney disease or renal impairment warrants clinician guidance before use",
+      "adequate hydration is required since creatine draws water into muscle cells",
+      "caution with other nephrotoxic drugs or supplements such as chronic NSAID use",
+      "mild GI upset such as bloating or cramping at high doses."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -16974,7 +16985,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -16982,7 +16993,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -33777,7 +33788,11 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Hypotension or antihypertensive medication use given a mild blood-pressure-lowering effect",
+      "May add to sedation with benzodiazepines or alcohol or other CNS depressants",
+      "limited safety data in pregnancy or breastfeeding."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -33820,7 +33835,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -33828,7 +33843,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -36598,7 +36613,15 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "safety": "May support sleep quality and mild anxiety/stress in selected adults; evidence is promising but heterogeneous. | Do not claim it treats insomnia or anxiety disorders; do not imply all forms are equivalent. | Create/upgrade as supportive sleep/anxiety page with form-specific dosing caveat.",
-    "contraindications": [],
+    "contraindications": [
+      "Kidney disease or renal impairment due to hypermagnesemia risk",
+      "myasthenia gravis may worsen with high-dose magnesium",
+      "bowel obstruction risk for high-dose laxative-effect magnesium salts such as citrate or oxide",
+      "May reduce absorption of tetracycline or fluoroquinolone antibiotics unless doses are separated by several hours",
+      "may reduce absorption of bisphosphonate osteoporosis medication",
+      "can add to the effect of muscle relaxants or other CNS depressants",
+      "loop or thiazide diuretics can alter magnesium levels in either direction."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "Varied by formulation; do not infer one universal dose. Common clinical supplementation studies often use hundreds of mg/day elemental magnesium; specific form and elemental dose must be surfaced when available. | Oral magnesium supplements; forms vary. Magnesium L-threonate has separate emerging sleep data and should not be generalized to all magnesium forms.",
@@ -59413,7 +59436,15 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Hypercalcemia or hypervitaminosis D",
+      "sarcoidosis or other granulomatous disease due to hypercalcemia risk from unregulated calcitriol production",
+      "parathyroid gland disorders that raise blood calcium levels",
+      "kidney disease without clinician guidance due to altered calcitriol conversion",
+      "May raise hypercalcemia risk with thiazide diuretics and increase digoxin toxicity risk",
+      "corticosteroids or anticonvulsants such as phenytoin or phenobarbital can reduce effectiveness",
+      "orlistat or cholestyramine can reduce absorption."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "Vitamin D3 supplementation; adult depression/anxiety RCT meta-analysis. Dose-response paper modeled per 1000 IU/day; do not recommend high doses without biomarker/medical context.",
@@ -59456,7 +59487,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -59464,7 +59495,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],

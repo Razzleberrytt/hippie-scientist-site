@@ -105,5 +105,12 @@
     }
   ],
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "Warfarin or other vitamin-K-antagonist blood-thinning medication without clinician monitoring (CoQ10 structural similarity to vitamin K can reduce drug effectiveness and lower INR)",
+    "chemotherapy without oncologist review (antioxidant activity is a theoretical concern for oxidative-stress-dependent chemotherapy agents)",
+    "May have additive effects with antihypertensive or antidiabetic medications given mild blood-pressure-lowering and blood-glucose-lowering activity",
+    "pregnancy or breastfeeding without clinician guidance due to limited safety data",
+    "mild GI upset such as nausea or heartburn or diarrhea at high doses."
+  ]
 }
