@@ -9,10 +9,10 @@ import { isAnalyticsRouteEnabled } from '../lib/analyticsAccess'
 import { PUBLIC_ROUTES } from '../lib/public-routes'
 
 const exploreLinks = [
+  { href: PUBLIC_ROUTES.guides, label: 'All Guides', Icon: BookOpen },
   { href: PUBLIC_ROUTES.herbs, label: 'Herb Database', Icon: Leaf },
   { href: PUBLIC_ROUTES.compounds, label: 'Compounds', Icon: Shapes },
   { href: '/guides/compare/', label: 'Compare', Icon: Scale },
-  { href: PUBLIC_ROUTES.guides, label: 'Guides', Icon: BookOpen },
   { href: '/learn/', label: 'Learn the Science', Icon: FlaskConical },
   { href: '/search/', label: 'Search', Icon: Search },
 ]
@@ -25,12 +25,16 @@ const priorityGoalLinks = [
 ]
 
 const safetyLinks = [
+  { href: '/safety-checker/', label: 'Safety checker' },
+  { href: '/evidence/evidence-checker/', label: 'Evidence lookup' },
+  { href: '/info/dosing/', label: 'Dosing guide' },
+  { href: '/info/supplement-safety-checklist/', label: 'Supplement checklist' },
   { href: '/info/methodology/', label: 'Methodology' },
-  { href: PUBLIC_ROUTES.disclaimer, label: 'Disclaimer' },
-  { href: PUBLIC_ROUTES.contact, label: 'Contact' },
 ]
 
 const legalLinks = [
+  { href: PUBLIC_ROUTES.disclaimer, label: 'Disclaimer' },
+  { href: PUBLIC_ROUTES.contact, label: 'Contact' },
   { href: PUBLIC_ROUTES.privacy, label: 'Privacy Policy' },
   { href: '/info/affiliate-disclosure/', label: 'Affiliate Disclosure' },
   { href: '/sitemap.xml', label: 'Sitemap' },
