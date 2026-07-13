@@ -528,3 +528,50 @@ gap entirely (`aucubin` remains the sole documented exception).
 `content-gap-report.mjs` `item.safety` field bug documented in the entry
 directly above — landed as a separate PR that merged to `main` first, so
 that fix isn't duplicated here.)
+
+---
+
+## 2026-07-13 — Codex PR review caught that `data:build:core` doesn't refresh existing `herbs-detail`/`compounds-detail` payloads; patched `citicoline`'s detail file directly, found the gap is systemic
+
+The automated `chatgpt-codex-connector` review on the PR from the previous
+entry flagged a real P1 bug: `src/lib/runtime-data.ts`'s `getHerbBySlug()`
+renders `{ ...herb, ...detail }` — the per-slug `public/data/herbs-detail/
+${slug}.json` file wins over the aggregate `herbs.json` on every shared
+field. `citicoline.json`'s detail file still had the old empty
+`contraindications: []` (and, on inspection, stale empty `dosage`/
+`typical_dosage` too, plus the pre-fix `indexability_score`/reasons) even
+after `data:build:core` regenerated `herbs.json` correctly. So the citicoline
+enrichment from the previous entry would never have reached the live page.
+
+Root cause is bigger than "forgot a build step": neither `data:build:core`
+nor the full `data:build` pipeline actually re-syncs an *existing* detail
+file's fields from the regenerated flat record. `apply-governance-overlay.mjs`
+(`processKind()`) only seeds a detail file from the flat record when one is
+*missing entirely* — for a slug that already has a detail file, it calls
+`mirrorRecordFieldsIntoDetail()` only `if (claimSourceIds.length > 0)`, and
+even then that function's field allowlist doesn't include `contraindications`,
+`dosage`, or `typical_dosage` at all. `postprocess-workbook-payloads.mjs`'s
+`patchDetailDir()` only touches the `sources` field. In other words: **once
+a detail JSON file exists for a slug, none of the current pipeline steps
+will ever refresh its content fields from a workbook edit** — only a
+brand-new slug gets a fresh detail file. This likely means other prior
+enrichment cycles' edits (contraindications, dosage, etc.) for any slug
+that already had a `herbs-detail`/`compounds-detail` file before the edit
+may have the same silent staleness. This is worth a dedicated future cycle
+to fix properly (e.g. make `mirrorRecordFieldsIntoDetail()` run
+unconditionally and cover the full field set the flat record and detail
+record share, not just the claim-sourced subset) rather than patched
+piecemeal per-entity.
+
+For this cycle, fixed only the one entity the review flagged: read both
+`public/data/herbs.json` (citicoline's flat record) and
+`public/data/herbs-detail/citicoline.json`, and overwrote every field on
+the detail record with the flat record's value *except* the five fields
+that only exist on the detail record (`safety`, `sources`, `governance`,
+`evidence`, `claimMap` — these are detail-only enrichments the flat record
+doesn't carry and must not be clobbered). Verified zero remaining field
+diffs afterward and that `data:validate`/full Vitest suite (578 tests)
+still pass. Deliberately did not write a generalized re-sync-all-slugs
+script in the same cycle — that would touch potentially hundreds of
+detail files at once, a much bigger blast radius than one Codex-flagged
+entity warrants; future cycle should scope that as its own reviewed change.
