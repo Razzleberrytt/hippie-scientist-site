@@ -38,5 +38,11 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "powder or capsule",
-  "typical_dosage": "powder or capsule"
+  "typical_dosage": "powder or capsule",
+  "contraindications": [
+    "Pre-existing kidney disease or renal impairment warrants clinician guidance before use",
+    "adequate hydration is required since creatine draws water into muscle cells",
+    "caution with other nephrotoxic drugs or supplements such as chronic NSAID use",
+    "mild GI upset such as bloating or cramping at high doses."
+  ]
 }

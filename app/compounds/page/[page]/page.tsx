@@ -4,6 +4,8 @@ import { getAllCompounds } from '@/lib/server/runtime-data'
 import { getRuntimeVisibility } from '../../../../lib/runtime-visibility'
 import { COMPOUNDS_PAGE_SIZE, clampPositiveInt, paginateItems } from '@/lib/pagination'
 import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
+import { formatDisplayLabel } from '@/lib/display-utils'
+import Link from 'next/link'
 import CompoundsIndexClient from '../../CompoundsIndexClient'
 import type { RuntimeRecord } from '../../../../src/types/content'
 import Pagination from '@/components/Pagination'
@@ -12,9 +14,24 @@ type P = {
   params: Promise<{ page: string }>
 }
 
+function getCompoundName(compound: RuntimeRecord) {
+  return (
+    formatDisplayLabel(compound.displayName) ||
+    formatDisplayLabel(compound.name) ||
+    formatDisplayLabel(compound.compoundName) ||
+    formatDisplayLabel(compound.canonicalCompoundName) ||
+    formatDisplayLabel(compound.slug)
+  )
+}
+
+async function loadBrowseCompounds(): Promise<RuntimeRecord[]> {
+  return ((await getAllCompounds()) as unknown as RuntimeRecord[])
+    .filter((compound) => compound?.slug && getRuntimeVisibility(compound).canRender)
+    .sort((a, b) => getCompoundName(a).localeCompare(getCompoundName(b)))
+}
+
 export async function generateStaticParams() {
-  const compounds = ((await getAllCompounds()) as unknown as RuntimeRecord[])
-    .filter((compound) => getRuntimeVisibility(compound).canRender)
+  const compounds = await loadBrowseCompounds()
   const total = Math.max(1, Math.ceil(compounds.length / COMPOUNDS_PAGE_SIZE))
 
   return Array.from({ length: Math.max(total - 1, 0) }, (_, i) => ({
@@ -36,8 +53,7 @@ export async function generateMetadata({ params }: P): Promise<Metadata> {
 
 export default async function CompoundsPageN({ params }: P) {
   const n = clampPositiveInt((await params).page, 2)
-  const runtime = (await getAllCompounds()) as unknown as RuntimeRecord[]
-  const compounds = runtime.filter((compound) => compound?.slug && getRuntimeVisibility(compound).canRender)
+  const compounds = await loadBrowseCompounds()
   const p = paginateItems(compounds, n, COMPOUNDS_PAGE_SIZE)
   const leanCompounds = toLeanProfileIndexRecords(compounds)
   const leanPageItems = toLeanProfileIndexRecords(p.pageItems as RuntimeRecord[])
@@ -55,6 +71,16 @@ export default async function CompoundsPageN({ params }: P) {
       </header>
 
       <Pagination basePath="/compounds" currentPage={p.currentPage} totalPages={p.totalPages} itemLabel="Compound profiles" />
+
+      <nav aria-label="Compound profiles on this page" className="sr-only">
+        <ul>
+          {p.pageItems.map((compound) => (
+            <li key={compound.slug}>
+              <Link href={`/compounds/${compound.slug}`}>{getCompoundName(compound)}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
       <Suspense fallback={null}>
         <CompoundsIndexClient

@@ -236,5 +236,14 @@
     }
   ],
   "dosage": "Varied by formulation; do not infer one universal dose. Common clinical supplementation studies often use hundreds of mg/day elemental magnesium; specific form and elemental dose must be surfaced when available. | Oral magnesium supplements; forms vary. Magnesium L-threonate has separate emerging sleep data and should not be generalized to all magnesium forms.",
-  "typical_dosage": "Varied by formulation; do not infer one universal dose. Common clinical supplementation studies often use hundreds of mg/day elemental magnesium; specific form and elemental dose must be surfaced when available. | Oral magnesium supplements; forms vary. Magnesium L-threonate has separate emerging sleep data and should not be generalized to all magnesium forms."
+  "typical_dosage": "Varied by formulation; do not infer one universal dose. Common clinical supplementation studies often use hundreds of mg/day elemental magnesium; specific form and elemental dose must be surfaced when available. | Oral magnesium supplements; forms vary. Magnesium L-threonate has separate emerging sleep data and should not be generalized to all magnesium forms.",
+  "contraindications": [
+    "Kidney disease or renal impairment due to hypermagnesemia risk",
+    "myasthenia gravis may worsen with high-dose magnesium",
+    "bowel obstruction risk for high-dose laxative-effect magnesium salts such as citrate or oxide",
+    "May reduce absorption of tetracycline or fluoroquinolone antibiotics unless doses are separated by several hours",
+    "may reduce absorption of bisphosphonate osteoporosis medication",
+    "can add to the effect of muscle relaxants or other CNS depressants",
+    "loop or thiazide diuretics can alter magnesium levels in either direction."
+  ]
 }

@@ -2794,9 +2794,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -2839,7 +2837,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2847,7 +2845,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -4222,9 +4220,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -4267,7 +4263,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4275,7 +4271,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -4331,9 +4327,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -4385,7 +4379,7 @@
       "mechanism-context",
       "non-publishable-profile-status",
       "profile-status:research_only",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -4571,9 +4565,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "low_to_moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -4616,7 +4608,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4624,7 +4616,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -5018,9 +5010,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -5063,7 +5053,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5071,7 +5061,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -5842,9 +5832,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "low_to_moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -5887,7 +5875,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5895,7 +5883,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -6979,9 +6967,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -7024,7 +7010,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 80,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7032,7 +7018,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -8257,9 +8243,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -8311,7 +8295,7 @@
       "mechanism-context",
       "non-publishable-profile-status",
       "profile-status:research_only",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -8361,9 +8345,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -8415,7 +8397,7 @@
       "mechanism-context",
       "non-publishable-profile-status",
       "profile-status:research_only",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -8472,9 +8454,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -8517,7 +8497,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8525,7 +8505,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -8579,9 +8559,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -8624,7 +8602,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8632,7 +8610,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -9596,9 +9574,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "low_to_moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -9641,7 +9617,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9649,7 +9625,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -9710,9 +9686,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -9755,7 +9729,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9763,7 +9737,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -9909,9 +9883,107 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
+    "contraindications": [],
+    "interactions": [],
+    "side_effects": [],
+    "dosage": "capsule or standardized extract",
+    "typical_dosage": "capsule or standardized extract",
+    "forms": [],
+    "available_forms": [],
+    "conditions": [],
+    "tags": [],
+    "keywords": [],
+    "affiliate_ready": false,
+    "affiliate_url": "",
+    "affiliate_label": "Check sourcing options",
+    "affiliate_query": "",
+    "default_product_type": "",
+    "amazon_affiliate_url": "",
+    "iherb_affiliate_url": "",
+    "buying_criteria": [],
+    "last_updated": "",
+    "last_reviewed": "",
+    "doNotMonetize": false,
+    "doNotPromote": false,
+    "allow_restricted_reference_export": false,
+    "governance_status": "",
+    "legal_status": "",
+    "controlled_status": "",
+    "controlled_schedule": "",
+    "dea_status": "",
+    "dea_watchlist_status": "",
+    "regulatory_status": "",
+    "regulatory_federal": "",
+    "regulatory_states_summary": "",
+    "regulatory_states_table": "",
+    "last_regulatory_check": "",
+    "regulatory_changelog": "",
+    "regulatory_sources": [],
+    "profile_status": "commercial_ready",
+    "summary_quality": "",
+    "runtime_export_decision": "full_public_runtime",
+    "visibility_tier": "public",
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 85,
+    "indexability_reasons": [
+      "effect-coverage",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:commercial_ready",
+      "safety-context-missing",
+      "summary-present",
+      "summary-quality-missing"
     ],
+    "meta_title": "",
+    "meta_description": "",
+    "featured": false,
+    "controlled_substance": false
+  },
+  {
+    "slug": "boswellia-akba-standardized",
+    "name": "Boswellia AKBA standardized",
+    "summary": "Boswellia AKBA standardized compound profile with evidence, safety, and practical fit.",
+    "description": "Boswellia AKBA standardized compound profile with evidence, safety, and practical fit.",
+    "effects": [
+      "5-lipoxygenase",
+      "leukotriene pathways"
+    ],
+    "primary_effects": [
+      "5-lipoxygenase",
+      "leukotriene pathways"
+    ],
+    "mechanisms": [
+      "Inflammatory Signaling Modulation",
+      "inflammatory"
+    ],
+    "raw_mechanisms": [
+      "Inflammatory Signaling Modulation",
+      "inflammatory"
+    ],
+    "canonical_mechanisms": [
+      "Anti-inflammatory"
+    ],
+    "mechanism_categories": [
+      "core"
+    ],
+    "mechanism_classes": [
+      "Physiological effect"
+    ],
+    "mechanism_target_systems": [],
+    "mechanism_normalization_status": "fully_mapped",
+    "unmapped_mechanisms": [],
+    "evidence_grade": "moderate-high",
+    "evidence_tier": "Mechanistic Evidence",
+    "evidence_design_match": "",
+    "evidence_risk_of_bias": "",
+    "evidence_consistency": "",
+    "evidence_rationale": "",
+    "trial_design_insight": "",
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -9962,109 +10034,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
-      "summary-present",
-      "summary-quality-missing"
-    ],
-    "meta_title": "",
-    "meta_description": "",
-    "featured": false,
-    "controlled_substance": false
-  },
-  {
-    "slug": "boswellia-akba-standardized",
-    "name": "Boswellia AKBA standardized",
-    "summary": "Boswellia AKBA standardized compound profile with evidence, safety, and practical fit.",
-    "description": "Boswellia AKBA standardized compound profile with evidence, safety, and practical fit.",
-    "effects": [
-      "5-lipoxygenase",
-      "leukotriene pathways"
-    ],
-    "primary_effects": [
-      "5-lipoxygenase",
-      "leukotriene pathways"
-    ],
-    "mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "inflammatory"
-    ],
-    "raw_mechanisms": [
-      "Inflammatory Signaling Modulation",
-      "inflammatory"
-    ],
-    "canonical_mechanisms": [
-      "Anti-inflammatory"
-    ],
-    "mechanism_categories": [
-      "core"
-    ],
-    "mechanism_classes": [
-      "Physiological effect"
-    ],
-    "mechanism_target_systems": [],
-    "mechanism_normalization_status": "fully_mapped",
-    "unmapped_mechanisms": [],
-    "evidence_grade": "moderate-high",
-    "evidence_tier": "Mechanistic Evidence",
-    "evidence_design_match": "",
-    "evidence_risk_of_bias": "",
-    "evidence_consistency": "",
-    "evidence_rationale": "",
-    "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
-    "interactions": [],
-    "side_effects": [],
-    "dosage": "capsule or standardized extract",
-    "typical_dosage": "capsule or standardized extract",
-    "forms": [],
-    "available_forms": [],
-    "conditions": [],
-    "tags": [],
-    "keywords": [],
-    "affiliate_ready": false,
-    "affiliate_url": "",
-    "affiliate_label": "Check sourcing options",
-    "affiliate_query": "",
-    "default_product_type": "",
-    "amazon_affiliate_url": "",
-    "iherb_affiliate_url": "",
-    "buying_criteria": [],
-    "last_updated": "",
-    "last_reviewed": "",
-    "doNotMonetize": false,
-    "doNotPromote": false,
-    "allow_restricted_reference_export": false,
-    "governance_status": "",
-    "legal_status": "",
-    "controlled_status": "",
-    "controlled_schedule": "",
-    "dea_status": "",
-    "dea_watchlist_status": "",
-    "regulatory_status": "",
-    "regulatory_federal": "",
-    "regulatory_states_summary": "",
-    "regulatory_states_table": "",
-    "last_regulatory_check": "",
-    "regulatory_changelog": "",
-    "regulatory_sources": [],
-    "profile_status": "commercial_ready",
-    "summary_quality": "",
-    "runtime_export_decision": "full_public_runtime",
-    "visibility_tier": "public",
-    "robots": "index,follow",
-    "sitemap_included": true,
-    "indexability_status": "PUBLISH",
-    "indexability_score": 100,
-    "indexability_reasons": [
-      "effect-coverage",
-      "evidence-signal",
-      "export-decision:full_public_runtime",
-      "identity-present",
-      "mechanism-context",
-      "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -12790,9 +12760,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -12844,7 +12812,7 @@
       "mechanism-context",
       "non-publishable-profile-status",
       "profile-status:research_only",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -13680,9 +13648,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -13734,7 +13700,7 @@
       "mechanism-context",
       "non-publishable-profile-status",
       "profile-status:research_only",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -15478,7 +15444,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "low_to_moderate"
+      "Warfarin or other vitamin-K-antagonist blood-thinning medication without clinician monitoring (CoQ10 structural similarity to vitamin K can reduce drug effectiveness and lower INR)",
+      "chemotherapy without oncologist review (antioxidant activity is a theoretical concern for oxidative-stress-dependent chemotherapy agents)",
+      "May have additive effects with antihypertensive or antidiabetic medications given mild blood-pressure-lowering and blood-glucose-lowering activity",
+      "pregnancy or breastfeeding without clinician guidance due to limited safety data",
+      "mild GI upset such as nausea or heartburn or diarrhea at high doses."
     ],
     "interactions": [],
     "side_effects": [],
@@ -15579,9 +15549,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -15624,7 +15592,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -15632,7 +15600,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -16327,9 +16295,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -16381,7 +16347,7 @@
       "mechanism-context",
       "non-publishable-profile-status",
       "profile-status:research_only",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -16428,9 +16394,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -16482,7 +16446,7 @@
       "mechanism-context",
       "non-publishable-profile-status",
       "profile-status:research_only",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -16765,9 +16729,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "low_to_moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -16810,7 +16772,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -16818,7 +16780,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -16872,9 +16834,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "low_to_moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -16917,7 +16877,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -16925,7 +16885,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -16985,7 +16945,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "low_to_moderate"
+      "Pre-existing kidney disease or renal impairment warrants clinician guidance before use",
+      "adequate hydration is required since creatine draws water into muscle cells",
+      "caution with other nephrotoxic drugs or supplements such as chronic NSAID use",
+      "mild GI upset such as bloating or cramping at high doses."
     ],
     "interactions": [],
     "side_effects": [],
@@ -17469,9 +17432,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "low_to_moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -17514,7 +17475,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 80,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -17522,7 +17483,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -17588,9 +17549,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "low_to_moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -17633,7 +17592,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -17641,7 +17600,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -18232,9 +18191,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -18277,7 +18234,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -18285,7 +18242,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -18891,9 +18848,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "low_to_moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -18936,7 +18891,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -18944,7 +18899,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -20270,9 +20225,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -20324,7 +20277,7 @@
       "mechanism-context",
       "non-publishable-profile-status",
       "profile-status:research_only",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -20481,9 +20434,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -20526,7 +20477,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 80,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -20534,7 +20485,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -20613,9 +20564,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized botanical extract capsule",
@@ -20658,7 +20607,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -20666,7 +20615,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -20877,9 +20826,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "low_to_moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -20922,7 +20869,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -20930,7 +20877,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -20984,9 +20931,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -21029,7 +20974,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -21037,7 +20982,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -23101,9 +23046,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "low_to_moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -23146,7 +23089,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -23154,7 +23097,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -23511,9 +23454,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized botanical extract capsule",
@@ -23556,7 +23497,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -23564,7 +23505,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -23625,9 +23566,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -23670,7 +23609,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -23678,7 +23617,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -23882,9 +23821,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -23927,7 +23864,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -23935,7 +23872,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -25627,9 +25564,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -25672,7 +25607,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -25680,7 +25615,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -25740,9 +25675,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -25785,7 +25718,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 80,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -25793,7 +25726,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -26177,9 +26110,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -26222,7 +26153,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 80,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -26230,7 +26161,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -26282,9 +26213,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -26327,7 +26256,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -26335,7 +26264,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -26508,9 +26437,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -26553,7 +26480,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -26561,7 +26488,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -26618,9 +26545,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
@@ -26663,7 +26588,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -26671,7 +26596,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -26721,9 +26646,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
@@ -26766,7 +26689,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -26774,7 +26697,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -27525,9 +27448,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -27570,7 +27491,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -27578,7 +27499,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -28033,9 +27954,7 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "safety": "May support subjective sleep quality; evidence is early and based on small trials. | Do not imply proven insomnia treatment or anti-aging benefits. | Use as secondary sleep-support page, not first-tier recommendation.",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "Human sleep studies often use gram-level glycine, but exact dose should be tied to the specific cited trial. Avoid universal dosing if source row lacks dose. | Oral glycine powder/capsule; simple amino acid.",
@@ -28137,9 +28056,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -28182,7 +28099,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -28190,7 +28107,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -28897,9 +28814,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -28942,7 +28857,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -28950,7 +28865,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -30227,9 +30142,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -30272,7 +30185,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -30280,7 +30193,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -31830,9 +31743,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -31875,7 +31786,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -31883,7 +31794,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -32844,9 +32755,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "unknown"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -33900,7 +33809,9 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "low_to_moderate"
+      "Hypotension or antihypertensive medication use given a mild blood-pressure-lowering effect",
+      "May add to sedation with benzodiazepines or alcohol or other CNS depressants",
+      "limited safety data in pregnancy or breastfeeding."
     ],
     "interactions": [],
     "side_effects": [],
@@ -35961,9 +35872,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -36006,7 +35915,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -36014,7 +35923,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -36291,9 +36200,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -36336,7 +36243,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -36344,7 +36251,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -36394,9 +36301,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "not recommended for consumer purchase",
@@ -36439,7 +36344,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 80,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -36447,7 +36352,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -36729,7 +36634,13 @@
     "trial_design_insight": "",
     "safety": "May support sleep quality and mild anxiety/stress in selected adults; evidence is promising but heterogeneous. | Do not claim it treats insomnia or anxiety disorders; do not imply all forms are equivalent. | Create/upgrade as supportive sleep/anxiety page with form-specific dosing caveat.",
     "contraindications": [
-      "low_to_moderate"
+      "Kidney disease or renal impairment due to hypermagnesemia risk",
+      "myasthenia gravis may worsen with high-dose magnesium",
+      "bowel obstruction risk for high-dose laxative-effect magnesium salts such as citrate or oxide",
+      "May reduce absorption of tetracycline or fluoroquinolone antibiotics unless doses are separated by several hours",
+      "may reduce absorption of bisphosphonate osteoporosis medication",
+      "can add to the effect of muscle relaxants or other CNS depressants",
+      "loop or thiazide diuretics can alter magnesium levels in either direction."
     ],
     "interactions": [],
     "side_effects": [],
@@ -39976,9 +39887,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -40030,7 +39939,7 @@
       "mechanism-context",
       "non-publishable-profile-status",
       "profile-status:research_only",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -41553,9 +41462,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -41598,7 +41505,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -41606,7 +41513,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -41761,9 +41668,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -42801,9 +42706,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -42855,7 +42758,7 @@
       "mechanism-context",
       "non-publishable-profile-status",
       "profile-status:research_only",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -43142,9 +43045,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "low_to_moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "softgel or liquid oil",
@@ -43187,7 +43088,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -43195,7 +43096,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -44113,9 +44014,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -44158,7 +44057,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -44166,7 +44065,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -44688,9 +44587,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -44733,7 +44630,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -44741,7 +44638,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -45818,9 +45715,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "unknown"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -46667,9 +46562,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -46712,7 +46605,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -46720,7 +46613,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -47265,9 +47158,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -47310,7 +47201,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -47318,7 +47209,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -47371,9 +47262,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -47416,7 +47305,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -47424,7 +47313,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -47482,9 +47371,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "softgel or liquid oil",
@@ -47527,7 +47414,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -47535,7 +47422,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -47591,9 +47478,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -47636,7 +47521,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -47644,7 +47529,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -48091,9 +47976,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "low_to_moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -48136,7 +48019,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 80,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -48144,7 +48027,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -49236,9 +49119,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -49281,7 +49162,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -49289,7 +49170,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -51428,9 +51309,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -51482,7 +51361,7 @@
       "mechanism-context",
       "non-publishable-profile-status",
       "profile-status:research_only",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -53930,9 +53809,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "chelated mineral capsule or powder",
@@ -53975,7 +53852,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -53983,7 +53860,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -54150,9 +54027,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -54195,7 +54070,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -54203,7 +54078,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -54686,9 +54561,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -54731,7 +54604,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -54739,7 +54612,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -54788,9 +54661,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -54833,7 +54704,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -54841,7 +54712,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -56397,9 +56268,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -56442,7 +56311,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -56450,7 +56319,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -56627,9 +56496,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -56672,7 +56539,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -56680,7 +56547,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -57048,9 +56915,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "low_to_moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -57093,7 +56958,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -57101,7 +56966,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -57386,9 +57251,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "long",
@@ -57431,7 +57294,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -57439,7 +57302,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -57901,9 +57764,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "unknown"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -58406,9 +58267,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -58451,7 +58310,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -58459,7 +58318,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -59495,9 +59354,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "low_to_moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or softgel",
@@ -59540,7 +59397,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -59548,7 +59405,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -59609,7 +59466,13 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "low_to_moderate"
+      "Hypercalcemia or hypervitaminosis D",
+      "sarcoidosis or other granulomatous disease due to hypercalcemia risk from unregulated calcitriol production",
+      "parathyroid gland disorders that raise blood calcium levels",
+      "kidney disease without clinician guidance due to altered calcitriol conversion",
+      "May raise hypercalcemia risk with thiazide diuretics and increase digoxin toxicity risk",
+      "corticosteroids or anticonvulsants such as phenytoin or phenobarbital can reduce effectiveness",
+      "orlistat or cholestyramine can reduce absorption."
     ],
     "interactions": [],
     "side_effects": [],
@@ -59723,9 +59586,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "low_to_moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or softgel",
@@ -59768,7 +59629,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -59776,7 +59637,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -60038,9 +59899,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "low_to_moderate"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -60083,7 +59942,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 85,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -60091,7 +59950,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-present",
       "summary-quality-missing"
     ],
