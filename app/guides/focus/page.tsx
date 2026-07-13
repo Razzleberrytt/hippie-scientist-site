@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_URL } from '@/src/lib/seo'
+import References from '@/components/References'
 import { HubSectionHeading } from '@/components/guides/HubSectionHeading'
 import { DecisionRouter, type IntentRoute } from '@/components/guides/DecisionRouter'
 import { GuideCardGrid, type GuideCard } from '@/components/guides/GuideCardGrid'
@@ -104,6 +105,30 @@ const ADHD_FOCUS = [
   { href: '/guides/adhd/best-supplements-for-adhd/', title: 'Best Supplements for ADHD' },
 ]
 
+const DEPTH_LINKS = [
+  { href: '/compounds/l-theanine/', title: 'L-Theanine', kind: 'Compound profile' },
+  { href: '/compounds/caffeine/', title: 'Caffeine', kind: 'Compound profile' },
+  { href: '/herbs/bacopa/', title: 'Bacopa Monnieri', kind: 'Herb profile' },
+  { href: '/compounds/alpha-gpc/', title: 'Alpha-GPC', kind: 'Compound profile' },
+  { href: '/compounds/cdp-choline/', title: 'Citicoline / CDP-Choline', kind: 'Compound profile' },
+  { href: '/compounds/l-tyrosine/', title: 'L-Tyrosine', kind: 'Compound profile' },
+  { href: '/compounds/creatine/', title: 'Creatine', kind: 'Compound profile' },
+  { href: '/herbs/rhodiola/', title: 'Rhodiola Rosea', kind: 'Herb profile' },
+]
+
+const FOCUS_REFS = [
+  {
+    n: 1,
+    text: 'Giesbrecht T, Rycroft JA, Rowson MJ, De Bruin EA. (2010). The combination of L-theanine and caffeine improves cognitive performance and increases subjective alertness. Nutr Neurosci, 13(6): 283-290.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/20730951/',
+  },
+  {
+    n: 2,
+    text: 'Kongkeaw C, Dilokthornsakul P, Thanarangsarit P, et al. (2014). Meta-analysis of randomized controlled trials on cognitive effects of Bacopa monnieri extract. J Ethnopharmacol, 151(1): 528-535.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/24484449/',
+  },
+]
+
 // Full library — kept, but secondary to the decision sections above.
 const ALL_GUIDES = [
   { slug: 'best-nootropics-for-focus', title: 'Best Nootropics for Focus' },
@@ -145,7 +170,9 @@ export default function FocusGuideIndex() {
         <p className="mt-3 max-w-2xl text-lg leading-8 text-muted">
           The right focus supplement depends on why your attention slips — an energy dip, caffeine
           jitters, or memory that builds slowly. Tell us what is getting in the way and we will point
-          you to the right guide first.
+          you to the right guide first. Some options act within the hour, others need weeks of
+          consistent use before the effect is noticeable, so matching timescale to your situation
+          matters as much as matching the ingredient.
         </p>
       </header>
 
@@ -177,7 +204,11 @@ export default function FocusGuideIndex() {
 
       {/* ADHD & focus */}
       <section className="mb-12">
-        <HubSectionHeading eyebrow="ADHD & focus" title="Focus problems tied to ADHD" />
+        <HubSectionHeading
+          eyebrow="ADHD & focus"
+          title="Focus problems tied to ADHD"
+          sub="Attention difficulties from ADHD respond differently than everyday distraction — stimulant timing, dosing, and stacking need a dedicated plan rather than a general nootropic."
+        />
         <div className="flex flex-wrap gap-3">
           {ADHD_FOCUS.map((g) => (
             <Link
@@ -198,12 +229,38 @@ export default function FocusGuideIndex() {
           supplements work on different timescales. Caffeine and L-theanine act within an hour; bacopa
           builds memory over weeks; creatine and L-tyrosine mostly help when you are stressed or
           sleep-deprived. None of them replaces sleep, movement, and a workload you can actually
-          sustain — and stimulants can amplify anxiety at higher doses.
+          sustain — and stimulants can amplify anxiety at higher doses. Choline sources like
+          citicoline and alpha-GPC are a different category again: they support the raw material for
+          attention-related signaling rather than delivering a felt stimulant effect, so give them
+          several weeks before judging whether they are doing anything for you.
         </p>
       </section>
 
+      {/* Research deeper */}
+      <section className="mb-12">
+        <HubSectionHeading
+          eyebrow="Research deeper"
+          title="Focus-relevant ingredient profiles"
+          sub="Use these monographs after choosing a guide to check safety notes, evidence context, and related compounds."
+        />
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {DEPTH_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="rounded-xl border border-brand-900/12 bg-white p-4 transition hover:border-brand-700/30 hover:bg-brand-50 dark:border-white/10 dark:bg-[var(--surface-card)] dark:hover:bg-white/10"
+            >
+              <span className="block text-[11px] font-bold uppercase tracking-widest text-muted">{link.kind}</span>
+              <span className="mt-1 block text-sm font-semibold text-brand-800 dark:text-[var(--text-primary)]">
+                {link.title} →
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* All guides — secondary */}
-      <section>
+      <section className="mb-12">
         <HubSectionHeading eyebrow="Full library" title="All focus guides" />
         <ul className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
           {ALL_GUIDES.map((g) => (
@@ -218,6 +275,7 @@ export default function FocusGuideIndex() {
           ))}
         </ul>
       </section>
+      <References refs={FOCUS_REFS} />
     </div>
   )
 }
