@@ -91,17 +91,25 @@ function checkDosing(item) {
   return val.length > 0 && val !== 'null' && val !== 'undefined';
 }
 
-function checkInteractions(item) {
+function checkInteractions(item, interactionEdgesMap) {
   const val = item.interactions;
-  if (!val) return false;
-  if (Array.isArray(val)) return val.length > 0;
-  const str = String(val).toLowerCase().trim();
-  return str.length > 0 && str !== 'null' && str !== 'undefined';
+  if (Array.isArray(val) ? val.length > 0 : false) return true;
+  if (typeof val === 'string') {
+    const str = val.toLowerCase().trim();
+    if (str.length > 0 && str !== 'null' && str !== 'undefined') return true;
+  }
+  // `item.interactions` is never populated by the workbook pipeline — real,
+  // rendered interaction content lives in the derived interaction graph
+  // (public/data/interaction_edges.json), which powers the live "Interactions"
+  // section on /herbs/:slug and /compounds/:slug via InteractionWarnings.
+  const edges = interactionEdgesMap?.[item.slug];
+  return Array.isArray(edges) && edges.length > 0;
 }
 
 function runGapAnalysis() {
   const herbsPath = 'public/data/herbs.json';
   const compoundsPath = 'public/data/compounds.json';
+  const interactionEdgesPath = 'public/data/interaction_edges.json';
 
   if (!fs.existsSync(herbsPath) || !fs.existsSync(compoundsPath)) {
     console.error('Error: Required JSON files public/data/herbs.json or compounds.json are missing.');
@@ -110,11 +118,15 @@ function runGapAnalysis() {
 
   const herbs = JSON.parse(fs.readFileSync(herbsPath, 'utf8'));
   const compounds = JSON.parse(fs.readFileSync(compoundsPath, 'utf8'));
+  const interactionEdgesMap = fs.existsSync(interactionEdgesPath)
+    ? JSON.parse(fs.readFileSync(interactionEdgesPath, 'utf8'))
+    : {};
 
   const allProfiles = [];
   let safetyFilledCount = 0;
   let descriptionFilledCount = 0;
   let mechanismFilledCount = 0;
+  let interactionsFilledCount = 0;
 
   const prioritySlugs = [
     'ashwagandha', 'turmeric', 'lions-mane', 'bacopa-monnieri', 'rhodiola-rosea',
@@ -131,11 +143,12 @@ function runGapAnalysis() {
       const mechFilled = checkMechanism(item);
       const bestForFilled = checkBestFor(item);
       const dosingFilled = checkDosing(item);
-      const interactionsFilled = checkInteractions(item);
+      const interactionsFilled = checkInteractions(item, interactionEdgesMap);
 
       if (descFilled) descriptionFilledCount++;
       if (safetyFilled) safetyFilledCount++;
       if (mechFilled) mechanismFilledCount++;
+      if (interactionsFilled) interactionsFilledCount++;
 
       const missing = [];
       if (!descFilled) missing.push('description');
@@ -144,17 +157,10 @@ function runGapAnalysis() {
       if (!mechFilled) missing.push('mechanism');
       if (!bestForFilled) missing.push('best_for');
       if (!dosingFilled) missing.push('dosing');
+      if (!interactionsFilled) missing.push('interactions');
 
-      // `interactions` has no source column anywhere in Entity_Master (0/856 profiles have
-      // ever had it filled — verified via `node scripts/data/edit-entity-master-cell.mjs
-      // --column interactions --dry-run`, which reports the column missing). It's a
-      // pipeline/schema gap, not a per-entity content gap, so it's excluded from the
-      // completeness denominator below (it would otherwise cap every profile under 100%
-      // regardless of real fill progress) but still listed for visibility. See
-      // docs/LOOP_NOTES.md for the full investigation.
-      const totalFields = 6;
+      const totalFields = 7;
       const completeness = (totalFields - missing.length) / totalFields;
-      if (!interactionsFilled) missing.push('interactions (schema gap, not yet sourced)');
 
       allProfiles.push({
         name: item.name,
@@ -191,6 +197,7 @@ function runGapAnalysis() {
   const pctSafety = ((safetyFilledCount / total) * 100).toFixed(1);
   const pctDesc = ((descriptionFilledCount / total) * 100).toFixed(1);
   const pctMech = ((mechanismFilledCount / total) * 100).toFixed(1);
+  const pctInteractions = ((interactionsFilledCount / total) * 100).toFixed(1);
 
   // Match priority slugs (allowing partial match for things like 'valerian-root' matching 'valerian')
   const getPriorityMatches = () => {
@@ -226,6 +233,7 @@ Generated on: ${new Date().toISOString()}
 - **Safety Data Fill Rate**: ${pctSafety}% (${safetyFilledCount} / ${total})
 - **Description Fill Rate**: ${pctDesc}% (${descriptionFilledCount} / ${total})
 - **Mechanism Fill Rate**: ${pctMech}% (${mechanismFilledCount} / ${total})
+- **Interactions Fill Rate**: ${pctInteractions}% (${interactionsFilledCount} / ${total}) — counts profiles with a derived interaction-graph entry in \`interaction_edges.json\` (the data source the live "Interactions" page section actually reads)
 
 ## High-Traffic Priority Slugs (Completeness)
 
