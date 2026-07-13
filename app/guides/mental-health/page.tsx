@@ -1,18 +1,31 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import JsonLd from '@/components/seo/JsonLd'
 import {
   getMentalHealthArticlesByCluster,
   mentalHealthArticles,
   type MentalHealthArticle,
 } from '@/lib/mental-health-articles'
-import { buildPageMetadata } from '@/src/lib/seo'
+import {
+  breadcrumbJsonLd,
+  buildPageMetadata,
+  canonicalUrl,
+  collectionPageJsonLd,
+  itemListJsonLd,
+} from '@/src/lib/seo'
 
-export const metadata: Metadata = buildPageMetadata({
-  title: 'Mental Health Guides: OCD and Personality Disorders',
-  description: 'Citation-rich, evidence-based guides to OCD, BPD, and all ten DSM-5-TR personality disorders, with diagnosis, differential diagnosis, treatment, safety, and stigma context.',
-  path: '/guides/mental-health',
+const HUB_PATH = '/guides/mental-health'
+const HUB_TITLE = 'Mental Health Guides: OCD and Personality Disorders'
+const HUB_DESCRIPTION = 'Citation-rich, evidence-based guides to OCD, BPD, and all ten DSM-5-TR personality disorders, with diagnosis, differential diagnosis, treatment, safety, and stigma context.'
+
+const baseMetadata = buildPageMetadata({
+  title: HUB_TITLE,
+  description: HUB_DESCRIPTION,
+  path: HUB_PATH,
+  openGraphType: 'website',
   keywords: [
+    'mental health guides',
     'OCD guide',
     'BPD guide',
     'personality disorders',
@@ -20,6 +33,22 @@ export const metadata: Metadata = buildPageMetadata({
     'mental health treatment evidence',
   ],
 })
+
+export const metadata: Metadata = {
+  ...baseMetadata,
+  category: 'Mental Health',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+}
 
 const FEATURED_SLUGS = [
   'personality-disorders-overview',
@@ -36,7 +65,7 @@ function articleBySlug(slug: string): MentalHealthArticle {
 function ArticleCard({ article, featured = false }: { article: MentalHealthArticle; featured?: boolean }) {
   return (
     <Link
-      href={`/guides/mental-health/${article.slug}/`}
+      href={`${HUB_PATH}/${article.slug}/`}
       className={`block rounded-2xl border border-brand-900/10 bg-white p-5 transition hover:-translate-y-0.5 hover:border-brand-700/30 hover:shadow-sm ${featured ? 'sm:p-6' : ''}`}
     >
       <div className="flex flex-wrap items-center gap-2 text-[0.68rem] font-bold uppercase tracking-wider text-muted">
@@ -67,9 +96,47 @@ function ClusterSection({ title, description, articles }: { title: string; descr
 
 export default function MentalHealthGuidesHub() {
   const featured = FEATURED_SLUGS.map(articleBySlug)
+  const hubUrl = canonicalUrl(HUB_PATH)
+  const breadcrumbId = `${hubUrl}#breadcrumb`
+  const itemListId = `${hubUrl}#guide-list`
+  const collectionId = `${hubUrl}#collection`
+  const breadcrumbLd = breadcrumbJsonLd([
+    { name: 'Guides', url: canonicalUrl('/guides') },
+    { name: 'Mental Health', url: hubUrl },
+  ], { id: breadcrumbId })
+  const itemListLd = itemListJsonLd({
+    id: itemListId,
+    name: 'Evidence-Based Mental Health Guides',
+    path: HUB_PATH,
+    items: mentalHealthArticles.map((article) => ({
+      name: article.title,
+      url: `${HUB_PATH}/${article.slug}/`,
+    })),
+  })
+  const collectionLd = {
+    ...collectionPageJsonLd({
+      title: HUB_TITLE,
+      description: HUB_DESCRIPTION,
+      path: HUB_PATH,
+      itemListId,
+      breadcrumbId,
+    }),
+    '@id': collectionId,
+    inLanguage: 'en-US',
+    dateModified: '2026-07-13',
+    about: [
+      { '@type': 'MedicalCondition', name: 'Obsessive-compulsive disorder', alternateName: 'OCD' },
+      { '@type': 'MedicalCondition', name: 'Borderline personality disorder', alternateName: 'BPD' },
+      { '@type': 'MedicalCondition', name: 'Personality disorders' },
+    ],
+  }
 
   return (
     <main className="mx-auto max-w-6xl px-4 pb-24 pt-8 sm:px-6 lg:px-8">
+      <JsonLd schema={collectionLd} />
+      <JsonLd schema={itemListLd} />
+      <JsonLd schema={breadcrumbLd} />
+
       <nav className="mb-6 flex items-center gap-2 text-sm text-muted" aria-label="Breadcrumb">
         <Link href="/guides/" className="hover:text-ink">Guides</Link>
         <span aria-hidden="true">/</span>
