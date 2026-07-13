@@ -3388,7 +3388,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3396,7 +3396,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ]
@@ -4920,7 +4920,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4928,7 +4928,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ]
@@ -6638,7 +6638,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6646,7 +6646,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ]
@@ -6992,7 +6992,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7000,7 +7000,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ]
@@ -7026,7 +7026,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7034,7 +7034,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ]
@@ -7752,7 +7752,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -7760,7 +7760,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ]
@@ -8817,7 +8817,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8825,7 +8825,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ]

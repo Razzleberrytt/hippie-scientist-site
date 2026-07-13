@@ -305,3 +305,68 @@ Remaining 8 `full_public_runtime` compounds with empty
 next cycle should budget extra time to source real per-compound
 pharmacology (not generic filler) for each rather than batching all 8 at
 once.
+
+---
+
+## 2026-07-13 — Filled 7 of the final 8 obscure-tail compound `contraindications_or_flags` gaps; 1 deferred as too thin to source
+
+Closed out all but one of the "obscure tail" list from the prior entry, using
+`WebSearch` to verify real pharmacology before writing anything (this
+environment has web access via the deferred `WebSearch` tool — worth
+reaching for it explicitly on future cycles rather than relying on training-
+data recall, since verifiable-in-the-moment sourcing is stronger than
+memory for a data contract this safety-sensitive). Filled: `carnitine-l-
+tartrate` (thyroid-hormone-effectiveness reduction, seizure-history
+contraindication, TMAO/cardiovascular caveat, anticoagulant caution),
+`cryptotanshinone` (CYP1A2 potent-inhibitor / CYP2C9 moderate-inhibitor drug
+interactions, anti-androgenic/pregnancy caution, danshen-family bleeding-
+risk caution), `farnesol` (skin/eye irritant and fragrance-sensitizer
+caution, in-vitro cytotoxicity at high concentration, limited human oral-
+supplementation data), `fos`/fructooligosaccharides (hypersensitivity and
+mechanical-bowel-obstruction contraindications, IBS/FODMAP-sensitivity/SIBO
+caution, dose-dependent GI upset), `fucoxanthin` (seaweed-source iodine
+caution for thyroid disorders, antiplatelet/surgery caution, pregnancy
+caution, diabetes-drug interaction), `ginsenoside-rg3` (antiplatelet/
+anticoagulant bleeding risk with aspirin/heparin/warfarin, pre-surgical
+caution, ginseng-family cesarean-bleeding case reports), and
+`hydroxytyrosol` (concentration-dependent platelet-thromboxane-synthesis
+reduction as a real but mechanistic antiplatelet caution, otherwise well-
+tolerated at usual doses).
+
+Left `aucubin` deferred rather than filled: the only human-relevant search
+hits were (a) a toxicology review stating aucubin itself has low acute
+toxicity with no established human contraindications, just a call for more
+chronic-safety research, and (b) a uterine-stimulant caution that the
+literature attributes to whole *Plantago major* extract, not to isolated
+aucubin — attributing a whole-plant effect to a single marker compound
+would have been exactly the kind of unsourced overreach this data contract
+exists to prevent. Writing a "consult a clinician, data are limited"
+clause with nothing more specific behind it would have been filler, not
+enrichment — better to leave it empty and flag it than pad it out. If a
+future cycle finds compound-specific (not whole-plant) aucubin toxicology,
+that closes the very last gap in this thread.
+
+Simulated the `splitList()` `/[\n|;,]+/` regex against every draft first
+(per the established takeaway) — the first-pass drafts for
+`cryptotanshinone`, `fos`, `fucoxanthin`, and `ginsenoside-rg3` all had
+comma-separated drug/condition lists inside a clause (e.g. "caffeine,
+theophylline, warfarin, and phenytoin") that would have shattered into
+mangled fragments; rewrote every such list as "x or y or z" before writing
+to the workbook, confirming clean clause counts (2–4 clauses per entry, no
+fragment shorter than a full clause) before touching
+`edit-entity-master-cell.mjs --in-place`.
+
+`data:build:core` regenerated cleanly (edges 12661, tags 1276 — continuing
+to confirm the `build-interaction-data.mjs` snapshot-assertion fix holds
+under further enrichment), `data:validate` and `guard:source-of-truth`
+both passed clean, and the full Vitest suite (79 tests) passed. Diff scope
+matched the established core-only pattern exactly (workbook + compounds.json
++ compound-index + entity_risk_tags + interaction_edges + summary-indexes;
+`build-info.json` timestamp reverted).
+
+This closes the "obscure tail" thread from the prior four entries down to
+a single deferred compound. With `aucubin` aside, there are currently no
+more `full_public_runtime` compounds with empty `contraindications_or_flags`
+— the next enrichment cycle should re-run `npm run audit:safety` fresh
+rather than assuming this list, since new compounds may have been promoted
+to `full_public_runtime` or added since this entry.

@@ -11977,7 +11977,12 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "May reduce thyroid hormone effectiveness or worsen hypothyroidism symptoms in those on levothyroxine or other thyroid medication",
+      "increases seizure risk in people with a prior seizure history or seizure disorder and should be avoided in that group",
+      "supplementation raises trimethylamine N-oxide (TMAO) levels via gut bacterial metabolism which some cardiovascular research links to elevated cardiovascular risk",
+      "consult a clinician before use if on anticoagulant therapy."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -12020,7 +12025,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -12028,7 +12033,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -17355,7 +17360,11 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Potent competitive inhibitor of CYP1A2 and a moderate mixed-type inhibitor of CYP2C9 so may raise blood levels of drugs cleared by those enzymes such as caffeine or theophylline or warfarin or phenytoin",
+      "lowers testosterone and androgen synthesis so avoid in pregnancy or when using androgen-dependent hormone therapy",
+      "derived from Salvia miltiorrhiza (danshen) whose extracts carry a well-documented bleeding-risk interaction with anticoagulant or antiplatelet drugs."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -17398,7 +17407,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -17406,7 +17415,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -23294,7 +23303,11 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Classified as a skin and eye irritant and a known fragrance sensitizer so topical or concentrated exposure can trigger allergic contact dermatitis in sensitive individuals",
+      "cytotoxic to cells at high in-vitro concentrations so formulation and dose matter for safety",
+      "human oral-supplementation safety data are limited so avoid high-dose isolated intake without clinician guidance."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "softgel or liquid oil",
@@ -23337,7 +23350,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -23345,7 +23358,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -24468,7 +24481,11 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Contraindicated with known hypersensitivity or mechanical bowel obstruction",
+      "a FODMAP so people with IBS or FODMAP sensitivity or SIBO should avoid or use only under supervision since it can worsen bloating or cramping or gas or diarrhea at typical prebiotic doses",
+      "start low and titrate to tolerance even in the general population."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "medium",
@@ -24511,7 +24528,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -24519,7 +24536,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -24573,7 +24590,12 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Seaweed-derived extracts can carry meaningful iodine content so people with hyperthyroidism or hypothyroidism or Hashimoto thyroiditis should consult a clinician before use",
+      "theoretical antiplatelet or blood-thinning activity means caution with anticoagulant or antiplatelet drugs and discontinuation roughly two weeks before surgery",
+      "insufficient safety data in pregnancy and breastfeeding so avoid unless advised otherwise",
+      "may interact with diabetes medication and potentiate hypoglycemia."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract",
@@ -24616,7 +24638,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -24624,7 +24646,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -27062,7 +27084,11 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Antiplatelet and anticoagulant activity raises bleeding risk when combined with drugs such as aspirin or heparin or warfarin and dosage adjustment or clinician monitoring is warranted for those on narrow-therapeutic-index anticoagulants",
+      "discontinue before scheduled surgery given the bleeding-risk profile",
+      "ginseng-family compounds carry case reports of excess bleeding during cesarean delivery so use caution in pregnancy near term."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized botanical extract capsule",
@@ -27105,7 +27131,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -27113,7 +27139,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -30862,7 +30888,10 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Reduces platelet thromboxane synthesis in a concentration-dependent manner an antiplatelet mechanism comparable in direction to aspirin at high intake so use caution when combined with anticoagulant or antiplatelet medication and consider discontinuing before scheduled surgery",
+      "typical supplement or dietary intake is well tolerated with no established contraindications at usual doses."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -30905,7 +30934,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -30913,7 +30942,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
