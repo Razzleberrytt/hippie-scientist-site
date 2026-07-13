@@ -1,10 +1,21 @@
 'use client'
 
 import Link from 'next/link'
-import { type FormEvent, useId, useState } from 'react'
+import { type FormEvent, useEffect, useId, useRef, useState } from 'react'
 import { safetyChecklistLeadMagnet } from '@/lib/lead-magnet'
 import { mailchimpSignupConfig } from '@/lib/mailchimp-integration'
 import { trackEmailSignup } from '@/lib/analytics'
+
+type TurnstileApi = {
+  render: (element: HTMLElement, options: { sitekey: string; callback: (token: string) => void; 'expired-callback': () => void; 'error-callback': () => void }) => string
+  reset: (widgetId?: string) => void
+}
+
+declare global {
+  interface Window {
+    turnstile?: TurnstileApi
+  }
+}
 
 type NewsletterSignupProps = {
   title?: string
@@ -13,6 +24,20 @@ type NewsletterSignupProps = {
   location?: string
   variant?: 'card' | 'inline' | 'footer' | 'compact'
   className?: string
+}
+
+const turnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY?.trim() || ''
+const TURNSTILE_SCRIPT_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
+
+function loadTurnstileScript() {
+  if (typeof document === 'undefined') return
+  if (document.querySelector(`script[src="${TURNSTILE_SCRIPT_SRC}"]`)) return
+
+  const script = document.createElement('script')
+  script.src = TURNSTILE_SCRIPT_SRC
+  script.async = true
+  script.defer = true
+  document.head.appendChild(script)
 }
 
 const variantClasses: Record<NonNullable<NewsletterSignupProps['variant']>, string> = {
@@ -42,11 +67,44 @@ export default function NewsletterSignup({
   const emailId = useId()
   const honeypotId = useId()
   const statusId = useId()
+  const turnstileContainerRef = useRef<HTMLDivElement | null>(null)
+  const turnstileWidgetIdRef = useRef<string>()
   const [email, setEmail] = useState('')
   const [confirmEmail, setConfirmEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
+  const [turnstileToken, setTurnstileToken] = useState('')
   const usesClientPost = mailchimpSignupConfig.isApiAction
+  const usesTurnstile = usesClientPost && Boolean(turnstileSiteKey)
+
+  useEffect(() => {
+    if (!usesTurnstile || !turnstileContainerRef.current || turnstileWidgetIdRef.current) return
+
+    let cancelled = false
+    loadTurnstileScript()
+
+    const renderWhenReady = () => {
+      if (cancelled || !turnstileContainerRef.current || turnstileWidgetIdRef.current) return
+
+      if (window.turnstile) {
+        turnstileWidgetIdRef.current = window.turnstile.render(turnstileContainerRef.current, {
+          sitekey: turnstileSiteKey,
+          callback: setTurnstileToken,
+          'expired-callback': () => setTurnstileToken(''),
+          'error-callback': () => setTurnstileToken(''),
+        })
+        return
+      }
+
+      window.setTimeout(renderWhenReady, 150)
+    }
+
+    renderWhenReady()
+
+    return () => {
+      cancelled = true
+    }
+  }, [usesTurnstile])
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     if (!usesClientPost) return
@@ -65,6 +123,7 @@ export default function NewsletterSignup({
           magnet: safetyChecklistLeadMagnet.slug,
           confirmEmail,
           source: location,
+          turnstileToken: usesTurnstile ? turnstileToken : undefined,
         }),
       })
       const payload = (await response.json().catch(() => null)) as { ok?: boolean; error?: string } | null
@@ -74,9 +133,17 @@ export default function NewsletterSignup({
       }
 
       setStatus('success')
+      if (usesTurnstile) {
+        window.turnstile?.reset(turnstileWidgetIdRef.current)
+        setTurnstileToken('')
+      }
       setMessage('You are subscribed. Open the safety checklist while the next evidence note is prepared.')
       trackEmailSignup({ source: location })
     } catch (error) {
+      if (usesTurnstile) {
+        window.turnstile?.reset(turnstileWidgetIdRef.current)
+        setTurnstileToken('')
+      }
       setStatus('error')
       setMessage(error instanceof Error ? error.message : 'Could not subscribe this email right now.')
     }
@@ -119,6 +186,7 @@ export default function NewsletterSignup({
               onChange={(event) => setConfirmEmail(event.target.value)}
             />
           </div>
+          {usesTurnstile ? <div ref={turnstileContainerRef} className='min-h-[65px]' /> : null}
           <div className='flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row'>
             <label className='sr-only' htmlFor={emailId}>
               Email address
@@ -136,7 +204,7 @@ export default function NewsletterSignup({
               onChange={(event) => setEmail(event.target.value)}
               aria-describedby={message ? statusId : undefined}
             />
-            <button type='submit' className={buttonClass} disabled={status === 'submitting'}>
+            <button type='submit' className={buttonClass} disabled={status === 'submitting' || (usesTurnstile && !turnstileToken)}>
               {status === 'submitting' ? 'Sending...' : ctaLabel}
             </button>
           </div>
