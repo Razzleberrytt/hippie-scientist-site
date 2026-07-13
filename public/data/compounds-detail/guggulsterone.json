@@ -160,5 +160,10 @@
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "standardized botanical extract capsule",
+  "typical_dosage": "standardized botanical extract capsule",
+  "contraindications": [
+    "pregnancy"
   ]
 }

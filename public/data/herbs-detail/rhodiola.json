@@ -471,5 +471,7 @@
   ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
-  "sitemap_included": true
+  "sitemap_included": true,
+  "dosage": "Exercise/performance review notes ~200 mg standardized extract containing ~1% salidroside and ~3% rosavin about 60 minutes pre-exercise; recent higher-dose trials used ~1500–2400 mg/day for 4–30 days. Pure salidroside study used 60 mg/day for 16 days. | Rhodiola rosea extract standardized for salidroside/rosavins; pure salidroside should be tracked separately from whole-root extract. | Exercise/fatigue dosing and stress/mood claims must be separated; RCT reporting quality for Rhodiola is often weak or unclear.",
+  "typical_dosage": "Exercise/performance review notes ~200 mg standardized extract containing ~1% salidroside and ~3% rosavin about 60 minutes pre-exercise; recent higher-dose trials used ~1500–2400 mg/day for 4–30 days. Pure salidroside study used 60 mg/day for 16 days. | Rhodiola rosea extract standardized for salidroside/rosavins; pure salidroside should be tracked separately from whole-root extract. | Exercise/fatigue dosing and stress/mood claims must be separated; RCT reporting quality for Rhodiola is often weak or unclear."
 }

@@ -38,5 +38,10 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "dosage": "softgel or liquid oil",
+  "typical_dosage": "softgel or liquid oil",
+  "contraindications": [
+    "liver"
+  ]
 }

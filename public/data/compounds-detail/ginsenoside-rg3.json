@@ -146,5 +146,12 @@
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "standardized botanical extract capsule",
+  "typical_dosage": "standardized botanical extract capsule",
+  "contraindications": [
+    "Antiplatelet and anticoagulant activity raises bleeding risk when combined with drugs such as aspirin or heparin or warfarin and dosage adjustment or clinician monitoring is warranted for those on narrow-therapeutic-index anticoagulants",
+    "discontinue before scheduled surgery given the bleeding-risk profile",
+    "ginseng-family compounds carry case reports of excess bleeding during cesarean section childbirth so use caution in pregnancy near term."
   ]
 }

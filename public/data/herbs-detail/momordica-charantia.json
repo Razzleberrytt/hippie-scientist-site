@@ -73,5 +73,7 @@
   "robots": "index,follow",
   "sitemap_included": true,
   "runtime_export_decision": "full_public_runtime",
-  "indexability_score": 100
+  "indexability_score": 100,
+  "dosage": "1000-2000 mg extract",
+  "typical_dosage": "1000-2000 mg extract"
 }

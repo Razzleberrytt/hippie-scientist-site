@@ -133,5 +133,12 @@
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
+  "typical_dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
+  "contraindications": [
+    "pregnancy",
+    "liver",
+    "kidney"
   ]
 }

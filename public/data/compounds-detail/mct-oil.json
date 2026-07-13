@@ -119,5 +119,13 @@
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "—",
+  "typical_dosage": "—",
+  "contraindications": [
+    "Cirrhosis or hepatic encephalopathy or portal-systemic shunting (MCT metabolism can worsen ketone and ammonia handling)",
+    "poorly controlled or type 1 diabetes (ketogenic effect may exacerbate ketoacidosis risk)",
+    "rapid introduction or high doses (dose-dependent GI upset such as cramping or diarrhea or nausea)",
+    "cardiovascular disease (saturated-fat content warrants monitoring)"
   ]
 }

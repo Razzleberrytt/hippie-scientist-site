@@ -128,5 +128,10 @@
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "standardized oral supplement form",
+  "typical_dosage": "standardized oral supplement form",
+  "contraindications": [
+    "gerd_caution"
   ]
 }

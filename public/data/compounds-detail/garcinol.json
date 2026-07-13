@@ -140,5 +140,10 @@
       "note": "needs_classification",
       "reviewStatus": "pending"
     }
+  ],
+  "dosage": "standardized extract capsule",
+  "typical_dosage": "standardized extract capsule",
+  "contraindications": [
+    "liver"
   ]
 }

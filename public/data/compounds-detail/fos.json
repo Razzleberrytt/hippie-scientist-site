@@ -99,5 +99,12 @@
       "note": "review_or_meta_analysis",
       "reviewStatus": "pending"
     }
+  ],
+  "dosage": "medium",
+  "typical_dosage": "medium",
+  "contraindications": [
+    "Contraindicated with known hypersensitivity or mechanical bowel obstruction",
+    "a FODMAP so people with IBS or FODMAP sensitivity or SIBO should avoid or use only under supervision since it can worsen bloating or cramping or gas or diarrhea at typical prebiotic doses",
+    "start low and titrate to tolerance even in the general population."
   ]
 }

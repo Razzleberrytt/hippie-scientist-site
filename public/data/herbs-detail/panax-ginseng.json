@@ -85,5 +85,7 @@
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "dosage": "Ginseng preparations varied; species/preparation split needed. Dose/form ambiguous; schedule dose pass.",
+  "typical_dosage": "Ginseng preparations varied; species/preparation split needed. Dose/form ambiguous; schedule dose pass."
 }

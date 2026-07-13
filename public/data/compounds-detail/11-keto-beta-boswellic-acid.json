@@ -137,5 +137,10 @@
       "note": "human_pk",
       "reviewStatus": "pending"
     }
+  ],
+  "dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
+  "typical_dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
+  "contraindications": [
+    "pregnancy"
   ]
 }

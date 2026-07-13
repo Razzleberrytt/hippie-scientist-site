@@ -36,5 +36,10 @@
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "dosage": "standardized oral supplement form",
+  "typical_dosage": "standardized oral supplement form",
+  "contraindications": [
+    "immunocompromised_caution"
+  ]
 }

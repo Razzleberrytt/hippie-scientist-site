@@ -115,5 +115,12 @@
       "note": "needs_classification",
       "reviewStatus": "pending"
     }
+  ],
+  "dosage": "softgel or liquid oil",
+  "typical_dosage": "softgel or liquid oil",
+  "contraindications": [
+    "Upcoming laboratory bloodwork especially troponin thyroid or hormone panels (high-dose biotin causes false immunoassay results and the FDA has issued a safety communication on this interference)",
+    "discontinue at least 48 hours before lab testing when possible",
+    "not a treatment for underlying thyroid or cardiac disease despite lab-interference risk"
   ]
 }

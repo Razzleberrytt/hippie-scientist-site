@@ -43,5 +43,15 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "dosage": "No established consumer dosing protocol; see full guide article for regulatory and safety context.",
+  "typical_dosage": "No established consumer dosing protocol; see full guide article for regulatory and safety context.",
+  "contraindications": [
+    "Active cancer or cancer history (growth-hormone-axis stimulation is a theoretical tumor-growth concern)",
+    "pregnancy/breastfeeding",
+    "uncontrolled diabetes",
+    "unsupervised RUO product use without physician oversight",
+    "May potentiate insulin or other antidiabetic medications (additive blood-glucose effects) and other GH-axis peptides",
+    "no controlled long-term human interaction data exists."
+  ]
 }

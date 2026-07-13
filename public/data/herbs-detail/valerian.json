@@ -129,5 +129,7 @@
   ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
-  "sitemap_included": true
+  "sitemap_included": true,
+  "dosage": "Standardized extract (0.3-0.8% valerenic acids): 400-600 mg taken 30-60 min before sleep; tea preparations less standardized",
+  "typical_dosage": "Standardized extract (0.3-0.8% valerenic acids): 400-600 mg taken 30-60 min before sleep; tea preparations less standardized"
 }

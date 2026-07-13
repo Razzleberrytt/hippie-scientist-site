@@ -46,5 +46,16 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "dosage": "No established consumer dosing protocol; see full guide article for regulatory and safety context.",
+  "typical_dosage": "No established consumer dosing protocol; see full guide article for regulatory and safety context.",
+  "contraindications": [
+    "Personal or family history of medullary thyroid carcinoma or Multiple Endocrine Neoplasia syndrome type 2",
+    "pregnancy/breastfeeding",
+    "severe gastrointestinal disease or gastroparesis",
+    "Do not combine with other GLP-1 or GIP receptor agonists or DPP-4 inhibitors",
+    "may cause additive hypoglycemia with insulin or sulfonylureas",
+    "delayed gastric emptying can alter absorption of oral medications",
+    "acute pancreatitis has been reported in clinical trials."
+  ]
 }

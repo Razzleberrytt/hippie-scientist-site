@@ -43,5 +43,10 @@
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "dosage": "softgel or liquid oil",
+  "typical_dosage": "softgel or liquid oil",
+  "contraindications": [
+    "Caution with anticoagulants."
+  ]
 }

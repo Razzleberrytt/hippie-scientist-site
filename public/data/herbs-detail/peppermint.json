@@ -72,5 +72,7 @@
   "claimMap": [],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
-  "sitemap_included": true
+  "sitemap_included": true,
+  "dosage": "Enteric-coated peppermint oil capsules (0.2-0.4 mL per capsule): 0.6-1.2 mL/day; evidence specific to enteric-coated formulations",
+  "typical_dosage": "Enteric-coated peppermint oil capsules (0.2-0.4 mL per capsule): 0.6-1.2 mL/day; evidence specific to enteric-coated formulations"
 }

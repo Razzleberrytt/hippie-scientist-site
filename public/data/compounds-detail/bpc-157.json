@@ -48,5 +48,14 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "dosage": "No established consumer dosing protocol; see full guide article for regulatory and safety context.",
+  "typical_dosage": "No established consumer dosing protocol; see full guide article for regulatory and safety context.",
+  "contraindications": [
+    "Active cancer or cancer history (theoretical angiogenesis/tumor-growth concern)",
+    "pregnancy/breastfeeding",
+    "unsupervised RUO product use without physician oversight",
+    "No established pharmacokinetic drug-interaction data exists",
+    "theoretical caution combining with other growth-promoting or angiogenic peptides."
+  ]
 }

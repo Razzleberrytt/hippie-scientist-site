@@ -159,5 +159,11 @@
       "studyType": "Randomized controlled trial",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "standardized botanical extract capsule",
+  "typical_dosage": "standardized botanical extract capsule",
+  "contraindications": [
+    "pregnancy",
+    "ssri"
   ]
 }

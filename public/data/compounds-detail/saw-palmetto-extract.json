@@ -117,5 +117,15 @@
       "studyType": "Randomized controlled trial",
       "reviewStatus": "pending"
     }
+  ],
+  "dosage": "softgel or liquid oil",
+  "typical_dosage": "softgel or liquid oil",
+  "contraindications": [
+    "Pregnancy or breastfeeding without clinician guidance (anti-androgenic hormone activity)",
+    "hormone-sensitive conditions such as prostate cancer without clinician review",
+    "anticoagulant or antiplatelet therapy or planned surgery (case reports of increased intraoperative and postoperative bleeding)",
+    "May interact with hormonal contraceptives or other hormone therapies given anti-androgenic activity",
+    "not studied in children",
+    "mild GI upset such as nausea or diarrhea is the most common side effect."
   ]
 }

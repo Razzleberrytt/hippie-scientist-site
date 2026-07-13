@@ -36,5 +36,7 @@
   },
   "claimMap": [],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "dosage": "capsule or softgel",
+  "typical_dosage": "capsule or softgel"
 }

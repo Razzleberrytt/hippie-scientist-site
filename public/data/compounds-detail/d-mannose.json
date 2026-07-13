@@ -70,5 +70,10 @@
       "studyType": "Randomized controlled trial",
       "reviewStatus": "pending"
     }
+  ],
+  "dosage": "capsule or standardized extract",
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Caution in diabetes."
   ]
 }

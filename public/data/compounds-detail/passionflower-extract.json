@@ -120,5 +120,10 @@
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "extract",
+  "typical_dosage": "extract",
+  "contraindications": [
+    "sedative"
   ]
 }

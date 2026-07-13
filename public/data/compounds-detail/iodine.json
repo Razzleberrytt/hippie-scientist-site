@@ -135,5 +135,15 @@
       "note": "needs_classification",
       "reviewStatus": "pending"
     }
+  ],
+  "dosage": "capsule or standardized extract",
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Autoimmune thyroid disease such as Hashimoto's thyroiditis or Graves' disease (excess iodine can trigger or worsen hypothyroidism or hyperthyroidism)",
+    "antithyroid medications such as methimazole (iodine can antagonize or unpredictably interact with these drugs)",
+    "lithium therapy (additive hypothyroidism risk)",
+    "amiodarone (both contain iodine and combined exposure raises thyroid-dysfunction risk)",
+    "recent radioactive iodine treatment or imaging (high iodine intake interferes with uptake)",
+    "not appropriate for high-dose supplementation without clinician-supervised thyroid monitoring"
   ]
 }

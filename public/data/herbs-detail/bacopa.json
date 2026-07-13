@@ -135,5 +135,7 @@
   ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
-  "sitemap_included": true
+  "sitemap_included": true,
+  "dosage": "Dose varies by standardized extract and bacoside content; do not publish a universal dose without extract standardization. | Bacopa monnieri extracts/standardized bacoside products; combinations should not be credited solely to bacopa.",
+  "typical_dosage": "Dose varies by standardized extract and bacoside content; do not publish a universal dose without extract standardization. | Bacopa monnieri extracts/standardized bacoside products; combinations should not be credited solely to bacopa."
 }

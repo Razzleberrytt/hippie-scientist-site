@@ -14,7 +14,13 @@
   ],
   "activeCompounds": [],
   "safetyNotes": "Generally well tolerated for most users.",
-  "contraindications": [],
+  "contraindications": [
+    "Not source-complete in workbook",
+    "screen pregnancy",
+    "lactation",
+    "medical conditions",
+    "and medications before use."
+  ],
   "interactions": [],
   "preparation": "",
   "traditionalUses": [],
@@ -140,5 +146,7 @@
     "summary-depth",
     "summary-quality-missing"
   ],
-  "safety": "Generally well tolerated for most users."
+  "safety": "Generally well tolerated for most users.",
+  "dosage": "Preparation-specific; use standardized product label and require source-backed dosage review before therapeutic claims.",
+  "typical_dosage": "Preparation-specific; use standardized product label and require source-backed dosage review before therapeutic claims."
 }

@@ -119,5 +119,10 @@
       "note": "needs_classification",
       "reviewStatus": "pending"
     }
+  ],
+  "dosage": "capsule or standardized extract",
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Caution in TMAO-related CVD risk contexts."
   ]
 }

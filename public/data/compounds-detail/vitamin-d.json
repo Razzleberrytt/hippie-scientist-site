@@ -154,5 +154,7 @@
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved"
     }
-  ]
+  ],
+  "dosage": "capsule or softgel",
+  "typical_dosage": "capsule or softgel"
 }

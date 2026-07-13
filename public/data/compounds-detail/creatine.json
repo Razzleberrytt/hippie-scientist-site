@@ -203,5 +203,10 @@
       "studyType": "Meta-analysis",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "Creatine monohydrate; adult RCT evidence; domain-specific cognition outcomes. Use studied-dose table; do not invent one universal cognitive dose from meta-analysis alone.",
+  "typical_dosage": "Creatine monohydrate; adult RCT evidence; domain-specific cognition outcomes. Use studied-dose table; do not invent one universal cognitive dose from meta-analysis alone.",
+  "contraindications": [
+    "kidney"
   ]
 }

@@ -145,5 +145,12 @@
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "softgel or liquid oil",
+  "typical_dosage": "softgel or liquid oil",
+  "contraindications": [
+    "Classified as a skin and eye irritant and a known fragrance sensitizer so topical or concentrated exposure can trigger allergic contact dermatitis in sensitive individuals",
+    "cytotoxic to cells at high in-vitro concentrations so formulation and dose matter for safety",
+    "human oral-supplementation safety data are limited so avoid high-dose isolated intake without clinician guidance."
   ]
 }

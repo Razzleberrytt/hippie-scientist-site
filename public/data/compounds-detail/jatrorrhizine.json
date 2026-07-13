@@ -39,5 +39,10 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "dosage": "capsule or standardized extract",
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "pregnancy"
+  ]
 }

@@ -130,5 +130,12 @@
       "note": "gap identification only; not used to populate factual fields",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "capsule or standardized extract",
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "pregnancy",
+    "liver",
+    "kidney"
   ]
 }

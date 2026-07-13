@@ -44,5 +44,14 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": true,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "dosage": "No established consumer dosing protocol; see full guide article for regulatory and safety context.",
+  "typical_dosage": "No established consumer dosing protocol; see full guide article for regulatory and safety context.",
+  "contraindications": [
+    "Wilson's disease or other copper-metabolism disorders",
+    "known copper allergy or hypersensitivity",
+    "pregnancy/breastfeeding (no established safety data)",
+    "Injectable/systemic use carries far less human safety data than topical use",
+    "theoretical additive copper load if combined with high-dose copper supplementation -- clinician oversight advised for systemic use."
+  ]
 }

@@ -86,5 +86,16 @@
       "note": "gap identification only; not used to populate factual fields",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "capsule or standardized extract",
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Bradycardia or other cardiac conduction disorders (cholinergic slowing of heart rate)",
+    "seizure disorders or epilepsy without clinician guidance",
+    "asthma or COPD (cholinergic bronchoconstriction risk)",
+    "peptic ulcer disease (increased gastric acid secretion)",
+    "concurrent use with other acetylcholinesterase inhibitors such as donepezil or galantamine (risk of cholinergic crisis with excess salivation sweating and bradycardia)",
+    "urinary tract obstruction",
+    "not studied in pregnancy or breastfeeding"
   ]
 }

@@ -40,5 +40,7 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "dosage": "not recommended for consumer purchase",
+  "typical_dosage": "not recommended for consumer purchase"
 }

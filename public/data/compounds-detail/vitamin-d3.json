@@ -75,5 +75,7 @@
       "studyType": "Meta-analysis",
       "reviewStatus": "approved"
     }
-  ]
+  ],
+  "dosage": "Vitamin D3 supplementation; adult depression/anxiety RCT meta-analysis. Dose-response paper modeled per 1000 IU/day; do not recommend high doses without biomarker/medical context.",
+  "typical_dosage": "Vitamin D3 supplementation; adult depression/anxiety RCT meta-analysis. Dose-response paper modeled per 1000 IU/day; do not recommend high doses without biomarker/medical context."
 }

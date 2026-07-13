@@ -190,5 +190,10 @@
       "year": "2021",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "chelated mineral capsule or powder",
+  "typical_dosage": "chelated mineral capsule or powder",
+  "contraindications": [
+    "Caution in renal impairment."
   ]
 }

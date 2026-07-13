@@ -139,5 +139,10 @@
       "note": "needs_classification",
       "reviewStatus": "pending"
     }
+  ],
+  "dosage": "—",
+  "typical_dosage": "—",
+  "contraindications": [
+    "Avoid excess in pregnancy."
   ]
 }

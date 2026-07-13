@@ -113,5 +113,13 @@
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "short-to-medium",
+  "typical_dosage": "short-to-medium",
+  "contraindications": [
+    "Pre-existing liver disease (contains celandine which has been linked to rare cases of drug-induced liver injury)",
+    "signs of liver injury such as jaundice or dark urine or unusual fatigue (discontinue immediately and seek care)",
+    "pregnancy or breastfeeding (insufficient safety data)",
+    "chamomile or other Asteraceae-family plant allergy (possible cross-reactivity)"
   ]
 }

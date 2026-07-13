@@ -38,5 +38,10 @@
   "indexability_status": "NEEDS_REVIEW",
   "robots": "noindex,follow",
   "sitemap_included": false,
-  "indexability_reasons": []
+  "indexability_reasons": [],
+  "dosage": "standardized botanical extract capsule",
+  "typical_dosage": "standardized botanical extract capsule",
+  "contraindications": [
+    "stimulant"
+  ]
 }

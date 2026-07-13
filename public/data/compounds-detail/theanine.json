@@ -265,5 +265,17 @@
       "note": "cognition/mood evidence",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "Standalone sleep trials span 50–900 mg/day; current practical adult sleep-support range is 200–450 mg/day. Acute stress evidence includes 200 mg single dose; 28-day stress/attention evidence includes 400 mg/day. | Standalone L-theanine; branded AlphaWave L-theanine; tea bioactives; L-theanine+caffeine combinations. | Standalone L-theanine, tea beverage, and L-theanine+caffeine stacks answer different questions and should not share one claim block.",
+  "typical_dosage": "Standalone sleep trials span 50–900 mg/day; current practical adult sleep-support range is 200–450 mg/day. Acute stress evidence includes 200 mg single dose; 28-day stress/attention evidence includes 400 mg/day. | Standalone L-theanine; branded AlphaWave L-theanine; tea bioactives; L-theanine+caffeine combinations. | Standalone L-theanine, tea beverage, and L-theanine+caffeine stacks answer different questions and should not share one claim block.",
+  "contraindications": [
+    "Clinician review for pregnancy/breastfeeding",
+    "children",
+    "psychiatric conditions",
+    "or use alongside sedatives",
+    "sleep aids",
+    "blood-pressure medication",
+    "stimulants/caffeine combinations",
+    "or psychopharmacological drugs."
   ]
 }

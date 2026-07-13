@@ -78,5 +78,10 @@
       "studyType": "Meta-analysis",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "Myo-/D-chiro-inositol in PCOS RCT meta-analysis. No site-core dose claim from this source.",
+  "typical_dosage": "Myo-/D-chiro-inositol in PCOS RCT meta-analysis. No site-core dose claim from this source.",
+  "contraindications": [
+    "Limited data."
   ]
 }

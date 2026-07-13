@@ -35,5 +35,7 @@
   },
   "claimMap": [],
   "indexability_status": "PUBLISH",
-  "robots": "index,follow"
+  "robots": "index,follow",
+  "dosage": "standardized botanical extract capsule",
+  "typical_dosage": "standardized botanical extract capsule"
 }

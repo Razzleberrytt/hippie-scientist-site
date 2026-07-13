@@ -162,5 +162,11 @@
       "studyType": "Systematic review",
       "reviewStatus": "approved"
     }
+  ],
+  "dosage": "capsule or standardized extract",
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "pregnancy",
+    "ssri"
   ]
 }

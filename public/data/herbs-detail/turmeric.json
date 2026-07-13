@@ -107,5 +107,7 @@
   ],
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
-  "sitemap_included": true
+  "sitemap_included": true,
+  "dosage": "500-1,500 mg/day standardized curcumin extract, often split doses",
+  "typical_dosage": "500-1,500 mg/day standardized curcumin extract, often split doses"
 }
