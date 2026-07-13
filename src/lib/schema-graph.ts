@@ -315,11 +315,14 @@ export function buildCompareHubSchemaGraph(args: {
   description: string
   breadcrumbs: Array<{ name: string; url: string }>
   comparisonPairs: Array<{ name: string; url: string }>
+  faqQuestions?: Array<{ question: string; answer: string }>
 }) {
   const canonical = normalizeCanonical(toAbsoluteUrl(args.path))
   const webpageId = `${canonical}#webpage`
   const breadcrumbId = `${canonical}#breadcrumb`
   const itemListId = `${canonical}#item-list`
+  const faqId = `${canonical}#faq`
+  const faqQuestions = args.faqQuestions ?? []
 
   const webpage = {
     '@type': 'CollectionPage',
@@ -330,6 +333,7 @@ export function buildCompareHubSchemaGraph(args: {
     isPartOf: { '@type': 'WebSite', name: 'The Hippie Scientist', url: SITE_URL },
     breadcrumb: { '@id': breadcrumbId },
     mainEntity: { '@id': itemListId },
+    ...(faqQuestions.length ? { hasPart: { '@id': faqId } } : {}),
   }
 
   const breadcrumb = {
@@ -349,7 +353,24 @@ export function buildCompareHubSchemaGraph(args: {
     isPartOf: { '@id': webpageId },
   }
 
-  return buildSchemaGraph([webpage, breadcrumb, itemList])
+  const faq = faqQuestions.length
+    ? {
+        '@type': 'FAQPage',
+        '@id': faqId,
+        url: canonical,
+        isPartOf: { '@id': webpageId },
+        mainEntity: faqQuestions.map(item => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
+          },
+        })),
+      }
+    : null
+
+  return buildSchemaGraph([webpage, breadcrumb, itemList, faq])
 }
 
 export function buildGuideHubSchemaGraph(args: {
