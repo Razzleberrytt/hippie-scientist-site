@@ -6861,7 +6861,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "cardiovascular"
+      "Caution with hypotension or blood pressure medication use due to additive blood-pressure-lowering effects that can cause dizziness or fainting",
+      "caution combining with PDE5 inhibitors such as sildenafil or tadalafil due to overlapping nitric-oxide pathways and risk of pronounced blood pressure drops",
+      "caution with nitrate medications due to the same nitric-oxide mechanism",
+      "high-nitrate intake caution for individuals with methemoglobinemia risk or on nitrate-restricted diets."
     ],
     "interactions": [],
     "side_effects": [],
@@ -20718,8 +20721,12 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "stimulant",
-      "liver"
+      "High-dose extract use above roughly 800 mg EGCG daily carries a documented risk of drug-induced liver injury or hepatitis",
+      "avoid in pre-existing liver disease or with other hepatotoxic medications",
+      "take with food rather than on an empty stomach to reduce liver-injury risk",
+      "concentrated extracts often retain caffeine content so stimulant-sensitive users or those with anxiety or insomnia should use caution",
+      "may interact with anticoagulant or antiplatelet medications or certain blood pressure drugs",
+      "pregnancy or breastfeeding caution due to insufficient safety data."
     ],
     "interactions": [],
     "side_effects": [],
@@ -24968,7 +24975,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "cardiovascular"
+      "Cholinesterase-inhibitor cardiac effects can include bradycardia or atrioventricular heart block or other vagotonic slowing of heart rhythm",
+      "avoid with unstable angina or congestive heart failure or recent myocardial infarction or pre-existing conduction abnormalities",
+      "caution when combined with other drugs that lower heart rate",
+      "caution with asthma or chronic obstructive pulmonary disease or seizure disorders or peptic ulcer disease due to cholinergic effects",
+      "contraindicated with known hypersensitivity to galantamine."
     ],
     "interactions": [],
     "side_effects": [],
@@ -25338,7 +25349,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "liver"
+      "Documented case reports of drug-induced liver injury including acute hepatitis or fulminant liver failure requiring transplant usually after two to seven months of continuous use",
+      "avoid in pre-existing liver disease or with other hepatotoxic medications",
+      "discontinue immediately and seek medical care for jaundice or dark urine or abdominal pain or unusual fatigue",
+      "caution with concurrent medications such as montelukast due to a documented herb-drug interaction implicated in liver injury case reports",
+      "pregnancy or breastfeeding caution due to insufficient safety data."
     ],
     "interactions": [],
     "side_effects": [],
@@ -50454,7 +50469,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy"
+      "Pregnancy or breastfeeding is an absolute contraindication due to uterine-stimulant and abortifacient effects at higher doses",
+      "caution with bleeding disorders or anticoagulant or blood-thinning medication use",
+      "caution with blood pressure medications",
+      "caution with unbalanced bipolar disorder due to serotonergic activity",
+      "avoid high doses above standard extract ranges due to risk of vomiting or kidney toxicity."
     ],
     "interactions": [],
     "side_effects": [],

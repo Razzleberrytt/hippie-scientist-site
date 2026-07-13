@@ -77,6 +77,10 @@
   "dosage": "standardized extract capsule",
   "typical_dosage": "standardized extract capsule",
   "contraindications": [
-    "pregnancy"
+    "Pregnancy or breastfeeding is an absolute contraindication due to uterine-stimulant and abortifacient effects at higher doses",
+    "caution with bleeding disorders or anticoagulant or blood-thinning medication use",
+    "caution with blood pressure medications",
+    "caution with unbalanced bipolar disorder due to serotonergic activity",
+    "avoid high doses above standard extract ranges due to risk of vomiting or kidney toxicity."
   ]
 }

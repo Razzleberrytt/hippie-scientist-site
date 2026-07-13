@@ -117,6 +117,10 @@
   "dosage": "prescription tablet",
   "typical_dosage": "prescription tablet",
   "contraindications": [
-    "cardiovascular"
+    "Cholinesterase-inhibitor cardiac effects can include bradycardia or atrioventricular heart block or other vagotonic slowing of heart rhythm",
+    "avoid with unstable angina or congestive heart failure or recent myocardial infarction or pre-existing conduction abnormalities",
+    "caution when combined with other drugs that lower heart rate",
+    "caution with asthma or chronic obstructive pulmonary disease or seizure disorders or peptic ulcer disease due to cholinergic effects",
+    "contraindicated with known hypersensitivity to galantamine."
   ]
 }
