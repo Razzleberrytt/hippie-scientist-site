@@ -12,6 +12,10 @@ function normalize(value: unknown) {
   return text(value).toLowerCase().trim()
 }
 
+function compareSlugFromHref(href: string) {
+  return String(href || '').trim().replace(/^\/(?:guides\/)?compare\//, '').replace(/\/$/, '')
+}
+
 export function buildSemanticLinkSuggestions(source: Record<string, unknown>, candidates: Record<string, unknown>[] = [], limit = 12): SemanticLinkSuggestion[] {
   const sourceSignals = unique([
     source?.slug,
@@ -69,7 +73,7 @@ export function buildSemanticLinkSuggestions(source: Record<string, unknown>, ca
     .filter((item) => item.score > 0)
     // Never surface a comparison link unless that comparison page is built;
     // an unbuilt /guides/compare/ slug 404s under static export.
-    .filter((item) => item.type !== 'compare' || isBuiltComparisonSlug(text(item.href).replace(/^\/compare\//, '')))
+    .filter((item) => item.type !== 'compare' || isBuiltComparisonSlug(compareSlugFromHref(item.href)))
     .sort((a, b) => b.score - a.score || a.label.localeCompare(b.label))
     .slice(0, limit)
     .map(({ score: _score, ...item }) => item)
