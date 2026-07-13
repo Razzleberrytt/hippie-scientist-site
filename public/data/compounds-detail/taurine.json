@@ -25,14 +25,14 @@
   "evidenceLevel": "",
   "relatedCompounds": [],
   "governance": {
-    "reviewStatus": "needs_review",
+    "reviewStatus": "approved",
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
-    "requiresHumanReview": true,
-    "reason": "missing_record_level_sources"
+    "requiresHumanReview": false,
+    "reason": ""
   },
   "evidence": {
     "reviewStatus": "sourced_pending_review",

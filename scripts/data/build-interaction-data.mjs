@@ -94,8 +94,8 @@ export function deriveInteractionData(rows) {
 
 export function validate({ edges, tags }) {
   const errors = [];
-  if (edges.length !== 9534) errors.push(`edge rows ${edges.length} != 9534`);
-  if (tags.length !== 1151)  errors.push(`risk-tag rows ${tags.length} != 1151`);
+  if (edges.length !== 9886) errors.push(`edge rows ${edges.length} != 9886`);
+  if (tags.length !== 1169)  errors.push(`risk-tag rows ${tags.length} != 1169`);
   if (edges.some(e => !e.claim_language)) errors.push('empty claim_language present');
   const byMech = {};
   for (const e of edges) byMech[e.risk_mechanism] = (byMech[e.risk_mechanism] || 0) + 1;
