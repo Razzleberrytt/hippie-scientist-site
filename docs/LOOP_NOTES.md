@@ -174,3 +174,53 @@ is correct and ready for whenever those profiles get promoted.
 Remaining 269 compounds with empty `contraindications_or_flags` are still
 the highest-ROI target for future cycles — same approach (small batch,
 real sourced pharmacology, no fabricated citations) applies.
+
+---
+
+## 2026-07-13 — Filled 6 more compound `contraindications_or_flags` gaps; found a live splitList footgun
+
+Continued the compound-safety thread, this time prioritizing by actual
+runtime visibility rather than the audit's flat `priority: 0.9` stub:
+cross-referenced `public/data/compounds.json` for rows with empty
+`contraindications` AND `runtime_export_decision === 'full_public_runtime'`
+(indexed, `robots: index,follow`, actually rendered on a live `/compounds/:slug`
+page) — 26 such rows existed. Picked 6 extremely well-documented,
+high-familiarity entries from that list and sourced real pharmacology:
+`chamomile` (Asteraceae cross-allergy, warfarin INR case reports, CYP3A4/
+CYP1A2), `lavender` (oral-Silexan sedation/surgery caution, prepubertal
+gynecomastia case reports from repeated topical use), `lemon-balm`
+(thyroid-binding preclinical activity, sedative additivity),
+`saw-palmetto-extract` (anti-androgenic pregnancy/hormone-therapy caution,
+perioperative bleeding case reports), `coenzyme-q10` (vitamin-K-analog
+warfarin-INR-lowering interaction, chemo antioxidant caution), and
+`willow-bark-extract` (salicin → salicylate cross-reactivity, pediatric
+Reye's-syndrome caution, same anticoagulant/NSAID/methotrexate profile as
+aspirin). Used the sanctioned `edit-entity-master-cell.mjs --in-place`
+editor.
+
+Caught a real bug in my own drafting before it shipped: `splitList()` in
+`build-runtime-from-workbook.mjs` splits `contraindications_or_flags` on
+`[\n|;,]+` — **commas AND semicolons**, not just semicolons. My first
+draft for `saw-palmetto-extract` used a semicolon *inside* a parenthetical
+("(anti-androgenic hormone activity; avoid without clinician guidance)")
+to look readable, which would have split into two mangled fragments
+("...activity (anti-androgenic hormone activity" / "avoid without
+clinician guidance)..."). Caught it by running the real `splitList()`
+regex against each draft string in a throwaway `node -e` snippet *before*
+writing to the workbook, not just after `data:build`. Takeaway for future
+cycles: never use a comma OR a semicolon inside a single contraindication
+clause, including inside parentheticals — phrase everything with "or"
+between items in a clause, and only use semicolons as the top-level
+separator between distinct clauses. Worth eyeballing this with a quick
+local `splitList()` simulation before every workbook write, since a
+malformed split silently produces confusing half-sentence safety bullets
+that would otherwise only surface after the fact on the live compound
+page.
+
+`data:build:core` + `data:validate` + `guard:source-of-truth` all passed
+clean; diff scope matched the established core-only pattern exactly
+(workbook + compounds.json + compound-index + entity_risk_tags +
+interaction_edges + summary-indexes, `build-info.json` timestamp reverted).
+20 of the 26 `full_public_runtime` compounds with empty
+`contraindications_or_flags` remain — good next-cycle target, same
+approach applies.
