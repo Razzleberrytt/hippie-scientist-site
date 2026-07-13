@@ -69,17 +69,87 @@ function collectPages() {
 // when the rendered page has substantial text.
 const PROSE_KEYS = /\b(title|desc|description|problem|why|cta|body|caution|bestFor|fit|label|goal|role|summary|name|kind|sub|eyebrow|text|note|question|answer)\s*:\s*(['"`])((?:(?!\2)[^\\]|\\.)*)\2/g
 
-function countWords(source) {
+const IMPORT_SPEC = /import\s+(?:type\s+)?(?:[\w*${},\s]+from\s+)?['"]([^'"]+)['"]/g
+const LOCAL_EXTENSIONS = ['.ts', '.tsx', '.js', '.mjs', '/index.ts', '/index.tsx']
+const MAX_IMPORT_FILES = 25
+const MAX_IMPORT_DEPTH = 3
+
+function proseWords(source) {
+  let words = ''
+  let match
+  PROSE_KEYS.lastIndex = 0
+  while ((match = PROSE_KEYS.exec(source))) {
+    words += ' ' + match[3]
+  }
+  return words
+}
+
+// Some hub pages render their card copy from an imported data array
+// (e.g. `mentalHealthArticles.map(a => <Card title={a.title} desc={a.description} />)`)
+// rather than an inline object literal. The page source alone then looks
+// thin even though the rendered page has substantial imported prose.
+// Follow local project imports (bounded depth + file count) and pull any
+// PROSE_KEYS text out of them too.
+function resolveLocalImport(spec, fromFile) {
+  let base
+  if (spec.startsWith('@/')) {
+    base = path.join(ROOT, spec.slice(2))
+  } else if (spec.startsWith('.')) {
+    base = path.resolve(path.dirname(fromFile), spec)
+  } else {
+    return null // external package — not followed
+  }
+  if (fs.existsSync(base) && fs.statSync(base).isFile()) return base
+  for (const ext of LOCAL_EXTENSIONS) {
+    const candidate = base + ext
+    if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) return candidate
+  }
+  return null
+}
+
+function collectImportedProse(entryFile, entrySource) {
+  const visited = new Set([entryFile])
+  const queue = [{ file: entryFile, source: entrySource, depth: 0 }]
+  let words = ''
+  let filesFollowed = 0
+
+  while (queue.length && filesFollowed < MAX_IMPORT_FILES) {
+    const { file, source, depth } = queue.shift()
+    if (depth >= MAX_IMPORT_DEPTH) continue
+
+    IMPORT_SPEC.lastIndex = 0
+    let match
+    const specs = []
+    while ((match = IMPORT_SPEC.exec(source))) specs.push(match[1])
+
+    for (const spec of specs) {
+      const resolved = resolveLocalImport(spec, file)
+      if (!resolved || visited.has(resolved)) continue
+      visited.add(resolved)
+      if (filesFollowed >= MAX_IMPORT_FILES) break
+      filesFollowed++
+      let importedSource
+      try {
+        importedSource = fs.readFileSync(resolved, 'utf-8')
+      } catch {
+        continue
+      }
+      words += ' ' + proseWords(importedSource)
+      queue.push({ file: resolved, source: importedSource, depth: depth + 1 })
+    }
+  }
+  return words
+}
+
+function countWords(source, filePath) {
   const withoutImports = source
     .replace(/import\s+.*?from\s+['"][^'"]+['"]/g, '')
     .replace(/\/\/.*$/gm, '')
     .replace(/\/\*[\s\S]*?\*\//g, '')
 
-  let proseLiterals = ''
-  let match
-  PROSE_KEYS.lastIndex = 0
-  while ((match = PROSE_KEYS.exec(withoutImports))) {
-    proseLiterals += ' ' + match[3]
+  let proseLiterals = proseWords(withoutImports)
+  if (filePath) {
+    proseLiterals += collectImportedProse(filePath, source)
   }
 
   // Strip JSX/HTML tags and remaining braces (interpolation, non-prose objects)
@@ -450,7 +520,7 @@ function run() {
       continue
     }
 
-    const wordCount = countWords(source)
+    const wordCount = countWords(source, page.pagePath)
 
     allIssues.push(
       ...checkMetadata(source, page.route),
