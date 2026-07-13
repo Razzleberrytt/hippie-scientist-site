@@ -1,0 +1,45 @@
+name: AI entity enrichment check
+
+on:
+  pull_request:
+    paths:
+      - 'components/seo/SchemaGraphScript.tsx'
+      - 'components/seo/__tests__/SchemaGraphScript.test.ts'
+      - 'scripts/data/ai-entity-enrichment-lib.mjs'
+      - 'scripts/data/ai-entity-enrichment-smoke.mjs'
+      - 'scripts/data/build-runtime-summary-indexes.mjs'
+      - 'scripts/ci/audit-ai-entity-completeness.mjs'
+      - '.github/workflows/ai-entity-enrichment-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run entity generator smoke test
+        run: node scripts/data/ai-entity-enrichment-smoke.mjs
+
+      - name: Run schema discovery unit test
+        run: npx vitest run components/seo/__tests__/SchemaGraphScript.test.ts
+
+      - name: Lint changed implementation files
+        run: npx eslint components/seo/SchemaGraphScript.tsx components/seo/__tests__/SchemaGraphScript.test.ts scripts/data/ai-entity-enrichment-lib.mjs scripts/data/ai-entity-enrichment-smoke.mjs scripts/data/build-runtime-summary-indexes.mjs scripts/ci/audit-ai-entity-completeness.mjs scripts/ci/audit-ai-citation-readiness.mjs --max-warnings=0
+
+      - name: Typecheck
+        run: npm run typecheck
