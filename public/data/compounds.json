@@ -8806,7 +8806,12 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Hypertension or heart failure or edema (sodium load can worsen fluid retention)",
+      "impaired kidney function or metabolic alkalosis (contraindicated due to altered acid-base and electrolyte handling)",
+      "ergogenic loading doses (dose-dependent GI upset such as bloating or cramping or diarrhea or vomiting)",
+      "drugs cleared by the kidney based on urine pH such as amphetamines or salicylate medications like aspirin (alters excretion and warrants dosing separation)"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -8849,7 +8854,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8857,7 +8862,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -23738,7 +23743,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Anticoagulant or antiplatelet medications (may have antiplatelet activity warranting caution)",
+      "scheduled surgery (discontinue beforehand due to theoretical bleeding risk)",
+      "antihypertensive medications (possible additive blood-pressure-lowering effect)",
+      "pregnancy or breastfeeding (insufficient safety data for oral supplemental doses)",
+      "topical use (can cause mild skin irritation or photosensitivity in some users)"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -23781,7 +23792,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -23789,7 +23800,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -31145,7 +31156,12 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Pre-existing liver disease (contains celandine which has been linked to rare cases of drug-induced liver injury)",
+      "signs of liver injury such as jaundice or dark urine or unusual fatigue (discontinue immediately and seek care)",
+      "pregnancy or breastfeeding (insufficient safety data)",
+      "chamomile or other Asteraceae-family plant allergy (possible cross-reactivity)"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "short-to-medium",
@@ -31188,7 +31204,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -31196,7 +31212,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -38191,7 +38207,12 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Cirrhosis or hepatic encephalopathy or portal-systemic shunting (MCT metabolism can worsen ketone and ammonia handling)",
+      "poorly controlled or type 1 diabetes (ketogenic effect may exacerbate ketoacidosis risk)",
+      "rapid introduction or high doses (dose-dependent GI upset such as cramping or diarrhea or nausea)",
+      "cardiovascular disease (saturated-fat content warrants monitoring)"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -38234,7 +38255,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -38242,7 +38263,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -39805,7 +39826,12 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Anticoagulant or antiplatelet medications (theoretical additive bleeding risk from platelet effects)",
+      "scheduled surgery (discontinue beforehand due to theoretical bleeding risk)",
+      "pregnancy or breastfeeding (insufficient safety data)",
+      "high doses (dose-dependent GI upset such as bloating or diarrhea or nausea)"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -39848,7 +39874,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -39856,7 +39882,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -48929,7 +48955,11 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Pregnancy or breastfeeding (insufficient safety data)",
+      "other benign-prostatic-hyperplasia medications such as alpha-blockers or 5-alpha-reductase inhibitors (theoretical additive effect warrants monitoring)",
+      "sensitive stomach (can cause nausea or abdominal pain or constipation)"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -48972,7 +49002,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -48980,7 +49010,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],

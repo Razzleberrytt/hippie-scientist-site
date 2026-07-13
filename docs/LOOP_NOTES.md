@@ -266,3 +266,42 @@ sourcing real, well-established contraindication data (rather than
 generic/fabricated cautions) will take more care than this batch did; worth
 tackling the more mainstream ones (`msm`, `mct-oil`, `iberogast`, `pygeum`,
 `ferulic-acid`, `bicarbonate`) first.
+
+---
+
+## 2026-07-13 — Filled the remaining 6 mainstream compound `contraindications_or_flags` gaps
+
+Closed out the "mainstream" half of the list flagged in the prior entry:
+`msm` (theoretical antiplatelet/bleeding-risk interaction, pre-surgical
+discontinuation, pregnancy/breastfeeding caution, dose-dependent GI upset),
+`mct-oil` (contraindicated in cirrhosis or hepatic encephalopathy or
+portal-systemic shunting — MCT metabolism can worsen ketone/ammonia
+handling, a genuine clinical-nutrition contraindication — plus
+type 1/poorly-controlled-diabetes ketoacidosis caution and GI upset),
+`iberogast` (contains celandine, linked to rare but real drug-induced
+liver-injury case reports that prompted a German label warning; liver
+disease and injury-symptom cautions, Asteraceae cross-allergy),
+`pygeum` (pregnancy caution, theoretical additive effect with other BPH
+medications, GI upset), `ferulic-acid` (antiplatelet activity, pre-surgical
+discontinuation, additive antihypertensive effect, pregnancy caution,
+topical skin irritation), and `bicarbonate` (contraindicated in
+hypertension/heart-failure/edema and impaired kidney function or
+metabolic alkalosis, ergogenic-dose GI upset, urine-pH-mediated renal
+excretion interaction with amphetamines and salicylates like aspirin).
+
+Simulated the `splitList()` `/[\n|;,]+/` regex against every draft string
+first (per the established takeaway) — zero mangled clauses. Used
+`edit-entity-master-cell.mjs --in-place` for all 6. `data:build:core`
+regenerated cleanly (edges 12079, tags 1261). Diff scope matched the
+established core-only pattern exactly (workbook + compounds.json +
+compound-index + entity_risk_tags + interaction_edges + summary-indexes;
+`build-info.json` timestamp reverted). All 6 are `full_public_runtime`, so
+this reaches live `/compounds/:slug` pages directly.
+
+Remaining 8 `full_public_runtime` compounds with empty
+`contraindications_or_flags`: `aucubin`, `carnitine-l-tartrate`,
+`cryptotanshinone`, `farnesol`, `fos`, `fucoxanthin`, `ginsenoside-rg3`,
+`hydroxytyrosol`. These are the obscure tail flagged in the prior entry —
+next cycle should budget extra time to source real per-compound
+pharmacology (not generic filler) for each rather than batching all 8 at
+once.
