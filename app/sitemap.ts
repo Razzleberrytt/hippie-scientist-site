@@ -329,7 +329,7 @@ function isAllowedRouteManifestEntry(routeStr: string): boolean {
     '/stacks',
     '/guides',
     '/learn',
-    '/compare',
+    '/guides/compare',
     '/tools',
     '/info/dosing',
     '/info/affiliate-disclosure',

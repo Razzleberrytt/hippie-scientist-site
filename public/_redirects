@@ -27,6 +27,10 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 
 /atom.xml /feed.xml 301
 
+# Legacy comparison hub alias.
+/compare /guides/compare/ 301
+/compare/ /guides/compare/ 301
+
 # Required legacy aliases checked by verify-redirects.
 /natural-anxiolytics-beyond-ashwagandha /guides/natural-anxiolytics-beyond-ashwagandha/ 301
 /psychedelic-adjacent-herbs /guides/psychedelic-adjacent-herbs/ 301

@@ -8,7 +8,7 @@ export const homepageMessaging = {
   },
   secondaryCTA: {
     label: 'Compare Supplements',
-    href: '/compare',
+    href: '/guides/compare',
   },
   sections: {
     exploreByGoal: 'Explore by goal',
@@ -32,7 +32,7 @@ export const mobileNavigationItems = [
   {
     label: 'Compare',
     icon: 'GitCompare',
-    href: '/compare',
+    href: '/guides/compare',
   },
   {
     label: 'Explore',

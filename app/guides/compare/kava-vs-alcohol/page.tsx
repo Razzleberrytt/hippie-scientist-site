@@ -36,7 +36,7 @@ export default function KavaVsAlcoholPage() {
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Compare', href: '/compare' },
+          { label: 'Compare', href: '/guides/compare' },
           { label: 'Kava vs Alcohol' },
         ]}
       />

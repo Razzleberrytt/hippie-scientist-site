@@ -50,7 +50,7 @@ export function buildCompareCTA(record: Record<string, unknown>): ConversionCTA 
 
   // A topic name is not a comparison slug, so only deep-link when a built page
   // exists; otherwise route to the comparison hub instead of a 404.
-  const href = isBuiltComparisonSlug(topicSlug) ? `/guides/compare/${topicSlug}` : '/compare'
+  const href = isBuiltComparisonSlug(topicSlug) ? `/guides/compare/${topicSlug}` : '/guides/compare'
 
   return {
     label: `Compare ${topic} alternatives`,
@@ -79,7 +79,7 @@ export function buildContinuationCTA(record: Record<string, unknown>): Conversio
     href: semantic.recommendedRouteType === 'ecosystem'
       ? '/explore/ecosystems'
       : semantic.recommendedRouteType === 'compare'
-        ? '/compare'
+        ? '/guides/compare'
         : '/explore',
     description: 'Follow adjacent evidence, pathway, and ecosystem relationships.',
     tone: 'explore',

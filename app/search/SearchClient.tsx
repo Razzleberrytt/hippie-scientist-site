@@ -132,11 +132,11 @@ const discoveryFilters: IntentPrompt[] = [
 
 const crossContentLinks: { goals: DiscoveryLink[]; compare: DiscoveryLink[]; learn: DiscoveryLink[] } = {
   goals: [
-    { label: 'Sleep support goals', href: '/guides/sleep-support', description: 'Start with outcome constraints before profile selection.' },
+    { label: 'Sleep support goals', href: '/guides/sleep', description: 'Start with outcome constraints before profile selection.' },
     { label: 'Non-stimulant focus goals', href: '/guides/focus', description: 'Build focus plans with lower stimulation load.' },
   ],
   compare: [
-    { label: 'Comparison table', href: '/compare', description: 'Contrast common strategy patterns first.' },
+    { label: 'Comparison table', href: '/guides/compare', description: 'Contrast common strategy patterns first.' },
     { label: 'L-theanine vs magnesium', href: '/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium', description: 'Compare calming support styles with practical tradeoffs.' },
   ],
   learn: [
