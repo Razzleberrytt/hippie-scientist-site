@@ -6,13 +6,26 @@ import { usePathname } from 'next/navigation'
 import { Leaf, Menu, X } from 'lucide-react'
 import { GlobalSearchModal } from './search/GlobalSearchModal'
 import DarkModeToggle from './DarkModeToggle'
-import { mainNavigation } from '@/lib/navigation-config'
+import { primaryNavigation, type PrimaryNavigationItem } from '@/lib/primary-navigation'
 
-const primaryLinks = mainNavigation
+const primaryLinks = primaryNavigation
 
 function toCanonicalHref(href: string) {
   if (!href || href === '/' || href.includes('?') || href.includes('#')) return href
   return href.endsWith('/') ? href : `${href}/`
+}
+
+function groupChildren(children: PrimaryNavigationItem[] = []) {
+  const groups = new Map<string, PrimaryNavigationItem[]>()
+
+  for (const child of children) {
+    const section = child.section || ''
+    const existing = groups.get(section) || []
+    existing.push(child)
+    groups.set(section, existing)
+  }
+
+  return Array.from(groups.entries()).map(([section, items]) => ({ section, items }))
 }
 
 export function Navigation() {
@@ -35,11 +48,28 @@ export function Navigation() {
     return () => window.removeEventListener('keydown', onKey)
   }, [mobileOpen])
 
-  const isActive = (href: string) => {
-    if (href === '/') return pathname === '/'
-    if (href === '/guides') return pathname === '/guides' || pathname.startsWith('/guides/')
-    if (href === '/learn') return pathname === '/learn' || pathname.startsWith('/learn/') || pathname.startsWith('/novel-psychoactive-substances')
-    if (href === '/safety-checker') return pathname === '/safety-checker' || pathname.startsWith('/evidence/') || pathname.startsWith('/info/dosing') || pathname.startsWith('/info/supplement-safety-checklist')
+  const isPrimaryActive = (link: PrimaryNavigationItem) => {
+    if (link.label === 'Library') {
+      return pathname === '/guides'
+        || pathname.startsWith('/guides/')
+        || pathname === '/learn'
+        || pathname.startsWith('/learn/')
+        || pathname.startsWith('/novel-psychoactive-substances')
+    }
+
+    if (link.href === '/safety-checker') {
+      return pathname === '/safety-checker'
+        || pathname.startsWith('/evidence/')
+        || pathname.startsWith('/info/dosing')
+        || pathname.startsWith('/info/supplement-safety-checklist')
+        || pathname.startsWith('/info/infographics')
+    }
+
+    return pathname === link.href || pathname.startsWith(link.href + '/')
+  }
+
+  const isChildActive = (href: string) => {
+    if (href === '/guides' || href === '/learn') return pathname === href
     return pathname === href || pathname.startsWith(href + '/')
   }
 
@@ -68,15 +98,18 @@ export function Navigation() {
           <div className='hidden items-center gap-6 text-sm md:flex lg:gap-8'>
             {primaryLinks.map((link) => {
               const hasChildren = Boolean(link.children?.length)
+              const childGroups = groupChildren(link.children)
+              const isMegaMenu = childGroups.length > 1
+              const active = isPrimaryActive(link)
 
               return (
                 <div key={link.href} className='group relative'>
                   <Link
                     href={toCanonicalHref(link.href)}
-                    aria-current={isActive(link.href) ? 'page' : undefined}
+                    aria-current={active ? 'page' : undefined}
                     aria-haspopup={hasChildren ? 'true' : undefined}
                     className={`relative flex items-center gap-1 py-2 font-semibold transition-colors ${
-                      isActive(link.href)
+                      active
                         ? 'text-[#123c2f] after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:rounded-full after:bg-[#b88a42] dark:text-[var(--text-primary)]'
                         : 'text-[#44544d] hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]'
                     }`}
@@ -90,20 +123,33 @@ export function Navigation() {
                   </Link>
 
                   {hasChildren ? (
-                    <div className='invisible absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-3 opacity-0 transition duration-150 ease-out group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100'>
-                      <div className='overflow-hidden rounded-3xl border border-[#123c2f]/10 bg-[#fffdf8] p-2 shadow-[0_18px_48px_rgba(45,35,19,0.14)] ring-1 ring-white/60 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)] dark:ring-white/5'>
-                        {link.children?.map((child) => (
-                          <Link
-                            key={child.href}
-                            href={toCanonicalHref(child.href)}
-                            aria-current={isActive(child.href) ? 'page' : undefined}
-                            className='block rounded-2xl px-4 py-3 transition hover:bg-[#f5efe2] focus-visible:bg-[#f5efe2] focus-visible:outline-none dark:hover:bg-[var(--surface-subtle)] dark:focus-visible:bg-[var(--surface-subtle)]'
-                          >
-                            <span className='block text-sm font-semibold text-[#123c2f] dark:text-[var(--text-primary)]'>{child.label}</span>
-                            {child.description ? (
-                              <span className='mt-1 block text-xs leading-snug text-[#526159] dark:text-[var(--text-secondary)]'>{child.description}</span>
+                    <div
+                      className={`invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition duration-150 ease-out group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 ${
+                        isMegaMenu ? 'w-[min(58rem,calc(100vw-2rem))]' : 'w-72'
+                      }`}
+                    >
+                      <div className={`overflow-hidden rounded-3xl border border-[#123c2f]/10 bg-[#fffdf8] shadow-[0_18px_48px_rgba(45,35,19,0.14)] ring-1 ring-white/60 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)] dark:ring-white/5 ${isMegaMenu ? 'grid grid-cols-3 gap-2 p-3' : 'p-2'}`}>
+                        {childGroups.map(({ section, items }) => (
+                          <div key={section || 'links'} className={isMegaMenu ? 'rounded-2xl bg-[#f8f3e8]/55 p-2 dark:bg-[var(--surface-subtle)]' : ''}>
+                            {section ? (
+                              <p className='px-3 pb-1 pt-2 text-[0.68rem] font-extrabold uppercase tracking-[0.16em] text-[#8a6a38] dark:text-[var(--accent-gold)]'>
+                                {section}
+                              </p>
                             ) : null}
-                          </Link>
+                            {items.map((child) => (
+                              <Link
+                                key={child.href}
+                                href={toCanonicalHref(child.href)}
+                                aria-current={isChildActive(child.href) ? 'page' : undefined}
+                                className='block rounded-2xl px-3 py-2.5 transition hover:bg-[#f5efe2] focus-visible:bg-[#f5efe2] focus-visible:outline-none dark:hover:bg-[var(--surface-card)] dark:focus-visible:bg-[var(--surface-card)]'
+                              >
+                                <span className='block text-sm font-semibold text-[#123c2f] dark:text-[var(--text-primary)]'>{child.label}</span>
+                                {child.description ? (
+                                  <span className='mt-1 block text-xs leading-snug text-[#526159] dark:text-[var(--text-secondary)]'>{child.description}</span>
+                                ) : null}
+                              </Link>
+                            ))}
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -160,37 +206,51 @@ export function Navigation() {
             </div>
 
             <nav className='flex flex-col gap-2 text-base' aria-label='Mobile primary links'>
-              {primaryLinks.map((link) => (
-                <div key={link.href}>
-                  <Link
-                    href={toCanonicalHref(link.href)}
-                    onClick={closeMobile}
-                    aria-current={isActive(link.href) ? 'page' : undefined}
-                    className={`block rounded-2xl px-4 py-3.5 font-semibold transition ${
-                      isActive(link.href)
-                        ? 'border border-[#b88a42]/20 bg-[#f5efe2] text-[#123c2f] shadow-sm dark:border-[var(--border-strong)] dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]'
-                        : 'text-[#33433c] hover:bg-[#f5efe2]/70 hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]'
-                    }`}
-                  >
-                    {link.label}
-                  </Link>
-                  {link.children && link.children.length > 0 ? (
-                    <div className='ml-4 mt-2 border-l border-[#123c2f]/10 pl-3 dark:border-[var(--border-soft)]'>
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={toCanonicalHref(child.href)}
-                          onClick={closeMobile}
-                          aria-current={isActive(child.href) ? 'page' : undefined}
-                          className='block rounded-xl px-3 py-2.5 text-sm font-medium text-[#526159] transition hover:bg-[#f5efe2]/65 hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]'
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  ) : null}
-                </div>
-              ))}
+              {primaryLinks.map((link) => {
+                const childGroups = groupChildren(link.children)
+                const active = isPrimaryActive(link)
+
+                return (
+                  <div key={link.href}>
+                    <Link
+                      href={toCanonicalHref(link.href)}
+                      onClick={closeMobile}
+                      aria-current={active ? 'page' : undefined}
+                      className={`block rounded-2xl px-4 py-3.5 font-semibold transition ${
+                        active
+                          ? 'border border-[#b88a42]/20 bg-[#f5efe2] text-[#123c2f] shadow-sm dark:border-[var(--border-strong)] dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]'
+                          : 'text-[#33433c] hover:bg-[#f5efe2]/70 hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]'
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                    {childGroups.length > 0 ? (
+                      <div className='ml-4 mt-2 border-l border-[#123c2f]/10 pl-3 dark:border-[var(--border-soft)]'>
+                        {childGroups.map(({ section, items }) => (
+                          <div key={section || 'links'} className={section ? 'pb-2' : ''}>
+                            {section ? (
+                              <p className='px-3 pb-1 pt-3 text-[0.66rem] font-extrabold uppercase tracking-[0.15em] text-[#8a6a38] dark:text-[var(--accent-gold)]'>
+                                {section}
+                              </p>
+                            ) : null}
+                            {items.map((child) => (
+                              <Link
+                                key={child.href}
+                                href={toCanonicalHref(child.href)}
+                                onClick={closeMobile}
+                                aria-current={isChildActive(child.href) ? 'page' : undefined}
+                                className='block rounded-xl px-3 py-2.5 text-sm font-medium text-[#526159] transition hover:bg-[#f5efe2]/65 hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:bg-[var(--surface-subtle)] dark:hover:text-[var(--text-primary)]'
+                              >
+                                {child.label}
+                              </Link>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                )
+              })}
 
               <div className='my-2 h-px bg-[#123c2f]/10 dark:bg-[var(--border-soft)]' />
               <div className='flex items-center justify-between rounded-2xl border border-[#123c2f]/10 bg-[#f5efe2]/65 px-4 py-3 dark:border-[var(--border-soft)] dark:bg-[var(--surface-subtle)]'>
