@@ -121,6 +121,10 @@
   "dosage": "capsule",
   "typical_dosage": "capsule",
   "contraindications": [
-    "cardiovascular"
+    "monoamine oxidase inhibitor medications due to hypertensive crisis risk",
+    "hypertension or other cardiovascular disease including recent heart attack or arrhythmia",
+    "anxiety or panic disorder or PTSD or bipolar disorder due to symptom-worsening sympathetic activation",
+    "SSRIs or SNRIs or tricyclic antidepressants due to serotonin syndrome or blood-pressure risk",
+    "severe kidney or liver disease reduces clearance"
   ]
 }

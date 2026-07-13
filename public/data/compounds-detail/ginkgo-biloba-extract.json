@@ -39,5 +39,13 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "seizure disorder or epilepsy history",
+    "pregnancy/breastfeeding without clinician guidance",
+    "discontinue at least 2 weeks before surgery due to bleeding risk",
+    "anticoagulant or antiplatelet medications such as warfarin aspirin or clopidogrel carry additive bleeding risk",
+    "may reduce effectiveness of omeprazole or other proton-pump inhibitors",
+    "may interact with oral diabetes medications or alprazolam."
+  ]
 }

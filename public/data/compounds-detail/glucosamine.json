@@ -74,5 +74,10 @@
     }
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "shellfish allergy unless a vegetarian or corn-fermented source is confirmed",
+    "anticoagulant medications such as warfarin due to case reports of potentiated bleeding",
+    "diabetes due to possible blood-glucose elevation in some users"
+  ]
 }

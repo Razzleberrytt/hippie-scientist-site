@@ -74,5 +74,11 @@
     }
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "autoimmune disorders such as multiple sclerosis or Hashimoto's thyroiditis due to immune-activating effects",
+    "organ transplant or immunosuppressant medications due to reduced drug effectiveness",
+    "ragweed or marigold or daisy family allergy due to cross-reactivity",
+    "long-term use beyond eight weeks is not well studied"
+  ]
 }

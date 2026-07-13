@@ -956,3 +956,106 @@ just be re-committing already-approved backfill logic's correct output,
 not new judgment calls — and is worth doing as its own dedicated,
 easy-to-review PR before continuing the remaining 83-of-88
 severity-tier-only compound thread.
+
+---
+
+## 2026-07-13 — `guard-generated-data.mjs` blocks a pure-regen commit with no workbook edit; pivoted to 6 more severity-tier-only compound fills instead
+
+Tried exactly what the prior entry recommended: ran `npm run data:build`
+against the **unmodified** committed workbook (no new sourcing this step),
+classified every resulting `compounds-detail`/`herbs-detail` diff as either
+real content (indexability-score/safety-context recompute, or an actual
+`contraindications` backfill) vs. pure `sources` array reordering noise
+(confirmed via a full-diff read of each file, not diff --stat line counts
+alone — line counts are a poor proxy, e.g. `melatonin.json` showed a
+44-line diff that was 100% reorder). Kept 25 compounds-detail content
+diffs + reverted 3 herbs-detail (`ashwagandha`/`maca`/`rhodiola`) and 6
+compounds-detail (`caffeine-l-theanine`, `fadogia-agrestis`, `magnesium`,
+`melatonin`, `peppermint-oil`, `saccharomyces-boulardii`) reorder-only
+files, then regenerated `herbs.json`/`compounds.json`/summary-indexes with
+`data:build:core` per the established drift-free convention.
+
+Running `npm run data:validate` on that diff hit a real blocker:
+`scripts/ci/guard-generated-data.mjs` requires every commit that touches
+`public/data/*.json` to also touch a recognized source/build path
+(`data-sources/`, `scripts/data/`, etc.) — and correctly so, since this
+diff was a pure `public/data` regen with **zero** workbook or script
+change, indistinguishable (to the guard, by design) from a hand-edited
+JSON file. This is a real, previously-undocumented gap in the "next
+cycle" recommendation from the prior entry: **a pure re-sync commit (no
+new workbook edit) cannot pass `guard-generated-data.mjs` as-is.** Adding
+`public/data/` to the guard's own allowlist would defeat its purpose, so
+this isn't a guard bug to fix — it's a constraint on how this class of fix
+must be shipped: it has to ride along with a real, same-cycle workbook
+edit, not stand alone.
+
+Pivoted rather than fight the guard: re-ran the token-only
+`contraindications_or_flags` detection query fresh (93 `full_public_runtime`
+compounds remain — the count keeps drifting upward as more compounds
+promote to `full_public_runtime` over time, not just downward as cycles
+fill it; don't trust a prior cycle's count) and filled 6 more
+high-familiarity mainstream entries via `WebSearch`-verified pharmacology:
+`alpha-gpc` (hypersensitivity, cardiovascular/autonomic caution,
+cholinesterase-inhibitor potentiation, pregnancy caution), `l-tyrosine`
+(MAOI hypertensive-crisis risk, hyperthyroidism/Graves caution, levodopa
+interaction, stimulant additive caution), `yohimbine` (MAOI hypertensive
+crisis, cardiovascular disease, anxiety/panic/PTSD/bipolar symptom
+worsening, SSRI/SNRI/TCA serotonin-syndrome and BP risk, severe kidney/liver
+clearance caution), `fenugreek` (pregnancy/uterine-stimulant, Fabaceae
+cross-allergy, warfarin bleeding risk, diabetes-drug additive
+hypoglycemia), `glucosamine` (shellfish-allergy sourcing caveat, warfarin
+bleeding-risk case reports, diabetes blood-glucose caution), and
+`echinacea` (autoimmune/immune-activation caution, immunosuppressant
+interference, Asteraceae cross-allergy, >8-week use not well studied).
+Simulated `splitList()`'s `/[\n|;,]+/` regex and the
+`KEYWORDS`/`ALLOWED_PREFIXES` collision matcher against every draft first
+(per the standing takeaway) — the one flagged hit
+(`l-tyrosine`'s "hyperthyroidism" → `thyroid` via the `hyper` prefix) was
+already covered by `ALLOWED_PREFIXES`. This same workbook edit made the
+guard pass, letting the 25-file incidental regen from this cycle's first
+half ride along legitimately in the same commit.
+
+Found a second, narrower version of the "detail-file staleness" bug
+documented several entries back: 3 of the 6 (`alpha-gpc`, `l-tyrosine`,
+`yohimbine`) already had **non-empty** garbage token `contraindications`
+in their `compounds-detail/*.json` file (`["stimulant"]`,
+`["ssri","stimulant"]`, `["cardiovascular"]`), so
+`backfillEmptyDetailFields()`'s `isEmptyValue()` check correctly declined
+to touch them — that guard only fires when the *detail* record's own
+field is empty, not when it's stale-but-present. Diffing every shared
+field between the flat and detail records for these 3 showed the detail
+records diverge from the flat record on far more than just
+`contraindications` (summary, description, mechanisms, evidence_grade,
+meta_title, affiliate fields, regulatory fields — dozens of fields on
+`alpha-gpc`/`l-tyrosine` specifically), unlike the earlier `citicoline`
+case where the detail record was essentially an empty stub and a full-field
+sync was safe. A full-record sync here would have been a much bigger,
+riskier, less-reviewable change than this cycle's actual scope — instead
+wrote a narrow one-field patch (parse the detail JSON, overwrite only
+`.contraindications` with the flat record's value, re-serialize with the
+same 2-space-indent + trailing-newline convention) so the diff for those 3
+files is exactly 4-6 lines each, touching nothing else. `yohimbine`'s
+`indexability_score`/reasons already matched between flat and detail
+(both already counted `["cardiovascular"]` as "safety-context present"
+since the score only checks non-emptiness, not content quality) so no
+score fix was needed there independent of the content fix.
+
+`npm run data:validate` (guard-generated-data now passes: "41 public/data
+file(s) changed, accompanied by source/build changes"), `guard:source-of-truth`,
+`workbook:roundtrip-test`, `audit:risk-tag-collisions`, and the full
+Vitest suite (584 tests) all passed clean. `npm run check` (typecheck +
+lint + article-quality/claim-discipline/safety-visibility validators +
+`data:build:core`) also passed. Edges 13950 (was 13443), tags 1318 (was
+1301). All 6 compounds are `full_public_runtime` and gained
+`safety-context` in `indexability_reasons` (scores 90-95).
+
+**~87 `full_public_runtime` compounds with token-only
+`contraindications_or_flags` remain** (93 minus this cycle's 6) — same
+approach for future cycles: `WebSearch`-verified pharmacology,
+`splitList()`/collision-matcher simulation before writing, check whether
+the target's *existing* detail-file `contraindications` value is empty
+(auto-backfills cleanly) or non-empty-but-stale (needs the narrow
+single-field patch demonstrated here — never a full-record sync unless the
+detail record really is an empty stub, diff every shared field first to
+tell which case you're in). Re-run the detection query fresh each cycle;
+don't trust a cached count or name list from a prior entry.

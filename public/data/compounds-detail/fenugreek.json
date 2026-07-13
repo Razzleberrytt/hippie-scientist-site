@@ -74,5 +74,11 @@
     }
   ],
   "dosage": "standardized botanical extract capsule",
-  "typical_dosage": "standardized botanical extract capsule"
+  "typical_dosage": "standardized botanical extract capsule",
+  "contraindications": [
+    "pregnancy due to documented uterine-stimulant effects and birth-defect risk at supplemental doses",
+    "legume family allergy including chickpea or peanut or coriander due to cross-reactivity",
+    "anticoagulant medications such as warfarin due to potentiated bleeding risk",
+    "diabetes medications due to additive blood-sugar-lowering effect"
+  ]
 }
