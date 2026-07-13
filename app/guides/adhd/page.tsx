@@ -150,7 +150,7 @@ const DEPTH_LINKS = [
   { href: '/compounds/l-tyrosine/', title: 'L-Tyrosine', kind: 'Compound profile' },
   { href: '/herbs/rhodiola/', title: 'Rhodiola Rosea', kind: 'Herb profile' },
   { href: '/herbs/ashwagandha/', title: 'Ashwagandha', kind: 'Herb profile' },
-  { href: '/herbs/citicoline/', title: 'Citicoline', kind: 'Herb profile' },
+  { href: '/compounds/cdp-choline/', title: 'Citicoline / CDP-Choline', kind: 'Compound profile' },
 ]
 
 export default function AdhdGuideIndex() {
