@@ -3,9 +3,16 @@
 import { assertWorkbookExists, resolveWorkbookPath } from './workbook-source.mjs'
 import { getSheet, readWorkbook, sheetToRows } from './data/workbook-parser.mjs'
 
-const SHEETS = {
-  herbs: 'Herb Master V3',
-  compounds: 'Compound Master V3',
+// Current workbook schema (see docs/workbook-only-data-contract.md) keeps herbs
+// and compounds together on one unified sheet, distinguished by entity_type.
+// There is no per-entity-type "safety_level" enum anymore — safety completeness
+// is tracked via the free-text contraindications_or_flags column, backed by
+// safety_notes. Legacy field names are still checked as a fallback in case a
+// future workbook revision reintroduces a dedicated enum column.
+const ENTITY_SHEET = 'Entity_Master'
+const ENTITY_TYPES = {
+  herbs: 'herb',
+  compounds: 'compound',
 }
 
 function clean(value) {
@@ -28,7 +35,14 @@ function slugFor(row, fallbackPrefix, index) {
 }
 
 function safetyValue(row) {
-  return clean(row.safety_level || row['safety level'] || row.safety || row.safety_rating || row.safetyRating)
+  return clean(
+    row.contraindications_or_flags ||
+      row.safety_level ||
+      row['safety level'] ||
+      row.safety ||
+      row.safety_rating ||
+      row.safetyRating,
+  )
 }
 
 function classifySafety(value) {
@@ -95,9 +109,10 @@ async function main() {
   const workbookPath = resolveWorkbookPath(repoRoot)
   assertWorkbookExists(workbookPath)
   const workbook = await readWorkbook(workbookPath)
+  const entityRows = sheetToRows(getSheet(workbook, ENTITY_SHEET))
 
-  const herbRows = sheetToRows(getSheet(workbook, SHEETS.herbs))
-  const compoundRows = sheetToRows(getSheet(workbook, SHEETS.compounds))
+  const herbRows = entityRows.filter((row) => clean(row.entity_type).toLowerCase() === ENTITY_TYPES.herbs)
+  const compoundRows = entityRows.filter((row) => clean(row.entity_type).toLowerCase() === ENTITY_TYPES.compounds)
   const report = linesForReport(
     summarize(herbRows, 'herb'),
     summarize(compoundRows, 'compound'),
