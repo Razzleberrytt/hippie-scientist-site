@@ -224,3 +224,45 @@ interaction_edges + summary-indexes, `build-info.json` timestamp reverted).
 20 of the 26 `full_public_runtime` compounds with empty
 `contraindications_or_flags` remain — good next-cycle target, same
 approach applies.
+
+---
+
+## 2026-07-13 — Filled 6 more compound `contraindications_or_flags` gaps
+
+Continued the same thread from the two prior entries, again cross-referencing
+`public/data/compounds.json` for `runtime_export_decision ===
+'full_public_runtime'` rows with empty `contraindications`. Picked 6
+well-documented entries: `huperzine-a` (cholinergic — bradycardia/seizure/
+asthma-COPD/peptic-ulcer caution, cholinergic-crisis risk when combined with
+other acetylcholinesterase inhibitors like donepezil), `passionflower`
+(additive CNS-sedation with benzodiazepines/opioids/alcohol, pre-surgical
+discontinuation, pregnancy caution), `pycnogenol` (antiplatelet/bleeding risk
+with anticoagulants and before surgery, immunostimulant caution with
+autoimmune disease, hypoglycemic interaction), `biotin` (the well-documented
+FDA safety-communication interference with troponin/thyroid immunoassays —
+not a contraindication in the classic sense but the single highest-value
+safety fact for this compound), `iodine` (autoimmune thyroid disease,
+antithyroid drugs, lithium, amiodarone, recent radioactive-iodine
+imaging/treatment), and `devils-claw` (peptic ulcer/gallstones,
+anticoagulant/antidiabetic/antihypertensive potentiation, cardioactive
+glycoside caution, pregnancy).
+
+Simulated `splitList()`'s `/[\n|;,]+/` regex against every draft string in a
+throwaway script before writing to the workbook (per the takeaway from the
+prior entry) — confirmed zero mangled clauses before touching
+`edit-entity-master-cell.mjs --in-place`. `data:build:core` regenerated
+cleanly (edges 11792, tags 1245 — no snapshot-assertion failure, confirming
+the earlier `build-interaction-data.mjs` fix is holding up under continued
+enrichment). Diff scope matched the established core-only pattern exactly.
+
+14 of the 26 `full_public_runtime` compounds with empty
+`contraindications_or_flags` now remain — still the highest-ROI target for
+the next cycle. Remaining list as of this run: `aucubin`, `bicarbonate`,
+`carnitine-l-tartrate`, `cryptotanshinone`, `farnesol`, `ferulic-acid`,
+`fos`, `fucoxanthin`, `ginsenoside-rg3`, `hydroxytyrosol`, `iberogast`,
+`mct-oil`, `msm`, `pygeum` — several of these (`aucubin`, `farnesol`,
+`ginsenoside-rg3`, `hydroxytyrosol`, `fucoxanthin`) are obscure enough that
+sourcing real, well-established contraindication data (rather than
+generic/fabricated cautions) will take more care than this batch did; worth
+tackling the more mainstream ones (`msm`, `mct-oil`, `iberogast`, `pygeum`,
+`ferulic-acid`, `bicarbonate`) first.

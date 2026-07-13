@@ -9347,7 +9347,11 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Upcoming laboratory bloodwork especially troponin thyroid or hormone panels (high-dose biotin causes false immunoassay results and the FDA has issued a safety communication on this interference)",
+      "discontinue at least 48 hours before lab testing when possible",
+      "not a treatment for underlying thyroid or cardiac disease despite lab-interference risk"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "softgel or liquid oil",
@@ -9390,7 +9394,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9398,7 +9402,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -19300,7 +19304,14 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Peptic ulcer or gallstones (may increase gastric acid secretion)",
+      "anticoagulant or antiplatelet medications (potential additive bleeding risk)",
+      "antidiabetic medications (may potentiate blood-glucose-lowering effects)",
+      "antihypertensive medications (may potentiate blood-pressure-lowering effects)",
+      "cardiac arrhythmia or other cardiac conditions (contains cardioactive glycosides)",
+      "pregnancy (traditional uterine-stimulant concerns)"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "medium",
@@ -19343,7 +19354,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -19351,7 +19362,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -30497,7 +30508,15 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Bradycardia or other cardiac conduction disorders (cholinergic slowing of heart rate)",
+      "seizure disorders or epilepsy without clinician guidance",
+      "asthma or COPD (cholinergic bronchoconstriction risk)",
+      "peptic ulcer disease (increased gastric acid secretion)",
+      "concurrent use with other acetylcholinesterase inhibitors such as donepezil or galantamine (risk of cholinergic crisis with excess salivation sweating and bradycardia)",
+      "urinary tract obstruction",
+      "not studied in pregnancy or breastfeeding"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -30540,7 +30559,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -30548,7 +30567,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -32064,7 +32083,14 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Autoimmune thyroid disease such as Hashimoto's thyroiditis or Graves' disease (excess iodine can trigger or worsen hypothyroidism or hyperthyroidism)",
+      "antithyroid medications such as methimazole (iodine can antagonize or unpredictably interact with these drugs)",
+      "lithium therapy (additive hypothyroidism risk)",
+      "amiodarone (both contain iodine and combined exposure raises thyroid-dysfunction risk)",
+      "recent radioactive iodine treatment or imaging (high iodine intake interferes with uptake)",
+      "not appropriate for high-dose supplementation without clinician-supervised thyroid monitoring"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -32107,7 +32133,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 80,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -32115,7 +32141,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -45121,7 +45147,14 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Sedative or CNS depressant medications including benzodiazepines barbiturates and opioids (additive sedation risk)",
+      "alcohol use (additive sedation)",
+      "planned anesthesia or sedation-requiring medical procedures (discontinue at least two weeks beforehand due to additive CNS depressant effects)",
+      "pregnancy (traditional uterine-stimulant concerns and insufficient safety data)",
+      "MAOI antidepressants (isolated case reports of interaction)",
+      "not studied in children"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -45164,7 +45197,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -45172,7 +45205,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -48787,7 +48820,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Anticoagulant or antiplatelet therapy such as warfarin or aspirin (antiplatelet activity may increase bleeding risk)",
+      "planned surgery (discontinue at least two weeks beforehand due to bleeding risk)",
+      "autoimmune conditions (immunostimulant activity may theoretically worsen disease activity)",
+      "diabetes medications (may lower blood glucose and increase hypoglycemia risk)",
+      "pregnancy or breastfeeding without clinician guidance (insufficient safety data)"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -48830,7 +48869,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -48838,7 +48877,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
