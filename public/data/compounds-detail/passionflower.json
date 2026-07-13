@@ -61,7 +61,7 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "runtime_export_decision": "full_public_runtime",
-  "indexability_score": 90,
+  "indexability_score": 100,
   "sitemap_included": true,
   "effects": [
     "GABAergic pathways"
@@ -101,7 +101,7 @@
     "identity-present",
     "mechanism-context",
     "profile-status:commercial_ready",
-    "safety-context-missing",
+    "safety-context",
     "summary-depth",
     "summary-quality-missing"
   ],

@@ -69,7 +69,7 @@
     "identity-present",
     "mechanism-context",
     "profile-status:commercial_ready",
-    "safety-context-missing",
+    "safety-context",
     "summary-depth",
     "summary-quality-missing"
   ],
@@ -106,7 +106,7 @@
   "evidence_tier": "Limited Human Evidence",
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
-  "indexability_score": 95,
+  "indexability_score": 100,
   "safety": "Generally well tolerated for most users.",
   "sources": [
     {
