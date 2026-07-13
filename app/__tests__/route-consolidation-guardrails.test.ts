@@ -30,7 +30,7 @@ describe('route consolidation guardrails', () => {
     const legacyPrefixes = ['/articles', '/compare', '/goals', '/stacks']
     const navHrefs = mobileBottomNavItems.map((item) => item.href)
 
-    expect(navHrefs).toEqual(['/guides', '/herbs', '/search', '/compounds', '/guides/best'])
+    expect(navHrefs).toEqual(['/library', '/herbs', '/search', '/compounds', '/guides/best'])
 
     for (const href of navHrefs) {
       expect(legacyPrefixes.some((legacyPrefix) => href === legacyPrefix || href.startsWith(`${legacyPrefix}/`))).toBe(false)
