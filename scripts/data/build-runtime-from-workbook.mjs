@@ -300,6 +300,24 @@ function firstList(row, keys) {
   return uniqueList(first(row, keys))
 }
 
+// A subset of workbook `contraindications_or_flags` values are a mismapped
+// interaction-severity tier (e.g. the whole cell is just `moderate` or
+// `low_to_moderate`) rather than real safety prose — a pre-existing workbook
+// data-quality issue affecting ~88 compounds. An unlabeled severity word read
+// as a contraindication is actively misleading (it renders as an "Avoid if:
+// Moderate" bullet on live pages, falsely trips the search "Has
+// contraindications" facet, and pollutes compare-table safety notes), so drop
+// a contraindications list when every entry is one of these bare tokens.
+const SEVERITY_TIER_ONLY = /^(low|moderate|high|minimal|mild|none|unknown|low_to_moderate|moderate_to_high|high_to_severe|severe)$/i
+
+function contraindicationList(row, keys) {
+  const values = firstList(row, keys)
+  if (values.length && values.every((entry) => SEVERITY_TIER_ONLY.test(String(entry).trim()))) {
+    return []
+  }
+  return values
+}
+
 function pick(obj, keys) {
   return Object.fromEntries(keys.filter((key) => key in obj).map((key) => [key, obj[key]]))
 }
@@ -528,7 +546,7 @@ function profile(row, type, taxonomy) {
     sitemap_included: first(row, ['sitemap_included', 'sitemap included', 'public_search_visibility']),
     ...(runtimeSafety ? { safety: runtimeSafety } : {}),
     safety_level: clean(first(row, ['safety_level', 'safety level'])),
-    contraindications: firstList(row, ['contraindications', 'avoid_if', 'avoid if', 'contraindications_or_flags']),
+    contraindications: contraindicationList(row, ['contraindications', 'avoid_if', 'avoid if', 'contraindications_or_flags']),
     interactions: firstList(row, ['interactions']),
     side_effects: firstList(row, ['side_effects', 'side effects']),
     dosage: clean(first(row, ['dosage', 'typical_dosage', 'typical dosage', 'dosage_or_preferred_form'])),
