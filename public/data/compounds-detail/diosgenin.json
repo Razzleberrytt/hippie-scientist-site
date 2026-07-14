@@ -146,6 +146,9 @@
   "dosage": "capsule or standardized extract",
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [
-    "pregnancy"
+    "hormone sensitive conditions such as breast cancer or ovarian cancer or uterine cancer or endometriosis or uterine fibroids due to estrogenic receptor-binding activity",
+    "pregnancy or breastfeeding due to hormonal activity and insufficient safety data",
+    "hormonal contraceptives or hormone replacement therapy warrants clinician guidance due to a potential additive hormonal effect",
+    "known hypersensitivity to wild yam or other Dioscorea species"
   ]
 }

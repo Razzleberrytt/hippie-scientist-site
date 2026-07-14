@@ -1898,3 +1898,86 @@ affected) and its AI-entity-completeness score (average 16/100 across all
 856 profiles, 0 scoring 80+) are large, mostly-untouched surfaces — a good
 candidate for the next cycle to scope out, but too broad to fix in one pass
 without picking a narrow, well-justified slice first.
+
+---
+
+## 2026-07-14 (later still) — Filled 6 more compound `contraindications_or_flags` gaps (`catuaba`, `diosgenin`, `pomegranate-extract`, `garcinol`, `guggulsterone`, `echinacoside`); hit a real Codex review finding, then a real merge conflict, and reconciled both
+
+Cross-checked all 30 open PRs' `get_files` output (not just titles) before
+picking targets, same as the last several entries recommend, and picked 6
+standalone compounds with zero slug overlap against any in-flight PR. Sourced
+real pharmacology via `WebSearch`, simulated `splitList()` +
+`findSuspectMatches()` against every draft clause, applied via
+`edit-entity-master-cell.mjs --in-place`, and passed the full local
+validation chain (workbook roundtrip, `data:validate`, `guard:source-of-truth`,
+`audit:risk-tag-collisions`, `npm run check`, Vitest 592/592) before opening
+the PR — the process described in every recent entry.
+
+**A real bug survived that whole pipeline.** The GitHub Codex bot
+(`chatgpt-codex-connector[bot]`) left an inline review comment: `catuaba`'s
+"discontinue before scheduled surgery due to an unstudied interaction with
+anesthesia" clause contains the word `surgery`, which `deriveInteractionData()`
+(`scripts/data/build-interaction-data.mjs`) matches via its `anticoagulant`
+mechanism keyword list (`['anticoagul','antiplatelet','bleeding','pre-surgery',
+'surgery']`) — with no semantic check on *why* the word appears. The clause
+described an unrelated (and, on reflection, not well-sourced — no search
+result actually described an anesthesia-specific interaction) caution, but
+`entity_risk_tags.json`/`interaction_edges.json` still tagged catuaba as an
+anticoagulant/bleeding risk and generated a bleeding-risk interaction pairing
+with every other anticoagulant-tagged compound. **This is a real gap in the
+pre-flight validation convention this thread has followed for ~15 entries**:
+`findSuspectMatches()` only catches a keyword glued to a disallowed prefix
+(the "delivery contains liver" class of bug) — it does **not** catch a
+keyword appearing as a clean, correctly-word-boundaried substring that is
+still semantically unrelated to the mechanism it triggers. Simulating
+`splitList()` + `findSuspectMatches()` is necessary but not sufficient;
+worth also checking each draft clause against the plain `KEYWORDS` list
+directly (`grep`-style, not just the suspect-prefix logic) and asking "does
+this clause actually describe *this* mechanism" before writing, especially
+for compounds with weak/general source support where a plausible-sounding
+clause can be invented without a real citation behind it. Fixed by replacing
+the clause with a better-grounded general caution and confirmed via a direct
+`entity_risk_tags.json` lookup that catuaba's tags are now exactly
+`pregnancy`/`serotonergic`/`blood_pressure` (all three intentional and
+well-sourced), with no `anticoagulant` entry.
+
+While that fix's CI run was in flight, a **different concurrent autonomous
+cycle** (PR #2275) independently merged its own 6-compound batch to `main`
+first, causing `merge_pull_request` to fail with a 405 "has merge conflicts"
+— expected, since both PRs edit the same binary `.xlsx` file and git cannot
+diff/merge binary content. Confirmed via `get_files` that #2275's 6 targets
+(`panax-ginseng-extract`, `schisandra-extract`, `aescin`,
+`dihydromethysticin`, `electrolytes-potassium`, `electrolytes-sodium`) had
+zero slug overlap with this cycle's 6 — a pure binary-file conflict, not a
+semantic collision — so reconciled exactly per the standing playbook from the
+`galantamine` entry above: `git reset --hard origin/main`, then **replayed
+the scripted `edit-entity-master-cell.mjs` calls fresh** against the new
+workbook state (rather than attempting any binary merge), re-ran the full
+`data:build:core` → `data:sync-detail-backfill` → revert-9-reorder-files →
+patch-3-stale-details → full validation chain end to end. Confirmed via the
+`--in-place` edit script's own `old:` log line that all 6 target cells were
+still untouched by #2275 before writing, so no data was silently clobbered.
+
+Takeaway reinforced: **when the merge API call itself returns a conflict
+(not just a failed check), don't retry the merge — assume a concurrent
+cycle landed first and reconcile via reset + replay**, exactly as prior
+entries handled the CI-round-trip case. Replaying scripted workbook edits
+(rather than the pattern of doing them by hand originally) makes this
+reconciliation cheap and low-risk: the edit script's own dry-run-equivalent
+logging (`old:`/`new:` per cell) doubles as a collision check for free.
+
+`validate:workbook-schema`, `workbook:roundtrip-test`, `data:validate`,
+`guard:source-of-truth`, `audit:risk-tag-collisions`, `npm run check`, and
+the full Vitest suite (592/592) all passed clean on the final 19-file diff
+(18 `public/data` files + the workbook), rebased cleanly onto #2275's merged
+state.
+
+**~44 `full_public_runtime` compounds with a severity-token/empty
+`contraindications_or_flags` gap should remain** (50 minus this cycle's 6,
+per the prior entry's count after #2275 also closed 6) — re-run
+`npm run audit:severity-tokens` fresh next cycle. Also worth a future cycle
+picking up: teaching `audit:risk-tag-collisions` (or a new sibling check) to
+flag a *word-boundaried* keyword match that isn't clearly justified by the
+surrounding clause, not just the glued-prefix class it currently catches —
+this cycle's Codex-caught bug would not have been caught by any existing
+local script.

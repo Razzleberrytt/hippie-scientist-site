@@ -91,5 +91,12 @@
     }
   ],
   "dosage": "standardized botanical extract capsule",
-  "typical_dosage": "standardized botanical extract capsule"
+  "typical_dosage": "standardized botanical extract capsule",
+  "contraindications": [
+    "autoimmune conditions such as rheumatoid arthritis or lupus or multiple sclerosis due to immune-stimulating activity that may trigger flares",
+    "immunosuppressant medications for organ transplant or autoimmune disease due to counteracting immune-modulating effects",
+    "known allergy to Asteraceae family plants such as ragweed or daisies or chrysanthemums due to a common echinacea-derived extraction source",
+    "asthma or other severe allergies due to an increased anaphylaxis risk reported with echinacea",
+    "children under 12 without clinician guidance due to limited pediatric safety data"
+  ]
 }

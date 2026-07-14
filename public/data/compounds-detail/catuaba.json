@@ -36,5 +36,12 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "dosage": "standardized extract capsule",
-  "typical_dosage": "standardized extract capsule"
+  "typical_dosage": "standardized extract capsule",
+  "contraindications": [
+    "known hypersensitivity to catuaba bark or related tree bark",
+    "pregnancy or breastfeeding due to a rodent study showing impaired implantation and lack of human safety data",
+    "MAOI antidepressants or SSRIs or other serotonergic medications due to MAO-A inhibiting activity and a theoretical serotonin syndrome risk",
+    "hypertension or cardiovascular disease warrants clinician guidance due to stimulant-like nervous system effects",
+    "overall drug interaction profile is poorly studied so combining with other medications warrants clinician guidance"
+  ]
 }
