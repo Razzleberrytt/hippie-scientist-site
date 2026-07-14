@@ -44,7 +44,11 @@
   "dosage": "standardized extract capsule",
   "typical_dosage": "standardized extract capsule",
   "contraindications": [
-    "stimulant",
-    "liver"
+    "High-dose extract use above roughly 800 mg EGCG daily carries a documented risk of drug-induced liver injury or hepatitis",
+    "avoid in pre-existing liver disease or with other hepatotoxic medications",
+    "take with food rather than on an empty stomach to reduce liver-injury risk",
+    "concentrated extracts often retain caffeine content so stimulant-sensitive users or those with anxiety or insomnia should use caution",
+    "may interact with anticoagulant or antiplatelet medications or certain blood pressure drugs",
+    "pregnancy or breastfeeding caution due to insufficient safety data."
   ]
 }

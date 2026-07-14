@@ -1059,3 +1059,83 @@ single-field patch demonstrated here — never a full-record sync unless the
 detail record really is an empty stub, diff every shared field first to
 tell which case you're in). Re-run the detection query fresh each cycle;
 don't trust a cached count or name list from a prior entry.
+
+---
+
+## 2026-07-13 (yet later) — Filled 5 more compound gaps; two lessons on staying unblocked when a concurrent cycle lands mid-PR
+
+Started this cycle by picking 8 severity-tier-only compounds
+(`alpha-gpc`, `yohimbine`, `epigallocatechin-gallate-egcg`, `galantamine`,
+`garcinia-cambogia-extract`, `beetroot-extract`, `l-tyrosine`,
+`saffron-extract`), sourcing and shipping real contraindications for all 8,
+and opening a PR. A Codex automated review caught a real P1 on that PR —
+the same detail-file-staleness bug class documented several entries
+above: `getCompoundBySlug` merges `compounds-detail/*.json` over
+`compounds.json`, and the 8 detail files still had the old tokens even
+though the flat record had real prose. Fixed with the same narrow
+single-field patch technique as the entry above (parse detail JSON,
+overwrite only `.contraindications`, re-serialize with the same
+formatting) rather than a full-record sync, since these detail records
+carry substantial hand-curated content (rich `summary` text, affiliate
+fields, regulatory fields) that a blanket flat-record overwrite would have
+clobbered.
+
+While that PR sat open waiting on CI, a **different, concurrent cycle**
+merged its own PR (#2256) that happened to pick 3 of the same 8 compounds
+(`alpha-gpc`, `l-tyrosine`, `yohimbine`) with independently-sourced,
+comparably good contraindications text — turning my branch's
+`mergeable_state` to `dirty` (real conflicts, not just a slow check).
+Diagnosed this the hard way: `enable_pr_auto_merge` kept returning a
+generic "required checks are failing" error that was actually masking the
+real conflict (a stuck-looking `Cloudflare Pages` check that had genuinely
+been `in_progress` for 2+ hours turned out to be a red herring — comparing
+against another PR's near-instant Cloudflare Pages check confirmed *that*
+part was anomalous but not the actual blocker). A direct `merge_pull_request`
+attempt surfaced the real error immediately (`405 ... has merge
+conflicts`) where `enable_pr_auto_merge`'s vaguer message hadn't — **worth
+trying a direct merge attempt as a diagnostic even when not intending to
+use it**, since its error message is more specific than the auto-merge
+gate's.
+
+Resolution: reset the branch onto latest `main` (which already had good
+content for the 3 overlapping compounds) rather than hand-merging the
+binary `.xlsx` workbook, then re-applied only the 5 non-overlapping
+compound edits (`epigallocatechin-gallate-egcg`, `galantamine`,
+`garcinia-cambogia-extract`, `beetroot-extract`, `saffron-extract`) fresh
+against the updated workbook via `edit-entity-master-cell.mjs --in-place`,
+re-ran `data:build:core`, and re-applied the same evidence_grade-drift
+isolation + detail-file patch techniques from the entries above. Second
+lesson: my isolation script (which reverts every untouched slug's record
+back to the git-HEAD version across `compounds-summary.json` and the
+sharded derivatives) wrote `compounds-summary.json` without matching its
+original trailing newline — unlike `search-index.json`/
+`alphabetical-shards.json`/`entity-shards.json`/`alpha-entity-shards.json`,
+`compounds-summary.json` isn't one of `validate-deterministic-json-order.mjs`'s
+tracked targets, so nothing caught it automatically; only showed up as a
+1-line `git diff` on an otherwise byte-identical file. **Any script that
+rewrites a `public/data/**` JSON file should always preserve the source
+file's original trailing-newline convention, not just the four files a
+specific CI gate happens to check** — verified with a byte-level `wc -c`/`od -c`
+comparison this time rather than trusting a structural per-slug diff alone,
+since a structural diff will report zero content differences even when the
+raw bytes (and therefore `git diff`) disagree over whitespace.
+
+Also confirmed a pre-existing, unrelated test failure on latest `main`
+before assuming my own changes broke something:
+`app/__tests__/route-consolidation-guardrails.test.ts` fails on a clean
+`main` checkout (no edits) because recent nav-rename commits
+("Point mobile Library nav item to Library page" etc.) changed
+`mobileBottomNavItems` without updating this test's hardcoded href list —
+1 failing test, 583 passing, confirmed via `git stash` + running just that
+file against unmodified `main`. Flagging as a small, easy next-cycle fix
+(update the test's expected array to `/library` instead of `/guides`) but
+didn't fix it here to keep this cycle's diff scoped to the compound-safety
+content change.
+
+`data:validate`, `guard:source-of-truth`, `audit:risk-tag-collisions`,
+`validate-deterministic-json-order`, `typecheck`, `lint`, and the full
+Vitest suite (583/584, the one pre-existing failure above) all pass clean
+on the final 9-file diff. 20 of the 33 `full_public_runtime`
+severity-tier-only compounds now remain (originally 33 at the start of
+this thread, 8 attempted, 3 landed elsewhere concurrently, 5 landed here) —
+re-run the detection query fresh next cycle per the standing takeaway.

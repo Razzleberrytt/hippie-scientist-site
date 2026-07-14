@@ -40,6 +40,9 @@
   "dosage": "capsule or standardized extract",
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [
-    "cardiovascular"
+    "Caution with hypotension or blood pressure medication use due to additive blood-pressure-lowering effects that can cause dizziness or fainting",
+    "caution combining with PDE5 inhibitors such as sildenafil or tadalafil due to overlapping nitric-oxide pathways and risk of pronounced blood pressure drops",
+    "caution with nitrate medications due to the same nitric-oxide mechanism",
+    "high-nitrate intake caution for individuals with methemoglobinemia risk or on nitrate-restricted diets."
   ]
 }
