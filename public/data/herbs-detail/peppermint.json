@@ -1,8 +1,8 @@
 {
   "name": "Peppermint Mentha × piperita",
   "slug": "peppermint",
-  "summary": "Peppermint centers on the unspecified.",
-  "description": "Peppermint centers on the unspecified. Key reported compounds include l‐menthol; l‐menthone; isomenthone; menthyl acetate; 1,8‐cineole (eucalyptol); menthofuran; limonene.",
+  "summary": "Peppermint (Mentha piperita), primarily as enteric-coated oil, is best documented for easing IBS-related abdominal pain and digestive discomfort through smooth-muscle relaxation and TRPM8 receptor activity, plus antimicrobial effects.",
+  "description": "Peppermint (Mentha piperita), primarily as enteric-coated oil, is best documented for easing IBS-related abdominal pain and digestive discomfort through smooth-muscle relaxation and TRPM8 receptor activity, plus antimicrobial effects.",
   "primaryActions": [
     "antimicrobial"
   ],

@@ -1,8 +1,8 @@
 {
   "name": "Ginger Zingiber officinale",
   "slug": "ginger",
-  "summary": "Ginger centers on the unspecified.",
-  "description": "Ginger centers on the unspecified. Key reported compounds include [6]-gingerol; shogaols; zingerone; paradols.",
+  "summary": "Ginger (Zingiber officinale) is best documented for nausea relief and digestive comfort, with additional evidence for anti-inflammatory and antioxidant activity via COX/LOX and NF-kB pathway modulation.",
+  "description": "Ginger (Zingiber officinale) is best documented for nausea relief and digestive comfort, with additional evidence for anti-inflammatory and antioxidant activity via COX/LOX and NF-kB pathway modulation.",
   "primaryActions": [
     "digestion",
     "nausea_support",

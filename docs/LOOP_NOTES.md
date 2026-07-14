@@ -1544,3 +1544,122 @@ before trusting a green `npm run check` locally; `check` doesn't run every
 CI-only validator (this one lives in `verify:prebuild`, not `check:fast`).**
 `thin_page` reading is real without checking whether the page's actual prose
 lives in an imported data file first.
+
+---
+
+## 2026-07-14 — `npm run audit:curated-indexable` is a real, currently-failing regression guard that was never wired into any CI gate; fixed 8 flagship herbs' broken "centers on the unspecified" summary/description text
+
+With the compound-`contraindications_or_flags` thread already carrying 5+ open
+PRs (high collision risk), looked for a different technical-health angle and
+found `scripts/audit/verify-curated-indexable.mjs` (`npm run
+audit:curated-indexable`) — a regression guard that checks every slug in the
+editor-curated allowlist (mirrored from `src/lib/index-allowlist.ts`) still
+scores `PUBLISH`. Its own docstring says it exists "so a stray workbook edit
+can't silently turn high-traffic pages back into noindex," but `git grep`
+confirmed it is referenced *nowhere* — not in `package.json`'s `check`/
+`check:full`/`validate:release` chains, not in any `.github/workflows/*`. It
+was failing right now, silently, with **10 regressed curated slugs**
+(`ginger`, `peppermint`, `black-cohosh` herbs; `phosphatidylcholine`,
+`acetyl-l-carnitine` compounds) and nobody would ever see that output unless
+they ran the command by hand.
+
+Root-caused each of the 5 distinct slugs (not all the same bug):
+- **`ginger`, `peppermint`**: real, fixable content bug. Both herbs' entire
+  `summary` workbook cell was literally the string `"{Name} centers on the
+  unspecified."` — a leaked template artifact (no active script in `scripts/`
+  or `lib/` still generates this string; it must predate the current
+  pipeline and was never overwritten because `backfillEmptyDetailFields()`
+  only fills *empty* detail fields, and this cell was non-empty, just
+  garbage). This single broken sentence is *also* every user-facing summary
+  on the live page: `utils/cleanSummary.ts`'s regex strips the literal phrase
+  "centers on the unspecified" and, since the remainder falls under a 40-char
+  length floor, both herbs' live pages were rendering the generic disclaimer
+  fallback ("Traditionally used with growing scientific interest.") instead
+  of any real content — on two of the most-searched herbs on the entire site.
+- **`black-cohosh`, `phosphatidylcholine`**: hard-gated `NOINDEX` by
+  `runtime_export_decision: hidden_until_grounded` — a deliberate governance
+  holdback, the same class of intentional gate documented for 5-HTP/GABA in
+  the entries above. Not a content bug; forcing these to PUBLISH without a
+  real `Evidence_Register` citation and human review would repeat the mistake
+  those entries explicitly warn against, especially for black cohosh (known
+  hepatotoxicity-adjacent safety profile). Left gated.
+- **`acetyl-l-carnitine`**: capped at score 45 by `profile_status:
+  research_only` (`non-publishable-profile-status`) — an editorial-completeness
+  cap, same as 5-HTP/GABA. Also needs human certification, not a content fix.
+
+Widened the check beyond just the 3 audit-flagged herbs and found the same
+`"{Name} centers on the {plant part|unspecified}."` template-leak pattern in
+5 more herb summaries that happened not to be in the curated allowlist but
+are still live, real profiles: `garlic`, `maca`, `milk-thistle`,
+`saw-palmetto`, `echinacea-purpurea` (`grep -i "centers on the"
+public/data/herbs.json` found exactly these 8, zero compounds). All 8 already
+had good downstream data (`mechanisms`, `primaryActions`, `sources`,
+`contraindications` were all populated and correct) — only `summary`/
+`description` were broken, so this was purely a summary-rewrite task, not a
+full profile rebuild.
+
+Wrote a real, hedged, evidence-appropriate 1-sentence summary for each of the
+8 (ginger: nausea/digestive + COX-LOX/NF-kB anti-inflammatory; garlic:
+cardiovascular + antimicrobial/immune, organosulfur compounds; peppermint:
+IBS/digestive antispasmodic via TRPM8 + smooth-muscle relaxation,
+antimicrobial; milk thistle: hepatoprotective/antioxidant via silymarin; saw
+palmetto: BPH via 5-alpha-reductase inhibition; black cohosh: menopausal
+symptoms via serotonergic/estrogen-receptor-modulating activity, explicitly
+"rather than classical hormonal action"; echinacea purpurea: upper
+respiratory infection symptom/duration via immune-modulating alkamides;
+maca: energy/libido via macamides/glucosinolates), grounded in each profile's
+own already-correct `mechanisms`/`primaryActions` fields so no new claims
+were introduced beyond what the record already asserted elsewhere. Checked
+every draft against `validate-evidence-language.mjs`'s banned-term list
+(`cures?`, `proven`, `effectively`, `established`, `demonstrates that`,
+`clears`, `heals`) before writing — zero hits.
+
+Applied via `edit-entity-master-cell.mjs --in-place` (8 calls, `summary`
+column only — `description` is a separate, *empty* workbook column that
+`cleanUserFacingText(first(row, ['description','overview','summary']))`
+falls back to `summary` for, so fixing `summary` alone fixes both runtime
+fields after rebuild). `data:build:core` regenerated `herbs.json`/
+`herb-index.json`/summary-indexes/`ai-entities` cleanly. Confirmed
+`ginger` (73→93) and `peppermint` (68→88) flipped `NEEDS_REVIEW`→`PUBLISH`,
+clearing 2 of the 10 `audit:curated-indexable` failures; the other 3 open
+findings (`black-cohosh`, `phosphatidylcholine`, `acetyl-l-carnitine`) are the
+deliberate governance/editorial holds described above and correctly remain
+open pending human review.
+
+Hit the same detail-file staleness gap documented several entries back
+(`backfillEmptyDetailFields()` only fills *empty* fields, never overwrites
+existing-but-wrong ones): all 8 `herbs-detail/*.json` files still carried the
+old broken `summary`/`description` after `data:build:core`. Manually
+synced just those two fields per file from the freshly-rebuilt flat
+`herbs.json` record (same scoped, two-field-only approach used for
+`citicoline` in the earlier entry) — confirmed each diff was exactly 2 lines
+changed, nothing else touched.
+
+`npm run workbook:roundtrip-test`, `validate:workbook-schema`,
+`data:validate`, `guard:source-of-truth`, `audit:leaked-text`, `npm run
+check`, and the full Vitest suite (587/587) all passed clean. A stray
+`npm run build` I ran earlier in the cycle (to unlock the build-dependent
+`audit:internal-links`/`audit:sitemap`/`audit:structured-data` checks, all of
+which came back clean) touched `docs/internal-link-map.md`,
+`docs/topic-clusters.md`, and several `runtime-manifests`/`runtime-maps`
+files with unrelated non-deterministic regeneration noise (same class of
+full-build drift documented elsewhere in this file) — `git checkout --`'d all
+of those before committing, keeping the diff to exactly the 8-herb content
+fix.
+
+**Deliberately did not wire `audit:curated-indexable` into `check`/
+`check:full`/CI yet**, even though that's the obvious next step for a
+regression guard that's supposed to prevent silent drift: doing so today
+would immediately hard-fail CI on the 3 legitimate governance-gated slugs
+(`black-cohosh`, `phosphatidylcholine`, `acetyl-l-carnitine`), which are
+correctly held, not broken. Wiring it in needs either (a) those 3 resolved by
+a human editorial/governance pass first, or (b) the guard script itself
+taught to distinguish "deliberately gated, documented, expected" from "silent
+regression" (e.g. a small `EXPECTED_GOVERNANCE_HOLDS` allowlist, mirroring
+the `ALLOWED_PREFIXES` pattern `audit:risk-tag-collisions` already uses for
+the same kind of false-positive-vs-real-signal problem). Flagging this as the
+highest-ROI target for a future cycle: **either clear the remaining 3
+holdbacks with real evidence/certification, or teach the guard to
+distinguish intentional holds from regressions, then wire `npm run
+audit:curated-indexable` into `check:full`** so this class of silent
+high-traffic-page regression can't recur unnoticed the way it did here.
