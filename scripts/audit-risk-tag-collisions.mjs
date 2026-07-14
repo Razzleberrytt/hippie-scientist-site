@@ -65,6 +65,58 @@ export function findSuspectMatches(phrase) {
   return suspects
 }
 
+// Second bug class, found by an external reviewer (see docs/LOOP_NOTES.md,
+// 2026-07-14, PR #2274): a keyword can be a clean, correctly word-boundaried
+// whole-word match and still be semantically unrelated to the mechanism it
+// triggers. `surgery` is in KEYWORDS.anticoagulant because "discontinue
+// before surgery due to bleeding risk" is a common, legitimate clause — but
+// clinicians also cite surgery for sedation, anesthesia-interaction, or
+// general-precaution reasons that have nothing to do with bleeding. That
+// shipped as a real bug: catuaba's "discontinue before scheduled surgery due
+// to an unstudied interaction with anesthesia" clause was silently tagged an
+// anticoagulant/bleeding risk. findSuspectMatches() cannot catch this — the
+// match isn't a substring collision, it's a semantically loose keyword.
+//
+// A first version of this check required a corroborating term (e.g. "bleed",
+// "clot") anywhere in the same clause — but the real workbook's established
+// convention is short standalone flags like "pre-surgery" or "upcoming
+// surgery" (no restated mechanism) for well-documented antiplatelet herbs
+// (garlic, danshen, notoginseng, ...), so that version flagged 14 legitimate
+// entries as false positives on real data. Only flag an *explanatory*
+// clause — one that explicitly gives an causal reason via "due to"/"because
+// of" — where that stated reason doesn't corroborate bleeding. A bare flag
+// token with no stated reason is left alone; that's the dataset's normal
+// shorthand, not a bug.
+const CORROBORATION_REQUIRED = {
+  anticoagulant: {
+    keys: ['surgery', 'pre-surgery'],
+    corroborators: [
+      'bleed', 'clot', 'coagul', 'platelet', 'inr', 'hemorrhage', 'haemorrhage',
+      'blood-thinning', 'blood thinning', 'thin the blood', 'thins the blood',
+    ],
+  },
+}
+const REASON_MARKERS = ['due to', 'because of', 'because ']
+
+export function findWeakCorroborationMatches(phrase) {
+  const pl = phrase.toLowerCase()
+  const suspects = []
+  for (const [mech, { keys, corroborators }] of Object.entries(CORROBORATION_REQUIRED)) {
+    const matchedKey = keys.find((k) => pl.includes(k))
+    if (!matchedKey) continue
+    const reasonIdx = Math.min(
+      ...REASON_MARKERS.map((m) => pl.indexOf(m)).filter((i) => i !== -1),
+      Infinity
+    )
+    if (!Number.isFinite(reasonIdx)) continue // bare flag token, no stated reason — established shorthand, not a bug
+    const stated = pl.slice(reasonIdx)
+    if (!corroborators.some((c) => stated.includes(c))) {
+      suspects.push({ mech, key: matchedKey, phrase })
+    }
+  }
+  return suspects
+}
+
 async function main() {
   const strict = process.argv.includes('--strict')
   const workbookPath = resolveWorkbookPath(process.cwd())
@@ -79,29 +131,45 @@ async function main() {
   const rows = sheetToRows(getSheet(wb, sheetName))
 
   const findings = []
+  const weakFindings = []
   for (const row of rows) {
     const slug = clean(row.slug)
     for (const phrase of splitFlags(row.contraindications_or_flags)) {
       for (const suspect of findSuspectMatches(phrase)) {
         findings.push({ slug, ...suspect })
       }
+      for (const suspect of findWeakCorroborationMatches(phrase)) {
+        weakFindings.push({ slug, ...suspect })
+      }
     }
   }
 
   if (findings.length === 0) {
     console.log('[audit:risk-tag-collisions] clean — no unboundaried keyword matches found in contraindications_or_flags')
-    process.exit(0)
+  } else {
+    console.log(`[audit:risk-tag-collisions] ${findings.length} potential substring-collision false positive(s):\n`)
+    for (const f of findings) {
+      console.log(`  ${f.slug} — mechanism "${f.mech}" matched "${f.key}" via prefix "${f.prefix}" in: "${f.phrase}"`)
+    }
+    console.log('\nIf a finding is a genuine new compound term (e.g. a novel medical prefix), add the prefix to')
+    console.log('ALLOWED_PREFIXES in this script. Otherwise, reword the clause in the workbook to break the collision')
+    console.log('(see docs/LOOP_NOTES.md, 2026-07-13 post-merge addendum, for a worked example).')
   }
 
-  console.log(`[audit:risk-tag-collisions] ${findings.length} potential substring-collision false positive(s):\n`)
-  for (const f of findings) {
-    console.log(`  ${f.slug} — mechanism "${f.mech}" matched "${f.key}" via prefix "${f.prefix}" in: "${f.phrase}"`)
+  if (weakFindings.length === 0) {
+    console.log('[audit:risk-tag-collisions] clean — no weak-corroboration keyword matches found in contraindications_or_flags')
+  } else {
+    console.log(`\n[audit:risk-tag-collisions] ${weakFindings.length} weak-corroboration false positive(s):\n`)
+    for (const f of weakFindings) {
+      console.log(`  ${f.slug} — mechanism "${f.mech}" matched "${f.key}" with no corroborating term in: "${f.phrase}"`)
+    }
+    console.log('\nThe clause matches a mechanism keyword that is broad enough to appear in unrelated contexts (e.g.')
+    console.log('"surgery" cited for sedation/anesthesia reasons, not bleeding risk). Reword the clause to either name')
+    console.log('the real mechanism explicitly, or add a corroborating term so the tag is intentional, not accidental')
+    console.log('(see docs/LOOP_NOTES.md, 2026-07-14, PR #2274, for the production bug this guards against).')
   }
-  console.log('\nIf a finding is a genuine new compound term (e.g. a novel medical prefix), add the prefix to')
-  console.log('ALLOWED_PREFIXES in this script. Otherwise, reword the clause in the workbook to break the collision')
-  console.log('(see docs/LOOP_NOTES.md, 2026-07-13 post-merge addendum, for a worked example).')
 
-  process.exit(strict ? 1 : 0)
+  process.exit(strict && (findings.length > 0 || weakFindings.length > 0) ? 1 : 0)
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

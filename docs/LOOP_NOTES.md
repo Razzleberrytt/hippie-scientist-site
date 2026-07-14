@@ -1997,3 +1997,85 @@ to stay grounded in existing page content rather than introducing new
 claims — same discipline as this cycle and the last, just slower per page.
 `sleep-herbs-vs-melatonin` (688 lines, the longest) is probably worth
 splitting into its own cycle rather than pairing it with another page.
+
+---
+
+## 2026-07-14 (later still) — Closed the gap PR #2274 found: taught `audit:risk-tag-collisions` to catch semantically-loose keyword matches, not just substring collisions
+
+Fresh cold session. Checked `list_pull_requests` first: 6 open PRs already on
+the compound `contraindications_or_flags` thread (#2277, #2274, #2263, #2262,
+#2260, #2259), all touching the same binary `.xlsx` workbook — a high
+collision-risk surface for another 6-compound batch, and #2274's own notes
+(read via `get_files`) flagged a concrete, still-unaddressed tooling gap
+instead: a real bug survived that thread's entire validation pipeline and had
+to be caught by an external GitHub review bot. Picked the tooling fix over
+another data batch — narrower blast radius, no `.xlsx` merge-conflict risk,
+and it benefits every future cycle on that thread, not just this one.
+
+The bug: `deriveInteractionData()` (`scripts/data/build-interaction-data.mjs`)
+matches `contraindications_or_flags` text against `KEYWORDS` via plain
+substring search. `catuaba`'s clause "discontinue before scheduled surgery due
+to an unstudied interaction with anesthesia" contains the word `surgery`,
+which is in `KEYWORDS.anticoagulant` — so catuaba got silently tagged an
+anticoagulant/bleeding-risk compound and paired into bleeding-risk interaction
+edges with every other anticoagulant-tagged entity, even though the clause
+never mentions bleeding. The existing `findSuspectMatches()` in
+`scripts/audit-risk-tag-collisions.mjs` only catches *substring* collisions
+(a keyword glued to an unrelated word, e.g. "delivery" containing "liver") —
+it does nothing for a clean, correctly word-boundaried whole-word match that
+is simply semantically unrelated to the mechanism it triggers. `surgery` is
+broad by design (`KEYWORDS.anticoagulant` needs it for the common, legitimate
+"discontinue before surgery due to bleeding risk" clause) but clinicians also
+cite surgery for sedation, anesthesia-interaction, or general-precaution
+reasons that have nothing to do with clotting.
+
+Added `findWeakCorroborationMatches()` alongside `findSuspectMatches()` in the
+same script: for keywords broad enough to need it (currently just
+`surgery`/`pre-surgery` under the `anticoagulant` mechanism), flag a clause
+only when it's an *explanatory* sentence — one with an explicit "due to" /
+"because (of)" causal reason — and that stated reason doesn't corroborate
+bleeding (no `bleed`/`clot`/`coagul`/`platelet`/`inr`/`hemorrhage`/etc.
+nearby). First draft required corroboration anywhere in the clause and was
+wrong: run against the real workbook it flagged 14 entries (`allium-sativum`,
+`angelica-sinensis`, `chuanxiong`, `damiana`, `danshen`, `dong-quai`,
+`feverfew`, `garlic`, `japanese-knotweed`, `notoginseng`,
+`valeriana-officinalis`, `ajoene`, `allicin`, `rhodiola-extract-shr5`) — every
+one a false positive, because this dataset's established convention for
+well-documented antiplatelet/anticoagulant herbs is a short standalone flag
+token ("pre-surgery", "upcoming surgery", "scheduled surgery") with the
+mechanism established by the herb's known pharmacology, not restated in every
+token. Narrowing to "only flag clauses that state an explicit reason" dropped
+that to a single real remaining finding: `rhodiola-extract-shr5`'s
+"discontinue before surgery or other medical procedures due to limited
+interaction data" — a legitimately vague, non-bleeding-specific stated
+reason, left as a documented finding for a future cycle rather than fixed
+here (fixing it means editing the workbook, which reopens the same
+`.xlsx`-merge-conflict risk this cycle was chosen specifically to avoid).
+
+Wired the new check into the same script's `main()` as a second, separately
+labeled report section (still informational-by-default, `--strict` opts into
+exit 1, matching the existing check's convention). Added
+`findWeakCorroborationMatches` tests mirroring the existing test file's
+pattern, including one that locks in the real catuaba bug as a regression
+test and one confirming the bare-flag-token false-positive class stays
+unflagged. `npm run audit:risk-tag-collisions` now reports both sections
+cleanly against the real workbook (0 substring collisions, 1 documented weak-
+corroboration finding). `npm run lint`, `npm run typecheck`, and the full
+Vitest suite (596/596, up from 592 — the 4 new tests) all passed. Diff is
+exactly 2 files (the script + its test file) — no workbook, no `public/data`
+touched, so no `data:build`/`data:validate`/`guard:source-of-truth` round-trip
+was needed this cycle.
+
+**Takeaway for future cycles:** when the same data-enrichment thread has 5+
+concurrent open PRs all touching the same binary workbook file, a tooling fix
+that closes a gap one of those PRs already found (and documented in its own
+LOOP_NOTES entry) is often better ROI than adding another data batch to the
+pile — zero collision risk, and it protects every PR still in flight on that
+thread, not just future ones. Also: when writing a corroboration/context
+heuristic like this one, always dry-run it against the *entire* real dataset
+before trusting it, not just hand-picked examples — the first draft's 14
+false positives on legitimate, well-sourced antiplatelet-herb data would have
+made the check net-negative (audit fatigue) had it shipped as-is. The
+remaining `rhodiola-extract-shr5` finding is a fine target for a future
+contraindications-thread cycle once the current pile of open PRs on that file
+has thinned out.
