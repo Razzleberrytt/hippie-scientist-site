@@ -1629,3 +1629,64 @@ initial `data:build:core`, again after `npm run check` re-ran it internally).
 should remain** (63 minus this cycle's 6) — re-run the detection query fresh next
 cycle rather than trusting this count, and check open PRs' touched files first given
 how much concurrent activity this thread continues to attract.
+
+---
+
+## 2026-07-14 (later) — Built the standing `audit:severity-tokens` script; skipped content fill this cycle due to heavy in-flight concurrency
+
+At least six entries above independently flagged the same thing: the
+"token-only `contraindications_or_flags`" detection query (bare severity/
+category tokens like `moderate`, `kidney`, `pregnancy,liver,kidney` passing
+the naive non-empty check) was hand-rolled from scratch in nearly every
+cycle that touched this thread, with two entries explicitly recommending it
+become a standing script instead. Checking `list_pull_requests` at the start
+of this cycle found 3 open PRs already active on this exact thread (#2263,
+#2262, #2260, plus #2242 recomputing indexability scores on related
+compounds) — picking yet another 5-6 slugs risked a fourth concurrent
+collision on top of the ones already documented at length above, for
+diminishing marginal value. Built the tooling fix instead, per this
+prompt's own self-improvement allowance.
+
+Added `scripts/audit-severity-token-contraindications.mjs`
+(`npm run audit:severity-tokens`), matching the existing
+`audit-safety-fill-rate.mjs`/`audit-risk-tag-collisions.mjs` conventions
+(same `Entity_Master` sheet resolution, same `assertWorkbookExists` guard).
+Exports `classifyContraindicationValue()` — EMPTY / TOKEN_ONLY / PROSE — and
+cross-references `public/data/compounds.json` for
+`runtime_export_decision === 'full_public_runtime'` so the report only
+surfaces gaps on live, indexed pages, not the full workbook population.
+TOKEN_ONLY is defined precisely as: every comma/semicolon-separated
+fragment matches `/^[a-z][a-z_]*$/i` (no whitespace) — a single real prose
+fragment among several tokens correctly classifies the whole value as
+PROSE, so it won't false-positive on a mixed legitimate value. Added
+`scripts/audit-severity-token-contraindications.test.mjs` covering all
+three classifications plus the mixed-value edge case.
+
+Ran it against the live workbook: **62 `full_public_runtime` compounds
+currently have a gap** (44 with variant/component-cluster slugs the prior
+entries repeatedly and deliberately skipped for the same undecided
+variant-naming-policy reason — `betaine`/`betaine-hcl`/`betaine-anhydrous`/
+`betaine-nitrate`, `taurine-blend`/`taurine-sleep`, `probiotics` and its
+strain variants, `atractylenolide-i/ii/iii`, `gingerol`/`gingerols`,
+`ginkgolide-b`/`ginkgolides`, `inositol-sleep`/`inositol-hexanicotinate`,
+boswellic-acid variants, `maca-root-extract`/`macamides`,
+`garlic-aged-extract`/`aged-garlic-extract` — plus `aucubin`, the
+already-documented deferred case). This confirms the script produces the
+same shape of list prior cycles derived by hand, and is ready to save the
+next several cycles from re-deriving it.
+
+Confirmed via `list_pull_requests` — the same standing-script gap this
+cycle closed is exactly what earlier entries called out as unaddressed:
+"consider building the standing script... before hand-rolling the query
+yet again." Also confirmed the variant-naming-policy question (should
+`betaine`, `betaine-hcl`, `betaine-anhydrous`, and `betaine-nitrate` share
+one sourced contraindications clause or each get independently sourced
+text?) is still open after ~8 entries mentioning it — worth a human
+decision before a future cycle either fills all variants identically or
+keeps skipping them indefinitely.
+
+`npm run lint`, `npm run typecheck`, and the full Vitest suite (592/592,
+now including the 5 new test cases) all passed clean. No workbook or
+`public/data` changes this cycle — diff is exactly the two new script
+files plus one `package.json` line, zero collision risk with any in-flight
+PR.
