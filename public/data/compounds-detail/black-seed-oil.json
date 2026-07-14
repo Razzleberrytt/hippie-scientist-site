@@ -38,5 +38,13 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "anticoagulant or antiplatelet medication due to enhanced bleeding risk",
+    "antihypertensive medication due to additive blood pressure lowering effect",
+    "immunosuppressant medication due to reduced effectiveness from immune-stimulating activity",
+    "dextromethorphan or other CYP2D6 or CYP3A4 substrate medications due to documented enzyme inhibition shown in a human trial at 5 grams per day",
+    "pregnancy due to insufficient safety data",
+    "discontinue before scheduled surgery due to bleeding risk"
+  ]
 }

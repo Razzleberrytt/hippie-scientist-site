@@ -39,6 +39,8 @@
   "dosage": "capsule or standardized extract",
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [
-    "stimulant"
+    "pregnancy or breastfeeding was excluded from EFSA's novel food safety evaluation and should be avoided without clinician guidance",
+    "doses well above the 20 milligram per day EFSA-reviewed level may raise kidney damage risk from pro-oxidant activity",
+    "limited human data exist on interactions with other medications affecting energy metabolism or mitochondrial function and warrants clinician guidance for those on prescription drugs"
   ]
 }

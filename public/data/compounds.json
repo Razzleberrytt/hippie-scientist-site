@@ -9709,7 +9709,14 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "anticoagulant or antiplatelet medication due to enhanced bleeding risk",
+      "antihypertensive medication due to additive blood pressure lowering effect",
+      "immunosuppressant medication due to reduced effectiveness from immune-stimulating activity",
+      "dextromethorphan or other CYP2D6 or CYP3A4 substrate medications due to documented enzyme inhibition shown in a human trial at 5 grams per day",
+      "pregnancy due to insufficient safety data",
+      "discontinue before scheduled surgery due to bleeding risk"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -9752,7 +9759,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9760,7 +9767,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -18239,7 +18246,12 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "diabetes or hypoglycemia or other blood sugar sensitivity due to insulin secretion that can lower blood glucose",
+      "diabetes medication or insulin due to additive hypoglycemia risk",
+      "perioperative use around any medical procedure requiring blood sugar monitoring warrants clinician guidance due to possible glycemic effects",
+      "pregnancy or breastfeeding without clinician guidance due to insufficient safety data"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -18282,7 +18294,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -18290,7 +18302,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -41573,7 +41585,12 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "active or undiagnosed cancer history warrants oncologist guidance before use due to theoretical support of cellular energy metabolism in tumor growth",
+      "diabetes medication such as insulin or metformin may need monitoring due to NMN's influence on blood sugar regulation",
+      "antihypertensive medication may have an additive blood pressure lowering effect",
+      "pregnancy or breastfeeding without clinician guidance due to insufficient safety data"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -41616,7 +41633,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -41624,7 +41641,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -46993,7 +47010,9 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "stimulant"
+      "pregnancy or breastfeeding was excluded from EFSA's novel food safety evaluation and should be avoided without clinician guidance",
+      "doses well above the 20 milligram per day EFSA-reviewed level may raise kidney damage risk from pro-oxidant activity",
+      "limited human data exist on interactions with other medications affecting energy metabolism or mitochondrial function and warrants clinician guidance for those on prescription drugs"
     ],
     "interactions": [],
     "side_effects": [],
@@ -49238,7 +49257,14 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "warfarin due to potential increased bleeding risk from altered drug metabolism",
+      "quinolone antibiotics due to altered drug absorption or effectiveness",
+      "cyclosporine or other CYP3A4-metabolized medications due to altered drug levels at high doses",
+      "antihypertensive medication due to additive blood pressure lowering effect",
+      "pregnancy or breastfeeding without clinician guidance due to insufficient safety data",
+      "kidney problems warrant clinician guidance before use"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -49281,7 +49307,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -49289,7 +49315,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -56400,7 +56426,12 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "anticoagulant or antiplatelet medication such as warfarin or clopidogrel or aspirin due to documented bleeding risk from BCRP and CYP2C9 inhibition raising warfarin exposure",
+      "high doses may inhibit CYP3A4 or CYP2D6 or CYP2C9 raising blood levels of drugs with a narrow therapeutic window such as certain antidepressants or statins or pain medications",
+      "hormone-sensitive conditions such as certain breast cancer or uterine fibroids or endometriosis due to estrogen-like activity",
+      "pregnancy or breastfeeding without clinician guidance due to insufficient safety data"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -56443,7 +56474,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -56451,7 +56482,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],

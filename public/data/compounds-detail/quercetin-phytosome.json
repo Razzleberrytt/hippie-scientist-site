@@ -41,5 +41,13 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "warfarin due to potential increased bleeding risk from altered drug metabolism",
+    "quinolone antibiotics due to altered drug absorption or effectiveness",
+    "cyclosporine or other CYP3A4-metabolized medications due to altered drug levels at high doses",
+    "antihypertensive medication due to additive blood pressure lowering effect",
+    "pregnancy or breastfeeding without clinician guidance due to insufficient safety data",
+    "kidney problems warrant clinician guidance before use"
+  ]
 }

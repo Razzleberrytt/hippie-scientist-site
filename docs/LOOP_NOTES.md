@@ -1544,3 +1544,88 @@ before trusting a green `npm run check` locally; `check` doesn't run every
 CI-only validator (this one lives in `verify:prebuild`, not `check:fast`).**
 `thin_page` reading is real without checking whether the page's actual prose
 lives in an imported data file first.
+
+---
+
+## 2026-07-14 — Filled 6 more `full_public_runtime` compound `contraindications_or_flags` gaps; checked concurrent PRs first to avoid collision
+
+With 3 other open PRs already in flight on this exact thread (#2263: ashwagandha/
+cordyceps/creatine-beta-alanine/gingerol/holy-basil-extract/omega-3-epa-dominant/
+passionflower-extract-standardized/turmeric-curcumin-piperine/vitamin-d; #2262 and
+#2260 both independently targeting astaxanthin/spirulina/collagen-peptides/boswellia
+— those two collide with each other, not something this cycle needed to fix), used
+`mcp__github__list_pull_requests` + `pull_request_read(method: get_files)` to check
+every open PR's touched slugs *before* picking targets, then re-ran the token-only/
+empty detection query fresh: 63 `full_public_runtime` gaps remained, none overlapping
+any in-flight PR. Picked 6 mainstream, single-slug (non-variant) names: `nmn`, `pqq`,
+`trans-resveratrol`, `d-ribose`, `black-seed-oil`, `quercetin-phytosome`. Skipped the
+component/variant clusters in the same gap list per established precedent (`betaine`/
+`betaine-hcl`/`betaine-anhydrous`/`betaine-nitrate`, `inositol`/`inositol-sleep`/
+`inositol-hexanicotinate`, `taurine`/`taurine-sleep`/`taurine-blend`, `probiotics`/
+`probiotics-lactobacillus`/`probiotics-bifidobacterium`, `gingerol`/`gingerols`,
+`ginkgolide-b`/`ginkgolides`, `boswellia-akba-standardized`/`acetyl-11-keto-beta-
+boswellic-acid`/`11-keto-beta-boswellic-acid`, `aged-garlic-extract`/`garlic-aged-
+extract`, `maca-root-extract`/`macamides`) — the variant-naming policy question is
+still open and unaddressed by this cycle.
+
+`WebSearch`-sourced real pharmacology per compound. One search result was actively
+misleading and worth flagging as a sourcing trap: the top hits for "PQQ contraindications"
+conflated the *supplement* PQQ with *glucose dehydrogenase-PQQ (GDH-PQQ) blood glucose
+test-strip chemistry* — a real clinical interference issue, but one caused by maltose/
+galactose in a dialysis patient's blood reacting with the test strip's enzyme, not by
+anyone ingesting oral PQQ. Writing that up as an oral-PQQ contraindication would have
+been exactly the kind of bundled/misattributed-source error flagged in the lutein/
+spirulina entry above (attributing an unrelated finding to the wrong subject just
+because the name matches) — caught it by re-reading past the first-pass search summary
+into the underlying EFSA novel-food opinion, which gives PQQ's *actual* documented
+cautions (pregnancy/lactation excluded from the safety review, high-dose pro-oxidant/
+kidney-damage signal in animal data). **Takeaway: when a search result's contraindication
+claim doesn't obviously connect to the compound's own consumption route, chase it to a
+primary source before trusting the summary — "same three-letter name" is not the same
+as "same finding."**
+
+Simulated `splitList()`'s `/[\n|;,]+/` regex and `findSuspectMatches()`
+(`KEYWORDS`/`ALLOWED_PREFIXES`) against every draft clause in a throwaway script before
+writing anything — all 6 came back with correct clause counts and zero suspect
+collisions, and every fired mechanism matched the clause's actual scope (e.g.
+`trans-resveratrol`'s anticoagulant tag traces to a real cited warfarin/BCRP/CYP2C9
+study, not an overgeneralized bleeding claim). Reused the "surgery is a landmine word"
+takeaway from two entries back on `d-ribose`: its real caution is glycemic (insulin
+secretion lowering blood sugar around a procedure), not bleeding, so worded it as
+"perioperative use... requiring blood sugar monitoring" instead of the literal word
+"surgery" to avoid a false `anticoagulant` tag. Contrast `black-seed-oil`, whose
+discontinue-before-surgery clause correctly keeps the word because its surgical caution
+really is about bleeding risk (documented antiplatelet activity) — same check, opposite
+correct answer, exactly per the standing takeaway.
+
+Applied via `edit-entity-master-cell.mjs --in-place` (6 calls, each verified with the
+tool's own preview first) → `validate:workbook-schema` → `data:build:core` →
+`data:sync-detail-backfill`. Confirmed a fresh instance of the documented "backfill only
+fills an empty detail field" bug: `pqq`'s `compounds-detail/pqq.json` already had a
+stale `["stimulant"]` token, so the backfill silently skipped it while the other 5
+targets (which had no pre-existing `contraindications` key) synced automatically.
+Diffed every shared field between `pqq`'s flat and detail records first (only
+`contraindications` diverged; `description`/`mechanisms`/`indexability_status`/`robots`/
+`summary` are legitimate detail-only enrichments and were left untouched) before hand-
+patching just that one field — same narrow-patch approach as the earlier `epigallocatechin-
+gallate-egcg`/`citicoline` cases. The backfill run also picked up 3 unrelated compounds
+(`adenosine`, `agmatine-sulfate`, `bcaa`) whose detail files had never synced real,
+already-workbook-sourced contraindication text (proper citations: FDA Adenocard label,
+Keynan et al. 2010, Italian ALS Study Group 1993) — kept those (real content, not
+noise), but reverted the usual non-deterministic `sources`-array-reorder noise on 9
+other unrelated files (`caffeine-l-theanine`, `fadogia-agrestis`, `magnesium`,
+`melatonin`, `peppermint-oil`, `saccharomyces-boulardii`, `ashwagandha`, `maca`,
+`rhodiola`) after confirming via diff that those were pure element-reordering with zero
+content change.
+
+`workbook:roundtrip-test` (22 sheets byte-for-byte), `audit:risk-tag-collisions`,
+`data:validate`, `guard:source-of-truth`, `npm run check`, and the full Vitest suite
+(587/587) all passed clean. Confirmed the final `compounds.json` diff touches exactly
+the 6 target slugs (verified programmatically by slug-keyed record comparison, not by
+eyeballing the raw diff). `build-info.json` timestamp reverted twice (once after the
+initial `data:build:core`, again after `npm run check` re-ran it internally).
+
+**57 `full_public_runtime` compounds with token-only/empty `contraindications_or_flags`
+should remain** (63 minus this cycle's 6) — re-run the detection query fresh next
+cycle rather than trusting this count, and check open PRs' touched files first given
+how much concurrent activity this thread continues to attract.
