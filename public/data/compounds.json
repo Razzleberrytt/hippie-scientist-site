@@ -1349,7 +1349,10 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Injectable adenosine used for supraventricular tachycardia is contraindicated in second- or third-degree AV block or sick sinus syndrome without a pacemaker and in bronchoconstrictive lung disease such as asthma due to bronchospasm risk (FDA Adenocard prescribing information)",
+      "this describes clinical IV drug use rather than oral dietary supplementation since oral safety data do not exist."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -1803,7 +1806,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Generally well tolerated in the human trials conducted to date",
+      "an RCT in lumbar disc-associated radiculopathy used roughly 1335 to 3560 mg per day for up to 3 weeks with no treatment-related adverse events (Keynan et al. 2010)",
+      "long-term human safety data beyond a few weeks are limited",
+      "theoretical blood-pressure-lowering effect via nitric-oxide and imidazoline-receptor pathways so caution with antihypertensive medication",
+      "pregnancy/breastfeeding without clinician guidance."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -6674,7 +6683,11 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Avoid in maple syrup urine disease (inherited BCAA-metabolism disorder)",
+      "a placebo-controlled ALS trial was halted early after excess mortality in the BCAA-treated arm (Italian ALS Study Group 1993) so BCAA supplementation is not recommended for ALS outside clinician-directed care",
+      "pregnancy/breastfeeding without clinician guidance."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
