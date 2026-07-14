@@ -39,5 +39,12 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "known hypersensitivity to ginger",
+    "anticoagulant or antiplatelet medications such as warfarin or aspirin due to bleeding risk",
+    "gallstones or bile duct obstruction due to choleretic bile-stimulating effect",
+    "high doses during pregnancy without clinician guidance",
+    "diabetes medications or insulin due to added hypoglycemia risk"
+  ]
 }

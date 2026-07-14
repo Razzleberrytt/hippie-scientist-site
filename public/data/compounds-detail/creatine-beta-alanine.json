@@ -38,5 +38,12 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "powder or capsule",
-  "typical_dosage": "powder or capsule"
+  "typical_dosage": "powder or capsule",
+  "contraindications": [
+    "known hypersensitivity to creatine or beta-alanine",
+    "chronic kidney disease or reduced kidney function due to increased creatinine load and unclear long-term safety",
+    "nephrotoxic medications such as NSAIDs or aminoglycosides or certain diuretics warrant caution",
+    "dehydration or inadequate fluid intake during intense exercise",
+    "paresthesia or tingling sensation from beta-alanine is common and benign"
+  ]
 }

@@ -156,5 +156,13 @@
     }
   ],
   "dosage": "capsule or softgel",
-  "typical_dosage": "capsule or softgel"
+  "typical_dosage": "capsule or softgel",
+  "contraindications": [
+    "known hypersensitivity to vitamin D",
+    "hypercalcemia or conditions predisposing to hypercalcemia",
+    "sarcoidosis or other granulomatous disease due to enhanced conversion to active vitamin D",
+    "kidney disease or impaired renal function warrants monitoring and clinician guidance",
+    "thiazide diuretic medications due to increased hypercalcemia risk",
+    "digoxin due to increased risk of digoxin toxicity from hypercalcemia"
+  ]
 }

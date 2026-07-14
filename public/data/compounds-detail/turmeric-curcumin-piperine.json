@@ -41,5 +41,12 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "standardized extract capsule",
-  "typical_dosage": "standardized extract capsule"
+  "typical_dosage": "standardized extract capsule",
+  "contraindications": [
+    "known hypersensitivity to turmeric or curcumin or piperine",
+    "bile duct obstruction or gallstones due to strong gallbladder-stimulating effect",
+    "anticoagulant or antiplatelet medications such as warfarin or aspirin or clopidogrel due to bleeding risk",
+    "iron supplements or iron-deficiency anemia due to piperine interference with iron absorption",
+    "discontinue 1-2 weeks before scheduled surgery due to bleeding risk"
+  ]
 }

@@ -40,5 +40,12 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "known hypersensitivity to passionflower",
+    "sedative medications or alcohol or benzodiazepines or opioids due to additive CNS depression",
+    "MAOI medications due to theoretical monoamine oxidase inhibitory activity from trace beta-carboline alkaloids",
+    "pregnancy due to uterine-stimulant effect",
+    "anesthesia or perioperative sedative medications due to additive CNS-depressant effect"
+  ]
 }
