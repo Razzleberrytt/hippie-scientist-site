@@ -69,17 +69,71 @@ function collectPages() {
 // when the rendered page has substantial text.
 const PROSE_KEYS = /\b(title|desc|description|problem|why|cta|body|caution|bestFor|fit|label|goal|role|summary|name|kind|sub|eyebrow|text|note|question|answer)\s*:\s*(['"`])((?:(?!\2)[^\\]|\\.)*)\2/g
 
-function countWords(source) {
+function extractProseLiterals(source) {
+  const withoutComments = source
+    .replace(/\/\/.*$/gm, '')
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+  let proseLiterals = ''
+  let match
+  PROSE_KEYS.lastIndex = 0
+  while ((match = PROSE_KEYS.exec(withoutComments))) {
+    proseLiterals += ' ' + match[3]
+  }
+  return proseLiterals
+}
+
+// Resolves a page's own local (relative or `@/`-aliased) imports to on-disk
+// files, so prose sourced from a companion data module (e.g. hub pages that
+// `.map()` over an imported article list rather than inlining `title: '...'`
+// literals) still counts toward the page's word total. Recurses a bounded
+// depth to reach re-exported barrel files (e.g. `lib/foo.ts` spreading in
+// arrays from `lib/foo/articles-a.ts`), capped and de-duped to stay cheap.
+const IMPORT_SPECIFIER = /from\s+['"]((?:\.{1,2}|@)\/[^'"]+)['"]/g
+const MAX_IMPORT_DEPTH = 3
+
+function resolveImportPath(specifier, fromDir) {
+  const base = specifier.startsWith('@/') ? path.join(ROOT, specifier.slice(2)) : path.resolve(fromDir, specifier)
+  for (const candidate of [base, `${base}.ts`, `${base}.tsx`, path.join(base, 'index.ts'), path.join(base, 'index.tsx')]) {
+    if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) return candidate
+  }
+  return null
+}
+
+function collectImportedProse(source, fromFile, depth, visited) {
+  if (depth > MAX_IMPORT_DEPTH) return ''
+  let prose = ''
+  const fromDir = path.dirname(fromFile)
+  let match
+  IMPORT_SPECIFIER.lastIndex = 0
+  while ((match = IMPORT_SPECIFIER.exec(source))) {
+    const resolved = resolveImportPath(match[1], fromDir)
+    // Only follow imports into our own content/lib source — never node_modules,
+    // generated public/data, or component directories (avoids pulling unrelated
+    // UI copy into a page's word count).
+    if (!resolved || visited.has(resolved)) continue
+    if (!resolved.startsWith(path.join(ROOT, 'lib')) && !resolved.startsWith(path.join(ROOT, 'src', 'lib'))) continue
+    visited.add(resolved)
+    let importedSource
+    try {
+      importedSource = fs.readFileSync(resolved, 'utf-8')
+    } catch {
+      continue
+    }
+    prose += ' ' + extractProseLiterals(importedSource)
+    prose += ' ' + collectImportedProse(importedSource, resolved, depth + 1, visited)
+  }
+  return prose
+}
+
+function countWords(source, filePath) {
   const withoutImports = source
     .replace(/import\s+.*?from\s+['"][^'"]+['"]/g, '')
     .replace(/\/\/.*$/gm, '')
     .replace(/\/\*[\s\S]*?\*\//g, '')
 
-  let proseLiterals = ''
-  let match
-  PROSE_KEYS.lastIndex = 0
-  while ((match = PROSE_KEYS.exec(withoutImports))) {
-    proseLiterals += ' ' + match[3]
+  let proseLiterals = extractProseLiterals(source)
+  if (filePath) {
+    proseLiterals += collectImportedProse(source, filePath, 1, new Set())
   }
 
   // Strip JSX/HTML tags and remaining braces (interpolation, non-prose objects)
@@ -450,7 +504,7 @@ function run() {
       continue
     }
 
-    const wordCount = countWords(source)
+    const wordCount = countWords(source, page.pagePath)
 
     allIssues.push(
       ...checkMetadata(source, page.route),
@@ -532,4 +586,8 @@ function run() {
   process.exit(0)
 }
 
-run()
+if (import.meta.url === `file://${process.argv[1]}`) {
+  run()
+}
+
+export { countWords }

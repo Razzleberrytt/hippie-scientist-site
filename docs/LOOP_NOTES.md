@@ -1451,3 +1451,44 @@ audit:risk-tag-collisions`, `npm run check`, and the full Vitest suite
 (584/584) all passed. `interaction_edges.json` total dropped from 16741 to
 16673 edges (the 68 removed false pairings), confirming no other unrelated
 edges were disturbed.
+
+---
+
+## 2026-07-14 — `audit:content`'s `thin_page` check had a third variant of the same blind spot: cross-file prose, not just cross-`{}` prose
+
+With the compound-safety thread carrying 4+ open PRs already in flight (high
+collision risk), looked elsewhere and found `/guides/mental-health` flagged
+`thin_page` at ~297 words — a real, substantial hub page (13 article cards
+across 3 clusters plus ~5 editorial sections). Root cause: `countWords()` in
+`scripts/content-audit.mjs` only ever reads `page.tsx` itself. The two
+earlier `thin_page` false-positive fixes (documented above) both concerned
+prose trapped inside `{...}` blocks *within the same file*; this hub's prose
+lives one level further away — `article.title`/`article.description` are
+property accesses on items `.map()`ed from an imported array
+(`lib/mental-health-articles.ts`, itself re-exporting from
+`lib/mental-health/articles-core.ts` + 3 cluster files) — so neither the
+in-file `PROSE_KEYS` regex nor a same-file blanket-`{}`-strip could ever see
+it, regardless of how much real content those files held ended up rendered.
+
+Fixed by teaching `countWords()` to optionally take the page's file path,
+resolve its local (`./`, `../`, or `@/`-aliased) imports, and recursively
+apply the same `PROSE_KEYS` extraction to any resolved file under `lib/` or
+`src/lib/` (depth-capped at 3, de-duped via a visited-set, and deliberately
+scoped to `lib/`/`src/lib/` only — never `node_modules`, generated
+`public/data`, or `components/`, to avoid pulling unrelated UI copy into a
+word count). `/guides/mental-health` now correctly counts ~600+ words and
+the audit reports 0 thin pages across the whole site (was 1). Added
+`scripts/content-audit.test.mjs` (`countWords` wasn't previously exported or
+tested at all) covering both the plain in-file case and the cross-file
+import-following case via a throwaway `lib/__test_*__/` fixture dir cleaned
+up in `afterEach`.
+
+Takeaway for future cycles: this is now the third distinct shape of the same
+underlying bug class (audit script that only sees literal source text, on a
+codebase that increasingly composes page content from separate `lib/*`
+article-data modules — `mental-health-articles.ts`, `focus-adhd-articles.ts`
+per CLAUDE.md's own active-file list). Only 1 of the 8 currently-audited
+pages needed the cross-file fix today, but the pattern is growing, not
+shrinking — expect more hub pages built this way, and don't assume a
+`thin_page` reading is real without checking whether the page's actual prose
+lives in an imported data file first.
