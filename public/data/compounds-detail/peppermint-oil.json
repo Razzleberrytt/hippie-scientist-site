@@ -132,6 +132,10 @@
   "dosage": "standardized oral supplement form",
   "typical_dosage": "standardized oral supplement form",
   "contraindications": [
-    "gerd_caution"
+    "gastroesophageal reflux disease or active gastric ulcers due to decreased lower esophageal sphincter pressure worsening reflux",
+    "gallstones or bile duct obstruction or gallbladder inflammation or severe liver damage",
+    "cyclosporine due to slowed drug breakdown and increased blood levels",
+    "acid-reducing medications such as antacids or proton pump inhibitors or H2 blockers may cause enteric-coated capsules to dissolve prematurely in the stomach",
+    "hiatal hernia due to worsened reflux symptoms"
   ]
 }
