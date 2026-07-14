@@ -39,5 +39,13 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "known hypersensitivity to cordyceps or other fungi",
+    "autoimmune disease such as lupus or rheumatoid arthritis or multiple sclerosis due to immune-stimulating effects",
+    "immunosuppressant medications such as cyclosporine or organ transplant anti-rejection drugs due to reduced effectiveness",
+    "anticoagulant or antiplatelet medications due to bleeding risk",
+    "diabetes medications or insulin due to added hypoglycemia risk",
+    "discontinue before scheduled surgery due to bleeding risk"
+  ]
 }

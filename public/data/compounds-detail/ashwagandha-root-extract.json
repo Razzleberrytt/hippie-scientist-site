@@ -42,5 +42,13 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "known hypersensitivity to ashwagandha or nightshade family plants",
+    "pregnancy or breastfeeding due to possible abortifacient effects and insufficient safety data",
+    "thyroid disorders or thyroid hormone medications due to risk of excess thyroid stimulation",
+    "sedative medications or alcohol due to additive drowsiness",
+    "autoimmune conditions such as rheumatoid arthritis or lupus or multiple sclerosis due to immune-stimulating effects",
+    "liver disease or hepatotoxic medications due to rare reports of liver injury"
+  ]
 }

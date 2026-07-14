@@ -44,5 +44,12 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "softgel or liquid oil",
-  "typical_dosage": "softgel or liquid oil"
+  "typical_dosage": "softgel or liquid oil",
+  "contraindications": [
+    "known allergy to fish or shellfish",
+    "anticoagulant or antiplatelet medications such as warfarin or aspirin due to bleeding risk though clinical evidence is mixed",
+    "discontinue before scheduled surgery due to theoretical bleeding risk",
+    "high doses above 2-4 grams daily associated with increased atrial fibrillation risk",
+    "cardiovascular disease warrants clinician guidance on dosing"
+  ]
 }

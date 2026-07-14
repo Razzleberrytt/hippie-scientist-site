@@ -40,5 +40,13 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "known hypersensitivity to holy basil or other Ocimum species",
+    "pregnancy due to potential uterine-stimulant effect and insufficient safety data",
+    "fertility concerns due to possible reduction in sperm count and motility at high doses in animal studies",
+    "diabetes medications or insulin due to added hypoglycemia risk",
+    "anticoagulant or antiplatelet medications due to bleeding risk",
+    "discontinue before scheduled surgery due to bleeding and blood-sugar risk"
+  ]
 }

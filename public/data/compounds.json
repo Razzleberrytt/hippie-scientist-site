@@ -4568,7 +4568,14 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "known hypersensitivity to ashwagandha or nightshade family plants",
+      "pregnancy or breastfeeding due to possible abortifacient effects and insufficient safety data",
+      "thyroid disorders or thyroid hormone medications due to risk of excess thyroid stimulation",
+      "sedative medications or alcohol due to additive drowsiness",
+      "autoimmune conditions such as rheumatoid arthritis or lupus or multiple sclerosis due to immune-stimulating effects",
+      "liver disease or hepatotoxic medications due to rare reports of liver injury"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -4611,7 +4618,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4619,7 +4626,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -16301,7 +16308,14 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "known hypersensitivity to cordyceps or other fungi",
+      "autoimmune disease such as lupus or rheumatoid arthritis or multiple sclerosis due to immune-stimulating effects",
+      "immunosuppressant medications such as cyclosporine or organ transplant anti-rejection drugs due to reduced effectiveness",
+      "anticoagulant or antiplatelet medications due to bleeding risk",
+      "diabetes medications or insulin due to added hypoglycemia risk",
+      "discontinue before scheduled surgery due to bleeding risk"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -16353,7 +16367,7 @@
       "mechanism-context",
       "non-publishable-profile-status",
       "profile-status:research_only",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -16735,7 +16749,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "known hypersensitivity to creatine or beta-alanine",
+      "chronic kidney disease or reduced kidney function due to increased creatinine load and unclear long-term safety",
+      "nephrotoxic medications such as NSAIDs or aminoglycosides or certain diuretics warrant caution",
+      "dehydration or inadequate fluid intake during intense exercise",
+      "paresthesia or tingling sensation from beta-alanine is common and benign"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -16778,7 +16798,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -16786,7 +16806,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -26138,7 +26158,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "known hypersensitivity to ginger",
+      "anticoagulant or antiplatelet medications such as warfarin or aspirin due to bleeding risk",
+      "gallstones or bile duct obstruction due to choleretic bile-stimulating effect",
+      "high doses during pregnancy without clinician guidance",
+      "diabetes medications or insulin due to added hypoglycemia risk"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -26181,7 +26207,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 80,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -26189,7 +26215,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -30174,7 +30200,14 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "known hypersensitivity to holy basil or other Ocimum species",
+      "pregnancy due to potential uterine-stimulant effect and insufficient safety data",
+      "fertility concerns due to possible reduction in sperm count and motility at high doses in animal studies",
+      "diabetes medications or insulin due to added hypoglycemia risk",
+      "anticoagulant or antiplatelet medications due to bleeding risk",
+      "discontinue before scheduled surgery due to bleeding and blood-sugar risk"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -30217,7 +30250,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -30225,7 +30258,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -43079,7 +43112,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "known allergy to fish or shellfish",
+      "anticoagulant or antiplatelet medications such as warfarin or aspirin due to bleeding risk though clinical evidence is mixed",
+      "discontinue before scheduled surgery due to theoretical bleeding risk",
+      "high doses above 2-4 grams daily associated with increased atrial fibrillation risk",
+      "cardiovascular disease warrants clinician guidance on dosing"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "softgel or liquid oil",
@@ -43122,7 +43161,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -43130,7 +43169,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -45366,7 +45405,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "known hypersensitivity to passionflower",
+      "sedative medications or alcohol or benzodiazepines or opioids due to additive CNS depression",
+      "MAOI medications due to theoretical monoamine oxidase inhibitory activity from trace beta-carboline alkaloids",
+      "pregnancy due to uterine-stimulant effect",
+      "discontinue before scheduled surgery due to anesthesia-potentiating effect"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -56953,7 +56998,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "known hypersensitivity to turmeric or curcumin or piperine",
+      "bile duct obstruction or gallstones due to strong gallbladder-stimulating effect",
+      "anticoagulant or antiplatelet medications such as warfarin or aspirin or clopidogrel due to bleeding risk",
+      "iron supplements or iron-deficiency anemia due to piperine interference with iron absorption",
+      "discontinue 1-2 weeks before scheduled surgery due to bleeding risk"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -56996,7 +57047,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -57004,7 +57055,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -59392,7 +59443,14 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "known hypersensitivity to vitamin D",
+      "hypercalcemia or conditions predisposing to hypercalcemia",
+      "sarcoidosis or other granulomatous disease due to enhanced conversion to active vitamin D",
+      "kidney disease or impaired renal function warrants monitoring and clinician guidance",
+      "thiazide diuretic medications due to increased hypercalcemia risk",
+      "digoxin due to increased risk of digoxin toxicity from hypercalcemia"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or softgel",
@@ -59435,7 +59493,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -59443,7 +59501,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
