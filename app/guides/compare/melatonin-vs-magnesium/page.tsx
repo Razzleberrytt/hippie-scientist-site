@@ -131,7 +131,7 @@ export default function MelatoninVsMagnesiumPage() {
 
       <section className="surface-subtle rounded-3xl p-6 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">
-          Magnesium glycinate vs melatonin: quick answer
+          Melatonin vs magnesium: quick answer
         </h2>
 
         <p className="text-sm leading-7 text-muted">
@@ -182,7 +182,7 @@ export default function MelatoninVsMagnesiumPage() {
       <section className="grid gap-5 md:grid-cols-2">
         <article className="card-premium p-6 space-y-3">
           <h2 className="text-xl font-semibold tracking-tight text-ink">
-            Magnesium versus melatonin: the core difference
+            Magnesium glycinate vs melatonin: the core difference
           </h2>
           <p className="text-sm leading-7 text-muted">
             Magnesium glycinate supports relaxation physiology and muscle comfort; melatonin is a timing signal. If your body feels tense but your schedule is normal, compare magnesium first. If your sleep clock is shifted, compare low-dose melatonin first.
