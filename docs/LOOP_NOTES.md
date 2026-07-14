@@ -1767,3 +1767,72 @@ full Vitest suite (592/592) all passed clean on the final 21-file diff (20
 re-run `npm run audit:severity-tokens` fresh next cycle and re-check
 `list_pull_requests` before picking targets; this thread continues to attract
 heavy concurrent activity.
+
+---
+
+## 2026-07-14 (later still) — Filled 6 more compound `contraindications_or_flags` gaps, all standalone (no family-cluster) slugs
+
+Ran `npm run audit:severity-tokens` (56 gaps, unchanged from the prior entry's
+count since none of the 4 concurrently open PRs targeting this same thread —
+#2274, #2263, #2262, #2260 — had merged yet) and cross-checked every candidate
+against all 35 open PRs' titles/bodies via `list_pull_requests` before picking
+targets, to avoid collision with in-flight work. Also continued avoiding the
+long-flagged variant/component-cluster slugs (betaine, taurine, probiotics,
+atractylenolide, boswellic-acid, garlic, maca, gingerol/gingerols, ginkgolide,
+inositol families) pending the still-unresolved naming-policy question.
+
+Picked 6 standalone compounds with strong, `WebSearch`-verified pharmacology:
+`panax-ginseng-extract` (MAOI/phenelzine manic-symptom interaction, warfarin
+INR reduction, hypoglycemia with antidiabetics, pregnancy caution), `schisandra-extract`
+(potent CYP3A4/P-gp inhibition raising tacrolimus/cyclosporine/statin levels,
+traditional pregnancy and acute-infection contraindications), `aescin`/horse
+chestnut (renal/hepatic clearance caution, anticoagulant INR interaction,
+chestnut allergy), `dihydromethysticin` (kava-lactone hepatotoxicity, alcohol's
+inhibition of kavalactone clearance, CYP450 interactions), `electrolytes-potassium`
+(hyperkalemia risk with CKD/ACE-inhibitors/ARBs/potassium-sparing diuretics),
+and `electrolytes-sodium` (heart-failure decompensation, CKD fluid retention,
+hypertension).
+
+Simulated `classifyContraindicationValue()` and `findSuspectMatches()` against
+every draft clause before writing — caught one real substring collision this
+cycle would otherwise have introduced: an early draft's "adrenal insufficiency"
+clause for `electrolytes-potassium` matched the `renal` keyword via the `ad`
+prefix (not in `ALLOWED_PREFIXES`), so it was reworded to "Addison's disease or
+other hypoaldosteronism conditions" before writing to the workbook. A good
+concrete example of why the pre-flight simulation step earlier entries
+recommend is worth the extra minute — this one would have passed the workbook
+edit cleanly and only shown up as an `audit:risk-tag-collisions` finding after
+the fact.
+
+Applied via `edit-entity-master-cell.mjs --in-place` (6 calls) → `validate:workbook-schema`
+→ `workbook:roundtrip-test` (22 sheets byte-for-byte) → `data:build:core` →
+`data:sync-detail-backfill`. Found the same stale-detail-file failure mode
+documented in the immediately preceding entry, on 3 of the 6 targets this time:
+`aescin`, `dihydromethysticin`, and `electrolytes-potassium` all had a
+pre-existing non-empty `compounds-detail` `contraindications` field (bare
+tokens like `["pregnancy"]` or `["kidney"]`) that the backfill script correctly
+left alone since it only fills genuinely-missing keys — hand-patched just that
+one field in each of the 3, preserving existing formatting. The other 3 targets
+(`panax-ginseng-extract`, `schisandra-extract`, `electrolytes-sodium`) had no
+pre-existing detail-file key and were picked up by the backfill automatically.
+
+Reverted 9 unrelated files the full `data:sync-detail-backfill` touched
+(`caffeine-l-theanine`, `fadogia-agrestis`, `magnesium`, `melatonin`,
+`peppermint-oil`, `saccharomyces-boulardii` compounds-detail; `ashwagandha`,
+`maca`, `rhodiola` herbs-detail) after confirming programmatically that every
+one was a pure `sources[]` element-reorder with an identical set of objects —
+same recurring noise class as every prior cycle in this thread.
+
+`validate:workbook-schema`, `workbook:roundtrip-test`, `data:validate`,
+`guard:source-of-truth`, `audit:risk-tag-collisions`, `npm run check`, and the
+full Vitest suite (592/592) all passed clean on the final 20-file diff (19
+`public/data` files + the workbook).
+
+**50 `full_public_runtime` compounds with a severity-token/empty
+`contraindications_or_flags` gap should remain** (56 minus this cycle's 6,
+assuming none of the 4 concurrently open PRs on this thread have merged yet —
+re-verify with a fresh `npm run audit:severity-tokens` run) — re-check
+`list_pull_requests` before picking targets next cycle; this thread continues
+to attract heavy concurrent autonomous activity and could use a human decision
+on the variant/family-cluster naming policy to unblock ~20 of the remaining
+gaps that are stuck behind it.

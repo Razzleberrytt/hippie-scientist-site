@@ -39,5 +39,12 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "chelated mineral capsule or powder",
-  "typical_dosage": "chelated mineral capsule or powder"
+  "typical_dosage": "chelated mineral capsule or powder",
+  "contraindications": [
+    "hypertension or sodium-sensitive blood pressure without clinician guidance",
+    "congestive heart failure due to risk of volume overload and decompensation",
+    "chronic kidney disease due to impaired sodium excretion and fluid retention",
+    "cirrhosis or liver disease with ascites due to fluid-retention risk",
+    "concurrent corticosteroid medication due to additive sodium and fluid retention"
+  ]
 }

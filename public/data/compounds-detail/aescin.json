@@ -160,6 +160,10 @@
   "dosage": "standardized botanical extract capsule",
   "typical_dosage": "standardized botanical extract capsule",
   "contraindications": [
-    "pregnancy"
+    "renal impairment or hepatic impairment due to reduced clearance of aescin",
+    "anticoagulant or antiplatelet medication such as warfarin or aspirin or clopidogrel due to an additive bleeding risk and unpredictable INR changes",
+    "pregnancy or breastfeeding without clinician guidance due to insufficient safety data",
+    "known chestnut allergy",
+    "scheduled surgery due to bleeding risk"
   ]
 }

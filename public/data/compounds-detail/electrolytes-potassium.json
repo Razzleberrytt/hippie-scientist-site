@@ -41,6 +41,10 @@
   "dosage": "chelated mineral capsule or powder",
   "typical_dosage": "chelated mineral capsule or powder",
   "contraindications": [
-    "kidney"
+    "chronic kidney disease or reduced glomerular filtration rate due to impaired renal potassium excretion",
+    "ACE inhibitor or ARB or potassium-sparing diuretic medication due to a well-documented additive hyperkalemia risk",
+    "baseline serum potassium above the normal range",
+    "Addison's disease or other hypoaldosteronism conditions due to impaired aldosterone-mediated potassium excretion",
+    "concurrent NSAID use due to reduced renal potassium clearance"
   ]
 }

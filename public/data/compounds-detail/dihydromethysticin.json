@@ -145,7 +145,10 @@
   "dosage": "capsule or standardized extract",
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [
-    "pregnancy",
-    "liver"
+    "pre-existing liver disease or elevated liver enzymes",
+    "concurrent alcohol use due to kava inhibiting ethanol-to-acetaldehyde conversion and slowing kavalactone clearance",
+    "concurrent hepatotoxic medications such as acetaminophen or statins due to additive liver-injury risk",
+    "pregnancy or breastfeeding without clinician guidance",
+    "CYP450-metabolized medications due to kavalactone-mediated enzyme inhibition raising drug levels"
   ]
 }

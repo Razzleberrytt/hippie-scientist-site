@@ -39,5 +39,12 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "pregnancy due to traditional uterine-stimulant and antifertility use in Chinese medicine",
+    "active acute infection or excess-heat conditions per traditional-use restrictions",
+    "tacrolimus or cyclosporine due to potent CYP3A4 inhibition that markedly raises blood levels of these immunosuppressants",
+    "statins or calcium channel blockers or benzodiazepines due to CYP3A4-mediated increases in drug exposure",
+    "active peptic ulcer or gastroesophageal reflux due to its astringent acid-stimulating action"
+  ]
 }

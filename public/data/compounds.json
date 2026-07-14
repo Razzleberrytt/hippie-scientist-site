@@ -1478,7 +1478,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy"
+      "renal impairment or hepatic impairment due to reduced clearance of aescin",
+      "anticoagulant or antiplatelet medication such as warfarin or aspirin or clopidogrel due to an additive bleeding risk and unpredictable INR changes",
+      "pregnancy or breastfeeding without clinician guidance due to insufficient safety data",
+      "known chestnut allergy",
+      "scheduled surgery due to bleeding risk"
     ],
     "interactions": [],
     "side_effects": [],
@@ -19887,8 +19891,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy",
-      "liver"
+      "pre-existing liver disease or elevated liver enzymes",
+      "concurrent alcohol use due to kava inhibiting ethanol-to-acetaldehyde conversion and slowing kavalactone clearance",
+      "concurrent hepatotoxic medications such as acetaminophen or statins due to additive liver-injury risk",
+      "pregnancy or breastfeeding without clinician guidance",
+      "CYP450-metabolized medications due to kavalactone-mediated enzyme inhibition raising drug levels"
     ],
     "interactions": [],
     "side_effects": [],
@@ -44741,7 +44748,14 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "known hypersensitivity to ginseng or other Araliaceae family plants",
+      "pregnancy without clinician guidance due to a traditional contraindication and insufficient human safety data",
+      "diabetes medication or insulin due to added hypoglycemia risk",
+      "phenelzine or other monoamine oxidase inhibitor medications due to reported manic-like symptoms with concurrent use",
+      "warfarin due to case reports of reduced anticoagulant effect and lowered INR requiring closer monitoring",
+      "uncontrolled high blood pressure or acute infection or unexplained bleeding without clinician guidance"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -44784,7 +44798,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -44792,7 +44806,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -46933,7 +46947,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "kidney"
+      "chronic kidney disease or reduced glomerular filtration rate due to impaired renal potassium excretion",
+      "ACE inhibitor or ARB or potassium-sparing diuretic medication due to a well-documented additive hyperkalemia risk",
+      "baseline serum potassium above the normal range",
+      "Addison's disease or other hypoaldosteronism conditions due to impaired aldosterone-mediated potassium excretion",
+      "concurrent NSAID use due to reduced renal potassium clearance"
     ],
     "interactions": [],
     "side_effects": [],
@@ -51491,7 +51509,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "pregnancy due to traditional uterine-stimulant and antifertility use in Chinese medicine",
+      "active acute infection or excess-heat conditions per traditional-use restrictions",
+      "tacrolimus or cyclosporine due to potent CYP3A4 inhibition that markedly raises blood levels of these immunosuppressants",
+      "statins or calcium channel blockers or benzodiazepines due to CYP3A4-mediated increases in drug exposure",
+      "active peptic ulcer or gastroesophageal reflux due to its astringent acid-stimulating action"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -51543,7 +51567,7 @@
       "mechanism-context",
       "non-publishable-profile-status",
       "profile-status:research_only",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -53991,7 +54015,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "hypertension or sodium-sensitive blood pressure without clinician guidance",
+      "congestive heart failure due to risk of volume overload and decompensation",
+      "chronic kidney disease due to impaired sodium excretion and fluid retention",
+      "cirrhosis or liver disease with ascites due to fluid-retention risk",
+      "concurrent corticosteroid medication due to additive sodium and fluid retention"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "chelated mineral capsule or powder",
@@ -54034,7 +54064,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -54042,7 +54072,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
