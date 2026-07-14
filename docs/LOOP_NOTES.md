@@ -1961,3 +1961,39 @@ index: false }` before assuming the flagged content gap is real — noindex
 routes (interactive tools, dynamic pickers, preview/draft pages) are a
 recurring blind spot for content-quality audits that only look at prose
 patterns, not indexing intent.
+
+## 2026-07-14 (later) — Closed 2 more `audit:ai-citations` compare-page gaps (6 → 4 remaining)
+
+Continued the `/guides/compare/*` `CitationReadySummary` thread from the
+prior entry, picking the two shortest of the six remaining flagged pages
+(`kanna-vs-ssris`, 207 lines; `melatonin-vs-valerian-vs-magnesium-for-sleep`,
+356 lines) per that entry's own "shortest/least risky first" ordering.
+Checked `list_pull_requests` first — 12 open PRs, none touching compare
+pages or this audit script, clear to work.
+
+Added a `CitationReadySummary` to each following the established prop
+pattern (`answer`, `bestFor`, `evidenceLevel`, `safetyNote`, `notClaiming`,
+`referencesHref="#references"`), written entirely from claims already on
+each page (the existing serotonin-syndrome warning block on the kanna page,
+the existing head-to-head table and safety-cautions list on the
+melatonin/valerian/magnesium page) — no new research introduced. Both pages
+were also missing the audit's methodology/disclaimer/safety/dosing support
+link, so added a `/safety-checker/` link to each (kanna page's existing red
+safety-warning chip row; melatonin/valerian/magnesium page's safety-cautions
+section, plus a second `/info/dosing/` link there since it already had the
+UI room for two chips).
+
+Re-ran `audit:ai-citations`: 6 flagged pages → 4
+(`ashwagandha-vs-l-theanine-vs-magnesium`, `berberine-vs-metformin`,
+`curcumin-vs-boswellia-vs-omega-3` — quick-answer only, `sleep-herbs-vs-
+melatonin`). `npm run check` passed clean (typecheck + lint + article
+quality + `data:build:core` + validate-data-files). Final diff: exactly the
+2 page files; `public/data/_meta/build-info.json` timestamp reverted as
+usual.
+
+**Takeaway for future cycles:** the remaining 4 pages get longer and more
+claim-dense (367–688 lines), so writing their summaries will take more care
+to stay grounded in existing page content rather than introducing new
+claims — same discipline as this cycle and the last, just slower per page.
+`sleep-herbs-vs-melatonin` (688 lines, the longest) is probably worth
+splitting into its own cycle rather than pairing it with another page.

@@ -13,6 +13,7 @@ import FAQSchema from '@/components/seo/FAQSchema'
 import References from '@/components/References'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import CitationReadySummary from '@/components/seo/CitationReadySummary'
 import COAList from '../../../../src/components/coa/COAList'
 import type { COADocument } from '../../../../src/types/coa'
 
@@ -102,6 +103,19 @@ export default function KannaVsSSRIsPage() {
         </figure>
       </section>
 
+      <CitationReadySummary
+        answer="Kanna and SSRIs both act on serotonin, but they are not comparable options — kanna is an under-studied traditional serotonin-reuptake-inhibiting herb with no standardized dosing or long-term safety data, while SSRIs are extensively studied prescription medications. Combining them risks serotonin syndrome, a potentially life-threatening condition."
+        bestFor={[
+          'Kanna: traditional short-term mood support in people not taking any serotonergic medication.',
+          'SSRIs: clinically diagnosed depression or anxiety requiring medically supervised, titrated treatment.',
+          'Neither together: combining kanna with SSRIs, SNRIs, MAOIs, tramadol, or St. John\'s Wort due to serotonin syndrome risk.',
+        ]}
+        evidenceLevel="SSRIs have decades of large-scale clinical trial data. Kanna's serotonin-reuptake-inhibiting and PDE4-inhibiting activity is supported by small human and preclinical studies, but potency, selectivity, and long-term effects are not well-characterized."
+        safetyNote="Anyone taking an SSRI, SNRI, MAOI, tramadol, or other serotonergic medication should not use kanna. Watch for serotonin syndrome symptoms (agitation, rapid heart rate, high blood pressure, muscle rigidity, hyperthermia) and seek emergency care if they occur."
+        notClaiming="This page is not claiming kanna is a safe or effective substitute for prescribed antidepressants."
+        referencesHref="#references"
+      />
+
       <section className="grid gap-6 lg:grid-cols-2">
         <div className="card-premium p-6 space-y-4">
           <p className="eyebrow-label">Ethnobotanical System</p>
@@ -151,6 +165,7 @@ export default function KannaVsSSRIsPage() {
         <div className="mt-4 flex flex-wrap gap-3">
           <Link href="/learn/serotonin/" className="rounded-full bg-red-100 px-3 py-1.5 text-xs font-bold text-red-800">Serotonin Pathway</Link>
           <Link href="/learn/serotonergic-stacking-risks/" className="rounded-full bg-red-100 px-3 py-1.5 text-xs font-bold text-red-800">Serotonergic Risks</Link>
+          <Link href="/safety-checker/" className="rounded-full bg-red-100 px-3 py-1.5 text-xs font-bold text-red-800">Check Your Medication Interactions</Link>
         </div>
       </section>
 
