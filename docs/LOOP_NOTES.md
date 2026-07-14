@@ -2113,3 +2113,79 @@ quick-answer only — no support-link gap, so a smaller fix), and
 its own cycle per the prior entry). `curcumin-vs-boswellia-vs-omega-3` is
 likely the next-lowest-risk pick since it only needs one component added,
 not two content additions.
+
+---
+
+## 2026-07-14 (later still) — Taught `audit:curated-indexable` to distinguish deliberate governance holds from real regressions; two big findings for future cycles
+
+Fresh cold session. `list_pull_requests` showed 37 open PRs — the
+AI-citation compare-page thread (prior two entries) turned out to be fully
+claimed already: `curcumin-vs-boswellia-vs-omega-3` had an open PR (#2282,
+not yet merged) and `sleep-herbs-vs-melatonin` had already merged (#2284)
+in the few minutes before this session started. Re-running
+`audit:ai-citations` locally showed 1 flagged page, which matched #2282's
+in-flight work, not a fresh gap — don't trust a locally-run advisory audit
+against a stale `origin/main` fetch without cross-checking open PR titles
+first; the numbers can look like "one gap left" when it's actually "one PR
+away from landing."
+
+**Finding #1 (acted on this cycle):** PR #2270 (open, unmerged) fixed a
+real leaked-template-placeholder bug on 8 flagship herb summaries and left
+a documented next step: `npm run audit:curated-indexable` (a regression
+guard added at some point, never wired into CI) was reporting 10 problems,
+but 3 of those (`black-cohosh`, `phosphatidylcholine`, `acetyl-l-carnitine`)
+are *deliberate* governance holds (`hidden_until_grounded` /
+`research_only` profile status pending stronger evidence grounding), not
+regressions — the script had no way to tell the two apart. Fixed by adding
+`isDeliberateHold()` to `scripts/audit/verify-curated-indexable.mjs`,
+matching on the same `noindex-decision:*` / `profile-status:*` reason
+strings that `scripts/data/indexability-policy.mjs` already writes into
+`indexability_reasons` (kept in lockstep via a comment, same convention
+the file already uses for the curated-slug-list duplication). Deliberate
+holds now print as an informational, non-failing section; genuine
+regressions (currently `ginger` and `peppermint` — the exact 2 slugs
+#2270's own diff fixes) still fail the script correctly. Verified against
+current `public/data`: 10 problems → 4 real problems + 6 holds correctly
+separated.
+
+**Did NOT wire it into `check`/`check:fast` this cycle** even though
+that was the natural next step and the code fully supports it now — doing
+so today would make `npm run check` fail for everyone on `main` until
+#2270 merges, since `ginger`/`peppermint` are a real, currently-live
+regression on production main (not yet fixed there). Wiring a guard into
+the standard gate while it's certain to fail on `main` is worse than not
+wiring it. **Next cycle: once #2270 merges, wire
+`node scripts/audit/verify-curated-indexable.mjs` into the `check:fast`
+script chain** (right after `validate-data-files.mjs` — it's a cheap
+read-two-JSON-files check with no build cost) so this class of bug can't
+silently ship again.
+
+**Finding #2 (documented, not acted on — needs a human decision):** the
+compound-`contraindications_or_flags` safety-gap thread (5+ concurrent
+PRs — #2260, #2262, #2263, #2274, #2277 — all editing
+`data-sources/herb_monograph_master.xlsx` independently) has started
+producing real merge conflicts now that some of them have merged: checked
+#2277's `pull_request_read` and its `mergeable_state` is `"dirty"` against
+current `main`. Binary `.xlsx` conflicts can't be resolved by GitHub's
+web merge UI — someone has to manually re-derive the diff (re-run the
+surgical `edit-entity-master-cell.mjs` edits against a fresh base) or the
+PR is effectively dead weight sitting in the open-PR list. This wasn't
+something a single cycle could safely fix (rebasing another
+already-authored PR's branch on top of newly-merged history, without
+being able to verify the rebase preserves that PR's exact intended cell
+edits, felt too risky to do unattended), so it's left as a documented
+finding rather than an action.
+
+**Takeaway for future cycles:** (1) when a thread you're about to continue
+already merged or has an open PR covering the exact target you're eyeing,
+`list_pull_requests` + a title scan catches it in seconds — do that before
+re-running the audit locally, since a stale local `main` can make a
+claimed gap look like a fresh one. (2) Before adding yet another PR to the
+compound-contraindications-workbook pile, check a sample of the existing
+open ones' `mergeable_state` first — if several are already `dirty`, the
+thread needs a rebase/consolidation pass more than another new batch, and
+piling on makes the eventual untangling worse, not better. (3) A CI/audit
+guard is only safe to wire into the standard gate once it's green against
+current `main` — a guard that's correct-but-currently-failing belongs in
+LOOP_NOTES as "wire this in once PR #NNNN lands," not directly into
+`check`.
