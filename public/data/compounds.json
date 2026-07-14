@@ -1807,11 +1807,9 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "Generally well tolerated in the human trials conducted to date",
-      "an RCT in lumbar disc-associated radiculopathy used roughly 1335 to 3560 mg per day for up to 3 weeks with no treatment-related adverse events (Keynan et al. 2010)",
-      "long-term human safety data beyond a few weeks are limited",
-      "theoretical blood-pressure-lowering effect via nitric-oxide and imidazoline-receptor pathways so caution with antihypertensive medication",
-      "pregnancy/breastfeeding without clinician guidance."
+      "Caution with antihypertensive medication due to a theoretical blood-pressure-lowering effect via nitric-oxide and imidazoline-receptor pathways",
+      "pregnancy/breastfeeding without clinician guidance",
+      "human safety data are limited to short trials of a few weeks or less such as the Keynan et al. 2010 RCT which reported no treatment-related adverse events at roughly 1335 to 3560 mg per day."
     ],
     "interactions": [],
     "side_effects": [],
