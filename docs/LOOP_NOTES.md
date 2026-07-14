@@ -1490,5 +1490,57 @@ article-data modules — `mental-health-articles.ts`, `focus-adhd-articles.ts`
 per CLAUDE.md's own active-file list). Only 1 of the 8 currently-audited
 pages needed the cross-file fix today, but the pattern is growing, not
 shrinking — expect more hub pages built this way, and don't assume a
+
+**Update (same PR, post-review):** Codex's automated review caught that the
+first version above was too coarse: it extracted *every* `PROSE_KEYS` match
+from an imported file and everything it recursively re-exported, not just
+the fields the hub page actually renders. `lib/mental-health/articles-core.ts`
+alone holds 115 `PROSE_KEYS` matches — full article section titles, FAQ
+`question`/`answer` pairs, key points — none of which appear on the
+`/guides/mental-health` hub, which only ever reads `article.title` and
+`article.description` off its loop variable. Following the full import chain
+raised `countWords` from a real ~1067 to a fabricated 9236, which would let a
+future hub that imports a big registry but renders almost nothing of it
+sail past the 500-word threshold undetected — exactly the failure mode this
+check exists to catch. Fixed by adding `detectAccessedProseKeys()`, which
+scans the page's own source for `.<proseKey>` property-access patterns (e.g.
+`article.title`, `a.description`) and passes that as an allowlist into the
+cross-file extraction, so only actually-rendered fields count. Re-verified:
+`/guides/mental-health` now correctly counts ~1067 words (still clears 500
+on real content, not padding) and a strengthened `content-audit.test.mjs`
+case asserts an unaccessed 50-word field never leaks into the count.
+**Takeaway: when generalizing a word-count heuristic to follow imports,
+"more text found" isn't the goal — the goal is "text that actually reaches
+the rendered page." Always scope cross-file extraction to what the page's
+own source demonstrably reads, not everything reachable through the import
+graph.**
+
+The same review round also caught a self-inflicted CI failure from the first
+commit's test fixtures: `scripts/ci/validate-direct-dependencies.mjs`
+statically regex-scans **every** source file (including test files) for the
+literal pattern "the word from, followed by a quoted string" to catch
+undeclared npm packages — it has no awareness of what's a real import versus
+a string literal being written into a dynamically-generated test fixture.
+The original test built its fixture's import line with an inline ternary
+positioned immediately after that opening quote
+(``relImport.startsWith('.') ? ... : `./${relImport}` ``), and the stray
+quote character inside `.startsWith('.')` broke the scanner's quote-matching
+early, so it captured `${relImport.startsWith(` as a fake "package name" and
+failed the build. Worse, the *fix's own explanatory code comment*, which
+described the bug using the literal offending phrase, reproduced the exact
+same trip (comments are plain text to a regex scanner) and had to be
+reworded to describe the pattern without literally writing it out. Fixed for
+real by always writing a **hardcoded literal leading dot-slash** in the
+fixture text (`from './${relImport}'`) instead of a conditional — since the
+scanner only skips specifiers whose raw captured text starts with a dot, and
+a leading dot-slash is a semantic no-op for `path.resolve()` even when the
+real relative path already climbs up via `../` segments, this is correct at
+runtime while also reading as import-shaped to the static scanner. **Takeaway:
+any test that writes JS/TS source-shaped text into a fixture (or describes
+one in a comment) is source text as far as whole-repo static scanners are
+concerned — grep the specific literal patterns those scanners key on
+(`from '`, `require(`, etc.) against your own diff, including comments,
+before trusting a green `npm run check` locally; `check` doesn't run every
+CI-only validator (this one lives in `verify:prebuild`, not `check:fast`).**
 `thin_page` reading is real without checking whether the page's actual prose
 lives in an imported data file first.
