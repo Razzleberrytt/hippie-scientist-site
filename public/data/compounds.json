@@ -2806,9 +2806,9 @@
     "trial_design_insight": "",
     "contraindications": [
       "known hypersensitivity to ginseng or other Araliaceae family plants",
-      "warfarin due to documented case reports of reduced anticoagulant effect and altered INR",
+      "warfarin due to documented case reports of reduced drug effectiveness and lowered INR requiring closer monitoring",
       "diabetes medication or insulin due to added hypoglycemia risk",
-      "MAOI medications such as phenelzine due to reported adverse interaction",
+      "phenelzine or other monoamine oxidase inhibitor medications due to a reported adverse interaction",
       "uncontrolled high blood pressure or acute infection or excessive menstrual bleeding per traditional contraindication use"
     ],
     "interactions": [],
@@ -13692,7 +13692,7 @@
     "trial_design_insight": "",
     "contraindications": [
       "known allergy to algae or iodine",
-      "warfarin due to high vitamin K content antagonizing anticoagulant effect with documented INR changes",
+      "warfarin due to high vitamin K content reducing drug effectiveness with documented INR changes requiring dose monitoring",
       "hyperthyroidism or thyroid medication due to iodine content",
       "autoimmune conditions or immunosuppressant medication due to immune-stimulating activity",
       "take at least two hours apart from other oral medications due to potential absorption interference"
