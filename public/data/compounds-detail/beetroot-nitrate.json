@@ -38,5 +38,12 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "prescription nitrate medications such as nitroglycerin or isosorbide due to a serious additive hypotension risk from compounded nitric-oxide signaling",
+    "PDE-5 inhibitor medications such as sildenafil or tadalafil due to an additive blood-pressure-lowering effect",
+    "antihypertensive medications due to additive blood pressure lowering and risk of dizziness or fainting",
+    "infants or individuals with G6PD deficiency due to methemoglobinemia risk from high dietary nitrate intake",
+    "recurrent kidney stones due to beetroot's oxalate content"
+  ]
 }

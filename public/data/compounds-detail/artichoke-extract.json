@@ -77,5 +77,12 @@
     }
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "bile duct obstruction due to increased bile flow that can worsen blockage and raise the risk of pancreatitis or cholangitis",
+    "gallstones warrants clinician guidance due to a strong choleretic bile-stimulating effect",
+    "known allergy to ragweed or other Asteraceae family plants",
+    "medications broken down by liver enzymes warrant monitoring since artichoke may alter their clearance rate",
+    "pregnancy or breastfeeding due to insufficient safety data"
+  ]
 }

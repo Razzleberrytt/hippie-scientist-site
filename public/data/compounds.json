@@ -464,9 +464,12 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy",
-      "liver",
-      "kidney"
+      "pregnancy or breastfeeding due to insufficient safety data and aloe latex's uterine-stimulant effect",
+      "diabetes medications or insulin due to added hypoglycemia risk",
+      "autoimmune conditions such as lupus or rheumatoid arthritis due to immune-stimulating activity",
+      "immunosuppressant medications due to a theoretical reduction in effectiveness",
+      "digoxin or other cardiac glycoside medications due to a potential additive effect on heart rhythm",
+      "loop or thiazide diuretic medications due to compounded potassium loss"
     ],
     "interactions": [],
     "side_effects": [],
@@ -2696,7 +2699,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "liver"
+      "existing liver disease warrants clinician guidance due to limited human hepatic safety data",
+      "warfarin or phenytoin or NSAIDs or other CYP2C8/CYP2C9 substrate medications due to demonstrated in-vitro cytochrome P450 enzyme inhibition",
+      "cardiovascular disease or blood pressure medications warrant clinician guidance due to documented cardiovascular activity",
+      "pregnancy or breastfeeding due to insufficient human safety data",
+      "diabetes medications may require monitoring due to a theoretical additive blood-glucose-lowering effect from related mangosteen xanthones"
     ],
     "interactions": [],
     "side_effects": [],
@@ -4240,7 +4247,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "bile duct obstruction due to increased bile flow that can worsen blockage and raise the risk of pancreatitis or cholangitis",
+      "gallstones warrants clinician guidance due to a strong choleretic bile-stimulating effect",
+      "known allergy to ragweed or other Asteraceae family plants",
+      "medications broken down by liver enzymes warrant monitoring since artichoke may alter their clearance rate",
+      "pregnancy or breastfeeding due to insufficient safety data"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -4283,7 +4296,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4291,7 +4304,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -5748,7 +5761,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "long-term or high-dose use given a documented gap in sub-chronic and chronic toxicity testing",
+      "liver disease or hepatotoxic medications warrant caution given aucubin's wide tissue distribution to the liver",
+      "kidney disease warrants caution given aucubin's wide tissue distribution to the kidney",
+      "pregnancy or breastfeeding due to a lack of human safety data",
+      "known hypersensitivity to plantain or Eucommia or Aucuba plant sources"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized botanical extract capsule",
@@ -5791,7 +5810,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5799,7 +5818,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -7000,7 +7019,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "prescription nitrate medications such as nitroglycerin or isosorbide due to a serious additive hypotension risk from compounded nitric-oxide signaling",
+      "PDE-5 inhibitor medications such as sildenafil or tadalafil due to an additive blood-pressure-lowering effect",
+      "antihypertensive medications due to additive blood pressure lowering and risk of dizziness or fainting",
+      "infants or individuals with G6PD deficiency due to methemoglobinemia risk from high dietary nitrate intake",
+      "recurrent kidney stones due to beetroot's oxalate content"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -7043,7 +7068,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 80,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7051,7 +7076,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -57474,7 +57499,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "active autoimmune disease such as rheumatoid arthritis warrants clinician guidance since pivotal trials excluded participants with autoimmune disorders",
+      "known allergy to chicken sternal cartilage which is the source material used in most undenatured type II collagen products",
+      "immunosuppressant medications due to a theoretical reduction in the oral-tolerance immune effect",
+      "pregnancy or breastfeeding due to a lack of dedicated human safety data",
+      "doses above the low milligram range used in clinical trials may blunt rather than enhance the intended oral-tolerance effect"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "long",
@@ -57517,7 +57548,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -57525,7 +57556,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],

@@ -1836,3 +1836,90 @@ re-verify with a fresh `npm run audit:severity-tokens` run) — re-check
 to attract heavy concurrent autonomous activity and could use a human decision
 on the variant/family-cluster naming policy to unblock ~20 of the remaining
 gaps that are stuck behind it.
+
+---
+
+## 2026-07-14 (later still) — Filled 6 more compound `contraindications_or_flags` gaps (`acemannan`, `aucubin`, `artichoke-extract`, `beetroot-nitrate`, `uc-ii-collagen`, `alpha-mangostin`)
+
+Fresh cold session, so re-ran `npm run audit:severity-tokens` rather than
+trusting any prior entry's count: 50 `full_public_runtime` gaps. Cross-checked
+all 9 open PRs via `list_pull_requests` + `get_files` on the 4 that also touch
+this same contraindications thread (#2263, #2262, #2260, #2274) before picking
+targets — 20 slugs across those 4 PRs were live-claimed and excluded. Also
+kept excluding the long-flagged variant/family-cluster slugs (betaine, taurine,
+probiotics, atractylenolide, boswellic-acid, garlic, maca, gingerol/gingerols,
+ginkgolide, inositol, `-sleep`-suffixed variants) pending the still-unresolved
+naming-policy question. That left a small standalone pool; picked 6 with
+strong available pharmacology: `acemannan`, `aucubin` (the only `EMPTY` — not
+just token-only — target this cycle), `artichoke-extract`, `beetroot-nitrate`,
+`uc-ii-collagen`, `alpha-mangostin`.
+
+`WebSearch`-sourced real pharmacology per compound: acemannan's aloe-latex
+uterine-stimulant pregnancy caution, hypoglycemia-with-diabetes-meds risk,
+autoimmune/immunosuppressant immune-stimulation caution, and cardiac-glycoside/
+diuretic-potassium interactions; aucubin's genuinely sparse literature (a
+2019/2023 pharmacology review explicitly flags a gap in sub-chronic/chronic
+toxicity testing, plus documented wide tissue distribution to liver/kidney) —
+worded as an honest data-gap caution rather than inventing a specific
+mechanism the sources don't support; artichoke's bile-duct-obstruction/
+gallstone contraindication (choleretic bile-flow-stimulating effect, risk of
+pancreatitis/cholangitis if obstructed) and Asteraceae/ragweed allergy;
+beetroot nitrate's serious prescription-nitrate hypotension risk (distinct
+from the milder PDE-5-inhibitor interaction — kept both, worded at different
+severities per the source material) and G6PD/infant methemoglobinemia risk;
+UC-II's autoimmune-trial-exclusion caution and chicken-cartilage source
+allergy, plus the dose-inversion finding (studies show doses above the
+low-mg range studied can blunt rather than enhance the oral-tolerance effect
+— an unusual but well-sourced caution worth flagging since supplement doses
+often exceed trial doses); alpha-mangostin's in-vitro CYP2C8/CYP2C9 inhibition
+(a real DMD-journal finding predicting clinically relevant interaction
+potential with warfarin/phenytoin/NSAIDs at typical plasma concentrations).
+
+Simulated `splitList()` (`/[\n|;,]+/`) and `findSuspectMatches()` against every
+draft clause in a throwaway script before writing anything (per every prior
+entry's standing takeaway) — caught 3 real over-split bugs this cycle would
+otherwise have introduced: draft clauses for `aucubin`, `uc-ii-collagen`, and
+`alpha-mangostin` each had an internal comma-separated list (e.g. "plantain,
+Eucommia, or Aucuba") that `splitList()`'s `/[\n|;,]+/` regex would have sliced
+into multiple bogus short clauses instead of one. Reworded each to the
+established "X or Y or Z" convention (no internal commas) before writing —
+re-simulated and confirmed correct clause counts and zero keyword-collision
+suspects on the revised drafts.
+
+Applied via `edit-entity-master-cell.mjs --in-place` (6 calls, `--dry-run`
+previewed the first one to confirm cell resolution) → `validate:workbook-schema`
+→ `workbook:roundtrip-test` (22 sheets byte-for-byte) → `data:build:core` →
+`data:sync-detail-backfill`. Found both documented failure modes from this
+thread's history in one pass: `acemannan` and `alpha-mangostin` both had a
+pre-existing non-empty `compounds-detail` `contraindications` field (bare
+tokens `["pregnancy","liver","kidney"]` and `["liver"]`) that the backfill
+correctly left alone — diffed every shared field between flat and detail for
+both first (only `contraindications` diverged in each case) and hand-patched
+just that one field, preserving the file's existing 2-space-indent/
+trailing-newline formatting. The other 4 targets (`aucubin`, `artichoke-extract`,
+`beetroot-nitrate`, `uc-ii-collagen`) had no pre-existing detail-file key and
+were picked up by the backfill automatically.
+
+Reverted 9 unrelated files the full `data:sync-detail-backfill` touched
+(`caffeine-l-theanine`, `fadogia-agrestis`, `magnesium`, `melatonin`,
+`peppermint-oil`, `saccharomyces-boulardii` compounds-detail; `ashwagandha`,
+`maca`, `rhodiola` herbs-detail) after confirming programmatically (element-set
+comparison, not eyeballing) that every one was a pure `sources[]` reorder with
+an identical set of objects — the same recurring noise class every prior entry
+in this thread has hit.
+
+`validate:workbook-schema`, `workbook:roundtrip-test`, `data:validate`,
+`guard:source-of-truth`, `audit:risk-tag-collisions`, `npm run check`, and the
+full Vitest suite (592/592) all passed clean on the final 21-file diff (20
+`public/data` files + the workbook). Re-checked `list_pull_requests` again
+immediately before committing (per the standing "re-check right before you
+ship, not just at cycle start" takeaway) — no new merges landed on this thread
+during the cycle.
+
+**44 `full_public_runtime` compounds with a severity-token/empty
+`contraindications_or_flags` gap should remain** (50 minus this cycle's 6) —
+re-run `npm run audit:severity-tokens` fresh next cycle; don't trust this
+count, since the 4 other open PRs on this thread (#2263, #2262, #2260, #2274)
+haven't merged yet and will each further reduce it once they do. The remaining
+pool is now dominated by the flagged variant/family-cluster slugs — a human
+decision on that naming policy would unblock the bulk of what's left.

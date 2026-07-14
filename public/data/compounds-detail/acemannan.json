@@ -134,8 +134,11 @@
   "dosage": "capsule or standardized extract",
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [
-    "pregnancy",
-    "liver",
-    "kidney"
+    "pregnancy or breastfeeding due to insufficient safety data and aloe latex's uterine-stimulant effect",
+    "diabetes medications or insulin due to added hypoglycemia risk",
+    "autoimmune conditions such as lupus or rheumatoid arthritis due to immune-stimulating activity",
+    "immunosuppressant medications due to a theoretical reduction in effectiveness",
+    "digoxin or other cardiac glycoside medications due to a potential additive effect on heart rhythm",
+    "loop or thiazide diuretic medications due to compounded potassium loss"
   ]
 }

@@ -106,5 +106,12 @@
     }
   ],
   "dosage": "long",
-  "typical_dosage": "long"
+  "typical_dosage": "long",
+  "contraindications": [
+    "active autoimmune disease such as rheumatoid arthritis warrants clinician guidance since pivotal trials excluded participants with autoimmune disorders",
+    "known allergy to chicken sternal cartilage which is the source material used in most undenatured type II collagen products",
+    "immunosuppressant medications due to a theoretical reduction in the oral-tolerance immune effect",
+    "pregnancy or breastfeeding due to a lack of dedicated human safety data",
+    "doses above the low milligram range used in clinical trials may blunt rather than enhance the intended oral-tolerance effect"
+  ]
 }
