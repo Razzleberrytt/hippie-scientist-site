@@ -74,5 +74,12 @@
     }
   ],
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "Phenylketonuria due to phenylalanine content",
+    "autoimmune conditions such as lupus or rheumatoid arthritis or multiple sclerosis due to immune-stimulating effects that may worsen flares",
+    "unregulated or contaminated sources due to microcystin or heavy-metal contamination risk",
+    "anticoagulant medications such as warfarin due to vitamin K content reducing effectiveness",
+    "immunosuppressant medications due to immune-stimulating effects that may counteract them."
+  ]
 }

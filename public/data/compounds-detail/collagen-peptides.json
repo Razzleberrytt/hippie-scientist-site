@@ -75,5 +75,10 @@
     }
   ],
   "dosage": "powder or capsule",
-  "typical_dosage": "powder or capsule"
+  "typical_dosage": "powder or capsule",
+  "contraindications": [
+    "Known allergy to the source protein such as bovine or marine/fish or eggshell-membrane collagen",
+    "significant kidney disease or hypercalcemia due to calcium content in some formulations",
+    "quinolone or tetracycline antibiotics and bisphosphonates due to reduced absorption when taken simultaneously -- separate dosing by at least two hours."
+  ]
 }
