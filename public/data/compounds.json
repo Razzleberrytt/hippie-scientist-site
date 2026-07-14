@@ -26352,9 +26352,9 @@
     "trial_design_insight": "",
     "contraindications": [
       "seizure disorder or epilepsy history",
-      "pregnancy/breastfeeding without clinician guidance",
-      "discontinue at least 2 weeks before surgery due to bleeding risk",
       "anticoagulant or antiplatelet medications such as warfarin aspirin or clopidogrel carry additive bleeding risk",
+      "discontinue at least 2 weeks before surgery due to bleeding risk",
+      "pregnancy/breastfeeding without clinician guidance",
       "may reduce effectiveness of omeprazole or other proton-pump inhibitors",
       "may interact with oral diabetes medications or alprazolam."
     ],
