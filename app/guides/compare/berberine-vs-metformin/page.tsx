@@ -11,6 +11,7 @@ export const metadata: Metadata = buildPageMetadata({
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import CitationReadySummary from '@/components/seo/CitationReadySummary'
 import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
 import FAQSchema from '@/components/seo/FAQSchema'
@@ -90,6 +91,19 @@ export default function BerberineVsMetforminPage() {
           </figcaption>
         </figure>
       </section>
+
+      <CitationReadySummary
+        answer="Berberine and metformin both activate AMPK and lower blood glucose through overlapping pathways, and short-term RCTs (13 weeks) show comparable HbA1c and fasting-glucose reductions. But metformin has 60+ years of population-scale safety data and proven cardiovascular outcome data (UKPDS), while berberine's evidence base is smaller-scale, shorter-duration studies without long-term outcome data. Berberine is a legitimate OTC metabolic-support option, not a proven substitute for prescribed metformin."
+        bestFor={[
+          'Berberine: OTC metabolic support for prediabetes or insulin resistance in people not on diabetes medication.',
+          'Metformin: diagnosed type 2 diabetes, PCOS, or metabolic syndrome requiring clinician-titrated, first-line treatment.',
+          'Neither substituted for the other: switching from prescribed metformin to berberine without clinician oversight, given berberine\'s lack of long-term cardiovascular outcome data.',
+        ]}
+        evidenceLevel="Metformin is Grade A — decades of large trials including the landmark UKPDS outcomes data. Berberine is Grade B — multiple positive RCTs and a 14-study meta-analysis, but smaller sample sizes, shorter durations (under 3 months), and no long-term cardiovascular or mortality endpoint data."
+        safetyNote="Berberine inhibits CYP3A4/CYP2D6 and interacts with cyclosporine, some statins, antiarrhythmics, anticoagulants, and certain antidepressants; it is contraindicated in pregnancy. Metformin is contraindicated with eGFR under 30 mL/min and carries a rare lactic-acidosis risk with renal impairment. Anyone on diabetes medication should not add berberine without clinician oversight."
+        notClaiming="This page is not claiming berberine is a safe or effective substitute for prescribed metformin."
+        referencesHref="#references"
+      />
 
       {/* Overview cards */}
       <section className="grid gap-6 lg:grid-cols-2">
@@ -332,6 +346,10 @@ export default function BerberineVsMetforminPage() {
             establish clinical interchangeability. Your prescriber's dosing accounts for your specific
             kidney function, medication history, and long-term cardiovascular risk.
           </p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <Link href="/safety-checker/" className="rounded-full bg-red-100 px-3 py-1.5 text-xs font-bold text-red-800">Check Your Medication Interactions</Link>
+            <Link href="/info/dosing/" className="rounded-full bg-red-100 px-3 py-1.5 text-xs font-bold text-red-800">Dosing Guidance</Link>
+          </div>
         </div>
       </section>
 
