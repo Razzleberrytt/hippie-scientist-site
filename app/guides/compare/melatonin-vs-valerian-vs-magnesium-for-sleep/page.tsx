@@ -11,6 +11,7 @@ export const metadata: Metadata = buildPageMetadata({
 import Link from 'next/link'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import CitationReadySummary from '@/components/seo/CitationReadySummary'
 import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
 import FAQSchema from '@/components/seo/FAQSchema'
@@ -81,6 +82,19 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
           </figcaption>
         </figure>
       </section>
+
+      <CitationReadySummary
+        answer="Melatonin, valerian root, and magnesium support sleep in different ways: melatonin shifts circadian timing for people who aren't tired at bedtime, valerian root builds cumulative GABA-related relaxation over 2-4 weeks, and magnesium (especially glycinate) supports baseline physical relaxation and muscle tension release."
+        bestFor={[
+          'Melatonin: shifted sleep schedules, jet lag, or trouble feeling tired at the desired bedtime.',
+          'Valerian root: mild bedtime restlessness, taken consistently for cumulative benefit rather than as a one-off.',
+          'Magnesium glycinate: physical tension, muscle soreness, or general nightly wind-down support.',
+        ]}
+        evidenceLevel="Melatonin has strong evidence for shifting sleep timing. Valerian root and magnesium have limited-to-moderate evidence from smaller trials for sleep quality and latency."
+        safetyNote="Valerian root should never be combined with prescription sedatives, benzodiazepines, or alcohol. Magnesium requires caution in kidney disease. Melatonin may warrant caution with autoimmune conditions and can cause next-day grogginess at high doses."
+        notClaiming="This page is not claiming any of these three is a replacement for treating a diagnosed sleep disorder."
+        referencesHref="#references"
+      />
 
       {/* 3-Column Core Comparison Cards */}
       <section className="grid gap-6 lg:grid-cols-3">
@@ -254,6 +268,10 @@ export default function MelatoninVsValerianVsMagnesiumForSleepPage() {
               <strong>Magnesium</strong> requires caution in kidney disease. Excess magnesium is filtered by the kidneys, so impaired renal clearance can lead to severe accumulation.
             </li>
           </ul>
+          <div className="flex flex-wrap gap-3 pt-2">
+            <Link href="/safety-checker/" className="chip-readable">Check Your Medication Interactions</Link>
+            <Link href="/info/dosing/" className="chip-readable">Dosing Guidance</Link>
+          </div>
         </div>
       </section>
 
