@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import CitationReadySummary from '@/components/seo/CitationReadySummary'
 import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
 import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
@@ -99,6 +100,20 @@ export default function SleepHerbsVsMelatoninComparePage() {
           </figcaption>
         </figure>
       </section>
+
+      <CitationReadySummary
+        answer="Melatonin, magnesium, L-theanine, and valerian address different sleep problems rather than competing for the same one. Melatonin (Grade A) is a circadian timing signal — best for jet lag, shift work, or a delayed sleep phase, most effective at low physiological doses (0.3-1 mg) rather than the 3-10 mg found in most commercial products. Magnesium (Grade B-C) supports sleep quality and depth over days to weeks via GABA and NMDA pathways, with the strongest trial evidence in magnesium-deficient or elderly populations. L-theanine (Grade B) quiets mental chatter at sleep onset via glutamate modulation and alpha-wave induction, with no sedation. Valerian (Grade C) has plausible GABAergic mechanisms but inconsistent human trial evidence. The right choice depends on which sleep problem you actually have, not which supplement is generically 'strongest.'"
+        bestFor={[
+          'Melatonin: circadian-timing problems — jet lag, shift work, or a delayed sleep phase — at low doses (0.3-1 mg), not high commercial doses.',
+          'Magnesium glycinate: sleep quality and depth issues, physical tension, or frequent night waking, taken consistently over weeks rather than as an acute aid.',
+          'L-theanine: racing thoughts or mental chatter at bedtime, taken 30-60 minutes before sleep with no sedation risk.',
+          'Valerian root: situational insomnia when melatonin, magnesium, and L-theanine have not helped — evidence is mixed and effect sizes are modest.',
+        ]}
+        evidenceLevel="Melatonin is Grade A for circadian sleep problems (a 19-trial meta-analysis, Ferracioli-Oda et al. 2013). Magnesium is Grade B-C (strongest data in deficient/elderly populations, e.g. Abbasi et al. 2012). L-theanine is Grade B (direct sleep-endpoint trials, e.g. Hidese et al. 2019). Valerian is Grade C (a 16-study systematic review found insufficient evidence to confirm efficacy, Bent et al. 2006)."
+        safetyNote="Valerian and L-theanine share a GABAergic mechanism with benzodiazepines, alcohol, and other CNS depressants and should not be combined with prescription sleep medications without medical oversight; valerian should also be discontinued 2+ weeks before elective surgery. Magnesium is contraindicated in kidney disease due to impaired excretion. High-dose melatonin (5-10 mg) may cause next-morning grogginess and is not recommended for children or during pregnancy without clinical guidance."
+        notClaiming="This page is not claiming any one of these four options is the single best natural sleep aid, or that they are interchangeable with prescription sleep medications."
+        referencesHref="#references"
+      />
 
       {/* Overview cards — 2 rows of 2 */}
       <section className="grid gap-6 lg:grid-cols-2">
@@ -475,6 +490,11 @@ export default function SleepHerbsVsMelatoninComparePage() {
               <li><strong className="text-ink">Pregnancy:</strong> Insufficient safety data; avoid during pregnancy.</li>
             </ul>
           </div>
+        </div>
+
+        <div className="flex flex-wrap gap-3 pt-2">
+          <Link href="/safety-checker/" className="chip-readable">Check Your Medication Interactions</Link>
+          <Link href="/info/dosing/" className="chip-readable">Dosing Guidance</Link>
         </div>
       </section>
 
