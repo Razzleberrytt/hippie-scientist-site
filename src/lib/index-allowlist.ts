@@ -10,6 +10,7 @@ export const CORE_INDEXABLE_ROUTES = [
   '/guides',
   '/herbs',
   '/learn',
+  '/library',
   '/info/methodology',
   '/info/privacy',
   '/info/disclaimer',

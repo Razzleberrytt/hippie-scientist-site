@@ -1215,3 +1215,77 @@ committed alongside it (`git show <sha> --stat` on the generator-changing
 commit is a 5-second check) — a CI check that only smoke-tests a
 generator in isolation cannot catch "the PR forgot to commit its own
 build output."
+
+---
+
+## 2026-07-14 — Filled 5 more compound `contraindications_or_flags` gaps; hit a real concurrent-cycle collision on `galantamine` and reconciled by rebasing
+
+Re-ran the token-only detection query fresh at cycle start (87
+`full_public_runtime` compounds, unchanged from two entries back) and picked
+6 mainstream candidates: `spirulina`, `astaxanthin`, `collagen-peptides`,
+`glycine`, `boswellia`, `galantamine`. Sourced real pharmacology for all 6 via
+`WebSearch`, simulated `splitList()` + the risk-tag collision matcher against
+every draft (per the standing takeaway), wrote them with
+`edit-entity-master-cell.mjs --in-place`, ran the full
+`data:build` → diff-classify (order-independent key comparison) →
+revert-drift → `data:build:core` cycle, and had a fully green local
+`check`/`data:validate`/`guard:source-of-truth`/`audit:risk-tag-collisions`/
+Vitest (584/584) run — but two of my own PR's CI checks failed before merge:
+`quality-gate`'s vitest run hit the same pre-existing `/guides`→`/library`
+nav-test staleness flagged (but not fixed) two entries back, and a separate
+`check` job failed `validate-sitemap-completeness` because the `/library`
+route (added a few commits earlier, re-exporting the `/guides` page) was
+never added to `app/sitemap.ts`'s static-route allowlist or
+`src/lib/index-allowlist.ts`'s `CORE_INDEXABLE_ROUTES`. Fixed both (the test
+now expects `/library`; `app/sitemap.ts` gained an explicit
+`route(normalizeSitemapUrl('/library'), 'monthly', 0.85)` entry and an
+`allowedCoreStaticRoutes` addition) and confirmed via a full local
+`npm run build:full` (27-step pipeline) that `validate-sitemap-completeness`
+now passes.
+
+While that CI round-trip was in flight, a **different concurrent autonomous
+cycle** (PR #2255) independently sourced and merged its own 5-compound batch
+to `main` — and one of its targets was also `galantamine`, with a more
+complete clause set (adds unstable-angina/CHF/recent-MI and hypersensitivity
+contraindications my draft didn't have) plus the identical `/library`
+sitemap-allowlist and nav-test fixes I'd just written by hand. Rather than
+force a conflicting workbook edit through, reconciled by resetting my branch
+onto the newly-merged `main` (`git reset --hard origin/main`) and re-deriving
+only the genuinely non-overlapping parts of my own work on top of it: the 5
+compounds *not* touched by #2255 (`spirulina`, `astaxanthin`,
+`collagen-peptides`, `glycine`, `boswellia` — dropped `galantamine` entirely
+as redundant/inferior to the merged version), plus the
+`src/lib/index-allowlist.ts` `/library` addition, which #2255's independent
+fix had NOT covered (it only touched `app/sitemap.ts` and the test, so
+`CORE_INDEXABLE_ROUTES` — used by `shouldIndexRoute()` in `src/lib/seo.ts`
+for robots-meta decisions elsewhere — was still missing `/library` until this
+cycle added it).
+
+Re-ran the full validation chain (`data:build:core`, `data:validate`,
+`guard:source-of-truth`, `audit:risk-tag-collisions`,
+`workbook:roundtrip-test`, `npm run check`, full Vitest suite 584/584, and a
+full `build:full` 27-step pipeline) against the rebased state — all clean,
+9-file diff (workbook + compounds.json + compound-index + entity_risk_tags +
+interaction_edges + summary-indexes + 5 compounds-detail files +
+index-allowlist.ts).
+
+Takeaways for future cycles: (1) **when multiple autonomous cycles run
+concurrently against the same repo, re-check `origin/main` for new merges
+immediately before opening/merging a PR, not just at cycle start** — a
+concurrent cycle can land overlapping workbook edits or identical CI fixes
+while yours is still in flight, and the fix is a clean rebase + drop the
+overlapping slug, not a forced/duplicate merge. (2) This repo's auto-merge
+GitHub API path (`enable_pr_auto_merge`) is not usable here —
+`gh`/GraphQL both report "Protected branch rules not configured for this
+branch," meaning branch protection isn't set up on `main` at all — so a
+cycle aiming to ship a PR must poll CI status and call a direct
+`merge_pull_request` once checks are green, not rely on auto-merge. (3) The
+`/library` sitemap-allowlist + nav-test staleness is now fixed on `main` by
+two independent cycles converging on the identical fix — nothing further
+needed there.
+
+**~82 `full_public_runtime` compounds with token-only
+`contraindications_or_flags` remain** (87 minus 5 from this cycle minus
+whatever #2255's overlapping `galantamine` fill already accounted for). Same
+approach applies for future cycles — re-run the detection query fresh; don't
+trust a cached count.

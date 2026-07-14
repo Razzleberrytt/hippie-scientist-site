@@ -173,5 +173,11 @@
     }
   ],
   "dosage": "Human sleep studies often use gram-level glycine, but exact dose should be tied to the specific cited trial. Avoid universal dosing if source row lacks dose. | Oral glycine powder/capsule; simple amino acid.",
-  "typical_dosage": "Human sleep studies often use gram-level glycine, but exact dose should be tied to the specific cited trial. Avoid universal dosing if source row lacks dose. | Oral glycine powder/capsule; simple amino acid."
+  "typical_dosage": "Human sleep studies often use gram-level glycine, but exact dose should be tied to the specific cited trial. Avoid universal dosing if source row lacks dose. | Oral glycine powder/capsule; simple amino acid.",
+  "contraindications": [
+    "may reduce the effectiveness of the antipsychotic clozapine",
+    "additive sedation with benzodiazepines or other central-nervous-system depressants",
+    "may have a mild blood-pressure-lowering effect requiring monitoring with antihypertensive medication",
+    "caution in liver disease or kidney disease or pregnancy or breastfeeding"
+  ]
 }
