@@ -1690,3 +1690,72 @@ now including the 5 new test cases) all passed clean. No workbook or
 `public/data` changes this cycle — diff is exactly the two new script
 files plus one `package.json` line, zero collision risk with any in-flight
 PR.
+
+---
+
+## 2026-07-14 (later still) — Fixed `audit:curated-indexable`'s false positives on deliberate governance holds
+
+PR #2270 (open, unmerged as of this cycle) fixed a real leaked-template-text
+bug on `ginger`/`peppermint` that `npm run audit:curated-indexable` caught,
+but its own description flagged 3 more of that audit's 10 reported
+"regressions" — `black-cohosh`, `phosphatidylcholine`, `acetyl-l-carnitine`
+— as false positives: deliberate governance holds (`hidden_until_grounded` /
+`research_only`), not bugs, and explicitly left them untouched. The PR
+suggested as a next step: "either clear the 3 remaining holds or teach the
+guard to distinguish intentional holds from regressions, then wire
+`audit:curated-indexable` into `check:full`." Since #2270 was already
+mid-flight on the real bug, this cycle picked up the second half instead —
+the audit-accuracy fix is orthogonal and doesn't collide.
+
+Traced why these 3 are safe to hold rather than a live SEO bug first, since
+`src/lib/index-allowlist.ts`'s curated slugs get special-cased in both
+`src/lib/seo.ts` (`shouldIndexRoute`) and `app/sitemap.ts` (`addRoute`) —
+worth confirming the "curated" bypass doesn't actually override a real
+noindex before treating the audit's failure as cosmetic. It doesn't:
+`shouldIndexRoute`'s curated-allowlist bypass only fires when the noindex
+signal is `sitemap_included=false` or `indexability_status=NEEDS_REVIEW`;
+`hasNoindexSignal()` returns `robots=noindex` first for any of these 3
+records (checked before it even reaches the `indexability_status`/
+`runtime_export_decision` branches), which isn't in the bypass list — so
+the live page's `<meta name="robots">` and the generated sitemap.xml both
+correctly stay excluded. The audit script's failure was a pure false
+positive in its own reporting, not a symptom of a real indexing bug.
+
+Fixed `scripts/audit/verify-curated-indexable.mjs` by adding
+`isKnownGovernanceHold(rec)`: a curated slug that fails the PUBLISH check is
+only a reported regression if its `indexability_reasons` don't already
+explain it as a deliberate hold (`noindex-decision:*` — the hard-block path
+in `scripts/data/indexability-policy.mjs`'s `NOINDEX_DECISIONS`; or
+`profile-status:(research_only|minimal|draft|archived)`) **and** its
+robots/`sitemap_included` fields are actually internally consistent with
+that hold (noindex robots + sitemap excluded) — a bare matching reason
+string alone doesn't suffice, since that would risk masking a genuine
+inconsistency rather than confirming a real hold. Verified against the live
+`ginger`/`peppermint` records that this doesn't accidentally swallow real
+regressions: their reasons are `profile-status:partial` /
+`summary-too-thin`, neither of which matches the hold pattern, so both
+still correctly fail. Added
+`scripts/audit/verify-curated-indexable.test.mjs` (5 cases: hard
+noindex-decision hold, research_only hold, plain content regression not
+swallowed, a hold-shaped reason rejected when robots/sitemap are
+inconsistent with it, and a missing record) and wrapped the script's CLI
+body in an `import.meta.url` guard (matching the
+`audit-severity-token-contraindications.mjs` convention) so the test file
+can import `isKnownGovernanceHold` without triggering the script's own
+`process.exit(1)`.
+
+Re-ran the audit after the fix: 3 of the original 10 problems now correctly
+report as informational holds; the 2 real `ginger`/`peppermint` regressions
+(subject of #2270) still fail as expected, so this fix does not make
+`audit:curated-indexable` misleadingly green while a real bug is still on
+`main` — **deliberately did not wire it into `check`/`check:full` this
+cycle**, since doing so today would hard-fail the gate on #2270's
+still-open bug. Once #2270 merges, a future cycle should wire
+`npm run audit:curated-indexable` into `check:full` (per the original
+suggestion) now that the false-positive class is fixed and re-verify a
+clean run first.
+
+`npm run lint`, `npm run typecheck`, and the full Vitest suite all pass.
+Diff is exactly the one script + its new test file, zero workbook/
+`public/data` changes, zero collision risk with #2270 or any other in-flight
+PR.
