@@ -77,5 +77,12 @@
     }
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Concurrent warfarin or other anticoagulant medication due to a documented case report of markedly potentiated anticoagulant effect and INR elevation",
+    "concurrent antihypertensive medication due to astaxanthin's own mild blood-pressure-lowering activity",
+    "concurrent 5-alpha-reductase inhibitor medication such as finasteride due to a shared effect on testosterone-to-DHT conversion",
+    "pregnancy or breastfeeding due to insufficient safety data",
+    "known allergy or hypersensitivity to astaxanthin-containing carotenoid supplements."
+  ]
 }

@@ -5013,7 +5013,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Concurrent warfarin or other anticoagulant medication due to a documented case report of markedly potentiated anticoagulant effect and INR elevation",
+      "concurrent antihypertensive medication due to astaxanthin's own mild blood-pressure-lowering activity",
+      "concurrent 5-alpha-reductase inhibitor medication such as finasteride due to a shared effect on testosterone-to-DHT conversion",
+      "pregnancy or breastfeeding due to insufficient safety data",
+      "known allergy or hypersensitivity to astaxanthin-containing carotenoid supplements."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -5056,7 +5062,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5064,7 +5070,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -9889,7 +9895,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Known allergy to boswellia or other Burseraceae-family plants",
+      "concurrent warfarin or aspirin or other anticoagulant or antiplatelet medication due to a theoretical additive bleeding risk",
+      "concurrent immunosuppressant medication such as cyclosporine due to boswellia's immune-modulating activity",
+      "pregnancy due to traditional use as a uterine stimulant and insufficient safety data",
+      "severe liver or kidney disease due to insufficient safety data in these populations."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -9932,7 +9944,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9940,7 +9952,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -16308,7 +16320,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Concurrent immunosuppressant medication such as cyclosporine or azathioprine or corticosteroids due to cordyceps' immune-stimulating activity potentially reducing drug efficacy",
+      "concurrent warfarin or aspirin or other anticoagulant or antiplatelet medication due to cordyceps' mild antiplatelet activity and additive bleeding risk",
+      "autoimmune disease such as lupus or rheumatoid arthritis or multiple sclerosis due to potential immune-stimulating flare risk",
+      "discontinue at least two weeks before scheduled surgery due to additive bleeding risk",
+      "pregnancy or breastfeeding due to insufficient safety data."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -16360,7 +16378,7 @@
       "mechanism-context",
       "non-publishable-profile-status",
       "profile-status:research_only",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -26489,7 +26507,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Concurrent warfarin or aspirin or other anticoagulant or antiplatelet medication due to ginkgo's own antiplatelet activity and documented additive bleeding risk",
+      "active bleeding disorder or recent hemorrhagic event",
+      "seizure disorder or epilepsy or concurrent antiepileptic medication due to a theoretical lowered seizure threshold",
+      "discontinue at least two weeks before scheduled surgery due to additive bleeding risk",
+      "pregnancy or breastfeeding due to insufficient safety data."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -26532,7 +26556,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -26540,7 +26564,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -39957,7 +39981,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Concurrent MAOI antidepressants due to a documented risk of a severe pressor crisis from combined dopamine and monoamine surge",
+      "concurrent levodopa/carbidopa or other Parkinson's medication due to additive dopaminergic effect and unpredictable dosing since mucuna's L-DOPA lacks a peripheral decarboxylase inhibitor",
+      "psychosis or schizophrenia due to L-DOPA's potential to worsen psychotic symptoms",
+      "pregnancy or breastfeeding or use in children due to insufficient safety data",
+      "concurrent antipsychotic medication due to opposing dopaminergic mechanisms that may blunt either drug's effect."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -40009,7 +40039,7 @@
       "mechanism-context",
       "non-publishable-profile-status",
       "profile-status:research_only",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -58358,7 +58388,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Concurrent benzodiazepines or opioids or alcohol or other sedative or CNS depressant medication due to additive sedation risk",
+      "existing liver disease such as chronic hepatitis or fatty liver disease due to isolated case reports of reversible liver enzyme elevation with high-dose or long-term use",
+      "discontinue at least two weeks before any procedure requiring general anesthesia due to additive sedative effects",
+      "concurrent medications metabolized by CYP3A4 due to valerian's potential to reduce their clearance and increase drug levels",
+      "pregnancy or breastfeeding due to insufficient safety data."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -58401,7 +58437,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -58409,7 +58445,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],

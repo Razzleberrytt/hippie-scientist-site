@@ -39,5 +39,12 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Concurrent benzodiazepines or opioids or alcohol or other sedative or CNS depressant medication due to additive sedation risk",
+    "existing liver disease such as chronic hepatitis or fatty liver disease due to isolated case reports of reversible liver enzyme elevation with high-dose or long-term use",
+    "discontinue at least two weeks before any procedure requiring general anesthesia due to additive sedative effects",
+    "concurrent medications metabolized by CYP3A4 due to valerian's potential to reduce their clearance and increase drug levels",
+    "pregnancy or breastfeeding due to insufficient safety data."
+  ]
 }
