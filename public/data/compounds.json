@@ -15555,7 +15555,11 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Known allergy to the source protein such as bovine or marine/fish or eggshell-membrane collagen",
+      "significant kidney disease or hypercalcemia due to calcium content in some formulations",
+      "quinolone or tetracycline antibiotics and bisphosphonates due to reduced absorption when taken simultaneously -- separate dosing by at least two hours."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -15598,7 +15602,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -15606,7 +15610,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -23586,7 +23590,12 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Pregnancy due to traditional uterine-stimulant use and reported association with birth defects at supplement doses",
+      "Fabaceae or legume family allergy including chickpea or peanut or coriander cross-reactivity",
+      "anticoagulant medications such as warfarin due to potentiated bleeding risk",
+      "antidiabetic medications such as insulin or sulfonylureas due to additive hypoglycemia risk."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -23629,7 +23638,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -23637,7 +23646,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -25703,7 +25712,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Bleeding disorders or upcoming surgery due to antiplatelet effects -- discontinue at least two weeks before surgery per anesthesiology guidance",
+      "anticoagulant or antiplatelet medications such as warfarin or DOACs or aspirin or clopidogrel due to additive bleeding risk",
+      "antihypertensive medications due to additive blood-pressure-lowering effects",
+      "HIV protease inhibitors such as saquinavir may become less effective",
+      "antidiabetic medications due to additive hypoglycemia risk."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -25746,7 +25761,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 80,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -25754,7 +25769,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -27986,7 +28001,12 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "safety": "May support subjective sleep quality; evidence is early and based on small trials. | Do not imply proven insomnia treatment or anti-aging benefits. | Use as secondary sleep-support page, not first-tier recommendation.",
-    "contraindications": [],
+    "contraindications": [
+      "Clozapine therapy due to potential reduction in antipsychotic effectiveness -- avoid combining without psychiatric supervision",
+      "severe liver or kidney disease due to reduced amino-acid clearance",
+      "pregnancy or breastfeeding or use in children due to insufficient high-dose safety data",
+      "sedatives or alcohol or other CNS depressants due to additive sedation or drowsiness."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "Human sleep studies often use gram-level glycine, but exact dose should be tied to the specific cited trial. Avoid universal dosing if source row lacks dose. | Oral glycine powder/capsule; simple amino acid.",
@@ -35906,7 +35926,10 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Pregnancy or breastfeeding due to insufficient safety data for supplemental doses beyond dietary intake",
+      "concurrent beta-carotene supplementation may unpredictably alter absorption of both carotenoids."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -35949,7 +35972,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -35957,7 +35980,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -54065,7 +54088,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Phenylketonuria due to phenylalanine content",
+      "autoimmune conditions such as lupus or rheumatoid arthritis or multiple sclerosis due to immune-stimulating effects that may worsen flares",
+      "unregulated or contaminated sources due to microcystin or heavy-metal contamination risk",
+      "warfarin (a vitamin K antagonist) due to vitamin K content potentially reducing its blood-thinning effectiveness and requiring closer INR monitoring",
+      "immunosuppressant medications due to immune-stimulating effects that may counteract them."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -54108,7 +54137,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -54116,7 +54145,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],

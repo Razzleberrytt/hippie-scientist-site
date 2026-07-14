@@ -39,5 +39,12 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Bleeding disorders or upcoming surgery due to antiplatelet effects -- discontinue at least two weeks before surgery per anesthesiology guidance",
+    "anticoagulant or antiplatelet medications such as warfarin or DOACs or aspirin or clopidogrel due to additive bleeding risk",
+    "antihypertensive medications due to additive blood-pressure-lowering effects",
+    "HIV protease inhibitors such as saquinavir may become less effective",
+    "antidiabetic medications due to additive hypoglycemia risk."
+  ]
 }

@@ -93,5 +93,11 @@
     }
   ],
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "Pregnancy due to traditional uterine-stimulant use and reported association with birth defects at supplement doses",
+    "Fabaceae or legume family allergy including chickpea or peanut or coriander cross-reactivity",
+    "anticoagulant medications such as warfarin due to potentiated bleeding risk",
+    "antidiabetic medications such as insulin or sulfonylureas due to additive hypoglycemia risk."
+  ]
 }

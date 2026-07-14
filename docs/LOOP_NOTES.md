@@ -1215,3 +1215,128 @@ committed alongside it (`git show <sha> --stat` on the generator-changing
 commit is a 5-second check) — a CI check that only smoke-tests a
 generator in isolation cannot catch "the PR forgot to commit its own
 build output."
+
+---
+
+## 2026-07-14 — Fixed 6 more `full_public_runtime` compound `contraindications_or_flags` gaps; re-ran the detection query fresh (82 remain)
+
+Re-ran the token-detection query fresh per the standing takeaway rather than
+trusting the last entry's count/name list — confirmed it's still accurate
+methodologically (`Entity_Master` rows with `entity_type === 'compound'` and
+`contraindications_or_flags` matching a bare severity/category token, e.g.
+`moderate`, `pregnancy`, `liver`, cross-referenced against `compounds.json`
+for `runtime_export_decision === 'full_public_runtime'`), just stale in
+numbers: **82** such compounds remain today (was 93 two entries back, several
+concurrent cycles have been chipping at it independently since). The query
+itself is worth turning into a small standing script under `scripts/data/`
+(e.g. `audit-severity-token-contraindications.mjs`) rather than hand-rolling
+it fresh each cycle — flagging for a future cycle rather than doing it here
+to keep this one scoped to content.
+
+Filled 6 mainstream, high-traffic names from the list not yet touched by any
+concurrent cycle: `spirulina`, `collagen-peptides`, `fenugreek-extract`,
+`garlic-extract`, `lutein`, `glycine`. Each clause WebSearch-verified against
+independent sources (NIH/NCCIH-adjacent overviews, WebMD/Drugs.com interaction
+checkers, PubMed) before writing. Followed the established convention:
+semicolon-separated clauses in the workbook cell, each one a complete
+sentence using "or"/slash instead of comma-separated drug lists (commas
+inside a clause get treated as separate clause boundaries by
+`splitFlags()` in `build-interaction-data.mjs`, since it splits on both `;`
+and `,` — harmless functionally since each fragment is tested for keywords
+independently, but worse for the clause's own readability as rendered prose,
+so avoid it anyway). Simulated `deriveInteractionData()` from
+`build-interaction-data.mjs` against all 6 drafts before writing to confirm
+every clause produced only the intended risk-mechanism tags, and ran
+`npm run audit:risk-tag-collisions` after writing to confirm zero
+false-positive substring hits (e.g. the documented
+`hyperparathyroidism`-contains-`thyroid` trap) — both clean.
+
+Used `npm run data:sync-detail-backfill` (the script added two entries back)
+for the full fresh-parse → postprocess → governance-overlay →
+restore-flat-files → `data:build:core` sequence — worked correctly and
+caught the 6 target compounds' detail records. It also incidentally
+resynced 9 unrelated already-correct records
+(`caffeine-l-theanine`, `fadogia-agrestis`, `magnesium`, `melatonin`,
+`peppermint-oil`, `saccharomyces-boulardii`, `ashwagandha`, `maca`,
+`rhodiola`) — confirmed each via diff inspection to be the same
+already-documented non-deterministic `sources`-array reorder noise (exact
+same citation objects, shuffled position, still unfixed — see the entry
+several above), not real content changes, so reverted those 9 files with
+`git checkout --` to keep this PR's diff scoped to the actual safety-content
+change. Also reverted `public/data/_meta/build-info.json` (pure timestamp).
+
+Confirmed the surviving diff is exactly the 6 target compounds by diffing
+`ai-entities/manifest.json` (a single-line minified JSON blob, unreadable
+via plain `git diff`) entity-by-entity in Python rather than eyeballing the
+raw diff — all 6 changed entities were the 6 targets, each with a `score`
+bump from the new `evidence_grade`-adjacent scoring picking up the filled
+safety field; nothing else moved.
+
+`npm run guard:source-of-truth`, `npm run data:validate`, `npm run check`
+(typecheck + lint + article-quality + claim-discipline + safety-visibility +
+`data:build:core`), and the full Vitest suite (584/584, all passing — the
+previously-flagged `route-consolidation-guardrails.test.ts` failure from two
+entries back is confirmed already fixed on `main`) all passed clean on the
+final diff. 82 full_public_runtime severity-tier-only compounds remain;
+re-run the detection query fresh next cycle rather than trusting this count.
+
+**Update (same PR, post-review):** Codex's automated review on this PR caught
+two real bugs in the fills above before merge — both fixed in a follow-up
+commit rather than editing history, per the "always create new commits"
+git policy:
+
+1. **Spirulina's warfarin clause used the word "anticoagulant," which
+   `deriveInteractionData()`'s naive `.includes('anticoagul')` matcher
+   classifies as an ADDITIVE bleeding-risk mechanism — but the clause
+   describes the opposite direction of risk** (vitamin K reducing
+   warfarin's effectiveness = reduced anticoagulation / clotting risk, not
+   potentiated bleeding). This generated 111 false "both X and Spirulina are
+   flagged for effects on bleeding/clotting" edges. Fixed by rewording to
+   drop the word "anticoagulant" entirely (now just names "warfarin (a
+   vitamin K antagonist)" directly) — verified via the same
+   `deriveInteractionData()` simulation that the clause now produces zero
+   anticoagulant-mechanism tags. **Takeaway: simulating the matcher before
+   writing (as documented in earlier entries) catches whether a clause
+   matches a mechanism at all, but not whether the matched mechanism's
+   fixed ADDITIVE direction is actually correct for that clause's content —
+   for any clause describing a non-standard-direction risk (reduces a
+   drug's effect rather than compounding it), you have to independently ask
+   "does this share the SAME risk direction as the mechanism's assumed
+   default," not just "does it fire the keyword."**
+
+2. **Lutein's smoker/lung-cancer contraindication was transplanted from
+   beta-carotene's risk profile onto lutein specifically** — the AREDS2 RCT
+   (the direct, purpose-built trial comparing the two) found beta-carotene
+   nearly doubled lung cancer risk in smokers/former smokers while
+   lutein/zeaxanthin showed no such increase; the VITAL-study source used to
+   draft the original clause covered multiple antioxidants as a bundle and
+   didn't distinguish. Fixed by dropping the clause (no accurate
+   lutein-specific contraindication to substitute). **Takeaway: when a
+   source discusses a compound bundled with related-but-distinct
+   compounds (e.g. "β-carotene, retinol, lycopene, and lutein" as one
+   cohort), don't attribute a bundle-level finding to a single member
+   without checking a source that isolates that member specifically —
+   here a second, more targeted trial (AREDS2) existed and contradicted
+   the bundled study's apparent implication for lutein alone.**
+
+Both fixes required also directly patching `compounds-detail/spirulina.json`
+and `compounds-detail/lutein.json`'s `contraindications` arrays by hand —
+**`npm run data:sync-detail-backfill` did NOT pick up either fix**, because
+its underlying `backfillEmptyDetailFields()` (in
+`apply-governance-overlay.mjs`) only fills a detail field when it's EMPTY on
+the existing detail record; once a detail file already has a non-empty
+`contraindications` array (as both did, from this same PR's first commit),
+editing the workbook again and rerunning the sync script leaves the stale
+pre-fix text in place indefinitely — only `compounds.json` (the flat record)
+picked up the correction automatically. This is the same failure mode as the
+original "detail-file staleness" bug several entries back, except that bug
+was about missing fields on first fill; this is its unfixed sibling for
+*correcting an already-filled* field. Worth a real fix in
+`backfillEmptyDetailFields()` (or a documented, deliberate "force" flag) in a
+future cycle — until then, treat any post-fill correction to a compound/herb
+safety field as requiring a manual flat-record-to-detail-record patch, not
+just a workbook edit + resync.
+
+Re-verified clean after both fixes: `npm run audit:risk-tag-collisions`,
+`npm run guard:source-of-truth`, `npm run check`, and the full Vitest suite
+(584/584) all passed on the corrected diff.
