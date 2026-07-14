@@ -1407,3 +1407,47 @@ severity-tier-only compounds remain; re-run the detection query fresh next
 cycle rather than trusting this count — and consider building the standing
 `scripts/data/audit-severity-token-contraindications.mjs` script flagged
 several entries back before hand-rolling the query yet again.
+
+**Update (same PR, post-review):** Codex's automated review caught a second
+keyword-collision the `deriveInteractionData()` simulation step above missed
+noticing the *severity* of, not just its existence: mucuna's MAOI clause
+("...documented risk of **hypertensive crisis** from combined dopamine and
+monoamine surge") matched **two** mechanism keywords at once — `maoi` (→
+`serotonergic`, intended, consistent with the ginseng/rhodiola precedent) AND
+`hypertens` (→ `blood_pressure`, NOT intended). The simulation step did flag
+the `blood_pressure` tag in its output (visible in this entry's own earlier
+JSON dump), but it was misread as an acceptable "real, direction-correct"
+tag rather than questioned for *scope* — mucuna has no general
+blood-pressure-affecting property the way forskolin or astaxanthin do; the
+BP spike is a narrow drug-specific interaction (MAOI + dopamine surge), not
+a standalone mechanism the compound carries into every other blood_pressure-
+tagged pairing. Because `blood_pressure` is in `ADDITIVE`, this single
+clause generated a real pairwise interaction edge against every one of the
+~68 other blood_pressure-tagged compounds sitewide (e.g. beetroot, whose
+BP-lowering is nitrate-mediated and has nothing to do with mucuna) —
+confirmed via `public/data/interaction_edges.json['mucuna-pruriens']`
+shrinking from 90 → 22 entries after the fix, matching the reviewer's cited
+counts exactly. Fixed by rewording to "severe **pressor crisis**" — same
+accurate medical meaning (a pressor crisis is the standard term for a
+tyramine/monoamine-driven BP spike), zero keyword collisions.
+
+**Sharper takeaway than the "surgery" one above: simulating the matcher
+tells you WHICH mechanisms fire, but not whether firing is *scoped*
+correctly.** Before accepting any tag from the simulation, ask "does this
+compound have this property as a *standalone, general* trait (safe to pair
+broadly), or is the sourced risk *specific to one drug class* (unsafe to
+generalize)?" MAOI-tagged `serotonergic` is establishedly treated as
+general-enough sitewide (every antidepressant-interacting herb gets this
+same broad tag, by long precedent) — but a compound-specific side-effect of
+that one interaction (here, the BP spike mechanism of the MAOI reaction
+specifically) should NOT also get its own broad mechanism tag just because
+its description happens to contain a matching keyword. Also had to hand-patch
+`compounds-detail/mucuna-pruriens.json` directly (same
+already-empty-fields-only backfill limitation documented two entries back)
+since `data:sync-detail-backfill` did not pick up the correction.
+
+Re-verified clean after the fix: `npm run validate:workbook-schema`, `npm run
+audit:risk-tag-collisions`, `npm run check`, and the full Vitest suite
+(584/584) all passed. `interaction_edges.json` total dropped from 16741 to
+16673 edges (the 68 removed false pairings), confirming no other unrelated
+edges were disturbed.
