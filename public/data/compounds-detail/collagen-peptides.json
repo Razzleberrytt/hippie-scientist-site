@@ -75,5 +75,10 @@
     }
   ],
   "dosage": "powder or capsule",
-  "typical_dosage": "powder or capsule"
+  "typical_dosage": "powder or capsule",
+  "contraindications": [
+    "avoid if allergic to the source protein such as bovine or marine or egg-derived collagen",
+    "caution in hypercalcemia or kidney disease due to mineral content in some formulations",
+    "limited safety data in pregnancy or breastfeeding"
+  ]
 }

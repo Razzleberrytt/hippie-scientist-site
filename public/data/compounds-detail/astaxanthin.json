@@ -77,5 +77,11 @@
     }
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "may have additive blood-pressure-lowering effect with antihypertensive medication",
+    "theoretical mild antiplatelet effect with warfarin or aspirin or clopidogrel",
+    "may lower blood glucose and require monitoring with diabetes medication",
+    "avoid in pregnancy or breastfeeding due to insufficient safety data"
+  ]
 }

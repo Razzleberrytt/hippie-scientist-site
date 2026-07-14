@@ -5013,7 +5013,12 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "may have additive blood-pressure-lowering effect with antihypertensive medication",
+      "theoretical mild antiplatelet effect with warfarin or aspirin or clopidogrel",
+      "may lower blood glucose and require monitoring with diabetes medication",
+      "avoid in pregnancy or breastfeeding due to insufficient safety data"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -5056,7 +5061,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5064,7 +5069,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -9889,7 +9894,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "avoid if allergic to Burseraceae-family plants",
+      "avoid in severe liver disease or severe kidney disease",
+      "may increase bleeding risk with anticoagulant or antiplatelet drugs such as warfarin with case reports of elevated INR",
+      "may have additive effect with immunosuppressant drugs such as cyclosporine",
+      "avoid in pregnancy given reports of abortifacient activity"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -9932,7 +9943,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9940,7 +9951,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -15555,7 +15566,11 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "avoid if allergic to the source protein such as bovine or marine or egg-derived collagen",
+      "caution in hypercalcemia or kidney disease due to mineral content in some formulations",
+      "limited safety data in pregnancy or breastfeeding"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -15598,7 +15613,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -15606,7 +15621,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -27986,7 +28001,12 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "safety": "May support subjective sleep quality; evidence is early and based on small trials. | Do not imply proven insomnia treatment or anti-aging benefits. | Use as secondary sleep-support page, not first-tier recommendation.",
-    "contraindications": [],
+    "contraindications": [
+      "may reduce the effectiveness of the antipsychotic clozapine",
+      "additive sedation with benzodiazepines or other central-nervous-system depressants",
+      "may have a mild blood-pressure-lowering effect requiring monitoring with antihypertensive medication",
+      "caution in liver disease or kidney disease or pregnancy or breastfeeding"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "Human sleep studies often use gram-level glycine, but exact dose should be tied to the specific cited trial. Avoid universal dosing if source row lacks dose. | Oral glycine powder/capsule; simple amino acid.",
@@ -54065,7 +54085,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "may exacerbate autoimmune conditions such as pemphigus or dermatomyositis via immune stimulation",
+      "counteracts immunosuppressant therapy in organ transplant or autoimmune disease",
+      "may lower blood glucose and potentiate diabetes medication",
+      "may increase bleeding risk with anticoagulant or antiplatelet drugs",
+      "avoid without clinician guidance if you have phenylketonuria"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -54108,7 +54134,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -54116,7 +54142,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],

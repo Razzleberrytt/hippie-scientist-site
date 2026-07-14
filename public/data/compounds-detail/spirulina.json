@@ -74,5 +74,12 @@
     }
   ],
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "may exacerbate autoimmune conditions such as pemphigus or dermatomyositis via immune stimulation",
+    "counteracts immunosuppressant therapy in organ transplant or autoimmune disease",
+    "may lower blood glucose and potentiate diabetes medication",
+    "may increase bleeding risk with anticoagulant or antiplatelet drugs",
+    "avoid without clinician guidance if you have phenylketonuria"
+  ]
 }

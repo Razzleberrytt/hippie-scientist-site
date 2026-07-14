@@ -104,5 +104,12 @@
     }
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "avoid if allergic to Burseraceae-family plants",
+    "avoid in severe liver disease or severe kidney disease",
+    "may increase bleeding risk with anticoagulant or antiplatelet drugs such as warfarin with case reports of elevated INR",
+    "may have additive effect with immunosuppressant drugs such as cyclosporine",
+    "avoid in pregnancy given reports of abortifacient activity"
+  ]
 }
