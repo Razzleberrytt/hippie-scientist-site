@@ -45410,7 +45410,7 @@
       "sedative medications or alcohol or benzodiazepines or opioids due to additive CNS depression",
       "MAOI medications due to theoretical monoamine oxidase inhibitory activity from trace beta-carboline alkaloids",
       "pregnancy due to uterine-stimulant effect",
-      "discontinue before scheduled surgery due to anesthesia-potentiating effect"
+      "anesthesia or perioperative sedative medications due to additive CNS-depressant effect"
     ],
     "interactions": [],
     "side_effects": [],
