@@ -164,6 +164,10 @@
   "dosage": "standardized botanical extract capsule",
   "typical_dosage": "standardized botanical extract capsule",
   "contraindications": [
-    "pregnancy"
+    "pregnancy or breastfeeding due to emmenagogue activity and insufficient safety data",
+    "thyroid disorders or thyroid hormone medications such as levothyroxine due to pharmacodynamic antagonism that reduces effectiveness",
+    "oral contraceptives or statins or calcium-channel blockers or immunosuppressants or other CYP3A4-metabolized medications due to enzyme induction that can lower drug blood levels",
+    "anticoagulant or antiplatelet medications such as warfarin or aspirin or NSAIDs due to reported antiplatelet activity that increases bleeding risk",
+    "liver disease warrants clinician guidance"
   ]
 }

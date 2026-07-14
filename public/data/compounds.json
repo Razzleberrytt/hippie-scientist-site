@@ -12806,7 +12806,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "known hypersensitivity to catuaba bark or related tree bark",
+      "pregnancy or breastfeeding due to a rodent study showing impaired implantation and lack of human safety data",
+      "MAOI antidepressants or SSRIs or other serotonergic medications due to MAO-A inhibiting activity and a theoretical serotonin syndrome risk",
+      "hypertension or cardiovascular disease warrants clinician guidance due to stimulant-like nervous system effects",
+      "overall drug interaction profile is poorly studied so combining with other medications warrants clinician guidance"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -12858,7 +12864,7 @@
       "mechanism-context",
       "non-publishable-profile-status",
       "profile-status:research_only",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -20106,7 +20112,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy"
+      "hormone sensitive conditions such as breast cancer or ovarian cancer or uterine cancer or endometriosis or uterine fibroids due to estrogenic receptor-binding activity",
+      "pregnancy or breastfeeding due to hormonal activity and insufficient safety data",
+      "hormonal contraceptives or hormone replacement therapy warrants clinician guidance due to a potential additive hormonal effect",
+      "known hypersensitivity to wild yam or other Dioscorea species"
     ],
     "interactions": [],
     "side_effects": [],
@@ -20648,7 +20657,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "autoimmune conditions such as rheumatoid arthritis or lupus or multiple sclerosis due to immune-stimulating activity that may trigger flares",
+      "immunosuppressant medications for organ transplant or autoimmune disease due to counteracting immune-modulating effects",
+      "known allergy to Asteraceae family plants such as ragweed or daisies or chrysanthemums due to a common echinacea-derived extraction source",
+      "asthma or other severe allergies due to an increased anaphylaxis risk reported with echinacea",
+      "children under 12 without clinician guidance due to limited pediatric safety data"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized botanical extract capsule",
@@ -20691,7 +20706,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -20699,7 +20714,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -25557,7 +25572,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "liver"
+      "known liver disease or elevated liver enzymes due to reported hepatotoxicity with related Garcinia-derived weight-loss supplements",
+      "combination with other Garcinia or hydroxycitric-acid containing weight-loss products due to compounding hepatotoxicity risk",
+      "pregnancy or breastfeeding due to insufficient human safety data",
+      "diabetes medications due to a possible additive blood-sugar-lowering effect reported with related Garcinia compounds",
+      "discontinue and seek medical care if jaundice or dark urine or abdominal pain or nausea develop"
     ],
     "interactions": [],
     "side_effects": [],
@@ -29082,7 +29101,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy"
+      "pregnancy or breastfeeding due to emmenagogue activity and insufficient safety data",
+      "thyroid disorders or thyroid hormone medications such as levothyroxine due to pharmacodynamic antagonism that reduces effectiveness",
+      "oral contraceptives or statins or calcium-channel blockers or immunosuppressants or other CYP3A4-metabolized medications due to enzyme induction that can lower drug blood levels",
+      "anticoagulant or antiplatelet medications such as warfarin or aspirin or NSAIDs due to reported antiplatelet activity that increases bleeding risk",
+      "liver disease warrants clinician guidance"
     ],
     "interactions": [],
     "side_effects": [],
@@ -46742,7 +46765,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "anticoagulant or antiplatelet medications such as warfarin due to case reports of increased INR and bleeding risk",
+      "statin medications or other CYP3A4-metabolized drugs due to a potential enzyme-inhibition effect similar to grapefruit",
+      "antihypertensive medications due to an additive blood-pressure-lowering effect",
+      "diabetes medications or insulin due to added hypoglycemia risk from a blood-sugar-lowering effect",
+      "known allergy to pomegranate"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -46785,7 +46814,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -46793,7 +46822,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],

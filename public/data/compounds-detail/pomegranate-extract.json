@@ -76,5 +76,12 @@
     }
   ],
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "anticoagulant or antiplatelet medications such as warfarin due to case reports of increased INR and bleeding risk",
+    "statin medications or other CYP3A4-metabolized drugs due to a potential enzyme-inhibition effect similar to grapefruit",
+    "antihypertensive medications due to an additive blood-pressure-lowering effect",
+    "diabetes medications or insulin due to added hypoglycemia risk from a blood-sugar-lowering effect",
+    "known allergy to pomegranate"
+  ]
 }

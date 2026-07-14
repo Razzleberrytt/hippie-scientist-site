@@ -144,6 +144,10 @@
   "dosage": "standardized extract capsule",
   "typical_dosage": "standardized extract capsule",
   "contraindications": [
-    "liver"
+    "known liver disease or elevated liver enzymes due to reported hepatotoxicity with related Garcinia-derived weight-loss supplements",
+    "combination with other Garcinia or hydroxycitric-acid containing weight-loss products due to compounding hepatotoxicity risk",
+    "pregnancy or breastfeeding due to insufficient human safety data",
+    "diabetes medications due to a possible additive blood-sugar-lowering effect reported with related Garcinia compounds",
+    "discontinue and seek medical care if jaundice or dark urine or abdominal pain or nausea develop"
   ]
 }
