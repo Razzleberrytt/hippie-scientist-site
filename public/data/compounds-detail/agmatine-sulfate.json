@@ -37,5 +37,10 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Caution with antihypertensive medication due to a theoretical blood-pressure-lowering effect via nitric-oxide and imidazoline-receptor pathways",
+    "pregnancy/breastfeeding without clinician guidance",
+    "human safety data are limited to short trials of a few weeks or less such as the Keynan et al. 2010 RCT which reported no treatment-related adverse events at roughly 1335 to 3560 mg per day."
+  ]
 }

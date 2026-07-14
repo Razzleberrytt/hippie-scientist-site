@@ -38,5 +38,13 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "anticoagulant or antiplatelet medication due to enhanced bleeding risk",
+    "antihypertensive medication due to additive blood pressure lowering effect",
+    "immunosuppressant medication due to reduced effectiveness from immune-stimulating activity",
+    "bupropion or other CYP450-metabolized medications due to altered drug levels from enzyme interaction",
+    "pregnancy due to insufficient safety data",
+    "discontinue before scheduled surgery due to bleeding risk"
+  ]
 }

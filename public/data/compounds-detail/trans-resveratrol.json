@@ -41,5 +41,11 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "standardized extract capsule",
-  "typical_dosage": "standardized extract capsule"
+  "typical_dosage": "standardized extract capsule",
+  "contraindications": [
+    "anticoagulant or antiplatelet medication such as warfarin or clopidogrel or aspirin due to documented bleeding risk from BCRP and CYP2C9 inhibition raising warfarin exposure",
+    "high doses may inhibit CYP3A4 or CYP2D6 or CYP2C9 raising blood levels of drugs with a narrow therapeutic window such as certain antidepressants or statins or pain medications",
+    "hormone-sensitive conditions such as certain breast cancer or uterine fibroids or endometriosis due to estrogen-like activity",
+    "pregnancy or breastfeeding without clinician guidance due to insufficient safety data"
+  ]
 }

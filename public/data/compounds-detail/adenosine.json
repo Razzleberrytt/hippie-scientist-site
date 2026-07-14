@@ -39,5 +39,9 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Injectable adenosine used for supraventricular tachycardia is contraindicated in second- or third-degree AV block or sick sinus syndrome without a pacemaker and in bronchoconstrictive lung disease such as asthma due to bronchospasm risk (FDA Adenocard prescribing information)",
+    "this describes clinical IV drug use rather than oral dietary supplementation since oral safety data do not exist."
+  ]
 }

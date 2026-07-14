@@ -39,5 +39,11 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "diabetes or hypoglycemia or other blood sugar sensitivity due to insulin secretion that can lower blood glucose",
+    "diabetes medication or insulin due to additive hypoglycemia risk",
+    "perioperative use around any medical procedure requiring blood sugar monitoring warrants clinician guidance due to possible glycemic effects",
+    "pregnancy or breastfeeding without clinician guidance due to insufficient safety data"
+  ]
 }

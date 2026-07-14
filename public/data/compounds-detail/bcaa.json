@@ -37,5 +37,10 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "Avoid in maple syrup urine disease (inherited BCAA-metabolism disorder)",
+    "a placebo-controlled ALS trial was halted early after excess mortality in the BCAA-treated arm (Italian ALS Study Group 1993) so BCAA supplementation is not recommended for ALS outside clinician-directed care",
+    "pregnancy/breastfeeding without clinician guidance."
+  ]
 }

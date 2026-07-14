@@ -38,5 +38,11 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "active or undiagnosed cancer history warrants oncologist guidance before use due to theoretical support of cellular energy metabolism in tumor growth",
+    "diabetes medication such as insulin or metformin may need monitoring due to NMN's influence on blood sugar regulation",
+    "antihypertensive medication may have an additive blood pressure lowering effect",
+    "pregnancy or breastfeeding without clinician guidance due to insufficient safety data"
+  ]
 }
