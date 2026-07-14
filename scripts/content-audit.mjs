@@ -67,19 +67,33 @@ function collectPages() {
 // cards). Blanket-stripping every `{...}` block below would otherwise
 // discard this prose entirely and make data-driven pages look thin even
 // when the rendered page has substantial text.
-const PROSE_KEYS = /\b(title|desc|description|problem|why|cta|body|caution|bestFor|fit|label|goal|role|summary|name|kind|sub|eyebrow|text|note|question|answer)\s*:\s*(['"`])((?:(?!\2)[^\\]|\\.)*)\2/g
+const PROSE_KEY_NAMES = ['title', 'desc', 'description', 'problem', 'why', 'cta', 'body', 'caution', 'bestFor', 'fit', 'label', 'goal', 'role', 'summary', 'name', 'kind', 'sub', 'eyebrow', 'text', 'note', 'question', 'answer']
+const PROSE_KEYS = new RegExp(`\\b(${PROSE_KEY_NAMES.join('|')})\\s*:\\s*(['"\`])((?:(?!\\2)[^\\\\]|\\\\.)*)\\2`, 'g')
 
-function extractProseLiterals(source) {
+function extractProseLiterals(source, keyPattern = PROSE_KEYS) {
   const withoutComments = source
     .replace(/\/\/.*$/gm, '')
     .replace(/\/\*[\s\S]*?\*\//g, '')
   let proseLiterals = ''
   let match
-  PROSE_KEYS.lastIndex = 0
-  while ((match = PROSE_KEYS.exec(withoutComments))) {
+  keyPattern.lastIndex = 0
+  while ((match = keyPattern.exec(withoutComments))) {
     proseLiterals += ' ' + match[3]
   }
   return proseLiterals
+}
+
+// Detects which PROSE_KEYS property names the page actually reads off a loop
+// variable (e.g. `article.title`, `a.description` from `articles.map(article
+// => ...)` or `.map(a => ...)`) so cross-file extraction below only pulls in
+// the fields a hub genuinely renders, not an imported module's entire prose
+// surface (e.g. full article body/FAQ text that never appears on the hub).
+function detectAccessedProseKeys(source) {
+  const pattern = new RegExp(`\\.\\s*(${PROSE_KEY_NAMES.join('|')})\\b`, 'g')
+  const keys = new Set()
+  let match
+  while ((match = pattern.exec(source))) keys.add(match[1])
+  return keys
 }
 
 // Resolves a page's own local (relative or `@/`-aliased) imports to on-disk
@@ -88,6 +102,10 @@ function extractProseLiterals(source) {
 // literals) still counts toward the page's word total. Recurses a bounded
 // depth to reach re-exported barrel files (e.g. `lib/foo.ts` spreading in
 // arrays from `lib/foo/articles-a.ts`), capped and de-duped to stay cheap.
+// Extraction from imported files is restricted to `accessedKeys` (the
+// property names the page itself reads) so an imported registry's unrelated,
+// unrendered prose (deep article sections, FAQ answers, etc.) can't inflate
+// the word count and mask a genuinely thin hub.
 const IMPORT_SPECIFIER = /from\s+['"]((?:\.{1,2}|@)\/[^'"]+)['"]/g
 const MAX_IMPORT_DEPTH = 3
 
@@ -99,7 +117,7 @@ function resolveImportPath(specifier, fromDir) {
   return null
 }
 
-function collectImportedProse(source, fromFile, depth, visited) {
+function collectImportedProse(source, fromFile, depth, visited, accessedKeyPattern) {
   if (depth > MAX_IMPORT_DEPTH) return ''
   let prose = ''
   const fromDir = path.dirname(fromFile)
@@ -119,8 +137,8 @@ function collectImportedProse(source, fromFile, depth, visited) {
     } catch {
       continue
     }
-    prose += ' ' + extractProseLiterals(importedSource)
-    prose += ' ' + collectImportedProse(importedSource, resolved, depth + 1, visited)
+    prose += ' ' + extractProseLiterals(importedSource, accessedKeyPattern)
+    prose += ' ' + collectImportedProse(importedSource, resolved, depth + 1, visited, accessedKeyPattern)
   }
   return prose
 }
@@ -133,7 +151,11 @@ function countWords(source, filePath) {
 
   let proseLiterals = extractProseLiterals(source)
   if (filePath) {
-    proseLiterals += collectImportedProse(source, filePath, 1, new Set())
+    const accessedKeys = detectAccessedProseKeys(source)
+    if (accessedKeys.size > 0) {
+      const accessedKeyPattern = new RegExp(`\\b(${[...accessedKeys].join('|')})\\s*:\\s*(['"\`])((?:(?!\\2)[^\\\\]|\\\\.)*)\\2`, 'g')
+      proseLiterals += collectImportedProse(source, filePath, 1, new Set(), accessedKeyPattern)
+    }
   }
 
   // Strip JSX/HTML tags and remaining braces (interpolation, non-prose objects)

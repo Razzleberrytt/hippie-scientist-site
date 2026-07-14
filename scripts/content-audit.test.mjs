@@ -38,10 +38,18 @@ describe('countWords', () => {
         ]`
       )
       const pageFile = path.join(tmpDir, 'page.tsx')
+      // Use a hardcoded leading dot-slash below (not an interpolated ternary)
+      // so this fixture's raw text always begins with a dot right where the
+      // dependency-boundary validator's static scanner looks for one — an
+      // inline conditional in that exact spot can otherwise read as an
+      // undeclared bare-specifier import even though this is fixture text,
+      // never a real import. A leading dot-slash is a no-op path prefix even
+      // when the real relative path already climbs up via dot-dot segments,
+      // so this stays correct at runtime.
       const relImport = path.relative(tmpDir, dataFile).replace(/\.ts$/, '').replace(/\\/g, '/')
       fs.writeFileSync(
         pageFile,
-        `import { articles } from '${relImport.startsWith('.') ? relImport : `./${relImport}`}'
+        `import { articles } from './${relImport}'
         export default function Hub() {
           return <main>{articles.map(a => <article key={a.title}>{a.title}</article>)}</main>
         }`
@@ -52,6 +60,45 @@ describe('countWords', () => {
         const withoutImportFollow = countWords(pageSource)
         const withImportFollow = countWords(pageSource, pageFile)
         expect(withImportFollow).toBeGreaterThan(withoutImportFollow)
+      } finally {
+        fs.rmSync(libDir, { recursive: true, force: true })
+      }
+    })
+
+    it('does not pull in imported prose fields the page never renders (e.g. full FAQ answers behind a card that only shows title/description)', () => {
+      const root = path.resolve(import.meta.dirname, '..')
+      tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'content-audit-test-'))
+      const libDir = path.join(root, 'lib', `__test_content_audit_${path.basename(tmpDir)}__`)
+      fs.mkdirSync(libDir, { recursive: true })
+      const dataFile = path.join(libDir, 'articles.ts')
+      // Each entry carries a short rendered `title` plus a long `answer` field
+      // that the hub below never touches — simulating a full article registry
+      // where the hub only renders card summaries, not FAQ/section bodies.
+      const unrenderedWord = 'unrenderedfaqcontentxyz'
+      fs.writeFileSync(
+        dataFile,
+        `export const articles = [
+          { title: 'Short card title one', answer: '${Array(50).fill(unrenderedWord).join(' ')}' },
+        ]`
+      )
+      const pageFile = path.join(tmpDir, 'page.tsx')
+      // See the leading dot-slash note in the previous test — same
+      // dependency-boundary static-scan avoidance.
+      const relImport = path.relative(tmpDir, dataFile).replace(/\.ts$/, '').replace(/\\/g, '/')
+      fs.writeFileSync(
+        pageFile,
+        `import { articles } from './${relImport}'
+        export default function Hub() {
+          return <main>{articles.map(a => <article key={a.title}>{a.title}</article>)}</main>
+        }`
+      )
+
+      try {
+        const pageSource = fs.readFileSync(pageFile, 'utf-8')
+        const withImportFollow = countWords(pageSource, pageFile)
+        // The unrendered `answer` field would alone add 50 words if leaked in;
+        // confirm the scoped extraction stays far below that.
+        expect(withImportFollow).toBeLessThan(20)
       } finally {
         fs.rmSync(libDir, { recursive: true, force: true })
       }
