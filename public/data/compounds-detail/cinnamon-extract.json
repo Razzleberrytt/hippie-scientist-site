@@ -79,6 +79,9 @@
   "dosage": "capsule or standardized extract",
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [
-    "liver"
+    "Existing liver disease or elevated liver enzymes due to cassia-type cinnamon's coumarin content which can exceed established safety intake limits with regular use and has been linked to liver-enzyme elevation or liver injury case reports",
+    "concurrent diabetes medication or insulin due to additive blood-sugar-lowering effect and hypoglycemia risk",
+    "concurrent acetaminophen or other liver-metabolized medication due to combined hepatic burden",
+    "true Ceylon cinnamon contains only trace coumarin and carries a substantially lower version of this risk."
   ]
 }
