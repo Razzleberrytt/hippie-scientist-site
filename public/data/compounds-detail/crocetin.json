@@ -166,7 +166,10 @@
   "dosage": "capsule or standardized extract",
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [
-    "pregnancy",
-    "ssri"
+    "Pregnancy or breastfeeding due to saffron's uterine-stimulant and abortifacient activity at higher doses",
+    "caution with bleeding disorders or anticoagulant or blood-thinning medication use",
+    "caution with blood pressure medications due to saffron's antihypertensive activity",
+    "caution with unbalanced bipolar disorder due to serotonergic activity",
+    "crocetin is typically consumed as part of standardized saffron extract rather than an isolated supplement so follow the extract's dosing guidance."
   ]
 }

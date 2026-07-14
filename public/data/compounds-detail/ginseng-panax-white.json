@@ -41,6 +41,10 @@
   "dosage": "softgel or liquid oil",
   "typical_dosage": "softgel or liquid oil",
   "contraindications": [
-    "stimulant"
+    "Uncontrolled hypertension or acute infection or nosebleeds or heavy menstrual bleeding",
+    "may reduce the anticoagulant effect of warfarin based on case reports and ginsenoside antagonism studies",
+    "concurrent MAOI antidepressants such as phenelzine carry case reports of manic-like overstimulation",
+    "may potentiate insulin or oral diabetes medication through additive blood-sugar-lowering activity",
+    "pregnancy or breastfeeding without clinician guidance due to limited safety data."
   ]
 }

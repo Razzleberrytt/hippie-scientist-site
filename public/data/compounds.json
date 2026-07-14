@@ -14465,7 +14465,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "liver"
+      "Existing liver disease or elevated liver enzymes due to cassia-type cinnamon's coumarin content which can exceed established safety intake limits with regular use and has been linked to liver-enzyme elevation or liver injury case reports",
+      "concurrent diabetes medication or insulin due to additive blood-sugar-lowering effect and hypoglycemia risk",
+      "concurrent acetaminophen or other liver-metabolized medication due to combined hepatic burden",
+      "true Ceylon cinnamon contains only trace coumarin and carries a substantially lower version of this risk."
     ],
     "interactions": [],
     "side_effects": [],
@@ -17093,8 +17096,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy",
-      "ssri"
+      "Pregnancy or breastfeeding due to saffron's uterine-stimulant and abortifacient activity at higher doses",
+      "caution with bleeding disorders or anticoagulant or blood-thinning medication use",
+      "caution with blood pressure medications due to saffron's antihypertensive activity",
+      "caution with unbalanced bipolar disorder due to serotonergic activity",
+      "crocetin is typically consumed as part of standardized saffron extract rather than an isolated supplement so follow the extract's dosing guidance."
     ],
     "interactions": [],
     "side_effects": [],
@@ -17226,8 +17232,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy",
-      "ssri"
+      "Pregnancy or breastfeeding due to saffron's uterine-stimulant and abortifacient activity at higher doses",
+      "caution with bleeding disorders or anticoagulant or blood-thinning medication use",
+      "caution with blood pressure medications due to saffron's antihypertensive activity",
+      "caution with unbalanced bipolar disorder due to serotonergic activity",
+      "crocin is typically consumed as part of standardized saffron extract rather than an isolated supplement so follow the extract's dosing guidance."
     ],
     "interactions": [],
     "side_effects": [],
@@ -34532,7 +34541,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "sedative"
+      "Known allergy to lavender or other Lamiaceae/mint-family plants",
+      "pregnancy or breastfeeding without clinician guidance for oral lavender oil preparations",
+      "planned procedures requiring general anesthesia (discontinue oral lavender oil beforehand due to additive sedation)",
+      "May potentiate sedatives or alcohol or benzodiazepines or opioids through additive CNS depression",
+      "repeated topical use of lavender oil in prepubertal children has been associated with case reports of gynecomastia (possible endocrine-disrupting activity) and is not advised without clinician guidance."
     ],
     "interactions": [],
     "side_effects": [],
@@ -44764,7 +44777,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "stimulant"
+      "Uncontrolled hypertension or acute infection or nosebleeds or heavy menstrual bleeding",
+      "may reduce the anticoagulant effect of warfarin based on case reports and ginsenoside antagonism studies",
+      "concurrent MAOI antidepressants such as phenelzine carry case reports of manic-like overstimulation",
+      "may potentiate insulin or oral diabetes medication through additive blood-sugar-lowering activity",
+      "pregnancy or breastfeeding without clinician guidance due to limited safety data."
     ],
     "interactions": [],
     "side_effects": [],
@@ -44878,7 +44895,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "stimulant"
+      "Uncontrolled hypertension or acute infection or nosebleeds or heavy menstrual bleeding",
+      "may reduce the anticoagulant effect of warfarin based on case reports and ginsenoside antagonism studies",
+      "concurrent MAOI antidepressants such as phenelzine carry case reports of manic-like overstimulation",
+      "may potentiate insulin or oral diabetes medication through additive blood-sugar-lowering activity",
+      "pregnancy or breastfeeding without clinician guidance due to limited safety data."
     ],
     "interactions": [],
     "side_effects": [],
@@ -49679,8 +49700,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "ssri",
-      "stimulant"
+      "Concurrent MAOI or SSRI or SNRI or other serotonergic antidepressants due to additive stimulation and case reports of rapid heart rate",
+      "concurrent stimulants due to additive jitteriness or insomnia",
+      "anticoagulant use without clinician review",
+      "pregnancy or breastfeeding due to insufficient safety data",
+      "discontinue before surgery or other medical procedures due to limited interaction data."
     ],
     "interactions": [],
     "side_effects": [],

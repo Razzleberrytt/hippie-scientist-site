@@ -41,7 +41,10 @@
   "dosage": "capsule or standardized extract",
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [
-    "ssri",
-    "stimulant"
+    "Concurrent MAOI or SSRI or SNRI or other serotonergic antidepressants due to additive stimulation and case reports of rapid heart rate",
+    "concurrent stimulants due to additive jitteriness or insomnia",
+    "anticoagulant use without clinician review",
+    "pregnancy or breastfeeding due to insufficient safety data",
+    "discontinue before surgery or other medical procedures due to limited interaction data."
   ]
 }
