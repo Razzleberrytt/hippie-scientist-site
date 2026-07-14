@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import CitationReadySummary from '@/components/seo/CitationReadySummary'
 import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
 import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
@@ -78,6 +79,19 @@ export default function RhodiolaVsAshwagandhaComparePage() {
         </figure>
       </section>
 
+      <CitationReadySummary
+        answer="Rhodiola is usually the better fit for mental fatigue, overextended days, and daytime output. Ashwagandha is usually the better fit for ongoing stress load, evening wind-down, and calming an overstimulated nervous system."
+        bestFor={[
+          'Rhodiola: mental fatigue, burnout-adjacent exhaustion, and stress resilience without sedation.',
+          'Ashwagandha: steady stress support, evening settling, and situations where calm matters more than activation.',
+          'Together: rhodiola in the morning for output, ashwagandha at night for wind-down — a common, well-tolerated pairing.',
+        ]}
+        evidenceLevel="Human trials support rhodiola for stress-related fatigue and ashwagandha for perceived stress and anxiety, though effect sizes are modest and study quality varies."
+        safetyNote="Rhodiola can feel overstimulating for some people and is best avoided late in the day. Ashwagandha may affect thyroid hormone levels and should be reviewed with a clinician during pregnancy or with thyroid or autoimmune conditions."
+        notClaiming="This page is not claiming rhodiola or ashwagandha treats clinical burnout, generalized anxiety disorder, or diagnosed thyroid conditions."
+        referencesHref="#references"
+      />
+
       <AffiliateDisclosure />
 
       <section className="grid gap-6 lg:grid-cols-2">
@@ -140,7 +154,14 @@ export default function RhodiolaVsAshwagandhaComparePage() {
         href={revenueProducts[0]?.affiliateUrl || '#'}
       />
 
-      <section className="card-premium p-6 space-y-4 max-w-4xl mb-8"><h2 className="text-2xl font-semibold tracking-tight text-ink">How to choose</h2><p className="text-sm leading-7 text-muted">Ask yourself: am I wired or tired? If you feel anxious, overstimulated, and cannot wind down at night — ashwagandha (calming). If you feel exhausted, unmotivated, and burned out — rhodiola (stimulating). If both: ashwagandha at night, rhodiola in the morning — this is a common and well-tolerated stack. Start with one for 2-4 weeks before adding the other. Do not expect acute effects — adaptogens work cumulatively. If you feel nothing after 4 weeks, the adaptogen is likely not a fit for your stress pattern.</p></section>
+      <section className="card-premium p-6 space-y-4 max-w-4xl mb-8">
+        <h2 className="text-2xl font-semibold tracking-tight text-ink">How to choose</h2>
+        <p className="text-sm leading-7 text-muted">Ask yourself: am I wired or tired? If you feel anxious, overstimulated, and cannot wind down at night — ashwagandha (calming). If you feel exhausted, unmotivated, and burned out — rhodiola (stimulating). If both: ashwagandha at night, rhodiola in the morning — this is a common and well-tolerated stack. Start with one for 2-4 weeks before adding the other. Do not expect acute effects — adaptogens work cumulatively. If you feel nothing after 4 weeks, the adaptogen is likely not a fit for your stress pattern.</p>
+        <div className="flex flex-wrap gap-3">
+          <Link href="/info/dosing/" className="chip-readable text-xs font-bold">Review dosing basics</Link>
+          <Link href="/safety-checker/" className="chip-readable text-xs font-bold">Check safety context</Link>
+        </div>
+      </section>
 
       <References refs={RHODIOLA_VS_ASHWAGANDHA_REFS} />
     </div>

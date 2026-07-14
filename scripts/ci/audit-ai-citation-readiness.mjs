@@ -43,9 +43,15 @@ function hasNoncanonicalCompareLink(source) {
     || /url:\s*["'`]https:\/\/thehippiescientist\.net\/compare(?:\/|["'`])/.test(source)
 }
 
+function isNoindexPage(source) {
+  return /robots:\s*{[^}]*index:\s*false/.test(source)
+}
+
 function auditPage({ slug, file }) {
   const source = readFileSync(file, 'utf8')
   const warnings = []
+
+  if (isNoindexPage(source)) return { slug, file: path.relative(ROOT, file), warnings }
 
   if (!hasCanonicalComparePath(source, slug)) warnings.push('missing explicit /guides/compare/* canonical path')
   if (!/<h1[\s>]/.test(source)) warnings.push('missing visible H1')
