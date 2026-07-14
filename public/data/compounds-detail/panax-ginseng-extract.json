@@ -40,5 +40,13 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "known hypersensitivity to ginseng or other Araliaceae family plants",
+    "pregnancy without clinician guidance due to a traditional contraindication and insufficient human safety data",
+    "diabetes medication or insulin due to added hypoglycemia risk",
+    "phenelzine or other monoamine oxidase inhibitor medications due to reported manic-like symptoms with concurrent use",
+    "warfarin due to case reports of reduced anticoagulant effect and lowered INR requiring closer monitoring",
+    "uncontrolled high blood pressure or acute infection or unexplained bleeding without clinician guidance"
+  ]
 }
