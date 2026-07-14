@@ -14,6 +14,7 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
 import FAQSchema from '@/components/seo/FAQSchema'
+import CitationReadySummary from '@/components/seo/CitationReadySummary'
 import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
@@ -84,6 +85,19 @@ export default function CurcuminVsBoswelliaVsOmega3Page() {
           </figcaption>
         </figure>
       </section>
+
+      <CitationReadySummary
+        answer="Curcumin has the strongest human trial evidence for inflammatory joint discomfort but needs a bioavailability-enhanced form (phytosome or piperine-paired). Boswellia works through a different pathway (5-LOX/AKBA) and tends to show the fastest subjective onset. Omega-3 is the slowest-acting of the three but supports systemic, whole-body inflammation over a 2-month-plus horizon. Because curcumin and boswellia hit different mechanisms, they are commonly stacked together."
+        bestFor={[
+          'Curcumin: inflammatory joint discomfort, using a bioavailability-enhanced (phytosome or piperine-paired) form.',
+          'Boswellia: knee and mobility-related joint pain via the 5-LOX/AKBA pathway, often stacked with curcumin.',
+          'Omega-3 (EPA/DHA): systemic, low-grade inflammation tied to diet, judged on a 2-month horizon rather than day-three relief.',
+        ]}
+        evidenceLevel="Curcumin has moderate-to-strong human trial evidence in osteoarthritis-adjacent joint pain; boswellia and omega-3 both have moderate evidence, for knee/mobility pain and systemic inflammation respectively."
+        safetyNote="All three share a bleeding-risk theme. Curcumin can have mild antiplatelet effects and stimulate gallbladder contraction; boswellia should be avoided in pregnancy and resin hypersensitivity; omega-3 at higher doses can extend bleeding time. Anyone on anticoagulants or approaching surgery should coordinate with a clinician before combining any of the three."
+        notClaiming="This page is not claiming any of the three replaces a prescribed pain or anti-inflammatory treatment, or that stacking all three is safe without checking your own medication history."
+        referencesHref="#references"
+      />
 
       {/* 3-Column Core Comparison Cards */}
       <section className="grid gap-6 lg:grid-cols-3">

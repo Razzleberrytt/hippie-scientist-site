@@ -1997,3 +1997,56 @@ to stay grounded in existing page content rather than introducing new
 claims — same discipline as this cycle and the last, just slower per page.
 `sleep-herbs-vs-melatonin` (688 lines, the longest) is probably worth
 splitting into its own cycle rather than pairing it with another page.
+
+---
+
+## 2026-07-14 (later still) — Closed 1 more `audit:ai-citations` compare-page gap (`curcumin-vs-boswellia-vs-omega-3`)
+
+Fresh cold session. The compound `contraindications_or_flags` thread had 6+
+concurrently open PRs all touching the same binary `.xlsx` workbook
+(`#2277`, `#2274`, `#2263`, `#2262`, `#2260`, `#2259`), so picked up the
+`audit:ai-citations` compare-page thread instead — zero workbook risk, and
+`list_pull_requests` + `get_files` on the 38 open PRs confirmed none touched
+any `/guides/compare/*` page or the audit script itself.
+
+Ran `npm run audit:ai-citations` fresh (didn't trust the prior entry's "3
+remaining" count, since `ashwagandha-vs-l-theanine-vs-magnesium` is fixed
+only in the still-open, unmerged PR #2281 — against `origin/main` it still
+flags 4 pages): `ashwagandha-vs-l-theanine-vs-magnesium` (claimed by #2281,
+skipped), `berberine-vs-metformin` (527 lines, herb/drug-interaction page —
+higher risk, needs both a summary and a support link), `curcumin-vs-
+boswellia-vs-omega-3` (391 lines, quick-answer-only gap — already had a
+`/safety-checker/` link), `sleep-herbs-vs-melatonin` (688 lines, the
+longest, flagged as its own future cycle two entries back). Picked
+`curcumin-vs-boswellia-vs-omega-3` per the prior entry's own "lowest-risk
+next pick" note — smallest true gap (one component, not two).
+
+Added a `CitationReadySummary` (same established prop pattern: `answer`,
+`bestFor`, `evidenceLevel`, `safetyNote`, `notClaiming`,
+`referencesHref="#references"`) written entirely from claims already on the
+page — the existing 3-column mechanism cards, head-to-head table (onset
+speed, evidence grade, main cautions), and the "Safety & Clinical Cautions"
+section's shared bleeding-risk theme. No new research introduced; no new
+support link needed since the page already links `/safety-checker/` in that
+section.
+
+Re-ran `audit:ai-citations`: 4 flagged pages → 3
+(`ashwagandha-vs-l-theanine-vs-magnesium` — claimed by #2281,
+`berberine-vs-metformin`, `sleep-herbs-vs-melatonin`). `npm run typecheck`,
+`npm run lint`, `a11y.test.tsx` (5/5), and the full `npm run check`
+(typecheck + lint + article-quality + profile-verdicts + claim-discipline +
+safety-visibility + blog/article build + `data:build:core` +
+validate-data-files) all passed clean. `data:build:core` ran as part of
+`check` even though no workbook edit was made this cycle; confirmed via
+`git status` that the only resulting diff was the disposable
+`public/data/_meta/build-info.json` timestamp, reverted per the standing
+convention. Re-checked `origin/main` immediately before committing — no new
+merges landed during the cycle. Final diff: exactly the one page file.
+
+**2 real gaps remain**: `berberine-vs-metformin` (527 lines, needs both a
+summary and a support link — a herb/drug-interaction page, so the summary
+needs care to state interaction risk without overclaiming) and
+`sleep-herbs-vs-melatonin` (688 lines, the longest — still probably worth
+its own cycle rather than pairing it with another page, per the prior
+entry). `berberine-vs-metformin` is the natural next pick once #2281 merges
+and frees up attention on this thread.
