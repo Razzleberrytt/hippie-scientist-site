@@ -1340,3 +1340,70 @@ just a workbook edit + resync.
 Re-verified clean after both fixes: `npm run audit:risk-tag-collisions`,
 `npm run guard:source-of-truth`, `npm run check`, and the full Vitest suite
 (584/584) all passed on the corrected diff.
+
+---
+
+## 2026-07-14 — Filled 6 more `full_public_runtime` compound `contraindications_or_flags` gaps (74 remained; re-detected fresh)
+
+Re-ran the detection query fresh (`full_public_runtime` compounds whose
+`contraindications` array is empty or a bare severity/category token) rather
+than trusting the last entry's "82 remain" — **74** remained at the start of
+this cycle, consistent with continued concurrent chipping. Picked 6
+mainstream, high-traffic, non-duplicate names not obviously touched by any
+in-flight cycle: `astaxanthin`, `mucuna-pruriens`,
+`valerian-extract-standardized`, `boswellia`, `cordyceps`, `ginkgo-egb-761`.
+(Skipped several near-duplicate slug variants in the same gap list —
+`taurine-sleep`/`taurine-blend`, `betaine`/`betaine-hcl`/`betaine-anhydrous`,
+`probiotics`/`probiotics-lactobacillus`/`probiotics-bifidobacterium`,
+`atractylenolide-i/ii/iii` — since a single well-sourced clause set for the
+base compound would leave the variants still gapped without a documented
+policy for whether variants should share or diverge; worth a future cycle's
+attention once that policy is decided rather than guessing here.)
+
+WebSearch-sourced each compound's real pharmacology (Drugs.com/RxList/NCCIH/
+PMC-adjacent sources) before drafting, then **simulated
+`deriveInteractionData()` from `build-interaction-data.mjs` against all 6
+draft clause-strings before writing to the workbook** (per the standing
+takeaway two entries back) — confirms both that a clause fires the intended
+keyword AND that the fired mechanism's assumed ADDITIVE direction matches
+the clause's actual content. Caught one avoidable false-positive this way
+before it ever reached the workbook: valerian's discontinue-before-surgery
+clause originally used the literal word "surgery," which the `anticoagulant`
+mechanism's keyword list contains verbatim (`['anticoagul','antiplatelet',
+'bleeding','pre-surgery','surgery']`) — but valerian's surgical caution is
+about additive sedation with anesthesia, not bleeding risk, so that wording
+would have generated false bleeding-risk interaction edges. Reworded to
+"any procedure requiring general anesthesia" (no keyword collision) instead.
+Contrast: cordyceps' and ginkgo's own discontinue-before-surgery clauses
+correctly keep the word "surgery," because their surgical caution IS about
+a real additive bleeding risk — same literal word, opposite correctness,
+depending on whether the compound's actual surgical risk mechanism happens
+to match what the word triggers. **Takeaway: "surgery"/"pre-surgery" being
+present in the `anticoagulant` keyword list makes it a landmine word for any
+compound whose surgical caution is about something other than bleeding
+(sedation, blood pressure, glycemic control) — grep any new
+surgery-adjacent clause for whether its risk is actually bleeding before
+using the bare word, or reword to name the real mechanism (anesthesia,
+glycemic control, etc.) instead.**
+
+Applied via `edit-entity-master-cell.mjs --in-place` (6 calls) →
+`validate-workbook-schema` → `data:sync-detail-backfill`. The backfill
+incidentally touched 9 unrelated files again (`caffeine-l-theanine`,
+`fadogia-agrestis`, `magnesium`, `melatonin`, `peppermint-oil`,
+`saccharomyces-boulardii`, `ashwagandha`, `maca`, `rhodiola`) — same
+already-documented non-deterministic `sources`-array reorder noise, reverted
+with `git checkout --`. Confirmed the `compounds.json` diff is exactly the 6
+target slugs by comparing old/new record-by-slug in Python rather than
+eyeballing the raw diff (same method as two entries back). Reverted
+`public/data/_meta/build-info.json` (pure timestamp) twice — once after
+`data:sync-detail-backfill`, again after `npm run check` re-ran
+`data:build:core` internally and re-stamped it.
+
+`npm run validate:workbook-schema`, `npm run audit:risk-tag-collisions`,
+`npm run guard:source-of-truth`, `npm run check` (typecheck + lint +
+article-quality + claim-discipline + safety-visibility + `data:build:core`),
+and the full Vitest suite (584/584) all passed clean. 68 `full_public_runtime`
+severity-tier-only compounds remain; re-run the detection query fresh next
+cycle rather than trusting this count — and consider building the standing
+`scripts/data/audit-severity-token-contraindications.mjs` script flagged
+several entries back before hand-rolling the query yet again.

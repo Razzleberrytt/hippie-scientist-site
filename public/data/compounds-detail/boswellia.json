@@ -104,5 +104,12 @@
     }
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Known allergy to boswellia or other Burseraceae-family plants",
+    "concurrent warfarin or aspirin or other anticoagulant or antiplatelet medication due to a theoretical additive bleeding risk",
+    "concurrent immunosuppressant medication such as cyclosporine due to boswellia's immune-modulating activity",
+    "pregnancy due to traditional use as a uterine stimulant and insufficient safety data",
+    "severe liver or kidney disease due to insufficient safety data in these populations."
+  ]
 }

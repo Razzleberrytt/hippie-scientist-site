@@ -39,5 +39,12 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Concurrent immunosuppressant medication such as cyclosporine or azathioprine or corticosteroids due to cordyceps' immune-stimulating activity potentially reducing drug efficacy",
+    "concurrent warfarin or aspirin or other anticoagulant or antiplatelet medication due to cordyceps' mild antiplatelet activity and additive bleeding risk",
+    "autoimmune disease such as lupus or rheumatoid arthritis or multiple sclerosis due to potential immune-stimulating flare risk",
+    "discontinue at least two weeks before scheduled surgery due to additive bleeding risk",
+    "pregnancy or breastfeeding due to insufficient safety data."
+  ]
 }
