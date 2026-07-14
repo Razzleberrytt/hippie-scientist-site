@@ -2700,7 +2700,7 @@
     "trial_design_insight": "",
     "contraindications": [
       "existing liver disease warrants clinician guidance due to limited human hepatic safety data",
-      "warfarin or phenytoin or NSAIDs or other CYP2C8/CYP2C9 substrate medications due to demonstrated in-vitro cytochrome P450 enzyme inhibition",
+      "warfarin or other anticoagulant medications or phenytoin or NSAIDs due to demonstrated in-vitro CYP2C8/CYP2C9 enzyme inhibition and elevated bleeding risk",
       "cardiovascular disease or blood pressure medications warrant clinician guidance due to documented cardiovascular activity",
       "pregnancy or breastfeeding due to insufficient human safety data",
       "diabetes medications may require monitoring due to a theoretical additive blood-glucose-lowering effect from related mangosteen xanthones"
