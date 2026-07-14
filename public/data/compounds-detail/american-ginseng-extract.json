@@ -76,5 +76,12 @@
     }
   ],
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "known hypersensitivity to ginseng or other Araliaceae family plants",
+    "warfarin due to documented case reports of reduced anticoagulant effect and altered INR",
+    "diabetes medication or insulin due to added hypoglycemia risk",
+    "MAOI medications such as phenelzine due to reported adverse interaction",
+    "uncontrolled high blood pressure or acute infection or excessive menstrual bleeding per traditional contraindication use"
+  ]
 }

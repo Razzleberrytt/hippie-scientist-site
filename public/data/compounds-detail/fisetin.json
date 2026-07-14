@@ -39,5 +39,12 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "known hypersensitivity to fisetin or related flavonoids",
+    "warfarin or other anticoagulant medications due to glucuronidation-based metabolism that may potentiate effect",
+    "diabetes medication or insulin due to blood sugar lowering effect demonstrated in animal studies",
+    "pregnancy or breastfeeding or use in children due to absence of human safety data",
+    "limited human clinical data overall warrants clinician guidance before combining with prescription medications metabolized by cytochrome P450 enzymes"
+  ]
 }

@@ -36,5 +36,12 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "known allergy to algae or iodine",
+    "warfarin due to high vitamin K content antagonizing anticoagulant effect with documented INR changes",
+    "hyperthyroidism or thyroid medication due to iodine content",
+    "autoimmune conditions or immunosuppressant medication due to immune-stimulating activity",
+    "take at least two hours apart from other oral medications due to potential absorption interference"
+  ]
 }

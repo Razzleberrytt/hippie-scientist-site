@@ -1690,3 +1690,80 @@ now including the 5 new test cases) all passed clean. No workbook or
 `public/data` changes this cycle — diff is exactly the two new script
 files plus one `package.json` line, zero collision risk with any in-flight
 PR.
+
+---
+
+## 2026-07-14 (later still) — Filled 6 more compound `contraindications_or_flags` gaps, avoiding 4 concurrent PRs' targets
+
+Checked `list_pull_requests` first, as the last several entries recommend: 4
+PRs were already open on this exact thread — #2263 (ashwagandha-root-extract,
+cordyceps, creatine-beta-alanine, gingerol, holy-basil-extract,
+omega-3-epa-dominant, passionflower-extract-standardized,
+turmeric-curcumin-piperine, vitamin-d), #2262 and #2260 (both independently
+targeting astaxanthin/spirulina/collagen-peptides/boswellia — a known,
+previously-documented collision between those two, not something this cycle
+needed to fix), plus #2242 (indexability-score recompute on 23 unrelated
+compounds). Ran the now-standing `npm run audit:severity-tokens` script (built
+two entries back) to get a fresh gap list rather than hand-rolling the query
+again — it works exactly as designed. Cross-referenced its 62-compound output
+against all 4 PRs' touched files and picked 6 with zero overlap, avoiding the
+long-flagged variant/component-cluster slugs (betaine family, taurine family,
+probiotics family, atractylenolide family, boswellic-acid variants, garlic
+variants, maca variants, gingerol/gingerols, ginkgolide variants, inositol
+variants — the naming-policy question is still unresolved and still out of
+scope for a single cycle): `american-ginseng-extract`, `chlorella`, `fisetin`,
+`forskolin`, `olive-leaf-extract`, `peppermint-oil`.
+
+`WebSearch`-sourced real pharmacology per compound (American ginseng's warfarin/
+INR-reducing interaction and hypoglycemia risk with antidiabetic drugs; chlorella's
+vitamin-K-driven warfarin antagonism and iodine/thyroid caution; fisetin's
+glucuronidation-based warfarin-potentiation risk and animal-model hypoglycemia
+signal, tempered by its near-total lack of human safety data; forskolin's
+antihypertensive/anticoagulant additive risk plus a documented case for avoiding
+it specifically in polycystic kidney disease, since forskolin's cAMP-elevating
+mechanism is the same pathway implicated in PKD cyst growth — a nice example of
+mechanism-consistent sourcing rather than a generic organ-caution template; olive
+leaf extract's additive blood-pressure and blood-glucose lowering; peppermint
+oil's GERD/gallstone contraindication from decreased lower-esophageal-sphincter
+pressure and a real cyclosporine-metabolism interaction). Simulated `splitList()`
+(`/[\n|;,]+/`) and `findSuspectMatches()` (`KEYWORDS`/`ALLOWED_PREFIXES`) against
+every draft clause in a throwaway script before writing anything, same as every
+prior cycle in this thread — all 6 came back with correct clause counts (5 each,
+joined with `; ` per the established separator convention confirmed by inspecting
+already-filled `acarbose`/`adenosine`/`agmatine-sulfate` cells) and zero keyword
+collisions.
+
+Applied via `edit-entity-master-cell.mjs --in-place` (6 calls, `--dry-run`
+previewed first) → `validate:workbook-schema` → `workbook:roundtrip-test` (22
+sheets byte-for-byte) → `data:build:core` → `data:sync-detail-backfill`. Found
+both documented failure modes from this same thread's history in one pass:
+`forskolin`'s detail file was never touched by the backfill (it already had a
+stale `["pregnancy","liver","kidney"]` — the exact three-bare-token pattern this
+whole thread exists to fix, just duplicated into the detail file too) and
+`peppermint-oil`'s was the same stale-non-empty case (`["gerd_caution"]`), while
+the backfill picked up `american-ginseng-extract`/`chlorella`/`fisetin`/
+`olive-leaf-extract` automatically (no pre-existing key). Diffed every shared
+field between flat and detail for the two stale cases first — only
+`contraindications` diverged from legitimate detail-only enrichment fields in
+both — then hand-patched just that one field in each, preserving the file's
+existing 2-space-indent/trailing-newline formatting.
+
+Reverted 8 unrelated files the full `data:sync-detail-backfill` touched
+(`caffeine-l-theanine`, `fadogia-agrestis`, `magnesium`, `melatonin`,
+`saccharomyces-boulardii` compounds-detail; `ashwagandha`, `maca`, `rhodiola`
+herbs-detail) after confirming programmatically (not by eyeballing) that every
+one was a pure `sources[]` element-reorder with an identical set of objects,
+zero content change — same recurring noise class two entries back also hit.
+`build-info.json`'s timestamp reverted twice (once after `data:build:core`,
+again after `npm run check` internally re-ran it).
+
+`validate:workbook-schema`, `workbook:roundtrip-test`, `data:validate`,
+`guard:source-of-truth`, `audit:risk-tag-collisions`, `npm run check`, and the
+full Vitest suite (592/592) all passed clean on the final 21-file diff (20
+`public/data` files + the workbook).
+
+**56 `full_public_runtime` compounds with a severity-token/empty
+`contraindications_or_flags` gap should remain** (62 minus this cycle's 6) —
+re-run `npm run audit:severity-tokens` fresh next cycle and re-check
+`list_pull_requests` before picking targets; this thread continues to attract
+heavy concurrent activity.

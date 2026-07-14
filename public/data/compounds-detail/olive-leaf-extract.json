@@ -78,5 +78,12 @@
     }
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "known hypersensitivity to olive leaf or olive products",
+    "antihypertensive medications such as beta-blockers or ACE inhibitors or calcium channel blockers due to additive blood-pressure-lowering effect",
+    "diabetes medication or insulin due to enhanced blood sugar lowering effect and hypoglycemia risk",
+    "anticoagulant or antiplatelet medications due to increased bleeding risk",
+    "pregnancy or breastfeeding due to insufficient safety data"
+  ]
 }

@@ -112,8 +112,10 @@
   "dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
   "typical_dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
   "contraindications": [
-    "pregnancy",
-    "liver",
-    "kidney"
+    "known hypersensitivity to Coleus forskohlii",
+    "antihypertensive medications such as calcium channel blockers or ACE inhibitors or alpha-blockers due to additive blood-pressure-lowering effect and risk of symptomatic hypotension",
+    "anticoagulant or antiplatelet medications such as warfarin due to antiplatelet activity and increased bleeding risk",
+    "polycystic kidney disease due to cAMP-driven cyst growth or severe kidney disease or severe liver disease due to altered drug metabolism and elimination",
+    "pregnancy or breastfeeding due to uterine-stimulant effects and insufficient safety data"
   ]
 }

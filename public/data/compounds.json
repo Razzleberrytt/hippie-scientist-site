@@ -2804,7 +2804,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "known hypersensitivity to ginseng or other Araliaceae family plants",
+      "warfarin due to documented case reports of reduced anticoagulant effect and altered INR",
+      "diabetes medication or insulin due to added hypoglycemia risk",
+      "MAOI medications such as phenelzine due to reported adverse interaction",
+      "uncontrolled high blood pressure or acute infection or excessive menstrual bleeding per traditional contraindication use"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -2847,7 +2853,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2855,7 +2861,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -13684,7 +13690,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "known allergy to algae or iodine",
+      "warfarin due to high vitamin K content antagonizing anticoagulant effect with documented INR changes",
+      "hyperthyroidism or thyroid medication due to iodine content",
+      "autoimmune conditions or immunosuppressant medication due to immune-stimulating activity",
+      "take at least two hours apart from other oral medications due to potential absorption interference"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -13736,7 +13748,7 @@
       "mechanism-context",
       "non-publishable-profile-status",
       "profile-status:research_only",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -23900,7 +23912,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "known hypersensitivity to fisetin or related flavonoids",
+      "warfarin or other anticoagulant medications due to glucuronidation-based metabolism that may potentiate effect",
+      "diabetes medication or insulin due to blood sugar lowering effect demonstrated in animal studies",
+      "pregnancy or breastfeeding or use in children due to absence of human safety data",
+      "limited human clinical data overall warrants clinician guidance before combining with prescription medications metabolized by cytochrome P450 enzymes"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -23943,7 +23961,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -23951,7 +23969,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -24294,9 +24312,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy",
-      "liver",
-      "kidney"
+      "known hypersensitivity to Coleus forskohlii",
+      "antihypertensive medications such as calcium channel blockers or ACE inhibitors or alpha-blockers due to additive blood-pressure-lowering effect and risk of symptomatic hypotension",
+      "anticoagulant or antiplatelet medications such as warfarin due to antiplatelet activity and increased bleeding risk",
+      "polycystic kidney disease due to cAMP-driven cyst growth or severe kidney disease or severe liver disease due to altered drug metabolism and elimination",
+      "pregnancy or breastfeeding due to uterine-stimulant effects and insufficient safety data"
     ],
     "interactions": [],
     "side_effects": [],
@@ -42834,7 +42854,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "known hypersensitivity to olive leaf or olive products",
+      "antihypertensive medications such as beta-blockers or ACE inhibitors or calcium channel blockers due to additive blood-pressure-lowering effect",
+      "diabetes medication or insulin due to enhanced blood sugar lowering effect and hypoglycemia risk",
+      "anticoagulant or antiplatelet medications due to increased bleeding risk",
+      "pregnancy or breastfeeding due to insufficient safety data"
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -42886,7 +42912,7 @@
       "mechanism-context",
       "non-publishable-profile-status",
       "profile-status:research_only",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -45643,7 +45669,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "gerd_caution"
+      "gastroesophageal reflux disease or active gastric ulcers due to decreased lower esophageal sphincter pressure worsening reflux",
+      "gallstones or bile duct obstruction or gallbladder inflammation or severe liver damage",
+      "cyclosporine due to slowed drug breakdown and increased blood levels",
+      "acid-reducing medications such as antacids or proton pump inhibitors or H2 blockers may cause enteric-coated capsules to dissolve prematurely in the stomach",
+      "hiatal hernia due to worsened reflux symptoms"
     ],
     "interactions": [],
     "side_effects": [],
