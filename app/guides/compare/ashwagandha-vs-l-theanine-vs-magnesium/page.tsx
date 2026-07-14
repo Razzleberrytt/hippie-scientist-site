@@ -14,6 +14,7 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import AffiliateDisclosure from '../../../../components/AffiliateDisclosure'
 import { EnhancedEmailCapture } from '@/components/monetization/EnhancedEmailCapture'
 import FAQSchema from '@/components/seo/FAQSchema'
+import CitationReadySummary from '@/components/seo/CitationReadySummary'
 import { RelatedDiscoveryWidget } from '@/components/monetization/RelatedDiscoveryWidget'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
@@ -82,6 +83,19 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
           </figcaption>
         </figure>
       </section>
+
+      <CitationReadySummary
+        answer="Ashwagandha is usually the better fit for chronic, cortisol-driven stress that builds up over weeks and needs 2-8 weeks of daily use to shift. L-theanine is usually the better fit for acute, situational stress or racing thoughts, working within 30-90 minutes. Magnesium glycinate is usually the better fit for physical muscle tension and evening wind-down."
+        bestFor={[
+          'Ashwagandha: long-term daily resilience for chronic, generalized stress and cortisol regulation.',
+          'L-theanine: fast-acting daytime calm for acute stress, jitters, or racing thoughts.',
+          'Magnesium glycinate: physical tension, muscle cramps, and baseline mineral deficiency, especially in the evening.',
+        ]}
+        evidenceLevel="Ashwagandha has moderate-to-strong randomized-trial evidence for stress and anxiety; L-theanine has moderate evidence for acute stress response; magnesium has limited-to-moderate evidence, strongest for people with a baseline deficiency."
+        safetyNote="Ashwagandha can affect thyroid hormone and immune activity — avoid with hyperthyroidism, autoimmune conditions, or pregnancy. L-theanine can lower blood pressure. Magnesium relies on kidney clearance and should be used cautiously with kidney disease."
+        notClaiming="This page is not claiming any of the three treats a diagnosed anxiety disorder, replaces prescribed treatment, or is safe to combine without checking your own medication and health history."
+        referencesHref="#references"
+      />
 
       {/* 3-Column Core Comparison Cards */}
       <section className="grid gap-6 lg:grid-cols-3">
@@ -255,6 +269,10 @@ export default function AshwagandhaVsLTheanineVsMagnesiumPage() {
               <strong>Magnesium</strong> relies heavily on kidney clearance. If you have any history of kidney disease or renal impairment, supplementing magnesium can cause dangerous buildup (hypermagnesemia).
             </li>
           </ul>
+          <div className="flex flex-wrap gap-3 pt-2">
+            <Link href="/safety-checker/" className="chip-readable">Check Your Medication Interactions</Link>
+            <Link href="/info/dosing/" className="chip-readable">Dosing Guidance</Link>
+          </div>
         </div>
       </section>
 

@@ -2079,3 +2079,37 @@ made the check net-negative (audit fatigue) had it shipped as-is. The
 remaining `rhodiola-extract-shr5` finding is a fine target for a future
 contraindications-thread cycle once the current pile of open PRs on that file
 has thinned out.
+
+---
+
+## 2026-07-14 (later still) — Closed 1 more `audit:ai-citations` compare-page gap (4 → 3 remaining)
+
+`list_pull_requests` showed 37 open PRs, none touching `/guides/compare/*`
+or the AI-citation audit script — clear to continue this thread. Picked
+`ashwagandha-vs-l-theanine-vs-magnesium` (367 lines), the shortest of the
+4 remaining flagged pages, per the prior entry's own risk ordering.
+
+Added a `CitationReadySummary` (same established prop pattern: `answer`,
+`bestFor`, `evidenceLevel`, `safetyNote`, `notClaiming`,
+`referencesHref="#references"`) written entirely from claims already on
+the page — the existing head-to-head comparison table and the three
+scenario cards. No new research introduced. The page's existing "Safety &
+Clinical Cautions" section had no support link, so added
+`/safety-checker/` and `/info/dosing/` chip links there, matching the
+pattern used on `melatonin-vs-valerian-vs-magnesium-for-sleep`.
+
+Re-ran `audit:ai-citations`: 4 flagged pages → 3 (`berberine-vs-metformin`,
+`curcumin-vs-boswellia-vs-omega-3` — quick-answer only, `sleep-herbs-vs-
+melatonin`). `npm run check` passed clean, plus `a11y.test.tsx` (5/5).
+Final diff: exactly the 1 page file; `public/data/_meta/build-info.json`
+timestamp reverted as usual.
+
+**3 real gaps remain**, all longer/more claim-dense than this cycle's
+target: `berberine-vs-metformin` (527 lines — a herb/drug-interaction
+comparison page, so its summary needs extra care to state the interaction
+risk without overclaiming), `curcumin-vs-boswellia-vs-omega-3` (391 lines,
+quick-answer only — no support-link gap, so a smaller fix), and
+`sleep-herbs-vs-melatonin` (688 lines, the longest — still probably worth
+its own cycle per the prior entry). `curcumin-vs-boswellia-vs-omega-3` is
+likely the next-lowest-risk pick since it only needs one component added,
+not two content additions.
