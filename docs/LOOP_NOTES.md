@@ -1836,3 +1836,65 @@ re-verify with a fresh `npm run audit:severity-tokens` run) — re-check
 to attract heavy concurrent autonomous activity and could use a human decision
 on the variant/family-cluster naming policy to unblock ~20 of the remaining
 gaps that are stuck behind it.
+
+---
+
+## 2026-07-14 (later still) — Skipped the contraindications thread entirely this cycle; fixed a real `audit:ai-citations` grounding-query gap instead
+
+`list_pull_requests` showed 6 open PRs already active on the compound-
+safety/contraindications thread alone (#2275, #2274, #2263, #2262, #2260,
+#2259), plus #2272 and #2270 already covering the exact
+`audit:curated-indexable` false-positive/real-regression split (ginger,
+peppermint, black-cohosh, phosphatidylcholine, acetyl-l-carnitine) that this
+cycle independently rediscovered by running the audit fresh — so both of
+those avenues were already fully claimed before this cycle started. Every
+other standing audit came back clean or advisory-only: `typecheck`, `lint`,
+`audit:content` (only 8 pages in scope, 0 issues), `audit:links` (suggestions
+only), `audit:duplicates`, `audit:dual-slugs`, `audit:leaked-text`,
+`audit:best-for` (only 4 low-traffic black-cohosh-constituent compounds
+affected, already covered by the same saturated safety thread),
+`audit:education-canonicals`, `audit:risk-tag-collisions`,
+`validate:semantic-graph-health` (ecosystem-map.json's 0 relationships is a
+pre-existing, unused-by-the-UI dead field — `getEcosystemMap()` in
+`src/lib/runtime-related-maps.ts` has no callers anywhere in the codebase —
+not a regression worth chasing), `a11y.test.tsx`, and the email-capture
+"coming soon" P0 flagged in `docs/site-audit-2026-06.md` (already fixed;
+that doc is now a month stale and shouldn't be trusted at face value without
+re-verifying each item against current `main`).
+
+`npm run audit:ai-citations` was the one audit that surfaced something real
+and unclaimed: `/guides/compare/melatonin-vs-magnesium/` — a page in the
+MASTER_BACKLOG-priority Sleep cluster — was failing two of the five
+hardcoded `REQUIRED_MELATONIN_HEADINGS` checks in
+`scripts/ci/audit-ai-citation-readiness.mjs` (`source.includes(heading)`,
+exact-string match only). The page already had near-duplicate headings with
+the same meaning ("Magnesium glycinate vs melatonin: quick answer" vs the
+required "Melatonin vs magnesium: quick answer"; "Magnesium versus melatonin:
+the core difference" vs the required "Magnesium glycinate vs melatonin: the
+core difference") — close enough to read fine to a human, but not an exact
+match for the Bing/AI-answer-engine grounding-query strings the audit exists
+to enforce. Renamed both H2s to the exact required phrasing; no other content
+changed. Re-ran `audit:ai-citations` and confirmed both `grounding-query
+heading` warnings for this slug are gone.
+
+Picked this over the 3-remaining-slug `audit:curated-indexable` fix
+specifically *because* #2270/#2272 already own it — didn't want a third PR
+touching the same governance-hold logic. This fix's diff (2 lines, 1 file)
+doesn't overlap either of those PRs' files.
+
+`npm run check` (typecheck + lint + article-quality + profile-verdicts +
+claim-discipline + safety-visibility + blog/article build + data:build:core +
+validate-data-files) passed clean. `public/data/_meta/build-info.json`
+timestamp reverted after the run, as usual. Final diff is exactly the one
+page file.
+
+**Takeaway for future cycles:** this repo's automated-loop history has
+concentrated almost all attention on the compound-safety/contraindications
+thread and the curated-indexability governance thread. Both are now heavily
+serviced by concurrent in-flight PRs. `audit:ai-citations`'s per-page
+structural warnings (missing quick-answer signal, missing methodology/
+disclaimer link, missing JSON-LD, etc. — dozens of `/guides/compare/*` pages
+affected) and its AI-entity-completeness score (average 16/100 across all
+856 profiles, 0 scoring 80+) are large, mostly-untouched surfaces — a good
+candidate for the next cycle to scope out, but too broad to fix in one pass
+without picking a narrow, well-justified slice first.
