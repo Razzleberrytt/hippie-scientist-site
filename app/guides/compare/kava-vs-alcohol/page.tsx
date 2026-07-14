@@ -13,6 +13,7 @@ import FAQSchema from '@/components/seo/FAQSchema'
 import References from '@/components/References'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
+import CitationReadySummary from '@/components/seo/CitationReadySummary'
 
 const KAVA_VS_ALCOHOL_REFS = [
   { n: 1, text: 'Sarris J, et al. (2013). Kava in the treatment of generalized anxiety disorder. J Clin Psychopharmacol, 33(5): 643-648.', url: 'https://pubmed.ncbi.nlm.nih.gov/23942365/' },
@@ -68,6 +69,19 @@ export default function KavaVsAlcoholPage() {
           </figcaption>
         </figure>
       </section>
+
+      <CitationReadySummary
+        answer="Kava produces relaxation with less cognitive impairment and a lower dependence risk than alcohol, but it is not risk-free — liver safety depends on using noble cultivars and avoiding contaminants."
+        bestFor={[
+          'Kava: relaxation and anxiolysis while keeping mental clarity, in a harm-reduction or social-alternative context.',
+          'Alcohol: broadly familiar and legal, but carries well-documented dependence, liver, and cognitive-impairment risks with regular use.',
+          'Neither: combining kava and alcohol, since both affect GABA signaling and can amplify sedation and liver strain.',
+        ]}
+        evidenceLevel="Clinical trials support kava for short-term anxiety reduction; liver-safety data is stronger for noble cultivars and traditional water extracts than for ethanol-based extracts or non-noble (tudei) kava."
+        safetyNote="Avoid combining kava with alcohol or other sedatives. Anyone with existing liver conditions, or taking hepatically-metabolized medications, should avoid kava or discuss it with a clinician first."
+        notClaiming="This page is not claiming kava is a safe substitute for alcohol use disorder treatment or that it is risk-free for the liver."
+        referencesHref="#references"
+      />
 
       <section className="grid gap-6 lg:grid-cols-2">
         <div className="card-premium p-6 space-y-4">
@@ -179,6 +193,14 @@ export default function KavaVsAlcoholPage() {
 
           <Link href="/learn/gaba/" className="chip-readable">
             GABA Pathway
+          </Link>
+
+          <Link href="/safety-checker/" className="chip-readable">
+            Safety Checker
+          </Link>
+
+          <Link href="/info/dosing/" className="chip-readable">
+            Dosing Guide
           </Link>
         </div>
       </section>

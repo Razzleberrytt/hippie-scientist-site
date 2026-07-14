@@ -1898,3 +1898,66 @@ affected) and its AI-entity-completeness score (average 16/100 across all
 856 profiles, 0 scoring 80+) are large, mostly-untouched surfaces — a good
 candidate for the next cycle to scope out, but too broad to fix in one pass
 without picking a narrow, well-justified slice first.
+
+---
+
+## 2026-07-14 (later still) — Closed 3 of the 9 `audit:ai-citations` compare-page warnings; found a real audit false positive along the way
+
+Followed up on the prior entry's pointer toward `audit:ai-citations`'s 9
+flagged `/guides/compare/*` pages. `list_pull_requests` showed 6 open PRs
+already on the contraindications thread (#2277, #2274, #2263, #2262, #2260,
+#2259) plus #2272/#2270/#2257/#2249/#2242 on other threads — none touching
+compare pages or this audit, so it was clear to work.
+
+One of the 9 flagged pages, `/guides/compare/dynamic/`, turned out to be a
+false positive: it's the interactive "pick any two items" comparison tool,
+explicitly marked `robots: { index: false, follow: true }` in its
+`buildPageMetadata` call, so it's deliberately excluded from search/AI
+indexing and was never a real citation target. The audit script
+(`scripts/ci/audit-ai-citation-readiness.mjs`) had no concept of noindex
+pages and flagged it for missing quick-answer/support-link signals anyway.
+Added an `isNoindexPage()` check (`robots:\s*{[^}]*index:\s*false` against
+the page source) that short-circuits `auditPage()` with zero warnings —
+cheap, targeted, and correctly leaves all 8 real indexed pages fully
+audited.
+
+The other two tractable targets, `/guides/compare/rhodiola-vs-ashwagandha/`
+and `/guides/compare/kava-vs-alcohol/` (148 and 188 lines — the two
+shortest of the 8 real flagged pages), had genuine gaps: no
+`CitationReadySummary` component (the "quick answer" block AI answer
+engines look for) and no link to `/safety-checker/` or `/info/dosing/`.
+Added a `CitationReadySummary` to each, following the exact prop pattern
+already used on the passing `caffeine-vs-l-theanine` and
+`melatonin-vs-magnesium` pages (`answer`, `bestFor`, `evidenceLevel`,
+`safetyNote`, `notClaiming`, `referencesHref="#references"` — the
+`References` component already renders `id="references"` on both pages, so
+no new anchor was needed), plus `chip-readable` links to `/safety-checker/`
+and `/info/dosing/` in each page's existing safety/how-to-choose section.
+No new claims were introduced — the summary text was written from content
+already present on each page (fatigue-vs-stress framing on the rhodiola
+page, GABA/liver-safety framing on the kava page) plus the existing
+reference list, not new research.
+
+Re-ran `audit:ai-citations`: 9 flagged pages → 6. `npm run check` (typecheck
++ lint + article-quality + profile-verdicts + claim-discipline +
+safety-visibility + blog/article build + `data:build:core` +
+validate-data-files) passed clean, plus `a11y.test.tsx` (5/5). Final diff:
+exactly 3 files (2 compare pages + the audit script), `public/data/_meta/
+build-info.json` timestamp reverted as usual.
+
+**6 real gaps remain** on `/guides/compare/*`:
+`ashwagandha-vs-l-theanine-vs-magnesium`, `berberine-vs-metformin`,
+`curcumin-vs-boswellia-vs-omega-3` (quick-answer only — already has a
+support link), `kanna-vs-ssris`, `melatonin-vs-valerian-vs-magnesium-for-
+sleep`, `sleep-herbs-vs-melatonin` — all longer, more claim-dense pages
+(207–688 lines) than this cycle's two targets, so writing their
+`CitationReadySummary` text will take more care to stay grounded in each
+page's existing evidence rather than introducing new claims. Good next
+targets, roughly in that length order (shortest/least risky first).
+
+**Takeaway for future cycles:** when an audit's `false` count looks
+surprising for a route, check whether that route carries `robots: {
+index: false }` before assuming the flagged content gap is real — noindex
+routes (interactive tools, dynamic pickers, preview/draft pages) are a
+recurring blind spot for content-quality audits that only look at prose
+patterns, not indexing intent.
