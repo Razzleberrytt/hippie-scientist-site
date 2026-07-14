@@ -35927,8 +35927,7 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "Current or former heavy smokers should avoid isolated high-dose antioxidant supplementation at or above 20 mg per day due to increased lung cancer risk seen in trials",
-      "pregnancy or breastfeeding due to insufficient safety data for supplemental doses beyond dietary intake",
+      "Pregnancy or breastfeeding due to insufficient safety data for supplemental doses beyond dietary intake",
       "concurrent beta-carotene supplementation may unpredictably alter absorption of both carotenoids."
     ],
     "interactions": [],
@@ -54093,7 +54092,7 @@
       "Phenylketonuria due to phenylalanine content",
       "autoimmune conditions such as lupus or rheumatoid arthritis or multiple sclerosis due to immune-stimulating effects that may worsen flares",
       "unregulated or contaminated sources due to microcystin or heavy-metal contamination risk",
-      "anticoagulant medications such as warfarin due to vitamin K content reducing effectiveness",
+      "warfarin (a vitamin K antagonist) due to vitamin K content potentially reducing its blood-thinning effectiveness and requiring closer INR monitoring",
       "immunosuppressant medications due to immune-stimulating effects that may counteract them."
     ],
     "interactions": [],
