@@ -22,8 +22,15 @@ import {
 } from '@/src/lib/seo'
 
 const BASE_PATH = '/guides/mental-health'
-const AUTHOR_NAME = 'Will Thomas'
-const AUTHOR_URL = `${SITE_URL}/info/about/`
+const AUTHOR_NAME = 'Willie B. Randolph III'
+const AUTHOR_URL = `${SITE_URL}/info/author/`
+
+function formatReviewDate(date: string): string {
+  return new Intl.DateTimeFormat('en-US', {
+    dateStyle: 'long',
+    timeZone: 'UTC',
+  }).format(new Date(`${date}T00:00:00Z`))
+}
 
 function citationNumbers(article: MentalHealthArticle): Map<string, number> {
   return new Map(article.references.map((reference, index) => [reference.id, index + 1]))
@@ -159,6 +166,11 @@ export default function MentalHealthArticlePage({ slug }: { slug: string }) {
     '@id': `${articleUrl}#article`,
     url: articleUrl,
     mainEntityOfPage: articleUrl,
+    author: {
+      '@type': 'Person',
+      name: AUTHOR_NAME,
+      url: AUTHOR_URL,
+    },
     image: {
       '@type': 'ImageObject',
       url: canonicalUrl(DEFAULT_OG_IMAGE),
@@ -229,6 +241,9 @@ export default function MentalHealthArticlePage({ slug }: { slug: string }) {
         <div className="mt-3">
           <LastUpdatedBadge date={article.dateReviewed} label="Evidence reviewed" />
         </div>
+        <p className="mt-3 text-sm text-muted">
+          Written and edited by <Link href="/info/author/" rel="author" className="font-semibold text-brand-700 hover:underline">{AUTHOR_NAME}</Link>
+        </p>
         <p className="mt-5 max-w-3xl text-lg leading-8 text-muted">{article.deck}</p>
       </header>
 
@@ -244,7 +259,7 @@ export default function MentalHealthArticlePage({ slug }: { slug: string }) {
           <div>
             <h2 id="source-standard" className="text-lg font-bold text-ink">Source and verification standard</h2>
             <p className="mt-1 max-w-3xl text-sm leading-6 text-muted">
-              Claims are linked to official guidance, government health sources, diagnostic manuals, systematic reviews, meta-analyses, randomized trials, and peer-reviewed clinical reviews. Evidence last reviewed July 13, 2026.
+              Claims are linked to official guidance, government health sources, diagnostic manuals, systematic reviews, meta-analyses, randomized trials, and peer-reviewed clinical reviews. Evidence last reviewed {formatReviewDate(article.dateReviewed)}.
             </p>
           </div>
           <a href="#references" className="text-sm font-bold text-brand-700 hover:text-brand-900">Jump to {article.references.length} references ↓</a>
