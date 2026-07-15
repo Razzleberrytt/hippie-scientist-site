@@ -555,13 +555,6 @@ export default async function HerbDetailPage({ params }: PageProps) {
 
       <div className="flex gap-8 items-start">
         <div className="flex-1 min-w-0 space-y-6">
-          {/* Header Breadcrumb - use only common name, not scientific name */}
-      <nav className="flex items-center gap-2 text-xs text-muted">
-        <Link href="/herbs/" className="transition hover:text-ink">Herbs</Link>
-        <span>/</span>
-        <span className="text-ink font-medium">{displayName}</span>
-      </nav>
-
       {/* Title Header — includes the quick-stat strip so the essentials fit in one screen */}
       <div id="overview" className="profile-hero hero-shell scroll-mt-24 rounded-[2rem] border border-brand-900/10 p-5 shadow-sm sm:p-6">
         <header className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_260px] lg:items-start">
