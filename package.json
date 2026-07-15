@@ -86,6 +86,7 @@
     "audit:safety": "node scripts/audit-safety-fill-rate.mjs",
     "audit:risk-tag-collisions": "node scripts/audit-risk-tag-collisions.mjs",
     "audit:severity-tokens": "node scripts/audit-severity-token-contraindications.mjs",
+    "audit:cluster-member-trust": "node scripts/audit-cluster-member-trust.mjs",
     "audit:duplicates": "node scripts/audit/find-duplicate-slugs.mjs",
     "audit:content-gaps": "node scripts/audit/content-gap-report.mjs",
     "audit:sitemap": "node scripts/audit/validate-sitemap-canonicals.mjs",
