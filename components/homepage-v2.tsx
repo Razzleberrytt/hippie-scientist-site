@@ -5,6 +5,7 @@ import {
   Cloud,
   FlaskConical,
   Leaf,
+  Library,
   Moon,
   ShieldCheck,
   Sparkles,
@@ -95,6 +96,32 @@ const toolLinks = [
     href: '/evidence/evidence-checker/',
     title: 'Evidence decision tools',
     description: 'Check evidence strength, dosing context, and uncertainty.',
+  },
+]
+
+const popularProfiles = [
+  { href: '/herbs/ashwagandha/', label: 'Ashwagandha', type: 'Herb' },
+  { href: '/herbs/rhodiola/', label: 'Rhodiola', type: 'Herb' },
+  { href: '/compounds/magnesium/', label: 'Magnesium', type: 'Compound' },
+  { href: '/compounds/l-theanine/', label: 'L-theanine', type: 'Compound' },
+  { href: '/compounds/melatonin/', label: 'Melatonin', type: 'Compound' },
+]
+
+const evidenceSteps = [
+  {
+    label: 'Strong',
+    tone: 'bg-emerald-700 dark:bg-emerald-400',
+    description: 'Consistent human clinical evidence',
+  },
+  {
+    label: 'Moderate',
+    tone: 'bg-amber-600 dark:bg-amber-400',
+    description: 'Useful human evidence with limitations',
+  },
+  {
+    label: 'Limited',
+    tone: 'bg-stone-500 dark:bg-stone-400',
+    description: 'Early, mixed, or indirect evidence',
   },
 ]
 
@@ -254,6 +281,66 @@ export default function HomepageV2() {
                 </Link>
               )
             })}
+          </div>
+        </section>
+
+        <section className='grid gap-5 lg:grid-cols-[1.1fr_0.9fr]'>
+          <div className='editorial-card rounded-[2rem] p-5 sm:p-8'>
+            <div className='flex items-start justify-between gap-4'>
+              <div>
+                <p className='editorial-eyebrow'>Depth library</p>
+                <SectionHeader
+                  title='Look up a specific supplement'
+                  subtitle='Go beyond a quick recommendation with a profile covering evidence, mechanisms, dosing context, and safety.'
+                />
+              </div>
+              <span className='editorial-icon-disc hidden h-14 w-14 shrink-0 sm:inline-flex'>
+                <Library className='h-6 w-6' aria-hidden='true' strokeWidth={1.7} />
+              </span>
+            </div>
+            <div className='mt-6 flex flex-wrap gap-2.5'>
+              {popularProfiles.map((profile) => (
+                <Link
+                  key={profile.href}
+                  href={profile.href}
+                  className='editorial-link-tile group inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-bold text-[#123c2f] transition dark:text-[var(--text-primary)]'
+                >
+                  <span>{profile.label}</span>
+                  <span className='text-[0.65rem] font-semibold uppercase tracking-wider text-muted'>{profile.type}</span>
+                  <ArrowRight className='h-3.5 w-3.5 transition group-hover:translate-x-0.5' aria-hidden='true' />
+                </Link>
+              ))}
+            </div>
+            <div className='mt-6 flex flex-wrap gap-x-5 gap-y-3'>
+              <Link href='/herbs/' className='inline-flex items-center gap-2 text-sm font-bold text-[#315f50] hover:text-[#123c2f] dark:text-[var(--accent-teal)]'>
+                Browse all herbs <ArrowRight className='h-4 w-4' aria-hidden='true' />
+              </Link>
+              <Link href='/compounds/' className='inline-flex items-center gap-2 text-sm font-bold text-[#315f50] hover:text-[#123c2f] dark:text-[var(--accent-teal)]'>
+                Browse all compounds <ArrowRight className='h-4 w-4' aria-hidden='true' />
+              </Link>
+            </div>
+          </div>
+
+          <div className='editorial-card-strong rounded-[2rem] p-5 sm:p-8'>
+            <p className='editorial-eyebrow'>Read the signal</p>
+            <SectionHeader
+              title='Evidence strength, in plain English'
+              subtitle='A mechanism can be plausible without proving a real-world benefit. Our labels prioritize human research.'
+            />
+            <div className='mt-6 space-y-4'>
+              {evidenceSteps.map((step) => (
+                <div key={step.label} className='grid grid-cols-[0.7rem_1fr] gap-3'>
+                  <span className={`mt-1 h-3 w-3 rounded-full ${step.tone}`} aria-hidden='true' />
+                  <div>
+                    <p className='text-sm font-bold text-[#123c2f] dark:text-[var(--text-primary)]'>{step.label}</p>
+                    <p className='mt-0.5 text-sm leading-6 text-muted'>{step.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <Link href='/learn/evidence-levels/' className='mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#315f50] hover:text-[#123c2f] dark:text-[var(--accent-teal)]'>
+              How we grade evidence <ArrowRight className='h-4 w-4' aria-hidden='true' />
+            </Link>
           </div>
         </section>
 

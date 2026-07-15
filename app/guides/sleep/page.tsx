@@ -25,13 +25,13 @@ export const metadata: Metadata = {
 const START_HERE: IntentRoute[] = [
   {
     problem: 'Racing thoughts at bedtime',
-    why: 'A calming amino acid quiets mental chatter without sedation.',
+    why: 'Review the limited sleep evidence for a calming amino acid that is not a conventional sedative.',
     cta: 'L-Theanine for Sleep',
     href: '/guides/sleep/l-theanine-for-sleep/',
   },
   {
     problem: 'Physical tension or a restless body',
-    why: 'Magnesium relaxes muscles and calms an overactive nervous system.',
+    why: 'Check whether magnesium fits your situation, especially if low intake or deficiency may be relevant.',
     cta: 'Magnesium for Sleep',
     href: '/guides/sleep/magnesium-for-sleep/',
   },
@@ -55,7 +55,7 @@ const START_HERE: IntentRoute[] = [
   },
   {
     problem: 'Stress-related insomnia',
-    why: 'An adaptogen that lowers cortisol over weeks, not a same-night fix.',
+    why: 'Explore an adaptogen studied for stress and sleep over weeks, not as a same-night sedative.',
     cta: 'Ashwagandha for Sleep',
     href: '/guides/sleep/ashwagandha-for-sleep/',
   },
@@ -94,7 +94,7 @@ const BEST_FIRST: GuideCard[] = [
   {
     href: '/guides/sleep/magnesium-for-sleep/',
     title: 'Magnesium for Sleep',
-    desc: 'The best-evidenced, lowest-risk first pick for most people.',
+    desc: 'What the evidence shows, who may be more likely to benefit, and when magnesium is a poor fit.',
   },
   {
     href: '/guides/sleep/glycine-for-sleep/',
@@ -258,10 +258,18 @@ export default function SleepGuideIndex() {
       <section className="mb-12 rounded-xl border-l-4 border-brand-700/40 bg-brand-50/60 p-5 dark:bg-[var(--surface-subtle)]">
         <p className="text-sm leading-7 text-ink dark:text-[var(--text-secondary)]">
           <span className="font-bold">A note on matching the tool to the problem.</span> Supplements are
-          most useful when matched to the actual sleep issue. A calming amino acid (L-theanine), a
-          mineral (magnesium), an adaptogen (ashwagandha), and a circadian signal (melatonin) solve
-          different problems — and none of them replaces consistent sleep habits or care for a
-          diagnosed sleep disorder.
+          most useful to evaluate in the context of the actual sleep issue. L-theanine, magnesium,
+          ashwagandha, and melatonin have different evidence, safety considerations, and plausible
+          roles — they are not interchangeable. None replaces consistent sleep habits or care for a
+          diagnosed sleep disorder. Review the{' '}
+          <Link href="/info/supplement-safety-checklist/" className="font-semibold text-brand-800 underline">
+            supplement safety checklist
+          </Link>{' '}
+          before starting a new product, and use the{' '}
+          <Link href="/learn/evidence-literacy/" className="font-semibold text-brand-800 underline">
+            evidence literacy guide
+          </Link>{' '}
+          to interpret study claims.
         </p>
       </section>
 
