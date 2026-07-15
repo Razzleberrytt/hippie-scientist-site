@@ -28872,10 +28872,13 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "liver"
+      "Avoid high-dose or fasting use and seek clinician review with pre-existing liver disease or unexplained liver-test abnormalities",
+      "concentrated EGCG safety is preparation- and dose-specific."
     ],
     "interactions": [],
-    "side_effects": [],
+    "side_effects": [
+      "Rare liver injury has been reported with concentrated, high-dose green tea extract use."
+    ],
     "dosage": "standardized extract capsule",
     "typical_dosage": "standardized extract capsule",
     "forms": [],
@@ -28931,7 +28934,8 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Safety evidence: limited human safety evidence and rare case reports. Isolated or concentrated EGCG can cause liver injury, particularly with high-dose or fasting exposure; evidence does not establish a universally safe supplemental dose."
   },
   {
     "slug": "green-tea-extract-egcg",
@@ -28982,9 +28986,14 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Avoid high-dose or fasting use and seek clinician review with pre-existing liver disease or unexplained liver-test abnormalities",
+      "verify caffeine content if stimulant-sensitive."
+    ],
     "interactions": [],
-    "side_effects": [],
+    "side_effects": [
+      "Rare liver injury has been reported with concentrated, high-dose green tea extract use."
+    ],
     "dosage": "—",
     "typical_dosage": "—",
     "forms": [],
@@ -29040,7 +29049,8 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Safety evidence: limited human safety evidence and rare case reports. Concentrated green tea or EGCG extracts can cause liver injury, particularly with high-dose or fasting exposure; caffeine content and risk vary by preparation."
   },
   {
     "slug": "guggulsterone",

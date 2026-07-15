@@ -4,6 +4,12 @@ import path from 'node:path'
 const root = process.cwd()
 const outDir = path.join(root, 'out')
 const marker = 'data-content-depth-support="true"'
+const hydrationSensitiveTrustRoutes = new Set([
+  '/herbs/green-tea-extract/',
+  '/herbs/turmeric/',
+  '/compounds/green-tea-egcg-isolated/',
+  '/compounds/green-tea-extract-egcg/',
+])
 
 function* walkHtmlFiles(dir) {
   if (!fs.existsSync(dir)) return
@@ -239,9 +245,22 @@ if (!fs.existsSync(outDir)) {
 }
 
 let touched = 0
+let removed = 0
 
 for (const filePath of walkHtmlFiles(outDir)) {
   const route = routeFromFile(filePath)
+  // These profiles have a governed runtime trust contract. Keep their exported
+  // HTML identical to the serialized React tree so generic post-build copy
+  // cannot contradict that contract or trigger a hydration replacement.
+  if (hydrationSensitiveTrustRoutes.has(route)) {
+    const html = fs.readFileSync(filePath, 'utf8')
+    const next = html.replace(/\n?<section data-content-depth-support="true"[\s\S]*?<\/section>\n?/g, '')
+    if (next !== html) {
+      fs.writeFileSync(filePath, next)
+      removed += 1
+    }
+    continue
+  }
   const family = routeFamily(route)
   if (!family) continue
 
@@ -260,4 +279,4 @@ for (const filePath of walkHtmlFiles(outDir)) {
   }
 }
 
-console.log(`[content-depth-support] Added route-aware supporting copy to ${touched} exported HTML pages.`)
+console.log(`[content-depth-support] Added route-aware supporting copy to ${touched} exported HTML pages; removed it from ${removed} governed trust pages.`)

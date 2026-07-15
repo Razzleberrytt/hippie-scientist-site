@@ -226,7 +226,7 @@ function getSafetySummary(herb: Herb) {
   const interactions = cleanItems(herb.interactions, 3)
 
   if (notes) return firstSentences(notes, 2)
-  if (contraindications.length) return `Review before use if any apply: ${contraindications.join(', ')}.`
+  if (contraindications.length) return `Review before use if any apply: ${contraindications.join(', ').replace(/[.!?]+$/, '')}.`
   if (interactions.length) return `Interaction watchouts include ${interactions.join(', ')}.`
   if (labels.length) return `Safety flags: ${labels.join(', ')}.`
   return 'Review personal medications, pregnancy status, chronic conditions, and clinician guidance before use.'

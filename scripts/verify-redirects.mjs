@@ -25,8 +25,6 @@ const requiredRedirects = [
   '/compounds/l-theanine-sleep /compounds/l-theanine/ 301',
   '/compounds/methyleugenol /compounds/methyl-eugenol/ 301',
   '/compounds/bcaas /compounds/bcaa/ 301',
-  '/compounds/green-tea-egcg-isolated /compounds/green-tea-extract/ 301',
-  '/compounds/green-tea-extract-egcg /compounds/green-tea-extract/ 301',
   '/compounds/probiotic-multistrain /compounds/probiotics/ 301',
   '/compounds/probiotic-strain-bifidobacterium /compounds/probiotics/ 301',
   '/compounds/probiotic-strain-lactobacillus /compounds/probiotics/ 301',

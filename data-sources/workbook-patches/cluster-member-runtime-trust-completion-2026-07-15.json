@@ -1,0 +1,91 @@
+{
+  "patch_version": 1,
+  "id": "cluster-member-runtime-trust-completion-2026-07-15",
+  "status": "applied",
+  "sources": [
+    {
+      "id": "green-tea-safety-review-2018",
+      "doi": "10.1016/j.yrtph.2018.03.019",
+      "title": "The safety of green tea and green tea extract consumption in adults - Results of a systematic review",
+      "year": 2018
+    },
+    {
+      "id": "turmeric-arthritis-safety-meta-2022",
+      "doi": "10.3389/fimmu.2022.891822",
+      "title": "Efficacy and Safety of Curcumin and Curcuma longa Extract in the Treatment of Arthritis: A Systematic Review and Meta-Analysis of Randomized Controlled Trial",
+      "year": 2022
+    }
+  ],
+  "changes": [
+    {
+      "slug": "green-tea-extract",
+      "column": "runtime_safety",
+      "expected_old_value": "",
+      "new_value": "Safety evidence: limited human safety evidence and rare case reports. Concentrated, catechin-rich green tea extracts can cause liver injury, with risk influenced by dose and fasting exposure; this does not apply automatically to brewed tea or food use.",
+      "confidence": "high",
+      "source_ids": ["green-tea-safety-review-2018"],
+      "rationale": "Adds an evidence-labelled, extract-specific runtime summary while preserving the workbook's existing liver-risk warning and formulation limits.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "turmeric",
+      "column": "runtime_safety",
+      "expected_old_value": "",
+      "new_value": "Safety evidence: short-term human trials provide limited, preparation-specific safety data. Mild gastrointestinal effects can occur; the existing workbook cautions for bleeding-risk therapy, surgery, biliary disease, pregnancy, and breastfeeding remain precautionary and require individualized review.",
+      "confidence": "moderate",
+      "source_ids": ["turmeric-arthritis-safety-meta-2022"],
+      "rationale": "Adds an evidence-labelled runtime summary without upgrading precautionary workbook cautions into established interaction claims.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "green-tea-egcg-isolated",
+      "column": "runtime_safety",
+      "expected_old_value": "",
+      "new_value": "Safety evidence: limited human safety evidence and rare case reports. Isolated or concentrated EGCG can cause liver injury, particularly with high-dose or fasting exposure; evidence does not establish a universally safe supplemental dose.",
+      "confidence": "high",
+      "source_ids": ["green-tea-safety-review-2018"],
+      "rationale": "Preserves the isolated-extract distinction and explicitly labels the evidence and dosing uncertainty.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "green-tea-egcg-isolated",
+      "column": "contraindications_or_flags",
+      "expected_old_value": "liver",
+      "new_value": "Avoid high-dose or fasting use and seek clinician review with pre-existing liver disease or unexplained liver-test abnormalities; concentrated EGCG safety is preparation- and dose-specific.",
+      "confidence": "high",
+      "source_ids": ["green-tea-safety-review-2018"],
+      "rationale": "Replaces a token with readable, formulation-specific liver-risk guidance from the systematic safety review.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "green-tea-extract-egcg",
+      "column": "runtime_safety",
+      "expected_old_value": "",
+      "new_value": "Safety evidence: limited human safety evidence and rare case reports. Concentrated green tea or EGCG extracts can cause liver injury, particularly with high-dose or fasting exposure; caffeine content and risk vary by preparation.",
+      "confidence": "high",
+      "source_ids": ["green-tea-safety-review-2018"],
+      "rationale": "Adds an evidence-labelled summary that preserves dose, fasting, and preparation uncertainty for this mixed extract profile.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "green-tea-extract-egcg",
+      "column": "contraindications_or_flags",
+      "expected_old_value": "moderate",
+      "new_value": "Avoid high-dose or fasting use and seek clinician review with pre-existing liver disease or unexplained liver-test abnormalities; verify caffeine content if stimulant-sensitive.",
+      "confidence": "high",
+      "source_ids": ["green-tea-safety-review-2018"],
+      "rationale": "Replaces an unlabeled severity token with the profile's existing liver, fasting, and stimulant-sensitivity distinctions.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "turmeric",
+      "column": "contraindications_or_flags",
+      "expected_old_value": "Anticoagulants, gallstones",
+      "new_value": "Use caution with anticoagulant or antiplatelet therapy, before surgery, and with gallbladder or bile-duct disease; avoid unsupervised high supplemental doses during pregnancy or breastfeeding because safety evidence is limited.",
+      "confidence": "moderate",
+      "source_ids": ["turmeric-arthritis-safety-meta-2022"],
+      "rationale": "Converts tokens into readable precautionary guidance while preserving uncertainty and avoiding a medication-interaction schema claim.",
+      "requires_human_review": true
+    }
+  ]
+}

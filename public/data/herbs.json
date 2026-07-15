@@ -14433,7 +14433,9 @@
       "stimulants"
     ],
     "interactions": [],
-    "side_effects": [],
+    "side_effects": [
+      "Rare liver injury has been reported with concentrated, high-dose green tea extract use."
+    ],
     "dosage": "300-800 mg EGCG/day",
     "typical_dosage": "300-800 mg EGCG/day",
     "forms": [],
@@ -14482,7 +14484,8 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Safety evidence: limited human safety evidence and rare case reports. Concentrated, catechin-rich green tea extracts can cause liver injury, with risk influenced by dose and fasting exposure; this does not apply automatically to brewed tea or food use."
   },
   {
     "slug": "guarana",
@@ -30058,11 +30061,15 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "Anticoagulants",
-      "gallstones"
+      "Use caution with anticoagulant or antiplatelet therapy",
+      "before surgery",
+      "and with gallbladder or bile-duct disease",
+      "avoid unsupervised high supplemental doses during pregnancy or breastfeeding because safety evidence is limited."
     ],
     "interactions": [],
-    "side_effects": [],
+    "side_effects": [
+      "Mild gastrointestinal upset can occur with supplemental turmeric or curcumin preparations."
+    ],
     "dosage": "500-1,500 mg/day standardized curcumin extract, often split doses",
     "typical_dosage": "500-1,500 mg/day standardized curcumin extract, often split doses",
     "forms": [],
@@ -30111,7 +30118,8 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false
+    "controlled_substance": false,
+    "safety": "Safety evidence: short-term human trials provide limited, preparation-specific safety data. Mild gastrointestinal effects can occur; the existing workbook cautions for bleeding-risk therapy, surgery, biliary disease, pregnancy, and breastfeeding remain precautionary and require individualized review."
   },
   {
     "slug": "valeriana-officinalis",
