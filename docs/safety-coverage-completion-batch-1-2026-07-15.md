@@ -2,7 +2,7 @@
 
 Date: 2026-07-15
 
-Status: research and workbook patch proposal complete; human safety review required before workbook application.
+Status: approved, applied to the canonical workbook, regenerated, and validated.
 
 ## Scope and prioritization
 
@@ -31,9 +31,9 @@ The strict audit found:
 
 The strict audit initially produced no report on Windows because its executable-module check constructed an invalid file URL. The audit entry point was corrected with `pathToFileURL(process.argv[1]).href`.
 
-## Proposed changes
+## Applied changes
 
-Patch: `data-sources/workbook-patches/safety-coverage-batch-1-2026-07-15.json`
+Applied patch: `data-sources/workbook-patches/safety-coverage-batch-1-2026-07-15.json`
 
 - 25 compounds reviewed
 - 20 compounds with proposed workbook corrections
@@ -75,9 +75,7 @@ The following reviewed profiles remain intentionally incomplete:
 - Kellermann and Kloft (2011), *Is there a risk of bleeding associated with standardized Ginkgo biloba extract therapy?*, DOI: https://doi.org/10.1592/phco.31.5.490
 - Tiani et al. (2024), *The Use of Ginger Bioactive Compounds in Pregnancy*, DOI: https://doi.org/10.1016/j.advnut.2024.100308
 
-## Proposed audit movement after approval
-
-If the validated proposal is approved and applied without other workbook changes:
+## Audit movement after application
 
 - Real-prose contraindication rows: 141 → 150
 - Token-only contraindication rows: 214 → 194
@@ -97,8 +95,12 @@ The increase in empty fields is intentional: unsupported `moderate` tokens are r
 - `npx vitest run scripts/audit-severity-token-contraindications.test.mjs` — PASS (5 tests)
 - `node scripts/ci/validate-workbook-patches.mjs` — PASS
 - `npm run build` — PASS (production static export; 20 deployment-critical steps)
+- `npm run workbook:roundtrip-test` — PASS (22 sheets preserved)
+- `npm run data:build` — PASS
+- Post-application `npm run audit:safety` — PASS (588/588 compounds retain safety context)
+- Post-application strict contraindication audit — PASS; actual counts match the projected 150 prose / 194 token-only / 244 empty distribution
 
-Workbook regeneration and the post-change safety audit are deferred until a human reviewer changes the proposal to `approved` and explicitly acknowledges the safety-field review. The repository patch runner prohibits applying a safety proposal before that review.
+The 41 remaining full-public empty/token records consist of 11 evidence-limited exceptions documented in this batch and 30 records awaiting review in later batches.
 
 ## PR-ready summary
 

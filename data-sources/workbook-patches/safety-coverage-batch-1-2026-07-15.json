@@ -1,7 +1,7 @@
 {
   "patch_version": 1,
   "id": "safety-coverage-batch-1-2026-07-15",
-  "status": "proposal",
+  "status": "applied",
   "sources": [
     {"id":"probiotic-safety-2014","doi":"10.1517/14740338.2014.872627","title":"A systematic review of the safety of probiotics","year":2014},
     {"id":"aged-garlic-warfarin-2006","doi":"10.1093/jn/136.3.793S","title":"Aged garlic extract may be safe for patients on warfarin therapy","year":2006},

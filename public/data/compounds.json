@@ -1699,7 +1699,9 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "anticoagulant"
+      "Do not treat anticoagulant use as an automatic contraindication. One small",
+      "closely monitored trial found no excess serious bleeding with a specific aged garlic extract plus warfarin",
+      "other formulations and unmonitored use remain insufficiently characterized and require clinician review."
     ],
     "interactions": [],
     "side_effects": [],
@@ -4240,7 +4242,10 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Avoid artichoke leaf extract with bile-duct obstruction or other obstructive biliary disease",
+      "avoid with known hypersensitivity to artichoke or other Asteraceae-family plants. Gallstone disease requires clinician review."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -4283,7 +4288,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4291,7 +4296,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -8930,7 +8935,12 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "immunocompromised_caution"
+      "Use only with clinician oversight in severe immunocompromise",
+      "critical illness",
+      "recent surgery",
+      "hospitalization",
+      "or other major medical fragility",
+      "invasive infection is rare but documented for probiotic organisms."
     ],
     "interactions": [],
     "side_effects": [],
@@ -25678,7 +25688,11 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Do not treat anticoagulant use as an automatic contraindication. One small",
+      "closely monitored trial found no excess serious bleeding with a specific aged garlic extract plus warfarin",
+      "other formulations and unmonitored use remain insufficiently characterized and require clinician review."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -25721,7 +25735,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -25729,7 +25743,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -34286,7 +34300,12 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "immunocompromised_caution"
+      "Use only with clinician oversight in severe immunocompromise",
+      "critical illness",
+      "recent surgery",
+      "hospitalization",
+      "or other major medical fragility",
+      "invasive infection is rare but documented for probiotic organisms."
     ],
     "interactions": [],
     "side_effects": [],
@@ -47344,7 +47363,13 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Use only with clinician oversight in people who are critically ill",
+      "severely immunocompromised",
+      "recently postoperative",
+      "or otherwise medically fragile",
+      "multistrain products cannot be assumed to share one safety profile."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -47387,7 +47412,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -47395,7 +47420,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -47448,7 +47473,14 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Use only with clinician oversight in people who are critically ill",
+      "severely immunocompromised",
+      "recently postoperative",
+      "or otherwise medically fragile",
+      "rare invasive infections have been reported",
+      "and risk varies by host and strain."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -47491,7 +47523,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -47499,7 +47531,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -47557,7 +47589,14 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Use only with clinician oversight in severe immunocompromise",
+      "critical illness",
+      "recent surgery",
+      "hospitalization",
+      "or other major medical fragility",
+      "safety cannot be generalized across Bifidobacterium strains."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "softgel or liquid oil",
@@ -47600,7 +47639,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -47608,7 +47647,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -47664,7 +47703,14 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "contraindications": [
+      "Use only with clinician oversight in severe immunocompromise",
+      "critical illness",
+      "recent surgery",
+      "hospitalization",
+      "or other major medical fragility",
+      "safety cannot be generalized across Lactobacillus strains."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -47707,7 +47753,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -47715,7 +47761,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
