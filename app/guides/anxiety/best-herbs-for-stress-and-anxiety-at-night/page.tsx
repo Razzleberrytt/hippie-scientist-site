@@ -95,8 +95,8 @@ export default function Page() {
             Best Herbs for Stress and Anxiety at Night
           </h1>
           <p className="mt-2 text-xs text-muted">
-            Written and reviewed by{' '}
-            <Link href="/author/" className="font-medium text-brand-700 hover:underline">Will Thomas</Link>
+            Written and edited by{' '}
+            <Link href="/info/author/" rel="author" className="font-medium text-brand-700 hover:underline">Willie B. Randolph III</Link>
             {' '}· Last updated June 2026
           </p>
           <p className="detail-reading mt-4 text-muted">

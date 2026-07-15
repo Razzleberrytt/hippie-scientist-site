@@ -645,8 +645,8 @@ export function blogJsonLd(post: BlogJsonLdPost, path: string) {
     image: imageUrl,
     author: {
       '@type': 'Person',
-      name: 'Will Thomas',
-      url: `${SITE_URL}/info/about/`,
+      name: 'Willie B. Randolph III',
+      url: `${SITE_URL}/info/author/`,
     },
     publisher: {
       '@type': 'Organization',

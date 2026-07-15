@@ -2,7 +2,7 @@ import JsonLd from './seo/JsonLd'
 
 const SITE_URL = 'https://thehippiescientist.net'
 const SITE_NAME = 'The Hippie Scientist'
-const DEFAULT_AUTHOR = 'Will Thomas'
+const DEFAULT_AUTHOR = 'Willie B. Randolph III'
 const MIN_FAQ_SCHEMA_ITEMS = 2
 
 const FAQ_FALLBACK_ANSWER_PREFIXES = [
@@ -104,7 +104,7 @@ export default function StructuredData({
       author: {
         '@type': 'Person',
         name: authorName,
-        url: `${SITE_URL}/info/about/`,
+        url: `${SITE_URL}/info/author/`,
       },
       publisher: {
         '@type': 'Organization',

@@ -49,8 +49,8 @@ export function buildArticleSchema(post: Record<string, unknown>) {
     url: url,
     author: {
       '@type': 'Person',
-      name: 'Will Thomas',
-      url: 'https://thehippiescientist.net/info/about/'
+      name: 'Willie B. Randolph III',
+      url: 'https://thehippiescientist.net/info/author/'
     },
     publisher: {
       '@type': 'Organization',
