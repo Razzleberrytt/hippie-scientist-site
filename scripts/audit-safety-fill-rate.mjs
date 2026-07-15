@@ -49,20 +49,43 @@ function slugFor(row, fallbackPrefix, index) {
     .replace(/^-|-$/g, '')
 }
 
-function safetyValue(row) {
-  return clean(
-    row.contraindications_or_flags ||
-      row.safety_level ||
-      row['safety level'] ||
-      row.safety ||
-      row.safety_rating ||
-      row.safetyRating,
-  )
+function first(row, keys) {
+  for (const key of keys) {
+    const value = clean(row[key])
+    if (value) return value
+  }
+  return ''
 }
 
-function classifySafety(value) {
-  if (!value) return 'MISSING'
-  if (/^needs[_\s-]?review$/i.test(value)) return 'NEEDS_REVIEW'
+function safetyContext(row) {
+  return {
+    primary: first(row, [
+      'safety_level',
+      'safety level',
+      'runtime_safety',
+      'runtime safety',
+      'safety_notes',
+      'safety notes',
+      'safety',
+      'safety_rating',
+      'safetyRating',
+    ]),
+    flags: first(row, [
+      'contraindications_or_flags',
+      'contraindications or flags',
+      'contraindications',
+      'avoid_if',
+      'avoid if',
+    ]),
+    level: first(row, ['safety_level', 'safety level', 'safety_rating', 'safetyRating']),
+  }
+}
+
+function classifySafety({ primary, flags }) {
+  if (!primary && !flags) return 'MISSING'
+  if ([primary, flags].some((value) => /^needs[_\s-]?review$/i.test(value))) return 'NEEDS_REVIEW'
+  if (!primary) return 'FLAGS_ONLY'
+  if (!flags) return 'PRIMARY_ONLY'
   return 'FILLED'
 }
 
@@ -72,24 +95,27 @@ function pct(filled, total) {
 
 function summarize(rows, type) {
   const records = rows.map((row, index) => {
-    const value = safetyValue(row)
+    const context = safetyContext(row)
     return {
       slug: slugFor(row, type, index),
       type,
-      priority: 0.9,
-      value,
-      status: classifySafety(value),
+      priority: Number(first(row, ['recommendation_weight', 'discovery_weight'])) || 0,
+      isPublic: /^public$/i.test(clean(row.public_search_visibility)),
+      isIndexable: /^index$/i.test(clean(row.seo_indexing_recommendation)),
+      ...context,
+      status: classifySafety(context),
     }
   })
 
-  const filled = records.filter((record) => record.status === 'FILLED').length
-  return { records, filled, total: records.length }
+  const filled = records.filter((record) => record.status !== 'MISSING' && record.status !== 'NEEDS_REVIEW').length
+  const complete = records.filter((record) => record.status === 'FILLED').length
+  return { records, filled, complete, total: records.length }
 }
 
-function distribution(records) {
+function distribution(records, valueForRecord) {
   const counts = new Map()
   for (const record of records) {
-    const key = record.value || '(empty)'
+    const key = valueForRecord(record)
     counts.set(key, (counts.get(key) || 0) + 1)
   }
   return [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
@@ -99,23 +125,36 @@ function linesForReport(herbSummary, compoundSummary) {
   const allRecords = [...herbSummary.records, ...compoundSummary.records]
   const combinedFilled = herbSummary.filled + compoundSummary.filled
   const combinedTotal = herbSummary.total + compoundSummary.total
-  const missing = allRecords
+  const gaps = allRecords
     .filter((record) => record.status !== 'FILLED')
-    .sort((a, b) => b.priority - a.priority || a.type.localeCompare(b.type) || a.slug.localeCompare(b.slug))
+    .sort((a, b) =>
+      Number(b.isPublic) - Number(a.isPublic) ||
+      Number(b.isIndexable) - Number(a.isIndexable) ||
+      b.priority - a.priority ||
+      a.type.localeCompare(b.type) ||
+      a.slug.localeCompare(b.slug),
+    )
     .slice(0, 20)
 
   return [
     'SAFETY FILL RATE REPORT',
     '=======================',
-    `Herbs:     ${herbSummary.filled} filled / ${herbSummary.total} total (${pct(herbSummary.filled, herbSummary.total)})`,
-    `Compounds: ${compoundSummary.filled} filled / ${compoundSummary.total} total (${pct(compoundSummary.filled, compoundSummary.total)})`,
-    `Combined:  ${combinedFilled} filled / ${combinedTotal} total (${pct(combinedFilled, combinedTotal)})`,
+    `Herbs:     ${herbSummary.filled} with safety context / ${herbSummary.total} total (${pct(herbSummary.filled, herbSummary.total)}); ${herbSummary.complete} also include contraindications/flags`,
+    `Compounds: ${compoundSummary.filled} with safety context / ${compoundSummary.total} total (${pct(compoundSummary.filled, compoundSummary.total)}); ${compoundSummary.complete} also include contraindications/flags`,
+    `Combined:  ${combinedFilled} with safety context / ${combinedTotal} total (${pct(combinedFilled, combinedTotal)})`,
     '',
-    'TOP 20 MISSING (by estimated traffic - sitemap priority proxy):',
-    ...missing.map((record) => `${record.slug} ${record.type} ${record.priority}`),
+    'TOP 20 SAFETY COVERAGE GAPS (public/indexable profiles first):',
+    ...(gaps.length
+      ? gaps.map((record) => `${record.slug} ${record.type} ${record.status.toLowerCase()} priority=${record.priority}`)
+      : ['None']),
     '',
-    'ENUM VALUE DISTRIBUTION:',
-    ...distribution(allRecords).map(([value, count]) => `${value}: ${count}`),
+    'COVERAGE DISTRIBUTION:',
+    ...distribution(allRecords, (record) => record.status.toLowerCase()).map(([value, count]) => `${value}: ${count}`),
+    '',
+    'SAFETY LEVEL DISTRIBUTION:',
+    ...distribution(allRecords, (record) => record.level || '(no safety_level; narrative context audited)').map(
+      ([value, count]) => `${value}: ${count}`,
+    ),
   ]
 }
 
