@@ -55,7 +55,10 @@ export function Breadcrumbs({
   }
 
   return (
-    <div className="border-b border-brand-900/10 bg-[var(--surface)] dark:border-[var(--border-soft)] dark:bg-[var(--surface)]">
+    <div
+      data-global-breadcrumb
+      className="border-b border-brand-900/10 bg-[var(--surface)] dark:border-[var(--border-soft)] dark:bg-[var(--surface)]"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
         <AuthorityBreadcrumbs items={breadcrumbs.map(({ href, label }) => ({ href, label }))} />
       </div>
