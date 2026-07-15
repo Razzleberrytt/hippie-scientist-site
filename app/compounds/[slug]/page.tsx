@@ -55,6 +55,7 @@ import { generatePathwayDiagram } from '@/lib/generate-pathway'
 import ArticleMdx from '@/components/articles/ArticleMdx'
 import MonographHeroImage from '@/components/profile/MonographHeroImage'
 import { getMonographImage } from '@/lib/monograph-images'
+import { buildCompoundTrustGuidance } from '@/lib/compound-trust'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -426,7 +427,6 @@ function getAvoidIf(compound: Record<string, unknown>) {
     compound.who_should_skip,
     compound.whoShouldSkip,
     compound.contraindications,
-    compound.interactions,
   ], 4)
 }
 
@@ -730,6 +730,7 @@ export default async function CompoundPage({ params }: PageProps) {
   const timeline = getTimeline(compound)
   const avoidIf = getAvoidIf(compound)
   const safetySummary = getSafetySummary(compound, avoidIf)
+  const trustGuidance = buildCompoundTrustGuidance(compound, avoidIf)
   const mechanismHints = getMechanismHints(compound, mechanisms)
   const safetyTone = getSafetyTone(safetySummary, avoidIf)
 
@@ -1029,7 +1030,29 @@ export default async function CompoundPage({ params }: PageProps) {
         {/* Section 2: Safety */}
         <section id="safety" className="rounded-2xl bg-amber-50/70 border border-amber-900/10 border-l-4 border-amber-500/60 p-4 sm:p-5 space-y-3">
           <h2 className="text-lg font-bold text-ink">Safety &amp; Cautions</h2>
-          <p className="text-sm leading-6 text-amber-900">{safetySummary}</p>
+          {trustGuidance.evidenceLabel ? (
+            <div className="space-y-3 text-sm leading-6 text-amber-950">
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div className="rounded-xl border border-amber-900/10 bg-white/70 p-3">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-amber-900">Safety evidence</p>
+                  <p className="mt-1 font-semibold">{trustGuidance.evidenceLabel}</p>
+                </div>
+                <div className="rounded-xl border border-amber-900/10 bg-white/70 p-3">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-amber-900">Who should avoid this?</p>
+                  <p className="mt-1">{trustGuidance.avoidSummary}</p>
+                </div>
+              </div>
+              {trustGuidance.safetyDetail ? <p>{trustGuidance.safetyDetail}</p> : null}
+              {trustGuidance.providerGuidance ? (
+                <p className="rounded-xl border border-amber-900/10 bg-amber-100/70 px-3 py-2">
+                  <strong>Talk to a healthcare professional if:</strong>{' '}
+                  {trustGuidance.providerGuidance}
+                </p>
+              ) : null}
+            </div>
+          ) : (
+            <p className="text-sm leading-6 text-amber-900">{safetySummary}</p>
+          )}
         </section>
 
         {interactionEdges.length > 0 && (

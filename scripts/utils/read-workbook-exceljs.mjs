@@ -99,6 +99,14 @@ function normalizeRelationshipXml(xml) {
     .replace(new RegExp(`\\sxmlns:${prefix}=`, 'g'), ' xmlns=')
 }
 
+function normalizeWorkbookRelationshipTargets(xml) {
+  return xml.replace(/(\sTarget=")\/xl\//g, '$1')
+}
+
+function normalizeWorksheetRelationshipTargets(xml) {
+  return xml.replace(/(\sTarget=")\/xl\//g, '$1../')
+}
+
 function normalizeSpreadsheetMainXml(xml) {
   const namespaceMatch = xml.match(
     /xmlns:([A-Za-z_][\w.-]*)="http:\/\/schemas\.openxmlformats\.org\/spreadsheetml\/2006\/main"/,
@@ -157,7 +165,12 @@ async function createNormalizedWorkbookCopy(filePath) {
 
     let normalizeXml = null
     if (entry.name.endsWith('.rels')) {
-      normalizeXml = normalizeRelationshipXml
+      normalizeXml =
+        entry.name === 'xl/_rels/workbook.xml.rels'
+          ? (xml) => normalizeWorkbookRelationshipTargets(normalizeRelationshipXml(xml))
+          : entry.name.startsWith('xl/worksheets/_rels/')
+            ? (xml) => normalizeWorksheetRelationshipTargets(normalizeRelationshipXml(xml))
+            : normalizeRelationshipXml
     } else if (entry.name.startsWith('xl/') && entry.name.endsWith('.xml')) {
       normalizeXml = normalizeSpreadsheetMainXml
     }
@@ -244,6 +257,15 @@ async function readWorkbookStreaming(filePath, originalError) {
     const realName = sheetNoToName.get(String(id)) || name
     sheetNames.push(realName)
     sheets.set(realName, rows)
+  }
+
+  // ExcelJS streaming does not emit a worksheet reader for a completely empty
+  // sheet. Preserve those workbook-declared sheets with an empty row set so the
+  // streaming fallback matches full-workbook and parser-adapter semantics.
+  for (const realName of sheetNoToName.values()) {
+    if (sheets.has(realName)) continue
+    sheetNames.push(realName)
+    sheets.set(realName, [])
   }
 
   return {
