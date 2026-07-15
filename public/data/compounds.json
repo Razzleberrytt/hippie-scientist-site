@@ -52,9 +52,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "pregnancy"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
@@ -97,7 +95,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -105,7 +103,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -463,11 +461,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "pregnancy",
-      "liver",
-      "kidney"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -510,7 +504,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -518,7 +512,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -680,9 +674,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "pregnancy"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
@@ -725,7 +717,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -733,7 +725,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -2340,9 +2332,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "pregnancy"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -2385,7 +2375,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2393,7 +2383,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -2697,9 +2687,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "liver"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -2742,7 +2730,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -2750,7 +2738,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -5405,11 +5393,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "pregnancy",
-      "liver",
-      "kidney"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -5452,7 +5436,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5460,7 +5444,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -5514,11 +5498,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "pregnancy",
-      "liver",
-      "kidney"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract or essential-oil-free preparation when oral use is intended",
@@ -5561,7 +5541,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5569,7 +5549,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -5630,11 +5610,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "pregnancy",
-      "liver",
-      "kidney"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -5677,7 +5653,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5685,7 +5661,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -20115,9 +20091,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "pregnancy"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -20160,7 +20134,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -20168,7 +20142,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -22628,11 +22602,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "pregnancy",
-      "liver",
-      "kidney"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -22675,7 +22645,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -22683,7 +22653,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -25566,9 +25536,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "liver"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -25611,7 +25579,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -25619,7 +25587,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -29095,9 +29063,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "pregnancy"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized botanical extract capsule",
@@ -29140,7 +29106,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -29148,7 +29114,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -32007,9 +31973,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "liver"
-    ],
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or softgel",
@@ -32052,7 +32016,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 100,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -32060,7 +32024,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context",
+      "safety-context-missing",
       "summary-depth",
       "summary-quality-missing"
     ],
