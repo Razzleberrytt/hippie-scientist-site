@@ -15512,12 +15512,9 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: human studies generally report mild gastrointestinal effects, but long-term and population-specific evidence is limited. Reduced warfarin effect has been reported, so vitamin-K-antagonist use requires INR monitoring and clinician review.",
     "contraindications": [
-      "Warfarin or other vitamin-K-antagonist blood-thinning medication without clinician monitoring (CoQ10 structural similarity to vitamin K can reduce drug effectiveness and lower INR)",
-      "chemotherapy without oncologist review (antioxidant activity is a theoretical concern for oxidative-stress-dependent chemotherapy agents)",
-      "May have additive effects with antihypertensive or antidiabetic medications given mild blood-pressure-lowering and blood-glucose-lowering activity",
-      "pregnancy or breastfeeding without clinician guidance due to limited safety data",
-      "mild GI upset such as nausea or heartburn or diarrhea at high doses."
+      "Warfarin or another vitamin-K antagonist without clinician monitoring because reduced anticoagulant effect has been reported."
     ],
     "interactions": [],
     "side_effects": [],
@@ -16707,9 +16704,8 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "kidney"
-    ],
+    "safety": "Safety evidence: systematic review evidence shows a small serum-creatinine increase without a significant decline in glomerular filtration in studied users. Evidence in pre-existing kidney disease, pregnancy, breastfeeding, and long-term use remains limited; serum creatinine should be interpreted in context.",
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "Creatine monohydrate; adult RCT evidence; domain-specific cognition outcomes. Use studied-dose table; do not invent one universal cognitive dose from meta-analysis alone.",
@@ -16809,6 +16805,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: component evidence, not fixed-combination evidence. Beta-alanine commonly causes dose-related tingling, while creatine may raise serum creatinine without reducing measured filtration in studied users; exact doses, pregnancy, breastfeeding, kidney disease, and long-term combination safety remain insufficient.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -16852,7 +16849,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -16860,7 +16857,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -16914,6 +16911,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: most human renal-safety evidence concerns creatine monohydrate, not creatine HCl. HCl-specific dose-response, comparative tolerability, pregnancy, breastfeeding, kidney disease, and long-term safety remain insufficient; superiority claims are not established.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -16957,7 +16955,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -16965,7 +16963,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -17024,12 +17022,8 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "Pre-existing kidney disease or renal impairment warrants clinician guidance before use",
-      "adequate hydration is required since creatine draws water into muscle cells",
-      "caution with other nephrotoxic drugs or supplements such as chronic NSAID use",
-      "mild GI upset such as bloating or cramping at high doses."
-    ],
+    "safety": "Safety evidence: systematic review evidence shows a small serum-creatinine increase without a significant decline in glomerular filtration in studied users. Evidence in pre-existing kidney disease, pregnancy, breastfeeding, and use beyond studied durations remains limited.",
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -17518,7 +17512,10 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "safety": "Safety evidence: turmeric-associated liver injury is uncommon but documented, including recurrence after re-exposure. Piperine altered exposure to a P-glycoprotein substrate in a small human study; medication-specific review is needed, while pregnancy and breastfeeding evidence remain insufficient.",
+    "contraindications": [
+      "Previous turmeric- or curcumin-associated liver injury because recurrence after re-exposure has been reported."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -17561,7 +17558,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 80,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -17569,7 +17566,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -20934,7 +20931,12 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "safety": "Safety evidence: concentrated green-tea catechin supplements at or above 800 mg/day EGCG raised liver-enzyme concern, with fasting exposure relevant; lower-dose risk remains uncertain. Caffeine adds dose-dependent sleep, anxiety-like, and cardiovascular effects; pregnancy and medication-specific safety require review.",
+    "contraindications": [
+      "Previous green-tea-extract-associated liver injury",
+      "high-dose EGCG extract use without clinical supervision",
+      "especially when fasting."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -20977,7 +20979,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -20985,7 +20987,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -23154,6 +23156,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: extended release may prolong exposure and next-day drowsiness, but formulation-specific comparative safety evidence is limited. Headache and dizziness occur in melatonin trials; driving, concurrent sedatives, pregnancy, breastfeeding, pediatric use, and chronic use require individualized review.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -23197,7 +23200,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -23205,7 +23208,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -34083,16 +34086,8 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "safety": "Avoid insomnia-treatment claim. | Claim gate: Use sleep-support language only; avoid “treats insomnia” wording. | Runtime gate: Do not make insomnia-treatment claims; do not duplicate as a separate canonical ingredient if the site already has L-theanine as canonical. | Resolve whether this remains a subentity or redirects/canonicalizes to L-theanine.",
-    "contraindications": [
-      "Avoid insomnia-treatment claim",
-      "clinician review for pregnancy/breastfeeding",
-      "children",
-      "sedatives",
-      "sleep aids",
-      "psychiatric medications",
-      "or complex medical conditions."
-    ],
+    "safety": "Safety evidence: this page does not define a formulation distinct from L-theanine. Short-term trials reported no serious adverse events, but long-term, pregnancy, breastfeeding, pediatric, surgery, organ-impairment, and clinically significant medication-interaction safety remain insufficient; this is not an insomnia treatment claim.",
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "Use L-theanine parent dose runtime: practical adult sleep-support range around 200–450 mg/day, with trials spanning 50–900 mg/day. | Standalone L-theanine preferred for this use-case; combination formulas need separate source rows. | This should probably be a goal/use-case view of L-theanine, not a separate ingredient entity unless the architecture needs use-specific slugs.",
@@ -36917,8 +36912,9 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: magnesium citrate commonly has a dose-related laxative effect. Severe renal impairment increases hypermagnesemia risk, and magnesium can reduce absorption of some oral antibiotics and bisphosphonates; use medication-specific separation guidance.",
     "contraindications": [
-      "Caution in renal disease."
+      "Severe renal impairment or kidney failure without clinician supervision because reduced magnesium clearance increases hypermagnesemia risk."
     ],
     "interactions": [],
     "side_effects": [],
@@ -37137,8 +37133,9 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: magnesium oxide commonly has dose-related gastrointestinal and laxative effects. Severe renal impairment increases hypermagnesemia risk, and magnesium can reduce absorption of some oral antibiotics and bisphosphonates; use medication-specific separation guidance.",
     "contraindications": [
-      "Caution in renal disease."
+      "Severe renal impairment or kidney failure without clinician supervision because reduced magnesium clearance increases hypermagnesemia risk."
     ],
     "interactions": [],
     "side_effects": [],
@@ -37244,8 +37241,9 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: general magnesium renal-clearance and oral-medication absorption precautions apply, but magnesium L-threonate-specific comparative and long-term safety evidence is limited. Severe renal impairment increases hypermagnesemia risk.",
     "contraindications": [
-      "kidney"
+      "Severe renal impairment or kidney failure without clinician supervision because reduced magnesium clearance increases hypermagnesemia risk."
     ],
     "interactions": [],
     "side_effects": [],
@@ -38453,10 +38451,8 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "safety": "May help sleep onset/circadian timing in some people when timing and dose are appropriate. | Do not claim melatonin is a universal insomnia cure or harmless at any dose; do not ignore next-day drowsiness or timing. | Make timing/dose the core differentiator of the page.",
-    "contraindications": [
-      "Caution with sedatives."
-    ],
+    "safety": "Safety evidence: higher-dose adult trials found more drowsiness, headache, and dizziness without a detected serious-adverse-event increase, but reporting and long-term evidence were limited. Driving, concurrent sedatives, pregnancy, breastfeeding, pediatric use, and chronic use require individualized review.",
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "Dose-response meta-analysis suggested sleep effects peaking around 4 mg/day and timing about 3 hours before desired bedtime in that analysis; common practice varies. | Oral melatonin; immediate vs prolonged-release and timing should be separated.",
@@ -43357,9 +43353,8 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "Caution with anticoagulants."
-    ],
+    "safety": "Safety evidence: mild gastrointestinal adverse effects occur, while clinically significant bleeding is not established at common studied doses. Higher-dose, long-term marine omega-3 trials show an atrial-fibrillation signal; anticoagulant use and fish-source allergy warrant product-specific review.",
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "softgel or liquid oil",
@@ -48224,7 +48219,10 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "safety": "Safety evidence: take psyllium with adequate fluid because swelling can cause esophageal or intestinal obstruction, particularly with swallowing difficulty. Gastrointestinal effects may occur, and oral medicines may require dose separation; pregnancy and disease-specific use should follow product and clinician guidance.",
+    "contraindications": [
+      "Difficulty swallowing or known esophageal narrowing or dysfunction because psyllium can swell and obstruct without adequate fluid."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -48267,7 +48265,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 80,
+    "indexability_score": 90,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -48275,7 +48273,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -59652,7 +59650,11 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "safety": "Safety evidence: excessive vitamin D can cause persistent hypercalcemia or hypercalciuria; risk depends on dose, duration, calcium intake, disease context, and measured vitamin D and calcium status. High-dose use, kidney disease, granulomatous disease, pregnancy, and interacting medicines require clinician review.",
+    "contraindications": [
+      "Hypercalcemia or vitamin D toxicity",
+      "high-dose use in conditions that increase calcium without clinician monitoring."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or softgel",
@@ -59695,7 +59697,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -59703,7 +59705,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -59763,14 +59765,10 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: excessive vitamin D3 can cause persistent hypercalcemia or hypercalciuria; risk depends on dose, duration, calcium intake, disease context, and measured vitamin D and calcium status. High-dose use, kidney disease, granulomatous disease, pregnancy, and interacting medicines require clinician review.",
     "contraindications": [
-      "Hypercalcemia or hypervitaminosis D",
-      "sarcoidosis or other granulomatous disease due to hypercalcemia risk from unregulated calcitriol production",
-      "parathyroid gland disorders that raise blood calcium levels",
-      "kidney disease without clinician guidance due to altered calcitriol conversion",
-      "May raise hypercalcemia risk with thiazide diuretics and increase digoxin toxicity risk",
-      "corticosteroids or anticonvulsants such as phenytoin or phenobarbital can reduce effectiveness",
-      "orlistat or cholestyramine can reduce absorption."
+      "Hypercalcemia or vitamin D toxicity",
+      "high-dose use in conditions that increase calcium without clinician monitoring."
     ],
     "interactions": [],
     "side_effects": [],
@@ -59884,7 +59882,11 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "safety": "Safety evidence: excessive vitamin D3 can cause hypercalcemia or hypercalciuria, while vitamin K can alter vitamin-K-antagonist anticoagulation. Exact D3 and K2 doses matter; warfarin use, kidney or calcium disorders, pregnancy, and high-dose use require clinician review.",
+    "contraindications": [
+      "Hypercalcemia or vitamin D toxicity",
+      "warfarin or another vitamin-K antagonist without clinician-directed anticoagulation monitoring."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or softgel",
@@ -59927,7 +59929,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -59935,7 +59937,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -60197,7 +60199,10 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "safety": "Safety evidence: whey isolate is a milk-protein ingredient and is unsuitable for people with cow's-milk protein allergy; lactose content varies by product and intolerance is distinct from allergy. Pregnancy, kidney-disease, and long-term high-intake guidance depend on total diet and clinical context.",
+    "contraindications": [
+      "Cow's-milk protein allergy because whey isolate remains a milk-protein ingredient."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -60240,7 +60245,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -60248,7 +60253,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
