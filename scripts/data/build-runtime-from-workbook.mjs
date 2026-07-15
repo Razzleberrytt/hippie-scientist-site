@@ -13,6 +13,7 @@ import {
 import { assertWorkbookExists, resolveWorkbookPath } from '../workbook-source.mjs'
 import { HERB_RUNTIME_FIELDS } from '../../config/runtime-herb-fields.mjs'
 import { COMPOUND_RUNTIME_FIELDS } from '../../config/runtime-compound-fields.mjs'
+import { getClusterMemberRuntimeTrustRecord } from '../../config/cluster-member-runtime-trust.mjs'
 import { scoreIndexability } from './indexability-policy.mjs'
 import { validateEvidenceEnginePayload } from './evidence-engine-validation.mjs'
 import { getEvidenceEngineGoalConfigs, normalizeEvidenceProblemKey } from './evidence-engine-goals.mjs'
@@ -514,6 +515,8 @@ function read(workbook, candidates, optional = false) {
 function profile(row, type, taxonomy) {
   const allowed = type === 'herb' ? HERB_RUNTIME_FIELDS : COMPOUND_RUNTIME_FIELDS
   const runtimeSafety = compact(first(row, ['runtime_safety', 'runtime safety']))
+  const sourceSlug = slug(first(row, ['slug', 'id', 'name']))
+  const clusterTrust = getClusterMemberRuntimeTrustRecord(sourceSlug)
   const rawMechanisms = uniqueList([
     first(row, ['mechanisms', 'mechanism_of_action', 'mechanism of action', 'mechanism_summary']),
     first(row, ['mechanism', 'primary_mechanisms', 'primary mechanisms', 'canonical_pathways']),
@@ -548,7 +551,9 @@ function profile(row, type, taxonomy) {
     safety_level: clean(first(row, ['safety_level', 'safety level'])),
     contraindications: contraindicationList(row, ['contraindications', 'avoid_if', 'avoid if', 'contraindications_or_flags']),
     interactions: firstList(row, ['interactions']),
-    side_effects: firstList(row, ['side_effects', 'side effects']),
+    side_effects: firstList(row, ['side_effects', 'side effects']).length
+      ? firstList(row, ['side_effects', 'side effects'])
+      : clusterTrust?.sideEffects || [],
     dosage: clean(first(row, ['dosage', 'typical_dosage', 'typical dosage', 'dosage_or_preferred_form'])),
     typical_dosage: clean(first(row, ['typical_dosage', 'typical dosage', 'dosage', 'dosage_or_preferred_form'])),
     forms: firstList(row, ['forms', 'available_forms', 'available forms']),

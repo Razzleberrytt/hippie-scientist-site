@@ -128,6 +128,11 @@ const steps = [
     outputs: ['public/data/runtime-snapshots/profile-semantic-snapshots.json'],
   },
   {
+    name: 'build-search-index',
+    cmd: 'node scripts/data/build-search-index.mjs --data-dir=public/data',
+    cacheable: false,
+  },
+  {
     name: 'build-production',
     cmd: 'node scripts/build-production.mjs',
     inputs: [

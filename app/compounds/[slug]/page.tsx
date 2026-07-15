@@ -76,8 +76,6 @@ const DEPRECATED_COMPOUND_CANONICALS: Record<string, string> = {
   'l-theanine-sleep': 'l-theanine',
   methyleugenol: 'methyl-eugenol',
   bcaas: 'bcaa',
-  'green-tea-egcg-isolated': 'green-tea-extract',
-  'green-tea-extract-egcg': 'green-tea-extract',
   nr: 'nicotinamide-riboside',
   'berberine-hcl': 'berberine',
   'probiotic-multistrain': 'probiotics',
@@ -432,7 +430,7 @@ function getAvoidIf(compound: Record<string, unknown>) {
 
 function getSafetySummary(compound: Record<string, unknown>, avoidIf: string[]) {
   const note = cleanText(compound.safetyNotes || compound.safety_notes || compound.safety)
-  if (avoidIf.length) return `Review before use if any apply: ${avoidIf.slice(0, 3).join(', ')}.`
+  if (avoidIf.length) return `Review before use if any apply: ${avoidIf.slice(0, 3).join(', ').replace(/[.!?]+$/, '')}.`
   if (note) return firstSentences(note, 2)
   return 'Review medications, pregnancy status, chronic conditions, and clinician guidance before use.'
 }
@@ -993,7 +991,7 @@ export default async function CompoundPage({ params }: PageProps) {
             </div>
             <div className="rounded-xl border border-brand-900/10 bg-white/90 p-3">
               <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Safety rating</p>
-              <p className="mt-1 text-sm font-semibold text-ink">{safetyTone}: {safetyLevel || 'Standard'} caution</p>
+              <p className="mt-1 text-sm font-semibold text-ink">{safetyTone}: {safetyLevel || 'Standard caution'}</p>
             </div>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">

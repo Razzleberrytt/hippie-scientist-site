@@ -531,8 +531,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'l-theanine-sleep',
     'methyleugenol',
     'bcaas',
-    'green-tea-egcg-isolated',
-    'green-tea-extract-egcg',
     'nr',
     'berberine-hcl',
     'probiotic-multistrain',

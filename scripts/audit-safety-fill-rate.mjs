@@ -2,6 +2,8 @@
 
 import { assertWorkbookExists, resolveWorkbookPath } from './workbook-source.mjs'
 import { getSheet, readWorkbook, sheetToRows } from './data/workbook-parser.mjs'
+import { pathToFileURL } from 'node:url'
+import { CLUSTER_MEMBER_RUNTIME_DECISION } from '../config/cluster-member-runtime-trust.mjs'
 
 // Current workbook schema (see docs/workbook-only-data-contract.md) keeps herbs
 // and compounds together on one unified sheet, distinguished by entity_type.
@@ -57,7 +59,9 @@ function first(row, keys) {
   return ''
 }
 
-function safetyContext(row) {
+export function safetyContext(row) {
+  const runtimePrimary = first(row, ['runtime_safety', 'runtime safety'])
+  const sourcePrimary = first(row, ['safety_notes', 'safety notes', 'safety'])
   return {
     primary: first(row, [
       'safety_level',
@@ -78,10 +82,12 @@ function safetyContext(row) {
       'avoid if',
     ]),
     level: first(row, ['safety_level', 'safety level', 'safety_rating', 'safetyRating']),
+    runtimePrimary,
+    sourcePrimary,
   }
 }
 
-function classifySafety({ primary, flags }) {
+export function classifySafety({ primary, flags }) {
   if (!primary && !flags) return 'MISSING'
   if ([primary, flags].some((value) => /^needs[_\s-]?review$/i.test(value))) return 'NEEDS_REVIEW'
   if (!primary) return 'FLAGS_ONLY'
@@ -89,11 +95,20 @@ function classifySafety({ primary, flags }) {
   return 'FILLED'
 }
 
+export function classifyRuntimeTrust(row) {
+  const context = safetyContext(row)
+  if (clean(row.runtime_export_decision) !== CLUSTER_MEMBER_RUNTIME_DECISION) return 'NOT_TARGETED'
+  if (!context.runtimePrimary) return context.sourcePrimary ? 'SOURCE_ONLY_NOT_RUNTIME' : 'MISSING_RUNTIME'
+  if (!/^Safety evidence:/i.test(context.runtimePrimary)) return 'UNLABELLED_RUNTIME'
+  if (!context.flags) return 'RUNTIME_WITHOUT_FLAGS'
+  return 'RUNTIME_TRUST_COMPLETE'
+}
+
 function pct(filled, total) {
   return total > 0 ? `${Math.round((filled / total) * 100)}%` : '0%'
 }
 
-function summarize(rows, type) {
+export function summarize(rows, type) {
   const records = rows.map((row, index) => {
     const context = safetyContext(row)
     return {
@@ -104,6 +119,7 @@ function summarize(rows, type) {
       isIndexable: /^index$/i.test(clean(row.seo_indexing_recommendation)),
       ...context,
       status: classifySafety(context),
+      runtimeTrustStatus: classifyRuntimeTrust(row),
     }
   })
 
@@ -125,6 +141,9 @@ function linesForReport(herbSummary, compoundSummary) {
   const allRecords = [...herbSummary.records, ...compoundSummary.records]
   const combinedFilled = herbSummary.filled + compoundSummary.filled
   const combinedTotal = herbSummary.total + compoundSummary.total
+  const clusterRuntime = allRecords.filter(record => record.runtimeTrustStatus !== 'NOT_TARGETED')
+  const clusterRuntimeComplete = clusterRuntime.filter(record => record.runtimeTrustStatus === 'RUNTIME_TRUST_COMPLETE').length
+  const clusterRuntimeGaps = clusterRuntime.filter(record => record.runtimeTrustStatus !== 'RUNTIME_TRUST_COMPLETE')
   const gaps = allRecords
     .filter((record) => record.status !== 'FILLED')
     .sort((a, b) =>
@@ -142,6 +161,10 @@ function linesForReport(herbSummary, compoundSummary) {
     `Herbs:     ${herbSummary.filled} with safety context / ${herbSummary.total} total (${pct(herbSummary.filled, herbSummary.total)}); ${herbSummary.complete} also include contraindications/flags`,
     `Compounds: ${compoundSummary.filled} with safety context / ${compoundSummary.total} total (${pct(compoundSummary.filled, compoundSummary.total)}); ${compoundSummary.complete} also include contraindications/flags`,
     `Combined:  ${combinedFilled} with safety context / ${combinedTotal} total (${pct(combinedFilled, combinedTotal)})`,
+    `Cluster-member runtime trust: ${clusterRuntimeComplete}/${clusterRuntime.length} complete`,
+    ...(clusterRuntimeGaps.length
+      ? clusterRuntimeGaps.map(record => `Runtime gap: ${record.slug} ${record.runtimeTrustStatus.toLowerCase()}`)
+      : ['Cluster-member runtime gaps: None']),
     '',
     'TOP 20 SAFETY COVERAGE GAPS (public/indexable profiles first):',
     ...(gaps.length
@@ -175,23 +198,32 @@ function resolveRows(workbook, type) {
   )
 }
 
-async function main() {
-  const repoRoot = process.cwd()
+export async function auditSafetyFillRate(repoRoot = process.cwd()) {
   const workbookPath = resolveWorkbookPath(repoRoot)
   assertWorkbookExists(workbookPath)
   const workbook = await readWorkbook(workbookPath)
 
   const herbRows = resolveRows(workbook, 'herbs')
   const compoundRows = resolveRows(workbook, 'compounds')
-  const report = linesForReport(
-    summarize(herbRows, 'herb'),
-    summarize(compoundRows, 'compound'),
-  )
+  const herbSummary = summarize(herbRows, 'herb')
+  const compoundSummary = summarize(compoundRows, 'compound')
+  const report = linesForReport(herbSummary, compoundSummary)
 
-  console.log(report.join('\n'))
+  return { herbSummary, compoundSummary, lines: report }
 }
 
-main().catch((error) => {
-  console.error(error)
-  process.exit(1)
-})
+async function main() {
+  const report = await auditSafetyFillRate()
+
+  console.log(report.lines.join('\n'))
+  const runtimeGaps = [...report.herbSummary.records, ...report.compoundSummary.records]
+    .filter(record => !['NOT_TARGETED', 'RUNTIME_TRUST_COMPLETE'].includes(record.runtimeTrustStatus))
+  if (process.argv.includes('--strict') && runtimeGaps.length) process.exit(1)
+}
+
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((error) => {
+    console.error(error)
+    process.exit(1)
+  })
+}

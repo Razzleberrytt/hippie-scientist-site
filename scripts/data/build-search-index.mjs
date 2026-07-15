@@ -17,6 +17,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import matter from 'gray-matter'
+import { resolveRuntimeRecordLayers } from '../../lib/runtime-record-resolver.mjs'
 
 const ROOT = process.cwd()
 const args = process.argv.slice(2)
@@ -106,6 +107,16 @@ function readJson(file) {
   return JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), 'utf8'))
 }
 
+function mergeSearchRecords(summaryFile, coreFile) {
+  const summaries = readJson(summaryFile)
+  const coreBySlug = new Map(readJson(coreFile).map(record => [record.slug, record]))
+  return summaries.map(summary => {
+    const slug = String(summary.slug || summary.id || '').trim()
+    const core = coreBySlug.get(slug)
+    return core ? resolveRuntimeRecordLayers(core, [summary]) : summary
+  })
+}
+
 // ---------------------------------------------------------------------------
 // Source readers
 // ---------------------------------------------------------------------------
@@ -113,7 +124,7 @@ function readJson(file) {
 function buildHerbDocs() {
   let records = []
   try {
-    records = readJson('herbs-summary.json')
+    records = mergeSearchRecords('herbs-summary.json', 'herbs.json')
   } catch {
     return []
   }
@@ -146,7 +157,7 @@ function buildHerbDocs() {
         goals: matchFacets(haystack, GOAL_KEYWORDS),
         pathways: matchFacets(haystack, PATHWAY_KEYWORDS),
         evidenceGrade: normalizeEvidence(item.evidenceLevel || item.confidence),
-        safety: normalizeSafety({ safetyNotes: item.safetyNotes, contraindications, interactions, isEducation: false }),
+        safety: normalizeSafety({ safetyNotes: item.safetyNotes || item.safety, contraindications, interactions, isEducation: false }),
         safetyFlags: {
           hasInteractions: interactions.length > 0,
           hasContraindications: contraindications.length > 0,
@@ -161,7 +172,7 @@ function buildHerbDocs() {
 function buildCompoundDocs() {
   let records = []
   try {
-    records = readJson('compounds-summary.json')
+    records = mergeSearchRecords('compounds-summary.json', 'compounds.json')
   } catch {
     return []
   }
@@ -171,6 +182,8 @@ function buildCompoundDocs() {
       const name = String(item.name || '').trim()
       if (!slug || !name) return null
       const effects = [...toList(item.mechanisms), ...toList(item.targets), ...toList(item.pathways)]
+      const contraindications = toList(item.contraindications)
+      const interactions = toList(item.interactions)
       const haystack = [
         name,
         item.compoundClass,
@@ -190,10 +203,10 @@ function buildCompoundDocs() {
         goals: matchFacets(haystack, GOAL_KEYWORDS),
         pathways: matchFacets(haystack, PATHWAY_KEYWORDS),
         evidenceGrade: normalizeEvidence(item.evidenceLevel),
-        safety: normalizeSafety({ safetyNotes: item.safetyNotes, isEducation: false }),
+        safety: normalizeSafety({ safetyNotes: item.safetyNotes || item.safety, contraindications, interactions, isEducation: false }),
         safetyFlags: {
-          hasInteractions: false,
-          hasContraindications: false,
+          hasInteractions: interactions.length > 0,
+          hasContraindications: contraindications.length > 0,
         },
         tags: effects.slice(0, 4),
         searchText: [name, slug, item.compoundClass, haystack].filter(Boolean).join(' ').toLowerCase(),

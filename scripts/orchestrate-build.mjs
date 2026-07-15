@@ -101,6 +101,11 @@ const steps = [
     description: 'Generate semantic profile snapshots (analysis/governance artifacts)',
   },
   {
+    name: 'build-search-index',
+    cmd: 'node scripts/data/build-search-index.mjs --data-dir=public/data',
+    description: 'Build the final search index from the same resolved runtime contract',
+  },
+  {
     name: 'validate-data-next',
     cmd: 'node scripts/data/validate-data-next.mjs',
     description: 'Validate data files are consumable by Next.js static export',

@@ -1,9 +1,7 @@
 /compounds/passionflower-extract/ /herbs/passionflower/ 301
 /compounds/taurine-sleep/ /compounds/taurine/ 301
 /compounds/aged-garlic-extract/ /herbs/garlic/ 301
-/compounds/green-tea-egcg-isolated/ /herbs/camellia-sinensis/ 301
 /compounds/passionflower/ /herbs/passionflower/ 301
-/compounds/green-tea-extract-egcg/ /herbs/camellia-sinensis/ 301
 /compounds/trans-resveratrol/ /herbs/resveratrol/ 301
 /compounds/bcaas/ /goals/energy/ 301
 /compounds/methyleugenol/ /compounds/ 301

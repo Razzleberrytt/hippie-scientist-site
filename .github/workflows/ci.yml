@@ -78,6 +78,9 @@ jobs:
       - name: Guard workbook source of truth
         run: npm run guard:source-of-truth
 
+      - name: Audit cluster-member runtime trust
+        run: npm run audit:cluster-member-trust:strict
+
       - name: Build application
         env:
           COMMIT_HASH: ${{ github.sha }}

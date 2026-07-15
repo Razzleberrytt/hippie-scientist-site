@@ -12,6 +12,7 @@ import type {
 import type { RuntimeRecord } from '../types/content'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import { getUnifiedRuntimeRecords } from './runtime-record-index'
+import { resolveRuntimeRecordLayers } from '../../lib/runtime-record-resolver.mjs'
 
 const dataDir = path.join(process.cwd(), 'public', 'data')
 
@@ -92,7 +93,7 @@ function mergeBySlug(baseRows: RuntimeRecord[], enrichmentRows: RuntimeRecord[])
     const slug = typeof row?.slug === 'string' ? row.slug : ''
     const enrichment = bySlug.get(slug)
 
-    return enrichment ? { ...row, ...enrichment } : row
+    return enrichment ? resolveRuntimeRecordLayers(row, [enrichment]) as RuntimeRecord : row
   })
 
   const knownSlugs = new Set(merged.map(row => row?.slug).filter(Boolean))
@@ -219,8 +220,9 @@ export const getRouteBuildManifest = cache(async (): Promise<RuntimeRecord[]> =>
 export async function getHerbBySlug(slug: string): Promise<RuntimeRecord | null> {
   const herbs = await getHerbs()
   const herb = herbs.find((herb: any) => herb.slug === slug)
+  if (!herb) return null
   const detail = await readDetailRecord('herbs', slug)
-  const mergedHerb = detail ? { ...herb, ...detail } : herb
+  const mergedHerb = detail ? resolveRuntimeRecordLayers(herb, [detail]) as RuntimeRecord : herb
 
   if (!mergedHerb || !getRuntimeVisibility(mergedHerb).canRender) return null
 
@@ -230,8 +232,9 @@ export async function getHerbBySlug(slug: string): Promise<RuntimeRecord | null>
 export async function getCompoundBySlug(slug: string): Promise<RuntimeRecord | null> {
   const compounds = await getCompounds()
   const compound = compounds.find((compound: any) => compound.slug === slug)
+  if (!compound) return null
   const detail = await readDetailRecord('compounds', slug)
-  const mergedCompound = detail ? { ...compound, ...detail } : compound
+  const mergedCompound = detail ? resolveRuntimeRecordLayers(compound, [detail]) as RuntimeRecord : compound
 
   if (!mergedCompound || !getRuntimeVisibility(mergedCompound).canRender) return null
 
