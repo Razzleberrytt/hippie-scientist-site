@@ -71,6 +71,34 @@ async function loadRuntimeExportDecisions(repoRoot) {
   return bySlug
 }
 
+async function loadEvidenceLimitedExceptions(repoRoot) {
+  const exceptionsPath = path.join(
+    repoRoot,
+    'data-sources',
+    'safety-evidence-limited-exceptions.json',
+  )
+  const raw = await readFile(exceptionsPath, 'utf8')
+  const document = JSON.parse(raw)
+  const exceptions = Array.isArray(document?.exceptions) ? document.exceptions : []
+  const bySlug = new Map()
+
+  for (const exception of exceptions) {
+    const slug = clean(exception?.slug)
+    const reason = clean(exception?.reason)
+    if (!slug || !reason) {
+      throw new Error(
+        '[audit:severity-tokens] every evidence-limited exception requires slug and reason',
+      )
+    }
+    if (bySlug.has(slug)) {
+      throw new Error(`[audit:severity-tokens] duplicate evidence-limited exception: ${slug}`)
+    }
+    bySlug.set(slug, exception)
+  }
+
+  return bySlug
+}
+
 async function main() {
   const repoRoot = process.cwd()
   const workbookPath = resolveWorkbookPath(repoRoot)
@@ -88,6 +116,7 @@ async function main() {
   )
 
   const runtimeDecisions = await loadRuntimeExportDecisions(repoRoot)
+  const evidenceLimitedExceptions = await loadEvidenceLimitedExceptions(repoRoot)
 
   const records = rows.map((row, index) => {
     const slug = slugFor(row, index)
@@ -103,6 +132,21 @@ async function main() {
   const fullPublicGaps = gaps
     .filter((record) => record.runtimeExportDecision === 'full_public_runtime')
     .sort((a, b) => a.slug.localeCompare(b.slug))
+  const documentedEvidenceLimitedGaps = fullPublicGaps.filter((record) =>
+    evidenceLimitedExceptions.has(record.slug),
+  )
+  const actionableFullPublicGaps = fullPublicGaps.filter(
+    (record) => !evidenceLimitedExceptions.has(record.slug),
+  )
+
+  const staleExceptions = [...evidenceLimitedExceptions.keys()].filter(
+    (slug) => !fullPublicGaps.some((record) => record.slug === slug),
+  )
+  if (staleExceptions.length > 0) {
+    throw new Error(
+      `[audit:severity-tokens] evidence-limited exceptions no longer match a full-public gap: ${staleExceptions.join(', ')}`,
+    )
+  }
 
   const lines = [
     'SEVERITY-TOKEN / EMPTY CONTRAINDICATIONS REPORT',
@@ -113,7 +157,11 @@ async function main() {
     `Real prose: ${records.length - gaps.length}`,
     '',
     `full_public_runtime compounds with a gap (empty or token-only): ${fullPublicGaps.length}`,
-    ...fullPublicGaps.map((record) => `  ${record.slug} — ${record.status}${record.value ? ` (${record.value})` : ''}`),
+    `Documented evidence-limited exceptions: ${documentedEvidenceLimitedGaps.length}`,
+    `Remaining actionable full_public_runtime gaps: ${actionableFullPublicGaps.length}`,
+    ...actionableFullPublicGaps.map(
+      (record) => `  ${record.slug} — ${record.status}${record.value ? ` (${record.value})` : ''}`,
+    ),
   ]
 
   console.log(lines.join('\n'))
