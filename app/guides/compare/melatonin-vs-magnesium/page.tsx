@@ -157,11 +157,16 @@ export default function MelatoninVsMagnesiumPage() {
       <section className="card-premium p-6 space-y-5">
         <p className="eyebrow-label">Decision table</p>
         <h2 className="text-3xl font-semibold tracking-tight text-ink">Melatonin vs magnesium glycinate: head-to-head</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[760px] text-left text-sm">
+        <div className="-mx-2 overflow-x-auto px-2 pb-2 [scrollbar-width:thin]">
+          <table className="w-full min-w-[760px] table-fixed border-collapse text-left text-sm">
+            <colgroup>
+              <col className="w-[22%]" />
+              <col className="w-[39%]" />
+              <col className="w-[39%]" />
+            </colgroup>
             <thead className="text-ink">
               <tr className="border-b border-black/10">
-                <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider">Question</th>
+                <th className="whitespace-nowrap py-3 pr-4 text-xs font-bold uppercase tracking-wider">Question</th>
                 <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider">Melatonin</th>
                 <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider">Magnesium glycinate</th>
               </tr>
