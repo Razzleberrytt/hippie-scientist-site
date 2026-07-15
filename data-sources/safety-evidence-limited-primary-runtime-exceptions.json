@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "last_reviewed": "2026-07-15",
+  "description": "Primary-runtime compound profiles whose contraindications_or_flags field was reviewed and intentionally remains empty because reliable human evidence does not establish a specific contraindication for the exact compound or formulation.",
+  "exceptions": [
+    {"slug":"bisdemethoxycurcumin","batch":"trust-completeness-batch-3-primary-runtime-2026-07-15","reason":"Human safety evidence concerns curcuminoid mixtures or turmeric products, not isolated bisdemethoxycurcumin.","evidence":["10.1111/bcp.14460"]},
+    {"slug":"demethoxycurcumin","batch":"trust-completeness-batch-3-primary-runtime-2026-07-15","reason":"Human safety evidence concerns curcuminoid mixtures or turmeric products, not isolated demethoxycurcumin.","evidence":["10.1111/bcp.14460"]},
+    {"slug":"bacopaside-ii","batch":"trust-completeness-batch-3-primary-runtime-2026-07-15","reason":"Human trials concern whole Bacopa extracts; isolated bacopaside II contraindications cannot be inferred.","evidence":["10.2196/38542"]},
+    {"slug":"bacopa-extract-bacoside-standardized","batch":"trust-completeness-batch-3-primary-runtime-2026-07-15","reason":"Human trials report short-term tolerability but do not establish a categorical contraindication.","evidence":["10.2196/38542"]},
+    {"slug":"caffeine","batch":"trust-completeness-batch-3-primary-runtime-2026-07-15","reason":"Dose- and susceptibility-dependent precautions are supported, but the systematic review does not establish a universal disease-specific contraindication.","evidence":["10.1016/j.fct.2017.04.002"]},
+    {"slug":"caffeine-l-theanine","batch":"trust-completeness-batch-3-primary-runtime-2026-07-15","reason":"Safety depends on caffeine dose and individual susceptibility; combination-specific contraindication evidence is insufficient.","evidence":["10.1016/j.fct.2017.04.002"]},
+    {"slug":"l-theanine","batch":"trust-completeness-batch-3-primary-runtime-2026-07-15","reason":"Short-term trials did not establish a categorical contraindication; pregnancy, breastfeeding, and long-term evidence remain insufficient.","evidence":["10.1038/s41380-026-03727-9"]},
+    {"slug":"omega-3-epa-dominant","batch":"trust-completeness-batch-3-primary-runtime-2026-07-15","reason":"Reviews support dose-dependent precautions but not a categorical contraindication for this formulation.","evidence":["10.1016/j.advnut.2023.08.003"]},
+    {"slug":"omega-3-dha-dominant","batch":"trust-completeness-batch-3-primary-runtime-2026-07-15","reason":"Reviews support dose-dependent precautions but not a categorical contraindication for this formulation.","evidence":["10.1016/j.advnut.2023.08.003"]},
+    {"slug":"omega-3-epa","batch":"trust-completeness-batch-3-primary-runtime-2026-07-15","reason":"Reviews support dose-dependent precautions but not a categorical contraindication for this formulation.","evidence":["10.1016/j.advnut.2023.08.003"]}
+  ]
+}

@@ -4467,9 +4467,11 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: short-term tolerability evidence is product-specific, while rare clinically significant liver injury is documented and can be severe with pre-existing chronic liver disease. Avoid during pregnancy; breastfeeding, surgery, thyroid, autoimmune, and medication-interaction evidence remain incomplete.",
     "contraindications": [
-      "pregnancy",
-      "liver"
+      "Pregnancy",
+      "previous ashwagandha-associated liver injury",
+      "existing chronic liver disease warrants clinician review because severe cases have been reported."
     ],
     "interactions": [],
     "side_effects": [],
@@ -4586,7 +4588,12 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "safety": "Safety evidence: short-term tolerability evidence varies by extract, while rare clinically significant liver injury is documented and can be severe with pre-existing chronic liver disease. Avoid during pregnancy; breastfeeding, surgery, thyroid, autoimmune, and medication-interaction evidence remain incomplete.",
+    "contraindications": [
+      "Pregnancy",
+      "previous ashwagandha-associated liver injury",
+      "existing chronic liver disease warrants clinician review because severe cases have been reported."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -4629,7 +4636,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4637,7 +4644,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -5851,6 +5858,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: short-term human trials of Bacopa extracts most often report gastrointestinal adverse effects, but preparations and reporting vary. Pregnancy, breastfeeding, surgery, long-term use, organ impairment, and clinically significant medication interactions remain insufficiently characterized.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -5894,7 +5902,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -5902,7 +5910,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -5984,9 +5992,8 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "pregnancy"
-    ],
+    "safety": "Safety evidence: no adequate isolated-bacopaside II human safety profile. Gastrointestinal findings from whole Bacopa extracts cannot define isolated-compound dose, incidence, interactions, pregnancy, breastfeeding, liver, kidney, or surgery guidance.",
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized botanical extract capsule",
@@ -7215,9 +7222,11 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: gastrointestinal adverse effects are most commonly reported. Avoid during pregnancy, breastfeeding, and in infants; repeated human dosing inhibited CYP2D6, CYP2C9, and CYP3A4, and a clinical cyclosporine interaction is documented, so medication review is important.",
     "contraindications": [
-      "Interacts with CYP enzymes",
-      "caution with antidiabetics."
+      "Pregnancy",
+      "breastfeeding",
+      "and use in infants because berberine can displace bilirubin and poses kernicterus risk."
     ],
     "interactions": [],
     "side_effects": [],
@@ -7344,8 +7353,11 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: evidence is primarily for berberine rather than hydrochloride-form comparisons. Gastrointestinal effects are common; avoid during pregnancy, breastfeeding, and in infants, and review cyclosporine or medicines dependent on CYP2D6, CYP2C9, or CYP3A4.",
     "contraindications": [
-      "pregnancy"
+      "Pregnancy",
+      "breastfeeding",
+      "and use in infants because berberine can displace bilirubin and poses kernicterus risk."
     ],
     "interactions": [],
     "side_effects": [],
@@ -9611,6 +9623,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: no adequate isolated-compound human safety profile. Reports involving turmeric or mixed curcuminoids cannot establish bisdemethoxycurcumin-specific adverse effects, contraindications, interactions, pregnancy, breastfeeding, surgery, liver, or kidney guidance.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -9654,7 +9667,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -9662,7 +9675,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -11246,12 +11259,8 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "cardiovascular",
-      "liver",
-      "pregnancy",
-      "stimulant"
-    ],
+    "safety": "Safety evidence: adverse effects are dose- and susceptibility-dependent and include sleep disruption, anxiety-like symptoms, and cardiovascular effects. Pregnancy guidance uses lower intake thresholds; total intake from all sources and concurrent stimulants should be reviewed.",
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -11361,9 +11370,8 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "stimulant"
-    ],
+    "safety": "Safety evidence: the combination's risk is strongly influenced by caffeine dose and individual sensitivity. Sleep disruption, anxiety-like symptoms, cardiovascular effects, pregnancy intake limits, total caffeine exposure, and concurrent stimulants require attention; long-term combination-specific evidence remains limited.",
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "Theanine plus caffeine; tea/bioactive supplement context. Add timing/caffeine dose cautions; separate from standalone L-theanine.",
@@ -17627,7 +17635,10 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "safety": "Safety evidence: turmeric-associated liver injury is uncommon but documented, including recurrence after re-exposure. Because phytosome products are designed to increase exposure, formulation-specific safety matters; pregnancy, breastfeeding, bleeding, surgery, and medication-interaction evidence for this form remain insufficient.",
+    "contraindications": [
+      "Previous turmeric- or curcumin-associated liver injury because recurrence after re-exposure has been reported."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -17670,7 +17681,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -17678,7 +17689,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-present",
       "summary-quality-missing"
     ],
@@ -18931,6 +18942,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: no adequate isolated-compound human safety profile. Reports involving turmeric or mixed curcuminoids cannot establish demethoxycurcumin-specific adverse effects, contraindications, interactions, pregnancy, breastfeeding, surgery, liver, or kidney guidance.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -18974,7 +18986,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -18982,7 +18994,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -21237,8 +21249,10 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: magnesium can cause dose-related gastrointestinal effects and severe renal impairment increases hypermagnesemia risk. It can reduce absorption of some oral antibiotics and bisphosphonates; all other risks depend on the blend's exact electrolytes and doses.",
     "contraindications": [
-      "kidney"
+      "Severe renal impairment or kidney failure without clinician supervision because reduced magnesium clearance increases hypermagnesemia risk",
+      "other risks depend on the full electrolyte formula."
     ],
     "interactions": [],
     "side_effects": [],
@@ -27986,8 +28000,9 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: magnesium supplements can cause dose-related gastrointestinal effects. Severe renal impairment increases hypermagnesemia risk, and magnesium can reduce absorption of some oral antibiotics and bisphosphonates; pregnancy, breastfeeding, and long-term product-specific evidence remain limited.",
     "contraindications": [
-      "kidney"
+      "Severe renal impairment or kidney failure without clinician supervision because reduced magnesium clearance increases hypermagnesemia risk."
     ],
     "interactions": [],
     "side_effects": [],
@@ -33958,11 +33973,8 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "Hypotension or antihypertensive medication use given a mild blood-pressure-lowering effect",
-      "May add to sedation with benzodiazepines or alcohol or other CNS depressants",
-      "limited safety data in pregnancy or breastfeeding."
-    ],
+    "safety": "Safety evidence: a systematic review of short-term trials reported no serious adverse events, but study populations and dosing varied. Long-term use, pregnancy, breastfeeding, surgery, organ impairment, and clinically significant medication interactions remain insufficiently characterized.",
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -36799,15 +36811,9 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "safety": "May support sleep quality and mild anxiety/stress in selected adults; evidence is promising but heterogeneous. | Do not claim it treats insomnia or anxiety disorders; do not imply all forms are equivalent. | Create/upgrade as supportive sleep/anxiety page with form-specific dosing caveat.",
+    "safety": "Safety evidence: supplemental magnesium can cause dose-related gastrointestinal effects. Severe renal impairment increases hypermagnesemia risk, and magnesium can reduce absorption of some oral antibiotics and bisphosphonates; safety and tolerability vary by salt and dose.",
     "contraindications": [
-      "Kidney disease or renal impairment due to hypermagnesemia risk",
-      "myasthenia gravis may worsen with high-dose magnesium",
-      "bowel obstruction risk for high-dose laxative-effect magnesium salts such as citrate or oxide",
-      "May reduce absorption of tetracycline or fluoroquinolone antibiotics unless doses are separated by several hours",
-      "may reduce absorption of bisphosphonate osteoporosis medication",
-      "can add to the effect of muscle relaxants or other CNS depressants",
-      "loop or thiazide diuretics can alter magnesium levels in either direction."
+      "Severe renal impairment or kidney failure without clinician supervision because reduced magnesium clearance increases hypermagnesemia risk."
     ],
     "interactions": [],
     "side_effects": [],
@@ -37025,8 +37031,9 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: magnesium supplements can cause dose-related gastrointestinal effects. Severe renal impairment increases hypermagnesemia risk, and magnesium can reduce absorption of some oral antibiotics and bisphosphonates; glycinate-specific comparative safety evidence remains limited.",
     "contraindications": [
-      "Caution in renal impairment."
+      "Severe renal impairment or kidney failure without clinician supervision because reduced magnesium clearance increases hypermagnesemia risk."
     ],
     "interactions": [],
     "side_effects": [],
@@ -43003,9 +43010,8 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "Caution with anticoagulants."
-    ],
+    "safety": "Safety evidence: mild gastrointestinal adverse effects occur, while clinically significant bleeding is not established at common studied doses. Higher-dose, long-term marine omega-3 trials show an atrial-fibrillation signal; anticoagulant use warrants monitoring and medication review.",
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "softgel or liquid oil",
@@ -43115,9 +43121,8 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [
-      "Caution with anticoagulants."
-    ],
+    "safety": "Safety evidence: mild gastrointestinal adverse effects occur, while clinically significant bleeding is not established at common studied doses. Higher-dose, long-term marine omega-3 trials show an atrial-fibrillation signal; anticoagulant use warrants monitoring and medication review.",
+    "contraindications": [],
     "interactions": [],
     "side_effects": [],
     "dosage": "softgel or liquid oil",
@@ -43229,6 +43234,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: mild gastrointestinal adverse effects occur, while clinically significant bleeding is not established at common studied doses. Higher-dose, long-term marine omega-3 trials show an atrial-fibrillation signal; anticoagulant use warrants monitoring and medication review.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -43272,7 +43278,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -43280,7 +43286,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
@@ -57197,7 +57203,10 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "contraindications": [],
+    "safety": "Safety evidence: turmeric-associated liver injury is uncommon but documented, including recurrence after re-exposure. Piperine altered exposure to a P-glycoprotein substrate in a small human study; product bioavailability and medication context matter, while pregnancy and breastfeeding evidence remain insufficient.",
+    "contraindications": [
+      "Previous turmeric- or curcumin-associated liver injury because recurrence after re-exposure has been reported."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "standardized extract capsule",
@@ -57240,7 +57249,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -57248,7 +57257,7 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
