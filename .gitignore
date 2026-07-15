@@ -111,7 +111,6 @@ data-sources/*
 !data-sources/workbook-patches/*.json
 data-sources/*.csv
 data-sources/*.json
-!data-sources/safety-evidence-limited-exceptions.json
 
 # Agent/CI build artifacts that should not be committed
 *.tsbuildinfo

@@ -1,7 +1,8 @@
 # Safety Coverage Completion — Batch 2
 
-Date: 2026-07-15  
-Status: Applied  
+Date: 2026-07-15
+
+Status: Applied
 Branch: `agent/safety-coverage-batch-2`
 
 ## Outcome
