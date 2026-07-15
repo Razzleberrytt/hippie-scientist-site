@@ -3,7 +3,7 @@ const manifestPath = 'public/data/runtime-manifests/route-manifest.json'
 const routes = JSON.parse(fs.readFileSync(manifestPath,'utf8'))
 const deprecatedSlugs = new Set([
   'coq10', 'coenzyme-q10-ubiquinol', 'theanine', 'l-theanine-sleep', 'methyleugenol', 'bcaas',
-  'green-tea-egcg-isolated', 'green-tea-extract-egcg', 'probiotic-multistrain', 'probiotic-strain-bifidobacterium',
+  'probiotic-multistrain', 'probiotic-strain-bifidobacterium',
   'probiotic-strain-lactobacillus', 'probiotics-bifidobacterium', 'probiotics-lactobacillus', 'taurine-blend',
   'taurine-sleep', 'glycine-sleep', 'inositol-sleep', 'ashwagandha-extract-ksm-66', 'ashwagandha-root-extract',
   'garlic', 'garlic-extract', 'garlic-aged-extract', 'aged-garlic-extract', 'ginger', 'gingerol', 'gingerols',
