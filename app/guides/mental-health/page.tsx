@@ -18,6 +18,9 @@ import {
 const HUB_PATH = '/guides/mental-health'
 const HUB_TITLE = 'Mental Health Guides: OCD and Personality Disorders'
 const HUB_DESCRIPTION = 'Citation-rich, evidence-based guides to OCD, BPD, and all ten DSM-5-TR personality disorders, with diagnosis, differential diagnosis, treatment, safety, and stigma context.'
+const AUTHOR_NAME = 'Willie B. Randolph III'
+const AUTHOR_PATH = '/info/author/'
+const REVIEW_DATE = '2026-07-15'
 
 const SOURCE_LINKS = {
   nimhOcd: 'https://www.nimh.nih.gov/health/topics/obsessive-compulsive-disorder-ocd',
@@ -129,7 +132,12 @@ export default function MentalHealthGuidesHub() {
     }),
     '@id': collectionId,
     inLanguage: 'en-US',
-    dateModified: '2026-07-15',
+    dateModified: REVIEW_DATE,
+    author: {
+      '@type': 'Person',
+      name: AUTHOR_NAME,
+      url: canonicalUrl(AUTHOR_PATH),
+    },
     about: [
       { '@type': 'MedicalCondition', name: 'Obsessive-compulsive disorder', alternateName: 'OCD' },
       { '@type': 'MedicalCondition', name: 'Borderline personality disorder', alternateName: 'BPD' },
@@ -155,6 +163,10 @@ export default function MentalHealthGuidesHub() {
         <p className="mt-5 max-w-3xl text-lg leading-8 text-muted">
           Citation-rich guides to obsessive-compulsive disorder, borderline personality disorder, and every named DSM-5-TR personality disorder. Each page separates established evidence from clinical uncertainty and avoids reducing people to stereotypes.
         </p>
+        <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
+          <span>Written and edited by <Link href={AUTHOR_PATH} rel="author" className="font-semibold text-brand-700 hover:underline">{AUTHOR_NAME}</Link></span>
+          <span>Evidence reviewed <time dateTime={REVIEW_DATE}>July 15, 2026</time></span>
+        </div>
       </header>
 
       <section className="mt-7 rounded-2xl border border-brand-700/20 bg-brand-50/60 p-5 sm:p-6" aria-labelledby="quick-answer">
@@ -172,7 +184,12 @@ export default function MentalHealthGuidesHub() {
           <h2 id="key-differences" className="text-2xl font-bold text-ink">OCD, OCPD, and personality disorders: key differences</h2>
           <p className="mt-2 leading-7 text-muted">The shortest useful distinction is what kind of pattern is being assessed—not whether someone is merely neat, difficult, anxious, or perfectionistic.</p>
         </div>
-        <div className="mt-5 overflow-x-auto rounded-2xl border border-brand-900/10 bg-white">
+        <p className="mt-4 text-xs font-semibold text-muted sm:hidden">Swipe horizontally to compare all columns.</p>
+        <div
+          className="mt-2 overflow-x-auto rounded-2xl border border-brand-900/10 bg-white sm:mt-5"
+          role="region"
+          aria-labelledby="key-differences"
+        >
           <table className="min-w-[46rem] w-full border-collapse text-left text-sm">
             <thead className="bg-brand-50/70 text-ink">
               <tr>
@@ -209,6 +226,9 @@ export default function MentalHealthGuidesHub() {
         </p>
         <p className="mt-3 max-w-4xl text-sm leading-6 text-muted">
           These pages are educational and cannot diagnose the reader or an absent third party. They also do not present herbs or supplements as replacements for psychotherapy, psychiatric care, or crisis treatment.
+        </p>
+        <p className="mt-3 max-w-4xl text-sm leading-6 text-muted">
+          This independent library is written and edited by <Link href={AUTHOR_PATH} rel="author" className="font-semibold text-brand-700 hover:underline">{AUTHOR_NAME}</Link>. See the author page for credentials and workflow, or <Link href="/info/contact/" className="font-semibold text-brand-700 hover:underline">send a correction</Link> if a claim, citation, or link needs review.
         </p>
       </section>
 
