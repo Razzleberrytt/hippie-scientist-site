@@ -149,10 +149,10 @@ export default function MethodologyPage() {
       <section className='card-premium p-6 sm:p-8 space-y-4 border-l-4 border-emerald-600 bg-emerald-50/10'>
         <h2 className='text-2xl font-bold tracking-tight text-ink font-display'>Conflict of Interest &amp; Independence Statement</h2>
         <p className='text-sm leading-relaxed text-muted'>
-          <strong>The Hippie Scientist</strong> is completely self-funded and editorially independent. We do not accept brand sponsorships, paid reviews, or direct compensation from supplement companies.
+          <strong>The Hippie Scientist</strong> is independently operated and editorially independent. We do not accept brand sponsorships, paid reviews, or direct compensation from supplement companies. Disclosed affiliate commissions may help support operating costs.
         </p>
         <p className='text-sm leading-relaxed text-muted'>
-          Our editorial grades are set solely by our research team based on peer-reviewed literature. While we use affiliate links to support our hosting costs, product placement has zero impact on evidence grades, safety warnings, or brand reviews. If an ingredient carries risk or fails clinical standards, we state it plainly.
+          Editorial grades follow the documented evidence criteria on this page. Affiliate relationships do not change evidence grades, safety warnings, or editorial conclusions. If an ingredient carries risk or lacks convincing clinical support, we state that plainly.
         </p>
         <div className='pt-2 flex flex-wrap gap-4'>
           <Link href='/info/affiliate-disclosure/' className='text-sm font-semibold text-emerald-800 hover:underline'>
@@ -164,23 +164,31 @@ export default function MethodologyPage() {
         </div>
       </section>
 
-      {/* 4. Credentials & Team */}
+      {/* 4. Author & workflow */}
       <section className='card-premium p-6 sm:p-8 space-y-4 bg-white/95'>
-        <h2 className='text-2xl font-bold tracking-tight text-ink font-display'>Our Research &amp; Editorial Credentials</h2>
+        <h2 className='text-2xl font-bold tracking-tight text-ink font-display'>Author &amp; Editorial Workflow</h2>
         <p className='text-sm leading-relaxed text-muted'>
-          Our pages are authored, validated, and updated by <strong>The Hippie Scientist Research Team</strong> — a collective of neurochemistry researchers, toxicology reviewers, and evidence-based nutrition analysts.
+          The Hippie Scientist is an independent project written and maintained by <strong>Willie B. Randolph III</strong>. Automated validation supports source, safety, data-integrity, and publishing checks; it does not substitute for clinician judgment or independent medical review.
         </p>
         <div className='grid gap-4 sm:grid-cols-2 text-xs text-muted leading-relaxed'>
           <div className='rounded-xl border border-brand-900/5 bg-brand-50/20 p-4'>
-            <h4 className='font-bold text-ink text-sm'>Will R.</h4>
-            <p className='text-brand-700 font-medium mb-1'>Chief Content Systems Architect</p>
-            <p>Directs the content architecture and cross-references ingredient profiles against active clinical trial endpoints on ClinicalTrials.gov and PubMed.</p>
+            <h3 className='font-bold text-ink text-sm'>Willie B. Randolph III</h3>
+            <p className='text-brand-700 font-medium mb-1'>Founder and independent author</p>
+            <p>Builds the content system, evaluates source quality, documents uncertainty, and maintains the site’s evidence and safety standards.</p>
           </div>
           <div className='rounded-xl border border-brand-900/5 bg-brand-50/20 p-4'>
-            <h4 className='font-bold text-ink text-sm'>Research Team</h4>
-            <p className='text-brand-700 font-medium mb-1'>Medical Literature &amp; Toxicology Review</p>
-            <p>Validates dosage limits, pregnancy cautions, drug-supplement interaction indices, and parses clinical abstracts for evidence grading verification.</p>
+            <h3 className='font-bold text-ink text-sm'>Documented validation workflow</h3>
+            <p className='text-brand-700 font-medium mb-1'>Evidence, safety, and publishing checks</p>
+            <p>Build-time checks test citation integrity, evidence language, safety visibility, route stability, structured data, and generated-data consistency.</p>
           </div>
+        </div>
+        <div className='flex flex-wrap gap-4 pt-1'>
+          <Link href='/info/author/' rel='author' className='text-sm font-semibold text-emerald-800 hover:underline'>
+            About the author →
+          </Link>
+          <Link href='/info/contact/' className='text-sm font-semibold text-emerald-800 hover:underline'>
+            Send a correction →
+          </Link>
         </div>
       </section>
 

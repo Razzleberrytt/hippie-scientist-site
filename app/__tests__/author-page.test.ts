@@ -34,4 +34,13 @@ describe('Author page', () => {
     expect(sources).toContain('Willie B. Randolph III')
     expect(sources).toContain('/info/author/')
   })
+
+  it('describes the independent editorial workflow without an unsupported research team claim', () => {
+    const source = readFileSync(join(process.cwd(), 'app/info/methodology/page.tsx'), 'utf8')
+
+    expect(source).toContain('independent project written and maintained by')
+    expect(source).toContain('does not substitute for clinician judgment or independent medical review')
+    expect(source).not.toContain('collective of neurochemistry researchers')
+    expect(source).not.toContain('completely self-funded')
+  })
 })
