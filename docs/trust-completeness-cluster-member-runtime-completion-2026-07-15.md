@@ -85,7 +85,7 @@ The previous fill-rate audit inspected only workbook-local safety text and class
 - Build/search/audit: runtime workbook builder, search builder, cluster trust audit, safety fill-rate audit, strict CI/deploy wiring
 - Routes/rendering: compound/herb formatters, compound route/sitemap/redirect contracts, metadata audit, redirect verifier, content-depth injector, built-export validator
 - Tests: resolver, runtime boundary, cluster audit, safety-audit false-positive fixtures
-- Documentation: this report and synchronized internal-link/topic-cluster outputs
+- Documentation: this completion report
 
 ## Tests added
 
