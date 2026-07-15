@@ -13,6 +13,7 @@ import { assertWorkbookExists, resolveWorkbookPath } from './workbook-source.mjs
 import { getSheet, readWorkbook, sheetToRows } from './data/workbook-parser.mjs'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 
 const ENTITY_SHEET_CANDIDATES = ['Entity_Master', 'Sheet7']
 
@@ -118,7 +119,7 @@ async function main() {
   console.log(lines.join('\n'))
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((error) => {
     console.error(error)
     process.exit(1)
