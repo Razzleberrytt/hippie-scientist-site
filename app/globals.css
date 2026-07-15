@@ -1522,3 +1522,8 @@ html.dark :is(
     display: block;
   }
 }
+/* Page templates with their own breadcrumb trail take precedence over the
+   root-layout fallback, preventing two navigation trails from being shown. */
+body:has(#main-content nav[aria-label='Breadcrumb']) [data-global-breadcrumb] {
+  display: none;
+}
