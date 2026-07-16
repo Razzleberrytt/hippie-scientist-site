@@ -3419,3 +3419,62 @@ gap is the same one flagged two entries above under a different name
 into one dedicated "wire the real interactions/safety fields into the runtime
 layer" cycle rather than re-discovering it piecemeal each time a PR review
 happens to touch a herb with real interaction data.
+
+---
+
+## 2026-07-16 (batch 4) — hit a live concurrent-session collision on this exact thread; same 2 Codex findings recur a 3rd time
+
+Fresh cold session, picked up the same boilerplate-`contraindications_or_flags`
+thread again (11 herbs remaining per a fresh detection query: `anise-hyssop`,
+`ashoka`, `brassica-juncea`, `cassia-alata`, `celastrus-paniculatus`,
+`curcuma-wenyujin`, `fingerroot`, `maral-root`, `ocotea-odorifera`,
+`selaginella-tamariscina`, `suma`). Researched and sourced real pharmacology
+for 5 of them (`brassica-juncea`, `cassia-alata`, `curcuma-wenyujin`,
+`maral-root`, `suma` — skipped `anise-hyssop` after research turned up no
+independent literature beyond "generally regarded as safe," which isn't
+enough to write specific, sourced clauses), applied all 5 via
+`edit-entity-master-cell.mjs --in-place`, ran the full validation chain
+(`audit:patch-flagged-slugs`, `audit:risk-tag-collisions`, `data:validate`,
+`guard:source-of-truth`, `check`, full Vitest), and opened a PR.
+
+While the PR sat waiting on CI, its `mergeable_state` flipped from
+`unstable` to `dirty` — a **different autonomous session had opened and
+merged its own PR (#2327) in the meantime, independently fixing 3 of the
+same 5 herbs** (`brassica-juncea`, `cassia-alata`, `suma`) with different
+but equally valid sourced content, plus 2 others (`ashoka`,
+`celastrus-paniculatus`) this session hadn't picked. Two autonomous loop
+iterations landed on almost the identical slug list from the same 11-herb
+detection query, running concurrently, and neither could see the other's
+in-flight work. Resolved by rebasing this branch onto the new `main` and
+dropping the 3 now-redundant herbs, keeping only the 2 that didn't overlap
+(`curcuma-wenyujin`, `maral-root`), then re-running the full validation
+chain against the fresh workbook state and force-pushing. Also discovered
+in passing: **auto-merge cannot be enabled on this repo at all** —
+`enable_pr_auto_merge` fails with "Protected branch rules not configured
+for this branch" regardless of CI state, because `main` has no branch
+protection rule configured. Direct `merge_pull_request` once checks are
+green is the only path; don't waste a cycle retrying auto-merge.
+
+Also: Codex's automated PR review flagged the exact same two findings
+documented in the 2026-07-16 "batch 3, PR review" entry above (goal-facet
+contamination from contraindications text; always-empty
+`herbs.json.interactions`) — third occurrence of the same two findings on
+three different PRs in this thread. Replied with the same reasoning
+(pre-existing, dataset-wide, needs its own dedicated cycle) rather than
+re-investigating from scratch; no new information this time.
+
+**Takeaway for future cycles:** (1) if a PR sits open for more than a
+couple minutes waiting on CI, re-check `mergeable_state` (or
+`git log --oneline HEAD..origin/main`) right before merging — another
+concurrent session working the exact same recurring-thread task can and
+did land overlapping edits mid-flight, and the "re-run the detection query
+fresh at cycle start" advice from the 2026-07-16 "batch 3" entry above
+isn't sufficient on its own to prevent this, since the collision happens
+*after* that fresh check. (2) don't bother calling `enable_pr_auto_merge`
+on this repo — it always fails (no branch protection configured); merge
+directly with `merge_pull_request` once required checks are green instead.
+(3) the goal-facet-contamination and empty-interactions findings are now
+confirmed recurring and stable across 3 independent PRs — still worth
+fixing as their own dedicated cycles per the reasoning in the "batch 3, PR
+review" entry, but at this point re-litigating them per-PR is pure
+overhead; point future reviewers straight at that entry.
