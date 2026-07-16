@@ -3820,8 +3820,8 @@
   {
     "slug": "black-cohosh",
     "name": "Black Cohosh (Actaea racemosa)",
-    "summary": "Black Cohosh centers on the root; rhizome.",
-    "description": "Black Cohosh centers on the root; rhizome.",
+    "summary": "Black Cohosh (Actaea racemosa) is most studied for menopausal symptoms such as hot flashes, with proposed serotonergic and estrogen-receptor-modulating activity rather than classical hormonal action.",
+    "description": "Black Cohosh (Actaea racemosa) is most studied for menopausal symptoms such as hot flashes, with proposed serotonergic and estrogen-receptor-modulating activity rather than classical hormonal action.",
     "effects": [
       "anti-inflammatory",
       "hormonal"
@@ -11104,8 +11104,8 @@
   {
     "slug": "echinacea-purpurea",
     "name": "Echinacea (Echinacea purpurea)",
-    "summary": "Echinacea Purpurea centers on the unspecified.",
-    "description": "Echinacea Purpurea centers on the unspecified.",
+    "summary": "Echinacea purpurea is most studied for shortening the duration and easing symptoms of upper respiratory infections, with immune-modulating effects attributed to its alkamide and caffeic-acid-derivative content.",
+    "description": "Echinacea purpurea is most studied for shortening the duration and easing symptoms of upper respiratory infections, with immune-modulating effects attributed to its alkamide and caffeic-acid-derivative content.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -13298,8 +13298,8 @@
   {
     "slug": "garlic",
     "name": "Garlic (Allium sativum)",
-    "summary": "Garlic centers on the unspecified.",
-    "description": "Garlic centers on the unspecified.",
+    "summary": "Garlic (Allium sativum) is most studied for cardiovascular support, including modest effects on blood pressure and lipids, alongside antimicrobial and immune-modulating activity from organosulfur compounds like allicin and ajoene.",
+    "description": "Garlic (Allium sativum) is most studied for cardiovascular support, including modest effects on blood pressure and lipids, alongside antimicrobial and immune-modulating activity from organosulfur compounds like allicin and ajoene.",
     "effects": [
       "cardiovascular",
       "antimicrobial",
@@ -13390,10 +13390,10 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 73,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -13402,8 +13402,8 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "summary-depth",
+      "summary-quality-missing"
     ],
     "meta_title": "",
     "meta_description": "",
@@ -13516,8 +13516,8 @@
   {
     "slug": "ginger",
     "name": "Ginger (Zingiber officinale)",
-    "summary": "Ginger centers on the unspecified.",
-    "description": "Ginger centers on the unspecified.",
+    "summary": "Ginger (Zingiber officinale) is best documented for nausea relief and digestive comfort, with additional evidence for anti-inflammatory and antioxidant activity via COX/LOX and NF-kB pathway modulation.",
+    "description": "Ginger (Zingiber officinale) is best documented for nausea relief and digestive comfort, with additional evidence for anti-inflammatory and antioxidant activity via COX/LOX and NF-kB pathway modulation.",
     "effects": [
       "COX/LOX pathways",
       "serotonin receptors"
@@ -13600,10 +13600,10 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 73,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -13612,8 +13612,8 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "summary-depth",
+      "summary-quality-missing"
     ],
     "meta_title": "",
     "meta_description": "",
@@ -14428,6 +14428,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: limited human safety evidence and rare case reports. Concentrated, catechin-rich green tea extracts can cause liver injury, with risk influenced by dose and fasting exposure; this does not apply automatically to brewed tea or food use.",
     "contraindications": [
       "Liver disease",
       "stimulants"
@@ -14484,8 +14485,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Safety evidence: limited human safety evidence and rare case reports. Concentrated, catechin-rich green tea extracts can cause liver injury, with risk influenced by dose and fasting exposure; this does not apply automatically to brewed tea or food use."
+    "controlled_substance": false
   },
   {
     "slug": "guarana",
@@ -18685,8 +18685,8 @@
   {
     "slug": "maca",
     "name": "Maca (Lepidium meyenii)",
-    "summary": "Maca centers on the root; hypocotyl.",
-    "description": "Maca centers on the root; hypocotyl.",
+    "summary": "Maca (Lepidium meyenii) is traditionally used for energy and libido support, with early evidence exploring effects on mood and hormonal balance through its macamide and glucosinolate compounds.",
+    "description": "Maca (Lepidium meyenii) is traditionally used for energy and libido support, with early evidence exploring effects on mood and hormonal balance through its macamide and glucosinolate compounds.",
     "effects": [
       "energy",
       "hormonal",
@@ -18765,10 +18765,10 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 73,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -18777,8 +18777,8 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "summary-depth",
+      "summary-quality-missing"
     ],
     "meta_title": "",
     "meta_description": "",
@@ -19623,8 +19623,8 @@
   {
     "slug": "milk-thistle",
     "name": "Milk Thistle (Silybum marianum)",
-    "summary": "Milk Thistle centers on the seed; fruit.",
-    "description": "Milk Thistle centers on the seed; fruit.",
+    "summary": "Milk Thistle (Silybum marianum) is traditionally used for liver support, with its flavonolignan complex silymarin studied for antioxidant, anti-inflammatory, and hepatoprotective activity.",
+    "description": "Milk Thistle (Silybum marianum) is traditionally used for liver support, with its flavonolignan complex silymarin studied for antioxidant, anti-inflammatory, and hepatoprotective activity.",
     "effects": [
       "antioxidant",
       "liver-protective"
@@ -19712,7 +19712,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -19721,7 +19721,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -22904,8 +22904,8 @@
   {
     "slug": "peppermint",
     "name": "Peppermint (Mentha × piperita)",
-    "summary": "Peppermint centers on the unspecified.",
-    "description": "Peppermint centers on the unspecified.",
+    "summary": "Peppermint (Mentha piperita), primarily as enteric-coated oil, is best documented for easing IBS-related abdominal pain and digestive discomfort through smooth-muscle relaxation and TRPM8 receptor activity, plus antimicrobial effects.",
+    "description": "Peppermint (Mentha piperita), primarily as enteric-coated oil, is best documented for easing IBS-related abdominal pain and digestive discomfort through smooth-muscle relaxation and TRPM8 receptor activity, plus antimicrobial effects.",
     "effects": [
       "antimicrobial"
     ],
@@ -22982,10 +22982,10 @@
     "summary_quality": "",
     "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NEEDS_REVIEW",
-    "indexability_score": 68,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 88,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -22994,8 +22994,8 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-quality-missing",
-      "summary-too-thin"
+      "summary-depth",
+      "summary-quality-missing"
     ],
     "meta_title": "",
     "meta_description": "",
@@ -26860,8 +26860,8 @@
   {
     "slug": "saw-palmetto",
     "name": "Saw Palmetto (Serenoa repens)",
-    "summary": "Saw Palmetto centers on the berry.",
-    "description": "Saw Palmetto centers on the berry.",
+    "summary": "Saw Palmetto (Serenoa repens) is most studied for benign prostatic hyperplasia symptoms, with proposed 5-alpha-reductase inhibition and anti-inflammatory activity from its fatty-acid and phytosterol content.",
+    "description": "Saw Palmetto (Serenoa repens) is most studied for benign prostatic hyperplasia symptoms, with proposed 5-alpha-reductase inhibition and anti-inflammatory activity from its fatty-acid and phytosterol content.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -30060,6 +30060,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: short-term human trials provide limited, preparation-specific safety data. Mild gastrointestinal effects can occur; the existing workbook cautions for bleeding-risk therapy, surgery, biliary disease, pregnancy, and breastfeeding remain precautionary and require individualized review.",
     "contraindications": [
       "Use caution with anticoagulant or antiplatelet therapy",
       "before surgery",
@@ -30118,8 +30119,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Safety evidence: short-term human trials provide limited, preparation-specific safety data. Mild gastrointestinal effects can occur; the existing workbook cautions for bleeding-risk therapy, surgery, biliary disease, pregnancy, and breastfeeding remain precautionary and require individualized review."
+    "controlled_substance": false
   },
   {
     "slug": "valeriana-officinalis",
