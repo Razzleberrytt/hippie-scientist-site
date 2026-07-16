@@ -2454,3 +2454,65 @@ the remaining safety-gap backlog (this tier alone, plus the `betaine`/
 `taurine`/`gingerol`/etc. clusters from earlier entries) and would be a good
 candidate for an actual human decision rather than another cycle routing
 around it.
+
+---
+
+## 2026-07-16 (later) — Closed the last documented `audit:risk-tag-collisions` weak-corroboration finding (`rhodiola-extract-shr5`)
+
+Fresh cold session. Re-checked `npm run audit:safety`: all 20 top gaps are
+the exact same 14 variant-cluster slugs (plus 6 `betaine`/`boswellia`-family
+ones) the entry above and several earlier entries already flagged as blocked
+on the unresolved family-naming-policy question — no new standalone target
+there. Rather than route around that block again, picked the one concrete,
+already-diagnosed, non-blocked finding still open:
+`npm run audit:risk-tag-collisions` has reported exactly one weak-corroboration
+false positive since the check was added (2026-07-14, PR closing the tooling
+gap): `rhodiola-extract-shr5`'s contraindications clause "discontinue before
+surgery or other medical procedures due to limited interaction data" — the
+stated reason ("limited interaction data") doesn't corroborate the
+`anticoagulant`/bleeding mechanism that the bare word "surgery" triggers in
+`KEYWORDS.anticoagulant`, exactly the semantically-loose-keyword bug class
+that check exists to catch (see the 2026-07-14 entry for the original
+`catuaba` production bug).
+
+Fixed by dropping the vague causal tail ("due to limited interaction data")
+from that one clause, converting it to a bare flag token
+("discontinue before surgery or other medical procedures.") — which is
+exactly the dataset's established convention for this situation, per the
+audit script's own code comment: a bare flag token with no stated reason is
+left alone as normal shorthand, only an *explanatory* clause with an
+unrelated stated reason is flagged. Verified by importing the real
+`findWeakCorroborationMatches`/`findSuspectMatches` functions from
+`scripts/audit-risk-tag-collisions.mjs` directly into a throwaway `node`
+script and running every clause of the new full string through them before
+touching the workbook — zero flags. No other clause in the string changed;
+the compound's other three cautions (serotonergic-antidepressant, stimulant,
+anticoagulant-drug, pregnancy) are untouched.
+
+Applied via `edit-entity-master-cell.mjs --in-place`.
+`workbook:roundtrip-test` passed (22 sheets byte-for-byte). `data:build:core`
+regenerated cleanly (edges 19366, tags 1441 — both counts are much higher
+than the low-4-digit/low-1000s figures in older entries in this file,
+reflecting the cumulative effect of many prior enrichment cycles, not a bug).
+Structurally diffed `compounds.json` and `entity_risk_tags.json` against
+`HEAD` by key (not raw text, since both are single-line minified JSON) and
+confirmed exactly one entity (`rhodiola-extract-shr5`) changed in each file —
+`entity_risk_tags.json`'s derived tag for that clause is still
+`risk_mechanism: "anticoagulant"` (the underlying keyword-derivation engine
+in `build-interaction-data.mjs` has no corroboration check, by design — only
+the separate audit script does), but that's harmless here: the compound
+already independently and correctly earns an `anticoagulant` tag from its
+other, legitimate "anticoagulant use without clinician review" clause, so no
+new or different interaction pairing was introduced. `data:validate`,
+`guard:source-of-truth`, `audit:risk-tag-collisions` (now fully clean, both
+sections), and `npm run check` (typecheck + lint + full data pipeline) all
+passed. Diff: workbook + `compounds.json` + `entity_risk_tags.json` only
+(`build-info.json` timestamp reverted) — narrower than most entries in this
+file since this was a single-clause reword, not a new-content fill.
+
+Takeaway: `audit:risk-tag-collisions` (both its substring-collision and
+weak-corroboration sections) is now reporting **zero open findings** for the
+first time since either check was added — a genuinely clean baseline. Future
+cycles should treat any new finding from this audit as a fresh regression
+worth the same small-scoped-reword treatment, not assume there's a backlog
+to work through.
