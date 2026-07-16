@@ -1,0 +1,115 @@
+{
+  "patch_id": "scite-n-acetylcysteine-evidence-2026-07-12-001",
+  "patch_version": "1",
+  "created_at": "2026-07-12T16:30:00.000Z",
+  "generator": "Scite literature enrichment via GPT-5.6 Thinking",
+  "target": {
+    "slug": "n-acetylcysteine",
+    "canonical_name": "NAC",
+    "entity_type": "compound"
+  },
+  "operations": [
+    {
+      "op": "add_claim",
+      "field": "effects",
+      "value": "Long-term oral NAC may modestly reduce exacerbations in some adults with chronic bronchitis or COPD, particularly in selected higher-dose protocols, but results vary by population and co-therapy; it has not been shown to substantially slow lung-function decline or clearly reduce mortality.",
+      "payload": {},
+      "confidence": 0.78,
+      "notes": "Cochrane and ERS/ATS evidence supports cautious exacerbation language while emphasizing heterogeneity, mixed mucolytic classes, dose and phenotype differences, uncertain quality-of-life effects, and no clear mortality or disease-progression benefit."
+    },
+    {
+      "op": "add_claim",
+      "field": "effects",
+      "value": "NAC has preliminary adjunctive evidence in some obsessive-compulsive and related disorders, but randomized trials are mixed and heterogeneous; it should not be presented as an established treatment or generalized across diagnoses.",
+      "payload": {},
+      "confidence": 0.68,
+      "notes": "Reviews describe encouraging signals in selected disorders but inconsistent randomized evidence, small and diagnosis-diverse samples, and frequent use as add-on rather than stand-alone treatment."
+    },
+    {
+      "op": "update_field",
+      "field": "description",
+      "value": "NAC is a cysteine donor used medically as a mucolytic and as an antidote for acetaminophen overdose. For consumer guidance, its strongest relevant evidence is respiratory mucus and exacerbation context plus glutathione/redox biology; psychiatric uses remain preliminary, adjunctive, and diagnosis-specific.",
+      "payload": {},
+      "confidence": 0.9,
+      "notes": "Replaces broad unsourced profile prose and removes unsupported active-ulcer screening language."
+    },
+    {
+      "op": "update_field",
+      "field": "data.dosage",
+      "value": "Research doses are indication-specific. Long-term respiratory trials commonly evaluated oral NAC around 600–1,200 mg/day, while psychiatric adjunct trials often used 2,400–3,000 mg/day; these study protocols should not be treated as universal self-care dosing.",
+      "payload": {},
+      "confidence": 0.82,
+      "notes": "Corrects the malformed existing dosage value ('softgel or liquid oil') while retaining explicit research-protocol and non-prescriptive framing."
+    },
+    {
+      "op": "update_field",
+      "field": "data.safety_notes",
+      "value": "Oral NAC is generally well tolerated; nausea, vomiting, diarrhea, and other gastrointestinal discomfort are the most common adverse effects. Review use with nitroglycerin, antitussives, and some oral antibiotics. Severe anaphylactoid reactions and bronchospasm are primarily associated with parenteral administration, so asthma cautions should remain route-specific.",
+      "payload": {},
+      "confidence": 0.86,
+      "notes": "Separates common oral tolerability findings from the more serious route-specific reactions reported with intravenous or other non-oral administration."
+    },
+    {
+      "op": "update_field",
+      "field": "legacy.evidence_risk_of_bias",
+      "value": "Respiratory evidence combines different mucolytics, doses, COPD phenotypes, background therapies, and study eras, with substantial heterogeneity. Psychiatric trials are comparatively small, mixed, diagnosis-diverse, and usually adjunctive. Outcome claims must remain indication-specific and should not imply established disease treatment.",
+      "payload": {},
+      "confidence": 0.9,
+      "notes": "Stores evidence-quality limitations as review context rather than rendering them as benefit claims."
+    }
+  ],
+  "sources": [
+    {
+      "doi": "10.1002/14651858.CD001287.pub6",
+      "url": "https://doi.org/10.1002/14651858.CD001287.pub6",
+      "title": "Mucolytic agents versus placebo for chronic bronchitis or chronic obstructive pulmonary disease",
+      "year": "2019"
+    },
+    {
+      "doi": "10.1183/13993003.02265-2016",
+      "url": "https://doi.org/10.1183/13993003.02265-2016",
+      "title": "Prevention of COPD exacerbations: a European Respiratory Society/American Thoracic Society guideline",
+      "year": "2017"
+    },
+    {
+      "doi": "10.1155/2018/2469486",
+      "url": "https://doi.org/10.1155/2018/2469486",
+      "title": "N-Acetylcysteine for the Treatment of Psychiatric Disorders: A Review of Current Evidence",
+      "year": "2018"
+    },
+    {
+      "doi": "10.1038/s41398-022-02026-5",
+      "url": "https://doi.org/10.1038/s41398-022-02026-5",
+      "title": "Mitochondrial modulators for obsessive-compulsive and related disorders: a systematic review and meta-analysis",
+      "year": "2022"
+    },
+    {
+      "doi": "10.3390/antiox10060967",
+      "url": "https://doi.org/10.3390/antiox10060967",
+      "title": "N-Acetylcysteine (NAC): Impacts on Human Health",
+      "year": "2021"
+    },
+    {
+      "doi": "10.1007/s40264-020-01026-y",
+      "url": "https://doi.org/10.1007/s40264-020-01026-y",
+      "title": "Safety of N-Acetylcysteine at High Doses in Chronic Respiratory Diseases: A Review",
+      "year": "2020"
+    },
+    {
+      "doi": "10.2174/1570159X19666201230144109",
+      "url": "https://doi.org/10.2174/1570159X19666201230144109",
+      "title": "The Multifaceted Therapeutic Role of N-Acetylcysteine (NAC) in Disorders Characterized by Oxidative Stress",
+      "year": "2021"
+    }
+  ],
+  "notes": "First controlled canonical grounding pass for compound:n-acetylcysteine. The patch proposes two cautious outcome claims, corrects malformed dosage and broad unsourced description text, adds route-specific oral safety context, and records evidence-quality limitations. It does not change governance, indexing, monetization, recommendation controls, or evidence grade. Scite review found no retraction, correction, erratum, or expression-of-concern notice for the selected records.",
+  "confidence": 0.82,
+  "requires_review": true,
+  "original_filename": "n-acetylcysteine-scite-enrichment-2026-07-12.json",
+  "original_hash": "e339105fe9b08f8a43911431df7faca2307388508f25de1d56a4daf35cd53404",
+  "_apply_result": {
+    "status": "applied",
+    "changes": 13,
+    "at": "2026-07-12T16:31:44.597Z"
+  }
+}
