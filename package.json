@@ -88,6 +88,7 @@
     "audit:severity-tokens": "node scripts/audit-severity-token-contraindications.mjs",
     "audit:cluster-member-trust": "node scripts/audit-cluster-member-trust.mjs",
     "audit:cluster-member-trust:strict": "node scripts/audit-cluster-member-trust.mjs --strict",
+    "audit:patch-flagged-slugs": "node scripts/audit-patch-flagged-slugs.mjs",
     "validate:cluster-member-export": "node scripts/ci/validate-cluster-member-export.mjs",
     "audit:duplicates": "node scripts/audit/find-duplicate-slugs.mjs",
     "audit:content-gaps": "node scripts/audit/content-gap-report.mjs",

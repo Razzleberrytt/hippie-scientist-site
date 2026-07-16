@@ -2781,3 +2781,72 @@ workbook-patches file wasn't picked up) — investigate the mismatch, don't
 assume the slug is fair game again. Genuinely new abstention decisions
 (new patch files, same shape) will be picked up automatically with no
 further tooling work needed.
+
+---
+
+## 2026-07-16 (later) — Added `npm run audit:patch-flagged-slugs`, a general-purpose complement to the `audit:safety` abstention filter above
+
+Fresh cold session. `npm run audit:safety` showed no new unblocked target
+beyond the same ~14 variant-cluster gaps the last several entries already
+documented as blocked on the workbook-patch collision described just above.
+Rather than re-attempt that content (still blocked, still needs a human
+naming-policy call) or route around it again, picked up the standing tooling
+gap the last entry explicitly flagged for "whichever future cycle picks up
+tooling work next": there was no script to check
+`data-sources/workbook-patches/*.json` for a `requires_human_review: true`
+hold on a slug *before* drafting content for it — only after-the-fact, when
+CI's `validate-workbook-patches` check happened to fail.
+
+Added `scripts/audit-patch-flagged-slugs.mjs` (`npm run
+audit:patch-flagged-slugs -- <slug> [slug...]`): scans every `status:
+"applied"` file in `data-sources/workbook-patches/`, reports any `changes[]`
+entry touching the requested slug(s), and exits non-zero specifically when
+any hit has `requires_human_review: true`. Verified it reproduces the exact
+incident from the "Skipped a creatine/creatine-hcl/creatine-monohydrate..."
+entry above byte-for-byte: running it against `creatine creatine-hcl
+creatine-monohydrate` surfaces the same 6 flagged changes from
+`trust-completeness-batch-4-primary-runtime-2026-07-15.json` (blank
+`contraindications_or_flags`, populated `runtime_safety`, same rationale
+text) that cycle had to discover manually after already drafting and
+opening a PR. Running it against an unrelated slug (`ashwagandha`) with no
+patch history correctly reports a clean pass. Extracted the matching logic
+into an exported pure function (`findFlaggedChanges`) so it's unit-tested
+(`scripts/audit-patch-flagged-slugs.test.mjs`, 6 cases: flags a
+`requires_human_review` hit, ignores non-matching slugs, ignores
+non-`applied` patch status, still surfaces non-flagged hits as
+informational context, matches across multiple files/slugs, and returns
+empty for no patches) rather than only exercised by hand against the live
+(and mutable) `data-sources/workbook-patches/` directory.
+
+**Standing instruction for future cycles:** per the process-gap note in the
+entry above, run `npm run audit:patch-flagged-slugs -- <slug1> <slug2> ...`
+for every target slug *before* drafting any new `contraindications_or_flags`
+/ `safety_notes` / `runtime_safety` content — not just before opening a PR —
+and treat a non-zero exit (a `requires_human_review` hold) as a skip on that
+slug/column, not a staleness bug to fix. This does not by itself resolve the
+14 blocked variant-cluster gaps or the naming-policy question from the
+entries above; it only makes the existing "check workbook-patches first"
+habit a one-line command instead of a manual `grep`.
+
+`npm run check` (typecheck + lint + `data:build:core`) passed. Diff: 1 new
+script, 1 new test file, 1 `package.json` script entry, this note — no
+workbook or `public/data` changes this cycle.
+
+**Note on overlap with the entry directly above (`loadDeliberateAbstentions()`
+in `audit-safety-fill-rate.mjs`):** both this script and that change were
+written independently, in parallel cycles, against the same recurring
+request in this file, and rebasing this branch onto the merged result of
+that one surfaced the duplication. They are not redundant, so both were
+kept: `loadDeliberateAbstentions()` is scoped specifically to
+`contraindications_or_flags` being cleared to empty and runs automatically
+inside the `audit:safety` report, which is exactly right for "which of the
+top-20 fill-rate gaps are actually settled." `audit-patch-flagged-slugs.mjs`
+is column-agnostic, takes an explicit slug list, and is meant to be run
+proactively for *any* slug/column a cycle is about to touch — including
+slugs that are already `FILLED` in the current report but where a cycle
+wants to edit `runtime_safety` or a different field, which
+`loadDeliberateAbstentions()`'s `PRIMARY_ONLY`-only scope wouldn't catch.
+Future cycles: prefer `audit:safety`'s abstention section for "is this
+top-20 gap real," and reach for `audit:patch-flagged-slugs` before editing
+any specific slug's safety-adjacent fields, regardless of its current fill
+status.
