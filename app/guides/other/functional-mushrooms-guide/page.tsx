@@ -62,14 +62,14 @@ export default function FunctionalMushroomsPage() {
           {lionsManeProducts && (
             <RecommendationSection
               title="Lion's mane product picks"
-              description="Fruiting-body-forward lion's mane picks for brain and NGF support [1,4]. Use these as sourcing starting points, not medical recommendations."
+              description="Lion's mane picks for brain and NGF support [1,4] across budget, overall, and premium tiers. Check each listing for fruiting-body-vs-mycelium sourcing and beta-glucan content before buying — quality varies by pick. Use these as sourcing starting points, not medical recommendations."
               products={lionsManeProducts.products}
             />
           )}
           {reishiProducts && (
             <RecommendationSection
               title="Reishi product picks"
-              description="Fruiting-body extracts with beta-glucan labeling for immune and sleep support [2]. Use these as sourcing starting points, not medical recommendations."
+              description="Reishi picks for immune and sleep support [2] across budget, overall, and premium tiers. Check each listing for fruiting-body-vs-mycelium sourcing and beta-glucan content before buying — quality varies by pick. Use these as sourcing starting points, not medical recommendations."
               products={reishiProducts.products}
             />
           )}
