@@ -18,7 +18,10 @@
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family",
     "significant kidney disease or unstable electrolytes",
-    "seizure disorder or sedative/alcohol use"
+    "seizure disorder or sedative/alcohol use",
+    "Potential interaction concern with antihypertensives/diuretics",
+    "sedatives/CNS depressants",
+    "use clinician review for high-dose extracts or chronic use."
   ],
   "interactions": [
     "Potential interaction concern with antihypertensives/diuretics",

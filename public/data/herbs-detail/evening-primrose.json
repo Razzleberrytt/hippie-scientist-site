@@ -12,7 +12,9 @@
   "activeCompounds": [],
   "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
-    "epilepsy (theoretical seizure risk)"
+    "epilepsy (theoretical seizure risk)",
+    "anticoagulants",
+    "phenothiazines (theoretical)"
   ],
   "interactions": [
     "anticoagulants",

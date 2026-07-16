@@ -41,6 +41,12 @@
   "dosage": "standardized oral supplement form",
   "typical_dosage": "standardized oral supplement form",
   "contraindications": [
-    "immunocompromised_caution"
+    "immunocompromised_caution",
+    "Use only with clinician oversight in severe immunocompromise",
+    "critical illness",
+    "recent surgery",
+    "hospitalization",
+    "or other major medical fragility",
+    "invasive infection is rare but documented for probiotic organisms."
   ]
 }

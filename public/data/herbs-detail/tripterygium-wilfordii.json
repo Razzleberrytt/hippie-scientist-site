@@ -19,7 +19,14 @@
     "fertility attempts",
     "liver or kidney disease",
     "cytopenias",
-    "immunosuppression unless specialist-managed."
+    "immunosuppression unless specialist-managed.",
+    "Immunosuppressants",
+    "DMARDs",
+    "corticosteroids",
+    "hepatotoxic/nephrotoxic drugs",
+    "anticoagulants",
+    "and antiplatelets",
+    "specialist-only context."
   ],
   "interactions": [
     "Immunosuppressants",

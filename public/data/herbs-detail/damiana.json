@@ -14,7 +14,12 @@
   "contraindications": [
     "Pregnancy/breastfeeding",
     "seizure disorder without clinician review",
-    "planned surgery or complex psychiatric medication regimens."
+    "planned surgery or complex psychiatric medication regimens.",
+    "Potential additive CNS effects with sedatives",
+    "alcohol",
+    "anxiolytics",
+    "and serotonergic or stimulant stacks",
+    "diabetes medication caution is theoretical."
   ],
   "interactions": [
     "Potential additive CNS effects with sedatives",

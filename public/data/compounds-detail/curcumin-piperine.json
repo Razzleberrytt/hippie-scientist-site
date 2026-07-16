@@ -93,5 +93,8 @@
     }
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Previous turmeric- or curcumin-associated liver injury because recurrence after re-exposure has been reported."
+  ]
 }

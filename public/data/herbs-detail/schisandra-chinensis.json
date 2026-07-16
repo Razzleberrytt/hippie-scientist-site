@@ -15,7 +15,12 @@
   "contraindications": [
     "Pregnancy/breastfeeding without guidance",
     "active reflux/ulcer sensitivity",
-    "complex medication regimens without review"
+    "complex medication regimens without review",
+    "Potential CYP/P-gp interactions",
+    "caution with immunosuppressants",
+    "sedatives",
+    "anticoagulants",
+    "and hepatically metabolized drugs."
   ],
   "interactions": [
     "Potential CYP/P-gp interactions",

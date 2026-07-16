@@ -14,7 +14,9 @@
   "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding without guidance",
-    "gastritis/ulcer sensitivity"
+    "gastritis/ulcer sensitivity",
+    "Potential additive sedation or cognitive-drug interactions",
+    "limited clinical data."
   ],
   "interactions": [
     "Potential additive sedation or cognitive-drug interactions",

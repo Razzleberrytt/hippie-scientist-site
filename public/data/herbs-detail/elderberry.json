@@ -17,7 +17,9 @@
   "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Autoimmune/transplant immunosuppression without clinician review",
-    "pregnancy/breastfeeding without guidance"
+    "pregnancy/breastfeeding without guidance",
+    "May counter immunosuppressants",
+    "caution with diuretics or antidiabetics depending product."
   ],
   "interactions": [
     "May counter immunosuppressants",

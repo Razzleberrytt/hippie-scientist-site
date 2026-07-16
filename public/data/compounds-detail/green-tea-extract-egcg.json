@@ -92,5 +92,9 @@
     }
   ],
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "Avoid high-dose or fasting use and seek clinician review with pre-existing liver disease or unexplained liver-test abnormalities",
+    "verify caffeine content if stimulant-sensitive."
+  ]
 }

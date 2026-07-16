@@ -21,7 +21,11 @@
   "contraindications": [
     "Pregnancy at supplemental/high doses",
     "known allergy",
-    "hypoglycemia-prone patients without monitoring."
+    "hypoglycemia-prone patients without monitoring.",
+    "Antidiabetics",
+    "antihypertensives",
+    "anticoagulants/antiplatelets",
+    "possible additive metabolic or sedative effects."
   ],
   "interactions": [
     "Antidiabetics",

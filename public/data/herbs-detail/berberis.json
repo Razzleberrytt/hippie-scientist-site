@@ -24,7 +24,13 @@
     "neonates/infants",
     "clinician review for liver disease",
     "complex medication regimens",
-    "or hypoglycemia-prone patients."
+    "or hypoglycemia-prone patients.",
+    "Antidiabetics",
+    "antihypertensives",
+    "anticoagulants/antiplatelets",
+    "cyclosporine/tacrolimus",
+    "macrolides",
+    "CYP3A4/CYP2D6/P-gp substrates."
   ],
   "interactions": [
     "Antidiabetics",

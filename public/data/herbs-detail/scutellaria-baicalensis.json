@@ -20,7 +20,11 @@
     "Liver disease",
     "pregnancy/breastfeeding",
     "immunosuppressive therapy without supervision",
-    "and complex oncology regimens."
+    "and complex oncology regimens.",
+    "Potential interactions with anticoagulants/antiplatelets",
+    "sedatives",
+    "immunosuppressants",
+    "and hepatotoxic drugs."
   ],
   "interactions": [
     "Potential interactions with anticoagulants/antiplatelets",

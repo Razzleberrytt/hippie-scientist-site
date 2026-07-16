@@ -18,7 +18,12 @@
     "Psychosis/bipolar risk",
     "melanoma history caution",
     "pregnancy/breastfeeding",
-    "use with levodopa drugs without clinician supervision"
+    "use with levodopa drugs without clinician supervision",
+    "May interact with levodopa/carbidopa",
+    "MAOIs",
+    "antipsychotics",
+    "antihypertensives",
+    "and dopaminergic drugs."
   ],
   "interactions": [
     "May interact with levodopa/carbidopa",

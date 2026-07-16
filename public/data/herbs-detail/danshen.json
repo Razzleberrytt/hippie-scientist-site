@@ -14,7 +14,12 @@
   "contraindications": [
     "Pregnancy",
     "anticoagulant/antiplatelet therapy without clinician review",
-    "upcoming surgery"
+    "upcoming surgery",
+    "May interact with warfarin",
+    "aspirin",
+    "antiplatelets",
+    "antihypertensives",
+    "and cardiovascular drugs."
   ],
   "interactions": [
     "May interact with warfarin",

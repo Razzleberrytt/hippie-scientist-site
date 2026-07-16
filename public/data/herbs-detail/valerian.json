@@ -15,7 +15,9 @@
   "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy",
-    "caution with alcohol"
+    "caution with alcohol",
+    "CNS depressants",
+    "benzodiazepines"
   ],
   "interactions": [
     "CNS depressants",

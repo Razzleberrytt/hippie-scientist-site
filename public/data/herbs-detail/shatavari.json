@@ -14,7 +14,11 @@
   "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/lactation use should be clinician-guided",
-    "hormone-sensitive conditions without review"
+    "hormone-sensitive conditions without review",
+    "May interact with hormone therapies",
+    "diuretics",
+    "lithium",
+    "or antidiabetics."
   ],
   "interactions": [
     "May interact with hormone therapies",

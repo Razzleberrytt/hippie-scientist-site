@@ -17,7 +17,12 @@
   "contraindications": [
     "Transplant/immunosuppression without clinician guidance",
     "autoimmune flare risk",
-    "pregnancy without guidance"
+    "pregnancy without guidance",
+    "May counter immunosuppressants",
+    "may interact with lithium",
+    "diuretics",
+    "antidiabetics",
+    "and antivirals depending context."
   ],
   "interactions": [
     "May counter immunosuppressants",

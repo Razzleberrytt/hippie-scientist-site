@@ -15,7 +15,9 @@
   "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Pregnancy/breastfeeding without clinician guidance",
-    "kidney disease caution at high doses"
+    "kidney disease caution at high doses",
+    "Low documented interaction burden",
+    "caution with sedatives if used for sleep."
   ],
   "interactions": [
     "Low documented interaction burden",

@@ -18,7 +18,11 @@
   "contraindications": [
     "Liver disease",
     "pregnancy/breastfeeding",
-    "immunosuppressive therapy without clinician oversight."
+    "immunosuppressive therapy without clinician oversight.",
+    "Potential additive effects with sedatives",
+    "anticoagulants/antiplatelets",
+    "hepatotoxic drugs",
+    "and immune-modulating therapies."
   ],
   "interactions": [
     "Potential additive effects with sedatives",

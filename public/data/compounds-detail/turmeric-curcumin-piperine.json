@@ -41,5 +41,9 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "standardized extract capsule",
-  "typical_dosage": "standardized extract capsule"
+  "typical_dosage": "standardized extract capsule",
+  "contraindications": [
+    "Previous turmeric- or curcumin-associated liver injury because recurrence after re-exposure has been reported.",
+    "concurrent use with anticoagulant or antiplatelet medications such as warfarin may increase bleeding risk based on case reports of elevated INR in people taking concentrated curcumin supplements"
+  ]
 }

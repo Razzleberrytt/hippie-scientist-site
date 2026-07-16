@@ -12,7 +12,13 @@
   "activeCompounds": [],
   "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
-    "Unknown"
+    "Unknown",
+    "Avoid/caution mushroom allergy",
+    "clinician review for pregnancy/breastfeeding",
+    "immunocompromised status",
+    "cancer treatment",
+    "anticoagulant/antiplatelet use",
+    "or multi-ingredient mushroom blends until better safety extraction is completed."
   ],
   "interactions": [
     "Unknown"

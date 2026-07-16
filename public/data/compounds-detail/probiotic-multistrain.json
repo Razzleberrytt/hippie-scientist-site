@@ -38,5 +38,12 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "Use only with clinician oversight in people who are critically ill",
+    "severely immunocompromised",
+    "recently postoperative",
+    "or otherwise medically fragile",
+    "multistrain products cannot be assumed to share one safety profile."
+  ]
 }

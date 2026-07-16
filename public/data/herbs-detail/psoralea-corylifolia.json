@@ -20,7 +20,11 @@
     "liver disease",
     "photosensitivity disorders",
     "melanoma/skin-cancer risk",
-    "and concurrent phototherapy unless supervised."
+    "and concurrent phototherapy unless supervised.",
+    "Avoid with photosensitizing drugs",
+    "hepatotoxic drugs",
+    "anticoagulants",
+    "and hormone-active therapies unless supervised."
   ],
   "interactions": [
     "Avoid with photosensitizing drugs",

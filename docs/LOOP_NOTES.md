@@ -2995,3 +2995,96 @@ false on such a page, suspect the audit script rather than the page.
 section swap), one script (`hasAffiliate` fix), this note — no workbook or
 `public/data` change (regenerated `build-info.json` timestamp reverted before
 commit).
+
+---
+
+## 2026-07-16 (later) — Fixed the detail-file staleness bug at scale (119 profiles) instead of one flagged slug at a time; added a guard so it can't silently recur
+
+Fresh cold session. `npm run audit:safety`'s top-20 was, again, exhausted
+(obscure `priority=5` compounds or already-documented `requires_human_review`
+holds — confirmed via `npm run audit:patch-flagged-slugs -- <slug>` on every
+candidate from `audit:content-gaps`' high-traffic table before drafting
+anything, per the standing instruction two entries up). Rather than force a
+marginal content fill, picked up the systemic gap the 2026-07-16 "Closed the
+last documented `audit:risk-tag-collisions`..." and "top-20 is now genuinely
+exhausted..." entries both flagged as "worth a dedicated future cycle": the
+`getHerbBySlug()`/`getCompoundBySlug()` blanket `Object.assign(base, detail)`
+merge in `src/lib/runtime-data.ts` (only `CLUSTER_MEMBER_RUNTIME_DECISION`
+records get the smarter field-level trust resolution in
+`lib/runtime-record-resolver.mjs`) means any `herbs-detail`/`compounds-detail`
+file with its own non-empty `contraindications` array silently wins over a
+fresher flat-record value forever, with nothing to catch it.
+
+Built `scripts/ci/guard-detail-additive-freshness.mjs`: for every non-cluster-
+member flat record with an ADDITIVE-mechanism tag in `entity_risk_tags.json`
+(`serotonergic`/`anticoagulant`/`cns_sedation`/`blood_glucose`/
+`blood_pressure` — the only mechanisms `lib/interaction-risk.ts` actually
+renders as a live "Interactions" section), checks whether the matching detail
+file's own `contraindications` text contains a keyword for that mechanism
+(reusing the exact `KEYWORDS` map from `scripts/data/build-interaction-data.mjs`,
+not a new heuristic). Also flags a detail file with an explicit
+`"contraindications": []`, which clobbers a non-empty flat record with
+nothing. 7 unit tests in the paired `.test.mjs`.
+
+Running it cold found **119 already-live profiles** silently serving stale
+safety text — far larger than the two isolated incidents (`st-johns-wort`,
+`turmeric-curcumin-piperine`) that originally surfaced this bug class.
+`npm run data:sync-detail-backfill` (the existing tool) did NOT fix these: its
+`backfillEmptyDetailFields()` only fills an *empty* detail field from the flat
+record, and all 119 detail files already had a *non-empty* (just incomplete)
+`contraindications` array, so the tool correctly left them alone by its own
+design — this was a real, previously-unaddressed gap in the tooling, not a bug
+in that script.
+
+Checked before fixing whether it was safe to just overwrite detail with flat:
+it was not. Sampling found 44 compound detail files (`magnesium`, `coq10`,
+`vitamin-d3`, `l-theanine`, `creatine-monohydrate`, etc.) carry independent,
+more specific interaction prose the flat record never had — a plain overwrite
+in either direction would have destroyed real content. Wrote
+`scripts/data/backfill-detail-additive-mechanisms.mjs` to take the *union* of
+each stale pair (detail's existing items first, then any flat items not
+already present, case-insensitive/trimmed dedupe) — every phrase written
+already existed on one of the two source records; nothing fabricated, nothing
+deleted. Ran with `--dry-run` first, spot-checked several outputs (`yohimbe`
+7→14 items, confirmed clean strict-append with no near-duplicate punctuation
+variants; `rhodiola` correctly excluded because its existing detail text
+already covered the tagged mechanism), then applied for real. Guard went from
+119 findings to a clean pass. Also ran `npm run data:sync-detail-backfill`
+first (38 unrelated empty-field fills, incl. a genuine stale
+`governance.indexingAllowed: false → true` on `garlic`/`maca` that the
+existing sync tool computes as a side effect of mirroring the full pipeline —
+left in, it's the same staleness class the tool is meant to fix, not new
+scope creep).
+
+Wired the guard into `npm run data:validate` (after
+`validate-workbook-json-parity`) so this can't silently regress again, and
+added an `npm run data:backfill-detail-additive-mechanisms` alias next to the
+existing `data:sync-detail-backfill` one.
+
+**Confirmed exactly none of the 119 findings touched a deliberately-abstained
+slug** (`creatine`, `omega-3-*`, `caffeine-l-theanine`, etc. from the
+DELIBERATE ABSTENTIONS list) — the mechanism-tag-based approach naturally
+respects those holds, since an abstained slug's `contraindications_or_flags`
+is blank, so `entity_risk_tags.json` carries no additive tag for it and it's
+never a candidate for the guard or the backfill.
+
+**Not fixed, flagged for a future cycle:** the root cause — the blanket
+`Object.assign` merge for non-cluster-member records — is still there. This
+cycle's fix clears the *current* backlog and gates *known-detectable* future
+drift (a newly-tagged additive mechanism), but a genuinely stale non-additive
+field (e.g. `dosage`, `mechanisms`, or a `single_only`-mechanism contra-
+indication) on a non-cluster-member profile still isn't caught by anything.
+The real fix is almost certainly generalizing `resolveRuntimeRecordLayers`'s
+`CORE_OWNED_FIELDS` trust-resolution to every record, not just cluster
+members — deliberately not attempted this cycle since it changes render
+behavior for all ~854 profile pages at once and deserves a dedicated
+front-to-back review (including a UI/browser check across a sample of pages),
+not a same-cycle bundled change.
+
+`npm run data:validate`, `npm run guard:source-of-truth`, `npm run check`, and
+`npx vitest run` (650/650, up from 643 — 7 new tests) all passed. Diff: 2 new
+scripts + 1 test file, `package.json` (2 script entries), 149 `herbs-detail`/
+`compounds-detail` files (119 union-merged + 38 from the pre-existing sync
+tool's own empty-field backfill), this note — no workbook edit, no
+`herbs.json`/`compounds.json`/`entity_risk_tags.json` drift (`build-info.json`
+timestamp reverted before commit).

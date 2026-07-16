@@ -18,7 +18,10 @@
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
     "known allergy to the plant/family",
-    "hormone-sensitive conditions without clinician review"
+    "hormone-sensitive conditions without clinician review",
+    "Potential interaction concern with antidiabetic medicines",
+    "hormonal therapies",
+    "use clinician review for high-dose extracts or chronic use."
   ],
   "interactions": [
     "Potential interaction concern with antidiabetic medicines",

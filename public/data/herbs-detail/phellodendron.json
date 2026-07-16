@@ -17,7 +17,10 @@
   "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "known allergy to the plant/family",
+    "Potential interaction concern with antidiabetic medicines",
+    "CYP/P-gp substrate medicines",
+    "use clinician review for high-dose extracts or chronic use."
   ],
   "interactions": [
     "Potential interaction concern with antidiabetic medicines",

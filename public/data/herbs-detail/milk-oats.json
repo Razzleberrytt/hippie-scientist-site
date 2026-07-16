@@ -14,7 +14,9 @@
   "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "Celiac/gluten sensitivity unless certified gluten-free",
-    "pregnancy/breastfeeding caution"
+    "pregnancy/breastfeeding caution",
+    "Low documented interaction burden",
+    "theoretical add-on sedation with CNS depressants."
   ],
   "interactions": [
     "Low documented interaction burden",

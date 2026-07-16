@@ -16,7 +16,11 @@
   "contraindications": [
     "Liver disease",
     "kidney disease/hyperkalemia risk",
-    "pregnancy/breastfeeding without guidance"
+    "pregnancy/breastfeeding without guidance",
+    "Caution with potassium-sparing diuretics",
+    "ACE inhibitors/ARBs",
+    "anticoagulants",
+    "and hepatotoxic drugs."
   ],
   "interactions": [
     "Caution with potassium-sparing diuretics",

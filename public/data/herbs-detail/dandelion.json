@@ -17,7 +17,12 @@
     "Asteraceae allergy",
     "bile duct obstruction",
     "serious kidney disease unless supervised",
-    "pregnancy/breastfeeding without clinician review."
+    "pregnancy/breastfeeding without clinician review.",
+    "Diuretics",
+    "lithium",
+    "antihypertensives",
+    "glucose-lowering therapy",
+    "theoretical quinolone absorption concern and additive GI irritation possible."
   ],
   "interactions": [
     "Diuretics",

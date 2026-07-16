@@ -24,7 +24,9 @@
   "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy (insufficient data)",
-    "diabetes (monitor glucose)"
+    "diabetes (monitor glucose)",
+    "antidiabetic drugs",
+    "anticoagulants (theoretical)"
   ],
   "interactions": [
     "antidiabetic drugs",

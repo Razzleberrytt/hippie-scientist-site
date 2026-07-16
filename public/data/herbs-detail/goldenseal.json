@@ -17,7 +17,13 @@
   "contraindications": [
     "Pregnancy/breastfeeding",
     "infants/newborns",
-    "complex medication regimens without clinician review"
+    "complex medication regimens without clinician review",
+    "Potential CYP3A4/CYP2D6/P-gp interactions",
+    "caution with cyclosporine",
+    "tacrolimus",
+    "antidiabetics",
+    "anticoagulants",
+    "and many drugs."
   ],
   "interactions": [
     "Potential CYP3A4/CYP2D6/P-gp interactions",

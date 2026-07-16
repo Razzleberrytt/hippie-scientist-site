@@ -17,7 +17,11 @@
     "Pregnancy/breastfeeding",
     "liver disease",
     "arrhythmia/cardiac disease without clinician review",
-    "complex medication regimens."
+    "complex medication regimens.",
+    "Potential interactions with hepatotoxic drugs",
+    "antiarrhythmics",
+    "immunomodulators",
+    "and sedative/CNS-active medicines are plausible and extract-specific."
   ],
   "interactions": [
     "Potential interactions with hepatotoxic drugs",

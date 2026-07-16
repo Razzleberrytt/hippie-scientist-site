@@ -75,5 +75,10 @@
     }
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Previous green-tea-extract-associated liver injury",
+    "high-dose EGCG extract use without clinical supervision",
+    "especially when fasting."
+  ]
 }
