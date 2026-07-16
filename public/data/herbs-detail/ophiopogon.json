@@ -12,14 +12,16 @@
     "traditional respiratory support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "statin or immunosuppressant or benzodiazepine medication because ophiopogon has been shown to alter CYP3A4 enzyme activity and change how these drugs are cleared including increased midazolam exposure in research",
+    "pregnancy or breastfeeding without clinician guidance due to insufficient safety data",
+    "known allergy to the plant family",
+    "weak spleen and stomach or excessive cold and dampness conditions in traditional Chinese medicine use because ophiopogon's cooling property may aggravate these patterns"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Statins",
+    "Immunosuppressants"
   ],
   "preparation": "",
   "traditionalUses": [],

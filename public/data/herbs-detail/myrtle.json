@@ -11,14 +11,17 @@
     "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "pregnancy especially first trimester without clinician guidance due to limited safety data",
+    "epilepsy or seizure disorder because myrtle's cineole content may lower seizure threshold",
+    "anticoagulant medication such as warfarin because myrtle may enhance anticoagulant effect and increase bleeding risk",
+    "diabetes medication because myrtle may have an additive blood-glucose-lowering effect",
+    "undiluted myrtle leaf essential oil because concentrated oil can cause serious respiratory problems and should never be ingested"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Warfarin",
+    "Diabetes medications"
   ],
   "preparation": "",
   "traditionalUses": [],

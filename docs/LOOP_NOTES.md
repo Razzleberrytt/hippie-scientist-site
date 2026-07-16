@@ -3273,3 +3273,149 @@ shared-template `safety_notes` category strings themselves (not just
 `contraindications`) are worth replacing with per-herb text once/if that
 field is wired into the runtime output — no point enriching a column nothing
 reads yet.
+
+---
+
+## 2026-07-16 (batch 3) — next 5 boilerplate-`contraindications` herbs (soursop, myrtle, dendrobium, ophiopogon, bael); the "16 remaining" count from the prior entry undercounted
+
+Fresh cold session, continuing the same thread. Re-ran the detection query
+(`full_public_runtime` herbs whose `contraindications` matches the boilerplate
+template fragment) fresh rather than trusting the prior entry's named list —
+good thing, because it returned **45** matching herbs, not the 16 named two
+entries above. The discrepancy: the prior list only tracked one slug per
+species pair, but several species have two separate entity rows under
+different slugs (e.g. `bupleurum` was fixed in an earlier batch but
+`bupleurum-falcatum` is a distinct row and was still boilerplate; same for
+`andrographis` vs `andrographis-paniculata`). **Takeaway: always re-run the
+detection query fresh at the start of a cycle instead of trusting a
+previously-recorded remaining-count or slug list — duplicate-species rows
+under different slugs make the true count larger than what any single past
+enumeration captured.**
+
+Picked 5 with strong independent literature: soursop (Annona muricata —
+annonacin neurotoxicity/atypical-Parkinsonism concern, additive
+blood-glucose- and blood-pressure-lowering effects, cumulative-exposure
+caution for long-term tea/extract use), myrtle (Myrtus communis — cineole
+seizure-threshold caution, warfarin bleeding-risk interaction, additive
+blood-glucose-lowering effect, undiluted leaf-oil respiratory-toxicity
+warning), dendrobium (Dendrobium nobile — additive antihypertensive and
+hypoglycemic effects, TCM-documented convulsion risk at overdose), ophiopogon
+(Ophiopogon japonicus — CYP3A4 induction/altered clearance for
+statins/immunosuppressants/benzodiazepines backed by a real
+pharmacokinetic study showing increased midazolam exposure, plus the TCM
+cooling-property caution for spleen-cold conditions), and bael (Aegle
+marmelos — documented hypoglycemic activity requiring diabetes-medication
+monitoring, noted cardiovascular-disease and renal-impairment
+contraindications). All sourced via `WebSearch` against independent
+references (PMC, WebMD, RxList, ScienceDirect, SAGE journals) before writing.
+
+Followed the now-standard process exactly: `audit:patch-flagged-slugs` on all
+5 first (clean, no workbook-patch holds); drafted every clause with zero
+literal commas (the `splitList()` regex `/[\n|;,]+/` in
+`build-runtime-from-workbook.mjs` fractures on commas); ran every draft
+clause through `findSuspectMatches()`/`findWeakCorroborationMatches()` from
+`audit-risk-tag-collisions.mjs` in a throwaway `node -e` importing the
+script's exported functions directly (rather than re-implementing the
+matcher) — zero collisions; `edit-entity-master-cell.mjs --in-place` for all
+5; `data:build:core` (edges 20420→22183, tags 1453→1467); checked all 5
+`herbs-detail/{slug}.json` files up front and confirmed the same
+stale-overlay triad the last several entries have documented
+(`contraindications` boilerplate, `interactions` boilerplate fragments,
+`safetyNotes` hardcoded to `"Generally well tolerated for most users."`) —
+patched all three fields on all 5 files via a small one-off script
+(`contraindications` copied verbatim from the new `herbs.json` value,
+`interactions` replaced with terse 2-item drug-class tags in the established
+style, `safetyNotes` cleared to `""` so `getSafetySummary()` falls through to
+the sourced `contraindications` text).
+
+`npm run audit:risk-tag-collisions`, `npm run data:validate`, `npm run
+guard:source-of-truth`, `npm run check`, and the full Vitest suite (643/643)
+all passed clean. Diff scope: workbook + `herbs.json` +
+`entity_risk_tags.json` + `interaction_edges.json` + `search-index.json`
+(core-only pattern) + 5 individually-patched `herbs-detail/*.json` files —
+`build-info.json` timestamp reverted before commit, matching every prior
+cycle in this thread.
+
+**Takeaway for future cycles:** re-run the detection query fresh each time
+(see above) rather than continuing any specific named list — as of this
+commit roughly 40 matching herbs remain. Same process applies. Also still
+open from two entries above: (1) the dead `safety_notes` → runtime `safety`
+column-mapping gap, and (2) whether `src/lib/runtime-data.ts`'s
+`getHerbs()`/`getCompounds()` share the stale-top-level-summary-file exposure
+that `build-search-index.mjs` had (fixed in the 2026-07-16-later entry above)
+— neither was investigated this cycle to keep scope narrow and verifiable.
+
+---
+
+## 2026-07-16 (batch 3, PR review) — Codex flagged two real search-index gaps, both bigger than a review-response fix; deferred with investigation notes
+
+Codex's automated review on PR #2326 (the soursop/myrtle/dendrobium/ophiopogon/
+bael batch above) flagged two findings. Investigated both before deciding whether
+to fix in-PR.
+
+**1. Goal-facet contamination from contraindications text.** `buildHerbDocs()` in
+`scripts/data/build-search-index.mjs` feeds `toList(item.contraindications).join('
+')` into the same `haystack` used for `matchFacets(haystack, GOAL_KEYWORDS)`. A
+safety clause like "blood pressure medication" or "cardiovascular disease" matches
+the `heart-health` goal keywords (`cardiovascular`, `blood pressure`), and
+"hypotension" matches `anxiety`'s `tension` keyword as a bare substring (no word
+boundary) — confirmed dendrobium picked up a false `anxiety` facet purely from
+"risk excessive hypotension" in its new contraindications clause. Real bug,
+directly surfaced by this batch: the old boilerplate text
+("Potential additive effects with medications affecting the same body system")
+never happened to contain any `GOAL_KEYWORDS` term, so this was invisible on
+these 5 herbs until their contraindications became real, specific pharmacology
+text. `buildCompoundDocs()` doesn't have this problem — its haystack never
+included contraindications in the first place, confirming the asymmetry is a
+bug rather than intentional design.
+
+Prototyped the obvious fix (build a separate facet-only haystack that excludes
+contraindications, keep contraindications in the full-text `searchText` only)
+and regenerated `search-index.json` to check the blast radius before committing
+it: **70 herbs changed goal facets**, not just the 5 in this PR — e.g. `danshen`
+lost `heart-health` entirely (its summary/mechanism fields apparently don't
+independently mention cardiovascular language, so the *only* source of that
+facet was its contraindications text), `calamus`/`corydalis`/`myristica-fragrans`/
+`lobelia-inflata`/`coriandrum-sativum` lost `sleep` entirely (same pattern — the
+sedative signal only existed in their contraindications, e.g. "additive sedative
+effects"). Some of these are almost certainly correct facets for well-known herbs
+(danshen is a textbook cardiovascular herb; calamus is textbook sedative) that
+are just leaning on contraindications text as their only signal source because
+their `primaryActions`/`mechanisms`/`summary` fields don't carry the therapeutic
+language explicitly — meaning the "fix" would silently break real discovery
+facets for herbs unrelated to this PR, trading one false-positive class for an
+unknown number of false negatives, with no way to tell which from a script diff
+alone. **Reverted the prototype** rather than ship it — this is a genuine bug but
+not a safe review-response-commit fix; it needs a dedicated cycle that
+inspects the 70-herb diff herb-by-herb (or a smarter fix, e.g. only excluding
+contraindications clauses that match `CORROBORATION_REQUIRED`-style "explanatory
+risk" phrasing rather than blanket-excluding the whole field) with its own
+review, not a change bundled into a content PR.
+
+**2. `interactions` is always empty on the flat `herbs.json` record.** Confirmed
+via a spot check: `turmeric`, `ashwagandha`, and every other herb checked has
+`interactions: []` in `herbs.json`, same as the 5 in this PR — this is not a
+regression from this PR, it's the pre-existing, dataset-wide condition already
+documented in the 2026-07-13 entry above ("the always-empty flat-record
+`interactions` field the earlier `checkInteractions` entry documented as
+dead"). Since `build-search-index.mjs` reads from `herbs.json` (not
+`herbs-detail/*.json`), the "Has interactions" search filter has never worked
+for any herb, not just these 5 — also out of scope for a content PR; fixing it
+means either wiring a real interactions field into the core workbook→runtime
+pipeline or pointing the search index at the detail-overlay layer, both
+whole-dataset changes.
+
+Replied on the PR summarizing both findings and this reasoning rather than
+silently ignoring them. Did not modify `scripts/data/build-search-index.mjs` or
+regenerate `search-index.json` beyond what the original commit already
+contained (confirmed `git status` clean after reverting the prototype).
+
+**Takeaway for future cycles:** (1) the goal-facet-from-contraindications bug is
+real and worth fixing, but do it as its own PR with a herb-by-herb look at the
+~70-herb diff (or the smarter corroboration-aware fix suggested above), never
+bundled into an unrelated content batch. (2) the empty-`interactions`-on-`herbs.json`
+gap is the same one flagged two entries above under a different name
+("wire `safety_notes` into the runtime `safety` field") — worth consolidating
+into one dedicated "wire the real interactions/safety fields into the runtime
+layer" cycle rather than re-discovering it piecemeal each time a PR review
+happens to touch a herb with real interaction data.

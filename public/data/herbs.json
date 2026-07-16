@@ -3202,10 +3202,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "diabetes medication or insulin because bael has documented hypoglycemic activity and may have an additive blood-glucose-lowering effect requiring monitoring",
+      "cardiovascular disease without clinician guidance due to noted contraindication concerns",
+      "renal impairment without clinician guidance due to noted contraindication concerns",
+      "pregnancy or breastfeeding without clinician guidance due to insufficient safety data"
     ],
     "interactions": [],
     "side_effects": [],
@@ -10933,10 +10933,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "blood pressure medication because dendrobium may have an additive blood-pressure-lowering effect and risk excessive hypotension",
+      "diabetes medication because dendrobium has documented hypoglycemic activity and may have an additive blood-glucose-lowering effect",
+      "doses beyond typical tonic use because overdose has been associated with convulsions in traditional medicine reports",
+      "pregnancy or breastfeeding without clinician guidance due to insufficient safety data"
     ],
     "interactions": [],
     "side_effects": [],
@@ -20668,10 +20668,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "pregnancy especially first trimester without clinician guidance due to limited safety data",
+      "epilepsy or seizure disorder because myrtle's cineole content may lower seizure threshold",
+      "anticoagulant medication such as warfarin because myrtle may enhance anticoagulant effect and increase bleeding risk",
+      "diabetes medication because myrtle may have an additive blood-glucose-lowering effect",
+      "undiluted myrtle leaf essential oil because concentrated oil can cause serious respiratory problems and should never be ingested"
     ],
     "interactions": [],
     "side_effects": [],
@@ -21874,10 +21875,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "statin or immunosuppressant or benzodiazepine medication because ophiopogon has been shown to alter CYP3A4 enzyme activity and change how these drugs are cleared including increased midazolam exposure in research",
+      "pregnancy or breastfeeding without clinician guidance due to insufficient safety data",
+      "known allergy to the plant family",
+      "weak spleen and stomach or excessive cold and dampness conditions in traditional Chinese medicine use because ophiopogon's cooling property may aggravate these patterns"
     ],
     "interactions": [],
     "side_effects": [],
@@ -28172,10 +28173,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "Parkinsonism or other neurodegenerative condition because soursop contains annonacin which may exacerbate neuronal degeneration with prolonged high intake",
+      "diabetes medication because soursop may have an additive blood-glucose-lowering effect and requires monitoring",
+      "blood pressure medication because soursop may have an additive blood-pressure-lowering effect",
+      "pregnancy or breastfeeding without clinician guidance due to neurotoxicity concerns and limited safety data",
+      "long-term or high-dose use of teas or extracts because cumulative annonacin exposure has been linked to atypical Parkinson's-like symptoms in epidemiological studies"
     ],
     "interactions": [],
     "side_effects": [],

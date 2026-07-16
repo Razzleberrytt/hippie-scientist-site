@@ -11,14 +11,16 @@
     "Oxidative Stress Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "diabetes medication or insulin because bael has documented hypoglycemic activity and may have an additive blood-glucose-lowering effect requiring monitoring",
+    "cardiovascular disease without clinician guidance due to noted contraindication concerns",
+    "renal impairment without clinician guidance due to noted contraindication concerns",
+    "pregnancy or breastfeeding without clinician guidance due to insufficient safety data"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Diabetes medications",
+    "Insulin"
   ],
   "preparation": "",
   "traditionalUses": [],
