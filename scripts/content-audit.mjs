@@ -608,8 +608,17 @@ function run() {
   process.exit(0)
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) {
+function isMainModule(entryPath, moduleUrl = import.meta.url) {
+  if (!entryPath) return false
+  try {
+    return fs.realpathSync(entryPath) === fs.realpathSync(fileURLToPath(moduleUrl))
+  } catch {
+    return false
+  }
+}
+
+if (isMainModule(process.argv[1])) {
   run()
 }
 
-export { countWords }
+export { countWords, isMainModule }

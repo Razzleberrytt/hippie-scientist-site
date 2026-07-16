@@ -3,7 +3,15 @@ import os from 'os'
 import path from 'path'
 import { afterEach, describe, expect, it } from 'vitest'
 
-import { countWords } from './content-audit.mjs'
+import { countWords, isMainModule } from './content-audit.mjs'
+
+describe('CLI entrypoint detection', () => {
+  it('recognizes a relative Windows-compatible script path as the main module', () => {
+    expect(isMainModule('scripts/content-audit.mjs')).toBe(true)
+    expect(isMainModule('scripts/content-audit.test.mjs')).toBe(false)
+    expect(isMainModule(undefined)).toBe(false)
+  })
+})
 
 describe('countWords', () => {
   it('counts inline JSX text and PROSE_KEYS object-literal values', () => {
