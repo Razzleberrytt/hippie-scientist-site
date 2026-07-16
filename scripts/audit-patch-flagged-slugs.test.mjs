@@ -1,5 +1,44 @@
-import { describe, expect, it } from 'vitest'
-import { findFlaggedChanges } from './audit-patch-flagged-slugs.mjs'
+import fs from 'node:fs'
+import os from 'node:os'
+import path from 'node:path'
+import { afterEach, describe, expect, it } from 'vitest'
+import { findFlaggedChanges, loadPatchesByFile } from './audit-patch-flagged-slugs.mjs'
+
+const tempDirs = []
+function makeTempPatchDir(files) {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'workbook-patches-test-'))
+  tempDirs.push(dir)
+  for (const [name, contents] of Object.entries(files)) {
+    fs.writeFileSync(path.join(dir, name), contents, 'utf8')
+  }
+  return dir
+}
+
+afterEach(() => {
+  while (tempDirs.length > 0) {
+    fs.rmSync(tempDirs.pop(), { recursive: true, force: true })
+  }
+})
+
+describe('loadPatchesByFile', () => {
+  it('parses every *.json file in the directory', () => {
+    const dir = makeTempPatchDir({
+      'a.json': JSON.stringify({ status: 'applied', changes: [] }),
+      'b.json': JSON.stringify({ status: 'proposal', changes: [] }),
+      'README.md': 'not json, and not a .json file, so must be ignored',
+    })
+    const patches = loadPatchesByFile(dir)
+    expect(Object.keys(patches).sort()).toEqual(['a.json', 'b.json'])
+  })
+
+  it('fails closed (throws) when a patch file cannot be parsed, instead of silently dropping it', () => {
+    const dir = makeTempPatchDir({
+      'a.json': JSON.stringify({ status: 'applied', changes: [] }),
+      'corrupt.json': '{not valid json',
+    })
+    expect(() => loadPatchesByFile(dir)).toThrowError(/corrupt\.json/)
+  })
+})
 
 describe('findFlaggedChanges', () => {
   it('flags an applied change with requires_human_review: true for a matching slug', () => {

@@ -21,6 +21,30 @@ const __dirname = path.dirname(__filename)
 const repoRoot = path.resolve(__dirname, '..')
 const patchDir = path.join(repoRoot, 'data-sources/workbook-patches')
 
+// Reads and parses every *.json patch file in `dir`. Fails closed: this is a
+// pre-drafting safety gate, so a file we can't read or parse must not be
+// silently dropped — it could be the one file recording the human-review
+// hold a cycle is trying to check for. Throws listing every bad file rather
+// than reporting a false-clear "no history found."
+export function loadPatchesByFile(dir) {
+  const patchesByFile = {}
+  const unreadable = []
+  for (const name of fs.readdirSync(dir).filter((n) => n.endsWith('.json')).sort()) {
+    try {
+      patchesByFile[name] = JSON.parse(fs.readFileSync(path.join(dir, name), 'utf8'))
+    } catch (error) {
+      unreadable.push(`${name}: ${error.message}`)
+    }
+  }
+  if (unreadable.length > 0) {
+    throw new Error(
+      `Could not read/parse ${unreadable.length} workbook-patch file(s), so a human-review hold could be hidden in one of them:\n` +
+        unreadable.map((line) => `  - ${line}`).join('\n'),
+    )
+  }
+  return patchesByFile
+}
+
 // Pure: given { fileName -> parsed patch JSON } and a list of target slugs,
 // return every `changes[]` entry across `status: "applied"` patch files that
 // touches one of those slugs.
@@ -50,14 +74,12 @@ function main() {
     process.exit(0)
   }
 
-  const patchFiles = fs.readdirSync(patchDir).filter((name) => name.endsWith('.json')).sort()
-  const patchesByFile = {}
-  for (const name of patchFiles) {
-    try {
-      patchesByFile[name] = JSON.parse(fs.readFileSync(path.join(patchDir, name), 'utf8'))
-    } catch {
-      // Skip unreadable/malformed patch files rather than fail the whole check.
-    }
+  let patchesByFile
+  try {
+    patchesByFile = loadPatchesByFile(patchDir)
+  } catch (error) {
+    console.error(`[audit:patch-flagged-slugs] FAIL: ${error.message}`)
+    process.exit(1)
   }
 
   const hits = findFlaggedChanges(patchesByFile, slugs)
