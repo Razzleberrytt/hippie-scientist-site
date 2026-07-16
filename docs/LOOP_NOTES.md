@@ -3920,9 +3920,9 @@ governance-change authority, distinct from a plain data-completeness batch.
 
 ---
 
-## 2026-07-16 (batch 7) — rescued 3 of 16 real compound-safety fills stranded in
-3-day-old unmergeable PRs; the other 13 would have contradicted a newer,
-more careful evidence review
+## 2026-07-16 (batch 7) — rescued 1 of 16 real compound-safety fills stranded in
+3-day-old unmergeable PRs; the other 15 would have contradicted a newer,
+more careful evidence review across *two separate* governance ledgers
 
 Fresh cold session. Checked the open-PR backlog first (`list_pull_requests`)
 since the previous entry flagged it as unresolved: 32 open PRs, oldest from
@@ -3986,25 +3986,49 @@ filled it after the fact, intentionally or not), but it isn't wired into
 `check`/`check:full` — it has to be run by hand, and it's easy to skip when a
 change already looks clean by every other measure.
 
-Reverted those 13 back to empty (matching the deliberate 07-15 state) and
-kept only the 3 slugs that were never on the exceptions list —
-`creatine-beta-alanine`, `omega-3-epa-dominant`, and
-`passionflower-extract-standardized`, the only 3 of the 16 not covered by any
-exception entry. Verified the final diff is scoped to exactly those 3 slugs
-in `compounds.json` (script-diffed old vs. new by slug, not just eyeballed),
-plus their derived `ai-entities/manifest.json` score bumps (18→21, one
-`safety-context` signal each) and the expected `entity_risk_tags.json`/
-`interaction_edges.json`/`search-index.json` regeneration.
-`audit:severity-tokens` still fails after this fix, but only on
-`ashitaba-extract` — confirmed via `git stash` that this exact failure
-already exists on `main` before this cycle's changes, so it's a pre-existing,
-unrelated gap (something filled `ashitaba-extract`'s contraindications after
-its 07-15 exception was recorded, without updating the exceptions file) —
-flagging as a small, standalone follow-up for a future cycle rather than
-fixing it here and blurring this PR's scope.
-`npm run check`, `data:validate`, `guard:source-of-truth`,
-`workbook:roundtrip-test`, `audit:risk-tag-collisions`, and the full Vitest
-suite (655/655) all pass.
+Reverted those 13 back to empty and kept the remaining 3
+(`creatine-beta-alanine`, `omega-3-epa-dominant`,
+`passionflower-extract-standardized`), ran the full local gate (`check`,
+`data:validate`, `guard:source-of-truth`, `workbook:roundtrip-test`,
+`audit:risk-tag-collisions`, full Vitest 655/655 — all clean), and pushed
+PR #2345. **This was still wrong for 2 of the 3.** A CI job
+("Validate workbook patches", `scripts/ci/validate-workbook-patches.mjs`)
+failed on push: `data-sources/workbook-patches/` holds a *second*,
+independent governance ledger — applied-patch records with an
+`expected_old_value`/`new_value` pair per cell, verified by re-reading the
+live workbook and diffing against what the patch claims to have set. Two
+applied patches from the same 07-15 review
+(`trust-completeness-batch-3-primary-runtime-2026-07-15.json`,
+`...batch-4-primary-runtime-2026-07-15.json`) had deliberately set
+`omega-3-epa-dominant.contraindications_or_flags` and
+`creatine-beta-alanine.contraindications_or_flags` to blank — not because
+no safety text exists (both have substantial real prose in `runtime_safety`/
+`safety_notes`), but because that review specifically concluded neither
+combination/blend compound has evidence supporting a *categorical
+contraindication* distinct from its components. Filling the field
+overrode that deliberate omission and, per an automated Codex review
+comment on the PR that landed independently at almost the same time,
+would have propagated into `build-interaction-data.mjs` as ~148 new severe
+additive-interaction edges the review had explicitly rejected. `audit:
+severity-tokens` didn't catch this one because these two slugs were on a
+*third* ledger, `data-sources/safety-evidence-limited-primary-runtime-
+exceptions.json` (for `primary_runtime_priority` records — separate from
+the plain `full_public_runtime` exceptions file it actually checks), which
+that audit doesn't read at all. Checked every one of the original 16 target
+slugs against all three ledgers (the exceptions file, the primary-runtime
+exceptions file, and every file under `workbook-patches/`) — 15 of the 16
+had a deliberate empty-value record somewhere; only
+`passionflower-extract-standardized` had none. Reverted the other 2 and
+re-ran the full gate; `validate-workbook-patches.mjs` and every other
+check now pass clean, and the final diff is exactly one compound's
+`contraindications_or_flags` filled.
+
+`audit:severity-tokens` still fails on one slug, `ashitaba-extract` — not
+one of this cycle's targets. Confirmed via `git stash` that this exact
+failure (a stale entry in the plain exceptions file, unrelated to the
+`primary-runtime` ledger this cycle actually touched) already exists on
+`main` before any change here, so it's a small, pre-existing, unrelated
+gap — flagging as a standalone follow-up rather than fixing it here.
 
 **Takeaway for future cycles:** (1) `git merge-tree` (git ≥2.38, no
 working-tree checkout) is a fast way to triage a large stale-PR backlog for
@@ -4016,16 +4040,29 @@ payload (the specific field value it computed) from its committed generated
 output and reapply that fresh against current `main` with the sanctioned
 editor; this sidesteps the entire binary-workbook/derived-JSON conflict
 surface and lets you cross-check each target against `main`'s *current*
-state before writing. (3) **run `audit:severity-tokens` (and any other
-audit whose job is specifically to catch stale/contradicted content) before
-declaring a reapplied-old-content fix done, even when the content was
-already validated once** — a fix that was correct when written can become
-wrong by the time it lands if a more careful, later review already looked at
-the same field and reached a narrower conclusion. A stale PR is stale
-precisely because time passed; check what happened to its specific targets
-in that time, not just whether the repo still builds. (4) the remaining
-32-PR backlog (minus the 8 addressed here) still needs the same
-triage-by-diff-value treatment described in the prior entry — most of it is
-now redundant work superseded by intervening batches, but the general
-technique here (diff the branch's generated output against current `main`,
-not the branch itself) is the reusable part.
+state before writing. (3) **this repo now has at least three independent,
+overlapping governance ledgers that can each veto a "fill this empty
+safety field" edit** —
+`data-sources/safety-evidence-limited-exceptions.json` (full-public
+records, checked by `audit:severity-tokens`),
+`data-sources/safety-evidence-limited-primary-runtime-exceptions.json`
+(primary-runtime records, checked by nothing in the standard audit set as
+of this writing), and every applied patch under
+`data-sources/workbook-patches/*.json` (checked by
+`validate-workbook-patches.mjs`, which *does* run in CI as a required
+check — that's what actually caught this). Before writing to any
+previously-empty `contraindications_or_flags`/similar field, grep the slug
+against all three, not just the one audit script that happens to be
+top-of-mind; `audit:severity-tokens` alone would have shipped this bug.
+(4) a fix that passes every local script you thought to run can still fail
+in CI if CI runs a check you didn't know existed (`validate-workbook-
+patches` isn't in `npm run check` or `check:full`'s documented list) —
+when a required CI check fails after push, read its actual log before
+assuming it's flaky or unrelated; it caught a real, high-severity content
+bug here (a rejected safety claim silently reintroduced) that every local
+gate had missed. (5) the remaining 32-PR backlog (minus the 8 addressed
+here) still needs the same triage-by-diff-value treatment described in the
+prior entry — most of it is now redundant work superseded by intervening
+batches, but the general technique here (diff the branch's generated
+output against current `main`, not the branch itself, and check it against
+*every* governance ledger before writing) is the reusable part.
