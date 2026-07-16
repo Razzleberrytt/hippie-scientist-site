@@ -12,8 +12,9 @@ import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import PathwayDiagram from '@/components/PathwayDiagram'
 import EvidenceLegend from '@/components/EvidenceLegend'
 import { pathwayDiagrams } from '@/lib/pathway-data'
-import { AFFILIATE_TAGS } from '@/config/affiliate'
 import References from '@/components/References'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 
 const SLUG = 'magnesium-glycinate-vs-citrate-for-adhd'
 const TITLE = 'Magnesium Glycinate vs Citrate for ADHD: Which Form Works Better?'
@@ -334,54 +335,12 @@ export default function MagnesiumGlycinateCitrateAdhdPage() {
                 Product Recommendations
               </h2>
               <p className="text-[1.01rem] leading-[1.85] text-muted">
-                These links reflect forms and dose ranges consistent with the evidence reviewed.
-                Affiliate links support this site at no additional cost to you.
+                These picks favor glycinate-chelated forms with clearly labeled elemental magnesium,
+                consistent with the comparison above. Avoid magnesium oxide — poor bioavailability and
+                a stronger laxative effect make it a weak fit for ADHD-related use.
               </p>
-              <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                {[
-                  {
-                    eyebrow: 'Top Pick — Sleep & Calm',
-                    name: 'Magnesium Glycinate 400mg',
-                    desc: 'The most recommended form for ADHD-related sleep and calm support. Check the elemental magnesium per serving before purchasing.',
-                    query: 'magnesium+glycinate+400mg+sleep',
-                    cta: 'View Glycinate on Amazon →',
-                  },
-                  {
-                    eyebrow: 'Budget Option',
-                    name: 'Magnesium Citrate',
-                    desc: 'Good absorption at lower cost. Best used at evening doses of 150–200 mg elemental to minimize GI effects.',
-                    query: 'magnesium+citrate+supplement',
-                    cta: 'View Citrate on Amazon →',
-                  },
-                  {
-                    eyebrow: 'High-Absorption Premium',
-                    name: 'Magnesium Bisglycinate (chelate)',
-                    desc: 'Bisglycinate is another term for glycinate chelate — identical mechanism. Look for 200–400 mg elemental per serving.',
-                    query: 'magnesium+bisglycinate+chelate',
-                    cta: 'View Bisglycinate on Amazon →',
-                  },
-                  {
-                    eyebrow: 'Avoid for ADHD',
-                    name: 'Magnesium Oxide — Skip This',
-                    desc: 'Very poor bioavailability (~4%). Almost entirely passes through the gut as a laxative. Not appropriate for ADHD use.',
-                    query: 'magnesium+glycinate+adhd',
-                    cta: 'See better options →',
-                  },
-                ].map(({ eyebrow, name, desc, query, cta }) => (
-                  <div key={name} className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                    <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">{eyebrow}</p>
-                    <p className="font-semibold text-ink">{name}</p>
-                    <p className="mt-1 text-xs leading-5 text-muted">{desc}</p>
-                    <a
-                      href={`https://www.amazon.com/s?k=${query}&tag=${AFFILIATE_TAGS.amazon}`}
-                      target="_blank"
-                      rel="noopener noreferrer sponsored"
-                      className="mt-3 inline-flex items-center gap-1 rounded-full bg-brand-950 px-4 py-1.5 text-xs font-bold text-white transition hover:bg-brand-900"
-                    >
-                      {cta}
-                    </a>
-                  </div>
-                ))}
+              <div className="mt-4">
+                <RecommendationSection products={getRevenueProductSet('magnesium')?.products ?? []} />
               </div>
             </div>
 
