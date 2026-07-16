@@ -3790,6 +3790,60 @@ mismatch fails CI immediately instead of silently accumulating again.
 
 ---
 
+## 2026-07-16 — the loop's own "auto-merge" step was silently no-op'ing; ~32 validated PRs never shipped
+
+Before starting this cycle's own work, checked the repo's open-PR queue
+(`list_pull_requests`) and found 33 open PRs, the oldest from 2026-06-22 —
+three-plus weeks of prior autonomous-cycle output that never reached `main`,
+despite every one of them describing a full local verification pass
+(`npm run check`, `data:validate`, `guard:source-of-truth`, full Vitest) in
+its own PR body.
+
+Root cause, confirmed directly: this environment has no `gh` CLI — only the
+`mcp__github__*` tool surface — and `enable_pr_auto_merge` (the tool a prior
+cycle would reach for to satisfy the outer routine's "enable auto-merge:
+`gh pr merge --auto`" instruction) **fails as soon as required checks have
+already finished**, returning `"The pull request is already in clean status
+... you can merge directly"` instead of doing anything. CI in this repo
+finishes in seconds (confirmed via `actions_list`: all 5 required checks on
+PR #2341 completed in the same few seconds as PR creation), so by the time a
+session gets around to the auto-merge call, checks have essentially always
+already finished — meaning `enable_pr_auto_merge` reliably errors out and
+does *not* merge the PR. If the calling session didn't specifically catch
+that error and fall back to a direct `merge_pull_request` call, the PR was
+left open with no further action — which is exactly the shape of every one
+of the 33 stuck PRs found this cycle.
+
+Verified the fix by hand: called `enable_pr_auto_merge` on the most recent
+PR (#2341, `mergeable_state: "clean"`), got the graceful-failure message
+above, then called `merge_pull_request` directly (`squash`) and it merged
+immediately with no further action needed.
+
+**Fix for future cycles:** at the "SHIP + AUTO-MERGE" step, don't rely on
+`enable_pr_auto_merge` alone. Instead: read the PR back
+(`pull_request_read` → `mergeable_state`) after opening it; if it's already
+`"clean"`, call `merge_pull_request` directly; only fall back to
+`enable_pr_auto_merge` (and only trust it silently) when the state is
+`"unstable"`/checks still pending. Treat any `enable_pr_auto_merge` error
+mentioning "already ... clean" as a signal to merge directly, not as
+terminal failure.
+
+**Backlog status:** merged #2341 directly this cycle as the one immediately
+enrichment-validated, single-most-recent PR. The other 32 remain open as of
+this cycle and were deliberately *not* bulk-merged — several are weeks old
+with `mergeable_state: "unknown"` (GitHub hasn't recomputed against current
+`main` yet, likely genuinely stale/conflicting by now), a few are Dependabot
+version bumps that can conflict with each other's lockfile diffs if merged
+out of order, one (#1886) is still a draft, and at least one prior PR's own
+description (#2262) notes finding redundant/overlapping work with another
+backlogged PR — i.e. this backlog likely contains internal duplicates that
+need triage, not a blind merge. A future cycle (or a human) should triage
+this list PR-by-PR: re-check `mergeable_state` fresh, rebase/close anything
+stale or superseded, and merge what's still clean, oldest-first so newer
+PRs' conflicts (if any) surface against an up-to-date base.
+
+---
+
 ## 2026-07-16 (batch 6, correction) — the batch-6 fix above never actually
 reached the rendered page; fixed the real field instead
 
