@@ -2454,3 +2454,126 @@ the remaining safety-gap backlog (this tier alone, plus the `betaine`/
 `taurine`/`gingerol`/etc. clusters from earlier entries) and would be a good
 candidate for an actual human decision rather than another cycle routing
 around it.
+
+---
+
+## 2026-07-16 (later) — Closed the last documented `audit:risk-tag-collisions` weak-corroboration finding (`rhodiola-extract-shr5`)
+
+Fresh cold session. Re-checked `npm run audit:safety`: all 20 top gaps are
+the exact same 14 variant-cluster slugs (plus 6 `betaine`/`boswellia`-family
+ones) the entry above and several earlier entries already flagged as blocked
+on the unresolved family-naming-policy question — no new standalone target
+there. Rather than route around that block again, picked the one concrete,
+already-diagnosed, non-blocked finding still open:
+`npm run audit:risk-tag-collisions` has reported exactly one weak-corroboration
+false positive since the check was added (2026-07-14, PR closing the tooling
+gap): `rhodiola-extract-shr5`'s contraindications clause "discontinue before
+surgery or other medical procedures due to limited interaction data" — the
+stated reason ("limited interaction data") doesn't corroborate the
+`anticoagulant`/bleeding mechanism that the bare word "surgery" triggers in
+`KEYWORDS.anticoagulant`, exactly the semantically-loose-keyword bug class
+that check exists to catch (see the 2026-07-14 entry for the original
+`catuaba` production bug).
+
+Fixed by dropping the vague causal tail ("due to limited interaction data")
+from that one clause, converting it to a bare flag token
+("discontinue before surgery or other medical procedures.") — which is
+exactly the dataset's established convention for this situation, per the
+audit script's own code comment: a bare flag token with no stated reason is
+left alone as normal shorthand, only an *explanatory* clause with an
+unrelated stated reason is flagged. Verified by importing the real
+`findWeakCorroborationMatches`/`findSuspectMatches` functions from
+`scripts/audit-risk-tag-collisions.mjs` directly into a throwaway `node`
+script and running every clause of the new full string through them before
+touching the workbook — zero flags. No other clause in the string changed;
+the compound's other three cautions (serotonergic-antidepressant, stimulant,
+anticoagulant-drug, pregnancy) are untouched.
+
+Applied via `edit-entity-master-cell.mjs --in-place`.
+`workbook:roundtrip-test` passed (22 sheets byte-for-byte). `data:build:core`
+regenerated cleanly (edges 19366, tags 1441 — both counts are much higher
+than the low-4-digit/low-1000s figures in older entries in this file,
+reflecting the cumulative effect of many prior enrichment cycles, not a bug).
+Structurally diffed `compounds.json` and `entity_risk_tags.json` against
+`HEAD` by key (not raw text, since both are single-line minified JSON) and
+confirmed exactly one entity (`rhodiola-extract-shr5`) changed in each file —
+`entity_risk_tags.json`'s derived tag for that clause is still
+`risk_mechanism: "anticoagulant"` (the underlying keyword-derivation engine
+in `build-interaction-data.mjs` has no corroboration check, by design — only
+the separate audit script does), but that's harmless here: the compound
+already independently and correctly earns an `anticoagulant` tag from its
+other, legitimate "anticoagulant use without clinician review" clause, so no
+new or different interaction pairing was introduced. `data:validate`,
+`guard:source-of-truth`, `audit:risk-tag-collisions` (now fully clean, both
+sections), and `npm run check` (typecheck + lint + full data pipeline) all
+passed. Diff: workbook + `compounds.json` + `entity_risk_tags.json` only
+(`build-info.json` timestamp reverted) — narrower than most entries in this
+file since this was a single-clause reword, not a new-content fill.
+
+Takeaway: `audit:risk-tag-collisions` (both its substring-collision and
+weak-corroboration sections) is now reporting **zero open findings** for the
+first time since either check was added — a genuinely clean baseline. Future
+cycles should treat any new finding from this audit as a fresh regression
+worth the same small-scoped-reword treatment, not assume there's a backlog
+to work through.
+
+**Post-open addendum (same PR, #2310):** two real issues surfaced after opening the PR.
+
+1. **CI's required "Validate workbook patches" check failed, and it was repo-wide, not
+   caused by this PR's own diff.** `scripts/ci/validate-workbook-patches.mjs` re-verifies
+   every `status: "applied"` file in `data-sources/workbook-patches/` by asserting the
+   workbook's *current* value for each recorded change still equals that change's
+   `new_value`. Three "applied" patches from 2026-07-15
+   (`safety-coverage-batch-2-2026-07-15.json`,
+   `trust-completeness-batch-3-primary-runtime-2026-07-15.json`,
+   `trust-completeness-batch-4-primary-runtime-2026-07-15.json`) each recorded clearing
+   `contraindications_or_flags` to blank for `ashitaba-extract`/`caffeine`/`melatonin`
+   respectively — but the very next entry above (2026-07-16, "Filled `caffeine` and
+   `melatonin` contraindications_or_flags gaps", PR #2308) filled those exact three blank
+   cells with real sourced prose through a completely separate workflow
+   (`edit-entity-master-cell.mjs`, not the patch runner). The patch verifier has no way to
+   know a later, unrelated, *better* edit landed on the same cell — it just sees the
+   recorded `new_value` (blank) no longer matches reality and fails closed. Net effect:
+   **this broke the required check for every PR in the repo**, not just this one — any PR
+   opened against current `main` would hit the identical failure, since it's about
+   workbook state on `main`, not this branch's diff. Verified this cell-by-cell before
+   touching anything: for all three slugs, the *other* field each patch recorded
+   (`safety_notes`/`runtime_safety`) still matched exactly, so only the one
+   `contraindications_or_flags` change per file was stale, not the whole patch.
+2. The Codex automated PR review caught the systemic detail-file-staleness bug (documented
+   twice earlier in this file, 2026-07-13) recurring on this cycle's own edit:
+   `public/data/compounds-detail/rhodiola-extract-shr5.json` still had the old
+   "...due to limited interaction data." text after the flat `compounds.json` fix, because
+   nothing in the pipeline re-syncs an existing detail file's `contraindications` from a
+   workbook edit. Patched the one field in the detail file directly (left the file's other
+   pre-existing flat/detail divergences — `description`, `mechanisms`,
+   `indexability_status`, `robots`, `sitemap_included`, `indexability_reasons` — untouched,
+   consistent with the earlier entries' scoping precedent; this compound is
+   `robots: noindex,follow` so it's not indexed, but the page still renders for direct
+   visitors, which is what made the stale text a real, if low-traffic, bug).
+
+Fixed (1) by removing just the one stale `contraindications_or_flags` change object from
+each of the three patch files (exact single-line JSON entries — these files use compact
+single-line objects per change/source, so used a targeted text edit rather than
+`json.dump`, which would have reformatted the entire file into multi-line objects and
+produced an 800+ line noise diff; caught and reverted that mistake before committing).
+This does not rewrite history dishonestly — the removed entries are still visible in
+`git log` for that file — it just stops the *current* record from asserting something
+that's no longer true. Re-ran `node scripts/ci/validate-workbook-patches.mjs` locally
+after the edit: all 7 patch files now `PASS`. Final diff for this addendum: 3 patch files
+(1 line removed each) + the 1 compounds-detail file — `npm run check` re-run clean
+afterward.
+
+Takeaway: `validate-workbook-patches.mjs`'s "applied" re-verification assumes the workbook
+only ever moves forward *through the patch pipeline*, but this repo also has a second,
+independent, direct-edit enrichment path (`edit-entity-master-cell.mjs`, used throughout
+this file's whole contraindications-filling thread) that can legitimately overwrite the
+same cells the patch pipeline touched. There's no "superseded" status in
+`PATCH_STATUSES` (`proposal`/`approved`/`applied` only) to mark this cleanly — worth a
+future cycle adding one (and teaching the validator to skip re-verification for
+superseded changes) rather than hand-pruning stale entries reactively each time the two
+pipelines collide on the same cell. Also: **whenever a cycle edits any
+`contraindications_or_flags`/`safety_notes`/`runtime_safety` cell that also has a
+corresponding entry in `data-sources/workbook-patches/*.json` with `status: "applied"`,
+check whether that patch's recorded `new_value` still matches post-edit** — the collision
+isn't hypothetical, it already happened twice on the same three slugs in the same day.
