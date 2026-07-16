@@ -270,6 +270,11 @@
   "dosage": "Dose-response meta-analysis suggested sleep effects peaking around 4 mg/day and timing about 3 hours before desired bedtime in that analysis; common practice varies. | Oral melatonin; immediate vs prolonged-release and timing should be separated.",
   "typical_dosage": "Dose-response meta-analysis suggested sleep effects peaking around 4 mg/day and timing about 3 hours before desired bedtime in that analysis; common practice varies. | Oral melatonin; immediate vs prolonged-release and timing should be separated.",
   "contraindications": [
-    "Caution with sedatives."
+    "warfarin or other anticoagulant medications due to case reports of increased INR and bleeding risk",
+    "autoimmune conditions such as rheumatoid arthritis or lupus or multiple sclerosis due to immune-stimulating activity that may worsen flares",
+    "immunosuppressant medications for organ transplant or autoimmune disease due to a theoretical reduction in effectiveness",
+    "sedative medications or benzodiazepines or alcohol due to additive drowsiness and impaired alertness",
+    "epilepsy or seizure disorder medications warrant clinician guidance due to limited safety data on interactions with anticonvulsants",
+    "children or adolescents without pediatrician guidance due to limited long-term safety data on hormonal development."
   ]
 }

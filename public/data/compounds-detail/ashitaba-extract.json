@@ -38,5 +38,11 @@
   "indexability_status": "PUBLISH",
   "robots": "index,follow",
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "long-term or high-dose use given limited human safety data beyond short-term dietary exposure",
+    "anticoagulant or antiplatelet medications such as warfarin due to the plant's coumarin content and a theoretical additive bleeding risk",
+    "photosensitizing medications or planned prolonged sun exposure due to coumarin-related photosensitivity potential",
+    "pregnancy or breastfeeding due to a lack of human safety data."
+  ]
 }

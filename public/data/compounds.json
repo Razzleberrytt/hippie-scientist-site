@@ -4348,7 +4348,12 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "safety": "Safety evidence: limited human evidence with variable preparations and reporting. Small studies reported mild or no adverse events, but pregnancy, breastfeeding, surgery, long-term use, organ impairment, and clinically significant medication interactions remain insufficiently characterized.",
-    "contraindications": [],
+    "contraindications": [
+      "long-term or high-dose use given limited human safety data beyond short-term dietary exposure",
+      "anticoagulant or antiplatelet medications such as warfarin due to the plant's coumarin content and a theoretical additive bleeding risk",
+      "photosensitizing medications or planned prolonged sun exposure due to coumarin-related photosensitivity potential",
+      "pregnancy or breastfeeding due to a lack of human safety data."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "—",
@@ -11260,7 +11265,14 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "safety": "Safety evidence: adverse effects are dose- and susceptibility-dependent and include sleep disruption, anxiety-like symptoms, and cardiovascular effects. Pregnancy guidance uses lower intake thresholds; total intake from all sources and concurrent stimulants should be reviewed.",
-    "contraindications": [],
+    "contraindications": [
+      "cardiac arrhythmia or a recent heart attack warrants clinician guidance due to increased risk of palpitations and abnormal heart rhythm",
+      "anxiety disorders or panic disorder due to caffeine's stimulant effect worsening anxiety and triggering panic symptoms",
+      "pregnancy or breastfeeding warrants limiting intake to under 200 mg per day due to an association between higher intake and low birth weight or pregnancy loss",
+      "MAOI antidepressants due to a risk of rapid heart rate and elevated blood pressure",
+      "stimulant medications such as amphetamines or ADHD medications due to additive effects on heart rate and blood pressure",
+      "children without pediatrician guidance due to a lack of established safe dosing."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
@@ -28871,6 +28883,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: limited human safety evidence and rare case reports. Isolated or concentrated EGCG can cause liver injury, particularly with high-dose or fasting exposure; evidence does not establish a universally safe supplemental dose.",
     "contraindications": [
       "Avoid high-dose or fasting use and seek clinician review with pre-existing liver disease or unexplained liver-test abnormalities",
       "concentrated EGCG safety is preparation- and dose-specific."
@@ -28934,8 +28947,7 @@
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Safety evidence: limited human safety evidence and rare case reports. Isolated or concentrated EGCG can cause liver injury, particularly with high-dose or fasting exposure; evidence does not establish a universally safe supplemental dose."
+    "controlled_substance": false
   },
   {
     "slug": "green-tea-extract-egcg",
@@ -28986,6 +28998,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety evidence: limited human safety evidence and rare case reports. Concentrated green tea or EGCG extracts can cause liver injury, particularly with high-dose or fasting exposure; caffeine content and risk vary by preparation.",
     "contraindications": [
       "Avoid high-dose or fasting use and seek clinician review with pre-existing liver disease or unexplained liver-test abnormalities",
       "verify caffeine content if stimulant-sensitive."
@@ -29034,7 +29047,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 85,
+    "indexability_score": 95,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -29042,15 +29055,14 @@
       "identity-present",
       "mechanism-context",
       "profile-status:commercial_ready",
-      "safety-context-missing",
+      "safety-context",
       "summary-depth",
       "summary-quality-missing"
     ],
     "meta_title": "",
     "meta_description": "",
     "featured": false,
-    "controlled_substance": false,
-    "safety": "Safety evidence: limited human safety evidence and rare case reports. Concentrated green tea or EGCG extracts can cause liver injury, particularly with high-dose or fasting exposure; caffeine content and risk vary by preparation."
+    "controlled_substance": false
   },
   {
     "slug": "guggulsterone",
@@ -38462,7 +38474,14 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "safety": "Safety evidence: higher-dose adult trials found more drowsiness, headache, and dizziness without a detected serious-adverse-event increase, but reporting and long-term evidence were limited. Driving, concurrent sedatives, pregnancy, breastfeeding, pediatric use, and chronic use require individualized review.",
-    "contraindications": [],
+    "contraindications": [
+      "warfarin or other anticoagulant medications due to case reports of increased INR and bleeding risk",
+      "autoimmune conditions such as rheumatoid arthritis or lupus or multiple sclerosis due to immune-stimulating activity that may worsen flares",
+      "immunosuppressant medications for organ transplant or autoimmune disease due to a theoretical reduction in effectiveness",
+      "sedative medications or benzodiazepines or alcohol due to additive drowsiness and impaired alertness",
+      "epilepsy or seizure disorder medications warrant clinician guidance due to limited safety data on interactions with anticonvulsants",
+      "children or adolescents without pediatrician guidance due to limited long-term safety data on hormonal development."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "Dose-response meta-analysis suggested sleep effects peaking around 4 mg/day and timing about 3 hours before desired bedtime in that analysis; common practice varies. | Oral melatonin; immediate vs prolonged-release and timing should be separated.",

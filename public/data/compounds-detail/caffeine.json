@@ -98,9 +98,11 @@
   "dosage": "capsule or standardized extract",
   "typical_dosage": "capsule or standardized extract",
   "contraindications": [
-    "cardiovascular",
-    "liver",
-    "pregnancy",
-    "stimulant"
+    "cardiac arrhythmia or a recent heart attack warrants clinician guidance due to increased risk of palpitations and abnormal heart rhythm",
+    "anxiety disorders or panic disorder due to caffeine's stimulant effect worsening anxiety and triggering panic symptoms",
+    "pregnancy or breastfeeding warrants limiting intake to under 200 mg per day due to an association between higher intake and low birth weight or pregnancy loss",
+    "MAOI antidepressants due to a risk of rapid heart rate and elevated blood pressure",
+    "stimulant medications such as amphetamines or ADHD medications due to additive effects on heart rate and blood pressure",
+    "children without pediatrician guidance due to a lack of established safe dosing."
   ]
 }
