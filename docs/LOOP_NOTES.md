@@ -2784,6 +2784,113 @@ further tooling work needed.
 
 ---
 
+## 2026-07-16 — `audit:safety`'s top-20 is now genuinely exhausted of obscure/abstained gaps; shifted target to flagship pages missing an ADDITIVE-mechanism interaction clause (PR #2315)
+
+Fresh cold session, confirming the takeaway above: re-ran `npm run audit:safety`
+and the top-20 is now entirely `hidden_until_grounded`/`noindex` isolated
+phytochemicals (`beta-caryophyllene`, `actein`, `astragalin`, etc., all
+`priority=5`) — not live pages, low ROI even if filled. Cross-referenced
+`public/data/{herbs,compounds}.json` directly for `full_public_runtime`
+records with empty `contraindications`: only 5 remained outside the
+`DELIBERATE ABSTENTIONS` list audit:safety already flags, all "unspecified
+blend/formulation" rows (`eaa-blend`, `electrolyte-blend`, `glycine-sleep`,
+`inositol-sleep`, `taurine-blend`). Checked `data-sources/workbook-patches/`
+for all 5: every one has an applied, human-reviewed `runtime_safety` patch
+whose rationale is functionally the same abstention as the
+`contraindications_or_flags` abstentions the tool already tracks ("no single
+safety profile applies without the exact composition/dose") — just recorded
+against a different column, so `loadDeliberateAbstentions()` doesn't catch
+it. Left all 5 alone rather than filling a categorical contraindication a
+same-week human review effectively already declined for these formulation
+rows.
+
+**Takeaway:** `loadDeliberateAbstentions()` currently only matches
+abstentions recorded against `contraindications_or_flags` itself. Any
+`runtime_safety`-column patch whose rationale amounts to "this row is an
+unspecified blend/formulation, no single safety claim applies" is the same
+kind of hold in spirit but invisible to the tool. If this class of row
+keeps recurring, worth teaching `loadDeliberateAbstentions()` to also flag
+slugs with an applied, human-reviewed `runtime_safety` change alongside an
+empty `contraindications_or_flags`, rather than re-deriving "is this a
+blend-formulation hold" by hand each cycle.
+
+With the empty-field population effectively exhausted, shifted the target
+to a different real gap class: high-traffic flagship pages (from
+`audit:content-gaps`' priority-slug table) whose *existing, non-empty*
+`contraindications_or_flags` text is missing one of the 5 ADDITIVE
+mechanisms (`serotonergic`, `anticoagulant`, `cns_sedation`,
+`blood_glucose`, `blood_pressure`) that actually drives live "Interactions"
+section content via `interaction_edges.json` (only `getAdditiveRisks()` in
+`lib/interaction-risk.ts` renders anything, and only for `pair_behavior ===
+'additive'` tags — a `single_only` match like `hepatic`/`pregnancy`/
+`immunosuppressant` never produces a rendered interaction, confirmed by
+reading the function directly). `st-johns-wort` had CYP3A4/pregnancy/
+bipolar-disorder flags but completely omitted its single most
+well-documented interaction (SSRI/SNRI/MAOI → serotonin syndrome, extremely
+well-established, repeated clinical case reports). `turmeric-curcumin-piperine`
+had only a liver-injury flag, omitting the well-documented antiplatelet/
+anticoagulant bleeding-risk caution (case reports of elevated INR with
+warfarin specifically in concentrated curcumin-supplement users, verified
+via `WebSearch`). Appended (never replaced) both, simulated
+`splitList()`/keyword-collision matchers clean first.
+
+Nearly made the same mistake the creatine-cluster entry (2026-07-16, three
+entries back) warned about: `ashwagandha-extract-ksm-66` was on the same
+priority-slug list with the same "missing interactions" signal, and has
+well-documented sedative-additive and blood-glucose-lowering interactions
+(verified via `WebSearch`). Drafted and applied the edit, then — per the
+now-standing habit of grepping `workbook-patches/` for every touched slug
+*before* drafting, which I did late here rather than first — found an
+applied, human-reviewed `runtime_safety` patch on that exact slug stating
+medication-interaction evidence "remain incomplete" for this specific
+KSM-66 extract. Reverted the ashwagandha edit before building/committing.
+**Re-confirming the lesson: check `workbook-patches/` for a slug before
+drafting content for it, not after — this cycle got lucky catching it
+before the build/commit, not after.**
+
+Post-open, Codex's automated PR review caught the exact systemic
+detail-file-staleness bug documented multiple times earlier in this file
+(2026-07-13, "citicoline" entries): `getHerbBySlug()` merges
+`herbs-detail/{slug}.json` over the flat record via plain `Object.assign`
+for any non-cluster-member entity (`resolveRuntimeRecordLayers()` in
+`lib/runtime-record-resolver.mjs` only does field-level trust-resolution
+for `CLUSTER_MEMBER_RUNTIME_DECISION` records; everything else is a
+blanket overlay), and `herbs-detail/st-johns-wort.json`'s own
+`contraindications` array (`["pregnancy","bipolar disorder"]`) was stale
+enough to have never picked up even the pre-existing CYP3A4 flag, let
+alone the new serotonergic one — it would have silently overridden the
+fix at render time. Patched just that one array in that one file (checked
+`compounds-detail/turmeric-curcumin-piperine.json` too — it has no
+`contraindications` key at all, so it's unaffected). Also hit, and fixed
+the same way as the 2026-07-16 "post-open addendum" entry three back, a
+second recurrence of the applied-patch-goes-stale problem: this cycle's
+own edit to `turmeric-curcumin-piperine.contraindications_or_flags` made
+`trust-completeness-batch-3-primary-runtime-2026-07-15.json`'s recorded
+`new_value` for that cell stale, failing the required "Validate workbook
+patches" CI check repo-wide; removed just that one change object (the
+adjacent `runtime_safety` entry for the same slug was unaffected and left
+alone).
+
+**Compounding takeaway:** both the detail-file staleness bug and the
+applied-patch staleness bug are now confirmed *recurring*, not one-off —
+each has now hit a live enrichment cycle's own edit at least twice. Worth
+a dedicated future cycle to fix both properly at the pipeline level
+(re-sync existing detail files' shared fields unconditionally on
+`contraindications_or_flags` changes; add a `superseded` patch status so a
+later direct edit doesn't leave a stale `applied` record to fail CI) rather
+than continuing to patch one flagged entity/file per occurrence — the
+manual fix is cheap per-instance but this is the third and second
+occurrence respectively of the same two bug classes in three days.
+
+`data:validate`, `guard:source-of-truth`, `audit:risk-tag-collisions`
+(clean, both sections), `npm run check`, and the full Vitest suite
+(643/643) all passed before and after both post-open fixes. Diff: workbook
++ `herbs.json`/`compounds.json`/`entity_risk_tags.json`/
+`interaction_edges.json` (core-only pattern) + one patch-file line removed
++ one detail-file field patched. Merged as PR #2315.
+
+---
+
 ## 2026-07-16 (later) — Added `npm run audit:patch-flagged-slugs`, a general-purpose complement to the `audit:safety` abstention filter above
 
 Fresh cold session. `npm run audit:safety` showed no new unblocked target
