@@ -3917,3 +3917,115 @@ lobeline safety caution, or keep it out of the export entirely via
 `allow_restricted_reference_export` or a deliberate exclusion) — good
 small follow-up for a human reviewer or a future cycle with explicit
 governance-change authority, distinct from a plain data-completeness batch.
+
+---
+
+## 2026-07-16 (batch 7) — rescued 3 of 16 real compound-safety fills stranded in
+3-day-old unmergeable PRs; the other 13 would have contradicted a newer,
+more careful evidence review
+
+Fresh cold session. Checked the open-PR backlog first (`list_pull_requests`)
+since the previous entry flagged it as unresolved: 32 open PRs, oldest from
+2026-06-22. The repo's local clone was shallow (`git rev-parse
+--is-shallow-repository` → true), which made every `git merge-tree` probe
+against a candidate branch fail with `fatal: refusing to merge unrelated
+histories` — looked at first like every branch was hopelessly diverged, but
+was actually just missing history. `git fetch --unshallow origin` fixed it;
+worth doing at the start of any future backlog-triage cycle before trusting a
+"no common ancestor" result.
+
+With full history, `git merge-tree --write-tree --name-only origin/main
+origin/<branch>` (git 2.43, no working-tree checkout needed) showed all 8
+`claude/enhance-*`/`claude/enrich-*` compound-safety-fill PRs from
+2026-07-13/14 (#2242, #2257, #2260, #2262, #2263, #2272, #2274, #2277)
+conflict on `docs/LOOP_NOTES.md` (expected — everyone appends there) plus, for
+the data-fill ones, the workbook binary and every derived JSON file
+(`compounds.json`, `entity_risk_tags.json`, `interaction_edges.json`,
+`summary-indexes/*`, `ai-entities/*`) — because 3 days of subsequent merged
+batches regenerated those same generated files. None were cleanly
+`git merge`-able as-is, and #2260/#2262 additionally target an overlapping
+compound set (`spirulina`, `astaxanthin`, `collagen-peptides`, `boswellia`)
+with each other, so merging both would have double-applied edits.
+
+Rather than fight the binary/JSON conflicts, extracted the actual payload —
+the sourced `contraindications` prose each PR wrote — directly from each
+branch's committed `public/data/compounds.json` (`git show
+origin/<branch>:public/data/compounds.json`), and cross-checked against
+current `main`'s `compounds.json` to see which target compounds were still
+genuinely empty. Result: of the 21 distinct compound slugs across all 8 PRs,
+13 (`astaxanthin`, `spirulina`, `collagen-peptides`, `boswellia`, `lutein`,
+`garlic-extract`, `epigallocatechin-gallate-egcg`, `glycine`,
+`ashwagandha-root-extract`, `turmeric-curcumin-piperine`, `cordyceps`,
+`vitamin-d`, `artichoke-extract`) already had real sourced contraindications
+on `main` — filled independently by other batches in the intervening 3 days,
+so those PRs' payload for those slugs is fully redundant now. 16 were still
+genuinely empty.
+
+Reapplied those 16 fresh via the sanctioned `edit-entity-master-cell.mjs
+--in-place` editor against current `main` (reconstructing each cell's
+semicolon-joined text programmatically from the branch JSON's already-split
+`contraindications` array, rather than hand-retyping, to avoid transcription
+errors and apostrophe mangling) — then ran `npm run audit:severity-tokens`
+before declaring done, which failed loudly: 13 of the 16 slugs
+(`acemannan`, `alpha-mangostin`, `aucubin`, `beetroot-nitrate`, `catuaba`,
+`diosgenin`, `echinacoside`, `garcinol`, `gingerol`, `guggulsterone`,
+`holy-basil-extract`, `pomegranate-extract`, `uc-ii-collagen`) are on
+`data-sources/safety-evidence-limited-exceptions.json` — a
+`safety-coverage-batch-1/2-2026-07-15` review (one day *newer* than the
+stale PRs) that deliberately left those fields empty because the available
+human evidence supports only the parent herb/extract, not the isolated
+compound (e.g. gingerol's exception reason: "Human pregnancy evidence
+concerns oral ginger preparations, not isolated gingerol"). The stale PRs'
+prose — written a day *before* that review — asserted compound-specific
+contraindications the newer review had already concluded aren't supportable.
+Applying it verbatim would have silently reintroduced exactly the overclaim
+the 07-15 review was written to prevent, on a supplement-safety page.
+`audit:severity-tokens` exists precisely to catch this (`staleExceptions`
+check: an exception whose slug no longer matches an actual gap means someone
+filled it after the fact, intentionally or not), but it isn't wired into
+`check`/`check:full` — it has to be run by hand, and it's easy to skip when a
+change already looks clean by every other measure.
+
+Reverted those 13 back to empty (matching the deliberate 07-15 state) and
+kept only the 3 slugs that were never on the exceptions list —
+`creatine-beta-alanine`, `omega-3-epa-dominant`, and
+`passionflower-extract-standardized`, the only 3 of the 16 not covered by any
+exception entry. Verified the final diff is scoped to exactly those 3 slugs
+in `compounds.json` (script-diffed old vs. new by slug, not just eyeballed),
+plus their derived `ai-entities/manifest.json` score bumps (18→21, one
+`safety-context` signal each) and the expected `entity_risk_tags.json`/
+`interaction_edges.json`/`search-index.json` regeneration.
+`audit:severity-tokens` still fails after this fix, but only on
+`ashitaba-extract` — confirmed via `git stash` that this exact failure
+already exists on `main` before this cycle's changes, so it's a pre-existing,
+unrelated gap (something filled `ashitaba-extract`'s contraindications after
+its 07-15 exception was recorded, without updating the exceptions file) —
+flagging as a small, standalone follow-up for a future cycle rather than
+fixing it here and blurring this PR's scope.
+`npm run check`, `data:validate`, `guard:source-of-truth`,
+`workbook:roundtrip-test`, `audit:risk-tag-collisions`, and the full Vitest
+suite (655/655) all pass.
+
+**Takeaway for future cycles:** (1) `git merge-tree` (git ≥2.38, no
+working-tree checkout) is a fast way to triage a large stale-PR backlog for
+real conflicts before touching anything, but only works with full history —
+`git fetch --unshallow origin` first if the clone is shallow, or every branch
+falsely reports "unrelated histories". (2) when rescuing content from a
+stale, conflicting PR, don't `git merge`/rebase it — extract the actual
+payload (the specific field value it computed) from its committed generated
+output and reapply that fresh against current `main` with the sanctioned
+editor; this sidesteps the entire binary-workbook/derived-JSON conflict
+surface and lets you cross-check each target against `main`'s *current*
+state before writing. (3) **run `audit:severity-tokens` (and any other
+audit whose job is specifically to catch stale/contradicted content) before
+declaring a reapplied-old-content fix done, even when the content was
+already validated once** — a fix that was correct when written can become
+wrong by the time it lands if a more careful, later review already looked at
+the same field and reached a narrower conclusion. A stale PR is stale
+precisely because time passed; check what happened to its specific targets
+in that time, not just whether the repo still builds. (4) the remaining
+32-PR backlog (minus the 8 addressed here) still needs the same
+triage-by-diff-value treatment described in the prior entry — most of it is
+now redundant work superseded by intervening batches, but the general
+technique here (diff the branch's generated output against current `main`,
+not the branch itself) is the reusable part.

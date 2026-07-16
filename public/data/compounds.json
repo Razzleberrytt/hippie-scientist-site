@@ -16934,7 +16934,13 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "safety": "Safety evidence: component evidence, not fixed-combination evidence. Beta-alanine commonly causes dose-related tingling, while creatine may raise serum creatinine without reducing measured filtration in studied users; exact doses, pregnancy, breastfeeding, kidney disease, and long-term combination safety remain insufficient.",
-    "contraindications": [],
+    "contraindications": [
+      "Known hypersensitivity to creatine or beta-alanine",
+      "chronic kidney disease or reduced kidney function due to increased creatinine load and unclear long-term safety",
+      "nephrotoxic medications such as NSAIDs or aminoglycosides or certain diuretics warrant caution",
+      "dehydration or inadequate fluid intake during intense exercise",
+      "paresthesia or tingling sensation from beta-alanine is common and benign."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "powder or capsule",
@@ -43571,7 +43577,13 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "safety": "Safety evidence: mild gastrointestinal adverse effects occur, while clinically significant bleeding is not established at common studied doses. Higher-dose, long-term marine omega-3 trials show an atrial-fibrillation signal; anticoagulant use warrants monitoring and medication review.",
-    "contraindications": [],
+    "contraindications": [
+      "Known allergy to fish or shellfish",
+      "anticoagulant or antiplatelet medications such as warfarin or aspirin due to bleeding risk though clinical evidence is mixed",
+      "discontinue before scheduled surgery due to theoretical bleeding risk",
+      "high doses above 2-4 grams daily associated with increased atrial fibrillation risk",
+      "cardiovascular disease warrants clinician guidance on dosing."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "softgel or liquid oil",
@@ -45892,7 +45904,13 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "safety": "Sedation; additive effects with CNS depressants.",
-    "contraindications": [],
+    "contraindications": [
+      "Known hypersensitivity to passionflower",
+      "sedative medications or alcohol or benzodiazepines or opioids due to additive CNS depression",
+      "MAOI medications due to theoretical monoamine oxidase inhibitory activity from trace beta-carboline alkaloids",
+      "pregnancy due to uterine-stimulant effect",
+      "anesthesia or perioperative sedative medications due to additive CNS-depressant effect."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
