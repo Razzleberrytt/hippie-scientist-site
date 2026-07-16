@@ -11,14 +11,16 @@
     "Hormonal Signaling Context"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "pregnancy because nettle root may stimulate uterine contractions and raise miscarriage risk",
+    "diuretic or blood pressure medication because nettle root may have additive fluid-loss and blood-pressure-lowering effects",
+    "lithium because nettle root diuretic effect can reduce lithium clearance and raise lithium levels",
+    "diabetes or anticoagulant medication because nettle root may have additive blood-glucose-lowering or blood-thinning effects"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Lithium",
+    "Antihypertensives"
   ],
   "preparation": "",
   "traditionalUses": [],

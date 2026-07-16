@@ -12,14 +12,16 @@
     "digestive support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "known allergy to Asteraceae family plants such as ragweed chrysanthemum arnica or chamomile because elecampane contains sesquiterpene lactones that are established contact allergens",
+    "pregnancy because of traditional use as a uterine stimulant",
+    "diabetes medication because elecampane may have an additive blood-glucose-lowering effect",
+    "high-dose or prolonged use because excess sesquiterpene lactone intake can cause GI irritation vomiting or diarrhea"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Asteraceae allergy",
+    "Diabetes medications"
   ],
   "preparation": "",
   "traditionalUses": [],

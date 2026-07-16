@@ -11,14 +11,16 @@
     "aromatic support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "known allergy to Apiaceae family plants such as celery parsley dill or fennel or a history of mugwort-celery-spice syndrome",
+    "pregnancy or breastfeeding in amounts beyond normal food use because safety data are lacking",
+    "anticoagulant or antihypertensive medication because caraway may have additive blood-thinning or blood-pressure-lowering effects",
+    "diabetes medication because caraway may have an additive blood-glucose-lowering effect"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Anticoagulants",
+    "Antihypertensives"
   ],
   "preparation": "",
   "traditionalUses": [],

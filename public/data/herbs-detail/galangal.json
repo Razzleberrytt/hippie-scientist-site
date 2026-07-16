@@ -10,14 +10,16 @@
     "Inflammatory Signaling Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "anticoagulant or antiplatelet medication such as warfarin or aspirin because galangal has documented antiplatelet effects and may raise bleeding risk",
+    "upcoming surgery because of a theoretical additive bleeding risk",
+    "pregnancy or breastfeeding without clinician guidance due to insufficient safety data",
+    "known allergy to ginger family plants because galangal is a close botanical relative of ginger and turmeric"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Warfarin",
+    "Aspirin"
   ],
   "preparation": "",
   "traditionalUses": [],

@@ -238,10 +238,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "pregnancy because concentrated oil or high-dose extracts may stimulate uterine contractions",
+      "known allergy to Apiaceae family plants such as celery coriander cumin dill or fennel",
+      "anticoagulant or antiplatelet medication because ajwain may have mild additive blood-thinning effects",
+      "peptic ulcer disease or severe reflux because concentrated preparations can irritate the GI tract"
     ],
     "interactions": [],
     "side_effects": [],
@@ -6131,10 +6131,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "known allergy to Apiaceae family plants such as celery parsley dill or fennel or a history of mugwort-celery-spice syndrome",
+      "pregnancy or breastfeeding in amounts beyond normal food use because safety data are lacking",
+      "anticoagulant or antihypertensive medication because caraway may have additive blood-thinning or blood-pressure-lowering effects",
+      "diabetes medication because caraway may have an additive blood-glucose-lowering effect"
     ],
     "interactions": [],
     "side_effects": [],
@@ -11339,10 +11339,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "known allergy to Asteraceae family plants such as ragweed chrysanthemum arnica or chamomile because elecampane contains sesquiterpene lactones that are established contact allergens",
+      "pregnancy because of traditional use as a uterine stimulant",
+      "diabetes medication because elecampane may have an additive blood-glucose-lowering effect",
+      "high-dose or prolonged use because excess sesquiterpene lactone intake can cause GI irritation vomiting or diarrhea"
     ],
     "interactions": [],
     "side_effects": [],
@@ -12907,10 +12907,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "anticoagulant or antiplatelet medication such as warfarin or aspirin because galangal has documented antiplatelet effects and may raise bleeding risk",
+      "upcoming surgery because of a theoretical additive bleeding risk",
+      "pregnancy or breastfeeding without clinician guidance due to insufficient safety data",
+      "known allergy to ginger family plants because galangal is a close botanical relative of ginger and turmeric"
     ],
     "interactions": [],
     "side_effects": [],
@@ -21001,10 +21001,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "pregnancy because nettle root may stimulate uterine contractions and raise miscarriage risk",
+      "diuretic or blood pressure medication because nettle root may have additive fluid-loss and blood-pressure-lowering effects",
+      "lithium because nettle root diuretic effect can reduce lithium clearance and raise lithium levels",
+      "diabetes or anticoagulant medication because nettle root may have additive blood-glucose-lowering or blood-thinning effects"
     ],
     "interactions": [],
     "side_effects": [],
