@@ -2,6 +2,8 @@
 
 import { assertWorkbookExists, resolveWorkbookPath } from './workbook-source.mjs'
 import { getSheet, readWorkbook, sheetToRows } from './data/workbook-parser.mjs'
+import fs from 'node:fs'
+import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { CLUSTER_MEMBER_RUNTIME_DECISION } from '../config/cluster-member-runtime-trust.mjs'
 
@@ -108,18 +110,63 @@ function pct(filled, total) {
   return total > 0 ? `${Math.round((filled / total) * 100)}%` : '0%'
 }
 
-export function summarize(rows, type) {
+// A PRIMARY_ONLY gap (safety_notes/runtime_safety filled, contraindications_or_flags
+// blank) is not always an oversight. Reviewed enrichment cycles have deliberately
+// cleared that column for isolated constituents/single-ingredient products where the
+// cited evidence (e.g. a whole-extract trial) can't support a categorical
+// contraindication for the specific product — recording the decision as an *applied*,
+// human-review-flagged change in data-sources/workbook-patches/. Without cross-checking
+// those patches, every autonomous cycle re-discovers the same ~20 slugs, re-derives the
+// same "don't fabricate a contraindication" conclusion, and burns a full investigation
+// on already-settled ground (see docs/LOOP_NOTES.md, 2026-07-16 entries on the
+// `creatine`/`bacopaside-ii`/betaine-cluster gaps). Mirror how
+// scripts/audit/verify-curated-indexable.mjs's isDeliberateHold() separates deliberate
+// governance holds from real regressions: print these as informational, not actionable.
+const WORKBOOK_PATCHES_DIR = path.join(process.cwd(), 'data-sources/workbook-patches')
+const FLAGS_COLUMN_PATTERN = /^contraindications([_ ]or[_ ]flags)?$/i
+
+export function loadDeliberateAbstentions(dir = WORKBOOK_PATCHES_DIR) {
+  const abstentions = new Map()
+  if (!fs.existsSync(dir)) return abstentions
+
+  for (const file of fs.readdirSync(dir)) {
+    if (!file.endsWith('.json')) continue
+    let patch
+    try {
+      patch = JSON.parse(fs.readFileSync(path.join(dir, file), 'utf8'))
+    } catch {
+      continue
+    }
+    if (patch?.status !== 'applied') continue
+
+    for (const change of patch.changes ?? []) {
+      const slug = clean(change.slug)
+      const isFlagsColumn = FLAGS_COLUMN_PATTERN.test(clean(change.column))
+      const clearedFlag = isFlagsColumn && clean(change.new_value) === ''
+      if (slug && clearedFlag && change.requires_human_review) {
+        abstentions.set(slug, { patchFile: file, rationale: clean(change.rationale) })
+      }
+    }
+  }
+  return abstentions
+}
+
+export function summarize(rows, type, abstentions = new Map()) {
   const records = rows.map((row, index) => {
     const context = safetyContext(row)
+    const slug = slugFor(row, type, index)
+    const status = classifySafety(context)
+    const abstention = status === 'PRIMARY_ONLY' ? abstentions.get(slug) : undefined
     return {
-      slug: slugFor(row, type, index),
+      slug,
       type,
       priority: Number(first(row, ['recommendation_weight', 'discovery_weight'])) || 0,
       isPublic: /^public$/i.test(clean(row.public_search_visibility)),
       isIndexable: /^index$/i.test(clean(row.seo_indexing_recommendation)),
       ...context,
-      status: classifySafety(context),
+      status,
       runtimeTrustStatus: classifyRuntimeTrust(row),
+      deliberateAbstention: abstention ?? null,
     }
   })
 
@@ -144,7 +191,7 @@ function linesForReport(herbSummary, compoundSummary) {
   const clusterRuntime = allRecords.filter(record => record.runtimeTrustStatus !== 'NOT_TARGETED')
   const clusterRuntimeComplete = clusterRuntime.filter(record => record.runtimeTrustStatus === 'RUNTIME_TRUST_COMPLETE').length
   const clusterRuntimeGaps = clusterRuntime.filter(record => record.runtimeTrustStatus !== 'RUNTIME_TRUST_COMPLETE')
-  const gaps = allRecords
+  const incomplete = allRecords
     .filter((record) => record.status !== 'FILLED')
     .sort((a, b) =>
       Number(b.isPublic) - Number(a.isPublic) ||
@@ -153,7 +200,8 @@ function linesForReport(herbSummary, compoundSummary) {
       a.type.localeCompare(b.type) ||
       a.slug.localeCompare(b.slug),
     )
-    .slice(0, 20)
+  const heldAbstentions = incomplete.filter((record) => record.deliberateAbstention)
+  const gaps = incomplete.filter((record) => !record.deliberateAbstention).slice(0, 20)
 
   return [
     'SAFETY FILL RATE REPORT',
@@ -170,6 +218,11 @@ function linesForReport(herbSummary, compoundSummary) {
     ...(gaps.length
       ? gaps.map((record) => `${record.slug} ${record.type} ${record.status.toLowerCase()} priority=${record.priority}`)
       : ['None']),
+    '',
+    `DELIBERATE ABSTENTIONS — contraindications_or_flags intentionally left blank per an applied, human-review-flagged workbook patch (not actionable; do not re-fill without new evidence): ${heldAbstentions.length}`,
+    ...(heldAbstentions.length
+      ? heldAbstentions.map((record) => `  ${record.slug} ${record.type} (${record.deliberateAbstention.patchFile})`)
+      : []),
     '',
     'COVERAGE DISTRIBUTION:',
     ...distribution(allRecords, (record) => record.status.toLowerCase()).map(([value, count]) => `${value}: ${count}`),
@@ -205,8 +258,9 @@ export async function auditSafetyFillRate(repoRoot = process.cwd()) {
 
   const herbRows = resolveRows(workbook, 'herbs')
   const compoundRows = resolveRows(workbook, 'compounds')
-  const herbSummary = summarize(herbRows, 'herb')
-  const compoundSummary = summarize(compoundRows, 'compound')
+  const abstentions = loadDeliberateAbstentions()
+  const herbSummary = summarize(herbRows, 'herb', abstentions)
+  const compoundSummary = summarize(compoundRows, 'compound', abstentions)
   const report = linesForReport(herbSummary, compoundSummary)
 
   return { herbSummary, compoundSummary, lines: report }
