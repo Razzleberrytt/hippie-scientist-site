@@ -13,7 +13,8 @@ import PathwayDiagram from '@/components/PathwayDiagram'
 import EvidenceLegend from '@/components/EvidenceLegend'
 import { pathwayDiagrams } from '@/lib/pathway-data'
 import { getRevenueProductSet } from '@/config/revenue-products'
-import RecommendationSection from '@/components/RecommendationSection'
+import RecommendationSection, { type RecommendationProduct } from '@/components/RecommendationSection'
+import { AFFILIATE_TAGS } from '@/config/affiliate'
 import References from '@/components/References'
 
 const SLUG = 'l-theanine-without-caffeine'
@@ -66,6 +67,17 @@ const FAQS = [
   },
 ]
 
+// The shared `l-theanine` revenue set only stocks 200 mg picks, but this page's stated
+// starter dose is 100 mg — swap in a page-specific 100 mg budget option so the buying
+// module doesn't push readers toward double the recommended first trial dose.
+const L_THEANINE_100MG_BUDGET_PRODUCT: RecommendationProduct = {
+  slot: 'budget',
+  brand: 'NOW Foods',
+  title: 'NOW L-Theanine 100 mg (Caffeine-Free)',
+  rationale: 'Matches this page\'s recommended 100 mg starting dose for first-timers and caffeine-sensitive readers.',
+  affiliateUrl: `https://www.amazon.com/s?k=${encodeURIComponent('NOW Foods L-Theanine 100mg caffeine free')}&tag=${AFFILIATE_TAGS.amazon}`,
+}
+
 const L_THEANINE_WITHOUT_CAFFEINE_REFS = [
   { n: 1, text: 'Nobre AC, et al. (2008). L-theanine and mental state. Asia Pac J Clin Nutr, 17(S1): 167-168.', url: 'https://pubmed.ncbi.nlm.nih.gov/18296328/' },
   { n: 2, text: 'Haskell CF, et al. (2008). L-theanine, caffeine and cognition. Biol Psychol, 77(2): 113-122.', url: 'https://pubmed.ncbi.nlm.nih.gov/18006208/' },
@@ -75,6 +87,9 @@ const L_THEANINE_WITHOUT_CAFFEINE_REFS = [
 
 export default function LTheanineWithoutCaffeinePage() {
   const lTheanineProducts = getRevenueProductSet('l-theanine')
+  const lTheanineProductsWith100mgStart = lTheanineProducts
+    ? [L_THEANINE_100MG_BUDGET_PRODUCT, ...lTheanineProducts.products.filter((product) => product.slot !== 'budget')]
+    : []
   const breadcrumbLd = breadcrumbJsonLd([
     { name: 'Articles', url: 'https://thehippiescientist.net/articles' },
     { name: TITLE, url: `https://thehippiescientist.net/articles/${SLUG}` },
@@ -374,7 +389,7 @@ export default function LTheanineWithoutCaffeinePage() {
                 <RecommendationSection
                   title="Caffeine-free L-theanine picks"
                   description="Standalone L-theanine capsules — no caffeine or focus-blend fillers. Use these as sourcing starting points, not medical recommendations."
-                  products={lTheanineProducts.products}
+                  products={lTheanineProductsWith100mgStart}
                 />
               )}
 
