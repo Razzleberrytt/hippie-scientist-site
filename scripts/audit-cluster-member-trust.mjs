@@ -66,7 +66,7 @@ function percent(value, total) {
   return total ? Math.round((value / total) * 100) : 0
 }
 
-export function evaluateClusterMemberProfile({ base, workbookRow, layers = [], searchRecord = {}, trustRecord }) {
+export function evaluateClusterMemberProfile({ base, workbookRow, layers = [], searchRecord = {}, trustRecord, interactionEdges = [] }) {
   const slug = text(base?.slug)
   const findings = []
 
@@ -143,7 +143,11 @@ export function evaluateClusterMemberProfile({ base, workbookRow, layers = [], s
 
   const searchSafety = text(searchRecord.safety)
   const expectedContraFlag = Array.isArray(resolved.contraindications) && resolved.contraindications.length > 0
-  const expectedInteractionFlag = Array.isArray(resolved.interactions) && resolved.interactions.length > 0
+  // The flat `resolved.interactions` field is always empty — the workbook has
+  // no `interactions` column — so the search index derives `hasInteractions`
+  // from the real per-slug interaction_edges.json data instead (see
+  // build-search-index.mjs). Compare against that same source here.
+  const expectedInteractionFlag = Array.isArray(interactionEdges) && interactionEdges.length > 0
   if (!searchSafety || GENERIC_SAFETY.test(searchSafety) || searchRecord?.safetyFlags?.hasContraindications !== expectedContraFlag || searchRecord?.safetyFlags?.hasInteractions !== expectedInteractionFlag) {
     findings.push(finding(
       'search-index-safety-contradiction',
@@ -204,6 +208,7 @@ export async function auditClusterMemberTrust(repoRoot = process.cwd()) {
   const indexedHerbs = bySlug(readJson(path.join(publicData, 'summary-indexes', 'herbs-summary.json')))
   const indexedCompounds = bySlug(readJson(path.join(publicData, 'summary-indexes', 'compounds-summary.json')))
   const search = bySlug(readJson(path.join(publicData, 'search-index.json')))
+  const interactionEdgesBySlug = readJson(path.join(publicData, 'interaction_edges.json'), {})
   const routeContractText = [
     fs.readFileSync(path.join(repoRoot, 'public', '_redirects'), 'utf8'),
     fs.readFileSync(path.join(repoRoot, 'public', 'redirect-overrides', 'seo-csv-h1-2026-07-08.txt'), 'utf8'),
@@ -228,6 +233,7 @@ export async function auditClusterMemberTrust(repoRoot = process.cwd()) {
       layers,
       searchRecord: search.get(slug) || {},
       trustRecord: getClusterMemberRuntimeTrustRecord(slug),
+      interactionEdges: interactionEdgesBySlug[slug] || [],
     })
     const hasDeprecatedRouteContract = routeContractText.includes(`'${slug}'`)
       || routeContractText.includes(`/compounds/${slug} `)

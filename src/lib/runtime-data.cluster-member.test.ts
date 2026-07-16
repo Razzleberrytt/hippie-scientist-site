@@ -50,11 +50,13 @@ describe('cluster-member production runtime boundary', () => {
   it('keeps search safety and flags aligned for all four profiles', () => {
     const search = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'search-index.json'), 'utf8'))
     const records = search.filter((record: Record<string, unknown>) => [...herbSlugs, ...compoundSlugs].includes(record.slug as never))
+    const edgesBySlug = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'interaction_edges.json'), 'utf8'))
 
     expect(records).toHaveLength(4)
     for (const record of records) {
       expect(record.safety).not.toMatch(/generally well tolerated/i)
-      expect(record.safetyFlags).toMatchObject({ hasContraindications: true, hasInteractions: false })
+      const hasInteractions = (edgesBySlug[record.slug as string] || []).length > 0
+      expect(record.safetyFlags).toMatchObject({ hasContraindications: true, hasInteractions })
     }
   })
 })

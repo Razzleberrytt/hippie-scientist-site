@@ -3584,3 +3584,81 @@ no independent literature), `fingerroot`, `ocotea-odorifera`,
 double-checking with a full (not `full_public_runtime`-only) scan before
 declaring the thread fully closed, since duplicate-slug species rows have
 under-counted this before (see the batch-3 entry above).
+
+---
+
+## 2026-07-16 (batch 5) — Fixed the always-empty `herbs.json.interactions` search-flag bug flagged in 3+ prior PR reviews
+
+Picked up the "empty `interactions` on the flat record" thread that the
+2026-07-16 "batch 3, PR review" entry (and two later batches) kept
+rediscovering and deferring as "needs its own dedicated cycle." Confirmed
+directly: `firstList(row, ['interactions'])` in
+`build-runtime-from-workbook.mjs` can never populate anything because
+`Entity_Master` has no `interactions` column at all — every one of 291
+herbs and 565 compounds had `interactions: []` in the flat runtime record,
+100% of the time, by construction, not by content gap. That flat field
+feeds `scripts/data/build-search-index.mjs`'s `hasInteractions` safety
+flag, which backs the live "Has interactions" filter chip in
+`components/search/GlobalSearch.tsx` — so that filter has always returned
+**zero results, for every query, since it shipped**.
+
+The real derived interaction data already exists and is already correct:
+`interaction_edges.json` (written by the same `build-runtime-from-workbook.mjs`,
+via `deriveInteractionData()` in `build-interaction-data.mjs`, from
+`contraindications_or_flags` keyword matching) is pre-indexed per-slug
+(`{ [slug]: InteractionEdge[] }`) and is what the live herb/compound detail
+pages already render in their real "Caution when combined" section
+(`src/lib/runtime-data.ts` `getInteractionEdges()` →
+`src/components/InteractionWarnings.tsx`). It was just never wired into the
+search index. Fixed `build-search-index.mjs` to read
+`interaction_edges.json` once in `main()` and use `edgesBySlug[slug] || []`
+in place of `toList(item.interactions)` for both `buildHerbDocs()` and
+`buildCompoundDocs()` — a 4-line change plus the read helper. Verified:
+307 of 921 search docs now have `hasInteractions: true` (was 0).
+
+This is a case where the "just fix the flat field" framing from prior
+entries was subtly wrong: **the flat field cannot be fixed** (no workbook
+column backs it, so it will always be `[]` — confirmed this isn't a
+content gap to fill). The dedicated-cycle framing in the batch-3 entry
+treated "wire the real interactions field into the runtime layer" as one
+task, but the actual fix is narrower and different: stop reading the dead
+flat field for `hasInteractions` and read the already-correct
+`interaction_edges.json` directly at every consumption site instead. Left
+`app/herbs/[slug]/page.tsx`'s `herb.interactions` reads
+(`getSafetySummary`/`getAvoidIf`/`getSafetyDetailGroups`) alone — those
+already silently fall through to `contraindications`/`safety_notes` when
+empty, so there's no live breakage there, and rewiring them is a separate,
+lower-urgency piece of the same thread for a future cycle if worth doing.
+
+**Found two tests that had encoded the bug as expected behavior** (both in
+`scripts/audit-cluster-member-trust.mjs`'s consumer and
+`src/lib/runtime-data.cluster-member.test.ts`): the cluster-member trust
+audit's `search-index-safety-contradiction` check compared the search
+index's `hasInteractions` flag against `resolved.interactions.length > 0`
+(the same always-empty flat field) — so fixing the search index alone
+flipped this real production audit script red (`turmeric` legitimately has
+147 real interaction edges, e.g. anticoagulant caution, so its
+`hasInteractions` correctly became `true`, which the audit then flagged as
+a "disagreement" against the flat field's permanently-`false` expectation).
+Fixed by threading `interaction_edges.json` into
+`evaluateClusterMemberProfile()` as a new `interactionEdges` param and
+computing `expectedInteractionFlag` from that instead of
+`resolved.interactions`, then loading it in `auditClusterMemberTrust()`
+and passing `interactionEdgesBySlug[slug] || []` per profile. Also updated
+`runtime-data.cluster-member.test.ts`'s
+`hasInteractions: false` hardcoded expectation (asserted across all 4
+cluster-member profiles) to instead check each slug's real
+`interaction_edges.json` entry — turmeric now correctly expects `true`,
+the three green-tea variants correctly still expect `false` (they have no
+edges).
+
+**Takeaway for future cycles:** when a flat runtime field is "always
+empty by construction" (no backing workbook column, not just an unfilled
+content gap), grep for every consumer of that field before considering
+the fix scoped to one call site — this one had 3: the search index
+builder (the real bug), plus two tests/audits that had baked the buggy
+value in as an assertion. `grep -rn "\.interactions\b"` across
+`scripts/`, `app/`, `src/`, `lib/` is the fastest way to enumerate them;
+don't trust a single-file fix is complete just because `npm run check`
+passes — `check` doesn't run the full Vitest suite, only `npm run test`
+(or bare `npx vitest run`) catches assertion-level drift like this.

@@ -107,6 +107,21 @@ function readJson(file) {
   return JSON.parse(fs.readFileSync(path.join(DATA_DIR, file), 'utf8'))
 }
 
+// `item.interactions` on the flat herbs.json/compounds.json records is always
+// empty — the workbook has no `interactions` column, so `firstList(row,
+// ['interactions'])` in build-runtime-from-workbook.mjs can never populate it.
+// The real, derived interaction data lives in interaction_edges.json (written
+// by the same script, from contraindications-derived keyword matching), keyed
+// by slug. Read it here so "Has interactions" reflects reality instead of
+// always being false.
+function readInteractionEdgesBySlug() {
+  try {
+    return readJson('interaction_edges.json')
+  } catch {
+    return {}
+  }
+}
+
 function mergeSearchRecords(summaryFile, coreFile) {
   const summaries = readJson(summaryFile)
   const coreBySlug = new Map(readJson(coreFile).map(record => [record.slug, record]))
@@ -121,7 +136,7 @@ function mergeSearchRecords(summaryFile, coreFile) {
 // Source readers
 // ---------------------------------------------------------------------------
 
-function buildHerbDocs() {
+function buildHerbDocs(edgesBySlug) {
   let records = []
   try {
     records = mergeSearchRecords('summary-indexes/herbs-summary.json', 'herbs.json')
@@ -146,7 +161,7 @@ function buildHerbDocs() {
         .filter(Boolean)
         .join(' ')
       const contraindications = toList(item.contraindications)
-      const interactions = toList(item.interactions)
+      const interactions = edgesBySlug[slug] || []
       return {
         id: `Herb:${slug}`,
         slug,
@@ -169,7 +184,7 @@ function buildHerbDocs() {
     .filter(Boolean)
 }
 
-function buildCompoundDocs() {
+function buildCompoundDocs(edgesBySlug) {
   let records = []
   try {
     records = mergeSearchRecords('summary-indexes/compounds-summary.json', 'compounds.json')
@@ -183,7 +198,7 @@ function buildCompoundDocs() {
       if (!slug || !name) return null
       const effects = [...toList(item.mechanisms), ...toList(item.targets), ...toList(item.pathways)]
       const contraindications = toList(item.contraindications)
-      const interactions = toList(item.interactions)
+      const interactions = edgesBySlug[slug] || []
       const haystack = [
         name,
         item.compoundClass,
@@ -302,7 +317,8 @@ function buildEducationDocs() {
 // ---------------------------------------------------------------------------
 
 function main() {
-  const docs = [...buildHerbDocs(), ...buildCompoundDocs(), ...buildEducationDocs()]
+  const edgesBySlug = readInteractionEdgesBySlug()
+  const docs = [...buildHerbDocs(edgesBySlug), ...buildCompoundDocs(edgesBySlug), ...buildEducationDocs()]
   fs.mkdirSync(DATA_DIR, { recursive: true })
   fs.writeFileSync(OUT_FILE, JSON.stringify(docs))
 
