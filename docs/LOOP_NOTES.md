@@ -3192,3 +3192,84 @@ passed after both fixes. Diff: `scripts/data/build-search-index.mjs` (2-line
 path fix) + regenerated `search-index.json` + `safetyNotes: ""` on the same 5
 `herbs-detail/*.json` files from the entry above — no workbook or `herbs.json`/
 `compounds.json` change this round.
+
+---
+
+## 2026-07-16 (batch 2) — next 5 of the 21 remaining boilerplate-`contraindications` herbs (ajwain, caraway, galangal, elecampane, nettle-root)
+
+Continued the thread flagged as "next highest-ROI target" two entries above.
+Re-ran the same detection query (`full_public_runtime` herbs whose
+`contraindications` contains the literal `"Potential additive effects with
+medications affecting the same body system"` template fragment) — 21 herbs
+still matched. Picked 5 with enough real pharmacological literature to write
+grounded, WebSearch-verified clauses without fabricating anything: ajwain
+(Trachyspermum ammi), caraway (Carum carvi), galangal (Alpinia galanga),
+elecampane (Inula helenium), and nettle-root (Urtica dioica root, distinct
+from nettle leaf).
+
+**New finding this cycle:** for 4 of these 5 (all but nettle-root), the
+workbook's `safety_notes` Entity_Master column was *also* a shared
+category-level template (identical "Culinary or tea use is usually lower
+risk..." string reused verbatim across ajwain/caraway/galangal/elecampane, and
+similar shared templates across a dozen+ other herbs checked). That field
+turned out to be a red herring for this cycle's purposes: `safety_notes` from
+Entity_Master is **never read by `build-runtime-from-workbook.mjs`** — the
+`profile()` function only maps a `runtime_safety` column (a different column,
+mostly empty) into the runtime `safety` field; the real per-herb
+`safety_notes` text is dead data that never reaches `herbs.json` or the live
+page today. Left it untouched — rewiring that mapping site-wide is a much
+larger, higher-blast-radius change than a 5-herb safety-copy batch, and
+belongs in its own dedicated cycle with its own review (worth flagging:
+either wire `safety_notes` into the runtime `safety`/`safetyNotes` field, or
+delete the column if it's intentionally vestigial — audit which first).
+
+Verified the pattern from the entry three above still holds: all 5
+`herbs-detail/{slug}.json` files carried the exact same *stale overlay* triad
+— `contraindications` split into the old boilerplate fragments, `interactions`
+with the same two boilerplate strings, and `safetyNotes` hardcoded to
+`"Generally well tolerated for most users."` (which `getSafetySummary()` in
+`app/herbs/[slug]/page.tsx` reads *before* falling back to `contraindications`,
+so it would have kept masking the real cautions on the live page). Confirmed
+`scripts/data/sync-detail-backfill.mjs` (found this cycle, not previously
+documented here) would **not** have fixed these on its own —
+`apply-governance-overlay.mjs`'s `backfillEmptyDetailFields()` only backfills
+detail fields that are currently *empty*, and all three fields here were
+non-empty (just wrong), so the sync script is the right tool for genuinely
+blank detail fields but not for this stale-boilerplate bug class. Patched all
+15 field values (3 fields × 5 herbs) by hand to match the new sourced
+contraindications (full clauses) and terse 2-item interaction tags in the
+established style (e.g. `nettle-root` → `["Lithium", "Antihypertensives"]`,
+`galangal` → `["Warfarin", "Aspirin"]`), and cleared `safetyNotes` to `""` on
+all 5 so the page falls through to the new `contraindications` text.
+
+Process used: WebSearch per herb for real pharmacology (Apiaceae
+cross-reactivity for ajwain/caraway, ginger-family antiplatelet effects for
+galangal, Asteraceae/sesquiterpene-lactone contact-allergy for elecampane,
+nettle root's documented diuretic/antihypertensive/lithium interactions) →
+drafted clauses with no internal commas (the workbook's `splitList()` splits
+on `[\n|;,]+`, so any comma inside a clause silently fractures it — matched
+the established style of existing good entries like `tongkat-ali`/`bupleurum`
+which avoid commas entirely within a clause) → ran every draft clause through
+`findSuspectMatches()`/`findWeakCorroborationMatches()` from
+`audit-risk-tag-collisions.mjs` in a throwaway `node -e` import before touching
+the workbook — zero collisions — → `edit-entity-master-cell.mjs --in-place`
+for all 5 → `data:build:core` → hand-patched the 5 detail files → full
+validation. `npm run audit:risk-tag-collisions`, `data:validate`,
+`guard:source-of-truth`, `npm run check`, and the full Vitest suite (643/643)
+all passed clean. Diff scope: workbook + `herbs.json` + `entity_risk_tags.json`
++ `interaction_edges.json` + `search-index.json` (core-only pattern) + 5
+individually-patched `herbs-detail/*.json` files. `build-info.json` timestamp
+reverted twice (once after `data:build:core`, once after `npm run check`
+re-ran it) before commit.
+
+**Takeaway for future cycles:** 16 boilerplate-`contraindications` herbs
+remain: `anise-hyssop`, `ashoka`, `bael`, `brassica-juncea`, `cassia-alata`,
+`celastrus-paniculatus`, `curcuma-wenyujin`, `dendrobium`, `fingerroot`,
+`maral-root`, `myrtle`, `ocotea-odorifera`, `ophiopogon`,
+`selaginella-tamariscina`, `soursop`, `suma` — same detection query, same
+process. Also worth a dedicated future cycle: (1) the dead `safety_notes` →
+runtime `safety` mapping gap found above, and (2) auditing whether the
+shared-template `safety_notes` category strings themselves (not just
+`contraindications`) are worth replacing with per-herb text once/if that
+field is wired into the runtime output — no point enriching a column nothing
+reads yet.

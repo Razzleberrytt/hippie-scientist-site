@@ -11,14 +11,16 @@
     "aromatic support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "pregnancy because concentrated oil or high-dose extracts may stimulate uterine contractions",
+    "known allergy to Apiaceae family plants such as celery coriander cumin dill or fennel",
+    "anticoagulant or antiplatelet medication because ajwain may have mild additive blood-thinning effects",
+    "peptic ulcer disease or severe reflux because concentrated preparations can irritate the GI tract"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Anticoagulants",
+    "Apiaceae allergy"
   ],
   "preparation": "",
   "traditionalUses": [],
