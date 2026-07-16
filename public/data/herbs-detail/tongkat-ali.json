@@ -11,14 +11,17 @@
     "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "pregnancy or breastfeeding without clinician guidance due to insufficient safety data",
+    "prostate cancer or breast cancer or other hormone-sensitive condition because tongkat ali may raise testosterone",
+    "diabetes medication because it may have an additive blood-glucose-lowering effect and requires monitoring",
+    "anticoagulant medication such as warfarin because it may enhance anticoagulant effect and increase bleeding risk",
+    "pre-existing liver or kidney disease due to rare case reports of liver injury at high doses"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Warfarin",
+    "Diabetes medications"
   ],
   "preparation": "",
   "traditionalUses": [],

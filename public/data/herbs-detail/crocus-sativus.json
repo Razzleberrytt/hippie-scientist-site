@@ -13,14 +13,16 @@
     "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "SSRI or SNRI or MAOI antidepressant medication due to serotonergic activity that may have an additive effect and theoretically raise serotonin syndrome risk",
+    "antihypertensive medication such as calcium channel blockers or ACE inhibitors or beta-blockers because saffron independently lowers blood pressure and may cause additive hypotension",
+    "pregnancy without clinician guidance because doses above culinary amounts have documented uterine-stimulant and abortifacient effects",
+    "known allergy to saffron or the Iridaceae plant family"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "SSRIs",
+    "Antihypertensives"
   ],
   "preparation": "",
   "traditionalUses": [],

@@ -12,15 +12,16 @@
     "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family",
-    "active liver disease"
+    "active liver disease or elevated liver enzymes because Bupleurum-containing formulas have documented rare hepatotoxicity case reports",
+    "immunosuppressant medication such as cyclosporine or tacrolimus because Bupleurum may raise blood levels of these drugs through CYP3A4-mediated interaction",
+    "history of drug-induced pneumonitis or interstitial lung disease because Bupleurum-containing formulas such as Sho-saiko-to have documented acute pneumonitis case reports",
+    "pregnancy or breastfeeding without clinician guidance due to insufficient human safety data"
   ],
   "interactions": [
-    "Potential interaction concern with immunosuppressants",
-    "use clinician review for high-dose extracts or chronic use."
+    "Cyclosporine",
+    "Tacrolimus"
   ],
   "preparation": "",
   "traditionalUses": [],

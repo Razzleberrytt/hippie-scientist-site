@@ -11,15 +11,16 @@
     "hepatobiliary support"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family",
-    "active liver disease"
+    "liver disease or bile duct disease or gallstones due to contraindicated biliary obstruction risk and hepatotoxic ascaridole content",
+    "anticoagulant medication such as warfarin due to a coumarin-type interaction that may enhance anticoagulant effect and increase bleeding risk",
+    "pregnancy or breastfeeding without clinician guidance",
+    "unprocessed high-ascaridole boldo products due to rare hepatotoxicity case reports including jaundice or hepatic injury and should be avoided in favor of ascaridole-free commercial extracts"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Warfarin",
+    "Hepatotoxic drugs"
   ],
   "preparation": "",
   "traditionalUses": [],

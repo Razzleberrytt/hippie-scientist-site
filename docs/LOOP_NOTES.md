@@ -2995,3 +2995,200 @@ false on such a page, suspect the audit script rather than the page.
 section swap), one script (`hasAffiliate` fix), this note — no workbook or
 `public/data` change (regenerated `build-info.json` timestamp reverted before
 commit).
+
+---
+
+## 2026-07-16 (later) — Found and filled a new content-quality gap class: 54 live herb pages carry template-generated generic safety boilerplate instead of real pharmacology; also caught the boilerplate's second, independently-rendered copy
+
+Fresh cold session. `npm run audit:safety`'s top-20 was, as the prior several
+entries predicted, entirely exhausted `priority=5` obscure `hidden_until_grounded`
+phytochemicals — confirming this thread is genuinely mined out for now. Noticed an
+open PR (#2319, not mine) already in flight fixing the systemic
+`herbs-detail`/`compounds-detail` overlay staleness bug this file has documented
+repeatedly, so avoided touching that same surface to not collide with it.
+
+Instead cross-referenced `public/data/{herbs,compounds}.json` for
+`full_public_runtime` records with no `interaction_edges.json` entry, then filtered
+for ones whose `contraindications` array is a **literal template string** rather
+than real herb-specific text — e.g. `['pregnancy/breastfeeding without clinician
+supervision', 'known allergy to the plant/family', 'Potential additive effects
+with medications affecting the same body system', 'review high-dose extracts with
+a clinician.']`, byte-identical (aside from two interchangeable closing clauses)
+across dozens of unrelated herbs. Found **54 live, indexed herb pages** carrying
+this exact boilerplate — clearly a bulk-generated placeholder that was never
+back-filled with real content, not a parser bug. Notable names: `tongkat-ali`,
+`bupleurum`/`bupleurum-falcatum`, `boldo`, `pau-d-arco`, `crocus-sativus`
+(saffron, herb form), plus ~49 more (`agarikon`, `atractylodes`, `codonopsis`,
+`maitake-d-fraction`, etc.) — full list is every full-runtime herb whose
+`contraindications` matches `/Potential (additive effects with medications
+affecting the same body system|interaction concern with immunosuppressants)/`.
+
+Filled 5 of the most mainstream/well-documented ones this cycle, all verified via
+`WebSearch` against independent sources (drugs.com, WebMD, RxList, PMC, Medscape)
+before writing: `tongkat-ali` (Eurycoma longifolia — hormone-sensitive-cancer
+caution since it raises testosterone, additive blood-glucose-lowering with
+diabetes medication, anticoagulant/warfarin bleeding-risk potentiation, rare
+liver-injury case reports at high dose), `boldo` (Peumus boldo — hepatotoxic
+ascaridole content contraindicated with liver/biliary disease, coumarin-type
+warfarin interaction, pregnancy), `pau-d-arco` (Tabebuia impetiginosa — lapachol
+inhibits vitamin-K-dependent clotting, real anticoagulant/antiplatelet/pre-surgical
+bleeding-risk caution), `bupleurum` (Bupleurum falcatum — rare hepatotoxicity case
+reports, CYP3A4-mediated cyclosporine/tacrolimus interaction, documented Sho-saiko-to
+pneumonitis case reports), and `crocus-sativus` (saffron, the herb-form entity
+distinct from the already-tracked `saffron`/`saffron-extract` compounds —
+serotonergic/SSRI additive risk, independent blood-pressure-lowering effect,
+supra-culinary-dose uterine-stimulant pregnancy caution). Ran
+`audit:patch-flagged-slugs` on all 6 candidate slugs first — clean, no
+`workbook-patches/` holds.
+
+Simulated both `splitList()`'s `/[;,]/` regex and the full `KEYWORDS`/
+`ALLOWED_PREFIXES` collision matcher from `build-interaction-data.mjs`/
+`audit-risk-tag-collisions.mjs` against every draft clause in a throwaway
+`node -e` script before touching the workbook (per the standing habit) — zero
+collisions, zero malformed splits. Used `edit-entity-master-cell.mjs --in-place`
+for all 5. `data:build:core` regenerated cleanly (edges 12817→20420, tags
+1279→1453 — a large jump because `crocus-sativus`'s new serotonergic/
+blood-pressure clauses paired against dozens of existing serotonergic/
+antihypertensive-tagged entities already in the graph, not a bug). `npm run
+audit:risk-tag-collisions`, `data:validate`, `guard:source-of-truth`, and the
+full Vitest suite (643/643) all passed clean.
+
+**Second finding, on the same 5 entities:** per the now-standing habit of
+checking `herbs-detail/*.json` for staleness before shipping any
+`contraindications_or_flags` edit, found each of the 5 detail files still carried
+the *old* boilerplate `contraindications` array — confirming yet again (a 4th+
+occurrence of the bug class documented across the `citicoline`/`st-johns-wort`
+entries above, and exactly what PR #2319 is fixing generally) that
+`getHerbBySlug()`'s blanket detail-overlay would have silently shadowed this
+fix on the live page. Patched all 5 detail files' `contraindications` field to
+match the new flat-record value directly (same technique as the earlier
+one-off fixes, since #2319 hadn't merged yet and this cycle didn't want to
+collide with its broader change).
+
+While doing that, found a **second, previously-undocumented copy of the same
+boilerplate**: each detail file also had a populated `interactions` array (e.g.
+`['Potential additive effects with medications affecting the same body system',
+'review high-dose extracts with a clinician.']`) — and `app/herbs/[slug]/page.tsx`
+reads `herb.interactions` directly (line 226/243/281) to render the page's
+"Interactions" section. This field is *not* the always-empty flat-record
+`interactions` field the earlier `checkInteractions` entry documented as dead —
+it's a **detail-record-only** field with real rendered content, and for these 5
+(and presumably many of the other 49) it was carrying the exact same generic
+boilerplate, just pre-split into different fragments. Compared against known-good
+profiles (`turmeric` → `['Anticoagulants', 'gallstones']`, `ashwagandha` →
+`['Hyperthyroidism', 'sedatives']`) to learn the field's real style — terse 2-item
+drug/condition tags, not full sentences — and replaced the boilerplate on all 5
+with real terse tags drawn from the same sourced pharmacology (e.g. `tongkat-ali`
+→ `['Warfarin', 'Diabetes medications']`, `bupleurum` → `['Cyclosporine',
+'Tacrolimus']`).
+
+**Takeaway for future cycles:** the 49 remaining boilerplate-`contraindications`
+herbs are the next highest-ROI target in this thread — same detection query
+applies (`full_public_runtime` + contraindications matching the two template
+strings above), same approach (WebSearch-verified real pharmacology,
+`audit:patch-flagged-slugs` first, simulate `splitList()`/collision matcher,
+`edit-entity-master-cell.mjs --in-place`). **Also check each target's
+`herbs-detail/{slug}.json` file for a populated `interactions` array before
+shipping** — if it matches the same boilerplate-fragment pattern, it needs its
+own terse-tag fix alongside the `contraindications` sync, not just the
+`contraindications` field alone; a future cycle doing this at scale might find
+it worth writing a small shared helper (`syncDetailContraindications(slug,
+newValue)` + `deriveTerseInteractionTags(...)`) rather than hand-editing each
+JSON file's two fields separately every time, especially once PR #2319's
+freshness guard is merged and can plausibly be generalized to catch a stale
+`interactions` field too, not just `contraindications`.
+
+Diff scope: workbook + `herbs.json` + `entity_risk_tags.json` +
+`interaction_edges.json` (core-only pattern) + 5 individually-patched
+`herbs-detail/*.json` files, no other changes. `build-info.json` timestamp
+reverted before commit.
+
+---
+
+## 2026-07-16 (later) — PR review caught two more gaps on the same 5 herbs: a stale legacy `herbs-summary.json` file silently corrupting the search index, and generic `safetyNotes` shadowing the new contraindications on the live page
+
+Codex's automated review on PR #2323 (the tongkat-ali/boldo/pau-d-arco/bupleurum/
+crocus-sativus batch from the entry above) flagged two real, small, tractable
+issues before merge — both fixed in the same PR.
+
+**1. `app/herbs/[slug]/page.tsx`'s `getSafetySummary()` reads `herb.safetyNotes`
+first and only falls back to `contraindications` when notes is empty.** All 5
+detail files still had the literal placeholder `"Generally well tolerated for
+most users."` in `safetyNotes`, so the live page's prominent Safety & Cautions
+summary would have kept showing that generic reassurance instead of the new
+sourced cautions. Fixed by clearing `safetyNotes` to `""` on all 5 detail files
+— confirmed via `resolveRuntimeRecordLayers`'s blind `Object.assign` merge
+behavior (see finding 2 below) that an empty string in the *last* layer still
+wins over any earlier truthy value, so this correctly falls through to the
+`contraindications` branch. Neither `herbs.json` nor the detail files carry a
+`safety_notes`/`safety` alias for these 5, so a single field clear was
+sufficient — no need to touch `getSafetySummary()` itself.
+
+**2. A much bigger, previously-undocumented bug**: `scripts/data/
+build-search-index.mjs` read `herbs-summary.json`/`compounds-summary.json` from
+the **top level** of `public/data/`, not `public/data/summary-indexes/` where
+`build-runtime-summary-indexes.mjs` actually writes on every `data:build:core`
+run. The top-level files are orphaned — `ls -la` showed them last modified
+2026-07-13, three days stale, and `git log` confirms no core-pipeline script
+has touched them since; they're written by legacy one-off scripts
+(`generate-monograph-projection.mjs`, `build-runtime-data.mjs`) that aren't
+part of `data:build`/`data:build:core`/`check`. `mergeSearchRecords()` merges
+these into the search doc via `resolveRuntimeRecordLayers(core, [summary])`,
+and for any non-cluster-member record (nearly all of them —
+`CLUSTER_MEMBER_RUNTIME_DECISION` gating in `lib/runtime-record-resolver.mjs`
+only applies field-level trust filtering to a narrow cluster-member set) that
+merge is a **blind `Object.assign({}, base, ...layers)`** — any key present on
+the stale layer, even a whole array, silently overwrites the fresh `herbs.json`/
+`compounds.json` value with no meaningfulness check at all. Confirmed directly:
+`boldo`'s `searchText` in the committed `search-index.json` still contained the
+old boilerplate contraindications text even *after* two full `data:build:core`
+reruns with the new workbook content, because the stale top-level summary file
+carried a `contraindications` key the correct `summary-indexes/` version
+doesn't have (that file only carries indexability/mechanism metadata, not
+safety fields — the mismatch itself is what let this go unnoticed for so long).
+
+Fixed by pointing both `mergeSearchRecords()` calls in `build-search-index.mjs`
+at `summary-indexes/herbs-summary.json` / `summary-indexes/compounds-summary.json`
+instead of the stale top-level files. Rebuilding after the fix jumped the
+search index from 287→291 herb docs — **4 herbs were silently absent from
+site search entirely** because `mergeSearchRecords()` iterates the *summary*
+array as its primary loop (`summaries.map(...)`), so any herb slug added to
+`herbs.json` after the top-level file went stale never got a search doc at
+all, independent of this PR's specific content fix. This is a real, broader
+correctness win beyond the 5 herbs this cycle targeted.
+
+**Important scope note — this fix only covers the search index.** The exact
+same stale-top-level-file mechanism also feeds `getHerbs()`/`getCompounds()`
+in `src/lib/runtime-data.ts` (the function `getHerbBySlug()` — i.e. every live
+`/herbs/:slug` page — calls first), via the same blind-`Object.assign` merge.
+For the 5 herbs in this cycle it's provably harmless: `getHerbBySlug()` applies
+the `herbs-detail/{slug}.json` overlay as a *third*, final layer after
+`getHerbs()`, and since that detail file's `contraindications` key is now
+correct (finding from the entry above), it wins last regardless of what the
+stale top-level summary did upstream. **But any herb/compound with NO detail
+file at all — or a detail file that doesn't carry `contraindications` — has no
+such rescue layer, and would render whatever `getHerbs()` produces, which can
+still be corrupted by the stale top-level file for any record with a
+mismatched `contraindications`/`interactions` value there.** This is a
+plausible, real gap on live pages, not just search — worth a dedicated future
+cycle: either (a) apply the same `summary-indexes/` path fix to
+`src/lib/runtime-data.ts`'s `getHerbs()`/`getCompounds()`, checking first
+whether any other consumer intentionally relies on the legacy top-level file's
+extra fields, or (b) regenerate/delete the legacy top-level files outright and
+audit the ~15 other scripts this file's own `grep` turned up that still
+reference `public/data/herbs-summary.json`/`compounds-summary.json` directly
+(`scripts/report-*.ts`, `scripts/audit-cluster-member-trust.mjs`,
+`scripts/data/build-related-runtime-maps.mjs`,
+`scripts/data/build-internal-link-engine.mjs`, `scripts/ci/
+build-seo-audit-reports.mjs`, `scripts/verify-curated-affiliates.ts`,
+`scripts/generate-homepage-data-lite.mjs`, `scripts/report-performance-budget.mjs`)
+— several of those may have the exact same staleness exposure, unverified
+this cycle. Kept this PR's fix narrowly scoped to `build-search-index.mjs`
+(the one Codex actually flagged) rather than touching that much surface area
+in a review-response commit.
+
+`data:validate`, `guard:source-of-truth`, and the full Vitest suite (643/643)
+passed after both fixes. Diff: `scripts/data/build-search-index.mjs` (2-line
+path fix) + regenerated `search-index.json` + `safetyNotes: ""` on the same 5
+`herbs-detail/*.json` files from the entry above — no workbook or `herbs.json`/
+`compounds.json` change this round.

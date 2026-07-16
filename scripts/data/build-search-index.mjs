@@ -124,7 +124,7 @@ function mergeSearchRecords(summaryFile, coreFile) {
 function buildHerbDocs() {
   let records = []
   try {
-    records = mergeSearchRecords('herbs-summary.json', 'herbs.json')
+    records = mergeSearchRecords('summary-indexes/herbs-summary.json', 'herbs.json')
   } catch {
     return []
   }
@@ -172,7 +172,7 @@ function buildHerbDocs() {
 function buildCompoundDocs() {
   let records = []
   try {
-    records = mergeSearchRecords('compounds-summary.json', 'compounds.json')
+    records = mergeSearchRecords('summary-indexes/compounds-summary.json', 'compounds.json')
   } catch {
     return []
   }
