@@ -11,14 +11,16 @@
     "Cellular Protection"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "pregnancy because Selaginella tamariscina Juan Bai is classified among contraindicated herbs for pregnancy in traditional Chinese medicine texts",
+    "warfarin or other CYP2C9-metabolized anticoagulant medication because its selaginellin compounds show inhibitory activity against CYP2C9 in human liver microsomes",
+    "medication metabolized by CYP2C8 or CYP2J2 because selaginellin and selaginellin M show high inhibitory potential against these enzymes in human liver microsome studies",
+    "known allergy to Selaginellaceae family plants because Selaginella tamariscina is a spikemoss species"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Warfarin / anticoagulants",
+    "CYP2C8 or CYP2J2 substrates"
   ],
   "preparation": "",
   "traditionalUses": [],
@@ -46,6 +48,13 @@
       "authors": "Bailly C et al.",
       "year": 2021,
       "url": "https://pubmed.ncbi.nlm.nih.gov/34302944/"
+    },
+    {
+      "title": "Inhibitory Effect of Selaginellins from Selaginella tamariscina (Beauv.) Spring against Cytochrome P450 and Uridine 5'-Diphosphoglucuronosyltransferase Isoforms on Human Liver Microsomes",
+      "authors": "Heo JK et al.",
+      "year": 2017,
+      "doi": "10.3390/molecules22101590",
+      "url": "https://doi.org/10.3390/molecules22101590"
     }
   ],
   "governance": {
@@ -60,11 +69,12 @@
   },
   "evidence": {
     "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "sourceCount": 4,
     "sourceIds": [
       "34302944",
       "39064820",
-      "39258186"
+      "39258186",
+      "10.3390/molecules22101590"
     ]
   },
   "claimMap": [],

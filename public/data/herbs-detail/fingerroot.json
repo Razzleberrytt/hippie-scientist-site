@@ -13,14 +13,16 @@
     "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "diabetes medication because fingerroot's pinostrobin and pinocembrin inhibit carbohydrate-digesting enzymes and increase insulin secretion which may cause an additive blood-glucose-lowering effect",
+    "CYP1A2-metabolized medication such as caffeine or theophylline or clozapine because pinocembrin is a potent competitive CYP1A2 inhibitor with predicted clinical interaction potential",
+    "pregnancy without clinician guidance because fingerroot's traditional use for easing menstrual cramps suggests uterine smooth-muscle activity",
+    "known allergy to Zingiberaceae family plants because Boesenbergia rotunda is in the ginger family"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Diabetes medications",
+    "CYP1A2 substrates"
   ],
   "preparation": "",
   "traditionalUses": [],
@@ -48,6 +50,27 @@
       "authors": "Techapichetvanich P et al.",
       "year": 2024,
       "url": "https://pubmed.ncbi.nlm.nih.gov/38328737/"
+    },
+    {
+      "pubmedId": "35721953",
+      "title": "Assessment of the CYP1A2 Inhibition-Mediated Drug Interaction Potential for Pinocembrin Using In Silico, In Vitro, and In Vivo Approaches",
+      "authors": "Bhatt S et al.",
+      "year": 2022,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/35721953/"
+    },
+    {
+      "title": "Inhibitory Effect of Boesenbergia rotunda and Its Major Flavonoids, Pinostrobin and Pinocembrin on Carbohydrate Digestive Enzymes and Intestinal Glucose Transport in Caco-2 Cells",
+      "authors": "Aimjongjun S et al.",
+      "year": 2025,
+      "doi": "10.3390/ijms262010158",
+      "url": "https://doi.org/10.3390/ijms262010158"
+    },
+    {
+      "pubmedId": "40176912",
+      "title": "Traditional usages, chemical metabolites, pharmacological activities, and pharmacokinetics of Boesenbergia rotunda (L.) Mansf.: a comprehensive review",
+      "authors": "Wang Y et al.",
+      "year": 2025,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/40176912/"
     }
   ],
   "governance": {
@@ -62,11 +85,14 @@
   },
   "evidence": {
     "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "sourceCount": 6,
     "sourceIds": [
       "28503050",
       "36699694",
-      "38328737"
+      "38328737",
+      "35721953",
+      "10.3390/ijms262010158",
+      "40176912"
     ]
   },
   "claimMap": [],
