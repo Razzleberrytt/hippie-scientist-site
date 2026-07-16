@@ -301,6 +301,43 @@ function firstList(row, keys) {
   return uniqueList(first(row, keys))
 }
 
+// Both `runtime_safety` and `safety_notes` can hold an internal editorial/publishing
+// workflow note instead of (or appended after) reader-facing text: a plain reminder
+// like "Needs anticoagulant/bleeding/surgery/drug-interaction safety pass.", a
+// "| Runtime safety box: ..." suffix, or a full claim-gating block ("Safety/regulatory
+// pass needed... | Claim gate: ... | Dose/form gate: ... | Runtime gate: ...") used to
+// steer how a page's copy should be written. None of that is safety information for a
+// reader, and publishing it verbatim would leak internal workflow language onto a live
+// safety section.
+const SAFETY_INTERNAL_NOTE_PATTERN =
+  /\bneeds?\b[^.]{0,80}\b(review|pass|research)\b|\bpass needed\b|\bclaim gate\b|\bruntime gate\b|\bdose[\s/]*form gate\b|\bsafety[\s/]*regulatory pass\b|\bregulatory pass\b|runtime safety box|pending review|\btodo\b|\btbd\b|to be determined|\bplaceholder\b/i
+const MIN_SAFETY_NOTE_LENGTH = 15
+
+// `safety_notes` cells are reliably reader-facing prose with an internal note only ever
+// appended as a trailing `| ...` segment, so it is safe to keep a clean leading prefix.
+// `runtime_safety` is meant to be a curated, ready-to-publish override, but when it does
+// contain workflow language the whole value is workflow language throughout (see the
+// gate-block examples above) — there is no reliable reader-facing prefix to salvage, so
+// any match rejects the whole cell rather than risk keeping a fragment of a claim-gating
+// instruction.
+function publishableSafetyNotes(rawText, { allowPrefixExtraction = true } = {}) {
+  const text = compact(rawText)
+  if (!text) return ''
+  // A handful of workbook safety cells name the entity's own restricted-adjacent active
+  // constituent (e.g. Lobelia inflata's own text naming lobeline). Surfacing that text
+  // would flip isRestrictedRuntimeRecord() and de-list the whole profile as a side
+  // effect of a display-text fix; that publish/restrict call belongs to a human
+  // governance review, not to this fallback, so leave the placeholder in place instead.
+  if (hasRestrictedRuntimeTerm(text)) return ''
+  if (!SAFETY_INTERNAL_NOTE_PATTERN.test(text)) return text
+  if (!allowPrefixExtraction) return ''
+  const [prefix] = text.split(/\s*\|\s*/, 1)
+  if (prefix && prefix.length >= MIN_SAFETY_NOTE_LENGTH && !SAFETY_INTERNAL_NOTE_PATTERN.test(prefix)) {
+    return prefix.trim()
+  }
+  return ''
+}
+
 // A subset of workbook `contraindications_or_flags` values are a mismapped
 // interaction-severity tier (e.g. the whole cell is just `moderate` or
 // `low_to_moderate`) rather than real safety prose — a pre-existing workbook
@@ -514,7 +551,9 @@ function read(workbook, candidates, optional = false) {
 
 function profile(row, type, taxonomy) {
   const allowed = type === 'herb' ? HERB_RUNTIME_FIELDS : COMPOUND_RUNTIME_FIELDS
-  const runtimeSafety = compact(first(row, ['runtime_safety', 'runtime safety']))
+  const runtimeSafety =
+    publishableSafetyNotes(first(row, ['runtime_safety', 'runtime safety']), { allowPrefixExtraction: false }) ||
+    publishableSafetyNotes(first(row, ['safety_notes', 'safety notes']))
   const sourceSlug = slug(first(row, ['slug', 'id', 'name']))
   const clusterTrust = getClusterMemberRuntimeTrustRecord(sourceSlug)
   const rawMechanisms = uniqueList([

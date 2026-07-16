@@ -44,6 +44,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-active potential; use caution with autoimmune disease, transplant medicines, immunosuppressants, and during active cancer treatment unless clinician-supervised.",
     "contraindications": [
       "Kidney stone risk",
       "iron overload conditions",
@@ -144,6 +145,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-active potential; use caution with autoimmune disease, transplant medicines, immunosuppressants, and during active cancer treatment unless clinician-supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -237,6 +239,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
     "contraindications": [
       "pregnancy because concentrated oil or high-dose extracts may stimulate uterine contractions",
       "known allergy to Apiaceae family plants such as celery coriander cumin dill or fennel",
@@ -358,6 +361,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Oral latex/whole-leaf aloe can cause diarrhea, electrolyte loss, and drug interactions; avoid pregnancy and kidney disease.",
     "contraindications": [
       "Pregnancy",
       "inflammatory bowel disease",
@@ -464,6 +468,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Hypoglycemia risk",
     "contraindications": [
       "Antidiabetics"
     ],
@@ -569,6 +574,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "CNS-active alkaloid herb; avoid combining with sedatives, alcohol, dopamine-active drugs, or driving. Avoid pregnancy/breastfeeding and use caution with psychiatric conditions.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -674,6 +680,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -795,6 +802,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May lower blood glucose or alter metabolic markers; monitor with diabetes medications and avoid unsupervised use during pregnancy.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -901,6 +909,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect bleeding risk or circulation. Use caution with anticoagulants/antiplatelets and before surgery.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -1008,6 +1017,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect bleeding risk or circulation. Use caution with anticoagulants/antiplatelets and before surgery.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -1111,6 +1121,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect bleeding risk or circulation. Use caution with anticoagulants/antiplatelets and before surgery.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -1205,6 +1216,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -1317,6 +1329,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Bleeding, photosensitivity, and hormone-sensitive-condition cautions are central. Avoid in pregnancy unless medically directed.",
     "contraindications": [
       "Pregnancy",
       "bleeding disorders",
@@ -1420,6 +1433,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
     "contraindications": [
       "concentrated essential oil or extract because its estragole content reaches 88 to 95 percent of the essential oil and estragole is a rodent-model genotoxic carcinogen at high cumulative exposure",
       "pregnancy or breastfeeding without clinician guidance due to estragole's carcinogenic profile and the recommendation to minimize cumulative estragole exposure during these periods",
@@ -1538,6 +1552,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Use cautiously with diagnosed heart disease unless supervised. Possible additive effects with antihypertensives, nitrates, beta-blockers, digoxin-like regimens, antiplatelets, or anticoagulants.",
     "contraindications": [
       "Unstable angina",
       "heart failure without clinician oversight",
@@ -1644,6 +1659,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Thujone-containing wormwood can cause seizures/neurotoxicity at high doses; avoid in pregnancy, breastfeeding, seizure disorders, children, and with alcohol, sedatives, or other CNS-active drugs.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -1759,6 +1775,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Do not use crude Artemisia as a substitute for approved antimalarial therapy. Pregnancy, liver disease, and drug-interaction contexts require medical supervision.",
     "contraindications": [
       "Pregnancy/breastfeeding unless medically indicated",
       "serious infection without medical care",
@@ -1866,6 +1883,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect bleeding risk or circulation. Use caution with anticoagulants/antiplatelets and before surgery.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -1977,6 +1995,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid/caution with bile-duct obstruction, gallstones, and Asteraceae allergy; may cause GI effects.",
     "contraindications": [
       "Bile duct obstruction",
       "gallstones without clinician guidance",
@@ -2084,6 +2103,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
     "contraindications": [
       "Pregnancy/breastfeeding without clinician guidance",
       "anticoagulant use without review",
@@ -2185,6 +2205,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Hormone- or cycle-related traditional use requires caution in pregnancy, breastfeeding, hormone-sensitive conditions, and with hormone therapies.",
     "contraindications": [
       "pregnancy or breastfeeding without clinician guidance because ashoka has traditional uterine-stimulant activity and insufficient safety data exists",
       "diabetes medication because ashoka has documented hypoglycemic activity and may have an additive blood-glucose-lowering effect",
@@ -2305,7 +2326,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "safety": "Safety/regulatory pass needed before stronger public claims. | Claim gate: Use only cautious stress/sleep support language. Add liver/thyroid/pregnancy/medication guardrails before any public recommendation. | Dose/form gate: Do not imply disease treatment, universal dose, long-term safety, or equivalence across all product forms. | allow_support_claims_with_dose_form_and_safety_box; block_universal_dose_claims | Runtime gate: Do not say treats anxiety, depression, insomnia, thyroid disease, adrenal problems, or any disease. Do not imply universal dose or long-term safety. | Upgrade page to premium evidence layout; include dose/form table and safety gate before affiliate/product CTAs.",
+    "safety": "Generally tolerated short-term in studied standardized root-extract trials, but long-term safety is not established. Rare clinically apparent liver injury has been reported. Common mild effects can include GI upset, loose stools, nausea, and drowsiness.",
     "contraindications": [
       "Avoid pregnancy/breastfeeding without clinician supervision",
       "avoid/caution advanced liver disease or cirrhosis",
@@ -2434,6 +2455,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset, rare thyroid stimulation",
     "contraindications": [
       "Hyperthyroidism",
       "sedatives"
@@ -2649,6 +2671,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-active potential; use caution with autoimmune disease, transplant medicines, immunosuppressants, and during active cancer treatment unless clinician-supervised.",
     "contraindications": [
       "Transplant/immunosuppression without clinician guidance",
       "autoimmune flare risk",
@@ -2780,6 +2803,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May lower blood glucose or alter metabolic markers; monitor with diabetes medications and avoid unsupervised use during pregnancy.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -2882,6 +2906,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-active potential; use caution with autoimmune disease, transplant medicines, immunosuppressants, and during active cancer treatment unless clinician-supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -2991,6 +3016,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -3200,6 +3226,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Constipating or GI-active effects are possible depending on preparation. Monitor with antidiabetic drugs and avoid pregnancy/breastfeeding use without clinician supervision.",
     "contraindications": [
       "diabetes medication or insulin because bael has documented hypoglycemic activity and may have an additive blood-glucose-lowering effect requiring monitoring",
       "cardiovascular disease without clinician guidance due to noted contraindication concerns",
@@ -3307,6 +3334,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Hypoglycemia risk",
     "contraindications": [
       "Antidiabetics"
     ],
@@ -3405,6 +3433,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -3530,6 +3559,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid pregnancy, breastfeeding, and use in neonates/infants due to berberine-related bilirubin displacement/kernicterus concern. GI upset is common.",
     "contraindications": [
       "Pregnancy",
       "breastfeeding",
@@ -3651,6 +3681,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect glucose, blood pressure, CYP/P-gp drug handling, and GI tolerance. Avoid pregnancy/breastfeeding unless clinician-directed.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -3760,6 +3791,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset, hypoglycemia",
     "contraindications": [
       "Antidiabetics",
       "pregnancy avoid"
@@ -3864,6 +3896,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; rare suspected hepatotoxicity reports; clinical trials have not consistently shown liver injury",
     "contraindications": [
       "liver disease",
       "pregnancy",
@@ -3953,6 +3986,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Drug interaction risk significant",
     "contraindications": [
       "Many medications (CYP interactions)"
     ],
@@ -4068,6 +4102,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May lower glucose and blood pressure; monitor with antidiabetic or antihypertensive therapy. GI upset and allergic dermatitis can occur.",
     "contraindications": [
       "Pregnancy at supplemental/high doses",
       "known allergy",
@@ -4190,6 +4225,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Caffeine-related insomnia/anxiety/reflux possible; caution with stimulants, iron absorption, and anticoagulant-sensitive users.",
     "contraindications": [
       "Severe caffeine sensitivity",
       "pregnancy caffeine limits",
@@ -4292,6 +4328,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited human safety data. Treat as a CNS-active botanical; avoid driving or combining with alcohol/sedatives.",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "sedative-sensitive users",
@@ -4419,6 +4456,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Food-level use is usually low risk; concentrated extracts may affect glucose or platelet-related endpoints in sensitive users; caution with anticoagulant/antiplatelet therapy, diabetes medication, allergy, and kidney-restricted diets if high-potassium.",
     "contraindications": [
       "Anticoagulant use without review for high-dose extracts",
       "diabetes medication monitoring if large intake changes",
@@ -4511,6 +4549,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid high-dose or prolonged internal use; alkaloid/essential-oil rich preparations may irritate the GI tract and are inappropriate in pregnancy, liver disease, or bile-duct obstruction.",
     "contraindications": [
       "liver disease or bile duct disease or gallstones due to contraindicated biliary obstruction risk and hepatotoxic ascaridole content",
       "anticoagulant medication such as warfarin due to a coumarin-type interaction that may enhance anticoagulant effect and increase bleeding risk",
@@ -4605,6 +4644,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset",
     "contraindications": [
       "NSAIDs (caution)"
     ],
@@ -4703,6 +4743,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May cause GI upset or reflux. Use caution with anticoagulants/antiplatelets, NSAIDs, pregnancy, and resin/extract quality variation.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -4806,6 +4847,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human safety data are limited for concentrated extracts. Use caution in pregnancy/breastfeeding, significant medical conditions, or prescription polypharmacy.",
     "contraindications": [
       "warfarin or other vitamin K antagonist medication because high dietary vitamin K may counteract its blood-thinning effect and require consistent intake to keep dosing stable",
       "known allergy to the Brassicaceae family such as cabbage or canola or turnip because cross-reactive proteins have caused documented allergic reactions including anaphylaxis",
@@ -4908,6 +4950,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human safety data are limited for concentrated extracts. Use caution in pregnancy/breastfeeding, significant medical conditions, or prescription polypharmacy.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -5032,6 +5075,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Food-level use is usually tolerated, but buckwheat allergy can be serious, including anaphylaxis; caution in known grain/pseudocereal allergy and when using concentrated extracts rather than food forms.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -5144,6 +5188,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Hepatobiliary-active potential; use caution with liver disease, gallbladder disease, bile-duct obstruction, hepatotoxic drugs, and pregnancy.",
     "contraindications": [
       "active liver disease or elevated liver enzymes because Bupleurum-containing formulas have documented rare hepatotoxicity case reports",
       "immunosuppressant medication such as cyclosporine or tacrolimus because Bupleurum may raise blood levels of these drugs through CYP3A4-mediated interaction",
@@ -5247,6 +5292,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Hepatobiliary-active potential; use caution with liver disease, gallbladder disease, bile-duct obstruction, hepatotoxic drugs, and pregnancy.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -5344,6 +5390,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
     "contraindications": [
       "Asteraceae allergy",
       "pregnancy/breastfeeding without clinician guidance",
@@ -5439,6 +5486,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Only PA-free extracts are acceptable; pyrrolizidine alkaloids can cause serious liver injury; avoid pregnancy/liver disease.",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "liver disease",
@@ -5545,6 +5593,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Caloric load, mild stimulant effects",
     "contraindications": [
       "Caffeine sensitivity"
     ],
@@ -5635,6 +5684,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High-caution herb because beta-asarone-containing preparations have toxicology and regulatory concerns. Avoid internal use unless verified beta-asarone-free and professionally supervised.",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "children",
@@ -5745,6 +5795,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Topical use can cause contact dermatitis or allergy, especially in Asteraceae-sensitive users. Oral/concentrated use needs pregnancy caution.",
     "contraindications": [
       "Asteraceae allergy",
       "open/infected wounds without medical care",
@@ -5847,6 +5898,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Sedation, dizziness",
     "contraindications": [
       "CNS depressants"
     ],
@@ -5934,7 +5986,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "safety": "Dose/form gate: Do not imply cognitive enhancement, neuroprotection, or general nootropic value from metabolic or preclinical evidence. | downgrade_cognition_claims; allow_metabolic_context_only_with_caution; require_gi_safety_note",
+    "safety": "Topical use can cause burning, erythema, coughing, and eye irritation. Avoid mucous membranes, broken skin, occlusive dressings, and immediate hot showers.",
     "contraindications": [
       "Broken or inflamed skin for topical use",
       "known chili/capsaicin allergy",
@@ -6037,7 +6089,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "safety": "Downgrade cognition claims. | Claim gate: Downgrade cognition/nootropic positioning. Prefer culinary/metabolic/mechanistic framing with GI safety box. | Runtime gate: Do not call it a nootropic or cognition supplement. Do not imply dietary chili, red chili extract, capsaicin capsules, topical capsaicin, and nasal/inhaled capsaicin are interchangeable. | Demote from focus/cognition priority; route to metabolic/appetite or pain-context content only after separate evidence review.",
+    "safety": "Culinary chili exposure is different from concentrated capsaicin extracts. Safety is dose-dependent; GI irritation, reflux aggravation, abdominal pain, burning sensation, and mucosal irritation are the main practical concerns.",
     "contraindications": [
       "Caution reflux/GERD",
       "gastritis/ulcers",
@@ -6128,6 +6180,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
     "contraindications": [
       "known allergy to Apiaceae family plants such as celery parsley dill or fennel or a history of mugwort-celery-spice syndrome",
       "pregnancy or breastfeeding in amounts beyond normal food use because safety data are lacking",
@@ -6231,6 +6284,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe",
     "contraindications": [
       "Limited data"
     ],
@@ -6329,6 +6383,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
     "contraindications": [
       "Severe constipation/obstruction risk",
       "carob allergy",
@@ -6429,6 +6484,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited human safety data; use conservative preparation-specific framing and avoid pregnancy/breastfeeding or medication stacking without clinician review.",
     "contraindications": [
       "digoxin or other cardiac glycoside medication because cassia alata's anthraquinone content may cause potassium loss with chronic or excessive use and affect cardiac glycoside safety",
       "pregnancy because cassia alata has traditional abortifacient use and uterine-stimulant activity",
@@ -6535,6 +6591,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid in pregnancy, breastfeeding, transplant recipients, and immunosuppressed users; caution with autoimmune disease, anticoagulants/antiplatelets, antihypertensives, and perioperative use.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -6630,6 +6687,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -6727,6 +6785,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Capsaicin can irritate skin, eyes, GI tract, and mucosa. Caution with ulcers/reflux, anticoagulants/antiplatelets, and before surgery; keep topical products away from eyes.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -6852,6 +6911,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited human safety data; use conservative preparation-specific framing and avoid pregnancy/breastfeeding or medication stacking without clinician review.",
     "contraindications": [
       "sedative or benzodiazepine medication because celastrus paniculatus exerts CNS-depressant activity and may have an additive sedative effect",
       "pregnancy because celastrus paniculatus has traditional abortifacient and uterine-stimulant use",
@@ -6972,6 +7032,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High oxalate exposure and immune effects are concerns; avoid with kidney disease, kidney stones, anticoagulants/antiplatelets, and immunosuppressants unless supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -7174,6 +7235,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Use caution with liver disease and poor-quality products; rare liver injury reports exist for skullcap-containing supplements.",
     "contraindications": [
       "Liver disease",
       "pregnancy/breastfeeding",
@@ -7279,6 +7341,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Potential bleeding and blood-pressure effects. Use caution with cardiovascular disease or anticoagulant/antiplatelet therapy.",
     "contraindications": [
       "Pregnancy",
       "bleeding disorders",
@@ -7395,6 +7458,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Inulin/chicory can cause gas, bloating, diarrhea, or IBS/FODMAP intolerance; allergy risk exists in Asteraceae-sensitive users; caution with pregnancy/breastfeeding, gallbladder disease, and diabetes medications when using concentrated products.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -7497,6 +7561,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Hepatotoxicity risk lower than cassia",
     "contraindications": [
       "Antidiabetic drugs (additive hypoglycemia)"
     ],
@@ -7598,6 +7663,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
     "contraindications": [
       "Pregnancy/breastfeeding without clinician guidance",
       "diabetes medications without monitoring",
@@ -7697,6 +7763,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited human safety data; use conservative preparation-specific framing and avoid pregnancy/breastfeeding or medication stacking without clinician review.",
     "contraindications": [
       "Pregnancy/breastfeeding without guidance",
       "diarrhea-prone conditions",
@@ -7812,6 +7879,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human evidence is limited; GI effects possible due to laxative/moistening traditional use.",
     "contraindications": [
       "Pregnancy/breastfeeding without guidance",
       "diarrhea-prone conditions",
@@ -7924,6 +7992,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "not yet reviewed",
     "contraindications": [
       "Known hypersensitivity or allergy to citicoline",
       "pregnancy/breastfeeding without clinician guidance due to insufficient safety data",
@@ -8050,6 +8119,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Clinically relevant caution: bergamot extracts may cause GI upset; photosensitizing furocoumarins can be present in some citrus preparations; use caution with statins/lipid-lowering therapy, CYP-interacting drugs, pregnancy/breastfeeding, and liver disease.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -8168,6 +8238,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -8265,6 +8336,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Clove oil can irritate skin/mucosa and high doses may be toxic; caution with anticoagulants/antiplatelets, liver disease, surgery, children, pregnancy, and concentrated essential oil ingestion.",
     "contraindications": [
       "Bleeding disorder",
       "liver disease",
@@ -8362,6 +8434,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect bleeding risk or circulation. Use caution with anticoagulants/antiplatelets and before surgery.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -8463,6 +8536,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-active potential; use caution with autoimmune disease, transplant medicines, immunosuppressants, and during active cancer treatment unless clinician-supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -8566,6 +8640,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Anxiety, insomnia, hypertension",
     "contraindications": [
       "Cardiovascular disease",
       "stimulants"
@@ -8681,6 +8756,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Caffeine content varies; concentrated products may cause insomnia, anxiety, palpitations, reflux, or blood-pressure effects.",
     "contraindications": [
       "Uncontrolled hypertension",
       "arrhythmias",
@@ -8781,6 +8857,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May lower blood pressure or increase heart rate in sensitive users. Caution with anticoagulants, antihypertensives, nitrates, and perioperative use.",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "hypotension",
@@ -8902,6 +8979,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Can cause rash/GI effects; may affect thyroid function, CYP enzymes, anticoagulants, and hormone-sensitive contexts.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -9021,6 +9099,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Berberine-containing herb; avoid in pregnancy/breastfeeding and infants. Caution with antidiabetic drugs, anticoagulants, CYP/P-gp substrates, and bilirubin-risk contexts.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -9136,6 +9215,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect glucose, blood pressure, CYP/P-gp drug handling, and GI tolerance. Avoid pregnancy/breastfeeding unless clinician-directed.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -9248,6 +9328,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe; mild GI symptoms",
     "contraindications": [
       "Immunosuppressants"
     ],
@@ -9365,6 +9446,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Culinary use is usually low risk; concentrated extracts may affect glucose or sedation; caution with Apiaceae allergy, diabetes medications, sedatives, pregnancy/breastfeeding, and perioperative use.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -9483,6 +9565,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May lower blood glucose or alter metabolic markers; monitor with diabetes medications and avoid unsupervised use during pregnancy.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -9577,6 +9660,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "CNS depression, dizziness, sedation, and liver-safety concerns have been reported with Corydalis-containing products. Avoid combining with sedatives or alcohol.",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "liver disease",
@@ -9680,6 +9764,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe; GI upset possible; high intake may increase kidney stone risk",
     "contraindications": [
       "history of kidney stones (oxalate)",
       "warfarin (case reports of interaction)",
@@ -9893,6 +9978,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human safety data are limited for concentrated extracts. Use caution in pregnancy/breastfeeding, significant medical conditions, or prescription polypharmacy.",
     "contraindications": [
       "pregnancy because it is a traditional Chinese medicine blood-invigorating herb that can stimulate uterine contraction",
       "warfarin or other anticoagulant or antiplatelet medication because it has documented antiplatelet and anticoagulant activity that may increase bleeding risk",
@@ -9997,6 +10083,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -10104,6 +10191,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset; bleeding risk at high dose",
     "contraindications": [
       "Anticoagulants"
     ],
@@ -10207,6 +10295,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -10310,6 +10399,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Alkaloid-rich traditional herb; human safety data are limited. Avoid pregnancy/breastfeeding and unsupervised high-dose use.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -10421,6 +10511,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Tea-level use is usually tolerated, but concentrated essential oil can irritate skin/mucosa and may cause CNS or GI effects; caution in pregnancy, breastfeeding, sedative use, hypotension, and antihypertensive therapy.",
     "contraindications": [
       "Pregnancy/breastfeeding supplement dosing without guidance",
       "internal essential-oil use",
@@ -10524,6 +10615,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human evidence is limited. Use conservative dosing; avoid stacking with sedatives, stimulants, or sexual-performance products without review.",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "seizure disorder without clinician review",
@@ -10629,6 +10721,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid with Asteraceae/ragweed allergy. Caution with diuretics, lithium, kidney disease, bile duct obstruction/gallbladder disease, GERD, and antihypertensive or glucose-lowering therapy.",
     "contraindications": [
       "Asteraceae allergy",
       "bile duct obstruction",
@@ -10728,6 +10821,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May increase bleeding risk and alter blood pressure; use caution with anticoagulants/antiplatelets, antihypertensives, digoxin/heart medicines, and before surgery.",
     "contraindications": [
       "Pregnancy",
       "anticoagulant/antiplatelet therapy without clinician review",
@@ -10833,6 +10927,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High-caution plant; toxic diterpenes/coumarin-related constituents may irritate skin and mucosa. Avoid internal supplement use outside expert supervision.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -10929,6 +11024,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Food-like use is generally lower risk, but concentrated extracts may not match dietary safety. Use caution with pregnancy/breastfeeding, allergy, and chronic high-dose supplementation.",
     "contraindications": [
       "blood pressure medication because dendrobium may have an additive blood-pressure-lowering effect and risk excessive hypotension",
       "diabetes medication because dendrobium has documented hypoglycemic activity and may have an additive blood-glucose-lowering effect",
@@ -11033,6 +11129,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May increase bleeding risk and may not be appropriate in hormone-sensitive conditions. Pregnancy avoidance is important due to uterine/circulatory concerns.",
     "contraindications": [
       "Pregnancy",
       "bleeding disorders",
@@ -11144,6 +11241,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe short-term; allergic reactions possible (Asteraceae family)",
     "contraindications": [
       "autoimmune conditions (theoretical)",
       "ragweed allergy",
@@ -11240,6 +11338,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Use cooked/standardized berry preparations; raw/unripe parts can contain cyanogenic glycosides; caution in autoimmune/immunosuppressed contexts.",
     "contraindications": [
       "Autoimmune/transplant immunosuppression without clinician review",
       "pregnancy/breastfeeding without guidance",
@@ -11335,6 +11434,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
     "contraindications": [
       "known allergy to Asteraceae family plants such as ragweed chrysanthemum arnica or chamomile because elecampane contains sesquiterpene lactones that are established contact allergens",
       "pregnancy because of traditional use as a uterine stimulant",
@@ -11438,6 +11538,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -11556,6 +11657,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
     "contraindications": [
       "Uncontrolled hypertension",
       "pregnancy/breastfeeding without guidance",
@@ -11654,6 +11756,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -11762,6 +11865,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Use caution in people with blood-pressure instability, hormone-sensitive conditions, or high sensitivity to activating supplements. Keep positioning moderate rather than performance-driven.",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "hormone-sensitive conditions without review",
@@ -11876,6 +11980,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Evidence and safety are extract-specific. Use caution with cardiovascular disease, hormone-sensitive conditions, and sexual-performance stacks.",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "significant heart rhythm or blood-pressure instability",
@@ -11977,6 +12082,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Eucalyptus oil is potentially toxic if ingested and can trigger bronchospasm in sensitive users; topical and inhaled use require dilution and caution.",
     "contraindications": [
       "Infants/young children for oil exposure near face",
       "asthma/bronchospasm sensitivity",
@@ -12077,6 +12183,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect circulation, blood pressure, or platelet function; use caution with anticoagulants/antiplatelets, antihypertensives, heart medications, and before surgery.",
     "contraindications": [
       "Pregnancy/breastfeeding without clinician guidance",
       "hypotension or hypoglycemia risk",
@@ -12166,6 +12273,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; GI upset; headache",
     "contraindications": [
       "epilepsy (theoretical seizure risk)",
       "anticoagulants",
@@ -12263,6 +12371,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid in pregnancy at medicinal doses; caution in estrogen-sensitive conditions and with seizure disorders; allergy possible.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -12369,6 +12478,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI discomfort, maple odor in sweat",
     "contraindications": [
       "Antidiabetics",
       "anticoagulants"
@@ -12477,6 +12587,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid in pregnancy; possible mouth ulcers/GI upset; allergy risk in Asteraceae-sensitive users; caution with anticoagulants/antiplatelets.",
     "contraindications": [
       "Pregnancy",
       "Asteraceae/ragweed allergy",
@@ -12587,6 +12698,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Fig latex can trigger allergy or skin irritation; caution with latex/fruit allergy, diabetes medications, anticoagulants, pregnancy/breastfeeding, and concentrated latex or leaf extracts.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -12695,6 +12807,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
     "contraindications": [
       "diabetes medication because fingerroot's pinostrobin and pinocembrin inhibit carbohydrate-digesting enzymes and increase insulin secretion which may cause an additive blood-glucose-lowering effect",
       "CYP1A2-metabolized medication such as caffeine or theophylline or clozapine because pinocembrin is a potent competitive CYP1A2 inhibitor with predicted clinical interaction potential",
@@ -12807,6 +12920,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect bleeding risk or circulation. Use caution with anticoagulants/antiplatelets and before surgery.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -12903,6 +13017,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
     "contraindications": [
       "anticoagulant or antiplatelet medication such as warfarin or aspirin because galangal has documented antiplatelet effects and may raise bleeding risk",
       "upcoming surgery because of a theoretical additive bleeding risk",
@@ -13016,6 +13131,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May lower blood glucose or alter metabolic markers; monitor with diabetes medications and avoid unsupervised use during pregnancy.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -13125,6 +13241,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human evidence is limited; concentrated xanthone products may cause GI upset or interact with anticoagulants.",
     "contraindications": [
       "Pregnancy/breastfeeding without clinician guidance",
       "bleeding disorder/anticoagulant use without review",
@@ -13234,6 +13351,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI irritation, odor, bleeding risk",
     "contraindications": [
       "Anticoagulants",
       "antiplatelets",
@@ -13348,6 +13466,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset; odor; potential bleeding risk at high intake",
     "contraindications": [
       "bleeding disorders",
       "pre-surgery",
@@ -13451,6 +13570,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
     "contraindications": [
       "Pregnancy/breastfeeding without guidance",
       "sedative use without review",
@@ -13561,6 +13681,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Excellent general safety; high doses may cause heartburn or GI warming; mild blood-thinning potential; caution with anticoagulants and additive turmeric/ginkgo stacks.",
     "contraindications": [
       "Anticoagulants"
     ],
@@ -13751,6 +13872,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Real risk of hypertension, hypokalemia, edema, arrhythmia; avoid with hypertension, kidney disease, pregnancy, diuretics, digoxin.",
     "contraindications": [
       "Hypertension",
       "kidney disease",
@@ -13874,6 +13996,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Berberine/hydrastine-containing herb; avoid in pregnancy/breastfeeding and infants. High interaction potential with CYP/P-gp substrates, diabetes medicines, anticoagulants, and narrow-therapeutic-index drugs.",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "infants/newborns",
@@ -13988,6 +14111,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; mild GI upset or drowsiness possible; rare photosensitivity; avoid in pregnancy/breastfeeding; caution with sedatives and liver conditions at high doses.",
     "contraindications": [
       "Sedatives"
     ],
@@ -14106,6 +14230,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe",
     "contraindications": [
       "Anticoagulants"
     ],
@@ -14202,6 +14327,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Major food-drug interaction risk: can raise exposure of statins, calcium-channel blockers, immunosuppressants, antiarrhythmics, and other CYP3A4/OATP substrates.",
     "contraindications": [
       "Avoid or medically supervise with drugs labeled for grapefruit interaction",
       "narrow-therapeutic-index drugs",
@@ -14326,6 +14452,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Liver risk at high-dose extracts",
     "contraindications": [
       "Stimulants",
       "hepatotoxic drugs"
@@ -14534,6 +14661,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Caffeine exposure can cause insomnia, anxiety, tremor, tachycardia, blood-pressure elevation, and GI upset. Avoid stacking with energy drinks or other stimulants; use cautiously in pregnancy/breastfeeding and cardiovascular disease.",
     "contraindications": [
       "Uncontrolled hypertension",
       "arrhythmia",
@@ -14634,6 +14762,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Caffeine-containing herb; may worsen insomnia, anxiety, palpitations, reflux, and blood pressure in sensitive users.",
     "contraindications": [
       "Uncontrolled hypertension",
       "arrhythmia",
@@ -14747,6 +14876,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -14848,6 +14978,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Hypoglycemia risk",
     "contraindications": [
       "Antidiabetic medications"
     ],
@@ -14948,6 +15079,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid/caution with ulcers, gallstones, anticoagulants, pregnancy, and significant GI disease.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -15042,6 +15174,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Dizziness, hypotension",
     "contraindications": [
       "Cardiac medications",
       "may have additive hypotensive effects with antihypertensive medications due to increased risk of low blood pressure"
@@ -15143,6 +15276,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe; mild hypotension",
     "contraindications": [
       "Antihypertensives (additive)"
     ],
@@ -15274,6 +15408,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; may lower blood sugar or blood pressure; caution with glucose-lowering, antihypertensive, and anticoagulant medications; avoid pregnancy/breastfeeding unless clinician-supervised.",
     "contraindications": [
       "pregnancy (insufficient data)",
       "diabetes (monitor glucose)",
@@ -15390,6 +15525,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -15489,6 +15625,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -15594,6 +15731,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-active potential; use caution with autoimmune disease, transplant medicines, immunosuppressants, and during active cancer treatment unless clinician-supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -15688,6 +15826,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
     "contraindications": [
       "Pregnancy/breastfeeding without guidance",
       "severe depression",
@@ -15794,6 +15933,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Use only processed seed extract; raw seeds/bark/leaves are toxic; caution with anticoagulants, kidney disease, and pregnancy.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -15896,6 +16036,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-active potential; use caution with autoimmune disease, transplant medicines, immunosuppressants, and during active cancer treatment unless clinician-supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -15997,6 +16138,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human safety data are limited for concentrated extracts. Use caution in pregnancy/breastfeeding, significant medical conditions, or prescription polypharmacy.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -16102,6 +16244,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Major interaction risk: antidepressants, oral contraceptives, anticoagulants, antiretrovirals, transplant drugs, and many CYP/P-gp substrates.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -16214,6 +16357,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset (constipation, diarrhea), possible hypotension",
     "contraindications": [
       "CYP3A4 substrates",
       "metformin (additive)",
@@ -16311,6 +16455,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-active potential; use caution with autoimmune disease, transplant medicines, immunosuppressants, and during active cancer treatment unless clinician-supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -16436,6 +16581,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Concentrated resveratrol-rich extracts may affect bleeding risk and drug metabolism. GI upset is possible at higher doses.",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "bleeding disorders",
@@ -16537,6 +16683,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -16643,6 +16790,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
     "contraindications": [
       "Diabetes/glucose management if using sweet fruit products",
       "pregnancy supplement dosing without guidance",
@@ -16739,6 +16887,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid during pregnancy and use cautiously with kidney disease. Concentrated preparations may irritate the urinary tract and may interact with diuretics or lithium.",
     "contraindications": [
       "Pregnancy",
       "kidney disease",
@@ -16848,6 +16997,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "CNS-active and potentially serotonergic. Avoid casual stacking with antidepressants or empathogenic/stimulant products.",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "bipolar/mania risk",
@@ -16950,6 +17100,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "hepatotoxicity risk",
     "contraindications": [
       "alcohol",
       "hepatotoxic drugs",
@@ -17058,6 +17209,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -17170,6 +17322,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Isoflavone-rich preparations may interact with hormone-sensitive conditions and anticoagulant/antiplatelet therapy. Alcohol-use claims should not replace medical care.",
     "contraindications": [
       "Pregnancy/breastfeeding caution",
       "hormone-sensitive cancers or conditions",
@@ -17286,6 +17439,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Headache, nausea",
     "contraindications": [
       "MAO inhibitors",
       "thyroid meds"
@@ -17477,6 +17631,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -17591,7 +17746,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "safety": "May support calm mood/anxiety symptoms and possibly sleep quality; evidence is promising but heterogeneous. | Do not claim it treats anxiety, depression, insomnia, or ADHD. | Use as stress/anxiety + focus-under-stress candidate; keep claim gate conservative.",
+    "safety": "No serious side effects in reviewed anxiety/depression trials, but sedation and thyroid/medication flags should be reviewed before strong recommendations.",
     "contraindications": [
       "Additive with CNS depressants (benzodiazepines",
       "alcohol)",
@@ -17694,6 +17849,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
     "contraindications": [
       "Pregnancy/breastfeeding without clinician guidance",
       "kidney disease caution at high doses",
@@ -17800,6 +17956,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
     "contraindications": [
       "Pregnancy/breastfeeding supplement dosing without guidance",
       "internal essential-oil use",
@@ -17901,6 +18058,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Clinically important risk: hypertension, hypokalemia, edema, arrhythmia, and pseudoaldosteronism, especially with chronic/high-dose glycyrrhizin exposure.",
     "contraindications": [
       "Hypertension",
       "kidney disease",
@@ -18020,6 +18178,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect bleeding risk or circulation. Use caution with anticoagulants/antiplatelets and before surgery.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -18117,7 +18276,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "safety": "Avoid depression/anxiety/dementia-prevention claims. | Claim gate: Frame as emerging cognitive-support ingredient, not dementia prevention/treatment or mood-disorder treatment. | Dose/form gate: Do not imply dementia prevention, depression treatment, broad neuroprotection, or guaranteed focus benefits. | allow_cautious_focus_support_claims; block_disease_and_neuroprotection_claims | Runtime gate: Do not say prevents dementia, treats depression/anxiety, regenerates nerves, boosts NGF in humans, or guarantees focus. | Keep page useful but cautious; make “what human studies actually used” the trust-building section.",
+    "safety": "Generally food-like but not risk-free; reported supplement side effects include stomach discomfort, headache, allergic reactions, and occasional withdrawals in small clinical studies. Long-term safety is not well established.",
     "contraindications": [
       "Avoid/caution mushroom allergy",
       "clinician review for pregnancy/breastfeeding",
@@ -18222,6 +18381,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated when used appropriately; review interactions and contraindications.",
     "contraindications": [
       "Not source-complete in workbook",
       "screen pregnancy",
@@ -18318,6 +18478,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -18515,6 +18676,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -18621,6 +18783,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -18727,6 +18890,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; GI upset possible",
     "contraindications": [
       "hormone-sensitive conditions (unclear relevance)",
       "none well established"
@@ -18831,6 +18995,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety and sedation/drug-interaction review required.",
     "contraindications": [
       "Sedatives",
       "anticoagulants"
@@ -18934,6 +19099,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-active mushroom extract; use caution with immunosuppressants, transplant medicines, autoimmune disease, and during active cancer treatment unless clinician-supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -19058,6 +19224,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May lower blood glucose or alter metabolic markers; monitor with diabetes medications and avoid unsupervised use during pregnancy.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -19160,6 +19327,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
     "contraindications": [
       "Pregnancy/breastfeeding without clinician guidance",
       "bleeding disorder/anticoagulant use without review",
@@ -19258,6 +19426,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited human safety data; use conservative preparation-specific framing and avoid pregnancy/breastfeeding or medication stacking without clinician review.",
     "contraindications": [
       "hormone-sensitive cancer such as estrogen-receptor-positive breast cancer because maral root shows estrogen receptor-binding activity",
       "bleeding disorder or anticoagulant medication because maral root may affect bleeding risk",
@@ -19358,6 +19527,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May slow absorption of oral medications if taken together. Use caution with diabetes medications because mucilage/fiber may affect glucose handling.",
     "contraindications": [
       "Difficulty swallowing",
       "severe GI obstruction risk",
@@ -19453,6 +19623,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
     "contraindications": [
       "Celiac/gluten sensitivity unless certified gluten-free",
       "pregnancy/breastfeeding caution",
@@ -19564,6 +19735,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset, rare allergy",
     "contraindications": [
       "CYP450 substrates (mild interaction)"
     ],
@@ -19671,6 +19843,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe; mild GI upset; possible allergic reactions",
     "contraindications": [
       "ragweed allergy",
       "CYP/transporter effects reported in vitro",
@@ -19793,6 +19966,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Noni has case reports of liver injury and can be high in potassium; avoid or use caution with liver disease, kidney disease, ACE inhibitors/ARBs, potassium-sparing diuretics, warfarin-sensitive regimens, pregnancy, and breastfeeding.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -19924,6 +20098,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Leaf preparations are commonly used as foods; concentrated extracts need caution. Avoid root/bark preparations in pregnancy; monitor if using antidiabetic or antihypertensive medication.",
     "contraindications": [
       "Pregnancy/breastfeeding caution for concentrated extracts",
       "especially non-leaf parts",
@@ -20037,6 +20212,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May potentiate glucose-lowering drugs; GI effects possible; pregnancy safety uncertain.",
     "contraindications": [
       "Hypoglycemia risk",
       "pregnancy/breastfeeding without clinician guidance",
@@ -20156,6 +20332,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Can cause levodopa-like adverse effects; caution with Parkinson's drugs, MAO inhibitors, psychosis, pregnancy, and cardiovascular disease.",
     "contraindications": [
       "Psychosis/bipolar risk",
       "melanoma history caution",
@@ -20254,6 +20431,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
     "contraindications": [
       "Pregnancy",
       "seizure disorder",
@@ -20360,6 +20538,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -20464,6 +20643,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May potentiate glucose-lowering drugs; GI effects possible; pregnancy safety uncertain.",
     "contraindications": [
       "Hypoglycemia risk",
       "pregnancy/breastfeeding without clinician guidance",
@@ -20559,6 +20739,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High-dose nutmeg/myristicin exposure can cause neuropsychiatric and cardiovascular toxicity.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -20665,6 +20846,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
     "contraindications": [
       "pregnancy especially first trimester without clinician guidance due to limited safety data",
       "epilepsy or seizure disorder because myrtle's cineole content may lower seizure threshold",
@@ -20774,6 +20956,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
     "contraindications": [
       "Pregnancy/trying to conceive",
       "children",
@@ -20898,6 +21081,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May lower blood glucose or alter metabolic markers; monitor with diabetes medications and avoid unsupervised use during pregnancy.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -20999,6 +21183,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect diuretics, blood pressure, glucose, and anticoagulant therapy; avoid pregnancy at medicinal doses.",
     "contraindications": [
       "pregnancy because nettle root may stimulate uterine contractions and raise miscarriage risk",
       "diuretic or blood pressure medication because nettle root may have additive fluid-loss and blood-pressure-lowering effects",
@@ -21116,6 +21301,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May reduce glucose, lipids, and blood pressure; monitor with antidiabetics, antihypertensives, anticoagulants, and antiplatelets. GI upset or allergic rash can occur.",
     "contraindications": [
       "Pregnancy at supplemental/high doses",
       "hypoglycemia-prone patients without monitoring",
@@ -21222,6 +21408,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-active potential; use caution with autoimmune disease, transplant medicines, immunosuppressants, and during active cancer treatment unless clinician-supervised.",
     "contraindications": [
       "Liver disease",
       "kidney disease/hyperkalemia risk",
@@ -21329,6 +21516,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect platelet aggregation and bleeding risk; use caution with anticoagulants/antiplatelets, before surgery, and during pregnancy unless supervised.",
     "contraindications": [
       "Pregnancy",
       "anticoagulant/antiplatelet use without clinician review",
@@ -21430,6 +21618,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
     "contraindications": [
       "Celiac disease/gluten sensitivity unless certified gluten-free",
       "pregnancy/breastfeeding caution",
@@ -21555,6 +21744,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Culinary basil is low risk, but essential oils/extracts differ; caution with anticoagulants/antiplatelets, pregnancy, children, liver disease, and high-methyleugenol concentrated products.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -21654,6 +21844,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safrole-related safety concerns; avoid concentrated internal use and pregnancy.",
     "contraindications": [
       "any internal use of concentrated extract or essential oil because its high safrole content is classified as a rodent hepatocarcinogen and was banned from human food use in the United States since 1960",
       "pregnancy or breastfeeding without clinician guidance due to safrole's carcinogenic profile and lack of an established safe exposure threshold",
@@ -21780,6 +21971,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Hypotension possible",
     "contraindications": [
       "Antihypertensives"
     ],
@@ -21872,6 +22064,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mucilage-rich preparations may slow absorption of oral medicines; separate from medications when practical. Use caution with diabetes medicines if metabolic effects are suspected.",
     "contraindications": [
       "statin or immunosuppressant or benzodiazepine medication because ophiopogon has been shown to alter CYP3A4 enzyme activity and change how these drugs are cleared including increased midazolam exposure in research",
       "pregnancy or breastfeeding without clinician guidance due to insufficient safety data",
@@ -21985,6 +22178,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally food-like; essential oil can irritate skin and photosensitivity is possible with some citrus oils.",
     "contraindications": [
       "Citrus allergy",
       "internal essential-oil use without supervision",
@@ -22091,6 +22285,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Culinary use is generally low-risk; oregano oil/high-thymol or carvacrol extracts can irritate GI mucosa and skin.",
     "contraindications": [
       "Pregnancy/breastfeeding for medicinal-dose essential oil",
       "Lamiaceae allergy",
@@ -22204,6 +22399,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect coagulation or immune signaling; use caution around anticoagulation.",
     "contraindications": [
       "Pregnancy without clinician guidance",
       "anticoagulant use without review",
@@ -22319,6 +22515,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -22424,6 +22621,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Claims are dengue/thrombocytopenia-adjunct specific and should not replace medical care. Latex allergy and pregnancy caution are important; monitor bleeding/platelet contexts clinically.",
     "contraindications": [
       "Pregnancy",
       "papaya/latex allergy",
@@ -22539,6 +22737,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Culinary use is usually low risk, but high-dose extracts/essential oil may be unsafe; avoid concentrated use in pregnancy, kidney disease, and with anticoagulants/warfarin-sensitive vitamin K management unless supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -22742,6 +22941,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect bleeding risk or circulation. Use caution with anticoagulants/antiplatelets and before surgery.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -22843,6 +23043,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Use conservatively; concentrated use may be irritating.",
     "contraindications": [
       "anticoagulant or antiplatelet medication such as warfarin or clopidogrel due to lapachol content that may inhibit vitamin K-dependent clotting and increase bleeding risk",
       "pregnancy or breastfeeding or use in children without clinician guidance",
@@ -22945,6 +23146,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; may cause heartburn or GERD symptoms",
     "contraindications": [
       "GERD",
       "hiatal hernia",
@@ -23040,6 +23242,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
     "contraindications": [
       "Pregnancy/breastfeeding supplement use without guidance",
       "anticoagulant use without review",
@@ -23157,6 +23360,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Berberine-containing bark; avoid in pregnancy/breastfeeding and infants. Caution with antidiabetic drugs, anticoagulants, CYP/P-gp substrates, and bilirubin-risk contexts.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -23276,6 +23480,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect glucose, blood pressure, CYP/P-gp drug handling, and GI tolerance. Avoid pregnancy/breastfeeding unless clinician-directed.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -23390,6 +23595,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe",
     "contraindications": [
       "Anticoagulants (theoretical)"
     ],
@@ -23499,6 +23705,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Concentrated extracts may alter drug exposure and irritate GI mucosa. Distinguish traditional culinary/low-dose use from high-piperine formulations.",
     "contraindications": [
       "Pregnancy/breastfeeding caution",
       "significant reflux/ulcer disease",
@@ -23608,6 +23815,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -23713,6 +23921,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-modulating activity is plausible; use caution with autoimmune disease, transplant medicines, or immunosuppressants.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -23820,6 +24029,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Irritant naphthoquinones may damage mucosa/skin at high exposure. Avoid pregnancy and internal high-dose use.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -23923,6 +24133,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
     "contraindications": [
       "Pregnancy/breastfeeding without guidance",
       "gastritis/ulcer sensitivity",
@@ -24041,6 +24252,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect circulation, blood pressure, or platelet function; use caution with anticoagulants/antiplatelets, antihypertensives, heart medications, and before surgery.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -24147,6 +24359,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -24264,6 +24477,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High caution: photosensitivity, burns, hepatotoxicity reports, and interaction risks. Avoid unsupervised internal use or UV exposure after use.",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "liver disease",
@@ -24380,6 +24594,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Must be taken with plenty of water; choking or bowel obstruction risk in dysphagia/strictures. Separate from oral medications by 2-4 hours.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -24492,6 +24707,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Caution with hormone-sensitive conditions, estrogenic therapies, anticoagulants/antiplatelets, antihypertensives, diabetes medications, pregnancy, and breastfeeding.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -24588,6 +24804,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid or use clinician supervision in pregnancy, breastfeeding, hormone-sensitive cancers/conditions, unexplained vaginal bleeding, or concurrent estrogen/SERM/endocrine therapy.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -24685,6 +24902,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect fluid balance or urinary tract irritation; use caution with kidney disease, diuretics, lithium, pregnancy, and dehydration risk.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -24802,6 +25020,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Headache, tingling",
     "contraindications": [
       "Antibiotics (quinolones)",
       "anticoagulants"
@@ -24907,6 +25126,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Use during pregnancy only with obstetric supervision; avoid in high-risk pregnancy, preterm labor risk, prior uterine surgery concerns, bleeding disorders, or concurrent uterotonic/labor-inducing agents unless directed by a clinician.",
     "contraindications": [
       "High-risk pregnancy",
       "early pregnancy without clinician guidance",
@@ -25017,6 +25237,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid/caution in estrogen-sensitive cancers or hormone therapy contexts; possible anticoagulant interaction concerns.",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "hormone-sensitive cancer/condition without clinician review",
@@ -25129,6 +25350,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May lower blood glucose or alter metabolic markers; monitor with diabetes medications and avoid unsupervised use during pregnancy.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -25233,6 +25455,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -25340,6 +25563,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Dizziness, dry mouth",
     "contraindications": [
       "Anticoagulants",
       "immunosuppressants"
@@ -25564,6 +25788,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset",
     "contraindications": [
       "Anticoagulants"
     ],
@@ -25661,6 +25886,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Culinary or tea use is usually lower risk, but concentrated oils/extracts can irritate GI or mucosal tissue. Avoid pregnancy-dose escalation and use caution with reflux/allergy.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -25773,7 +25999,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "safety": "Potential activating effects; avoid treatment claims. | Claim gate: Do not present as a clean “stress cure.” Use fatigue/stress-resilience support language with activation and interaction guardrails. | Dose/form gate: Do not imply universal adaptogen dosing, antidepressant treatment, anxiety treatment, or guaranteed energy effects. | allow_context_specific_fatigue_support_claims; require_standardization_note; block_treatment_claims | Runtime gate: Do not say treats depression, anxiety, burnout, chronic fatigue, or universally improves cognition. Do not reuse exercise doses as stress doses. | Split into “fatigue/performance” and “stress/mood” evidence lanes; avoid one generic adaptogen score.",
+    "safety": "Short-term human studies often report few/no obvious adverse reactions, but trial reporting quality is weak and interaction data are incomplete. Potential activating effects should be acknowledged.",
     "contraindications": [
       "Caution insomnia",
       "anxiety sensitivity",
@@ -25905,6 +26131,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Usually food-derived, but bran products can cause GI effects and may carry contaminant concerns if poorly sourced; use caution with diabetes medications, lipid-lowering therapy, grain allergy, and products lacking contaminant/heavy-metal quality controls.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -26018,6 +26245,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -26125,6 +26353,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI effects possible; caution with anticoagulants/antiplatelets and kidney-stone risk in susceptible users.",
     "contraindications": [
       "Kidney stone risk",
       "iron overload disorders with high vitamin C intake",
@@ -26233,6 +26462,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -26358,6 +26588,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; review concentrated extract use.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -26472,6 +26703,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High doses may cause GI/CNS effects and uterine stimulation; avoid pregnancy-level medicinal dosing; monitor with serotonergic drugs.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -26599,6 +26831,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; review concentrated extract use.",
     "contraindications": [
       "Pregnancy",
       "seizure disorder",
@@ -26704,6 +26937,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mild GI symptoms",
     "contraindications": [
       "Antidiabetics"
     ],
@@ -26810,6 +27044,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Bleeding-related caution and product variability noted.",
     "contraindications": [
       "Caution with anticoagulants and antiplatelets."
     ],
@@ -26904,6 +27139,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; mild GI upset, headache",
     "contraindications": [
       "hormone-sensitive conditions (theoretical)",
       "anticoagulants (limited evidence)"
@@ -27007,6 +27243,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; GI upset possible",
     "contraindications": [
       "pregnancy (insufficient data)",
       "CYP interactions possible (limited evidence)"
@@ -27103,6 +27340,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Can affect CYP/P-gp drug metabolism; review use with narrow-therapeutic-index drugs, sedatives, hepatotoxic drugs, and pregnancy/breastfeeding.",
     "contraindications": [
       "Pregnancy/breastfeeding without guidance",
       "active reflux/ulcer sensitivity",
@@ -27212,6 +27450,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Hepatobiliary-active potential; use caution with liver disease, gallbladder disease, bile-duct obstruction, hepatotoxic drugs, and pregnancy.",
     "contraindications": [
       "Pregnancy/breastfeeding without guidance",
       "active reflux/ulcer sensitivity",
@@ -27341,6 +27580,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally studied as extracts/compounds, but liver injury reports and adulteration/quality issues exist for skullcap products. Use caution with liver disease.",
     "contraindications": [
       "Liver disease",
       "pregnancy/breastfeeding",
@@ -27448,6 +27688,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Food-like use is generally lower risk, but concentrated extracts may not match dietary safety. Use caution with pregnancy/breastfeeding, allergy, and chronic high-dose supplementation.",
     "contraindications": [
       "pregnancy because Selaginella tamariscina Juan Bai is classified among contraindicated herbs for pregnancy in traditional Chinese medicine texts",
       "warfarin or other CYP2C9-metabolized anticoagulant medication because its selaginellin compounds show inhibitory activity against CYP2C9 in human liver microsomes",
@@ -27562,6 +27803,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset/headache possible; caution with hormone-sensitive conditions, anticoagulants, and perioperative use.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -27665,6 +27907,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -27768,6 +28011,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Hormone- or cycle-related traditional use requires caution in pregnancy, breastfeeding, hormone-sensitive conditions, and with hormone therapies.",
     "contraindications": [
       "Pregnancy/lactation use should be clinician-guided",
       "hormone-sensitive conditions without review",
@@ -27871,6 +28115,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Hepatotoxicity concerns (rare, unclear causality)",
     "contraindications": [
       "Sedatives",
       "liver disease"
@@ -27961,6 +28206,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Alkaloid-rich herb with toxicity concerns. Avoid pregnancy/breastfeeding and avoid unsupervised high-dose or long-term use.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -28070,6 +28316,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Alkaloid-rich herb with meaningful safety-review needs; avoid casual internal use or unsupervised high-dose extracts.",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "liver disease",
@@ -28170,6 +28417,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid high-dose or chronic supplement use; annonaceous acetogenins have neurotoxicity concerns. Caution with Parkinsonism, neurologic disease, pregnancy, and sedating medications.",
     "contraindications": [
       "Parkinsonism or other neurodegenerative condition because soursop contains annonacin which may exacerbate neuronal degeneration with prolonged high intake",
       "diabetes medication because soursop may have an additive blood-glucose-lowering effect and requires monitoring",
@@ -28288,6 +28536,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Caution in hormone-sensitive conditions and with thyroid medication timing; allergy possible.",
     "contraindications": [
       "Soy allergy",
       "hormone-sensitive conditions without clinician review",
@@ -28399,6 +28648,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Photosensitivity; GI symptoms; major drug interaction risk",
     "contraindications": [
       "pregnancy",
       "bipolar disorder",
@@ -28492,6 +28742,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High-caution plant; toxic diterpenoid constituents and irritant effects are possible. Avoid internal supplement use outside expert supervision.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -28592,6 +28843,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Alkaloid-rich herb; species substitution and nephrotoxicity/adulteration concerns require caution. Avoid pregnancy and unsupervised use.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -28697,6 +28949,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Alkaloid-rich herb; species substitution and nephrotoxicity/adulteration concerns require caution. Avoid pregnancy and unsupervised use.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -28802,6 +29055,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Alkaloid-rich herb; species substitution and nephrotoxicity/adulteration concerns require caution. Avoid pregnancy and unsupervised use.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -28901,6 +29155,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited human safety data; use conservative preparation-specific framing and avoid pregnancy/breastfeeding or medication stacking without clinician review.",
     "contraindications": [
       "hormone replacement therapy or hormonal contraceptives or other hormone-altering medication because suma has been shown to raise estradiol and testosterone and progesterone levels in research",
       "estrogen-sensitive or hormone-sensitive cancer such as breast or prostate cancer without clinician guidance due to suma's documented hormonal activity",
@@ -29008,6 +29263,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Concentrated clove preparations may cause mucosal irritation, bleeding risk, or liver toxicity at high doses; avoid essential oil ingestion without supervision and use caution with anticoagulants, surgery, pregnancy, children, and liver disease.",
     "contraindications": [
       "Bleeding disorder",
       "liver disease",
@@ -29116,6 +29372,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May influence glucose or metabolic markers; monitor with antidiabetic medications and avoid pregnancy/breastfeeding use unless clinician-supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -29217,6 +29474,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited safety data",
     "contraindications": [
       "Antidiabetics"
     ],
@@ -29311,6 +29569,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mild GI upset reported in small trials; cardiac patients should use clinician guidance.",
     "contraindications": [
       "Caution with cardiac medications and anticoagulants."
     ],
@@ -29407,6 +29666,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High-toxicity herb; requires specialist supervision. Reproductive toxicity/infertility, severe GI effects, bone-marrow suppression, hepatotoxicity, nephrotoxicity, infection risk, and clinically important drug interactions are possible.",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "fertility attempts",
@@ -29526,6 +29786,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Culinary use is generally low-risk; concentrated oil/extracts can irritate mucosa and require dose caution.",
     "contraindications": [
       "Pregnancy/breastfeeding for medicinal-dose essential oil",
       "significant GI irritation",
@@ -29632,6 +29893,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May cause insomnia/restlessness; avoid pregnancy and hormone-sensitive conditions; caution with stimulant or endocrine-active regimens.",
     "contraindications": [
       "pregnancy or breastfeeding without clinician guidance due to insufficient safety data",
       "prostate cancer or breast cancer or other hormone-sensitive condition because tongkat ali may raise testosterone",
@@ -29730,6 +29992,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe; GI upset possible",
     "contraindications": [
       "hormone-sensitive conditions (uncertain)",
       "none well established"
@@ -29835,6 +30098,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High-toxicity herb; requires specialist supervision. Reproductive toxicity/infertility, severe GI effects, bone-marrow suppression, hepatotoxicity, nephrotoxicity, infection risk, and clinically important drug interactions are possible.",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "fertility attempts",
@@ -29948,6 +30212,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Immune-active mushroom extract; use caution with immunosuppressants, transplant medicines, autoimmune disease, and during active cancer treatment unless clinician-supervised.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -30271,6 +30536,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Drowsiness; dizziness; rare withdrawal-like symptoms",
     "contraindications": [
       "pregnancy",
       "caution with alcohol",
@@ -30376,6 +30642,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May cause drowsiness or impaired alertness. Avoid combining high-dose extracts with alcohol, sedatives, or other CNS depressants.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -30484,6 +30751,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "CNS-active potential; avoid stacking with sedatives, alcohol, sleep aids, antidepressants, or other psychoactive supplements without clinician review. Avoid pregnancy/breastfeeding use unless supervised.",
     "contraindications": [
       "Pregnancy without clinician guidance",
       "anticoagulant use without review",
@@ -30590,6 +30858,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May lower blood glucose or alter metabolic markers; monitor with diabetes medications and avoid unsupervised use during pregnancy.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician supervision",
       "known allergy to the plant/family",
@@ -30691,6 +30960,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Thujone-containing preparations can be neurotoxic at high exposure and may provoke seizures. Avoid concentrated essential oil or high-thujone products.",
     "contraindications": [
       "Pregnancy/breastfeeding",
       "seizure disorder",
@@ -30792,6 +31062,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Asteraceae-family herb; allergy is a practical concern. Avoid high-dose or prolonged internal use without review.",
     "contraindications": [
       "Asteraceae/ragweed allergy",
       "pregnancy",
@@ -30910,6 +31181,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Contains caffeine; excess intake may worsen insomnia, anxiety, palpitations, reflux, or blood pressure. Avoid very hot maté consumption patterns and stimulant stacking.",
     "contraindications": [
       "Uncontrolled hypertension",
       "arrhythmia",
@@ -31020,6 +31292,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High-risk stimulant herb. Reported adverse events include anxiety, agitation, hypertension, tachycardia, GI distress, and rare serious cardiovascular/neurologic events.",
     "contraindications": [
       "Hypertension",
       "arrhythmia",

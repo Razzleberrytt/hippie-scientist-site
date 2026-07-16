@@ -3841,3 +3841,79 @@ need triage, not a blind merge. A future cycle (or a human) should triage
 this list PR-by-PR: re-check `mergeable_state` fresh, rebase/close anything
 stale or superseded, and merge what's still clean, oldest-first so newer
 PRs' conflicts (if any) surface against an up-to-date base.
+
+---
+
+## 2026-07-16 (batch 6, correction) — the batch-6 fix above never actually
+reached the rendered page; fixed the real field instead
+
+PR #2341 (the batch-6 fix above) merged, then `chatgpt-codex-connector[bot]`
+left a review comment on it that turned out to be exactly right:
+`getCompoundBySlug`/`getHerbBySlug` (`src/lib/runtime-data.ts`) merge the
+canonical `compounds.json`/`herbs.json` record with the `compounds-detail`/
+`herbs-detail` file through `resolveRuntimeRecordLayers`
+(`lib/runtime-record-resolver.mjs`). That resolver treats `safety` (and its
+aliases `safetyNotes`/`safety_notes`/`runtime_safety`) as a **core-owned**
+field and silently drops the detail layer's value unless the caller passes
+an explicit `approvedTrustOverrides` list — which neither call site does.
+So the entire batch-6 diff (805 `safetyNotes` edits in the detail files) was
+inert: correct text, sitting in a field the renderer never reads. The actual
+displayed safety text always comes from the canonical `safety` field in
+`compounds.json`/`herbs.json`, which batch-6 never touched.
+
+Traced *that* field's real source: `profile()` in
+`scripts/data/build-runtime-from-workbook.mjs` only ever read the
+`runtime_safety` workbook column into `safety`
+(`const runtimeSafety = compact(first(row, ['runtime_safety', 'runtime safety']))`).
+`safety_notes` — the column with the actually-useful text for ~800 entities
+— was never consulted for this field at all. Fixed by adding a
+`safety_notes` fallback (only used when `runtime_safety` is blank), reusing
+the same internal-editorial-note filter from the reverted batch-6 script
+(`SAFETY_INTERNAL_NOTE_PATTERN` — catches "needs ... safety pass",
+"Runtime safety box:", etc.) so an internal reminder can't get published
+as if it were the real answer.
+
+One regression surfaced during validation, caught by comparing herb/compound
+counts before and after (291→290 herbs): `lobelia-inflata` disappeared.
+Root cause: its workbook `safety_notes` names its own active alkaloid,
+"lobeline," which is on `RESTRICTED_RUNTIME_TERMS` — a list built to keep
+fringe/psychoactive-substance *mentions* (e.g. an interaction warning citing
+kratom on some unrelated herb's page) out of exported records. Once
+`safety_notes` started feeding `safety`, `isRestrictedRuntimeRecord()`
+saw "lobeline" in the herb's own safety field and de-listed the whole
+profile — correctly applying an existing rule, but as an unreviewed side
+effect of a text-display fix, not a deliberate governance decision. Whether
+Lobelia inflata's page *should* stay published given its real safety profile
+is a legitimate editorial question, but not one this fix should decide
+silently either way, so `publishableSafetyNotes()` now skips the
+`safety_notes` fallback whenever it would introduce a newly-restricted term,
+leaving that entity exactly as it was (placeholder shown, page still
+published) until a human makes that call explicitly.
+
+Reverted the batch-6 detail-file diff's *effect* was unnecessary — those 805
+files already hold the correct text and are harmless sitting unused, so they
+were left as merged — but deleted `scripts/data/backfill-detail-safety-notes.mjs`
+itself: with `profile()` now sourcing `safety_notes` correctly on every
+build, the script has no future purpose (it only ever wrote to the
+inert detail-file field) and its docstring's claim to fix rendering was the
+exact thing proven wrong. Verified end-to-end this time by calling
+`resolveRuntimeRecordLayers()` directly the same way `getCompoundBySlug`
+does: `fadogia-agrestis`'s resolved `.safety` now returns the real workbook
+text, not the placeholder. `npm run data:validate`, `guard:source-of-truth`,
+`npm run check`, and the full Vitest suite (655/655, no flakes this run)
+all pass; herb/compound counts match the pre-fix baseline (291/565) again
+after the `lobeline` guard.
+
+**Takeaway for future cycles:** (1) a large uniform diff across many
+generated files is not itself evidence the fix works — trace the actual
+render path (here, three hops: detail JSON → `resolveRuntimeRecordLayers` →
+page) before declaring a data-pipeline fix complete, especially when a
+"core-owned fields" or similar trust/precedence layer sits between the file
+you edited and the page. (2) a merged PR is not necessarily the end of the
+story; an external automated reviewer's comment arriving *after* merge can
+still be correct and worth a same-day follow-up fix. (3) `lobelia-inflata`
+now has a real editorial question attached to it (publish with its genuine
+lobeline safety caution, or keep it out of the export entirely via
+`allow_restricted_reference_export` or a deliberate exclusion) — good
+small follow-up for a human reviewer or a future cycle with explicit
+governance-change authority, distinct from a plain data-completeness batch.
