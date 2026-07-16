@@ -3694,3 +3694,96 @@ own dedicated cycle" deferral, that's a strong signal it's this kind of
 small-fix-with-a-previously-oversized-attempt problem — worth spending a full
 cycle's budget on a from-scratch corpus-validated fix (as here) rather than
 re-deferring a 4th time.
+
+---
+
+## 2026-07-16 (batch 6) — 805 herbs/compounds were rendering a generic "well
+tolerated" safety placeholder instead of their real, already-curated workbook
+safety text
+
+Fresh cold session. Started from `npm run audit:content-gaps`, which flagged
+`fadogia-agrestis` (a real, actively-marketed testosterone/libido supplement
+ingredient) as 57% complete with `safety` listed as missing. Read its detail
+JSON (`public/data/compounds-detail/fadogia-agrestis.json`) directly and found
+`safetyNotes: "Generally well tolerated for most users."` sitting right next
+to a `description` that says the compound "should remain avoid/research-only"
+due to "animal safety signals" — a direct contradiction. `hcg-diet` had the
+same contradiction (FDA warns against HCG weight-loss products, but
+`safetyNotes` said "well tolerated"). A corpus-wide check showed this exact
+placeholder string, verbatim, in **818 of 856** profiles (95.6%) — including
+`turmeric`, which `audit:content-gaps` scores as 100% complete.
+
+Traced the root cause instead of just patching two entities. The workbook
+(`data-sources/herb_monograph_master.xlsx`, `Entity_Master` sheet) already has
+real, specific, human-reviewed `safety_notes` text for nearly every affected
+row — confirmed by spot-checking `turmeric`, `ashwagandha`, `ginkgo-biloba`,
+`st-johns-wort` (which has "major drug interaction risk" in the workbook, a
+serious, well-documented SSRI/oral-contraceptive/transplant-immunosuppressant
+interaction that the live page was hiding behind "well tolerated"), and
+`elderberry` (workbook: raw/unripe parts contain cyanogenic glycosides). The
+current `data:build` pipeline just never surfaces that column into the
+rendered detail JSON: `build-runtime-from-workbook.mjs`'s `details()` calls
+that used to write `herbs-detail`/`compounds-detail` are commented out
+(deliberately, to avoid the flat-record rebuild clobbering enrichment-only
+fields like `claimMap`/`sources`/`governance` that only exist on the detail
+file), and `apply-governance-overlay.mjs`'s `processKind()` only backfills
+detail fields that are **empty**, not ones sitting on a stale placeholder.
+The 818 detail files still carry whatever an older generator (already gone
+from the current pipeline) once wrote, and that generator's fallback for an
+unset safety field was this placeholder — baked in and never revisited as the
+workbook gained real safety text over time. `scripts/ci/
+validate-cluster-member-export.mjs` already treats this exact string as a
+"generic safety placeholder" that must not leak into exported HTML, but only
+spot-checks 4 hardcoded slugs, so it never caught the other 800+.
+
+Given the severity (real, specific drug-interaction and toxicity information
+replaced by reassurance text, on a supplement/herb information site) and that
+this is a mechanical pipeline-correctness bug rather than new content, treated
+comprehensive backfill as in-scope rather than "sweeping rewrite": added
+`scripts/data/backfill-detail-safety-notes.mjs` (same shape as the existing
+`backfill-detail-additive-mechanisms.mjs`, `--dry-run` supported). It only
+overwrites a detail record's `safetyNotes` when it is **exactly** the
+placeholder string, and only replaces it with the workbook's own
+`safety_notes` text for that slug — no new claims, no new sources, nothing
+invented. Two guards before writing: (1) a minimum length so a bare severity
+token like "moderate" can't become the new placeholder, and (2) an
+internal-editorial-note filter (`needs ... safety pass`, `Runtime safety
+box:`, `pending review`, `TODO`, `TBD`) so an internal reminder like
+ginkgo-biloba's workbook text ("Needs anticoagulant/bleeding/surgery/
+drug-interaction safety pass.") doesn't get published as if it were the
+answer. Where the internal note is only an appended `| Runtime safety box:
+...` suffix on otherwise-good prose (e.g. `hericium-erinaceus`, `rhodiola`),
+the script keeps the reader-facing prefix and drops just the suffix.
+
+Result: 805 files updated (both `herbs-detail/*.json` and
+`compounds-detail/*.json`); 5 left untouched because the *entire* workbook
+cell is an internal note with no usable prefix — `apigenin`, `ginkgo-biloba`,
+`inositol`, `panax-ginseng`, `reishi`. Those 5 still need someone to write and
+source real safety text in the workbook; the placeholder is at least no
+longer masking a hidden real answer for them, since there wasn't one to
+surface. `npm run data:validate`, `npm run guard:source-of-truth`, and
+`npm run check` (which reruns `data:build:core`) all pass — confirmed the
+backfilled files survive a full core rebuild untouched, since nothing in the
+current pipeline regenerates existing non-empty detail fields. Full Vitest
+suite: 653/655 on the first run, but the 2 failures were both
+`audit-cluster-member-trust.test.mjs` timeouts (15s default timeout against a
+slow workbook parse under parallel load) — reran that file alone with a 60s
+timeout and got 5/5 passed, so not a regression from this change.
+
+**Takeaway for future cycles:** (1) the 5 remaining internal-note-only slugs
+(`apigenin`, `ginkgo-biloba`, `inositol`, `panax-ginseng`, `reishi`) are a
+good next safety-content target — they're exactly the shape of gap a
+source-backed workbook patch (`data-sources/workbook-patches/`) is for,
+same as the `safety-coverage-batch-*` patches from 2026-07-15. (2) more
+importantly: `build-runtime-from-workbook.mjs`'s commented-out `details()`
+calls mean **no code path currently regenerates `herbs-detail`/
+`compounds-detail` content from the workbook for fields that already have
+*some* value** (only `apply-governance-overlay.mjs`'s empty-field backfill
+does). That's exactly how this bug went undetected for so long — a workbook
+edit to `safety_notes` (or presumably other columns read the same way) does
+nothing to the live site unless someone notices and writes a one-off backfill
+like this one. Worth a dedicated future cycle to either re-enable safe,
+selective detail-field syncing (diffing workbook vs. detail per field, not a
+full-record overwrite) or at least extend `validate-cluster-member-export.mjs`
+past its current 4 hardcoded slugs so a *new* placeholder-vs-workbook
+mismatch fails CI immediately instead of silently accumulating again.
