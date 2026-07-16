@@ -57232,7 +57232,8 @@
     "trial_design_insight": "",
     "safety": "Safety evidence: turmeric-associated liver injury is uncommon but documented, including recurrence after re-exposure. Piperine altered exposure to a P-glycoprotein substrate in a small human study; product bioavailability and medication context matter, while pregnancy and breastfeeding evidence remain insufficient.",
     "contraindications": [
-      "Previous turmeric- or curcumin-associated liver injury because recurrence after re-exposure has been reported."
+      "Previous turmeric- or curcumin-associated liver injury because recurrence after re-exposure has been reported.",
+      "concurrent use with anticoagulant or antiplatelet medications such as warfarin may increase bleeding risk based on case reports of elevated INR in people taking concentrated curcumin supplements"
     ],
     "interactions": [],
     "side_effects": [],
