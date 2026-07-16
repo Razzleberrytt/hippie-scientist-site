@@ -2315,3 +2315,142 @@ structurally diff by entity slug against `git show HEAD:<path>` and prune
 anything outside the intended edit set; the checked-in `public/data` already
 lags the checked-in workbook by an unknown amount at any given time, and
 the pipeline has real ordering/nondeterminism landmines when run partially.
+
+---
+
+## 2026-07-16 — Filled `caffeine` and `melatonin` `contraindications_or_flags` gaps; explicitly skipped their variant-cluster siblings
+
+Fresh cold session. `npm run audit:safety` (re-pointed at `Entity_Master` per
+the 2026-07-13 fix above) surfaced a new `priority=95` tier not mentioned in
+any prior entry: 16 `primary_only` compounds (safety context present, no
+`contraindications_or_flags`) including `caffeine`, `melatonin`, `creatine`
+and its salt-form variants, curcuminoid variants, bacopa active-constituent
+variants, and omega-3 subtype variants — almost certainly the highest-traffic
+names in the entire dataset. Cross-checked all 5 open PRs on the
+contraindications thread (#2277, #2274, #2263, #2262, #2260) via
+`list_pull_requests` + `get_files` before picking targets: none touched any
+compound in this new priority=95 tier, so no collision risk.
+
+Of the 16, most are members of an established variant/family cluster (same
+pattern flagged repeatedly above — betaine, taurine, etc.): `creatine`/
+`creatine-hcl`/`creatine-monohydrate`/`creatine-beta-alanine`,
+`bisdemethoxycurcumin`/`demethoxycurcumin`, `bacopa-extract-bacoside-
+standardized`/`bacopaside-ii`, `l-theanine-sleep` (sibling of a separate base
+`l-theanine` entry), `melatonin-extended-release`, `caffeine-l-theanine`, and
+`omega-3-dha-dominant`/`omega-3-epa`/`omega-3-epa-dominant` (sibling of a
+separate base `omega-3` entry). Left all of these untouched, consistent with
+the still-unresolved naming-policy question — filling only the standalone
+base compound while its salt-form/blend siblings stay empty would just move
+the inconsistency, not resolve it.
+
+That left `caffeine` and `melatonin` as the only two truly standalone,
+non-clustered slugs in the new tier, plus two lower-priority (67) standalone
+candidates from the broader gap list: `ashitaba-extract` and (initially)
+`oxyresveratrol`. Dropped `oxyresveratrol` after `WebSearch` came back with no
+real contraindication-specific findings — "generally well tolerated, more
+research needed" is a directly-quotable finding, not something to spin into
+invented clauses. Skipping a thin-literature compound beats fabricating a
+plausible-sounding caution the sources don't support.
+
+`WebSearch`-verified real pharmacology for the remaining 3: caffeine
+(cardiac arrhythmia/recent-MI caution, anxiety/panic worsening, UK FSA
+pregnancy intake ceiling of ~300 mg/day, MAOI tachycardia/hypertension risk,
+additive-stimulant risk with ADHD medications, pediatric dosing caution);
+melatonin (warfarin/anticoagulant INR case reports, Mayo-Clinic-documented
+autoimmune-flare risk, immunosuppressant counteraction for transplant
+patients, additive sedation with benzodiazepines, epilepsy/anticonvulsant
+caution, pediatric hormonal-development caution); ashitaba-extract (its
+literature is genuinely thin, so worded honestly per the `aucubin` precedent
+— coumarin-driven anticoagulant/photosensitivity caution and a general
+long-term/high-dose data-gap caution, explicitly **not** the rat study's
+alpha-2u-globulin nephropathy finding, which is a well-known rat-specific
+toxicology artifact with no human relevance and would have been a real
+sourcing error to carry over).
+
+Simulated `splitList()` and both `findSuspectMatches()`/
+`findWeakCorroborationMatches()` against every draft clause in a throwaway
+script before writing anything (loaded the real functions from
+`scripts/audit-risk-tag-collisions.mjs` directly rather than reimplementing
+them, so the simulation can't drift from the real matcher) — all 3 came back
+with correct clause counts and zero collisions on the first draft. Applied
+via `edit-entity-master-cell.mjs --in-place` (all 3 were `--dry-run`-confirmed
+empty-cell targets first). `workbook:roundtrip-test` passed (22 sheets
+byte-for-byte), `data:build:core` regenerated cleanly.
+
+**Hit the documented merge-conflict scenario firsthand:** opened the PR,
+then `merge_pull_request` returned a 405 "has merge conflicts" — a different
+concurrent cycle (#2307, "Fix leaked-template summaries on 8 flagship
+herbs") had merged to `main` first, in the ~2 minutes between this branch's
+base fetch and the merge attempt. Confirmed via `git show <sha> --stat` that
+#2307 only touched herb slugs (ginger, peppermint, garlic, echinacea, maca,
+milk thistle, saw palmetto, black cohosh) — zero overlap with this cycle's 3
+compound targets — so it was a pure binary-`.xlsx`-file conflict, not a
+semantic collision. Reconciled exactly per the standing playbook: `git reset
+--hard origin/main`, then replayed the 3 scripted `edit-entity-master-cell.mjs`
+calls fresh (each `--in-place` call's own `old: ""` log line confirmed the
+target cells were still untouched before writing), redid the full
+`data:build:core` → `data:sync-detail-backfill` → revert-unrelated-noise →
+hand-patch-2-stale-detail-files → re-validate chain end to end against the
+new base, and re-verified no further merges landed before pushing again.
+
+**New noise source found this cycle:** re-running `data:build:core` (up to
+3 times across two base-workbook states this cycle) deterministically
+reproduces a `herbs.json` key-order-only diff on a couple of unrelated herb
+records some — but not all — of the time (present after the first
+`data:build:core` run, absent after an otherwise-identical rerun following
+the reset+replay). Confirmed via a Python element-set/dict-equality
+comparison (not eyeballing) both times that it's zero semantic difference,
+just a `safety` key's position in insertion order. Reverting it (when
+present) is safe; the nondeterminism means every cycle needs to check for
+it fresh rather than assuming a fixed set of "known noisy files."
+
+**Also found and handled:** `data:build:core` picked up one genuine,
+pre-existing stale-indexability fix unrelated to this cycle's edits —
+`green-tea-extract-egcg`'s `indexability_score` (85→95) and
+`safety-context-missing`→`safety-context` reason, because its
+`contraindications_or_flags` cell already had real content in the workbook
+(filled by earlier, separately-merged work) that had never been through a
+full rebuild. Kept it in `compounds.json`/`compound-index.json` (it's a
+correct 2-field catch-up matching current source-of-truth, same class as
+PR #2242's dedicated indexability-recompute cycle), but explicitly did
+**not** keep the ~30 other unrelated `compounds-detail/*.json` /
+`herbs-detail/*.json` files that `data:sync-detail-backfill` also touched
+each run — those were real `safety`-narrative-text syncs (not reorder noise)
+for entities this cycle never touched or verified, and folding them into a
+PR framed as "caffeine + melatonin + ashitaba contraindications" would
+misattribute unreviewed content. A dedicated `data:sync-detail-backfill`
+catch-up cycle (there's clearly a growing backlog of stale `compounds-detail`
+/`herbs-detail` safety/summary text sitting behind the empty-field-only
+backfill rule) would be legitimate future-cycle work, but deserves its own
+PR, not a rider on this one.
+
+Hand-patched `caffeine.json`/`melatonin.json`'s `compounds-detail` records
+directly (both had non-empty stale placeholder `contraindications` —
+`["cardiovascular","liver","pregnancy","stimulant"]` and `["Caution with
+sedatives."]` — that the empty-field-only backfill correctly left alone).
+Diffed every shared field between each flat and detail record first per the
+standing convention: only `contraindications` diverged in a way this cycle
+should touch (both also had pre-existing, deliberate `description`/`summary`/
+`mechanisms` differences from the flat record — untouched, not this cycle's
+concern). `ashitaba-extract`'s detail file had no pre-existing
+`contraindications` key, so the empty-field backfill picked it up
+automatically.
+
+`data:validate`, `guard:source-of-truth`, `audit:risk-tag-collisions` (clean
+except the pre-existing documented `rhodiola-extract-shr5` finding from the
+2026-07-14 entry above, unrelated to this cycle), `npm run check`, and the
+full Vitest suite (632/632) all passed — twice, once against each base
+workbook state. Final diff: 19 files (workbook + 3 ai-entities/compound
+files + 1 manifest + 3 compounds-detail files + compounds.json +
+compound-index.json + entity_risk_tags + interaction_edges + 5
+summary-index files + build-info timestamp) plus this note.
+
+**14 of the 16 new priority=95 gaps remain** (`creatine` family, curcuminoid
+family, bacopa family, `l-theanine-sleep`, `melatonin-extended-release`,
+`caffeine-l-theanine`, `omega-3` family) — all blocked on the same
+variant/family-cluster naming-policy question flagged repeatedly above.
+That question is now blocking a meaningfully large and high-traffic slice of
+the remaining safety-gap backlog (this tier alone, plus the `betaine`/
+`taurine`/`gingerol`/etc. clusters from earlier entries) and would be a good
+candidate for an actual human decision rather than another cycle routing
+around it.
