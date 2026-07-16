@@ -3584,3 +3584,97 @@ no independent literature), `fingerroot`, `ocotea-odorifera`,
 double-checking with a full (not `full_public_runtime`-only) scan before
 declaring the thread fully closed, since duplicate-slug species rows have
 under-counted this before (see the batch-3 entry above).
+
+---
+
+## 2026-07-16 (batch 5) — Fixed the recurring goal-facet-contamination bug for real: a curated false-positive-token strip, not a blanket word-boundary rewrite
+
+Picked up the thread flagged as recurring across 3 PR reviews above
+(`build-search-index.mjs`'s `matchFacets()` matches taxonomy keywords via
+plain `haystack.includes(kw)`, so a short keyword can land inside an
+unrelated word — the concrete case Codex kept flagging was "tension"
+(anxiety) matching inside "hypotension"). Every prior cycle deferred this
+because the obvious fix (exclude `contraindications` text from the
+facet-matching haystack entirely) was prototyped and found to flip facets
+on ~70 herbs, several of which (`danshen`'s `heart-health`, `calamus`'s
+`sleep`) turned out to rely on contraindications text as their *only*
+signal source — a blanket fix would trade one false-positive class for an
+unknown number of false negatives.
+
+First attempt this cycle was a different blanket fix — switch `matchFacets`
+from substring to strict `\bkeyword\b` word-boundary regex. That's
+mathematically a pure subset of substring matching (can only remove
+matches, never add), so it looked safe against the "danshen loses
+heart-health" failure mode from the earlier attempt. It wasn't safe against
+a different one: word-boundary matching also kills legitimate inflected
+forms that the taxonomy design relies on substring matching to catch —
+`sirt` no longer matches `SIRT1` (no boundary between "t" and "1", both are
+`\w`), `nad` no longer matches `NADH`, `probiotic` no longer matches
+`probiotics`. Concretely this would have dropped the `longevity` facet from
+`nicotinamide-riboside`, `nr`, `nadh`, `trans-resveratrol`,
+`oxyresveratrol`, and `pterostilbene` — the actual flagship NAD+/sirtuin
+supplements the facet exists to describe. Caught this by diffing the full
+before/after `search-index.json` (not just eyeballing a few slugs) before
+committing to the approach; a `s?` patch (allow an optional trailing "s")
+recovered the plural cases but not the digit/letter-suffix cases
+(`SIRT1`, `NADH`), so word-boundary matching was abandoned entirely.
+
+Went back to the same pattern this codebase already used successfully for
+the identical bug class in `scripts/audit-risk-tag-collisions.mjs`
+(`ALLOWED_PREFIXES` — a full corpus scan classified by hand, not a blanket
+regex change): wrote a throwaway scan
+(kept at `/tmp/.../scratchpad/scan-collisions.mjs`, not committed) that, for
+every `GOAL_KEYWORDS`/`PATHWAY_KEYWORDS` keyword, found every haystack
+occurrence that matches as a substring but not as a whole word, and printed
+the containing token. This surfaced ~30 distinct collision tokens across
+the whole herb+compound corpus — small enough to classify by hand. Roughly
+two-thirds were legitimate inflections that must keep matching (`dopamine`→
+`dopaminergic`, `adaptogen`→`adaptogenic`, `calm`→`calming`/`calmness`,
+`sirt`→`sirt1`, `nad`→`nadh`, `5-ht`→`5-htp`/`5-ht1a`, `gaba`→`gabaergic`,
+`probiotic`→`probiotics`, `relax`→`relaxation`/`relaxed`/`relaxant`,
+`acetylcholine`→`acetylcholinesterase`, etc.) and confirmed the substring
+matcher's design already handles these correctly — no bug there. The other
+third were genuine false positives, all species-name fragments, unrelated
+compound names, or acronym collisions: `tension`→`hypotension`/
+`hypertension`/`extension`; `rest`→`interest`/`terrestris` (Tribulus
+terrestris)/`krestin`/`agrestis` (Fadogia agrestis)/`restriction`; `ampa`→
+`elecampane`; `atp`→`oatp`; `cox`→`fucoxanthin`; `pain`→`papain`; `ngf`→
+`meaningful`; `panic`→`paniculata`/`paniculatus` (species epithets).
+
+Fixed by adding a `FACET_MATCH_FALSE_POSITIVE_TOKENS` list (the ~14 bad
+tokens above) that `matchFacets()` strips from its own lower-cased copy of
+the haystack before running the existing, unchanged `.includes()` matcher —
+the original `haystack` used for `searchText`/tags elsewhere is untouched, so
+this only affects `goals`/`pathways` facet derivation. Verified via the same
+before/after `search-index.json` diff discipline the word-boundary attempt
+used: 26 herb/compound docs changed, every change a pure removal (subset),
+zero additions, and spot-checked that all previously-good matches
+(`nicotinamide-riboside`/`nadh`/`nr`/`trans-resveratrol` keep `longevity`;
+`probiotics`/`probiotics-lactobacillus` keep `gut-health`; `calamus` keeps
+`sleep` from a genuine "sedatives" mention) survived intact. This directly
+resolves the exact case Codex flagged three times
+(`coleus-forskohlii`/`dendrobium`/`andrographis-paniculata`/
+`celastrus-paniculatus` all correctly lose a false `anxiety` facet from
+"hypotension" while keeping their legitimate `heart-health`/`sleep`/
+`inflammation` facets from whole-word matches in the same text).
+
+`npm run check` (typecheck + lint + article-quality + `data:build:core`,
+which regenerates `search-index.json` from source) passed clean; full
+Vitest suite (651/651) passed. Diff scope: `scripts/data/build-search-index.mjs`
++ `search-index.json` only (`build-info.json` timestamp reverted).
+
+**Takeaway for future cycles:** (1) this closes the goal-facet-contamination
+thread that recurred across 4 entries/3 PR reviews above — no longer needs
+re-flagging. (2) the general lesson holds beyond this one bug: when a
+short keyword is matched via substring against a large, varied text corpus,
+don't jump to a blanket algorithmic fix (word-boundary regex, field
+exclusion) without first diffing the *entire* before/after output — both
+blanket approaches attempted here looked safe from first principles and
+both had real regressions only visible in a full corpus diff. A scan-then-
+curate approach (enumerate every actual collision, classify by hand, strip
+only the confirmed-bad ones) is slower per-cycle but is what actually
+shipped clean, and mirrors the precedent this codebase already set with
+`audit-risk-tag-collisions.mjs`. (3) the always-empty
+`herbs.json.interactions` field (documented in the "batch 3, PR review"
+entry) is still open and unrelated to this fix — still worth its own future
+cycle.

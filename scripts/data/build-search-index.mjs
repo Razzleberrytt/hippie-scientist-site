@@ -61,8 +61,32 @@ const PATHWAY_KEYWORDS = {
   endocannabinoid: ['endocannabinoid', 'cb1', 'cb2', 'cannabinoid'],
 }
 
+// Taxonomy keywords are matched by plain substring (not whole-word) so that
+// real inflections still count — "sedative" -> "sedatives", "sirt" -> "SIRT1",
+// "dopamine" -> "dopaminergic", "nad" -> "NADH", etc. That same substring
+// leniency means a short keyword can also land inside an unrelated word by
+// coincidence. This list was built by scanning every herb/compound haystack
+// for every taxonomy keyword and inspecting each non-whole-word hit by hand;
+// these are the ones confirmed unrelated to the facet they'd otherwise
+// trigger (species-name fragments, unrelated compound names, acronym
+// collisions) — e.g. "tension" inside "hypotension" wrongly implying anxiety,
+// "rest" inside "Tribulus terrestris" or "Fadogia agrestis" wrongly implying
+// sleep, "ampa" inside "elecampane" wrongly implying the AMPA pathway.
+// Stripped from the matching haystack only — the raw haystack is untouched
+// everywhere else (full-text search, tags, etc.).
+const FACET_MATCH_FALSE_POSITIVE_TOKENS = [
+  'hypotension', 'hypertension', 'extension',
+  'interest', 'terrestris', 'krestin', 'agrestis', 'restriction',
+  'fucoxanthin', 'papain', 'meaningful',
+  'paniculata', 'paniculatus',
+  'elecampane', 'oatp',
+]
+
 function matchFacets(haystack, taxonomy) {
-  const lower = haystack.toLowerCase()
+  let lower = haystack.toLowerCase()
+  for (const token of FACET_MATCH_FALSE_POSITIVE_TOKENS) {
+    lower = lower.replaceAll(token, ' ')
+  }
   const matched = []
   for (const [facet, keywords] of Object.entries(taxonomy)) {
     if (keywords.some((kw) => lower.includes(kw))) matched.push(facet)
