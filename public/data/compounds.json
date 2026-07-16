@@ -45892,7 +45892,13 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "safety": "Sedation; additive effects with CNS depressants.",
-    "contraindications": [],
+    "contraindications": [
+      "Known hypersensitivity to passionflower",
+      "sedative medications or alcohol or benzodiazepines or opioids due to additive CNS depression",
+      "MAOI medications due to theoretical monoamine oxidase inhibitory activity from trace beta-carboline alkaloids",
+      "pregnancy due to uterine-stimulant effect",
+      "anesthesia or perioperative sedative medications due to additive CNS-depressant effect."
+    ],
     "interactions": [],
     "side_effects": [],
     "dosage": "capsule or standardized extract",
