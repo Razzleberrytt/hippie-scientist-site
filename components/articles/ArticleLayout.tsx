@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import BackToTop from './BackToTop'
 import KeyDetailsBox from './KeyDetailsBox'
 import RelatedArticles from './RelatedArticles'
 import type { KeyDetailsBoxProps } from './KeyDetailsBox'
@@ -57,6 +58,7 @@ export default function ArticleLayout({
           </aside>
         )}
       </div>
+      <BackToTop />
     </div>
   )
 }
