@@ -2563,6 +2563,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Can potentiate MAOIs (phenelzine, tranylcypromine) causing manic-like symptoms, and combining with other stimulants may raise heart rate and blood pressure. May reduce warfarin's anticoagulant effect, altering bleeding-clot risk and requiring dose review. Avoid with uncontrolled high blood pressure, acute asthma, acute infections, or heavy nosebleeds or menstrual bleeding.",
     "contraindications": [
       "Stimulants",
       "anticoagulants"
@@ -13780,6 +13781,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Raises bleeding risk when combined with anticoagulants, antiplatelets, or NSAIDs (aspirin, clopidogrel); may lower the seizure threshold and reduce the effectiveness of seizure medication, so avoid combining with anti-seizure drugs. Discontinue at least two weeks before elective surgery; raw or roasted ginkgo seeds contain ginkgotoxin and are a distinct seizure risk from the extract.",
     "contraindications": [
       "Anticoagulants",
       "SSRIs"
@@ -25662,6 +25664,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May increase bleeding risk when combined with anticoagulants, antiplatelets, or aspirin, and can oppose immunosuppressant medications used post-transplant or for autoimmune disease. Existing liver disease is a caution requiring medical supervision; rare liver-enzyme elevation has been reported mainly at very high, prolonged doses. Mild dizziness, GI upset, or skin irritation are the most common side effects.",
     "contraindications": [
       "autoimmune conditions (caution)",
       "bleeding disorders",

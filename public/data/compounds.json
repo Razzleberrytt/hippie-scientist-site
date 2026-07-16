@@ -3530,6 +3530,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May cause additive sedation with benzodiazepines, alcohol, or other CNS depressants due to GABA-A benzodiazepine-site activity; in-vitro CYP3A4 inhibition raises a theoretical interaction flag with warfarin and other narrow-therapeutic-index drugs. Insufficient safety data in pregnancy and breastfeeding.",
     "contraindications": [
       "pregnancy"
     ],
@@ -32038,6 +32039,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Can trigger manic episodes in people with bipolar disorder and should only be used under a clinician's supervision in that population. May affect blood glucose control in diabetes or hypoglycemia. Pregnancy safety data are insufficient given a theoretical uterine-contraction risk at high doses. Doses up to 18 g/day are typically limited to mild GI upset, sleepiness, or dizziness.",
     "contraindications": [
       "Limited data."
     ],
