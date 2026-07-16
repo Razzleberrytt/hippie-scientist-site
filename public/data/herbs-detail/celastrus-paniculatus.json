@@ -15,14 +15,15 @@
     "NF-kB Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "sedative or benzodiazepine medication because celastrus paniculatus exerts CNS-depressant activity and may have an additive sedative effect",
+    "pregnancy because celastrus paniculatus has traditional abortifacient and uterine-stimulant use",
+    "male fertility concerns or high-dose long-term use because animal studies have shown reversible antispermatogenic and liver effects at high doses"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Sedatives",
+    "Benzodiazepines"
   ],
   "preparation": "",
   "traditionalUses": [],

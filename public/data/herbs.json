@@ -2186,10 +2186,9 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "pregnancy or breastfeeding without clinician guidance because ashoka has traditional uterine-stimulant activity and insufficient safety data exists",
+      "diabetes medication because ashoka has documented hypoglycemic activity and may have an additive blood-glucose-lowering effect",
+      "hormone replacement therapy or hormonal contraceptives because ashoka has shown estrogenic activity in research and may alter hormone levels"
     ],
     "interactions": [],
     "side_effects": [],
@@ -4808,10 +4807,9 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "warfarin or other vitamin K antagonist medication because high dietary vitamin K may counteract its blood-thinning effect and require consistent intake to keep dosing stable",
+      "known allergy to the Brassicaceae family such as cabbage or canola or turnip because cross-reactive proteins have caused documented allergic reactions including anaphylaxis",
+      "hypothyroidism or iodine deficiency because heavy or concentrated intake of glucosinolates may impair thyroid hormone synthesis"
     ],
     "interactions": [],
     "side_effects": [],
@@ -6432,10 +6430,9 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "digoxin or other cardiac glycoside medication because cassia alata's anthraquinone content may cause potassium loss with chronic or excessive use and affect cardiac glycoside safety",
+      "pregnancy because cassia alata has traditional abortifacient use and uterine-stimulant activity",
+      "long-term or high-dose extract use because animal studies have shown dose-dependent liver changes"
     ],
     "interactions": [],
     "side_effects": [],
@@ -6856,10 +6853,9 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "sedative or benzodiazepine medication because celastrus paniculatus exerts CNS-depressant activity and may have an additive sedative effect",
+      "pregnancy because celastrus paniculatus has traditional abortifacient and uterine-stimulant use",
+      "male fertility concerns or high-dose long-term use because animal studies have shown reversible antispermatogenic and liver effects at high doses"
     ],
     "interactions": [],
     "side_effects": [],
@@ -28904,10 +28900,9 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "hormone replacement therapy or hormonal contraceptives or other hormone-altering medication because suma has been shown to raise estradiol and testosterone and progesterone levels in research",
+      "estrogen-sensitive or hormone-sensitive cancer such as breast or prostate cancer without clinician guidance due to suma's documented hormonal activity",
+      "pregnancy or breastfeeding without clinician guidance due to insufficient safety data"
     ],
     "interactions": [],
     "side_effects": [],
