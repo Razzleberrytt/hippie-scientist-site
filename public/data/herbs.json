@@ -1421,10 +1421,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "concentrated essential oil or extract because its estragole content reaches 88 to 95 percent of the essential oil and estragole is a rodent-model genotoxic carcinogen at high cumulative exposure",
+      "pregnancy or breastfeeding without clinician guidance due to estragole's carcinogenic profile and the recommendation to minimize cumulative estragole exposure during these periods",
+      "young children due to the same cumulative estragole-exposure caution and lower-estragole herbs being preferred at this life stage",
+      "known allergy to Lamiaceae family plants because Agastache foeniculum is a mint-family species"
     ],
     "interactions": [],
     "side_effects": [],
@@ -12696,10 +12696,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "diabetes medication because fingerroot's pinostrobin and pinocembrin inhibit carbohydrate-digesting enzymes and increase insulin secretion which may cause an additive blood-glucose-lowering effect",
+      "CYP1A2-metabolized medication such as caffeine or theophylline or clozapine because pinocembrin is a potent competitive CYP1A2 inhibitor with predicted clinical interaction potential",
+      "pregnancy without clinician guidance because fingerroot's traditional use for easing menstrual cramps suggests uterine smooth-muscle activity",
+      "known allergy to Zingiberaceae family plants because Boesenbergia rotunda is in the ginger family"
     ],
     "interactions": [],
     "side_effects": [],
@@ -21655,10 +21655,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "any internal use of concentrated extract or essential oil because its high safrole content is classified as a rodent hepatocarcinogen and was banned from human food use in the United States since 1960",
+      "pregnancy or breastfeeding without clinician guidance due to safrole's carcinogenic profile and lack of an established safe exposure threshold",
+      "young children due to the same safrole carcinogenicity and hepatotoxicity caution",
+      "known allergy to Lauraceae family plants because Ocotea odorifera is in the laurel family"
     ],
     "interactions": [],
     "side_effects": [],
@@ -27449,10 +27449,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "pregnancy because Selaginella tamariscina Juan Bai is classified among contraindicated herbs for pregnancy in traditional Chinese medicine texts",
+      "warfarin or other CYP2C9-metabolized anticoagulant medication because its selaginellin compounds show inhibitory activity against CYP2C9 in human liver microsomes",
+      "medication metabolized by CYP2C8 or CYP2J2 because selaginellin and selaginellin M show high inhibitory potential against these enzymes in human liver microsome studies",
+      "known allergy to Selaginellaceae family plants because Selaginella tamariscina is a spikemoss species"
     ],
     "interactions": [],
     "side_effects": [],

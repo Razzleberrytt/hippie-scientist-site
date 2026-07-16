@@ -12,14 +12,16 @@
     "endocannabinoid_modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "concentrated essential oil or extract because its estragole content reaches 88 to 95 percent of the essential oil and estragole is a rodent-model genotoxic carcinogen at high cumulative exposure",
+    "pregnancy or breastfeeding without clinician guidance due to estragole's carcinogenic profile and the recommendation to minimize cumulative estragole exposure during these periods",
+    "young children due to the same cumulative estragole-exposure caution and lower-estragole herbs being preferred at this life stage",
+    "known allergy to Lamiaceae family plants because Agastache foeniculum is a mint-family species"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Estragole-containing herbs",
+    "Sedative or hepatotoxic medications"
   ],
   "preparation": "",
   "traditionalUses": [],
@@ -40,6 +42,20 @@
       "authors": "Pașca C et al.",
       "year": 2021,
       "url": "https://pubmed.ncbi.nlm.nih.gov/34439010/"
+    },
+    {
+      "pubmedId": "22561883",
+      "title": "Estragole: a weak direct-acting food-borne genotoxin and potential carcinogen",
+      "authors": "Martins C et al.",
+      "year": 2012,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22561883/"
+    },
+    {
+      "title": "Bridging the Chemical Profile and Biological Activities of a New Variety of Agastache foeniculum (Pursh) Kuntze Extracts and Essential Oil",
+      "authors": "Bălănescu F et al.",
+      "year": 2023,
+      "doi": "10.3390/ijms24010828",
+      "url": "https://doi.org/10.3390/ijms24010828"
     }
   ],
   "governance": {
@@ -54,10 +70,12 @@
   },
   "evidence": {
     "reviewStatus": "sourced",
-    "sourceCount": 2,
+    "sourceCount": 4,
     "sourceIds": [
       "33391017",
-      "34439010"
+      "34439010",
+      "22561883",
+      "10.3390/ijms24010828"
     ]
   },
   "claimMap": [],

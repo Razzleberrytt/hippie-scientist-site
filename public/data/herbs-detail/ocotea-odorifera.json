@@ -10,14 +10,16 @@
     "Inflammatory Signaling Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "any internal use of concentrated extract or essential oil because its high safrole content is classified as a rodent hepatocarcinogen and was banned from human food use in the United States since 1960",
+    "pregnancy or breastfeeding without clinician guidance due to safrole's carcinogenic profile and lack of an established safe exposure threshold",
+    "young children due to the same safrole carcinogenicity and hepatotoxicity caution",
+    "known allergy to Lauraceae family plants because Ocotea odorifera is in the laurel family"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Hepatotoxic medications",
+    "Other safrole-containing herbs"
   ],
   "preparation": "",
   "traditionalUses": [],
@@ -45,6 +47,13 @@
       "authors": "Achimón F et al.",
       "year": 2022,
       "url": "https://pubmed.ncbi.nlm.nih.gov/36432799/"
+    },
+    {
+      "pubmedId": "22024337",
+      "title": "Comprehensive toxicity study of safrole using a medium-term animal model with gpt delta rats",
+      "authors": "Jin M et al.",
+      "year": 2011,
+      "url": "https://pubmed.ncbi.nlm.nih.gov/22024337/"
     }
   ],
   "governance": {
@@ -59,11 +68,12 @@
   },
   "evidence": {
     "reviewStatus": "sourced",
-    "sourceCount": 3,
+    "sourceCount": 4,
     "sourceIds": [
       "28407959",
       "32918995",
-      "36432799"
+      "36432799",
+      "22024337"
     ]
   },
   "claimMap": [],
