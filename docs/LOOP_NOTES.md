@@ -2707,3 +2707,77 @@ omega-3 trio, `creatine-beta-alanine`) were not checked against
 `workbook-patches/` this cycle — do that check first, per the above, before
 trusting the naming-policy resolution proposed in the prior entry applies
 cleanly to any of them.
+
+---
+
+## 2026-07-16 (later still) — Built the standing `audit:patch-flagged-slugs`-equivalent this entry called for: taught `audit:safety` to separate deliberate abstentions from real gaps
+
+Fresh cold session. `npm run audit:safety`'s "TOP 20 SAFETY COVERAGE GAPS"
+still opened with the same ~14 `priority=95` compounds the last 3 entries
+above have each independently re-investigated and correctly declined to
+fill (`bacopaside-ii`, the curcuminoid pair, `caffeine-l-theanine`, the
+omega-3 trio, `creatine*`, etc.). Manually grepped
+`data-sources/workbook-patches/*.json` for each, per the standing habit —
+every single one hit an **applied**, `requires_human_review: true` change
+that had already, deliberately, cleared `contraindications_or_flags` to
+`''` because the cited evidence (often a whole-extract trial) can't support
+a categorical contraindication for an isolated constituent or
+single-ingredient product. Went one level further this time and checked the
+next tier down too (the `priority=67` betaine cluster, `boswellia-akba-
+standardized`, etc., never discussed in this file before) — same pattern,
+same same-week batches (`safety-coverage-batch-1/2-2026-07-15.json`,
+`trust-completeness-batch-1/2-2026-07-15.json`). Every top-20 entry was a
+settled decision, not a gap.
+
+**This is the exact recurring-friction pattern this file's own prior entry
+flagged as worth a standing script for** ("a legitimate high-ROI target...
+`audit:patch-flagged-slugs <slug1> <slug2> ...` that a cycle runs before
+starting to draft any contraindications content at all"). Rather than a
+separate script needing a slug list fed in by hand each cycle, built it
+directly into `scripts/audit-safety-fill-rate.mjs` (the tool that surfaces
+the slugs in the first place) so it runs automatically with zero per-cycle
+setup — same shape as the existing precedent at
+`scripts/audit/verify-curated-indexable.mjs`'s `isDeliberateHold()`, which
+already solved this identical problem for indexability governance holds.
+
+Added `loadDeliberateAbstentions()`: scans `data-sources/workbook-patches/
+*.json`, and for every `status: "applied"` patch, records any change where
+`column` matches `contraindications_or_flags` (or a legacy variant),
+`new_value` is empty, and `requires_human_review` is `true`. `summarize()`
+now tags each `PRIMARY_ONLY` record with the matching patch file if its
+slug is in that set. The report's "TOP 20" list now excludes tagged
+records entirely and instead prints them under a new, explicitly
+non-actionable `DELIBERATE ABSTENTIONS` section naming the patch file each
+one came from, so a future cycle can go verify the rationale directly
+instead of re-deriving it from scratch.
+
+**Effect, verified by re-running `audit:safety` before/after:** 51 of the
+283 `primary_only` records across both tiers turned out to be settled
+abstentions (14 `priority=95` + the `priority=67` betaine/boswellia cluster
++ ~30 more never previously surfaced in this file, e.g. `gingerols`,
+`ginkgolides`, `maca-root-extract`, `atractylenolide-i/ii/iii`,
+`guggulsterone`). The "TOP 20" list is now genuinely actionable for the
+first time: all `priority=5` obscure-tail compounds
+(`23-epi-26-deoxyactein`, `5-meo-dmt`, `7-hydroxymitragynine`, etc.) that
+were previously invisible behind the same ~20 settled high-priority slugs
+every cycle re-discovered.
+
+Added 3 test cases to `scripts/audit-safety-fill-rate.test.mjs` (applied +
+human-reviewed blank-flags change is caught; proposal-status/non-flags-
+column/no-human-review changes are correctly ignored; `summarize()` still
+reports `PRIMARY_ONLY` status for an abstained record — this is about
+what's *actionable*, not changing the underlying fill-rate math). Full
+gate green: `typecheck`, `lint`, `npm run test` (635/635), `npm run check`
+(including a `data:build:core` regen — diffed clean, only the disposable
+`build-info.json` timestamp changed, reverted before commit). No workbook
+edit, no `public/data` change — this cycle is a tooling-only PR.
+
+**Takeaway for future cycles:** the `priority=95`/`priority=67` gaps this
+file has spent 4 entries manually re-litigating should no longer appear in
+`audit:safety`'s top-20 at all. If they reappear, something regressed this
+new check (e.g. a workbook edit changed `contraindications_or_flags` back
+to non-empty without updating/removing the stale patch record, or a new
+workbook-patches file wasn't picked up) — investigate the mismatch, don't
+assume the slug is fair game again. Genuinely new abstention decisions
+(new patch files, same shape) will be picked up automatically with no
+further tooling work needed.
