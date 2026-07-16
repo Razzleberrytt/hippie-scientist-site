@@ -221,7 +221,7 @@ export default async function ComparePage() {
         description="Compare herbs and supplements by evidence strength, mechanism, stimulation profile, safety, and dosing. Each comparison page shows data-backed tradeoffs — not marketing claims."
         actions={[
           { href: '#start-by-goal', label: 'Start by goal' },
-          { href: '#featured-comparisons', label: 'Browse comparisons', variant: 'secondary' },
+          { href: '#featured-comparisons', label: 'Browse categories', variant: 'secondary' },
         ]}
       >
         <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm">
@@ -269,8 +269,8 @@ export default async function ComparePage() {
       <section id="featured-comparisons" className="space-y-7 scroll-mt-24">
         <PremiumSectionHeader
           eyebrow="Browse by category"
-          title="Featured comparisons"
-          description="Each page covers evidence level, mechanisms, dosing, safety, and which fits your goal better."
+          title="Browse by supplement category"
+          description="Already know the type of supplement you are comparing? Use these grouped lists to jump into nearby options by family, mechanism, or use case."
         />
         {FEATURED_CATEGORIES.map((cat) => (
           <div key={cat.label} className="space-y-3">
@@ -296,8 +296,8 @@ export default async function ComparePage() {
       </section>
 
       <PremiumCard as="section" className="p-5">
-        <h2 className="text-xl font-semibold text-ink">More comparison starting points</h2>
-        <p className="mt-2 text-sm leading-6 text-muted">Flagship pages with the most detailed evidence breakdowns.</p>
+        <h2 className="text-xl font-semibold text-ink">Flagship comparison pages</h2>
+        <p className="mt-2 text-sm leading-6 text-muted">Broad, high-intent pages with the most detailed evidence and safety breakdowns.</p>
         <ul className="mt-4 grid gap-2 text-sm leading-6 text-muted sm:grid-cols-2">
           {popularComparisonPairs.map(pair => (
             <li key={pair.href}>
