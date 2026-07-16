@@ -121,7 +121,7 @@
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users.",
+  "safety": "Safety evidence: one controlled human trial in a narrow clinical population. In a 48-week trial in 63 men with advanced HIV disease, oral acemannan had no significant adverse-event difference from placebo and no significant pharmacokinetic interaction with zidovudine; other populations, pregnancy, breastfeeding, organ impairment, and other medications remain insufficiently studied.",
   "sources": [
     {
       "id": "src_641600177dcb",

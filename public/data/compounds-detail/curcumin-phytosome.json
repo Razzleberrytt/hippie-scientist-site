@@ -40,5 +40,8 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "standardized extract capsule",
-  "typical_dosage": "standardized extract capsule"
+  "typical_dosage": "standardized extract capsule",
+  "contraindications": [
+    "Previous turmeric- or curcumin-associated liver injury because recurrence after re-exposure has been reported."
+  ]
 }

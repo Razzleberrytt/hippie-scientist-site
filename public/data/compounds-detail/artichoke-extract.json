@@ -77,5 +77,9 @@
     }
   ],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Avoid artichoke leaf extract with bile-duct obstruction or other obstructive biliary disease",
+    "avoid with known hypersensitivity to artichoke or other Asteraceae-family plants. Gallstone disease requires clinician review."
+  ]
 }

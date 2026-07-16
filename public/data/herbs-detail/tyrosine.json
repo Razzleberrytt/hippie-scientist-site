@@ -15,7 +15,8 @@
   "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "MAO inhibitors",
-    "thyroid meds"
+    "thyroid meds",
+    "combining with MAO inhibitors may increase risk of hypertensive crisis due to catecholamine precursor effects"
   ],
   "interactions": [
     "MAO inhibitors",

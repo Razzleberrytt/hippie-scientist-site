@@ -76,5 +76,8 @@
     }
   ],
   "dosage": "powder or capsule",
-  "typical_dosage": "powder or capsule"
+  "typical_dosage": "powder or capsule",
+  "contraindications": [
+    "Difficulty swallowing or known esophageal narrowing or dysfunction because psyllium can swell and obstruct without adequate fluid."
+  ]
 }

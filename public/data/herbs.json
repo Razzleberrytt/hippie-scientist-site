@@ -9688,7 +9688,8 @@
     "trial_design_insight": "",
     "contraindications": [
       "history of kidney stones (oxalate)",
-      "warfarin (case reports of interaction)"
+      "warfarin (case reports of interaction)",
+      "potential additive bleeding risk when combined with anticoagulant or antiplatelet medications"
     ],
     "interactions": [],
     "side_effects": [],
@@ -15047,7 +15048,8 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "Cardiac medications"
+      "Cardiac medications",
+      "may have additive hypotensive effects with antihypertensive medications due to increased risk of low blood pressure"
     ],
     "interactions": [],
     "side_effects": [],
@@ -16955,7 +16957,8 @@
     "trial_design_insight": "",
     "contraindications": [
       "alcohol",
-      "hepatotoxic drugs"
+      "hepatotoxic drugs",
+      "additive sedation with benzodiazepines or opioids or other CNS-depressant medications due to increased drowsiness and psychomotor impairment"
     ],
     "interactions": [],
     "side_effects": [],
@@ -17290,7 +17293,8 @@
     "trial_design_insight": "",
     "contraindications": [
       "MAO inhibitors",
-      "thyroid meds"
+      "thyroid meds",
+      "combining with MAO inhibitors may increase risk of hypertensive crisis due to catecholamine precursor effects"
     ],
     "interactions": [],
     "side_effects": [],

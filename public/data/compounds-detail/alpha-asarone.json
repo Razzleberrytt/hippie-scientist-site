@@ -128,7 +128,7 @@
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users.",
+  "safety": "Safety evidence: preclinical toxicology evidence with no established human safety profile. Reviews identify cardiac, hepatic, reproductive, mutagenic, and carcinogenic signals in laboratory models, but these do not define human dose, incidence, or disease-specific contraindications.",
   "sources": [
     {
       "id": "src_ad6d412d2f8e",

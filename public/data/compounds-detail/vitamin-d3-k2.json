@@ -41,5 +41,9 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "capsule or softgel",
-  "typical_dosage": "capsule or softgel"
+  "typical_dosage": "capsule or softgel",
+  "contraindications": [
+    "Hypercalcemia or vitamin D toxicity",
+    "warfarin or another vitamin-K antagonist without clinician-directed anticoagulation monitoring."
+  ]
 }
