@@ -3102,3 +3102,93 @@ Diff scope: workbook + `herbs.json` + `entity_risk_tags.json` +
 `interaction_edges.json` (core-only pattern) + 5 individually-patched
 `herbs-detail/*.json` files, no other changes. `build-info.json` timestamp
 reverted before commit.
+
+---
+
+## 2026-07-16 (later) — PR review caught two more gaps on the same 5 herbs: a stale legacy `herbs-summary.json` file silently corrupting the search index, and generic `safetyNotes` shadowing the new contraindications on the live page
+
+Codex's automated review on PR #2323 (the tongkat-ali/boldo/pau-d-arco/bupleurum/
+crocus-sativus batch from the entry above) flagged two real, small, tractable
+issues before merge — both fixed in the same PR.
+
+**1. `app/herbs/[slug]/page.tsx`'s `getSafetySummary()` reads `herb.safetyNotes`
+first and only falls back to `contraindications` when notes is empty.** All 5
+detail files still had the literal placeholder `"Generally well tolerated for
+most users."` in `safetyNotes`, so the live page's prominent Safety & Cautions
+summary would have kept showing that generic reassurance instead of the new
+sourced cautions. Fixed by clearing `safetyNotes` to `""` on all 5 detail files
+— confirmed via `resolveRuntimeRecordLayers`'s blind `Object.assign` merge
+behavior (see finding 2 below) that an empty string in the *last* layer still
+wins over any earlier truthy value, so this correctly falls through to the
+`contraindications` branch. Neither `herbs.json` nor the detail files carry a
+`safety_notes`/`safety` alias for these 5, so a single field clear was
+sufficient — no need to touch `getSafetySummary()` itself.
+
+**2. A much bigger, previously-undocumented bug**: `scripts/data/
+build-search-index.mjs` read `herbs-summary.json`/`compounds-summary.json` from
+the **top level** of `public/data/`, not `public/data/summary-indexes/` where
+`build-runtime-summary-indexes.mjs` actually writes on every `data:build:core`
+run. The top-level files are orphaned — `ls -la` showed them last modified
+2026-07-13, three days stale, and `git log` confirms no core-pipeline script
+has touched them since; they're written by legacy one-off scripts
+(`generate-monograph-projection.mjs`, `build-runtime-data.mjs`) that aren't
+part of `data:build`/`data:build:core`/`check`. `mergeSearchRecords()` merges
+these into the search doc via `resolveRuntimeRecordLayers(core, [summary])`,
+and for any non-cluster-member record (nearly all of them —
+`CLUSTER_MEMBER_RUNTIME_DECISION` gating in `lib/runtime-record-resolver.mjs`
+only applies field-level trust filtering to a narrow cluster-member set) that
+merge is a **blind `Object.assign({}, base, ...layers)`** — any key present on
+the stale layer, even a whole array, silently overwrites the fresh `herbs.json`/
+`compounds.json` value with no meaningfulness check at all. Confirmed directly:
+`boldo`'s `searchText` in the committed `search-index.json` still contained the
+old boilerplate contraindications text even *after* two full `data:build:core`
+reruns with the new workbook content, because the stale top-level summary file
+carried a `contraindications` key the correct `summary-indexes/` version
+doesn't have (that file only carries indexability/mechanism metadata, not
+safety fields — the mismatch itself is what let this go unnoticed for so long).
+
+Fixed by pointing both `mergeSearchRecords()` calls in `build-search-index.mjs`
+at `summary-indexes/herbs-summary.json` / `summary-indexes/compounds-summary.json`
+instead of the stale top-level files. Rebuilding after the fix jumped the
+search index from 287→291 herb docs — **4 herbs were silently absent from
+site search entirely** because `mergeSearchRecords()` iterates the *summary*
+array as its primary loop (`summaries.map(...)`), so any herb slug added to
+`herbs.json` after the top-level file went stale never got a search doc at
+all, independent of this PR's specific content fix. This is a real, broader
+correctness win beyond the 5 herbs this cycle targeted.
+
+**Important scope note — this fix only covers the search index.** The exact
+same stale-top-level-file mechanism also feeds `getHerbs()`/`getCompounds()`
+in `src/lib/runtime-data.ts` (the function `getHerbBySlug()` — i.e. every live
+`/herbs/:slug` page — calls first), via the same blind-`Object.assign` merge.
+For the 5 herbs in this cycle it's provably harmless: `getHerbBySlug()` applies
+the `herbs-detail/{slug}.json` overlay as a *third*, final layer after
+`getHerbs()`, and since that detail file's `contraindications` key is now
+correct (finding from the entry above), it wins last regardless of what the
+stale top-level summary did upstream. **But any herb/compound with NO detail
+file at all — or a detail file that doesn't carry `contraindications` — has no
+such rescue layer, and would render whatever `getHerbs()` produces, which can
+still be corrupted by the stale top-level file for any record with a
+mismatched `contraindications`/`interactions` value there.** This is a
+plausible, real gap on live pages, not just search — worth a dedicated future
+cycle: either (a) apply the same `summary-indexes/` path fix to
+`src/lib/runtime-data.ts`'s `getHerbs()`/`getCompounds()`, checking first
+whether any other consumer intentionally relies on the legacy top-level file's
+extra fields, or (b) regenerate/delete the legacy top-level files outright and
+audit the ~15 other scripts this file's own `grep` turned up that still
+reference `public/data/herbs-summary.json`/`compounds-summary.json` directly
+(`scripts/report-*.ts`, `scripts/audit-cluster-member-trust.mjs`,
+`scripts/data/build-related-runtime-maps.mjs`,
+`scripts/data/build-internal-link-engine.mjs`, `scripts/ci/
+build-seo-audit-reports.mjs`, `scripts/verify-curated-affiliates.ts`,
+`scripts/generate-homepage-data-lite.mjs`, `scripts/report-performance-budget.mjs`)
+— several of those may have the exact same staleness exposure, unverified
+this cycle. Kept this PR's fix narrowly scoped to `build-search-index.mjs`
+(the one Codex actually flagged) rather than touching that much surface area
+in a review-response commit.
+
+`data:validate`, `guard:source-of-truth`, and the full Vitest suite (643/643)
+passed after both fixes. Diff: `scripts/data/build-search-index.mjs` (2-line
+path fix) + regenerated `search-index.json` + `safetyNotes: ""` on the same 5
+`herbs-detail/*.json` files from the entry above — no workbook or `herbs.json`/
+`compounds.json` change this round.
