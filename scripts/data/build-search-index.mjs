@@ -62,9 +62,10 @@ export const PATHWAY_KEYWORDS = {
 }
 
 // Prefixes that legitimately glue onto a keyword with no separator (e.g.
-// "autoimmune" -> "immune"). Extend this list (not the matcher) when a new
-// legitimate compound term is found — do not weaken the boundary check.
-const ALLOWED_FACET_PREFIXES = ['auto']
+// "autoimmune" -> "immune", "neuroinflammation" -> "inflammation"). Extend
+// this list (not the matcher) when a new legitimate compound term is found —
+// do not weaken the boundary check.
+const ALLOWED_FACET_PREFIXES = ['auto', 'neuro']
 
 // A keyword match preceded by a letter that doesn't form an allowed prefix is
 // a coincidental substring collision, not a real hit — e.g. "tension" inside

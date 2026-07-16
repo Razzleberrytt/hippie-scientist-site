@@ -28,7 +28,11 @@ describe('matchFacets', () => {
     expect(matchFacets('caution with maois and antidepressants', GOAL_KEYWORDS)).toContain('mood')
   })
 
-  it('allows a curated legitimate prefix (auto- for autoimmune)', () => {
+  it('allows curated legitimate prefixes (auto-, neuro-)', () => {
     expect(matchFacets('caution in autoimmune thyroid disease', GOAL_KEYWORDS)).toContain('immune')
+    // Regression: the education page "What Is Neuroinflammation" has no
+    // frontmatter-derived goals, so it relies entirely on this facet match
+    // to appear under the Inflammation search filter.
+    expect(matchFacets('what is neuroinflammation', GOAL_KEYWORDS)).toContain('inflammation')
   })
 })
