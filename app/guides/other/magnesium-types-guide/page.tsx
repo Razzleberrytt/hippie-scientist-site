@@ -7,6 +7,8 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FAQSchema from '@/components/seo/FAQSchema'
 import References from '@/components/References'
 import EmailCapture from '../../../../components/EmailCapture'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Magnesium Types Compared: Which Form Is Best? (2026 Guide)',
@@ -35,6 +37,7 @@ const MAGNESIUM_TYPES_REFS = [
 ]
 
 export default function MagnesiumTypesPage() {
+  const magnesiumProducts = getRevenueProductSet('magnesium')
   return (
     <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd title="Magnesium Types Compared" description="Glycinate, citrate, oxide, threonate — which magnesium is right for you?" url="https://thehippiescientist.net/guides/other/magnesium-types-guide" type="Article" />
@@ -65,6 +68,14 @@ export default function MagnesiumTypesPage() {
           <div className="p-4 rounded-xl bg-red-50/60"><h3 className="font-semibold text-ink">Oxide — Avoid</h3><p className="mt-2 text-sm leading-7 text-muted">The cheapest and most common form in drugstore supplements — and the worst. Bioavailability is ~4% [2], meaning 96% passes through unabsorbed. It will raise magnesium levels in severely deficient people at high doses, but glycinate or citrate achieve the same effect at lower doses with fewer GI effects. Save your money.</p></div>
         </div>
       </section>
+
+      {magnesiumProducts && (
+        <RecommendationSection
+          title="Magnesium glycinate picks"
+          description="Glycinate is the all-purpose winner from the comparison above — well-absorbed, well-tolerated, and useful for sleep, anxiety, and general supplementation. These are sourcing starting points, not medical recommendations."
+          products={magnesiumProducts.products}
+        />
+      )}
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">The magnesium deficiency problem</h2><p className="text-sm leading-7 text-muted">Up to 50% of the US population consumes less than the EAR for magnesium [8]. Deficiency is associated with increased inflammation, poor sleep, anxiety, and cardiovascular risk. Processed food diets, soil depletion, and certain medications (PPIs, diuretics) all contribute. Most people would benefit from increasing magnesium intake through diet (leafy greens, nuts, seeds, legumes) or supplementation — and the form matters. Glycinate is the best general-purpose choice; citrate if constipation is a goal; threonate if you are specifically targeting brain health and can afford the premium.</p></section>
 
