@@ -31,7 +31,7 @@ const OUT_FILE = path.join(DATA_DIR, 'search-index.json')
 // merged with anything matched from its text.
 // ---------------------------------------------------------------------------
 
-const GOAL_KEYWORDS = {
+export const GOAL_KEYWORDS = {
   sleep: ['sleep', 'insomnia', 'somnifera', 'melatonin', 'sedative', 'sedation', 'wind down', 'rest', 'circadian'],
   stress: ['stress', 'cortisol', 'adaptogen', 'adrenal', 'hpa', 'resilience', 'relax', 'calm'],
   anxiety: ['anxiety', 'anxiolytic', 'nervous', 'tension', 'gaba', 'panic'],
@@ -48,7 +48,7 @@ const GOAL_KEYWORDS = {
   'heart-health': ['cardiovascular', 'blood pressure', 'circulation', 'cholesterol', 'cardiac'],
 }
 
-const PATHWAY_KEYWORDS = {
+export const PATHWAY_KEYWORDS = {
   dopamine: ['dopamine', 'dopaminergic', 'd2', 'reward', 'motivation'],
   serotonin: ['serotonin', 'serotonergic', '5-ht', 'ssri'],
   gaba: ['gaba', 'gabaergic', 'gaba-a', 'inhibitory'],
@@ -61,11 +61,42 @@ const PATHWAY_KEYWORDS = {
   endocannabinoid: ['endocannabinoid', 'cb1', 'cb2', 'cannabinoid'],
 }
 
-function matchFacets(haystack, taxonomy) {
+// Prefixes that legitimately glue onto a keyword with no separator (e.g.
+// "autoimmune" -> "immune", "neuroinflammation" -> "inflammation"). Extend
+// this list (not the matcher) when a new legitimate compound term is found —
+// do not weaken the boundary check.
+const ALLOWED_FACET_PREFIXES = ['auto', 'neuro']
+
+// A keyword match preceded by a letter that doesn't form an allowed prefix is
+// a coincidental substring collision, not a real hit — e.g. "tension" inside
+// "hypotension"/"hypertension" (neither is anxiety-related), "panic" inside
+// "paniculata"/"agrestis"/"terrestris" (plant species names), "cox" inside
+// "fucoxanthin", "atp" inside "oatp", "ngf" inside "meaningful", "pain"
+// inside "papain", "aging" inside "imaging". A trailing letter (plural/
+// adjectival suffixes like "sedative(s)", "adaptogen(ic)", "gaba(ergic)") is
+// left unrestricted since those are the normal inflected forms of a real hit.
+// See docs/LOOP_NOTES.md for the production case (dendrobium's "hypotension"
+// clause falsely tripping the anxiety facet) this was found from.
+function hasBoundedMatch(lower, kw) {
+  let from = 0
+  let idx
+  while ((idx = lower.indexOf(kw, from)) !== -1) {
+    from = idx + 1
+    const before = idx > 0 ? lower[idx - 1] : ''
+    if (!/[a-z]/.test(before)) return true
+    let start = idx
+    while (start > 0 && /[a-z]/.test(lower[start - 1])) start--
+    const prefix = lower.slice(start, idx)
+    if (ALLOWED_FACET_PREFIXES.includes(prefix)) return true
+  }
+  return false
+}
+
+export function matchFacets(haystack, taxonomy) {
   const lower = haystack.toLowerCase()
   const matched = []
   for (const [facet, keywords] of Object.entries(taxonomy)) {
-    if (keywords.some((kw) => lower.includes(kw))) matched.push(facet)
+    if (keywords.some((kw) => hasBoundedMatch(lower, kw))) matched.push(facet)
   }
   return matched
 }
@@ -313,4 +344,6 @@ function main() {
   )
 }
 
-main()
+if (import.meta.url === `file://${process.argv[1]}`) {
+  main()
+}

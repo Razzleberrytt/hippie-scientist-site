@@ -3584,3 +3584,113 @@ no independent literature), `fingerroot`, `ocotea-odorifera`,
 double-checking with a full (not `full_public_runtime`-only) scan before
 declaring the thread fully closed, since duplicate-slug species rows have
 under-counted this before (see the batch-3 entry above).
+
+---
+
+## 2026-07-16 (batch 5) — boilerplate-contraindications and token-only-compound threads both fully closed; fixed the recurring goal-facet keyword-collision bug at the root instead
+
+Fresh cold session. Confirmed both long-running content threads above are now
+done: (1) PR #2334 (merged after this doc's last entry, so not yet reflected
+here) sourced real pharmacology for the final 4 herbs including `anise-hyssop`
+— every `full_public_runtime` herb's boilerplate `contraindications` is
+replaced. (2) re-ran the token-only-`contraindications_or_flags` compound
+detection query fresh: of the 40 `full_public_runtime` compounds with empty
+`contraindications`, cross-referencing `data-sources/workbook-patches/*.json`
+found 35 are `requires_human_review: true` **deliberate abstentions** — a
+human-reviewed process already looked at these and concluded no
+disease-specific contraindication is established for the isolated/generic
+form (e.g. `betaine`, `gingerol`, `holy-basil-extract`), same reasoning as the
+already-documented `aucubin` deferral. The remaining 5
+(`eaa-blend`/`electrolyte-blend`/`glycine-sleep`/`inositol-sleep`/
+`taurine-blend`) are contextual-variant or multi-ingredient-blend rows of the
+same shape as `l-theanine-sleep`/`creatine-beta-alanine`/`caffeine-l-theanine`
+— sibling entities the same human review process *also* deliberately left
+blank (see the batch-3 entry's abstention rationale) rather than infer a
+blend/context-specific contraindication from the base compound. Filling these
+5 would contradict that established precedent, so left them alone. **Both
+threads are exhausted for now** — a future cycle should look elsewhere (or
+re-run the detection queries fresh in case new compounds are promoted to
+`full_public_runtime`, since that has changed the count before).
+
+With no safe per-entity enrichment available, used the self-improvement path:
+finally fixed the goal-facet-contamination bug documented in three prior
+entries above (`2026-07-16 batch 3, PR review`; `2026-07-16 batch 4a`; and
+recurring since) — Codex's automated review flagged it on three separate
+content PRs and every cycle deferred it as too large a blast radius to fix
+inside a content batch. Root cause: `matchFacets()` in
+`scripts/data/build-search-index.mjs` matched `GOAL_KEYWORDS`/
+`PATHWAY_KEYWORDS` via plain `String.includes()` with zero word-boundary
+checking — the *exact* same bug class already fixed for the interaction
+matcher's `KEYWORDS` table (see the 2026-07-13 `audit:risk-tag-collisions`
+entry), just never applied to this second, independent keyword matcher.
+Confirmed the blast radius was much bigger than the one reported instance:
+built a throwaway corpus-wide diff script and found `"tension"` inside
+`"hypotension"`/`"hypertension"` alone falsely tagged roughly a dozen entities
+with an `anxiety` facet, plus unrelated collisions like `"rest"` inside
+`"terrestris"`/`"agrestis"` (species names), `"cox"` inside `"fucoxanthin"`,
+`"atp"` inside `"oatp"`, `"pain"` inside `"papain"`, `"ngf"` inside
+`"meaningful"`, and `"aging"` inside `"imaging"`.
+
+The previously-attempted fix (see the `batch 3, PR review` entry) tried
+excluding `contraindications` text from the facet haystack entirely and was
+correctly reverted — it touched 70 herbs and silently dropped real facets
+(e.g. `danshen` losing `heart-health`) that had no other signal source. A
+strict `\b...\b` word-boundary regex was the next thing tried here and *also*
+had to be reverted after corpus-testing: it broke roughly as many good
+matches as it fixed, because real safety/mechanism text is full of legitimate
+inflected forms glued as a **suffix** onto a keyword (`sedative`+s,
+`adaptogen`+ic, `gaba`+ergic, `dopamine`+rgic, `probiotic`+s, `antidepressant`
++s, `sirt`+1, `5-ht`+1a) that a two-sided boundary check rejects along with
+the real bugs.
+
+The fix that survived corpus validation: only reject a match that's
+**preceded** by a letter not forming a small curated allowed-prefix list
+(mirroring `ALLOWED_PREFIXES` in `audit-risk-tag-collisions.mjs` exactly —
+same shape of fix, different matcher). Every confirmed bad collision found
+above turned out to be prefix-glued (a letter immediately before the match);
+every desired inflected form turned out to be suffix-glued (a letter
+immediately after). The only prefix-glued case worth keeping was
+`"autoimmune"` → `immune`, added as the sole entry in a new
+`ALLOWED_FACET_PREFIXES` list. Verified corpus-wide: 34 entities' facets
+changed (down from the reverted attempt's 70+100), and manually inspected the
+matched-substring context for every distinct keyword collision in the diff to
+confirm each was a genuine bug, not a lost real match. One known residual
+gap, accepted as a deliberate trade-off: a keyword that starts *cleanly* but
+is itself a false-positive substring inside a longer word (e.g. `"panic"` at
+the start of `"paniculata"`, or `"rest"` at the start of a hyphen-prefixed
+`"restricted"`) isn't caught, since that's the same shape as the desired
+suffix-glued inflected forms and can't be distinguished by boundary position
+alone — flagging as a candidate for a future, more targeted denylist entry if
+it recurs.
+
+Added `scripts/data/build-search-index.test.mjs` (new file — no prior test
+existed for this module) covering both the fixed false positives and the
+preserved legitimate/inflected matches, plus an `import.meta.url` entrypoint
+guard on `build-search-index.mjs` so `main()` doesn't run as a side effect of
+importing the module for testing (needed since the module has no such guard
+today and was unconditionally re-writing `search-index.json` on every
+`import`, including from the test file, before this was added). `npm run
+check` (which regenerates `search-index.json` via `data:build:core`) reproduced
+the exact same output byte-for-byte on a second run, confirming determinism.
+Full Vitest suite (656/656), `data:validate`, and `guard:source-of-truth` all
+passed clean. Diff scope: `scripts/data/build-search-index.mjs` +
+new test file + `public/data/search-index.json` only (`build-info.json`
+timestamp reverted).
+
+**Takeaway for future cycles:** (1) both the boilerplate-herb-contraindications
+and token-only-compound-contraindications threads that dominated roughly a
+dozen prior entries in this file are closed for now — don't restart either
+without a fresh detection query first, and if one comes back non-empty, check
+whether the new hits are deliberate-abstention-shaped (contextual variant /
+blend / isolated-constituent-vs-whole-plant) before assuming they're fillable.
+(2) the always-empty flat-record `interactions` field (documented several
+entries above) and the fact that `interactions` is now the single largest
+completeness gap in `audit:content-gaps` (35.9% fill rate, 549/856 missing) —
+via `interaction_edges.json`, not the dead flat field — are the next most
+promising threads, but both are systemic/derived-data problems requiring a
+pipeline-level look, not a small per-entity content batch. (3) when a Codex
+review finding recurs 3+ times across unrelated PRs with the same "needs its
+own dedicated cycle" deferral, that's a strong signal it's this kind of
+small-fix-with-a-previously-oversized-attempt problem — worth spending a full
+cycle's budget on a from-scratch corpus-validated fix (as here) rather than
+re-deferring a 4th time.
