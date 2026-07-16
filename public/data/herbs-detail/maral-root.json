@@ -10,14 +10,17 @@
     "Stress Response Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "hormone-sensitive cancer such as estrogen-receptor-positive breast cancer because maral root shows estrogen receptor-binding activity",
+    "bleeding disorder or anticoagulant medication because maral root may affect bleeding risk",
+    "known allergy to Asteraceae family plants because Rhaponticum carthamoides is in the daisy family",
+    "immunosuppressant therapy because maral root may stimulate immune activity and blunt drug effectiveness",
+    "severe liver or kidney impairment because safety has not been established in these populations"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Anticoagulant medications",
+    "Immunosuppressants"
   ],
   "preparation": "",
   "traditionalUses": [],
