@@ -2577,3 +2577,133 @@ pipelines collide on the same cell. Also: **whenever a cycle edits any
 corresponding entry in `data-sources/workbook-patches/*.json` with `status: "applied"`,
 check whether that patch's recorded `new_value` still matches post-edit** — the collision
 isn't hypothetical, it already happened twice on the same three slugs in the same day.
+
+---
+
+## 2026-07-16 (later) — Proposed a resolution to the long-standing variant/family-cluster naming-policy question (not yet shipped — see next entry)
+
+Read the actual `compounds.json` entries for `creatine`, `creatine-hcl`,
+and `creatine-monohydrate` before drafting anything, rather than treating
+the ~9-entry-old unresolved naming-policy question abstractly again.
+`creatine-hcl`'s own existing `summary` already states the site's editorial
+position explicitly — *"creatine monohydrate has strong evidence, but
+creatine HCl should not inherit formulation-specific authority without
+direct comparative human evidence"*. That is itself the answer: when
+variants share the identical active pharmacophore (same molecule, different
+salt/blend form) and there is no published evidence of a *distinct* human
+safety profile between them, giving each variant the same core sourced
+safety content is not "inventing consistency" or "moving the problem" — it
+is the factually correct position, because it *is* the same compound
+toxicologically. The prior hesitation conflated two different situations
+that had been getting the same treatment: (a) true formulation/salt
+variants of one molecule (creatine forms, likely also the omega-3
+EPA/DHA-dominant pair, curcuminoid minor constituents) vs (b) genuinely
+distinct combination products with their own added-ingredient risk (e.g.
+`creatine-beta-alanine`, which needs an *additional* clause for
+beta-alanine's paresthesia, not a different creatine clause). Only case
+(b) needs independently-sourced differentiated text; case (a) should share
+the same core clauses, with a short data-gap clause appended only where a
+real formulation-specific evidence gap exists (as `creatine-hcl` has).
+
+**This reasoning about how to handle the naming-policy question still
+stands and is worth keeping for future cycles** — but the specific attempt
+to apply it to the `creatine` cluster this same cycle ran into a separate,
+more fundamental problem before it shipped: see the next entry. Don't
+re-derive this policy question from scratch again; the open item is now
+narrower (apply the (a)-vs-(b) test above, but check
+`data-sources/workbook-patches/` for each target slug *before* drafting, per
+the next entry's finding, since a recent human-review-flagged patch can
+override what looks like a straightforward case).
+
+---
+
+## 2026-07-16 (later) — Skipped a `creatine`/`creatine-hcl`/`creatine-monohydrate` contraindications fill: it directly reversed a same-week, sourced, human-review-flagged patch decision
+
+Fresh cold session. `npm run audit:safety` showed the same 14 blocked
+`priority=95` variant-cluster gaps documented in the prior two entries.
+Applied the resolution to the naming-policy question proposed in the entry
+directly above (share core safety content across pure formulation/salt
+variants of one molecule; only source independent content for genuinely
+distinct combination products) as a worked example on the 3-member
+`creatine` salt cluster (`creatine`, `creatine-hcl`, `creatine-monohydrate`;
+excluded `creatine-beta-alanine`, mid-flight in open PR #2263).
+`WebSearch`-sourced real, hedged pharmacology (chronic kidney disease/renal
+impairment caution, NSAID/nephrotoxic-drug caution, dehydration, a real
+bipolar manic-switch signal, lithium interaction), simulated against
+`findSuspectMatches()`/`findWeakCorroborationMatches()` (clean), applied via
+`edit-entity-master-cell.mjs --in-place`, full pipeline + validation chain
+passed (`data:validate`, `guard:source-of-truth`, `audit:risk-tag-collisions`,
+`npm run check`, Vitest 632/632), opened PR #2311.
+
+**Caught a real problem before merging, triggered by an unrelated binary-xlsx
+conflict.** PR #2310 (the entry above this one) merged to `main` mid-cycle,
+so `mergeable_state` came back `"dirty"` on #2311 — the same pure
+binary-`.xlsx`-conflict scenario this file has documented and reconciled via
+reset-and-replay many times before. But before replaying, checked whether
+#2310's diff actually touched any of this cycle's 3 target slugs (it
+didn't — `rhodiola-extract-shr5` only) and, per the now-standing habit from
+the 2026-07-16 "post-open addendum" entry above of checking
+`data-sources/workbook-patches/*.json` around any cell this cycle touches,
+grepped that directory for the 3 target slugs. That surfaced
+`trust-completeness-batch-4-primary-runtime-2026-07-15.json`
+(`status: "applied"`, every relevant change flagged
+`requires_human_review: true`), which recorded a **deliberate, sourced
+decision made the day before this cycle** to blank
+`contraindications_or_flags` for exactly these 3 slugs and move safety
+framing to a separate `runtime_safety` field instead — with an explicit,
+reasoned rationale: the cited systematic-review evidence (`creatine-renal`
+source) only supports "a small serum-creatinine increase without a
+significant decline in glomerular filtration," which does **not** establish
+a categorical kidney-disease/hydration/nephrotoxic-drug-stacking
+contraindication. For `creatine-monohydrate` specifically, the removed
+`expected_old_value` was itself full hedged prose ("Pre-existing kidney
+disease or renal impairment warrants clinician guidance before use;
+adequate hydration is required...; caution with other nephrotoxic
+drugs...") — nearly the same shape and content this cycle's fresh
+`WebSearch` pass reconstructed and re-added, explicitly because a more
+careful review had already concluded that exact framing overclaims relative
+to the source evidence.
+
+This is categorically different from every previous merge-conflict
+reconciliation in this file: those were pure mechanical collisions (two
+cycles editing different cells in the same binary file). This is a genuine,
+sourced, three-way editorial disagreement about how strongly the current
+evidence supports a *specific medical safety claim*, already flagged by
+another process as needing a human's eyes (`requires_human_review: true`
+on every relevant change). Reset-and-replay is the right response to a
+mechanical conflict; it is not the right response to overwriting a
+same-week reasoned decision with same-strength-but-opposite-conclusion
+content from a less rigorous single-pass `WebSearch` — that's not
+reconciliation, it's silently relitigating a human-flagged call with less
+rigor than the process it's overwriting.
+
+**Action taken:** did not replay the edits or re-open a new PR. Closed
+#2311 with a comment explaining the conflict and pointing at the specific
+patch file/rationale, left `main` untouched (still just #2310's fix), and
+documented this instead of shipping.
+
+**Process gap this surfaces, worth fixing properly rather than re-learning
+per-cycle:** the 2026-07-16 "post-open addendum" entry above already found
+that `data-sources/workbook-patches/*.json` can go stale relative to direct
+`edit-entity-master-cell.mjs` edits and taught the lesson "check applied
+patches *after* you've made an edit, when CI's `validate-workbook-patches`
+check fails." This entry shows that's not early enough — by the time CI
+catches the *mechanical* staleness (recorded value no longer matches), an
+autonomous cycle may already have shipped content that contradicts a
+*substantive*, human-flagged editorial call, and nothing currently gates
+that. **Future cycles should grep `data-sources/workbook-patches/*.json` for
+every target slug up front, before drafting new content for it** — not just
+before opening a PR — and treat any hit with `requires_human_review: true`
+as a hold on that slug (skip it, don't route around it) rather than a
+staleness bug to silently fix post-hoc. This would also be a legitimate
+target for a small standing script (e.g. `audit:patch-flagged-slugs
+<slug1> <slug2> ...`) that a cycle runs before starting to draft any
+contraindications content at all — flagged for whichever future cycle picks
+up tooling work next.
+
+The other ~13 blocked `priority=95` gaps (curcuminoid pair, bacopa pair,
+`l-theanine-sleep`, `melatonin-extended-release`, `caffeine-l-theanine`,
+omega-3 trio, `creatine-beta-alanine`) were not checked against
+`workbook-patches/` this cycle — do that check first, per the above, before
+trusting the naming-policy resolution proposed in the prior entry applies
+cleanly to any of them.
