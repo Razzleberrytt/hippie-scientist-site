@@ -3422,7 +3422,7 @@ happens to touch a herb with real interaction data.
 
 ---
 
-## 2026-07-16 (batch 4) — hit a live concurrent-session collision on this exact thread; same 2 Codex findings recur a 3rd time
+## 2026-07-16 (batch 4a) — hit a live concurrent-session collision on this exact thread; same 2 Codex findings recur a 3rd time
 
 Fresh cold session, picked up the same boilerplate-`contraindications_or_flags`
 thread again (11 herbs remaining per a fresh detection query: `anise-hyssop`,
@@ -3478,3 +3478,109 @@ confirmed recurring and stable across 3 independent PRs — still worth
 fixing as their own dedicated cycles per the reasoning in the "batch 3, PR
 review" entry, but at this point re-litigating them per-PR is pure
 overhead; point future reviewers straight at that entry.
+
+---
+
+## 2026-07-16 (batch 4b) — this is the other side of the collision above (PR #2327): 5 more boilerplate-`contraindications` herbs fixed; Codex caught a new keyword-collision bug class the existing audit tooling misses
+
+Fresh cold session, continuing the same thread. Re-ran the detection query fresh
+(per this doc's own repeated advice) and found only **11** herbs still carrying
+the boilerplate `contraindications` template — far fewer than the "~40 remaining"
+estimate two entries above, apparently because other parallel cycles had already
+worked the queue down. All 11 were clean on `audit:patch-flagged-slugs` (no holds).
+
+Picked 5, but dropped one after research: **anise hyssop** (Agastache foeniculum)
+had no clinical/pharmacopeial corroboration for any interaction claim anywhere —
+every source was a consumer herbal-info blog repeating the same unsourced text.
+Per this doc's standing rule (never fabricate a citation or value), left it in
+the boilerplate state rather than inventing a plausible-sounding clause, and
+substituted a 5th candidate from the remaining pool. Final batch: **ashoka**
+(Saraca asoca — hypoglycemic activity per a dedicated pharmacology study;
+estrogenic activity per an ovariectomized-rat model and a letrozole-PCOS rat
+study), **brassica-juncea** (mustard greens — vitamin K/warfarin antagonism;
+Brassicaceae cross-reactive allergen Bra j 1, confirmed anaphylaxis reports),
+**cassia-alata** (candle bush — anthraquinone/digoxin-class caution mirroring
+the well-documented senna–digoxin interaction; preclinical hepatotoxicity data),
+**celastrus-paniculatus** (intellect tree — CNS-depressant/sedative activity;
+PubMed-indexed antispermatogenic and reversible-liver-injury findings, route
+caveat noted since the liver data was intraperitoneal not oral), and **suma**
+(Pfaffia paniculata — PubMed-confirmed elevation of estradiol/progesterone/
+testosterone in a mouse model, corroborating the hormone-sensitive-cancer
+caution repeated across WebMD/MSKCC-style secondary sources).
+
+Same process as prior batches: `audit:patch-flagged-slugs` clean on all 5 →
+drafted every clause with zero internal commas → ran every draft through
+`findSuspectMatches()`/`findWeakCorroborationMatches()` before touching the
+workbook (zero collisions) → `edit-entity-master-cell.mjs --in-place` → 
+`data:build:core` → patched the same stale-overlay triad
+(`contraindications`/`interactions`/`safetyNotes`) on all 5 `herbs-detail/*.json`
+files, confirming the pattern documented in every prior batch entry still holds
+exactly. `npm run audit:risk-tag-collisions`, `data:validate`,
+`guard:source-of-truth`, `npm run check`, and the full Vitest suite (643/643)
+passed clean before opening the PR.
+
+**New finding, caught by Codex's automated PR review, not by our own tooling:**
+the brassica-juncea clause "anticoagulant medication such as warfarin because
+high vitamin K content may antagonize its blood-thinning effect" is a *correct,
+whole-word, properly-boundaried* match on the `anticoagul` keyword in
+`build-interaction-data.mjs`'s `KEYWORDS.anticoagulant` — so neither
+`findSuspectMatches()` (substring-boundary check) nor
+`findWeakCorroborationMatches()` (the surgery/bleeding corroboration check)
+flagged it, because both of those only catch *unintended matches*. This match
+was *intended* by the keyword list but *wrong in direction*: the interaction
+builder treats every `anticoagulant`-tagged entity as having an **additive**
+bleeding-risk relationship with every other one (that's literally what
+`ADDITIVE.has('anticoagulant')` means — see lines 20-21 and 57-70), but vitamin
+K *antagonizes* (reduces) warfarin's effect, the pharmacological opposite of
+additive. That one clause alone generated **145 severe `interaction_edges`
+entries** (paired against every other anticoagulant/antiplatelet-flagged herb
+and compound, e.g. garlic, ajoene, aged garlic extract) all claiming "may have
+an additive effect... consult a clinician before stacking" — a real, live false
+safety warning on the brassica-juncea page and 144 partner pages' relationship
+data. Fixed by rewording to "warfarin or other vitamin K antagonist medication
+because high dietary vitamin K may counteract its blood-thinning effect and
+require consistent intake to keep dosing stable" — this describes the same
+real interaction accurately while avoiding the `anticoagul`/`antiplatelet`/
+`bleeding`/`surgery` keyword stems entirely, so the clause now generates zero
+mechanism tag/edges for brassica-juncea (verified directly against
+`entity_risk_tags.json` and `interaction_edges.json` post-rebuild: the
+`anticoagulant` tag and all 145 edges disappeared, `allergy` and `thyroid`
+tags from the other two clauses were unaffected). Pushed as a follow-up commit
+to the same PR, replied on the Codex thread confirming the fix and the verified
+edge-count before/after, and resolved the thread.
+
+**Takeaway for future cycles:** this is a *third* distinct bug class in the
+keyword-matching interaction builder, on top of the two already guarded by
+`audit-risk-tag-collisions.mjs` (unboundaried substring matches, and
+semantically-loose-but-boundaried matches like the `surgery` case from
+2026-07-14). This one is neither: it's a boundaried, semantically *related*
+match that's still wrong because `ADDITIVE` mechanisms encode a specific
+*direction* (more of the effect) that a keyword match can't distinguish from
+the opposite direction (antagonism/counteraction). **Any future contraindication
+clause that names a drug-class keyword from `KEYWORDS` (`scripts/data/
+build-interaction-data.mjs` lines 8-18) needs a direction check, not just a
+collision check**: does the clause describe the herb *adding to* the named
+mechanism's effect, or *opposing/reducing* it? Only the "adding to" case should
+use the mechanism keyword as written; the "opposing" case needs to be worded
+around the keyword entirely (as done here) until the builder itself gains a
+notion of interaction direction. Worth a dedicated future cycle: either (a)
+extend `audit-risk-tag-collisions.mjs` with a lightweight direction-check list
+(keywords like "antagoni", "counteract", "reduce", "oppose", "decrease" near a
+mechanism keyword should downgrade or exclude the match rather than tag it
+additive), similar in spirit to the existing `CORROBORATION_REQUIRED` check, or
+(b) give `deriveInteractionData()` in `build-interaction-data.mjs` itself a
+`pair_behavior` override so a clause can explicitly declare "antagonistic, not
+additive" — the audit script sees the same raw text the builder does, so a
+smarter check there could catch this before it ever reaches production, not
+just before it reaches a PR reviewer. Detection query for the still-open
+boilerplate-`contraindications` thread returned **6** herbs at the end of
+this batch (down from 11 at the start): `anise-hyssop` (skipped, see above),
+`curcuma-wenyujin`, `fingerroot`, `maral-root`, `ocotea-odorifera`,
+`selaginella-tamariscina`. Per the batch-4a entry above, a concurrent session
+independently fixed `curcuma-wenyujin` and `maral-root` in the meantime (PR
+#2332), so **4** actually remain as of this writing: `anise-hyssop` (skipped —
+no independent literature), `fingerroot`, `ocotea-odorifera`,
+`selaginella-tamariscina` — same process applies to the next cycle. Worth
+double-checking with a full (not `full_public_runtime`-only) scan before
+declaring the thread fully closed, since duplicate-slug species rows have
+under-counted this before (see the batch-3 entry above).
