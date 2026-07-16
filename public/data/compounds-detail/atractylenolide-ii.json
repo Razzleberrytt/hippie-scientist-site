@@ -119,7 +119,7 @@
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users.",
+  "safety": "Safety evidence: review-level evidence is primarily in vitro and animal-based and is sparse. Human dose-response, pregnancy, breastfeeding, liver, kidney, surgery, and medication-interaction safety remain insufficient.",
   "sources": [
     {
       "id": "src_540ff3495bcd",

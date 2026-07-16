@@ -42,5 +42,10 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "Pregnancy",
+    "previous ashwagandha-associated liver injury",
+    "existing chronic liver disease warrants clinician review because severe cases have been reported."
+  ]
 }

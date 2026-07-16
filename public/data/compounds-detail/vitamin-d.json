@@ -156,5 +156,9 @@
     }
   ],
   "dosage": "capsule or softgel",
-  "typical_dosage": "capsule or softgel"
+  "typical_dosage": "capsule or softgel",
+  "contraindications": [
+    "Hypercalcemia or vitamin D toxicity",
+    "high-dose use in conditions that increase calcium without clinician monitoring."
+  ]
 }

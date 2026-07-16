@@ -40,5 +40,10 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "capsule or standardized extract",
-  "typical_dosage": "capsule or standardized extract"
+  "typical_dosage": "capsule or standardized extract",
+  "contraindications": [
+    "Do not treat anticoagulant use as an automatic contraindication. One small",
+    "closely monitored trial found no excess serious bleeding with a specific aged garlic extract plus warfarin",
+    "other formulations and unmonitored use remain insufficiently characterized and require clinician review."
+  ]
 }

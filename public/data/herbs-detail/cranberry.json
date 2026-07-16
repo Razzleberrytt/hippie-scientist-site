@@ -12,7 +12,9 @@
   "activeCompounds": [],
   "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
-    "history of kidney stones (oxalate)"
+    "history of kidney stones (oxalate)",
+    "warfarin (case reports of interaction)",
+    "potential additive bleeding risk when combined with anticoagulant or antiplatelet medications"
   ],
   "interactions": [
     "warfarin (case reports of interaction)"

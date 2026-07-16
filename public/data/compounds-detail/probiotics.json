@@ -106,5 +106,13 @@
     }
   ],
   "dosage": "—",
-  "typical_dosage": "—"
+  "typical_dosage": "—",
+  "contraindications": [
+    "Use only with clinician oversight in people who are critically ill",
+    "severely immunocompromised",
+    "recently postoperative",
+    "or otherwise medically fragile",
+    "rare invasive infections have been reported",
+    "and risk varies by host and strain."
+  ]
 }

@@ -39,5 +39,13 @@
   "sitemap_included": false,
   "indexability_reasons": [],
   "dosage": "powder or capsule",
-  "typical_dosage": "powder or capsule"
+  "typical_dosage": "powder or capsule",
+  "contraindications": [
+    "Use only with clinician oversight in severe immunocompromise",
+    "critical illness",
+    "recent surgery",
+    "hospitalization",
+    "or other major medical fragility",
+    "safety cannot be generalized across Lactobacillus strains."
+  ]
 }
