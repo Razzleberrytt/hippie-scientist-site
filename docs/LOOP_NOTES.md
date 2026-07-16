@@ -2995,3 +2995,110 @@ false on such a page, suspect the audit script rather than the page.
 section swap), one script (`hasAffiliate` fix), this note — no workbook or
 `public/data` change (regenerated `build-info.json` timestamp reverted before
 commit).
+
+---
+
+## 2026-07-16 (later) — Found and filled a new content-quality gap class: 54 live herb pages carry template-generated generic safety boilerplate instead of real pharmacology; also caught the boilerplate's second, independently-rendered copy
+
+Fresh cold session. `npm run audit:safety`'s top-20 was, as the prior several
+entries predicted, entirely exhausted `priority=5` obscure `hidden_until_grounded`
+phytochemicals — confirming this thread is genuinely mined out for now. Noticed an
+open PR (#2319, not mine) already in flight fixing the systemic
+`herbs-detail`/`compounds-detail` overlay staleness bug this file has documented
+repeatedly, so avoided touching that same surface to not collide with it.
+
+Instead cross-referenced `public/data/{herbs,compounds}.json` for
+`full_public_runtime` records with no `interaction_edges.json` entry, then filtered
+for ones whose `contraindications` array is a **literal template string** rather
+than real herb-specific text — e.g. `['pregnancy/breastfeeding without clinician
+supervision', 'known allergy to the plant/family', 'Potential additive effects
+with medications affecting the same body system', 'review high-dose extracts with
+a clinician.']`, byte-identical (aside from two interchangeable closing clauses)
+across dozens of unrelated herbs. Found **54 live, indexed herb pages** carrying
+this exact boilerplate — clearly a bulk-generated placeholder that was never
+back-filled with real content, not a parser bug. Notable names: `tongkat-ali`,
+`bupleurum`/`bupleurum-falcatum`, `boldo`, `pau-d-arco`, `crocus-sativus`
+(saffron, herb form), plus ~49 more (`agarikon`, `atractylodes`, `codonopsis`,
+`maitake-d-fraction`, etc.) — full list is every full-runtime herb whose
+`contraindications` matches `/Potential (additive effects with medications
+affecting the same body system|interaction concern with immunosuppressants)/`.
+
+Filled 5 of the most mainstream/well-documented ones this cycle, all verified via
+`WebSearch` against independent sources (drugs.com, WebMD, RxList, PMC, Medscape)
+before writing: `tongkat-ali` (Eurycoma longifolia — hormone-sensitive-cancer
+caution since it raises testosterone, additive blood-glucose-lowering with
+diabetes medication, anticoagulant/warfarin bleeding-risk potentiation, rare
+liver-injury case reports at high dose), `boldo` (Peumus boldo — hepatotoxic
+ascaridole content contraindicated with liver/biliary disease, coumarin-type
+warfarin interaction, pregnancy), `pau-d-arco` (Tabebuia impetiginosa — lapachol
+inhibits vitamin-K-dependent clotting, real anticoagulant/antiplatelet/pre-surgical
+bleeding-risk caution), `bupleurum` (Bupleurum falcatum — rare hepatotoxicity case
+reports, CYP3A4-mediated cyclosporine/tacrolimus interaction, documented Sho-saiko-to
+pneumonitis case reports), and `crocus-sativus` (saffron, the herb-form entity
+distinct from the already-tracked `saffron`/`saffron-extract` compounds —
+serotonergic/SSRI additive risk, independent blood-pressure-lowering effect,
+supra-culinary-dose uterine-stimulant pregnancy caution). Ran
+`audit:patch-flagged-slugs` on all 6 candidate slugs first — clean, no
+`workbook-patches/` holds.
+
+Simulated both `splitList()`'s `/[;,]/` regex and the full `KEYWORDS`/
+`ALLOWED_PREFIXES` collision matcher from `build-interaction-data.mjs`/
+`audit-risk-tag-collisions.mjs` against every draft clause in a throwaway
+`node -e` script before touching the workbook (per the standing habit) — zero
+collisions, zero malformed splits. Used `edit-entity-master-cell.mjs --in-place`
+for all 5. `data:build:core` regenerated cleanly (edges 12817→20420, tags
+1279→1453 — a large jump because `crocus-sativus`'s new serotonergic/
+blood-pressure clauses paired against dozens of existing serotonergic/
+antihypertensive-tagged entities already in the graph, not a bug). `npm run
+audit:risk-tag-collisions`, `data:validate`, `guard:source-of-truth`, and the
+full Vitest suite (643/643) all passed clean.
+
+**Second finding, on the same 5 entities:** per the now-standing habit of
+checking `herbs-detail/*.json` for staleness before shipping any
+`contraindications_or_flags` edit, found each of the 5 detail files still carried
+the *old* boilerplate `contraindications` array — confirming yet again (a 4th+
+occurrence of the bug class documented across the `citicoline`/`st-johns-wort`
+entries above, and exactly what PR #2319 is fixing generally) that
+`getHerbBySlug()`'s blanket detail-overlay would have silently shadowed this
+fix on the live page. Patched all 5 detail files' `contraindications` field to
+match the new flat-record value directly (same technique as the earlier
+one-off fixes, since #2319 hadn't merged yet and this cycle didn't want to
+collide with its broader change).
+
+While doing that, found a **second, previously-undocumented copy of the same
+boilerplate**: each detail file also had a populated `interactions` array (e.g.
+`['Potential additive effects with medications affecting the same body system',
+'review high-dose extracts with a clinician.']`) — and `app/herbs/[slug]/page.tsx`
+reads `herb.interactions` directly (line 226/243/281) to render the page's
+"Interactions" section. This field is *not* the always-empty flat-record
+`interactions` field the earlier `checkInteractions` entry documented as dead —
+it's a **detail-record-only** field with real rendered content, and for these 5
+(and presumably many of the other 49) it was carrying the exact same generic
+boilerplate, just pre-split into different fragments. Compared against known-good
+profiles (`turmeric` → `['Anticoagulants', 'gallstones']`, `ashwagandha` →
+`['Hyperthyroidism', 'sedatives']`) to learn the field's real style — terse 2-item
+drug/condition tags, not full sentences — and replaced the boilerplate on all 5
+with real terse tags drawn from the same sourced pharmacology (e.g. `tongkat-ali`
+→ `['Warfarin', 'Diabetes medications']`, `bupleurum` → `['Cyclosporine',
+'Tacrolimus']`).
+
+**Takeaway for future cycles:** the 49 remaining boilerplate-`contraindications`
+herbs are the next highest-ROI target in this thread — same detection query
+applies (`full_public_runtime` + contraindications matching the two template
+strings above), same approach (WebSearch-verified real pharmacology,
+`audit:patch-flagged-slugs` first, simulate `splitList()`/collision matcher,
+`edit-entity-master-cell.mjs --in-place`). **Also check each target's
+`herbs-detail/{slug}.json` file for a populated `interactions` array before
+shipping** — if it matches the same boilerplate-fragment pattern, it needs its
+own terse-tag fix alongside the `contraindications` sync, not just the
+`contraindications` field alone; a future cycle doing this at scale might find
+it worth writing a small shared helper (`syncDetailContraindications(slug,
+newValue)` + `deriveTerseInteractionTags(...)`) rather than hand-editing each
+JSON file's two fields separately every time, especially once PR #2319's
+freshness guard is merged and can plausibly be generalized to catch a stale
+`interactions` field too, not just `contraindications`.
+
+Diff scope: workbook + `herbs.json` + `entity_risk_tags.json` +
+`interaction_edges.json` (core-only pattern) + 5 individually-patched
+`herbs-detail/*.json` files, no other changes. `build-info.json` timestamp
+reverted before commit.

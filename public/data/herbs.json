@@ -4513,11 +4513,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "active liver disease",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "liver disease or bile duct disease or gallstones due to contraindicated biliary obstruction risk and hepatotoxic ascaridole content",
+      "anticoagulant medication such as warfarin due to a coumarin-type interaction that may enhance anticoagulant effect and increase bleeding risk",
+      "pregnancy or breastfeeding without clinician guidance",
+      "unprocessed high-ascaridole boldo products due to rare hepatotoxicity case reports including jaundice or hepatic injury and should be avoided in favor of ascaridole-free commercial extracts"
     ],
     "interactions": [],
     "side_effects": [],
@@ -5148,11 +5147,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "active liver disease",
-      "Potential interaction concern with immunosuppressants",
-      "use clinician review for high-dose extracts or chronic use."
+      "active liver disease or elevated liver enzymes because Bupleurum-containing formulas have documented rare hepatotoxicity case reports",
+      "immunosuppressant medication such as cyclosporine or tacrolimus because Bupleurum may raise blood levels of these drugs through CYP3A4-mediated interaction",
+      "history of drug-induced pneumonitis or interstitial lung disease because Bupleurum-containing formulas such as Sho-saiko-to have documented acute pneumonitis case reports",
+      "pregnancy or breastfeeding without clinician guidance due to insufficient human safety data"
     ],
     "interactions": [],
     "side_effects": [],
@@ -9802,10 +9800,10 @@
     "trial_design_insight": "",
     "safety": "May support mood/anxiety/sleep/cognition in studied contexts; one of the stronger next-wave entities but requires indication-specific pages. | Do not claim antidepressant equivalence as consumer advice; do not imply all saffron products are standardized. | Create indication-separated page sections: mood, anxiety, sleep, focus/ADHD, safety.",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "SSRI or SNRI or MAOI antidepressant medication due to serotonergic activity that may have an additive effect and theoretically raise serotonin syndrome risk",
+      "antihypertensive medication such as calcium channel blockers or ACE inhibitors or beta-blockers because saffron independently lowers blood pressure and may cause additive hypotension",
+      "pregnancy without clinician guidance because doses above culinary amounts have documented uterine-stimulant and abortifacient effects",
+      "known allergy to saffron or the Iridaceae plant family"
     ],
     "interactions": [],
     "side_effects": [],
@@ -22847,10 +22845,10 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential interaction concern with immunosuppressants",
-      "use clinician review for high-dose extracts or chronic use."
+      "anticoagulant or antiplatelet medication such as warfarin or clopidogrel due to lapachol content that may inhibit vitamin K-dependent clotting and increase bleeding risk",
+      "pregnancy or breastfeeding or use in children without clinician guidance",
+      "pre-existing liver or kidney disease due to limited human safety data at concentrated doses",
+      "scheduled surgery due to bleeding risk and should be discontinued at least two weeks beforehand"
     ],
     "interactions": [],
     "side_effects": [],
@@ -29636,10 +29634,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "pregnancy or breastfeeding without clinician guidance due to insufficient safety data",
+      "prostate cancer or breast cancer or other hormone-sensitive condition because tongkat ali may raise testosterone",
+      "diabetes medication because it may have an additive blood-glucose-lowering effect and requires monitoring",
+      "anticoagulant medication such as warfarin because it may enhance anticoagulant effect and increase bleeding risk",
+      "pre-existing liver or kidney disease due to rare case reports of liver injury at high doses"
     ],
     "interactions": [],
     "side_effects": [],

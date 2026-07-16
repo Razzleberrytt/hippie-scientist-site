@@ -14,12 +14,14 @@
   "activeCompounds": [],
   "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "anticoagulant or antiplatelet medication such as warfarin or clopidogrel due to lapachol content that may inhibit vitamin K-dependent clotting and increase bleeding risk",
+    "pregnancy or breastfeeding or use in children without clinician guidance",
+    "pre-existing liver or kidney disease due to limited human safety data at concentrated doses",
+    "scheduled surgery due to bleeding risk and should be discontinued at least two weeks beforehand"
   ],
   "interactions": [
-    "Potential interaction concern with immunosuppressants",
-    "use clinician review for high-dose extracts or chronic use."
+    "Warfarin",
+    "Antiplatelet drugs"
   ],
   "preparation": "",
   "traditionalUses": [],
