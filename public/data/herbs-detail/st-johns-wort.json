@@ -14,7 +14,8 @@
   "safetyNotes": "Generally well tolerated for most users.",
   "contraindications": [
     "pregnancy",
-    "bipolar disorder"
+    "bipolar disorder",
+    "concurrent use with SSRIs or SNRIs or MAOIs or other serotonergic drugs risks serotonin syndrome due to additive serotonergic activity"
   ],
   "interactions": [
     "strong CYP3A4 inducer",
