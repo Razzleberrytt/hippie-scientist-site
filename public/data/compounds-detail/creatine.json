@@ -207,6 +207,11 @@
   "dosage": "Creatine monohydrate; adult RCT evidence; domain-specific cognition outcomes. Use studied-dose table; do not invent one universal cognitive dose from meta-analysis alone.",
   "typical_dosage": "Creatine monohydrate; adult RCT evidence; domain-specific cognition outcomes. Use studied-dose table; do not invent one universal cognitive dose from meta-analysis alone.",
   "contraindications": [
-    "kidney"
+    "chronic kidney disease or reduced kidney function warrants clinician guidance due to increased creatinine load and unclear long-term safety in this population",
+    "NSAIDs or aminoglycoside antibiotics or other nephrotoxic medications due to a theoretical added burden on kidney function",
+    "dehydration or inadequate fluid intake during intense exercise or heat exposure due to creatine's water-retention effect in muscle tissue",
+    "bipolar disorder warrants clinician guidance due to case reports and a clinical-trial signal of increased manic-switch risk",
+    "lithium or other renally-cleared psychiatric medications due to altered fluid and electrolyte balance that can affect drug levels",
+    "known hypersensitivity to creatine"
   ]
 }

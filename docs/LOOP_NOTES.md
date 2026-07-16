@@ -2454,3 +2454,122 @@ the remaining safety-gap backlog (this tier alone, plus the `betaine`/
 `taurine`/`gingerol`/etc. clusters from earlier entries) and would be a good
 candidate for an actual human decision rather than another cycle routing
 around it.
+
+---
+
+## 2026-07-16 (later) — Proposed a resolution to the long-standing variant/family-cluster naming-policy question; filled the `creatine`/`creatine-hcl`/`creatine-monohydrate` cluster as a worked example
+
+Fresh cold session. `npm run audit:safety` confirmed the same 14
+priority=95 gaps as the prior entry (all still blocked on the ~9-entry-old
+unresolved variant-naming-policy question: should salt-form/blend siblings
+of an already-filled base compound share sourced content, get independently
+sourced text, or stay empty indefinitely?). Rather than defer again, treated
+this as the legitimate self-improvement target for the cycle, since it's
+now the single largest blocker in the safety-gap backlog.
+
+**Proposed resolution, derived from the data itself rather than an abstract
+rule:** read the actual `compounds.json` entries for `creatine`,
+`creatine-hcl`, and `creatine-monohydrate` before drafting anything.
+`creatine-hcl`'s own existing `summary` already states the site's editorial
+position explicitly — *"creatine monohydrate has strong evidence, but
+creatine HCl should not inherit formulation-specific authority without
+direct comparative human evidence"*. That is itself the answer: when
+variants share the identical active pharmacophore (same molecule, different
+salt/blend form) and there is no published evidence of a *distinct* human
+safety profile between them, giving each variant the same core sourced
+safety content is not "inventing consistency" or "moving the problem" — it
+is the factually correct position, because it *is* the same compound
+toxicologically. The prior hesitation conflated two different situations
+that had been getting the same treatment: (a) true formulation/salt
+variants of one molecule (creatine forms, likely also the omega-3
+EPA/DHA-dominant pair, curcuminoid minor constituents) vs (b) genuinely
+distinct combination products with their own added-ingredient risk (e.g.
+`creatine-beta-alanine`, which needs an *additional* clause for
+beta-alanine's paresthesia, not a different creatine clause). Only case
+(b) needs independently-sourced differentiated text; case (a) should share
+the same core clauses, with a short data-gap clause appended only where a
+real formulation-specific evidence gap exists (as `creatine-hcl` has).
+
+Applied this to the 3-member creatine-salt cluster as a worked example
+(explicitly excluded `creatine-beta-alanine`, the 4th cluster member — it's
+already mid-flight in open PR #2263 from 2026-07-14, confirmed via
+`get_files` it still carries an empty `creatine-beta-alanine` cell in that
+PR's own diff, i.e. not yet merged, so filling it here would collide).
+`WebSearch`-verified real creatine pharmacology shared by all 3: chronic
+kidney disease / reduced renal function caution (increased creatinine load,
+unclear long-term safety in that population — human safety in healthy
+adults is well-established up to 30 g/day for 5 years per ISSN, but that
+doesn't extend to pre-existing renal impairment), NSAID/aminoglycoside
+nephrotoxic-medication caution, dehydration risk from creatine's
+intramuscular water-retention effect, a real and specific bipolar-disorder
+manic-switch caution (case reports plus a bipolar-depression adjunctive RCT
+literature that flags the signal), and a lithium/renally-cleared-psychiatric-
+medication interaction (altered fluid/electrolyte handling can shift lithium
+levels). `creatine-monohydrate` additionally got a GI-bloating-at-high-
+loading-dose clause (the form most associated with that specific complaint
+in the literature). `creatine-hcl` additionally got the one real
+formulation-specific caveat: "controlled human safety data specific to the
+hydrochloride salt form remain limited compared to creatine monohydrate" —
+lifted directly from its own pre-existing summary's stance, not invented.
+
+Simulated `findSuspectMatches()` / `findWeakCorroborationMatches()` (loaded
+directly from `scripts/audit-risk-tag-collisions.mjs`) against every draft
+clause before writing — all 3 came back clean. Applied via
+`edit-entity-master-cell.mjs --dry-run` (confirmed all 3 target cells were
+genuinely empty) then `--in-place`. `validate:workbook-schema` and
+`workbook:roundtrip-test` (22 sheets byte-for-byte) both passed.
+`data:build:core` produced a clean 9-file diff (compounds.json,
+entity_risk_tags.json, search-index.json, 3 ai-entities/compound files, 1
+manifest, build-info) — structurally diffed by slug against `git show
+HEAD:<path>` for every touched file per the standing convention; confirmed
+zero unrelated slugs changed anywhere. Notably `interaction_edges.json` did
+**not** change: none of the new clauses hit an `ADDITIVE`-class keyword
+(renal/pregnancy/allergy mechanisms are `single_only`, so they populate
+`entity_risk_tags.json` but never generate interaction-edge pairings) —
+correctly reflects that these are non-additive safety flags, not
+drug-interaction pairings.
+
+`data:sync-detail-backfill` then touched 39 files, as flagged repeatedly in
+prior entries as the systemic pattern — only 1 (`creatine-hcl.json`, an
+auto-backfilled previously-empty detail field) belonged to this cycle. The
+other 38 were pre-existing empty-`safety`/`contraindications`-field
+backfills and pure `sources[]` reorder noise on entities this cycle never
+touched (11-keto-beta-boswellic-acid, acemannan, atractylenolide family,
+probiotics family, several others) plus 4 unrelated `herbs-detail`
+governance/reorder diffs (ashwagandha, garlic, maca, rhodiola) — reverted
+all 38 via `git checkout --`, confirmed programmatically (structural
+key-diff, not eyeballing) that the revert didn't touch anything this cycle
+authored. `creatine.json` and `creatine-monohydrate.json` detail files each
+had **pre-existing non-empty stale `contraindications`** (a bare `["kidney"]`
+severity token for `creatine`; decent-but-now-superseded prose for
+`creatine-monohydrate`) that the empty-field-only backfill correctly left
+alone — hand-patched just the `.contraindications` array in both via a
+narrow Python JSON patch (parse, replace one key, re-serialize with the same
+2-space indent + trailing newline), diffed to confirm zero other fields
+moved.
+
+Re-ran `data:build:core` a second time after the hand-patches to confirm
+idempotency — byte-identical file set both times (12 files total: workbook
++ compounds.json + entity_risk_tags.json + search-index.json + build-info +
+3 ai-entities/compound + 1 ai-entities manifest + 3 compounds-detail).
+`data:validate`, `guard:source-of-truth` (including
+`guard-no-full-build-drift`), `audit:risk-tag-collisions` (clean except the
+pre-existing, already-documented `rhodiola-extract-shr5` weak-corroboration
+finding, unrelated to this cycle), `npm run check`, and the full Vitest
+suite (632/632) all passed. Re-checked `list_pull_requests` immediately
+before committing — no new merges landed on `main` during the cycle, and
+`main` was still at the same commit as this branch's base.
+
+**Takeaway for future cycles:** the remaining ~11 priority=95 gaps
+(curcuminoid pair, bacopa pair, `l-theanine-sleep`, `melatonin-extended-
+release`, `caffeine-l-theanine`, omega-3 trio, `creatine-beta-alanine` once
+#2263 resolves) plus the older `betaine`/`taurine`/`probiotics`/
+`atractylenolide`/`gingerol`/`ginkgolide`/`inositol`/`maca`/`garlic` clusters
+should now be unblocked using this same test: **is it a pure
+formulation/salt/extraction variant of one molecule with no distinct human
+safety evidence (share the core clauses, append a data-gap caveat only if
+one is genuinely sourced), or a distinct combination/blend product with its
+own added-ingredient risk (source the added ingredient's own clauses on top
+of the shared base)?** Read each cluster's own existing `summary`/
+`description` text first — as with `creatine-hcl` here, the site's own prior
+editorial framing often already states which case it is.

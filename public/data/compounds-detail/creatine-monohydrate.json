@@ -40,9 +40,12 @@
   "dosage": "powder or capsule",
   "typical_dosage": "powder or capsule",
   "contraindications": [
-    "Pre-existing kidney disease or renal impairment warrants clinician guidance before use",
-    "adequate hydration is required since creatine draws water into muscle cells",
-    "caution with other nephrotoxic drugs or supplements such as chronic NSAID use",
-    "mild GI upset such as bloating or cramping at high doses."
+    "chronic kidney disease or reduced kidney function warrants clinician guidance due to increased creatinine load and unclear long-term safety in this population",
+    "NSAIDs or aminoglycoside antibiotics or other nephrotoxic medications due to a theoretical added burden on kidney function",
+    "dehydration or inadequate fluid intake during intense exercise or heat exposure due to creatine's water-retention effect in muscle tissue",
+    "bipolar disorder warrants clinician guidance due to case reports and a clinical-trial signal of increased manic-switch risk",
+    "lithium or other renally-cleared psychiatric medications due to altered fluid and electrolyte balance that can affect drug levels",
+    "high loading doses of 20 grams per day or more may increase gastrointestinal upset or bloating",
+    "known hypersensitivity to creatine"
   ]
 }
