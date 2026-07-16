@@ -11,14 +11,15 @@
     "Nrf2 Activation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "anticoagulant medication such as warfarin because high vitamin K content may antagonize its blood-thinning effect",
+    "known allergy to the Brassicaceae family such as cabbage or canola or turnip because cross-reactive proteins have caused documented allergic reactions including anaphylaxis",
+    "hypothyroidism or iodine deficiency because heavy or concentrated intake of glucosinolates may impair thyroid hormone synthesis"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Warfarin",
+    "Thyroid hormone replacement"
   ],
   "preparation": "",
   "traditionalUses": [],

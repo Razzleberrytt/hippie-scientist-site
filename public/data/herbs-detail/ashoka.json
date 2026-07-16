@@ -13,14 +13,15 @@
     "Hormonal Signaling Context"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "pregnancy or breastfeeding without clinician guidance because ashoka has traditional uterine-stimulant activity and insufficient safety data exists",
+    "diabetes medication because ashoka has documented hypoglycemic activity and may have an additive blood-glucose-lowering effect",
+    "hormone replacement therapy or hormonal contraceptives because ashoka has shown estrogenic activity in research and may alter hormone levels"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Diabetes medications",
+    "Hormone therapy"
   ],
   "preparation": "",
   "traditionalUses": [],
