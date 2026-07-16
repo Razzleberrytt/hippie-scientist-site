@@ -10,14 +10,16 @@
     "Oxidative Stress Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "blood pressure medication because dendrobium may have an additive blood-pressure-lowering effect and risk excessive hypotension",
+    "diabetes medication because dendrobium has documented hypoglycemic activity and may have an additive blood-glucose-lowering effect",
+    "doses beyond typical tonic use because overdose has been associated with convulsions in traditional medicine reports",
+    "pregnancy or breastfeeding without clinician guidance due to insufficient safety data"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Antihypertensives",
+    "Diabetes medications"
   ],
   "preparation": "",
   "traditionalUses": [],

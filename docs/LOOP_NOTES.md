@@ -3273,3 +3273,74 @@ shared-template `safety_notes` category strings themselves (not just
 `contraindications`) are worth replacing with per-herb text once/if that
 field is wired into the runtime output — no point enriching a column nothing
 reads yet.
+
+---
+
+## 2026-07-16 (batch 3) — next 5 boilerplate-`contraindications` herbs (soursop, myrtle, dendrobium, ophiopogon, bael); the "16 remaining" count from the prior entry undercounted
+
+Fresh cold session, continuing the same thread. Re-ran the detection query
+(`full_public_runtime` herbs whose `contraindications` matches the boilerplate
+template fragment) fresh rather than trusting the prior entry's named list —
+good thing, because it returned **45** matching herbs, not the 16 named two
+entries above. The discrepancy: the prior list only tracked one slug per
+species pair, but several species have two separate entity rows under
+different slugs (e.g. `bupleurum` was fixed in an earlier batch but
+`bupleurum-falcatum` is a distinct row and was still boilerplate; same for
+`andrographis` vs `andrographis-paniculata`). **Takeaway: always re-run the
+detection query fresh at the start of a cycle instead of trusting a
+previously-recorded remaining-count or slug list — duplicate-species rows
+under different slugs make the true count larger than what any single past
+enumeration captured.**
+
+Picked 5 with strong independent literature: soursop (Annona muricata —
+annonacin neurotoxicity/atypical-Parkinsonism concern, additive
+blood-glucose- and blood-pressure-lowering effects, cumulative-exposure
+caution for long-term tea/extract use), myrtle (Myrtus communis — cineole
+seizure-threshold caution, warfarin bleeding-risk interaction, additive
+blood-glucose-lowering effect, undiluted leaf-oil respiratory-toxicity
+warning), dendrobium (Dendrobium nobile — additive antihypertensive and
+hypoglycemic effects, TCM-documented convulsion risk at overdose), ophiopogon
+(Ophiopogon japonicus — CYP3A4 induction/altered clearance for
+statins/immunosuppressants/benzodiazepines backed by a real
+pharmacokinetic study showing increased midazolam exposure, plus the TCM
+cooling-property caution for spleen-cold conditions), and bael (Aegle
+marmelos — documented hypoglycemic activity requiring diabetes-medication
+monitoring, noted cardiovascular-disease and renal-impairment
+contraindications). All sourced via `WebSearch` against independent
+references (PMC, WebMD, RxList, ScienceDirect, SAGE journals) before writing.
+
+Followed the now-standard process exactly: `audit:patch-flagged-slugs` on all
+5 first (clean, no workbook-patch holds); drafted every clause with zero
+literal commas (the `splitList()` regex `/[\n|;,]+/` in
+`build-runtime-from-workbook.mjs` fractures on commas); ran every draft
+clause through `findSuspectMatches()`/`findWeakCorroborationMatches()` from
+`audit-risk-tag-collisions.mjs` in a throwaway `node -e` importing the
+script's exported functions directly (rather than re-implementing the
+matcher) — zero collisions; `edit-entity-master-cell.mjs --in-place` for all
+5; `data:build:core` (edges 20420→22183, tags 1453→1467); checked all 5
+`herbs-detail/{slug}.json` files up front and confirmed the same
+stale-overlay triad the last several entries have documented
+(`contraindications` boilerplate, `interactions` boilerplate fragments,
+`safetyNotes` hardcoded to `"Generally well tolerated for most users."`) —
+patched all three fields on all 5 files via a small one-off script
+(`contraindications` copied verbatim from the new `herbs.json` value,
+`interactions` replaced with terse 2-item drug-class tags in the established
+style, `safetyNotes` cleared to `""` so `getSafetySummary()` falls through to
+the sourced `contraindications` text).
+
+`npm run audit:risk-tag-collisions`, `npm run data:validate`, `npm run
+guard:source-of-truth`, `npm run check`, and the full Vitest suite (643/643)
+all passed clean. Diff scope: workbook + `herbs.json` +
+`entity_risk_tags.json` + `interaction_edges.json` + `search-index.json`
+(core-only pattern) + 5 individually-patched `herbs-detail/*.json` files —
+`build-info.json` timestamp reverted before commit, matching every prior
+cycle in this thread.
+
+**Takeaway for future cycles:** re-run the detection query fresh each time
+(see above) rather than continuing any specific named list — as of this
+commit roughly 40 matching herbs remain. Same process applies. Also still
+open from two entries above: (1) the dead `safety_notes` → runtime `safety`
+column-mapping gap, and (2) whether `src/lib/runtime-data.ts`'s
+`getHerbs()`/`getCompounds()` share the stale-top-level-summary-file exposure
+that `build-search-index.mjs` had (fixed in the 2026-07-16-later entry above)
+— neither was investigated this cycle to keep scope narrow and verifiable.

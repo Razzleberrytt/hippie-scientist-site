@@ -10,14 +10,17 @@
     "Oxidative Stress Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "Parkinsonism or other neurodegenerative condition because soursop contains annonacin which may exacerbate neuronal degeneration with prolonged high intake",
+    "diabetes medication because soursop may have an additive blood-glucose-lowering effect and requires monitoring",
+    "blood pressure medication because soursop may have an additive blood-pressure-lowering effect",
+    "pregnancy or breastfeeding without clinician guidance due to neurotoxicity concerns and limited safety data",
+    "long-term or high-dose use of teas or extracts because cumulative annonacin exposure has been linked to atypical Parkinson's-like symptoms in epidemiological studies"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Antihypertensives",
+    "Diabetes medications"
   ],
   "preparation": "",
   "traditionalUses": [],
