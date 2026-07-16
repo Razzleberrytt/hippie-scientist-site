@@ -1,10 +1,22 @@
-import { SeoEntryPage, generateSeoEntryMetadata } from '../../../seo-entry-pages'
+import type { Metadata } from 'next'
+import BestSupplementsForStressPage from '../../anxiety/best-supplements-for-stress/page'
 
-const route = 'best-supplements-for-stress'
 const CANONICAL_PATH = '/guides/best/supplements-for-stress/'
 
-export const metadata = generateSeoEntryMetadata(route, CANONICAL_PATH)
-
-export default function Page(){
-  return <SeoEntryPage route={route} canonicalPath={CANONICAL_PATH} />
+export const metadata: Metadata = {
+  title: 'Best Supplements for Stress: Ashwagandha, Rhodiola, Magnesium & More',
+  description:
+    'Compare evidence-backed supplements for chronic stress, stress-related fatigue, poor sleep, and acute tension. Includes dosing, safety, and product-selection guidance.',
+  alternates: { canonical: CANONICAL_PATH },
+  robots: { index: true, follow: true },
+  openGraph: {
+    title: 'Best Supplements for Stress: Evidence-Based Guide',
+    description:
+      'Choose among ashwagandha, rhodiola, magnesium, L-theanine, and phosphatidylserine based on your stress pattern, timeline, and safety needs.',
+    url: CANONICAL_PATH,
+    type: 'article',
+    images: ['/og-default.jpg'],
+  },
 }
+
+export default BestSupplementsForStressPage
