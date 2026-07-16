@@ -11,14 +11,17 @@
     "Inflammatory Signaling Modulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "",
   "contraindications": [
-    "pregnancy/breastfeeding without clinician supervision",
-    "known allergy to the plant/family"
+    "pregnancy because it is a traditional Chinese medicine blood-invigorating herb that can stimulate uterine contraction",
+    "warfarin or other anticoagulant or antiplatelet medication because it has documented antiplatelet and anticoagulant activity that may increase bleeding risk",
+    "bleeding disorder or upcoming surgery because of its blood-thinning pharmacology",
+    "heavy menstrual bleeding because its blood-moving action may worsen flow",
+    "known allergy to Zingiberaceae family plants because Curcuma wenyujin is in the ginger family"
   ],
   "interactions": [
-    "Potential additive effects with medications affecting the same body system",
-    "review high-dose extracts with a clinician."
+    "Warfarin / anticoagulants",
+    "Antiplatelet medications"
   ],
   "preparation": "",
   "traditionalUses": [],

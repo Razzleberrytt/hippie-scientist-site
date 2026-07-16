@@ -9894,10 +9894,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "pregnancy because it is a traditional Chinese medicine blood-invigorating herb that can stimulate uterine contraction",
+      "warfarin or other anticoagulant or antiplatelet medication because it has documented antiplatelet and anticoagulant activity that may increase bleeding risk",
+      "bleeding disorder or upcoming surgery because of its blood-thinning pharmacology",
+      "heavy menstrual bleeding because its blood-moving action may worsen flow",
+      "known allergy to Zingiberaceae family plants because Curcuma wenyujin is in the ginger family"
     ],
     "interactions": [],
     "side_effects": [],
@@ -19258,10 +19259,11 @@
     "evidence_rationale": "",
     "trial_design_insight": "",
     "contraindications": [
-      "pregnancy/breastfeeding without clinician supervision",
-      "known allergy to the plant/family",
-      "Potential additive effects with medications affecting the same body system",
-      "review high-dose extracts with a clinician."
+      "hormone-sensitive cancer such as estrogen-receptor-positive breast cancer because maral root shows estrogen receptor-binding activity",
+      "bleeding disorder or anticoagulant medication because maral root may affect bleeding risk",
+      "known allergy to Asteraceae family plants because Rhaponticum carthamoides is in the daisy family",
+      "immunosuppressant therapy because maral root may stimulate immune activity and blunt drug effectiveness",
+      "severe liver or kidney impairment because safety has not been established in these populations"
     ],
     "interactions": [],
     "side_effects": [],
