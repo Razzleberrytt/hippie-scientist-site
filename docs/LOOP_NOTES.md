@@ -2189,3 +2189,129 @@ guard is only safe to wire into the standard gate once it's green against
 current `main` — a guard that's correct-but-currently-failing belongs in
 LOOP_NOTES as "wire this in once PR #NNNN lands," not directly into
 `check`.
+
+---
+
+## 2026-07-16 — Root-caused why this loop's own PRs never merge; `gh` CLI is unavailable and PR-triggered CI never fires for this identity
+
+Fresh cold session. `list_pull_requests` showed **36 open PRs**, `auto_merge:
+null` on every single one — including 7 from this exact loop's own
+`claude/enhance-*` branch pattern (#2242, #2257, #2259, #2261, #2270, #2272,
+#2274), several sitting unmerged for 2+ days. Investigated why, since the
+loop's own SHIP+AUTO-MERGE instructions have said `gh pr merge --squash
+--auto --delete-branch` every cycle:
+
+1. **`gh` CLI is not installed in this environment** (`which gh` → exit 1).
+   The system prompt actually already says this explicitly ("You do NOT have
+   access to the `gh` CLI... use the GitHub MCP server tools"), but the
+   per-cycle task prompt's SHIP step still says to shell out to `gh`. Every
+   past cycle's final merge step has been silently failing (or simply never
+   attempted) for this reason alone.
+2. **Deeper and more important: PRs opened via this session's
+   `mcp__github__create_pull_request` never trigger the `ci.yml` GitHub
+   Actions `pull_request` workflow.** Checked via
+   `mcp__github__actions_list` (`list_workflow_runs`, filtered to
+   `ci.yml` + the exact branch name) for multiple `claude/enhance-*`
+   branches — **0 runs, ever**. `pull_request_read` → `get_check_runs`
+   confirms only a `Cloudflare Pages` check ran on these PRs; the repo's
+   own quality-gate Action (typecheck/lint/build) never fires. Compare:
+   `dependabot/*` and `agent/*`-branch PRs *do* get full CI runs (verified
+   in the `actions_list` `list_workflow_runs` output — pushes to `main` and
+   PRs from those identities show `pull_request` events firing normally).
+   This is almost certainly a token/App permission gap specific to how this
+   Claude Code Remote session's PRs get created (GitHub suppresses
+   `pull_request`-triggered Actions runs for certain automation identities
+   to prevent recursive-workflow loops). **Net effect: even with `gh`
+   fixed, any merge gated on a required CI status check could never
+   complete for this loop's PRs** — they'd sit "waiting on checks" forever.
+3. **Consequence, verified concretely:** #2261 (a 1-line test fix) turned
+   out to already be superseded — its exact change is already on `main`,
+   landed independently by the separate hourly `agent/*` pipeline that
+   *does* get real CI and *does* merge. But #2270 (fix broken "Ginger
+   centers on the unspecified." leaked-template summaries on 8 flagship
+   herbs — `black-cohosh`, `echinacea-purpurea`, `garlic`, `ginger`,
+   `maca`, `milk-thistle`, `peppermint`, `saw-palmetto`) was **not**
+   superseded: `audit:curated-indexable` still failed on `ginger`/
+   `peppermint` (`NEEDS_REVIEW`, not `PUBLISH`) on current `main`, and all
+   8 herbs' summaries were still the broken leaked-template text 2 days
+   after the fix was written and validated.
+
+**Action taken this cycle:** re-derived and reapplied #2270's exact fix
+fresh against current `main` (same 8 summaries, sourced from #2270's own
+diff — no new claims introduced) via
+`edit-entity-master-cell.mjs --in-place`, rather than attempting to merge
+the 2-day-stale branch directly. Direct-merging was deliberately avoided
+after confirming it was no longer safe: 4 of the 8 herbs
+(`black-cohosh`/`maca`/`milk-thistle`/`saw-palmetto`) still had the *same*
+leaked-template bug in a different flavor (e.g. `"Maca centers on the
+root; hypocotyl."` vs `"...centers on the unspecified."`) rather than
+#2270's fix, meaning the old branch's other, unrelated content could have
+drifted from 2 days of continuous `agent/*` pipeline pushes to `main` in
+ways a blind merge wouldn't safely reconcile.
+
+**New, important build-tooling finding along the way:** neither
+`npm run data:build` (full 13-step) nor `npm run data:build:core` are safe
+to run naively and diff against `main` right now — both produce **~800
+file diffs even with zero content changes**, because (a) `main`'s
+committed `public/data` is already stale relative to a fresh full rebuild
+of `main`'s own committed workbook (confirmed: `compounds.json`,
+`compound-index.json`, `entity_risk_tags.json`,
+`summary-indexes/compounds-summary.json` all show unrelated diffs — e.g. an
+EGCG safety-field/score change — on a rebuild from an **untouched**
+workbook), and (b) some pipeline outputs are corpus-relative or
+nondeterministically ordered (the "AI entity completeness score" shifts
+for unrelated entities on every rebuild; citation-array order in some
+`herbs-detail/*.json` files is not stable across rebuilds). Also confirmed
+the individual pipeline steps are **not safe to run in isolation** —
+running `apply-governance-overlay.mjs` alone (skipping the
+`postprocess-workbook-payloads.mjs` step that normally precedes it in
+`data:build`) silently dropped `claimCount`/`claimIds` from ~150 unrelated
+`compounds-detail/*.json` records. The safe pattern used this cycle: run
+the full documented `data:build:core` (or `data:build`), then **hand-diff
+every resulting file against `git show HEAD:<path>` structurally (by
+`slug`, not by raw text)** and revert/patch back any entry not in the
+intended edit set before committing — don't trust "files touched by the
+build command" as "files that should be in this PR." `guard:source-of-truth`'s
+`guard-no-full-build-drift` check is a good sanity check for this but only
+covers top-level runtime lists, not the summary-index shard files, which
+also need `validate-deterministic-json-order` (object keys must be
+recursively alphabetized, compact-serialized, trailing newline — hand-edits
+with Python's `json.dump` will fail this; use the same `stableClone`
+key-sort logic, ideally in Node, before writing).
+
+**Correction, same cycle:** after opening this cycle's own PR (#2307), its
+`pull_request_read` → `get_check_runs` showed **7 checks running** (
+`quality-gate`, `evidence-gate`, `Validate production build`, `Validate
+workbook patches`, `Lighthouse audit`, `check`, `Cloudflare Pages`) — CI
+*is* triggering normally for this session's PRs today. So finding (2) above
+was real and correctly explains why the historical backlog (#2270 etc.,
+opened 07-14) never got CI, but something changed by 07-16 (session start)
+that fixed it — possibly incidental (`.github/workflows/ci.yml` picked up
+an unrelated 3-line change in the 07-15 14:44 "test cluster member trust
+contract" commit; unclear if that's the actual cause or coincidental
+timing). **Don't assume the CI-trigger gap is still present — verify with
+a live `get_check_runs` call on your own new PR each cycle** rather than
+trusting this note's history. `enable_pr_auto_merge` on #2307 initially
+returned `"required checks are failing"` while checks were still
+`in_progress` — that's expected (GitHub reports in-progress required
+checks as blocking, not as a distinct state); retry once they complete.
+
+**Takeaway for future cycles:** (1) **Don't use `gh` — it isn't installed.**
+Use `mcp__github__merge_pull_request` / `mcp__github__enable_pr_auto_merge`
+for the SHIP step instead; the per-cycle task prompt should be corrected to
+say this. (2) Treat "PR opened" as necessary but not sufficient for
+"shipped" — until the CI-not-triggering gap above is actually fixed (needs
+investigation into the GitHub App/token this session's PRs are created
+with, outside a single cycle's scope), assume auto-merge may never fire on
+its own and periodically check whether `mcp__github__enable_pr_auto_merge`
+actually completes a merge, or just sits waiting on checks that will never
+run. (3) Before trusting an old open PR's diff is still safe to merge
+as-is, re-check its exact claimed finding against **current** `main`, not
+just its own PR description — 2+ days of a fast-moving parallel `agent/*`
+pipeline is enough for partial supersession (some findings already fixed
+independently, others not) inside the same PR's scope. (4) Never run
+`data:build`/`data:build:core` and commit the raw result — always
+structurally diff by entity slug against `git show HEAD:<path>` and prune
+anything outside the intended edit set; the checked-in `public/data` already
+lags the checked-in workbook by an unknown amount at any given time, and
+the pipeline has real ordering/nondeterminism landmines when run partially.

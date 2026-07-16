@@ -1,8 +1,8 @@
 {
   "name": "Black Cohosh Actaea racemosa",
   "slug": "black-cohosh",
-  "summary": "Black Cohosh centers on the root; rhizome.",
-  "description": "Black Cohosh centers on the root; rhizome. Key reported compounds include triterpene glycosides (actein, 23-epi-26-deoxyactein); cimifugoside; caffeic acid derivatives; fukinolic acid.",
+  "summary": "Black Cohosh (Actaea racemosa) is most studied for menopausal symptoms such as hot flashes, with proposed serotonergic and estrogen-receptor-modulating activity rather than classical hormonal action.",
+  "description": "Black Cohosh (Actaea racemosa) is most studied for menopausal symptoms such as hot flashes, with proposed serotonergic and estrogen-receptor-modulating activity rather than classical hormonal action.",
   "primaryActions": [
     "anti-inflammatory",
     "hormonal"
