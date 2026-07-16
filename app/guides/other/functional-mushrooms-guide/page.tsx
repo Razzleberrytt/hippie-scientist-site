@@ -7,6 +7,8 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FAQSchema from '@/components/seo/FAQSchema'
 import References from '@/components/References'
 import EmailCapture from '../../../../components/EmailCapture'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Functional Mushrooms Guide: Lion\'s Mane, Reishi, Cordyceps Compared (2026)',
@@ -31,6 +33,9 @@ const MUSHROOM_REFS = [
 ]
 
 export default function FunctionalMushroomsPage() {
+  const lionsManeProducts = getRevenueProductSet('lions-mane')
+  const reishiProducts = getRevenueProductSet('reishi')
+
   return (
     <div className="container-page py-10 space-y-10">
       <AuthorityJsonLd title="Functional Mushrooms Guide" description="Lion's mane, reishi, cordyceps — evidence-based comparison." url="https://thehippiescientist.net/guides/other/functional-mushrooms-guide" type="Article" />
@@ -43,14 +48,33 @@ export default function FunctionalMushroomsPage() {
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>For brain health: lion&apos;s mane</strong> — stimulates nerve growth factor, best evidence for cognition [1,4]. <strong>For immunity: reishi and turkey tail</strong> — beta-glucan immune modulation [2]. <strong>For energy: cordyceps</strong> — may improve exercise performance through ATP production [3]. <strong>For overall antioxidant support: chaga</strong> — highest ORAC score of any food but human evidence is limited. Quality matters enormously — fruiting body extracts are superior to mycelium-on-grain products. Look for standardized beta-glucan content (minimum 30%). Cost: $15-30/month per mushroom. Avoid blends that hide individual mushroom amounts.</p></section>
 
       <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance · Mushroom Selector</p><div className="overflow-x-auto"><table className="min-w-full text-sm"><thead><tr className="border-b"><th className="text-left py-2 pr-4 font-semibold text-ink">Mushroom</th><th className="text-left py-2 pr-4 font-semibold text-ink">Best For</th><th className="text-left py-2 pr-4 font-semibold text-ink">Evidence</th><th className="text-left py-2 pr-4 font-semibold text-ink">Dose</th><th className="text-left py-2 font-semibold text-ink">Key Bioactive</th></tr></thead><tbody className="text-muted">
-          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Lion&apos;s Mane</td><td className="py-2 pr-4">Brain, NGF, cognition</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-800">Preliminary</span></td><td className="py-2 pr-4">500-3,000 mg</td><td className="py-2">Hericenones, erinacines</td></tr>
-          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Reishi</td><td className="py-2 pr-4">Immune, sleep, stress</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-800">Moderate</span></td><td className="py-2 pr-4">1,000-3,000 mg</td><td className="py-2">Triterpenes, beta-glucans</td></tr>
-          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Cordyceps</td><td className="py-2 pr-4">Energy, endurance</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-800">Moderate</span></td><td className="py-2 pr-4">1,000-3,000 mg</td><td className="py-2">Cordycepin, adenosine</td></tr>
-          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Chaga</td><td className="py-2 pr-4">Antioxidant, immune</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-red-100 px-2 py-0.5 text-xs font-bold text-red-800">Limited</span></td><td className="py-2 pr-4">500-1,500 mg</td><td className="py-2">Polysaccharides, betulin</td></tr>
-          <tr><td className="py-2 pr-4 font-medium text-ink">Turkey Tail</td><td className="py-2 pr-4">Immune, adjunct cancer therapy</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-800">Strong</span></td><td className="py-2 pr-4">1,000-3,000 mg</td><td className="py-2">PSK, PSP (protein-bound polysaccharides)</td></tr>
+          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink"><Link href="/herbs/lions-mane/" className="text-brand-800 hover:underline">Lion&apos;s Mane</Link></td><td className="py-2 pr-4">Brain, NGF, cognition</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-800">Preliminary</span></td><td className="py-2 pr-4">500-3,000 mg</td><td className="py-2">Hericenones, erinacines</td></tr>
+          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink"><Link href="/herbs/reishi/" className="text-brand-800 hover:underline">Reishi</Link></td><td className="py-2 pr-4">Immune, sleep, stress</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-800">Moderate</span></td><td className="py-2 pr-4">1,000-3,000 mg</td><td className="py-2">Triterpenes, beta-glucans</td></tr>
+          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink"><Link href="/herbs/cordyceps-sinensis/" className="text-brand-800 hover:underline">Cordyceps</Link></td><td className="py-2 pr-4">Energy, endurance</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-amber-100 px-2 py-0.5 text-xs font-bold text-amber-800">Moderate</span></td><td className="py-2 pr-4">1,000-3,000 mg</td><td className="py-2">Cordycepin, adenosine</td></tr>
+          <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink"><Link href="/herbs/chaga/" className="text-brand-800 hover:underline">Chaga</Link></td><td className="py-2 pr-4">Antioxidant, immune</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-red-100 px-2 py-0.5 text-xs font-bold text-red-800">Limited</span></td><td className="py-2 pr-4">500-1,500 mg</td><td className="py-2">Polysaccharides, betulin</td></tr>
+          <tr><td className="py-2 pr-4 font-medium text-ink"><Link href="/herbs/turkey-tail/" className="text-brand-800 hover:underline">Turkey Tail</Link></td><td className="py-2 pr-4">Immune, adjunct cancer therapy</td><td className="py-2 pr-4"><span className="inline-flex items-center rounded-full bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-800">Strong</span></td><td className="py-2 pr-4">1,000-3,000 mg</td><td className="py-2">PSK, PSP (protein-bound polysaccharides)</td></tr>
         </tbody></table></div><div className="mt-3 p-3 rounded-lg bg-white border border-brand-200"><p className="text-xs font-semibold text-ink">Fruiting body &gt; mycelium:</p><p className="mt-1 text-xs leading-5 text-muted">Most commercial mushroom supplements are myceliated grain — the mushroom is grown on grain and the whole mass (mostly grain) is powdered. True fruiting body extracts are more expensive but contain 5-10x the bioactive compounds. Look for "fruiting body only" and standardized beta-glucan content. Brands that meet these standards: Real Mushrooms, Nootropics Depot, Oriveda.</p></div></section>
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">How beta-glucans work</h2><p className="text-sm leading-7 text-muted">The primary bioactive in all medicinal mushrooms is beta-glucans — long-chain polysaccharides that bind to dectin-1 and CR3 receptors on immune cells, triggering trained immunity without causing inflammation. This is fundamentally different from direct immune stimulants. Beta-glucan content (minimum 25% for fruiting body) is the most important quality metric. Starch content should be under 5% — high starch indicates grain filler.</p></section>
+
+      {(lionsManeProducts || reishiProducts) && (
+        <section className="space-y-6">
+          {lionsManeProducts && (
+            <RecommendationSection
+              title="Lion's mane product picks"
+              description="Lion's mane picks for brain and NGF support [1,4] across budget, overall, and premium tiers. Check each listing for fruiting-body-vs-mycelium sourcing and beta-glucan content before buying — quality varies by pick. Use these as sourcing starting points, not medical recommendations."
+              products={lionsManeProducts.products}
+            />
+          )}
+          {reishiProducts && (
+            <RecommendationSection
+              title="Reishi product picks"
+              description="Reishi picks for immune and sleep support [2] across budget, overall, and premium tiers. Check each listing for fruiting-body-vs-mycelium sourcing and beta-glucan content before buying — quality varies by pick. Use these as sourcing starting points, not medical recommendations."
+              products={reishiProducts.products}
+            />
+          )}
+        </section>
+      )}
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Bottom line</h2><p className="text-sm leading-7 text-muted">Functional mushrooms are the most evidence-supported category in the medicinal food space. Lion&apos;s mane for brain [1,4], reishi for immune [2], cordyceps for energy [3], turkey tail for immune (prescription-grade in Japan). Quality is the single biggest variable — cheap myceliated grain products have minimal bioactivity. Invest in fruiting body extracts from reputable brands. Start one mushroom at a time to assess effect. Expect gradual, cumulative benefits — mushrooms are not acute interventions. Cost: $15-30/month for a quality single-mushroom extract.</p></section>
       <References refs={MUSHROOM_REFS} />
