@@ -62,7 +62,10 @@ function scorePage(file) {
   }
 
   const hasRecommendation = /RecommendationSection|getRevenueProductSet/.test(source)
-  const hasAffiliate = /affiliateUrl|amazonUrl|AFFILIATE_TAGS/.test(source)
+  // A page wired to the shared RecommendationSection/getRevenueProductSet module sources its
+  // affiliateUrl/amazonUrl literals from config/revenue-products.ts, not from its own page source —
+  // so it satisfies the affiliate-connection requirement without repeating those literals here.
+  const hasAffiliate = hasRecommendation || /affiliateUrl|amazonUrl|AFFILIATE_TAGS/.test(source)
   const hasReferences = /references|pubmed|doi\.org/i.test(source)
   const hasFaq = /FAQ|faq|Frequently Asked/i.test(source)
   const hasQuickAnswer = /Quick Answer|fastest useful choice|bottom line/i.test(source)

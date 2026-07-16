@@ -2850,3 +2850,41 @@ Future cycles: prefer `audit:safety`'s abstention section for "is this
 top-20 gap real," and reach for `audit:patch-flagged-slugs` before editing
 any specific slug's safety-adjacent fields, regardless of its current fill
 status.
+
+---
+
+## 2026-07-16 (later) — Closed the #1 `high-roi-content-opportunities` gap and fixed a `hasAffiliate` false positive it produced
+
+Fresh cold session. Ran `node scripts/audit/high-roi-content-opportunities.mjs`
+(added 2026-07-15) — its #1 ranked page was `/guides/focus/l-theanine-without-caffeine`
+(opportunity 159), flagged "Add a context-matched RecommendationSection." The page
+had an ad-hoc grid of Amazon-search-query product cards instead of the shared
+`RecommendationSection` + `getRevenueProductSet('l-theanine')` module every other
+optimized page in the focus/sleep/anxiety clusters uses (curated ASIN picks,
+per-slot rationale, `WhyWeRecommend` trust block). Swapped the ad-hoc cards for the
+shared component; kept the existing "what to avoid when buying" safety callout.
+
+Re-running the audit after the fix surfaced a real tooling bug: `hasAffiliate` only
+matched the literal strings `affiliateUrl|amazonUrl|AFFILIATE_TAGS` in the page's
+*own* source. A page wired to `RecommendationSection`/`getRevenueProductSet` sources
+those literals from `config/revenue-products.ts` instead, so every page using the
+correct shared pattern — including already-optimized flagship pages like
+`best-supplements-for-sleep`, `magnesium-vs-melatonin`, and `best-herbs-for-anxiety`
+— was incorrectly re-flagged "Connect the page to an approved revenue product set."
+Confirmed via the JSON report: 26 pages had `hasRecommendation: true` but
+`hasAffiliate: false` before the fix. Fixed `hasAffiliate` in
+`scripts/audit/high-roi-content-opportunities.mjs` to also pass when
+`hasRecommendation` is true (one-line OR), since a wired-up `RecommendationSection`
+necessarily has a real curated product set behind it.
+
+**Takeaway for future cycles:** trust `hasRecommendation: true` as sufficient
+evidence of both a recommendation module *and* an affiliate connection — do not
+spend a cycle re-adding affiliate links to a page that already uses
+`RecommendationSection`/`getRevenueProductSet`. If `hasAffiliate` regresses to
+false on such a page, suspect the audit script rather than the page.
+
+`npm run check` (typecheck + lint + article-quality/claim/safety validators +
+`data:build:core`) passed; `npx vitest run` 643/643 passed. Diff: one page (product
+section swap), one script (`hasAffiliate` fix), this note — no workbook or
+`public/data` change (regenerated `build-info.json` timestamp reverted before
+commit).
