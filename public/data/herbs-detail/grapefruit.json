@@ -10,7 +10,7 @@
     "Metabolic Regulation"
   ],
   "activeCompounds": [],
-  "safetyNotes": "Generally well tolerated for most users.",
+  "safetyNotes": "Major food-drug interaction risk: can raise exposure of statins, calcium-channel blockers, immunosuppressants, antiarrhythmics, and other CYP3A4/OATP substrates.",
   "contraindications": [
     "Avoid or medically supervise with drugs labeled for grapefruit interaction",
     "narrow-therapeutic-index drugs",
