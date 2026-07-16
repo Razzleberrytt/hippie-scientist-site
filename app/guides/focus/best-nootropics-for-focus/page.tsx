@@ -14,14 +14,14 @@ import References from '@/components/References'
 const PAGE_URL = `${SITE_URL}/guides/focus/best-nootropics-for-focus`
 
 export const metadata: Metadata = {
-  title: 'Best Nootropics for Focus — Evidence-Based Guide (2026)',
+  title: 'Best Nootropics for Focus: Choose by Attention, Fatigue or Memory',
   description:
-    'Evidence-graded guide to the best nootropics for focus: L-theanine + caffeine, citicoline, bacopa, lion\'s mane, rhodiola, and phosphatidylserine. Mechanisms, dosing, safety, and stacking notes.',
+    'Compare nootropics by the problem you actually want to solve: immediate attention, stress-related fatigue, or longer-term memory support. Evidence, safety, doses, and buying guidance.',
   alternates: { canonical: '/guides/focus/best-nootropics-for-focus/' },
   openGraph: {
-    title: 'Best Nootropics for Focus — Evidence-Based Guide (2026)',
+    title: 'Best Nootropics for Focus: Choose by Attention, Fatigue or Memory',
     description:
-      'Which nootropics actually improve focus? Evidence-graded review of L-theanine + caffeine, citicoline, bacopa monnieri, lion\'s mane, rhodiola, and more.',
+      'A practical evidence-based guide to choosing nootropics for immediate attention, stress-related fatigue, or longer-term memory support.',
     url: '/guides/focus/best-nootropics-for-focus/',
     type: 'article',
     images: ['/og-default.jpg'],
@@ -31,99 +31,77 @@ export const metadata: Metadata = {
 const FOCUS_NOOTROPICS = [
   {
     name: 'L-Theanine + Caffeine',
-    mechanism: 'L-theanine buffers caffeine\'s jittery alpha-adrenergic stimulation while preserving dopamine/noradrenaline-mediated focus. Together they improve sustained attention, reaction time, and working memory better than either alone.',
-    evidence: 'B–A — multiple crossover RCTs; one of the best-studied nootropic combinations with consistent replication',
-    dose: 'L-theanine 100–200 mg + caffeine 50–100 mg; ratio ~2:1 theanine:caffeine; taken together before focus session',
-    safety: 'Very safe; caffeine sensitivity varies; avoid in afternoon if sleep-sensitive',
-    bestFor: 'Immediate focus boost; reducing jitteriness from caffeine; daily use without tolerance concern for theanine',
+    mechanism: 'Caffeine increases alertness while L-theanine may reduce some caffeine-related tension and support attention during demanding tasks.',
+    evidence: 'Moderate — several small crossover trials support short-term attention and reaction-time benefits, but results and doses vary',
+    dose: 'A conservative starting point is L-theanine 100–200 mg with caffeine 25–50 mg; adjust only after assessing sensitivity',
+    safety: 'Caffeine can worsen anxiety, palpitations, blood pressure, and sleep. Avoid treating the combination as automatically safe because it is widely sold.',
+    bestFor: 'Short-term alertness and attention when caffeine is already tolerated',
     href: '/compounds/l-theanine',
-    badge: 'Strong',
-    timeframe: 'Acute (30–60 min onset)',
+    badge: 'Best acute evidence',
+    timeframe: 'Acute (about 30–60 minutes)',
   },
   {
     name: 'Citicoline (CDP-Choline)',
-    mechanism: 'Precursor to acetylcholine and phosphatidylcholine; increases brain choline availability; upregulates dopamine receptors; neuroprotective',
-    evidence: 'B — RCTs in older adults and ADHD populations; positive effects on attention and memory; emerging data in healthy adults',
-    dose: '250–500 mg once or twice daily; effects build over 2–4 weeks',
-    safety: 'Excellent safety profile; minor GI effects at high doses; potential insomnia if taken late',
-    bestFor: 'Sustained cognitive support; choline-deficient individuals; longer-term cognitive enhancement',
+    mechanism: 'Provides choline used in phospholipid and acetylcholine pathways; human evidence is stronger in older or clinically studied populations than in healthy young adults.',
+    evidence: 'Limited–moderate — some attention and memory findings, but broad “cognitive enhancement” claims outrun the healthy-adult evidence',
+    dose: 'Common supplemental doses are 250–500 mg daily; use the lowest practical dose and reassess rather than automatically escalating',
+    safety: 'Usually well tolerated, but headache, GI symptoms, restlessness, and insomnia can occur. Medication interactions still deserve review.',
+    bestFor: 'A cautious trial when longer-term attention or memory support is the goal—not an immediate stimulant-like effect',
     href: '/compounds/cdp-choline',
-    badge: 'Moderate',
-    timeframe: '2–4 weeks for full benefit',
+    badge: 'Conditional',
+    timeframe: 'Days to weeks',
   },
   {
     name: 'Bacopa Monnieri',
-    mechanism: 'Bacosides enhance synaptic signal transduction; reduce anxiety (anxiolytic); increase serotonin and acetylcholine; adaptogenic stress buffering',
-    evidence: 'B — multiple RCTs show benefits for memory consolidation and processing speed; effects emerge slowly',
-    dose: '300–450 mg standardized extract (55% bacosides) with fat; effects take 8–12 weeks',
-    safety: 'Well-tolerated; GI upset (take with food); reversible within washout; slight sedation early',
-    bestFor: 'Memory and learning; stress + cognitive performance overlap; long-term cognitive strategy',
+    mechanism: 'Bacopa is studied mainly for memory acquisition and recall over repeated use, not as a same-day focus booster.',
+    evidence: 'Moderate for selected memory outcomes after sustained use; much weaker as a direct treatment for everyday inattention',
+    dose: 'Use a standardized extract that states bacoside content; trial doses vary, and benefits are generally assessed over 8–12 weeks',
+    safety: 'GI upset is common enough to matter, and some people report fatigue or sedation. Review thyroid, cholinergic, and medication concerns before use.',
+    bestFor: 'Longer-term memory and learning goals when delayed onset is acceptable',
     href: '/herbs/bacopa',
-    badge: 'Moderate',
-    timeframe: '8–12 weeks',
+    badge: 'Memory—not acute focus',
+    timeframe: 'Usually 8–12 weeks',
   },
   {
     name: "Lion's Mane (Hericium erinaceus)",
-    mechanism: 'Hericenones and erinacines stimulate NGF (Nerve Growth Factor) synthesis; potential neurogenesis support; reduces amyloid aggregation in preclinical models',
-    evidence: 'C–B — promising but small human RCTs; most compelling data in MCI and older adults; limited data in healthy young adults',
-    dose: '500–1000 mg fruiting body extract (≥30% polysaccharides) once or twice daily',
-    safety: 'Very safe; rare allergic reactions in mushroom-allergic individuals',
-    bestFor: 'Long-term neuroprotection and neuroplasticity; cognitive maintenance; older adults',
+    mechanism: 'Preclinical work is interesting, but human studies are small and mostly address mood or cognition in selected populations.',
+    evidence: 'Emerging — not enough evidence to rank it as a reliable focus enhancer for healthy adults',
+    dose: 'Products vary widely by fruiting body, mycelium, extraction method, and beta-glucan testing, so label quality matters more than a universal dose',
+    safety: 'Avoid with mushroom allergy; stop for allergic symptoms or unexpected respiratory or skin reactions. Long-term extract data remain limited.',
+    bestFor: 'People comfortable with an experimental, slow-build option rather than a proven attention aid',
     href: '/herbs/hericium-erinaceus',
-    badge: 'Emerging–Moderate',
-    timeframe: '4–12 weeks',
+    badge: 'Emerging',
+    timeframe: 'Weeks, if any benefit occurs',
   },
   {
     name: 'Rhodiola Rosea',
-    mechanism: 'Salidroside and rosavins activate AMPK, modulate serotonin/dopamine; adaptogenic anti-fatigue; improves cognitive performance under stress',
-    evidence: 'B — RCTs show reduced mental fatigue and improved performance under stress; effects on non-stressed populations more modest',
-    dose: '200–400 mg (≥3% rosavins, ≥1% salidroside) in the morning or before cognitive tasks',
-    safety: 'Well-tolerated; activating (can disrupt sleep); avoid late-day dosing',
-    bestFor: 'Stress-impaired focus; fatigue-related cognitive decline; acute cognitive performance before demanding tasks',
+    mechanism: 'Rhodiola may reduce perceived fatigue and support performance under stress, which can indirectly improve concentration.',
+    evidence: 'Limited–moderate — more convincing for stress-related fatigue than for improving baseline attention in rested adults',
+    dose: 'Trials commonly use standardized extracts in the morning; product standardization and individual stimulation response matter',
+    safety: 'Can feel activating and may worsen agitation or sleep. Review psychiatric medications and bipolar-spectrum risk with a clinician.',
+    bestFor: 'Focus that breaks down mainly during fatigue, burnout, or acute stress',
     href: '/herbs/rhodiola',
-    badge: 'Moderate',
-    timeframe: 'Acute + cumulative',
+    badge: 'Best for fatigue pattern',
+    timeframe: 'Hours to weeks',
   },
   {
     name: 'Phosphatidylserine (PS)',
-    mechanism: 'Structural phospholipid for neuronal membranes; modulates cortisol response; supports acetylcholine synthesis and receptor density',
-    evidence: 'B — FDA-qualified health claim for cognitive decline; positive RCTs in older adults; less evidence in healthy young adults',
-    dose: '100–300 mg/day (from sunflower or soy lecithin source)',
-    safety: 'Well-tolerated; choose sunflower-derived to avoid soy allergens',
-    bestFor: 'Age-related cognitive decline; cortisol-driven cognitive impairment; older adults',
+    mechanism: 'A membrane phospholipid studied mainly in age-related cognitive concerns and stress-response research.',
+    evidence: 'Limited–moderate in selected older-adult or stress contexts; sparse evidence for noticeable focus gains in healthy young adults',
+    dose: 'Common research doses fall around 100–300 mg daily, but product source and indication should guide any trial',
+    safety: 'Usually tolerated; GI effects and insomnia can occur. Check source allergens and medication compatibility.',
+    bestFor: 'Older adults or stress-related cognitive complaints—not a first-line acute focus supplement',
     href: '/compounds/phosphatidylserine',
-    badge: 'Moderate',
-    timeframe: '4–8 weeks',
-  },
-]
-
-const STACKS = [
-  {
-    goal: 'Immediate focus + no jitters',
-    combo: 'L-Theanine 200 mg + Caffeine 100 mg',
-    note: 'The gold standard acute stack. Well-studied, fast-acting, and adaptable to individual caffeine tolerance.',
-  },
-  {
-    goal: 'Stress-impaired focus',
-    combo: 'Rhodiola 300 mg (AM) + Bacopa 300 mg (with meal)',
-    note: 'Rhodiola buffers acute stress; bacopa builds sustained memory and processing over weeks. Allow 8+ weeks for Bacopa.',
-  },
-  {
-    goal: 'Long-term cognitive support',
-    combo: "Citicoline 300 mg + Lion's Mane 500 mg + Bacopa 300 mg",
-    note: 'Mechanistically diverse stack targeting acetylcholine, NGF, and synaptic efficiency. Slow-build — commit 12 weeks.',
-  },
-  {
-    goal: 'Focus + memory (daily driver)',
-    combo: 'L-Theanine 200 mg + Citicoline 250 mg + Bacopa 300 mg',
-    note: 'Practical daily stack: theanine for calm focus, citicoline for choline, bacopa for long-term memory consolidation.',
+    badge: 'Population-specific',
+    timeframe: 'Several weeks',
   },
 ]
 
 const HEADINGS: Heading[] = [
-  { id: 'acute-vs-long-term', text: 'Acute vs long-term nootropics', level: 2 },
+  { id: 'choose-by-problem', text: 'Choose by the real problem', level: 2 },
   { id: 'profiles', text: 'Nootropic-by-nootropic review', level: 2 },
-  { id: 'stacking', text: 'Evidence-informed stacking guide', level: 2 },
+  { id: 'trial-one-at-a-time', text: 'How to test one safely', level: 2 },
+  { id: 'buyer-checklist', text: 'Buyer checklist', level: 2 },
 ]
 
 const BEST_NOOTROPICS_FOR_FOCUS_REFS = [
@@ -139,10 +117,10 @@ export default function BestNootropicsForFocusPage() {
     <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
         pageUrl={PAGE_URL}
-        headline="Best Nootropics for Focus — Evidence-Based Guide"
-        description="Evidence-graded guide to the best nootropics for focus including L-theanine + caffeine, citicoline, bacopa, lion's mane, rhodiola, and phosphatidylserine. Covers mechanisms, dosing, safety, and stacking."
+        headline="Best Nootropics for Focus: Choose by Attention, Fatigue or Memory"
+        description="Evidence-based guide to choosing nootropics for immediate attention, stress-related fatigue, or longer-term memory support, with safety and buying guidance."
         datePublished="2026-06-16"
-        dateModified="2026-06-16"
+        dateModified="2026-07-16"
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides' },
@@ -153,70 +131,70 @@ export default function BestNootropicsForFocusPage() {
       <div className="space-y-14">
         <AffiliateDisclosure variant="compact" className="mb-6" />
 
-        {/* Hero */}
         <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
           <p className="eyebrow-label">Focus nootropics guide</p>
           <h1 className="mt-3 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
             Best Nootropics for Focus
           </h1>
           <p className="mt-4 text-sm leading-7 text-muted sm:text-base">
-            The nootropics market is flooded with overclaimed compounds and proprietary blends. Most
-            are either unstudied or studied in populations that don't reflect typical healthy adults.
-            This guide covers six nootropics with the strongest evidence basis for focus and cognition
-            — with honest assessments of what they do and don't do.
+            The best option depends on what “focus” means in your case. Short-term alertness, stress-related
+            mental fatigue, and long-term memory are different targets, and no supplement reliably fixes all
+            three. Start by identifying the bottleneck, then test one ingredient at a time.
           </p>
           <div className="mt-5 rounded-xl border border-brand-100 bg-brand-50/60 p-4 text-sm text-brand-900">
-            <strong>Key principle:</strong> "Nootropic" timescale matters. L-theanine + caffeine works
-            in 30 minutes. Bacopa takes 12 weeks. Mixing expectations for different compounds leads
-            to perceived failures.
+            <strong>Quick answer:</strong> L-theanine with a small, already-tolerated caffeine dose has the
+            clearest short-term attention evidence. Rhodiola is more relevant when stress and fatigue are the
+            main problem. Bacopa is a slow memory option—not a same-day focus booster. Lion&apos;s mane,
+            citicoline, and phosphatidylserine are more conditional than marketing usually suggests.
           </div>
 
-        <figure className="mt-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
-            <Image
-              src="/images/guides/best-nootropics-for-focus.jpg"
-              alt="Nootropics for focus including capsules, lion's mane mushroom, and green tea"
-              width={1536}
-              height={1024}
-              priority
-              className="w-full h-auto"
-            />
-          </div>
-          <figcaption className="mt-3 text-center text-sm text-muted">
-            The best-supported nootropics for focus and attention.
-          </figcaption>
-        </figure>
+          <figure className="mt-6">
+            <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
+              <Image
+                src="/images/guides/best-nootropics-for-focus.jpg"
+                alt="Nootropics for focus including capsules, lion's mane mushroom, and green tea"
+                width={1536}
+                height={1024}
+                priority
+                className="h-auto w-full"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm text-muted">
+              Match the ingredient to the actual attention, fatigue, or memory problem.
+            </figcaption>
+          </figure>
         </section>
 
-        {/* Timescale comparison */}
-        <section id="acute-vs-long-term" className="scroll-mt-20 space-y-4">
-          <p className="eyebrow-label">Timescale matters</p>
-          <h2 className="text-2xl font-semibold tracking-tight text-ink">
-            Acute vs long-term nootropics
-          </h2>
-          <div className="overflow-x-auto rounded-[1.65rem] border border-brand-900/10 bg-white shadow-sm">
-            <table className="min-w-[500px] w-full text-sm border-collapse">
-              <thead>
-                <tr className="border-b border-brand-900/10 bg-brand-50/50">
-                  <th className="text-left p-4 font-semibold text-ink">Nootropic</th>
-                  <th className="text-left p-4 font-semibold text-ink">Evidence</th>
-                  <th className="text-left p-4 font-semibold text-ink">When effects appear</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-brand-900/10">
-                {FOCUS_NOOTROPICS.map((n) => (
-                  <tr key={n.name}>
-                    <td className="p-4 font-medium text-ink">{n.name}</td>
-                    <td className="p-4"><span className="rounded-full bg-brand-50 px-2 py-0.5 text-xs font-semibold text-brand-800">{n.badge}</span></td>
-                    <td className="p-4 text-muted">{n.timeframe}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        <section id="choose-by-problem" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">Decision framework</p>
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">Choose by the real problem</h2>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {[
+              {
+                problem: 'I need short-term alertness',
+                answer: 'Consider a low caffeine dose, optionally paired with L-theanine, only if caffeine is already well tolerated.',
+              },
+              {
+                problem: 'Stress or fatigue destroys my concentration',
+                answer: 'Rhodiola may be more relevant than memory-oriented supplements, but sleep debt and burnout still come first.',
+              },
+              {
+                problem: 'I want better memory over months',
+                answer: 'Bacopa is the clearest slow-build candidate here, with GI and sedation tradeoffs.',
+              },
+              {
+                problem: 'My focus problems are persistent or severe',
+                answer: 'Do not use a supplement stack to delay assessment for sleep disorders, anxiety, depression, ADHD, medication effects, or medical causes.',
+              },
+            ].map((item) => (
+              <div key={item.problem} className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
+                <p className="text-sm font-semibold text-ink">{item.problem}</p>
+                <p className="mt-2 text-sm leading-6 text-muted">{item.answer}</p>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* Profiles */}
         <section id="profiles" className="scroll-mt-20 space-y-6">
           <div>
             <p className="eyebrow-label">Evidence profiles</p>
@@ -224,6 +202,28 @@ export default function BestNootropicsForFocusPage() {
               Nootropic-by-nootropic review
             </h2>
           </div>
+
+          <div className="overflow-x-auto rounded-[1.65rem] border border-brand-900/10 bg-white shadow-sm">
+            <table className="w-full min-w-[560px] border-collapse text-sm">
+              <thead>
+                <tr className="border-b border-brand-900/10 bg-brand-50/50">
+                  <th className="p-4 text-left font-semibold text-ink">Nootropic</th>
+                  <th className="p-4 text-left font-semibold text-ink">Best-fit target</th>
+                  <th className="p-4 text-left font-semibold text-ink">Expected timescale</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-brand-900/10">
+                {FOCUS_NOOTROPICS.map((n) => (
+                  <tr key={n.name}>
+                    <td className="p-4 font-medium text-ink">{n.name}</td>
+                    <td className="p-4 text-muted">{n.badge}</td>
+                    <td className="p-4 text-muted">{n.timeframe}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
           <div className="space-y-5">
             {FOCUS_NOOTROPICS.map((n) => (
               <div key={n.name} className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
@@ -235,27 +235,12 @@ export default function BestNootropicsForFocusPage() {
                     {n.badge}
                   </span>
                 </div>
-                <div className="mt-4 grid gap-3 sm:grid-cols-2 text-sm">
-                  <div>
-                    <p className="font-semibold text-ink">Mechanism</p>
-                    <p className="mt-0.5 text-muted">{n.mechanism}</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-ink">Best for</p>
-                    <p className="mt-0.5 text-muted">{n.bestFor}</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-ink">Evidence</p>
-                    <p className="mt-0.5 text-muted">{n.evidence}</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-ink">Typical dose</p>
-                    <p className="mt-0.5 text-muted">{n.dose}</p>
-                  </div>
-                  <div className="sm:col-span-2">
-                    <p className="font-semibold text-ink">Safety</p>
-                    <p className="mt-0.5 text-muted">{n.safety}</p>
-                  </div>
+                <div className="mt-4 grid gap-3 text-sm sm:grid-cols-2">
+                  <div><p className="font-semibold text-ink">What it may do</p><p className="mt-0.5 text-muted">{n.mechanism}</p></div>
+                  <div><p className="font-semibold text-ink">Best for</p><p className="mt-0.5 text-muted">{n.bestFor}</p></div>
+                  <div><p className="font-semibold text-ink">Evidence</p><p className="mt-0.5 text-muted">{n.evidence}</p></div>
+                  <div><p className="font-semibold text-ink">Typical trial approach</p><p className="mt-0.5 text-muted">{n.dose}</p></div>
+                  <div className="sm:col-span-2"><p className="font-semibold text-ink">Safety</p><p className="mt-0.5 text-muted">{n.safety}</p></div>
                 </div>
                 <Link href={n.href} className="mt-4 inline-block text-xs font-semibold text-brand-700 hover:underline">
                   Full profile →
@@ -265,35 +250,47 @@ export default function BestNootropicsForFocusPage() {
           </div>
         </section>
 
-        {/* Stacking */}
-        <section id="stacking" className="scroll-mt-20 space-y-5">
-          <div>
-            <p className="eyebrow-label">Combinations</p>
-            <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">
-              Evidence-informed stacking guide
-            </h2>
+        <section id="trial-one-at-a-time" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">Avoid stack confusion</p>
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">How to test one safely</h2>
+          <div className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+            <ol className="space-y-3 text-sm leading-6 text-muted">
+              <li><strong className="text-ink">1. Define one outcome.</strong> Pick attention span, fatigue, or memory—not a vague goal of “better cognition.”</li>
+              <li><strong className="text-ink">2. Start with one ingredient.</strong> Multi-product stacks make benefits, side effects, and interactions impossible to attribute.</li>
+              <li><strong className="text-ink">3. Use a realistic timeframe.</strong> Do not judge bacopa after three days or keep taking an acute stimulant combination for months without reassessment.</li>
+              <li><strong className="text-ink">4. Track sleep and anxiety.</strong> A product that improves alertness while damaging sleep can worsen overall focus.</li>
+              <li><strong className="text-ink">5. Stop for adverse effects.</strong> Palpitations, agitation, allergic symptoms, severe GI effects, or meaningful mood changes are not signs to “push through.”</li>
+            </ol>
           </div>
+        </section>
+
+        <section id="buyer-checklist" className="scroll-mt-20 space-y-4">
+          <p className="eyebrow-label">Before product picks</p>
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">Buyer checklist</h2>
           <div className="grid gap-4 sm:grid-cols-2">
-            {STACKS.map((s) => (
-              <div key={s.goal} className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
-                <p className="text-xs font-bold uppercase tracking-wider text-brand-700">{s.goal}</p>
-                <p className="mt-2 text-sm font-semibold text-ink">{s.combo}</p>
-                <p className="mt-2 text-xs leading-relaxed text-muted">{s.note}</p>
+            {[
+              'Prefer a clearly disclosed single-ingredient dose over a proprietary blend.',
+              'Look for independent identity and contaminant testing—not only “made in a GMP facility.”',
+              'Check the active standardization that matches the research, such as bacosides for bacopa.',
+              'Avoid products that combine stimulants, herbs, and choline sources before you know how each affects you.',
+              'Compare serving size and active amount; a large capsule count does not equal a meaningful dose.',
+              'Review medications, pregnancy, cardiovascular risk, mood history, and sleep problems before buying.',
+            ].map((item) => (
+              <div key={item} className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 text-sm leading-6 text-muted shadow-sm">
+                {item}
               </div>
             ))}
           </div>
         </section>
 
+        <References refs={BEST_NOOTROPICS_FOR_FOCUS_REFS} />
+
         {lTheanineProducts && (
-        <>
-          <References refs={BEST_NOOTROPICS_FOR_FOCUS_REFS} />
-            <RecommendationSection products={lTheanineProducts.products} />
-        </>
+          <RecommendationSection products={lTheanineProducts.products} />
         )}
 
         <EmailCapture location="guides-best-nootropics-for-focus" className="mt-6" />
 
-        {/* Related */}
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
           <Link href="/guides/focus/" className="hover:text-brand-800">Focus goal hub →</Link>
           <Link href="/guides/focus-without-caffeine-crash/" className="hover:text-brand-800">Focus Without the Caffeine Crash →</Link>
