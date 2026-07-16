@@ -8,6 +8,8 @@ import EmailCapture from '@/components/EmailCapture'
 import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import LastUpdatedBadge from '../../../../src/components/editorial/LastUpdatedBadge'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection from '@/components/RecommendationSection'
 
 const SLUG = 'l-theanine-for-anxiety'
 const TITLE = 'L-Theanine for Anxiety: Benefits, Dosage, Safety, and Research Review'
@@ -384,6 +386,8 @@ export default function LTheanineForAnxietyPage() {
             </ul>
           </div>
         </section>
+
+        <RecommendationSection products={getRevenueProductSet('l-theanine')?.products ?? []} />
 
         <div className="my-12">
           <NewsletterCtaBlock />
