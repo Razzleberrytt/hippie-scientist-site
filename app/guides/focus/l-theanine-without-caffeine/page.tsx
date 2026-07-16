@@ -12,6 +12,8 @@ import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
 import PathwayDiagram from '@/components/PathwayDiagram'
 import EvidenceLegend from '@/components/EvidenceLegend'
 import { pathwayDiagrams } from '@/lib/pathway-data'
+import { getRevenueProductSet } from '@/config/revenue-products'
+import RecommendationSection, { type RecommendationProduct } from '@/components/RecommendationSection'
 import { AFFILIATE_TAGS } from '@/config/affiliate'
 import References from '@/components/References'
 
@@ -65,6 +67,17 @@ const FAQS = [
   },
 ]
 
+// The shared `l-theanine` revenue set only stocks 200 mg picks, but this page's stated
+// starter dose is 100 mg — swap in a page-specific 100 mg budget option so the buying
+// module doesn't push readers toward double the recommended first trial dose.
+const L_THEANINE_100MG_BUDGET_PRODUCT: RecommendationProduct = {
+  slot: 'budget',
+  brand: 'NOW Foods',
+  title: 'NOW L-Theanine 100 mg (Caffeine-Free)',
+  rationale: 'Matches this page\'s recommended 100 mg starting dose for first-timers and caffeine-sensitive readers.',
+  affiliateUrl: `https://www.amazon.com/s?k=${encodeURIComponent('NOW Foods L-Theanine 100mg caffeine free')}&tag=${AFFILIATE_TAGS.amazon}`,
+}
+
 const L_THEANINE_WITHOUT_CAFFEINE_REFS = [
   { n: 1, text: 'Nobre AC, et al. (2008). L-theanine and mental state. Asia Pac J Clin Nutr, 17(S1): 167-168.', url: 'https://pubmed.ncbi.nlm.nih.gov/18296328/' },
   { n: 2, text: 'Haskell CF, et al. (2008). L-theanine, caffeine and cognition. Biol Psychol, 77(2): 113-122.', url: 'https://pubmed.ncbi.nlm.nih.gov/18006208/' },
@@ -73,6 +86,10 @@ const L_THEANINE_WITHOUT_CAFFEINE_REFS = [
 ]
 
 export default function LTheanineWithoutCaffeinePage() {
+  const lTheanineProducts = getRevenueProductSet('l-theanine')
+  const lTheanineProductsWith100mgStart = lTheanineProducts
+    ? [L_THEANINE_100MG_BUDGET_PRODUCT, ...lTheanineProducts.products.filter((product) => product.slot !== 'budget')]
+    : []
   const breadcrumbLd = breadcrumbJsonLd([
     { name: 'Articles', url: 'https://thehippiescientist.net/articles' },
     { name: TITLE, url: `https://thehippiescientist.net/articles/${SLUG}` },
@@ -368,45 +385,13 @@ export default function LTheanineWithoutCaffeinePage() {
                 blend&rdquo; products combine L-theanine with caffeine — these are for daytime use only and
                 not appropriate if you want a stimulant-free approach.
               </p>
-              <div className="grid gap-4 sm:grid-cols-2">
-                {[
-                  {
-                    eyebrow: 'Best Starting Dose',
-                    name: 'L-Theanine 100mg (Caffeine-Free)',
-                    desc: 'Conservative starting dose. Good for first-timers and those sensitive to supplements. Confirm "caffeine free" on the label.',
-                    query: 'l-theanine+100mg+caffeine+free',
-                    cta: 'View on Amazon →',
-                  },
-                  {
-                    eyebrow: 'Standard Focus Dose',
-                    name: 'L-Theanine 200mg (Caffeine-Free)',
-                    desc: 'The dose most studied for calm alertness. Standalone product only — avoid combo products for stimulant-free use.',
-                    query: 'l-theanine+200mg+standalone+caffeine+free',
-                    cta: 'View on Amazon →',
-                  },
-                  {
-                    eyebrow: 'Evening + Focus Combo',
-                    name: 'L-Theanine + Magnesium (No Caffeine)',
-                    desc: 'For dual mental calm (L-theanine) and neural excitability (magnesium) support. Good for ADHD with sleep difficulties.',
-                    query: 'l-theanine+magnesium+glycinate+no+caffeine',
-                    cta: 'View combo →',
-                  },
-                ].map(({ eyebrow, name, desc, query, cta }) => (
-                  <div key={name} className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                    <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">{eyebrow}</p>
-                    <p className="font-semibold text-ink">{name}</p>
-                    <p className="mt-1 text-xs leading-5 text-muted">{desc}</p>
-                    <a
-                      href={`https://www.amazon.com/s?k=${query}&tag=${AFFILIATE_TAGS.amazon}`}
-                      target="_blank"
-                      rel="noopener noreferrer sponsored"
-                      className="mt-3 inline-flex items-center gap-1 rounded-full bg-brand-950 px-4 py-1.5 text-xs font-bold text-white transition hover:bg-brand-900"
-                    >
-                      {cta}
-                    </a>
-                  </div>
-                ))}
-              </div>
+              {lTheanineProducts && (
+                <RecommendationSection
+                  title="Caffeine-free L-theanine picks"
+                  description="Standalone L-theanine capsules — no caffeine or focus-blend fillers. Use these as sourcing starting points, not medical recommendations."
+                  products={lTheanineProductsWith100mgStart}
+                />
+              )}
 
               <div className="mt-4 rounded-[1rem] border border-amber-200 bg-amber-50/60 p-4">
                 <p className="font-semibold text-amber-900">What to avoid when buying caffeine-free L-theanine:</p>
