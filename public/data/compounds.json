@@ -15077,7 +15077,6 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "safety": "The DAC form's sustained, non-pulsatile GH elevation is a meaningfully different physiological exposure than the body's natural pulsatile pattern; sustained supraphysiological GH/IGF-1 exposure is associated with known risks (insulin resistance, growth-factor-related concerns) in the broader GH-axis literature, though CJC-1295-specific long-term human data does not exist. No completed long-term human safety trials exist for either form. RUO sourcing carries the same purity and mislabeling risks as other gray-market peptides.",
     "contraindications": [
       "Active cancer or cancer history (growth-hormone-axis stimulation is a theoretical tumor-growth concern)",
       "pregnancy/breastfeeding",
@@ -56146,7 +56145,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "safety": "Avoid sedative certainty; safety pass needed. | Claim gate: Keep as low-risk/moderate-certainty compared with botanicals, but do not imply it treats anxiety, ADHD, insomnia, or psychiatric disorders. | Dose/form gate: Do not imply treatment of anxiety, ADHD, psychiatric disorders, or clinical insomnia. | allow_support_claims; require_context_for_caffeine_combo; block_disease_treatment_claims | Runtime gate: Do not say treats anxiety, ADHD, insomnia, psychiatric disorders, or sleep disorders. Do not merge tea, caffeine+theanine, and standalone L-theanine without labels. | Promote as one of the cleaner first-wave pages; keep claim wording supportive, not therapeutic.",
+    "safety": "Short-term L-theanine appears generally well tolerated in limited human trials, but broad safety certainty is limited by small samples and mixed populations.",
     "contraindications": [
       "Clinician review for pregnancy/breastfeeding",
       "children",

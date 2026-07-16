@@ -2326,7 +2326,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "safety": "Safety/regulatory pass needed before stronger public claims. | Claim gate: Use only cautious stress/sleep support language. Add liver/thyroid/pregnancy/medication guardrails before any public recommendation. | Dose/form gate: Do not imply disease treatment, universal dose, long-term safety, or equivalence across all product forms. | allow_support_claims_with_dose_form_and_safety_box; block_universal_dose_claims | Runtime gate: Do not say treats anxiety, depression, insomnia, thyroid disease, adrenal problems, or any disease. Do not imply universal dose or long-term safety. | Upgrade page to premium evidence layout; include dose/form table and safety gate before affiliate/product CTAs.",
+    "safety": "Generally tolerated short-term in studied standardized root-extract trials, but long-term safety is not established. Rare clinically apparent liver injury has been reported. Common mild effects can include GI upset, loose stools, nausea, and drowsiness.",
     "contraindications": [
       "Avoid pregnancy/breastfeeding without clinician supervision",
       "avoid/caution advanced liver disease or cirrhosis",
@@ -5986,7 +5986,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "safety": "Dose/form gate: Do not imply cognitive enhancement, neuroprotection, or general nootropic value from metabolic or preclinical evidence. | downgrade_cognition_claims; allow_metabolic_context_only_with_caution; require_gi_safety_note",
+    "safety": "Topical use can cause burning, erythema, coughing, and eye irritation. Avoid mucous membranes, broken skin, occlusive dressings, and immediate hot showers.",
     "contraindications": [
       "Broken or inflamed skin for topical use",
       "known chili/capsaicin allergy",
@@ -6089,7 +6089,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "safety": "Downgrade cognition claims. | Claim gate: Downgrade cognition/nootropic positioning. Prefer culinary/metabolic/mechanistic framing with GI safety box. | Runtime gate: Do not call it a nootropic or cognition supplement. Do not imply dietary chili, red chili extract, capsaicin capsules, topical capsaicin, and nasal/inhaled capsaicin are interchangeable. | Demote from focus/cognition priority; route to metabolic/appetite or pain-context content only after separate evidence review.",
+    "safety": "Culinary chili exposure is different from concentrated capsaicin extracts. Safety is dose-dependent; GI irritation, reflux aggravation, abdominal pain, burning sensation, and mucosal irritation are the main practical concerns.",
     "contraindications": [
       "Caution reflux/GERD",
       "gastritis/ulcers",
@@ -17746,7 +17746,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "safety": "May support calm mood/anxiety symptoms and possibly sleep quality; evidence is promising but heterogeneous. | Do not claim it treats anxiety, depression, insomnia, or ADHD. | Use as stress/anxiety + focus-under-stress candidate; keep claim gate conservative.",
+    "safety": "No serious side effects in reviewed anxiety/depression trials, but sedation and thyroid/medication flags should be reviewed before strong recommendations.",
     "contraindications": [
       "Additive with CNS depressants (benzodiazepines",
       "alcohol)",
@@ -18276,7 +18276,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "safety": "Avoid depression/anxiety/dementia-prevention claims. | Claim gate: Frame as emerging cognitive-support ingredient, not dementia prevention/treatment or mood-disorder treatment. | Dose/form gate: Do not imply dementia prevention, depression treatment, broad neuroprotection, or guaranteed focus benefits. | allow_cautious_focus_support_claims; block_disease_and_neuroprotection_claims | Runtime gate: Do not say prevents dementia, treats depression/anxiety, regenerates nerves, boosts NGF in humans, or guarantees focus. | Keep page useful but cautious; make “what human studies actually used” the trust-building section.",
+    "safety": "Generally food-like but not risk-free; reported supplement side effects include stomach discomfort, headache, allergic reactions, and occasional withdrawals in small clinical studies. Long-term safety is not well established.",
     "contraindications": [
       "Avoid/caution mushroom allergy",
       "clinician review for pregnancy/breastfeeding",
@@ -25999,7 +25999,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
-    "safety": "Potential activating effects; avoid treatment claims. | Claim gate: Do not present as a clean “stress cure.” Use fatigue/stress-resilience support language with activation and interaction guardrails. | Dose/form gate: Do not imply universal adaptogen dosing, antidepressant treatment, anxiety treatment, or guaranteed energy effects. | allow_context_specific_fatigue_support_claims; require_standardization_note; block_treatment_claims | Runtime gate: Do not say treats depression, anxiety, burnout, chronic fatigue, or universally improves cognition. Do not reuse exercise doses as stress doses. | Split into “fatigue/performance” and “stress/mood” evidence lanes; avoid one generic adaptogen score.",
+    "safety": "Short-term human studies often report few/no obvious adverse reactions, but trial reporting quality is weak and interaction data are incomplete. Potential activating effects should be acknowledged.",
     "contraindications": [
       "Caution insomnia",
       "anxiety sensitivity",
