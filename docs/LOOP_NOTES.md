@@ -2279,6 +2279,23 @@ recursively alphabetized, compact-serialized, trailing newline — hand-edits
 with Python's `json.dump` will fail this; use the same `stableClone`
 key-sort logic, ideally in Node, before writing).
 
+**Correction, same cycle:** after opening this cycle's own PR (#2307), its
+`pull_request_read` → `get_check_runs` showed **7 checks running** (
+`quality-gate`, `evidence-gate`, `Validate production build`, `Validate
+workbook patches`, `Lighthouse audit`, `check`, `Cloudflare Pages`) — CI
+*is* triggering normally for this session's PRs today. So finding (2) above
+was real and correctly explains why the historical backlog (#2270 etc.,
+opened 07-14) never got CI, but something changed by 07-16 (session start)
+that fixed it — possibly incidental (`.github/workflows/ci.yml` picked up
+an unrelated 3-line change in the 07-15 14:44 "test cluster member trust
+contract" commit; unclear if that's the actual cause or coincidental
+timing). **Don't assume the CI-trigger gap is still present — verify with
+a live `get_check_runs` call on your own new PR each cycle** rather than
+trusting this note's history. `enable_pr_auto_merge` on #2307 initially
+returned `"required checks are failing"` while checks were still
+`in_progress` — that's expected (GitHub reports in-progress required
+checks as blocking, not as a distinct state); retry once they complete.
+
 **Takeaway for future cycles:** (1) **Don't use `gh` — it isn't installed.**
 Use `mcp__github__merge_pull_request` / `mcp__github__enable_pr_auto_merge`
 for the SHIP step instead; the per-cycle task prompt should be corrected to
