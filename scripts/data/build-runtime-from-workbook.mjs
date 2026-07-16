@@ -301,6 +301,35 @@ function firstList(row, keys) {
   return uniqueList(first(row, keys))
 }
 
+// `runtime_safety` is the curated override column and is trusted as-is when present.
+// When it is blank, `safety_notes` is the workbook's real safety prose for the large
+// majority of herbs/compounds, but a few cells hold an internal editorial reminder
+// instead of reader-facing text (e.g. "Needs anticoagulant/bleeding/surgery/
+// drug-interaction safety pass.", or a real sentence with a "| Runtime safety box: ..."
+// reminder appended). Falling back to `safety_notes` blindly would either publish that
+// reminder verbatim or drop a perfectly good sentence just because of the suffix, so
+// strip a detected internal note and keep any usable reader-facing prefix.
+const SAFETY_INTERNAL_NOTE_PATTERN =
+  /\bneeds?\b[^.]{0,80}\b(review|pass|research)\b|runtime safety box|pending review|\btodo\b|\btbd\b|to be determined|\bplaceholder\b/i
+const MIN_SAFETY_NOTE_LENGTH = 15
+
+function publishableSafetyNotes(rawText) {
+  const text = compact(rawText)
+  if (!text) return ''
+  // A handful of workbook safety_notes cells name the entity's own restricted-adjacent
+  // active constituent (e.g. Lobelia inflata's own text naming lobeline). Surfacing that
+  // text would flip isRestrictedRuntimeRecord() and de-list the whole profile as a side
+  // effect of a display-text fix; that publish/restrict call belongs to a human
+  // governance review, not to this fallback, so leave the placeholder in place instead.
+  if (hasRestrictedRuntimeTerm(text)) return ''
+  if (!SAFETY_INTERNAL_NOTE_PATTERN.test(text)) return text
+  const [prefix] = text.split(/\s*\|\s*/, 1)
+  if (prefix && prefix.length >= MIN_SAFETY_NOTE_LENGTH && !SAFETY_INTERNAL_NOTE_PATTERN.test(prefix)) {
+    return prefix.trim()
+  }
+  return ''
+}
+
 // A subset of workbook `contraindications_or_flags` values are a mismapped
 // interaction-severity tier (e.g. the whole cell is just `moderate` or
 // `low_to_moderate`) rather than real safety prose — a pre-existing workbook
@@ -514,7 +543,9 @@ function read(workbook, candidates, optional = false) {
 
 function profile(row, type, taxonomy) {
   const allowed = type === 'herb' ? HERB_RUNTIME_FIELDS : COMPOUND_RUNTIME_FIELDS
-  const runtimeSafety = compact(first(row, ['runtime_safety', 'runtime safety']))
+  const runtimeSafety =
+    compact(first(row, ['runtime_safety', 'runtime safety'])) ||
+    publishableSafetyNotes(first(row, ['safety_notes', 'safety notes']))
   const sourceSlug = slug(first(row, ['slug', 'id', 'name']))
   const clusterTrust = getClusterMemberRuntimeTrustRecord(sourceSlug)
   const rawMechanisms = uniqueList([

@@ -144,6 +144,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -243,6 +244,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Do not combine with serotonergic medications unless clinician-directed.",
     "contraindications": [
       "Avoid with SSRIs."
     ],
@@ -346,6 +348,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Flatulence, diarrhea, and abdominal discomfort common; caution inflammatory bowel disease and significant renal impairment.",
     "contraindications": [
       "Type 1 diabetes or diabetic ketoacidosis",
       "inflammatory bowel disease or colonic ulceration or partial intestinal obstruction",
@@ -571,6 +574,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "generally safe; excessive intake may cause GI irritation or enamel erosion",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -790,6 +794,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Boswellia extracts can cause GI upset and may interact with anticoagulants/anti-inflammatory drugs; pregnancy safety is not established.",
     "contraindications": [
       "pregnancy"
     ],
@@ -911,6 +916,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Review with seizure history, warfarin, or thyroid-medication plans.",
     "contraindications": [
       "Caution in seizure disorders."
     ],
@@ -1039,6 +1045,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Often preclinical; concentrated or isolated quinones may be irritant/cytotoxic. Avoid pregnancy and use caution with liver disease or anticoagulants.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -1125,6 +1132,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited safety data",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -1247,6 +1255,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical/extract-derived; safety depends on source herb and product quality.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -1344,6 +1353,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "IV use can cause flushing and chest discomfort; clinical setting only for cardiac use; no established oral supplement dosing.",
     "contraindications": [
       "Injectable adenosine used for supraventricular tachycardia is contraindicated in second- or third-degree AV block or sick sinus syndrome without a pacemaker and in bronchoconstrictive lung disease such as asthma due to bronchospasm risk (FDA Adenocard prescribing information)",
       "this describes clinical IV drug use rather than oral dietary supplementation since oral safety data do not exist."
@@ -1472,6 +1482,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May cause GI irritation or hemolysis risk in isolated/high-dose contexts; herb-specific safety and pregnancy cautions apply.",
     "contraindications": [
       "renal impairment or hepatic impairment due to reduced clearance of aescin",
       "anticoagulant or antiplatelet medication such as warfarin or aspirin or clopidogrel due to an additive bleeding risk and unpredictable INR changes",
@@ -1576,6 +1587,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Rare hepatotoxicity reports; limited standardized safety evidence.",
     "contraindications": [
       "liver"
     ],
@@ -1808,6 +1820,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human supplement evidence is limited; avoid strong clinical claims.",
     "contraindications": [
       "Caution with antihypertensive medication due to a theoretical blood-pressure-lowering effect via nitric-oxide and imidazoline-receptor pathways",
       "pregnancy/breastfeeding without clinician guidance",
@@ -1912,6 +1925,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect platelet activity; use caution with anticoagulants/antiplatelets and before surgery.",
     "contraindications": [
       "Bleeding disorders or anticoagulant/antiplatelet therapy without clinician review",
       "scheduled surgery",
@@ -2030,6 +2044,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preparation-derived. Caution with anticoagulants, pregnancy, and immune-modulating therapies.",
     "contraindications": [
       "pregnancy"
     ],
@@ -2129,6 +2144,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety inferred from whole extract",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -2222,6 +2238,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Unstable compound; safety inferred from garlic intake",
     "contraindications": [
       "Bleeding disorders or anticoagulant/antiplatelet therapy without clinician review",
       "scheduled surgery (discontinue high-dose garlic-derived supplements 1-2 weeks prior)",
@@ -2453,6 +2470,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Use caution with cholinergic drugs, low blood pressure, or sensitivity to headaches/nausea from choline donors.",
     "contraindications": [
       "known hypersensitivity to alpha-GPC or its excipients",
       "cardiovascular conditions or autonomic dysfunction warrant clinician guidance before use",
@@ -2582,6 +2600,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Can affect glucose; review diabetes meds and separate from minerals/thyroid medication as needed.",
     "contraindications": [
       "Caution with hypoglycemic agents."
     ],
@@ -2804,6 +2823,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Hypoglycemia possible; caution with antidiabetic drugs and anticoagulants.",
     "contraindications": [
       "known hypersensitivity to ginseng or other Araliaceae family plants",
       "warfarin due to documented case reports of reduced drug effectiveness and lowered INR requiring closer monitoring",
@@ -2915,6 +2935,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "not applicable as direct supplement context; unstable compound",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -3016,6 +3037,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset; rare allergic reactions.",
     "contraindications": [
       "Pregnancy (animal and traditional-use evidence of uterine-stimulant/antifertility effects)",
       "autoimmune disease or immunosuppressant therapy without clinician review (andrographis stimulates immune signaling)",
@@ -3155,6 +3177,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid in pregnancy; immune-modulating framing needs caution with autoimmune conditions.",
     "contraindications": [
       "pregnancy"
     ],
@@ -3265,6 +3288,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
     "contraindications": [
       "Pregnancy/breastfeeding for concentrated essential-oil use (traditional emmenagogue/uterine-stimulant use)",
       "infants and young children (concentrated anise/fennel essential-oil preparations linked to case reports of neurotoxicity and seizures)",
@@ -3382,6 +3406,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -3605,6 +3630,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May worsen bloating in sensitive users; titrate fiber gradually.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -3705,6 +3731,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset; caution post-MI.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -3822,6 +3849,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or extract-derived; concentrated doses may affect glucose, lipids, liver enzymes, or bleeding risk depending matrix.",
     "contraindications": [
       "liver"
     ],
@@ -3916,6 +3944,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -4015,6 +4044,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -4119,6 +4149,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -4707,6 +4738,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human evidence mostly from Centella extracts/topicals. Caution with liver disease, sedatives, pregnancy, and high-dose oral extracts.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -4811,6 +4843,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human safety mostly from Centella extracts/topicals. Caution with liver disease, sedatives, pregnancy, and high-dose prolonged supplementation.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -4927,6 +4960,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -5043,6 +5077,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally tolerated; keep high-dose and pregnancy guidance conservative.",
     "contraindications": [
       "Concurrent warfarin or other anticoagulant medication due to a documented case report of markedly potentiated anticoagulant effect and INR elevation",
       "concurrent antihypertensive medication due to astaxanthin's own mild blood-pressure-lowering activity",
@@ -5186,6 +5221,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly food/extract-derived human evidence. High-dose supplements may affect CYP/transporters or anticoagulant/antiplatelet risk.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -5310,6 +5346,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or Astragalus-formula derived. Caution with immunosuppressants, autoimmune disease, anticoagulants, pregnancy, and transplant contexts.",
     "contraindications": [
       "pregnancy"
     ],
@@ -6112,6 +6149,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human safety is mostly Bacopa-extract derived. GI upset and sedation may occur; caution with sedatives, thyroid-active therapy, and pregnancy.",
     "contraindications": [
       "pregnancy"
     ],
@@ -6239,6 +6277,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May cause GI irritation or hemolysis risk in isolated/high-dose contexts; herb-specific safety and pregnancy cautions apply.",
     "contraindications": [
       "pregnancy"
     ],
@@ -6365,6 +6404,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "generally well tolerated; rare mild GI discomfort; generally safe; occasional mild GI discomfort | Mostly preclinical and extract-derived. Caution with anticoagulants/antiplatelets, liver disease, sedatives, and pregnancy at supplement doses.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -6494,6 +6534,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "well tolerated; occasional dizziness reported; well tolerated; rare dizziness reported | Mostly supported through Scutellaria extracts and preclinical data. Use caution with liver disease, sedatives, anticoagulants/antiplatelets, immunosuppressants, and.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -6598,6 +6639,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Hypoglycemia risk possible; caution antidiabetic drugs.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -6696,6 +6738,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally tolerated; caution maple syrup urine disease and severe liver disease.",
     "contraindications": [
       "Avoid in maple syrup urine disease (inherited BCAA-metabolism disorder)",
       "a placebo-controlled ALS trial was halted early after excess mortality in the BCAA-treated arm (Italian ALS Study Group 1993) so BCAA supplementation is not recommended for ALS outside clinician-directed care",
@@ -6788,6 +6831,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "contraindications": [
       "Caution in liver disease."
     ],
@@ -6892,6 +6936,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Use caution with hypotension or nitrate/PDE-5 medication contexts.",
     "contraindications": [
       "Caution with hypotension or blood pressure medication use due to additive blood-pressure-lowering effects that can cause dizziness or fainting",
       "caution combining with PDE5 inhibitors such as sildenafil or tadalafil due to overlapping nitric-oxide pathways and risk of pronounced blood pressure drops",
@@ -7114,6 +7159,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Isolated alkaloid exposure may affect CYP/P-gp handling, glucose, blood pressure, and GI tolerance; avoid pregnancy/breastfeeding unless clinician-directed.",
     "contraindications": [
       "pregnancy"
     ],
@@ -7480,6 +7526,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -7580,6 +7627,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May cause GI distress and electrolyte imbalance",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -7671,6 +7719,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Tingling is common and dose-related; divide doses or use sustained-release.",
     "contraindications": [
       "Generally safe",
       "dose-splitting reduces side effects."
@@ -7790,6 +7839,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -7874,6 +7924,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited safety data but generally well tolerated",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -7977,6 +8028,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -8089,6 +8141,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May cause GI symptoms; immune-modulation claims need cautious framing with immunosuppressant use.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -8193,6 +8246,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid with sitosterolemia; long-term high intake may affect sterol handling.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -8734,6 +8788,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or extract-derived; concentrated doses may affect glucose, lipids, liver enzymes, or bleeding risk depending matrix.",
     "contraindications": [
       "liver"
     ],
@@ -8832,6 +8887,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI distress common.",
     "contraindications": [
       "Hypertension or heart failure or edema (sodium load can worsen fluid retention)",
       "impaired kidney function or metabolic alkalosis (contraindicated due to altered acid-base and electrolyte handling)",
@@ -9061,6 +9117,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset and bleeding-risk caution possible with anticoagulants.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -9166,6 +9223,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Ginkgo constituents are extract-specific. Bleeding interaction concerns apply with anticoagulants/antiplatelets.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -9284,6 +9342,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Phytoestrogenic activity warrants caution with hormone-sensitive conditions and hormone therapies; effects are preparation- and dose-specific.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -9384,6 +9443,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High doses can interfere with lab tests such as thyroid and troponin assays; deficiency-specific benefit only.",
     "contraindications": [
       "Upcoming laboratory bloodwork especially troponin thyroid or hormone panels (high-dose biotin causes false immunoassay results and the FDA has issued a safety communication on this interference)",
       "discontinue at least 48 hours before lab testing when possible",
@@ -9504,6 +9564,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -9741,6 +9802,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset and possible hypoglycemia; caution antidiabetic drugs and pregnancy.",
     "contraindications": [
       "anticoagulant or antiplatelet medication due to enhanced bleeding risk",
       "antihypertensive medication due to additive blood pressure lowering effect",
@@ -9853,6 +9915,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "low doses generally tolerated; high doses may cause GI/neurologic toxicity",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -9945,6 +10008,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset possible; caution with anticoagulants or anti-inflammatory drugs.",
     "contraindications": [
       "Known allergy to boswellia or other Burseraceae-family plants",
       "concurrent warfarin or aspirin or other anticoagulant or antiplatelet medication due to a theoretical additive bleeding risk",
@@ -10165,6 +10229,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Boswellia extracts can cause GI upset and may interact with anticoagulants/anti-inflammatory drugs; pregnancy safety is not established.",
     "contraindications": [
       "pregnancy"
     ],
@@ -10257,6 +10322,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Well tolerated with mild GI symptoms",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -10477,6 +10543,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Bleeding/allergy considerations matter; avoid around surgery unless clinician-directed.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -10580,6 +10647,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; possible Asteraceae allergy.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -10694,6 +10762,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly extract-derived evidence. Potential additive bleeding, blood pressure, or sedative effects depending source herb.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -10792,6 +10861,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated with mild GI symptoms",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -10889,6 +10959,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "generally safe; chocolate forms add sugar/calories",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -11014,6 +11085,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Coffee matrix matters. Cafestol/kahweol can raise LDL with unfiltered coffee; caffeine-related effects may apply to coffee products.",
     "contraindications": [
       "stimulant"
     ],
@@ -11144,6 +11216,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly food-associated; concentrated extracts may cause GI effects or interact with anticoagulants/antidiabetics depending matrix.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -11485,6 +11558,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Excess may increase kidney stone risk.",
     "contraindications": [
       "hypercalcemia or other conditions causing chronically elevated blood calcium levels",
       "history of calcium-containing kidney stones",
@@ -11592,6 +11666,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated with limited human data",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -11717,6 +11792,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Phytoestrogenic activity warrants caution with hormone-sensitive conditions and hormone therapies; effects are preparation- and dose-specific.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -11824,6 +11900,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "diarrhea, fatigue/sedation; CYP3A4/CYP2C19 interactions; elevated liver enzymes dose-dependent",
     "contraindications": [
       "liver"
     ],
@@ -11919,6 +11996,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Burning, erythema, and local irritation common; avoid eyes, mucosa, and broken skin.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -12022,6 +12100,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset and fishy odor possible; caution seizure disorders and trimethylamine-N-oxide risk discussions in cardiovascular-risk users.",
     "contraindications": [
       "May reduce thyroid hormone effectiveness or worsen hypothyroidism symptoms in those on levothyroxine or other thyroid medication",
       "increases seizure risk in people with a prior seizure history or seizure disorder and should be avoided in that group",
@@ -12158,6 +12237,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Primarily food/herb exposure through rosemary/sage; concentrated isolated-dose safety is less established. Caution with anticoagulants, pregnancy, and liver disease at high doses.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -12272,6 +12352,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -12378,6 +12459,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -12486,6 +12568,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -12602,6 +12685,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly extract-derived/preclinical. GI effects and herb-specific contraindications matter more than isolated-compound evidence.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -12736,6 +12820,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Tea-food exposure is generally safer than concentrated extracts. High EGCG/catechin extracts have liver-injury concern and caffeine-containing products add stimulant risk.",
     "contraindications": [
       "stimulant",
       "liver"
@@ -12940,6 +13025,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "insufficient human safety data",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -13048,6 +13134,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High-caution compound with narrow therapeutic window in preclinical literature. Do not infer supplement safety; avoid pregnancy, liver/kidney disease, and unsupervised use.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -13155,6 +13242,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -13258,6 +13346,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -13362,6 +13451,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid with known Asteraceae/ragweed allergy; sedative stacking caution.",
     "contraindications": [
       "Known ragweed or Asteraceae/Compositae family allergy (cross-reactive allergic reactions including rare anaphylaxis)",
       "pregnancy or breastfeeding without clinician guidance (traditional uterine-stimulant use)",
@@ -13484,6 +13574,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human safety is bitter-melon/extract-derived. May potentiate hypoglycemia; avoid pregnancy and monitor with antidiabetic therapy.",
     "contraindications": [
       "pregnancy"
     ],
@@ -13614,6 +13705,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly food-associated; concentrated extracts may cause GI effects or interact with anticoagulants/antidiabetics depending matrix.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -13720,6 +13812,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset and allergy possible; contamination quality concerns.",
     "contraindications": [
       "known allergy to algae or iodine",
       "warfarin due to high vitamin K content reducing drug effectiveness with documented INR changes requiring dose monitoring",
@@ -13850,6 +13943,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally food-associated; supplement doses may cause GI upset or caffeine-like effects if delivered via coffee/green coffee extracts. Caution with stimulant sensitivity and antidiabetic drugs.",
     "contraindications": [
       "stimulant",
       "liver"
@@ -13957,6 +14051,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High doses may cause fishy odor, hypotension.",
     "contraindications": [
       "Caution in TMAO-related CVD risk contexts."
     ],
@@ -14057,6 +14152,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Use caution with anticoagulants or bleeding-risk contexts.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -14154,6 +14250,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset and headache possible; caution renal disease and diabetes medications.",
     "contraindications": [
       "liver",
       "kidney"
@@ -14252,6 +14349,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Headache and GI upset possible; caution in kidney disease.",
     "contraindications": [
       "kidney"
     ],
@@ -14337,6 +14435,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -14441,6 +14540,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -14536,6 +14636,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Cassia cinnamon can contain coumarin; avoid aggressive high-dose chronic use with liver concerns.",
     "contraindications": [
       "Existing liver disease or elevated liver enzymes due to cassia-type cinnamon's coumarin content which can exceed established safety intake limits with regular use and has been linked to liver-enzyme elevation or liver injury case reports",
       "concurrent diabetes medication or insulin due to additive blood-sugar-lowering effect and hypoglycemia risk",
@@ -14653,6 +14754,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Use caution with cholinergic sensitivity or medication plans affecting acetylcholine signaling.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician guidance",
       "known hypersensitivity to choline-containing supplements",
@@ -14769,6 +14871,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -14871,6 +14974,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May lower blood pressure; review with nitrates, PDE5 inhibitors, or hypotension.",
     "contraindications": [
       "Limited data."
     ],
@@ -15094,6 +15198,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High saturated fat intake may raise LDL cholesterol in some users.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -15186,6 +15291,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe; consider potassium load in renal impairment.",
     "contraindications": [
       "kidney"
     ],
@@ -15286,6 +15392,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Oral supplementation safety and efficacy are not established.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -15404,6 +15511,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect anticoagulation management; coordinate use with warfarin or high-risk cardiovascular medication plans.",
     "contraindications": [
       "Warfarin or other vitamin-K-antagonist blood-thinning medication without clinician monitoring (CoQ10 structural similarity to vitamin K can reduce drug effectiveness and lower INR)",
       "chemotherapy without oncologist review (antioxidant activity is a theoretical concern for oxidative-stress-dependent chemotherapy agents)",
@@ -15627,6 +15735,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Usually well tolerated; screen for source-specific allergy.",
     "contraindications": [
       "Known allergy to the source protein such as bovine or marine/fish or eggshell-membrane collagen",
       "significant kidney disease or hypercalcemia due to calcium content in some formulations",
@@ -15747,6 +15856,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human safety is not well established. Avoid pregnancy/breastfeeding; caution with CYP/P-gp substrates, antidiabetic drugs, and complex medication regimens.",
     "contraindications": [
       "pregnancy"
     ],
@@ -15846,6 +15956,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -15969,6 +16080,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or extract-derived; concentrated doses may affect glucose, lipids, liver enzymes, or bleeding risk depending matrix.",
     "contraindications": [
       "liver"
     ],
@@ -16068,6 +16180,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "excess may cause hepatic toxicity; contraindicated in Wilson's disease",
     "contraindications": [
       "liver"
     ],
@@ -16180,6 +16293,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -16280,6 +16394,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited human safety data",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -16377,6 +16492,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Review autoimmune, anticoagulant, and allergy contexts.",
     "contraindications": [
       "Concurrent immunosuppressant medication such as cyclosporine or azathioprine or corticosteroids due to cordyceps' immune-stimulating activity potentially reducing drug efficacy",
       "concurrent warfarin or aspirin or other anticoagulant or antiplatelet medication due to cordyceps' mild antiplatelet activity and additive bleeding risk",
@@ -16612,6 +16728,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or extract-derived; concentrated doses may affect glucose, lipids, liver enzymes, or bleeding risk depending matrix.",
     "contraindications": [
       "liver"
     ],
@@ -17168,6 +17285,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human evidence is limited and often saffron-derived. Caution with pregnancy, serotonergic drugs, anticoagulants, and blood-pressure-lowering regimens.",
     "contraindications": [
       "Pregnancy or breastfeeding due to saffron's uterine-stimulant and abortifacient activity at higher doses",
       "caution with bleeding disorders or anticoagulant or blood-thinning medication use",
@@ -17304,6 +17422,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human safety is mostly inferred from saffron trials. Avoid pregnancy-dose escalation; caution with serotonergic drugs, anticoagulants, and hypotension-prone users.",
     "contraindications": [
       "Pregnancy or breastfeeding due to saffron's uterine-stimulant and abortifacient activity at higher doses",
       "caution with bleeding disorders or anticoagulant or blood-thinning medication use",
@@ -17422,6 +17541,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Danshen constituents may affect bleeding and cardiovascular medications; use clinician review with anticoagulants/antiplatelets.",
     "contraindications": [
       "Potent competitive inhibitor of CYP1A2 and a moderate mixed-type inhibitor of CYP2C9 so may raise blood levels of drugs cleared by those enzymes such as caffeine or theophylline or warfarin or phenytoin",
       "lowers testosterone and androgen synthesis so avoid in pregnancy or when using androgen-dependent hormone therapy",
@@ -17779,6 +17899,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human evidence is mostly formulation-dependent. High-dose curcuminoids may cause GI upset and interact with anticoagulants/antiplatelets.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -17903,6 +18024,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human evidence is mostly formulation-dependent. High-dose curcuminoids may cause GI upset and interact with anticoagulants/antiplatelets.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -17993,6 +18115,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset, irritability, and acne possible; avoid broad testosterone claims.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -18092,6 +18215,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "contraindications": [
       "Limited data."
     ],
@@ -18188,6 +18312,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Not a substitute for treatment of active infection; review with diabetes medication plans.",
     "contraindications": [
       "Caution in diabetes."
     ],
@@ -18289,6 +18414,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "may cause hypoglycemia",
     "contraindications": [
       "diabetes or hypoglycemia or other blood sugar sensitivity due to insulin secretion that can lower blood glucose",
       "diabetes medication or insulin due to additive hypoglycemia risk",
@@ -18422,6 +18548,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Phytoestrogenic activity warrants caution with hormone-sensitive conditions and hormone therapies; effects are preparation- and dose-specific.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -18539,6 +18666,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Phytoestrogenic activity warrants caution with hormone-sensitive conditions and hormone therapies; effects are preparation- and dose-specific.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -18628,6 +18756,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; possible allergic reactions.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -18737,6 +18866,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -18827,6 +18957,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safer than whole licorice regarding pseudoaldosteronism; generally well tolerated.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -19061,6 +19192,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -19182,6 +19314,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Phytoestrogenic activity warrants caution with hormone-sensitive conditions and hormone therapies; effects are preparation- and dose-specific.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -19287,6 +19420,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Kava/kavalactones are linked with sedation and liver injury concerns; avoid alcohol, sedatives, liver disease, and pregnancy.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -19384,6 +19518,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset possible; caution with ulcers, anticoagulants, and pregnancy.",
     "contraindications": [
       "Peptic ulcer or gallstones (may increase gastric acid secretion)",
       "anticoagulant or antiplatelet medications (potential additive bleeding risk)",
@@ -19493,6 +19628,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Hormonal adverse effects possible, including acne and androgenic effects; avoid in hormone-sensitive cancers unless medically supervised.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -19600,6 +19736,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe in food context.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -19705,6 +19842,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Use clinician guidance for true pancreatic insufficiency or active pancreatic disease.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -19810,6 +19948,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Kava/kavalactones are linked with sedation and liver injury concerns; avoid alcohol, sedatives, liver disease, and pregnancy.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -19918,6 +20057,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Kava/kavalactones are linked with sedation and liver injury concerns; avoid alcohol, sedatives, liver disease, and pregnancy.",
     "contraindications": [
       "pre-existing liver disease or elevated liver enzymes",
       "concurrent alcohol use due to alcohol-induced CYP2E1 upregulation depleting glutathione during kavalactone metabolism and adding to hepatotoxic burden",
@@ -20027,6 +20167,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe with limited long-term data",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -20235,6 +20376,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset, headache, and rash possible; generally well tolerated.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -20433,6 +20575,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "contraindications": [
       "Caution in renal disease."
     ],
@@ -20541,6 +20684,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "allergic reactions, especially ragweed allergy",
     "contraindications": [
       "autoimmune disorders such as multiple sclerosis or Hashimoto's thyroiditis due to immune-activating effects",
       "organ transplant or immunosuppressant medications due to reduced drug effectiveness",
@@ -20822,6 +20966,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High-dose isolated EGCG can raise liver-safety concerns; avoid aggressive dosing.",
     "contraindications": [
       "High-dose extract use above roughly 800 mg EGCG daily carries a documented risk of drug-induced liver injury or hepatitis",
       "avoid in pre-existing liver disease or with other hepatotoxic medications",
@@ -21154,6 +21299,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Excess sodium risk in sensitive individuals.",
     "contraindications": [
       "Caution in hypertension/renal disease."
     ],
@@ -21378,6 +21524,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -21475,6 +21622,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -21580,6 +21728,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Insomnia, irritability, and blood pressure effects possible; caution hypertension and stimulants.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -21704,6 +21853,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Schisandra-type lignans can affect drug-metabolizing enzymes/transporters; caution with complex medication regimens.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -21826,6 +21976,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Schisandra-type lignans can affect drug-metabolizing enzymes/transporters; caution with complex medication regimens.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -21958,6 +22109,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "well tolerated with no major adverse effects reported; well tolerated; no major adverse effects reported; well tolerated with no significant adverse effects reported | Mostly food-associated; concentrated extracts may cause GI effects or interact with.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -22075,6 +22227,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Often preclinical; concentrated or isolated quinones may be irritant/cytotoxic. Avoid pregnancy and use caution with liver disease or anticoagulants.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -22181,6 +22334,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Anthraquinone laxative-like activity may cause diarrhea, electrolyte shifts, and interaction risks. Avoid chronic high-dose use, pregnancy, kidney disease, and stimulant-laxative stacking.",
     "contraindications": [
       "pregnancy",
       "stimulant",
@@ -22319,6 +22473,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Tea-food exposure is generally safer than concentrated extracts. High EGCG/catechin extracts have liver-injury concern and caffeine-containing products add stimulant risk.",
     "contraindications": [
       "stimulant",
       "liver"
@@ -22422,6 +22577,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Tea-food exposure is generally safer than concentrated extracts. High EGCG/catechin extracts have liver-injury concern and caffeine-containing products add stimulant risk.",
     "contraindications": [
       "stimulant",
       "liver"
@@ -22559,6 +22715,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Tea-food exposure is generally safer than concentrated extracts. High EGCG/catechin extracts have liver-injury concern and caffeine-containing products add stimulant risk.",
     "contraindications": [
       "stimulant",
       "liver"
@@ -22773,6 +22930,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -22865,6 +23023,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -22974,6 +23133,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Food/flavor exposure differs from essential-oil or concentrated use. High doses may irritate mucosa and affect bleeding or liver safety; caution with anticoagulants and dental/topical overuse.",
     "contraindications": [
       "liver"
     ],
@@ -23071,6 +23231,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Common GI distress and poor palatability",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -23267,6 +23428,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "animal studies raise reproductive/testicular and organ-safety concerns; absence of human efficacy and safety data is the key limitation",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -23376,6 +23538,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
     "contraindications": [
       "Classified as a skin and eye irritant and a known fragrance sensitizer so topical or concentrated exposure can trigger allergic contact dermatitis in sensitive individuals",
       "cytotoxic to cells at high in-vitro concentrations so formulation and dose matter for safety",
@@ -23477,6 +23640,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "hidden-dose stimulant combinations can increase cardiovascular, anxiety, sleep, and liver-safety risks",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -23577,6 +23741,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset; hypoglycemia risk; antidiabetic drug interaction caution",
     "contraindications": [
       "pregnancy due to documented uterine-stimulant effects and birth-defect risk at supplemental doses",
       "legume family allergy including chickpea or peanut or coriander due to cross-reactivity",
@@ -23694,6 +23859,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset, maple odor, hypoglycemia risk; caution anticoagulants and pregnancy.",
     "contraindications": [
       "Pregnancy due to traditional uterine-stimulant use and reported association with birth defects at supplement doses",
       "Fabaceae or legume family allergy including chickpea or peanut or coriander cross-reactivity",
@@ -23835,6 +24001,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly food-associated; concentrated extracts may cause GI effects or interact with anticoagulants/antidiabetics depending matrix.",
     "contraindications": [
       "Anticoagulant or antiplatelet medications (may have antiplatelet activity warranting caution)",
       "scheduled surgery (discontinue beforehand due to theoretical bleeding risk)",
@@ -23954,6 +24121,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited human safety data; dosing not clinically established.",
     "contraindications": [
       "known hypersensitivity to fisetin or related flavonoids",
       "warfarin or other anticoagulant medications due to glucuronidation-based metabolism that may potentiate effect",
@@ -24062,6 +24230,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "high intake may mask vitamin B12 deficiency",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -24146,6 +24315,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High doses may mask B12 deficiency.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -24263,6 +24433,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Phytoestrogenic activity warrants caution with hormone-sensitive conditions and hormone therapies; effects are preparation- and dose-specific.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -24353,6 +24524,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "known hypersensitivity to Coleus forskohlii",
       "antihypertensive medications such as calcium channel blockers or ACE inhibitors or alpha-blockers due to additive blood-pressure-lowering effect and risk of symptomatic hypotension",
@@ -24482,6 +24654,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -24566,6 +24739,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Gas, bloating, and diarrhea at higher doses; caution IBS/FODMAP sensitivity.",
     "contraindications": [
       "Contraindicated with known hypersensitivity or mechanical bowel obstruction",
       "a FODMAP so people with IBS or FODMAP sensitivity or SIBO should avoid or use only under supervision since it can worsen bloating or cramping or gas or diarrhea at typical prebiotic doses",
@@ -24675,6 +24849,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; limited long-term safety data.",
     "contraindications": [
       "Seaweed-derived extracts can carry meaningful iodine content so people with hyperthyroidism or hypothyroidism or Hashimoto thyroiditis should consult a clinician before use",
       "theoretical antiplatelet or blood-thinning activity means caution with anticoagulant or antiplatelet drugs and discontinuation roughly two weeks before surgery",
@@ -24771,6 +24946,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -24870,6 +25046,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe; limited data.",
     "contraindications": [
       "Limited data."
     ],
@@ -25001,6 +25178,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly food/extract-derived human evidence. High-dose supplements may affect CYP/transporters or anticoagulant/antiplatelet risk.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -25095,6 +25273,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Nausea, vomiting, bradycardia; caution with cardiac conditions.",
     "contraindications": [
       "Cholinesterase-inhibitor cardiac effects can include bradycardia or atrioventricular heart block or other vagotonic slowing of heart rhythm",
       "avoid with unstable angina or congestive heart failure or recent myocardial infarction or pre-existing conduction abnormalities",
@@ -25237,6 +25416,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly food-associated; concentrated extracts may cause GI effects or interact with anticoagulants/antidiabetics depending matrix.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -25371,6 +25551,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Tea-food exposure is generally safer than concentrated extracts. High EGCG/catechin extracts have liver-injury concern and caffeine-containing products add stimulant risk.",
     "contraindications": [
       "stimulant",
       "liver"
@@ -25469,6 +25650,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset; rare hepatotoxicity reports; caution in liver disease.",
     "contraindications": [
       "Documented case reports of drug-induced liver injury including acute hepatitis or fulminant liver failure requiring transplant usually after two to seven months of continuous use",
       "avoid in pre-existing liver disease or with other hepatotoxic medications",
@@ -25828,6 +26010,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Can increase bleeding risk; stop before surgery if clinician recommends.",
     "contraindications": [
       "Bleeding disorders or upcoming surgery due to antiplatelet effects -- discontinue at least two weeks before surgery per anesthesiology guidance",
       "anticoagulant or antiplatelet medications such as warfarin or DOACs or aspirin or clopidogrel due to additive bleeding risk",
@@ -25926,6 +26109,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Well tolerated; evidence insufficient for specific outcomes.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -26043,6 +26227,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Phytoestrogenic activity warrants caution with hormone-sensitive conditions and hormone therapies; effects are preparation- and dose-specific.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -26483,6 +26668,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Bleeding risk possible.",
     "contraindications": [
       "seizure disorder or epilepsy history",
       "pregnancy/breastfeeding without clinician guidance",
@@ -26598,6 +26784,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Bleeding risk; caution with anticoagulants/antiplatelets and surgery.",
     "contraindications": [
       "Concurrent warfarin or aspirin or other anticoagulant or antiplatelet medication due to ginkgo's own antiplatelet activity and documented additive bleeding risk",
       "active bleeding disorder or recent hemorrhagic event",
@@ -26950,6 +27137,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited human safety data | Safety inferred from ginseng extracts. Caution with anticoagulants, antidiabetics, stimulants, immunosuppressants, and hormone-sensitive contexts.",
     "contraindications": [
       "stimulant"
     ],
@@ -27076,6 +27264,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited human safety data | Safety is mostly inferred from Panax/ginseng extracts. Caution with anticoagulants, antidiabetics, stimulants, and hormone-sensitive contexts.",
     "contraindications": [
       "stimulant"
     ],
@@ -27188,6 +27377,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical and extract-derived. Caution with anticoagulants, antidiabetics, immune therapies, and oncology regimens without supervision.",
     "contraindications": [
       "Antiplatelet and anticoagulant activity raises bleeding risk when combined with drugs such as aspirin or heparin or warfarin and dosage adjustment or clinician monitoring is warranted for those on narrow-therapeutic-index anticoagulants",
       "discontinue before scheduled surgery given the bleeding-risk profile",
@@ -27300,6 +27490,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe; overstimulation possible",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -27405,6 +27596,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Must be taken with adequate water; separate from medications if absorption timing matters.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -27514,6 +27706,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -27617,6 +27810,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Use caution with shellfish allergy, anticoagulants, or glucose-control medication plans.",
     "contraindications": [
       "shellfish allergy unless a vegetarian or corn-fermented source is confirmed",
       "anticoagulant medications such as warfarin due to case reports of potentiated bleeding",
@@ -27732,6 +27926,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe; caution in severe liver disease.",
     "contraindications": [
       "liver_caution"
     ],
@@ -27826,6 +28021,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -27913,6 +28109,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Headache, nausea; context-specific use.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -28339,6 +28536,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -28453,6 +28651,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Hypertension; hypokalemia risk",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -28564,6 +28763,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Pseudoaldosteronism risk: hypertension, hypokalemia, edema; dose-dependent toxicity; caution with cardiovascular or renal disease and interacting drugs.",
     "contraindications": [
       "kidney"
     ],
@@ -28676,6 +28876,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Well tolerated.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -28773,6 +28974,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Neurotoxicity/Parkinsonism-like concerns; mitochondrial toxicity; no established safe therapeutic dose.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -29240,6 +29442,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -29364,6 +29567,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or extract-derived; concentrated doses may affect glucose, lipids, liver enzymes, or bleeding risk depending matrix.",
     "contraindications": [
       "liver"
     ],
@@ -29473,6 +29677,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May lower blood glucose or reduce sweet taste perception. Monitor with antidiabetic therapies; avoid pregnancy/breastfeeding unless supervised.",
     "contraindications": [
       "pregnancy"
     ],
@@ -29586,6 +29791,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly extract-derived/preclinical. GI effects and herb-specific contraindications matter more than isolated-compound evidence.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -29691,6 +29897,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "contraindications": [
       "May interact with cardiac medications."
     ],
@@ -29785,6 +29992,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Dizziness, hypotension; interacts with cardiac medications.",
     "contraindications": [
       "cardiovascular"
     ],
@@ -29880,6 +30088,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "FDA warns consumers to avoid HCG weight-loss products; severe calorie restriction can cause gallstones, electrolyte imbalance, and other harms",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -29970,6 +30179,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -30103,6 +30313,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; mild GI upset possible.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -30206,6 +30417,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally tolerated; use conservative framing in renal disease.",
     "contraindications": [
       "Limited data."
     ],
@@ -30459,6 +30671,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Sedation and additive CNS depressant effects are possible; pregnancy safety is not established.",
     "contraindications": [
       "pregnancy"
     ],
@@ -30550,6 +30763,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Contains thiaminase; possible vitamin B1 depletion; avoid prolonged unsupervised use.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -30660,6 +30874,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid stacking with cholinergic drugs or conditions where cholinesterase inhibition is risky.",
     "contraindications": [
       "Bradycardia or other cardiac conduction disorders (cholinergic slowing of heart rate)",
       "seizure disorders or epilepsy without clinician guidance",
@@ -30786,6 +31001,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -30876,6 +31092,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Usually tolerated; keep pregnancy/lactation claims conservative.",
     "contraindications": [
       "Limited data."
     ],
@@ -31003,6 +31220,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Food-associated from olive oil/olive leaf; high-dose supplement safety is less defined. Caution with blood-pressure and antiplatelet medication contexts.",
     "contraindications": [
       "Reduces platelet thromboxane synthesis in a concentration-dependent manner an antiplatelet mechanism comparable in direction to aspirin at high intake so use caution when combined with anticoagulant or antiplatelet medication and consider discontinuing before scheduled surgery",
       "typical supplement or dietary intake is well tolerated with no established contraindications at usual doses."
@@ -31113,6 +31331,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Major contributor to drug interactions",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -31202,6 +31421,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -31300,6 +31520,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Rare liver injury has been reported with some preparations; caution liver disease and hepatotoxic drugs.",
     "contraindications": [
       "Pre-existing liver disease (contains celandine which has been linked to rare cases of drug-induced liver injury)",
       "signs of liver injury such as jaundice or dark urine or unusual fatigue (discontinue immediately and seek care)",
@@ -31408,6 +31629,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited human safety data available",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -31516,6 +31738,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -31613,6 +31836,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Isolated alkaloid exposure may affect CYP/P-gp handling, glucose, blood pressure, and GI tolerance; avoid pregnancy/breastfeeding unless clinician-directed.",
     "contraindications": [
       "pregnancy"
     ],
@@ -31714,6 +31938,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe with limited long- term data | Generally safe; high-dose effects unclear",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -32151,6 +32376,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Can cause gas/bloating; start low, especially with IBS or FODMAP sensitivity.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -32241,6 +32467,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Excess may disrupt thyroid function.",
     "contraindications": [
       "Autoimmune thyroid disease such as Hashimoto's thyroiditis or Graves' disease (excess iodine can trigger or worsen hypothyroidism or hyperthyroidism)",
       "antithyroid medications such as methimazole (iodine can antagonize or unpredictably interact with these drugs)",
@@ -32479,6 +32706,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset common; overdose toxic.",
     "contraindications": [
       "Avoid in hemochromatosis."
     ],
@@ -32597,6 +32825,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -32696,6 +32925,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe in dietary amounts.",
     "contraindications": [
       "Caution in metabolic disorders."
     ],
@@ -32817,6 +33047,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical. Use berberine-family cautions: avoid pregnancy/breastfeeding and monitor with antidiabetic, antihypertensive, anticoagulant, and CYP/P-gp substrate drugs.",
     "contraindications": [
       "pregnancy"
     ],
@@ -32945,6 +33176,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "No established human dosing or safety profile; avoid supplementation claims.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -33070,6 +33302,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Coffee matrix matters. Cafestol/kahweol can raise LDL with unfiltered coffee; caffeine-related effects may apply to coffee products.",
     "contraindications": [
       "stimulant"
     ],
@@ -33178,6 +33411,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Liver injury risk is the central safety flag; avoid with liver disease, alcohol, or hepatotoxic meds.",
     "contraindications": [
       "liver"
     ],
@@ -33288,6 +33522,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Kava/kavalactones are linked with sedation and liver injury concerns; avoid alcohol, sedatives, liver disease, and pregnancy.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -33399,6 +33634,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Kava/kavalactones are linked with sedation and liver injury concerns; avoid alcohol, sedatives, liver disease, and pregnancy.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -33486,6 +33722,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -33594,6 +33831,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Shellfish allergy concern; GI upset and bleeding-risk caution at high omega-3 intake.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -33681,6 +33919,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human safety data are insufficient; avoid authority use until controlled human safety evidence exists.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -33781,6 +34020,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Review seizure history and warfarin; GI upset/fishy odor can occur.",
     "contraindications": [
       "seizure disorder without clinician review",
       "hypothyroidism on levothyroxine due to reduced cellular thyroid-hormone uptake",
@@ -33892,6 +34132,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Well tolerated.",
     "contraindications": [
       "Limited data."
     ],
@@ -34224,6 +34465,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Caution for thyroid/MAOI/stimulant-medication contexts in later safety pass.",
     "contraindications": [
       "monoamine oxidase inhibitor medications due to hypertensive crisis risk",
       "hyperthyroidism or Graves disease may worsen with added thyroid hormone production",
@@ -34442,6 +34684,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -34547,6 +34790,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset; rare hormonal case reports",
     "contraindications": [
       "Known allergy to lavender or other Lamiaceae/mint-family plants",
       "pregnancy or breastfeeding without clinician guidance for oral lavender oil preparations",
@@ -34664,6 +34908,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset and sedation possible; caution with CNS depressants.",
     "contraindications": [
       "Known allergy to lavender or other Lamiaceae/mint-family plants",
       "pregnancy or breastfeeding without clinician guidance for oral lavender oil preparations",
@@ -34795,6 +35040,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Often preclinical; concentrated or isolated quinones may be irritant/cytotoxic. Avoid pregnancy and use caution with liver disease or anticoagulants.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -34911,6 +35157,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset possible; soy allergy considerations for soy-derived lecithin.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -35022,6 +35269,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Use caution with sedatives and thyroid-medication monitoring.",
     "contraindications": [
       "Known allergy to lemon balm or other Lamiaceae/mint-family plants",
       "hypothyroidism or thyroid hormone replacement therapy without clinician review (lemon balm has shown TSH-inhibiting and thyroid-hormone-binding activity in preclinical studies)",
@@ -35138,6 +35386,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Drowsiness and GI upset possible; caution with sedatives and thyroid disease.",
     "contraindications": [
       "sedative"
     ],
@@ -35234,6 +35483,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "contraindications": [
       "Caution in metabolic disorders."
     ],
@@ -35328,6 +35578,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Long-term clinical use can involve dyskinesia and dopaminergic adverse effects; usually co-administered with carbidopa in clinical practice.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -35434,6 +35685,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "hypertension, hypokalemia, edema/pseudoaldosteronism; chronic use risk",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -35548,6 +35800,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly extract-derived evidence. Potential additive bleeding, blood pressure, or sedative effects depending source herb.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -35655,6 +35908,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Primarily essential-oil/aroma exposure; topical allergy and CNS sedation are possible. Avoid ingestion of essential oils without supervision.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -35752,6 +36006,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Risk of lithium toxicity; kidney and thyroid effects are class-related; medical supervision is appropriate for lithium exposure.",
     "contraindications": [
       "kidney"
     ],
@@ -35874,6 +36129,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly extract-derived/preclinical. GI effects and herb-specific contraindications matter more than isolated-compound evidence.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -35963,6 +36219,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Bleeding risk; clinical standardization and safety data are limited.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -36063,6 +36320,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated at common supplemental doses.",
     "contraindications": [
       "Pregnancy or breastfeeding due to insufficient safety data for supplemental doses beyond dietary intake",
       "concurrent beta-carotene supplementation may unpredictably alter absorption of both carotenoids."
@@ -36201,6 +36459,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "well tolerated with low toxicity reported; well tolerated with minimal adverse effects; well tolerated with low toxicity profile | Mostly preclinical and extract-derived. Use caution with sedatives, anticoagulants/antiplatelets, and liver disease depending.",
     "contraindications": [
       "liver"
     ],
@@ -36304,6 +36563,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; very high intake may cause lycopenodermia.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -36619,6 +36879,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or extract-derived; concentrated doses may affect glucose, lipids, liver enzymes, or bleeding risk depending matrix.",
     "contraindications": [
       "liver"
     ],
@@ -36722,6 +36983,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly Centella/topical-derived evidence. Caution with liver disease, sedatives, pregnancy, and prolonged high-dose extracts.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -37384,6 +37646,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -37498,6 +37761,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Sedation and additive CNS depressant effects are possible; pregnancy safety is not established.",
     "contraindications": [
       "pregnancy"
     ],
@@ -37603,6 +37867,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "excess exposure may cause neurotoxicity/manganism; risk higher with chronic high exposure",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -37725,6 +37990,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical/extract-derived; concentrated Garcinia/mangosteen extracts may affect bleeding or liver risk depending product.",
     "contraindications": [
       "liver"
     ],
@@ -37849,6 +38115,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical/extract-derived; concentrated Garcinia/mangosteen extracts may affect bleeding or liver risk depending product.",
     "contraindications": [
       "liver"
     ],
@@ -37959,6 +38226,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical/extract-derived; concentrated Garcinia/mangosteen extracts may affect bleeding or liver risk depending product.",
     "contraindications": [
       "liver"
     ],
@@ -38055,6 +38323,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; may affect absorption timing of other oral products.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -38153,6 +38422,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "\"Caffeine-related insomnia",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -38256,6 +38526,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -38357,6 +38628,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "\"GI upset",
     "contraindications": [
       "Cirrhosis or hepatic encephalopathy or portal-systemic shunting (MCT metabolism can worsen ketone and ammonia handling)",
       "poorly controlled or type 1 diabetes (ketogenic effect may exacerbate ketoacidosis risk)",
@@ -38581,6 +38853,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe; irritation at high doses",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -38686,6 +38959,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -38791,6 +39065,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -38898,6 +39173,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Metformin has well-established safety vs variable supplement safety.",
     "contraindications": [
       "Depends on compound."
     ],
@@ -39003,6 +39279,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -39095,6 +39372,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "very well tolerated",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -39203,6 +39481,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -39297,6 +39576,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "contraindications": [
       "Caution with B12 deficiency masking."
     ],
@@ -39398,6 +39678,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "\"Potential stimulant effects; caution cardiovascular disease",
     "contraindications": [
       "stimulant"
     ],
@@ -39505,6 +39786,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Kava/kavalactones are linked with sedation and liver injury concerns; avoid alcohol, sedatives, liver disease, and pregnancy.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -39631,6 +39913,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May cause GI irritation or hemolysis risk in isolated/high-dose contexts; herb-specific safety and pregnancy cautions apply.",
     "contraindications": [
       "pregnancy"
     ],
@@ -39762,6 +40045,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly food/extract-derived human evidence. High-dose supplements may affect CYP/transporters or anticoagulant/antiplatelet risk.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -39881,6 +40165,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly extract-derived/preclinical. GI effects and herb-specific contraindications matter more than isolated-compound evidence.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -39981,6 +40266,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset, headache, and insomnia possible.",
     "contraindications": [
       "Anticoagulant or antiplatelet medications (theoretical additive bleeding risk from platelet effects)",
       "scheduled surgery (discontinue beforehand due to theoretical bleeding risk)",
@@ -40086,6 +40372,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Contains L-DOPA; avoid casual stacking with dopamine/psychiatric medications.",
     "contraindications": [
       "Concurrent MAOI antidepressants due to a documented risk of a severe pressor crisis from combined dopamine and monoamine surge",
       "concurrent levodopa/carbidopa or other Parkinson's medication due to additive dopaminergic effect and unpredictable dosing since mucuna's L-DOPA lacks a peripheral decarboxylase inhibitor",
@@ -40198,6 +40485,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -40335,6 +40623,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "generally safe with no serious adverse effects reported; well tolerated with no serious adverse effects reported | Mostly food/extract-derived human evidence. High-dose supplements may affect CYP/transporters or anticoagulant/antiplatelet risk.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -40443,6 +40732,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -40552,6 +40842,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Review with nitroglycerin; GI upset and bronchospasm-sensitive asthma contexts require caution.",
     "contraindications": [
       "Caution with asthma."
     ],
@@ -40671,6 +40962,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Supplement-specific safety depends on precursor/formulation; do not infer clinical benefit from biomarker increases alone.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -40771,6 +41063,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "generally well tolerated",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -40901,6 +41194,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "well tolerated; possible interaction with drug metabolism enzymes; well tolerated; may interact with CYP450 enzymes | Citrus-derived compounds are generally food-associated, but grapefruit/citrus extracts can interact with CYP3A4/OATP/P-gp substrates.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -41031,6 +41325,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "may interact with CYP3A4-metabolized drugs; otherwise safe; may interact with CYP enzymes; otherwise safe; may inhibit CYP3A4 leading to drug interactions; otherwise safe | Citrus-derived compounds are generally food-associated, but grapefruit/citrus extracts.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -41125,6 +41420,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "\"Bleeding risk concern; avoid with anticoagulants",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -41246,6 +41542,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human safety is mostly extract-derived. Avoid pregnancy; caution with immunosuppressants, anticoagulants, and users with severe allergy history.",
     "contraindications": [
       "pregnancy"
     ],
@@ -41361,6 +41658,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -41459,6 +41757,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Flushing; hepatotoxicity at high doses.",
     "contraindications": [
       "liver"
     ],
@@ -41563,6 +41862,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; high doses may cause liver toxicity.",
     "contraindications": [
       "liver"
     ],
@@ -41667,6 +41967,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset and headache possible; long-term human safety data remain limited.",
     "contraindications": [
       "active or undiagnosed cancer history warrants oncologist guidance before use due to theoretical support of cellular energy metabolism in tumor growth",
       "diabetes medication such as insulin or metformin may need monitoring due to NMN's influence on blood sugar regulation",
@@ -41771,6 +42072,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mild GI upset, headache, or flushing possible; long-term clinical outcome safety is still limited.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -41878,6 +42180,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Long-term outcome evidence is still emerging; avoid disease-treatment claims.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -41986,6 +42289,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -42093,6 +42397,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Flushing; hepatotoxicity at high doses; hyperglycemia; gout risk; clinical-dose use requires medical context.",
     "contraindications": [
       "liver"
     ],
@@ -42187,6 +42492,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High intake can cause delirium, tachycardia, hallucinations, and possible liver injury reports.",
     "contraindications": [
       "stimulant",
       "liver"
@@ -42316,6 +42622,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Food-associated in olive/olive oil matrices; concentrated extracts may affect blood pressure, glucose, or bleeding risk.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -42420,6 +42727,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "insufficient human safety data",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -42544,6 +42852,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Potential hepatotoxicity at high doses suggested in preclinical data; no confirmed human safety profile.",
     "contraindications": [
       "liver"
     ],
@@ -42672,6 +42981,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Food-associated in olive/olive oil matrices; concentrated extracts may affect blood pressure, glucose, or bleeding risk.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -42804,6 +43114,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally food-associated via olive/olive leaf, but concentrated extracts may lower blood pressure or glucose. Monitor with antihypertensive or antidiabetic therapy.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -42916,6 +43227,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "contraindications": [
       "known hypersensitivity to olive leaf or olive products",
       "antihypertensive medications such as beta-blockers or ACE inhibitors or calcium channel blockers due to additive blood-pressure-lowering effect",
@@ -43508,6 +43820,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Phytoestrogenic activity warrants caution with hormone-sensitive conditions and hormone therapies; effects are preparation- and dose-specific.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -43610,6 +43923,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Use medical care for severe dehydration, infants, confusion, or persistent vomiting.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -43702,6 +44016,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Oral use may cause GI upset; avoid in pregnancy due to berberine-related caution.",
     "contraindications": [
       "pregnancy"
     ],
@@ -43803,6 +44118,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "generally safe; mild GI effects reported",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -43887,6 +44203,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "high-dose animal liver toxicity concerns",
     "contraindications": [
       "liver"
     ],
@@ -43993,6 +44310,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -44099,6 +44417,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -44345,6 +44664,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preparation-derived. Caution with anticoagulants, pregnancy, and immune-modulating therapies.",
     "contraindications": [
       "pregnancy"
     ],
@@ -44466,6 +44786,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preparation-derived. Caution with anticoagulants, pregnancy, and immune-modulating therapies.",
     "contraindications": [
       "pregnancy"
     ],
@@ -44576,6 +44897,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Related to berberine-like alkaloids but less clinically characterized. Avoid pregnancy/breastfeeding and use caution with antidiabetic, anticoagulant, and CYP/P-gp substrate drugs.",
     "contraindications": [
       "pregnancy"
     ],
@@ -44685,6 +45007,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "well tolerated with minimal reported adverse effects",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -44802,6 +45125,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Insomnia, GI upset, and hypoglycemia possible; caution anticoagulants and diabetes medications.",
     "contraindications": [
       "known hypersensitivity to ginseng or other Araliaceae family plants",
       "pregnancy without clinician guidance due to a traditional contraindication and insufficient human safety data",
@@ -44928,6 +45252,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Insomnia and headache; possible hypoglycemia and interactions including warfarin.",
     "contraindications": [
       "Uncontrolled hypertension or acute infection or nosebleeds or heavy menstrual bleeding",
       "may reduce the anticoagulant effect of warfarin based on case reports and ginsenoside antagonism studies",
@@ -45046,6 +45371,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Similar to red ginseng: insomnia, headache, possible hypoglycemia/interactions.",
     "contraindications": [
       "Uncontrolled hypertension or acute infection or nosebleeds or heavy menstrual bleeding",
       "may reduce the anticoagulant effect of warfarin based on case reports and ginsenoside antagonism studies",
@@ -45158,6 +45484,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; mild GI effects.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -45246,6 +45573,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Allergic reactions possible, especially latex/papaya sensitivity.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -45345,6 +45673,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Can add to sedation; avoid alcohol/sedative stacking.",
     "contraindications": [
       "Sedative or CNS depressant medications including benzodiazepines barbiturates and opioids (additive sedation risk)",
       "alcohol use (additive sedation)",
@@ -45461,6 +45790,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Drowsiness, dizziness; caution with CNS depressants.",
     "contraindications": [
       "sedative"
     ],
@@ -45562,6 +45892,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Sedation; additive effects with CNS depressants.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -45646,6 +45977,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset; high-dose anticoagulant/toxicity concerns.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -45736,6 +46068,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Can worsen reflux; use enteric-coated products for IBS contexts.",
     "contraindications": [
       "gastroesophageal reflux disease or active gastric ulcers due to decreased lower esophageal sphincter pressure worsening reflux",
       "gallstones or bile duct obstruction or gallbladder inflammation or severe liver damage",
@@ -45839,6 +46172,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Contraindicated in PKU; avoid with MAOIs.",
     "contraindications": [
       "ssri"
     ],
@@ -45949,6 +46283,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "No validated human safety data; avoid clinical assumptions.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -46044,6 +46379,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Well tolerated with minimal adverse effects",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -46157,6 +46493,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset and fishy body odor possible at high choline intakes; caution trimethylaminuria.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -46252,6 +46589,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Drug-interaction risk through metabolic enzyme and transporter effects; caution with narrow-therapeutic-index medications.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -46361,6 +46699,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "No validated human safety data; avoid use until clinical safety established.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -46466,6 +46805,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid with sitosterolemia; consider overall dietary context.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -46583,6 +46923,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Often preclinical; concentrated or isolated quinones may be irritant/cytotoxic. Avoid pregnancy and use caution with liver disease or anticoagulants.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -46683,6 +47024,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; limited safety concerns reported.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -46900,6 +47242,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Do not supplement casually with kidney disease or potassium-retaining medications.",
     "contraindications": [
       "Caution with ACE inhibitors/renal disease."
     ],
@@ -47001,6 +47344,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Potassium supplementation can be dangerous with kidney disease or potassium-retaining medications.",
     "contraindications": [
       "chronic kidney disease or reduced glomerular filtration rate due to impaired renal potassium excretion",
       "ACE inhibitor or ARB or potassium-sparing diuretic medication due to a well-documented additive hyperkalemia risk",
@@ -47112,6 +47456,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mild GI upset or insomnia possible; long-term safety evidence is limited.",
     "contraindications": [
       "pregnancy or breastfeeding was excluded from EFSA's novel food safety evaluation and should be avoided without clinician guidance",
       "doses well above the 20 milligram per day EFSA-reviewed level may raise kidney damage risk from pro-oxidant activity",
@@ -47222,6 +47567,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "small trials report tolerability, but evidence is limited and endocrine, mood, and drug-interaction risks require clinician review",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -47309,6 +47655,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -47850,6 +48197,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "generally safe; excessive intake may cause GI discomfort; well tolerated; excessive intake may cause GI upset",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -47948,6 +48296,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "generally safe; mild GI discomfort possible; generally well tolerated; mild gastrointestinal discomfort possible",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -48038,6 +48387,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited safety data",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -48145,6 +48495,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -48504,6 +48855,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect bleeding risk and drug metabolism at supplement doses; GI upset and headache are possible.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -48625,6 +48977,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Phytoestrogenic activity warrants caution with hormone-sensitive conditions and hormone therapies; effects are preparation- and dose-specific.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -48731,6 +49084,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Use caution with seed allergy or anticoagulant medication plans.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -48831,6 +49185,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -48941,6 +49296,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "generally safe at dietary levels; excessive intake may cause GI discomfort; safe at dietary levels; excessive intake may cause gastrointestinal discomfort",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -49049,6 +49405,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "contraindications": [
       "Anticoagulant or antiplatelet therapy such as warfarin or aspirin (antiplatelet activity may increase bleeding risk)",
       "planned surgery (discontinue at least two weeks beforehand due to bleeding risk)",
@@ -49158,6 +49515,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mild GI upset possible.",
     "contraindications": [
       "Pregnancy or breastfeeding (insufficient safety data)",
       "other benign-prostatic-hyperplasia medications such as alpha-blockers or 5-alpha-reductase inhibitors (theoretical additive effect warrants monitoring)",
@@ -49278,6 +49636,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Active B6 forms still carry dose-related neuropathy concerns.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -49394,6 +49753,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; potential CYP interactions remain relevant to quercetin-containing products.",
     "contraindications": [
       "warfarin due to potential increased bleeding risk from altered drug metabolism",
       "quinolone antibiotics due to altered drug absorption or effectiveness",
@@ -49501,6 +49861,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "No validated human safety data; stimulant-like effects and blood pressure changes possible.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -49597,6 +49958,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Acts like a statin when monacolin K is present; liver/muscle and drug-interaction flags are central.",
     "contraindications": [
       "liver"
     ],
@@ -49696,6 +50058,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Titrate gradually to reduce gas and bloating.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -49803,6 +50166,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Anthraquinone-related GI effects and electrolyte concerns are relevant. Caution with laxatives, diuretics, kidney disease, pregnancy, and anticoagulants.",
     "contraindications": [
       "pregnancy",
       "kidney"
@@ -49903,6 +50267,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "contraindications": [
       "Concurrent MAOI or SSRI or SNRI or other serotonergic antidepressants due to additive stimulation and case reports of rapid heart rate",
       "concurrent stimulants due to additive jitteriness or insomnia",
@@ -50031,6 +50396,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Evidence is mostly through Rhodiola extracts. May cause activation/insomnia or interact with stimulants/antidepressants.",
     "contraindications": [
       "stimulant"
     ],
@@ -50147,6 +50513,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Evidence is mostly through Rhodiola extracts. May cause activation/insomnia or interact with stimulants/antidepressants.",
     "contraindications": [
       "stimulant"
     ],
@@ -50260,6 +50627,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Evidence is mostly through Rhodiola extracts. May cause activation/insomnia or interact with stimulants/antidepressants.",
     "contraindications": [
       "stimulant"
     ],
@@ -50381,6 +50749,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Food/herb exposure is generally low-risk; isolated high-dose safety is less established. Caution with pregnancy, anticoagulant use, and complex immune therapy contexts.",
     "contraindications": [
       "pregnancy"
     ],
@@ -50512,6 +50881,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "generally safe; mild GI discomfort in some individuals; generally well tolerated; mild gastrointestinal discomfort possible | Mostly food/extract-derived human evidence. High-dose supplements may affect CYP/transporters or anticoagulant/antiplatelet risk.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -50613,6 +50983,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Fungemia risk is rare but important in central-line or severe immunocompromise contexts.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -50719,6 +51090,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset, headache, and dizziness possible; avoid high doses in pregnancy.",
     "contraindications": [
       "Pregnancy or breastfeeding is an absolute contraindication due to uterine-stimulant and abortifacient effects at higher doses",
       "caution with bleeding disorders or anticoagulant or blood-thinning medication use",
@@ -50841,6 +51213,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -50944,6 +51317,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -51056,6 +51430,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human safety is formula/herb-derived. Bupleurum-containing products have liver-safety reports; caution with liver disease, immunomodulators, and pregnancy.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -51170,6 +51545,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited human safety data | Limited human safety data as isolated compound",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -51280,6 +51656,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Interaction potential should be interpreted conservatively in cardiovascular and anticoagulant contexts.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -51379,6 +51756,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Can precipitate mania in bipolar disorder; review with psychiatric medications.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -51480,6 +51858,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset, headache; caution anticoagulants and hormone-sensitive conditions.",
     "contraindications": [
       "Pregnancy or breastfeeding without clinician guidance (anti-androgenic hormone activity)",
       "hormone-sensitive conditions such as prostate cancer without clinician review",
@@ -51598,6 +51977,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Possible drug interactions through hepatic enzyme effects; caution hepatically metabolized drugs.",
     "contraindications": [
       "pregnancy due to traditional uterine-stimulant and antifertility use in Chinese medicine",
       "active acute infection or excess-heat conditions per traditional-use restrictions",
@@ -51733,6 +52113,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human safety is mostly extract-derived. Caution with CYP3A/P-gp substrate drugs, pregnancy, liver disease, and complex medication regimens.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -51840,6 +52221,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Schisandra-type lignans can affect drug-metabolizing enzymes/transporters; caution with complex medication regimens.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -51937,6 +52319,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -52046,6 +52429,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -52146,6 +52530,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High doses toxic (selenosis).",
     "contraindications": [
       "Avoid excessive supplementation."
     ],
@@ -52393,6 +52778,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly extract-derived evidence. Potential additive bleeding, blood pressure, or sedative effects depending source herb.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -52486,6 +52872,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "well tolerated; high doses may cause mild GI upset; generally safe; high doses may cause mild GI discomfort",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -52578,6 +52965,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Bleeding and GI adverse effects possible; caution anticoagulants and surgery.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -52698,6 +53086,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Often preclinical; concentrated or isolated quinones may be irritant/cytotoxic. Avoid pregnancy and use caution with liver disease or anticoagulants.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -52796,6 +53185,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "heavy metal contamination risk; limited safety data",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -52899,6 +53289,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Heavy metal/adulteration risk; use only purified tested material.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -52994,6 +53385,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited human safety data available",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -53116,6 +53508,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated in milk-thistle trials; caution with Asteraceae allergy, antidiabetics, hormone-sensitive conditions, and CYP-metabolized drugs.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -53208,6 +53601,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe at dietary levels; supplement evidence limited.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -53312,6 +53706,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -53418,6 +53813,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -53529,6 +53925,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical or source-extract evidence. Isolated-compound safety is not equivalent to food/herb exposure; use caution with pregnancy, liver/kidney disease, and polypharmacy.",
     "contraindications": [
       "pregnancy",
       "liver",
@@ -53642,6 +54039,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Same safety family as milk thistle; keep liver claims conservative.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -53746,6 +54144,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Liver injury has been reported with some skullcap-containing products; species adulteration is a concern.",
     "contraindications": [
       "liver"
     ],
@@ -53832,6 +54231,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe; may impair absorption of medications if taken together.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -53920,6 +54320,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Excess linked to hypertension.",
     "contraindications": [
       "Limit in hypertension."
     ],
@@ -54010,6 +54411,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI distress, bloating, sodium load, and alkalosis risk; caution hypertension, kidney disease, and heart failure.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -54104,6 +54506,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid casual high sodium if medically sodium-restricted.",
     "contraindications": [
       "hypertension or sodium-sensitive blood pressure without clinician guidance",
       "congestive heart failure due to risk of volume overload and decompensation",
@@ -54222,6 +54625,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited human safety data but generally well tolerated",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -54328,6 +54732,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Contamination risk if poor-quality source; caution autoimmune disease.",
     "contraindications": [
       "Phenylketonuria due to phenylalanine content",
       "autoimmune conditions such as lupus or rheumatoid arthritis or multiple sclerosis due to immune-stimulating effects that may worsen flares",
@@ -54445,6 +54850,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally food-associated, but supplements can affect lipid markers and may be unsuitable in sitosterolemia.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -54560,6 +54966,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally safe in food doses.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -54655,6 +55062,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Route/formulation matters; most human evidence is not clean oral isolated-compound evidence.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -54762,6 +55170,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect blood pressure/fluid balance; review with related medications.",
     "contraindications": [
       "Limited data."
     ],
@@ -55196,6 +55605,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "risk depends on ingredients; concerns include undisclosed stimulants/hormonal agents, liver injury signals, and drug interactions",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -55292,6 +55702,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -55395,6 +55806,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Alkaloid safety varies widely and can be narrow-margin. Use herb-specific safety controls and avoid assuming food-like safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -55494,6 +55906,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "\"Stimulant-like adverse effects possible; caution arrhythmia",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -55628,6 +56041,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Tea-food exposure is generally safer than concentrated extracts. High EGCG/catechin extracts have liver-injury concern and caffeine-containing products add stimulant risk.",
     "contraindications": [
       "stimulant",
       "liver"
@@ -55878,6 +56292,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Tea-food exposure is generally safer than concentrated extracts. High EGCG/catechin extracts have liver-injury concern and caffeine-containing products add stimulant risk.",
     "contraindications": [
       "stimulant",
       "liver"
@@ -55980,6 +56395,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Neuroactive monoterpene; high exposure may increase seizure/neurotoxicity risk. Avoid pregnancy, seizure disorders, and concentrated essential-oil ingestion.",
     "contraindications": [
       "pregnancy"
     ],
@@ -56086,6 +56502,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Essential-oil constituents can irritate skin/mucosa and may be toxic internally at high doses; use dilution and herb-specific safety.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -56205,6 +56622,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Human evidence usually comes from Nigella sativa preparations rather than isolated thymoquinone. Avoid pregnancy-dose escalation; caution with anticoagulants, antidiabetics, antihypertensives, and liver disease.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -56331,6 +56749,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May cause GI irritation or hemolysis risk in isolated/high-dose contexts; herb-specific safety and pregnancy cautions apply.",
     "contraindications": [
       "pregnancy"
     ],
@@ -56577,6 +56996,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI upset; possible antiplatelet activity; caution with bleeding-risk medications.",
     "contraindications": [
       "anticoagulant or antiplatelet medication such as warfarin or clopidogrel or aspirin due to documented bleeding risk from BCRP and CYP2C9 inhibition raising warfarin exposure",
       "high doses may inhibit CYP3A4 or CYP2D6 or CYP2C9 raising blood levels of drugs with a narrow therapeutic window such as certain antidepressants or statins or pain medications",
@@ -56713,6 +57133,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Coffee matrix matters. Cafestol/kahweol can raise LDL with unfiltered coffee; caffeine-related effects may apply to coffee products.",
     "contraindications": [
       "stimulant"
     ],
@@ -56913,6 +57334,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Nausea and serotonin syndrome risk; avoid with SSRIs or MAOIs.",
     "contraindications": [
       "ssri"
     ],
@@ -57018,6 +57440,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Should not be framed as liver-disease treatment; medical conditions need clinician care.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -57110,6 +57533,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "well tolerated with no significant adverse effects reported",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -57368,6 +57792,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Food-associated in olive/olive oil matrices; concentrated extracts may affect blood pressure, glucose, or bleeding risk.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -57476,6 +57901,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "May affect anticoagulation management; coordinate use with warfarin or high-risk cardiovascular medication plans.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -57690,6 +58116,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -57780,6 +58207,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "not established for supplementation",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -57881,6 +58309,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited safety data for isolated supplementation; generally inferred from dietary nucleotide exposure.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -57980,6 +58409,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated; diarrhea; clinical dosing should follow medical supervision.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -58084,6 +58514,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Insufficient human safety data; caution liver function and unknown drug interactions.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -58176,6 +58607,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Potential hepatotoxicity; short-term use only; avoid pregnancy and prolonged use.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -58288,6 +58720,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Evidence mostly comes from valerian extracts. Sedation and additive effects with CNS depressants are key concerns.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -58387,6 +58820,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Sedation; additive CNS depression",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -58493,6 +58927,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Evidence mostly comes from valerian extracts. Sedation and additive effects with CNS depressants are key concerns.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -58587,6 +59022,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Drowsiness; rare withdrawal-like effects.",
     "contraindications": [
       "Concurrent benzodiazepines or opioids or alcohol or other sedative or CNS depressant medication due to additive sedation risk",
       "existing liver disease such as chronic hepatitis or fatty liver disease due to isolated case reports of reversible liver enzyme elevation with high-dose or long-term use",
@@ -58701,6 +59137,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Drowsiness, headache; avoid with sedatives and alcohol.",
     "contraindications": [
       "pregnancy/breastfeeding without clinician guidance",
       "children under 12 without medical supervision",
@@ -58812,6 +59249,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "contraindications": [
       "Caution in liver disease."
     ],
@@ -58936,6 +59374,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical/extract-derived; safety depends on source herb and product quality.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -59039,6 +59478,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Hypotension, dizziness; contraindicated in pregnancy.",
     "contraindications": [
       "cardiovascular",
       "pregnancy"
@@ -59136,6 +59576,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Toxic at high doses (teratogenic).",
     "contraindications": [
       "Avoid excess in pregnancy."
     ],
@@ -59245,6 +59686,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Very low toxicity.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -59354,6 +59796,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety is form- and dose-dependent; high-dose nicotinic acid can cause flushing, hepatotoxicity, hyperglycemia, and gout.",
     "contraindications": [
       "liver"
     ],
@@ -59462,6 +59905,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid chronic high-dose use; neuropathy risk is the key safety limiter.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -59568,6 +60012,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High doses may cause GI upset.",
     "contraindications": [
       "history of calcium-oxalate kidney stones especially at doses of 1000 mg per day or more",
       "hemochromatosis thalassemia or other iron-overload disorders due to enhanced iron absorption",
@@ -60035,6 +60480,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "High doses linked to bleeding risk.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -60135,6 +60581,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety notes are not source-complete in this workbook row; avoid broad safety claims and hold for interaction, population, and formulation review.",
     "contraindications": [
       "Interacts with warfarin."
     ],
@@ -60335,6 +60782,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Insufficient human safety data.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -60427,6 +60875,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid with aspirin allergy, anticoagulants, peptic ulcer disease, children/teens with viral illness, and late pregnancy.",
     "contraindications": [
       "Aspirin or salicylate allergy or NSAID hypersensitivity (salicin is metabolized to salicylic acid and shares cross-reactive risk)",
       "children or teenagers with a current or recent viral infection (theoretical Reye syndrome risk similar to aspirin)",
@@ -60570,6 +61019,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Limited human safety data available | Mostly preclinical as isolated compound; whole ashwagandha safety does not equal isolated withaferin A safety. Avoid pregnancy and use caution with liver disease, immune disorders, and drug stacks.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -60688,6 +61138,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Evidence usually comes from Withania extracts. Caution with pregnancy, liver disease, sedatives, thyroid medications, and autoimmune disease.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -60798,6 +61249,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Safety inferred from extracts",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -60904,6 +61356,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Evidence usually comes from Withania extracts. Caution with pregnancy, liver disease, sedatives, thyroid medications, and autoimmune disease.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -61029,6 +61482,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Mostly preclinical and extract-derived. Isolated-dose human safety is not well established; caution with liver disease, anticoagulants/antiplatelets, sedatives, and pregnancy.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -61136,6 +61590,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Photosensitivity and CYP/transport interactions are key concerns, especially for furanocoumarin-rich plants and essential oils.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -61241,6 +61696,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Kava/kavalactones are linked with sedation and liver injury concerns; avoid alcohol, sedatives, liver disease, and pregnancy.",
     "contraindications": [
       "pregnancy",
       "liver"
@@ -61336,6 +61792,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "GI irritation; potential oxalate-related risk.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -61434,6 +61891,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Can cause hypertension, anxiety, tachycardia; contraindicated in cardiovascular disease.",
     "contraindications": [
       "monoamine oxidase inhibitor medications due to hypertensive crisis risk",
       "hypertension or other cardiovascular disease including recent heart attack or arrhythmia",
@@ -61548,6 +62006,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Generally well tolerated at common supplemental doses.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -61646,6 +62105,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Avoid chronic high-dose use without copper/status awareness; nausea is common on an empty stomach.",
     "contraindications": [
       "Avoid high-dose long-term use."
     ],
@@ -61742,6 +62202,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Well tolerated.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
@@ -61838,6 +62299,7 @@
     "evidence_consistency": "",
     "evidence_rationale": "",
     "trial_design_insight": "",
+    "safety": "Nausea at higher doses; chronic excess may cause copper deficiency.",
     "contraindications": [],
     "interactions": [],
     "side_effects": [],
