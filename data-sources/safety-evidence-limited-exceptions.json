@@ -8,7 +8,6 @@
     {"slug":"acetyl-11-keto-beta-boswellic-acid","batch":"safety-coverage-batch-2-2026-07-15","reason":"Human evidence concerns an AKBA-enriched extract, not isolated-compound contraindications.","evidence":["PMID:18667054"]},
     {"slug":"alpha-asarone","batch":"safety-coverage-batch-2-2026-07-15","reason":"Human safety is unknown; preclinical toxicology cannot define a human contraindication.","evidence":["10.1002/jat.4112"]},
     {"slug":"alpha-mangostin","batch":"safety-coverage-batch-2-2026-07-15","reason":"Systematic toxicity evidence is preclinical and cannot establish human organ-specific contraindications.","evidence":["10.1016/j.heliyon.2023.e16045"]},
-    {"slug":"ashitaba-extract","batch":"safety-coverage-batch-2-2026-07-15","reason":"Limited human studies reported mild or no events but did not establish a categorical contraindication.","evidence":["10.1016/j.heliyon.2024.e24119"]},
     {"slug":"atractylenolide-i","batch":"safety-coverage-batch-2-2026-07-15","reason":"Evidence is primarily preclinical and does not define human contraindications.","evidence":["PMID:34269984"]},
     {"slug":"atractylenolide-ii","batch":"safety-coverage-batch-2-2026-07-15","reason":"Evidence is primarily preclinical and does not define human contraindications.","evidence":["PMID:34269984"]},
     {"slug":"atractylenolide-iii","batch":"safety-coverage-batch-2-2026-07-15","reason":"Evidence is primarily preclinical and does not define human contraindications.","evidence":["PMID:34269984"]},

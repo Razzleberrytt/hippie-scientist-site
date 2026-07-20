@@ -4066,3 +4066,49 @@ prior entry — most of it is now redundant work superseded by intervening
 batches, but the general technique here (diff the branch's generated
 output against current `main`, not the branch itself, and check it against
 *every* governance ledger before writing) is the reusable part.
+
+---
+
+## 2026-07-20 — Closed the standalone `ashitaba-extract` stale-exception gap flagged by the prior entry
+
+Fresh cold session, picked up the one open thread the prior (batch 7) entry
+explicitly deferred: `npm run audit:severity-tokens` failed on `main` with
+`evidence-limited exceptions no longer match a full-public gap:
+ashitaba-extract`. Confirmed directly against the workbook
+(`edit-entity-master-cell.mjs --slug ashitaba-extract --column
+contraindications_or_flags --value x --dry-run`) that the cell already holds
+4 clauses of real sourced prose (coumarin/anticoagulant interaction,
+photosensitization, long-term-use and pregnancy/breastfeeding cautions) —
+some later batch filled it for real after the 2026-07-15
+`safety-coverage-batch-2` review recorded it as a deliberate "leave empty,
+evidence is too limited" exception. The exception enum in
+`data-sources/safety-evidence-limited-exceptions.json` was never removed
+once the gap it described stopped existing, so the audit's
+`staleExceptions` check (added specifically to catch this class of drift,
+per the entries above) correctly hard-failed.
+
+Fix was a one-line removal of the stale `ashitaba-extract` entry from the
+exceptions file — no workbook edit, no new safety claim, nothing that
+touches any of the three governance ledgers documented in the entry above
+beyond removing a now-false record from one of them. Verified: `npm run
+audit:severity-tokens` now reports `Remaining actionable full_public_runtime
+gaps: 0` (was throwing before), `node scripts/ci/validate-workbook-patches.mjs`
+still passes (7/7), `npm run audit:risk-tag-collisions` still clean, and
+`npm run check` (typecheck + lint + article-quality + claim-discipline +
+safety-visibility + `data:build:core`) passes end-to-end. Diff scope: just
+the one exceptions-file line (`build-info.json` timestamp reverted).
+
+Takeaway: `audit:severity-tokens`'s `staleExceptions` check is a real,
+useful drift detector, but it isn't wired into `check`/`check:full` (same
+gap as `audit:risk-tag-collisions` and `audit:safety` before it) so a
+legitimate content fill that closes a documented exception's gap will sit
+unnoticed until someone runs the audit by hand. Worth a future cycle
+running `npm run audit:severity-tokens` as a standing part of `check` (it's
+fast — single workbook read, no network) so this class of staleness surfaces
+immediately instead of waiting for a dedicated triage cycle to notice it.
+
+The 32-PR backlog (oldest from 2026-06-22, unchanged in count since the
+prior entry) is still open and still worth a human or future cycle's triage
+— this cycle deliberately did not touch it, since closing/merging PRs this
+session didn't open falls outside what this autonomous run is scoped to do
+without a human confirming first.
