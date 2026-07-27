@@ -27,7 +27,7 @@ function checkDescription(value) {
   return !placeholders.some(p => val.includes(p));
 }
 
-function checkSafety(value) {
+export function checkSafety(value) {
   const placeholders = [
     'needs review',
     'safety review pending',
@@ -106,6 +106,26 @@ function checkInteractions(item, interactionEdgesMap) {
   return Array.isArray(edges) && edges.length > 0;
 }
 
+// Slugs whose empty contraindications_or_flags field was already reviewed and
+// intentionally left blank (evidence doesn't support a categorical human
+// contraindication) — see docs/LOOP_NOTES.md's repeated findings that these
+// ledgers must be checked before treating an empty safety field as a gap.
+export function loadDocumentedSafetyExceptions() {
+  const ledgerPaths = [
+    'data-sources/safety-evidence-limited-exceptions.json',
+    'data-sources/safety-evidence-limited-primary-runtime-exceptions.json',
+  ];
+  const slugs = new Set();
+  for (const ledgerPath of ledgerPaths) {
+    if (!fs.existsSync(ledgerPath)) continue;
+    const parsed = JSON.parse(fs.readFileSync(ledgerPath, 'utf8'));
+    for (const entry of parsed.exceptions || []) {
+      if (entry.slug) slugs.add(entry.slug);
+    }
+  }
+  return slugs;
+}
+
 function runGapAnalysis() {
   const herbsPath = 'public/data/herbs.json';
   const compoundsPath = 'public/data/compounds.json';
@@ -121,9 +141,11 @@ function runGapAnalysis() {
   const interactionEdgesMap = fs.existsSync(interactionEdgesPath)
     ? JSON.parse(fs.readFileSync(interactionEdgesPath, 'utf8'))
     : {};
+  const documentedSafetyExceptions = loadDocumentedSafetyExceptions();
 
   const allProfiles = [];
   let safetyFilledCount = 0;
+  let safetyDocumentedExceptionCount = 0;
   let descriptionFilledCount = 0;
   let mechanismFilledCount = 0;
   let interactionsFilledCount = 0;
@@ -139,6 +161,7 @@ function runGapAnalysis() {
     items.forEach(item => {
       const descFilled = checkDescription(item.description);
       const safetyFilled = checkSafety(item.contraindications);
+      const safetyDocumentedException = !safetyFilled && documentedSafetyExceptions.has(item.slug);
       const evidenceFilled = checkEvidenceLevel(item);
       const mechFilled = checkMechanism(item);
       const bestForFilled = checkBestFor(item);
@@ -147,12 +170,13 @@ function runGapAnalysis() {
 
       if (descFilled) descriptionFilledCount++;
       if (safetyFilled) safetyFilledCount++;
+      if (safetyDocumentedException) safetyDocumentedExceptionCount++;
       if (mechFilled) mechanismFilledCount++;
       if (interactionsFilled) interactionsFilledCount++;
 
       const missing = [];
       if (!descFilled) missing.push('description');
-      if (!safetyFilled) missing.push('safety');
+      if (!safetyFilled && !safetyDocumentedException) missing.push('safety');
       if (!evidenceFilled) missing.push('evidence_level');
       if (!mechFilled) missing.push('mechanism');
       if (!bestForFilled) missing.push('best_for');
@@ -170,7 +194,7 @@ function runGapAnalysis() {
         missingFields: missing,
         details: {
           description: descFilled ? 'FILLED' : 'EMPTY',
-          safety: safetyFilled ? 'FILLED' : 'EMPTY',
+          safety: safetyFilled ? 'FILLED' : (safetyDocumentedException ? 'DOCUMENTED_EXCEPTION' : 'EMPTY'),
           evidence_level: evidenceFilled ? 'FILLED' : 'EMPTY',
           mechanism: mechFilled ? 'FILLED' : 'EMPTY',
           best_for: bestForFilled ? 'FILLED' : 'EMPTY',
@@ -230,7 +254,7 @@ Generated on: ${new Date().toISOString()}
 ## Summary Statistics
 
 - **Total Profiles Evaluated**: ${total}
-- **Safety Data Fill Rate**: ${pctSafety}% (${safetyFilledCount} / ${total})
+- **Safety Data Fill Rate**: ${pctSafety}% (${safetyFilledCount} / ${total}); plus ${safetyDocumentedExceptionCount} slug(s) with a documented evidence-limited exception (reviewed and intentionally left blank — see \`data-sources/safety-evidence-limited-exceptions.json\` and \`data-sources/safety-evidence-limited-primary-runtime-exceptions.json\`), not counted below as a "safety" gap
 - **Description Fill Rate**: ${pctDesc}% (${descriptionFilledCount} / ${total})
 - **Mechanism Fill Rate**: ${pctMech}% (${mechanismFilledCount} / ${total})
 - **Interactions Fill Rate**: ${pctInteractions}% (${interactionsFilledCount} / ${total}) — counts profiles with a derived interaction-graph entry in \`interaction_edges.json\` (the data source the live "Interactions" page section actually reads)
@@ -268,4 +292,6 @@ Here is the completeness audit for the top 20 highest-traffic priority slugs:
   console.log(`Wrote reports/content-gaps.md.`);
 }
 
-runGapAnalysis();
+if (import.meta.url === `file://${process.argv[1]}`) {
+  runGapAnalysis();
+}

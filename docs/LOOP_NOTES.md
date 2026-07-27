@@ -4112,3 +4112,65 @@ prior entry) is still open and still worth a human or future cycle's triage
 — this cycle deliberately did not touch it, since closing/merging PRs this
 session didn't open falls outside what this autonomous run is scoped to do
 without a human confirming first.
+
+---
+
+## 2026-07-27 — `audit:content-gaps`' top-20 high-traffic table was flagging 6 already-reviewed safety abstentions as fresh gaps
+
+Fresh cold session. `npm run audit:content-gaps` (`scripts/audit/content-gap-report.mjs`)
+is a *different* audit from `audit:severity-tokens`, computing its own
+"safety" completeness signal straight off `item.contraindications` with no
+knowledge of the two governance exception ledgers the repeated
+`contraindications_or_flags`-fill entries above (2026-07-13 through
+2026-07-16) built and rely on. Its top-20 highest-traffic table showed
+`ginger` (→`gingerol`), `holy-basil` (→`holy-basil-extract`), `l-theanine`
+(→`caffeine-l-theanine`), `creatine`, and `omega-3` (→`omega-3-dha-dominant`)
+all missing "safety" at 71% completeness — a tempting, obvious-looking
+worklist for exactly the kind of fill those prior cycles were doing.
+
+Checked all 6 against both ledgers before writing anything (the practice the
+2026-07-16 "batch 7" entry above established): every single one already has
+a dated, sourced, reviewed exception record in
+`data-sources/safety-evidence-limited-exceptions.json` or
+`-primary-runtime-exceptions.json` (e.g. `gingerol`: "Human pregnancy
+evidence concerns oral ginger preparations, not isolated gingerol"). Filling
+these would have silently reversed a prior human/agent-reviewed abstention
+decision — the exact failure mode the 2026-07-16 "reversed a same-week
+sourced patch decision" entry warned about, just approached from a
+different audit's blind spot this time.
+
+Fixed the audit instead of the (non-existent) content gap: `content-gap-
+report.mjs` now loads both exception ledgers and treats a slug's empty
+safety field as `DOCUMENTED_EXCEPTION` (excluded from `missingFields` and
+the completeness penalty, but still distinguished from a genuine `FILLED`
+in `details.safety`) rather than a plain `EMPTY` gap. Added a one-line
+summary-stats note reporting the exception count so the report stays
+transparent about what it's excluding and why. Re-ran the audit: all 5
+compounds above now show 86% (only genuinely-missing `interactions`
+remains); safety fill rate line now reads "67.8% (580/856); plus 56 slugs
+with a documented evidence-limited exception... not counted below as a
+gap" instead of silently undercounting. Exported `checkSafety` and the new
+`loadDocumentedSafetyExceptions` and added
+`scripts/audit/content-gap-report.test.mjs` (3 cases) so this stays
+regression-tested. Guarded the script's `runGapAnalysis()` call behind an
+`import.meta.url === file://${process.argv[1]}` check (existing repo
+pattern, e.g. `build-interaction-data.mjs`) so importing it for the test
+doesn't also run the full analysis as a side effect. `npm run check` and
+the full Vitest suite (658/658) pass; only the tracked-file diff is the
+script + its test (the `reports/content-gaps.*` outputs and
+`public/data/_meta/build-info.json` timestamp are gitignored/disposable and
+were left untouched).
+
+**Takeaway for future cycles:** this repo now has at least two audits
+computing a "safety completeness" signal from different data paths with
+different awareness of the exception ledgers —
+`audit:severity-tokens` (ledger-aware, `full_public_runtime` only) and
+`audit:content-gaps` (was ledger-blind, all profiles, drives the
+highest-traffic priority table). Before trusting *any* "missing safety"
+list from *any* script as a real worklist, check whether that specific
+script consults the ledgers — grep the script for `safety-evidence-
+limited` first, not just grep the target slug against the ledgers by hand
+every time. If a new completeness/gap script gets added later, wire it to
+`loadDocumentedSafetyExceptions()` (now exported from
+`scripts/audit/content-gap-report.mjs`) up front rather than rediscovering
+this same false-positive class a third time.
