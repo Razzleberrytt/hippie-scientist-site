@@ -4112,3 +4112,83 @@ prior entry) is still open and still worth a human or future cycle's triage
 — this cycle deliberately did not touch it, since closing/merging PRs this
 session didn't open falls outside what this autonomous run is scoped to do
 without a human confirming first.
+
+---
+
+## 2026-07-27 — `npm run audit:source-of-truth` / `data:audit` was 17/17 false positives, flagging its own governance ledgers
+
+Fresh cold session. Checked the safety-fill audits first since they're the
+usual highest-ROI target: `audit:severity-tokens` (0 remaining actionable
+`full_public_runtime` gaps), `audit:risk-tag-collisions` (clean),
+`audit:curated-indexable` (clean apart from documented governance holds).
+`audit:safety`'s TOP-20 remaining gaps are all real, but every one of them
+turned out to be a `runtime_export_decision: "hidden_until_grounded"`
+compound (`indexability_status: "NOINDEX"`, not in the sitemap) — e.g.
+`beta-caryophyllene`, `bergapten`, `banaba-leaf-extract` — so filling their
+`contraindications_or_flags` wouldn't reach any indexed or linked page; not
+worth a workbook edit this cycle. A concurrent session's PR #2348 (opened
+~20 minutes before this cycle started) was already fixing the exact
+`audit:content-gaps` false-positive-on-governed-exceptions issue this cycle
+was about to independently rediscover, so that thread was left alone too.
+
+Ran the task prompt's suggested `npm run audit:source-of-truth` (this
+session's task explicitly named it as a gap-finding tool) and got
+`issues=17 blocking=17` — but every single one was a false positive.
+`scripts/data/audit-source-of-truth.mjs` classifies any `.json`/`.ts`/`.tsx`/
+etc. file containing words like "safety", "compound", "reference", or
+"education" as unsanctioned duplicate content unless its path matches an
+allowlist. The allowlist covers `data/`, `lib/`, `scripts/`, etc., but not
+`data-sources/` itself (only the one literal `.xlsx` path) or `public/`
+subpaths outside `public/data/`. Flagged: `.lighthouserc.json` (matched
+`/herbs/ashwagandha/` in a Lighthouse test URL), `content-collections.ts`
+and `mdx-components.tsx` (schema field names / component names like
+`references`, `SafetyNotice`), `security/audit-allowlist.json` (the word
+"safety" inside an unrelated CVE-allowlist rationale), `public/llms.txt`
+(the AI-citation manifest `audit:ai-citations` itself builds/verifies —
+legitimately derived static copy, not a duplicate data source),
+`public/redirect-overrides/*.txt` (URL-slug redirect maps, not entity
+content), and — the most consequential one — all 8 files under
+`data-sources/workbook-patches/` plus both
+`data-sources/safety-evidence-limited*-exceptions.json` ledgers. Those last
+two classes are exactly the sanctioned, human-reviewed governance records
+documented in the 2026-07-16 "batch 7" and 2026-07-20 entries above:
+`workbook-patches/*.json` is independently re-verified end-to-end by the
+required CI check `scripts/ci/validate-workbook-patches.mjs`, and the two
+exceptions ledgers are what `audit:severity-tokens` reads to distinguish a
+real gap from a deliberate abstention. The audit script telling a future
+cycle to "quarantine/delete" its own safety-governance system is a
+real, actionable tooling bug, not a one-off content report.
+
+Fixed by adding explicit, narrowly-scoped allow entries to
+`scripts/data/audit-source-of-truth.mjs`: the 4 specific false-positive
+config files plus `public/llms.txt` and the two exceptions-ledger files to
+`NEVER_BLOCK_PATHS`, and two new path prefixes
+(`public/redirect-overrides/`, `data-sources/workbook-patches/`) to
+`NEVER_BLOCK_PREFIXES` — deliberately *not* a blanket `data-sources/`
+prefix allow, since the whole point of this audit is catching new shadow
+data sources outside the workbook, and workbook-patches/exceptions files
+are only safe to exempt because they're independently validated elsewhere.
+Verified: `npm run data:audit` now reports `issues=0 blocking=0`. Full
+`npm run check`, `npm run guard:source-of-truth`, and `npm run
+data:validate` all pass clean afterward with a diff scoped to exactly this
+one script (`public/data/_meta/build-info.json`'s timestamp bump from
+running `data:build:core` inside `check` was reverted, not committed, per
+the standing rule above).
+
+No workbook edit this cycle — every safety-fill gap found was either
+already governed (exception ledgers), unreachable (noindex/hidden), or
+being fixed concurrently by another session. Shipping the audit-tooling fix
+instead, per the loop's own self-improvement clause: a script the task
+prompt names as a standard gap-finder was actively misleading (17 false
+"delete this" verdicts against real governance infrastructure) and no
+future cycle should spend time re-diagnosing the same 17 files.
+
+**Takeaway for future cycles:** before trusting `npm run audit:source-of-truth`
+/ `npm run data:audit`'s blocking-issue count, remember it was fixed once
+already (this entry) — if it starts reporting a large "quarantine/delete"
+list again, check whether the flagged paths are actually new shadow data
+files or just another legitimate non-workbook artifact (a new
+`data-sources/workbook-patches/*.json` batch is expected to keep growing
+and is already covered by the new prefix rule, but a genuinely new
+governance-ledger *pattern* — a third exceptions file, say — would need its
+own allowlist entry the same way this one did).

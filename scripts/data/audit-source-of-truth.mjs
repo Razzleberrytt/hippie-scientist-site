@@ -30,8 +30,30 @@ const NEVER_BLOCK_PATHS = new Set([
   'next.config.mjs',
   'data/goals.ts',
   'pagefind.yml',
+  '.lighthouserc.json',
+  'content-collections.ts',
+  'mdx-components.tsx',
+  'security/audit-allowlist.json',
+  // Generated AI-citation manifest (built/verified by
+  // scripts/ci/audit-ai-citation-readiness.mjs), not a duplicate content source.
+  'public/llms.txt',
+  // Sanctioned, human-reviewed governance ledgers documenting deliberate
+  // decisions to leave a workbook safety field empty pending stronger
+  // evidence (see docs/LOOP_NOTES.md 2026-07-16 "batch 7" and 2026-07-20
+  // entries). These record the *absence* of a claim, not new content, and
+  // are independently checked by npm run audit:severity-tokens.
+  'data-sources/safety-evidence-limited-exceptions.json',
+  'data-sources/safety-evidence-limited-primary-runtime-exceptions.json',
 ])
-const NEVER_BLOCK_PREFIXES = ['src/lib/', 'lib/', 'scripts/', '.github/', 'types/', 'utils/', 'config/', 'data/', 'agent/', 'agent-tools/']
+const NEVER_BLOCK_PREFIXES = [
+  'src/lib/', 'lib/', 'scripts/', '.github/', 'types/', 'utils/', 'config/', 'data/', 'agent/', 'agent-tools/',
+  // Redirect-mapping files (URL slug -> URL slug), not entity content.
+  'public/redirect-overrides/',
+  // Applied/proposed workbook-patch ledger, independently validated end-to-end
+  // (each entry's expected_old_value/new_value re-checked against the live
+  // workbook) by the required CI check scripts/ci/validate-workbook-patches.mjs.
+  'data-sources/workbook-patches/',
+]
 const NON_BLOCKING_PREFIXES = ['ops/', 'schemas/', 'src/content/', 'content/', 'reports/', 'data/blog/']
 const EXPLICIT_BLOCK_PATHS = new Set([
   'public/database.json',
