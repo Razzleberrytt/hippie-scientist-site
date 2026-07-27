@@ -4193,6 +4193,19 @@ and is already covered by the new prefix rule, but a genuinely new
 governance-ledger *pattern* — a third exceptions file, say — would need its
 own allowlist entry the same way this one did).
 
+**Addendum, same cycle:** merging this branch onto a `main` that had also
+just picked up PR #2348 revealed one more false-positive source in the same
+script: `walk()`'s directory skip-list (`node_modules`, `.git`, `dist`,
+`.next`, `out`, `scratch`) didn't include `.content-collections/` — the
+gitignored build-cache directory `content-collections build` (run
+automatically by `pretypecheck`, part of `npm run check`) writes to. Once
+that cache existed locally, `data:audit` found 5 fresh false positives
+inside it (`allArticleMonographs.js`, `allBlogPosts.js`, etc. — Next.js's
+own compiled content mirror, not a duplicate source). Added
+`.content-collections` to the same skip-list as the other build-output
+dirs; `data:audit` is back to `issues=0 blocking=0` even after a full
+`npm run check` run repopulates the cache.
+
 ---
 
 ## 2026-07-27 — `audit:content-gaps`' top-20 high-traffic table was flagging 6 already-reviewed safety abstentions as fresh gaps
