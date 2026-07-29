@@ -7,6 +7,8 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FAQSchema from '@/components/seo/FAQSchema'
 import References from '@/components/References'
 import EmailCapture from '../../../../components/EmailCapture'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Adaptogens Compared: Ashwagandha, Rhodiola, Holy Basil & More (2026)',
@@ -61,13 +63,22 @@ export default function AdaptogensComparedPage() {
 
       <section className="card-premium p-6 space-y-5 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">The three stress patterns</h2>
         <div className="space-y-4">
-          <div className="p-4 rounded-xl bg-brand-50/60"><h3 className="font-semibold text-ink">Pattern 1: Wired but tired (high cortisol, anxious)</h3><p className="mt-2 text-sm leading-7 text-muted">You feel simultaneously exhausted and unable to relax. Cortisol is elevated, sleep is disrupted, and your mind races at night. <strong>Best fit: Ashwagandha.</strong> Reduces cortisol by 27% in clinical trials [2,5]. Take 240-600 mg in the evening. Monitor thyroid function if taken long-term. The calming effect builds over 2-4 weeks. Avoid rhodiola with this pattern — it will worsen the &ldquo;wired&rdquo; feeling.</p></div>
-          <div className="p-4 rounded-xl bg-brand-50/60"><h3 className="font-semibold text-ink">Pattern 2: Burned out and depleted (low cortisol, fatigued)</h3><p className="mt-2 text-sm leading-7 text-muted">You are exhausted, unmotivated, and struggling to get through the day. Stress has depleted your reserves rather than overactivating them. <strong>Best fit: Rhodiola.</strong> Improves mental and physical fatigue in multiple trials [4,6]. Take 200-400 mg in the morning. Do not take in the evening — it is stimulating. Effects appear within 1-2 weeks. If you also have anxiety, add ashwagandha in the evening.</p></div>
-          <div className="p-4 rounded-xl bg-brand-50/60"><h3 className="font-semibold text-ink">Pattern 3: General life stress (functional, managing)</h3><p className="mt-2 text-sm leading-7 text-muted">You are managing stress reasonably well but want additional support. No dominant symptom — just the cumulative wear of modern life. <strong>Best fit: Holy basil or ashwagandha at lower doses.</strong> Holy basil has anti-inflammatory and mild anxiolytic effects but less clinical trial data than ashwagandha. A morning holy basil tea is a gentle introduction to adaptogens. Ashwagandha at 120-240 mg is appropriate if sleep or anxiety are the primary concerns.</p></div>
+          <div className="p-4 rounded-xl bg-brand-50/60"><h3 className="font-semibold text-ink">Pattern 1: Wired but tired (high cortisol, anxious)</h3><p className="mt-2 text-sm leading-7 text-muted">You feel simultaneously exhausted and unable to relax. Cortisol is elevated, sleep is disrupted, and your mind races at night. <strong>Best fit: <Link href="/herbs/ashwagandha/" className="font-semibold text-brand-700 hover:underline">Ashwagandha</Link>.</strong> Reduces cortisol by 27% in clinical trials [2,5]. Take 240-600 mg in the evening. Monitor thyroid function if taken long-term. The calming effect builds over 2-4 weeks. Avoid rhodiola with this pattern — it will worsen the &ldquo;wired&rdquo; feeling.</p></div>
+          <div className="p-4 rounded-xl bg-brand-50/60"><h3 className="font-semibold text-ink">Pattern 2: Burned out and depleted (low cortisol, fatigued)</h3><p className="mt-2 text-sm leading-7 text-muted">You are exhausted, unmotivated, and struggling to get through the day. Stress has depleted your reserves rather than overactivating them. <strong>Best fit: <Link href="/herbs/rhodiola/" className="font-semibold text-brand-700 hover:underline">Rhodiola</Link>.</strong> Improves mental and physical fatigue in multiple trials [4,6]. Take 200-400 mg in the morning. Do not take in the evening — it is stimulating. Effects appear within 1-2 weeks. If you also have anxiety, add ashwagandha in the evening.</p></div>
+          <div className="p-4 rounded-xl bg-brand-50/60"><h3 className="font-semibold text-ink">Pattern 3: General life stress (functional, managing)</h3><p className="mt-2 text-sm leading-7 text-muted">You are managing stress reasonably well but want additional support. No dominant symptom — just the cumulative wear of modern life. <strong>Best fit: <Link href="/herbs/holy-basil/" className="font-semibold text-brand-700 hover:underline">Holy basil</Link> or ashwagandha at lower doses.</strong> Holy basil has anti-inflammatory and mild anxiolytic effects but less clinical trial data than ashwagandha. A morning holy basil tea is a gentle introduction to adaptogens. Ashwagandha at 120-240 mg is appropriate if sleep or anxiety are the primary concerns.</p></div>
         </div>
       </section>
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2><p className="text-sm leading-7 text-muted">Adaptogens are not interchangeable. Match the herb to your stress pattern: <strong>ashwagandha for the anxious-overactivated</strong> [2,5], <strong>rhodiola for the fatigued-depleted</strong> [4,6], and <strong>holy basil for general maintenance</strong>. Start one at a time for 2-4 weeks before assessing. Most people benefit from ashwagandha first — it has the strongest evidence base and addresses the most common stress pattern. The adaptogen category is real, clinically relevant, and underutilized.</p></section>
+
+      <div className="max-w-4xl">
+        <RecommendationSection
+          title="Ashwagandha product picks"
+          description="Ashwagandha has the strongest evidence of the adaptogens compared here and fits the most common stress pattern. These are sourcing starting points — confirm dose, standardization, and fit for your situation, and review the safety notes above before buying."
+          products={getRevenueProductSet('ashwagandha')?.products ?? []}
+        />
+      </div>
+
       <References refs={ADAPTOGENS_REFS} />
       <EmailCapture headline="Get evidence reviews like this" description="Adaptogens, stacking safety, evidence — not marketing." ctaLabel="Get the evidence" location="guide-adaptogens" />
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
