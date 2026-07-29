@@ -1,0 +1,45 @@
+name: Temporary dependency security refresh
+
+on:
+  push:
+    branches:
+      - seo/fix-coq10-canonical-20260729
+    paths:
+      - .github/workflows/temporary-security-refresh.yml
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: seo/fix-coq10-canonical-20260729
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Refresh vulnerable dependencies
+        run: |
+          npm install next@^15.5.21
+          npm install --save-dev postcss@^8.5.18 sharp@^0.35.3 wrangler@^4.115.0
+          npm audit fix
+          npm run audit:high
+
+      - name: Commit regenerated lockfile
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package.json package-lock.json
+          if git diff --cached --quiet; then
+            echo "No dependency changes were required."
+            exit 0
+          fi
+          git commit -m "Update dependencies for security advisories"
+          git push origin HEAD:seo/fix-coq10-canonical-20260729
