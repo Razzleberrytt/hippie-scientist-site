@@ -39,20 +39,18 @@ const articleMonographs = defineCollection({
     evidenceGrade: z.string().min(1).optional(),
     evidence_grade: z.string().min(1).optional(),
     author: z.string().optional(),
-    // Optional trust/E-E-A-T signals. `reviewedBy`/`reviewerCredential` are
-    // only rendered when a real reviewer is supplied — never fabricate one.
     reviewedBy: z.string().optional(),
     reviewerCredential: z.string().optional(),
     lastReviewed: z.string().regex(isoDatePattern).optional(),
     faqs: z.array(articleFaqSchema).default([]),
     references: z.array(articleReferenceSchema).default([]),
+    relatedSlugs: z.array(z.string().regex(slugPattern)).default([]),
+    keyTakeaways: z.array(z.string().min(1)).max(8).default([]),
+    citationQuestions: z.array(z.string().min(1)).max(12).default([]),
+    canonicalConcepts: z.array(z.string().min(1)).max(20).default([]),
     content: z.string(),
   }),
   transform: async (document, context) => {
-    // Plain-markdown articles (.md) may contain literal `<` (e.g. "<5% oral",
-    // "<1%") that MDX's JSX parser misreads as a malformed tag start. Escape
-    // any `<` not immediately followed by a tag-name character, `/`, or `!`
-    // so it renders as literal text instead of failing the MDX compile.
     const sanitizedDocument = {
       ...document,
       content: document.content.replace(/<(?![a-zA-Z/!])/g, '&lt;'),
@@ -108,6 +106,10 @@ const blogPosts = defineCollection({
       readingTime: `${estimatedMinutes} min read`,
       evidenceGrade: '',
       references: [],
+      relatedSlugs: [],
+      keyTakeaways: [],
+      citationQuestions: [],
+      canonicalConcepts: [],
       body,
       url: `/articles/${document.slug}`,
     }
