@@ -1,0 +1,35 @@
+## Scientific Takeaways authoring template
+
+Use three to six claims that can stand alone without losing their scientific qualification.
+
+```mdx
+<ScientificTakeaways
+  summary="A one-sentence statement describing what this block covers and what it does not establish."
+  items={[
+    {
+      claim: 'State one precise, defensible scientific conclusion.',
+      confidence: 'High',
+      context: 'Explain the evidence boundary or the population to which the claim applies.',
+    },
+    {
+      claim: 'Separate a well-supported mechanism from a less certain clinical inference.',
+      confidence: 'Moderate',
+      context: 'Case reports can document possibility but usually cannot estimate frequency.',
+    },
+    {
+      claim: 'Name the important unresolved question rather than smoothing it over.',
+      confidence: 'Limited',
+      context: 'Describe exactly what evidence is missing.',
+    },
+  ]}
+/>
+```
+
+## Rules
+
+- Prefer one claim per item.
+- Avoid vague claims such as “more research is needed” without saying what is unknown.
+- Do not convert association into causation.
+- Do not use confidence labels to describe personal certainty; they describe the evidence supporting the claim.
+- Ensure the claim remains accurate when quoted without the surrounding article.
+- Put operational safety instructions in a dedicated safety block, not in the takeaways component.
