@@ -4,20 +4,27 @@ on:
   push:
     branches:
       - seo/fix-coq10-canonical-20260729
-    paths:
-      - .github/workflows/temporary-security-refresh.yml
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
 
 permissions:
   contents: write
 
 jobs:
   refresh:
+    if: github.head_ref == 'seo/fix-coq10-canonical-20260729' || github.ref_name == 'seo/fix-coq10-canonical-20260729'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
         with:
           ref: seo/fix-coq10-canonical-20260729
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
