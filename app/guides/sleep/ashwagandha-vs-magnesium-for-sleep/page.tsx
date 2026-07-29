@@ -180,6 +180,27 @@ export default function AshwagandhaVsMagnesiumForSleepPage() {
         {/* Main content */}
         <div className="space-y-6">
 
+          {/* Fastest useful choice */}
+          <section className="rounded-[1rem] border border-brand-700/20 bg-brand-50/60 p-6 shadow-sm sm:p-8">
+            <p className="eyebrow-label">Fastest useful choice</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+              If you only try one tonight: magnesium glycinate
+            </h2>
+            <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
+              <strong>Magnesium glycinate is the faster, lower-friction starting point.</strong> It is
+              inexpensive, has a broad safety record, and can help with muscle tension and restlessness
+              within days. Ashwagandha is the better fit when stress is the main reason you cannot sleep,
+              but it typically needs 2&ndash;4 weeks of daily use to build an effect &mdash; so it is a
+              commitment, not a same-night fix. If you are unsure, start with{' '}
+              <Link href="/compounds/magnesium-glycinate/" className="font-semibold text-brand-700 hover:underline">magnesium glycinate</Link>{' '}
+              (100&ndash;300&nbsp;mg elemental, 30&ndash;60 minutes before bed), then add{' '}
+              <Link href="/herbs/ashwagandha/" className="font-semibold text-brand-700 hover:underline">ashwagandha</Link>{' '}
+              if stress-driven wakefulness persists. See the full{' '}
+              <Link href="/guides/sleep/best-natural-sleep-aids-that-work/" className="font-semibold text-brand-700 hover:underline">natural sleep aids guide</Link>{' '}
+              for how both fit a wider routine.
+            </p>
+          </section>
+
           {/* Quick Verdict */}
           <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
             <p className="eyebrow-label">Quick Verdict</p>

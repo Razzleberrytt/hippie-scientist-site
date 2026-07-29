@@ -174,6 +174,18 @@ export default function SleepHerbsVsMelatoninComparePage() {
       <section className="card-premium p-6 space-y-5 max-w-5xl">
         <p className="eyebrow-label">Fast Decision</p>
         <h2 className="text-3xl font-semibold tracking-tight text-ink">Which one fits your sleep problem?</h2>
+        <div className="rounded-xl border-l-4 border-brand-700 bg-brand-50/40 p-4">
+          <p className="text-sm font-semibold text-ink">Bottom line — the fastest useful choice</p>
+          <p className="mt-1 text-sm leading-7 text-muted">
+            Reach for <strong>melatonin (0.3&ndash;1&nbsp;mg)</strong> only if your problem is timing &mdash;
+            jet lag, shift work, or a delayed sleep phase. For everything else, the higher-value starting
+            point is{' '}
+            <Link href="/compounds/magnesium-glycinate/" className="font-semibold text-brand-700 hover:underline">magnesium glycinate</Link>{' '}
+            for sleep depth and physical tension, or{' '}
+            <Link href="/compounds/l-theanine/" className="font-semibold text-brand-700 hover:underline">L-theanine</Link>{' '}
+            (100&ndash;200&nbsp;mg) for racing thoughts at bedtime. Save valerian for when those have not helped.
+          </p>
+        </div>
         <div className="overflow-x-auto">
           <table className="w-full min-w-[880px] text-sm text-left">
             <thead className="text-ink">
