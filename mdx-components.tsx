@@ -21,6 +21,7 @@ import BetterAlternatives from '@/components/editorial/BetterAlternatives'
 import WhereNext from '@/components/editorial/WhereNext'
 import EvidenceConfidence from '@/components/editorial/EvidenceConfidence'
 import EditorialNote from '@/components/editorial/EditorialNote'
+import ScientificTakeaways from '@/components/editorial/ScientificTakeaways'
 
 type MDXComponents = Record<string, ComponentType<Record<string, unknown>>>
 type MdxTableProps = Record<string, unknown> & { children?: ReactNode }
@@ -111,6 +112,7 @@ const evidenceComponents = {
   WhereNext,
   EvidenceConfidence,
   EditorialNote,
+  ScientificTakeaways,
   table: MdxTable,
   a: MdxAnchor,
 } as unknown as MDXComponents
