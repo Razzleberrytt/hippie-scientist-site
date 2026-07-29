@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-14",
+  "generatedAt": "2026-07-29",
   "rules": [
     {
       "id": "esbuild-build-tooling-only-2026-06",
@@ -127,6 +127,36 @@
       "expiresOn": "2026-09-13",
       "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Bump%20openai%20to%20resolve%20high-severity%20advisory",
       "rationale": "openai is used only by the separate AI enrichment agent pipeline (npm run agent:run), which is run manually/offline to generate patch files and is never part of the site build, the static-export output, or any shipped runtime code path. It is flagged through a transitive dependency. Interim allowlist until openai can be bumped in the agent tooling."
+    },
+    {
+      "id": "brace-expansion-build-tooling-upstream-2026-07",
+      "package": "brace-expansion",
+      "severity": "high",
+      "expiresOn": "2026-08-29",
+      "advisoryUrls": [
+        "https://github.com/advisories/GHSA-mh99-v99m-4gvg"
+      ],
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Remove%20brace-expansion%20audit%20exception%20after%20upstream%20tooling%20updates",
+      "rationale": "The July 2026 brace-expansion denial-of-service advisory is currently patched only in v5.0.8, while this repository's affected copies are pulled by older minimatch/glob chains in ESLint, archive, and workbook tooling. Forcing v5 into those older consumers risks incompatible module/API behavior, and npm's offered force fix downgrades eslint-plugin-jsx-a11y. These tools run only against trusted repository paths and workbook assets during local/CI builds; no user-controlled glob pattern reaches the shipped static site. Short-lived exception until the parent packages adopt brace-expansion 5.0.8."
+    },
+    {
+      "id": "sharp-next-bundled-upstream-2026-07",
+      "package": "sharp",
+      "severity": "high",
+      "expiresOn": "2026-08-29",
+      "advisoryUrls": [
+        "https://github.com/advisories/GHSA-f88m-g3jw-g9cj"
+      ],
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Remove%20Next.js%20Sharp%20audit%20exception%20after%20upstream%20release",
+      "rationale": "The repository's direct Sharp dependency is upgraded to a patched 0.35.x release. The remaining finding is Next.js's nested Sharp 0.34.x dependency, for which no compatible Next.js release currently resolves the advisory. The project emits a static export and processes only trusted repository images at build time; it has no production image-upload or server-side image-processing endpoint. Short-lived exception pending an upstream Next.js release that consumes Sharp >=0.35.0."
+    },
+    {
+      "id": "next-sharp-upstream-2026-07",
+      "package": "next",
+      "severity": "high",
+      "expiresOn": "2026-08-29",
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Remove%20Next.js%20Sharp%20audit%20exception%20after%20upstream%20release",
+      "rationale": "npm marks Next.js high solely because its nested Sharp dependency remains below 0.35.0. The direct Next.js dependency is upgraded to the latest compatible 15.5 patch, and the site is deployed as static HTML with no Next.js production server or untrusted runtime image decoding. Short-lived exception mirrors sharp-next-bundled-upstream-2026-07 and must be removed when Next.js ships a patched nested Sharp."
     }
   ],
   "_informational": {
