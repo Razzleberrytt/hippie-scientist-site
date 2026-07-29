@@ -5,6 +5,22 @@ export type ArticleCitationOverride = {
   canonicalConcepts?: string[]
 }
 
+export type CitationRelationshipTarget = {
+  slug: string
+  title: string
+  category: string
+  url: string
+}
+
+export const citationRelationshipTargets: Record<string, CitationRelationshipTarget> = {
+  rhabdomyolysis: {
+    slug: 'rhabdomyolysis',
+    title: 'Rhabdomyolysis: How Muscle Breakdown Can Injure the Kidneys',
+    category: 'Foundations',
+    url: '/learn/rhabdomyolysis/',
+  },
+}
+
 export const articleCitationOverrides: Record<string, ArticleCitationOverride> = {
   'failure-chains-injected-mushroom-tea': {
     relatedSlugs: [
