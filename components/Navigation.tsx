@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, type KeyboardEvent as ReactKeyboardEvent } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Leaf, Menu, X } from 'lucide-react'
@@ -31,6 +31,9 @@ function groupChildren(children: PrimaryNavigationItem[] = []) {
 export function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const mobileTriggerRef = useRef<HTMLButtonElement>(null)
+  const mobileDialogRef = useRef<HTMLDivElement>(null)
+  const mobileCloseRef = useRef<HTMLButtonElement>(null)
   const pathname = usePathname() || '/'
 
   useEffect(() => {
@@ -41,11 +44,18 @@ export function Navigation() {
   }, [])
 
   useEffect(() => {
-    const onKey = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && mobileOpen) setMobileOpen(false)
+    if (!mobileOpen) return
+
+    const previousOverflow = document.body.style.overflow
+    const mobileTrigger = mobileTriggerRef.current
+    document.body.style.overflow = 'hidden'
+    const focusFrame = requestAnimationFrame(() => mobileCloseRef.current?.focus())
+
+    return () => {
+      cancelAnimationFrame(focusFrame)
+      document.body.style.overflow = previousOverflow
+      requestAnimationFrame(() => mobileTrigger?.focus())
     }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
   }, [mobileOpen])
 
   const isPrimaryActive = (link: PrimaryNavigationItem) => {
@@ -75,9 +85,34 @@ export function Navigation() {
 
   const closeMobile = () => setMobileOpen(false)
 
+  const handleMobileDialogKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Escape') {
+      event.preventDefault()
+      closeMobile()
+      return
+    }
+
+    if (event.key !== 'Tab') return
+
+    const focusable = mobileDialogRef.current?.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])',
+    )
+    if (!focusable?.length) return
+
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault()
+      last.focus()
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault()
+      first.focus()
+    }
+  }
+
   return (
     <nav
-      className={`sticky top-0 z-50 border-b border-[#123c2f]/10 bg-[#fffdf8]/94 backdrop-blur-xl transition-all dark:border-[var(--border-strong)] dark:bg-[rgba(20,38,29,0.94)] ${
+      className={`sticky top-0 z-[110] border-b border-[#123c2f]/10 bg-[#fffdf8]/94 backdrop-blur-xl transition-all dark:border-[var(--border-strong)] dark:bg-[rgba(20,38,29,0.94)] ${
         scrolled ? 'shadow-[0_8px_28px_rgba(58,45,24,0.08)]' : ''
       }`}
       aria-label='Primary'
@@ -161,8 +196,11 @@ export function Navigation() {
 
           <div className='flex shrink-0 items-center gap-2'>
             <GlobalSearchModal />
-            <DarkModeToggle className='hidden md:inline-flex' />
+            <div className='hidden md:block'>
+              <DarkModeToggle />
+            </div>
             <button
+              ref={mobileTriggerRef}
               type='button'
               onClick={() => setMobileOpen(!mobileOpen)}
               className='inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/85 p-2 text-[#123c2f] shadow-sm transition hover:border-[#b88a42]/30 hover:bg-[#f5efe2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b88a42]/50 focus-visible:ring-offset-2 dark:border-[var(--border-soft)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)] md:hidden'
@@ -179,10 +217,13 @@ export function Navigation() {
       {mobileOpen && (
         <div id='mobile-nav' className='md:hidden'>
           <div className='fixed inset-0 z-40 bg-[#123c2f]/25 backdrop-blur-sm' onClick={closeMobile} aria-hidden='true' />
+          {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions -- modal dialog handles Escape and Tab focus containment */}
           <div
+            ref={mobileDialogRef}
             role='dialog'
             aria-modal='true'
             aria-label='Mobile navigation menu'
+            onKeyDown={handleMobileDialogKeyDown}
             className='fixed inset-y-0 right-0 z-50 w-[min(22rem,calc(100vw-1rem))] overflow-y-auto rounded-l-[2rem] border-l border-[#123c2f]/10 bg-[#fffdf8] px-5 py-6 shadow-2xl dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)]'
             style={{ height: '100dvh' }}
           >
@@ -192,6 +233,7 @@ export function Navigation() {
                 <span className='truncate'>The Hippie Scientist</span>
               </Link>
               <button
+                ref={mobileCloseRef}
                 type='button'
                 onClick={closeMobile}
                 className='flex min-h-11 min-w-11 items-center justify-center rounded-full border border-[#123c2f]/10 bg-[#f5efe2]/70 p-2 text-[#123c2f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b88a42]/50 dark:border-[var(--border-soft)] dark:bg-[var(--surface-subtle)] dark:text-[var(--text-primary)]'

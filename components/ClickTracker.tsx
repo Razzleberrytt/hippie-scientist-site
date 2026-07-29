@@ -1,15 +1,35 @@
 'use client'
 
-import { useEffect } from 'react'
-import { trackAffiliateClick, trackGuideView } from '@/lib/analytics'
+import { useEffect, useRef } from 'react'
+import { usePathname } from 'next/navigation'
+import { getGuideTrackingContext, trackAffiliateClick, trackGuideView } from '@/lib/analytics'
+import { CONSENT_GRANTED_EVENT, getConsent } from '../src/lib/consent'
+import { loadAnalytics } from '../src/lib/loadAnalytics'
 
 export default function ClickTracker() {
+  const pathname = usePathname() || '/'
+  const lastTrackedGuidePath = useRef<string | null>(null)
+
   useEffect(() => {
-    const guideMatch = window.location.pathname.match(/^\/guides\/([^/]+)\/?$/)
-    if (guideMatch?.[1]) {
-      trackGuideView({ slug: guideMatch[1] })
+    const guide = getGuideTrackingContext(pathname)
+    if (!guide) return
+
+    const trackCurrentGuide = () => {
+      if (getConsent() !== 'granted' || lastTrackedGuidePath.current === guide.pagePath) return
+
+      // loadAnalytics creates the gtag queue synchronously before its network script
+      // arrives, so the first consented view is not lost.
+      loadAnalytics()
+      trackGuideView(guide)
+      lastTrackedGuidePath.current = guide.pagePath
     }
 
+    trackCurrentGuide()
+    window.addEventListener(CONSENT_GRANTED_EVENT, trackCurrentGuide)
+    return () => window.removeEventListener(CONSENT_GRANTED_EVENT, trackCurrentGuide)
+  }, [pathname])
+
+  useEffect(() => {
     const handleDocumentClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement
       const link = target.closest('a')

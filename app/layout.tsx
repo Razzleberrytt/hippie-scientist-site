@@ -68,9 +68,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang={DEFAULT_LOCALE} dir={LOCALE_TEXT_DIRECTION} suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://m.media-amazon.com" />
-        <link rel="preconnect" href="https://images-na.ssl-images-amazon.com" />
-        <link rel="dns-prefetch" href="https://www.amazon.com" />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var d=document.documentElement;var s=localStorage.getItem('theme');var dark=s==='dark';d.classList.toggle('dark',dark);d.dataset.theme=dark?'dark':'light';d.style.colorScheme=dark?'dark':'light';d.classList.add('theme-ready')}catch(e){}})();`,
