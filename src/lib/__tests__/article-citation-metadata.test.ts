@@ -48,6 +48,23 @@ describe('resolveRelatedArticles', () => {
       'failure-chains-oklahoma-bromo-dragonfly',
     ])
   })
+
+  it('honors an explicit empty related-slug list', () => {
+    const current = {
+      slug: 'failure-chains-25b-nbome-blotter',
+      category: 'Harm Reduction',
+      relatedSlugs: [],
+    }
+    const pages = [
+      current,
+      { slug: 'rhabdomyolysis', category: 'Foundations' },
+      { slug: 'fallback-one', category: 'Harm Reduction' },
+    ]
+
+    expect(resolveRelatedArticles(current, pages).map((article) => article.slug)).toEqual([
+      'fallback-one',
+    ])
+  })
 })
 
 describe('normalizeCitationMetadata', () => {
@@ -74,5 +91,20 @@ describe('normalizeCitationMetadata', () => {
         keyTakeaways: ['Explicit claim'],
       }).keyTakeaways
     ).toEqual(['Explicit claim'])
+  })
+
+  it('honors explicit empty frontmatter arrays', () => {
+    expect(
+      normalizeCitationMetadata({
+        slug: 'failure-chains-25b-nbome-blotter',
+        keyTakeaways: [],
+        citationQuestions: [],
+        canonicalConcepts: [],
+      })
+    ).toEqual({
+      keyTakeaways: [],
+      citationQuestions: [],
+      canonicalConcepts: [],
+    })
   })
 })
