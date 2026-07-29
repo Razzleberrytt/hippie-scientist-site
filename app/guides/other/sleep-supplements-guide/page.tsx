@@ -6,6 +6,8 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FAQSchema from '@/components/seo/FAQSchema'
 import References from '@/components/References'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 import EmailCapture from '../../../../components/EmailCapture'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -41,7 +43,7 @@ export default function SleepSupplementsPage() {
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Quick answer</h2><p className="text-sm leading-7 text-muted"><strong>Match the supplement to your sleep problem, not the marketing.</strong> For sleep onset (can&apos;t fall asleep): low-dose melatonin (0.3-1 mg) or L-theanine (200 mg). For sleep maintenance (can&apos;t stay asleep): magnesium glycinate (200-400 mg). For racing mind: L-theanine + magnesium. For circadian disruption (jet lag, shift work): melatonin [2]. Avoid diphenhydramine (Benadryl/ZzzQuil) for regular use — it causes tolerance and next-day impairment. Sleep hygiene (consistent schedule, dark room, no screens) has stronger evidence than any supplement [1].</p></section>
 
-      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance · Sleep Supplement Selector</p><div className="overflow-x-auto"><table className="min-w-full text-sm"><thead><tr className="border-b"><th className="text-left py-2 pr-4 font-semibold text-ink">Sleep Problem</th><th className="text-left py-2 pr-4 font-semibold text-ink">Best Supplement</th><th className="text-left py-2 pr-4 font-semibold text-ink">Dose</th><th className="text-left py-2 font-semibold text-ink">Timing</th></tr></thead><tbody className="text-muted">
+      <section className="card-premium p-6 space-y-4 max-w-4xl border-l-4 border-brand-700 bg-brand-50/30"><p className="text-xs font-bold uppercase tracking-wider text-brand-700">At a Glance · Sleep Supplement Selector</p><p className="text-sm leading-7 text-muted">Use this as a simple decision framework: identify which sleep problem best describes you, then choose the option matched to it below.</p><div className="overflow-x-auto"><table className="min-w-full text-sm"><thead><tr className="border-b"><th className="text-left py-2 pr-4 font-semibold text-ink">Sleep Problem</th><th className="text-left py-2 pr-4 font-semibold text-ink">Best Supplement</th><th className="text-left py-2 pr-4 font-semibold text-ink">Dose</th><th className="text-left py-2 font-semibold text-ink">Timing</th></tr></thead><tbody className="text-muted">
           <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Can&apos;t fall asleep</td><td className="py-2 pr-4">Melatonin (0.3-1 mg)</td><td className="py-2 pr-4">0.3-1 mg</td><td className="py-2">1-2 hrs before bed</td></tr>
           <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Can&apos;t stay asleep</td><td className="py-2 pr-4">Magnesium glycinate</td><td className="py-2 pr-4">200-400 mg</td><td className="py-2">Evening</td></tr>
           <tr className="border-b"><td className="py-2 pr-4 font-medium text-ink">Racing mind at night</td><td className="py-2 pr-4">L-Theanine</td><td className="py-2 pr-4">200 mg</td><td className="py-2">30-60 min before bed</td></tr>
@@ -52,6 +54,37 @@ export default function SleepSupplementsPage() {
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2><p className="text-sm leading-7 text-muted">The best sleep supplements are matched to specific sleep problems: melatonin for timing issues, magnesium for tension-driven insomnia, L-theanine for racing mind. The combination of magnesium glycinate + L-theanine is the most broadly applicable, lowest-risk starting point. Avoid high-dose melatonin (over 1-3 mg) — the side effects (grogginess, vivid dreams) outweigh the benefits. Sleep hygiene (consistent schedule, dark cool room, no screens) has stronger evidence than any supplement [1]. Supplements support sleep — they do not replace the fundamentals.</p></section>
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">How to build a sleep stack</h2><p className="text-sm leading-7 text-muted">Start with magnesium glycinate (200 mg) for one week. If sleep onset is the issue, add L-theanine (200 mg) 30-60 minutes before bed. If still struggling with onset, add low-dose melatonin (0.3 mg) — not 3-10 mg. If maintenance is the issue (waking at 3 AM), try glycine (3 g) before bed instead of melatonin. Do not add all three at once — you will not know what is working. Give each addition 5-7 nights before assessing. If nothing helps after 3 weeks of consistent sleep hygiene + supplements, see a sleep specialist — you may have sleep apnea, restless leg syndrome, or another condition that supplements cannot address.</p></section>
+      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Frequently asked questions</h2>
+        <div className="space-y-4">
+          {FAQS.map((faq) => (
+            <div key={faq.question} className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+              <h3 className="font-semibold text-ink">{faq.question}</h3>
+              <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="card-premium p-6 space-y-3 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Related reading</h2>
+        <p className="text-sm leading-7 text-muted">Deeper guides for each part of a sleep stack:</p>
+        <ul className="grid gap-2 sm:grid-cols-2 text-sm font-semibold text-brand-800">
+          <li><Link href="/guides/sleep/best-natural-sleep-aids-that-work/" className="hover:underline">Best natural sleep aids that work →</Link></li>
+          <li><Link href="/guides/sleep/sleep-stack-guide/" className="hover:underline">How to build a sleep stack →</Link></li>
+          <li><Link href="/guides/other/melatonin-dosage-guide/" className="hover:underline">Melatonin dosage guide →</Link></li>
+          <li><Link href="/guides/other/magnesium-types-guide/" className="hover:underline">Magnesium types guide →</Link></li>
+          <li><Link href="/compounds/magnesium-glycinate/" className="hover:underline">Magnesium glycinate profile →</Link></li>
+          <li><Link href="/compounds/l-theanine/" className="hover:underline">L-theanine compound profile →</Link></li>
+        </ul>
+      </section>
+
+      <div className="max-w-4xl">
+        <RecommendationSection
+          title="Magnesium glycinate product picks"
+          description="Magnesium glycinate is the most broadly applicable, lowest-risk starting point in this guide. These are sourcing starting points; match the elemental dose and check kidney/medication precautions above before buying. For onset-timing problems, low-dose melatonin or L-theanine is the better first move."
+          products={getRevenueProductSet('magnesium')?.products ?? []}
+        />
+      </div>
+
       <References refs={SLEEP_REFS} />
       <EmailCapture headline="Get evidence reviews like this" description="Sleep supplements, melatonin, magnesium — evidence over marketing." ctaLabel="Get the evidence" location="guide-sleep" />
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>

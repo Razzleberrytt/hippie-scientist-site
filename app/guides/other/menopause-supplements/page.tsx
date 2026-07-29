@@ -7,6 +7,8 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FAQSchema from '@/components/seo/FAQSchema'
 import References from '@/components/References'
 import EmailCapture from '../../../../components/EmailCapture'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Menopause Supplements: Evidence Review (2026 Guide)',
@@ -76,6 +78,37 @@ export default function MenopauseSupplementsPage() {
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Why menopause creates unique supplement needs</h2><p className="text-sm leading-7 text-muted">The 2026 Cambridge UK Biobank study (n=125,000) confirmed menopause is linked to reductions in grey matter volume in the hippocampus, entorhinal cortex, and anterior cingulate — regions involved in memory, emotion, and attention. Estrogen plays a critical role in brain glucose metabolism, creatine synthesis, and bone turnover. As it declines, the brain becomes less efficient at generating energy, contributing to brain fog and cognitive fatigue. HRT addresses some of these deficits but does not fully reverse grey matter changes. This is where targeted supplementation — particularly creatine for brain energetics and vitamin D for bone — has a plausible biological rationale.</p></section>
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2><p className="text-sm leading-7 text-muted">Creatine at 3-5 g/day is the strongest evidence-based supplement for menopausal brain fog and muscle preservation [1,2,8]. Soy isoflavones modestly reduce hot flashes [3]. Vitamin D + calcium protect bones [4]. Magnesium supports sleep [5]. Most other menopause supplements lack rigorous evidence — and none replace the evidence base for HRT when it is clinically appropriate [7]. If you choose to supplement, start with creatine and vitamin D: well-studied, safe, inexpensive, and supported by plausible mechanisms. Track symptoms for 8-12 weeks before adding anything else.</p></section>
+      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Frequently asked questions</h2>
+        <div className="space-y-4">
+          {FAQS.map((faq) => (
+            <div key={faq.question} className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+              <h3 className="font-semibold text-ink">{faq.question}</h3>
+              <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="card-premium p-6 space-y-3 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Related reading</h2>
+        <p className="text-sm leading-7 text-muted">Go deeper on the core stack ingredients:</p>
+        <ul className="grid gap-2 sm:grid-cols-2 text-sm font-semibold text-brand-800">
+          <li><Link href="/guides/other/creatine-brain-health/" className="hover:underline">Creatine for brain health →</Link></li>
+          <li><Link href="/compounds/creatine/" className="hover:underline">Creatine compound profile →</Link></li>
+          <li><Link href="/guides/other/vitamin-d-k2-guide/" className="hover:underline">Vitamin D + K2 guide →</Link></li>
+          <li><Link href="/compounds/magnesium-glycinate/" className="hover:underline">Magnesium glycinate profile →</Link></li>
+          <li><Link href="/herbs/black-cohosh/" className="hover:underline">Black cohosh herb profile →</Link></li>
+          <li><Link href="/guides/other/magnesium-types-guide/" className="hover:underline">Magnesium types guide →</Link></li>
+        </ul>
+      </section>
+
+      <div className="max-w-4xl">
+        <RecommendationSection
+          title="Creatine product picks"
+          description="Creatine monohydrate is the best-evidenced pick in this guide for menopausal brain fog and muscle preservation — start here rather than with black cohosh. These are sourcing starting points; plain creatine monohydrate is the studied form, and the dosing and HRT-disclosure notes above still apply."
+          products={getRevenueProductSet('creatine')?.products ?? []}
+        />
+      </div>
+
       <References refs={MENOPAUSE_REFS} />
       <EmailCapture headline="Get evidence reviews like this" description="We track claims against clinical evidence. No hype, no influencer talking points." ctaLabel="Get the evidence" location="guide-menopause" />
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
