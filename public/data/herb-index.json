@@ -100,7 +100,7 @@
   {
     "slug": "aloe-vera",
     "name": "Aloe Vera",
-    "summary": "Aloe Vera botanical profile with evidence, safety, and practical fit.",
+    "summary": "Aloe vera (Aloe barbadensis) is a succulent whose clear inner-leaf gel is used topically for skin and taken orally as a supplement. Its most-studied internal use is blood-sugar control: a systematic review and meta-analysis of randomized trials in people with prediabetes or early, untreated type 2 diabetes found that oral aloe vera lowered fasting glucose, with a smaller effect on HbA1c. The included trials were small and used varied preparations, so the evidence is preliminary. The bitter latex layer just under the leaf skin contains aloin, a stimulant laxative, and is not intended for regular ingestion.",
     "primary_effects": [
       "immune",
       "metabolic",
@@ -120,7 +120,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -129,7 +129,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -618,7 +618,7 @@
   {
     "slug": "artichoke",
     "name": "Artichoke",
-    "summary": "Artichoke botanical profile with evidence, safety, and practical fit.",
+    "summary": "Artichoke (Cynara cardunculus, formerly Cynara scolymus) is a thistle whose leaves are rich in caffeoylquinic acids such as cynarin and the flavonoid luteolin. Leaf extracts are studied mainly for blood lipids and bile flow: a systematic review and dose-response meta-analysis of randomized trials reported that artichoke leaf extract reduced total cholesterol and triglycerides compared with control, though the pooled effect was modest and the trials were somewhat heterogeneous. Artichoke is also a traditional digestive bitter. Because it stimulates bile flow, people with gallstones or bile-duct obstruction should use it cautiously.",
     "primary_effects": [
       "antioxidant",
       "digestive",
@@ -638,7 +638,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -647,7 +647,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -4734,7 +4734,7 @@
   {
     "slug": "hibiscus-sabdariffa",
     "name": "Hibiscus",
-    "summary": "Hibiscus botanical profile with evidence, safety, and practical fit.",
+    "summary": "Hibiscus (Hibiscus sabdariffa), also called roselle or sour tea, yields tart red calyces rich in anthocyanins and organic acids that are brewed as a tea. It is studied mainly for blood pressure: a systematic review and meta-analysis of randomized trials found that hibiscus supplementation lowered both systolic and diastolic blood pressure compared with control, although the pooled trials were relatively few and used varied preparations. The average effect is modest, and hibiscus can add to the effect of blood-pressure-lowering medications.",
     "primary_effects": [
       "stress-relief",
       "cardiovascular",
@@ -4754,7 +4754,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -4763,7 +4763,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -7626,7 +7626,7 @@
   {
     "slug": "psyllium",
     "name": "Psyllium",
-    "summary": "Psyllium is not a classic phytochemical-heavy herb; its value comes from gel-forming husk fiber.",
+    "summary": "Psyllium is the soluble fiber from the husks of Plantago ovata seeds, best known as a bulk-forming laxative. Because it forms a viscous gel that binds bile acids, it also affects blood lipids: a systematic review and meta-analysis of randomized trials found that psyllium supplementation lowered LDL cholesterol, non-HDL cholesterol, and apolipoprotein B versus control, with roughly 10 grams per day a commonly studied dose. Psyllium should be taken with ample water and separated in time from other medications, whose absorption its gel can slow.",
     "primary_effects": [
       "digestive",
       "cardiovascular"
@@ -8262,7 +8262,7 @@
   {
     "slug": "saffron",
     "name": "Saffron",
-    "summary": "Saffron botanical profile with evidence, safety, and practical fit.",
+    "summary": "Saffron is the dried red stigmas of the Crocus sativus flower, whose carotenoid crocin and the volatile compound safranal are regarded as its main active constituents. Beyond culinary use, it is studied for mood: a meta-analysis of randomized clinical trials in adults with major depressive disorder found that saffron supplementation reduced depression symptoms relative to placebo and performed comparably to antidepressant medication in the trials reviewed. Most studies were small, short, and conducted in a single region, so larger independent trials are needed. Very high doses of saffron can be toxic.",
     "primary_effects": [
       "mood_support",
       "antidepressant",
@@ -8282,7 +8282,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8291,7 +8291,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },

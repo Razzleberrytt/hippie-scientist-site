@@ -1,0 +1,89 @@
+{
+  "patch_version": 1,
+  "id": "summary-completion-batch-2-2026-07-29",
+  "status": "applied",
+  "sources": [
+    {
+      "id": "aloe-glycemia-nutrients-2016",
+      "doi": "10.3390/nu8070388",
+      "title": "Efficacy of Aloe Vera Supplementation on Prediabetes and Early Non-Treated Diabetic Patients: A Systematic Review and Meta-Analysis of Randomized Controlled Trials",
+      "year": 2016
+    },
+    {
+      "id": "artichoke-lipids-ptr-2021",
+      "doi": "10.1002/ptr.7247",
+      "title": "Effects of artichoke leaf extract supplementation or artichoke juice consumption on lipid profile: A systematic review and dose-response meta-analysis of randomized controlled trials",
+      "year": 2021
+    },
+    {
+      "id": "hibiscus-bp-jhypertens-2015",
+      "doi": "10.1097/HJH.0000000000000585",
+      "title": "Effect of sour tea (Hibiscus sabdariffa L.) on arterial hypertension: a systematic review and meta-analysis of randomized controlled trials",
+      "year": 2015
+    },
+    {
+      "id": "saffron-mdd-jintegrmed-2013",
+      "doi": "10.3736/jintegrmed2013056",
+      "title": "Saffron (Crocus sativus L.) and major depressive disorder: a meta-analysis of randomized clinical trials",
+      "year": 2013
+    },
+    {
+      "id": "psyllium-ldl-ajcn-2018",
+      "doi": "10.1093/ajcn/nqy115",
+      "title": "Effect of psyllium (Plantago ovata) fiber on LDL cholesterol and alternative lipid targets, non-HDL cholesterol and apolipoprotein B: a systematic review and meta-analysis of randomized controlled trials",
+      "year": 2018
+    }
+  ],
+  "changes": [
+    {
+      "slug": "aloe-vera",
+      "column": "summary",
+      "expected_old_value": "Internal cross-linking supports Aloe Vera through compounds such as aloin.",
+      "new_value": "Aloe vera (Aloe barbadensis) is a succulent whose clear inner-leaf gel is used topically for skin and taken orally as a supplement. Its most-studied internal use is blood-sugar control: a systematic review and meta-analysis of randomized trials in people with prediabetes or early, untreated type 2 diabetes found that oral aloe vera lowered fasting glucose, with a smaller effect on HbA1c. The included trials were small and used varied preparations, so the evidence is preliminary. The bitter latex layer just under the leaf skin contains aloin, a stimulant laxative, and is not intended for regular ingestion.",
+      "confidence": "moderate",
+      "source_ids": ["aloe-glycemia-nutrients-2016"],
+      "rationale": "Replaces an internal cross-linking note with a source-backed summary. The glycemic claim is scoped to the cited meta-analysis (prediabetes/early diabetes) and keeps its small-sample caveat; the aloin/latex laxative note reflects long-standing food-safety consensus and matches the aloin content already recorded for this entity.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "artichoke",
+      "column": "summary",
+      "expected_old_value": "It is best framed around bitter-compound and phenolic support for digestion and bile-related positioning rather than broad detox claims.",
+      "new_value": "Artichoke (Cynara cardunculus, formerly Cynara scolymus) is a thistle whose leaves are rich in caffeoylquinic acids such as cynarin and the flavonoid luteolin. Leaf extracts are studied mainly for blood lipids and bile flow: a systematic review and dose-response meta-analysis of randomized trials reported that artichoke leaf extract reduced total cholesterol and triglycerides compared with control, though the pooled effect was modest and the trials were somewhat heterogeneous. Artichoke is also a traditional digestive bitter. Because it stimulates bile flow, people with gallstones or bile-duct obstruction should use it cautiously.",
+      "confidence": "moderate",
+      "source_ids": ["artichoke-lipids-ptr-2021"],
+      "rationale": "Replaces an internal positioning note with a source-backed summary. Lipid claims are limited to the cited dose-response meta-analysis and retain its modest/heterogeneous caveat; the bile-duct caution is standard cholagogue safety consensus consistent with the entity's existing bile-related framing.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "hibiscus-sabdariffa",
+      "column": "summary",
+      "expected_old_value": "Hibiscus is tracked for cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+      "new_value": "Hibiscus (Hibiscus sabdariffa), also called roselle or sour tea, yields tart red calyces rich in anthocyanins and organic acids that are brewed as a tea. It is studied mainly for blood pressure: a systematic review and meta-analysis of randomized trials found that hibiscus supplementation lowered both systolic and diastolic blood pressure compared with control, although the pooled trials were relatively few and used varied preparations. The average effect is modest, and hibiscus can add to the effect of blood-pressure-lowering medications.",
+      "confidence": "moderate",
+      "source_ids": ["hibiscus-bp-jhypertens-2015"],
+      "rationale": "Replaces an internal tracking note with a source-backed summary. The blood-pressure claim is scoped to the cited meta-analysis and preserves its few-trials/varied-preparation limitation; the antihypertensive additive-effect note is standard, well-documented interaction guidance.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "saffron",
+      "column": "summary",
+      "expected_old_value": "Internal cross-linking supports Saffron through compounds such as picrocrocin, crocin, safranal.",
+      "new_value": "Saffron is the dried red stigmas of the Crocus sativus flower, whose carotenoid crocin and the volatile compound safranal are regarded as its main active constituents. Beyond culinary use, it is studied for mood: a meta-analysis of randomized clinical trials in adults with major depressive disorder found that saffron supplementation reduced depression symptoms relative to placebo and performed comparably to antidepressant medication in the trials reviewed. Most studies were small, short, and conducted in a single region, so larger independent trials are needed. Very high doses of saffron can be toxic.",
+      "confidence": "moderate",
+      "source_ids": ["saffron-mdd-jintegrmed-2013"],
+      "rationale": "Replaces an internal cross-linking note with a source-backed summary. The depression claim is limited to the cited meta-analysis and retains its small-sample/single-region caveat; the high-dose toxicity note reflects established toxicological consensus for saffron.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "psyllium",
+      "column": "summary",
+      "expected_old_value": "Psyllium is not a classic phytochemical-heavy herb; its value comes from gel-forming husk fiber.",
+      "new_value": "Psyllium is the soluble fiber from the husks of Plantago ovata seeds, best known as a bulk-forming laxative. Because it forms a viscous gel that binds bile acids, it also affects blood lipids: a systematic review and meta-analysis of randomized trials found that psyllium supplementation lowered LDL cholesterol, non-HDL cholesterol, and apolipoprotein B versus control, with roughly 10 grams per day a commonly studied dose. Psyllium should be taken with ample water and separated in time from other medications, whose absorption its gel can slow.",
+      "confidence": "moderate",
+      "source_ids": ["psyllium-ldl-ajcn-2018"],
+      "rationale": "Replaces a bare mechanism fragment with a source-backed summary. The lipid claims (LDL, non-HDL, apoB) and the ~10 g/day figure come directly from the cited meta-analysis; the fluid-intake and medication-timing notes are standard psyllium administration guidance.",
+      "requires_human_review": true
+    }
+  ]
+}
