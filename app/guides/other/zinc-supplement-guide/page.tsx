@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 import Link from 'next/link'
 import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
@@ -56,6 +58,9 @@ export default function ZincPage() {
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2><p className="text-sm leading-7 text-muted">Zinc picolinate or citrate at 15-25 mg/day is the best general supplementation strategy. Test levels if you suspect deficiency (vegetarian, GI disorder, elderly, pregnant). For colds: zinc acetate lozenges at 75-100 mg/day. Avoid oxide. Pair long-term zinc with copper. Total cost: $3-8/month for quality zinc — one of the best values in supplementation.</p></section>
       <References refs={ZINC_REFS} />
+      <div className="max-w-4xl">
+        <RecommendationSection products={getRevenueProductSet('zinc')?.products ?? []} />
+      </div>
       <EmailCapture headline="Get evidence reviews like this" description="Zinc forms, dosing, colds — evidence, not marketing." ctaLabel="Get the evidence" location="guide-zinc" />
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
     </div>

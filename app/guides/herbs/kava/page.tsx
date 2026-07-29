@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 import Link from 'next/link'
 import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
@@ -282,6 +284,9 @@ export default function KavaGuidePage() {
         <Link href="/herbs/" className="font-medium text-brand-700 hover:text-brand-800 hover:underline">Herb Library →</Link>
       </div>
       </div>{/* end space-y-8 */}
+      <div className="max-w-4xl">
+        <RecommendationSection products={getRevenueProductSet('kava')?.products ?? []} />
+      </div>
       <References refs={KAVA_REFS} />
     </ArticleLayout>
   )

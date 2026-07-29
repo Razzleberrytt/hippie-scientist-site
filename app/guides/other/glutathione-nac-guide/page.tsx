@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 import Link from 'next/link'
 import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
@@ -51,6 +53,9 @@ export default function GlutathioneNACPage() {
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Bottom line</h2><p className="text-sm leading-7 text-muted">NAC at 600-1,200 mg/day is the evidence-based way to support glutathione levels [1]. It has specific clinical evidence for COPD [2] and OCD [3] — but for most people, it is not a necessary supplement. Skip oral glutathione supplements — they are poorly absorbed and overpriced. If you drink alcohol regularly, have a respiratory condition, or take medications metabolized by the liver, NAC is worth discussing with your doctor. For everyone else, your body produces all the glutathione it needs from a normal diet [4].</p></section>
       <References refs={NAC_REFS} />
+      <div className="max-w-4xl">
+        <RecommendationSection products={getRevenueProductSet('nac')?.products ?? []} />
+      </div>
       <EmailCapture headline="Get evidence reviews like this" description="NAC, glutathione, antioxidants — evidence over marketing." ctaLabel="Get the evidence" location="guide-nac" />
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
     </div>

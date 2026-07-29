@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 import Link from 'next/link'
 import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
@@ -83,6 +85,9 @@ export default function CollagenGuidePage() {
         <Ref n={9} text="ConsumerLab.com (2023). Collagen Supplements Review: per-gram cost ranges from $0.07 to $25+." url="https://www.consumerlab.com/reviews/collagen-supplements-review/collagen/" />
         <Ref n={10} text="Choi FD, et al. (2019). Oral collagen supplementation: systematic review of dermatological applications. J Drugs Dermatol, 18(1): 9-16." url="https://pubmed.ncbi.nlm.nih.gov/30681787/" />
       </ol></section>
+      <div className="max-w-4xl">
+        <RecommendationSection products={getRevenueProductSet('collagen')?.products ?? []} />
+      </div>
       <EmailCapture headline="Get evidence reviews like this" description="10 cited studies per guide. No hype." ctaLabel="Get the evidence" location="guide-collagen" />
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
     </div>

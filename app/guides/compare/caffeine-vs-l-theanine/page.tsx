@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 import Link from 'next/link'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
@@ -204,6 +206,9 @@ export default function CaffeineVsLTheaninePage() {
         </div>
       </section>
 
+      <div className="max-w-4xl">
+        <RecommendationSection products={getRevenueProductSet('l-theanine')?.products ?? []} />
+      </div>
       <References refs={CAFFEINE_VS_L_THEANINE_REFS} />
     </div>
   )

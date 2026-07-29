@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 import Link from 'next/link'
 import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
@@ -57,6 +59,9 @@ export default function Omega3QualityPage() {
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2><p className="text-sm leading-7 text-muted">Omega-3 supplements are one of the most evidence-supported categories in nutrition [1,3]. The quality variation is enormous — from 30% concentration drugstore brands to 90%+ pharmaceutical-grade products. For most people: choose a triglyceride-form fish oil at 60%+ EPA+DHA, verified by third-party testing, stored properly. Algae oil is an excellent DHA source for vegetarians. Krill oil is overpriced — no outcome benefit over standard fish oil despite phospholipid marketing. Brands that publish IFOS reports: Nordic Naturals, Wiley's, Viva Naturals, Sports Research.</p></section>
       <References refs={OMEGA3_REFS} />
+      <div className="max-w-4xl">
+        <RecommendationSection products={getRevenueProductSet('omega-3')?.products ?? []} />
+      </div>
       <EmailCapture headline="Get evidence reviews like this" description="Omega-3 quality, EPA/DHA, rTG vs EE — evidence, not marketing." ctaLabel="Get the evidence" location="guide-omega3" />
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
     </div>

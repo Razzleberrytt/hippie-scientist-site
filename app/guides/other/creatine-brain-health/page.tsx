@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 import Link from 'next/link'
 import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
@@ -76,6 +78,9 @@ export default function CreatineBrainPage() {
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2><p className="text-sm leading-7 text-muted">Creatine for brain health is one of the more promising — and surprisingly underdiscussed — supplement applications. The evidence is strongest for sleep deprivation [1,2,7], emerging for menopause [4] and depression augmentation [6], and weak for healthy young adults. At $0.10-0.20/day with decades of safety data, creatine is a low-risk, evidence-informed cognitive support — particularly for women in perimenopause, older adults, and anyone facing sleep loss. It will not make you smarter. It may help your brain function when the energy demands are high.</p></section>
       <References refs={CREATINE_BRAIN_REFS} />
+      <div className="max-w-4xl">
+        <RecommendationSection products={getRevenueProductSet('creatine')?.products ?? []} />
+      </div>
       <EmailCapture headline="Get evidence reviews like this" description="Creatine, menopause, brain health — we track the evidence." ctaLabel="Get the evidence" location="guide-creatine-brain" />
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
     </div>
