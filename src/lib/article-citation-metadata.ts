@@ -1,3 +1,5 @@
+import { articleCitationOverrides } from '@/src/data/article-citation-overrides'
+
 export type ArticleRelationshipRecord = {
   slug: string
   category: string
@@ -5,6 +7,7 @@ export type ArticleRelationshipRecord = {
 }
 
 export type ArticleCitationMetadata = {
+  slug?: string
   keyTakeaways?: string[]
   citationQuestions?: string[]
   canonicalConcepts?: string[]
@@ -17,13 +20,20 @@ function isRelatedArticle<T extends ArticleRelationshipRecord>(
   return article !== undefined && article.slug !== currentSlug
 }
 
+function getOverride(slug: string | undefined) {
+  return slug ? articleCitationOverrides[slug] : undefined
+}
+
 export function resolveRelatedArticles<T extends ArticleRelationshipRecord>(
   current: T,
   articles: T[],
   limit = 6
 ): T[] {
   const bySlug = new Map(articles.map((article) => [article.slug, article]))
-  const curated = (current.relatedSlugs ?? [])
+  const relatedSlugs = current.relatedSlugs?.length
+    ? current.relatedSlugs
+    : getOverride(current.slug)?.relatedSlugs ?? []
+  const curated = relatedSlugs
     .map((slug) => bySlug.get(slug))
     .filter((article): article is T => isRelatedArticle(article, current.slug))
 
@@ -39,9 +49,17 @@ export function resolveRelatedArticles<T extends ArticleRelationshipRecord>(
 }
 
 export function normalizeCitationMetadata(metadata: ArticleCitationMetadata) {
+  const override = getOverride(metadata.slug)
+
   return {
-    keyTakeaways: metadata.keyTakeaways ?? [],
-    citationQuestions: metadata.citationQuestions ?? [],
-    canonicalConcepts: metadata.canonicalConcepts ?? [],
+    keyTakeaways: metadata.keyTakeaways?.length
+      ? metadata.keyTakeaways
+      : override?.keyTakeaways ?? [],
+    citationQuestions: metadata.citationQuestions?.length
+      ? metadata.citationQuestions
+      : override?.citationQuestions ?? [],
+    canonicalConcepts: metadata.canonicalConcepts?.length
+      ? metadata.canonicalConcepts
+      : override?.canonicalConcepts ?? [],
   }
 }
