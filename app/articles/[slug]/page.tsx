@@ -7,6 +7,7 @@ import ArticleMdx from '@/components/articles/ArticleMdx'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import JsonLd from '@/components/seo/JsonLd'
 import ContentCards from '@/components/content/ContentCards'
+import { normalizeCitationMetadata, resolveRelatedArticles } from '@/src/lib/article-citation-metadata'
 import { SITE_URL, compactMetaTitle } from '../../../src/lib/seo'
 
 const articlePages = [...allArticleMonographs, ...allBlogPosts]
@@ -46,15 +47,13 @@ export default async function ArticleMonographPage({ params }: PageProps) {
   const page = articlePages.find((item) => item.slug === slug)
   if (!page) notFound()
 
-  const relatedPages = articlePages.filter((item) => item.slug !== page.slug && item.category === page.category)
+  const relatedPages = resolveRelatedArticles(page, articlePages)
+  const { keyTakeaways, citationQuestions, canonicalConcepts } = normalizeCitationMetadata(page)
 
-  // Trust/E-E-A-T fields exist only on article monographs, not blog posts.
   const author = 'author' in page ? page.author : undefined
   const reviewedBy = 'reviewedBy' in page && page.reviewedBy ? page.reviewedBy : undefined
   const reviewerCredential =
     'reviewerCredential' in page && page.reviewerCredential ? page.reviewerCredential : undefined
-  // Only surfaced when a page carries an explicit review date — "updated" is
-  // not the same as "reviewed", so we never infer this from lastUpdated.
   const lastReviewed = 'lastReviewed' in page && page.lastReviewed ? page.lastReviewed : undefined
   const reviewerLabel = reviewedBy
     ? `${reviewedBy}${reviewerCredential ? `, ${reviewerCredential}` : ''}`
@@ -71,6 +70,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
     image: `${SITE_URL}/og-default.jpg`,
     keywords: page.tags,
     articleSection: page.category,
+    ...(canonicalConcepts.length > 0 ? { about: canonicalConcepts } : {}),
     author: author
       ? { '@type': 'Person', name: author }
       : { '@type': 'Organization', name: 'The Hippie Scientist', url: SITE_URL },
@@ -85,7 +85,20 @@ export default async function ArticleMonographPage({ params }: PageProps) {
     })),
   }
 
-  // Emitted only when there is real review/citation substance to attest to.
+  const takeawaySchema =
+    keyTakeaways.length > 0
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'ItemList',
+          name: `${page.title}: Scientific Takeaways`,
+          itemListElement: keyTakeaways.map((takeaway, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            name: takeaway,
+          })),
+        }
+      : null
+
   const medicalPageSchema =
     lastReviewed || page.references.length > 0
       ? {
@@ -94,7 +107,13 @@ export default async function ArticleMonographPage({ params }: PageProps) {
           url: `${SITE_URL}/articles/${page.slug}/`,
           ...(lastReviewed ? { lastReviewed } : {}),
           ...(reviewerLabel
-            ? { reviewedBy: { '@type': 'Person', name: reviewedBy, ...(reviewerCredential ? { honorificSuffix: reviewerCredential } : {}) } }
+            ? {
+                reviewedBy: {
+                  '@type': 'Person',
+                  name: reviewedBy,
+                  ...(reviewerCredential ? { honorificSuffix: reviewerCredential } : {}),
+                },
+              }
             : {}),
         }
       : null
@@ -103,6 +122,7 @@ export default async function ArticleMonographPage({ params }: PageProps) {
     <article className="mx-auto max-w-5xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
       <JsonLd schema={articleSchema} />
       {medicalPageSchema ? <JsonLd schema={medicalPageSchema} /> : null}
+      {takeawaySchema ? <JsonLd schema={takeawaySchema} /> : null}
 
       <Breadcrumbs
         items={[
@@ -126,16 +146,16 @@ export default async function ArticleMonographPage({ params }: PageProps) {
             Updated {page.lastUpdated}
           </time>
           <span className="text-muted">·</span>
-          <span className="text-muted">{typeof page.readingTime === 'number' ? `${page.readingTime} min read` : page.readingTime}</span>
+          <span className="text-muted">
+            {typeof page.readingTime === 'number' ? `${page.readingTime} min read` : page.readingTime}
+          </span>
         </div>
 
         <h1 className="mt-4 max-w-[22ch] font-display text-2xl font-bold leading-[1.08] text-ink sm:text-4xl lg:text-5xl">
           {page.title}
         </h1>
 
-        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">
-          {page.description}
-        </p>
+        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{page.description}</p>
 
         <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1.5 border-t border-brand-900/10 pt-4 text-xs text-muted">
           {author ? (
@@ -173,6 +193,37 @@ export default async function ArticleMonographPage({ params }: PageProps) {
           </Link>
         </div>
       </header>
+
+      {citationQuestions.length > 0 ? (
+        <section aria-labelledby="citation-questions-title" className="mt-6 rounded-2xl border border-brand-900/10 bg-white p-5">
+          <h2 id="citation-questions-title" className="text-lg font-bold text-ink">
+            Questions this page answers
+          </h2>
+          <ul className="mt-3 grid gap-2 text-sm leading-6 text-muted sm:grid-cols-2">
+            {citationQuestions.map((question) => (
+              <li key={question} className="border-l-2 border-brand-700/30 pl-3">
+                {question}
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
+      {keyTakeaways.length > 0 ? (
+        <section aria-labelledby="metadata-takeaways-title" className="mt-6 rounded-2xl border border-brand-900/10 bg-brand-50/50 p-5">
+          <h2 id="metadata-takeaways-title" className="text-lg font-bold text-ink">
+            Scientific takeaways
+          </h2>
+          <ul className="mt-3 space-y-2 text-sm leading-6 text-muted">
+            {keyTakeaways.map((takeaway) => (
+              <li key={takeaway} className="flex gap-3">
+                <span aria-hidden="true" className="font-bold text-brand-700">•</span>
+                <span>{takeaway}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       <div className="mt-6">
         <ContentCards>
