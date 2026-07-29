@@ -55,10 +55,11 @@ if (!raw) {
 const report = JSON.parse(raw)
 const vulnerabilities = report.vulnerabilities || {}
 
-const highOrCritical = Object.values(vulnerabilities).filter((v) =>
-  v && (v.severity === 'high' || v.severity === 'critical')
-)
+function isHighOrCritical(vuln) {
+  return Boolean(vuln && (vuln.severity === 'high' || vuln.severity === 'critical'))
+}
 
+const highOrCritical = Object.values(vulnerabilities).filter(isHighOrCritical)
 const now = new Date().toISOString().slice(0, 10)
 
 function matchesRule(vuln, rule) {
@@ -74,27 +75,116 @@ function matchesRule(vuln, rule) {
   return true
 }
 
+function findRule(vuln) {
+  const rule = rules.find((candidate) => matchesRule(vuln, candidate))
+  if (!rule) return { rule: null, expired: false }
+  return {
+    rule,
+    expired: Boolean(rule.expiresOn && rule.expiresOn < now),
+  }
+}
+
+function uniqueRules(input) {
+  const byId = new Map()
+  for (const rule of input) {
+    if (rule?.id) byId.set(rule.id, rule)
+  }
+  return [...byId.values()]
+}
+
+/**
+ * npm reports every affected parent as a separate vulnerability. Follow string
+ * entries in `via` until reaching advisory-bearing leaf packages. A parent is
+ * transitively covered only when every high/critical branch resolves to an
+ * explicit, unexpired leaf rule. Moderate/low branches remain outside this gate.
+ */
+function resolveTransitiveCoverage(vulnerabilityName, seen = new Set()) {
+  if (!vulnerabilityName || seen.has(vulnerabilityName)) return null
+  const vuln = vulnerabilities[vulnerabilityName]
+  if (!isHighOrCritical(vuln)) return null
+
+  const nextSeen = new Set(seen)
+  nextSeen.add(vulnerabilityName)
+
+  const direct = findRule(vuln)
+  if (direct.expired) return null
+  if (direct.rule) {
+    return {
+      rules: [direct.rule],
+      path: [vulnerabilityName],
+    }
+  }
+
+  const via = Array.isArray(vuln.via) ? vuln.via : []
+  const highBranches = []
+
+  for (const entry of via) {
+    if (typeof entry === 'string') {
+      const dependencyVuln = vulnerabilities[entry]
+      if (isHighOrCritical(dependencyVuln)) highBranches.push(entry)
+      continue
+    }
+
+    if (entry && typeof entry === 'object') {
+      const severity = String(entry.severity || '').toLowerCase()
+      if (severity === 'high' || severity === 'critical') {
+        // This package owns a high advisory and therefore needs its own rule.
+        return null
+      }
+    }
+  }
+
+  if (highBranches.length === 0) return null
+
+  const resolved = []
+  const paths = [vulnerabilityName]
+  for (const dependencyName of highBranches) {
+    const coverage = resolveTransitiveCoverage(dependencyName, nextSeen)
+    if (!coverage) return null
+    resolved.push(...coverage.rules)
+    paths.push(...coverage.path)
+  }
+
+  return {
+    rules: uniqueRules(resolved),
+    path: [...new Set(paths)],
+  }
+}
+
 const unmatched = []
 const matched = []
 
 for (const vuln of highOrCritical) {
-  const rule = rules.find((r) => matchesRule(vuln, r))
-  if (!rule) {
+  const direct = findRule(vuln)
+  if (direct.expired) {
+    unmatched.push({ package: vuln.name, severity: vuln.severity, reason: `allowlist expired on ${direct.rule.expiresOn}` })
+    continue
+  }
+
+  if (direct.rule) {
+    matched.push({
+      package: vuln.name,
+      severity: vuln.severity,
+      ruleId: direct.rule.id,
+      expiresOn: direct.rule.expiresOn || null,
+      followUpIssueUrl: direct.rule.followUpIssueUrl || null,
+    })
+    continue
+  }
+
+  const transitive = resolveTransitiveCoverage(vuln.name)
+  if (!transitive || transitive.rules.length === 0) {
     unmatched.push({ package: vuln.name, severity: vuln.severity })
     continue
   }
 
-  if (rule.expiresOn && rule.expiresOn < now) {
-    unmatched.push({ package: vuln.name, severity: vuln.severity, reason: `allowlist expired on ${rule.expiresOn}` })
-    continue
-  }
-
+  const expirationDates = transitive.rules.map((rule) => rule.expiresOn).filter(Boolean).sort()
   matched.push({
     package: vuln.name,
     severity: vuln.severity,
-    ruleId: rule.id,
-    expiresOn: rule.expiresOn || null,
-    followUpIssueUrl: rule.followUpIssueUrl || null,
+    ruleId: `transitive:${transitive.rules.map((rule) => rule.id).sort().join(',')}`,
+    expiresOn: expirationDates[0] || null,
+    viaPackages: transitive.path.filter((name) => name !== vuln.name),
   })
 }
 
