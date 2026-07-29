@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { formatDisplayLabel, list } from '@/lib/display-utils'
 import { getEvidenceLabel } from '@/lib/evidence'
 import { SITE_URL, SITE_NAME } from './site'
+import { getCurrentLocaleAlternates } from './international-seo'
 import {
   CORE_INDEXABLE_ROUTES,
   CURATED_INDEXABLE_COMPOUND_SLUGS,
@@ -176,11 +177,14 @@ export function buildPageMetadata({
   const meta = buildMeta({ title, description, path, image, keepQueryParams })
   const fullTitle = title || DEFAULT_TITLE
   const fullDesc = description || DEFAULT_DESCRIPTION
+  const languageAlternates = Object.fromEntries(
+    getCurrentLocaleAlternates(path).map((alternate) => [alternate.locale, alternate.url]),
+  )
   return {
     title: fullTitle,
     description: fullDesc,
     keywords,
-    alternates: { canonical: meta.url },
+    alternates: { canonical: meta.url, languages: languageAlternates },
     openGraph: {
       title: fullTitle,
       description: fullDesc,
