@@ -1,8 +1,13 @@
-import { articleCitationOverrides } from '@/src/data/article-citation-overrides'
+import {
+  articleCitationOverrides,
+  citationRelationshipTargets,
+} from '@/src/data/article-citation-overrides'
 
 export type ArticleRelationshipRecord = {
   slug: string
+  title: string
   category: string
+  url: string
   relatedSlugs?: string[]
 }
 
@@ -13,10 +18,10 @@ export type ArticleCitationMetadata = {
   canonicalConcepts?: string[]
 }
 
-function isRelatedArticle<T extends ArticleRelationshipRecord>(
-  article: T | undefined,
+function isRelatedArticle(
+  article: ArticleRelationshipRecord | undefined,
   currentSlug: string
-): article is T {
+): article is ArticleRelationshipRecord {
   return article !== undefined && article.slug !== currentSlug
 }
 
@@ -24,19 +29,24 @@ function getOverride(slug: string | undefined) {
   return slug ? articleCitationOverrides[slug] : undefined
 }
 
-export function resolveRelatedArticles<T extends ArticleRelationshipRecord>(
-  current: T,
-  articles: T[],
+export function resolveRelatedArticles(
+  current: ArticleRelationshipRecord,
+  articles: ArticleRelationshipRecord[],
   limit = 6
-): T[] {
-  const bySlug = new Map(articles.map((article) => [article.slug, article]))
+): ArticleRelationshipRecord[] {
+  const relationshipTargets = Object.values(citationRelationshipTargets)
+  const bySlug = new Map(
+    [...relationshipTargets, ...articles].map((article) => [article.slug, article])
+  )
   const relatedSlugs =
     current.relatedSlugs !== undefined
       ? current.relatedSlugs
       : getOverride(current.slug)?.relatedSlugs ?? []
   const curated = relatedSlugs
     .map((slug) => bySlug.get(slug))
-    .filter((article): article is T => isRelatedArticle(article, current.slug))
+    .filter((article): article is ArticleRelationshipRecord =>
+      isRelatedArticle(article, current.slug)
+    )
 
   const seen = new Set(curated.map((article) => article.slug))
   const fallback = articles.filter(
