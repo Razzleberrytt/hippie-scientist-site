@@ -30,9 +30,10 @@ export function resolveRelatedArticles<T extends ArticleRelationshipRecord>(
   limit = 6
 ): T[] {
   const bySlug = new Map(articles.map((article) => [article.slug, article]))
-  const relatedSlugs = current.relatedSlugs?.length
-    ? current.relatedSlugs
-    : getOverride(current.slug)?.relatedSlugs ?? []
+  const relatedSlugs =
+    current.relatedSlugs !== undefined
+      ? current.relatedSlugs
+      : getOverride(current.slug)?.relatedSlugs ?? []
   const curated = relatedSlugs
     .map((slug) => bySlug.get(slug))
     .filter((article): article is T => isRelatedArticle(article, current.slug))
@@ -52,14 +53,17 @@ export function normalizeCitationMetadata(metadata: ArticleCitationMetadata) {
   const override = getOverride(metadata.slug)
 
   return {
-    keyTakeaways: metadata.keyTakeaways?.length
-      ? metadata.keyTakeaways
-      : override?.keyTakeaways ?? [],
-    citationQuestions: metadata.citationQuestions?.length
-      ? metadata.citationQuestions
-      : override?.citationQuestions ?? [],
-    canonicalConcepts: metadata.canonicalConcepts?.length
-      ? metadata.canonicalConcepts
-      : override?.canonicalConcepts ?? [],
+    keyTakeaways:
+      metadata.keyTakeaways !== undefined
+        ? metadata.keyTakeaways
+        : override?.keyTakeaways ?? [],
+    citationQuestions:
+      metadata.citationQuestions !== undefined
+        ? metadata.citationQuestions
+        : override?.citationQuestions ?? [],
+    canonicalConcepts:
+      metadata.canonicalConcepts !== undefined
+        ? metadata.canonicalConcepts
+        : override?.canonicalConcepts ?? [],
   }
 }
