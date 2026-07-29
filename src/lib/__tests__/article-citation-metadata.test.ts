@@ -5,13 +5,27 @@ import {
   resolveRelatedArticles,
 } from '../article-citation-metadata'
 
+function page(
+  slug: string,
+  category: string,
+  relatedSlugs?: string[]
+) {
+  return {
+    slug,
+    title: slug,
+    category,
+    url: `/articles/${slug}/`,
+    relatedSlugs,
+  }
+}
+
 describe('resolveRelatedArticles', () => {
   const articles = [
-    { slug: 'current', category: 'Harm Reduction', relatedSlugs: ['curated-two', 'curated-one'] },
-    { slug: 'curated-one', category: 'Neuroscience' },
-    { slug: 'curated-two', category: 'History' },
-    { slug: 'fallback-one', category: 'Harm Reduction' },
-    { slug: 'fallback-two', category: 'Harm Reduction' },
+    page('current', 'Harm Reduction', ['curated-two', 'curated-one']),
+    page('curated-one', 'Neuroscience'),
+    page('curated-two', 'History'),
+    page('fallback-one', 'Harm Reduction'),
+    page('fallback-two', 'Harm Reduction'),
   ]
 
   it('preserves curated order before category fallbacks', () => {
@@ -24,11 +38,11 @@ describe('resolveRelatedArticles', () => {
   })
 
   it('ignores missing and self-referential slugs', () => {
-    const current = {
-      slug: 'current',
-      category: 'Harm Reduction',
-      relatedSlugs: ['missing', 'current', 'curated-one'],
-    }
+    const current = page('current', 'Harm Reduction', [
+      'missing',
+      'current',
+      'curated-one',
+    ])
 
     expect(resolveRelatedArticles(current, articles, 2).map((article) => article.slug)).toEqual([
       'curated-one',
@@ -38,27 +52,29 @@ describe('resolveRelatedArticles', () => {
 
   it('uses registry relationships when frontmatter has not been migrated', () => {
     const failureChainPages = [
-      { slug: 'failure-chains-25b-nbome-blotter', category: 'Harm Reduction' },
-      { slug: 'rhabdomyolysis', category: 'Foundations' },
-      { slug: 'failure-chains-oklahoma-bromo-dragonfly', category: 'Harm Reduction' },
+      page('failure-chains-25b-nbome-blotter', 'Harm Reduction'),
+      page('failure-chains-oklahoma-bromo-dragonfly', 'Harm Reduction'),
     ]
 
-    expect(resolveRelatedArticles(failureChainPages[0], failureChainPages).map((article) => article.slug)).toEqual([
+    const related = resolveRelatedArticles(failureChainPages[0], failureChainPages)
+
+    expect(related.map((article) => article.slug)).toEqual([
       'rhabdomyolysis',
       'failure-chains-oklahoma-bromo-dragonfly',
     ])
+    expect(related[0].url).toBe('/learn/rhabdomyolysis/')
   })
 
   it('honors an explicit empty related-slug list', () => {
-    const current = {
-      slug: 'failure-chains-25b-nbome-blotter',
-      category: 'Harm Reduction',
-      relatedSlugs: [],
-    }
+    const current = page(
+      'failure-chains-25b-nbome-blotter',
+      'Harm Reduction',
+      []
+    )
     const pages = [
       current,
-      { slug: 'rhabdomyolysis', category: 'Foundations' },
-      { slug: 'fallback-one', category: 'Harm Reduction' },
+      page('rhabdomyolysis', 'Foundations'),
+      page('fallback-one', 'Harm Reduction'),
     ]
 
     expect(resolveRelatedArticles(current, pages).map((article) => article.slug)).toEqual([
