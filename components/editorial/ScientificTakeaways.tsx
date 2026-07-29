@@ -1,3 +1,5 @@
+import { useId } from 'react'
+
 type Confidence = 'High' | 'Moderate' | 'Limited'
 
 type Takeaway = {
@@ -23,12 +25,15 @@ export default function ScientificTakeaways({
   summary,
   items,
 }: ScientificTakeawaysProps) {
+  const generatedId = useId()
+  const headingId = `scientific-takeaways-${generatedId.replace(/:/g, '')}`
+
   if (!items.length) return null
 
   return (
-    <aside aria-labelledby="scientific-takeaways-title" className="my-8 rounded-3xl border border-brand-900/15 bg-brand-50/60 p-5 sm:p-6">
+    <aside aria-labelledby={headingId} className="my-8 rounded-3xl border border-brand-900/15 bg-brand-50/60 p-5 sm:p-6">
       <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-700">Citation-ready summary</p>
-      <h2 id="scientific-takeaways-title" className="mt-2 text-2xl font-bold tracking-tight text-ink">
+      <h2 id={headingId} className="mt-2 text-2xl font-bold tracking-tight text-ink">
         {title}
       </h2>
       {summary ? <p className="mt-3 max-w-3xl text-sm leading-6 text-muted">{summary}</p> : null}
