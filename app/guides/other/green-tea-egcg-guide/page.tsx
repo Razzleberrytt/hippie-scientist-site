@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 import Link from 'next/link'
 import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
@@ -49,6 +51,9 @@ export default function GreenTeaEGCGPage() {
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Bottom line</h2><p className="text-sm leading-7 text-muted">Green tea is a healthy beverage. Green tea extract is a concentrated supplement with a documented, dose-dependent liver injury risk [2]. The weight loss effect is too small to justify the risk at high doses [1]. Drink matcha for the best combination of catechins, L-theanine, and safety. If you take extract, stay under 400 mg EGCG/day with food. The green tea story is a perfect example of why "natural" does not mean "safe at any dose."</p></section>
       <References refs={GREENTEA_REFS} />
+      <div className="max-w-4xl">
+        <RecommendationSection products={getRevenueProductSet('green-tea-extract')?.products ?? []} />
+      </div>
       <EmailCapture headline="Get evidence reviews like this" description="Green tea, EGCG, liver safety — evidence over marketing." ctaLabel="Get the evidence" location="guide-green-tea" />
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
     </div>

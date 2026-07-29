@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 import Link from 'next/link'
 import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
@@ -78,6 +80,9 @@ export default function BerberineWeightLossPage() {
         <p className="text-sm leading-7 text-muted">Berberine at 1,000-1,500 mg/day produces modest, statistically significant weight loss (~2 kg) in people with metabolic syndrome [1]. It is a reasonable supplement for prediabetes and insulin resistance. It is not &ldquo;nature&rsquo;s Ozempic&rdquo; — semaglutide produces 5-7x more weight loss through a completely different mechanism. The comparison is misleading and does a disservice to both compounds. Berberine has drug interaction risks that GLP-1 agonists do not — disclose it to your prescriber [3].</p>
       </section>
       <References refs={BERBERINE_REFS} />
+      <div className="max-w-4xl">
+        <RecommendationSection products={getRevenueProductSet('berberine')?.products ?? []} />
+      </div>
       <EmailCapture headline="Get evidence reviews like this" description="Berberine, weight loss, Ozempic — evidence, not hype." ctaLabel="Get the evidence" location="guide-berberine-weight-loss" />
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
     </div>

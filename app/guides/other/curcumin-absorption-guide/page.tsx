@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 import Link from 'next/link'
 import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
@@ -50,6 +52,9 @@ export default function CurcuminAbsorptionPage() {
 
       <section className="card-premium p-6 space-y-4"><h2 className="text-2xl font-semibold">Bottom line</h2><p className="text-sm leading-7 text-muted">The curcumin absorption problem is solved — but only if you buy the right formulation. Standard curcumin without bioavailability enhancement is a waste of money [1]. Curcumin + piperine (20x absorption) is the best value [2]. Phytosomes are slightly better at a premium [3]. Whichever you choose, the effective dose is 500-1,500 mg/day of enhanced curcumin. This is one of the few supplement categories where the formulation matters more than the dose.</p></section>
       <References refs={CURCUMIN_REFS} />
+      <div className="max-w-4xl">
+        <RecommendationSection products={getRevenueProductSet('turmeric')?.products ?? []} />
+      </div>
       <EmailCapture headline="Get evidence reviews like this" description="Curcumin absorption — the formulation matters more than the dose." ctaLabel="Get the evidence" location="guide-curcumin" />
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
     </div>

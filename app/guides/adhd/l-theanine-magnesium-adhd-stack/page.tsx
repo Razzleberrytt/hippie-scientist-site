@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 import Image from 'next/image'
 import JsonLd from '@/components/seo/JsonLd'
 import type { Metadata } from 'next'
@@ -435,6 +437,9 @@ export default function LTheanineMagnesiumAdhdStackPage() {
 
           </section>
 
+      <div className="max-w-4xl">
+        <RecommendationSection products={getRevenueProductSet('l-theanine')?.products ?? []} />
+      </div>
           <EmailCapture
             headline="Get the ADHD supplement checklist"
             description="Evidence-first supplement updates, stack guides, and ADHD research notes. No diagnosis or personal medical advice."

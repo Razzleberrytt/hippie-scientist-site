@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_URL } from '@/src/lib/seo'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 
 const path = '/guides/sleep/magnesium-glycinate-vs-l-threonate-for-sleep/'
 
@@ -179,6 +181,8 @@ export default function Page() {
             </div>
           </section>
         ))}
+
+        <RecommendationSection products={getRevenueProductSet('magnesium')?.products ?? []} />
 
         <section className="rounded-2xl border border-emerald-800/15 bg-emerald-50/70 p-6 shadow-sm dark:border-white/10 dark:bg-[var(--surface-subtle)]">
           <h2 className="text-xl font-semibold text-ink dark:text-[var(--text-primary)]">Clean next step</h2>

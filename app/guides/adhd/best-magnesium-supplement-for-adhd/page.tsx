@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 import Image from 'next/image'
 import JsonLd from '@/components/seo/JsonLd'
 import type { Metadata } from 'next'
@@ -519,6 +521,9 @@ export default function BestMagnesiumForAdhdPage() {
 
           </section>
 
+      <div className="max-w-4xl">
+        <RecommendationSection products={getRevenueProductSet('magnesium')?.products ?? []} />
+      </div>
           <EmailCapture
             headline="Get the ADHD supplement checklist"
             description="Evidence-first supplement updates, buying guides, and ADHD research notes."
