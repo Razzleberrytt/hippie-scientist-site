@@ -7,6 +7,8 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FAQSchema from '@/components/seo/FAQSchema'
 import References from '@/components/References'
 import EmailCapture from '../../../../components/EmailCapture'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Anti-Inflammatory Supplements: Evidence Review (2026)',
@@ -58,6 +60,37 @@ export default function AntiInflammatoryPage() {
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2><p className="text-sm leading-7 text-muted">Omega-3 fatty acids at 2-4 g EPA+DHA/day and curcumin at 500-1,500 mg/day (with bioavailability enhancement) are the two best-evidenced anti-inflammatory supplements [1,2]. They work through different pathways and can be safely combined. Ginger and boswellia are second-line options with specific use cases. No supplement replaces the anti-inflammatory effect of weight loss, exercise, sleep, and a whole-foods diet — but for people with chronic inflammatory conditions, this stack is one of the most evidence-supported interventions in the supplement world.</p></section>
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">When to take each one</h2><p className="text-sm leading-7 text-muted"><strong>Omega-3:</strong> With food (fat improves absorption). Split dose morning/evening to reduce fish burps. <strong>Curcumin:</strong> With food + black pepper (piperine) or as phytosome formulation. Morning or midday — some report mild stimulating effects. <strong>Ginger:</strong> With or without food. Before exercise for muscle soreness prevention. <strong>Boswellia:</strong> With food. Morning and evening (split dose). <strong>Quercetin:</strong> With food (fat-soluble). Morning — may be mildly stimulating. Separate from iron supplements by 2 hours (quercetin chelates iron). Do not take all five at once — start with omega-3 + curcumin, assess for 4 weeks, then add ginger or boswellia if needed.</p></section>
+      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Frequently asked questions</h2>
+        <div className="space-y-4">
+          {FAQS.map((faq) => (
+            <div key={faq.question} className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+              <h3 className="font-semibold text-ink">{faq.question}</h3>
+              <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="card-premium p-6 space-y-3 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Related reading</h2>
+        <p className="text-sm leading-7 text-muted">Go deeper on the two best-evidenced picks and the ingredients in the stack:</p>
+        <ul className="grid gap-2 sm:grid-cols-2 text-sm font-semibold text-brand-800">
+          <li><Link href="/guides/other/curcumin-absorption-guide/" className="hover:underline">Curcumin absorption guide →</Link></li>
+          <li><Link href="/guides/other/omega-3-quality-guide/" className="hover:underline">Omega-3 quality guide →</Link></li>
+          <li><Link href="/herbs/turmeric/" className="hover:underline">Turmeric herb profile →</Link></li>
+          <li><Link href="/herbs/ginger/" className="hover:underline">Ginger herb profile →</Link></li>
+          <li><Link href="/compounds/omega-3-epa/" className="hover:underline">Omega-3 (EPA) compound profile →</Link></li>
+          <li><Link href="/guides/best/supplements-for-joint-support/" className="hover:underline">Best supplements for joint support →</Link></li>
+        </ul>
+      </section>
+
+      <div className="max-w-4xl">
+        <RecommendationSection
+          title="Curcumin (turmeric) product picks"
+          description="Curcumin is the flagship, best-evidenced anti-inflammatory in this guide — pair it with a high-EPA omega-3 as the core stack. These are sourcing starting points; a formulation with piperine or a phytosome carrier matters more than brand, and the bleeding-risk and dose notes above still apply."
+          products={getRevenueProductSet('turmeric')?.products ?? []}
+        />
+      </div>
+
       <References refs={ANTI_INFLAM_REFS} />
       <EmailCapture headline="Get evidence reviews like this" description="Anti-inflammatory, omega-3, curcumin — evidence, not hype." ctaLabel="Get the evidence" location="guide-anti-inflammatory" />
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>

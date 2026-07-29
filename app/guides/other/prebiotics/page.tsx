@@ -71,6 +71,26 @@ export default function PrebioticsGuide() {
         <Ref n={7} text="Robertson MD, et al. (2005). Resistant starch improves insulin sensitivity in healthy subjects. Diabetologia, 48(6): 1218-1225." url="https://pubmed.ncbi.nlm.nih.gov/15778869/" />
         <Ref n={8} text="Deehan EC, et al. (2020). Precision microbiome modulation with discrete dietary fiber structures. Cell Host Microbe, 27(3): 389-404." url="https://pubmed.ncbi.nlm.nih.gov/32101703/" />
       </ol></section>
+      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Frequently asked questions</h2>
+        <div className="space-y-4">
+          {FAQS.map((faq) => (
+            <div key={faq.question} className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+              <h3 className="font-semibold text-ink">{faq.question}</h3>
+              <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="card-premium p-6 space-y-3 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Related reading</h2>
+        <p className="text-sm leading-7 text-muted">Prebiotics feed the bacteria; probiotics seed them. Round out the gut picture:</p>
+        <ul className="grid gap-2 sm:grid-cols-2 text-sm font-semibold text-brand-800">
+          <li><Link href="/guides/other/probiotic-strains-guide/" className="hover:underline">Probiotic strains guide →</Link></li>
+          <li><Link href="/guides/best/supplements-for-gut-health/" className="hover:underline">Best supplements for gut health →</Link></li>
+          <li><Link href="/herbs/garlic/" className="hover:underline">Garlic herb profile →</Link></li>
+        </ul>
+      </section>
+
       <EmailCapture headline="Get evidence reviews like this" description="8 cited studies. No hype." ctaLabel="Get the evidence" location="guide-prebiotics" />
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
     </div>

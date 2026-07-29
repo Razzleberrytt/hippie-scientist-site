@@ -6,6 +6,8 @@ import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import FAQSchema from '@/components/seo/FAQSchema'
 import References from '@/components/References'
+import RecommendationSection from '@/components/RecommendationSection'
+import { getRevenueProductSet } from '@/config/revenue-products'
 import EmailCapture from '../../../../components/EmailCapture'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -57,6 +59,33 @@ export default function ProbioticStrainsPage() {
         <div className="mt-3 p-3 rounded-lg bg-white border border-brand-200"><p className="text-xs font-semibold text-ink">The probiotic rule:</p><p className="mt-1 text-xs leading-5 text-muted">Match strain to condition. Separate from antibiotics by 2-3 hours. Continue 1-2 weeks after antibiotics. Give 4-8 weeks to assess effect. If no benefit by week 8, the strain is not a match for your microbiome. Fermented foods (yogurt, kefir, kimchi) provide diverse bacteria plus metabolites — a better foundation than any single supplement [4].</p></div></section>
 
       <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Bottom line</h2><p className="text-sm leading-7 text-muted">Probiotics work — for specific conditions with specific strains at studied doses. The evidence is strongest for antibiotic-associated diarrhea (NNT=13), IBS, and traveler&rsquo;s diarrhea [1,2,3]. For general gut health, fermented foods and a high-fiber diet provide greater benefit at lower cost than any supplement [4]. When buying: look for named strains (not just species), studied CFU ranges, and third-party verification. Avoid proprietary blends that hide individual strain amounts. The best probiotic is the one matched to your specific condition — not the one with the biggest number on the bottle.</p></section>
+      <section className="card-premium p-6 space-y-4 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Frequently asked questions</h2>
+        <div className="space-y-4">
+          {FAQS.map((faq) => (
+            <div key={faq.question} className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
+              <h3 className="font-semibold text-ink">{faq.question}</h3>
+              <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="card-premium p-6 space-y-3 max-w-4xl"><h2 className="text-2xl font-semibold tracking-tight text-ink">Related reading</h2>
+        <p className="text-sm leading-7 text-muted">Round out the gut-health picture:</p>
+        <ul className="grid gap-2 sm:grid-cols-2 text-sm font-semibold text-brand-800">
+          <li><Link href="/guides/other/prebiotics/" className="hover:underline">Prebiotics: evidence &amp; types →</Link></li>
+          <li><Link href="/guides/best/supplements-for-gut-health/" className="hover:underline">Best supplements for gut health →</Link></li>
+        </ul>
+      </section>
+
+      <div className="max-w-4xl">
+        <RecommendationSection
+          title="Probiotic product picks"
+          description="Buy on named strain and studied CFU, not the biggest number on the bottle — match the strain to your condition using the selector above. These are sourcing starting points; a strain with clinical evidence for your specific issue beats a generic high-CFU blend."
+          products={getRevenueProductSet('probiotics')?.products ?? []}
+        />
+      </div>
+
       <References refs={PROBIOTIC_REFS} />
       <EmailCapture headline="Get evidence reviews like this" description="Probiotic strains, IBS, diarrhea — evidence, not CFU marketing." ctaLabel="Get the evidence" location="guide-probiotics" />
       <div className="pt-4 border-t border-brand-900/10 flex items-center justify-between"><Link href="/guides/" className="inline-flex rounded-full border border-brand-900/10 bg-[var(--surface-card)] px-4 py-2 text-sm font-bold text-ink transition hover:bg-brand-50">← Back to guides</Link><Link href="/herbs/" className="text-sm font-bold text-brand-800 hover:underline">Herb library →</Link></div>
