@@ -10,6 +10,13 @@ export type ArticleCitationMetadata = {
   canonicalConcepts?: string[]
 }
 
+function isRelatedArticle<T extends ArticleRelationshipRecord>(
+  article: T | undefined,
+  currentSlug: string
+): article is T {
+  return article !== undefined && article.slug !== currentSlug
+}
+
 export function resolveRelatedArticles<T extends ArticleRelationshipRecord>(
   current: T,
   articles: T[],
@@ -18,7 +25,7 @@ export function resolveRelatedArticles<T extends ArticleRelationshipRecord>(
   const bySlug = new Map(articles.map((article) => [article.slug, article]))
   const curated = (current.relatedSlugs ?? [])
     .map((slug) => bySlug.get(slug))
-    .filter((article): article is T => Boolean(article) && article.slug !== current.slug)
+    .filter((article): article is T => isRelatedArticle(article, current.slug))
 
   const seen = new Set(curated.map((article) => article.slug))
   const fallback = articles.filter(
