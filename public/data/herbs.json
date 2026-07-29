@@ -7522,8 +7522,8 @@
   {
     "slug": "cinnamomum-verum",
     "name": "Cinnamon",
-    "summary": "Polyphenols improve insulin signaling and glucose uptake.",
-    "description": "Polyphenols improve insulin signaling and glucose uptake.",
+    "summary": "Cinnamon is the aromatic bark of Cinnamomum trees; this profile covers Cinnamomum verum, the Ceylon or 'true' cinnamon, which is low in coumarin compared with the more common cassia types. Cinnamon has been studied for blood sugar and lipids: a systematic review and meta-analysis of type 2 diabetes trials found that cinnamon lowered fasting glucose and improved cholesterol and triglycerides, but did not significantly change HbA1c, and the trials were inconsistent and mostly used cassia rather than Ceylon cinnamon. High intake of the coumarin in cassia can stress the liver, a concern that is much lower for Ceylon cinnamon.",
+    "description": "Cinnamon is the aromatic bark of Cinnamomum trees; this profile covers Cinnamomum verum, the Ceylon or 'true' cinnamon, which is low in coumarin compared with the more common cassia types. Cinnamon has been studied for blood sugar and lipids: a systematic review and meta-analysis of type 2 diabetes trials found that cinnamon lowered fasting glucose and improved cholesterol and triglycerides, but did not significantly change HbA1c, and the trials were inconsistent and mostly used cassia rather than Ceylon cinnamon. High intake of the coumarin in cassia can stress the liver, a concern that is much lower for Ceylon cinnamon.",
     "effects": [
       "metabolic"
     ],
@@ -7601,7 +7601,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -7610,7 +7610,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -9730,8 +9730,8 @@
   {
     "slug": "cranberry",
     "name": "Cranberry (Vaccinium macrocarpon)",
-    "summary": "Cranberry (Vaccinium macrocarpon) botanical profile with evidence, safety, and practical fit.",
-    "description": "Cranberry (Vaccinium macrocarpon) botanical profile with evidence, safety, and practical fit.",
+    "summary": "Cranberry (Vaccinium macrocarpon) is a tart North American berry whose A-type proanthocyanidins are thought to reduce the ability of E. coli bacteria to adhere to the urinary-tract lining. Its main studied use is preventing urinary tract infections: a large Cochrane systematic review concluded that cranberry products reduce the risk of repeat UTIs in some groups, such as women with recurrent infections and children, while showing little benefit in elderly adults or people with bladder-emptying problems. Cranberry is used for prevention rather than to treat an active infection.",
+    "description": "Cranberry (Vaccinium macrocarpon) is a tart North American berry whose A-type proanthocyanidins are thought to reduce the ability of E. coli bacteria to adhere to the urinary-tract lining. Its main studied use is preventing urinary tract infections: a large Cochrane systematic review concluded that cranberry products reduce the risk of repeat UTIs in some groups, such as women with recurrent infections and children, while showing little benefit in elderly adults or people with bladder-emptying problems. Cranberry is used for prevention rather than to treat an active infection.",
     "effects": [
       "antimicrobial"
     ],
@@ -13741,7 +13741,7 @@
   {
     "slug": "ginkgo-biloba",
     "name": "Ginkgo",
-    "summary": "EGb 761 has evidence in mild neurocognitive impairment contexts.",
+    "summary": "Ginkgo biloba is one of the oldest surviving tree species; standardized leaf extracts such as EGb 761 supply flavonoid glycosides and terpene lactones and are marketed for memory and circulation. The evidence for cognition is weak: a large Cochrane systematic review of trials in dementia and cognitive impairment found the benefits inconsistent and unconvincing, while noting that ginkgo appears to be as well tolerated as placebo. Ginkgo has blood-thinning potential and may increase bleeding risk when combined with anticoagulant or antiplatelet drugs.",
     "description": "EGb 761 has evidence in mild neurocognitive impairment contexts. Caveat: Do not generalize to generic ginkgo or healthy productivity/nootropic claims.",
     "effects": [
       "cognitive",
@@ -13821,7 +13821,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -13830,7 +13830,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -15143,8 +15143,8 @@
   {
     "slug": "crataegus-monogyna",
     "name": "Hawthorn",
-    "summary": "Hawthorn botanical profile with evidence, safety, and practical fit.",
-    "description": "Hawthorn botanical profile with evidence, safety, and practical fit.",
+    "summary": "Hawthorn (Crataegus monogyna and related species) is a hedgerow shrub whose leaves, flowers, and berries are rich in oligomeric procyanidins and flavonoids. Standardized extracts have been studied as an add-on for chronic heart failure: a Cochrane meta-analysis of randomized trials reported that hawthorn extract, used alongside conventional treatment, improved exercise tolerance and symptoms such as shortness of breath and fatigue. The trials were short, and hawthorn is not a substitute for prescribed heart-failure therapy; anyone with heart disease should use it only under medical supervision.",
+    "description": "Hawthorn (Crataegus monogyna and related species) is a hedgerow shrub whose leaves, flowers, and berries are rich in oligomeric procyanidins and flavonoids. Standardized extracts have been studied as an add-on for chronic heart failure: a Cochrane meta-analysis of randomized trials reported that hawthorn extract, used alongside conventional treatment, improved exercise tolerance and symptoms such as shortness of breath and fatigue. The trials were short, and hawthorn is not a substitute for prescribed heart-failure therapy; anyone with heart disease should use it only under medical supervision.",
     "effects": [
       "cardiovascular"
     ],
@@ -15216,7 +15216,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -15225,7 +15225,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ],
     "meta_title": "",
@@ -24197,8 +24197,8 @@
   {
     "slug": "pomegranate",
     "name": "Pomegranate",
-    "summary": "Pomegranate botanical profile with evidence, safety, and practical fit.",
-    "description": "Pomegranate botanical profile with evidence, safety, and practical fit.",
+    "summary": "Pomegranate (Punica granatum) is a fruit whose juice and peel are rich in punicalagins and other polyphenols with antioxidant activity. Its best-studied cardiovascular effect is on blood pressure: a systematic review and meta-analysis of randomized trials found that drinking pomegranate juice modestly lowered both systolic and diastolic blood pressure, an effect seen across different doses and study durations. Pomegranate can inhibit drug-metabolizing enzymes, so, like grapefruit, it may interact with some medications; anyone taking prescription drugs regularly should check with a pharmacist.",
+    "description": "Pomegranate (Punica granatum) is a fruit whose juice and peel are rich in punicalagins and other polyphenols with antioxidant activity. Its best-studied cardiovascular effect is on blood pressure: a systematic review and meta-analysis of randomized trials found that drinking pomegranate juice modestly lowered both systolic and diastolic blood pressure, an effect seen across different doses and study durations. Pomegranate can inhibit drug-metabolizing enzymes, so, like grapefruit, it may interact with some medications; anyone taking prescription drugs regularly should check with a pharmacist.",
     "effects": [
       "antioxidant"
     ],
@@ -24295,7 +24295,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 78,
+    "indexability_score": 88,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -24304,7 +24304,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ],
     "meta_title": "",
