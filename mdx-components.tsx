@@ -4,6 +4,7 @@ import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
 import ResearchLimitations from '@/components/evidence/ResearchLimitations'
 import MisconceptionCallout from '@/components/evidence/MisconceptionCallout'
 import SafetyNotice from '@/components/evidence/SafetyNotice'
+import FailureChainCaseFile from '@/components/failure-chains/FailureChainCaseFile'
 import { ComparisonTable } from '@/components/ComparisonTable'
 import { EvidenceNote } from '@/components/EvidenceNote'
 import { HarmReductionCallout } from '@/components/HarmReductionCallout'
@@ -91,6 +92,7 @@ const evidenceComponents = {
   ResearchLimitations,
   MisconceptionCallout,
   SafetyNotice,
+  FailureChainCaseFile,
   ComparisonTable,
   NPSDisclaimer,
   EvidenceNote,
