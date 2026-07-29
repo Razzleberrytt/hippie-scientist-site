@@ -37,7 +37,7 @@ jobs:
           npm pkg set "devDependencies.postcss=^8.5.18" "overrides.postcss=^8.5.18"
           npm install next@^15.5.21
           npm install --save-dev sharp@^0.35.3 wrangler@^4.115.0
-          npm audit fix
+          npm audit fix || true
           npm run audit:high
 
       - name: Commit regenerated lockfile
