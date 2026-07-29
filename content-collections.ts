@@ -22,34 +22,36 @@ const articleFaqSchema = z.object({
   answer: z.string().min(1),
 })
 
+const citationPageSchema = z.object({
+  title: z.string().min(1),
+  slug: z.string().regex(slugPattern),
+  description: z.string().min(1),
+  date: z.string().regex(isoDatePattern).optional(),
+  lastUpdated: z.string().regex(isoDatePattern).optional(),
+  updatedAt: z.string().regex(isoDatePattern).optional(),
+  category: z.string().min(1),
+  tags: z.array(z.string()).default([]),
+  readingTime: z.union([z.string().min(1), z.number().int().positive()]).optional(),
+  evidenceGrade: z.string().min(1).optional(),
+  evidence_grade: z.string().min(1).optional(),
+  author: z.string().optional(),
+  reviewedBy: z.string().optional(),
+  reviewerCredential: z.string().optional(),
+  lastReviewed: z.string().regex(isoDatePattern).optional(),
+  faqs: z.array(articleFaqSchema).default([]),
+  references: z.array(articleReferenceSchema).default([]),
+  relatedSlugs: z.array(z.string().regex(slugPattern)).optional(),
+  keyTakeaways: z.array(z.string().min(1)).max(8).optional(),
+  citationQuestions: z.array(z.string().min(1)).max(12).optional(),
+  canonicalConcepts: z.array(z.string().min(1)).max(20).optional(),
+  content: z.string(),
+})
+
 const articleMonographs = defineCollection({
   name: 'articleMonographs',
   directory: 'content/articles',
   include: '**/*.{md,mdx}',
-  schema: z.object({
-    title: z.string().min(1),
-    slug: z.string().regex(slugPattern),
-    description: z.string().min(1),
-    date: z.string().regex(isoDatePattern).optional(),
-    lastUpdated: z.string().regex(isoDatePattern).optional(),
-    updatedAt: z.string().regex(isoDatePattern).optional(),
-    category: z.string().min(1),
-    tags: z.array(z.string()).default([]),
-    readingTime: z.union([z.string().min(1), z.number().int().positive()]).optional(),
-    evidenceGrade: z.string().min(1).optional(),
-    evidence_grade: z.string().min(1).optional(),
-    author: z.string().optional(),
-    reviewedBy: z.string().optional(),
-    reviewerCredential: z.string().optional(),
-    lastReviewed: z.string().regex(isoDatePattern).optional(),
-    faqs: z.array(articleFaqSchema).default([]),
-    references: z.array(articleReferenceSchema).default([]),
-    relatedSlugs: z.array(z.string().regex(slugPattern)).default([]),
-    keyTakeaways: z.array(z.string().min(1)).max(8).default([]),
-    citationQuestions: z.array(z.string().min(1)).max(12).default([]),
-    canonicalConcepts: z.array(z.string().min(1)).max(20).default([]),
-    content: z.string(),
-  }),
+  schema: citationPageSchema,
   transform: async (document, context) => {
     const sanitizedDocument = {
       ...document,
@@ -72,6 +74,37 @@ const articleMonographs = defineCollection({
       evidenceGrade,
       body,
       url: `/articles/${document.slug}`,
+    }
+  },
+})
+
+const conceptPages = defineCollection({
+  name: 'conceptPages',
+  directory: 'content/learn',
+  include: '**/*.{md,mdx}',
+  schema: citationPageSchema,
+  transform: async (document, context) => {
+    const sanitizedDocument = {
+      ...document,
+      content: document.content.replace(/<(?![a-zA-Z/!])/g, '&lt;'),
+    }
+    const body = await compileMDX(context, sanitizedDocument, mdxOptions)
+    const wordCount = document.content.split(/\s+/).filter(Boolean).length
+    const estimatedMinutes = Math.max(1, Math.round(wordCount / 200))
+    const readingTime =
+      typeof document.readingTime === 'number'
+        ? `${document.readingTime} min read`
+        : document.readingTime || `${estimatedMinutes} min read`
+    const lastUpdated = document.lastUpdated ?? document.updatedAt ?? document.date ?? ''
+    const evidenceGrade = document.evidenceGrade ?? document.evidence_grade ?? ''
+
+    return {
+      ...document,
+      readingTime,
+      lastUpdated,
+      evidenceGrade,
+      body,
+      url: `/learn/${document.slug}`,
     }
   },
 })
@@ -181,5 +214,5 @@ const novelPsychoactiveSubstancePages = defineCollection({
 })
 
 export default defineConfig({
-  content: [articleMonographs, blogPosts, compoundMdxPages, novelPsychoactiveSubstancePages],
+  content: [articleMonographs, conceptPages, blogPosts, compoundMdxPages, novelPsychoactiveSubstancePages],
 })
