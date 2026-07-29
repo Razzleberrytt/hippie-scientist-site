@@ -3504,7 +3504,7 @@
   {
     "slug": "elderberry",
     "name": "Elderberry",
-    "summary": "Elderberry botanical profile with evidence, safety, and practical fit.",
+    "summary": "Elderberry refers to the dark berries of Sambucus nigra, rich in anthocyanin pigments and long taken as a syrup or extract during colds and influenza. A meta-analysis of randomized controlled trials reported that black elderberry supplementation was associated with a substantial reduction in the duration and severity of upper respiratory symptoms, although the pooled trials were small and used varied extracts. Raw or unripe berries, along with leaves and stems, contain cyanogenic compounds, so elderberry is cooked or commercially processed before use.",
     "primary_effects": [
       "antiviral",
       "respiratory"
@@ -3522,7 +3522,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -3531,7 +3531,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -3874,7 +3874,7 @@
   {
     "slug": "trigonella-foenum-graecum",
     "name": "Fenugreek",
-    "summary": "Saponins and fiber reduce glucose absorption and improve insulin sensitivity.",
+    "summary": "Fenugreek (Trigonella foenum-graecum) is a legume whose seeds supply soluble fiber, steroidal saponins, and the amino acid 4-hydroxyisoleucine. It is studied mainly for glucose control: a meta-analysis of clinical trials found that fenugreek seed intake lowered fasting glucose, post-load glucose, and HbA1c relative to control, with significant effects concentrated in people with diabetes taking medium-to-high doses. Most of the included trials were small or of modest methodological quality, so the evidence is promising rather than conclusive.",
     "primary_effects": [
       "metabolic"
     ],
@@ -3890,7 +3890,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -3899,7 +3899,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -4142,7 +4142,7 @@
   {
     "slug": "allium-sativum",
     "name": "Garlic",
-    "summary": "Garlic botanical profile with evidence, safety, and practical fit.",
+    "summary": "Garlic (Allium sativum) is a culinary bulb whose organosulfur compounds — chiefly allicin, formed when raw cloves are crushed — account for most of its studied biological activity. It is among the better-researched dietary botanicals for cardiovascular endpoints: a systematic review and meta-analysis of randomized trials found garlic preparations produced modest reductions in blood pressure compared with placebo, with the clearest effect in people who were hypertensive at baseline. Response varies with the preparation and dose, and average effects in people with normal blood pressure are smaller.",
     "primary_effects": [
       "cardiovascular"
     ],
@@ -4158,7 +4158,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 90,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-present",
       "evidence-signal",
@@ -4167,7 +4167,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },

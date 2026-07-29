@@ -1,0 +1,57 @@
+{
+  "patch_version": 1,
+  "id": "summary-completion-batch-1-2026-07-29",
+  "status": "applied",
+  "sources": [
+    {
+      "id": "ried-garlic-bp-2008",
+      "doi": "10.1186/1471-2261-8-13",
+      "title": "Effect of garlic on blood pressure: a systematic review and meta-analysis",
+      "year": 2008
+    },
+    {
+      "id": "hawkins-elderberry-uri-2019",
+      "doi": "10.1016/j.ctim.2018.12.004",
+      "title": "Black elderberry (Sambucus nigra) supplementation effectively treats upper respiratory symptoms: A meta-analysis of randomized, controlled clinical trials",
+      "year": 2019
+    },
+    {
+      "id": "neelakantan-fenugreek-glycemia-2014",
+      "doi": "10.1186/1475-2891-13-7",
+      "title": "Effect of fenugreek (Trigonella foenum-graecum L.) intake on glycemia: a meta-analysis of clinical trials",
+      "year": 2014
+    }
+  ],
+  "changes": [
+    {
+      "slug": "allium-sativum",
+      "column": "summary",
+      "expected_old_value": "Garlic is tracked for fat_loss,cardiovascular with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+      "new_value": "Garlic (Allium sativum) is a culinary bulb whose organosulfur compounds — chiefly allicin, formed when raw cloves are crushed — account for most of its studied biological activity. It is among the better-researched dietary botanicals for cardiovascular endpoints: a systematic review and meta-analysis of randomized trials found garlic preparations produced modest reductions in blood pressure compared with placebo, with the clearest effect in people who were hypertensive at baseline. Response varies with the preparation and dose, and average effects in people with normal blood pressure are smaller.",
+      "confidence": "moderate",
+      "source_ids": ["ried-garlic-bp-2008"],
+      "rationale": "Replaces an internal pipeline note (not user-facing) with a source-backed descriptive summary. Blood-pressure claims are limited to the meta-analysis finding, including its point that the effect is clearest in hypertensive participants and varies by preparation/dose.",
+      "requires_human_review": false
+    },
+    {
+      "slug": "elderberry",
+      "column": "summary",
+      "expected_old_value": "Internal cross-linking supports Elderberry through compounds such as sambunigrin.",
+      "new_value": "Elderberry refers to the dark berries of Sambucus nigra, rich in anthocyanin pigments and long taken as a syrup or extract during colds and influenza. A meta-analysis of randomized controlled trials reported that black elderberry supplementation was associated with a substantial reduction in the duration and severity of upper respiratory symptoms, although the pooled trials were small and used varied extracts. Raw or unripe berries, along with leaves and stems, contain cyanogenic compounds, so elderberry is cooked or commercially processed before use.",
+      "confidence": "moderate",
+      "source_ids": ["hawkins-elderberry-uri-2019"],
+      "rationale": "Replaces an internal cross-linking note with a source-backed descriptive summary. The efficacy statement is scoped to the cited meta-analysis and preserves its small-sample/varied-extract limitation; the cyanogenic-preparation note reflects long-standing food-safety consensus consistent with the sambunigrin content already recorded for this entity.",
+      "requires_human_review": false
+    },
+    {
+      "slug": "trigonella-foenum-graecum",
+      "column": "summary",
+      "expected_old_value": "Saponins and fiber reduce glucose absorption and improve insulin sensitivity.",
+      "new_value": "Fenugreek (Trigonella foenum-graecum) is a legume whose seeds supply soluble fiber, steroidal saponins, and the amino acid 4-hydroxyisoleucine. It is studied mainly for glucose control: a meta-analysis of clinical trials found that fenugreek seed intake lowered fasting glucose, post-load glucose, and HbA1c relative to control, with significant effects concentrated in people with diabetes taking medium-to-high doses. Most of the included trials were small or of modest methodological quality, so the evidence is promising rather than conclusive.",
+      "confidence": "moderate",
+      "source_ids": ["neelakantan-fenugreek-glycemia-2014"],
+      "rationale": "Replaces a bare mechanism fragment with a source-backed descriptive summary. Glycemic claims are limited to the meta-analysis findings and retain its dose/diabetes-status qualifier and study-quality caveat.",
+      "requires_human_review": false
+    }
+  ]
+}
