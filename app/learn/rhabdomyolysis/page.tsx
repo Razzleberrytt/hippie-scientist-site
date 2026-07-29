@@ -16,12 +16,7 @@ import {
 } from '@/src/lib/article-citation-metadata'
 import { SITE_URL, compactMetaTitle } from '@/src/lib/seo'
 
-const page = allConceptPages.find((item) => item.slug === 'rhabdomyolysis')
-
-if (!page) {
-  throw new Error('Missing rhabdomyolysis concept page')
-}
-
+const page = allConceptPages.find((item) => item.slug === 'rhabdomyolysis')!
 const canonicalUrl = `${SITE_URL}${page.url}/`
 
 export const metadata: Metadata = {
