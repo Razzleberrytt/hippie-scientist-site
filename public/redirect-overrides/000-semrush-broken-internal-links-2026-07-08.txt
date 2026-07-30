@@ -59,8 +59,6 @@
 /guides/sleep-herbs-vs-melatonin/ /guides/compare/sleep-herbs-vs-melatonin/ 301
 # 10 broken-link instances
 /info/ /info/about/ 301
-# 9 broken-link instances
-/guides/other/ /guides/ 301
 # 8 broken-link instances
 /psychoactive/ /guides/other/psychedelic-adjacent-herbs/ 301
 # 7 broken-link instances
