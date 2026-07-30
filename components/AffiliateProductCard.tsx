@@ -55,8 +55,8 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
             alt={title}
             width={400}
             height={300}
-            sizes="(max-width: 768px) 100vw, 33vw"
-            quality={85}
+            sizes="(max-width: 767px) 272px, (max-width: 1024px) 33vw, 320px"
+            quality={78}
             decoding="async"
             className="h-full w-full object-cover"
           />
@@ -83,6 +83,7 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
             href={affiliateUrl}
             target='_blank'
             rel={getOutboundLinkRel(true)}
+            aria-label={`${ctaLabel} for ${title} (opens in a new tab)`}
             onClick={() => trackRevenueEvent({
               kind: 'recommendation_click',
               location: product.trackingLocation || 'recommendation-section',

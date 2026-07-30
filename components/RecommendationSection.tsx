@@ -1,6 +1,7 @@
 import AffiliateDisclosure from './AffiliateDisclosure'
 import AffiliateProductCard, { type AffiliateProduct } from './AffiliateProductCard'
 import WhyWeRecommend from '../src/components/monetization/WhyWeRecommend'
+import HorizontalCardRail from './ui/HorizontalCardRail'
 
 export type RecommendationSlot = 'budget' | 'overall' | 'premium'
 
@@ -39,15 +40,15 @@ export default function RecommendationSection({
   return (
     <section className='card-premium p-4 sm:p-5'>
       <div className='max-w-3xl'>
-        <p className='eyebrow-label'>Affiliate-ready sourcing</p>
+        <p className='eyebrow-label'>Sourcing options</p>
         <h2 className='mt-1 text-lg font-semibold text-ink'>{title}</h2>
         <p className='mt-1 text-sm leading-6 text-muted'>{description}</p>
         <AffiliateDisclosure variant='compact' className='mt-2' />
       </div>
 
-      <div className='mt-4 flex gap-3 overflow-x-auto pb-2 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin] md:grid md:grid-cols-3 md:gap-4 md:overflow-visible md:pb-0'>
+      <HorizontalCardRail label={`${title} options`}>
         {ordered.map((product) => (
-          <div key={`${product.slot}-${product.title || product.name}`} className='flex w-[16rem] shrink-0 flex-col gap-2 md:w-auto md:shrink'>
+          <div key={`${product.slot}-${product.title || product.name}`} className='flex h-full flex-col gap-2'>
             <p className='text-xs font-bold uppercase tracking-[0.16em] text-brand-700 dark:text-brand-200'>{slotLabels[product.slot]}</p>
             <AffiliateProductCard
               product={{
@@ -59,7 +60,7 @@ export default function RecommendationSection({
             />
           </div>
         ))}
-      </div>
+      </HorizontalCardRail>
 
       <WhyWeRecommend className='mt-4' />
     </section>

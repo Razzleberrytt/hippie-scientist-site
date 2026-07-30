@@ -63,4 +63,22 @@ describe('AffiliateProductCard regional URLs', () => {
       'sponsored nofollow noopener noreferrer',
     )
   })
+
+  it('announces the product and new-tab behavior on the outbound action', () => {
+    render(
+      <AffiliateProductCard
+        product={{
+          title: 'Test Saffron',
+          ctaLabel: 'View retailer',
+          affiliateUrl: 'https://www.amazon.com/test-saffron',
+        }}
+      />,
+    )
+
+    expect(
+      screen.getByRole('link', {
+        name: 'View retailer for Test Saffron (opens in a new tab)',
+      }),
+    ).toBeVisible()
+  })
 })
