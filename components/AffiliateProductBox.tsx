@@ -1,9 +1,10 @@
 'use client'
 
-import { trackAffiliateClick } from '@/lib/analytics'
+import { trackRevenueEvent } from '../src/lib/revenue-tracking'
 
 export interface AffiliateEntry {
   slot: 'budget' | 'overall' | 'premium'
+  asin?: string
   brand?: string
   title?: string
   name?: string
@@ -53,7 +54,20 @@ export default function AffiliateProductBox({ slug, products, heading = 'Recomme
                 href={url}
                 target="_blank"
                 rel="nofollow sponsored noopener noreferrer"
-                onClick={() => trackAffiliateClick({ itemName: displayTitle || slug, program: 'Amazon' })}
+                data-revenue-tracked="true"
+                data-ingredient={slug}
+                data-product-slot={product.slot}
+                data-product-asin={product.asin || undefined}
+                data-tracking-location="affiliate-product-box"
+                onClick={() => trackRevenueEvent({
+                  kind: 'recommendation_click',
+                  location: 'affiliate-product-box',
+                  label: displayTitle || slug,
+                  target: url,
+                  productSlug: slug,
+                  productSlot: product.slot,
+                  productAsin: product.asin,
+                })}
                 className="mt-4 inline-flex min-h-10 w-full items-center justify-center rounded-full bg-brand-950 px-4 py-2 text-xs font-bold text-white transition hover:bg-brand-900"
               >
                 View on Amazon →
