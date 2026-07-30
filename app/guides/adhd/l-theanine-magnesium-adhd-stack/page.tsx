@@ -74,14 +74,14 @@ const L_THEANINE_MAGNESIUM_ADHD_STACK_REFS = [
 
 export default function LTheanineMagnesiumAdhdStackPage() {
   const breadcrumbLd = breadcrumbJsonLd([
-    { name: 'Articles', url: 'https://thehippiescientist.net/articles' },
-    { name: TITLE, url: `https://thehippiescientist.net/articles/${SLUG}` },
+    { name: 'Guides', url: 'https://thehippiescientist.net/guides/' },
+    { name: TITLE, url: `https://thehippiescientist.net/guides/adhd/${SLUG}/` },
   ])
   const articleLd = blogJsonLd(
     { title: TITLE, slug: SLUG, date: DATE, description: DESCRIPTION },
-    `/articles/${SLUG}`,
+    `/guides/adhd/${SLUG}/`,
   )
-  const faqLd = faqPageJsonLd({ pagePath: `/articles/${SLUG}`, questions: FAQS })
+  const faqLd = faqPageJsonLd({ pagePath: `/guides/adhd/${SLUG}/`, questions: FAQS })
 
   return (
     <article className="mx-auto max-w-5xl space-y-0 px-4 pb-20 pt-6 sm:px-6 lg:px-8">
@@ -91,7 +91,7 @@ export default function LTheanineMagnesiumAdhdStackPage() {
 
       {/* Breadcrumb */}
       <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
-        <Link href="/guides/" className="transition hover:text-ink">Articles</Link>
+        <Link href="/guides/" className="transition hover:text-ink">Guides</Link>
         <span>/</span>
         <span className="text-ink line-clamp-1">{TITLE}</span>
       </nav>
@@ -496,7 +496,7 @@ export default function LTheanineMagnesiumAdhdStackPage() {
 
       <div className="mt-8">
         <Link href="/guides/" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
-          ← Back to Articles
+          ← Back to Guides
         </Link>
       </div>
       <References refs={L_THEANINE_MAGNESIUM_ADHD_STACK_REFS} />

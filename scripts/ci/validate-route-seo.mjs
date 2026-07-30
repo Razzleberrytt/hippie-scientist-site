@@ -62,6 +62,13 @@ const warnings = []
 
 for (const r of routes) {
   if (!r.route.startsWith('/')) errors.push(`Invalid route path ${r.route} from ${r.file}`)
+
+  if (r.route.startsWith('/guides/')) {
+    const pageSource = read(r.file)
+    if (pageSource.includes('articles/${SLUG}')) {
+      errors.push(`Guide route contains legacy /articles structured-data URL: ${r.route} (${r.file})`)
+    }
+  }
 }
 for (const r of dynamicRoutes) if (!r.gsp) errors.push(`Dynamic route missing generateStaticParams: ${r.route} (${r.file})`)
 
