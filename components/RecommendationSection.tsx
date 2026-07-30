@@ -15,6 +15,8 @@ type RecommendationSectionProps = {
   products: RecommendationProduct[]
   preferredRegion?: string | null
   suppressMonetization?: boolean
+  trackingProductSlug?: string
+  trackingLocation?: string
 }
 
 const slotLabels: Record<RecommendationSlot, string> = {
@@ -29,6 +31,8 @@ export default function RecommendationSection({
   products,
   preferredRegion = null,
   suppressMonetization = false,
+  trackingProductSlug,
+  trackingLocation = 'recommendation-section',
 }: RecommendationSectionProps) {
   if (suppressMonetization) return null
   if (products.length === 0) return null
@@ -54,7 +58,9 @@ export default function RecommendationSection({
               product={{
                 ...product,
                 preferredRegion: product.preferredRegion ?? preferredRegion,
-                trackingLocation: 'recommendation-section',
+                trackingLocation: product.trackingLocation ?? trackingLocation,
+                trackingProductSlug: product.trackingProductSlug ?? trackingProductSlug,
+                trackingSlot: product.trackingSlot ?? product.slot,
               }}
               compact
             />

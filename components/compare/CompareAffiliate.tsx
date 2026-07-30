@@ -43,12 +43,16 @@ export default function CompareAffiliate({ item1, item2, isHR }: CompareAffiliat
         <RecommendationSection
           title={`If you choose ${item1.name}`}
           products={set1.products}
+          trackingProductSlug={item1.slug}
+          trackingLocation="compare-recommendation"
         />
       )}
       {set2 && (
         <RecommendationSection
           title={`If you choose ${item2.name}`}
           products={set2.products}
+          trackingProductSlug={item2.slug}
+          trackingLocation="compare-recommendation"
         />
       )}
     </section>
