@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { getGuideTrackingContext, trackGuideView } from '../analytics'
+import { getGuideTrackingContext, trackGuideView, trackLeadMagnetClick } from '../analytics'
 
 afterEach(() => {
   delete (window as Window & { gtag?: unknown }).gtag
@@ -41,6 +41,21 @@ describe('guide analytics', () => {
       guide_slug: 'magnesium-for-sleep',
       guide_cluster: 'sleep',
       page_path: '/guides/sleep/magnesium-for-sleep/',
+    })
+  })
+
+  it('tracks a lead magnet with its source path', () => {
+    const gtag = vi.fn()
+    ;(window as Window & { gtag?: unknown }).gtag = gtag
+
+    trackLeadMagnetClick({
+      slug: 'adhd-supplement-starter-checklist',
+      sourcePath: '/guides/adhd/',
+    })
+
+    expect(gtag).toHaveBeenCalledWith('event', 'lead_magnet_click', {
+      lead_magnet_slug: 'adhd-supplement-starter-checklist',
+      source_path: '/guides/adhd/',
     })
   })
 })

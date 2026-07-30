@@ -1,6 +1,7 @@
 'use client'
 
 import { FormEvent, useId, useState } from 'react'
+import Link from 'next/link'
 import { trackEmailSignup } from '@/lib/analytics'
 
 type EmailCaptureProps = {
@@ -56,11 +57,18 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
   return (
     <aside className="my-10 rounded-3xl border border-brand-900/10 bg-brand-50/70 p-5 shadow-sm sm:p-7" aria-labelledby={titleId}>
       <div className="space-y-3">
-        <p className="eyebrow-label">Free checklist</p>
+        <p className="eyebrow-label">Free printable checklist</p>
         <h2 id={titleId} className="font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
           {title}
         </h2>
         <p className="max-w-2xl text-base leading-7 text-muted">{description}</p>
+        <p className="text-sm leading-6 text-muted">
+          Want to review it first?{' '}
+          <Link className="font-semibold text-brand-800 underline decoration-brand-700/35 underline-offset-4 hover:text-brand-900" href={CHECKLIST_URL}>
+            Preview and print the checklist
+          </Link>
+          .
+        </p>
       </div>
 
       {state === 'success' ? (

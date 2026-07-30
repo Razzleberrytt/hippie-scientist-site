@@ -2,7 +2,12 @@
 
 import { useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
-import { getGuideTrackingContext, trackAffiliateClick, trackGuideView } from '@/lib/analytics'
+import {
+  getGuideTrackingContext,
+  trackAffiliateClick,
+  trackGuideView,
+  trackLeadMagnetClick,
+} from '@/lib/analytics'
 import { CONSENT_GRANTED_EVENT, getConsent } from '../src/lib/consent'
 import { loadAnalytics } from '../src/lib/loadAnalytics'
 
@@ -36,6 +41,14 @@ export default function ClickTracker() {
       if (!link) return
 
       const href = link.getAttribute('href') || ''
+      const leadMagnetMatch = href.match(/^\/lead-magnets\/([^/?#]+)/)
+
+      if (leadMagnetMatch && getConsent() === 'granted') {
+        trackLeadMagnetClick({
+          slug: leadMagnetMatch[1],
+          sourcePath: window.location.pathname,
+        })
+      }
       
       // Determine if it's an outbound / affiliate link
       const isAffiliate = 

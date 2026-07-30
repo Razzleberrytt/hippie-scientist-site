@@ -186,6 +186,28 @@ export default function AdhdGuideIndex() {
         </p>
       </header>
 
+      <aside className="mb-12 overflow-hidden rounded-2xl border border-brand-900/12 bg-gradient-to-br from-brand-50 to-white p-5 shadow-sm dark:border-white/10 dark:from-[var(--surface-card)] dark:to-[var(--surface-subtle)] sm:p-7">
+        <div className="grid gap-5 sm:grid-cols-[1fr_auto] sm:items-center">
+          <div>
+            <p className="eyebrow-label">Free printable tool</p>
+            <h2 className="mt-2 font-display text-2xl font-semibold tracking-tight text-ink">
+              Plan one careful change at a time
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm leading-7 text-muted">
+              Use the ADHD Supplement Starter Checklist to record your baseline, review safety
+              questions, and track one change across four weeks. No signup is required to preview
+              or print it.
+            </p>
+          </div>
+          <Link
+            href="/lead-magnets/adhd-supplement-starter-checklist/"
+            className="button-primary inline-flex min-h-11 items-center justify-center px-5 py-3 text-center text-sm sm:whitespace-nowrap"
+          >
+            Open the checklist
+          </Link>
+        </div>
+      </aside>
+
       {/* Start Here — decision routing */}
       <section className="mb-12">
         <HubSectionHeading
