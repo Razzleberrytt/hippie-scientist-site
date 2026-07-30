@@ -1066,18 +1066,16 @@ const PROFILE_METADATA_OVERRIDES: Record<string, { title: string; description?: 
   'inositol-sleep': { title: 'Inositol for Sleep & Anxiety: Effects, Dose & Safety' },
   'l-theanine-sleep': { title: 'L-Theanine for Sleep: Effects, Dose & Safety' },
   'taurine-sleep': { title: 'Taurine for Sleep: Effects, Dose & Safety' },
-  // Same-molecule duplicates (identical/near-identical page body): consolidate to the
-  // primary with rel=canonical so Google indexes one URL. `canonical` points the
-  // SECONDARY at its primary (berberine base; coq10 is the primary_runtime_priority
-  // form of Coenzyme Q10). The unique title/description above still render as a
-  // fallback signal in case the canonical is ignored.
+  // Same-molecule duplicate: consolidate Berberine HCl to the base berberine profile.
+  // Coenzyme Q10 is the canonical runtime slug; the legacy /compounds/coq10 route
+  // redirects here and must never be used as this page's rel=canonical target.
   'berberine-hcl': {
     title: 'Berberine HCl: Effects, Dose & Safety',
     description:
       'Berberine HCl (hydrochloride salt) dosage, absorption, blood-sugar and lipid effects, onset, and safety limits, graded against research evidence.',
     canonical: '/compounds/berberine/',
   },
-  'coenzyme-q10': { title: 'Coenzyme Q10 (CoQ10): Effects, Dose & Safety', canonical: '/compounds/coq10/' },
+  'coenzyme-q10': { title: 'Coenzyme Q10 (CoQ10): Effects, Dose & Safety' },
   'silybum-marianum': { title: 'Silybum Marianum (Milk Thistle): Benefits, Dosage & Safety' },
 }
 
