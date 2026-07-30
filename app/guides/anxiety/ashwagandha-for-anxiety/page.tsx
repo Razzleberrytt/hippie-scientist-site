@@ -67,15 +67,15 @@ export default function AshwagandhaForAnxietyPage() {
   const pageBreadcrumb = breadcrumbJsonLd([
     { name: 'Home', url: 'https://thehippiescientist.net' },
     { name: 'Anxiety', url: 'https://thehippiescientist.net/guides/anxiety/natural-anxiety-relief/' },
-    { name: TITLE, url: `https://thehippiescientist.net/articles/${SLUG}` },
+    { name: TITLE, url: `https://thehippiescientist.net/guides/anxiety/${SLUG}/` },
   ])
 
   const articleLd = blogJsonLd(
     { title: TITLE, slug: SLUG, date: DATE, description: DESCRIPTION },
-    `/articles/${SLUG}`,
+    `/guides/anxiety/${SLUG}/`,
   )
 
-  const faqLd = faqPageJsonLd({ pagePath: `/articles/${SLUG}`, questions: FAQS })
+  const faqLd = faqPageJsonLd({ pagePath: `/guides/anxiety/${SLUG}/`, questions: FAQS })
 
   return (
     <>

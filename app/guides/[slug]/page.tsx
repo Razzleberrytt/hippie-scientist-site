@@ -142,7 +142,7 @@ export default async function GuidePage({ params }: Props) {
         )}
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700" aria-label="Guide support links">
           <Link href="/guides/" className="hover:text-brand-800">All guides</Link>
-          <Link href="/guides/" className="hover:text-brand-800">Articles</Link>
+          <Link href="/guides/" className="hover:text-brand-800">Guides</Link>
           <Link href="/safety-checker/" className="hover:text-brand-800">Safety checker</Link>
         </nav>
       </div>
