@@ -4,12 +4,12 @@ import { useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import {
   getGuideTrackingContext,
-  trackAffiliateClick,
   trackGuideView,
   trackLeadMagnetClick,
 } from '@/lib/analytics'
 import { CONSENT_GRANTED_EVENT, getConsent } from '../src/lib/consent'
 import { loadAnalytics } from '../src/lib/loadAnalytics'
+import { trackRevenueEvent } from '../src/lib/revenue-tracking'
 
 export default function ClickTracker() {
   const pathname = usePathname() || '/'
@@ -49,32 +49,35 @@ export default function ClickTracker() {
           sourcePath: window.location.pathname,
         })
       }
-      
-      // Determine if it's an outbound / affiliate link
-      const isAffiliate = 
-        href.includes('amazon.com') || 
-        href.includes('amzn.to') || 
+
+      const isAffiliate =
+        href.includes('amazon.com') ||
+        href.includes('amzn.to') ||
         link.getAttribute('rel')?.includes('sponsored')
 
-      if (isAffiliate) {
-        const cta = link.innerText.trim() || 'CTA'
-        const pathname = window.location.pathname
+      // Recommendation components emit their own richer event after this capture phase.
+      // Skip them here so a single click never becomes two analytics conversions.
+      if (!isAffiliate || link.dataset.revenueTracked === 'true' || getConsent() !== 'granted') return
 
-        // Attempt to extract ingredient/compound/herb from context
-        const ingredient = link.getAttribute('data-ingredient') || 
-                           link.getAttribute('data-slug') || 
-                           link.getAttribute('data-item') || 
-                           (pathname.startsWith('/herbs/') || pathname.startsWith('/compounds/')
-                             ? pathname.split('/')[2]
-                             : '')
+      const cta = link.innerText.trim() || 'CTA'
+      const currentPath = window.location.pathname
+      const ingredient =
+        link.dataset.ingredient ||
+        link.dataset.slug ||
+        link.dataset.item ||
+        (currentPath.startsWith('/herbs/') || currentPath.startsWith('/compounds/')
+          ? currentPath.split('/')[2]
+          : '')
 
-        // 1. Send to GA4 if active
-        trackAffiliateClick({ itemName: ingredient || cta || 'unknown', program: href.includes('amazon') || href.includes('amzn.to') ? 'Amazon' : 'Affiliate' })
-
-        // 2. No localStorage click log (privacy: affiliate clicks are only sent to consented analytics if gtag present).
-        //    Previously stored full eventData (href, route, CTA, ingredient, ts) in localStorage under 'affiliate_clicks'.
-        //    Removed to reduce stored data; rely on GA4 (gated by consent) + dev console only.
-      }
+      trackRevenueEvent({
+        kind: 'affiliate_click',
+        location: link.dataset.trackingLocation || 'document-capture',
+        label: cta || ingredient || 'unknown',
+        target: href,
+        productSlug: ingredient || undefined,
+        productSlot: link.dataset.productSlot || undefined,
+        productAsin: link.dataset.productAsin || undefined,
+      })
     }
 
     document.addEventListener('click', handleDocumentClick, { capture: true })
