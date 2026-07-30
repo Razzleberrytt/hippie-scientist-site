@@ -80,11 +80,11 @@ const SECTIONS = [
     articles: ['Evidence literacy', 'How to read scientific studies', 'Neuroscience glossary', 'Interactions', 'Product quality'],
   },
   {
-    title: 'Other & Harm Reduction',
-    href: '/guides/other/healthy-dipping-tobacco-alternatives/',
-    desc: 'Evidence-informed guides that sit outside the main goal clusters, including tobacco replacement, peptides, and psychoactive harm reduction.',
+    title: 'Supplement Topic Guides',
+    href: '/guides/other/',
+    desc: 'Form and quality guides, popular supplement categories, goal-based routines, advanced compounds, and harm reduction — organized by the decision you are making.',
     color: 'border-l-stone-500',
-    articles: ['Dipping tobacco alternatives', 'Kratom 7-OH withdrawal', 'Psychedelic-adjacent herbs', 'Brain fog and fatigue'],
+    articles: ['Magnesium types', 'Omega-3 quality', 'Gut health', 'Stacking safety', 'Advanced research'],
   },
 ]
 
