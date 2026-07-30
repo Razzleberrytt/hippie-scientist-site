@@ -9,6 +9,7 @@ import {
   Moon,
   ShieldCheck,
   Sparkles,
+  Search,
   Zap,
 } from 'lucide-react'
 import articlesData from '@/data/articles/articles.json'
@@ -161,16 +162,23 @@ export default function HomepageV2() {
               Evidence-based guides for sleep, stress, anxiety, and focus — mechanisms, safety context, and practical comparisons without marketing fluff.
             </p>
 
-            <div className='mt-7 sm:mt-9'>
+            <div className='mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center'>
               <Link
                 href='#choose-a-path'
-                className='editorial-cta inline-flex w-full max-w-md items-center justify-between rounded-full px-5 py-4 text-base font-bold transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#b88a42] focus-visible:ring-offset-2 sm:px-7'
+                className='editorial-cta inline-flex min-h-14 w-full max-w-md items-center justify-between rounded-full px-5 py-4 text-base font-bold transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#b88a42] focus-visible:ring-offset-2 sm:w-auto sm:px-7'
               >
                 <span className='inline-flex items-center gap-3'>
                   <Leaf className='h-5 w-5 text-[#dec69b]' aria-hidden='true' strokeWidth={1.8} />
                   Browse by Health Goal
                 </span>
                 <ArrowRight className='h-5 w-5 text-[#dec69b]' aria-hidden='true' />
+              </Link>
+              <Link
+                href='/search/'
+                className='inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full border border-[#123c2f]/15 bg-[#fffdf8]/80 px-5 py-3.5 text-base font-bold text-[#123c2f] shadow-sm transition hover:border-[#b88a42]/35 hover:bg-[#f5efe2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b88a42] focus-visible:ring-offset-2 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)] dark:hover:bg-[var(--surface-subtle)] sm:w-auto'
+              >
+                <Search className='h-5 w-5' aria-hidden='true' strokeWidth={1.8} />
+                Search by name
               </Link>
             </div>
           </div>
