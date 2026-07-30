@@ -23,6 +23,8 @@ export type AffiliateProduct = {
   regionalUrls?: RegionalUrlMap
   preferredRegion?: string | null
   trackingLocation?: string
+  trackingProductSlug?: string
+  trackingSlot?: string
 }
 
 type AffiliateProductCardProps = {
@@ -45,6 +47,7 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
   const isValidUrl = typeof resolvedUrl === 'string' && (resolvedUrl.startsWith('http://') || resolvedUrl.startsWith('https://'))
   const affiliateUrl = isValidUrl ? resolvedUrl : ''
   const ctaLabel = product.ctaLabel || 'Check current price'
+  const trackingLocation = product.trackingLocation || 'recommendation-section'
 
   return (
     <article className={`flex h-full flex-col overflow-hidden rounded-2xl border border-brand-900/10 bg-white/80 shadow-sm dark:border-white/10 dark:bg-white/5 ${compact ? 'p-4' : 'p-5'}`}>
@@ -84,11 +87,19 @@ export default function AffiliateProductCard({ product, compact = false }: Affil
             target='_blank'
             rel={getOutboundLinkRel(true)}
             aria-label={`${ctaLabel} for ${title} (opens in a new tab)`}
+            data-revenue-tracked="true"
+            data-ingredient={product.trackingProductSlug || undefined}
+            data-product-slot={product.trackingSlot || undefined}
+            data-product-asin={product.asin || undefined}
+            data-tracking-location={trackingLocation}
             onClick={() => trackRevenueEvent({
               kind: 'recommendation_click',
-              location: product.trackingLocation || 'recommendation-section',
+              location: trackingLocation,
               label: title,
               target: affiliateUrl,
+              productSlug: product.trackingProductSlug,
+              productSlot: product.trackingSlot,
+              productAsin: product.asin,
             })}
             className='mt-5 inline-flex min-h-11 w-full items-center justify-center gap-1.5 rounded-full bg-brand-950 px-4 py-2.5 text-sm font-bold text-white shadow-sm transition-all duration-200 motion-safe:hover:-translate-y-0.5 hover:bg-brand-900 hover:shadow-md active:translate-y-0 dark:bg-brand-200 dark:text-brand-950 dark:hover:bg-brand-100'
           >
