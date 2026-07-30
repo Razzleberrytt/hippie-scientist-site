@@ -36,6 +36,7 @@ export const TOPIC_GUIDE_GROUPS: TopicGuideGroup[] = [
     description:
       'Evidence-first reviews for categories that attract strong marketing but still require careful product and goal matching.',
     guides: [
+      { href: '/guides/other/alkaloids-on-amazon/', title: 'Alkaloids on Amazon', desc: 'Identify alkaloid supplement categories, separate evidence types, and screen labels without product endorsements.' },
       { href: '/guides/other/apple-cider-vinegar/', title: 'Apple Cider Vinegar', desc: 'Separate evidence on blood sugar, weight, and digestion from trend claims.' },
       { href: '/guides/other/bovine-colostrum/', title: 'Bovine Colostrum', desc: 'Review immune, gut, performance, and safety evidence behind the category.' },
       { href: '/guides/other/collagen-supplements/', title: 'Collagen Supplements', desc: 'Compare evidence for skin, joints, bone, and muscle-related goals.' },
