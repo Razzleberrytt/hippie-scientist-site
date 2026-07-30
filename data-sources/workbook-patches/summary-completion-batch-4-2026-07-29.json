@@ -1,0 +1,89 @@
+{
+  "patch_version": 1,
+  "id": "summary-completion-batch-4-2026-07-29",
+  "status": "applied",
+  "sources": [
+    {
+      "id": "sjw-depression-cochrane-2008",
+      "doi": "10.1002/14651858.CD000448.pub3",
+      "title": "St John's wort for major depression",
+      "year": 2008
+    },
+    {
+      "id": "sawpalmetto-bph-cochrane-2012",
+      "doi": "10.1002/14651858.CD001423.pub3",
+      "title": "Serenoa repens for benign prostatic hyperplasia",
+      "year": 2012
+    },
+    {
+      "id": "nigella-t2d-ctim-2017",
+      "doi": "10.1016/j.ctim.2017.08.016",
+      "title": "Nigella sativa improves glucose homeostasis and serum lipids in type 2 diabetes: A systematic review and meta-analysis",
+      "year": 2017
+    },
+    {
+      "id": "ginseng-glycemia-plosone-2014",
+      "doi": "10.1371/journal.pone.0107391",
+      "title": "The Effect of Ginseng (The Genus Panax) on Glycemic Control: A Systematic Review and Meta-Analysis of Randomized Controlled Clinical Trials",
+      "year": 2014
+    },
+    {
+      "id": "silymarin-t2d-jdr-2016",
+      "doi": "10.1155/2016/5147468",
+      "title": "Silymarin in Type 2 Diabetes Mellitus: A Systematic Review and Meta-Analysis of Randomized Controlled Trials",
+      "year": 2016
+    }
+  ],
+  "changes": [
+    {
+      "slug": "hypericum-perforatum",
+      "column": "summary",
+      "expected_old_value": "Hypericum perforatum contains Hyperforin and is linked here to TRPC6 channel modulation.",
+      "new_value": "St. John's wort (Hypericum perforatum) is a yellow-flowered plant whose extracts contain hypericin and hyperforin and are used mainly for low mood. It is one of the best-evidenced herbal antidepressants: a large Cochrane systematic review found that St. John's wort was more effective than placebo and about as effective as standard antidepressants for major depression, with fewer side effects, though results varied and many trials came from German-speaking countries. Crucially, it speeds the breakdown of many medications, including birth-control pills, blood thinners, immunosuppressants, and some antidepressants and HIV drugs, so it can cause serious interactions and should not be combined with prescription drugs without medical advice.",
+      "confidence": "moderate",
+      "source_ids": ["sjw-depression-cochrane-2008"],
+      "rationale": "Replaces an internal mechanism note with a source-backed summary. The efficacy claim comes from the cited Cochrane review and keeps its heterogeneity/geography caveat; the drug-interaction warning (CYP3A4 and P-glycoprotein induction) is the single most important, well-established safety fact for this herb and is foregrounded.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "serenoa-repens",
+      "column": "summary",
+      "expected_old_value": "Serenoa repens contains Beta-sitosterol and is linked here to PPAR activation.",
+      "new_value": "Saw palmetto (Serenoa repens) is a dwarf palm whose berry extract, rich in fatty acids and phytosterols, is widely sold for prostate symptoms. Despite its popularity, the evidence does not support it: a large Cochrane systematic review found that saw palmetto, even at double and triple the usual dose, did not improve urinary flow, night-time urination, or overall symptoms of benign prostatic enlargement compared with placebo. It is generally well tolerated, but men with urinary symptoms should be evaluated by a clinician rather than relying on it.",
+      "confidence": "high",
+      "source_ids": ["sawpalmetto-bph-cochrane-2012"],
+      "rationale": "Replaces an internal mechanism note with an honest source-backed summary. The cited Cochrane review found no benefit over placebo even at 2-3x dose, which this summary states plainly rather than implying efficacy.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "black-seed",
+      "column": "summary",
+      "expected_old_value": "Bulk-ingested support row carrying Thymoquinone with pathway-level mechanism coverage.",
+      "new_value": "Black seed (Nigella sativa), also called black cumin, is a spice whose oil is rich in thymoquinone. It has been studied mostly for metabolic health: a systematic review and meta-analysis of randomized trials in people with type 2 diabetes found that black seed supplementation lowered fasting blood glucose and HbA1c and improved total and LDL cholesterol compared with control. Most of the included trials were small and short, so the results are better read as promising than definitive. Because it can lower blood sugar, black seed may add to the effect of diabetes medications.",
+      "confidence": "moderate",
+      "source_ids": ["nigella-t2d-ctim-2017"],
+      "rationale": "Replaces an internal pipeline fragment with a source-backed summary. The glycemic and lipid claims come from the cited meta-analysis and retain its small/short-trial caveat; the blood-sugar interaction note is standard, well-documented guidance.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "panax-ginseng",
+      "column": "summary",
+      "expected_old_value": "May modestly support memory outcomes, but evidence is mixed for broader cognition.",
+      "new_value": "Asian ginseng (Panax ginseng) is a slow-growing root whose ginsenosides are its characteristic compounds; it is a classic adaptogen taken for energy, cognition, and blood sugar. For glucose, a systematic review and meta-analysis of randomized trials across the Panax genus found that ginseng modestly lowered fasting blood glucose compared with control, although the effect was small and the trials were varied and often short. Evidence for its other traditional uses, such as memory and fatigue, is mixed. Ginseng may interact with blood thinners and with diabetes medications.",
+      "confidence": "moderate",
+      "source_ids": ["ginseng-glycemia-plosone-2014"],
+      "rationale": "Replaces a narrow cognition fragment with a source-backed summary. The glucose claim comes from the cited meta-analysis and keeps its small-effect/short-trial caveat; the summary is explicit that evidence for memory and fatigue is mixed, and the interaction note is standard guidance.",
+      "requires_human_review": true
+    },
+    {
+      "slug": "silybum-marianum",
+      "column": "summary",
+      "expected_old_value": "Silymarin stabilizes hepatocyte membranes and acts as an antioxidant.",
+      "new_value": "Milk thistle (Silybum marianum) is a spiny plant whose seeds yield silymarin, a mixture of flavonolignans with antioxidant activity. Although it is best known as a 'liver tonic,' rigorous evidence for liver disease is limited and inconclusive; its clearer signal is metabolic. A systematic review and meta-analysis of randomized trials in type 2 diabetes found that silymarin reduced fasting blood glucose and HbA1c compared with control, while not significantly changing blood lipids. The included trials were few and small, so larger studies are needed. Milk thistle is generally well tolerated.",
+      "confidence": "moderate",
+      "source_ids": ["silymarin-t2d-jdr-2016"],
+      "rationale": "Replaces a bare mechanism fragment with a source-backed summary. Glycemic claims come from the cited diabetes meta-analysis and retain its few/small-trial caveat; the summary is honest that milk thistle's headline liver-tonic use has limited, inconclusive evidence.",
+      "requires_human_review": true
+    }
+  ]
+}

@@ -796,7 +796,7 @@
   {
     "slug": "panax-ginseng",
     "name": "Asian Ginseng",
-    "summary": "May modestly support memory outcomes, but evidence is mixed for broader cognition.",
+    "summary": "Asian ginseng (Panax ginseng) is a slow-growing root whose ginsenosides are its characteristic compounds; it is a classic adaptogen taken for energy, cognition, and blood sugar. For glucose, a systematic review and meta-analysis of randomized trials across the Panax genus found that ginseng modestly lowered fasting blood glucose compared with control, although the effect was small and the trials were varied and often short. Evidence for its other traditional uses, such as memory and fatigue, is mixed. Ginseng may interact with blood thinners and with diabetes medications.",
     "primary_effects": [
       "cognitive",
       "metabolic"
@@ -1268,7 +1268,7 @@
   {
     "slug": "black-seed",
     "name": "Black Seed",
-    "summary": "Bulk-ingested support row carrying Thymoquinone with pathway-level mechanism coverage.",
+    "summary": "Black seed (Nigella sativa), also called black cumin, is a spice whose oil is rich in thymoquinone. It has been studied mostly for metabolic health: a systematic review and meta-analysis of randomized trials in people with type 2 diabetes found that black seed supplementation lowered fasting blood glucose and HbA1c and improved total and LDL cholesterol compared with control. Most of the included trials were small and short, so the results are better read as promising than definitive. Because it can lower blood sugar, black seed may add to the effect of diabetes medications.",
     "primary_effects": [
       "antioxidant",
       "cardiovascular",
@@ -5042,7 +5042,7 @@
   {
     "slug": "hypericum-perforatum",
     "name": "Hypericum Perforatum",
-    "summary": "Hypericum Perforatum botanical profile with evidence, safety, and practical fit.",
+    "summary": "St. John's wort (Hypericum perforatum) is a yellow-flowered plant whose extracts contain hypericin and hyperforin and are used mainly for low mood. It is one of the best-evidenced herbal antidepressants: a large Cochrane systematic review found that St. John's wort was more effective than placebo and about as effective as standard antidepressants for major depression, with fewer side effects, though results varied and many trials came from German-speaking countries. Crucially, it speeds the breakdown of many medications, including birth-control pills, blood thinners, immunosuppressants, and some antidepressants and HIV drugs, so it can cause serious interactions and should not be combined with prescription drugs without medical advice.",
     "primary_effects": [
       "mood_support",
       "antidepressant",
@@ -6134,7 +6134,7 @@
   {
     "slug": "silybum-marianum",
     "name": "Milk Thistle",
-    "summary": "Silymarin stabilizes hepatocyte membranes and acts as an antioxidant.",
+    "summary": "Milk thistle (Silybum marianum) is a spiny plant whose seeds yield silymarin, a mixture of flavonolignans with antioxidant activity. Although it is best known as a 'liver tonic,' rigorous evidence for liver disease is limited and inconclusive; its clearer signal is metabolic. A systematic review and meta-analysis of randomized trials in type 2 diabetes found that silymarin reduced fasting blood glucose and HbA1c compared with control, while not significantly changing blood lipids. The included trials were few and small, so larger studies are needed. Milk thistle is generally well tolerated.",
     "primary_effects": [
       "antioxidant",
       "liver-protective",
@@ -6154,7 +6154,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 95,
+    "indexability_score": 100,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -6163,7 +6163,7 @@
       "mechanism-context",
       "profile-status:top50_authority_patched",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
@@ -8594,7 +8594,7 @@
   {
     "slug": "serenoa-repens",
     "name": "Serenoa Repens",
-    "summary": "Serenoa Repens botanical profile with evidence, safety, and practical fit.",
+    "summary": "Saw palmetto (Serenoa repens) is a dwarf palm whose berry extract, rich in fatty acids and phytosterols, is widely sold for prostate symptoms. Despite its popularity, the evidence does not support it: a large Cochrane systematic review found that saw palmetto, even at double and triple the usual dose, did not improve urinary flow, night-time urination, or overall symptoms of benign prostatic enlargement compared with placebo. It is generally well tolerated, but men with urinary symptoms should be evaluated by a clinician rather than relying on it.",
     "primary_effects": [
       "prostate_health",
       "anti_androgenic",
@@ -8614,7 +8614,7 @@
     "robots": "index,follow",
     "sitemap_included": true,
     "indexability_status": "PUBLISH",
-    "indexability_score": 83,
+    "indexability_score": 93,
     "indexability_reasons": [
       "effect-coverage",
       "evidence-signal",
@@ -8623,7 +8623,7 @@
       "mechanism-context",
       "profile-status:partial",
       "safety-context",
-      "summary-present",
+      "summary-depth",
       "summary-quality-missing"
     ]
   },
