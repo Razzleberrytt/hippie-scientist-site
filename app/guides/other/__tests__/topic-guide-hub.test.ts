@@ -1,4 +1,4 @@
-import { existsSync, readdirSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 
@@ -15,5 +15,15 @@ describe('topic guide hub', () => {
 
     expect(new Set(hubRoutes).size).toBe(hubRoutes.length)
     expect(hubRoutes).toEqual(publishedRoutes)
+  })
+
+  it('is not shadowed by a legacy redirect override', () => {
+    const redirectRoot = path.join(process.cwd(), 'public', 'redirect-overrides')
+    const redirects = readdirSync(redirectRoot)
+      .filter((file) => file.endsWith('.txt'))
+      .flatMap((file) => readFileSync(path.join(redirectRoot, file), 'utf8').split(/\r?\n/))
+      .filter((line) => !line.trimStart().startsWith('#'))
+
+    expect(redirects.some((line) => /^\/guides\/other\/?\s/.test(line))).toBe(false)
   })
 })

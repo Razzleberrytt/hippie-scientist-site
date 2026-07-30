@@ -336,7 +336,6 @@
 /guides/kratom-7oh-withdrawal-management/ /guides/other/kratom-7oh-withdrawal-management/ 301
 /guides/magnesium-for-sleep/ /guides/sleep/best-magnesium-for-sleep/ 301
 /guides/natural-alternatives-to-anxiety-medication/ /guides/anxiety/natural-alternatives-to-anxiety-medication/ 301
-/guides/other/ /guides/ 301
 /guides/passionflower/ /guides/herbs/passionflower/ 301
 /guides/rhodiola-complete-guide/ /guides/herbs/rhodiola-complete-guide/ 301
 /guides/rhodiola-energy/ /guides/herbs/rhodiola-energy/ 301
