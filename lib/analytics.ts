@@ -2,7 +2,7 @@
 
 type Gtag = (
   command: 'event',
-  eventName: 'affiliate_click' | 'email_signup' | 'guide_view',
+  eventName: 'affiliate_click' | 'email_signup' | 'guide_view' | 'lead_magnet_click',
   params: Record<string, string | number | boolean | undefined>,
 ) => void
 
@@ -40,6 +40,17 @@ export function trackEmailSignup(params: { source: string }): void {
     })
   } catch {
     // Analytics must never block signup flow.
+  }
+}
+
+export function trackLeadMagnetClick(params: { slug: string; sourcePath: string }): void {
+  try {
+    getGtag()?.('event', 'lead_magnet_click', {
+      lead_magnet_slug: params.slug,
+      source_path: params.sourcePath,
+    })
+  } catch {
+    // Analytics must never block resource access.
   }
 }
 

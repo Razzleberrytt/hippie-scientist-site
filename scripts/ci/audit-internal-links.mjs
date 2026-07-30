@@ -55,7 +55,8 @@ if (!FULL_HTML_AUDIT) {
 
 const routes=new Set(files.map(routeFromFile))
 const graph=new Map([...routes].map(r=>[r,new Set()]))
-const hrefRe=/href=["'](\/[^"'#\s>]+)["']/g
+const inboundGraph=new Map([...routes].map(r=>[r,new Set()]))
+const hrefRe=/href=["'](\/[^"'#\s>]*)["']/g
 const robotsNoindexRe=/<meta\b(?=[^>]*\bname=["']robots["'])(?=[^>]*\bcontent=["'][^"']*\bnoindex\b)[^>]*>/i
 
 function nonCanonicalInternalHref(href) {
@@ -109,7 +110,10 @@ async function run() {
         const nonCanonical = nonCanonicalInternalHref(h)
         if (nonCanonical) nonCanonicalInternalLinks.push({ source: route, ...nonCanonical })
         const t=h.split('?')[0].replace(/\/$/,'')||'/';
-        if(graph.has(t)) graph.get(route).add(t)
+        if(graph.has(t)) {
+          graph.get(route).add(t)
+          if (t !== route) inboundGraph.get(t).add(route)
+        }
       }
       const duration = Date.now() - start;
       if (duration > 100) {
@@ -118,13 +122,15 @@ async function run() {
     }))
   }
 
-  const orphan=[...graph.entries()].filter(([,o])=>o.size===0).map(([r])=>r)
-  const weak=[...graph.entries()].filter(([,o])=>o.size>0&&o.size<3).map(([r,o])=>({route:r,outbound:o.size}))
+  const orphan=[...inboundGraph.entries()].filter(([,incoming])=>incoming.size===0).map(([r])=>r)
+  const weak=[...inboundGraph.entries()]
+    .filter(([,incoming])=>incoming.size>0&&incoming.size<3)
+    .map(([r,incoming])=>({route:r,inbound:incoming.size}))
   const density=[...graph.entries()].map(([r,o])=>({route:r,outbound:o.size})).sort((a,b)=>b.outbound-a.outbound)
   const nonCanonicalSummary = summarizeNonCanonicalLinks(nonCanonicalInternalLinks)
   const report={generatedAt:new Date().toISOString(),totalRoutes:routes.size,orphanRoutes:orphan,weaklyConnected:weak,internalLinkDensity:density.slice(0,100),nonCanonicalInternalLinks,nonCanonicalSummary}
   fs.mkdirSync(path.join(root,'ops','reports'),{recursive:true}); fs.writeFileSync(path.join(root,'ops/reports/internal-link-report.json'),JSON.stringify(report,null,2));
-  const nonIndexable = orphan.filter(r => r === '/500' || r.startsWith('/_not-found') || r.startsWith('/sitemap.xml') || r.startsWith('/robots.txt') || r.startsWith('/opengraph-image') || r.startsWith('/twitter-image') || r.startsWith('/blogdata') || noindexRoutes.has(r))
+  const nonIndexable = orphan.filter(r => r === '/404' || r === '/500' || r.startsWith('/_not-found') || r.startsWith('/sitemap.xml') || r.startsWith('/robots.txt') || r.startsWith('/opengraph-image') || r.startsWith('/twitter-image') || r.startsWith('/blogdata') || noindexRoutes.has(r))
   const blockingOrphans = orphan.filter(r => !nonIndexable.includes(r))
   const topNonCanonicalSource = nonCanonicalSummary.topSourceRoutes[0]
   console.log(`internal-links: routes=${routes.size}, orphan=${orphan.length}, blockingOrphan=${blockingOrphans.length}, weak=${weak.length}, nonCanonical=${nonCanonicalInternalLinks.length}`)
