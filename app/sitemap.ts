@@ -463,6 +463,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     route(normalizeSitemapUrl('/evidence/evidence-report'), 'monthly', 0.6),
     route(normalizeSitemapUrl('/safety-checker'), 'monthly', 0.8),
     route(normalizeSitemapUrl('/info/supplement-safety-checklist'), 'monthly', 0.8),
+    route(normalizeSitemapUrl('/goals'), 'monthly', 0.8),
     route(normalizeSitemapUrl('/herbs'), 'weekly', 0.8),
     route(normalizeSitemapUrl('/compounds'), 'weekly', 0.8),
     route(normalizeSitemapUrl('/articles'), 'daily', 0.7),

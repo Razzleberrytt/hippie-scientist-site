@@ -17,6 +17,7 @@
  */
 export const BUILT_COMPARE_SLUGS = [
   'ashwagandha-vs-l-theanine-vs-magnesium',
+  'berberine-vs-inositol',
   'berberine-vs-metformin',
   'caffeine-vs-l-theanine',
   'caffeine-vs-l-theanine-vs-bacopa-for-focus',

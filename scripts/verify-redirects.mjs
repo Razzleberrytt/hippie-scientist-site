@@ -156,5 +156,57 @@ if (targetsMissingPages.length) {
   process.exit(1)
 }
 
+// A URL cannot be both advertised as canonical in the sitemap and redirected
+// away. This happens when a redirect is added to paper over a 404 and the page
+// is built later: `public/redirect-overrides/*` rules are *prepended* to
+// out/_redirects, so they win over everything and silently orphan the new page.
+const sitemapPath = path.join(staticDir, 'sitemap.xml')
+if (fs.existsSync(sitemapPath)) {
+  const sitemapXml = fs.readFileSync(sitemapPath, 'utf8')
+  const sitemapPaths = new Set(
+    [...sitemapXml.matchAll(/<loc>(.*?)<\/loc>/g)].map((match) => {
+      try {
+        return new URL(match[1].trim()).pathname.replace(/\/+$/, '') || '/'
+      } catch {
+        return ''
+      }
+    }),
+  )
+
+  const shadowed = []
+  for (const line of lines) {
+    const [source, target = ''] = line.split(/\s+/)
+    if (source.includes('*') || !source.startsWith('/')) continue
+
+    const normalized = source.replace(/\/+$/, '') || '/'
+    if (!sitemapPaths.has(normalized)) continue
+
+    // A rule that only adds the trailing slash is the canonicalization itself
+    // (`/safety-checker -> /safety-checker/`), not a redirect away from the page.
+    let targetPath = target
+    if (/^https?:\/\//i.test(target)) {
+      try {
+        targetPath = new URL(target).pathname
+      } catch {
+        targetPath = target
+      }
+    }
+    if ((targetPath.replace(/\/+$/, '') || '/') === normalized) continue
+
+    shadowed.push(line)
+  }
+
+  if (shadowed.length) {
+    console.error(
+      `[verify-redirects] ${shadowed.length} sitemap URL(s) are also redirect sources — they would 301 away from a page listed as canonical:`,
+    )
+    for (const rule of shadowed.slice(0, 25)) {
+      console.error(`[verify-redirects]   ${rule}`)
+    }
+    process.exit(1)
+  }
+}
+
 console.log(`[verify-redirects] OK: ${requiredRedirects.length} required rules verified`)
 console.log(`[verify-redirects] OK: all ${lines.length} redirect targets resolve to exported pages`)
+console.log('[verify-redirects] OK: no sitemap URL is shadowed by a redirect')

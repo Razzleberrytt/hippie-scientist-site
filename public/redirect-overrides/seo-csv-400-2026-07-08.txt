@@ -6,7 +6,6 @@
 /guides/compare/creatine-vs-beta-alanine/ /guides/compare/ 301
 /guides/compare/curcumin-vs-boswellia/ /guides/compare/curcumin-vs-boswellia-vs-omega-3/ 301
 /guides/compare/creatine-vs-bcaa/ /guides/compare/ 301
-/guides/compare/berberine-vs-inositol/ /guides/compare/ 301
 /guides/compare/bacopa-vs-rhodiola/ /guides/focus/best-nootropics-for-focus/ 301
 /guides/compare/cordyceps-vs-beta-alanine/ /guides/compare/ 301
 /guides/compare/hawthorn-vs-coq10/ /guides/best/supplements-for-blood-pressure/ 301

@@ -1,3 +1,6 @@
+# /goals/* rules removed: the goal hub routes now exist (app/goals/[slug]).
+# They were added when /goals/ 404d; redirecting them away now would orphan
+# ~6,000 internal links from the pages they are supposed to reach.
 # Full Semrush HTTP 4XX export: www.thehippiescientist.net_http_4xx_client_errors_20260708.csv
 # 392 exact 404 URLs from the export. Build script emits slash/non-slash variants.
 /articles/alpha-gpc-and-adhd/ /guides/adhd/alpha-gpc-and-adhd/ 301
@@ -24,19 +27,6 @@
 /education/how-focus-and-motivation-work/ /learn/how-focus-and-motivation-work/ 301
 /education/why-fatigue-is-biologically-complex/ /learn/why-fatigue-is-biologically-complex/ 301
 /evidence/ /evidence/evidence-checker/ 301
-/goals/anxiety/ /guides/anxiety/ 301
-/goals/blood-pressure/ /guides/best/supplements-for-blood-pressure/ 301
-/goals/cognition/ /guides/focus/ 301
-/goals/energy/ /guides/other/supplements-for-brain-fog-and-fatigue/ 301
-/goals/fat-loss/ /guides/best/supplements-for-fat-loss/ 301
-/goals/focus/ /guides/focus/ 301
-/goals/gut-health/ /guides/best/supplements-for-gut-health/ 301
-/goals/inflammation/ /learn/inflammation/ 301
-/goals/joint-support/ /guides/best/supplements-for-joint-support/ 301
-/goals/pain/ /guides/best/supplements-for-joint-support/ 301
-/goals/recovery/ /guides/best/supplements-for-joint-support/ 301
-/goals/sleep/ /guides/sleep/ 301
-/goals/stress/ /guides/anxiety/best-supplements-for-stress/ 301
 /guides/adhd/l-theanine-vs-caffeine-for-focus/ /guides/focus/l-theanine-vs-caffeine-for-focus/ 301
 /guides/adhd/l-theanine-without-caffeine/ /guides/focus/l-theanine-without-caffeine/ 301
 /guides/best-adaptogens-for-stress/ /guides/anxiety/best-adaptogens-for-stress/ 301
