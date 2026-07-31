@@ -11,12 +11,12 @@ const mocks = vi.hoisted(() => ({
   trackRevenueEvent: vi.fn(),
 }))
 
-vi.mock('@/src/lib/consent', () => ({
+vi.mock('../../src/lib/consent', () => ({
   CONSENT_GRANTED_EVENT: 'hs:consent-granted',
   getConsent: mocks.getConsent,
 }))
 
-vi.mock('@/src/lib/revenue-tracking', () => ({
+vi.mock('../../src/lib/revenue-tracking', () => ({
   trackRevenueEvent: mocks.trackRevenueEvent,
 }))
 
