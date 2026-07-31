@@ -26,11 +26,11 @@ function appPagePathForHref(href: string) {
 }
 
 describe('route consolidation guardrails', () => {
-  it('keeps mobile bottom navigation off legacy redirect surfaces', () => {
-    const legacyPrefixes = ['/articles', '/compare', '/goals', '/stacks']
+  it('keeps mobile bottom navigation on live canonical discovery surfaces', () => {
+    const legacyPrefixes = ['/compare', '/goals', '/stacks']
     const navHrefs = mobileBottomNavItems.map((item) => item.href)
 
-    expect(navHrefs).toEqual(['/library', '/herbs', '/search', '/compounds', '/guides/best'])
+    expect(navHrefs).toEqual(['/library', '/guides', '/search', '/herbs', '/articles'])
 
     for (const href of navHrefs) {
       expect(legacyPrefixes.some((legacyPrefix) => href === legacyPrefix || href.startsWith(`${legacyPrefix}/`))).toBe(false)

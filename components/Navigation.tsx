@@ -28,6 +28,10 @@ function groupChildren(children: PrimaryNavigationItem[] = []) {
   return Array.from(groups.entries()).map(([section, items]) => ({ section, items }))
 }
 
+function pathMatches(pathname: string, prefix: string) {
+  return pathname === prefix || pathname.startsWith(`${prefix}/`)
+}
+
 export function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -59,28 +63,15 @@ export function Navigation() {
   }, [mobileOpen])
 
   const isPrimaryActive = (link: PrimaryNavigationItem) => {
-    if (link.label === 'Library') {
-      return pathname === '/guides'
-        || pathname.startsWith('/guides/')
-        || pathname === '/learn'
-        || pathname.startsWith('/learn/')
-        || pathname.startsWith('/novel-psychoactive-substances')
-    }
-
-    if (link.href === '/safety-checker') {
-      return pathname === '/safety-checker'
-        || pathname.startsWith('/evidence/')
-        || pathname.startsWith('/info/dosing')
-        || pathname.startsWith('/info/supplement-safety-checklist')
-        || pathname.startsWith('/info/infographics')
-    }
-
-    return pathname === link.href || pathname.startsWith(link.href + '/')
+    const prefixes = link.activePrefixes?.length ? link.activePrefixes : [link.href]
+    return prefixes.some((prefix) => pathMatches(pathname, prefix))
   }
 
   const isChildActive = (href: string) => {
-    if (href === '/guides' || href === '/learn') return pathname === href
-    return pathname === href || pathname.startsWith(href + '/')
+    if (href === '/guides' || href === '/learn' || href === '/articles' || href === '/library') {
+      return pathname === href
+    }
+    return pathMatches(pathname, href)
   }
 
   const closeMobile = () => setMobileOpen(false)
@@ -130,12 +121,16 @@ export function Navigation() {
             <span className='max-w-[13rem] truncate sm:max-w-none'>The Hippie Scientist</span>
           </Link>
 
-          <div className='hidden items-center gap-6 text-sm md:flex lg:gap-8'>
+          <div className='hidden items-center gap-5 text-sm md:flex lg:gap-7'>
             {primaryLinks.map((link) => {
               const hasChildren = Boolean(link.children?.length)
               const childGroups = groupChildren(link.children)
               const isMegaMenu = childGroups.length > 1
               const active = isPrimaryActive(link)
+              const menuWidth = childGroups.length === 2
+                ? 'w-[min(46rem,calc(100vw-2rem))]'
+                : 'w-[min(58rem,calc(100vw-2rem))]'
+              const menuGrid = childGroups.length === 2 ? 'grid-cols-2' : 'grid-cols-3'
 
               return (
                 <div key={link.href} className='group relative'>
@@ -160,10 +155,10 @@ export function Navigation() {
                   {hasChildren ? (
                     <div
                       className={`invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition duration-150 ease-out group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 ${
-                        isMegaMenu ? 'w-[min(58rem,calc(100vw-2rem))]' : 'w-72'
+                        isMegaMenu ? menuWidth : 'w-80'
                       }`}
                     >
-                      <div className={`overflow-hidden rounded-3xl border border-[#123c2f]/10 bg-[#fffdf8] shadow-[0_18px_48px_rgba(45,35,19,0.14)] ring-1 ring-white/60 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)] dark:ring-white/5 ${isMegaMenu ? 'grid grid-cols-3 gap-2 p-3' : 'p-2'}`}>
+                      <div className={`overflow-hidden rounded-3xl border border-[#123c2f]/10 bg-[#fffdf8] shadow-[0_18px_48px_rgba(45,35,19,0.14)] ring-1 ring-white/60 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card-strong)] dark:ring-white/5 ${isMegaMenu ? `grid ${menuGrid} gap-2 p-3` : 'p-2'}`}>
                         {childGroups.map(({ section, items }) => (
                           <div key={section || 'links'} className={isMegaMenu ? 'rounded-2xl bg-[#f8f3e8]/55 p-2 dark:bg-[var(--surface-subtle)]' : ''}>
                             {section ? (
