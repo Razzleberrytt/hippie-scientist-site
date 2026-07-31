@@ -1,22 +1,18 @@
+# /goals/* rules removed: the goal hub routes now exist (app/goals/[slug]).
+# They were added when /goals/ 404d; redirecting them away now would orphan
+# ~6,000 internal links from the pages they are supposed to reach.
 # Semrush internal broken links export: www.thehippiescientist.net_internal_broken_links_20260708.csv
 # 3,826 broken-link instances collapsed to 308 unique 404 targets.
 # Counts are preserved in comments for future prioritization; build script emits slash/non-slash variants.
 # 374 broken-link instances
-/goals/anxiety/ /guides/anxiety/ 301
 # 365 broken-link instances
-/goals/blood-pressure/ /guides/best/supplements-for-blood-pressure/ 301
 # 286 broken-link instances
-/goals/cognition/ /guides/focus/ 301
 # 226 broken-link instances
-/goals/energy/ /guides/other/supplements-for-brain-fog-and-fatigue/ 301
 # 190 broken-link instances
-/goals/stress/ /guides/anxiety/best-supplements-for-stress/ 301
 # 175 broken-link instances
-/goals/fat-loss/ /guides/best/supplements-for-fat-loss/ 301
 # 168 broken-link instances
 /herbs/angelica-sinensis/ /herbs/dong-quai/ 301
 # 160 broken-link instances
-/goals/inflammation/ /learn/inflammation/ 301
 # 158 broken-link instances
 /herbs/astragalus-membranaceus/ /herbs/astragalus/ 301
 # 127 broken-link instances
@@ -24,7 +20,6 @@
 # 121 broken-link instances
 /herbs/valeriana-officinalis/ /herbs/valerian/ 301
 # 95 broken-link instances
-/goals/recovery/ /guides/best/supplements-for-joint-support/ 301
 # 85 broken-link instances
 /herbs/angelica-root/ /herbs/angelica-archangelica/ 301
 # 84 broken-link instances
@@ -36,21 +31,16 @@
 # 77 broken-link instances
 /herbs/ganoderma-lucidum/ /herbs/reishi/ 301
 # 75 broken-link instances
-/goals/sleep/ /guides/sleep/ 301
 # 73 broken-link instances
 /herbs/berberis-vulgaris/ /herbs/berberis/ 301
 # 70 broken-link instances
 /herbs/coptis-chinensis/ /herbs/coptis/ 301
 # 57 broken-link instances
-/goals/gut-health/ /guides/best/supplements-for-gut-health/ 301
 # 48 broken-link instances
-/goals/focus/ /guides/focus/ 301
 # 46 broken-link instances
 /herbs/berberis-aristata/ /herbs/berberis/ 301
 # 41 broken-link instances
-/goals/pain/ /guides/best/supplements-for-joint-support/ 301
 # 40 broken-link instances
-/goals/joint-support/ /guides/best/supplements-for-joint-support/ 301
 # 33 broken-link instances
 /herbs/atractylodes-macrocephala/ /herbs/atractylodes/ 301
 # 30 broken-link instances
@@ -92,7 +82,6 @@
 # 4 broken-link instances
 /guides/adhd/l-theanine-without-caffeine/ /guides/focus/l-theanine-without-caffeine/ 301
 # 4 broken-link instances
-/compare/berberine-vs-inositol/ /guides/compare/ 301
 # 3 broken-link instances
 /compare/alpha-lipoic-acid-vs-berberine-hcl/ /guides/compare/ 301
 # 3 broken-link instances
@@ -316,7 +305,6 @@
 # 1 broken-link instances
 /guides/compare/bacopa-vs-rhodiola/ /guides/compare/ 301
 # 1 broken-link instances
-/guides/compare/berberine-vs-inositol/ /guides/compare/ 301
 # 1 broken-link instances
 /guides/compare/caffeine-vs-theanine/ /guides/compare/ 301
 # 1 broken-link instances

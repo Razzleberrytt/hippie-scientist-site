@@ -14,8 +14,8 @@ https://www.thehippiescientist.net/guides/best-supplements-for-joint-support htt
 https://www.thehippiescientist.net/guides/best-supplements-for-joint-support/ https://thehippiescientist.net/guides/best/supplements-for-joint-support/ 301
 https://www.thehippiescientist.net/compare/creatine-vs-beta-alanine https://thehippiescientist.net/guides/compare/ 301
 https://www.thehippiescientist.net/compare/creatine-vs-beta-alanine/ https://thehippiescientist.net/guides/compare/ 301
-https://www.thehippiescientist.net/compare/berberine-vs-inositol https://thehippiescientist.net/guides/compare/berberine-vs-metformin/ 301
-https://www.thehippiescientist.net/compare/berberine-vs-inositol/ https://thehippiescientist.net/guides/compare/berberine-vs-metformin/ 301
+https://www.thehippiescientist.net/compare/berberine-vs-inositol https://thehippiescientist.net/guides/compare/berberine-vs-inositol/ 301
+https://www.thehippiescientist.net/compare/berberine-vs-inositol/ https://thehippiescientist.net/guides/compare/berberine-vs-inositol/ 301
 https://www.thehippiescientist.net/herbs/guayusa https://thehippiescientist.net/herbs/guayusa/ 301
 https://www.thehippiescientist.net/herbs/guayusa/ https://thehippiescientist.net/herbs/guayusa/ 301
 https://www.thehippiescientist.net/herbs/agarikon https://thehippiescientist.net/herbs/agarikon/ 301
@@ -38,6 +38,9 @@ https://www.thehippiescientist.net/best-supplements-for-fat-loss https://thehipp
 https://www.thehippiescientist.net/best-supplements-for-fat-loss/ https://thehippiescientist.net/guides/best/supplements-for-fat-loss/ 301
 https://www.thehippiescientist.net/best-supplements-for-focus https://thehippiescientist.net/guides/focus/best-supplements-for-focus/ 301
 https://www.thehippiescientist.net/best-supplements-for-focus/ https://thehippiescientist.net/guides/focus/best-supplements-for-focus/ 301
+
+https://www.thehippiescientist.net/goals https://thehippiescientist.net/goals/ 301
+https://www.thehippiescientist.net/goals/ https://thehippiescientist.net/goals/ 301
 
 # Canonical: non-www
 https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
@@ -250,8 +253,8 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /compare/melatonin-vs-magnesium/ /guides/compare/melatonin-vs-magnesium/ 301
 /compare/sleep-herbs-vs-melatonin /guides/compare/sleep-herbs-vs-melatonin/ 301
 /compare/sleep-herbs-vs-melatonin/ /guides/compare/sleep-herbs-vs-melatonin/ 301
-/compare/berberine-vs-inositol /guides/compare/berberine-vs-metformin/ 301
-/compare/berberine-vs-inositol/ /guides/compare/berberine-vs-metformin/ 301
+/compare/berberine-vs-inositol /guides/compare/berberine-vs-inositol/ 301
+/compare/berberine-vs-inositol/ /guides/compare/berberine-vs-inositol/ 301
 # Earns GSC impressions on "zinc or magnesium" but has no page and no rule, so it
 # has been serving a hard 404 to a query with demand. Route it to the comparison
 # hub until a real magnesium-vs-zinc page exists.
@@ -290,13 +293,11 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /compare/ashwagandha-vs-rhodiola/ /guides/compare/rhodiola-vs-ashwagandha/ 301
 /compare/ashwagandha-vs-rhodiola-for-stress /guides/compare/rhodiola-vs-ashwagandha/ 301
 /compare/ashwagandha-vs-rhodiola-for-stress/ /guides/compare/rhodiola-vs-ashwagandha/ 301
-# /goals/ is documented as a route contract but has no app/goals route, so these
-# all 301d into a 404. Pointed at the topic hubs that actually build.
-/best-for /guides/ 301
-/best-for/ /guides/ 301
-/best-for/sleep-support /guides/sleep/ 301
-/best-for/sleep-support/ /guides/sleep/ 301
-/best-for/non-stimulant-focus /guides/focus/ 301
-/best-for/non-stimulant-focus/ /guides/focus/ 301
-/best-for/non-sedating-calm /guides/anxiety/ 301
-/best-for/non-sedating-calm/ /guides/anxiety/ 301
+/best-for /goals/ 301
+/best-for/ /goals/ 301
+/best-for/sleep-support /goals/sleep/ 301
+/best-for/sleep-support/ /goals/sleep/ 301
+/best-for/non-stimulant-focus /goals/focus/ 301
+/best-for/non-stimulant-focus/ /goals/focus/ 301
+/best-for/non-sedating-calm /goals/anxiety/ 301
+/best-for/non-sedating-calm/ /goals/anxiety/ 301
