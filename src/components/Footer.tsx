@@ -96,8 +96,8 @@ export default function Footer() {
             </p>
 
             <div className='mt-6 flex flex-wrap gap-2'>
-              <a href='https://twitter.com/HippieScientist' target='_blank' rel='noopener noreferrer' className='rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/75 px-4 py-2 text-xs font-bold text-[#315f50] transition hover:border-[#b88a42]/35 hover:bg-[#fffdf8] dark:border-white/10 dark:bg-white/5 dark:text-[#a9c6b3] dark:hover:border-[#dec69b]/30 dark:hover:bg-white/10 dark:hover:text-[#d9e8de]'>
-                Twitter
+              <a href='https://x.com/TheHippieSci' target='_blank' rel='noopener noreferrer' className='rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/75 px-4 py-2 text-xs font-bold text-[#315f50] transition hover:border-[#b88a42]/35 hover:bg-[#fffdf8] dark:border-white/10 dark:bg-white/5 dark:text-[#a9c6b3] dark:hover:border-[#dec69b]/30 dark:hover:bg-white/10 dark:hover:text-[#d9e8de]'>
+                X
               </a>
               <a href='https://www.instagram.com/thehippiescientist' target='_blank' rel='noopener noreferrer' className='rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/75 px-4 py-2 text-xs font-bold text-[#315f50] transition hover:border-[#b88a42]/35 hover:bg-[#fffdf8] dark:border-white/10 dark:bg-white/5 dark:text-[#a9c6b3] dark:hover:border-[#dec69b]/30 dark:hover:bg-white/10 dark:hover:text-[#d9e8de]'>
                 Instagram
