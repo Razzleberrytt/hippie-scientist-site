@@ -602,7 +602,7 @@ export function organizationJsonLd() {
     },
     sameAs: [
       'https://x.com/TheHippieSci',
-      'https://www.instagram.com/thehippiescientist',
+      'https://www.instagram.com/thehippiesci',
       'https://www.youtube.com/@TheHippieSci',
     ],
   }

@@ -39,7 +39,7 @@ export default function AboutClient() {
     },
     sameAs: [
       'https://x.com/TheHippieSci',
-      'https://www.instagram.com/thehippiescientist',
+      'https://www.instagram.com/thehippiesci',
     ],
   }
 
