@@ -1,6 +1,11 @@
 import { getConsent } from './consent'
 
-export type RevenueEventKind = 'recommendation_click' | 'affiliate_click' | 'cta_click' | 'email_signup_attempt'
+export type RevenueEventKind =
+  | 'recommendation_impression'
+  | 'recommendation_click'
+  | 'affiliate_click'
+  | 'cta_click'
+  | 'email_signup_attempt'
 
 export type RevenueRouteFamily =
   | 'home'
@@ -55,6 +60,7 @@ export type RevenueEvent = {
 
 export function normalizeRevenueEventKind(kind: string): RevenueEventKind {
   if (
+    kind === 'recommendation_impression' ||
     kind === 'recommendation_click' ||
     kind === 'affiliate_click' ||
     kind === 'cta_click' ||
@@ -193,13 +199,12 @@ export function trackProfileView(profileName: string, profileType: string) {
 }
 
 export function trackRecommendationImpression(sourceProduct: string, recommendedProducts: string[]) {
-  if (typeof window !== 'undefined' && window.gtag && getConsent() === 'granted') {
-    window.gtag('event', 'recommendation_impression', {
-      source_product: sourceProduct,
-      recommended_products: recommendedProducts.join(','),
-      count: recommendedProducts.length,
-    })
-  }
+  trackRevenueEvent({
+    kind: 'recommendation_impression',
+    location: 'legacy-recommendation-impression',
+    label: recommendedProducts.join(',') || sourceProduct,
+    productSlug: sourceProduct,
+  })
 }
 
 export function trackStackView(stackName: string, products: string[]) {

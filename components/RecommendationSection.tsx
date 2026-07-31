@@ -1,5 +1,6 @@
 import AffiliateDisclosure from './AffiliateDisclosure'
 import AffiliateProductCard, { type AffiliateProduct } from './AffiliateProductCard'
+import RevenueImpressionTracker from './RevenueImpressionTracker'
 import WhyWeRecommend from '../src/components/monetization/WhyWeRecommend'
 import HorizontalCardRail from './ui/HorizontalCardRail'
 
@@ -51,21 +52,35 @@ export default function RecommendationSection({
       </div>
 
       <HorizontalCardRail label={`${title} options`}>
-        {ordered.map((product) => (
-          <div key={`${product.slot}-${product.title || product.name}`} className='flex h-full flex-col gap-2'>
-            <p className='text-xs font-bold uppercase tracking-[0.16em] text-brand-700 dark:text-brand-200'>{slotLabels[product.slot]}</p>
-            <AffiliateProductCard
-              product={{
-                ...product,
-                preferredRegion: product.preferredRegion ?? preferredRegion,
-                trackingLocation: product.trackingLocation ?? trackingLocation,
-                trackingProductSlug: product.trackingProductSlug ?? trackingProductSlug,
-                trackingSlot: product.trackingSlot ?? product.slot,
-              }}
-              compact
-            />
-          </div>
-        ))}
+        {ordered.map((product) => {
+          const productTitle = product.title || product.name || `${slotLabels[product.slot]} option`
+          const productSlug = product.trackingProductSlug ?? trackingProductSlug
+          const productLocation = product.trackingLocation ?? trackingLocation
+
+          return (
+            <RevenueImpressionTracker
+              key={`${product.slot}-${productTitle}`}
+              className='flex h-full flex-col gap-2'
+              location={productLocation}
+              label={productTitle}
+              productSlug={productSlug}
+              productSlot={product.trackingSlot ?? product.slot}
+              productAsin={product.asin}
+            >
+              <p className='text-xs font-bold uppercase tracking-[0.16em] text-brand-700 dark:text-brand-200'>{slotLabels[product.slot]}</p>
+              <AffiliateProductCard
+                product={{
+                  ...product,
+                  preferredRegion: product.preferredRegion ?? preferredRegion,
+                  trackingLocation: productLocation,
+                  trackingProductSlug: productSlug,
+                  trackingSlot: product.trackingSlot ?? product.slot,
+                }}
+                compact
+              />
+            </RevenueImpressionTracker>
+          )
+        })}
       </HorizontalCardRail>
 
       <WhyWeRecommend className='mt-4' />
