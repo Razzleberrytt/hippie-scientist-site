@@ -2,14 +2,14 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { BookOpenCheck, Leaf, Search, Sparkles, Library } from 'lucide-react'
+import { BookOpenCheck, Leaf, Library, Newspaper, Search } from 'lucide-react'
 
 export const mobileBottomNavItems = [
-  { href: '/library', label: 'Library', Icon: Library },
-  { href: '/herbs', label: 'Herbs', Icon: Leaf },
+  { href: '/library', label: 'Explore', Icon: Library },
+  { href: '/guides', label: 'Topics', Icon: BookOpenCheck },
   { href: '/search', label: 'Search', Icon: Search },
-  { href: '/compounds', label: 'Compounds', Icon: Sparkles },
-  { href: '/guides/best', label: 'Best', Icon: BookOpenCheck },
+  { href: '/herbs', label: 'Herbs', Icon: Leaf },
+  { href: '/articles', label: 'Articles', Icon: Newspaper },
 ]
 
 function toCanonicalHref(href: string) {
