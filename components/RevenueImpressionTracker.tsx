@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useRef, type ReactNode } from 'react'
-import { CONSENT_GRANTED_EVENT, getConsent } from '@/src/lib/consent'
-import { trackRevenueEvent } from '@/src/lib/revenue-tracking'
+import { CONSENT_GRANTED_EVENT, getConsent } from '../src/lib/consent'
+import { trackRevenueEvent } from '../src/lib/revenue-tracking'
 
 export const RECOMMENDATION_IMPRESSION_THRESHOLD = 0.5
 export const RECOMMENDATION_IMPRESSION_DELAY_MS = 1000
