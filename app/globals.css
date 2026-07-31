@@ -291,8 +291,11 @@ html.theme-ready body * {
     @apply mt-4;
   }
 
-  ul,
-  ol {
+  /* Block-flow lists take their rhythm from child margins. Grid and flex lists
+     space themselves with `gap`, and a child margin there leaves every item but
+     the last shorter than its row track — so those opt out. */
+  ul:not([class~='grid'], [class~='inline-grid'], [class~='flex'], [class~='inline-flex']),
+  ol:not([class~='grid'], [class~='inline-grid'], [class~='flex'], [class~='inline-flex']) {
     @apply space-y-2.5;
   }
 
