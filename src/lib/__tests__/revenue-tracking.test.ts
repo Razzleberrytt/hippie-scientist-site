@@ -11,6 +11,7 @@ import {
 
 describe('revenue tracking', () => {
   it('normalizes supported revenue event kinds', () => {
+    expect(normalizeRevenueEventKind('recommendation_impression')).toBe('recommendation_impression')
     expect(normalizeRevenueEventKind('recommendation_click')).toBe('recommendation_click')
     expect(normalizeRevenueEventKind('affiliate_click')).toBe('affiliate_click')
     expect(normalizeRevenueEventKind('cta_click')).toBe('cta_click')
@@ -70,5 +71,37 @@ describe('revenue tracking', () => {
       scrollDepth: '50-74',
     })
     expect(event.occurredAt).toMatch(/^\d{4}-\d{2}-\d{2}T/)
+  })
+
+  it('uses the same dimensions for recommendation impressions and clicks', () => {
+    const impression = buildRevenueEvent(
+      {
+        kind: 'recommendation_impression',
+        location: 'compare-recommendation',
+        label: 'Magnesium glycinate',
+        productSlug: 'magnesium',
+        productSlot: 'overall',
+        productAsin: 'B000000000',
+      },
+      {
+        pagePath: '/guides/compare/magnesium-vs-melatonin/',
+        viewportWidth: 1440,
+        viewportHeight: 900,
+        scrollY: 1200,
+        documentHeight: 3000,
+      },
+    )
+
+    expect(impression).toMatchObject({
+      kind: 'recommendation_impression',
+      location: 'compare-recommendation',
+      label: 'Magnesium glycinate',
+      routeFamily: 'comparison',
+      productSlug: 'magnesium',
+      productSlot: 'overall',
+      productAsin: 'B000000000',
+      deviceType: 'desktop',
+      scrollDepth: '50-74',
+    })
   })
 })
