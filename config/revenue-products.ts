@@ -2591,6 +2591,8 @@ const revenueProductAliases: Record<string, string> = {
   'lion-s-mane': 'lions-mane',
   lionmane: 'lions-mane',
   'hericium-erinaceus': 'lions-mane',
+  // saw palmetto (canonical herb record is the binomial slug)
+  'serenoa-repens': 'saw-palmetto',
   // valerian
   'valerian-root': 'valerian',
   'valerian-root-extract': 'valerian',

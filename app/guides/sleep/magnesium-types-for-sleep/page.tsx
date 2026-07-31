@@ -1159,7 +1159,7 @@ export default function MagnesiumTypesForSleepPage() {
                 Ashwagandha for sleep →
               </Link>
               <Link
-                href="/guides/sleep-herbs-vs-melatonin/"
+                href="/guides/sleep/sleep-herbs-vs-melatonin/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Sleep herbs vs melatonin →

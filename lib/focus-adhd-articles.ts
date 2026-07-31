@@ -19,8 +19,13 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     slug: 'best-supplements-for-adhd',
     source: 'docs/content/focus-cluster/best-supplements-for-adhd-v2-content.md',
     title: 'Best Supplements for ADHD: Omega-3, Magnesium, Rhodiola Rosea, and Evidence-Based Options',
-    seoTitle: 'Best Supplements for ADHD: Omega-3, Magnesium, Rhodiola',
-    description: 'Compare ADHD supplements by evidence, safety, and use case. Covers omega-3, magnesium, zinc, iron, vitamin D, L-theanine, citicoline, rhodiola rosea, and more.',
+    // "adhd supplements" / "supplements for adhd" are the two queries this page
+    // already earns impressions on. Keep the exact phrase at the front, then
+    // trade the ingredient list for the thing that differentiates this page from
+    // every other listicle on the results page: graded evidence, including the
+    // ones that do not hold up.
+    seoTitle: 'Best Supplements for ADHD: What the Evidence Supports',
+    description: 'ADHD supplements graded by the strength of the human evidence: which hold up for focus, which only help if you are deficient, and which are not worth the money.',
     category: 'Supplement Evidence',
     tags: ['Focus', 'ADHD', 'Sleep', 'Nutrient Deficiencies', 'Supplement Evidence'],
     date: '2026-06-10',
@@ -162,8 +167,11 @@ export const focusAdhdArticles: FocusAdhdArticle[] = [
     slug: 'citicoline-vs-alpha-gpc',
     source: 'docs/content/focus-cluster/citicoline-vs-alpha-gpc-content-v1.md',
     title: 'Citicoline vs Alpha-GPC: Which Choline Supplement Is Better for Focus and Cognitive Support?',
-    seoTitle: 'Citicoline vs Alpha-GPC for ADHD: Evidence, Dosing & Side Effects',
-    description: 'Citicoline vs Alpha-GPC for ADHD — evidence review, dosing guide, side effects, health-condition cautions, and how these choline sources compare for improved focus.',
+    // The query is "citicoline vs alpha gpc", not an ADHD-qualified one, and the
+    // old seoTitle ran 65 chars so Google truncated the payoff clause. Lead with
+    // the bare comparison and keep the whole title inside the 60-char budget.
+    seoTitle: 'Citicoline vs Alpha-GPC: Which Is Better for Focus?',
+    description: 'Citicoline and Alpha-GPC deliver choline differently, and it changes the dose, the cost, and who should avoid each. Evidence, side effects, and how to pick.',
     category: 'Supplement Evidence',
     tags: ['Focus', 'ADHD', 'Supplement Evidence'],
     date: '2026-06-10',

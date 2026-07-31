@@ -23,6 +23,9 @@ function slug(value: unknown) {
     .replace(/^-|-$/g, '')
 }
 
+// Both branches used to deep-link into query-string routes: `/explore?q=` has no
+// page at all, and `/search?q=` is a noindexed client-side shell whose result URLs
+// must stay out of crawl discovery. Point at the crawlable browse hub instead.
 export function buildPrimaryCTA(record: Record<string, unknown>): ConversionCTA {
   const semantic = buildSemanticIntelligenceReport(record)
   const name = title(record?.displayName || record?.name || record?.slug)
@@ -30,7 +33,7 @@ export function buildPrimaryCTA(record: Record<string, unknown>): ConversionCTA 
   if (semantic.priority === 'high') {
     return {
       label: `Explore deeper ${name} pathways`,
-      href: `/explore?q=${slug(name)}`,
+      href: '/library/',
       description: 'Continue into adjacent mechanisms, evidence layers, and ecosystem relationships.',
       tone: 'explore',
     }
@@ -38,7 +41,7 @@ export function buildPrimaryCTA(record: Record<string, unknown>): ConversionCTA 
 
   return {
     label: `Research related ${name} profiles`,
-    href: `/search?q=${slug(name)}`,
+    href: '/library/',
     description: 'Compare adjacent semantic profiles before drawing conclusions.',
     tone: 'explore',
   }

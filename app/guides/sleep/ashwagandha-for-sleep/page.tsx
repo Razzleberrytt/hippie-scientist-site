@@ -598,7 +598,7 @@ export default function AshwagandhaForSleepPage() {
               <p className="mt-3 text-sm text-muted">
                 See the full{' '}
                 <Link
-                  href="/guides/sleep-herbs-vs-melatonin/"
+                  href="/guides/sleep/sleep-herbs-vs-melatonin/"
                   className="font-semibold text-brand-700 hover:text-brand-800 hover:underline"
                 >
                   sleep herbs vs melatonin comparison
@@ -651,7 +651,7 @@ export default function AshwagandhaForSleepPage() {
                   </p>
                 </Link>
                 <Link
-                  href="/guides/sleep-herbs-vs-melatonin/"
+                  href="/guides/sleep/sleep-herbs-vs-melatonin/"
                   className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30"
                 >
                   <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
@@ -976,7 +976,7 @@ export default function AshwagandhaForSleepPage() {
                 Ashwagandha herb profile →
               </Link>
               <Link
-                href="/guides/sleep-herbs-vs-melatonin/"
+                href="/guides/sleep/sleep-herbs-vs-melatonin/"
                 className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline"
               >
                 Sleep herbs vs melatonin →

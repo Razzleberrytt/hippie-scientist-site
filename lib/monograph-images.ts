@@ -79,6 +79,7 @@ const FEATURED_IMAGES: Record<string, string> = {
   'herb:garlic': '/images/guides/garlic.jpg',
   'herb:hawthorn': '/images/guides/hawthorn.jpg',
   'herb:saw-palmetto': '/images/guides/saw-palmetto.jpg',
+  'herb:serenoa-repens': '/images/guides/saw-palmetto.jpg',
   'herb:black-cohosh': '/images/guides/black-cohosh.jpg',
   'herb:kava': '/images/guides/kava.jpg',
   'herb:passionflower': '/images/guides/passionflower.jpg',

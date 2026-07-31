@@ -32,9 +32,13 @@ export default function LibraryEmptyState({
       {suggestedSearches.length > 0 && (
         <div className="flex flex-wrap justify-center gap-2">
           {suggestedSearches.map((term) => (
+            // `rel="nofollow"` keeps these out of crawl discovery: `?q=` search
+            // results are unbounded thin duplicates of the profiles they list,
+            // and /search itself is noindexed. The link stays for human recovery.
             <Link
               key={term}
               href={`/search?q=${encodeURIComponent(term)}`}
+              rel="nofollow"
               className="rounded-full border border-brand-900/15 bg-white px-3.5 py-1 text-xs font-medium text-ink transition-colors hover:border-brand-700/30 hover:bg-surface"
             >
               {term}

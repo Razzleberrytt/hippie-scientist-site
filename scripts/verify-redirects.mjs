@@ -14,11 +14,14 @@ const lines = txt
   .map(line => line.trim())
   .filter(line => line && !line.startsWith('#'))
 
+// Targets are the routes that actually build. The three legacy guide aliases
+// below used to expect /guides/<slug>/, which app/guides/[slug] does not
+// generate, so the assertion was passing while the redirect served a 404.
 const requiredRedirects = [
   '/atom.xml /feed.xml 301',
-  '/natural-anxiolytics-beyond-ashwagandha /guides/natural-anxiolytics-beyond-ashwagandha/ 301',
-  '/psychedelic-adjacent-herbs /guides/psychedelic-adjacent-herbs/ 301',
-  '/sleep-herbs-vs-melatonin /guides/sleep-herbs-vs-melatonin/ 301',
+  '/natural-anxiolytics-beyond-ashwagandha /guides/anxiety/natural-anxiolytics-beyond-ashwagandha/ 301',
+  '/psychedelic-adjacent-herbs /guides/other/psychedelic-adjacent-herbs/ 301',
+  '/sleep-herbs-vs-melatonin /guides/sleep/sleep-herbs-vs-melatonin/ 301',
   '/compounds/coq10 /compounds/coenzyme-q10/ 301',
   '/compounds/coenzyme-q10-ubiquinol /compounds/coenzyme-q10/ 301',
   '/compounds/theanine /compounds/l-theanine/ 301',
@@ -110,4 +113,48 @@ if (missingRequiredRedirects.length) {
   process.exit(1)
 }
 
+// Every redirect target must resolve to a page that was actually exported.
+// Three required rules previously pointed at /guides/<slug>/ routes that
+// app/guides/[slug] does not build, so the redirect resolved to a 404 — a
+// redirect into a dead end is worse than no redirect, because search engines
+// keep the source URL in the index while it earns nothing.
+const targetsMissingPages = []
+for (const line of lines) {
+  const [source, target = ''] = line.split(/\s+/)
+  if (source.includes('*') || target.includes(':splat')) continue
+
+  let pathname = target
+  if (/^https?:\/\//i.test(target)) {
+    try {
+      const url = new URL(target)
+      // Off-site targets are outside this repo's control.
+      if (!/(^|\.)thehippiescientist\.net$/i.test(url.hostname)) continue
+      pathname = url.pathname
+    } catch {
+      continue
+    }
+  }
+  if (!pathname.startsWith('/')) continue
+
+  const relative = pathname.replace(/^\/+/, '').replace(/\/+$/, '')
+  const candidates = relative
+    ? [path.join(staticDir, relative, 'index.html'), path.join(staticDir, relative)]
+    : [path.join(staticDir, 'index.html')]
+
+  if (!candidates.some((candidate) => fs.existsSync(candidate))) {
+    targetsMissingPages.push(`${source} -> ${target}`)
+  }
+}
+
+if (targetsMissingPages.length) {
+  console.error(
+    `[verify-redirects] ${targetsMissingPages.length} redirect target(s) do not exist in ${staticDir}/:`,
+  )
+  for (const rule of targetsMissingPages.slice(0, 25)) {
+    console.error(`[verify-redirects]   ${rule}`)
+  }
+  process.exit(1)
+}
+
 console.log(`[verify-redirects] OK: ${requiredRedirects.length} required rules verified`)
+console.log(`[verify-redirects] OK: all ${lines.length} redirect targets resolve to exported pages`)

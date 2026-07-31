@@ -3,6 +3,7 @@ import path from 'node:path'
 import { cache } from 'react'
 import { formatDisplayLabel } from '@/lib/display-utils'
 import { getRuntimeVisibility } from './runtime-visibility'
+import { canonicalProfileHref } from './canonical-profile-href'
 import { getCompoundSummaryIndex, getHerbSummaryIndex } from '../src/lib/runtime-summary-indexes'
 
 /**
@@ -80,11 +81,17 @@ function finalizeLinks(links: ProfileLink[]): ProfileLink[] {
     (a, b) => RELATIONSHIP_PRIORITY[a.relationship] - RELATIONSHIP_PRIORITY[b.relationship],
   )
   const seenNames = new Set<string>()
+  const seenHrefs = new Set<string>()
   const deduped: ProfileLink[] = []
   for (const link of sorted) {
     const key = nameKey(link.name)
     if (seenNames.has(key)) continue
+    // Distinct source slugs can resolve to the same canonical URL once
+    // deprecated slugs are rewritten (saw-palmetto and serenoa-repens both land
+    // on /herbs/serenoa-repens/), so dedupe on the destination as well.
+    if (seenHrefs.has(link.href)) continue
     seenNames.add(key)
+    seenHrefs.add(link.href)
     deduped.push(link)
   }
   return deduped.slice(0, MAX_LINKS)
@@ -119,7 +126,7 @@ export async function getHerbCompoundLinks(herbSlug: string, herbName?: string):
       slug: compoundSlug,
       name,
       relationship,
-      href: `/compounds/${compoundSlug}`,
+      href: canonicalProfileHref('compounds', compoundSlug),
       anchor:
         relationship === 'primary'
           ? `${name} — primary active compound in ${display}`
@@ -162,7 +169,7 @@ export async function getCompoundSourceHerbs(
       slug: herbSlug,
       name,
       relationship,
-      href: `/herbs/${herbSlug}`,
+      href: canonicalProfileHref('herbs', herbSlug),
       anchor:
         relationship === 'primary'
           ? `${name}, a primary natural source of ${display}`

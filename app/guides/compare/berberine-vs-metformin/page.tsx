@@ -40,14 +40,14 @@ export default function BerberineVsMetforminPage() {
         title="Berberine vs Metformin"
         description="Evidence-graded comparison of berberine and metformin for blood sugar management, insulin resistance, and metabolic health. Mechanisms, RCT data, safety, cost, and when to use each.
       "
-        url="https://thehippiescientist.net/guides/compare/berberine-vs-metformin"
+        url="https://thehippiescientist.net/guides/compare/berberine-vs-metformin/"
         type="Article"
       />
 
       <AuthorityBreadcrumbs
         items={[
           { label: 'Home', href: '/' },
-          { label: 'Compare', href: '/guides/compare' },
+          { label: 'Compare', href: '/guides/compare/' },
           { label: 'Berberine vs Metformin' },
         ]}
       />
@@ -478,42 +478,39 @@ export default function BerberineVsMetforminPage() {
             label: 'Compound',
             title: 'Berberine Deep Dive',
             description: 'Full evidence profile for berberine: mechanisms, RCT data, dosing, safety, and metabolic stack context.',
-            href: '/compounds/berberine',
+            href: '/compounds/berberine/',
           },
           {
-            type: 'guide',
-            label: 'Comparison',
-            title: 'Berberine vs Inositol',
-            description: 'Two insulin sensitizers with different mechanisms — when each makes sense, and how they stack.',
-            href: '/guides/compare/berberine-vs-metformin',
-          },
-          {
-            type: 'guide',
-            label: 'Comparison',
-            title: 'Berberine vs Psyllium',
-            description: 'Comparing two gut-first metabolic supplements with different primary mechanisms.',
-            href: '/guides/compare/berberine-vs-metformin',
+            // Was a self-link titled "Berberine vs Inositol" — no such page
+            // exists, so the card promised a comparison and delivered the page
+            // the reader was already on. Point at the inositol profile, which is
+            // the real destination for that intent, and label it honestly.
+            type: 'compound',
+            label: 'Compound',
+            title: 'Inositol',
+            description: 'Evidence profile for inositol: insulin-sensitizing mechanism, PCOS and metabolic data, dosing, and safety.',
+            href: '/compounds/inositol/',
           },
           {
             type: 'guide',
             label: 'Goal Guide',
             title: 'Gut Health & Metabolic Goals',
             description: 'Map your metabolic goal to the right compounds — insulin resistance, lipids, gut health, or fat loss.',
-            href: '/guides/best/supplements-for-gut-health',
+            href: '/guides/best/supplements-for-gut-health/',
           },
           {
             type: 'guide',
             label: 'Education',
             title: 'AMPK Mechanism',
             description: "How AMPK works as the body's energy sensor and why it's a target for both berberine and metformin.",
-            href: '/guides/best/supplements-for-fat-loss',
+            href: '/guides/best/supplements-for-fat-loss/',
           },
           {
             type: 'guide',
             label: 'Stack',
             title: 'Metabolic Support Stack',
             description: 'Evidence-guided protocol for blood sugar management, insulin sensitivity, and metabolic health.',
-            href: '/guides/best/supplements-for-fat-loss',
+            href: '/guides/best/supplements-for-fat-loss/',
           },
         ]}
       />

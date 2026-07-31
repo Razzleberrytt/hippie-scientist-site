@@ -16,8 +16,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/search/',
   },
+  // Intentionally noindex: the page is a client-side search shell whose useful
+  // content is the profile pages it links to, and its `?q=` result URLs are
+  // unbounded thin duplicates. `follow` is kept so the curated links below still
+  // pass discovery to the profiles.
   robots: {
-    index: true,
+    index: false,
     follow: true,
   },
 }
