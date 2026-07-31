@@ -371,19 +371,46 @@ export default function HomepageV2() {
               Side-by-side guides for when the real question is which option fits your situation.
             </p>
 
-            <div className='mt-7 space-y-3.5'>
-              {comparisonLinks.map((comparison) => (
+            <div className='@container mt-7 space-y-3.5'>
+              {comparisonLinks.map((comparison) => {
+                // A three-way comparison does not fit on one line in a narrow card, and
+                // wrapping strands a lone "vs" on the second line. Below ~30rem of card
+                // width these stack into an aligned column instead; above it they read
+                // inline like the two-way rows.
+                const isMultiWay = comparison.parts.length > 2
+                return (
                 <Link
                   key={comparison.href}
                   href={comparison.href}
                   data-tone={comparison.tone}
                   className='hs-vs group focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--tone)] focus-visible:ring-offset-2'
                 >
-                  <span className='flex flex-1 flex-wrap items-center gap-x-2.5 gap-y-1.5'>
+                  <span
+                    className={
+                      isMultiWay
+                        ? 'flex min-w-0 flex-1 flex-col items-start gap-y-1.5 @min-[30rem]:flex-row @min-[30rem]:flex-wrap @min-[30rem]:items-center @min-[30rem]:gap-x-2.5'
+                        : 'flex min-w-0 flex-1 flex-wrap items-center gap-x-2.5 gap-y-1.5'
+                    }
+                  >
                     {comparison.parts.map((part, index) => (
                       <span key={part} className='flex items-center gap-2.5'>
+                        {/* Keeps the first name aligned with the ones below it while stacked. */}
+                        {isMultiWay && index === 0 ? (
+                          <span
+                            aria-hidden='true'
+                            className='h-[1.7rem] w-[1.7rem] shrink-0 @min-[30rem]:hidden'
+                          />
+                        ) : null}
                         {index > 0 ? <span className='hs-vs-mark'>vs</span> : null}
-                        <span className='hs-vs-name text-[1.02rem] sm:text-[1.1rem]'>{part}</span>
+                        <span
+                          className={
+                            isMultiWay
+                              ? 'hs-vs-name text-[1.02rem]'
+                              : 'hs-vs-name text-[1.02rem] sm:text-[1.1rem]'
+                          }
+                        >
+                          {part}
+                        </span>
                       </span>
                     ))}
                   </span>
@@ -392,7 +419,8 @@ export default function HomepageV2() {
                     aria-hidden='true'
                   />
                 </Link>
-              ))}
+                )
+              })}
             </div>
 
             <Link href='/guides/compare/' className='hs-link mt-7 text-sm'>
