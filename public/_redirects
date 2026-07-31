@@ -154,11 +154,11 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /herbs/ashwagandha-withania-somnifera /herbs/ashwagandha/ 301
 /herbs/ashwagandha-withania-somnifera/ /herbs/ashwagandha/ 301
 
-# Saw palmetto = Serenoa repens. The binomial slug carries the grounded,
-# source-backed profile; the common-name record is hidden_until_grounded and was
-# serving noindex on the URL that receives the search demand.
-/herbs/saw-palmetto /herbs/serenoa-repens/ 301
-/herbs/saw-palmetto/ /herbs/serenoa-repens/ 301
+# Saw palmetto = Serenoa repens. The common-name record was promoted through
+# scripts/data/promote-profile.mjs and now carries the grounded profile, so the
+# binomial redirects to it (matching this file's binomial -> common-name convention).
+/herbs/serenoa-repens /herbs/saw-palmetto/ 301
+/herbs/serenoa-repens/ /herbs/saw-palmetto/ 301
 
 # Saw palmetto = Serenoa repens. The binomial slug carries the grounded,
 # source-backed profile; the common-name record is hidden_until_grounded and was

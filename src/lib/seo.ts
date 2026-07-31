@@ -1089,14 +1089,15 @@ const PROFILE_METADATA_OVERRIDES: Record<string, { title: string; description?: 
       'Magnesium glycinate is the form best tolerated at higher doses. What it does for sleep and muscle tension, how much to take, who should avoid it, and side effects.',
   },
   'silybum-marianum': { title: 'Silybum Marianum (Milk Thistle): Benefits, Dosage & Safety' },
-  // Search demand is on the common name, but the grounded record lives on the
-  // binomial slug (see lib/deprecated-herb-canonicals.ts, where /herbs/saw-palmetto/
-  // 301s here). Lead the title and snippet with "Saw palmetto" so the indexed page
-  // matches the query it actually receives.
-  'serenoa-repens': {
+  // The profile now lives on the common-name slug (see promote-profile in
+  // lib/deprecated-herb-canonicals.ts). Keep the binomial in the title so the
+  // page still matches "serenoa repens" searches, and attribute the negative
+  // finding to CAMUS — the dose-escalation detail is that trial's, not the
+  // Cochrane review's, which an earlier version of this snippet conflated.
+  'saw-palmetto': {
     title: 'Saw Palmetto (Serenoa repens): Does It Help BPH?',
     description:
-      'Saw palmetto for prostate and urinary symptoms: a Cochrane review found no improvement over placebo, even at double and triple doses. Dosage and safety.',
+      'Saw palmetto for prostate and urinary symptoms: the CAMUS trial found no benefit over placebo, even at double and triple the usual dose. Dosage and safety.',
   },
 }
 
