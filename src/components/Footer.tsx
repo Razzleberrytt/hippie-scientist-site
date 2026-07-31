@@ -81,7 +81,7 @@ export default function Footer() {
   return (
     <footer className='editorial-footer mt-12 w-full px-4 pb-28 pt-12 sm:px-6 sm:pt-16 md:pb-12'>
       <div className='relative z-10 mx-auto w-full max-w-6xl'>
-        <div className='grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16'>
+        <div className='grid gap-8 md:grid-cols-[0.85fr_1.15fr] md:gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12'>
           <div>
             <div className='flex items-center gap-3'>
               <span className='editorial-icon-disc h-12 w-12'>
@@ -91,11 +91,11 @@ export default function Footer() {
                 The Hippie Scientist
               </p>
             </div>
-            <p className='mt-4 max-w-md text-sm leading-7 text-[#526159] dark:text-[var(--text-secondary)]'>
+            <p className='mt-3 max-w-md text-sm leading-6 text-[#526159] dark:text-[var(--text-secondary)]'>
               Evidence-first botanical research for clearer, safer supplement decisions. Educational only — not medical advice.
             </p>
 
-            <div className='mt-6 flex flex-wrap gap-2'>
+            <div className='mt-4 flex flex-wrap gap-2'>
               <a href='https://x.com/TheHippieSci' target='_blank' rel='noopener noreferrer' className='rounded-full border border-[#123c2f]/10 bg-[#fffdf8]/75 px-4 py-2 text-xs font-bold text-[#315f50] transition hover:border-[#b88a42]/35 hover:bg-[#fffdf8] dark:border-white/10 dark:bg-white/5 dark:text-[#a9c6b3] dark:hover:border-[#dec69b]/30 dark:hover:bg-white/10 dark:hover:text-[#d9e8de]'>
                 X
               </a>
@@ -107,12 +107,12 @@ export default function Footer() {
               </a>
             </div>
 
-            <div className='editorial-card mt-7 rounded-2xl p-5'>
+            <div className='editorial-card mt-6 rounded-2xl p-4 sm:p-5'>
               <p className='editorial-eyebrow'>Lost or not sure where to begin?</p>
-              <p className='mt-3 text-sm leading-6 text-[#526159] dark:text-[var(--text-secondary)]'>
+              <p className='mt-2 text-sm leading-6 text-[#526159] dark:text-[var(--text-secondary)]'>
                 The master directory explains how the site is organized and links every major guide, article, profile, research, and safety collection.
               </p>
-              <Link className='mt-4 inline-flex text-sm font-bold text-[#315f50] hover:text-[#123c2f] dark:text-[#8dc49a] dark:hover:text-[#c9e4d2]' to={PUBLIC_ROUTES.library} prefetch={true}>
+              <Link className='mt-3 inline-flex text-sm font-bold text-[#315f50] hover:text-[#123c2f] dark:text-[#8dc49a] dark:hover:text-[#c9e4d2]' to={PUBLIC_ROUTES.library} prefetch={true}>
                 Explore the complete site →
               </Link>
             </div>
@@ -120,21 +120,21 @@ export default function Footer() {
 
           <div>
             <p className='editorial-eyebrow'>Explore</p>
-            <div className='mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3'>
+            <div className='mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3'>
               {exploreLinks.map(({ href, label, Icon }) => (
                 <Link
                   key={href}
                   to={href}
                   prefetch={true}
-                  className='editorial-link-tile group flex min-h-20 flex-col justify-between rounded-2xl p-4 text-[#123c2f] transition dark:text-[var(--text-primary)]'
+                  className='editorial-link-tile group flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-[#123c2f] transition dark:text-[var(--text-primary)]'
                 >
-                  <Icon className='h-5 w-5 text-[#315f50] dark:text-[#8dc49a]' aria-hidden='true' strokeWidth={1.7} />
-                  <span className='mt-3 text-sm font-bold'>{label}</span>
+                  <Icon className='h-4 w-4 shrink-0 text-[#315f50] dark:text-[#8dc49a]' aria-hidden='true' strokeWidth={1.7} />
+                  <span className='text-sm font-bold leading-tight'>{label}</span>
                 </Link>
               ))}
             </div>
 
-            <div className='mt-8 grid gap-7 sm:grid-cols-2 xl:grid-cols-4'>
+            <div className='mt-7 grid grid-cols-2 gap-x-5 gap-y-7 lg:grid-cols-4'>
               <div>
                 <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[#315f50] dark:text-[#8dc49a]'>Popular topics</h3>
                 <ul className='mt-3 space-y-2'>
@@ -195,7 +195,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className='mt-10 flex flex-col justify-between gap-3 border-t border-[#123c2f]/10 pt-6 text-xs text-[#647168] sm:flex-row dark:border-white/10 dark:text-[#93a89b]'>
+        <div className='mt-8 flex flex-col justify-between gap-3 border-t border-[#123c2f]/10 pt-6 text-xs text-[#647168] sm:flex-row dark:border-white/10 dark:text-[#93a89b]'>
           <div>© 2024–{copyrightYear} The Hippie Scientist. All rights reserved.</div>
           <div className='flex flex-wrap gap-x-4 gap-y-2'>
             <span>Educational use only</span>
