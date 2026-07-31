@@ -7,9 +7,9 @@ import {
   Leaf,
   Library,
   Moon,
+  Search,
   ShieldCheck,
   Sparkles,
-  Search,
   Zap,
 } from 'lucide-react'
 import articlesData from '@/data/articles/articles.json'
@@ -20,84 +20,37 @@ const heroGoals = [
   {
     slug: 'sleep',
     title: 'Sleep',
+    href: '/guides/sleep/',
     icon: Moon,
-    prompt: 'Fall asleep, stay asleep, and compare sleep supplements without guessing.',
+    prompt: 'Compare sleep supports by timing, evidence, next-day effects, and safety.',
   },
   {
     slug: 'stress',
     title: 'Stress',
+    href: '/guides/anxiety/',
     icon: Leaf,
-    prompt: 'Sort adaptogens and calming supports by fatigue pattern, timing, and safety.',
+    prompt: 'Sort calming supports and adaptogens by symptom pattern and tradeoffs.',
   },
   {
     slug: 'anxiety',
     title: 'Anxiety',
+    href: '/guides/anxiety/',
     icon: Cloud,
-    prompt: 'Find grounded options for calm, overthinking, and daytime tension.',
+    prompt: 'Research options for overthinking, tension, and calm without the hype.',
   },
   {
     slug: 'focus',
     title: 'Focus',
+    href: '/guides/focus/',
     icon: Zap,
-    prompt: 'Compare non-stimulant focus supports and caffeine-adjacent options.',
+    prompt: 'Compare stimulant and non-stimulant approaches to attention and cognition.',
   },
 ]
-
-const CATEGORY_TAG_COLORS: Record<string, string> = {
-  'metabolic health': 'border-stone-300 bg-stone-100 text-stone-700 dark:bg-stone-800/30 dark:text-stone-200 dark:border-stone-700',
-  'cognitive health': 'border-emerald-300 bg-emerald-100 text-emerald-800 dark:bg-emerald-800/20 dark:text-emerald-200 dark:border-emerald-700',
-  'anxiety & sleep': 'border-violet-300 bg-violet-100 text-violet-800 dark:bg-violet-800/20 dark:text-violet-200 dark:border-violet-700',
-  general: 'border-amber-300 bg-amber-100 text-amber-800 dark:bg-amber-800/20 dark:text-amber-200 dark:border-amber-700',
-}
-
-function categoryTagClass(category: string): string {
-  return (
-    CATEGORY_TAG_COLORS[category.toLowerCase()] ||
-    'border-brand-200 bg-brand-50 text-brand-700 dark:bg-[var(--surface-subtle)] dark:text-[var(--text-secondary)]'
-  )
-}
 
 const trustItems = [
-  {
-    label: 'Evidence-first',
-    body: 'Cite and verify',
-    icon: FlaskConical,
-  },
-  {
-    label: 'Safety aware',
-    body: 'Context matters',
-    icon: ShieldCheck,
-  },
-  {
-    label: 'Clear and honest',
-    body: 'No marketing fluff',
-    icon: BookOpen,
-  },
-]
-
-const comparisonLinks = [
-  { href: '/guides/compare/melatonin-vs-magnesium/', title: 'Melatonin vs magnesium' },
-  { href: '/guides/compare/rhodiola-vs-ashwagandha/', title: 'Rhodiola vs ashwagandha' },
-  { href: '/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/', title: 'Ashwagandha vs L-theanine vs magnesium' },
-  { href: '/guides/compare/berberine-vs-metformin/', title: 'Berberine vs metformin' },
-]
-
-const toolLinks = [
-  {
-    href: '/safety-checker/',
-    title: 'Safety interaction checker',
-    description: 'Screen combinations for overlapping cautions before stacking.',
-  },
-  {
-    href: '/info/supplement-safety-checklist/',
-    title: 'Supplement safety checklist',
-    description: 'Use five practical questions before comparing products or buying.',
-  },
-  {
-    href: '/evidence/evidence-checker/',
-    title: 'Evidence decision tools',
-    description: 'Check evidence strength, dosing context, and uncertainty.',
-  },
+  { label: 'Evidence-first', body: 'Human research before marketing claims', icon: FlaskConical },
+  { label: 'Safety aware', body: 'Interactions and contraindications stay visible', icon: ShieldCheck },
+  { label: 'Plain English', body: 'Clear conclusions with uncertainty intact', icon: BookOpen },
 ]
 
 const popularProfiles = [
@@ -108,23 +61,50 @@ const popularProfiles = [
   { href: '/compounds/melatonin/', label: 'Melatonin', type: 'Compound' },
 ]
 
-const evidenceSteps = [
+const comparisonLinks = [
+  { href: '/guides/compare/melatonin-vs-magnesium/', title: 'Melatonin vs magnesium' },
+  { href: '/guides/compare/rhodiola-vs-ashwagandha/', title: 'Rhodiola vs ashwagandha' },
   {
-    label: 'Strong',
-    tone: 'bg-emerald-700 dark:bg-emerald-400',
-    description: 'Consistent human clinical evidence',
-  },
-  {
-    label: 'Moderate',
-    tone: 'bg-amber-600 dark:bg-amber-400',
-    description: 'Useful human evidence with limitations',
-  },
-  {
-    label: 'Limited',
-    tone: 'bg-stone-500 dark:bg-stone-400',
-    description: 'Early, mixed, or indirect evidence',
+    href: '/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/',
+    title: 'Ashwagandha vs L-theanine vs magnesium',
   },
 ]
+
+const toolLinks = [
+  {
+    href: '/safety-checker/',
+    title: 'Safety interaction checker',
+    description: 'Screen combinations for overlapping cautions before stacking.',
+  },
+  {
+    href: '/evidence/evidence-checker/',
+    title: 'Evidence lookup',
+    description: 'Filter compounds by clinical evidence strength and research context.',
+  },
+  {
+    href: '/info/supplement-safety-checklist/',
+    title: 'Supplement safety checklist',
+    description: 'Use five practical questions before comparing products or buying.',
+  },
+]
+
+const CATEGORY_TAG_COLORS: Record<string, string> = {
+  'metabolic health':
+    'border-stone-300 bg-stone-100 text-stone-700 dark:border-stone-700 dark:bg-stone-800/30 dark:text-stone-200',
+  'cognitive health':
+    'border-emerald-300 bg-emerald-100 text-emerald-800 dark:border-emerald-700 dark:bg-emerald-800/20 dark:text-emerald-200',
+  'anxiety & sleep':
+    'border-violet-300 bg-violet-100 text-violet-800 dark:border-violet-700 dark:bg-violet-800/20 dark:text-violet-200',
+  general:
+    'border-amber-300 bg-amber-100 text-amber-800 dark:border-amber-700 dark:bg-amber-800/20 dark:text-amber-200',
+}
+
+function categoryTagClass(category: string): string {
+  return (
+    CATEGORY_TAG_COLORS[category.toLowerCase()] ||
+    'border-brand-200 bg-brand-50 text-brand-700 dark:bg-[var(--surface-subtle)] dark:text-[var(--text-secondary)]'
+  )
+}
 
 function SectionHeader({ title, subtitle, as: HeadingTag = 'h2' }: SectionHeaderProps) {
   return (
@@ -137,10 +117,10 @@ function SectionHeader({ title, subtitle, as: HeadingTag = 'h2' }: SectionHeader
 
 export default function HomepageV2() {
   const articles = Array.isArray(articlesData) ? articlesData : (articlesData as any).articles || []
-  const featuredArticles = articles
+  const latestArticles = articles
     .filter((article: any) => article.date && article.published !== false)
     .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 6)
+    .slice(0, 3)
 
   return (
     <div className='editorial-site-shell'>
@@ -159,7 +139,7 @@ export default function HomepageV2() {
               Herbs &amp; supplements, actually explained.
             </h1>
             <p className='mt-5 max-w-xl text-base leading-7 text-[#33433c] sm:mt-6 sm:text-lg sm:leading-8 dark:text-[var(--text-secondary)]'>
-              Evidence-based guides for sleep, stress, anxiety, and focus — mechanisms, safety context, and practical comparisons without marketing fluff.
+              Start with your goal, then compare evidence, mechanisms, dosing context, and safety without marketing fluff.
             </p>
 
             <div className='mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center'>
@@ -169,7 +149,7 @@ export default function HomepageV2() {
               >
                 <span className='inline-flex items-center gap-3'>
                   <Leaf className='h-5 w-5 text-[#dec69b]' aria-hidden='true' strokeWidth={1.8} />
-                  Browse by Health Goal
+                  Choose a health goal
                 </span>
                 <ArrowRight className='h-5 w-5 text-[#dec69b]' aria-hidden='true' />
               </Link>
@@ -201,19 +181,104 @@ export default function HomepageV2() {
           </div>
         </section>
 
-        <section className='grid gap-5 lg:grid-cols-[1.15fr_0.85fr]'>
+        <section id='choose-a-path' className='editorial-card rounded-[2rem] p-5 scroll-mt-24 sm:p-8'>
+          <div className='flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between'>
+            <SectionHeader
+              title='Choose one path'
+              subtitle='Begin with the outcome you care about. Each hub narrows the options before sending you into individual profiles.'
+            />
+            <Link
+              href='/guides/'
+              className='inline-flex shrink-0 items-center gap-2 text-sm font-bold text-[#315f50] transition hover:text-[#123c2f] dark:text-[var(--accent-teal)]'
+            >
+              Browse all guides <ArrowRight className='h-4 w-4' aria-hidden='true' />
+            </Link>
+          </div>
+
+          <div className='mt-6 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4'>
+            {heroGoals.map((goal) => {
+              const Icon = goal.icon
+              return (
+                <Link
+                  key={goal.slug}
+                  href={goal.href}
+                  className='editorial-link-tile group flex min-h-44 flex-col justify-between rounded-[1.4rem] p-4 transition duration-200 sm:min-h-52 sm:p-5'
+                >
+                  <div>
+                    <span className='editorial-icon-disc mb-3 h-11 w-11 sm:h-12 sm:w-12'>
+                      <Icon className='h-5 w-5 sm:h-6 sm:w-6' aria-hidden='true' strokeWidth={1.7} />
+                    </span>
+                    <h3 className='font-display text-xl font-semibold text-[#123c2f] dark:text-[var(--text-primary)] sm:text-2xl'>
+                      {goal.title}
+                    </h3>
+                    <p className='mt-2 text-[0.8rem] leading-5 text-muted sm:text-sm sm:leading-6'>{goal.prompt}</p>
+                  </div>
+                  <span className='mt-4 inline-flex items-center gap-1.5 text-[0.8rem] font-bold text-[#315f50] transition group-hover:gap-2.5 dark:text-[var(--accent-teal)] sm:text-sm'>
+                    Start here <ArrowRight className='h-3.5 w-3.5' aria-hidden='true' />
+                  </span>
+                </Link>
+              )
+            })}
+          </div>
+        </section>
+
+        <section className='editorial-card rounded-[2rem] p-5 sm:p-8'>
+          <div className='flex items-start justify-between gap-4'>
+            <div>
+              <p className='editorial-eyebrow'>Popular starting points</p>
+              <SectionHeader
+                title='Research a familiar supplement'
+                subtitle='These are common first searches, not endorsements. Open a profile for evidence, dosing context, mechanisms, and safety.'
+              />
+            </div>
+            <span className='editorial-icon-disc hidden h-14 w-14 shrink-0 sm:inline-flex'>
+              <Library className='h-6 w-6' aria-hidden='true' strokeWidth={1.7} />
+            </span>
+          </div>
+
+          <div className='mt-6 flex flex-wrap gap-2.5'>
+            {popularProfiles.map((profile) => (
+              <Link
+                key={profile.href}
+                href={profile.href}
+                className='editorial-link-tile group inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-bold text-[#123c2f] transition dark:text-[var(--text-primary)]'
+              >
+                <span>{profile.label}</span>
+                <span className='text-[0.65rem] font-semibold uppercase tracking-wider text-muted'>{profile.type}</span>
+                <ArrowRight className='h-3.5 w-3.5 transition group-hover:translate-x-0.5' aria-hidden='true' />
+              </Link>
+            ))}
+          </div>
+
+          <div className='mt-6 flex flex-wrap gap-x-5 gap-y-3'>
+            <Link
+              href='/herbs/'
+              className='inline-flex items-center gap-2 text-sm font-bold text-[#315f50] hover:text-[#123c2f] dark:text-[var(--accent-teal)]'
+            >
+              Browse all herbs <ArrowRight className='h-4 w-4' aria-hidden='true' />
+            </Link>
+            <Link
+              href='/compounds/'
+              className='inline-flex items-center gap-2 text-sm font-bold text-[#315f50] hover:text-[#123c2f] dark:text-[var(--accent-teal)]'
+            >
+              Browse all compounds <ArrowRight className='h-4 w-4' aria-hidden='true' />
+            </Link>
+          </div>
+        </section>
+
+        <section className='grid gap-5 lg:grid-cols-2'>
           <div className='editorial-card-strong rounded-[2rem] p-5 sm:p-8'>
-            <p className='editorial-eyebrow'>Smarter choices</p>
+            <p className='editorial-eyebrow'>Make a decision</p>
             <div className='mt-3 flex items-start justify-between gap-4'>
               <SectionHeader
                 title='Compare before you choose'
-                subtitle='Side-by-side guides answer the questions people ask before buying, combining, or switching products.'
+                subtitle='Use side-by-side guides when the real question is which option fits your situation better.'
               />
-              <span className='editorial-icon-disc hidden h-16 w-16 shrink-0 sm:inline-flex'>
-                <Sparkles className='h-7 w-7' aria-hidden='true' strokeWidth={1.6} />
+              <span className='editorial-icon-disc hidden h-14 w-14 shrink-0 sm:inline-flex'>
+                <Sparkles className='h-6 w-6' aria-hidden='true' strokeWidth={1.6} />
               </span>
             </div>
-            <div className='mt-6 grid gap-3 sm:grid-cols-2'>
+            <div className='mt-6 space-y-3'>
               {comparisonLinks.map((comparison) => (
                 <Link
                   key={comparison.href}
@@ -225,16 +290,19 @@ export default function HomepageV2() {
                 </Link>
               ))}
             </div>
-            <Link href='/guides/compare/' className='mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#315f50] transition hover:text-[#123c2f] dark:text-[var(--accent-teal)]'>
+            <Link
+              href='/guides/compare/'
+              className='mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#315f50] transition hover:text-[#123c2f] dark:text-[var(--accent-teal)]'
+            >
               Browse all comparisons <ArrowRight className='h-4 w-4' aria-hidden='true' />
             </Link>
           </div>
 
           <div className='editorial-card rounded-[2rem] p-5 sm:p-8'>
-            <p className='editorial-eyebrow'>Safety first</p>
+            <p className='editorial-eyebrow'>Check the downside</p>
             <SectionHeader
               title='Use the safety tools'
-              subtitle='Avoid mismatched products, risky stacks, and unclear supplement forms before they become expensive mistakes.'
+              subtitle='Check interactions, evidence strength, and buying basics before combining or purchasing supplements.'
             />
             <div className='mt-6 space-y-3'>
               {toolLinks.map((tool) => (
@@ -248,7 +316,10 @@ export default function HomepageV2() {
                       <h3 className='text-sm font-bold text-[#123c2f] dark:text-[var(--text-primary)]'>{tool.title}</h3>
                       <p className='mt-1 text-sm leading-6 text-muted'>{tool.description}</p>
                     </div>
-                    <ArrowRight className='mt-1 h-4 w-4 shrink-0 text-[#315f50] transition group-hover:translate-x-1 dark:text-[var(--accent-teal)]' aria-hidden='true' />
+                    <ArrowRight
+                      className='mt-1 h-4 w-4 shrink-0 text-[#315f50] transition group-hover:translate-x-1 dark:text-[var(--accent-teal)]'
+                      aria-hidden='true'
+                    />
                   </div>
                 </Link>
               ))}
@@ -256,132 +327,40 @@ export default function HomepageV2() {
           </div>
         </section>
 
-        <section id='choose-a-path' className='editorial-card rounded-[2rem] p-5 scroll-mt-24 sm:p-8'>
-          <div className='flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between'>
-            <SectionHeader
-              title='Choose one path'
-              subtitle='Start with the outcome you care about, then compare evidence and safety inside that guide.'
-            />
-            <Link href='/guides/' className='inline-flex shrink-0 items-center gap-2 text-sm font-bold text-[#315f50] transition hover:text-[#123c2f] dark:text-[var(--accent-teal)]'>
-              View all guides <ArrowRight className='h-4 w-4' aria-hidden='true' />
-            </Link>
-          </div>
-
-          <div className='mt-6 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4'>
-            {heroGoals.map((goal) => {
-              const Icon = goal.icon
-              return (
-                <Link
-                  key={goal.slug}
-                  href={goal.slug === 'stress' || goal.slug === 'anxiety' ? '/guides/anxiety/' : `/guides/${goal.slug}/`}
-                  className='editorial-link-tile group flex min-h-44 flex-col justify-between rounded-[1.4rem] p-4 transition duration-200 sm:min-h-52 sm:p-5'
-                >
-                  <div>
-                    <span className='editorial-icon-disc mb-3 h-11 w-11 sm:h-12 sm:w-12'>
-                      <Icon className='h-5 w-5 sm:h-6 sm:w-6' aria-hidden='true' strokeWidth={1.7} />
-                    </span>
-                    <h3 className='font-display text-xl font-semibold text-[#123c2f] dark:text-[var(--text-primary)] sm:text-2xl'>{goal.title}</h3>
-                    <p className='mt-2 text-[0.8rem] leading-5 text-muted sm:text-sm sm:leading-6'>{goal.prompt}</p>
-                  </div>
-                  <span className='mt-4 inline-flex items-center gap-1.5 text-[0.8rem] font-bold text-[#315f50] transition group-hover:gap-2.5 dark:text-[var(--accent-teal)] sm:text-sm'>
-                    Start here <ArrowRight className='h-3.5 w-3.5' aria-hidden='true' />
-                  </span>
-                </Link>
-              )
-            })}
-          </div>
-        </section>
-
-        <section className='grid gap-5 lg:grid-cols-[1.1fr_0.9fr]'>
-          <div className='editorial-card rounded-[2rem] p-5 sm:p-8'>
-            <div className='flex items-start justify-between gap-4'>
-              <div>
-                <p className='editorial-eyebrow'>Depth library</p>
-                <SectionHeader
-                  title='Look up a specific supplement'
-                  subtitle='Go beyond a quick recommendation with a profile covering evidence, mechanisms, dosing context, and safety.'
-                />
-              </div>
-              <span className='editorial-icon-disc hidden h-14 w-14 shrink-0 sm:inline-flex'>
-                <Library className='h-6 w-6' aria-hidden='true' strokeWidth={1.7} />
-              </span>
-            </div>
-            <div className='mt-6 flex flex-wrap gap-2.5'>
-              {popularProfiles.map((profile) => (
-                <Link
-                  key={profile.href}
-                  href={profile.href}
-                  className='editorial-link-tile group inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-bold text-[#123c2f] transition dark:text-[var(--text-primary)]'
-                >
-                  <span>{profile.label}</span>
-                  <span className='text-[0.65rem] font-semibold uppercase tracking-wider text-muted'>{profile.type}</span>
-                  <ArrowRight className='h-3.5 w-3.5 transition group-hover:translate-x-0.5' aria-hidden='true' />
-                </Link>
-              ))}
-            </div>
-            <div className='mt-6 flex flex-wrap gap-x-5 gap-y-3'>
-              <Link href='/herbs/' className='inline-flex items-center gap-2 text-sm font-bold text-[#315f50] hover:text-[#123c2f] dark:text-[var(--accent-teal)]'>
-                Browse all herbs <ArrowRight className='h-4 w-4' aria-hidden='true' />
-              </Link>
-              <Link href='/compounds/' className='inline-flex items-center gap-2 text-sm font-bold text-[#315f50] hover:text-[#123c2f] dark:text-[var(--accent-teal)]'>
-                Browse all compounds <ArrowRight className='h-4 w-4' aria-hidden='true' />
-              </Link>
-            </div>
-          </div>
-
-          <div className='editorial-card-strong rounded-[2rem] p-5 sm:p-8'>
-            <p className='editorial-eyebrow'>Read the signal</p>
-            <SectionHeader
-              title='Evidence strength, in plain English'
-              subtitle='A mechanism can be plausible without proving a real-world benefit. Our labels prioritize human research.'
-            />
-            <div className='mt-6 space-y-4'>
-              {evidenceSteps.map((step) => (
-                <div key={step.label} className='grid grid-cols-[0.7rem_1fr] gap-3'>
-                  <span className={`mt-1 h-3 w-3 rounded-full ${step.tone}`} aria-hidden='true' />
-                  <div>
-                    <p className='text-sm font-bold text-[#123c2f] dark:text-[var(--text-primary)]'>{step.label}</p>
-                    <p className='mt-0.5 text-sm leading-6 text-muted'>{step.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <Link href='/learn/evidence-levels/' className='mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#315f50] hover:text-[#123c2f] dark:text-[var(--accent-teal)]'>
-              How we grade evidence <ArrowRight className='h-4 w-4' aria-hidden='true' />
-            </Link>
-          </div>
-        </section>
-
-        {featuredArticles.length > 0 && (
+        {latestArticles.length > 0 && (
           <section className='space-y-5'>
             <div className='flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between'>
               <SectionHeader
-                title='Latest research'
-                subtitle='Evidence reviews, mechanism deep-dives, and practical guides — updated regularly.'
+                title='Latest guides & research'
+                subtitle='A small, fresh set of practical explainers and evidence reviews — not another endless homepage feed.'
               />
-              <Link href='/guides/' className='inline-flex shrink-0 items-center gap-2 text-sm font-bold text-[#315f50] transition hover:text-[#123c2f] dark:text-[var(--accent-teal)]'>
-                Browse all guides <ArrowRight className='h-4 w-4' aria-hidden='true' />
+              <Link
+                href='/guides/'
+                className='inline-flex shrink-0 items-center gap-2 text-sm font-bold text-[#315f50] transition hover:text-[#123c2f] dark:text-[var(--accent-teal)]'
+              >
+                Browse the library <ArrowRight className='h-4 w-4' aria-hidden='true' />
               </Link>
             </div>
+
             <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-              {featuredArticles.map((article: any) => (
+              {latestArticles.map((article: any) => (
                 <Link
                   key={article.slug}
                   href={`/articles/${article.slug}/`}
                   className='editorial-card group flex flex-col gap-3 rounded-[1.4rem] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#b88a42]/30'
                 >
                   <div className='flex items-center gap-2'>
-                    {article.category && (
+                    {article.category ? (
                       <span className={`rounded-full border px-2.5 py-0.5 text-[0.72rem] font-medium ${categoryTagClass(article.category)}`}>
                         {article.category}
                       </span>
-                    )}
-                    {article.readingTime && <span className='text-[0.72rem] text-muted'>{article.readingTime}</span>}
+                    ) : null}
+                    {article.readingTime ? <span className='text-[0.72rem] text-muted'>{article.readingTime}</span> : null}
                   </div>
                   <h3 className='font-display text-lg font-semibold leading-snug text-[#123c2f] transition group-hover:text-[#315f50] dark:text-[var(--text-primary)]'>
                     {article.title}
                   </h3>
-                  {article.excerpt && <p className='line-clamp-2 text-sm leading-6 text-muted'>{article.excerpt}</p>}
+                  {article.excerpt ? <p className='line-clamp-2 text-sm leading-6 text-muted'>{article.excerpt}</p> : null}
                 </Link>
               ))}
             </div>
@@ -389,37 +368,37 @@ export default function HomepageV2() {
         )}
 
         <section className='editorial-card-strong relative overflow-hidden rounded-[2rem] p-6 sm:p-9'>
-          <div className='editorial-botanical-orbit !-right-20 !-bottom-20 !opacity-40' aria-hidden='true'>
+          <div className='editorial-botanical-orbit !-bottom-20 !-right-20 !opacity-40' aria-hidden='true'>
             <span />
             <span />
             <span />
             <span />
           </div>
-          <div className='relative grid gap-7 lg:grid-cols-[0.8fr_1.2fr] lg:items-start'>
+          <div className='relative grid gap-7 lg:grid-cols-[0.9fr_1.1fr] lg:items-center'>
             <div>
-              <span className='editorial-icon-disc mb-4 h-14 w-14'>
-                <Leaf className='h-7 w-7' aria-hidden='true' strokeWidth={1.7} />
-              </span>
-              <h2 className='editorial-display text-[2.25rem] sm:text-[3rem]'>Built on evidence, not trends.</h2>
+              <p className='editorial-eyebrow'>How the site works</p>
+              <h2 className='editorial-display mt-3 text-[2.25rem] sm:text-[3rem]'>Evidence, safety, then a conclusion.</h2>
               <p className='mt-4 max-w-lg text-sm leading-7 text-muted sm:text-base'>
-                We evaluate the research so you do not have to. Transparent source notes help you understand the “why” behind every claim.
+                Profiles separate human evidence, biological plausibility, dosing context, and safety so a promising mechanism never masquerades as a proven benefit.
               </p>
-              <Link href='/info/methodology/' className='mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#315f50] transition hover:text-[#123c2f] dark:text-[var(--accent-teal)]'>
+              <Link
+                href='/info/methodology/'
+                className='mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#315f50] transition hover:text-[#123c2f] dark:text-[var(--accent-teal)]'
+              >
                 Read the evidence methodology <ArrowRight className='h-4 w-4' aria-hidden='true' />
               </Link>
             </div>
-            <div className='grid gap-4 sm:grid-cols-3'>
+
+            <div className='grid gap-3 sm:grid-cols-3'>
               {trustItems.map((item) => {
                 const Icon = item.icon
                 return (
-                  <div key={item.label} className='editorial-link-tile flex items-center gap-3.5 rounded-[1.3rem] p-4 sm:block'>
-                    <span className='editorial-icon-disc h-10 w-10 shrink-0'>
+                  <div key={item.label} className='editorial-link-tile rounded-[1.3rem] p-4'>
+                    <span className='editorial-icon-disc h-10 w-10'>
                       <Icon className='h-5 w-5' aria-hidden='true' strokeWidth={1.8} />
                     </span>
-                    <div>
-                      <p className='text-sm font-bold text-[#123c2f] sm:mt-3 dark:text-[var(--text-primary)]'>{item.label}</p>
-                      <p className='mt-0.5 text-xs leading-5 text-muted sm:mt-1'>{item.body}</p>
-                    </div>
+                    <p className='mt-3 text-sm font-bold text-[#123c2f] dark:text-[var(--text-primary)]'>{item.label}</p>
+                    <p className='mt-1 text-xs leading-5 text-muted'>{item.body}</p>
                   </div>
                 )
               })}
