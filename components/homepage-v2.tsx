@@ -1,9 +1,11 @@
 import Link from 'next/link'
 import {
   ArrowRight,
+  Atom,
   BookOpen,
   Cloud,
   FlaskConical,
+  ListChecks,
   Moon,
   Leaf,
   Search,
@@ -55,19 +57,29 @@ const trustItems = [
 ]
 
 const popularProfiles = [
-  { href: '/herbs/ashwagandha/', label: 'Ashwagandha', type: 'Herb' },
-  { href: '/herbs/rhodiola/', label: 'Rhodiola', type: 'Herb' },
-  { href: '/compounds/magnesium/', label: 'Magnesium', type: 'Compound' },
-  { href: '/compounds/l-theanine/', label: 'L-theanine', type: 'Compound' },
-  { href: '/compounds/melatonin/', label: 'Melatonin', type: 'Compound' },
+  { href: '/herbs/ashwagandha/', label: 'Ashwagandha', type: 'Herb', tone: 'amber' },
+  { href: '/herbs/rhodiola/', label: 'Rhodiola', type: 'Herb', tone: 'rose' },
+  { href: '/compounds/magnesium/', label: 'Magnesium', type: 'Compound', tone: 'blue' },
+  { href: '/compounds/l-theanine/', label: 'L-theanine', type: 'Compound', tone: 'green' },
+  { href: '/compounds/melatonin/', label: 'Melatonin', type: 'Compound', tone: 'indigo' },
+  { href: '/herbs/valerian/', label: 'Valerian', type: 'Herb', tone: 'violet' },
 ]
 
 const comparisonLinks = [
-  { href: '/guides/compare/melatonin-vs-magnesium/', title: 'Melatonin vs magnesium' },
-  { href: '/guides/compare/rhodiola-vs-ashwagandha/', title: 'Rhodiola vs ashwagandha' },
+  {
+    href: '/guides/compare/melatonin-vs-magnesium/',
+    parts: ['Melatonin', 'Magnesium'],
+    tone: 'indigo',
+  },
+  {
+    href: '/guides/compare/rhodiola-vs-ashwagandha/',
+    parts: ['Rhodiola', 'Ashwagandha'],
+    tone: 'rose',
+  },
   {
     href: '/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/',
-    title: 'Ashwagandha vs L-theanine vs magnesium',
+    parts: ['Ashwagandha', 'L-theanine', 'Magnesium'],
+    tone: 'amber',
   },
 ]
 
@@ -76,18 +88,39 @@ const toolLinks = [
     href: '/safety-checker/',
     title: 'Safety interaction checker',
     description: 'Screen combinations for overlapping cautions before stacking.',
+    icon: ShieldCheck,
+    tone: 'rose',
   },
   {
     href: '/evidence/evidence-checker/',
     title: 'Evidence lookup',
     description: 'Filter compounds by clinical evidence strength and research context.',
+    icon: FlaskConical,
+    tone: 'teal',
   },
   {
     href: '/info/supplement-safety-checklist/',
     title: 'Supplement safety checklist',
     description: 'Five practical questions to ask before comparing products or buying.',
+    icon: ListChecks,
+    tone: 'amber',
   },
 ]
+
+// Tone per article category so the cards carry colour rather than reading as a
+// row of identical dark panels.
+const CATEGORY_TONES: Record<string, string> = {
+  'metabolic health': 'amber',
+  'cognitive health': 'blue',
+  'anxiety & sleep': 'indigo',
+  'mental health': 'violet',
+  general: 'green',
+}
+
+function categoryTone(category?: string): string {
+  if (!category) return 'green'
+  return CATEGORY_TONES[category.toLowerCase()] || 'teal'
+}
 
 const methodSteps = [
   {
@@ -157,18 +190,18 @@ export default function HomepageV2() {
     <div className='hs-home'>
       <div className='mx-auto max-w-6xl px-5 sm:px-8 lg:px-10'>
         {/* ---------------- Hero ---------------- */}
-        <section className='hs-hero pb-14 pt-12 sm:pb-20 sm:pt-16 lg:pt-20'>
+        <section className='hs-hero pb-10 pt-8 sm:pb-20 sm:pt-16 lg:pt-20'>
           <div className='grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-10'>
             <div>
               <p className='hs-eyebrow'>Evidence-based supplement guidance</p>
 
-              <h1 className='hs-display mt-7 max-w-[15ch] text-[3rem] leading-[0.98] sm:text-[4.4rem] lg:text-[5.1rem]'>
-                Herbs &amp; supplements, <span className='hs-accent'>actually explained.</span>
+              <h1 className='hs-display mt-6 max-w-[17ch] text-[2.9rem] leading-[1.02] sm:mt-7 sm:max-w-[14ch] sm:text-[4.2rem] lg:text-[4.9rem]'>
+                Feel Better <span className='hs-accent'>Without Guessing</span>
               </h1>
 
-              <p className='hs-lede mt-7 max-w-xl text-lg leading-8 sm:text-xl sm:leading-9'>
-                Start with your goal. Compare the human evidence, the mechanism, the dose, and the safety —
-                without the marketing.
+              <p className='hs-lede mt-6 max-w-xl text-[1.05rem] leading-[1.65] sm:mt-7 sm:text-xl sm:leading-9'>
+                Compare herbs and supplements on human evidence, mechanism, dose, and safety — so you can
+                start with your goal instead of the marketing.
               </p>
 
               <div className='mt-9 flex flex-col gap-3 sm:flex-row sm:items-center'>
@@ -205,13 +238,17 @@ export default function HomepageV2() {
           </div>
 
           {/* Real counts from the generated build report — credibility without a card. */}
-          <dl className='mt-12 flex flex-wrap items-baseline gap-x-8 gap-y-3'>
+          {/* Three across on a phone with the label stacked, so the row never
+              breaks 2 + 1; inline once there is width for it. */}
+          <dl className='mt-10 grid grid-cols-3 gap-x-4 sm:mt-12 sm:flex sm:flex-wrap sm:items-baseline sm:gap-x-8'>
             {heroStats.map((stat) => (
-              <div key={stat.label} className='flex items-baseline gap-2'>
+              <div key={stat.label} className='sm:flex sm:items-baseline sm:gap-2'>
                 <dt className='sr-only'>{stat.label}</dt>
-                <dd className='flex items-baseline gap-2'>
-                  <span className='hs-stat-num text-2xl sm:text-[1.75rem]'>{stat.value}</span>
-                  <span className='text-sm text-[color:var(--hs-body)]'>{stat.label}</span>
+                <dd className='sm:flex sm:items-baseline sm:gap-2'>
+                  <span className='hs-stat-num block text-[1.6rem] sm:inline sm:text-[1.75rem]'>{stat.value}</span>
+                  <span className='mt-0.5 block text-[0.78rem] leading-[1.3] text-[color:var(--hs-body)] sm:mt-0 sm:inline sm:text-sm'>
+                    {stat.label}
+                  </span>
                 </dd>
               </div>
             ))}
@@ -238,7 +275,7 @@ export default function HomepageV2() {
         </section>
 
         {/* ---------------- Goal paths — the colour anchor ---------------- */}
-        <section id='choose-a-path' className='scroll-mt-24 py-14 sm:py-20'>
+        <section id='choose-a-path' className='scroll-mt-24 py-11 sm:py-20'>
           <SectionHeader
             eyebrow='Start here'
             title={
@@ -251,7 +288,7 @@ export default function HomepageV2() {
             size='lg'
           />
 
-          <div className='mt-10 grid grid-cols-2 gap-3.5 sm:gap-5 lg:grid-cols-4'>
+          <div className='mt-8 grid grid-cols-2 gap-3.5 sm:mt-10 sm:gap-5 lg:grid-cols-4'>
             {heroGoals.map((goal) => {
               const Icon = goal.icon
               return (
@@ -282,30 +319,35 @@ export default function HomepageV2() {
         <hr className='hs-divider' />
 
         {/* ---------------- Popular starting points ---------------- */}
-        <section className='py-14 sm:py-20'>
+        <section className='py-11 sm:py-20'>
           <SectionHeader
             eyebrow='Popular starting points'
             title='Look up a familiar name'
             subtitle='These are the most common first searches — not endorsements. Each profile opens with evidence, mechanism, dosing context, and safety.'
           />
 
-          <div className='mt-9 flex flex-wrap gap-3'>
-            {popularProfiles.map((profile) => (
-              <Link
-                key={profile.href}
-                href={profile.href}
-                className='hs-chip group inline-flex items-center gap-2.5 px-5 py-3 text-sm font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--hs-gold)] focus-visible:ring-offset-2'
-              >
-                <span>{profile.label}</span>
-                <span className='text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-[color:var(--hs-body)]'>
-                  {profile.type}
-                </span>
-                <ArrowRight
-                  className='h-3.5 w-3.5 transition group-hover:translate-x-0.5'
-                  aria-hidden='true'
-                />
-              </Link>
-            ))}
+          {/* A specimen shelf: one jewel tone per entry so the row reads as a
+              collection rather than six identical grey pills. */}
+          <div className='mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:grid-cols-3 sm:gap-4 lg:grid-cols-6'>
+            {popularProfiles.map((profile) => {
+              const Icon = profile.type === 'Herb' ? Leaf : Atom
+              return (
+                <Link
+                  key={profile.href}
+                  href={profile.href}
+                  data-tone={profile.tone}
+                  className='hs-specimen group focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--tone)] focus-visible:ring-offset-2'
+                >
+                  <span className='hs-specimen-icon'>
+                    <Icon className='h-[1.15rem] w-[1.15rem]' aria-hidden='true' strokeWidth={1.7} />
+                  </span>
+                  <span className='block'>
+                    <span className='hs-specimen-name block text-[1.02rem] leading-tight'>{profile.label}</span>
+                    <span className='hs-specimen-type mt-1.5 block'>{profile.type}</span>
+                  </span>
+                </Link>
+              )
+            })}
           </div>
 
           <div className='mt-8 flex flex-wrap gap-x-8 gap-y-3'>
@@ -321,7 +363,7 @@ export default function HomepageV2() {
         <hr className='hs-divider' />
 
         {/* ---------------- Decide / check — hairline lists, no nested tiles ---------------- */}
-        <section className='grid gap-12 py-14 sm:py-20 lg:grid-cols-2 lg:gap-16'>
+        <section className='grid gap-11 py-11 sm:gap-12 sm:py-20 lg:grid-cols-2 lg:gap-16'>
           <div>
             <p className='hs-eyebrow'>Make a decision</p>
             <h2 className='hs-display mt-4 text-[1.9rem] sm:text-[2.35rem]'>Compare before you choose</h2>
@@ -329,15 +371,26 @@ export default function HomepageV2() {
               Side-by-side guides for when the real question is which option fits your situation.
             </p>
 
-            <div className='hs-rows mt-7'>
+            <div className='mt-7 space-y-3.5'>
               {comparisonLinks.map((comparison) => (
                 <Link
                   key={comparison.href}
                   href={comparison.href}
-                  className='hs-row py-4 text-[0.95rem] font-bold focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--hs-gold)]'
+                  data-tone={comparison.tone}
+                  className='hs-vs group focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--tone)] focus-visible:ring-offset-2'
                 >
-                  <span>{comparison.title}</span>
-                  <ArrowRight className='h-4 w-4 shrink-0' aria-hidden='true' />
+                  <span className='flex flex-1 flex-wrap items-center gap-x-2.5 gap-y-1.5'>
+                    {comparison.parts.map((part, index) => (
+                      <span key={part} className='flex items-center gap-2.5'>
+                        {index > 0 ? <span className='hs-vs-mark'>vs</span> : null}
+                        <span className='hs-vs-name text-[1.02rem] sm:text-[1.1rem]'>{part}</span>
+                      </span>
+                    ))}
+                  </span>
+                  <ArrowRight
+                    className='h-4 w-4 shrink-0 text-[color:var(--tone-ink)] transition'
+                    aria-hidden='true'
+                  />
                 </Link>
               ))}
             </div>
@@ -354,20 +407,32 @@ export default function HomepageV2() {
               Check interactions, evidence strength, and buying basics before combining or purchasing anything.
             </p>
 
-            <div className='hs-rows mt-7'>
-              {toolLinks.map((tool) => (
-                <Link
-                  key={tool.href}
-                  href={tool.href}
-                  className='hs-row py-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--hs-gold)]'
-                >
-                  <span>
-                    <span className='block text-[0.95rem] font-bold'>{tool.title}</span>
-                    <span className='hs-row-sub mt-1 block text-[0.82rem] leading-5'>{tool.description}</span>
-                  </span>
-                  <ArrowRight className='h-4 w-4 shrink-0' aria-hidden='true' />
-                </Link>
-              ))}
+            <div className='mt-7 space-y-3.5'>
+              {toolLinks.map((tool) => {
+                const Icon = tool.icon
+                return (
+                  <Link
+                    key={tool.href}
+                    href={tool.href}
+                    data-tone={tool.tone}
+                    className='hs-tool group focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--tone)] focus-visible:ring-offset-2'
+                  >
+                    <span className='hs-tool-icon'>
+                      <Icon className='h-[1.2rem] w-[1.2rem]' aria-hidden='true' strokeWidth={1.7} />
+                    </span>
+                    <span className='min-w-0 flex-1'>
+                      <span className='hs-tool-title block text-[0.95rem]'>{tool.title}</span>
+                      <span className='hs-row-sub mt-1.5 block text-[0.82rem] leading-[1.5]'>
+                        {tool.description}
+                      </span>
+                    </span>
+                    <ArrowRight
+                      className='hs-go mt-0.5 h-4 w-4 shrink-0 text-[color:var(--tone-ink)] transition'
+                      aria-hidden='true'
+                    />
+                  </Link>
+                )
+              })}
             </div>
           </div>
         </section>
@@ -376,7 +441,7 @@ export default function HomepageV2() {
         {latestArticles.length > 0 && (
           <>
             <hr className='hs-divider' />
-            <section className='py-14 sm:py-20'>
+            <section className='py-11 sm:py-20'>
               <SectionHeader
                 eyebrow='Fresh from the library'
                 title='Latest guides & research'
@@ -384,12 +449,13 @@ export default function HomepageV2() {
                 action={{ href: '/guides/', label: 'Browse the library' }}
               />
 
-              <div className='mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3'>
+              <div className='mt-8 grid gap-4 sm:mt-10 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3'>
                 {latestArticles.map((article: any) => (
                   <Link
                     key={article.slug}
                     href={`/articles/${article.slug}/`}
-                    className='hs-article group flex flex-col gap-3.5 p-6 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--hs-gold)] focus-visible:ring-offset-2'
+                    data-tone={categoryTone(article.category)}
+                    className='hs-article group flex flex-col p-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--tone)] focus-visible:ring-offset-2 sm:p-6'
                   >
                     <div className='flex flex-wrap items-center gap-2'>
                       {article.category ? (
@@ -401,13 +467,15 @@ export default function HomepageV2() {
                         <span className='text-[0.72rem] text-[color:var(--hs-body)]'>{article.readingTime}</span>
                       ) : null}
                     </div>
-                    <h3 className='hs-article-title text-[1.2rem] leading-snug'>{article.title}</h3>
+                    {/* These articles carry no excerpt, so the title has to hold the
+                        card on its own — keep it large and the gaps tight. */}
+                    <h3 className='hs-article-title mt-3.5 text-[1.22rem] leading-[1.3]'>{article.title}</h3>
                     {article.excerpt ? (
-                      <p className='line-clamp-3 text-[0.85rem] leading-6 text-[color:var(--hs-body)]'>
+                      <p className='mt-2.5 line-clamp-3 text-[0.85rem] leading-6 text-[color:var(--hs-body)]'>
                         {article.excerpt}
                       </p>
                     ) : null}
-                    <span className='hs-link mt-auto pt-1 text-[0.8rem]'>
+                    <span className='hs-link mt-4 text-[0.8rem] sm:mt-auto sm:pt-4'>
                       Read <ArrowRight className='h-3.5 w-3.5' aria-hidden='true' />
                     </span>
                   </Link>
@@ -419,8 +487,8 @@ export default function HomepageV2() {
       </div>
 
       {/* ---------------- Full-bleed methodology band — the page's closing moment ---------------- */}
-      <section className='hs-method mt-6 py-16 sm:py-24'>
-        <div className='mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:px-10'>
+      <section className='hs-method py-14 sm:py-24'>
+        <div className='mx-auto grid max-w-6xl gap-10 px-5 sm:gap-12 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20 lg:px-10'>
           <div>
             <p className='hs-eyebrow'>How the site works</p>
             <h2 className='hs-display mt-5 text-[2.2rem] sm:text-[2.9rem]'>
@@ -434,13 +502,14 @@ export default function HomepageV2() {
             </Link>
           </div>
 
-          <ol className='space-y-0'>
+          <ol className='relative space-y-0'>
+            <Leaf className='hs-method-mark' aria-hidden='true' strokeWidth={0.6} />
             {methodSteps.map((step) => (
-              <li key={step.num} className='hs-step flex gap-6 py-6 sm:gap-8'>
-                <span className='hs-step-num shrink-0 text-[1.6rem] sm:text-[2rem]'>{step.num}</span>
-                <div>
-                  <h3 className='text-base font-bold text-[#fffdf8] sm:text-lg'>{step.title}</h3>
-                  <p className='mt-2 text-[0.88rem] leading-6 text-[#b8c9bd]'>{step.body}</p>
+              <li key={step.num} className='hs-step flex items-start gap-5 py-7 sm:gap-8'>
+                <span className='hs-step-num text-[2.6rem] sm:text-[3.4rem]'>{step.num}</span>
+                <div className='pt-1 sm:pt-2'>
+                  <h3 className='text-[1.05rem] font-bold text-[#fffdf8] sm:text-lg'>{step.title}</h3>
+                  <p className='mt-2 text-[0.88rem] leading-[1.6] text-[#b8c9bd]'>{step.body}</p>
                 </div>
               </li>
             ))}

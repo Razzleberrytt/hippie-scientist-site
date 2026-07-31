@@ -103,6 +103,19 @@
   opacity: 0.55;
 }
 
+/* The longest eyebrow runs edge-to-edge on a phone; ease the tracking and rule. */
+@media (max-width: 480px) {
+  .hs-eyebrow {
+    gap: 0.5rem;
+    font-size: 0.64rem;
+    letter-spacing: 0.15em;
+  }
+
+  .hs-eyebrow::before {
+    width: 1.1rem;
+  }
+}
+
 .hs-lede {
   color: var(--hs-body);
   text-wrap: pretty;
@@ -508,6 +521,304 @@
   --tone-ink: #ecc98d;
 }
 
+/* Extended jewel palette so the lower half of the page carries colour too. */
+[data-tone='amber'] {
+  --tone: #c2913f;
+  --tone-ink: #8a6318;
+}
+[data-tone='rose'] {
+  --tone: #c2607a;
+  --tone-ink: #9c3f58;
+}
+[data-tone='blue'] {
+  --tone: #4a86c4;
+  --tone-ink: #2b6099;
+}
+[data-tone='green'] {
+  --tone: #4f9e6d;
+  --tone-ink: #2f7a4c;
+}
+[data-tone='indigo'] {
+  --tone: #7c73d6;
+  --tone-ink: #5a51b5;
+}
+[data-tone='violet'] {
+  --tone: #a06bc8;
+  --tone-ink: #7c46a5;
+}
+[data-tone='teal'] {
+  --tone: #3f97a8;
+  --tone-ink: #24707f;
+}
+
+.dark [data-tone='amber'] {
+  --tone: #d7a94f;
+  --tone-ink: #ecc98d;
+}
+.dark [data-tone='rose'] {
+  --tone: #d97e96;
+  --tone-ink: #f0aebd;
+}
+.dark [data-tone='blue'] {
+  --tone: #64a2dc;
+  --tone-ink: #a2cbee;
+}
+.dark [data-tone='green'] {
+  --tone: #5cb37c;
+  --tone-ink: #8fd3a7;
+}
+.dark [data-tone='indigo'] {
+  --tone: #8b82e6;
+  --tone-ink: #b6afef;
+}
+.dark [data-tone='violet'] {
+  --tone: #b98ada;
+  --tone-ink: #d5b6ea;
+}
+.dark [data-tone='teal'] {
+  --tone: #49aabd;
+  --tone-ink: #86d2e0;
+}
+
+/* ---------- Specimen tiles (popular starting points) ---------- */
+
+.hs-specimen {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  border: 1px solid color-mix(in srgb, var(--tone) 28%, transparent);
+  border-radius: 1.15rem;
+  padding: 1rem;
+  background:
+    linear-gradient(155deg, color-mix(in srgb, var(--tone) 15%, transparent), transparent 70%),
+    var(--hs-surface);
+  box-shadow: var(--hs-lift);
+  transition:
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 260ms ease,
+    border-color 260ms ease;
+}
+
+.dark .hs-specimen {
+  background:
+    linear-gradient(155deg, color-mix(in srgb, var(--tone) 28%, transparent), transparent 72%),
+    var(--hs-surface);
+}
+
+.hs-specimen::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  right: -40%;
+  top: -60%;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  opacity: 0.45;
+  filter: blur(22px);
+  background: radial-gradient(circle, color-mix(in srgb, var(--tone) 55%, transparent), transparent 70%);
+  transition: opacity 300ms ease, transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hs-specimen:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--tone) 58%, transparent);
+  box-shadow: var(--hs-lift-hover);
+}
+
+.hs-specimen:hover::after {
+  opacity: 0.9;
+  transform: scale(1.25);
+}
+
+.hs-specimen-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid color-mix(in srgb, var(--tone) 36%, transparent);
+  border-radius: 0.8rem;
+  color: var(--tone-ink);
+  background: color-mix(in srgb, var(--tone) 17%, var(--hs-surface));
+}
+
+.hs-specimen-name {
+  color: var(--hs-ink);
+  font-family: var(--font-fraunces), Fraunces, Georgia, serif;
+  font-weight: 620;
+  letter-spacing: -0.018em;
+}
+
+.hs-specimen-type {
+  color: var(--tone-ink);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* ---------- Versus cards (comparisons) ---------- */
+
+.hs-vs {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--tone) 26%, transparent);
+  border-radius: 1.15rem;
+  padding: 1.05rem 1.15rem;
+  background:
+    linear-gradient(100deg, color-mix(in srgb, var(--tone) 14%, transparent), transparent 58%),
+    var(--hs-surface);
+  box-shadow: var(--hs-lift);
+  transition:
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 260ms ease,
+    border-color 260ms ease;
+}
+
+.dark .hs-vs {
+  background:
+    linear-gradient(100deg, color-mix(in srgb, var(--tone) 26%, transparent), transparent 62%),
+    var(--hs-surface);
+}
+
+.hs-vs::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: -10%;
+  top: -120%;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  opacity: 0.4;
+  filter: blur(26px);
+  background: radial-gradient(circle, color-mix(in srgb, var(--tone) 50%, transparent), transparent 70%);
+  transition: opacity 300ms ease;
+}
+
+.hs-vs:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--tone) 55%, transparent);
+  box-shadow: var(--hs-lift-hover);
+}
+
+.hs-vs:hover::after {
+  opacity: 0.85;
+}
+
+.hs-vs:hover svg {
+  transform: translateX(4px);
+}
+
+.hs-vs-name {
+  color: var(--hs-ink);
+  font-family: var(--font-fraunces), Fraunces, Georgia, serif;
+  font-weight: 615;
+  letter-spacing: -0.018em;
+  line-height: 1.2;
+}
+
+/* The "vs" mark between the two names. */
+.hs-vs-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 1px solid color-mix(in srgb, var(--hs-gold) 45%, transparent);
+  border-radius: 50%;
+  color: var(--hs-gold-bright);
+  background: color-mix(in srgb, var(--hs-gold) 12%, var(--hs-surface));
+  font-family: var(--font-fraunces), Fraunces, Georgia, serif;
+  font-size: 0.68rem;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* ---------- Tool panels (safety tools) ---------- */
+
+.hs-tool {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  gap: 0.95rem;
+  border: 1px solid color-mix(in srgb, var(--tone) 24%, transparent);
+  border-radius: 1.15rem;
+  padding: 1.15rem;
+  background:
+    linear-gradient(150deg, color-mix(in srgb, var(--tone) 13%, transparent), transparent 66%),
+    var(--hs-surface);
+  box-shadow: var(--hs-lift);
+  transition:
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 260ms ease,
+    border-color 260ms ease;
+}
+
+.dark .hs-tool {
+  background:
+    linear-gradient(150deg, color-mix(in srgb, var(--tone) 25%, transparent), transparent 68%),
+    var(--hs-surface);
+}
+
+.hs-tool::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  right: -25%;
+  bottom: -120%;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  opacity: 0.4;
+  filter: blur(26px);
+  background: radial-gradient(circle, color-mix(in srgb, var(--tone) 50%, transparent), transparent 70%);
+  transition: opacity 300ms ease;
+}
+
+.hs-tool:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--tone) 52%, transparent);
+  box-shadow: var(--hs-lift-hover);
+}
+
+.hs-tool:hover::after {
+  opacity: 0.85;
+}
+
+.hs-tool:hover svg.hs-go {
+  transform: translateX(4px);
+}
+
+.hs-tool-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid color-mix(in srgb, var(--tone) 34%, transparent);
+  border-radius: 0.85rem;
+  color: var(--tone-ink);
+  background: color-mix(in srgb, var(--tone) 16%, var(--hs-surface));
+}
+
+.hs-tool-title {
+  color: var(--hs-ink);
+  font-weight: 700;
+}
+
 /* ---------- Chips ---------- */
 
 .hs-chip {
@@ -572,6 +883,12 @@
   transform: translateX(4px);
 }
 
+/* The list's closing rule sits a short distance below the section divider and
+   reads as a doubled line; let the divider terminate the list instead. */
+.hs-row:last-child {
+  border-bottom: 0;
+}
+
 .hs-row-sub {
   color: var(--hs-body);
 }
@@ -595,24 +912,51 @@
     border-color 260ms ease;
 }
 
+/* Always-on tone accent along the top edge, brightened on hover. */
 .hs-article::before {
   content: '';
   position: absolute;
   inset: 0 0 auto 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--hs-gold), transparent);
-  opacity: 0;
+  background: linear-gradient(90deg, var(--tone), color-mix(in srgb, var(--tone) 20%, transparent) 55%, transparent);
+  opacity: 0.75;
   transition: opacity 260ms ease;
 }
 
+.hs-article::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  right: -30%;
+  top: -50%;
+  width: 13rem;
+  height: 13rem;
+  border-radius: 50%;
+  opacity: 0.32;
+  filter: blur(26px);
+  background: radial-gradient(circle, color-mix(in srgb, var(--tone) 50%, transparent), transparent 70%);
+  transition: opacity 320ms ease, transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .hs-article:hover {
-  transform: translateY(-4px);
-  border-color: var(--hs-gold-soft);
+  transform: translateY(-5px);
+  border-color: color-mix(in srgb, var(--tone) 48%, transparent);
   box-shadow: var(--hs-lift-hover);
 }
 
 .hs-article:hover::before {
   opacity: 1;
+}
+
+.hs-article:hover::after {
+  opacity: 0.8;
+  transform: scale(1.2);
+}
+
+.hs-article .hs-tag {
+  border-color: color-mix(in srgb, var(--tone) 34%, transparent);
+  background: color-mix(in srgb, var(--tone) 13%, transparent);
+  color: var(--tone-ink);
 }
 
 .hs-article-title {
@@ -638,9 +982,12 @@
   border-top: 1px solid rgba(217, 178, 113, 0.28);
   border-bottom: 1px solid rgba(217, 178, 113, 0.18);
   color: #e8ece3;
+  /* First layer eases the band out of the page canvas so the top edge reads as a
+     transition rather than a hard seam against the near-black background. */
   background:
-    radial-gradient(70% 110% at 8% -10%, rgba(56, 116, 90, 0.42), transparent 58%),
-    linear-gradient(160deg, #10382b 0%, #0c2a20 52%, #081d17 100%);
+    linear-gradient(180deg, rgba(8, 20, 16, 0.9) 0%, rgba(8, 20, 16, 0.35) 7%, transparent 16%),
+    radial-gradient(85% 70% at 22% 0%, rgba(56, 116, 90, 0.34), transparent 62%),
+    linear-gradient(168deg, #10382b 0%, #0c2a20 52%, #081d17 100%);
 }
 
 .hs-method::before {
@@ -664,15 +1011,56 @@
 }
 
 .hs-step {
+  position: relative;
   border-top: 1px solid rgba(226, 203, 163, 0.22);
+  transition: border-color 240ms ease;
 }
 
+.hs-step:hover {
+  border-color: rgba(226, 203, 163, 0.5);
+}
+
+/* Oversized gold numerals with a metallic gradient — the band's focal detail. */
 .hs-step-num {
-  color: rgba(226, 203, 163, 0.85);
+  flex: 0 0 auto;
+  background: linear-gradient(150deg, #f4e0bb 0%, #d9b271 45%, #a9803c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   font-family: var(--font-fraunces), Fraunces, Georgia, serif;
-  font-weight: 600;
+  font-weight: 620;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+  opacity: 0.92;
+  transition: opacity 240ms ease;
+}
+
+.hs-step:hover .hs-step-num {
+  opacity: 1;
+}
+
+/* Botanical watermark behind the step list. */
+.hs-method-mark {
+  position: absolute;
+  z-index: -1;
+  right: -3rem;
+  bottom: -4rem;
+  width: 22rem;
+  height: 22rem;
+  pointer-events: none;
+  opacity: 0.09;
+  color: #e2cba3;
+}
+
+@media (max-width: 1023px) {
+  .hs-method-mark {
+    right: -6rem;
+    bottom: -6rem;
+    width: 17rem;
+    height: 17rem;
+    opacity: 0.07;
+  }
 }
 
 .hs-method-link {
