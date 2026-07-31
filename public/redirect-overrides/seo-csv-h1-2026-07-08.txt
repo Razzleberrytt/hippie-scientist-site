@@ -3,7 +3,7 @@
 /compounds/aged-garlic-extract/ /herbs/garlic/ 301
 /compounds/passionflower/ /herbs/passionflower/ 301
 /compounds/trans-resveratrol/ /herbs/resveratrol/ 301
-/compounds/bcaas/ /goals/energy/ 301
+/compounds/bcaas/ /compounds/bcaa/ 301
 /compounds/methyleugenol/ /compounds/ 301
 /compounds/passionflower-extract-standardized/ /herbs/passionflower/ 301
 /compounds/inositol-sleep/ /guides/sleep/ 301
