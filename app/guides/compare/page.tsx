@@ -278,14 +278,14 @@ export default async function ComparePage() {
               <h3 className="text-xs font-bold uppercase tracking-widest text-brand-700 dark:text-brand-200">{cat.label}</h3>
               <p className="mt-1 text-sm leading-6 text-muted">{cat.blurb}</p>
             </div>
-            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <ul className="grid gap-3 space-y-0 sm:grid-cols-2 lg:grid-cols-4">
               {cat.pairs.map((pair) => (
                 <li key={pair.slug}>
                   <Link
                     href={`/guides/compare/${pair.slug}/`}
-                    className="library-content-card block rounded-2xl border border-brand-900/10 bg-white/90 px-4 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-brand-300 hover:shadow dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+                    className="library-content-card flex h-full flex-col justify-between rounded-2xl border border-brand-900/10 bg-white/90 px-4 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-brand-300 hover:shadow dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
                   >
-                    <span className="block truncate">{pair.label}</span>
+                    <span className="block text-pretty leading-6">{pair.label}</span>
                     <span className="mt-1 block text-xs font-bold text-brand-700 dark:text-brand-100">Compare →</span>
                   </Link>
                 </li>
@@ -298,7 +298,7 @@ export default async function ComparePage() {
       <PremiumCard as="section" className="p-5">
         <h2 className="text-xl font-semibold text-ink">More comparison starting points</h2>
         <p className="mt-2 text-sm leading-6 text-muted">Flagship pages with the most detailed evidence breakdowns.</p>
-        <ul className="mt-4 grid gap-2 text-sm leading-6 text-muted sm:grid-cols-2">
+        <ul className="mt-4 grid gap-2 space-y-0 text-sm leading-6 text-muted sm:grid-cols-2">
           {popularComparisonPairs.map(pair => (
             <li key={pair.href}>
               <Link href={pair.href} className="font-semibold text-brand-800 hover:underline dark:text-brand-100 dark:hover:text-white">{pair.label}</Link>

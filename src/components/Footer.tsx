@@ -129,7 +129,7 @@ export default function Footer() {
                   className='editorial-link-tile group flex items-center gap-2.5 rounded-xl px-3 py-2.5 text-[#123c2f] transition dark:text-[var(--text-primary)]'
                 >
                   <Icon className='h-4 w-4 shrink-0 text-[#315f50] dark:text-[#8dc49a]' aria-hidden='true' strokeWidth={1.7} />
-                  <span className='text-sm font-bold leading-tight'>{label}</span>
+                  <span className='text-sm font-bold leading-tight text-balance'>{label}</span>
                 </Link>
               ))}
             </div>
