@@ -1,231 +1,122 @@
-/**
- * Navigation Configuration
- *
- * Central source of truth for all navigation hierarchies, breadcrumb generation,
- * and route metadata. Used by Navigation component, Breadcrumbs, and structured
- * data (Schema.org).
- *
- * Structure:
- * - mainNavigation: Hierarchical menu structure for UI rendering
- * - routeLabels: Flat mapping of pathname → readable label
- * - footerLinks: Footer legal/meta links consistent across all pages
- * - generateDynamicBreadcrumbs(): Auto-generate breadcrumbs from pathname
- * - validateRoute(): Check if a route is recognized
- *
- * @author The Hippie Scientist
- */
+import { primaryNavigation, type PrimaryNavigationItem } from './primary-navigation'
 
-/**
- * Navigation item with optional children for dropdowns
- */
-export interface NavigationItem {
-  /** Display label (visible in UI) */
-  label: string
-  /** Href path (e.g., '/herbs', '/blog') */
-  href: string
-  /** Optional: children for dropdown menus */
-  children?: NavigationItem[]
-  /** Optional: SEO description for breadcrumbs */
-  description?: string
-  /** Optional: only show in desktop menu (hide mobile) */
-  desktopOnly?: boolean
-}
+export type NavigationItem = PrimaryNavigationItem
 
-/**
- * Breadcrumb item for dynamic rendering
- */
 export interface BreadcrumbItem {
-  /** Display label */
   label: string
-  /** Full path to this breadcrumb */
   href: string
-  /** Whether this is the current page (last item) */
   current: boolean
 }
 
-/**
- * Metadata for a route
- */
 export interface RouteMetadata {
-  /** Display name for the route */
   label: string
-  /** Breadcrumb-friendly description */
   description?: string
-  /** Parent route for breadcrumb hierarchy */
   parent?: string
-  /** Whether this is a dynamic route (e.g., /herb/[slug]) */
   isDynamic?: boolean
 }
 
-/**
- * Site URL (root domain)
- */
 export const SITE_URL = 'https://thehippiescientist.net'
 
-/**
- * Main navigation hierarchy
- * Used for rendering the header/nav component
- */
-export const mainNavigation: NavigationItem[] = [
-  {
-    label: 'Herbs',
-    href: '/herbs',
-    description: 'Evidence-graded herb profiles — effects, safety, dosing, and pharmacology',
-    children: [
-      { label: 'Browse all herbs', href: '/herbs', description: 'Alphabetical herb database with evidence and safety summaries' },
-      { label: 'Herb guides', href: '/guides/herbs', description: 'Editorial herb explainers and practical use guides' },
-      { label: 'Compare herbs', href: '/guides/compare', description: 'Side-by-side tradeoffs for popular botanicals and supplements' },
-    ],
-  },
-  {
-    label: 'Compounds',
-    href: '/compounds',
-    description: 'Evidence-graded compound profiles with mechanisms, safety context, and research summaries',
-    children: [
-      { label: 'Browse all compounds', href: '/compounds', description: 'Active compounds, nutrients, and standardized extracts' },
-      { label: 'Evidence lookup', href: '/evidence/evidence-checker', description: 'Filter compounds by clinical evidence grade' },
-      { label: 'Dosing guide', href: '/info/dosing', description: 'Bioavailability, timing, stacking, and dose realism basics' },
-    ],
-  },
-  {
-    label: 'Guides',
-    href: '/guides',
-    description: 'Evidence-based guides organized by health goal',
-    children: [
-      { label: 'All guides', href: '/guides', description: 'Start with the full guide library' },
-      { label: 'ADHD', href: '/guides/adhd', description: 'ADHD supplements, nutrient research, and treatment context' },
-      { label: 'Sleep', href: '/guides/sleep', description: 'Natural sleep aids, melatonin alternatives, and sleep hygiene' },
-      { label: 'Anxiety & Stress', href: '/guides/anxiety', description: 'Adaptogens, anxiolytics, and stress management strategies' },
-      { label: 'Focus & Cognition', href: '/guides/focus', description: 'Nootropics, focus stacks, and cognitive enhancement' },
-      { label: 'Mental Health', href: '/guides/mental-health', description: 'Mood, resilience, and mental-health-adjacent supplement guides' },
-      { label: 'Herb Guides', href: '/guides/herbs', description: 'Deep dives on individual herbs and botanicals' },
-      { label: 'Comparisons', href: '/guides/compare', description: 'Side-by-side supplement and compound comparisons' },
-      { label: 'Best Supplements', href: '/guides/best', description: 'Curated supplement recommendations by need' },
-    ],
-  },
-  {
-    label: 'Learn',
-    href: '/learn',
-    description: 'Neuroscience, psychopharmacology, and evidence literacy',
-    children: [
-      { label: 'Learning library', href: '/learn', description: 'All explainers on evidence, neurochemistry, and safety' },
-      { label: 'Evidence literacy', href: '/learn/evidence-literacy', description: 'How to interpret supplement research without hype' },
-      { label: 'How to read studies', href: '/learn/how-to-read-scientific-studies', description: 'Trial design, endpoints, bias, and practical interpretation' },
-      { label: 'Neuroscience glossary', href: '/learn/neuroscience-glossary', description: 'Plain-English definitions for brain and receptor terms' },
-      { label: 'Interactions', href: '/learn/interactions', description: 'Why herb-drug and supplement interactions matter' },
-      { label: 'Product quality', href: '/learn/product-quality', description: 'Labels, standardization, testing, and supplement quality signals' },
-      { label: 'Novel psychoactives', href: '/novel-psychoactive-substances', description: 'Harm-reduction profiles for emerging substances' },
-    ],
-  },
-  {
-    label: 'Tools',
-    href: '/safety-checker',
-    description: 'Safety checkers, evidence lookup, and practical resources',
-    children: [
-      { label: 'Safety checker', href: '/safety-checker', description: 'Herb-drug interaction and contraindication lookup' },
-      { label: 'Evidence lookup', href: '/evidence/evidence-checker', description: 'Search compounds by clinical evidence grade' },
-      { label: 'Evidence report', href: '/evidence/evidence-report', description: 'State of Supplement Evidence — annual research review' },
-      { label: 'Evidence digest', href: '/evidence/evidence-digest', description: 'Recent human-trial highlights and research summaries' },
-      { label: 'Dosing guide', href: '/info/dosing', description: 'Bioavailability, timing, and stacking guidelines' },
-      { label: 'Supplement checklist', href: '/info/supplement-safety-checklist', description: 'What to verify before buying any supplement' },
-      { label: 'Infographics', href: '/info/infographics', description: 'Shareable evidence-based supplement visuals' },
-    ],
-  },
-]
+// One navigation source of truth for the header, schema, helper utilities, and tests.
+export const mainNavigation: NavigationItem[] = primaryNavigation
 
-/**
- * Flat mapping of routes to human-readable labels
- * Used for breadcrumbs, Schema.org SiteNavigationElement, and fallback labels
- *
- * Format: pathname → { label, description?, parent?, isDynamic? }
- */
 export const routeLabels: Record<string, RouteMetadata> = {
   '/': {
     label: 'Home',
-    description: 'The Hippie Scientist – Natural remedies & evidence-based herbalism',
+    description: 'The Hippie Scientist evidence-based supplement research',
+  },
+  '/library': {
+    label: 'Explore Everything',
+    description: 'Complete site directory',
+    parent: '/',
+  },
+  '/articles': {
+    label: 'Articles',
+    description: 'Research notes, evidence reviews, and editorial analysis',
+    parent: '/library',
+  },
+  '/articles/[slug]': {
+    label: 'Article',
+    description: 'Research article or evidence review',
+    parent: '/articles',
+    isDynamic: true,
   },
   '/herbs': {
     label: 'Herbs',
-    description: 'Browse medicinal herbs',
-    parent: '/',
+    description: 'Evidence-graded herb profiles',
+    parent: '/library',
   },
   '/herbs/[slug]': {
     label: 'Herb Profile',
-    description: 'Detailed herb information',
+    description: 'Detailed herb evidence and safety profile',
     parent: '/herbs',
     isDynamic: true,
   },
   '/compounds': {
     label: 'Compounds',
-    description: 'Active compounds and effects',
-    parent: '/',
+    description: 'Active compounds, nutrients, and standardized extracts',
+    parent: '/library',
   },
   '/compounds/[slug]': {
     label: 'Compound Profile',
-    description: 'Detailed compound information',
+    description: 'Detailed compound evidence and safety profile',
     parent: '/compounds',
     isDynamic: true,
   },
   '/search': {
     label: 'Search',
-    description: 'Search all herbs and compounds',
-    parent: '/',
+    description: 'Search the complete site',
+    parent: '/library',
   },
-  '/safety': {
-    label: 'Safety',
-    description: 'Safety checker redirect',
-    parent: '/',
+  '/guides': {
+    label: 'Topics & Guides',
+    description: 'Goal-based and practical evidence guides',
+    parent: '/library',
   },
-  '/safety-checker': {
-    label: 'Safety',
-    description: 'Interaction checker and safety context',
-    parent: '/',
+  '/guides/mental-health': {
+    label: 'Mental Health',
+    description: 'Conditions, treatment evidence, safety, and stigma-aware explainers',
+    parent: '/guides',
   },
   '/guides/adhd': {
     label: 'ADHD',
-    description: 'ADHD supplements, nutrient research, and treatment context',
+    description: 'Attention, executive function, nutrients, and treatment context',
     parent: '/guides',
   },
   '/guides/sleep': {
     label: 'Sleep',
-    description: 'Natural sleep aids, melatonin alternatives, and sleep hygiene',
+    description: 'Sleep aids, alternatives, and sleep-hygiene evidence',
     parent: '/guides',
   },
   '/guides/anxiety': {
     label: 'Anxiety & Stress',
-    description: 'Adaptogens, anxiolytics, and stress management strategies',
+    description: 'Calming supports, adaptogens, and stress-management evidence',
     parent: '/guides',
   },
   '/guides/focus': {
     label: 'Focus & Cognition',
-    description: 'Nootropics, focus stacks, and cognitive enhancement',
+    description: 'Focus support, nootropics, and cognitive performance',
     parent: '/guides',
   },
   '/guides/herbs': {
     label: 'Herb Guides',
-    description: 'Deep dives on individual herbs and botanicals',
+    description: 'Long-form practical botanical guides',
     parent: '/guides',
   },
   '/guides/best': {
     label: 'Best Supplements',
-    description: 'Curated supplement recommendations by need',
+    description: 'Evidence-aware roundups organized by need',
     parent: '/guides',
   },
   '/guides/compare': {
-    label: 'Compare',
-    description: 'Side-by-side comparisons',
+    label: 'Comparisons',
+    description: 'Side-by-side supplement and compound tradeoffs',
     parent: '/guides',
   },
-  '/guides/compare/[slug]': {
-    label: 'Comparison',
-    description: 'Side-by-side comparison',
-    parent: '/guides/compare',
-    isDynamic: true,
-  },
-  '/guides': {
-    label: 'Guides',
-    description: 'Problem-solving supplement guides for sleep, anxiety, focus, stress, and more',
-    parent: '/',
+  '/guides/other': {
+    label: 'Supplement Topic Guides',
+    description: 'Forms, quality, routines, advanced compounds, and harm reduction',
+    parent: '/guides',
   },
   '/guides/[slug]': {
     label: 'Guide',
@@ -233,56 +124,107 @@ export const routeLabels: Record<string, RouteMetadata> = {
     parent: '/guides',
     isDynamic: true,
   },
-  '/tools': {
-    label: 'Tools',
-    description: 'Research tools',
-    parent: '/',
-  },
-  '/evidence/evidence-report': {
-    label: 'Evidence Report',
-    description: 'State of Supplement Evidence 2026 — analysis of 816 peer-reviewed studies',
-    parent: '/',
-  },
-  '/evidence/evidence-checker': {
-    label: 'Evidence Lookup',
-    description: 'Search compounds by clinical evidence grade (A-F)',
-    parent: '/',
-  },
-  '/info/infographics': {
-    label: 'Infographics',
-    description: 'Free evidence-based supplement infographics with embed codes',
-    parent: '/',
+  '/guides/[section]/[slug]': {
+    label: 'Guide',
+    description: 'Evidence-informed topic guide',
+    parent: '/guides',
+    isDynamic: true,
   },
   '/learn': {
-    label: 'Learn',
-    description: 'Educational resources for evidence literacy and supplement decision-making',
-    parent: '/',
+    label: 'Learning Library',
+    description: 'Neuroscience, evidence literacy, and safety education',
+    parent: '/library',
   },
   '/learn/[slug]': {
-    label: 'Learn',
-    description: 'Educational resource',
+    label: 'Learning Resource',
+    description: 'Educational research resource',
     parent: '/learn',
     isDynamic: true,
   },
+  '/novel-psychoactive-substances': {
+    label: 'Novel Psychoactive Substances',
+    description: 'Harm-reduction profiles for emerging substances',
+    parent: '/library',
+  },
+  '/safety': {
+    label: 'Safety',
+    description: 'Safety checker redirect',
+    parent: '/',
+  },
+  '/safety-checker': {
+    label: 'Safety Checker',
+    description: 'Interaction and contraindication lookup',
+    parent: '/library',
+  },
+  '/evidence/evidence-checker': {
+    label: 'Evidence Lookup',
+    description: 'Search compounds by clinical evidence grade',
+    parent: '/library',
+  },
+  '/evidence/evidence-report': {
+    label: 'Evidence Report',
+    description: 'Annual state of supplement evidence review',
+    parent: '/library',
+  },
+  '/evidence/evidence-digest': {
+    label: 'Evidence Digest',
+    description: 'Recent human-trial highlights and research summaries',
+    parent: '/library',
+  },
+  '/info/methodology': {
+    label: 'Methodology',
+    description: 'Evidence grading and editorial standards',
+    parent: '/library',
+  },
+  '/info/dosing': {
+    label: 'Dosing Guide',
+    description: 'Bioavailability, timing, stacking, and dose realism',
+    parent: '/library',
+  },
+  '/info/supplement-safety-checklist': {
+    label: 'Supplement Checklist',
+    description: 'What to verify before buying or stacking a supplement',
+    parent: '/library',
+  },
+  '/info/infographics': {
+    label: 'Infographics',
+    description: 'Downloadable and embeddable evidence visuals',
+    parent: '/library',
+  },
+  '/info/about': {
+    label: 'About',
+    description: 'Project mission and editorial approach',
+    parent: '/library',
+  },
+  '/info/author': {
+    label: 'Author',
+    description: 'Author identity and credentials',
+    parent: '/library',
+  },
+  '/info/faq': {
+    label: 'FAQ',
+    description: 'Common questions about the site',
+    parent: '/library',
+  },
+  '/info/contact': {
+    label: 'Contact',
+    description: 'Corrections, feedback, and contact information',
+    parent: '/library',
+  },
 }
 
-/**
- * Footer links — consistent across all pages
- * Includes legal, meta, and important resources
- */
 export const footerLinks = {
   legal: [
     { label: 'Privacy Policy', href: '/info/privacy' },
     { label: 'Disclaimer', href: '/info/disclaimer' },
     { label: 'Affiliate Disclosure', href: '/info/affiliate-disclosure' },
   ],
-  social: [
-    // Add social links as needed
-  ],
+  social: [],
   meta: [
+    { label: 'Explore Everything', href: '/library' },
+    { label: 'Articles', href: '/articles' },
     { label: 'Evidence Report', href: '/evidence/evidence-report' },
     { label: 'Evidence Lookup', href: '/evidence/evidence-checker' },
-    { label: 'Infographics', href: '/info/infographics' },
     { label: 'Sitemap', href: '/sitemap.xml' },
     { label: 'RSS', href: '/rss.xml' },
   ],
@@ -292,6 +234,8 @@ const SEGMENT_LABEL_OVERRIDES: Record<string, string> = {
   'lions-mane': "Lion's Mane",
   'l-theanine': 'L-Theanine',
   'withanoside-iv': 'Withanoside IV',
+  adhd: 'ADHD',
+  faq: 'FAQ',
 }
 
 function segmentToLabel(segment: string): string {
@@ -305,100 +249,61 @@ function segmentToLabel(segment: string): string {
     .replace(/\bL Theanine\b/g, 'L-Theanine')
 }
 
-/**
- * Generate dynamic breadcrumbs from a pathname
- *
- * @param pathname - Current page pathname (e.g., '/herb/cannabis')
- * @param customTrail - Optional custom breadcrumb trail to prepend
- * @returns Array of breadcrumb items
- *
- * @example
- * generateDynamicBreadcrumbs('/herb/cannabis')
- * // Returns:
- * // [
- * //   { label: 'Home', href: '/', current: false },
- * //   { label: 'Discover', href: '/discover', current: false },
- * //   { label: 'Herbs', href: '/herbs', current: false },
- * //   { label: 'Cannabis', href: '/herbs/cannabis', current: true }
- * // ]
- */
+function findDynamicRoutePattern(pathname: string): string | null {
+  const segments = pathname.split('/').filter(Boolean)
+
+  for (const key in routeLabels) {
+    if (!key.includes('[')) continue
+
+    const keySegments = key.split('/').filter(Boolean)
+    if (keySegments.length !== segments.length) continue
+
+    const matches = keySegments.every((keySegment, index) =>
+      keySegment.startsWith('[') || keySegment === segments[index]
+    )
+
+    if (matches) return key
+  }
+
+  return null
+}
+
 export function generateDynamicBreadcrumbs(
   pathname: string,
   customTrail?: BreadcrumbItem[]
 ): BreadcrumbItem[] {
-  // Start with custom trail if provided
   const breadcrumbs: BreadcrumbItem[] = customTrail
     ? [...customTrail]
     : [{ label: 'Home', href: '/', current: false }]
 
-  // Normalize pathname
   const normalizedPath = pathname.toLowerCase().trim()
   if (normalizedPath === '/' || !normalizedPath) {
     breadcrumbs[0].current = true
     return breadcrumbs
   }
 
-  // Split into segments
   const segments = normalizedPath.split('/').filter(Boolean)
   let currentPath = ''
 
-  // Build breadcrumb trail from segments
   for (let i = 0; i < segments.length; i++) {
     currentPath += `/${segments[i]}`
     const isLast = i === segments.length - 1
     const isStructuralSegment = segments[i] === 'page' || segments[i] === 'style'
 
-    if (!isLast && isStructuralSegment) {
-      continue
-    }
+    if (!isLast && isStructuralSegment) continue
 
-    // Try exact match first
     const metadata = routeLabels[currentPath]
+    const patternKey = metadata ? null : findDynamicRoutePattern(currentPath)
+    const displayLabel = metadata?.label
+      || (patternKey ? segmentToLabel(segments[i]) : segmentToLabel(segments[i]))
 
-    if (metadata) {
-      // Found exact match
-      breadcrumbs.push({
-        label: metadata.label,
-        href: currentPath,
-        current: isLast,
-      })
-    } else if (currentPath.includes('[')) {
-      // Dynamic route — try pattern matching
-      const patternKey = findDynamicRoutePattern(currentPath)
-      if (patternKey) {
-        const patternMetadata = routeLabels[patternKey]
-        const displayLabel = segmentToLabel(segments[i])
-
-        breadcrumbs.push({
-          label: displayLabel || patternMetadata.label,
-          href: currentPath,
-          current: isLast,
-        })
-      } else {
-        // Unknown dynamic route — use segment as label
-        const displayLabel = segmentToLabel(segments[i])
-
-        breadcrumbs.push({
-          label: displayLabel,
-          href: currentPath,
-          current: isLast,
-        })
-      }
-    } else {
-      // No match found — use segment as label
-      const displayLabel = segments[i - 1] === 'page'
-        ? `Page ${segments[i]}`
-        : segmentToLabel(segments[i])
-
-      breadcrumbs.push({
-        label: displayLabel,
-        href: currentPath,
-        current: isLast,
-      })
-    }
+    breadcrumbs.push({
+      label: segments[i - 1] === 'page' ? `Page ${segments[i]}` : displayLabel,
+      href: currentPath,
+      current: isLast,
+    })
   }
 
-  // Mark last breadcrumb as current
   if (breadcrumbs.length > 0) {
     breadcrumbs[breadcrumbs.length - 1].current = true
   }
@@ -406,122 +311,31 @@ export function generateDynamicBreadcrumbs(
   return breadcrumbs
 }
 
-/**
- * Find matching dynamic route pattern
- * @private
- *
- * @param pathname - Path to match (e.g., '/herb/cannabis')
- * @returns Matching pattern key (e.g., '/herb/[slug]') or null
- */
-function findDynamicRoutePattern(pathname: string): string | null {
-  const segments = pathname.split('/').filter(Boolean)
-
-  // Try to match against known patterns
-  for (const key in routeLabels) {
-    if (!key.includes('[')) continue
-
-    const keySegments = key.split('/').filter(Boolean)
-    if (keySegments.length !== segments.length) continue
-
-    // Check if all non-dynamic segments match
-    let matches = true
-    for (let i = 0; i < keySegments.length; i++) {
-      if (!keySegments[i].includes('[') && keySegments[i] !== segments[i]) {
-        matches = false
-        break
-      }
-    }
-
-    if (matches) {
-      return key
-    }
-  }
-
-  return null
-}
-
-/**
- * Validate if a route is recognized in navigation config
- * Useful for debugging and ensuring consistency
- *
- * @param pathname - Route to validate
- * @returns true if route exists or matches a pattern
- *
- * @example
- * validateRoute('/herbs') // true
- * validateRoute('/herbs/cannabis') // true (matches /herbs/[slug])
- * validateRoute('/nonexistent') // false
- */
 export function validateRoute(pathname: string): boolean {
   const normalizedPath = pathname.toLowerCase().trim()
-
-  // Check exact matches
-  if (normalizedPath in routeLabels) {
-    return true
-  }
-
-  // Check pattern matches
-  return findDynamicRoutePattern(normalizedPath) !== null
+  return normalizedPath in routeLabels || findDynamicRoutePattern(normalizedPath) !== null
 }
 
-/**
- * Get metadata for a specific route
- * Handles both exact and dynamic routes
- *
- * @param pathname - Route path
- * @returns Route metadata or null if not found
- *
- * @example
- * getRouteMetadata('/herb/cannabis')
- * // Returns: { label: 'Cannabis', description: 'Herb Profile', ... }
- */
 export function getRouteMetadata(pathname: string): RouteMetadata | null {
   const normalizedPath = pathname.toLowerCase().trim()
+  if (normalizedPath in routeLabels) return routeLabels[normalizedPath]
 
-  // Exact match
-  if (normalizedPath in routeLabels) {
-    return routeLabels[normalizedPath]
-  }
-
-  // Pattern match
   const patternKey = findDynamicRoutePattern(normalizedPath)
-  if (patternKey) {
-    return routeLabels[patternKey]
-  }
-
-  return null
+  return patternKey ? routeLabels[patternKey] : null
 }
 
-/**
- * Flatten navigation hierarchy into a simple array
- * Useful for sitemap generation or recursive rendering
- *
- * @param items - Navigation items to flatten
- * @returns Flat array of all navigation items with their full paths
- */
 export function flattenNavigation(
   items: NavigationItem[] = mainNavigation
 ): Array<{ item: NavigationItem; level: number; path: string }> {
   const result: Array<{ item: NavigationItem; level: number; path: string }> = []
 
-  function traverse(
-    items: NavigationItem[],
-    level: number,
-    _parentPath: string
-  ) {
-    for (const item of items) {
-      result.push({
-        item,
-        level,
-        path: item.href,
-      })
-
-      if (item.children) {
-        traverse(item.children, level + 1, item.href)
-      }
+  function traverse(currentItems: NavigationItem[], level: number) {
+    for (const item of currentItems) {
+      result.push({ item, level, path: item.href })
+      if (item.children) traverse(item.children, level + 1)
     }
   }
 
-  traverse(items, 0, '')
+  traverse(items, 0)
   return result
 }
