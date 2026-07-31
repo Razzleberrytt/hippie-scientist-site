@@ -56,7 +56,7 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     label: 'Research',
     href: '/articles',
     description: 'Articles, learning resources, evidence reports, and methodology',
-    activePrefixes: ['/articles', '/learn', '/evidence', '/novel-psychoactive-substances', '/info/methodology'],
+    activePrefixes: ['/articles', '/learn', '/evidence/evidence-report', '/evidence/evidence-digest', '/novel-psychoactive-substances', '/info/methodology'],
     children: [
       { section: 'Read and learn', label: 'All articles', href: '/articles', description: 'Research notes, evidence reviews, and editorial analysis' },
       { section: 'Read and learn', label: 'Learning library', href: '/learn', description: 'Neuroscience, psychopharmacology, and evidence literacy' },
@@ -71,7 +71,7 @@ export const primaryNavigation: PrimaryNavigationItem[] = [
     label: 'Tools',
     href: '/safety-checker',
     description: 'Safety checks, evidence lookup, dosing, and shareable resources',
-    activePrefixes: ['/safety-checker', '/info/dosing', '/info/supplement-safety-checklist', '/info/infographics'],
+    activePrefixes: ['/safety-checker', '/evidence/evidence-checker', '/info/dosing', '/info/supplement-safety-checklist', '/info/infographics'],
     children: [
       { label: 'Safety checker', href: '/safety-checker', description: 'Herb-drug interaction and contraindication lookup' },
       { label: 'Evidence lookup', href: '/evidence/evidence-checker', description: 'Search compounds by clinical evidence grade' },
