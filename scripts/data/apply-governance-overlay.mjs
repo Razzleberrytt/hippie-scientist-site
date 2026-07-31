@@ -166,6 +166,10 @@ const SOURCE_BACKED_PROMOTION_SLUGS = new Set([
   'citicoline',
   'lavender',
   'passionflower',
+  // CAMUS randomized trial (Barry et al., JAMA 2011; PMID 21954478 / PMC3326341),
+  // registered in claims.json as a negative_randomized_trial for prostate_health.
+  // Verified as a real citation before registering.
+  'saw-palmetto',
   '11-keto-beta-boswellic-acid',
   'acarbose',
   'acemannan',

@@ -24,12 +24,13 @@ export const DEPRECATED_HERB_CANONICALS: Record<string, string> = {
   'atractylodes-macrocephala': 'atractylodes',
   'angelica-sinensis': 'dong-quai',
   'angelica-root': 'angelica-archangelica',
-  // Same plant split across two herb records. `serenoa-repens` carries the
-  // grounded, source-backed profile (Cochrane BPH review) and is the indexable
-  // one; the `saw-palmetto` record is `hidden_until_grounded` and was emitting
-  // noindex on the URL that actually receives search demand. Consolidate onto
-  // the grounded record and lead its metadata with the common name.
-  'saw-palmetto': 'serenoa-repens',
+  // Same plant split across two herb records. `saw-palmetto` is now the canonical
+  // one: it was promoted through scripts/data/promote-profile.mjs (workbook
+  // runtime_export_decision -> full_public_runtime, grounded on the CAMUS trial),
+  // which puts the profile on the common-name URL that actually receives the
+  // search demand and matches this map's existing convention of binomial ->
+  // common name (valeriana-officinalis -> valerian, and so on).
+  'serenoa-repens': 'saw-palmetto',
   // L-tyrosine is an amino-acid compound, not a botanical profile.
   tyrosine: 'l-tyrosine',
 }

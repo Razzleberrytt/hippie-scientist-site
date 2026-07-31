@@ -27098,8 +27098,8 @@
   {
     "slug": "saw-palmetto",
     "name": "Saw Palmetto (Serenoa repens)",
-    "summary": "Saw Palmetto (Serenoa repens) is most studied for benign prostatic hyperplasia symptoms, with proposed 5-alpha-reductase inhibition and anti-inflammatory activity from its fatty-acid and phytosterol content.",
-    "description": "Saw Palmetto (Serenoa repens) is most studied for benign prostatic hyperplasia symptoms, with proposed 5-alpha-reductase inhibition and anti-inflammatory activity from its fatty-acid and phytosterol content.",
+    "summary": "Saw palmetto (Serenoa repens) is a dwarf palm whose berry extract, rich in fatty acids and phytosterols, is one of the most widely sold supplements for prostate and urinary symptoms. The best available evidence does not support that use: in the CAMUS randomized trial, saw palmetto extract escalated to double and triple the usual 320 mg daily dose did not reduce lower urinary tract symptoms more than placebo. It is generally well tolerated, but men with urinary symptoms should be evaluated by a clinician rather than self-treating.",
+    "description": "Saw palmetto (Serenoa repens) is a dwarf palm whose berry extract, rich in fatty acids and phytosterols, is one of the most widely sold supplements for prostate and urinary symptoms. The best available evidence does not support that use: in the CAMUS randomized trial, saw palmetto extract escalated to double and triple the usual 320 mg daily dose did not reduce lower urinary tract symptoms more than placebo. It is generally well tolerated, but men with urinary symptoms should be evaluated by a clinician rather than self-treating.",
     "effects": [
       "anti-inflammatory"
     ],
@@ -27177,14 +27177,22 @@
     "regulatory_status": "",
     "profile_status": "partial",
     "summary_quality": "",
-    "runtime_export_decision": "hidden_until_grounded",
+    "runtime_export_decision": "full_public_runtime",
     "visibility_tier": "public",
-    "robots": "noindex,follow",
-    "sitemap_included": false,
-    "indexability_status": "NOINDEX",
-    "indexability_score": 0,
+    "robots": "index,follow",
+    "sitemap_included": true,
+    "indexability_status": "PUBLISH",
+    "indexability_score": 88,
     "indexability_reasons": [
-      "noindex-decision:hidden_until_grounded"
+      "effect-present",
+      "evidence-signal",
+      "export-decision:full_public_runtime",
+      "identity-present",
+      "mechanism-context",
+      "profile-status:partial",
+      "safety-context",
+      "summary-depth",
+      "summary-quality-missing"
     ],
     "meta_title": "",
     "meta_description": "",
