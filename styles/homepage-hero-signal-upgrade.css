@@ -1,0 +1,299 @@
+/* Homepage hero signal upgrade
+   Adds a premium, research-led visual focal point without JavaScript or image weight. */
+
+.editorial-hero {
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.editorial-hero:hover {
+  border-color: rgba(184, 138, 66, 0.3);
+  box-shadow:
+    0 24px 64px rgba(58, 45, 24, 0.12),
+    0 1px 0 rgba(255, 255, 255, 0.86) inset;
+}
+
+.editorial-hero .editorial-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.editorial-hero .editorial-cta::after {
+  content: '';
+  position: absolute;
+  inset: -2px auto -2px -42%;
+  width: 30%;
+  transform: skewX(-18deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  transition: left 520ms ease;
+}
+
+.editorial-hero .editorial-cta:hover::after {
+  left: 118%;
+}
+
+@media (min-width: 1024px) {
+  .editorial-hero {
+    min-height: 35rem;
+    background:
+      radial-gradient(circle at 78% 28%, rgba(255, 255, 255, 0.98), transparent 12rem),
+      radial-gradient(circle at 86% 34%, rgba(203, 220, 200, 0.66), transparent 19rem),
+      linear-gradient(rgba(18, 60, 47, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(18, 60, 47, 0.025) 1px, transparent 1px),
+      linear-gradient(135deg, rgba(255, 253, 248, 0.99), rgba(245, 239, 226, 0.94));
+    background-size: auto, auto, 32px 32px, 32px 32px, auto;
+  }
+
+  .editorial-hero > .relative {
+    z-index: 2;
+    max-width: 58%;
+    min-height: 27rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .editorial-hero > .editorial-botanical-orbit {
+    right: 1.75rem;
+    top: 3.3rem;
+    bottom: auto;
+    width: 26rem;
+    height: 26rem;
+    opacity: 1;
+    border: 1px solid rgba(18, 60, 47, 0.08);
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at center, rgba(255, 253, 248, 0.96) 0 18%, transparent 18.5%),
+      radial-gradient(circle at center, transparent 0 34%, rgba(184, 138, 66, 0.15) 34.5% 35%, transparent 35.5%),
+      radial-gradient(circle at center, transparent 0 48%, rgba(18, 60, 47, 0.12) 48.5% 49%, transparent 49.5%),
+      radial-gradient(circle at 45% 42%, rgba(203, 220, 200, 0.82), rgba(245, 239, 226, 0.35) 52%, transparent 70%);
+    box-shadow:
+      0 28px 72px rgba(18, 60, 47, 0.12),
+      inset 0 0 0 12px rgba(255, 253, 248, 0.36);
+  }
+
+  .editorial-hero > .editorial-botanical-orbit::before {
+    content: '✦';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    width: 6.2rem;
+    height: 6.2rem;
+    display: grid;
+    place-items: center;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(184, 138, 66, 0.3);
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 36% 28%, rgba(255, 255, 255, 0.98), rgba(223, 233, 220, 0.94) 62%, rgba(203, 220, 200, 0.9));
+    color: #b88a42;
+    font-size: 1.65rem;
+    line-height: 1;
+    box-shadow:
+      0 12px 32px rgba(18, 60, 47, 0.14),
+      0 0 0 10px rgba(255, 253, 248, 0.72),
+      0 0 0 11px rgba(18, 60, 47, 0.07);
+  }
+
+  .editorial-hero > .editorial-botanical-orbit::after {
+    content: 'RESEARCH SIGNAL';
+    position: absolute;
+    left: 50%;
+    top: calc(50% + 4.55rem);
+    transform: translateX(-50%);
+    width: max-content;
+    border: 1px solid rgba(18, 60, 47, 0.09);
+    border-radius: 999px;
+    background: rgba(255, 253, 248, 0.9);
+    padding: 0.42rem 0.72rem;
+    color: #315f50;
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.17em;
+    line-height: 1;
+    box-shadow: 0 8px 22px rgba(18, 60, 47, 0.08);
+    backdrop-filter: blur(10px);
+  }
+
+  .editorial-hero > .editorial-botanical-orbit span {
+    width: auto;
+    height: auto;
+    min-width: 8.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    border: 1px solid rgba(18, 60, 47, 0.1);
+    border-radius: 999px;
+    background: rgba(255, 253, 248, 0.9);
+    padding: 0.68rem 0.85rem;
+    color: #123c2f;
+    box-shadow:
+      0 12px 30px rgba(18, 60, 47, 0.1),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.58);
+    backdrop-filter: blur(12px);
+    animation: homepage-signal-float 7s ease-in-out infinite;
+  }
+
+  .editorial-hero > .editorial-botanical-orbit span::before {
+    content: '';
+    width: 0.52rem;
+    height: 0.52rem;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    background: #315f50;
+    box-shadow: 0 0 0 4px rgba(49, 95, 80, 0.12);
+  }
+
+  .editorial-hero > .editorial-botanical-orbit span::after {
+    font-size: 0.71rem;
+    font-weight: 750;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+
+  .editorial-hero > .editorial-botanical-orbit span:nth-child(1) {
+    right: auto;
+    left: -0.8rem;
+    top: 5.15rem;
+    bottom: auto;
+    transform: none;
+    animation-delay: -1.1s;
+  }
+
+  .editorial-hero > .editorial-botanical-orbit span:nth-child(1)::after {
+    content: 'Human evidence';
+  }
+
+  .editorial-hero > .editorial-botanical-orbit span:nth-child(2) {
+    right: -0.9rem;
+    top: 7.2rem;
+    bottom: auto;
+    transform: none;
+    animation-delay: -3.8s;
+  }
+
+  .editorial-hero > .editorial-botanical-orbit span:nth-child(2)::after {
+    content: 'Safety context';
+  }
+
+  .editorial-hero > .editorial-botanical-orbit span:nth-child(3) {
+    right: auto;
+    left: -1.2rem;
+    bottom: 5.4rem;
+    transform: none;
+    animation-delay: -5.3s;
+  }
+
+  .editorial-hero > .editorial-botanical-orbit span:nth-child(3)::after {
+    content: 'Dose ranges';
+  }
+
+  .editorial-hero > .editorial-botanical-orbit span:nth-child(4) {
+    right: -1.2rem;
+    bottom: 6.5rem;
+    transform: none;
+    animation-delay: -2.5s;
+  }
+
+  .editorial-hero > .editorial-botanical-orbit span:nth-child(4)::after {
+    content: 'Honest limits';
+  }
+
+  .editorial-hero .editorial-trust-strip {
+    position: relative;
+    z-index: 3;
+    gap: 0.75rem;
+    border-top-color: rgba(18, 60, 47, 0.07);
+    background: rgba(255, 253, 248, 0.7);
+    backdrop-filter: blur(14px);
+  }
+
+  .editorial-hero .editorial-trust-strip > div {
+    border: 1px solid rgba(18, 60, 47, 0.075);
+    border-radius: 1rem;
+    background: rgba(255, 253, 248, 0.66);
+    padding: 0.65rem 0.75rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  }
+}
+
+@keyframes homepage-signal-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -5px;
+  }
+}
+
+.dark .editorial-hero:hover {
+  border-color: rgba(222, 198, 155, 0.24);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.32);
+}
+
+@media (min-width: 1024px) {
+  .dark .editorial-hero {
+    background:
+      radial-gradient(circle at 80% 30%, rgba(56, 92, 76, 0.38), transparent 15rem),
+      linear-gradient(rgba(210, 228, 216, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(210, 228, 216, 0.025) 1px, transparent 1px),
+      linear-gradient(135deg, rgba(24, 45, 36, 0.98), rgba(15, 31, 24, 0.98));
+    background-size: auto, 32px 32px, 32px 32px, auto;
+  }
+
+  .dark .editorial-hero > .editorial-botanical-orbit {
+    border-color: rgba(180, 210, 190, 0.12);
+    background:
+      radial-gradient(circle at center, rgba(22, 44, 35, 0.98) 0 18%, transparent 18.5%),
+      radial-gradient(circle at center, transparent 0 34%, rgba(222, 198, 155, 0.2) 34.5% 35%, transparent 35.5%),
+      radial-gradient(circle at center, transparent 0 48%, rgba(180, 210, 190, 0.15) 48.5% 49%, transparent 49.5%),
+      radial-gradient(circle at 45% 42%, rgba(55, 92, 76, 0.62), rgba(18, 38, 30, 0.3) 54%, transparent 72%);
+    box-shadow:
+      0 28px 72px rgba(0, 0, 0, 0.26),
+      inset 0 0 0 12px rgba(255, 255, 255, 0.02);
+  }
+
+  .dark .editorial-hero > .editorial-botanical-orbit::before {
+    border-color: rgba(222, 198, 155, 0.28);
+    background: radial-gradient(circle at 36% 28%, #f6f2e8, #dce8de 62%, #b8cdbd);
+    box-shadow:
+      0 12px 32px rgba(0, 0, 0, 0.28),
+      0 0 0 10px rgba(18, 38, 30, 0.8),
+      0 0 0 11px rgba(180, 210, 190, 0.12);
+  }
+
+  .dark .editorial-hero > .editorial-botanical-orbit::after,
+  .dark .editorial-hero > .editorial-botanical-orbit span,
+  .dark .editorial-hero .editorial-trust-strip > div {
+    border-color: rgba(180, 210, 190, 0.14);
+    background: rgba(24, 45, 36, 0.88);
+    color: #f4f0e7;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+  }
+
+  .dark .editorial-hero > .editorial-botanical-orbit::after {
+    color: #dec69b;
+  }
+
+  .dark .editorial-hero > .editorial-botanical-orbit span::before {
+    background: #b8cdbd;
+    box-shadow: 0 0 0 4px rgba(184, 205, 189, 0.12);
+  }
+
+  .dark .editorial-hero .editorial-trust-strip {
+    background: rgba(12, 27, 21, 0.72);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .editorial-hero,
+  .editorial-hero .editorial-cta::after,
+  .editorial-hero > .editorial-botanical-orbit span {
+    animation: none;
+    transition: none;
+  }
+}
