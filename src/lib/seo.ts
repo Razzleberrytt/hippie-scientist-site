@@ -17,7 +17,7 @@ export { SITE_URL, SITE_NAME }
 export const SEO_YEAR = '2026'
 export const DEFAULT_OG_IMAGE = '/og-default.jpg'
 export const LOGO_PATH = '/logo.svg'
-export const TWITTER_HANDLE = '@HippieScientist'
+export const TWITTER_HANDLE = '@TheHippieSci'
 export const DEFAULT_TITLE = 'The Hippie Scientist – Evidence-Based Herb & Supplement Research'
 export const DEFAULT_DESCRIPTION = `The Hippie Scientist — evidence-first reference for herbs, supplements, and compounds. Mechanism, safety, and practical context for ${TOTAL_PROFILE_COUNT}+ profiles.`
 export const DEFAULT_TITLE_TEMPLATE = `%s | ${SITE_NAME}`
@@ -601,9 +601,9 @@ export function organizationJsonLd() {
       height: 512,
     },
     sameAs: [
-      'https://twitter.com/HippieScientist',
-      'https://www.instagram.com/thehippiescientist',
-      'https://www.youtube.com/@HippieScientist',
+      'https://x.com/TheHippieSci',
+      'https://www.instagram.com/thehippiesci',
+      'https://www.youtube.com/@TheHippieSci',
     ],
   }
 }

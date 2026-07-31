@@ -38,8 +38,8 @@ export default function AboutClient() {
       name: 'Oak Ridge, TN',
     },
     sameAs: [
-      'https://twitter.com/HippieScientist',
-      'https://www.instagram.com/thehippiescientist',
+      'https://x.com/TheHippieSci',
+      'https://www.instagram.com/thehippiesci',
     ],
   }
 
