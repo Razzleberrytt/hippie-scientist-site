@@ -7,7 +7,6 @@ import {
   Leaf,
   Library,
   Moon,
-  Search,
   ShieldCheck,
   Sparkles,
   Zap,
@@ -134,12 +133,12 @@ export default function HomepageV2() {
           </div>
 
           <div className='relative max-w-3xl pb-10 sm:pb-12 lg:pb-14'>
-            <p className='editorial-eyebrow'>Evidence-based supplement guidance</p>
+            <p className='editorial-eyebrow'>Evidence-based guidance for better decisions</p>
             <h1 className='editorial-display mt-4 max-w-[12ch] text-[2.55rem] sm:text-[4.6rem] lg:text-[5.6rem]'>
-              Herbs &amp; supplements, actually explained.
+              Feel better without guessing.
             </h1>
             <p className='mt-5 max-w-xl text-base leading-7 text-[#33433c] sm:mt-6 sm:text-lg sm:leading-8 dark:text-[var(--text-secondary)]'>
-              Start with your goal, then compare evidence, mechanisms, dosing context, and safety without marketing fluff.
+              Compare natural options for sleep, stress, anxiety, and focus with evidence, safety context, and clear next steps.
             </p>
 
             <div className='mt-7 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center'>
@@ -149,16 +148,16 @@ export default function HomepageV2() {
               >
                 <span className='inline-flex items-center gap-3'>
                   <Leaf className='h-5 w-5 text-[#dec69b]' aria-hidden='true' strokeWidth={1.8} />
-                  Choose a health goal
+                  Choose your goal
                 </span>
                 <ArrowRight className='h-5 w-5 text-[#dec69b]' aria-hidden='true' />
               </Link>
               <Link
-                href='/search/'
+                href='/safety-checker/'
                 className='inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full border border-[#123c2f]/15 bg-[#fffdf8]/80 px-5 py-3.5 text-base font-bold text-[#123c2f] shadow-sm transition hover:border-[#b88a42]/35 hover:bg-[#f5efe2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b88a42] focus-visible:ring-offset-2 dark:border-[var(--border-strong)] dark:bg-[var(--surface-card)] dark:text-[var(--text-primary)] dark:hover:bg-[var(--surface-subtle)] sm:w-auto'
               >
-                <Search className='h-5 w-5' aria-hidden='true' strokeWidth={1.8} />
-                Search by name
+                <ShieldCheck className='h-5 w-5' aria-hidden='true' strokeWidth={1.8} />
+                Check interactions
               </Link>
             </div>
           </div>
