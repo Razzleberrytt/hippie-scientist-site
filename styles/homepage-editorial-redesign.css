@@ -1,0 +1,745 @@
+/* Homepage visual redesign — "botanical apothecary journal"
+   Goals: real elevation instead of card-on-card, colour per goal instead of a
+   monotone green field, generous rhythm, and one dark full-bleed moment.
+   Everything here is scoped under .hs-home so shared editorial-* surfaces used
+   by other routes are untouched. */
+
+.hs-home {
+  --hs-gold: #b88a42;
+  --hs-gold-bright: #c99a4e;
+  --hs-gold-soft: #e2cba3;
+  --hs-ink: #10352a;
+  --hs-ink-soft: #315f50;
+  --hs-body: #4a5b52;
+  --hs-hairline: rgba(18, 60, 47, 0.12);
+  --hs-hairline-strong: rgba(18, 60, 47, 0.2);
+  --hs-surface: #fffdf8;
+  --hs-surface-2: rgba(255, 253, 248, 0.72);
+  --hs-lift: 0 1px 2px rgba(46, 38, 20, 0.05), 0 12px 32px -12px rgba(46, 38, 20, 0.16);
+  --hs-lift-hover: 0 2px 4px rgba(46, 38, 20, 0.06), 0 26px 56px -18px rgba(46, 38, 20, 0.26);
+
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  color: var(--hs-body);
+  background:
+    radial-gradient(120% 60% at 50% -10%, rgba(203, 220, 200, 0.6), transparent 60%),
+    linear-gradient(180deg, #fffdf8 0%, #fbf8f1 30%, #f8f3e8 100%);
+}
+
+.dark .hs-home {
+  --hs-gold: #d9b271;
+  --hs-gold-bright: #e8c98f;
+  --hs-gold-soft: rgba(217, 178, 113, 0.28);
+  --hs-ink: #f3f0e6;
+  --hs-ink-soft: #a9c9b5;
+  --hs-body: #b6c7bb;
+  --hs-hairline: rgba(180, 210, 190, 0.16);
+  --hs-hairline-strong: rgba(180, 210, 190, 0.3);
+  --hs-surface: #16291f;
+  --hs-surface-2: rgba(24, 43, 33, 0.6);
+  --hs-lift: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 16px 40px -16px rgba(0, 0, 0, 0.7);
+  --hs-lift-hover: 0 1px 0 rgba(255, 255, 255, 0.09) inset, 0 30px 64px -20px rgba(0, 0, 0, 0.85);
+
+  background:
+    radial-gradient(120% 55% at 50% -8%, rgba(46, 96, 74, 0.42), transparent 62%),
+    linear-gradient(180deg, #0a1610 0%, #081410 45%, #0a1712 100%);
+}
+
+/* Fine botanical dot field, faded out below the hero. */
+.hs-home::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 90rem;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: radial-gradient(circle at 1px 1px, rgba(18, 60, 47, 0.14) 1px, transparent 0);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 42%);
+}
+
+.dark .hs-home::before {
+  opacity: 0.4;
+  background-image: radial-gradient(circle at 1px 1px, rgba(190, 224, 202, 0.16) 1px, transparent 0);
+}
+
+/* ---------- Type ---------- */
+
+.hs-display {
+  color: var(--hs-ink);
+  font-family: var(--font-fraunces), Fraunces, Georgia, serif;
+  font-weight: 640;
+  letter-spacing: -0.032em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.hs-accent {
+  color: var(--hs-gold-bright);
+  font-style: italic;
+  font-weight: 560;
+}
+
+.hs-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--hs-gold);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.hs-eyebrow::before {
+  content: '';
+  width: 1.6rem;
+  height: 1px;
+  flex: 0 0 auto;
+  background: currentColor;
+  opacity: 0.55;
+}
+
+.hs-lede {
+  color: var(--hs-body);
+  text-wrap: pretty;
+}
+
+/* ---------- Hero ---------- */
+
+.hs-hero {
+  position: relative;
+}
+
+/* Soft aurora bloom behind the headline. */
+.hs-hero::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: -18%;
+  top: -22%;
+  width: 46rem;
+  height: 34rem;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+  background: radial-gradient(circle at 40% 40%, rgba(148, 190, 160, 0.5), transparent 65%);
+}
+
+.dark .hs-hero::before {
+  opacity: 0.65;
+  background: radial-gradient(circle at 40% 40%, rgba(60, 122, 95, 0.5), transparent 65%);
+}
+
+/* Hero "evidence dial" — the page's single decorative focal point.
+   Purely presentational; the markup is aria-hidden. Desktop only. */
+
+.hs-dial {
+  position: relative;
+  display: none;
+  width: 100%;
+  max-width: 30rem;
+  margin-inline: auto;
+  aspect-ratio: 1;
+}
+
+@media (min-width: 1024px) {
+  .hs-dial {
+    display: block;
+  }
+}
+
+.hs-dial::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 6%;
+  border-radius: 50%;
+  filter: blur(38px);
+  opacity: 0.7;
+  background: radial-gradient(circle at 45% 40%, rgba(139, 186, 155, 0.55), transparent 68%);
+}
+
+.dark .hs-dial::before {
+  opacity: 0.85;
+  background: radial-gradient(circle at 45% 40%, rgba(62, 132, 101, 0.6), transparent 68%);
+}
+
+.hs-dial-ring {
+  position: absolute;
+  border-radius: 50%;
+}
+
+/* Outer dashed measurement ring. */
+.hs-dial-ring--outer {
+  inset: 0;
+  border: 1px dashed color-mix(in srgb, var(--hs-gold) 42%, transparent);
+  opacity: 0.75;
+  animation: hs-dial-spin 90s linear infinite;
+}
+
+/* Mid ring carries a conic "evidence strength" arc. */
+.hs-dial-ring--mid {
+  inset: 11%;
+  border: 1px solid var(--hs-hairline-strong);
+  background: conic-gradient(
+    from 200deg,
+    color-mix(in srgb, var(--hs-gold) 58%, transparent) 0deg,
+    color-mix(in srgb, var(--hs-gold) 12%, transparent) 118deg,
+    transparent 150deg,
+    transparent 360deg
+  );
+  mask: radial-gradient(circle, transparent 0 calc(50% - 3px), #000 calc(50% - 3px) 50%, transparent 50%);
+}
+
+/* Inner tick ring. */
+.hs-dial-ring--inner {
+  inset: 22%;
+  border: 1px solid var(--hs-hairline);
+  background: repeating-conic-gradient(
+    from 0deg,
+    color-mix(in srgb, var(--hs-ink) 22%, transparent) 0deg 0.5deg,
+    transparent 0.5deg 15deg
+  );
+  mask: radial-gradient(circle, transparent 0 calc(50% - 9px), #000 calc(50% - 9px) 50%, transparent 50%);
+  opacity: 0.85;
+}
+
+.dark .hs-dial-ring--inner {
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(198, 226, 208, 0.5) 0deg 0.5deg,
+    transparent 0.5deg 15deg
+  );
+}
+
+.hs-dial-core {
+  position: absolute;
+  inset: 33%;
+  display: grid;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--hs-gold) 34%, transparent);
+  border-radius: 50%;
+  color: var(--hs-gold-bright);
+  background:
+    radial-gradient(circle at 34% 26%, rgba(255, 255, 255, 0.96), rgba(238, 244, 235, 0.9) 55%, rgba(212, 228, 214, 0.9)),
+    var(--hs-surface);
+  box-shadow:
+    0 18px 44px -14px rgba(18, 60, 47, 0.42),
+    0 0 0 10px color-mix(in srgb, var(--hs-surface) 55%, transparent),
+    0 0 0 11px var(--hs-hairline);
+}
+
+.dark .hs-dial-core {
+  border-color: rgba(217, 178, 113, 0.5);
+  background:
+    radial-gradient(circle at 34% 26%, rgba(96, 152, 122, 0.95), rgba(38, 76, 59, 0.96) 58%, rgba(20, 44, 34, 0.98));
+  box-shadow:
+    0 18px 44px -12px rgba(0, 0, 0, 0.75),
+    0 0 34px -6px rgba(217, 178, 113, 0.22),
+    0 0 0 10px rgba(10, 22, 17, 0.7),
+    0 0 0 11px var(--hs-hairline);
+}
+
+/* Orbiting evidence chips. */
+.hs-dial-chip {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  border: 1px solid var(--hs-hairline);
+  border-radius: 999px;
+  padding: 0.55rem 0.85rem;
+  color: var(--hs-ink);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.005em;
+  background: var(--hs-surface);
+  box-shadow: var(--hs-lift);
+  backdrop-filter: blur(10px);
+  animation: hs-dial-float 8s ease-in-out infinite;
+}
+
+.hs-dial-chip::before {
+  content: '';
+  width: 0.45rem;
+  height: 0.45rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--hs-gold);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--hs-gold) 22%, transparent);
+}
+
+.hs-dial-chip:nth-of-type(1) {
+  left: -4%;
+  top: 17%;
+  animation-delay: -1.2s;
+}
+.hs-dial-chip:nth-of-type(2) {
+  right: -6%;
+  top: 30%;
+  animation-delay: -4.1s;
+}
+.hs-dial-chip:nth-of-type(3) {
+  left: 0%;
+  bottom: 22%;
+  animation-delay: -6.3s;
+}
+.hs-dial-chip:nth-of-type(4) {
+  right: -2%;
+  bottom: 12%;
+  animation-delay: -2.7s;
+}
+
+@keyframes hs-dial-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -6px;
+  }
+}
+
+@keyframes hs-dial-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.hs-btn-primary {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(18, 60, 47, 0.9);
+  background: linear-gradient(140deg, #1c5241 0%, #123c2f 55%, #0f3227 100%);
+  color: #fffdf8;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.14) inset,
+    0 14px 30px -12px rgba(18, 60, 47, 0.7);
+}
+
+.dark .hs-btn-primary {
+  border-color: rgba(217, 178, 113, 0.42);
+  background: linear-gradient(140deg, #256a52 0%, #17493a 55%, #123c2f 100%);
+}
+
+.hs-btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: -2px auto -2px -45%;
+  width: 32%;
+  transform: skewX(-18deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  transition: left 620ms ease;
+}
+
+.hs-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.18) inset,
+    0 20px 40px -12px rgba(18, 60, 47, 0.6);
+}
+
+.hs-btn-primary:hover::after {
+  left: 120%;
+}
+
+.hs-btn-ghost {
+  border: 1px solid var(--hs-hairline-strong);
+  background: var(--hs-surface-2);
+  color: var(--hs-ink);
+  backdrop-filter: blur(10px);
+}
+
+.hs-btn-ghost:hover {
+  border-color: var(--hs-gold);
+  background: var(--hs-surface);
+  transform: translateY(-2px);
+}
+
+/* Hero credibility rail — plain text columns, no nested boxes. */
+.hs-rail {
+  border-top: 1px solid var(--hs-hairline);
+  border-bottom: 1px solid var(--hs-hairline);
+}
+
+.hs-rail > * + * {
+  border-top: 1px solid var(--hs-hairline);
+}
+
+@media (min-width: 640px) {
+  .hs-rail > * + * {
+    border-top: 0;
+    border-left: 1px solid var(--hs-hairline);
+  }
+}
+
+.hs-rail dt {
+  color: var(--hs-ink);
+}
+
+.hs-stat-num {
+  color: var(--hs-ink);
+  font-family: var(--font-fraunces), Fraunces, Georgia, serif;
+  font-weight: 640;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- Goal cards — one hue each, the page's colour anchor ---------- */
+
+.hs-goal {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--tone) 26%, transparent);
+  border-radius: 1.5rem;
+  background:
+    linear-gradient(160deg, color-mix(in srgb, var(--tone) 13%, transparent), transparent 62%),
+    var(--hs-surface);
+  box-shadow: var(--hs-lift);
+  transition:
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 260ms ease,
+    border-color 260ms ease;
+}
+
+/* Dark surfaces swallow a 13% wash, so push the tint harder there. */
+.dark .hs-goal {
+  border-color: color-mix(in srgb, var(--tone) 30%, transparent);
+  background:
+    linear-gradient(158deg, color-mix(in srgb, var(--tone) 26%, transparent), transparent 68%),
+    var(--hs-surface);
+}
+
+/* Colour bloom that grows on hover. */
+.hs-goal::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  right: -30%;
+  bottom: -55%;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 50%;
+  opacity: 0.5;
+  filter: blur(28px);
+  background: radial-gradient(circle, color-mix(in srgb, var(--tone) 42%, transparent), transparent 70%);
+  transition: opacity 320ms ease, transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hs-goal:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--tone) 52%, transparent);
+  box-shadow: var(--hs-lift-hover);
+}
+
+.hs-goal:hover::after {
+  opacity: 0.85;
+  transform: scale(1.18);
+}
+
+.hs-goal-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in srgb, var(--tone) 34%, transparent);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--tone) 15%, var(--hs-surface));
+  color: var(--tone-ink);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+
+.dark .hs-goal-icon {
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.07) inset;
+}
+
+.hs-goal-title {
+  color: var(--hs-ink);
+  font-family: var(--font-fraunces), Fraunces, Georgia, serif;
+  font-weight: 630;
+  letter-spacing: -0.025em;
+}
+
+.hs-goal-go {
+  color: var(--tone-ink);
+}
+
+.hs-goal:hover .hs-goal-go svg {
+  transform: translateX(4px);
+}
+
+/* Tones. --tone drives washes/borders, --tone-ink drives text/icons. */
+[data-tone='sleep'] {
+  --tone: #7c73d6;
+  --tone-ink: #5a51b5;
+}
+[data-tone='stress'] {
+  --tone: #4f9e6d;
+  --tone-ink: #2f7a4c;
+}
+[data-tone='anxiety'] {
+  --tone: #3f97a8;
+  --tone-ink: #24707f;
+}
+[data-tone='focus'] {
+  --tone: #c2913f;
+  --tone-ink: #966a1d;
+}
+
+.dark [data-tone='sleep'] {
+  --tone: #8b82e6;
+  --tone-ink: #b6afef;
+}
+.dark [data-tone='stress'] {
+  --tone: #5cb37c;
+  --tone-ink: #8fd3a7;
+}
+.dark [data-tone='anxiety'] {
+  --tone: #49aabd;
+  --tone-ink: #86d2e0;
+}
+.dark [data-tone='focus'] {
+  --tone: #d7a94f;
+  --tone-ink: #ecc98d;
+}
+
+/* ---------- Chips ---------- */
+
+.hs-chip {
+  border: 1px solid var(--hs-hairline);
+  border-radius: 999px;
+  background: var(--hs-surface);
+  color: var(--hs-ink);
+  box-shadow: var(--hs-lift);
+  transition:
+    transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.hs-chip:hover {
+  transform: translateY(-2px);
+  border-color: var(--hs-gold);
+  box-shadow: var(--hs-lift-hover);
+}
+
+/* ---------- Link rows — hairline list, no nested tiles ---------- */
+
+.hs-rows {
+  border-top: 1px solid var(--hs-hairline);
+}
+
+.hs-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--hs-hairline);
+  color: var(--hs-ink);
+  transition: color 200ms ease, padding-left 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Gold marker that slides in on hover instead of a box appearing. */
+.hs-row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12%;
+  bottom: 12%;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--hs-gold);
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+
+.hs-row:hover {
+  padding-left: 0.9rem;
+  color: var(--hs-gold-bright);
+}
+
+.hs-row:hover::before {
+  opacity: 1;
+}
+
+.hs-row:hover svg {
+  transform: translateX(4px);
+}
+
+.hs-row-sub {
+  color: var(--hs-body);
+}
+
+.hs-row:hover .hs-row-sub {
+  color: var(--hs-body);
+}
+
+/* ---------- Article cards ---------- */
+
+.hs-article {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--hs-hairline);
+  border-radius: 1.25rem;
+  background: var(--hs-surface);
+  box-shadow: var(--hs-lift);
+  transition:
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 260ms ease,
+    border-color 260ms ease;
+}
+
+.hs-article::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--hs-gold), transparent);
+  opacity: 0;
+  transition: opacity 260ms ease;
+}
+
+.hs-article:hover {
+  transform: translateY(-4px);
+  border-color: var(--hs-gold-soft);
+  box-shadow: var(--hs-lift-hover);
+}
+
+.hs-article:hover::before {
+  opacity: 1;
+}
+
+.hs-article-title {
+  color: var(--hs-ink);
+  font-family: var(--font-fraunces), Fraunces, Georgia, serif;
+  font-weight: 620;
+  letter-spacing: -0.02em;
+}
+
+.hs-tag {
+  border: 1px solid var(--hs-hairline);
+  border-radius: 999px;
+  background: var(--hs-surface-2);
+  color: var(--hs-body);
+}
+
+/* ---------- Dark full-bleed methodology band ---------- */
+
+.hs-method {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-top: 1px solid rgba(217, 178, 113, 0.28);
+  border-bottom: 1px solid rgba(217, 178, 113, 0.18);
+  color: #e8ece3;
+  background:
+    radial-gradient(70% 110% at 8% -10%, rgba(56, 116, 90, 0.42), transparent 58%),
+    linear-gradient(160deg, #10382b 0%, #0c2a20 52%, #081d17 100%);
+}
+
+.hs-method::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: radial-gradient(circle at 1px 1px, rgba(226, 203, 163, 0.16) 1px, transparent 0);
+  background-size: 38px 38px;
+  mask-image: radial-gradient(70% 90% at 80% 30%, #000, transparent 75%);
+}
+
+.hs-method .hs-display {
+  color: #fffdf8;
+}
+
+.hs-method .hs-eyebrow {
+  color: #e0c193;
+}
+
+.hs-step {
+  border-top: 1px solid rgba(226, 203, 163, 0.22);
+}
+
+.hs-step-num {
+  color: rgba(226, 203, 163, 0.85);
+  font-family: var(--font-fraunces), Fraunces, Georgia, serif;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.hs-method-link {
+  color: #f0dcb8;
+  border-bottom: 1px solid rgba(240, 220, 184, 0.35);
+  transition: border-color 200ms ease, color 200ms ease;
+}
+
+.hs-method-link:hover {
+  color: #fffdf8;
+  border-color: #fffdf8;
+}
+
+.hs-method-link:hover svg {
+  transform: translateX(4px);
+}
+
+/* ---------- Shared link affordance ---------- */
+
+.hs-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--hs-ink-soft);
+  font-weight: 700;
+  transition: color 200ms ease;
+}
+
+.hs-link:hover {
+  color: var(--hs-gold-bright);
+}
+
+.hs-link svg,
+.hs-row svg,
+.hs-goal-go svg,
+.hs-method-link svg {
+  transition: transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hs-link:hover svg {
+  transform: translateX(4px);
+}
+
+/* Hairline section divider used between open bands. */
+.hs-divider {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(90deg, var(--hs-hairline-strong), transparent 70%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hs-home *,
+  .hs-home *::before,
+  .hs-home *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .hs-goal:hover,
+  .hs-article:hover,
+  .hs-chip:hover,
+  .hs-btn-primary:hover,
+  .hs-btn-ghost:hover {
+    transform: none;
+  }
+
+  .hs-row:hover {
+    padding-left: 0;
+  }
+}
