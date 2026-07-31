@@ -1,6 +1,7 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { cache } from './react-cache'
+import { canonicalizeProfileHref } from '../../lib/canonical-profile-href'
 
 const MAP_DIR = path.join(process.cwd(), 'public', 'data', 'runtime-maps')
 const MAX_RUNTIME_MAP_ENTRIES = 12
@@ -67,9 +68,11 @@ function sanitizeEntry(entry: any): RuntimeMapEntry | null {
     return null
   }
 
+  const href = text(entry?.href)
+
   return {
     slug,
-    href: text(entry?.href) || undefined,
+    href: href ? canonicalizeProfileHref(href) : undefined,
     label: text(entry?.label) || undefined,
     title: text(entry?.title) || undefined,
     sourceSlug: text(entry?.sourceSlug) || undefined,
@@ -138,16 +141,25 @@ const getRuntimeMapByFile = cache(async (fileName: string) => readMap(fileName))
 
 function sanitizeInternalLinkGroup(group: any): InternalLinkGroup | null {
   const title = text(group?.title)
+  const seenHrefs = new Set<string>()
   const links = Array.isArray(group?.links)
     ? group.links
         .map((link: any) => ({
-          href: text(link?.href),
+          href: canonicalizeProfileHref(text(link?.href)),
           label: text(link?.label),
           score: Number.isFinite(Number(link?.score)) ? Number(link.score) : 0,
           type: text(link?.type) || undefined,
           clusters: Array.isArray(link?.clusters) ? link.clusters.map(text).filter(Boolean).slice(0, 8) : [],
         }))
-        .filter((link: { href: string; label: string }) => link.href && link.label)
+        .filter((link: { href: string; label: string }) => {
+          if (!link.href || !link.label) return false
+          // Rewriting a deprecated slug can collide with the canonical link
+          // already in the group (several groups list both saw-palmetto and
+          // serenoa-repens), so drop the duplicate rather than render it twice.
+          if (seenHrefs.has(link.href)) return false
+          seenHrefs.add(link.href)
+          return true
+        })
         .slice(0, 4)
     : []
 

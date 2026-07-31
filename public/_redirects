@@ -1,25 +1,42 @@
 # GSC redirect cleanup (2026-07-03): preserve workbook www URLs to canonical paths.
-https://www.thehippiescientist.net/goals/ https://thehippiescientist.net/goals/ 301
+https://www.thehippiescientist.net/guides/other/supplements-for-brain-fog-and-fatigue https://thehippiescientist.net/guides/other/supplements-for-brain-fog-and-fatigue/ 301
 https://www.thehippiescientist.net/guides/other/supplements-for-brain-fog-and-fatigue/ https://thehippiescientist.net/guides/other/supplements-for-brain-fog-and-fatigue/ 301
 https://www.thehippiescientist.net/ https://thehippiescientist.net/ 301
+https://www.thehippiescientist.net/guides/sleep-herbs-vs-melatonin https://thehippiescientist.net/guides/sleep/sleep-herbs-vs-melatonin/ 301
 https://www.thehippiescientist.net/guides/sleep-herbs-vs-melatonin/ https://thehippiescientist.net/guides/sleep/sleep-herbs-vs-melatonin/ 301
+https://www.thehippiescientist.net/guides/best-supplements-for-gut-health https://thehippiescientist.net/guides/best/supplements-for-gut-health/ 301
 https://www.thehippiescientist.net/guides/best-supplements-for-gut-health/ https://thehippiescientist.net/guides/best/supplements-for-gut-health/ 301
+https://www.thehippiescientist.net/guides https://thehippiescientist.net/guides/ 301
 https://www.thehippiescientist.net/guides/ https://thehippiescientist.net/guides/ 301
+https://www.thehippiescientist.net/guides/best-supplements-for-blood-pressure-support https://thehippiescientist.net/guides/best/supplements-for-blood-pressure/ 301
 https://www.thehippiescientist.net/guides/best-supplements-for-blood-pressure-support/ https://thehippiescientist.net/guides/best/supplements-for-blood-pressure/ 301
+https://www.thehippiescientist.net/guides/best-supplements-for-joint-support https://thehippiescientist.net/guides/best/supplements-for-joint-support/ 301
 https://www.thehippiescientist.net/guides/best-supplements-for-joint-support/ https://thehippiescientist.net/guides/best/supplements-for-joint-support/ 301
-https://www.thehippiescientist.net/compare/creatine-vs-beta-alanine/ https://thehippiescientist.net/guides/compare/creatine-vs-beta-alanine/ 301
+https://www.thehippiescientist.net/compare/creatine-vs-beta-alanine https://thehippiescientist.net/guides/compare/ 301
+https://www.thehippiescientist.net/compare/creatine-vs-beta-alanine/ https://thehippiescientist.net/guides/compare/ 301
+https://www.thehippiescientist.net/compare/berberine-vs-inositol https://thehippiescientist.net/guides/compare/berberine-vs-metformin/ 301
 https://www.thehippiescientist.net/compare/berberine-vs-inositol/ https://thehippiescientist.net/guides/compare/berberine-vs-metformin/ 301
+https://www.thehippiescientist.net/herbs/guayusa https://thehippiescientist.net/herbs/guayusa/ 301
 https://www.thehippiescientist.net/herbs/guayusa/ https://thehippiescientist.net/herbs/guayusa/ 301
 https://www.thehippiescientist.net/herbs/agarikon https://thehippiescientist.net/herbs/agarikon/ 301
+https://www.thehippiescientist.net/herbs/agarikon/ https://thehippiescientist.net/herbs/agarikon/ 301
+https://www.thehippiescientist.net/herbs/corydalis https://thehippiescientist.net/herbs/corydalis/ 301
 https://www.thehippiescientist.net/herbs/corydalis/ https://thehippiescientist.net/herbs/corydalis/ 301
+https://www.thehippiescientist.net/herbs/sage https://thehippiescientist.net/herbs/sage/ 301
 https://www.thehippiescientist.net/herbs/sage/ https://thehippiescientist.net/herbs/sage/ 301
+https://www.thehippiescientist.net/herbs/lagerstroemia-speciosa https://thehippiescientist.net/herbs/lagerstroemia-speciosa/ 301
 https://www.thehippiescientist.net/herbs/lagerstroemia-speciosa/ https://thehippiescientist.net/herbs/lagerstroemia-speciosa/ 301
+https://www.thehippiescientist.net/herbs/tripterygium-wilfordii https://thehippiescientist.net/herbs/tripterygium-wilfordii/ 301
 https://www.thehippiescientist.net/herbs/tripterygium-wilfordii/ https://thehippiescientist.net/herbs/tripterygium-wilfordii/ 301
-https://www.thehippiescientist.net/compare/lions-mane-vs-alpha-gpc/ https://thehippiescientist.net/guides/compare/lions-mane-vs-alpha-gpc/ 301
+https://www.thehippiescientist.net/compare/lions-mane-vs-alpha-gpc https://thehippiescientist.net/guides/compare/ 301
+https://www.thehippiescientist.net/compare/lions-mane-vs-alpha-gpc/ https://thehippiescientist.net/guides/compare/ 301
+https://www.thehippiescientist.net/compare/caffeine-vs-l-theanine https://thehippiescientist.net/guides/compare/caffeine-vs-l-theanine/ 301
 https://www.thehippiescientist.net/compare/caffeine-vs-l-theanine/ https://thehippiescientist.net/guides/compare/caffeine-vs-l-theanine/ 301
 https://www.thehippiescientist.net/compare/melatonin-vs-magnesium https://thehippiescientist.net/guides/compare/melatonin-vs-magnesium/ 301
 https://www.thehippiescientist.net/compare/melatonin-vs-magnesium/ https://thehippiescientist.net/guides/compare/melatonin-vs-magnesium/ 301
+https://www.thehippiescientist.net/best-supplements-for-fat-loss https://thehippiescientist.net/guides/best/supplements-for-fat-loss/ 301
 https://www.thehippiescientist.net/best-supplements-for-fat-loss/ https://thehippiescientist.net/guides/best/supplements-for-fat-loss/ 301
+https://www.thehippiescientist.net/best-supplements-for-focus https://thehippiescientist.net/guides/focus/best-supplements-for-focus/ 301
 https://www.thehippiescientist.net/best-supplements-for-focus/ https://thehippiescientist.net/guides/focus/best-supplements-for-focus/ 301
 
 # Canonical: non-www
@@ -32,56 +49,117 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /compare/ /guides/compare/ 301
 
 # Required legacy aliases checked by verify-redirects.
-/natural-anxiolytics-beyond-ashwagandha /guides/natural-anxiolytics-beyond-ashwagandha/ 301
-/psychedelic-adjacent-herbs /guides/psychedelic-adjacent-herbs/ 301
-/sleep-herbs-vs-melatonin /guides/sleep-herbs-vs-melatonin/ 301
+# These three previously pointed at /guides/<slug>/, which app/guides/[slug] does
+# not build (GUIDE_SLUGS is only ashwagandha + lions-mane) — so each 301 landed on
+# a 404. Retargeted at the guide-hub routes that actually exist.
+/natural-anxiolytics-beyond-ashwagandha /guides/anxiety/natural-anxiolytics-beyond-ashwagandha/ 301
+/natural-anxiolytics-beyond-ashwagandha/ /guides/anxiety/natural-anxiolytics-beyond-ashwagandha/ 301
+/psychedelic-adjacent-herbs /guides/other/psychedelic-adjacent-herbs/ 301
+/psychedelic-adjacent-herbs/ /guides/other/psychedelic-adjacent-herbs/ 301
+/sleep-herbs-vs-melatonin /guides/sleep/sleep-herbs-vs-melatonin/ 301
+/sleep-herbs-vs-melatonin/ /guides/sleep/sleep-herbs-vs-melatonin/ 301
 /compounds/coq10 /compounds/coenzyme-q10/ 301
+/compounds/coq10/ /compounds/coenzyme-q10/ 301
 /compounds/coenzyme-q10-ubiquinol /compounds/coenzyme-q10/ 301
+/compounds/coenzyme-q10-ubiquinol/ /compounds/coenzyme-q10/ 301
 /compounds/theanine /compounds/l-theanine/ 301
+/compounds/theanine/ /compounds/l-theanine/ 301
 /compounds/l-theanine-sleep /compounds/l-theanine/ 301
+/compounds/l-theanine-sleep/ /compounds/l-theanine/ 301
 /compounds/methyleugenol /compounds/methyl-eugenol/ 301
+/compounds/methyleugenol/ /compounds/methyl-eugenol/ 301
 /compounds/bcaas /compounds/bcaa/ 301
+/compounds/bcaas/ /compounds/bcaa/ 301
 /compounds/probiotic-multistrain /compounds/probiotics/ 301
+/compounds/probiotic-multistrain/ /compounds/probiotics/ 301
 /compounds/probiotic-strain-bifidobacterium /compounds/probiotics/ 301
+/compounds/probiotic-strain-bifidobacterium/ /compounds/probiotics/ 301
 /compounds/probiotic-strain-lactobacillus /compounds/probiotics/ 301
+/compounds/probiotic-strain-lactobacillus/ /compounds/probiotics/ 301
 /compounds/probiotics-bifidobacterium /compounds/probiotics/ 301
+/compounds/probiotics-bifidobacterium/ /compounds/probiotics/ 301
 /compounds/probiotics-lactobacillus /compounds/probiotics/ 301
+/compounds/probiotics-lactobacillus/ /compounds/probiotics/ 301
 /compounds/taurine-blend /compounds/taurine/ 301
+/compounds/taurine-blend/ /compounds/taurine/ 301
 /compounds/taurine-sleep /compounds/taurine/ 301
+/compounds/taurine-sleep/ /compounds/taurine/ 301
 /compounds/glycine-sleep /compounds/glycine/ 301
+/compounds/glycine-sleep/ /compounds/glycine/ 301
 /compounds/inositol-sleep /compounds/inositol/ 301
+/compounds/inositol-sleep/ /compounds/inositol/ 301
 /compounds/ashwagandha-extract-ksm-66 /herbs/ashwagandha/ 301
+/compounds/ashwagandha-extract-ksm-66/ /herbs/ashwagandha/ 301
 /compounds/ashwagandha-root-extract /herbs/ashwagandha/ 301
+/compounds/ashwagandha-root-extract/ /herbs/ashwagandha/ 301
 /compounds/garlic /herbs/garlic/ 301
+/compounds/garlic/ /herbs/garlic/ 301
 /compounds/garlic-extract /herbs/garlic/ 301
+/compounds/garlic-extract/ /herbs/garlic/ 301
 /compounds/garlic-aged-extract /herbs/garlic/ 301
+/compounds/garlic-aged-extract/ /herbs/garlic/ 301
 /compounds/aged-garlic-extract /herbs/garlic/ 301
+/compounds/aged-garlic-extract/ /herbs/garlic/ 301
 /herbs/allium-sativum /herbs/garlic/ 301
+/herbs/allium-sativum/ /herbs/garlic/ 301
 /compounds/ginger /herbs/ginger/ 301
+/compounds/ginger/ /herbs/ginger/ 301
 /compounds/gingerol /herbs/ginger/ 301
+/compounds/gingerol/ /herbs/ginger/ 301
 /compounds/gingerols /herbs/ginger/ 301
+/compounds/gingerols/ /herbs/ginger/ 301
 /compounds/valerian /herbs/valerian/ 301
+/compounds/valerian/ /herbs/valerian/ 301
 /compounds/valerian-extract-standardized /herbs/valerian/ 301
+/compounds/valerian-extract-standardized/ /herbs/valerian/ 301
 /compounds/valerian-root-extract /herbs/valerian/ 301
+/compounds/valerian-root-extract/ /herbs/valerian/ 301
 /herbs/valeriana-officinalis /herbs/valerian/ 301
+/herbs/valeriana-officinalis/ /herbs/valerian/ 301
 /compounds/lions-mane /herbs/lions-mane/ 301
+/compounds/lions-mane/ /herbs/lions-mane/ 301
 /herbs/hericium-erinaceus /herbs/lions-mane/ 301
+/herbs/hericium-erinaceus/ /herbs/lions-mane/ 301
 /compounds/passionflower /herbs/passionflower/ 301
+/compounds/passionflower/ /herbs/passionflower/ 301
 /compounds/passionflower-extract /herbs/passionflower/ 301
+/compounds/passionflower-extract/ /herbs/passionflower/ 301
 /compounds/passionflower-extract-standardized /herbs/passionflower/ 301
+/compounds/passionflower-extract-standardized/ /herbs/passionflower/ 301
 /herbs/passiflora-incarnata /herbs/passionflower/ 301
+/herbs/passiflora-incarnata/ /herbs/passionflower/ 301
 /compounds/kava /herbs/kava/ 301
+/compounds/kava/ /herbs/kava/ 301
 /compounds/kavalactones /herbs/kava/ 301
+/compounds/kavalactones/ /herbs/kava/ 301
 /herbs/piper-methysticum /herbs/kava/ 301
+/herbs/piper-methysticum/ /herbs/kava/ 301
 /compounds/reishi /herbs/reishi/ 301
+/compounds/reishi/ /herbs/reishi/ 301
 /herbs/ganoderma-lucidum /herbs/reishi/ 301
+/herbs/ganoderma-lucidum/ /herbs/reishi/ 301
 /compounds/maca /herbs/maca/ 301
+/compounds/maca/ /herbs/maca/ 301
 /compounds/maca-root-extract /herbs/maca/ 301
+/compounds/maca-root-extract/ /herbs/maca/ 301
 /compounds/elderberry /herbs/elderberry/ 301
+/compounds/elderberry/ /herbs/elderberry/ 301
 /compounds/resveratrol /herbs/resveratrol/ 301
+/compounds/resveratrol/ /herbs/resveratrol/ 301
 /compounds/trans-resveratrol /herbs/resveratrol/ 301
+/compounds/trans-resveratrol/ /herbs/resveratrol/ 301
 /herbs/ashwagandha-withania-somnifera /herbs/ashwagandha/ 301
 /herbs/ashwagandha-withania-somnifera/ /herbs/ashwagandha/ 301
+
+# Saw palmetto = Serenoa repens. The binomial slug carries the grounded,
+# source-backed profile; the common-name record is hidden_until_grounded and was
+# serving noindex on the URL that receives the search demand.
+/herbs/saw-palmetto /herbs/serenoa-repens/ 301
+/herbs/saw-palmetto/ /herbs/serenoa-repens/ 301
+
+# Saw palmetto = Serenoa repens. The binomial slug carries the grounded,
+# source-backed profile; the common-name record is hidden_until_grounded and was
+# serving noindex on the URL that receives the search demand.
 
 # Cross-taxonomy canonical: L-tyrosine is an amino-acid compound, not an herb.
 /herbs/tyrosine /compounds/l-tyrosine/ 301
@@ -174,51 +252,51 @@ https://www.thehippiescientist.net/* https://thehippiescientist.net/:splat 301
 /compare/sleep-herbs-vs-melatonin/ /guides/compare/sleep-herbs-vs-melatonin/ 301
 /compare/berberine-vs-inositol /guides/compare/berberine-vs-metformin/ 301
 /compare/berberine-vs-inositol/ /guides/compare/berberine-vs-metformin/ 301
+# Earns GSC impressions on "zinc or magnesium" but has no page and no rule, so it
+# has been serving a hard 404 to a query with demand. Route it to the comparison
+# hub until a real magnesium-vs-zinc page exists.
+/compare/magnesium-vs-zinc /guides/compare/ 301
+/compare/magnesium-vs-zinc/ /guides/compare/ 301
 /compare/rhodiola-vs-ashwagandha /guides/compare/rhodiola-vs-ashwagandha/ 301
 /compare/rhodiola-vs-ashwagandha/ /guides/compare/rhodiola-vs-ashwagandha/ 301
 
 # GSC redirect cleanup: exact non-slash variants for active static-export pages.
-/articles/omega-3-and-adhd /articles/omega-3-and-adhd/ 301
-/articles/magnesium-for-adhd /articles/magnesium-for-adhd/ 301
-/articles/adhd-blood-tests /articles/adhd-blood-tests/ 301
-/articles/vitamin-d-and-adhd /articles/vitamin-d-and-adhd/ 301
-/articles/zinc-and-adhd /articles/zinc-and-adhd/ 301
-/articles/adhd-stack-guide /articles/adhd-stack-guide/ 301
-/articles/best-supplements-for-adhd /guides/adhd/best-supplements-for-adhd/ 301
-/articles/nutrient-deficiencies-and-adhd /articles/nutrient-deficiencies-and-adhd/ 301
-/guides/adhd-supplements /guides/adhd-supplements/ 301
-/articles/anxiety-stack-guide /articles/anxiety-stack-guide/ 301
-/articles/sleep-stack-guide /articles/sleep-stack-guide/ 301
-/articles/l-theanine-for-sleep /articles/l-theanine-for-sleep/ 301
-/articles/magnesium-for-sleep /articles/magnesium-for-sleep/ 301
-/articles/ashwagandha-for-sleep /articles/ashwagandha-for-sleep/ 301
+/articles/anxiety-stack-guide /guides/anxiety/anxiety-stack-guide/ 301
+/articles/anxiety-stack-guide/ /guides/anxiety/anxiety-stack-guide/ 301
 # Focus/ADHD route consolidation: current canonical URLs live under /guides/adhd/.
 /best-supplements-for-adhd /guides/adhd/best-supplements-for-adhd/ 301
 /best-supplements-for-adhd/ /guides/adhd/best-supplements-for-adhd/ 301
-/magnesium-for-adhd /articles/magnesium-for-adhd/ 301
-/magnesium-for-adhd/ /articles/magnesium-for-adhd/ 301
-/l-theanine-for-adhd /articles/l-theanine-for-adhd/ 301
-/l-theanine-for-adhd/ /articles/l-theanine-for-adhd/ 301
+/magnesium-for-adhd /guides/adhd/magnesium-for-adhd/ 301
+/magnesium-for-adhd/ /guides/adhd/magnesium-for-adhd/ 301
+/l-theanine-for-adhd /guides/adhd/l-theanine-for-adhd/ 301
+/l-theanine-for-adhd/ /guides/adhd/l-theanine-for-adhd/ 301
 /citicoline-vs-alpha-gpc /guides/adhd/citicoline-vs-alpha-gpc/ 301
 /citicoline-vs-alpha-gpc/ /guides/adhd/citicoline-vs-alpha-gpc/ 301
 /omega-3-for-adhd /guides/adhd/omega-3-and-adhd/ 301
 /omega-3-for-adhd/ /guides/adhd/omega-3-and-adhd/ 301
 # CONTENT TAXONOMY MIGRATION: Learn content is now surfaced from /guides;
 # keep /learn/ live for existing static learning-path content and sitemap hygiene.
-# Articles style category legacy redirect (field-notes → nootropics)
-/articles/style/field-notes /articles/style/nootropics/ 301
-/articles/style/field-notes/ /articles/style/nootropics/ 301
-/best-herbs-for-anxiety /guides/anxiety/best-herbs-for-anxiety/ 301
-/herbs-for-sleep /articles/best-herbs-for-sleep/ 301
-/best-nootropics-for-focus /guides/focus/best-nootropics-for-focus/ 301
+/herbs-for-sleep /guides/sleep/best-herbs-for-sleep/ 301
+/herbs-for-sleep/ /guides/sleep/best-herbs-for-sleep/ 301
 /best-adaptogens-for-stress /guides/anxiety/best-adaptogens-for-stress/ 301
+/best-adaptogens-for-stress/ /guides/anxiety/best-adaptogens-for-stress/ 301
 /natural-testosterone-boosters /guides/other/testosterone-supplements/ 301
+/natural-testosterone-boosters/ /guides/other/testosterone-supplements/ 301
 /alkaloids-on-amazon /guides/other/alkaloids-on-amazon/ 301
 /alkaloids-on-amazon/ /guides/other/alkaloids-on-amazon/ 301
-/comparisons/rhodiola-vs-ashwagandha /compare/rhodiola-vs-ashwagandha/ 301
-/compare/ashwagandha-vs-rhodiola /compare/rhodiola-vs-ashwagandha/ 301
-/compare/ashwagandha-vs-rhodiola-for-stress /compare/rhodiola-vs-ashwagandha/ 301
-/best-for /goals/ 301
-/best-for/sleep-support /goals/sleep/ 301
-/best-for/non-stimulant-focus /goals/focus/ 301
-/best-for/non-sedating-calm /goals/anxiety/ 301
+/comparisons/rhodiola-vs-ashwagandha /guides/compare/rhodiola-vs-ashwagandha/ 301
+/comparisons/rhodiola-vs-ashwagandha/ /guides/compare/rhodiola-vs-ashwagandha/ 301
+/compare/ashwagandha-vs-rhodiola /guides/compare/rhodiola-vs-ashwagandha/ 301
+/compare/ashwagandha-vs-rhodiola/ /guides/compare/rhodiola-vs-ashwagandha/ 301
+/compare/ashwagandha-vs-rhodiola-for-stress /guides/compare/rhodiola-vs-ashwagandha/ 301
+/compare/ashwagandha-vs-rhodiola-for-stress/ /guides/compare/rhodiola-vs-ashwagandha/ 301
+# /goals/ is documented as a route contract but has no app/goals route, so these
+# all 301d into a 404. Pointed at the topic hubs that actually build.
+/best-for /guides/ 301
+/best-for/ /guides/ 301
+/best-for/sleep-support /guides/sleep/ 301
+/best-for/sleep-support/ /guides/sleep/ 301
+/best-for/non-stimulant-focus /guides/focus/ 301
+/best-for/non-stimulant-focus/ /guides/focus/ 301
+/best-for/non-sedating-calm /guides/anxiety/ 301
+/best-for/non-sedating-calm/ /guides/anxiety/ 301

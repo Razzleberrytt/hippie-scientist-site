@@ -392,12 +392,11 @@ export const COMPARE_COMBINATIONS: readonly string[] = [
   'psoralea-corylifolia-vs-daidzin',
   'psoralea-corylifolia-vs-deoxymiroestrol',
   'boron-vs-calcium',
+  // Serenoa repens IS saw palmetto, so `*-vs-saw-palmetto` pairs that also name
+  // serenoa-repens compared the plant against itself, and the `pygeum-vs-saw-palmetto`
+  // / `*-vs-saw-palmetto-extract` variants duplicated the serenoa-repens pairs.
   'serenoa-repens-vs-pygeum',
-  'serenoa-repens-vs-saw-palmetto',
   'serenoa-repens-vs-saw-palmetto-extract',
-  'pygeum-vs-saw-palmetto',
-  'pygeum-vs-saw-palmetto-extract',
-  'saw-palmetto-vs-saw-palmetto-extract',
   'shatavari-vs-wild-yam',
   'sophora-alopecuroides-vs-sophora-flavescens',
   'sophora-alopecuroides-vs-stellera-chamaejasme',

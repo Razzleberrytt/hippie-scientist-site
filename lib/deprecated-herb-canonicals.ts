@@ -24,11 +24,20 @@ export const DEPRECATED_HERB_CANONICALS: Record<string, string> = {
   'atractylodes-macrocephala': 'atractylodes',
   'angelica-sinensis': 'dong-quai',
   'angelica-root': 'angelica-archangelica',
+  // Same plant split across two herb records. `serenoa-repens` carries the
+  // grounded, source-backed profile (Cochrane BPH review) and is the indexable
+  // one; the `saw-palmetto` record is `hidden_until_grounded` and was emitting
+  // noindex on the URL that actually receives search demand. Consolidate onto
+  // the grounded record and lead its metadata with the common name.
+  'saw-palmetto': 'serenoa-repens',
   // L-tyrosine is an amino-acid compound, not a botanical profile.
   tyrosine: 'l-tyrosine',
 }
 
-const CROSS_TAXONOMY_REDIRECT_SLUGS = new Set(['tyrosine'])
+// Sources whose canonical target lives in a different taxonomy, so their
+// redirect (and any rewritten internal link) must point at /compounds/, not
+// /herbs/. Paired with an explicit public/_redirects rule.
+export const CROSS_TAXONOMY_REDIRECT_SLUGS = new Set(['tyrosine'])
 
 // True when `slug` redirects to a canonical that exists as its own record in
 // `presentSlugs` — i.e. the redirect source is a duplicate that should be

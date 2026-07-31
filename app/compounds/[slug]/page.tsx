@@ -13,7 +13,8 @@ import RelatedDiscoveryGroups from '@/components/ui/RelatedDiscoveryGroups'
 import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
 import { cleanSummary, formatDisplayLabel, isClean, list, text, unique } from '@/lib/display-utils'
 import { normalizeSlug } from '@/lib/slug-utils'
-import { buildPageMetadata, faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, shouldIndexRoute, SITE_URL } from '../../../src/lib/seo'
+import { DEPRECATED_COMPOUND_CANONICALS } from '@/lib/deprecated-compound-canonicals'
+import { buildPageMetadata, CANONICALIZED_AWAY_PROFILE_SLUGS, faqPageJsonLd, generateDetailMetadata, isMeaningfulFaqAnswer, SITE_URL } from '../../../src/lib/seo'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import CompoundSourceHerbs from '@/components/seo/CompoundSourceHerbs'
 import ProfileTOC from '@/components/ui/ProfileTOC'
@@ -69,49 +70,6 @@ type RegulatoryStateRow = {
   notes: string
 }
 
-const DEPRECATED_COMPOUND_CANONICALS: Record<string, string> = {
-  coq10: 'coenzyme-q10',
-  'coenzyme-q10-ubiquinol': 'coenzyme-q10',
-  theanine: 'l-theanine',
-  'l-theanine-sleep': 'l-theanine',
-  methyleugenol: 'methyl-eugenol',
-  bcaas: 'bcaa',
-  nr: 'nicotinamide-riboside',
-  'berberine-hcl': 'berberine',
-  'probiotic-multistrain': 'probiotics',
-  'probiotic-strain-bifidobacterium': 'probiotics',
-  'probiotic-strain-lactobacillus': 'probiotics',
-  'probiotics-bifidobacterium': 'probiotics',
-  'probiotics-lactobacillus': 'probiotics',
-  'taurine-blend': 'taurine',
-  'taurine-sleep': 'taurine',
-  'glycine-sleep': 'glycine',
-  'inositol-sleep': 'inositol',
-  'ashwagandha-extract-ksm-66': '/herbs/ashwagandha',
-  'ashwagandha-root-extract': '/herbs/ashwagandha',
-  garlic: '/herbs/garlic',
-  'garlic-extract': '/herbs/garlic',
-  'garlic-aged-extract': '/herbs/garlic',
-  'aged-garlic-extract': '/herbs/garlic',
-  ginger: '/herbs/ginger',
-  gingerol: '/herbs/ginger',
-  gingerols: '/herbs/ginger',
-  valerian: '/herbs/valerian',
-  'valerian-extract-standardized': '/herbs/valerian',
-  'valerian-root-extract': '/herbs/valerian',
-  'lions-mane': '/herbs/lions-mane',
-  passionflower: '/herbs/passionflower',
-  'passionflower-extract': '/herbs/passionflower',
-  'passionflower-extract-standardized': '/herbs/passionflower',
-  kava: '/herbs/kava',
-  kavalactones: '/herbs/kava',
-  reishi: '/herbs/reishi',
-  maca: '/herbs/maca',
-  'maca-root-extract': '/herbs/maca',
-  elderberry: '/herbs/elderberry',
-  resveratrol: '/herbs/resveratrol',
-  'trans-resveratrol': '/herbs/resveratrol',
-}
 
 const CANONICAL_COMPOUND_NOTES: Record<string, { title: string; body: string; items?: string[] }> = {
   'coenzyme-q10': {
@@ -284,10 +242,15 @@ export async function generateMetadata({ params }: PageProps) {
   const normalizedSlug = normalizeSlug(slug)
   const redirectedCanonical = DEPRECATED_COMPOUND_CANONICALS[normalizedSlug]
   if (redirectedCanonical?.startsWith('/')) {
-    const indexDecision = shouldIndexRoute(redirectedCanonical)
+    // This page exists only so a legacy URL has something to serve behind its
+    // 301; it must never be indexable itself. Deriving the directive from
+    // `shouldIndexRoute(redirectedCanonical)` asked whether the *target* is
+    // indexable and then applied that answer to the *source*, so redirect-only
+    // slugs whose target is published (coenzyme-q10-ubiquinol, theanine) shipped
+    // `index,follow` — an indexable duplicate of the page they point at.
     return {
       alternates: { canonical: `${SITE_URL}${redirectedCanonical}/` },
-      robots: { index: indexDecision.index, follow: true },
+      robots: { index: false, follow: true },
     }
   }
 
@@ -309,11 +272,21 @@ export async function generateMetadata({ params }: PageProps) {
 
   const metadata = generateDetailMetadata(compound, 'compound')
   if (canonicalSlug !== normalizedSlug) {
-    const indexDecision = shouldIndexRoute(`/compounds/${canonicalSlug}`, { ...compound, slug: canonicalSlug })
+    // Same-taxonomy consolidation (e.g. /compounds/theanine -> /compounds/l-theanine).
+    // As in the cross-taxonomy branch above, the index decision must describe
+    // *this* URL, not the canonical it points at — asking whether the canonical
+    // is indexable and answering for the source made every redirect-only slug
+    // with a published target ship `index,follow`.
+    //
+    // The exception is a slug consolidated purely by rel=canonical with no 301
+    // behind it (berberine-hcl). Those are deliberately crawlable-but-canonicalized
+    // and kept out of the sitemap; adding noindex would suppress the page instead
+    // of consolidating it, because noindex overrides the canonical hint.
+    const consolidatedByCanonicalOnly = CANONICALIZED_AWAY_PROFILE_SLUGS.has(normalizedSlug)
     return {
       ...metadata,
       alternates: { canonical: `${SITE_URL}/compounds/${canonicalSlug}/` },
-      robots: { index: indexDecision.index, follow: true },
+      robots: { index: consolidatedByCanonicalOnly, follow: true },
     }
   }
 

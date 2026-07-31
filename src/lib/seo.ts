@@ -367,6 +367,11 @@ export function shouldIndexRoute(path: string, pageData?: Record<string, unknown
 
   if (
     normalizedPath === '/guides/compare/dynamic' ||
+    // Search is a client-side shell; its `?q=` result URLs are thin duplicates
+    // of the profiles they link to. Kept crawlable-but-noindex (follow) so the
+    // curated links on it still pass discovery.
+    normalizedPath === '/search' ||
+    normalizedPath.startsWith('/search/') ||
     normalizedPath.startsWith('/admin') ||
     normalizedPath.startsWith('/api') ||
     normalizedPath.startsWith('/data') ||
@@ -564,6 +569,12 @@ export function buildGovernedMetaTitle(
   return `${name} ${kind} Guide | ${labelTitle}`
 }
 
+// No `potentialAction`/`SearchAction`. The sitelinks searchbox it powers is no
+// longer rendered by Google, and publishing a `/search/?q={search_term_string}`
+// template put the literal placeholder URL — plus every `?q=` result page it
+// implies — into crawl discovery for a route that is intentionally noindexed
+// (see app/search/page.tsx). Search results are thin, unbounded, and duplicate
+// the profile pages they link to, so they must not be a crawl target.
 export function websiteJsonLd() {
   return {
     '@context': 'https://schema.org',
@@ -572,14 +583,6 @@ export function websiteJsonLd() {
     url: SITE_URL,
     description: DEFAULT_DESCRIPTION,
     image: `${SITE_URL}/og-default.jpg`,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${SITE_URL}/search/?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
   }
 }
 
@@ -1076,7 +1079,25 @@ const PROFILE_METADATA_OVERRIDES: Record<string, { title: string; description?: 
     canonical: '/compounds/berberine/',
   },
   'coenzyme-q10': { title: 'Coenzyme Q10 (CoQ10): Effects, Dose & Safety' },
+  // Earns impressions on "is magnesium glycinate safe" and "effects of magnesium
+  // glycinate", so the title answers both intents instead of falling back to the
+  // generic "<name> Benefits, Effects & Safety Guide" pattern every other
+  // compound page uses.
+  'magnesium-glycinate': {
+    title: 'Magnesium Glycinate: Effects, Dose & Is It Safe?',
+    description:
+      'Magnesium glycinate is the form best tolerated at higher doses. What it does for sleep and muscle tension, how much to take, who should avoid it, and side effects.',
+  },
   'silybum-marianum': { title: 'Silybum Marianum (Milk Thistle): Benefits, Dosage & Safety' },
+  // Search demand is on the common name, but the grounded record lives on the
+  // binomial slug (see lib/deprecated-herb-canonicals.ts, where /herbs/saw-palmetto/
+  // 301s here). Lead the title and snippet with "Saw palmetto" so the indexed page
+  // matches the query it actually receives.
+  'serenoa-repens': {
+    title: 'Saw Palmetto (Serenoa repens): Does It Help BPH?',
+    description:
+      'Saw palmetto for prostate and urinary symptoms: a Cochrane review found no improvement over placebo, even at double and triple doses. Dosage and safety.',
+  },
 }
 
 /**

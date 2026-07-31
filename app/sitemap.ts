@@ -452,7 +452,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     route(normalizeSitemapUrl('/'), 'weekly', 1.0),
     route(normalizeSitemapUrl('/info/about'), 'yearly', 0.6),
     route(normalizeSitemapUrl('/info/author'), 'yearly', 0.6),
-    route(normalizeSitemapUrl('/search'), 'monthly', 0.6),
     route(normalizeSitemapUrl('/info/contact'), 'yearly', 0.5),
     route(normalizeSitemapUrl('/info/faq'), 'monthly', 0.7),
     route(normalizeSitemapUrl('/info/methodology'), 'yearly', 0.6),

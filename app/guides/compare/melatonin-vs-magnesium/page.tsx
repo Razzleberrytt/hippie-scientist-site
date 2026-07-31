@@ -2,10 +2,15 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 
+// The queries this page already earns impressions for lead with "melatonin vs
+// magnesium" (and "magnesium vs melatonin"), not "magnesium glycinate", so the
+// title now opens on that exact phrase. The description answers the comparison
+// up front instead of listing the sections, which is what the snippet has to do
+// to earn a click from position 40+.
 export const metadata: Metadata = buildPageMetadata({
-  title: 'Magnesium Glycinate vs Melatonin: Which Is Better for Sleep?',
+  title: 'Melatonin vs Magnesium for Sleep: Which Should You Take?',
   description:
-    'Magnesium glycinate vs melatonin and melatonin vs magnesium glycinate for sleep — timing, staying asleep, side effects, dosing, and safety-first combining guidance.',
+    'Melatonin shifts sleep timing; magnesium glycinate targets sleep quality and muscle tension. Which fits your sleep problem, what the evidence shows, and how to dose each.',
   path: '/guides/compare/melatonin-vs-magnesium/',
 })
 

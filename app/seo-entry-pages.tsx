@@ -81,7 +81,7 @@ const manualSeoEntryPages: SeoEntryConfig[] = [
   {
     route: 'best-supplements-for-focus',
     goalSlug: 'focus',
-    title: 'Best Supplements for Focus (Clean Energy Guide)',
+    title: 'Best Supplements for Focus: Stimulant vs Non-Stimulant',
     h1: 'Best Supplements for Focus',
     intro: 'Compare focus supplements by stimulation, mental clarity, evidence strength, and safety instead of chasing nootropic hype.',
     searchIntent: 'focus supplements, nootropic stack, clean energy supplements',

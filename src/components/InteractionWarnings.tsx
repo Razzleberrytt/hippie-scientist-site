@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ChevronDown, Leaf, ShieldAlert } from 'lucide-react'
 import type { InteractionEdge, SlugEntityTypeMap, InteractionSeverity } from '@/src/types/interactions'
+import { canonicalProfileHref } from '@/lib/canonical-profile-href'
 
 const MECHANISM_LABELS: Record<string, string> = {
   serotonergic: 'Serotonergic activity',
@@ -94,8 +95,14 @@ export function InteractionWarnings({ edges, slugTypeMap }: InteractionWarningsP
                       <ul className='flex flex-wrap gap-2'>
                         {mechanismEdges.map((edge) => {
                           const partnerType = slugTypeMap[edge.partner_slug]
+                          // interaction_edges.json carries raw workbook slugs, so a
+                          // partner can be a slug that only exists to be 301'd. Resolve
+                          // to the canonical URL rather than linking into a redirect.
                           const partnerHref = partnerType
-                            ? `/${partnerType === 'compound' ? 'compounds' : 'herbs'}/${edge.partner_slug}`
+                            ? canonicalProfileHref(
+                                partnerType === 'compound' ? 'compounds' : 'herbs',
+                                edge.partner_slug,
+                              )
                             : null
 
                           const content = (
