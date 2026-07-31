@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { BookOpen, Brain, Leaf, Scale, Search, Shapes } from 'lucide-react'
+import { BookOpen, Brain, Leaf, Newspaper, Search, Shapes } from 'lucide-react'
 import { Link } from '../lib/router-compat'
 import ConsentManager from './ConsentManager'
 import { onOpenConsent } from '../lib/consentBus'
@@ -9,11 +9,11 @@ import { isAnalyticsRouteEnabled } from '../lib/analyticsAccess'
 import { PUBLIC_ROUTES } from '../lib/public-routes'
 
 const exploreLinks = [
-  { href: PUBLIC_ROUTES.guides, label: 'Library', Icon: BookOpen },
-  { href: '/guides/mental-health/', label: 'Mental Health', Icon: Brain },
+  { href: PUBLIC_ROUTES.library, label: 'Explore Everything', Icon: BookOpen },
+  { href: PUBLIC_ROUTES.guides, label: 'Topics & Guides', Icon: Brain },
+  { href: PUBLIC_ROUTES.articles, label: 'Articles', Icon: Newspaper },
   { href: PUBLIC_ROUTES.herbs, label: 'Herb Database', Icon: Leaf },
   { href: PUBLIC_ROUTES.compounds, label: 'Compounds', Icon: Shapes },
-  { href: '/guides/compare/', label: 'Compare', Icon: Scale },
   { href: '/search/', label: 'Search', Icon: Search },
 ]
 
@@ -22,7 +22,17 @@ const priorityGoalLinks = [
   { href: '/guides/sleep/', label: 'Sleep' },
   { href: '/guides/adhd/', label: 'ADHD' },
   { href: '/guides/anxiety/', label: 'Anxiety & Stress' },
-  { href: '/guides/focus/', label: 'Focus' },
+  { href: '/guides/focus/', label: 'Focus & Cognition' },
+  { href: '/guides/other/', label: 'More topics' },
+]
+
+const researchLinks = [
+  { href: '/articles/', label: 'All articles' },
+  { href: '/learn/', label: 'Learning library' },
+  { href: '/evidence/evidence-report/', label: 'Evidence report' },
+  { href: '/evidence/evidence-digest/', label: 'Evidence digest' },
+  { href: '/info/methodology/', label: 'Methodology' },
+  { href: '/info/infographics/', label: 'Infographics' },
 ]
 
 const safetyLinks = [
@@ -30,13 +40,17 @@ const safetyLinks = [
   { href: '/evidence/evidence-checker/', label: 'Evidence lookup' },
   { href: '/info/dosing/', label: 'Dosing guide' },
   { href: '/info/supplement-safety-checklist/', label: 'Supplement checklist' },
-  { href: '/info/methodology/', label: 'Methodology' },
+  { href: '/learn/interactions/', label: 'Interactions' },
+  { href: '/learn/product-quality/', label: 'Product quality' },
 ]
 
 const legalLinks = [
-  { href: PUBLIC_ROUTES.disclaimer, label: 'Disclaimer' },
+  { href: PUBLIC_ROUTES.about, label: 'About' },
+  { href: PUBLIC_ROUTES.author, label: 'Author' },
+  { href: PUBLIC_ROUTES.faq, label: 'FAQ' },
   { href: PUBLIC_ROUTES.contact, label: 'Contact' },
   { href: PUBLIC_ROUTES.privacy, label: 'Privacy Policy' },
+  { href: PUBLIC_ROUTES.disclaimer, label: 'Disclaimer' },
   { href: '/info/affiliate-disclosure/', label: 'Affiliate Disclosure' },
   { href: '/sitemap.xml', label: 'Sitemap' },
 ]
@@ -94,12 +108,12 @@ export default function Footer() {
             </div>
 
             <div className='editorial-card mt-7 rounded-2xl p-5'>
-              <p className='editorial-eyebrow'>Built on evidence, not trends</p>
+              <p className='editorial-eyebrow'>Lost or not sure where to begin?</p>
               <p className='mt-3 text-sm leading-6 text-[#526159] dark:text-[var(--text-secondary)]'>
-                Use this library as an evidence map, not a prescription pad. Compare human evidence, dose realism, product standardization, and safety before buying or stacking.
+                The master directory explains how the site is organized and links every major guide, article, profile, research, and safety collection.
               </p>
-              <Link className='mt-4 inline-flex text-sm font-bold text-[#315f50] hover:text-[#123c2f] dark:text-[#8dc49a] dark:hover:text-[#c9e4d2]' to='/info/methodology/' prefetch={true}>
-                Read the evidence methodology →
+              <Link className='mt-4 inline-flex text-sm font-bold text-[#315f50] hover:text-[#123c2f] dark:text-[#8dc49a] dark:hover:text-[#c9e4d2]' to={PUBLIC_ROUTES.library} prefetch={true}>
+                Explore the complete site →
               </Link>
             </div>
           </div>
@@ -120,12 +134,25 @@ export default function Footer() {
               ))}
             </div>
 
-            <div className='mt-8 grid gap-7 sm:grid-cols-3'>
+            <div className='mt-8 grid gap-7 sm:grid-cols-2 xl:grid-cols-4'>
               <div>
                 <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[#315f50] dark:text-[#8dc49a]'>Popular topics</h3>
                 <ul className='mt-3 space-y-2'>
                   {priorityGoalLinks.map((link) => (
                     <li key={`${link.href}-${link.label}`}>
+                      <Link className='text-sm font-medium text-[#526159] transition hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]' to={link.href} prefetch={true}>
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[#315f50] dark:text-[#8dc49a]'>Research</h3>
+                <ul className='mt-3 space-y-2'>
+                  {researchLinks.map((link) => (
+                    <li key={link.href}>
                       <Link className='text-sm font-medium text-[#526159] transition hover:text-[#123c2f] dark:text-[var(--text-secondary)] dark:hover:text-[var(--text-primary)]' to={link.href} prefetch={true}>
                         {link.label}
                       </Link>
@@ -153,7 +180,7 @@ export default function Footer() {
               </div>
 
               <div>
-                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[#315f50] dark:text-[#8dc49a]'>Legal</h3>
+                <h3 className='text-xs font-extrabold uppercase tracking-[0.15em] text-[#315f50] dark:text-[#8dc49a]'>About & legal</h3>
                 <ul className='mt-3 space-y-2'>
                   {availableLegalLinks.map((link) => (
                     <li key={link.href}>
