@@ -11,7 +11,7 @@ The build pipeline enforces size limits using `scripts/report-performance-budget
 | **Max Single JSON File** | `2.5 MB` | The absolute maximum size for any individual JSON database file under `public/data/` (e.g. `compounds.json`, `herbs.json`). |
 | **Search Index Payload** | `1.0 MB` | The limit for the client-side search index (`search-index.json`). |
 | **Total Indexing Payload** | `2.0 MB` | The combined limit of the search index and summary JSONs (`herbs-summary.json` + `compounds-summary.json`) that are loaded on listing/search hubs. |
-| **Next.js Core JS Bundle** | `350 KB` | The combined size of Next.js core client bundles (`main`, `framework`, `webpack`, and `polyfills`). |
+| **App Router Shared JS** | `120 KB gzip` | The compressed modern runtime chunks from Next.js `rootMainFiles` that are shared by every App Router route. The legacy Pages Router runtime and `nomodule` polyfill are excluded because they are not part of this shared payload. |
 
 ## Lazy Loading and Optimization Guidelines
 
