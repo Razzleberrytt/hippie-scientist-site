@@ -239,7 +239,7 @@ So the defensible statement is:
 
 For most people, the decision is less glamorous: choose a product that clearly lists **elemental magnesium**, is affordable enough to use consistently, and does not cause unacceptable GI effects.
 
-Deeper comparison: [Magnesium glycinate vs magnesium oxide](/comparisons/magnesium-glycinate-vs-magnesium-oxide/).
+For a broader comparison, see the [Magnesium Types Guide](/guides/other/magnesium-types-guide/).
 
 ---
 
@@ -433,7 +433,7 @@ Glycinate may be preferred when citrate causes loose stool, while citrate can be
     { ifYouWant: 'to compare glycinate with L-threonate', goTo: 'Glycinate vs L-Threonate for Sleep', href: '/guides/sleep/magnesium-glycinate-vs-l-threonate-for-sleep/' },
     { ifYouWant: 'to evaluate a magnesium plus L-theanine stack', goTo: 'Magnesium + L-Theanine Sleep Stack', href: '/articles/magnesium-l-theanine-sleep-stack/' },
     { ifYouWant: 'a wider insomnia decision guide', goTo: 'Sleep Guide', href: '/guides/sleep/' },
-    { ifYouWant: 'to compare glycinate with oxide', goTo: 'Magnesium Glycinate vs Magnesium Oxide', href: '/comparisons/magnesium-glycinate-vs-magnesium-oxide/' },
+    { ifYouWant: 'to compare magnesium with ashwagandha for sleep', goTo: 'Ashwagandha vs Magnesium for Sleep', href: '/guides/sleep/ashwagandha-vs-magnesium-for-sleep/' },
   ]}
 />
 
