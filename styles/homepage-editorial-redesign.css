@@ -4,46 +4,15 @@
    Everything here is scoped under .hs-home so shared editorial-* surfaces used
    by other routes are untouched. */
 
+/* The --hs-* palette, elevation, and hairline tokens now live at the document
+   root in styles/premium-foundation.css so every route shares them. What stays
+   here is the homepage's own ground and stacking context. */
 .hs-home {
-  --hs-gold: #b88a42;
-  --hs-gold-bright: #c99a4e;
-  --hs-gold-soft: #e2cba3;
-  --hs-ink: #10352a;
-  --hs-ink-soft: #315f50;
-  --hs-body: #4a5b52;
-  --hs-hairline: rgba(18, 60, 47, 0.12);
-  --hs-hairline-strong: rgba(18, 60, 47, 0.2);
-  --hs-surface: #fffdf8;
-  --hs-surface-2: rgba(255, 253, 248, 0.72);
-  --hs-lift: 0 1px 2px rgba(46, 38, 20, 0.05), 0 12px 32px -12px rgba(46, 38, 20, 0.16);
-  --hs-lift-hover: 0 2px 4px rgba(46, 38, 20, 0.06), 0 26px 56px -18px rgba(46, 38, 20, 0.26);
-
   position: relative;
   isolation: isolate;
   overflow: clip;
   color: var(--hs-body);
-  background:
-    radial-gradient(120% 60% at 50% -10%, rgba(203, 220, 200, 0.6), transparent 60%),
-    linear-gradient(180deg, #fffdf8 0%, #fbf8f1 30%, #f8f3e8 100%);
-}
-
-.dark .hs-home {
-  --hs-gold: #d9b271;
-  --hs-gold-bright: #e8c98f;
-  --hs-gold-soft: rgba(217, 178, 113, 0.28);
-  --hs-ink: #f3f0e6;
-  --hs-ink-soft: #a9c9b5;
-  --hs-body: #b6c7bb;
-  --hs-hairline: rgba(180, 210, 190, 0.16);
-  --hs-hairline-strong: rgba(180, 210, 190, 0.3);
-  --hs-surface: #16291f;
-  --hs-surface-2: rgba(24, 43, 33, 0.6);
-  --hs-lift: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 16px 40px -16px rgba(0, 0, 0, 0.7);
-  --hs-lift-hover: 0 1px 0 rgba(255, 255, 255, 0.09) inset, 0 30px 64px -20px rgba(0, 0, 0, 0.85);
-
-  background:
-    radial-gradient(120% 55% at 50% -8%, rgba(46, 96, 74, 0.42), transparent 62%),
-    linear-gradient(180deg, #0a1610 0%, #081410 45%, #0a1712 100%);
+  background: var(--hs-canvas);
 }
 
 /* Fine botanical dot field, faded out below the hero. */

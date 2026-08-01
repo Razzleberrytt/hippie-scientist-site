@@ -1,0 +1,118 @@
+/* Premium foundation — the homepage design language, promoted site-wide.
+ *
+ * The homepage system in styles/homepage-editorial-redesign.css was written
+ * scoped to .hs-home so it could not leak into other routes. That scoping is
+ * what kept the rest of the site on an older, flatter surface vocabulary.
+ *
+ * This file lifts the palette, elevation, and hairline tokens to the document
+ * root so every route can build on them, and paints the same warm canvas
+ * behind the whole app. Component-level surfaces (cards, chips, eyebrows,
+ * buttons) are adopted in a later pass; this file changes only the ground
+ * they sit on.
+ *
+ * Load order matters: this is imported last in app/layout.tsx so it settles
+ * the cascade against the older layers that also touch these hooks.
+ */
+
+:root {
+  --hs-gold: #b88a42;
+  --hs-gold-bright: #c99a4e;
+  --hs-gold-soft: #e2cba3;
+  --hs-ink: #10352a;
+  --hs-ink-soft: #315f50;
+  --hs-body: #4a5b52;
+  --hs-hairline: rgba(18, 60, 47, 0.12);
+  --hs-hairline-strong: rgba(18, 60, 47, 0.2);
+  --hs-surface: #fffdf8;
+  --hs-surface-2: rgba(255, 253, 248, 0.72);
+  --hs-lift: 0 1px 2px rgba(46, 38, 20, 0.05), 0 12px 32px -12px rgba(46, 38, 20, 0.16);
+  --hs-lift-hover: 0 2px 4px rgba(46, 38, 20, 0.06), 0 26px 56px -18px rgba(46, 38, 20, 0.26);
+
+  /* Canvas washes, kept as tokens so a route can opt into a different ground. */
+  --hs-canvas: radial-gradient(120% 60% at 50% -10%, rgba(203, 220, 200, 0.6), transparent 60%),
+    linear-gradient(180deg, #fffdf8 0%, #fbf8f1 30%, #f8f3e8 100%);
+  --hs-dot: rgba(18, 60, 47, 0.14);
+  --hs-dot-opacity: 0.5;
+}
+
+html.dark {
+  --hs-gold: #d9b271;
+  --hs-gold-bright: #e8c98f;
+  --hs-gold-soft: rgba(217, 178, 113, 0.28);
+  --hs-ink: #f3f0e6;
+  --hs-ink-soft: #a9c9b5;
+  --hs-body: #b6c7bb;
+  --hs-hairline: rgba(180, 210, 190, 0.16);
+  --hs-hairline-strong: rgba(180, 210, 190, 0.3);
+  --hs-surface: #16291f;
+  --hs-surface-2: rgba(24, 43, 33, 0.6);
+  --hs-lift: 0 1px 0 rgba(255, 255, 255, 0.05) inset, 0 16px 40px -16px rgba(0, 0, 0, 0.7);
+  --hs-lift-hover: 0 1px 0 rgba(255, 255, 255, 0.09) inset, 0 30px 64px -20px rgba(0, 0, 0, 0.85);
+
+  --hs-canvas: radial-gradient(120% 55% at 50% -8%, rgba(46, 96, 74, 0.42), transparent 62%),
+    linear-gradient(180deg, #0a1610 0%, #081410 45%, #0a1712 100%);
+  --hs-dot: rgba(190, 224, 202, 0.16);
+  --hs-dot-opacity: 0.4;
+}
+
+/* ---------- Page canvas ---------- */
+
+/* The app shell owns the ground for every route. `isolation` makes it the
+   stacking context the dot field sits in, so the field paints above the
+   shell's own background but stays behind all content. */
+.hs-shell {
+  position: relative;
+  isolation: isolate;
+  background: var(--hs-canvas);
+}
+
+/* Fine botanical dot field, fading out down the first screenful — the same
+   treatment the homepage hero sits on. Decorative only. */
+.hs-shell::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 90rem;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--hs-dot-opacity);
+  background-image: radial-gradient(circle at 1px 1px, var(--hs-dot) 1px, transparent 0);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 42%);
+}
+
+/* The homepage paints its own identical canvas inside the shell; skip the
+   second dot field so the texture does not double up there. */
+.hs-shell:has(.hs-home)::before {
+  content: none;
+}
+
+/* styles/editorial-global-tokens.css painted <main> a flat #fbf8f1, which sat
+   on top of the shell and hid the canvas on every route but the homepage. The
+   shell owns the ground now, so main stays transparent. */
+html:not(.dark) main,
+html.dark main {
+  background-color: transparent;
+}
+
+/* ---------- Measure and rhythm ---------- */
+
+/* The homepage reads at 72rem with a wider gutter; the rest of the site was
+   set to 80rem with a tighter one, which is what made those pages feel less
+   composed at desktop widths. One measure now. */
+.container-page {
+  max-width: 72rem;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .container-page {
+    padding-inline: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-page {
+    padding-inline: 2.5rem;
+  }
+}

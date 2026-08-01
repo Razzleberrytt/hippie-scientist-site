@@ -32,6 +32,7 @@ import '@/styles/editorial-botanical-refresh.css'
 import '@/styles/homepage-hero-signal-upgrade.css'
 import '@/styles/editorial-content-surfaces.css'
 import '@/styles/homepage-editorial-redesign.css'
+import '@/styles/premium-foundation.css'
 
 const HOME_TITLE = 'The Hippie Scientist | Supplement Research'
 
@@ -92,7 +93,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           Skip to main content
         </a>
         <DarkModeProvider>
-          <div className='min-h-screen bg-background text-ink transition-colors duration-300'>
+          <div className='hs-shell min-h-screen bg-background text-ink transition-colors duration-300'>
             <header>
               <Navigation />
             </header>
