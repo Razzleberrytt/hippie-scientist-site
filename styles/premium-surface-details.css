@@ -143,7 +143,6 @@ main summary {
 }
 
 /* Chips, pills, badges: add subtle luminosity and better contrast. */
-.chip-readable,
 .evidence-pill-strong,
 .evidence-pill-moderate,
 main :is([class*='rounded-full'][class*='text-']) {
@@ -151,7 +150,6 @@ main :is([class*='rounded-full'][class*='text-']) {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.34);
 }
 
-html.dark .chip-readable,
 html.dark .evidence-pill-strong,
 html.dark .evidence-pill-moderate,
 html.dark main :is([class*='rounded-full'][class*='text-']) {

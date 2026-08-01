@@ -90,42 +90,7 @@ canvas {
 
 .content-prose li + li {
   margin-top: 0.45rem;
-}
-
-/* Improve visual separation without redesigning components. */
-.card-premium,
-.surface-depth,
-.surface-subtle,
-.section-frame,
-.glass-card,
-.mobile-reading-card,
-.scientific-card,
-.library-card-premium {
-  border-color: var(--scientific-border);
-  background-color: var(--paper-card);
-  box-shadow: var(--soft-lift-shadow);
-}
-
-.card-premium:hover,
-.scientific-card:hover,
-.library-card-premium:hover {
-  border-color: var(--scientific-border-strong);
-  box-shadow: var(--deep-lift-shadow);
-}
-
-.surface-depth,
-.section-frame,
-.glass-card {
-  background:
-    linear-gradient(180deg, var(--paper-card-strong), rgba(244, 247, 242, 0.82));
-}
-
-html.dark .surface-depth,
-html.dark .section-frame,
-html.dark .glass-card {
-  background:
-    linear-gradient(180deg, var(--paper-card-strong), rgba(17, 26, 20, 0.78));
-}
+}/* Improve visual separation without redesigning components. */
 
 .section-spacing {
   row-gap: clamp(2.75rem, 4.5vw, 5rem);
@@ -152,7 +117,6 @@ html.dark .glass-card {
 }
 
 .eyebrow,
-.eyebrow-label,
 .identity-kicker,
 .identity-meta {
   letter-spacing: 0.15em;
@@ -209,18 +173,7 @@ html.dark .glass-card {
 
   .hero-shell {
     border-radius: 1.6rem;
-  }
-
-  .card-premium,
-  .surface-depth,
-  .surface-subtle,
-  .section-frame,
-  .glass-card,
-  .mobile-reading-card,
-  .scientific-card,
-  .library-card-premium {
-    border-radius: 1.35rem;
-  }
+  }  
 }
 
 @media (max-width: 480px) {
@@ -348,8 +301,7 @@ html.dark .goal-decision-experience #safety-first article p {
   }
 
   .goal-decision-experience .hero-shell,
-  .goal-decision-experience .card-premium,
-  .goal-decision-experience #safety-first {
+.goal-decision-experience #safety-first {
     border-radius: 1.25rem;
   }
 

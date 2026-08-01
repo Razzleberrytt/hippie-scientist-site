@@ -5,12 +5,12 @@
  * same vocabulary: the elevation model from .hs-goal, the eyebrow with its
  * rule, the pill chip, and the two button treatments.
  *
- * On specificity: .card-premium and .eyebrow-label are each defined in six or
- * seven of the older stylesheets, some scoped like `.library-index-page
- * .card-premium` (0,2,0) and some like `html:not(.dark) :where(.card-premium)`
- * (0,1,1). Repeating the class raises these rules above that range without an
- * arms race of ever-longer selectors. It is deliberate, and it goes away when
- * those older layers are collapsed.
+ * This file owns those surfaces outright. The competing definitions that used
+ * to live in premium-cards, resonant-theme-lighting, editorial-content-surfaces,
+ * foundation-readability, premium-library-polish, and globals were removed in
+ * phase 4, so plain single-class selectors are enough here — no doubled classes
+ * and no specificity arms race. Keep it that way: style a card surface here,
+ * not in one of the older layers.
  */
 
 :root {
@@ -55,9 +55,15 @@ html.dark .goal-decision-experience {
 
 /* ---------- Cards ---------- */
 
-html .card-premium.card-premium,
-html .scientific-card.scientific-card,
-html .library-card-premium.library-card-premium {
+html .card-premium,
+html .scientific-card,
+html .library-card-premium,
+html .library-content-card,
+html .surface-depth,
+html .surface-subtle,
+html .section-frame,
+html .glass-card,
+html .mobile-reading-card {
   border: 1px solid color-mix(in srgb, var(--tone) 22%, transparent);
   border-radius: 1.25rem;
   background:
@@ -72,9 +78,15 @@ html .library-card-premium.library-card-premium {
 
 /* Dark surfaces swallow a 9% wash, so the tint is pushed harder there — the
    same correction the homepage goal cards make. */
-html.dark .card-premium.card-premium,
-html.dark .scientific-card.scientific-card,
-html.dark .library-card-premium.library-card-premium {
+html.dark .card-premium,
+html.dark .scientific-card,
+html.dark .library-card-premium,
+html.dark .library-content-card,
+html.dark .surface-depth,
+html.dark .surface-subtle,
+html.dark .section-frame,
+html.dark .glass-card,
+html.dark .mobile-reading-card {
   border-color: color-mix(in srgb, var(--tone) 28%, transparent);
   background:
     linear-gradient(158deg, color-mix(in srgb, var(--tone) 20%, transparent), transparent 68%),
@@ -83,33 +95,41 @@ html.dark .library-card-premium.library-card-premium {
 
 /* Only lift cards that are actually interactive; a static content panel that
    rises on hover reads as broken. */
-html a.card-premium.card-premium:hover,
-html a .card-premium.card-premium:hover,
-html button.card-premium.card-premium:hover,
-html .card-premium.card-premium:has(> a):hover,
-html .library-card-premium.library-card-premium:hover {
+html a.card-premium:hover,
+html a .card-premium:hover,
+html button.card-premium:hover,
+html .card-premium:has(> a):hover,
+html .library-card-premium:hover,
+html .library-content-card:hover {
   transform: translateY(-3px);
   border-color: color-mix(in srgb, var(--tone) 48%, transparent);
   box-shadow: var(--hs-lift-hover);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html .card-premium.card-premium,
-  html .scientific-card.scientific-card,
-  html .library-card-premium.library-card-premium {
+  html .card-premium,
+  html .scientific-card,
+  html .library-card-premium,
+  html .library-content-card,
+  html .surface-depth,
+  html .surface-subtle,
+  html .section-frame,
+  html .glass-card,
+  html .mobile-reading-card {
     transition: none;
   }
 
-  html a.card-premium.card-premium:hover,
-  html .library-card-premium.library-card-premium:hover {
+  html a.card-premium:hover,
+  html .library-card-premium:hover,
+  html .library-content-card:hover {
     transform: none;
   }
 }
 
 /* ---------- Eyebrows ---------- */
 
-html .eyebrow-label.eyebrow-label,
-html .section-label.section-label {
+html .eyebrow-label,
+html .section-label {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
@@ -122,8 +142,8 @@ html .section-label.section-label {
 }
 
 /* The short rule that opens every homepage section label. */
-html .eyebrow-label.eyebrow-label::before,
-html .section-label.section-label::before {
+html .eyebrow-label::before,
+html .section-label::before {
   content: '';
   width: 1.6rem;
   height: 1px;
@@ -133,22 +153,22 @@ html .section-label.section-label::before {
 }
 
 @media (max-width: 480px) {
-  html .eyebrow-label.eyebrow-label,
-  html .section-label.section-label {
+  html .eyebrow-label,
+  html .section-label {
     gap: 0.5rem;
     font-size: 0.64rem;
     letter-spacing: 0.15em;
   }
 
-  html .eyebrow-label.eyebrow-label::before,
-  html .section-label.section-label::before {
+  html .eyebrow-label::before,
+  html .section-label::before {
     width: 1.1rem;
   }
 }
 
 /* ---------- Chips ---------- */
 
-html .chip-readable.chip-readable {
+html .chip-readable {
   border: 1px solid var(--hs-hairline);
   border-radius: 999px;
   background: var(--hs-surface);
@@ -160,27 +180,27 @@ html .chip-readable.chip-readable {
     box-shadow 200ms ease;
 }
 
-html a.chip-readable.chip-readable:hover,
-html button.chip-readable.chip-readable:hover {
+html a.chip-readable:hover,
+html button.chip-readable:hover {
   transform: translateY(-2px);
   border-color: var(--hs-gold);
   box-shadow: var(--hs-lift-hover);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html .chip-readable.chip-readable {
+  html .chip-readable {
     transition: none;
   }
 
-  html a.chip-readable.chip-readable:hover,
-  html button.chip-readable.chip-readable:hover {
+  html a.chip-readable:hover,
+  html button.chip-readable:hover {
     transform: none;
   }
 }
 
 /* ---------- Buttons ---------- */
 
-html .button-primary.button-primary {
+html .button-primary {
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(18, 60, 47, 0.9);
@@ -191,34 +211,34 @@ html .button-primary.button-primary {
     0 14px 30px -12px rgba(18, 60, 47, 0.7);
 }
 
-html.dark .button-primary.button-primary {
+html.dark .button-primary {
   border-color: rgba(217, 178, 113, 0.42);
   background: linear-gradient(140deg, #256a52 0%, #17493a 55%, #123c2f 100%);
 }
 
-html .button-primary.button-primary:hover {
+html .button-primary:hover {
   transform: translateY(-2px);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.18) inset,
     0 20px 40px -12px rgba(18, 60, 47, 0.6);
 }
 
-html .button-secondary.button-secondary {
+html .button-secondary {
   border: 1px solid var(--hs-hairline-strong);
   background: var(--hs-surface-2);
   color: var(--hs-ink);
   backdrop-filter: blur(10px);
 }
 
-html .button-secondary.button-secondary:hover {
+html .button-secondary:hover {
   transform: translateY(-2px);
   border-color: var(--hs-gold);
   background: var(--hs-surface);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html .button-primary.button-primary:hover,
-  html .button-secondary.button-secondary:hover {
+  html .button-primary:hover,
+  html .button-secondary:hover {
     transform: none;
   }
 }

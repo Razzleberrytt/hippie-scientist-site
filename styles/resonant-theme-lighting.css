@@ -36,13 +36,7 @@ html.dark body {
   background: #0d1712;
 }
 
-.hero-shell,
-.card-premium,
-.surface-depth,
-.surface-subtle,
-.section-frame,
-.scientific-card,
-.library-card-premium {
+.hero-shell {
   position: relative;
   border-color: color-mix(in srgb, var(--border-soft) 72%, var(--resonance-emerald-strong));
   box-shadow: var(--resonance-card-shadow);
@@ -79,30 +73,6 @@ html.dark .hero-shell::before {
   z-index: 1;
 }
 
-.card-premium,
-.surface-depth,
-.surface-subtle,
-.section-frame,
-.scientific-card,
-.library-card-premium {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(244, 247, 242, 0.82));
-}
-
-html.dark .card-premium,
-html.dark .surface-depth,
-html.dark .surface-subtle,
-html.dark .section-frame,
-html.dark .scientific-card,
-html.dark .library-card-premium {
-  background:
-    linear-gradient(180deg, rgba(26, 48, 40, 0.94), rgba(20, 38, 29, 0.9));
-}
-
-.card-premium:hover,
-.scientific-card:hover,
-.library-card-premium:hover,
-.library-content-card:hover,
 .goal-link-card:hover,
 .goal-mini-card:hover {
   border-color: color-mix(in srgb, var(--border-strong) 62%, var(--resonance-gold));
@@ -125,8 +95,6 @@ html.dark .identity-meta {
   text-shadow: 0 0 18px rgba(203, 216, 192, 0.16);
 }
 
-.button-primary,
-.hero-shell a[href]:not(.button-secondary),
 a.rounded-full.bg-brand-950,
 a.rounded-full.bg-brand-850,
 button.rounded-full.bg-brand-950,
@@ -171,12 +139,8 @@ button.rounded-full.border {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card-premium:hover,
-  .scientific-card:hover,
-  .library-card-premium:hover,
-  .library-content-card:hover,
   .goal-link-card:hover,
-  .goal-mini-card:hover {
+.goal-mini-card:hover {
     transform: none !important;
   }
 }
