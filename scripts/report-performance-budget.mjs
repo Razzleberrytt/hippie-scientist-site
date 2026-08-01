@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs'
 import path from 'node:path'
+import { gzipSync } from 'node:zlib'
 
 const ROOT = process.cwd()
 
@@ -15,14 +16,42 @@ const BUDGETS = {
   // Max total search/index data payload (search-index + summaries)
   maxTotalIndexPayload: 2.0 * 1024 * 1024, // 2.0 MB (sums up to ~1.5MB currently)
   
-  // Max size of the main Next.js entry JS bundle (main chunk, framework, webpack)
-  maxMainJsBundle: 350 * 1024, // 350 KB
+  // Max gzip transfer size of the modern App Router runtime shared by every route
+  maxAppRouterSharedJsGzip: 120 * 1024, // 120 KB
 }
 
 function getFileSize(filePath) {
   try {
     const stats = fs.statSync(filePath)
     return stats.size
+  } catch {
+    return 0
+  }
+}
+
+function getGzipSize(filePath) {
+  try {
+    return gzipSync(fs.readFileSync(filePath)).byteLength
+  } catch {
+    return 0
+  }
+}
+
+function getAppRouterSharedJsSize(outDir) {
+  const manifestPath = path.join(ROOT, '.next', 'build-manifest.json')
+
+  try {
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+    const sharedFiles = Array.isArray(manifest.rootMainFiles)
+      ? manifest.rootMainFiles.filter(file => file.endsWith('.js'))
+      : []
+
+    if (sharedFiles.length === 0) return 0
+
+    const sizes = sharedFiles.map(file => getGzipSize(path.join(outDir, '_next', file)))
+    if (sizes.some(size => size === 0)) return 0
+
+    return sizes.reduce((total, size) => total + size, 0)
   } catch {
     return 0
   }
@@ -56,25 +85,17 @@ function main() {
   metrics.push({ name: 'Search Index (search-index.json)', size: searchIndexSize, budget: BUDGETS.maxSearchIndex })
   metrics.push({ name: 'Total Search/Index Payload', size: totalIndexPayload, budget: BUDGETS.maxTotalIndexPayload })
 
-  // 2. Audit Client JS Bundle sizes (if out/ exists)
+  // 2. Audit the compressed App Router runtime loaded by every modern site route.
+  // build-manifest.json is authoritative here; filename matching also counts the
+  // legacy Pages Router runtime and nomodule polyfill, which visitors do not load
+  // as the shared App Router payload.
   if (fs.existsSync(outDir)) {
-    const chunksDir = path.join(outDir, '_next', 'static', 'chunks')
-    let mainJsSize = 0
-
-    if (fs.existsSync(chunksDir)) {
-      const files = fs.readdirSync(chunksDir)
-      // Find core Next.js chunk sizes (main, framework, webpack, polyfills)
-      const coreFiles = files.filter(f => 
-        (f.startsWith('main-') || f.startsWith('framework-') || f.startsWith('webpack-') || f.startsWith('polyfills-')) && 
-        f.endsWith('.js')
-      )
-
-      for (const file of coreFiles) {
-        mainJsSize += getFileSize(path.join(chunksDir, file))
-      }
-    }
-
-    metrics.push({ name: 'Main JS Bundle (Next.js core)', size: mainJsSize, budget: BUDGETS.maxMainJsBundle })
+    metrics.push({
+      name: 'App Router shared JS (gzip)',
+      size: getAppRouterSharedJsSize(outDir),
+      budget: BUDGETS.maxAppRouterSharedJsGzip,
+      required: true,
+    })
   } else {
     console.log('[performance-budget] out/ directory not found. Skipping JS bundle size audit (run npm run build first).')
   }
@@ -87,6 +108,10 @@ function main() {
   for (const m of metrics) {
     if (m.size === 0) {
       console.log(`| ${m.name} | N/A | ${formatSize(m.budget)} | ⚠️ Missing |`)
+      if (m.required) {
+        errors.push(`${m.name} could not be measured from the App Router build manifest and exported chunks.`)
+        failed = true
+      }
       continue
     }
 
