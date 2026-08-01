@@ -726,6 +726,106 @@
   line-height: 1.2;
 }
 
+/* Three-or-more-way rows: the names cannot fit one card line at the normal type
+   size, so they run smaller and step back up at each container width that can
+   afford it. The list wrapper carries `@container`, so these queries measure the
+   card itself rather than the viewport. Under ~20.5rem there is no legible size
+   that fits, so the names stack into an aligned column instead of wrapping and
+   stranding a lone "vs" mark on the second line. */
+.hs-vs-parts {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.hs-vs-part {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* Aligns the first name with the ones stacked below it. */
+.hs-vs-part:first-child {
+  padding-inline-start: 1.6rem;
+}
+
+.hs-vs--multi .hs-vs-name {
+  font-size: 0.68rem;
+}
+
+.hs-vs--multi .hs-vs-mark {
+  width: 1.2rem;
+  height: 1.2rem;
+  font-size: 0.5rem;
+}
+
+@container (min-width: 20.5rem) {
+  .hs-vs-parts {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .hs-vs-part:first-child {
+    padding-inline-start: 0;
+  }
+}
+
+@container (min-width: 21.5rem) {
+  .hs-vs--multi .hs-vs-name {
+    font-size: 0.72rem;
+  }
+
+  .hs-vs--multi .hs-vs-mark {
+    width: 1.25rem;
+    height: 1.25rem;
+    font-size: 0.52rem;
+  }
+}
+
+@container (min-width: 25rem) {
+  .hs-vs-parts,
+  .hs-vs-part {
+    gap: 0.5rem;
+  }
+
+  .hs-vs--multi .hs-vs-name {
+    font-size: 0.86rem;
+  }
+
+  .hs-vs--multi .hs-vs-mark {
+    width: 1.45rem;
+    height: 1.45rem;
+    font-size: 0.58rem;
+  }
+}
+
+@container (min-width: 26rem) {
+  .hs-vs--multi .hs-vs-name {
+    font-size: 0.92rem;
+  }
+}
+
+@container (min-width: 29rem) {
+  .hs-vs-parts,
+  .hs-vs-part {
+    gap: 0.625rem;
+  }
+
+  .hs-vs--multi .hs-vs-name {
+    font-size: 1.02rem;
+  }
+
+  .hs-vs--multi .hs-vs-mark {
+    width: 1.7rem;
+    height: 1.7rem;
+    font-size: 0.68rem;
+  }
+}
+
 /* The "vs" mark between the two names. */
 .hs-vs-mark {
   display: inline-flex;
