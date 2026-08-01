@@ -127,10 +127,16 @@ export function Navigation() {
               const childGroups = groupChildren(link.children)
               const isMegaMenu = childGroups.length > 1
               const active = isPrimaryActive(link)
+              // The panel is centred on its trigger, not on the viewport, so a
+              // width capped only at 100vw still runs off the right edge on the
+              // narrower desktop widths. Keep it small enough to clear the edge
+              // from wherever its trigger sits, and open it up from lg.
               const menuWidth = childGroups.length === 2
-                ? 'w-[min(46rem,calc(100vw-2rem))]'
-                : 'w-[min(58rem,calc(100vw-2rem))]'
-              const menuGrid = childGroups.length === 2 ? 'grid-cols-2' : 'grid-cols-3'
+                ? 'w-[min(26rem,calc(100vw-2rem))] lg:w-[min(46rem,calc(100vw-2rem))]'
+                : 'w-[min(30rem,calc(100vw-2rem))] lg:w-[min(58rem,calc(100vw-2rem))]'
+              const menuGrid = childGroups.length === 2
+                ? 'grid-cols-1 lg:grid-cols-2'
+                : 'grid-cols-2 lg:grid-cols-3'
 
               return (
                 <div key={link.href} className='group relative'>
