@@ -33,6 +33,7 @@ import '@/styles/homepage-hero-signal-upgrade.css'
 import '@/styles/editorial-content-surfaces.css'
 import '@/styles/homepage-editorial-redesign.css'
 import '@/styles/premium-foundation.css'
+import '@/styles/premium-surfaces.css'
 
 const HOME_TITLE = 'The Hippie Scientist | Supplement Research'
 
@@ -101,7 +102,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <main
               id='main-content'
               data-pagefind-body
-              className='pb-[calc(env(safe-area-inset-bottom)+6rem)] md:pb-8'
+              className='pb-[calc(env(safe-area-inset-bottom)+2rem)] md:pb-8'
               tabIndex={-1}
             >
               <GlobalTOC />

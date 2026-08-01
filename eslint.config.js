@@ -123,6 +123,21 @@ export default [
     },
   },
   {
+    // Browser-driving dev tools: the callbacks passed to page.evaluate() are
+    // serialised and run in the page, so they legitimately use DOM globals.
+    files: ['scripts/dev/**/*.{js,mjs,cjs}'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.browser,
+        ...globals.es2022,
+      },
+    },
+    rules: {
+      'no-empty': ['error', { allowEmptyCatch: true }],
+    },
+  },
+  {
     files: ['tools/**/*.{js,mjs,cjs,ts,tsx}', '**/*.config.{js,mjs,cjs,ts}'],
     languageOptions: {
       globals: {
