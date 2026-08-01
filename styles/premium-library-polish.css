@@ -51,19 +51,6 @@ html:not(.dark) .goal-decision-experience {
   pointer-events: none;
 }
 
-.library-index-page .card-premium,
-.goal-decision-experience .card-premium {
-  position: relative;
-  overflow: hidden;
-  border-color: var(--polish-border);
-  background:
-    linear-gradient(180deg, var(--polish-card-bg-strong), var(--polish-card-bg));
-  box-shadow: var(--polish-shadow);
-}
-
-.library-index-page .card-premium:hover,
-.goal-decision-experience .card-premium:hover,
-.library-index-page .library-content-card:hover,
 .goal-decision-experience .goal-link-card:hover,
 .goal-decision-experience .goal-mini-card:hover {
   border-color: var(--polish-border-strong);
@@ -93,7 +80,6 @@ html:not(.dark) .goal-decision-experience {
 }
 
 .library-index-page .library-nav-card,
-.library-index-page .library-content-card,
 .goal-decision-experience .goal-link-card,
 .goal-decision-experience .goal-mini-card,
 .goal-decision-experience details,
@@ -105,7 +91,6 @@ html:not(.dark) .goal-decision-experience {
 }
 
 html:not(.dark) .library-index-page .library-nav-card,
-html:not(.dark) .library-index-page .library-content-card,
 html:not(.dark) .goal-decision-experience .goal-link-card,
 html:not(.dark) .goal-decision-experience .goal-mini-card,
 html:not(.dark) .goal-decision-experience details,
@@ -116,7 +101,6 @@ html:not(.dark) .goal-decision-experience #comparison-table .overflow-x-auto {
 }
 
 .library-index-page .library-nav-card,
-.library-index-page .library-content-card,
 .goal-decision-experience .goal-link-card,
 .goal-decision-experience .goal-mini-card {
   transition: transform 220ms ease, border-color 220ms ease, background 220ms ease, box-shadow 220ms ease;
@@ -126,16 +110,6 @@ html:not(.dark) .goal-decision-experience #comparison-table .overflow-x-auto {
 .goal-decision-experience .goal-mini-card h3,
 .goal-decision-experience .goal-link-card span:last-child {
   letter-spacing: -0.025em;
-}
-
-.library-index-page :is(.eyebrow-label, .section-label),
-.goal-decision-experience :is(.eyebrow-label, .section-label) {
-  color: #cbd8c0;
-}
-
-html:not(.dark) .library-index-page :is(.eyebrow-label, .section-label),
-html:not(.dark) .goal-decision-experience :is(.eyebrow-label, .section-label) {
-  color: #314b33;
 }
 
 .library-index-page p,
@@ -283,9 +257,8 @@ html:not(.dark) .library-index-page > section:last-child {
   }
 
   .library-index-page .library-nav-card,
-  .library-index-page .library-content-card,
-  .goal-decision-experience .goal-link-card,
-  .goal-decision-experience .goal-mini-card {
+.goal-decision-experience .goal-link-card,
+.goal-decision-experience .goal-mini-card {
     border-radius: 1rem;
   }
 }

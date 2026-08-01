@@ -10,8 +10,6 @@ main:has(nav[aria-label="Jump to profile sections"]) > div.mx-auto {
 
 main:has(nav[aria-label="Jump to profile sections"]) .hero-shell,
 #ashwagandha-stress-claim,
-#ashwagandha-stress-claim .card-premium,
-main:has(nav[aria-label="Jump to profile sections"]) .card-premium,
 main:has(nav[aria-label="Jump to profile sections"]) #quick-stats,
 main:has(nav[aria-label="Jump to profile sections"]) #compare,
 main:has(nav[aria-label="Jump to profile sections"]) section.rounded-2xl {
@@ -24,8 +22,6 @@ main:has(nav[aria-label="Jump to profile sections"]) section.rounded-2xl {
 
 html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) .hero-shell,
 html:not(.dark) #ashwagandha-stress-claim,
-html:not(.dark) #ashwagandha-stress-claim .card-premium,
-html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) .card-premium,
 html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) #quick-stats,
 html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) #compare,
 html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) section.rounded-2xl {
@@ -103,14 +99,10 @@ html:not(.dark) #ashwagandha-stress-claim .text-\[\#5f4a24\] {
   color: #4f6057;
 }
 
-main:has(nav[aria-label="Jump to profile sections"]) .eyebrow-label,
-#ashwagandha-stress-claim .eyebrow-label,
 #ashwagandha-stress-claim dt {
   color: #cbd8c0;
 }
 
-html:not(.dark) main:has(nav[aria-label="Jump to profile sections"]) .eyebrow-label,
-html:not(.dark) #ashwagandha-stress-claim .eyebrow-label,
 html:not(.dark) #ashwagandha-stress-claim dt {
   color: #314b33;
 }

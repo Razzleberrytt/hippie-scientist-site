@@ -392,20 +392,7 @@ html.dark ::selection {
 @layer components {
   .container-page {
     @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
-  }
-
-  .card-premium {
-    background-color: #ffffff;
-    border: 1px solid rgba(13, 23, 18, 0.06);
-    @apply transition-all duration-300;
-    border-radius: var(--radius-card-premium);
-    box-shadow: var(--shadow-card-calm);
-  }
-
-  .card-premium:hover {
-    border-color: rgba(13, 23, 18, 0.10);
-    box-shadow: var(--shadow-card-calm-hover);
-  }
+  }    
 
   .hero-shell {
     background:
@@ -611,15 +598,7 @@ html.dark ::selection {
 
   .metadata-row {
     @apply flex flex-wrap items-center gap-2;
-  }
-
-  .section-frame {
-    background-color: #ffffff;
-    border: 1px solid rgba(13, 23, 18, 0.06);
-    @apply p-4 sm:p-5;
-    border-radius: var(--radius-card-premium);
-    box-shadow: var(--shadow-card-calm);
-  }
+  }  
 
   .muted-readable {
     @apply text-[#36483e];
@@ -634,21 +613,7 @@ html.dark ::selection {
 
   .eyebrow-label {
     @apply text-[0.78rem] font-semibold tracking-[0.03em] text-brand-700;
-  }
-
-  .surface-subtle {
-    background-color: var(--surface);
-    border: 1px solid rgba(13, 23, 18, 0.05);
-    @apply shadow-sm;
-    border-radius: var(--radius-card-premium);
-  }
-
-  .surface-depth {
-    background-color: var(--surface-elevated);
-    border: 1px solid rgba(13, 23, 18, 0.06);
-    border-radius: var(--radius-card-premium);
-    box-shadow: var(--shadow-card-calm);
-  }
+  }    
 
   .chip-readable {
     @apply inline-flex items-center rounded-full border border-brand-900/10 bg-white/80 px-2 py-0.5 text-[0.68rem] font-semibold leading-snug text-[#33443a];
@@ -682,17 +647,7 @@ html.dark ::selection {
 
   .safety-block {
     @apply rounded-card border border-amber-600/20 bg-amber-50/85 p-4 shadow-sm;
-  }
-
-  .button-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-brand-700 px-4 py-2 text-sm font-semibold text-white transition-colors duration-200 hover:bg-brand-800 focus-visible:text-white;
-    box-shadow: var(--shadow-button-primary);
-  }
-
-  .button-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-brand-200 bg-white px-4 py-2 text-sm font-semibold text-brand-800 transition-colors duration-200 hover:border-brand-300 hover:bg-brand-50;
-    box-shadow: var(--shadow-button-secondary);
-  }
+  }    
 }
 
 /* Dark mode overrides for hardcoded light-mode text colors in prose/content components */
@@ -783,20 +738,14 @@ html.dark .content-prose blockquote {
   border-color: rgba(49, 75, 51, 0.18);
 }
 
-/* Dark-mode compatibility for legacy utility-heavy pages.
-   Keep this centralized so page contracts and generated content stay untouched. */
+/* Dark-mode compatibility for legacy utility-heavy pages, i.e. markup that
+   paints itself with bg-white utilities. The named card surfaces used to be
+   listed here too; they are owned by styles/premium-surfaces.css now. */
 html.dark :is(
-  .card-premium,
-  .section-frame,
-  .surface-subtle,
-  .surface-depth,
-  .scientific-card,
-  .mobile-reading-card,
   .compact-section,
   .compact-card,
   .semantic-rail-card,
   .accordion-readable,
-  .chip-readable,
   [class~="bg-white"],
   [class~="bg-white/50"],
   [class~="bg-white/60"],
@@ -1115,18 +1064,6 @@ html.dark :is(.identity-herb, .identity-compound, .identity-article, .identity-p
   background: var(--surface-card);
 }
 
-html.dark :is(.button-secondary) {
-  background-color: var(--surface-card);
-  color: var(--text-primary);
-  border-color: var(--border-soft);
-}
-
-html.dark :is(.button-primary) {
-  background-color: #78a380;
-  color: #07150c;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.30);
-}
-
 html.dark :is(
   [class~="bg-brand-700"], [class~="bg-brand-800"], [class~="bg-brand-950"]
 ) {
@@ -1266,12 +1203,7 @@ html.dark :is(
   }
 }
 
-@layer components {
-  .scientific-card {
-    @apply block bg-white p-4 transition-all duration-200 hover:bg-brand-50/50;
-    border-radius: var(--radius-card-compact);
-    box-shadow: var(--shadow-card-calm);
-  }
+@layer components {  
 
   .scientific-card[data-evidence="strong"] {
     border-left: 3px solid var(--color-evidence-strong);
@@ -1315,12 +1247,7 @@ html.dark :is(
 
   .pull-quote-science {
     @apply rounded-[1rem] border-l-4 border-brand-700 bg-white/75 p-4 font-display text-xl font-semibold leading-snug tracking-tight text-ink shadow-sm;
-  }
-
-  .mobile-reading-card {
-    @apply border border-brand-900/10 bg-white/80 p-4 shadow-sm;
-    border-radius: var(--radius-card-compact);
-  }
+  }  
 
   .compact-section {
     @apply border border-brand-900/10 bg-white/75 p-3 shadow-sm sm:p-4;

@@ -34,6 +34,7 @@ import '@/styles/editorial-content-surfaces.css'
 import '@/styles/homepage-editorial-redesign.css'
 import '@/styles/premium-foundation.css'
 import '@/styles/premium-surfaces.css'
+import '@/styles/premium-typography.css'
 
 const HOME_TITLE = 'The Hippie Scientist | Supplement Research'
 

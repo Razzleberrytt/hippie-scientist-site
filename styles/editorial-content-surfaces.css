@@ -10,42 +10,6 @@ html:not(.dark) :where(
   .surface-subtle,
   .section-frame,
   .glass-card
-) {
-  border-color: rgba(18, 60, 47, 0.11);
-  background:
-    radial-gradient(circle at 100% 0%, rgba(203, 220, 200, 0.28), transparent 32%),
-    linear-gradient(145deg, rgba(255, 253, 248, 0.98), rgba(247, 241, 230, 0.88));
-  box-shadow:
-    0 16px 42px rgba(58, 45, 24, 0.075),
-    inset 0 1px 0 rgba(255, 255, 255, 0.88);
-}
-
-html:not(.dark) :where(
-  .library-card-premium,
-  .card-premium,
-  .scientific-card,
-  .surface-depth,
-  .surface-subtle,
-  .section-frame,
-  .glass-card
-):hover {
-  border-color: rgba(184, 138, 66, 0.28);
-  background:
-    radial-gradient(circle at 100% 0%, rgba(203, 220, 200, 0.34), transparent 34%),
-    linear-gradient(145deg, #fffdf8, #f8f2e7);
-  box-shadow:
-    0 20px 48px rgba(58, 45, 24, 0.10),
-    inset 0 1px 0 rgba(255, 255, 255, 0.92);
-}
-
-html:not(.dark) :where(
-  .library-card-premium,
-  .card-premium,
-  .scientific-card,
-  .surface-depth,
-  .surface-subtle,
-  .section-frame,
-  .glass-card
 ) :where(h2, h3) {
   color: var(--editorial-evergreen);
 }
@@ -62,13 +26,7 @@ html:not(.dark) :where(
   color: #526159;
 }
 
-html:not(.dark) .eyebrow-label {
-  color: var(--editorial-gold);
-  font-weight: 800;
-  letter-spacing: 0.14em;
-}
-
-html:not(.dark) :where(.identity-kicker, .chip-readable, .evidence-pill-strong, .evidence-pill-moderate) {
+html:not(.dark) :where(.identity-kicker, .evidence-pill-strong, .evidence-pill-moderate) {
   border-color: rgba(18, 60, 47, 0.10);
   background: linear-gradient(145deg, rgba(223, 233, 220, 0.78), rgba(255, 253, 248, 0.92));
   color: var(--editorial-evergreen);

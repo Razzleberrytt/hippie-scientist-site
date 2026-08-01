@@ -5,77 +5,11 @@
 .surface-subtle,
 .section-frame,
 .glass-card {
+  /* Structure only. The surface itself - background, border, radius, shadow,
+     transition - is owned by styles/premium-surfaces.css. */
   position: relative;
   overflow: hidden;
   isolation: isolate;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.92) 0%,
-      rgba(255,252,246,0.84) 100%
-    );
-
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
-  border-radius: var(--radius-card-premium, 1.65rem);
-  border: 1px solid rgba(29,74,47,0.09);
-
-  box-shadow:
-    0 14px 42px rgba(16,32,24,0.07),
-    0 2px 8px rgba(16,32,24,0.035);
-
-  transition:
-    transform .28s ease,
-    box-shadow .28s ease,
-    border-color .28s ease,
-    background .28s ease,
-    opacity .28s ease;
-}
-
-.library-card-premium::before,
-.card-premium::before,
-.scientific-card::before,
-.surface-depth::before,
-.section-frame::before,
-.glass-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(154,191,132,0.08),
-      transparent 42%
-    );
-
-  opacity: 0.9;
-}
-
-.library-card-premium:hover,
-.card-premium:hover,
-.scientific-card:hover,
-.surface-depth:hover,
-.section-frame:hover,
-.glass-card:hover {
-  transform: translateY(-3px);
-
-  border-color: rgba(53,143,82,0.22);
-
-  box-shadow:
-    0 0 0 1px rgba(141,170,120,0.10),
-    0 20px 56px rgba(16,32,24,0.10),
-    0 4px 14px rgba(16,32,24,0.045);
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.96) 0%,
-      rgba(255,250,242,0.88) 100%
-    );
 }
 
 .library-card-premium h2,
@@ -144,7 +78,6 @@
   background: rgba(79,105,79,0.5);
 }
 
-.chip-readable,
 .evidence-pill-strong,
 .evidence-pill-moderate {
   display: inline-flex;
@@ -169,7 +102,6 @@
     color .22s ease;
 }
 
-.chip-readable:hover,
 .evidence-pill-strong:hover,
 .evidence-pill-moderate:hover {
   transform: translateY(-1px);
@@ -182,32 +114,6 @@
     min-height: 2.25rem;
     white-space: normal;
   }
-}
-
-.button-primary,
-.button-secondary {
-  transition:
-    transform .24s ease,
-    box-shadow .24s ease,
-    border-color .24s ease,
-    background .24s ease;
-}
-
-.button-primary:hover,
-.button-secondary:hover {
-  transform: translateY(-2px);
-}
-
-.button-primary:hover {
-  box-shadow:
-    0 16px 34px rgba(36,86,58,0.18),
-    inset 0 1px 0 rgba(255,255,255,0.16);
-}
-
-.button-secondary:hover {
-  box-shadow:
-    0 12px 30px rgba(16,32,24,0.08),
-    inset 0 1px 0 rgba(255,255,255,0.72);
 }
 
 .hero-shell {
@@ -257,29 +163,6 @@
     );
 }
 
-html.dark .library-card-premium,
-html.dark .card-premium,
-html.dark .scientific-card,
-html.dark .surface-depth,
-html.dark .surface-subtle,
-html.dark .section-frame,
-html.dark .glass-card {
-  background: var(--surface-card);
-  border-color: var(--border-soft);
-  box-shadow: var(--shadow-card-calm);
-}
-
-html.dark .library-card-premium:hover,
-html.dark .card-premium:hover,
-html.dark .scientific-card:hover,
-html.dark .surface-depth:hover,
-html.dark .section-frame:hover,
-html.dark .glass-card:hover {
-  background: var(--surface-card-strong);
-  border-color: var(--border-strong);
-  box-shadow: var(--shadow-card-calm-hover);
-}
-
 html.dark .library-card-premium h2,
 html.dark .library-card-premium h3,
 html.dark .card-premium h2,
@@ -301,7 +184,6 @@ html.dark .pull-quote-science {
 }
 
 html.dark .identity-kicker,
-html.dark .chip-readable,
 html.dark .evidence-pill-strong,
 html.dark .evidence-pill-moderate {
   background: var(--surface-subtle);
@@ -309,25 +191,7 @@ html.dark .evidence-pill-moderate {
   color: var(--text-primary);
 }
 
-@media (max-width: 768px) {
-  .library-card-premium,
-  .card-premium,
-  .scientific-card,
-  .surface-depth,
-  .surface-subtle,
-  .section-frame,
-  .glass-card {
-    border-radius: var(--radius-card-compact, 1.35rem);
-  }
-
-  .library-card-premium:hover,
-  .card-premium:hover,
-  .scientific-card:hover,
-  .surface-depth:hover,
-  .section-frame:hover,
-  .glass-card:hover {
-    transform: translateY(-2px);
-  }
+@media (max-width: 768px) {    
 
   .identity-meta,
   .identity-kicker {

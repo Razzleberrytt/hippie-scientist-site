@@ -1,0 +1,81 @@
+/* Premium typography — phase 3 of promoting the homepage design language.
+ *
+ * Phases 0-2 gave every route the homepage's tokens, canvas, and surfaces.
+ * What still separated a profile or hub page from the homepage was voice:
+ * headings in the body font, ledes at body size, and no rhythm between a
+ * section label and the heading it introduces.
+ *
+ * This sets voice, not scale. Pages size their own headings through utilities
+ * and the older readability layer, and those sizes are deliberate per template
+ * — so nothing here sets font-size on a heading. Family, tracking, wrap, and
+ * spacing only.
+ */
+
+html main :is(h1, h2, h3, h4) {
+  font-family: var(--font-fraunces), Fraunces, Georgia, serif;
+  color: var(--hs-ink);
+  text-wrap: balance;
+}
+
+html main h1 {
+  letter-spacing: -0.032em;
+  line-height: 1.02;
+}
+
+html main h2 {
+  letter-spacing: -0.028em;
+  line-height: 1.08;
+}
+
+html main :is(h3, h4) {
+  letter-spacing: -0.02em;
+  line-height: 1.18;
+}
+
+/* The opening paragraph under a page title carries the summary, so it reads a
+   step above body copy — the homepage lede treatment. */
+html main h1 + p {
+  color: var(--hs-body);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+@media (min-width: 640px) {
+  html main h1 + p {
+    font-size: 1.15rem;
+    line-height: 1.75;
+  }
+}
+
+/* An eyebrow introduces the heading beneath it; the default block margins let
+   them drift apart and read as two unrelated lines. */
+html main :is(.eyebrow-label, .section-label) + :is(h1, h2, h3) {
+  margin-top: 0.7rem;
+}
+
+/* Section rhythm. The homepage breathes at 2.75rem/5rem between sections; the
+   rest of the site inherited whatever each page happened to set. */
+html main .container-page > section + section,
+html main .container-page > .hs-section + .hs-section {
+  margin-top: 2.75rem;
+}
+
+@media (min-width: 640px) {
+  html main .container-page > section + section,
+  html main .container-page > .hs-section + .hs-section {
+    margin-top: 4rem;
+  }
+}
+
+/* Body links inside prose get the gold underline the homepage uses, rather
+   than the browser default sitting tight against the baseline. */
+html main p a[href]:not([class*='button']):not([class*='chip']) {
+  text-decoration-color: color-mix(in srgb, var(--hs-gold) 55%, transparent);
+  text-underline-offset: 0.18em;
+  transition: text-decoration-color 200ms ease;
+}
+
+html main p a[href]:not([class*='button']):not([class*='chip']):hover {
+  text-decoration-color: var(--hs-gold);
+}
