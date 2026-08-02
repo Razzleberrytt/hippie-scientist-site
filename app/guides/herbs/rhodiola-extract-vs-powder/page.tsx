@@ -9,20 +9,20 @@ import DosageBox from '@/components/DosageBox'
 import ComparisonTable from '@/components/ComparisonTable'
 import AffiliateProductBox from '@/components/AffiliateProductBox'
 import { getRevenueProductSet } from '@/config/revenue-products'
-import RecommendationSection from '@/components/RecommendationSection'
 import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import SafetyNotice from '@/components/evidence/SafetyNotice'
 import EmailCapture from '@/components/EmailCapture'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 import References from '@/components/References'
 
 const SLUG = 'rhodiola-extract-vs-powder'
-const PAGE_URL = 'https://thehippiescientist.net/guides/rhodiola-extract-vs-powder'
+const PAGE_URL = 'https://thehippiescientist.net/guides/herbs/rhodiola-extract-vs-powder'
 const TITLE = 'Rhodiola Extract vs Powder: Which Form Actually Works?'
 const DESCRIPTION =
-  'Compare rhodiola extract vs powder: absorption rates, dosing, cost, and which form performs better for energy, stress, and fatigue based on the clinical evidence.'
+  'Compare standardized rhodiola extract with root powder: what human trials actually tested, how to read labels, safety, and where the evidence remains uncertain.'
 const DATE_PUBLISHED = '2024-06-09'
-const DATE_MODIFIED = '2026-06-14'
+const DATE_MODIFIED = '2026-08-02'
 
 export const metadata: Metadata = buildPageMetadata({
   title: TITLE,
@@ -40,39 +40,39 @@ const FAQS = [
   {
     question: 'Is a generic rhodiola capsule the same as SHR-5?',
     answer:
-      'Not necessarily. SHR-5 is a specific standardized extract used in most clinical trials. Generic capsules may or may not meet the same specifications. Check the label for "standardized to 3% rosavins, 1% salidroside" — if those numbers are absent, you cannot assume equivalence.',
+      'No. SHR-5 is a specific proprietary extract used in some clinical trials. Other products may use different extraction methods and marker specifications, so a generic capsule cannot be assumed equivalent merely because it lists the same plant.',
   },
   {
     question: 'Why does powder have so little research?',
     answer:
-      'Clinical trials require consistency to produce meaningful results. Raw root powder varies batch to batch depending on harvest location, season, altitude, and storage, which makes controlled studies impractical. Researchers therefore use standardized extracts almost exclusively.',
+      'Standardized extracts make the tested intervention easier to characterize and reproduce. The human research located for this review largely evaluated named or standardized extracts, leaving direct outcome evidence for retail root powder sparse.',
   },
   {
     question: 'Can I trust cheap extracts?',
     answer:
-      'Not all cheap extracts are bad, but many are diluted or not genuinely standardized. Third-party testing (NSF, USP, Informed Sport) is the only reliable verification. Treat "rhodiola extract 500 mg" with no standardization percentages as effectively unverified.',
+      'Price alone does not establish quality. Prefer labels that identify the botanical, plant part, extract ratio or marker compounds, and manufacturer lot information. Credible independent certification or a lot-specific certificate of analysis adds confidence, but no single seal proves clinical effectiveness.',
   },
   {
     question: 'Does the whole herb have benefits that extracts miss?',
     answer:
-      'It is theoretically possible — root powder retains minor plant compounds that may have synergistic effects. But there is currently no clinical evidence that this matters for outcomes, so it remains a philosophical rather than evidence-based reason to choose powder.',
+      'Root powder contains the whole ground plant material, but direct trials have not established that this produces better outcomes than an extract. A whole-herb preference is reasonable; it should not be presented as a proven efficacy advantage.',
   },
 ]
 
 const COMPARISON_HEADERS = ['Feature', 'Standardized Extract', 'Root Powder']
 const COMPARISON_ROWS = [
-  { attribute: 'Potency consistency', values: ['High', 'Low / variable'] },
-  { attribute: 'Absorption speed', values: ['30–90 min', '1–3 hours'] },
-  { attribute: 'Dose required', values: ['200–400 mg', '1–2 g'] },
-  { attribute: 'Clinical evidence', values: ['Strong (10+ trials)', 'Minimal / essentially absent'] },
-  { attribute: 'Approx. cost / month', values: ['$15–25', '$8–12'] },
-  { attribute: 'Best for', values: ['Efficacy & reliability', 'Budget / whole-herb preference'] },
+  { attribute: 'Label consistency', values: ['Can declare extract ratio or marker compounds', 'Naturally varies by source and batch'] },
+  { attribute: 'Human evidence', values: ['Several named extracts studied; results are mixed', 'Little direct outcome evidence located'] },
+  { attribute: 'Dose comparison', values: ['Use the exact product or extract studied as context', 'Cannot convert trial doses reliably by weight alone'] },
+  { attribute: 'Main advantage', values: ['Better characterized and easier to compare with trials', 'Whole-root format with fewer processing steps'] },
+  { attribute: 'Main limitation', values: ['Different extracts are not automatically equivalent', 'Potency and trial relevance are harder to judge'] },
+  { attribute: 'Evidence-led choice', values: ['Prefer a clearly characterized extract', 'Choose for whole-herb preference, not proven superiority'] },
 ]
 
 const DOSAGE_ROWS = [
-  { form: 'SHR-5 standardized extract', range: '200–400 mg/day', notes: 'Min 3% rosavins / 1% salidroside; form used in the trials' },
-  { form: 'Standardized capsule (generic)', range: '300–600 mg/day', notes: 'Verify standardization percentages on the label' },
-  { form: 'Root powder', range: '1–2 g/day', notes: '3–5× more by weight; potency varies by batch' },
+  { form: 'SHR-5 extract', range: 'Study-specific', notes: 'Trials have used different daily amounts; results cannot be generalized to every extract' },
+  { form: 'Other standardized extracts', range: 'Follow product-specific evidence', notes: 'Match the extract name, ratio, and markers before comparing doses' },
+  { form: 'Root powder', range: 'No evidence-based equivalent', notes: 'Do not convert an extract trial dose to powder using capsule weight alone' },
 ]
 
 const HEADINGS: Heading[] = [
@@ -80,6 +80,7 @@ const HEADINGS: Heading[] = [
   { id: 'research', text: 'What the Research Actually Used', level: 2 },
   { id: 'dosage', text: 'Dosing by Form', level: 2 },
   { id: 'quality', text: 'How to Verify Extract Quality', level: 2 },
+  { id: 'safety', text: 'Safety Considerations', level: 2 },
   { id: 'faq', text: 'Common Questions', level: 2 },
 ]
 
@@ -87,6 +88,9 @@ const RHODIOLA_EXTRACT_VS_POWDER_REFS = [
   { n: 1, text: 'Panossian A, et al. (2010). Rhodiola rosea: traditional use, composition, and clinical trials. Phytomedicine, 17(7): 481-493.', url: 'https://pubmed.ncbi.nlm.nih.gov/20378318/' },
   { n: 2, text: 'Olsson EM, et al. (2009). Rhodiola rosea for stress-related fatigue. Planta Med, 75(2): 105-112.', url: 'https://pubmed.ncbi.nlm.nih.gov/19016404/' },
   { n: 3, text: 'Darbinyan V, et al. (2000). Rhodiola rosea in stress-induced fatigue. Phytomedicine, 7(5): 365-371.', url: 'https://pubmed.ncbi.nlm.nih.gov/11081987/' },
+  { n: 4, text: 'Ishaque S, et al. (2012). Rhodiola rosea for physical and mental fatigue: a systematic review. BMC Complement Altern Med, 12:70.', url: 'https://pubmed.ncbi.nlm.nih.gov/22643043/' },
+  { n: 5, text: 'Duncan J, et al. (2014). Rhodiola rosea for mental and physical fatigue in nursing students: a randomized controlled trial. PLoS One, 9(9):e108416.', url: 'https://pubmed.ncbi.nlm.nih.gov/25268730/' },
+  { n: 6, text: 'National Center for Complementary and Integrative Health. Rhodiola: usefulness and safety.', url: 'https://www.nccih.nih.gov/health/rhodiola' },
 ]
 
 export default function RhodiolaExtractVsPowderGuidePage() {
@@ -107,7 +111,7 @@ export default function RhodiolaExtractVsPowderGuidePage() {
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides' },
-          { label: 'Rhodiola Extract vs Powder', href: `/guides/${SLUG}` },
+          { label: 'Rhodiola Extract vs Powder', href: `/guides/herbs/${SLUG}` },
         ]}
       />
 
@@ -123,12 +127,12 @@ export default function RhodiolaExtractVsPowderGuidePage() {
           Which Form Actually Works — and Why Form Matters More Here
         </p>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
-          Walk into any supplement store and you&apos;ll find rhodiola in a dozen forms — standardized extracts,
-          root powders, tinctures, generic capsules — with no explanation of the difference. The form matters
-          more with rhodiola than most herbs. Here is why, and which one to buy.
+          Human trials mostly evaluate named or standardized extracts, not retail root powder. That makes a
+          clearly characterized extract the easier evidence-led choice—but the overall rhodiola evidence is
+          mixed, and one extract cannot automatically stand in for another.
         </p>
         <div className="mt-6 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
-          <Link href="/guides/rhodiola-complete-guide/" className="text-brand-700 hover:text-brand-800 hover:underline">
+          <Link href="/guides/herbs/rhodiola-complete-guide/" className="text-brand-700 hover:text-brand-800 hover:underline">
             Complete Rhodiola Guide →
           </Link>
           <Link href="/herbs/rhodiola/" className="text-brand-700 hover:text-brand-800 hover:underline">
@@ -156,6 +160,12 @@ export default function RhodiolaExtractVsPowderGuidePage() {
       {/* Quick comparison */}
       <section id="comparison" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Quick Comparison</h2>
+        <div className="rounded-xl border border-emerald-200/50 bg-emerald-50/60 px-4 py-3 text-sm text-emerald-950">
+          <strong className="font-semibold">Bottom line: </strong>
+          Choose a clearly characterized extract if you want the closest match to human research. Choose
+          powder for a whole-root preference, not because it has been shown to work better. Neither form has
+          conclusive evidence for treating a health condition.
+        </div>
         <ComparisonTable headers={COMPARISON_HEADERS} rows={COMPARISON_ROWS} />
       </section>
 
@@ -163,21 +173,21 @@ export default function RhodiolaExtractVsPowderGuidePage() {
       <section id="research" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">What the Research Actually Used</h2>
         <p className="text-sm leading-6 text-muted">
-          This is the critical point most buying guides miss. Every major positive trial used SHR-5 or a similar
-          standardized extract — not generic root powder. If you take powder and see no result, you cannot tell
-          whether rhodiola &quot;doesn&apos;t work for you&quot; or whether you simply got a weak batch.
+          The most useful distinction is traceability. Clinical trials identify a specific extract and dose,
+          while a retail powder may not report marker compounds. Reviews find contradictory results and
+          important methodological limitations, so extract standardization improves comparability—not certainty.
         </p>
         <div className="grid gap-3 sm:grid-cols-2">
           <EvidenceSummaryBox
-            level="strong"
-            outcome="Standardized extract (SHR-5)"
-            takeaway="Darbinyan (2000) used 200 mg SHR-5; Spasov (2000) used 150 mg three times daily; Olsson (2009) used 576 mg/day. All showed positive results with characterized, predictable absorption."
-            citationCount={10}
+            level="limited"
+            outcome="Named or standardized extracts"
+            takeaway="Several small trials report benefits, while systematic reviews flag mixed findings, reporting flaws, and limited independent replication. Results apply most directly to the extract tested."
+            citationCount={5}
           />
           <EvidenceSummaryBox
             level="limited"
             outcome="Raw root powder"
-            takeaway="Direct clinical evidence for whole rhodiola powder is essentially absent in the peer-reviewed literature. No published bioavailability studies exist for raw powder."
+            takeaway="Direct human outcome evidence for retail whole-root powder was not identified in the sources reviewed for this page. That is an evidence gap, not proof that powder cannot work."
             citationCount={0}
           />
         </div>
@@ -188,7 +198,7 @@ export default function RhodiolaExtractVsPowderGuidePage() {
         <h2 className="text-2xl font-semibold tracking-tight text-ink">Dosing by Form</h2>
         <DosageBox
           rows={DOSAGE_ROWS}
-          disclaimer="Because powder is far less concentrated than extract, typical doses are 3–5× higher by weight. All doses are general ranges, not medical advice."
+          disclaimer="Rhodiola products are not interchangeable by milligram weight. Use trial doses only as context for the exact extract studied, not as personal medical advice."
         />
       </section>
 
@@ -196,18 +206,28 @@ export default function RhodiolaExtractVsPowderGuidePage() {
       <section id="quality" className="scroll-mt-20 space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight text-ink">How to Verify Extract Quality</h2>
         <ul className="space-y-2 text-sm leading-6 text-muted">
-          <li><strong className="text-ink">Check the label</strong> — it should list &quot;standardized to 3% rosavins, 1% salidroside.&quot;</li>
-          <li><strong className="text-ink">Look for third-party testing</strong> — NSF, USP, or Informed Sport certification.</li>
-          <li><strong className="text-ink">Avoid proprietary blends</strong> — if the rosavin percentage isn&apos;t listed, assume it is low.</li>
-          <li><strong className="text-ink">Check the form description</strong> — &quot;rhodiola extract 500 mg&quot; without standardization specs is effectively meaningless.</li>
+          <li><strong className="text-ink">Confirm the botanical and plant part</strong> — look for <em>Rhodiola rosea</em> root/rhizome rather than an unspecified rhodiola species.</li>
+          <li><strong className="text-ink">Read the extract details</strong> — the extract ratio, solvent, or declared rosavin and salidroside markers make comparison easier.</li>
+          <li><strong className="text-ink">Prefer transparent testing</strong> — credible independent certification or a lot-specific certificate of analysis can support identity and contaminant checks.</li>
+          <li><strong className="text-ink">Avoid hidden doses</strong> — proprietary blends prevent you from knowing how much rhodiola the serving contains.</li>
         </ul>
         <div className="rounded-xl border border-emerald-200/50 bg-emerald-50/60 px-4 py-3 text-sm text-emerald-950">
           <strong className="font-semibold">Verdict: </strong>
-          For most people, start with standardized extract — the evidence base exists for it, potency is
-          consistent, and you can actually evaluate whether it works for you. Choose powder only if cost is the
-          primary constraint or you specifically prefer whole herbs, accepting more variability in results.
+          A characterized extract offers the clearest link to the research, but that does not make the research
+          conclusive. Compare the exact extract rather than relying on capsule weight or a generic “standardized” claim.
         </div>
       </section>
+
+      <div id="safety" className="scroll-mt-20">
+        <SafetyNotice title="Rhodiola safety and interaction checks">
+          <ul className="list-disc space-y-2 pl-5">
+            <li>NCCIH describes rhodiola as possibly safe for up to 12 weeks; longer-term safety remains uncertain.</li>
+            <li>Reported effects can include dizziness, headache, insomnia, and dry mouth or excess saliva.</li>
+            <li>Ask a clinician or pharmacist before use with prescription medicines; an interaction with losartan has been reported.</li>
+            <li>Pregnancy and breastfeeding safety data are insufficient. Avoid self-treating persistent fatigue, mood, or sleep symptoms.</li>
+          </ul>
+        </SafetyNotice>
+      </div>
 
       {/* Products */}
       {rhodiolaProducts && (
@@ -218,12 +238,7 @@ export default function RhodiolaExtractVsPowderGuidePage() {
         />
       )}
 
-      {rhodiolaProducts && (
-      <>
-        <References refs={RHODIOLA_EXTRACT_VS_POWDER_REFS} />
-          <RecommendationSection products={rhodiolaProducts.products} />
-      </>
-      )}
+      <References refs={RHODIOLA_EXTRACT_VS_POWDER_REFS} />
 
       {/* FAQ */}
       <div id="faq" className="scroll-mt-20">
@@ -236,17 +251,17 @@ export default function RhodiolaExtractVsPowderGuidePage() {
       <section className="space-y-3">
         <h2 className="text-xl font-semibold text-ink">More in the Rhodiola Hub</h2>
         <div className="grid gap-3 sm:grid-cols-3">
-          <Link href="/guides/rhodiola-complete-guide/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
+          <Link href="/guides/herbs/rhodiola-complete-guide/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Pillar Guide</p>
             <p className="mt-1 text-sm font-semibold text-ink">Complete Rhodiola Guide</p>
             <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">Forms, benefits, dosing, and the full evidence base in one place.</p>
           </Link>
-          <Link href="/guides/rhodiola-energy/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
+          <Link href="/guides/herbs/rhodiola-energy/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Guide</p>
             <p className="mt-1 text-sm font-semibold text-ink">Rhodiola for Energy</p>
             <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">Sustained energy without the stimulant crash — research and dosing.</p>
           </Link>
-          <Link href="/guides/rhodiola-sleep-stack/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
+          <Link href="/guides/sleep/rhodiola-sleep-stack/" className="rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/20 hover:bg-white">
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-brand-700">Stack Guide</p>
             <p className="mt-1 text-sm font-semibold text-ink">Rhodiola + Magnesium for Sleep</p>
             <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted">The adaptogen stack for the &quot;wired but tired&quot; cycle.</p>

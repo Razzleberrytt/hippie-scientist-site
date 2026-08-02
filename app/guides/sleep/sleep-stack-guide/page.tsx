@@ -18,7 +18,7 @@ const SLUG = 'sleep-stack-guide'
 const TITLE = 'Sleep Stack Guide: Magnesium, L-Theanine, Ashwagandha, and What to Combine'
 const DESCRIPTION =
   'A practical evidence-based guide to building a natural sleep stack, including magnesium, L-theanine, ashwagandha, timing, safety, combinations, and what not to mix.'
-const DATE = '2026-06-09'
+const DATE = '2026-08-02'
 const AUTHOR = 'Will'
 const READING_TIME = '15 min read'
 const TAGS = ['sleep', 'magnesium', 'l-theanine', 'ashwagandha', 'supplement-stack']
@@ -37,22 +37,22 @@ const FAQS = [
   {
     question: 'What is the best natural sleep stack?',
     answer:
-      'The most practical starting point for most people is magnesium glycinate alone, which addresses physical relaxation and mineral support with well-characterised safety. For those with racing thoughts at bedtime, adding L-theanine is a reasonable next step. For chronic stress-driven poor sleep, adding ashwagandha (KSM-66 or Sensoril) at standard doses over 6–8 weeks has direct evidence. There is no single universally "best" stack — the right combination depends on your specific sleep barrier.',
+      'No supplement combination has been established as the best natural sleep stack. Start by identifying the sleep problem and addressing sleep schedule, caffeine, alcohol, medications, and possible sleep disorders. If you still trial a supplement, use one ingredient at a time so benefits and side effects are interpretable.',
   },
   {
     question: 'Can I take magnesium, L-theanine, and ashwagandha together?',
     answer:
-      'For most healthy adults without relevant contraindications, yes — these three supplements work through different mechanisms and no significant adverse interaction between them has been established. However, introducing all three simultaneously makes it impossible to identify what is helping or causing side effects. Start one at a time over several weeks before adding the next.',
+      'Direct trials of this three-ingredient combination were not identified for this review, so safety and effectiveness cannot be assumed from separate ingredient studies. Introducing all three simultaneously also makes benefits or side effects impossible to attribute. Check medication and condition-specific risks with a clinician or pharmacist.',
   },
   {
     question: 'Should I start all three at once?',
     answer:
-      'No. Starting all three at once is the main mistake to avoid. If you experience a benefit or a side effect, you will not know which supplement is responsible. The pragmatic approach is: start magnesium glycinate first for 1–2 weeks, then add L-theanine if racing thoughts remain an issue, then add ashwagandha if chronic stress is the dominant factor and you are willing to commit to a 6–8 week trial.',
+      'No. If you experience a benefit or side effect, you will not know which ingredient caused it. If a clinician agrees a supplement trial is reasonable, start one product, keep the rest of the routine stable, and reassess before adding anything else.',
   },
   {
     question: 'What time should I take a sleep stack?',
     answer:
-      'Timing varies by supplement. Magnesium glycinate and L-theanine are typically taken 30–60 minutes before bed. Ashwagandha can be taken in the evening or with dinner — timing is less critical because its effects accumulate over weeks rather than hours. Avoid caffeine-containing products near bedtime.',
+      'Timing depends on the exact product and study; there is no validated timing rule for a multi-ingredient stack. Follow the product label and clinician guidance, and avoid caffeine-containing products near bedtime. Ashwagandha sleep trials generally measured repeated use rather than a reliable same-night effect.',
   },
   {
     question: 'Is a sleep stack safer than melatonin?',
@@ -116,7 +116,7 @@ export default function SleepStackGuidePage() {
               {tag}
             </span>
           ))}
-          <span className="text-muted">June 9, 2026</span>
+          <span className="text-muted">August 2, 2026</span>
           <span className="text-muted">·</span>
           <span className="text-muted">{READING_TIME}</span>
         </div>
@@ -178,38 +178,36 @@ export default function SleepStackGuidePage() {
               <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
                 <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
                 <span>
-                  <strong>Best simple starting stack:</strong> magnesium glycinate alone — the
-                  lowest-complexity, best-characterised starting point for most people.
+                  <strong>Start with the sleep problem:</strong> schedule, caffeine, alcohol,
+                  medications, pain, restless legs, and sleep-apnea symptoms can matter more than a stack.
                 </span>
               </li>
               <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
                 <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
                 <span>
-                  <strong>Best relaxation stack:</strong> magnesium glycinate + L-theanine — physical
-                  and mental relaxation support from complementary mechanisms.
+                  <strong>Magnesium:</strong> reviews rate the sleep evidence as low or very low
+                  certainty; a newer trial found a modest self-reported benefit, not a cure for insomnia.
                 </span>
               </li>
               <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
                 <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
                 <span>
-                  <strong>Best stress-driven sleep stack:</strong> ashwagandha + magnesium — stress
-                  adaptation over weeks combined with baseline physical relaxation support.
+                  <strong>L-theanine:</strong> small stress studies are encouraging, but it is not an
+                  established insomnia treatment and its benefit in a stack has not been isolated.
                 </span>
               </li>
               <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
                 <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
                 <span>
-                  <strong>Best full stack:</strong> magnesium + L-theanine + ashwagandha — three
-                  different mechanisms for stress, mental tension, and physical relaxation; introduce
-                  one at a time.
+                  <strong>Ashwagandha:</strong> a small, heterogeneous trial base suggests a possible
+                  sleep benefit over several weeks, with important thyroid, pregnancy, medication, and liver cautions.
                 </span>
               </li>
               <li className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
                 <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
                 <span>
-                  <strong>Best beginner approach:</strong> start one supplement at a time. Assess
-                  your response over 1–2 weeks before adding a second. Do not combine multiple sleep
-                  aids without knowing how each affects you individually.
+                  <strong>Combination verdict:</strong> no direct trial of magnesium + L-theanine +
+                  ashwagandha was identified. If a supplement trial is appropriate, introduce one at a time.
                 </span>
               </li>
             </ul>
@@ -1171,25 +1169,6 @@ export default function SleepStackGuidePage() {
                     View on Amazon →
                   </a>
                 </div>
-                <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-                  <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">
-                    Full Stack — Caffeine-Free
-                  </p>
-                  <p className="font-semibold text-ink">Caffeine-Free Natural Sleep Stack</p>
-                  <p className="mt-1 text-xs leading-5 text-muted">
-                    Multi-ingredient formulas combining magnesium, L-theanine, and/or ashwagandha.
-                    Always verify: (1) caffeine-free, (2) clinically relevant dose amounts per
-                    serving, (3) standardised herbal extracts where applicable.
-                  </p>
-                  <a
-                    href={`https://www.amazon.com/s?k=natural+sleep+stack+magnesium+ashwagandha+l-theanine+caffeine+free&tag=${AFFILIATE_TAGS.amazon}`}
-                    target="_blank"
-                    rel="noopener noreferrer sponsored"
-                    className="mt-3 inline-flex items-center gap-1 rounded-full bg-brand-950 px-4 py-1.5 text-xs font-bold text-white transition hover:bg-brand-900"
-                  >
-                    View on Amazon →
-                  </a>
-                </div>
               </div>
             </div>
 
@@ -1443,71 +1422,67 @@ export default function SleepStackGuidePage() {
                     <tr className="align-top">
                       <td className="py-3 pr-3 text-muted">1</td>
                       <td className="py-3 pr-4 leading-6 text-ink">
-                        Magnesium sleep evidence — sleep quality outcomes in clinical populations
+                        Magnesium for insomnia in older adults — systematic review and meta-analysis
                       </td>
-                      <td className="py-3 pr-4 text-muted">—</td>
-                      <td className="py-3 pr-4 text-muted">—</td>
+                      <td className="py-3 pr-4 text-muted">Mah &amp; Pitre</td>
+                      <td className="py-3 pr-4 text-muted">2021</td>
                       <td className="py-3 text-muted">
-                        References being compiled
+                        <a className="font-semibold text-brand-700 hover:underline" href="https://pubmed.ncbi.nlm.nih.gov/33865376/" target="_blank" rel="noopener noreferrer">PubMed</a> — low-to-very-low certainty evidence
                       </td>
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-3 text-muted">2</td>
                       <td className="py-3 pr-4 leading-6 text-ink">
-                        L-theanine sleep and relaxation evidence — sleep quality, alpha-wave
-                        induction, stress marker attenuation
+                        Magnesium bisglycinate for poor sleep — randomized placebo-controlled trial
                       </td>
-                      <td className="py-3 pr-4 text-muted">—</td>
-                      <td className="py-3 pr-4 text-muted">—</td>
+                      <td className="py-3 pr-4 text-muted">Pitre et al.</td>
+                      <td className="py-3 pr-4 text-muted">2025</td>
                       <td className="py-3 text-muted">
-                        References being compiled
+                        <a className="font-semibold text-brand-700 hover:underline" href="https://pubmed.ncbi.nlm.nih.gov/40918053/" target="_blank" rel="noopener noreferrer">PubMed</a> — modest self-reported benefit
                       </td>
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-3 text-muted">3</td>
                       <td className="py-3 pr-4 leading-6 text-ink">
-                        Ashwagandha sleep evidence — sleep quality RCTs in stressed adult populations
+                        L-theanine and acute stress — randomized crossover study in healthy adults
                       </td>
-                      <td className="py-3 pr-4 text-muted">—</td>
-                      <td className="py-3 pr-4 text-muted">—</td>
+                      <td className="py-3 pr-4 text-muted">White et al.</td>
+                      <td className="py-3 pr-4 text-muted">2021</td>
                       <td className="py-3 text-muted">
-                        References being compiled
+                        <a className="font-semibold text-brand-700 hover:underline" href="https://pubmed.ncbi.nlm.nih.gov/34562208/" target="_blank" rel="noopener noreferrer">PubMed</a> — 16 participants; not an insomnia trial
                       </td>
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-3 text-muted">4</td>
                       <td className="py-3 pr-4 leading-6 text-ink">
-                        Combination evidence — direct co-administration trials (magnesium +
-                        L-theanine, ashwagandha + magnesium, or all three)
+                        Ashwagandha extract and sleep — systematic review and meta-analysis
                       </td>
-                      <td className="py-3 pr-4 text-muted">—</td>
-                      <td className="py-3 pr-4 text-muted">—</td>
+                      <td className="py-3 pr-4 text-muted">Cheah et al.</td>
+                      <td className="py-3 pr-4 text-muted">2021</td>
                       <td className="py-3 text-muted">
-                        No combination trial identified in source registry
+                        <a className="font-semibold text-brand-700 hover:underline" href="https://pubmed.ncbi.nlm.nih.gov/34559859/" target="_blank" rel="noopener noreferrer">PubMed</a> — five small, heterogeneous trials
                       </td>
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-3 text-muted">5</td>
                       <td className="py-3 pr-4 leading-6 text-ink">
-                        Safety and interaction evidence — supplement–drug interactions, sedative
-                        combinations, kidney and thyroid considerations
+                        Magnesium, B vitamins, rhodiola, and green tea/L-theanine combination trial
                       </td>
-                      <td className="py-3 pr-4 text-muted">—</td>
-                      <td className="py-3 pr-4 text-muted">—</td>
+                      <td className="py-3 pr-4 text-muted">Lopresti et al.</td>
+                      <td className="py-3 pr-4 text-muted">2022</td>
                       <td className="py-3 text-muted">
-                        Citations pending
+                        <a className="font-semibold text-brand-700 hover:underline" href="https://pubmed.ncbi.nlm.nih.gov/35565828/" target="_blank" rel="noopener noreferrer">PubMed</a> — multi-ingredient stress trial; cannot isolate ingredients or validate this sleep stack
                       </td>
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-3 text-muted">6</td>
                       <td className="py-3 pr-4 leading-6 text-ink">
-                        Sleep disorder medical guidance — CBT-I evidence, sleep apnea screening,
-                        clinical insomnia evaluation
+                        Ashwagandha safety, interactions, pregnancy, and liver considerations
                       </td>
-                      <td className="py-3 pr-4 text-muted">—</td>
-                      <td className="py-3 pr-4 text-muted">—</td>
+                      <td className="py-3 pr-4 text-muted">NCCIH</td>
+                      <td className="py-3 pr-4 text-muted">Current</td>
                       <td className="py-3 text-muted">
-                        Citations pending
+                        <a className="font-semibold text-brand-700 hover:underline" href="https://www.nccih.nih.gov/health/ashwagandha" target="_blank" rel="noopener noreferrer">Safety overview</a>
                       </td>
                     </tr>
                   </tbody>

@@ -3,6 +3,27 @@
 Created: August 2, 2026
 Scope: Finish the current batch, establish trustworthy measurement, and improve conversion on existing high-intent pages before expanding the content footprint.
 
+## Execution status — August 2, 2026
+
+### Completed in code
+
+- [x] Reviewed, regenerated, validated, committed, pushed, and merged the original batch in PR #2401.
+- [x] Improved the answer-first, evidence, safety, references, internal links, schema path, and recommendation logic on all five priority guides.
+- [x] Removed duplicate or overly broad product searches from the L-theanine guide and duplicate monetization from the rhodiola comparison.
+- [x] Removed the unsupported full-stack product search from the sleep-stack buyer guide.
+- [x] Confirmed the ADHD checklist CTA is present on the ADHD hub and primary ADHD supplements guide.
+- [x] Confirmed consent-aware lead-magnet click tracking and added regression coverage for CTA placement and priority-guide readiness.
+- [x] Aligned the cluster-member runtime test with governed build-time indexability values so a sourced `NEEDS_REVIEW` decision is not overwritten by a stale hardcoded expectation.
+
+### Still requires production access or elapsed data
+
+- [ ] Verify Cloudflare environment variables and bindings (`NEXT_PUBLIC_GA4_ID`, Mailchimp, Turnstile, and `RATE_LIMIT_KV`).
+- [ ] Observe real GA4 events, complete a production test signup, and verify the welcome sequence and source attribution.
+- [ ] Record Search Console, Bing, Amazon Associates, Mailchimp, and route-level conversion baselines.
+- [ ] Replace remaining generic affiliate searches only after direct destinations, ASINs, availability, labels, and restrictions are manually verified.
+- [ ] Record mobile/desktop and light/dark production spot checks after the follow-up deployment.
+- [ ] Wait 14 and 28 days, record conversion results, then select the next content batch from observed data.
+
 ## Working rules
 
 - [ ] Preserve stable routes and add redirects for any unavoidable route change.
