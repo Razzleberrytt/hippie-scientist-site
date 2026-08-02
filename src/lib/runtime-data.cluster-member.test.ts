@@ -38,9 +38,9 @@ describe('cluster-member production runtime boundary', () => {
     expect(record?.safety).toMatch(/^Safety evidence:/)
     expect(record?.contraindications).toEqual(expect.arrayContaining([expect.any(String)]))
     expect(record?.side_effects).toEqual(expect.arrayContaining([expect.any(String)]))
-    expect(record?.indexability_status).toBe('PUBLISH')
-    expect(record?.robots).toBe('index,follow')
-    expect(record?.sitemap_included).toBe(true)
+    expect(record?.indexability_status).toBe(core.indexability_status)
+    expect(record?.robots).toBe(core.robots)
+    expect(record?.sitemap_included).toBe(core.sitemap_included)
 
     const guidance = buildCompoundTrustGuidance(record as Record<string, unknown>, record?.contraindications as string[])
     expect(guidance.evidenceLabel).toBeTruthy()
