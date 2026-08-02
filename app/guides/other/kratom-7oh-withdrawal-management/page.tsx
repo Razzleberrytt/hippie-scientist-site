@@ -7,6 +7,7 @@ import AuthorityBreadcrumbs from '@/components/navigation/AuthorityBreadcrumbs'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
 import References from '@/components/References'
+import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Kratom 7-OH Withdrawal: Harm Reduction Guide',
@@ -22,12 +23,36 @@ const HEADINGS: Heading[] = [
   { id: 'relapse', text: 'Relapse Prevention', level: 2 },
   { id: 'emergency', text: 'When to Seek Emergency Care', level: 2 },
   { id: 'takeaways', text: 'Key Takeaways', level: 2 },
+  { id: 'faq', text: 'Frequently Asked Questions', level: 2 },
 ]
+
+const FAQS = [
+  {
+    question: 'Is there a standard at-home taper for kratom or concentrated 7-OH?',
+    answer: 'No validated schedule works safely for every product or person. Concentrated 7-OH products can differ substantially from kratom leaf, and labels may not reflect actual exposure. A clinician or addiction-medicine professional should individualize any reduction plan.',
+  },
+  {
+    question: 'Are concentrated 7-OH products the same as kratom leaf?',
+    answer: 'No. FDA distinguishes concentrated or enhanced 7-OH products from traditional kratom leaf. Some products contain added or unusually high 7-OH and may create greater opioid-like risk.',
+  },
+  {
+    question: 'Can supplements replace medical treatment during withdrawal?',
+    answer: 'No supplement has reliable evidence as a treatment for kratom or 7-OH withdrawal. Avoid substituting another psychoactive or sedating product. Clinicians can assess dehydration, mental-health risk, co-use, and whether evidence-based addiction treatment is appropriate.',
+  },
+  {
+    question: 'When does withdrawal require urgent help?',
+    answer: 'Seek urgent or emergency care for trouble breathing, chest pain, seizure, severe confusion, fainting or severe dehydration, suicidal thoughts, or rapidly worsening symptoms. In the United States, call or text 988 for a mental-health crisis and 911 for an immediate emergency.',
+  },
+] as const
 
 const KRATOM_7OH_WITHDRAWAL_MANAGEMENT_REFS = [
   { n: 1, text: 'Prozialeck WC, et al. (2012). Pharmacology of kratom: an emerging botanical agent. J Am Osteopath Assoc, 112(12): 792-799.', url: 'https://pubmed.ncbi.nlm.nih.gov/23212430/' },
   { n: 2, text: 'Swogger MT, et al. (2015). Kratom use and mental health: a systematic review. Drug Alcohol Depend, 183: 134-140.', url: 'https://pubmed.ncbi.nlm.nih.gov/29248691/' },
   { n: 3, text: 'Kruegel AC, Grundmann O. (2018). The medicinal chemistry and neuropharmacology of kratom. Neuropharmacology, 134(Pt A): 108-120.', url: 'https://pubmed.ncbi.nlm.nih.gov/28830758/' },
+  { n: 4, text: 'Stanciu CN, et al. (2019). Kratom Withdrawal: A Systematic Review with Case Series. Journal of Psychoactive Drugs, 51(1): 12-18.', url: 'https://pubmed.ncbi.nlm.nih.gov/30614408/' },
+  { n: 5, text: 'Weiss ST, Douglas HE. (2021). Treatment of Kratom Withdrawal and Dependence With Buprenorphine/Naloxone: A Case Series and Systematic Literature Review. Journal of Addiction Medicine, 15(2): 167-172.', url: 'https://pubmed.ncbi.nlm.nih.gov/32858563/' },
+  { n: 6, text: 'U.S. Food and Drug Administration. (2025). FDA Issues Warning Letters to Firms Marketing Products Containing 7-Hydroxymitragynine.', url: 'https://www.fda.gov/news-events/press-announcements/fda-issues-warning-letters-firms-marketing-products-containing-7-hydroxymitragynine' },
+  { n: 7, text: 'U.S. Food and Drug Administration. 7-Hydroxymitragynine (7-OH): An Assessment of the Scientific Data and Toxicological Concerns Around an Emerging Opioid Threat.', url: 'https://www.fda.gov/files/drugs/published/7-hydroxymitragynin_7-oh_an_assessment_of_the_scientific_data_and_toxicological_concerns_around_an_emerging_opioid_threat.pdf' },
 ]
 
 export default function Page() {
@@ -42,12 +67,25 @@ export default function Page() {
   return (
     <ArticleLayout toc={toc} zone="harm-reduction">
     <div className="space-y-8">
+      <AuthorityJsonLd
+        title="Kratom 7-OH Withdrawal: Harm Reduction Guide"
+        description="Conservative, evidence-informed guidance on kratom and concentrated 7-OH withdrawal, medical support, emergency warning signs, and the limits of self-directed tapering."
+        url="https://thehippiescientist.net/guides/other/kratom-7oh-withdrawal-management/"
+        type="MedicalWebPage"
+        breadcrumbs={[
+          { name: 'Home', url: 'https://thehippiescientist.net/' },
+          { name: 'Guides', url: 'https://thehippiescientist.net/guides/' },
+          { name: 'Kratom 7-OH Withdrawal', url: 'https://thehippiescientist.net/guides/other/kratom-7oh-withdrawal-management/' },
+        ]}
+        faqItems={[...FAQS]}
+        citationUrls={KRATOM_7OH_WITHDRAWAL_MANAGEMENT_REFS.map(reference => reference.url)}
+      />
       <AuthorityBreadcrumbs items={breadcrumbs} />
 
       <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8">
         <p className="eyebrow-label">Harm Reduction Guide</p>
         <h1 className="mt-2 text-3xl font-semibold text-ink sm:text-4xl">Kratom 7-OH Withdrawal Management</h1>
-        <p className="detail-reading mt-4 text-muted">Evidence-informed strategies for 7-hydroxymitragynine (7-OH) withdrawal, including symptom timeline, tapering approaches, harm reduction context, and when to seek medical support.</p>
+        <p className="detail-reading mt-4 text-muted">A conservative guide to kratom and concentrated 7-hydroxymitragynine (7-OH) withdrawal, including symptom variability, the limits of self-directed tapering, and when to seek medical or addiction care.</p>
 
         <figure className="mt-6">
           <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
@@ -86,38 +124,18 @@ export default function Page() {
         <div id="understanding" className="scroll-mt-20">
           <h2 className="text-2xl font-semibold text-ink mt-6 mb-4">Understanding 7-OH and Withdrawal</h2>
           <p className="text-muted leading-relaxed">
-            7-Hydroxymitragynine (7-OH) is a kratom alkaloid with mu-opioid receptor activity, similar in mechanism to pharmaceutical opioids but occurring naturally in Mitragyna speciosa leaves. Chronic 7-OH use can lead to physical dependence, resulting in withdrawal symptoms when discontinuing or reducing dosage. The intensity and duration of withdrawal depend on dose, frequency, duration of use, individual metabolism, and co-occurring conditions. For pharmacology and regulatory context, read the <Link href="/compounds/7-hydroxymitragynine/" className="font-semibold text-brand-800 hover:underline">full 7-OH evidence monograph</Link>.
+            7-Hydroxymitragynine (7-OH) has opioid-receptor activity and occurs only in trace amounts in kratom leaf. Concentrated tablets, gummies, shots, and “enhanced” products can be materially different exposures; FDA has warned that added or enhanced 7-OH is not a lawful dietary-supplement ingredient and may be dangerous [6,7]. Repeated use can lead to dependence and withdrawal. For pharmacology and regulatory context, read the <Link href="/compounds/7-hydroxymitragynine/" className="font-semibold text-brand-800 hover:underline">full 7-OH evidence monograph</Link>.
           </p>
         </div>
 
         <div id="timeline" className="scroll-mt-20">
-          <h3 className="text-xl font-semibold text-ink mt-6 mb-3">Withdrawal Timeline</h3>
-          <p className="text-sm text-muted mb-4">Typical progression (varies significantly by individual):</p>
-          <ul className="space-y-3 text-muted pl-5">
-            <li className="flex gap-3">
-              <span className="font-semibold text-ink min-w-fit">6–12 hours:</span>
-              <span>Early symptoms may begin; anxiety, restlessness, mild body aches</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="font-semibold text-ink min-w-fit">24–48 hours:</span>
-              <span>Peak symptoms onset; muscle aches, insomnia, sweating, irritability, appetite loss</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="font-semibold text-ink min-w-fit">3–5 days:</span>
-              <span>Symptoms typically peak in intensity; focus and concentration remain difficult</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="font-semibold text-ink min-w-fit">1–2 weeks:</span>
-              <span>Acute phase subsides; fatigue and mood dysregulation may persist</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="font-semibold text-ink min-w-fit">2–4 weeks:</span>
-              <span>Protracted symptoms (anhedonia, sleep disruption, low motivation) may continue</span>
-            </li>
-            <li className="flex gap-3">
-              <span className="font-semibold text-ink min-w-fit">4+ weeks:</span>
-              <span>Most physical symptoms resolve; psychological symptoms may linger longer in heavy users</span>
-            </li>
+          <h3 className="text-xl font-semibold text-ink mt-6 mb-3">Why no universal timeline is shown</h3>
+          <p className="text-sm text-muted mb-4">Published evidence is mostly case reports, small case series, and self-reported kratom exposure. It does not validate one hour-by-hour schedule for kratom leaf, extracts, and concentrated 7-OH products [4].</p>
+          <ul className="list-disc space-y-2 pl-5 text-sm text-muted">
+            <li>Onset and duration can change with the product, actual alkaloid exposure, frequency of use, and time since the last dose.</li>
+            <li>Alcohol, opioids, benzodiazepines, stimulants, or other substances can change both symptoms and medical risk.</li>
+            <li>Persistent insomnia, low mood, cravings, or anxiety deserve follow-up rather than an assumption that every symptom is a normal phase.</li>
+            <li>A clinician can use symptoms, vital signs, hydration, mental-health status, and co-use—not a generic internet timeline—to guide care.</li>
           </ul>
         </div>
 
@@ -159,32 +177,32 @@ export default function Page() {
         <div id="strategies" className="scroll-mt-20">
           <h2 className="text-2xl font-semibold text-ink mt-8 mb-4">Harm Reduction Strategies</h2>
 
-          <h3 className="text-xl font-semibold text-ink mt-6 mb-3">Tapering Approaches</h3>
-          <p className="text-muted mb-4">Gradual reduction minimizes withdrawal intensity compared to cold-turkey cessation.</p>
+          <h3 className="text-xl font-semibold text-ink mt-6 mb-3">Do not copy a percentage taper from the internet</h3>
+          <p className="text-muted mb-4">There is no validated self-directed taper schedule for concentrated 7-OH, and product labels may not provide a reliable measure of opioid-like exposure. The published treatment literature is limited and includes clinician-managed case reports rather than a universal protocol [4,5].</p>
 
           <div className="space-y-4">
             <div className="border-l-4 border-brand-200 pl-4">
-              <p className="font-semibold text-ink">Slow Taper (4–8 weeks)</p>
-              <p className="text-sm text-muted mt-2">Reduce daily dose by 10–25% every 3–7 days, depending on tolerance and symptom management. Example: If taking 20 grams daily, reduce to 18 grams, then 15 grams, then 12 grams, etc. Slow tapers are often better tolerated but require patience and discipline.</p>
+              <p className="font-semibold text-ink">Document the actual product</p>
+              <p className="text-sm text-muted mt-2">Bring the package or clear label photos to a clinician. Record the form, labeled alkaloid amount, servings used, timing, co-used substances, and any recent product changes.</p>
             </div>
 
             <div className="border-l-4 border-brand-200 pl-4">
-              <p className="font-semibold text-ink">Medium Taper (2–3 weeks)</p>
-              <p className="text-sm text-muted mt-2">Reduce dose by 25–33% every 3–5 days. Provides balance between discomfort and quicker completion. May produce more noticeable withdrawal but is faster than slow tapering.</p>
+              <p className="font-semibold text-ink">Ask for an individualized assessment</p>
+              <p className="text-sm text-muted mt-2">Medical history, pregnancy, mental-health symptoms, prior opioid use, co-use, and the ability to stay hydrated or safe at home can materially change the appropriate level of care.</p>
             </div>
 
             <div className="border-l-4 border-brand-200 pl-4">
-              <p className="font-semibold text-ink">Rapid Taper (7–10 days)</p>
-              <p className="text-sm text-muted mt-2">Reduce dose by 50% every 2–3 days. Produces more acute withdrawal but faster resolution. Suitable for individuals with high motivation and good access to support.</p>
+              <p className="font-semibold text-ink">Discuss evidence-based addiction care</p>
+              <p className="text-sm text-muted mt-2">Case reports describe clinician-managed buprenorphine/naloxone for some people with kratom-associated opioid use disorder, but this is prescription treatment—not a do-it-yourself substitution—and the evidence base remains limited [5].</p>
             </div>
 
             <div className="border-l-4 border-brand-200 pl-4">
-              <p className="font-semibold text-ink">Cold Turkey (Abrupt Cessation)</p>
-              <p className="text-sm text-muted mt-2">Stopping all use immediately. Produces most severe withdrawal but is sometimes necessary due to access, cost, or personal choice. Medical support is highly recommended with this approach.</p>
+              <p className="font-semibold text-ink">Plan support and escalation</p>
+              <p className="text-sm text-muted mt-2">Arrange check-ins, transportation, hydration, and a clear threshold for urgent care. Do not attempt withdrawal alone if there is severe dependence, unstable mental health, pregnancy, serious illness, or heavy use of other depressants.</p>
             </div>
           </div>
 
-          <p className="text-sm text-muted mt-6">Choosing a taper schedule depends on individual factors: baseline health, concurrent medications, work obligations, psychological stability, and access to medical or psychological support. Slower tapers are generally safer but require extended commitment.</p>
+          <p className="text-sm text-muted mt-6">In the United States, SAMHSA’s National Helpline (1-800-662-HELP) can help locate treatment. Call or text 988 for a mental-health crisis and 911 for an immediate emergency.</p>
         </div>
 
         <div>
@@ -296,11 +314,23 @@ export default function Page() {
           <h2 className="text-2xl font-semibold text-ink mt-8 mb-4">Key Takeaways</h2>
           <div className="space-y-3 text-muted pl-5">
             <p>• 7-OH withdrawal is a real physical and psychological process requiring patience and support, not willpower alone.</p>
-            <p>• Tapering reduces withdrawal intensity and increases success rates compared to stopping abruptly.</p>
-            <p>• Withdrawal symptoms typically peak in 3–5 days but can persist in modified form for weeks or months.</p>
-            <p>• Medical and mental health support significantly improves outcomes and safety.</p>
+            <p>• Concentrated 7-OH products are not equivalent to traditional kratom leaf and may carry greater opioid-like risk [6,7].</p>
+            <p>• No validated internet taper or universal withdrawal timeline applies to every product and person.</p>
+            <p>• Medical and mental-health support can identify complications and evidence-based treatment options.</p>
             <p>• Addressing underlying conditions (pain, anxiety, stress) reduces relapse risk.</p>
-            <p>• Recovery is possible, and many people successfully manage kratom withdrawal and maintain abstinence with the right support.</p>
+            <p>• Severe physical symptoms, suicidal thoughts, or an unsafe home situation require urgent help.</p>
+          </div>
+        </div>
+
+        <div id="faq" className="scroll-mt-20">
+          <h2 className="text-2xl font-semibold text-ink mt-8 mb-4">Frequently Asked Questions</h2>
+          <div className="space-y-4">
+            {FAQS.map(item => (
+              <article key={item.question} className="rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-5">
+                <h3 className="font-semibold text-ink">{item.question}</h3>
+                <p className="mt-2 text-sm leading-7 text-muted">{item.answer}</p>
+              </article>
+            ))}
           </div>
         </div>
 
@@ -331,8 +361,7 @@ export default function Page() {
         <Link href="/guides/" className="text-sm font-medium text-emerald-700 hover:underline">Back to guides →</Link>
         <Link href="/compounds/7-hydroxymitragynine/" className="text-sm font-medium text-emerald-700 hover:underline">Read the 7-OH monograph →</Link>
         <Link href="/compounds/mitragynine/" className="text-sm font-medium text-emerald-700 hover:underline">Read the mitragynine monograph →</Link>
-        <Link href="/guides/other/kratom-7oh-withdrawal-management/" className="text-sm font-medium text-emerald-700 hover:underline">Compare mitragynine vs 7-OH →</Link>
-        <Link href="/compounds/mitragynine/" className="text-sm font-medium text-emerald-700 hover:underline">View mitragynine profile →</Link>
+        <Link href="/guides/compare/" className="text-sm font-medium text-emerald-700 hover:underline">Browse supplement comparisons →</Link>
         <Link href="/compounds/kratom/" className="text-sm font-medium text-emerald-700 hover:underline">View kratom profile →</Link>
         <Link href="/compounds/7-hydroxymitragynine/" className="text-sm font-medium text-emerald-700 hover:underline">View 7-OH compound profile →</Link>
       </div>

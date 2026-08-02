@@ -1,17 +1,22 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_URL } from '@/src/lib/seo'
+import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
+import { buildGuideHubSchemaGraph } from '@/src/lib/schema-graph'
+
+const PATH = '/guides/stress/'
+const TITLE = 'Stress Supplement Decision Hub'
+const DESCRIPTION = 'Route stress-support research by pattern: acute tension, chronic overload, poor sleep, fatigue, cortisol concerns, or supplement-stacking risk.'
 
 export const metadata: Metadata = {
-  title: 'Best Supplements for Stress: Decision Guide',
-  description:
-    'Match stress supplements to your pattern: acute pressure, chronic cortisol, burnout, poor sleep, or stress-related tension. Evidence-first guidance with safety context.',
-  alternates: { canonical: `${SITE_URL}/guides/stress/` },
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: `${SITE_URL}${PATH}` },
   openGraph: {
-    title: 'Best Supplements for Stress: Decision Guide',
+    title: TITLE,
     description:
       'Choose a stress-support strategy based on what your stress actually feels like, not a generic ranked list.',
-    url: `${SITE_URL}/guides/stress/`,
+    url: `${SITE_URL}${PATH}`,
     type: 'website',
     images: ['/og-default.jpg'],
   },
@@ -75,8 +80,25 @@ const comparisons = [
 ]
 
 export default function StressGuidePage() {
+  const schemaGraph = buildGuideHubSchemaGraph({
+    path: PATH,
+    title: TITLE,
+    description: DESCRIPTION,
+    breadcrumbs: [
+      { name: 'Home', url: `${SITE_URL}/` },
+      { name: 'Guides', url: `${SITE_URL}/guides/` },
+      { name: 'Stress', url: `${SITE_URL}${PATH}` },
+    ],
+    itemListName: 'Stress supplement decision paths',
+    items: [...routes, ...comparisons].map(item => ({
+      name: 'problem' in item ? item.problem : item.title,
+      url: `${SITE_URL}${item.href}`,
+    })),
+  })
+
   return (
     <main className="mx-auto max-w-5xl px-4 pb-24 pt-8 sm:px-6">
+      <SchemaGraphScript graph={schemaGraph} />
       <nav className="mb-5 text-xs text-muted" aria-label="Breadcrumb">
         <Link href="/guides/" className="hover:text-ink">
           Guides
@@ -92,6 +114,9 @@ export default function StressGuidePage() {
         </h1>
         <p className="mt-5 text-lg leading-8 text-muted">
           Acute pressure, chronic overload, poor sleep, and burnout are not the same problem. Start with the pattern that fits best, then compare evidence and safety before choosing anything.
+        </p>
+        <p className="mt-3 text-sm leading-7 text-muted">
+          This is a routing hub, not a product ranking or diagnosis. Each path leads to the page where evidence strength, dosing context, interactions, and limitations can be evaluated in full.
         </p>
       </header>
 

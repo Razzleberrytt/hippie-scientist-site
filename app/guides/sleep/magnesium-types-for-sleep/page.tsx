@@ -176,14 +176,15 @@ export default function MagnesiumTypesForSleepPage() {
             </h2>
             <div className="mt-3 space-y-3 text-[1.01rem] leading-[1.85] text-muted">
               <p>
-                <strong>Best overall for sleep: Magnesium glycinate.</strong> High bioavailability,
-                excellent GI tolerance, and the glycine co-carrier provides an additive calming
-                effect. The default choice for most people.
+                <strong>Best practical first trial: Magnesium glycinate.</strong> It is widely used
+                because it is usually easier on the gut than oxide and provides a clear elemental
+                magnesium dose. That is a buyer-fit judgment, not proof that glycinate improves
+                sleep more than every other form: direct head-to-head sleep trials are lacking.
               </p>
               <p>
                 <strong>Best premium/cognitive option: Magnesium threonate.</strong> Proposed CNS
-                targeting with early evidence for cognitive and sleep benefits. Considerably more
-                expensive than glycinate.
+                targeting with early form-specific research, but little evidence that its higher
+                price produces better sleep outcomes than simpler forms.
               </p>
               <p>
                 <strong>Best if constipation is also an issue: Magnesium citrate.</strong> Better
@@ -197,13 +198,21 @@ export default function MagnesiumTypesForSleepPage() {
               </p>
               <p>
                 <strong>Best for muscle pain/fatigue overlap: Magnesium malate.</strong> Malate
-                (malic acid) is involved in ATP production and may suit people whose sleep
-                difficulty overlaps with muscle fatigue or fibromyalgia-like symptoms.
+                (malic acid) participates in energy metabolism, but that mechanism is not clinical
+                proof of a sleep benefit. Consider it for tolerance or preference, not as a
+                condition-specific treatment.
               </p>
               <p>
                 <strong>Possible calming option: Magnesium taurate.</strong> Taurine has calming
-                and cardiometabolic properties; limited direct sleep trial data but theoretically
-                complementary for people with cardiovascular or anxiety overlap.
+                mechanisms of interest, but direct sleep evidence is sparse. Avoid choosing it on
+                cardiometabolic claims alone.
+              </p>
+              <p className="rounded-lg bg-muted/50 p-4 text-sm">
+                <strong>What the evidence can actually tell us:</strong> small trials suggest oral
+                magnesium may shorten sleep-onset time in some older adults, but a systematic review
+                rated that evidence low to very low quality. Form-comparison studies mostly measure
+                absorption, not sleep. Product choice should therefore prioritize elemental dose,
+                tolerability, cost, and the reason you may be low in magnesium.
               </p>
             </div>
           </section>
@@ -1009,7 +1018,9 @@ export default function MagnesiumTypesForSleepPage() {
             <div id="sources">
               <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Sources</h2>
               <p className="mb-4 text-sm text-muted">
-                The references below cover key trials for each magnesium form. Evidence grades reflect current editorial assessments and are updated as new trials are published.
+                These sources separate three questions that are often blurred together: whether
+                magnesium affects sleep, whether one form is better absorbed, and what dose is safe.
+                Better absorption does not automatically mean a better sleep outcome.
               </p>
               <ResponsiveTable label="Article references">
                 <table className="min-w-[600px] w-full text-sm">
@@ -1022,63 +1033,65 @@ export default function MagnesiumTypesForSleepPage() {
                         Evidence area
                       </th>
                       <th className="pb-2 text-left text-xs font-bold uppercase tracking-wider text-muted">
-                        Status
+                        What it supports
                       </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-brand-900/5">
                     <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Magnesium glycinate evidence</td>
+                      <td className="py-3 pr-4 font-medium text-ink">Sleep outcomes</td>
                       <td className="py-3 pr-4 text-muted">
-                        Abbasi et al. 2012 (Mg sleep RCT); Held et al. 2002; Nielsen et al. 2010
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/33865376/" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">
+                          Mah &amp; Pitre (2021), systematic review and meta-analysis
+                        </a>
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        References being compiled
+                        Three small trials in older adults; possible shorter sleep-onset latency,
+                        with low-to-very-low certainty.
                       </td>
                     </tr>
                     <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Glycine sleep evidence</td>
+                      <td className="py-3 pr-4 font-medium text-ink">Representative sleep trial</td>
                       <td className="py-3 pr-4 text-muted">
-                        Yamadera et al. 2007 (glycine and subjective sleep quality)
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/23853635/" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">
+                          Abbasi et al. (2012), double-blind placebo-controlled trial
+                        </a>
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        Reference being compiled
+                        Older adults with primary insomnia; not a comparison of glycinate versus other forms.
                       </td>
                     </tr>
                     <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Magnesium threonate / Magtein evidence</td>
+                      <td className="py-3 pr-4 font-medium text-ink">Form bioavailability</td>
                       <td className="py-3 pr-4 text-muted">
-                        Slutsky et al. 2010 (brain Mg elevation); human threonate cognition/sleep trials
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/14596323/" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">
+                          Walker et al. (2003), randomized double-blind comparison
+                        </a>
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        References being compiled
+                        Citrate and an amino-acid chelate were better absorbed than oxide; sleep was not tested.
                       </td>
                     </tr>
                     <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Magnesium citrate evidence</td>
+                      <td className="py-3 pr-4 font-medium text-ink">Citrate versus oxide</td>
                       <td className="py-3 pr-4 text-muted">
-                        Comparative bioavailability studies; Mg citrate vs oxide absorption trials
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/32162607/" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">
+                          Werner et al. (2019), randomized bioavailability trial
+                        </a>
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        References being compiled
+                        Citrate produced higher plasma and urinary magnesium measures; no sleep endpoint.
                       </td>
                     </tr>
                     <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Magnesium safety / upper intake</td>
+                      <td className="py-3 pr-4 font-medium text-ink">Safety and interactions</td>
                       <td className="py-3 pr-4 text-muted">
-                        NIH Office of Dietary Supplements Mg fact sheet; IOM Dietary Reference Intakes
+                        <a href="https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">
+                          NIH Office of Dietary Supplements: Magnesium fact sheet
+                        </a>
                       </td>
                       <td className="py-3 text-muted text-xs">
-                        Citation pending
-                      </td>
-                    </tr>
-                    <tr className="align-top">
-                      <td className="py-3 pr-4 font-medium text-ink">Elemental magnesium label guidance</td>
-                      <td className="py-3 pr-4 text-muted">
-                        FDA supplement labelling regulations; form-specific elemental content tables
-                      </td>
-                      <td className="py-3 text-muted text-xs">
-                        Citation pending
+                        Adult supplement/medication UL, adverse effects, kidney-risk context, and drug interactions.
                       </td>
                     </tr>
                   </tbody>

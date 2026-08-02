@@ -17,9 +17,16 @@ export type AlkaloidDirectoryEntry = {
   safetyTier: AlkaloidSafetyTier
   safetyLabel: string
   safetySummary: string
+  riskTags: string[]
   labelChecks: string[]
   internalLinks: Array<{ label: string; href: string }>
   references: number[]
+  evidenceReferences: {
+    human: number[]
+    traditional: number[]
+    mechanistic: number[]
+    safety: number[]
+  }
 }
 
 export const ALKALOID_DIRECTORY: AlkaloidDirectoryEntry[] = [
@@ -42,12 +49,14 @@ export const ALKALOID_DIRECTORY: AlkaloidDirectoryEntry[] = [
     safetyLabel: 'Dose and stacking matter',
     safetySummary:
       'Check the total caffeine from every source. Extra caution is warranted with anxiety, sleep disruption, pregnancy, cardiovascular sensitivity, and other stimulants.',
+    riskTags: ['stimulant', 'sleep', 'cardiovascular'],
     labelChecks: ['Exact caffeine amount per serving', 'All botanical caffeine sources disclosed', 'No stimulant blend hiding the total dose'],
     internalLinks: [
       { label: 'Caffeine profile', href: '/compounds/caffeine/' },
       { label: 'Caffeine vs. L-theanine', href: '/guides/compare/caffeine-vs-l-theanine/' },
     ],
-    references: [4],
+    references: [16, 17],
+    evidenceReferences: { human: [16], traditional: [], mechanistic: [17], safety: [16, 17] },
   },
   {
     id: 'berberine',
@@ -68,12 +77,14 @@ export const ALKALOID_DIRECTORY: AlkaloidDirectoryEntry[] = [
     safetyLabel: 'Interaction caution',
     safetySummary:
       'Medication review is important. Avoid during pregnancy, breastfeeding, and infancy; gastrointestinal effects are common in clinical use.',
+    riskTags: ['metabolic', 'medication interaction', 'pregnancy'],
     labelChecks: ['Chemical form stated clearly', 'Amount per serving is visible', 'No “natural GLP-1” or medication-replacement positioning'],
     internalLinks: [
       { label: 'Berberine profile', href: '/compounds/berberine/' },
       { label: 'Berberine evidence guide', href: '/guides/other/berberine-weight-loss/' },
     ],
     references: [13],
+    evidenceReferences: { human: [13], traditional: [], mechanistic: [13], safety: [13] },
   },
   {
     id: 'theobromine',
@@ -94,9 +105,11 @@ export const ALKALOID_DIRECTORY: AlkaloidDirectoryEntry[] = [
     safetyLabel: 'Concentration matters',
     safetySummary:
       'Concentrated products should not be treated like ordinary chocolate. Check for added caffeine and consider cardiovascular or sleep sensitivity.',
+    riskTags: ['stimulant', 'sleep', 'cardiovascular'],
     labelChecks: ['Theobromine amount stated', 'Added caffeine separated from the total', 'No proprietary “energy matrix”'],
     internalLinks: [{ label: 'Supplement stacking safety', href: '/guides/other/supplement-stacking-safety/' }],
-    references: [2, 4],
+    references: [18],
+    evidenceReferences: { human: [18], traditional: [], mechanistic: [18], safety: [18] },
   },
   {
     id: 'california-poppy',
@@ -117,12 +130,14 @@ export const ALKALOID_DIRECTORY: AlkaloidDirectoryEntry[] = [
     safetyLabel: 'Sedative-interaction caution',
     safetySummary:
       'Do not confuse this plant with opium poppy. Avoid stacking sedating botanicals with alcohol, sleep medicines, or other central nervous system depressants without clinical guidance.',
+    riskTags: ['sedative', 'medication interaction', 'product identity'],
     labelChecks: ['Botanical name: Eschscholzia californica', 'Aerial plant part identified', 'No “herbal opioid” or withdrawal positioning'],
     internalLinks: [
       { label: 'Sleep supplement guide', href: '/guides/other/sleep-supplements-guide/' },
       { label: 'Site safety checker', href: '/safety-checker/' },
     ],
     references: [9, 10],
+    evidenceReferences: { human: [9], traditional: [9], mechanistic: [9], safety: [9, 10] },
   },
   {
     id: 'blue-lotus',
@@ -143,9 +158,11 @@ export const ALKALOID_DIRECTORY: AlkaloidDirectoryEntry[] = [
     safetyLabel: 'Higher caution',
     safetySummary:
       'Sedation and perceptual disturbances have been reported. Reject vaping, smoking, “legal high,” extreme-extract, or kratom/7-OH substitution positioning.',
+    riskTags: ['sedative', 'psychoactive', 'product identity'],
     labelChecks: ['Botanical name: Nymphaea caerulea', 'Plant part and extraction ratio disclosed', 'Identity and contaminant COA available'],
     internalLinks: [{ label: 'Psychedelic-adjacent herb safety guide', href: '/guides/other/psychedelic-adjacent-herbs/' }],
     references: [8],
+    evidenceReferences: { human: [8], traditional: [], mechanistic: [8], safety: [8] },
   },
   {
     id: 'huperzine-a',
@@ -166,12 +183,14 @@ export const ALKALOID_DIRECTORY: AlkaloidDirectoryEntry[] = [
     safetyLabel: 'Higher caution',
     safetySummary:
       'Avoid self-directed stacking with other cholinergic ingredients or medicines. Pregnancy, heart-rate concerns, and medication use call for clinician review.',
+    riskTags: ['cholinergic', 'medication interaction', 'cardiovascular'],
     labelChecks: ['Huperzine A amount shown in micrograms', 'No hidden cholinergic blend', 'No disease-treatment or “limitless” claims'],
     internalLinks: [
       { label: 'Nootropic stacking guide', href: '/guides/other/nootropic-stacking-guide/' },
       { label: 'Site safety checker', href: '/safety-checker/' },
     ],
     references: [7],
+    evidenceReferences: { human: [7], traditional: [], mechanistic: [7], safety: [7] },
   },
   {
     id: 'bitter-orange',
@@ -192,12 +211,14 @@ export const ALKALOID_DIRECTORY: AlkaloidDirectoryEntry[] = [
     safetyLabel: 'Higher caution',
     safetySummary:
       'Reject stimulant stacks, especially products that obscure caffeine or make rapid weight-loss claims. Cardiovascular conditions and medication use require clinician review.',
+    riskTags: ['stimulant', 'cardiovascular', 'weight loss'],
     labelChecks: ['Citrus aurantium and plant part identified', 'p-Synephrine amount and standardization visible', 'Total caffeine disclosed'],
     internalLinks: [
       { label: 'Stimulant-free focus guide', href: '/guides/focus/focus-without-caffeine-crash/' },
       { label: 'Supplement stacking safety', href: '/guides/other/supplement-stacking-safety/' },
     ],
     references: [4, 5],
+    evidenceReferences: { human: [4, 5], traditional: [], mechanistic: [5], safety: [4, 5] },
   },
   {
     id: 'yohimbe',
@@ -218,12 +239,14 @@ export const ALKALOID_DIRECTORY: AlkaloidDirectoryEntry[] = [
     safetyLabel: 'Higher caution',
     safetySummary:
       'Associated risks include blood-pressure problems, arrhythmia, heart attack, and seizures. Avoid sexual-enhancement, rapid-fat-loss, and stimulant-stack positioning.',
+    riskTags: ['stimulant', 'cardiovascular', 'medication interaction'],
     labelChecks: ['Botanical identity and bark stated', 'Yohimbine amount verified independently', 'No proprietary sexual-enhancement blend'],
     internalLinks: [
       { label: 'Serotonin and MAOI safety context', href: '/learn/serotonin-syndrome-supplements/' },
       { label: 'Site safety checker', href: '/safety-checker/' },
     ],
     references: [6, 15],
+    evidenceReferences: { human: [6], traditional: [], mechanistic: [6], safety: [6, 15] },
   },
   {
     id: 'corydalis',
@@ -244,12 +267,14 @@ export const ALKALOID_DIRECTORY: AlkaloidDirectoryEntry[] = [
     safetyLabel: 'Higher caution',
     safetySummary:
       'Reject products without species, rhizome identity, alkaloid testing, and contaminant testing. Avoid sedative stacking and self-treatment positioning.',
+    riskTags: ['sedative', 'product identity', 'medication interaction'],
     labelChecks: ['Species: Corydalis yanhusuo', 'Rhizome identified', 'Alkaloid profile and contaminant COA available'],
     internalLinks: [
       { label: 'Corydalis profile', href: '/herbs/corydalis/' },
       { label: 'Site safety checker', href: '/safety-checker/' },
     ],
     references: [11],
+    evidenceReferences: { human: [11], traditional: [11], mechanistic: [11], safety: [11] },
   },
   {
     id: 'cats-claw',
@@ -270,12 +295,14 @@ export const ALKALOID_DIRECTORY: AlkaloidDirectoryEntry[] = [
     safetyLabel: 'Interaction caution',
     safetySummary:
       'Use extra caution with autoimmune disease, pregnancy, anticoagulant or antiplatelet drugs, blood-pressure drugs, and surgery.',
+    riskTags: ['immune', 'medication interaction', 'pregnancy'],
     labelChecks: ['Uncaria species named', 'Bark or root plant part identified', 'No withdrawal, detox, or immune-disease claims'],
     internalLinks: [
       { label: 'Evidence-methodology guide', href: '/info/methodology/' },
       { label: 'Site safety checker', href: '/safety-checker/' },
     ],
     references: [12],
+    evidenceReferences: { human: [12], traditional: [12], mechanistic: [12], safety: [12] },
   },
 ]
 

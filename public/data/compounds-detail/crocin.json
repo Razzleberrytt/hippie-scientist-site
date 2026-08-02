@@ -144,7 +144,7 @@
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users.",
+  "safety": "Human safety is mostly inferred from saffron trials. Avoid pregnancy-dose escalation; caution with serotonergic drugs, anticoagulants, and hypotension-prone users.",
   "sources": [
     {
       "id": "src_c0b82f29307a",

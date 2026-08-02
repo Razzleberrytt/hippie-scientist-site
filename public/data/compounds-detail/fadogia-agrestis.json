@@ -95,13 +95,6 @@
   "robots": "index,follow",
   "sources": [
     {
-      "id": "src_b5b0b0a73b41",
-      "title": "v9.4: Mostly animal/preclinical and influencer hype; keep out of monetization until human evidence exists. | Source citation missing in workbook; queued for PMID/source verification before publication.",
-      "note": "needs_classification",
-      "studyType": "Animal",
-      "reviewStatus": "pending"
-    },
-    {
       "id": "src_cf69345e6261",
       "title": "Aphrodisiac potentials of the aqueous extract of Fadogia agrestis (Schweinf. Ex Hiern) stem in male albino rats.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/16281088/",
@@ -112,6 +105,13 @@
       "citation": "Author not retrieved (2005). Asian J Androl. PMID: 16281088. DOI: 10.1111/j.1745-7262.2005.00052.x.",
       "note": "source-backed gap-fill audit only; not a full monograph field extraction",
       "reviewStatus": "approved"
+    },
+    {
+      "id": "src_b5b0b0a73b41",
+      "title": "v9.4: Mostly animal/preclinical and influencer hype; keep out of monetization until human evidence exists. | Source citation missing in workbook; queued for PMID/source verification before publication.",
+      "note": "needs_classification",
+      "studyType": "Animal",
+      "reviewStatus": "pending"
     }
   ],
   "dosage": "—",

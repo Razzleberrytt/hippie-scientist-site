@@ -9,7 +9,9 @@
   "mechanisms": [
     "Inflammatory Signaling Modulation",
     "Hormonal Signaling Context",
-    "Lipid Metabolism Support"
+    "Lipid Metabolism Support",
+    "endocrine",
+    "metabolic"
   ],
   "activeCompounds": [],
   "safetyNotes": "Generally well tolerated; mild GI upset, headache",
@@ -60,7 +62,7 @@
     "legalRisk": "none",
     "medicalRisk": "low",
     "monetizationAllowed": true,
-    "indexingAllowed": false,
+    "indexingAllowed": true,
     "recommendationAllowed": true,
     "requiresHumanReview": false,
     "reason": ""
@@ -101,5 +103,47 @@
   "indexability_status": "PUBLISH",
   "indexability_score": 88,
   "robots": "index,follow",
-  "sitemap_included": true
+  "sitemap_included": true,
+  "effects": [
+    "anti-inflammatory"
+  ],
+  "primary_effects": [
+    "anti-inflammatory"
+  ],
+  "raw_mechanisms": [
+    "Inflammatory Signaling Modulation",
+    "Hormonal Signaling Context",
+    "Lipid Metabolism Support",
+    "endocrine",
+    "metabolic"
+  ],
+  "canonical_mechanisms": [
+    "Anti-inflammatory",
+    "Hormonal signaling context",
+    "Lipid metabolism support",
+    "Metabolic regulation"
+  ],
+  "mechanism_categories": [
+    "core"
+  ],
+  "mechanism_classes": [
+    "Physiological effect"
+  ],
+  "mechanism_target_systems": [],
+  "mechanism_normalization_status": "fully_mapped",
+  "unmapped_mechanisms": [],
+  "evidence_tier": "Moderate Human Evidence",
+  "profile_status": "partial",
+  "indexability_reasons": [
+    "effect-present",
+    "evidence-signal",
+    "export-decision:full_public_runtime",
+    "identity-present",
+    "mechanism-context",
+    "profile-status:partial",
+    "safety-context",
+    "summary-depth",
+    "summary-quality-missing"
+  ],
+  "safety": "Generally well tolerated; mild GI upset, headache"
 }

@@ -764,7 +764,7 @@
   {
     "slug": "ashwagandha",
     "name": "Ashwagandha (Withania somnifera)",
-    "summary": "Ashwagandha (Withania somnifera) botanical profile with evidence, safety, and practical fit.",
+    "summary": "Ashwagandha (Withania somnifera) is a root extract studied mainly for persistent stress, stress-related anxiety, and sleep rather than immediate relief. Meta-analyses report a possible benefit, but trials use different extracts and doses and the certainty is limited; product standardization and thyroid, liver, pregnancy, and sedative cautions matter.",
     "primary_effects": [
       "sleep"
     ],
@@ -5704,7 +5704,7 @@
   {
     "slug": "lions-mane",
     "name": "Lion's Mane",
-    "summary": "Traditional herbal medicine with emerging evidence supporting therapeutic applications.",
+    "summary": "Lion's mane (Hericium erinaceus) is an edible mushroom studied for cognition, mood, and nerve-growth-related mechanisms. Human evidence remains early and product-specific, so fruiting-body, mycelium, and isolated-compound findings should not be treated as interchangeable or as proof of disease prevention.",
     "primary_effects": [
       "cognitive",
       "neuroprotective",
@@ -8058,7 +8058,7 @@
   {
     "slug": "rhodiola",
     "name": "Rhodiola",
-    "summary": "May support fatigue resilience or exercise/performance outcomes in some contexts; mood/stress evidence should stay cautious.",
+    "summary": "Rhodiola rosea is a stimulating adaptogen best matched to stress-related fatigue and mental stamina, not bedtime calming. Small human trials and reviews are encouraging, but preparations and study quality vary; standardized rosavin and salidroside content, morning timing, and activation or insomnia risk are practical differentiators.",
     "primary_effects": [
       "adaptogen",
       "stress_resilience",
@@ -8874,7 +8874,7 @@
   {
     "slug": "st-johns-wort",
     "name": "St. John's Wort (Hypericum perforatum)",
-    "summary": "St. John's Wort (Hypericum perforatum) is a yellow-flowered herb with well-studied antidepressant effects for mild-to-moderate depression. Its active constituents (hypericin, hyperforin) inhibit reuptake of serotonin, dopamine, and norepinephrine. Multiple meta-analyses confirm efficacy comparable to low-dose SSRIs for mild depression, with fewer side effects in that population.",
+    "summary": "St. John's wort (Hypericum perforatum) is a flowering herb studied for depressive symptoms, but it is not a low-friction self-care supplement. Hyperforin-rich products can induce drug-metabolizing enzymes and transporters, while serotonergic combinations can be dangerous; product standardization and a pharmacist or prescriber interaction review are central to any benefit-risk decision.",
     "primary_effects": [
       "mood_support",
       "antidepressant",
@@ -9392,7 +9392,7 @@
   {
     "slug": "turmeric",
     "name": "Turmeric (Curcuma longa)",
-    "summary": "Turmeric (Curcuma longa) botanical profile with evidence, safety, and practical fit.",
+    "summary": "Turmeric (Curcuma longa) is a culinary rhizome whose curcuminoids, including curcumin and demethoxycurcumin, are studied in concentrated extracts. Supplement findings should not be transferred automatically to food-level turmeric: formulations differ sharply in absorption, and piperine-enhanced products can change drug-exposure and tolerability considerations.",
     "primary_effects": [
       "anti_inflammatory",
       "antioxidant",

@@ -1,8 +1,8 @@
 {
   "name": "Elderberry",
   "slug": "elderberry",
-  "summary": "Elderberry botanical profile with evidence, safety, and practical fit.",
-  "description": "Elderberry botanical profile with evidence, safety, and practical fit.",
+  "summary": "Elderberry refers to the dark berries of Sambucus nigra, rich in anthocyanin pigments and long taken as a syrup or extract during colds and influenza. A meta-analysis of randomized controlled trials reported that black elderberry supplementation was associated with a substantial reduction in the duration and severity of upper respiratory symptoms, although the pooled trials were small and used varied extracts. Raw or unripe berries, along with leaves and stems, contain cyanogenic compounds, so elderberry is cooked or commercially processed before use.",
+  "description": "Elderberry refers to the dark berries of Sambucus nigra, rich in anthocyanin pigments and long taken as a syrup or extract during colds and influenza. A meta-analysis of randomized controlled trials reported that black elderberry supplementation was associated with a substantial reduction in the duration and severity of upper respiratory symptoms, although the pooled trials were small and used varied extracts. Raw or unripe berries, along with leaves and stems, contain cyanogenic compounds, so elderberry is cooked or commercially processed before use.",
   "primaryActions": [
     "antiviral",
     "respiratory"
@@ -136,7 +136,7 @@
   "robots": "index,follow",
   "sitemap_included": true,
   "indexability_status": "PUBLISH",
-  "indexability_score": 83,
+  "indexability_score": 93,
   "indexability_reasons": [
     "effect-coverage",
     "evidence-signal",
@@ -145,10 +145,10 @@
     "mechanism-context",
     "profile-status:partial",
     "safety-context",
-    "summary-present",
+    "summary-depth",
     "summary-quality-missing"
   ],
-  "safety": "Generally well tolerated for most users.",
+  "safety": "Use cooked/standardized berry preparations; raw/unripe parts can contain cyanogenic glycosides; caution in autoimmune/immunosuppressed contexts.",
   "dosage": "Preparation-specific; use standardized product label for Cooked syrup and require source-backed dosage review before therapeutic claims.",
   "typical_dosage": "Preparation-specific; use standardized product label for Cooked syrup and require source-backed dosage review before therapeutic claims."
 }
