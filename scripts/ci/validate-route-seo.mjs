@@ -60,6 +60,22 @@ const dynamicRoutes = routes.filter((r) => r.dynamic)
 const errors = []
 const warnings = []
 
+const requiredNativeStaticRoutes = [
+  {
+    route: '/lead-magnets/adhd-supplement-starter-checklist',
+    legacyPublicFile: 'public/lead-magnets/adhd-supplement-starter-checklist.html',
+  },
+]
+
+for (const required of requiredNativeStaticRoutes) {
+  if (!staticRoutes.has(required.route)) {
+    errors.push(`Required native static route is missing: ${required.route}`)
+  }
+  if (exists(required.legacyPublicFile)) {
+    errors.push(`Native static route still conflicts with legacy public HTML: ${required.legacyPublicFile}`)
+  }
+}
+
 for (const r of routes) {
   if (!r.route.startsWith('/')) errors.push(`Invalid route path ${r.route} from ${r.file}`)
 
