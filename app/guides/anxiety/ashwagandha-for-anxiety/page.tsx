@@ -157,6 +157,36 @@ export default function AshwagandhaForAnxietyPage() {
           </p>
         </div>
 
+        {/* Decision framework */}
+        <section className="mb-12">
+          <h2 className="text-3xl font-semibold mb-6">Is Ashwagandha the Right Tool for Your Anxiety Pattern?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="border rounded-xl p-5 bg-card">
+              <h3 className="font-semibold text-lg mb-2">More plausible fit</h3>
+              <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
+                <li>Stress has been elevated for weeks, not just during isolated events.</li>
+                <li>Poor sleep and feeling persistently “on” are part of the same pattern.</li>
+                <li>You can evaluate one standardized extract consistently for 6–8 weeks.</li>
+                <li>You are not pregnant and have no thyroid, autoimmune, or liver concern.</li>
+              </ul>
+            </div>
+            <div className="border rounded-xl p-5 bg-muted/40">
+              <h3 className="font-semibold text-lg mb-2">Choose a different first step</h3>
+              <ul className="list-disc pl-5 space-y-2 text-muted-foreground">
+                <li><strong>Panic, crisis, or severe impairment:</strong> seek clinical support rather than self-treating.</li>
+                <li><strong>One-off performance anxiety:</strong> a slow-onset adaptogen is a poor match.</li>
+                <li><strong>Medication or complex health history:</strong> ask a pharmacist or prescriber to screen interactions.</li>
+                <li><strong>Unclear cause:</strong> address caffeine, sleep loss, alcohol, and medical contributors first.</li>
+              </ul>
+            </div>
+          </div>
+          <p className="mt-4 text-sm text-muted-foreground">
+            This framework is a fit check, not a diagnosis. The clinical literature mostly studies
+            adults with elevated stress or anxiety over several weeks; it does not establish
+            ashwagandha as an acute treatment or a replacement for anxiety care.
+          </p>
+        </section>
+
         {/* What Is Ashwagandha? */}
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">What Is Ashwagandha?</h2>
@@ -470,15 +500,35 @@ export default function AshwagandhaForAnxietyPage() {
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">Sources &amp; References</h2>
           <div className="p-6 bg-muted/50 rounded-xl text-sm">
-            <p className="mb-4 font-medium">Key sources include:</p>
+            <p className="mb-4 font-medium">
+              Key human evidence and safety sources used for this review:
+            </p>
             <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
-              <li>Anxiety-specific clinical trials (PMIDs + n-sizes + outcomes)</li>
-              <li>Stress / cortisol trials</li>
-              <li>Systematic reviews and meta-analyses</li>
-              <li>Safety and adverse event reviews</li>
-              <li>Liver safety case reports / studies</li>
-              <li>Sleep–anxiety overlap evidence</li>
-              <li>Medication interaction data (where available)</li>
+              <li>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/39348746/" target="_blank" rel="noopener noreferrer" className="text-primary underline">
+                  Arumugam et al. (2024), systematic review and meta-analysis
+                </a>{' '}
+                — nine randomized trials; supports a possible stress/anxiety signal but does not
+                establish which extract works best.
+              </li>
+              <li>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/36017529/" target="_blank" rel="noopener noreferrer" className="text-primary underline">
+                  Akhgarjand et al. (2022), systematic review and dose-response meta-analysis
+                </a>{' '}
+                — found high between-study heterogeneity and rated certainty low for both outcomes.
+              </li>
+              <li>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/34559859/" target="_blank" rel="noopener noreferrer" className="text-primary underline">
+                  Cheah et al. (2021), sleep systematic review and meta-analysis
+                </a>{' '}
+                — informs the sleep-overlap discussion, not acute anxiety relief.
+              </li>
+              <li>
+                <a href="https://doi.org/10.1097/HC9.0000000000000270" target="_blank" rel="noopener noreferrer" className="text-primary underline">
+                  Philips et al. (2023), ashwagandha-associated liver injury case series
+                </a>{' '}
+                — a safety signal from case reports, not an estimate of how often injury occurs.
+              </li>
             </ul>
           </div>
         </section>

@@ -1,8 +1,8 @@
 {
   "name": "Aloe Vera",
   "slug": "aloe-vera",
-  "summary": "Aloe Vera botanical profile with evidence, safety, and practical fit.",
-  "description": "Aloe Vera botanical profile with evidence, safety, and practical fit.",
+  "summary": "Aloe vera (Aloe barbadensis) is a succulent whose clear inner-leaf gel is used topically for skin and taken orally as a supplement. Its most-studied internal use is blood-sugar control: a systematic review and meta-analysis of randomized trials in people with prediabetes or early, untreated type 2 diabetes found that oral aloe vera lowered fasting glucose, with a smaller effect on HbA1c. The included trials were small and used varied preparations, so the evidence is preliminary. The bitter latex layer just under the leaf skin contains aloin, a stimulant laxative, and is not intended for regular ingestion.",
+  "description": "Aloe vera (Aloe barbadensis) is a succulent whose clear inner-leaf gel is used topically for skin and taken orally as a supplement. Its most-studied internal use is blood-sugar control: a systematic review and meta-analysis of randomized trials in people with prediabetes or early, untreated type 2 diabetes found that oral aloe vera lowered fasting glucose, with a smaller effect on HbA1c. The included trials were small and used varied preparations, so the evidence is preliminary. The bitter latex layer just under the leaf skin contains aloin, a stimulant laxative, and is not intended for regular ingestion.",
   "primaryActions": [
     "immune",
     "metabolic",
@@ -176,7 +176,7 @@
   "robots": "index,follow",
   "sitemap_included": true,
   "indexability_status": "PUBLISH",
-  "indexability_score": 83,
+  "indexability_score": 93,
   "indexability_reasons": [
     "effect-coverage",
     "evidence-signal",
@@ -185,10 +185,10 @@
     "mechanism-context",
     "profile-status:partial",
     "safety-context",
-    "summary-present",
+    "summary-depth",
     "summary-quality-missing"
   ],
-  "safety": "Generally well tolerated for most users.",
+  "safety": "Oral latex/whole-leaf aloe can cause diarrhea, electrolyte loss, and drug interactions; avoid pregnancy and kidney disease.",
   "dosage": "Preparation-specific; use standardized product label for Inner leaf gel for topical/digestive products and require source-backed dosage review before therapeutic claims.",
   "typical_dosage": "Preparation-specific; use standardized product label for Inner leaf gel for topical/digestive products and require source-backed dosage review before therapeutic claims."
 }

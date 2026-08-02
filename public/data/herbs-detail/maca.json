@@ -48,13 +48,6 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/38398854/"
     },
     {
-      "id": "src_1f49196ffdbf",
-      "title": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
-      "citation": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
-      "note": "gap identification only; not used to populate factual fields",
-      "reviewStatus": "approved"
-    },
-    {
       "id": "src_3910aa71f4eb",
       "title": "PubMed PMID 18072817. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/18072817/",
@@ -62,6 +55,13 @@
       "authors": "PubMed",
       "citation": "PubMed PMID 18072817. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_1f49196ffdbf",
+      "title": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
+      "citation": "Requires manual source normalization to PMID, DOI, PMC, or authoritative URL.",
+      "note": "gap identification only; not used to populate factual fields",
       "reviewStatus": "approved"
     }
   ],

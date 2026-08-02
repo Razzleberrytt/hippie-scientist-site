@@ -203,18 +203,6 @@
   "indexability_reasons": [],
   "sources": [
     {
-      "id": "src_070f1c3027c3",
-      "title": "Optimizing the Time and Dose of Melatonin as a Sleep-Promoting Drug: A Systematic Review of Randomized Controlled Trials and Dose-Response Meta-Analysis",
-      "url": "https://consensus.app/papers/optimizing-the-time-and-dose-of-melatonin-as-a-cruz-sanabria-bruno/bae0ee234b6350a4b2b427a03a96a39f/?utm_source=chatgpt",
-      "year": "2024",
-      "authors": "F. Cruz-Sanabria; S. Bruno; A. Crippa; P. Frumento; M. Scarselli; Debra J. Skene; U. Faraguna",
-      "journal": "Journal of Pineal Research",
-      "citation": "Consensus result; citation_count=43; record_type=systematic_review_meta_analysis",
-      "note": "melatonin dose/timing and sleep-onset runtime rules",
-      "studyType": "Meta-analysis",
-      "reviewStatus": "approved"
-    },
-    {
       "id": "src_0e38d20729ea",
       "title": "PubMed PMID 20091037. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/20091037/",
@@ -245,6 +233,28 @@
       "reviewStatus": "approved"
     },
     {
+      "id": "src_ac1716c7775d",
+      "title": "PubMed PMID 12467979. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/12467979/",
+      "pmid": "12467979",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 12467979. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_070f1c3027c3",
+      "title": "Optimizing the Time and Dose of Melatonin as a Sleep-Promoting Drug: A Systematic Review of Randomized Controlled Trials and Dose-Response Meta-Analysis",
+      "url": "https://consensus.app/papers/optimizing-the-time-and-dose-of-melatonin-as-a-cruz-sanabria-bruno/bae0ee234b6350a4b2b427a03a96a39f/?utm_source=chatgpt",
+      "year": "2024",
+      "authors": "F. Cruz-Sanabria; S. Bruno; A. Crippa; P. Frumento; M. Scarselli; Debra J. Skene; U. Faraguna",
+      "journal": "Journal of Pineal Research",
+      "citation": "Consensus result; citation_count=43; record_type=systematic_review_meta_analysis",
+      "note": "melatonin dose/timing and sleep-onset runtime rules",
+      "studyType": "Meta-analysis",
+      "reviewStatus": "approved"
+    },
+    {
       "id": "src_6fa7f731b20d",
       "title": "Safety of higher doses of melatonin in adults: A systematic review and meta-analysis",
       "url": "https://consensus.app/papers/safety-of-higher-doses-of-melatonin-in-adults-a-systematic-schrire-phillips/99b1be443f505288a9bf6c6d22c6a986/?utm_source=chatgpt",
@@ -254,16 +264,6 @@
       "citation": "Consensus result; citation_count=110; record_type=systematic_review_meta_analysis",
       "note": "melatonin safety and high-dose adverse event reporting",
       "studyType": "Meta-analysis",
-      "reviewStatus": "approved"
-    },
-    {
-      "id": "src_ac1716c7775d",
-      "title": "PubMed PMID 12467979. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/12467979/",
-      "pmid": "12467979",
-      "authors": "PubMed",
-      "citation": "PubMed PMID 12467979. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved"
     }
   ],

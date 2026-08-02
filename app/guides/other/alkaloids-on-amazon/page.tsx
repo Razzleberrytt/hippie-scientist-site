@@ -15,9 +15,10 @@ import {
 } from './alkaloids'
 
 const PATH = '/guides/other/alkaloids-on-amazon/'
-const TITLE = 'Alkaloids on Amazon: A Science-First Supplement Directory'
+const TITLE = 'Alkaloid Supplements on Amazon: A Marketplace Safety Directory'
 const DESCRIPTION =
-  'A safety-first directory of naturally occurring alkaloids discussed in online supplement shopping, with evidence types, taxonomy checks, and product-screening criteria—not product endorsements.'
+  'A safety-first, non-exhaustive directory for evaluating alkaloid supplement labels discussed on Amazon and other online marketplaces—not a live inventory or product-endorsement page.'
+const REVIEWED_ON = 'August 1, 2026'
 
 const FAQS = [
   {
@@ -128,6 +129,21 @@ const REFERENCES = [
     label: 'U.S. Food and Drug Administration. Sexual Enhancement and Energy Product Notifications.',
     url: 'https://www.fda.gov/drugs/medication-health-fraud-notifications/sexual-enhancement-and-energy-product-notifications',
   },
+  {
+    n: 16,
+    label: 'Wikoff D, et al. Systematic review of the potential adverse effects of caffeine consumption. Food and Chemical Toxicology. 2017.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/28438661/',
+  },
+  {
+    n: 17,
+    label: 'European Food Safety Authority. Scientific opinion and consumer summary on the safety of caffeine.',
+    url: 'https://www.efsa.europa.eu/en/topics/topic/caffeine',
+  },
+  {
+    n: 18,
+    label: 'Baggott MJ, et al. Psychopharmacology of theobromine in healthy volunteers. Psychopharmacology. 2013.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/23420115/',
+  },
 ]
 
 export const metadata: Metadata = {
@@ -184,13 +200,19 @@ export default function AlkaloidsOnAmazonPage() {
         <div className="relative max-w-4xl">
           <p className="eyebrow-label">Chemistry before commerce</p>
           <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-ink sm:text-6xl">
-            Alkaloids on Amazon
+            Alkaloid Supplements on Amazon
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-muted sm:text-xl">
             A science-first directory for understanding naturally occurring alkaloids that appear in
             online supplement conversations—without pretending a marketplace listing proves identity,
             evidence, safety, or quality.
           </p>
+
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-muted">
+            <span><strong className="text-ink">Reviewed:</strong> {REVIEWED_ON}</span>
+            <span><strong className="text-ink">By:</strong> The Hippie Scientist editorial team</span>
+            <Link href="/info/methodology/" className="font-semibold text-brand-800 hover:underline">Review methodology →</Link>
+          </div>
 
           <div className="mt-7 flex flex-wrap gap-3">
             <a
@@ -213,13 +235,29 @@ export default function AlkaloidsOnAmazonPage() {
         <p className="text-xs font-bold uppercase tracking-widest">Commerce status: research only</p>
         <p className="mt-2">
           This page has no affiliate links, merchant links, ranked products, prices, or verified
-          availability claims. Product recommendations remain intentionally inactive until a current
+          availability claims. Amazon and other marketplace inventory is not monitored. Product recommendations remain intentionally inactive until a current
           catalog, label, testing, manufacturer, claims, disclosure, legal, privacy, and tracking review
           is complete.
         </p>
         <Link href="/info/affiliate-disclosure/" className="mt-2 inline-flex font-semibold underline decoration-current/30 underline-offset-4">
           Read the site’s affiliate and editorial policy
         </Link>
+      </section>
+
+      <section className="mt-6 rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-5 sm:p-6">
+        <p className="eyebrow-label">Scope and update policy</p>
+        <h2 className="mt-2 text-2xl font-semibold text-ink">Representative, not exhaustive</h2>
+        <div className="mt-4 grid gap-5 text-sm leading-7 text-muted md:grid-cols-2">
+          <div>
+            <h3 className="font-semibold text-ink">Included</h3>
+            <p className="mt-1">Naturally occurring alkaloids or alkaloid-bearing botanicals commonly discussed in U.S. online supplement shopping, selected to illustrate evidence, identity, and safety differences.</p>
+          </div>
+          <div>
+            <h3 className="font-semibold text-ink">Excluded</h3>
+            <p className="mt-1">Prescription drugs, tobacco and nicotine products, controlled substances, synthetic “research chemicals,” and products whose main positioning is vaping, intoxication, or withdrawal substitution.</p>
+          </div>
+        </div>
+        <p className="mt-4 text-sm leading-7 text-muted">Editorial evidence and regulatory sources are reviewed periodically. A marketplace claim would require a separate dated catalog review; absence from this page does not imply safety, legality, or availability.</p>
       </section>
 
       <section className="my-12 grid gap-5 lg:grid-cols-3">

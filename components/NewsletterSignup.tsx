@@ -22,7 +22,7 @@ type NewsletterSignupProps = {
   description?: string
   ctaLabel?: string
   location?: string
-  variant?: 'card' | 'inline' | 'footer' | 'compact'
+  variant?: 'card' | 'inline' | 'footer' | 'compact' | 'editorial'
   className?: string
 }
 
@@ -45,6 +45,8 @@ const variantClasses: Record<NonNullable<NewsletterSignupProps['variant']>, stri
   inline: 'border-y border-brand-900/10 bg-white/60 px-4 py-5 sm:rounded-[1.25rem] sm:border sm:p-5',
   footer: 'rounded-xl border border-white/10 bg-white/5 p-4',
   compact: 'rounded-2xl border border-emerald-800/15 bg-emerald-50/80 p-4',
+  editorial:
+    'rounded-[1.75rem] border border-[#123c2f]/10 bg-[#fffdf8]/80 p-5 shadow-sm sm:p-7 dark:border-white/10 dark:bg-white/5',
 }
 
 export default function NewsletterSignup({
@@ -68,7 +70,7 @@ export default function NewsletterSignup({
   const honeypotId = useId()
   const statusId = useId()
   const turnstileContainerRef = useRef<HTMLDivElement | null>(null)
-  const turnstileWidgetIdRef = useRef<string>()
+  const turnstileWidgetIdRef = useRef<string | undefined>(undefined)
   const [email, setEmail] = useState('')
   const [confirmEmail, setConfirmEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')

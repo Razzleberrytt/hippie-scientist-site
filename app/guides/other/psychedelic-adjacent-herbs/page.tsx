@@ -29,9 +29,11 @@ const HEADINGS: Heading[] = [
 ]
 
 const PSYCHEDELIC_ADJACENT_HERBS_REFS = [
-  { n: 1, text: 'Carhart-Harris RL, Goodwin GM. (2017). The therapeutic potential of psychedelic drugs. Neuropsychopharmacology, 42(11): 2105-2113.', url: 'https://pubmed.ncbi.nlm.nih.gov/28443616/' },
-  { n: 2, text: 'Nichols DE. (2016). Psychedelics. Pharmacol Rev, 68(2): 264-355.', url: 'https://pubmed.ncbi.nlm.nih.gov/26841800/' },
-  { n: 3, text: 'Johnson MW, et al. (2019). The abuse potential of medical psilocybin. Neuropharmacology, 142: 143-166.', url: 'https://pubmed.ncbi.nlm.nih.gov/29753748/' },
+  { n: 1, text: 'Schimpf M, et al. (2023). Toxicity From Blue Lotus (Nymphaea caerulea) After Ingestion or Inhalation: A Case Series. Military Medicine, 188(7-8): e2689-e2692.', url: 'https://pubmed.ncbi.nlm.nih.gov/34345890/' },
+  { n: 2, text: 'Dosoky NS, et al. (2023). Chemical Composition, Market Survey, and Safety Assessment of Blue Lotus (Nymphaea caerulea Savigny) Extracts. Molecules, 28(20): 7014.', url: 'https://pubmed.ncbi.nlm.nih.gov/37894493/' },
+  { n: 3, text: 'Gericke N, et al. (2021). Sceletium tortuosum: A review on its phytochemistry, pharmacokinetics, biological and clinical activities. Journal of Ethnopharmacology, 276: 114476.', url: 'https://pubmed.ncbi.nlm.nih.gov/34333104/' },
+  { n: 4, text: 'Nell H, et al. (2013). A randomized, double-blind, placebo-controlled trial of Sceletium tortuosum extract in healthy adults. Journal of Alternative and Complementary Medicine, 19(11): 898-904.', url: 'https://pubmed.ncbi.nlm.nih.gov/23441963/' },
+  { n: 5, text: 'Harvey AL, et al. (2011). Pharmacological actions of Sceletium tortuosum and its principal alkaloids. Journal of Ethnopharmacology, 137(3): 1124-1129.', url: 'https://pubmed.ncbi.nlm.nih.gov/21798331/' },
 ]
 
 export default function PsychedelicAdjacentHerbsPage() {
@@ -41,18 +43,18 @@ export default function PsychedelicAdjacentHerbsPage() {
     {
       name: 'Blue Lotus (Nymphaea caerulea)',
       href: '/herbs/blue-lotus',
-      traditionalRole: 'Mild relaxation, dream enrichment, traditional Egyptian rituals.',
-      activeConstituents: 'Apomorphine (dopamine receptor agonist) and nuciferine (dopamine/serotonin antagonist signals).',
-      mechanisms: 'Dopaminergic activity and mild GABA-A pathway modulation.',
-      safetyContext: 'Standard caution. Mild sedative profile. Avoid stacking with heavy central depressants or alcohol.',
+      traditionalRole: 'Ritual and historical use is reported, but it does not establish the identity, dose, or effect of a modern extract.',
+      activeConstituents: 'Commercial descriptions often name apomorphine and nuciferine. An analytical survey found both virtually absent from authentic extracts, so those claims should not be assumed from a label [2].',
+      mechanisms: 'No reliable human mechanism can be inferred for an unverified marketplace product. Chemical findings do not establish a predictable psychoactive effect.',
+      safetyContext: 'Higher caution. A five-patient case series reported sedation and perceptual disturbances after ingestion or inhalation. Avoid vaping, concentrated extracts, alcohol, and other sedatives [1].',
     },
     {
       name: 'Kanna (Sceletium tortuosum)',
       href: '/herbs/kanna',
-      traditionalRole: 'Mood elevation, cognitive quieting, stress resilience.',
+      traditionalRole: 'Traditional mood-related use is documented, but clinical evidence remains limited and formulation-specific [3].',
       activeConstituents: 'Mesembrine and mesembrenone alkaloids.',
-      mechanisms: 'Serotonin reuptake inhibitor (SRI) and PDE4 inhibitor.',
-      safetyContext: 'High precaution. Do NOT stack with SSRIs, MAOIs, or other serotonergic agents due to Serotonin Syndrome risks.',
+      mechanisms: 'Laboratory studies report serotonin-transporter and PDE4 activity; these findings do not prove a clinical benefit or quantify interaction risk [5].',
+      safetyContext: 'Interaction caution. A small trial found one standardized extract tolerable in healthy adults, but that does not establish safety for other extracts or combinations. Avoid combining with serotonergic medicines unless a clinician has reviewed it [4].',
     },
   ]
 
@@ -135,19 +137,19 @@ export default function PsychedelicAdjacentHerbsPage() {
           <div className="space-y-2">
             <h3 className="font-semibold text-ink">1. Avoid Multi-Stacking</h3>
             <p className="text-muted text-xs leading-relaxed">
-              Combining psychoactive-adjacent herbs with each other, alcohol, or central depressants increases unpredictable neurological side effects.
+            Combining poorly characterized extracts with each other, alcohol, or central depressants can make sedation and other effects less predictable.
             </p>
           </div>
           <div className="space-y-2">
             <h3 className="font-semibold text-ink">2. Screen for SSRI/MAOI Conflict</h3>
             <p className="text-muted text-xs leading-relaxed">
-              Herbs that modify serotonin reuptake (like Kanna) can trigger a life-threatening increase in serotonin levels if mixed with clinical antidepressants.
+            Kanna has serotonergic laboratory activity, but direct interaction evidence is sparse. Treat combinations with SSRIs, MAOIs, and other serotonergic agents as an interaction concern that needs clinician review [5].
             </p>
           </div>
           <div className="space-y-2">
             <h3 className="font-semibold text-ink">3. Respect Potency Variations</h3>
             <p className="text-muted text-xs leading-relaxed">
-              Natural extracts differ vastly in alkaloid concentration. Always start with the lowest possible dose to gauge individual sensitivity.
+            Natural extracts can differ substantially in identity and alkaloid content. Avoid products without species, plant-part, dose, and independent testing information.
             </p>
           </div>
         </div>

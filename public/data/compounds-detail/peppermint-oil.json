@@ -104,6 +104,16 @@
   "indexability_reasons": [],
   "sources": [
     {
+      "id": "src_e4c8a349570e",
+      "title": "PubMed PMID 19507027. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19507027/",
+      "pmid": "19507027",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 19507027. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
       "id": "src_8e18d4094410",
       "title": "Meta-analysis of RCTs found benefit for global IBS symptoms and abdominal pain",
       "note": "review_or_meta_analysis",
@@ -117,16 +127,6 @@
       "note": "review_or_meta_analysis",
       "studyType": "Meta-analysis",
       "reviewStatus": "pending"
-    },
-    {
-      "id": "src_e4c8a349570e",
-      "title": "PubMed PMID 19507027. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/19507027/",
-      "pmid": "19507027",
-      "authors": "PubMed",
-      "citation": "PubMed PMID 19507027. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
     }
   ],
   "dosage": "standardized oral supplement form",

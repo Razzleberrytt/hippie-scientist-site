@@ -203,18 +203,6 @@
       "reviewStatus": "approved"
     },
     {
-      "id": "src_7e4a317262c5",
-      "title": "Examining the Effects of Supplemental Magnesium on Self-Reported Anxiety and Sleep Quality: A Systematic Review",
-      "url": "https://consensus.app/papers/examining-the-effects-of-supplemental-magnesium-on-rawji-peltier/b4312fdaf15c5708937709697920ef7d/?utm_source=chatgpt",
-      "year": "2024",
-      "authors": "Alexander Rawji; Morgan R. Peltier; Kelly Mourtzanakis; Samreen Awan; Junaid Rana; Nitin J Pothen; Saba Afzal",
-      "journal": "Cureus",
-      "citation": "Consensus result; citation_count=15; record_type=systematic_review",
-      "note": "magnesium sleep/anxiety evidence, heterogeneity, dose/form caveat",
-      "studyType": "Systematic review",
-      "reviewStatus": "approved"
-    },
-    {
       "id": "src_972d09376205",
       "title": "PubMed PMID 29679349. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/29679349/",
@@ -232,6 +220,18 @@
       "authors": "PubMed",
       "citation": "PubMed PMID 31654344. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_7e4a317262c5",
+      "title": "Examining the Effects of Supplemental Magnesium on Self-Reported Anxiety and Sleep Quality: A Systematic Review",
+      "url": "https://consensus.app/papers/examining-the-effects-of-supplemental-magnesium-on-rawji-peltier/b4312fdaf15c5708937709697920ef7d/?utm_source=chatgpt",
+      "year": "2024",
+      "authors": "Alexander Rawji; Morgan R. Peltier; Kelly Mourtzanakis; Samreen Awan; Junaid Rana; Nitin J Pothen; Saba Afzal",
+      "journal": "Cureus",
+      "citation": "Consensus result; citation_count=15; record_type=systematic_review",
+      "note": "magnesium sleep/anxiety evidence, heterogeneity, dose/form caveat",
+      "studyType": "Systematic review",
       "reviewStatus": "approved"
     }
   ],

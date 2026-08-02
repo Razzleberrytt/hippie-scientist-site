@@ -1,7 +1,7 @@
 {
   "name": "Ashwagandha Withania somnifera",
   "slug": "ashwagandha",
-  "summary": "Ashwagandha is tracked for sleep,stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
+  "summary": "Ashwagandha (Withania somnifera) is a root extract studied mainly for persistent stress, stress-related anxiety, and sleep rather than immediate relief. Meta-analyses report a possible benefit, but trials use different extracts and doses and the certainty is limited; product standardization and thyroid, liver, pregnancy, and sedative cautions matter.",
   "description": "Ashwagandha is tracked for sleep,stress,cognition with conservative evidence framing. Keep claims tied to source-backed preparation and safety context.",
   "primaryActions": [
     "sleep",
@@ -51,21 +51,21 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/31517876/"
     },
     {
-      "id": "src_05c07be46c26",
-      "title": "Safety and efficacy of Withania somnifera for anxiety and insomnia: Systematic review and meta-analysis",
-      "url": "https://doi.org/10.1002/hup.2911",
-      "doi": "10.1002/hup.2911",
-      "year": "2024",
-      "studyType": "Meta-analysis",
-      "reviewStatus": "approved"
-    },
-    {
       "id": "src_0abbdfdf8b6d",
       "title": "Effect of Ashwagandha (Withania somnifera) extract on sleep: A systematic review and meta-analysis",
       "url": "https://doi.org/10.1371/journal.pone.0257843",
       "doi": "10.1371/journal.pone.0257843",
       "pmid": "34559859",
       "year": "2021",
+      "studyType": "Meta-analysis",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_05c07be46c26",
+      "title": "Safety and efficacy of Withania somnifera for anxiety and insomnia: Systematic review and meta-analysis",
+      "url": "https://doi.org/10.1002/hup.2911",
+      "doi": "10.1002/hup.2911",
+      "year": "2024",
       "studyType": "Meta-analysis",
       "reviewStatus": "approved"
     },

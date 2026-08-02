@@ -1,12 +1,12 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import { FilterChip } from '@/components/search/search-ui'
 
 import type { AlkaloidDirectoryEntry } from './alkaloids'
 
-type Filter = 'all' | 'human' | 'higher' | 'botanical' | 'isolated'
+type Filter = 'all' | 'human' | 'higher' | 'botanical' | 'isolated' | 'stimulant' | 'sedative' | 'interaction'
 
 const FILTERS: Array<{ id: Filter; label: string }> = [
   { id: 'all', label: 'All entries' },
@@ -14,6 +14,9 @@ const FILTERS: Array<{ id: Filter; label: string }> = [
   { id: 'higher', label: 'Higher caution' },
   { id: 'botanical', label: 'Botanicals' },
   { id: 'isolated', label: 'Isolated compounds' },
+  { id: 'stimulant', label: 'Stimulant risk' },
+  { id: 'sedative', label: 'Sedative risk' },
+  { id: 'interaction', label: 'Interaction risk' },
 ]
 
 const SAFETY_STYLES = {
@@ -29,12 +32,51 @@ function matchesFilter(entry: AlkaloidDirectoryEntry, filter: Filter) {
   if (filter === 'all') return true
   if (filter === 'human') return entry.evidenceBand === 'human'
   if (filter === 'higher') return entry.safetyTier === 'higher'
-  return entry.formats.includes(filter)
+  if (filter === 'botanical' || filter === 'isolated') return entry.formats.includes(filter)
+  return entry.riskTags.some(tag => tag.includes(filter))
+}
+
+function ReferenceLinks({ ids }: { ids: number[] }) {
+  if (!ids.length) return null
+
+  return (
+    <span className="ml-1 whitespace-nowrap text-xs font-semibold text-brand-800">
+      {ids.map(id => (
+        <a key={id} href={`#ref-${id}`} className="ml-1 underline decoration-current/25 underline-offset-2" aria-label={`Reference ${id}`}>
+          [{id}]
+        </a>
+      ))}
+    </span>
+  )
 }
 
 export default function AlkaloidDirectory({ entries }: { entries: AlkaloidDirectoryEntry[] }) {
   const [filter, setFilter] = useState<Filter>('all')
   const [query, setQuery] = useState('')
+  const [urlReady, setUrlReady] = useState(false)
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const requestedFilter = params.get('filter')
+    const requestedQuery = params.get('q')
+
+    if (requestedFilter && FILTERS.some(option => option.id === requestedFilter)) {
+      setFilter(requestedFilter as Filter)
+    }
+    if (requestedQuery) setQuery(requestedQuery)
+    setUrlReady(true)
+  }, [])
+
+  useEffect(() => {
+    if (!urlReady) return
+
+    const url = new URL(window.location.href)
+    if (filter === 'all') url.searchParams.delete('filter')
+    else url.searchParams.set('filter', filter)
+    if (query.trim()) url.searchParams.set('q', query.trim())
+    else url.searchParams.delete('q')
+    window.history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`)
+  }, [filter, query, urlReady])
 
   const filteredEntries = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase()
@@ -49,6 +91,11 @@ export default function AlkaloidDirectory({ entries }: { entries: AlkaloidDirect
         entry.alkaloids,
         entry.classification,
         entry.safetyLabel,
+        entry.humanEvidence,
+        entry.traditionalEvidence,
+        entry.mechanisticEvidence,
+        entry.safetySummary,
+        ...entry.riskTags,
       ].some((value) => value.toLowerCase().includes(normalizedQuery))
     })
   }, [entries, filter, query])
@@ -136,7 +183,15 @@ export default function AlkaloidDirectory({ entries }: { entries: AlkaloidDirect
               </dl>
 
               <div className="mt-5 rounded-2xl border border-rose-900/10 bg-rose-50/55 p-4 text-sm leading-6 text-rose-950 dark:border-rose-400/20 dark:bg-rose-950/25 dark:text-rose-100">
-                <strong>Safety read:</strong> {entry.safetySummary}
+                <strong>Safety read:</strong> {entry.safetySummary}<ReferenceLinks ids={entry.evidenceReferences.safety} />
+              </div>
+
+              <div className="mt-3 flex flex-wrap gap-2" aria-label="Risk and use tags">
+                {entry.riskTags.map(tag => (
+                  <span key={tag} className="rounded-full border border-brand-900/10 bg-[var(--surface-subtle)] px-2.5 py-1 text-xs font-medium text-muted">
+                    {tag}
+                  </span>
+                ))}
               </div>
 
               <details className="group mt-4 rounded-2xl border border-brand-900/10">
@@ -147,9 +202,9 @@ export default function AlkaloidDirectory({ entries }: { entries: AlkaloidDirect
                   </span>
                 </summary>
                 <div className="space-y-4 border-t border-brand-900/8 px-4 py-4 text-sm leading-6 text-muted">
-                  <p><strong className="text-ink">Human:</strong> {entry.humanEvidence}</p>
-                  <p><strong className="text-ink">Traditional context:</strong> {entry.traditionalEvidence}</p>
-                  <p><strong className="text-ink">Mechanistic/preclinical:</strong> {entry.mechanisticEvidence}</p>
+                  <p><strong className="text-ink">Human:</strong> {entry.humanEvidence}<ReferenceLinks ids={entry.evidenceReferences.human} /></p>
+                  <p><strong className="text-ink">Traditional context:</strong> {entry.traditionalEvidence}<ReferenceLinks ids={entry.evidenceReferences.traditional} /></p>
+                  <p><strong className="text-ink">Mechanistic/preclinical:</strong> {entry.mechanisticEvidence}<ReferenceLinks ids={entry.evidenceReferences.mechanistic} /></p>
                 </div>
               </details>
 
@@ -171,9 +226,11 @@ export default function AlkaloidDirectory({ entries }: { entries: AlkaloidDirect
                     {link.label} →
                   </a>
                 ))}
-                <a href={`#ref-${entry.references[0]}`} className="font-semibold text-muted hover:text-ink hover:underline">
-                  Source{entry.references.length > 1 ? 's' : ''} [{entry.references.join(', ')}]
-                </a>
+                {entry.references.map(reference => (
+                  <a key={reference} href={`#ref-${reference}`} className="font-semibold text-muted hover:text-ink hover:underline">
+                    Source [{reference}]
+                  </a>
+                ))}
               </div>
             </article>
           ))}

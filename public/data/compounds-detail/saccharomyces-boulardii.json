@@ -82,14 +82,6 @@
   "indexability_reasons": [],
   "sources": [
     {
-      "id": "src_87430c135287",
-      "title": "v10.4: Meta-analysis found S. boulardii significantly reduced antibiotic-associated diarrhea risk in adults.",
-      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2868213/",
-      "note": "review_or_meta_analysis",
-      "studyType": "Meta-analysis",
-      "reviewStatus": "pending"
-    },
-    {
       "id": "src_d6bd0ab16fed",
       "title": "PubMed PMID 20458757. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/20458757/",
@@ -98,6 +90,14 @@
       "citation": "PubMed PMID 20458757. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
       "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved"
+    },
+    {
+      "id": "src_87430c135287",
+      "title": "v10.4: Meta-analysis found S. boulardii significantly reduced antibiotic-associated diarrhea risk in adults.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2868213/",
+      "note": "review_or_meta_analysis",
+      "studyType": "Meta-analysis",
+      "reviewStatus": "pending"
     }
   ],
   "dosage": "powder or capsule",

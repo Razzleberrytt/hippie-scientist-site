@@ -99,7 +99,22 @@ function readJson(filePath, fallback) {
 
 function writeJson(filePath, value) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true })
-  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`)
+  const body = `${JSON.stringify(value, null, 2)}\n`
+  const retryableCodes = new Set(['UNKNOWN', 'EBUSY', 'EPERM', 'EACCES'])
+
+  for (let attempt = 1; attempt <= 5; attempt += 1) {
+    try {
+      fs.writeFileSync(filePath, body)
+      return
+    } catch (error) {
+      const code = error && typeof error === 'object' && 'code' in error ? error.code : undefined
+      if (!retryableCodes.has(code) || attempt === 5) throw error
+
+      // Windows antivirus/indexing can briefly hold generated JSON files between
+      // pipeline stages. Keep the build deterministic while tolerating that short lock.
+      Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, attempt * 50)
+    }
+  }
 }
 
 // Compounds with real, editorially-reviewed content but a genuinely evolving legal/

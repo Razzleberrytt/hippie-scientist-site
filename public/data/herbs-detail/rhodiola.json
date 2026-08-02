@@ -1,7 +1,7 @@
 {
   "name": "Rhodiola",
   "slug": "rhodiola",
-  "summary": "Rhodiola may support stress-related fatigue and mental stamina; avoid framing it as a bedtime calming herb.",
+  "summary": "Rhodiola rosea is a stimulating adaptogen best matched to stress-related fatigue and mental stamina, not bedtime calming. Small human trials and reviews are encouraging, but preparations and study quality vary; standardized rosavin and salidroside content, morning timing, and activation or insomnia risk are practical differentiators.",
   "description": "Adaptogen-style fatigue support with activation/insomnia caution in sensitive users.",
   "primaryActions": [
     "stress"
@@ -47,6 +47,26 @@
       "url": "https://pubmed.ncbi.nlm.nih.gov/29568244/"
     },
     {
+      "id": "src_2ee233da1a3a",
+      "title": "PubMed PMID 19016404. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19016404/",
+      "pmid": "19016404",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 19016404. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
+      "id": "src_74fdaae54d8a",
+      "title": "PubMed PMID 20378318. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/20378318/",
+      "pmid": "20378318",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 20378318. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
       "id": "src_212be327d082",
       "title": "Rhodiola Rosea for Mental and Physical Fatigue in Nursing Students: A Randomized Controlled Trial",
       "url": "https://doi.org/10.1371/journal.pone.0108416",
@@ -63,16 +83,6 @@
       "year": "2012",
       "studyType": "Systematic review",
       "reviewStatus": "pending"
-    },
-    {
-      "id": "src_2ee233da1a3a",
-      "title": "PubMed PMID 19016404. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/19016404/",
-      "pmid": "19016404",
-      "authors": "PubMed",
-      "citation": "PubMed PMID 19016404. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "note": "evidence citation lookup; PMID source present in Evidence_Register",
-      "reviewStatus": "approved"
     },
     {
       "id": "src_42122a26e769",
@@ -116,16 +126,6 @@
       "journal": "European Journal of Medicinal Plants",
       "citation": "Review discusses drug interactions, contraindications, and warnings for Rhodiola and Ashwagandha",
       "note": "adaptogen safety/interactions",
-      "reviewStatus": "approved"
-    },
-    {
-      "id": "src_74fdaae54d8a",
-      "title": "PubMed PMID 20378318. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/20378318/",
-      "pmid": "20378318",
-      "authors": "PubMed",
-      "citation": "PubMed PMID 20378318. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved"
     },
     {

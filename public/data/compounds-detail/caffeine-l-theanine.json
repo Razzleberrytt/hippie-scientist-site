@@ -84,6 +84,16 @@
   "indexability_reasons": [],
   "sources": [
     {
+      "id": "src_e2df05e4dcb4",
+      "title": "PubMed PMID 18681988. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/18681988/",
+      "pmid": "18681988",
+      "authors": "PubMed",
+      "citation": "PubMed PMID 18681988. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
+      "note": "evidence citation lookup; PMID source present in Evidence_Register",
+      "reviewStatus": "approved"
+    },
+    {
       "id": "src_a051bced3154",
       "title": "Effects of Tea or its Bioactive Compounds l-Theanine or l-Theanine plus Caffeine on Cognition, Sleep, and Mood",
       "url": "https://consensus.app/papers/effects-of-tea-camellia-sinensis-or-its-bioactive-payne-aceves-martins/939e00c0c8a153ea8489e05d78184f5d/?utm_source=chatgpt",
@@ -92,16 +102,6 @@
       "journal": "Nutrition Reviews",
       "citation": "50 RCTs; 15 meta-analyzed",
       "note": "cognition/mood evidence",
-      "reviewStatus": "approved"
-    },
-    {
-      "id": "src_e2df05e4dcb4",
-      "title": "PubMed PMID 18681988. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "url": "https://pubmed.ncbi.nlm.nih.gov/18681988/",
-      "pmid": "18681988",
-      "authors": "PubMed",
-      "citation": "PubMed PMID 18681988. Minimal citation row added from existing workbook PMID; title/year/journal still require PubMed metadata extraction.",
-      "note": "evidence citation lookup; PMID source present in Evidence_Register",
       "reviewStatus": "approved"
     }
   ],

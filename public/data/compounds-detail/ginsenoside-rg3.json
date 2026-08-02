@@ -132,7 +132,7 @@
   "profile_status": "commercial_ready",
   "runtime_export_decision": "full_public_runtime",
   "indexability_score": 100,
-  "safety": "Generally well tolerated for most users.",
+  "safety": "Mostly preclinical and extract-derived. Caution with anticoagulants, antidiabetics, immune therapies, and oncology regimens without supervision.",
   "sources": [
     {
       "id": "src_3e4f7b35b245",
