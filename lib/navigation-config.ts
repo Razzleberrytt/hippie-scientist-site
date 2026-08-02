@@ -130,6 +130,11 @@ export const routeLabels: Record<string, RouteMetadata> = {
     parent: '/guides',
     isDynamic: true,
   },
+  '/lead-magnets/adhd-supplement-starter-checklist': {
+    label: 'ADHD Supplement Starter Checklist',
+    description: 'Printable baseline, safety, and 28-day tracking worksheet',
+    parent: '/guides/adhd',
+  },
   '/learn': {
     label: 'Learning Library',
     description: 'Neuroscience, evidence literacy, and safety education',
@@ -288,7 +293,7 @@ export function generateDynamicBreadcrumbs(
   for (let i = 0; i < segments.length; i++) {
     currentPath += `/${segments[i]}`
     const isLast = i === segments.length - 1
-    const isStructuralSegment = segments[i] === 'page' || segments[i] === 'style'
+    const isStructuralSegment = segments[i] === 'page' || segments[i] === 'style' || segments[i] === 'lead-magnets'
 
     if (!isLast && isStructuralSegment) continue
 

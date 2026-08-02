@@ -1457,3 +1457,44 @@ html.dark :is(
 body:has(#main-content nav[aria-label='Breadcrumb']) [data-global-breadcrumb] {
   display: none;
 }
+
+@media print {
+  body:has([data-printable-checklist]) {
+    background: #fff !important;
+    color-scheme: light !important;
+  }
+
+  body:has([data-printable-checklist]) .hs-shell {
+    background: #fff !important;
+    color: #111827 !important;
+  }
+
+  body:has([data-printable-checklist]) [data-printable-checklist],
+  body:has([data-printable-checklist]) [data-printable-checklist] * {
+    background-color: #fff !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    color: #111827 !important;
+  }
+
+  body:has([data-printable-checklist]) .hs-shell > header,
+  body:has([data-printable-checklist]) .hs-shell > footer,
+  body:has([data-printable-checklist]) [data-global-breadcrumb],
+  body:has([data-printable-checklist]) .mobile-bottom-nav,
+  body:has([data-printable-checklist]) button[aria-label='Scroll to top'],
+  body:has([data-printable-checklist]) [aria-label='Privacy notice'] {
+    display: none !important;
+  }
+
+  body:has([data-printable-checklist]) #main-content {
+    padding-bottom: 0 !important;
+  }
+
+  body:has([data-printable-checklist]) [data-printable-checklist] input[type='checkbox'] {
+    width: 1rem !important;
+    min-width: 1rem !important;
+    height: 1rem !important;
+    min-height: 1rem !important;
+    color-scheme: light !important;
+  }
+}
