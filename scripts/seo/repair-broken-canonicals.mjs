@@ -3,6 +3,7 @@ import path from 'node:path'
 
 const root = process.cwd()
 const outDir = path.join(root, 'out')
+const MAX_META_DESCRIPTION_LENGTH = 155
 
 const CANONICAL_REPLACEMENTS = new Map([
   ['https://thehippiescientist.net/herbs/piper-methysticum/', 'https://thehippiescientist.net/herbs/kava/'],
@@ -35,6 +36,40 @@ function* walkHtmlFiles(dir) {
   }
 }
 
+function truncateMetaDescription(value) {
+  const normalized = value.replace(/\s+/g, ' ').trim()
+  if (normalized.length <= MAX_META_DESCRIPTION_LENGTH) return normalized
+
+  const targetLength = MAX_META_DESCRIPTION_LENGTH - 1
+  const candidate = normalized.slice(0, targetLength)
+  const lastSpace = candidate.lastIndexOf(' ')
+  let shortened = lastSpace >= 110 ? candidate.slice(0, lastSpace) : candidate
+
+  // Do not leave a partial HTML entity such as "&amp" at the cut boundary.
+  const lastAmpersand = shortened.lastIndexOf('&')
+  const lastSemicolon = shortened.lastIndexOf(';')
+  if (lastAmpersand > lastSemicolon) {
+    shortened = shortened.slice(0, lastAmpersand)
+  }
+
+  return `${shortened.trimEnd()}…`
+}
+
+function normalizeDescriptionTags(html) {
+  let changedTags = 0
+  const next = html.replace(/<meta\b[^>]*(?:(?:name|property)=["'](?:description|og:description|twitter:description)["'])[^>]*>/gi, tag => {
+    const normalizedTag = tag.replace(/content=(["'])(.*?)\1/i, (match, quote, value) => {
+      const normalized = truncateMetaDescription(value)
+      if (normalized === value) return match
+      changedTags += 1
+      return `content=${quote}${normalized}${quote}`
+    })
+    return normalizedTag
+  })
+
+  return { html: next, changedTags }
+}
+
 if (!fs.existsSync(outDir)) {
   console.warn('[repair-broken-canonicals] out directory not found; skipping.')
   process.exit(0)
@@ -42,6 +77,7 @@ if (!fs.existsSync(outDir)) {
 
 let touchedFiles = 0
 let replacements = 0
+let normalizedDescriptionTags = 0
 
 for (const filePath of walkHtmlFiles(outDir)) {
   const html = fs.readFileSync(filePath, 'utf8')
@@ -54,10 +90,16 @@ for (const filePath of walkHtmlFiles(outDir)) {
     replacements += before.split(from).length - 1
   }
 
+  const normalizedDescriptions = normalizeDescriptionTags(next)
+  next = normalizedDescriptions.html
+  normalizedDescriptionTags += normalizedDescriptions.changedTags
+
   if (next !== html) {
     fs.writeFileSync(filePath, next)
     touchedFiles += 1
   }
 }
 
-console.log(`[repair-broken-canonicals] Rewrote ${replacements} canonical alias references in ${touchedFiles} HTML files.`)
+console.log(
+  `[repair-broken-canonicals] Rewrote ${replacements} canonical alias references and normalized ${normalizedDescriptionTags} description tags in ${touchedFiles} HTML files.`,
+)
