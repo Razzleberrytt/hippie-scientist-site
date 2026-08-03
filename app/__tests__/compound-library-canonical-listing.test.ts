@@ -40,14 +40,24 @@ describe('compound library canonical listings', () => {
     expect(isRedirectedCompoundDuplicate('gingerol', presentSlugs)).toBe(true)
   })
 
-  it('applies the canonical filter to both the first and paginated library routes', () => {
+  it('lists only indexable canonical profiles on both library routes', () => {
     const firstPage = read('app/compounds/page.tsx')
     const paginatedPage = read('app/compounds/page/[page]/page.tsx')
 
     for (const source of [firstPage, paginatedPage]) {
+      expect(source).toContain('getRuntimeVisibility(compound).canIndex')
+      expect(source).not.toContain('getRuntimeVisibility(compound).canRender')
       expect(source).toContain('isRedirectedCompoundDuplicate')
       expect(source).toContain('presentSlugs')
       expect(source).toContain('!isRedirectedCompoundDuplicate')
     }
+  })
+
+  it('does not advertise an inflated fixed profile count in metadata', () => {
+    const firstPage = read('app/compounds/page.tsx')
+
+    expect(firstPage).not.toContain('Browse 600+ compound profiles')
+    expect(firstPage).toContain('Browse published compound profiles')
+    expect(firstPage).toContain('published compounds')
   })
 })

@@ -16,7 +16,7 @@ import Pagination from '@/components/Pagination'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Compound Library',
   description:
-    'Browse 600+ compound profiles with mechanisms, evidence levels, safety status, and practical context. Evidence-first, no hype.',
+    'Browse published compound profiles with mechanisms, evidence levels, safety status, and practical context. Evidence-first, no hype.',
   path: '/compounds',
 })
 
@@ -39,7 +39,7 @@ function loadBrowseCompounds(records: RuntimeRecord[]) {
     .filter(
       (compound) =>
         compound?.slug &&
-        getRuntimeVisibility(compound).canRender &&
+        getRuntimeVisibility(compound).canIndex &&
         !isRedirectedCompoundDuplicate(String(compound.slug), presentSlugs),
     )
     .sort((a, b) => getCompoundName(a).localeCompare(getCompoundName(b)))
@@ -64,13 +64,13 @@ export default async function CompoundsPage() {
         <p className="mt-2 max-w-2xl text-sm leading-6 text-muted">
           Mechanism, evidence strength, and safety context for bioactive molecules and supplement constituents.
         </p>
-        <p className="mt-2 text-sm font-semibold text-muted">Browsing {allCompounds.length} compounds</p>
+        <p className="mt-2 text-sm font-semibold text-muted">Browsing {allCompounds.length} published compounds</p>
       </section>
 
       <Pagination basePath="/compounds" currentPage={1} totalPages={pageData.totalPages} itemLabel="Compound profiles" />
 
       {/* SEO-crawlable index (hidden from visual users, served to Googlebot) */}
-      <nav aria-label="Compound profiles index" className="sr-only">
+      <nav aria-label="Published compound profiles index" className="sr-only">
         <ul>
           {allCompounds.map((c) => (
             <li key={c.slug}>
