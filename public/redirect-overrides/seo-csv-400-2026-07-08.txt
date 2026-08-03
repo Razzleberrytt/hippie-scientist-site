@@ -29,3 +29,5 @@
 /compounds/citicoline/ /compounds/cdp-choline/ 301
 /state-of-supplement-evidence-2026/ /articles/state-of-supplement-evidence-2026/ 301
 /education/insomnia/ /guides/sleep/ 301
+/compounds/mitragynine/ /articles/mitragynine/ 301
+/compounds/7-hydroxymitragynine/ /articles/7-hydroxymitragynine/ 301
