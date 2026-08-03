@@ -39,11 +39,11 @@ const SECTIONS = [
     articles: ['Best supplements for sleep', 'Magnesium for sleep', 'Magnesium vs melatonin', 'Sleep stack guide', 'Herbs for sleep'],
   },
   {
-    title: 'Anxiety & Stress',
+    title: 'Anxiety',
     href: '/guides/anxiety/',
-    desc: 'Adaptogens, anxiolytics, and stress management — 14 evidence-graded guides with safety warnings.',
+    desc: 'Evidence-graded guides for anxious thoughts, physical tension, and calm — with safety warnings kept visible.',
     color: 'border-l-amber-500',
-    articles: ['Best herbs for anxiety', 'Best adaptogens for stress', 'How to lower cortisol', 'Ashwagandha for anxiety', 'L-theanine for calm'],
+    articles: ['Best herbs for anxiety', 'Natural anxiety support', 'Ashwagandha for anxiety', 'L-theanine for calm', 'Magnesium for anxiety'],
   },
   {
     title: 'Focus & Cognition',
