@@ -7,7 +7,7 @@ function read(relativePath: string) {
 }
 
 describe('homepage safety checklist capture', () => {
-  it('keeps the owned-audience conversion surface on the homepage', () => {
+  it('keeps one owned-audience conversion surface on the homepage', () => {
     const page = read('app/page.tsx')
     const capture = read('components/HomepageEmailCapture.tsx')
 
@@ -17,5 +17,6 @@ describe('homepage safety checklist capture', () => {
     expect(capture).toContain("variant='editorial'")
     expect(capture).toContain('Get the free 5-point supplement safety checklist')
     expect(capture).toContain('Send me the checklist')
+    expect(capture).toContain("[data-signup-location='global-footer'] { display: none; }")
   })
 })
