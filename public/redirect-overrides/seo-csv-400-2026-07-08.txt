@@ -26,3 +26,6 @@
 /guides/compare/bacopa-vs-lions-mane/ /guides/focus/best-nootropics-for-focus/ 301
 /herbs/passiflora-incarnata/ /herbs/passionflower/ 301
 /guides/compare/caffeine-vs-theanine/ /guides/herbs/l-theanine/ 301
+/compounds/citicoline/ /compounds/cdp-choline/ 301
+/state-of-supplement-evidence-2026/ /articles/state-of-supplement-evidence-2026/ 301
+/education/insomnia/ /guides/sleep/ 301
