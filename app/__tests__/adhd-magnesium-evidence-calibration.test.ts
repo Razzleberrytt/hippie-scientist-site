@@ -49,4 +49,12 @@ describe('ADHD magnesium evidence calibration', () => {
     expect(comparison).toContain('Symmetrical comparison')
     expect(comparison).toContain('Glycinate vs citrate without the marketing shortcuts')
   })
+
+  it('labels government and DOI references accurately instead of calling every source PubMed', () => {
+    const references = read('components/References.tsx')
+
+    expect(references).toContain("url.includes('pubmed.ncbi.nlm.nih.gov')")
+    expect(references).toContain("url.includes('doi.org')")
+    expect(references).toContain("return 'Source →'")
+  })
 })
