@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import HomepageV2 from '@/components/homepage-v2'
+import HomepageEmailCapture from '@/components/HomepageEmailCapture'
 import { buildPageMetadata } from '../src/lib/seo'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -23,5 +24,10 @@ export const metadata: Metadata = buildPageMetadata({
 })
 
 export default function Page() {
-  return <HomepageV2 />
+  return (
+    <>
+      <HomepageV2 />
+      <HomepageEmailCapture />
+    </>
+  )
 }
