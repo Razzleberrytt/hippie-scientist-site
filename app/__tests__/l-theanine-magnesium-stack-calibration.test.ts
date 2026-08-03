@@ -42,12 +42,12 @@ describe('L-theanine magnesium ADHD stack calibration', () => {
     expect(source).toContain('https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/')
   })
 
-  it('routes commercial and medication decisions to narrower guides', () => {
+  it('routes ingredient and safety decisions to narrower guides', () => {
     const source = read(PAGE)
 
     expect(source).toContain('/guides/adhd/l-theanine-for-adhd/')
     expect(source).toContain('/guides/adhd/best-magnesium-supplement-for-adhd/')
-    expect(source).toContain('/guides/adhd/adhd-medication-supplement-interactions/')
+    expect(source).toContain('/guides/other/supplement-stacking-safety/')
     expect(source).toContain('/safety-checker/')
     expect(source).toContain('<AdhdInlineCta type="stack" />')
     expect(source).toContain('<AdhdInlineCta type="safety" />')
