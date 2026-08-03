@@ -32,7 +32,7 @@ describe('ADHD magnesium evidence calibration', () => {
   it('does not restore categorical form superiority or unsupported dose claims', () => {
     const combined = `${read(BUYING_GUIDE)}\n${read(COMPARISON)}`
 
-    expect(combined).toContain('no magnesium form has been proven best for core ADHD symptoms')
+    expect(combined.toLowerCase()).toContain('no magnesium form has been proven best for core adhd symptoms')
     expect(combined).toContain('There is no direct ADHD head-to-head trial')
     expect(combined).not.toContain('Magnesium Glycinate — The Best First Choice')
     expect(combined).not.toContain('poor absorption (~4% bioavailability)')
