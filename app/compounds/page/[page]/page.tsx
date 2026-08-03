@@ -5,6 +5,7 @@ import { getRuntimeVisibility } from '../../../../lib/runtime-visibility'
 import { COMPOUNDS_PAGE_SIZE, clampPositiveInt, paginateItems } from '@/lib/pagination'
 import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
 import { formatDisplayLabel } from '@/lib/display-utils'
+import { isRedirectedCompoundDuplicate } from '@/lib/deprecated-compound-canonicals'
 import Link from 'next/link'
 import CompoundsIndexClient from '../../CompoundsIndexClient'
 import type { RuntimeRecord } from '../../../../src/types/content'
@@ -25,8 +26,16 @@ function getCompoundName(compound: RuntimeRecord) {
 }
 
 async function loadBrowseCompounds(): Promise<RuntimeRecord[]> {
-  return ((await getAllCompounds()) as unknown as RuntimeRecord[])
-    .filter((compound) => compound?.slug && getRuntimeVisibility(compound).canRender)
+  const compounds = (await getAllCompounds()) as unknown as RuntimeRecord[]
+  const presentSlugs = new Set(compounds.map((compound) => String(compound.slug || '')))
+
+  return compounds
+    .filter(
+      (compound) =>
+        compound?.slug &&
+        getRuntimeVisibility(compound).canRender &&
+        !isRedirectedCompoundDuplicate(String(compound.slug), presentSlugs),
+    )
     .sort((a, b) => getCompoundName(a).localeCompare(getCompoundName(b)))
 }
 

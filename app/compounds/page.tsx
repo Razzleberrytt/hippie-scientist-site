@@ -8,6 +8,7 @@ import { buildPageMetadata } from '../../src/lib/seo'
 import { COMPOUNDS_PAGE_SIZE, paginateItems } from '@/lib/pagination'
 import { toLeanProfileIndexRecords } from '@/lib/profile-index-records'
 import { formatDisplayLabel } from '@/lib/display-utils'
+import { isRedirectedCompoundDuplicate } from '@/lib/deprecated-compound-canonicals'
 import CompoundsIndexClient from './CompoundsIndexClient'
 import type { RuntimeRecord } from '../../src/types/content'
 import Pagination from '@/components/Pagination'
@@ -32,8 +33,15 @@ function getCompoundName(compound: RuntimeRecord) {
 }
 
 function loadBrowseCompounds(records: RuntimeRecord[]) {
+  const presentSlugs = new Set(records.map((compound) => String(compound.slug || '')))
+
   return records
-    .filter((compound) => compound?.slug && getRuntimeVisibility(compound).canRender)
+    .filter(
+      (compound) =>
+        compound?.slug &&
+        getRuntimeVisibility(compound).canRender &&
+        !isRedirectedCompoundDuplicate(String(compound.slug), presentSlugs),
+    )
     .sort((a, b) => getCompoundName(a).localeCompare(getCompoundName(b)))
 }
 
