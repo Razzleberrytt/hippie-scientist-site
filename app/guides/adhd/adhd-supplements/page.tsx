@@ -7,13 +7,13 @@ import { focusAdhdArticles } from '@/lib/focus-adhd-articles'
 import { AdhdInlineCta } from '@/components/articles/AdhdMonetizationWidgets'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
-import { getRevenueProductSet } from '@/config/revenue-products'
-import RecommendationSection from '@/components/RecommendationSection'
+import References from '@/components/References'
 import ResponsiveTable from '@/components/ui/ResponsiveTable'
 
 const PATH = '/guides/adhd/adhd-supplements'
-const TITLE = 'ADHD Supplements: Evidence, Safety & Testing'
-const DESCRIPTION = 'Start here for evidence-based ADHD supplement guidance, including nutrient deficiencies, sleep support, focus stacks, safety, and testing.'
+const TITLE = 'ADHD Supplements: What the Evidence Actually Supports'
+const DESCRIPTION =
+  'An evidence-calibrated ADHD supplement guide separating core-symptom evidence, deficiency correction, sleep support, early research, testing, and safety.'
 
 export const metadata: Metadata = buildPageMetadata({
   title: TITLE,
@@ -22,93 +22,219 @@ export const metadata: Metadata = buildPageMetadata({
   openGraphType: 'article',
 })
 
+const HEADINGS: Heading[] = [
+  { id: 'quick-answer', text: 'Quick answer', level: 2 },
+  { id: 'decision-map', text: 'Decision map', level: 2 },
+  { id: 'evidence-ranking', text: 'Evidence ranking', level: 2 },
+  { id: 'deficiency-first', text: 'Deficiency-first support', level: 2 },
+  { id: 'sleep-support', text: 'Sleep support', level: 2 },
+  { id: 'stack-rules', text: 'Safer stack rules', level: 2 },
+  { id: 'start-here', text: 'Start-here guides', level: 2 },
+  { id: 'faq', text: 'Frequently asked questions', level: 2 },
+]
+
 const FAQS = [
   {
-    question: 'Can supplements replace ADHD medication?',
-    answer: 'No. Clinical evidence shows that ADHD medications have substantially larger effect sizes for core symptoms (inattention, hyperactivity, impulsivity). Supplements may serve as secondary, adjunctive support for specific areas like sleep or stress under professional guidance.',
+    question: 'Can supplements replace ADHD medication or behavioral treatment?',
+    answer:
+      'No. Supplements should not be presented as substitutes for diagnosis, medication, behavioral treatment, sleep care, coaching, or accommodations. Their most defensible roles are correcting a clinically meaningful nutrient gap, targeting a separate problem such as delayed sleep onset, or serving as a carefully monitored adjunct when expectations are modest.',
   },
   {
-    question: 'What is the most effective starting supplement for ADHD?',
-    answer: 'Most evidence-first protocols recommend addressing sleep quality and correcting documented nutrient gaps (such as omega-3, magnesium, or iron/ferritin) before adding complex stacks or cognitive enhancers.',
+    question: 'What is the best supplement to start with for ADHD?',
+    answer:
+      'There is no universal best starting supplement. First define the target: core ADHD symptoms, low dietary intake, a suspected deficiency, delayed sleep onset, constipation, medication-related appetite suppression, or another problem. The correct next step may be diet review, sleep treatment, laboratory evaluation, or no supplement at all.',
   },
   {
-    question: 'Why does baseline deficiency matter so much?',
-    answer: 'Correcting a confirmed nutrient gap (like iron/ferritin or magnesium deficiency) has strong clinical support. However, supplementing these same nutrients in individuals with normal baseline levels yields little to no functional benefit.',
+    question: 'Does omega-3 reliably improve ADHD symptoms?',
+    answer:
+      'The evidence is mixed. A 2023 meta-analysis found no statistically significant overall improvement in core ADHD symptoms, although studies lasting at least four months showed a possible subgroup benefit. NICE advises against offering fatty-acid supplementation as a treatment for ADHD in children and young people.',
+  },
+  {
+    question: 'Is magnesium an evidence-based ADHD treatment?',
+    answer:
+      'No well-controlled evidence establishes magnesium as an ADHD treatment or identifies a superior form for core symptoms. Magnesium may still be considered for low intake, documented deficiency, constipation, or a separate sleep goal, but those are different decisions from treating ADHD.',
+  },
+  {
+    question: 'Can melatonin improve ADHD?',
+    answer:
+      'Melatonin can improve sleep timing and total sleep time in some children with ADHD and chronic sleep-onset insomnia. In a controlled ADHD trial, it did not improve behavior, cognition, or quality of life. It is a targeted sleep intervention, not a core ADHD treatment.',
   },
   {
     question: 'Are ADHD supplements safe for children?',
-    answer: 'Some supplements (like melatonin for sleep onset or omega-3s) have been studied in children with good tolerability. However, children have unique metabolic profiles, and any supplementation must be supervised by a pediatrician.',
+    answer:
+      'A child should not receive an adult supplement stack. Pediatric use requires age-appropriate dosing, product-quality review, medication screening, and clinician involvement—especially for iron, zinc, vitamin D, magnesium, melatonin, saffron, or multi-ingredient products.',
   },
 ]
 
-const NUTRIENT_GUIDE = [
-  ['Omega-3', 'Tier A / Moderate', 'Low fish intake or low omega-3 status; modest hyperactivity signal', '/guides/adhd/omega-3-and-adhd'],
-  ['Iron / ferritin', 'Tier A when deficient', 'Low ferritin or iron stores confirmed by testing', '/guides/adhd/iron-ferritin-and-adhd'],
-  ['Magnesium', 'Tier B / context-dependent', 'Sleep, tension, low intake, or documented low status', '/guides/adhd/best-magnesium-supplement-for-adhd'],
-  ['Zinc', 'Tier B-C', 'Low intake or measured low status; mixed supplementation trials', '/guides/adhd/zinc-and-adhd'],
-  ['L-theanine', 'Tier C', 'Calm focus, caffeine sensitivity, or bedtime arousal', '/guides/adhd/l-theanine-for-adhd/'],
-  ['Saffron', 'Tier C / promising', 'Interesting early trials, but not first-line and quality varies', '/guides/adhd/best-supplements-for-adhd/'],
-  ['Bacopa', 'Tier D for ADHD', 'Memory evidence does not automatically translate to ADHD', '/guides/adhd/best-supplements-for-adhd/'],
+const DECISION_ROWS = [
+  [
+    'Core inattention, hyperactivity, or impulsivity',
+    'Evidence-based ADHD care first',
+    'Supplements have smaller, less consistent, or indirect evidence',
+    'Do not build the plan around a supplement stack.',
+  ],
+  [
+    'Low intake, restricted eating, or a plausible nutrient gap',
+    'Diet review and selective clinical evaluation',
+    'Correcting a real deficiency is more defensible than blind supplementation',
+    'Treat the gap as a health issue, not proof of an ADHD cure.',
+  ],
+  [
+    'Low ferritin, iron deficiency, or anemia concern',
+    'Clinician-guided iron evaluation and treatment',
+    'ADHD groups may have lower iron or ferritin on average, but association is not treatment evidence',
+    'Never use iron casually; excess can be dangerous.',
+  ],
+  [
+    'Delayed sleep onset or circadian delay',
+    'Behavioral sleep work; melatonin in selected cases',
+    'Better support for sleep timing than for daytime ADHD symptoms',
+    'Track sleep onset and total sleep—not vague “focus.”',
+  ],
+  [
+    'Considering fish oil for core symptoms',
+    'Omega-3 as an optional adjunct',
+    'Mixed overall results; possible longer-duration subgroup signal',
+    'Set modest expectations and avoid presenting it as first-line treatment.',
+  ],
+  [
+    'Considering saffron, L-theanine, or another nootropic',
+    'Treat as an early or uncertain experiment',
+    'Small or indirect evidence bases, product variation, and limited replication',
+    'Use one change at a time and define a stop rule.',
+  ],
 ] as const
 
-const GUIDE_REFERENCES = [
-  ['Nutrition in the Management of ADHD: review of recent research', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10444659/'],
-  ['A closer look at the role of nutrition in children and adults with ADHD', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC12343232/'],
-  ['Iron and zinc in ADHD systematic review', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8618748/'],
-  ['Eating patterns and dietary interventions in ADHD: systematic review', 'https://pmc.ncbi.nlm.nih.gov/articles/PMC9608000/'],
-  ['Omega-3 polyunsaturated fatty acids for core symptoms of ADHD: meta-analysis', 'https://pubmed.ncbi.nlm.nih.gov/37656283/'],
-  ['The effects of saffron on ADHD: systematic review', 'https://pubmed.ncbi.nlm.nih.gov/37864351/'],
-  ['Melatonin for sleep, behavior, and cognition in ADHD and chronic sleep-onset insomnia', 'https://pubmed.ncbi.nlm.nih.gov/17242627/'],
-  ['Mineral status in ADHD review', 'https://www.mdpi.com/1420-3049/25/19/4440'],
+const EVIDENCE_GROUPS = [
+  {
+    label: 'Most defensible role',
+    title: 'Correct a documented or strongly suspected health gap',
+    copy:
+      'Iron, zinc, vitamin D, magnesium, and omega-3 status can be clinically relevant when diet, symptoms, medical history, or laboratory findings point to a problem. The benefit is correcting the gap—not proving the nutrient treats ADHD in everyone.',
+  },
+  {
+    label: 'Targeted symptom role',
+    title: 'Treat a separate sleep-onset problem',
+    copy:
+      'Behavioral sleep interventions have the strongest decision logic. Melatonin has evidence for sleep timing and sleep duration in selected pediatric populations, but it should not be reframed as a daytime attention treatment.',
+  },
+  {
+    label: 'Optional adjunct',
+    title: 'Omega-3 with modest expectations',
+    copy:
+      'Recent pooled evidence did not show a statistically significant overall core-symptom benefit. A longer-duration subgroup signal is hypothesis-generating, not permission to promise a reliable effect.',
+  },
+  {
+    label: 'Early and uncertain',
+    title: 'Saffron, L-theanine, and specialized nootropics',
+    copy:
+      'Saffron has a small emerging ADHD trial base. L-theanine has limited ADHD-specific evidence and broader cognitive research that does not automatically transfer to ADHD. Citicoline, tyrosine, bacopa, ginkgo, rhodiola, and proprietary blends remain lower-confidence choices.',
+  },
 ] as const
 
-const HEADINGS: Heading[] = [
-  { id: 'evidence-hierarchy', text: 'The Evidence Hierarchy', level: 2 },
-  { id: 'semantic-decision-map', text: 'Semantic Decision Map', level: 2 },
-  { id: 'ranked-nutrients', text: 'Ranked Nutrient Cards', level: 2 },
-  { id: 'sleep-calm', text: 'Sleep & Calm Focus Connection', level: 2 },
-  { id: 'faq', text: 'Frequently Asked Questions', level: 2 },
-]
-
-const DECISION_MAP = [
-  ['Core ADHD symptoms', 'omega-3, saffron', 'modest and inconsistent', 'Use as adjuncts, not substitutes for evidence-based ADHD care.'],
-  ['Low ferritin or low iron stores', 'iron repletion', 'stronger when deficient', 'Test first; avoid blind iron supplementation.'],
-  ['Low zinc or poor dietary intake', 'zinc', 'context-dependent', 'Most relevant when status or diet suggests a gap.'],
-  ['Delayed sleep onset', 'melatonin', 'targeted sleep-timing support', 'Best framed as circadian timing support, especially in pediatric ADHD studies.'],
-  ['Bedtime arousal or anxious overactivation', 'L-theanine, magnesium glycinate', 'adjunctive calm support', 'More relevant to arousal and tension than to attention itself.'],
-  ['Medication appetite effects or restricted diet', 'dietary pattern review, labs', 'root-cause support', 'Treat nutrition as clinical context before adding nootropics.'],
+const STACK_RULES = [
+  ['Define one target', 'Choose a measurable problem such as sleep onset, constipation, low intake, or a specific side effect—not “optimize everything.”'],
+  ['Change one variable', 'Starting several products together makes benefits, side effects, and interactions impossible to attribute.'],
+  ['Record the baseline', 'Track the target before starting so normal day-to-day variation is not mistaken for an effect.'],
+  ['Set a review date', 'A trial without a checkpoint quietly becomes permanent. Decide in advance when benefit, harm, cost, and adherence will be reviewed.'],
+  ['Use a stop rule', 'Stop and seek advice for concerning symptoms, medication interactions, worsening sleep, mood changes, persistent GI effects, or no meaningful benefit.'],
 ] as const
 
-const SEMANTIC_EDGES = [
-  ['ADHD -> sleep', 'Insufficient sleep can worsen daytime attention, emotional regulation, and executive function.'],
-  ['ADHD -> nutrient status', 'Restricted diets, low intake, appetite suppression, and selective eating can make deficiency screening more useful.'],
-  ['Supplement -> outcome specificity', 'A supplement with sleep-onset evidence is not automatically an attention supplement.'],
-  ['Evidence -> baseline status', 'Nutrient trials often look stronger when low baseline status is present or likely.'],
-  ['Stack -> attribution risk', 'Adding several ingredients at once makes benefit, side effects, and interactions harder to interpret.'],
+const START_HERE_SLUGS = [
+  'best-supplements-for-adhd',
+  'nutrient-deficiencies-and-adhd',
+  'adhd-blood-tests',
+  'omega-3-and-adhd',
+  'iron-ferritin-and-adhd',
+  'melatonin-for-adhd-sleep',
+  'adhd-stack-guide',
+  'l-theanine-for-adhd',
+] as const
+
+const START_HERE_ARTICLES = START_HERE_SLUGS.flatMap((slug) => {
+  const article = focusAdhdArticles.find((candidate) => candidate.slug === slug)
+  return article ? [article] : []
+})
+
+const REFERENCES = [
+  {
+    n: 1,
+    text: 'NICE. Attention deficit hyperactivity disorder: diagnosis and management. Dietary recommendations, including recommendation 1.6.4.',
+    url: 'https://www.nice.org.uk/guidance/ng87/chapter/recommendations',
+  },
+  {
+    n: 2,
+    text: 'Liu TH, et al. Omega-3 polyunsaturated fatty acids for core symptoms of ADHD: meta-analysis of randomized controlled trials. 2023. PMID: 37656283.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/37656283/',
+  },
+  {
+    n: 3,
+    text: 'Van der Heijden KB, et al. Effect of melatonin on sleep, behavior, and cognition in ADHD and chronic sleep-onset insomnia. 2007. PMID: 17242627.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/17242627/',
+  },
+  {
+    n: 4,
+    text: 'Larsson I, et al. Sleep interventions for children with ADHD: systematic literature review. 2023. PMID: 36603513.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/36603513/',
+  },
+  {
+    n: 5,
+    text: 'Granero R, et al. The role of iron and zinc in the treatment of ADHD among children and adolescents: systematic review of randomized clinical trials. 2021. PMID: 34836314.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/34836314/',
+  },
+  {
+    n: 6,
+    text: 'Ghanizadeh A. A systematic review of magnesium therapy for treating ADHD. 2013. PMID: 23808779.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/23808779/',
+  },
+  {
+    n: 7,
+    text: 'Seyedi-Sahebari S, et al. The effects of Crocus sativus (saffron) on ADHD: a systematic review. 2024. PMID: 37864351.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/37864351/',
+  },
+  {
+    n: 8,
+    text: 'Lyon MR, et al. L-theanine and objective sleep quality in boys with ADHD: randomized double-blind placebo-controlled trial. 2011. PMID: 22214254.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/22214254/',
+  },
+  {
+    n: 9,
+    text: 'Gerolymos C, et al. Cognitive and affective effects of L-theanine: systematic review and meta-analysis of 31 randomized trials. 2026. PMID: 42410082.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/42410082/',
+  },
+  {
+    n: 10,
+    text: 'Essential trace elements zinc, iron, copper and ADHD in children and adolescents: systematic review and meta-analysis of case-control studies. 2026. PMID: 42280439.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/42280439/',
+  },
 ] as const
 
 export default function AdhdSupplementsHub() {
-  const magnesiumProducts = getRevenueProductSet('magnesium')
   const collectionSchema = {
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'CollectionPage',
         '@id': `https://thehippiescientist.net${PATH}/#webpage`,
-        url: `https://thehippiescientist.net${PATH}`,
+        url: `https://thehippiescientist.net${PATH}/`,
         name: TITLE,
         description: DESCRIPTION,
-        isPartOf: { '@type': 'WebSite', name: 'The Hippie Scientist', url: 'https://thehippiescientist.net' },
-        about: { '@type': 'Thing', name: 'ADHD Supplements' },
+        dateModified: '2026-08-02',
+        isPartOf: {
+          '@type': 'WebSite',
+          name: 'The Hippie Scientist',
+          url: 'https://thehippiescientist.net',
+        },
+        about: { '@type': 'Thing', name: 'ADHD supplements' },
       },
       {
         '@type': 'ItemList',
         '@id': `https://thehippiescientist.net${PATH}/#item-list`,
-        name: 'ADHD Cluster Articles',
-        itemListElement: focusAdhdArticles.map((article, index) => ({
+        name: 'Start-here ADHD supplement guides',
+        itemListElement: START_HERE_ARTICLES.map((article, index) => ({
           '@type': 'ListItem',
           position: index + 1,
-          url: `https://thehippiescientist.net/guides/adhd/${article.slug}`,
+          url: `https://thehippiescientist.net/guides/adhd/${article.slug}/`,
           name: article.title,
         })),
       },
@@ -121,10 +247,7 @@ export default function AdhdSupplementsHub() {
     mainEntity: FAQS.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
     })),
   }
 
@@ -132,315 +255,306 @@ export default function AdhdSupplementsHub() {
 
   return (
     <ArticleLayout toc={toc} zone="supplement">
-    <div className="space-y-10">
       <JsonLd schema={collectionSchema} />
       <JsonLd schema={faqSchema} />
 
-      {/* Hero Header */}
-      <section className="hero-shell rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 sm:p-10 shadow-sm">
-        <p className="eyebrow-label">Pillar Guide</p>
-        <h1 className="heading-premium mt-3 text-ink text-3xl sm:text-5xl font-black leading-tight">
-          ADHD Supplements: The Evidence-First Hub
-        </h1>
-        <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
-          Navigating natural support for focus, hyperactivity, sleep, and emotional dysregulation can be overwhelming. Rather than relying on marketing claims, this guide organizes the clinical research on common ADHD supplements using a clear hierarchy of evidence.
-        </p>
-        <div className="mt-6 flex flex-wrap gap-4 text-xs font-semibold uppercase tracking-[0.14em]">
-          <Link href="/guides/adhd/best-supplements-for-adhd/" className="text-brand-700 hover:text-brand-800 hover:underline">
-            Read Pillar Review →
-          </Link>
-          <Link href="/guides/adhd/adhd-stack-guide/" className="text-brand-700 hover:text-brand-800 hover:underline">
-            View Stack Builder Guide →
-          </Link>
-        </div>
-
-        <figure className="mt-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
-            <Image
-              src="/images/guides/adhd-supplements-hub.jpg"
-              alt="An ADHD supplement lineup with omega-3, magnesium, L-theanine, and zinc"
-              width={1536}
-              height={1024}
-              priority
-              className="w-full h-auto"
-            />
-          </div>
-          <figcaption className="mt-3 text-center text-sm text-muted">
-            The supplements most relevant to ADHD, by evidence.
-          </figcaption>
-        </figure>
-      </section>
-
-      <AdhdInlineCta type="checklist" />
-
-      {/* Evidence Hierarchy */}
-      <section id="evidence-hierarchy" className="scroll-mt-20 space-y-4 rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-        <h2 className="text-2xl font-bold tracking-tight text-ink">The Evidence Hierarchy</h2>
-        <p className="text-sm leading-relaxed text-muted">
-          We categorize supplements into tiers based on the volume and consistency of human randomized controlled trials (RCTs) conducted in ADHD populations.
-        </p>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 pt-2">
-          <div className="rounded-xl border border-brand-900/5 bg-[#f4fcf6] p-4">
-            <span className="inline-flex rounded-full bg-emerald-100 px-2.5 py-0.5 text-xs font-bold text-emerald-800">
-              Tier A: Strong
-            </span>
-            <p className="mt-2 text-xs leading-relaxed text-muted">
-              Consistent signals across multiple clinical trials or meta-analyses, particularly when deficiency is present.
-            </p>
-            <p className="mt-2 text-xs font-semibold text-emerald-800">Omega-3, Iron (if deficient)</p>
-          </div>
-          <div className="rounded-xl border border-brand-900/5 bg-brand-50/50 p-4">
-            <span className="inline-flex rounded-full bg-brand-100 px-2.5 py-0.5 text-xs font-bold text-brand-800">
-              Tier B: Moderate
-            </span>
-            <p className="mt-2 text-xs leading-relaxed text-muted">
-              Reasonable clinical trial support for specific symptom domains, such as sleep latency or physical restlessness.
-            </p>
-            <p className="mt-2 text-xs font-semibold text-brand-800">Melatonin, Magnesium, Zinc, Vitamin D</p>
-          </div>
-          <div className="rounded-xl border border-brand-900/5 bg-amber-50/30 p-4">
-            <span className="inline-flex rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-bold text-amber-800">
-              Tier C: Promising
-            </span>
-            <p className="mt-2 text-xs leading-relaxed text-muted">
-              Emerging cognitive or stress-modulating data, but limited direct high-quality trials in confirmed ADHD.
-            </p>
-            <p className="mt-2 text-xs font-semibold text-amber-800">L-Theanine, Ashwagandha, Choline (Citicoline)</p>
-          </div>
-          <div className="rounded-xl border border-brand-900/5 bg-red-50/30 p-4">
-            <span className="inline-flex rounded-full bg-red-100 px-2.5 py-0.5 text-xs font-bold text-red-800">
-              Tier D: Insufficient
-            </span>
-            <p className="mt-2 text-xs leading-relaxed text-muted">
-              Weak, inconsistent, or strictly preclinical/traditional evidence for managing ADHD symptoms.
-            </p>
-            <p className="mt-2 text-xs font-semibold text-red-800">Ginkgo Biloba, Bacopa, Proprietary blends</p>
-          </div>
-        </div>
-      </section>
-
-      <AdhdInlineCta type="safety" />
-
-      <section id="semantic-decision-map" className="scroll-mt-20 space-y-5 rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-        <div className="max-w-3xl">
-          <p className="eyebrow-label">Decision map</p>
-          <h2 className="mt-2 text-2xl font-bold tracking-tight text-ink">
-            Match the supplement to the missing link, not just the diagnosis
-          </h2>
-          <p className="mt-3 text-sm leading-7 text-muted">
-            The useful semantic edge for ADHD content is separating the entity from the outcome.
-            Omega-3 and saffron are discussed as adjuncts for core symptoms; melatonin is a sleep-onset
-            timing tool; iron, zinc, magnesium, and vitamin D are most meaningful when intake, labs, or
-            clinical context suggest a gap. That distinction creates better recommendations than a single
-            generic list of "ADHD supplements."
+      <div className="space-y-12">
+        <section className="hero-shell rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
+          <p className="eyebrow-label">Evidence-calibrated pillar guide</p>
+          <h1 className="heading-premium mt-3 text-3xl font-black leading-tight text-ink sm:text-5xl">
+            ADHD Supplements: What the Evidence Actually Supports
+          </h1>
+          <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
+            There is no universally effective ADHD supplement. The useful question is narrower: are you
+            correcting a real nutrient gap, targeting a separate sleep problem, considering a modest adjunct,
+            or buying a product whose marketing has outrun the evidence?
           </p>
-        </div>
-        <ResponsiveTable label="ADHD supplement decision map">
-          <table className="min-w-[820px] w-full text-left text-sm">
-            <thead className="bg-brand-50/80">
-              <tr className="border-b border-brand-900/10">
-                {['Clinical context', 'Most relevant option', 'Evidence shape', 'Editorial implication'].map((heading) => (
-                  <th key={heading} className="px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] text-brand-900">
-                    {heading}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-brand-900/10 bg-white">
-              {DECISION_MAP.map(([context, option, evidence, implication]) => (
-                <tr key={context} className="align-top">
-                  <td className="px-4 py-4 font-semibold text-ink">{context}</td>
-                  <td className="px-4 py-4 text-[#46574d]">{option}</td>
-                  <td className="px-4 py-4 text-[#46574d]">{evidence}</td>
-                  <td className="px-4 py-4 text-[#46574d]">{implication}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </ResponsiveTable>
-        <div className="grid gap-3 md:grid-cols-5">
-          {SEMANTIC_EDGES.map(([edge, meaning]) => (
-            <div key={edge} className="rounded-xl border border-brand-900/10 bg-brand-50/40 p-4">
-              <h3 className="text-xs font-bold uppercase tracking-[0.12em] text-brand-800">{edge}</h3>
-              <p className="mt-2 text-xs leading-6 text-muted">{meaning}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="ranked-nutrients" className="scroll-mt-20 space-y-4 rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-        <h2 className="text-2xl font-bold tracking-tight text-ink">Ranked Nutrient Cards</h2>
-        <p className="max-w-3xl text-sm leading-relaxed text-muted">
-          The safest ADHD supplement sequence is usually deficiency correction first, sleep support second,
-          and optional focus experiments last. Supplements are adjunctive tools; they do not replace diagnosis,
-          medication, therapy, coaching, sleep evaluation, or school/work accommodations.
-        </p>
-        <div className="grid gap-4 md:grid-cols-2">
-          {NUTRIENT_GUIDE.map(([name, tier, fit, href]) => (
-            <Link key={name} href={href} className="rounded-2xl border border-brand-900/10 bg-white p-5 shadow-sm transition hover:border-brand-700/30">
-              <p className="text-xs font-bold uppercase tracking-wider text-brand-700">{tier}</p>
-              <h3 className="mt-2 text-lg font-semibold text-ink">{name}</h3>
-              <p className="mt-2 text-sm leading-6 text-muted">{fit}</p>
-              <span className="mt-3 inline-block text-xs font-bold text-brand-700">Read evidence review →</span>
+          <div className="mt-5 flex flex-wrap gap-3 text-xs font-semibold">
+            <Link href="/guides/adhd/nutrient-deficiencies-and-adhd/" className="text-brand-700 hover:underline">
+              Check deficiency logic →
             </Link>
-          ))}
-        </div>
-      </section>
+            <Link href="/guides/adhd/sleep-and-adhd/" className="text-brand-700 hover:underline">
+              Separate sleep from ADHD →
+            </Link>
+            <Link href="/guides/adhd/adhd-stack-guide/" className="text-brand-700 hover:underline">
+              Build a safer trial →
+            </Link>
+          </div>
 
-      <section className="grid gap-4 lg:grid-cols-3">
-        <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
-          <h2 className="text-lg font-bold text-ink">Adjunct vs deficiency</h2>
-          <p className="mt-2 text-sm leading-6 text-muted">
-            Correcting a documented nutrient gap is a different decision from adding a nootropic.
-            Start with diet, sleep, medication appetite effects, and testing when clinically appropriate.
-          </p>
-        </div>
-        <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
-          <h2 className="text-lg font-bold text-ink">Kids vs adults</h2>
-          <p className="mt-2 text-sm leading-6 text-muted">
-            Pediatric evidence is stronger for several nutrients, but children need pediatric dosing and supervision.
-            Adult evidence is thinner, so adult stacks should be simpler and more carefully tracked.
-          </p>
-        </div>
-        <div className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
-          <h2 className="text-lg font-bold text-ink">What not to expect</h2>
-          <p className="mt-2 text-sm leading-6 text-muted">
-            Do not expect supplements to produce medication-like effects, fix sleep debt, overcome under-eating,
-            or work reliably when baseline nutrient status is already adequate.
-          </p>
-        </div>
-      </section>
-
-      <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-        <h2 className="text-2xl font-bold tracking-tight text-ink">Conservative Stack Examples</h2>
-        <div className="mt-4 grid gap-4 md:grid-cols-3">
-          {[
-            ['Sleep-first', 'Melatonin for true sleep-onset problems, or magnesium/theanine when tension and arousal dominate.'],
-            ['Deficiency-first', 'Omega-3, iron/ferritin, zinc, vitamin D, or magnesium only when intake, testing, or clinician context supports it.'],
-            ['Calm-focus', 'L-theanine alone or with modest caffeine for adults who tolerate caffeine and have protected sleep.'],
-          ].map(([name, copy]) => (
-            <div key={name} className="rounded-2xl border border-brand-900/10 bg-brand-50/40 p-4">
-              <h3 className="font-semibold text-ink">{name}</h3>
-              <p className="mt-2 text-sm leading-6 text-muted">{copy}</p>
+          <figure className="mt-7">
+            <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
+              <Image
+                src="/images/guides/adhd-supplements-hub.jpg"
+                alt="Common ADHD supplements arranged for an evidence and safety comparison"
+                width={1536}
+                height={1024}
+                priority
+                className="h-auto w-full"
+              />
             </div>
-          ))}
-        </div>
-      </section>
+            <figcaption className="mt-3 text-center text-sm text-muted">
+              Organize the decision by target and evidence—not by the number of bottles in a stack.
+            </figcaption>
+          </figure>
+        </section>
 
-      {/* Article Grid */}
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold tracking-tight text-ink">Explore the ADHD Content Cluster</h2>
-        <p className="text-sm text-muted">Detailed, evidence-first research reviews for specific compounds and use cases.</p>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {focusAdhdArticles.map((article) => (
-            <article key={article.slug} className="card-premium p-6 flex flex-col justify-between space-y-4 bg-white/95 rounded-2xl border border-brand-900/10 shadow-sm transition hover:border-brand-700/20">
-              <div>
-                <div className="flex justify-between items-start gap-2">
-                  <span className="inline-flex items-center rounded-full bg-brand-50 px-2 py-0.5 text-[10px] font-bold text-brand-800 border border-brand-100/50">
-                    {article.category}
+        <section id="quick-answer" className="scroll-mt-20 rounded-[1.65rem] border border-brand-200 bg-brand-50/60 p-6 shadow-sm sm:p-8">
+          <p className="eyebrow-label">Quick answer</p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+            Start with the problem, not the product
+          </h2>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-muted sm:text-base">
+            Supplements sit below evidence-based ADHD care for core symptoms. Their strongest practical roles
+            are correcting a clinically meaningful gap and targeting a separate problem such as delayed sleep
+            onset. Omega-3 is an optional adjunct with mixed evidence. Saffron, L-theanine, and most nootropics
+            remain early or uncertain rather than proven.
+          </p>
+          <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              ['Core symptoms', 'Keep diagnosis and evidence-based ADHD care at the center.'],
+              ['Possible deficiency', 'Review diet, history, medications, and selective testing.'],
+              ['Sleep-onset problem', 'Treat sleep as its own target; do not rename it “focus support.”'],
+              ['Optional experiment', 'Use one product, one outcome, one review date, and one stop rule.'],
+            ].map(([title, copy]) => (
+              <div key={title} className="rounded-xl border border-brand-900/10 bg-white/80 p-4">
+                <h3 className="text-sm font-semibold text-ink">{title}</h3>
+                <p className="mt-2 text-xs leading-6 text-muted">{copy}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <AdhdInlineCta type="checklist" />
+
+        <section id="decision-map" className="scroll-mt-20 space-y-5">
+          <div className="max-w-3xl">
+            <p className="eyebrow-label">Decision map</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+              Match each option to a specific clinical context
+            </h2>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              A lower nutrient level in an ADHD group does not prove causation. A sleep benefit does not prove
+              an attention benefit. A study in healthy adults does not establish an ADHD treatment. Keeping
+              those boundaries visible is the main quality control for this entire topic.
+            </p>
+          </div>
+          <ResponsiveTable label="ADHD supplement decision map">
+            <table className="min-w-[980px] w-full text-left text-sm">
+              <thead className="bg-brand-50/80">
+                <tr className="border-b border-brand-900/10">
+                  {['Situation', 'Best next category', 'Evidence boundary', 'Practical rule'].map((heading) => (
+                    <th key={heading} className="px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] text-brand-900">
+                      {heading}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-brand-900/10 bg-white">
+                {DECISION_ROWS.map(([situation, nextStep, boundary, rule]) => (
+                  <tr key={situation} className="align-top">
+                    <td className="px-4 py-4 font-semibold text-ink">{situation}</td>
+                    <td className="px-4 py-4 text-muted">{nextStep}</td>
+                    <td className="px-4 py-4 text-muted">{boundary}</td>
+                    <td className="px-4 py-4 text-muted">{rule}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </ResponsiveTable>
+        </section>
+
+        <section id="evidence-ranking" className="scroll-mt-20 space-y-5">
+          <div className="max-w-3xl">
+            <p className="eyebrow-label">Decision confidence—not hype tiers</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+              Rank the role before ranking the ingredient
+            </h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            {EVIDENCE_GROUPS.map((group) => (
+              <div key={group.title} className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
+                <p className="text-xs font-bold uppercase tracking-[0.12em] text-brand-700">{group.label}</p>
+                <h3 className="mt-2 text-lg font-semibold text-ink">{group.title}</h3>
+                <p className="mt-2 text-sm leading-7 text-muted">{group.copy}</p>
+              </div>
+            ))}
+          </div>
+          <div className="rounded-2xl border border-amber-900/15 bg-amber-50/70 p-5 text-sm leading-7 text-amber-950/90">
+            <strong>Guidelines matter:</strong> NICE specifically advises against offering dietary fatty-acid
+            supplementation to treat ADHD in children and young people. That is stricter than some research
+            reviews, which is why this page describes omega-3 as optional and mixed—not “Tier A.”
+          </div>
+        </section>
+
+        <section id="deficiency-first" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+          <p className="eyebrow-label">Deficiency-first support</p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+            Group differences do not justify blind supplementation
+          </h2>
+          <div className="mt-4 space-y-4 text-sm leading-7 text-muted sm:text-base">
+            <p>
+              Meta-analyses report that children and adolescents with ADHD can have lower average iron,
+              ferritin, zinc, or magnesium measures than control groups. These are associations with substantial
+              variation between studies. They do not show that every person with ADHD is deficient or that
+              supplementation improves core symptoms when status is already adequate.
+            </p>
+            <p>
+              The practical sequence is dietary history, appetite and medication review, symptoms, medical
+              context, and selective clinician-directed testing when appropriate. Iron deserves particular
+              caution because unnecessary supplementation can be harmful. Magnesium status is also difficult to
+              summarize with one blood result, so testing and interpretation need context rather than a universal
+              “ADHD panel.”
+            </p>
+          </div>
+          <div className="mt-5 grid gap-3 sm:grid-cols-3">
+            <Link href="/guides/adhd/nutrient-deficiencies-and-adhd/" className="rounded-xl border border-brand-900/10 p-4 text-sm font-semibold text-brand-700 hover:underline">
+              Review deficiency patterns →
+            </Link>
+            <Link href="/guides/adhd/adhd-blood-tests/" className="rounded-xl border border-brand-900/10 p-4 text-sm font-semibold text-brand-700 hover:underline">
+              Understand selective testing →
+            </Link>
+            <Link href="/guides/adhd/iron-ferritin-and-adhd/" className="rounded-xl border border-brand-900/10 p-4 text-sm font-semibold text-brand-700 hover:underline">
+              Read the iron safety guide →
+            </Link>
+          </div>
+        </section>
+
+        <section id="sleep-support" className="scroll-mt-20 space-y-5">
+          <div className="max-w-3xl">
+            <p className="eyebrow-label">Sleep is a separate treatment target</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+              Better sleep can improve the day without becoming an ADHD cure
+            </h2>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              Sleep problems can worsen attention, emotion regulation, and daily functioning. Behavioral sleep
+              interventions have the clearest first-step logic. Melatonin can advance sleep onset and increase
+              sleep time in selected children, while a controlled ADHD trial found no improvement in behavior,
+              cognition, or quality of life. Magnesium and L-theanine have narrower or less certain roles.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {[
+              ['Behavioral sleep work', 'Protect wake time, light exposure, routines, and sleep opportunity before assuming a supplement is the missing piece.'],
+              ['Melatonin', 'Use for a defined sleep-timing problem with pediatric or clinical guidance—not as a general attention enhancer.'],
+              ['Magnesium or L-theanine', 'Consider only for a clearly defined secondary goal and keep the weak ADHD-specific evidence visible.'],
+            ].map(([title, copy]) => (
+              <div key={title} className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
+                <h3 className="font-semibold text-ink">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-muted">{copy}</p>
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-4 text-sm font-semibold">
+            <Link href="/guides/adhd/sleep-and-adhd/" className="text-brand-700 hover:underline">
+              Sleep and ADHD guide →
+            </Link>
+            <Link href="/guides/adhd/melatonin-for-adhd-sleep/" className="text-brand-700 hover:underline">
+              Melatonin evidence review →
+            </Link>
+            <Link href="/guides/adhd/best-magnesium-supplement-for-adhd/" className="text-brand-700 hover:underline">
+              Magnesium buying guide →
+            </Link>
+          </div>
+        </section>
+
+        <AdhdInlineCta type="safety" />
+
+        <section id="stack-rules" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+          <p className="eyebrow-label">Safer experiment design</p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+            A stack should behave like a controlled trial—not a shopping haul
+          </h2>
+          <ol className="mt-5 space-y-4">
+            {STACK_RULES.map(([title, copy], index) => (
+              <li key={title} className="rounded-2xl border border-brand-900/10 bg-brand-50/30 p-5">
+                <div className="flex gap-4">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-bold text-brand-800">
+                    {index + 1}
                   </span>
-                  <span className="text-[10px] text-muted whitespace-nowrap">{article.readingTime}</span>
+                  <div>
+                    <h3 className="font-semibold text-ink">{title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-muted">{copy}</p>
+                  </div>
                 </div>
-                <h3 className="mt-3 text-base font-bold text-ink hover:text-brand-800">
-                  <Link href={`/guides/adhd/${article.slug}`}>{article.title}</Link>
-                </h3>
-                <p className="mt-2 text-xs leading-relaxed text-muted line-clamp-3">
-                  {article.description}
-                </p>
-              </div>
-              <div className="pt-2 border-t border-brand-900/5">
-                <Link
-                  href={`/guides/adhd/${article.slug}`}
-                  className="inline-flex items-center justify-between w-full text-xs font-semibold text-brand-700 hover:text-brand-800 hover:underline"
-                >
-                  <span>Read evidence review</span>
-                  <span>→</span>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-5 flex flex-wrap gap-4 text-sm font-semibold">
+            <Link href="/guides/adhd/adhd-stack-guide/" className="text-brand-700 hover:underline">
+              Open the full stack guide →
+            </Link>
+            <Link href="/safety-checker/" className="text-brand-700 hover:underline">
+              Check interaction risks →
+            </Link>
+          </div>
+        </section>
+
+        <AdhdInlineCta type="stack" />
+
+        <section id="start-here" className="scroll-mt-20 space-y-5">
+          <div className="max-w-3xl">
+            <p className="eyebrow-label">Focused next steps</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+              Choose the guide that matches the decision
+            </h2>
+            <p className="mt-3 text-sm leading-7 text-muted">
+              The hub stays broad. These supporting pages handle the narrower evidence, dosing, testing, product,
+              and safety questions without forcing every topic into one giant listicle.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {START_HERE_ARTICLES.map((article) => (
+              <article key={article.slug} className="flex flex-col justify-between rounded-2xl border border-brand-900/10 bg-white/95 p-5 shadow-sm">
+                <div>
+                  <div className="flex items-start justify-between gap-3">
+                    <span className="rounded-full border border-brand-100/60 bg-brand-50 px-2 py-0.5 text-[10px] font-bold text-brand-800">
+                      {article.category}
+                    </span>
+                    <span className="text-[10px] text-muted">{article.readingTime}</span>
+                  </div>
+                  <h3 className="mt-3 text-base font-semibold text-ink">
+                    <Link href={`/guides/adhd/${article.slug}/`} className="hover:text-brand-800 hover:underline">
+                      {article.title}
+                    </Link>
+                  </h3>
+                  <p className="mt-2 text-xs leading-6 text-muted">{article.description}</p>
+                </div>
+                <Link href={`/guides/adhd/${article.slug}/`} className="mt-4 border-t border-brand-900/5 pt-3 text-xs font-semibold text-brand-700 hover:underline">
+                  Read evidence review →
                 </Link>
+              </article>
+            ))}
+          </div>
+          <Link href="/guides/adhd/" className="inline-flex text-sm font-semibold text-brand-700 hover:underline">
+            Browse the complete ADHD guide cluster →
+          </Link>
+        </section>
+
+        <section id="faq" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">Frequently asked questions</h2>
+          <div className="mt-5 divide-y divide-brand-900/10">
+            {FAQS.map((faq) => (
+              <div key={faq.question} className="py-5 first:pt-0 last:pb-0">
+                <h3 className="font-semibold text-ink">{faq.question}</h3>
+                <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
               </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <AdhdInlineCta type="stack" />
-
-      {/* Sleep & Calm Focus Section */}
-      <section id="sleep-calm" className="scroll-mt-20 space-y-4 rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
-        <h2 className="text-2xl font-bold tracking-tight text-ink">Sleep &amp; Calm Focus Connection</h2>
-        <p className="text-sm leading-relaxed text-muted">
-          Sleep disturbances are highly prevalent in individuals with ADHD, often compounding challenges with daytime focus, emotional regulation, and executive function. While targeted sleep support can reduce daytime symptom burden by improving sleep quality and duration, it does not treat or cure ADHD itself and does not replace professional care.
-        </p>
-        <p className="text-sm leading-relaxed text-muted">
-          When constructing an evening routine, compounds like magnesium and L-theanine are frequently utilized to promote calm and reduce bedtime arousal:
-        </p>
-        <div className="grid gap-4 sm:grid-cols-3 pt-2">
-          <div className="rounded-xl border border-brand-900/5 bg-brand-50/30 p-4">
-            <h3 className="font-semibold text-ink text-sm">L-Theanine for Calm</h3>
-            <p className="mt-1.5 text-xs text-muted leading-relaxed">
-              Promotes alpha brain wave activity to quiet a racing mind at bedtime. Learn more in our guide on <Link href="/guides/sleep/l-theanine-for-sleep/" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">L-Theanine for Sleep</Link>.
-            </p>
+            ))}
           </div>
-          <div className="rounded-xl border border-brand-900/5 bg-brand-50/30 p-4">
-            <h3 className="font-semibold text-ink text-sm">Magnesium Selection</h3>
-            <p className="mt-1.5 text-xs text-muted leading-relaxed">
-              Supports neuromuscular relaxation and GABA. It is vital to prioritize deficiency testing. Compare forms in our guide on <Link href="/guides/sleep/magnesium-types-for-sleep/" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">Magnesium Types for Sleep</Link>.
-            </p>
-          </div>
-          <div className="rounded-xl border border-brand-900/5 bg-brand-50/30 p-4">
-            <h3 className="font-semibold text-ink text-sm">Botanical Sleep Support</h3>
-            <p className="mt-1.5 text-xs text-muted leading-relaxed">
-              Herbs like chamomile, lemon balm, or valerian are commonly used for general relaxation. Explore the research in <Link href="/guides/sleep/best-herbs-for-sleep/" className="font-semibold text-brand-700 hover:text-brand-800 hover:underline">Best Herbs for Sleep</Link>.
-            </p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {magnesiumProducts && (
-        <RecommendationSection products={magnesiumProducts.products} />
-      )}
+        <References refs={[...REFERENCES]} />
 
-      {/* FAQ Accordion */}
-      <section id="faq" className="scroll-mt-20 rounded-2xl border border-brand-900/10 bg-white/90 p-6 space-y-4 shadow-sm">
-        <h2 className="text-xl font-bold text-ink">Frequently Asked Questions</h2>
-        <div className="divide-y divide-brand-900/5 space-y-4">
-          {FAQS.map((faq, index) => (
-            <div key={index} className="pt-4 first:pt-0">
-              <h3 className="font-semibold text-ink text-sm sm:text-base">{faq.question}</h3>
-              <p className="mt-1.5 text-xs sm:text-sm leading-relaxed text-muted">{faq.answer}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="rounded-2xl border border-brand-900/10 bg-white/90 p-6 space-y-4 shadow-sm">
-        <h2 className="text-xl font-bold text-ink">References</h2>
-        <ul className="space-y-2 text-sm leading-6">
-          {GUIDE_REFERENCES.map(([label, href]) => (
-            <li key={href}>
-              <a href={href} target="_blank" rel="noopener noreferrer" className="font-semibold text-brand-700 hover:underline">
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      {/* Safety Cautions Block */}
-      <section className="rounded-2xl border border-amber-900/15 bg-amber-50/70 p-6 text-sm leading-relaxed text-amber-950 space-y-2">
-        <h2 className="font-bold text-amber-950 text-base">Clinical Safety Note &amp; Disclaimer</h2>
-        <p className="text-xs text-amber-900/90">
-          No supplement diagnoses, treats, cures, or prevents ADHD. Always discuss any changes with a qualified healthcare provider. This is especially critical when starting supplements in children, during pregnancy or breastfeeding, or if prescription ADHD stimulants or other medications are currently in use.
-        </p>
-        <div className="pt-2 flex gap-3 text-xs font-bold text-amber-900">
-          <Link href="/safety-checker/" className="hover:text-amber-950 hover:underline">
-            Open Safety Checker →
-          </Link>
-          <Link href="/guides/compare/" className="hover:text-amber-950 hover:underline">
-            Side-by-Side Comparison Tool →
-          </Link>
-        </div>
-      </section>
-    </div>
+        <section className="rounded-[1.65rem] border border-amber-900/15 bg-amber-50/70 p-6 text-sm leading-7 text-amber-950/90 shadow-sm">
+          <h2 className="text-lg font-semibold text-amber-950">Clinical safety note</h2>
+          <p className="mt-3">
+            This guide is educational and does not diagnose ADHD, nutrient deficiency, anemia, or a sleep
+            disorder. Review supplements with a qualified clinician or pharmacist when the user is a child, is
+            pregnant or breastfeeding, has kidney or liver disease, uses prescription medication, has a history
+            of mood instability, or is considering iron, high-dose minerals, melatonin, saffron, or a
+            multi-ingredient stack.
+          </p>
+        </section>
+      </div>
     </ArticleLayout>
   )
 }
