@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/navigation-config'
+import buildReport from '@/public/data/build-report.json'
 
 export const metadata: Metadata = {
   title: 'Evidence Library — Supplements, Science & Mental Health',
@@ -101,6 +102,8 @@ const FEATURED_DECISION_ROUTES = [
   },
 ]
 
+const counts = buildReport.counts
+
 export default function LibraryHub() {
   return (
     <div className="mx-auto max-w-5xl px-4 pb-24 pt-8">
@@ -151,7 +154,9 @@ export default function LibraryHub() {
 
       <div className="mt-16 rounded-2xl border border-brand-900/10 bg-brand-50/50 p-8 text-center">
         <h2 className="text-xl font-bold text-ink">Browse the reference databases</h2>
-        <p className="mt-2 text-muted">Prefer structured profiles? Explore 290 herbs and 557 active compounds.</p>
+        <p className="mt-2 text-muted">
+          Prefer structured profiles? Explore {counts.herbs} herbs and {counts.compounds} active compounds.
+        </p>
         <div className="mt-4 flex justify-center gap-3">
           <Link href="/herbs/" className="rounded-full bg-brand-700 px-6 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-800">Browse Herbs →</Link>
           <Link href="/compounds/" className="rounded-full border border-brand-700 px-6 py-2.5 text-sm font-semibold text-brand-700 transition hover:bg-brand-50">Browse Compounds →</Link>
