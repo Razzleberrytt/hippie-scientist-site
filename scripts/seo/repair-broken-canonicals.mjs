@@ -27,6 +27,8 @@ const INTERNAL_LINK_REPLACEMENTS = new Map([
   ['/compounds/citicoline/', '/compounds/cdp-choline/'],
   ['/state-of-supplement-evidence-2026/', '/articles/state-of-supplement-evidence-2026/'],
   ['/education/insomnia/', '/guides/sleep/'],
+  ['/compounds/mitragynine/', '/articles/mitragynine/'],
+  ['/compounds/7-hydroxymitragynine/', '/articles/7-hydroxymitragynine/'],
 ])
 
 const UNPUBLISHED_PROFILE_TARGETS = new Set([
@@ -34,8 +36,6 @@ const UNPUBLISHED_PROFILE_TARGETS = new Set([
   '/compounds/harmaline/',
   '/compounds/harmine/',
   '/compounds/kratom/',
-  '/compounds/mitragynine/',
-  '/compounds/7-hydroxymitragynine/',
 ])
 
 function* walkHtmlFiles(dir) {
@@ -100,7 +100,7 @@ function repairInternalLinks(html) {
     }
   }
 
-  next = next.replace(/<a\b([^>]*\bhref=(["'])(\/compounds\/(?:dmt|harmaline|harmine|kratom|mitragynine|7-hydroxymitragynine)\/)\2[^>]*)>([\s\S]*?)<\/a>/gi, (match, _attrs, _quote, href, innerHtml) => {
+  next = next.replace(/<a\b([^>]*\bhref=(["'])(\/compounds\/(?:dmt|harmaline|harmine|kratom)\/)\2[^>]*)>([\s\S]*?)<\/a>/gi, (match, _attrs, _quote, href, innerHtml) => {
     if (!UNPUBLISHED_PROFILE_TARGETS.has(href)) return match
     changedLinks += 1
     return innerHtml
