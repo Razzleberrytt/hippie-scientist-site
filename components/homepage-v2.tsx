@@ -28,7 +28,7 @@ const heroGoals = [
     slug: 'stress',
     tone: 'stress',
     title: 'Stress',
-    href: '/guides/anxiety/',
+    href: '/guides/stress/',
     icon: Leaf,
     prompt: 'Sort calming supports and adaptogens by symptom pattern.',
   },
