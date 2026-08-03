@@ -25,13 +25,13 @@ const GOAL_COMPARE_SLUGS: Record<string, string[]> = {
     'melatonin-vs-valerian-vs-magnesium-for-sleep',
   ],
   stress: [
-    'ashwagandha-vs-rhodiola',
+    'rhodiola-vs-ashwagandha',
     'ashwagandha-vs-rhodiola-for-stress',
     'ashwagandha-vs-magnesium',
     'ashwagandha-vs-l-theanine-vs-magnesium',
   ],
   anxiety: [
-    'ashwagandha-vs-rhodiola',
+    'rhodiola-vs-ashwagandha',
     'melatonin-vs-l-theanine',
     'ashwagandha-vs-l-theanine-vs-magnesium',
   ],
@@ -45,7 +45,7 @@ const GOAL_COMPARE_SLUGS: Record<string, string[]> = {
     'caffeine-vs-theanine',
     'caffeine-vs-l-theanine-vs-bacopa-for-focus',
   ],
-  energy: ['caffeine-vs-theanine', 'ashwagandha-vs-rhodiola'],
+  energy: ['caffeine-vs-theanine', 'rhodiola-vs-ashwagandha'],
 }
 
 const GOAL_SEO_ENTRIES: Record<string, GoalHubLink> = {
@@ -68,7 +68,7 @@ const GOAL_SEO_ENTRIES: Record<string, GoalHubLink> = {
 
 const GOAL_GUIDE_ROUTES: Record<string, string> = {
   sleep: '/guides/sleep/',
-  stress: '/guides/anxiety/',
+  stress: '/guides/stress/',
   anxiety: '/guides/anxiety/',
   focus: '/guides/focus/',
   cognition: '/guides/focus/',
