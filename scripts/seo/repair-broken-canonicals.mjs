@@ -3,6 +3,7 @@ import path from 'node:path'
 
 const root = process.cwd()
 const outDir = path.join(root, 'out')
+const MAX_META_DESCRIPTION_LENGTH = 155
 
 const CANONICAL_REPLACEMENTS = new Map([
   ['https://thehippiescientist.net/herbs/piper-methysticum/', 'https://thehippiescientist.net/herbs/kava/'],
@@ -22,6 +23,21 @@ const CANONICAL_REPLACEMENTS = new Map([
   ['https://thehippiescientist.net/herbs/angelica-root/', 'https://thehippiescientist.net/herbs/angelica-archangelica/'],
 ])
 
+const INTERNAL_LINK_REPLACEMENTS = new Map([
+  ['/compounds/citicoline/', '/compounds/cdp-choline/'],
+  ['/state-of-supplement-evidence-2026/', '/articles/state-of-supplement-evidence-2026/'],
+  ['/education/insomnia/', '/guides/sleep/'],
+])
+
+const UNPUBLISHED_PROFILE_TARGETS = new Set([
+  '/compounds/dmt/',
+  '/compounds/harmaline/',
+  '/compounds/harmine/',
+  '/compounds/kratom/',
+  '/compounds/mitragynine/',
+  '/compounds/7-hydroxymitragynine/',
+])
+
 function* walkHtmlFiles(dir) {
   if (!fs.existsSync(dir)) return
 
@@ -35,6 +51,64 @@ function* walkHtmlFiles(dir) {
   }
 }
 
+function truncateMetaDescription(value) {
+  const normalized = value.replace(/\s+/g, ' ').trim()
+  if (normalized.length <= MAX_META_DESCRIPTION_LENGTH) return normalized
+
+  const targetLength = MAX_META_DESCRIPTION_LENGTH - 1
+  const candidate = normalized.slice(0, targetLength)
+  const lastSpace = candidate.lastIndexOf(' ')
+  let shortened = lastSpace >= 110 ? candidate.slice(0, lastSpace) : candidate
+
+  // Do not leave a partial HTML entity such as "&amp" at the cut boundary.
+  const lastAmpersand = shortened.lastIndexOf('&')
+  const lastSemicolon = shortened.lastIndexOf(';')
+  if (lastAmpersand > lastSemicolon) {
+    shortened = shortened.slice(0, lastAmpersand)
+  }
+
+  return `${shortened.trimEnd()}…`
+}
+
+function normalizeDescriptionTags(html) {
+  let changedTags = 0
+  const next = html.replace(/<meta\b[^>]*(?:(?:name|property)=["'](?:description|og:description|twitter:description)["'])[^>]*>/gi, tag => {
+    const normalizedTag = tag.replace(/content=(["'])(.*?)\1/i, (match, quote, value) => {
+      const normalized = truncateMetaDescription(value)
+      if (normalized === value) return match
+      changedTags += 1
+      return `content=${quote}${normalized}${quote}`
+    })
+    return normalizedTag
+  })
+
+  return { html: next, changedTags }
+}
+
+function repairInternalLinks(html) {
+  let changedLinks = 0
+  let next = html
+
+  for (const [from, to] of INTERNAL_LINK_REPLACEMENTS) {
+    for (const quote of ['"', "'"]) {
+      const source = `href=${quote}${from}${quote}`
+      const target = `href=${quote}${to}${quote}`
+      if (!next.includes(source)) continue
+      const before = next
+      next = next.split(source).join(target)
+      changedLinks += before.split(source).length - 1
+    }
+  }
+
+  next = next.replace(/<a\b([^>]*\bhref=(["'])(\/compounds\/(?:dmt|harmaline|harmine|kratom|mitragynine|7-hydroxymitragynine)\/)\2[^>]*)>([\s\S]*?)<\/a>/gi, (match, _attrs, _quote, href, innerHtml) => {
+    if (!UNPUBLISHED_PROFILE_TARGETS.has(href)) return match
+    changedLinks += 1
+    return innerHtml
+  })
+
+  return { html: next, changedLinks }
+}
+
 if (!fs.existsSync(outDir)) {
   console.warn('[repair-broken-canonicals] out directory not found; skipping.')
   process.exit(0)
@@ -42,6 +116,8 @@ if (!fs.existsSync(outDir)) {
 
 let touchedFiles = 0
 let replacements = 0
+let normalizedDescriptionTags = 0
+let repairedInternalLinks = 0
 
 for (const filePath of walkHtmlFiles(outDir)) {
   const html = fs.readFileSync(filePath, 'utf8')
@@ -54,10 +130,20 @@ for (const filePath of walkHtmlFiles(outDir)) {
     replacements += before.split(from).length - 1
   }
 
+  const normalizedDescriptions = normalizeDescriptionTags(next)
+  next = normalizedDescriptions.html
+  normalizedDescriptionTags += normalizedDescriptions.changedTags
+
+  const repairedLinks = repairInternalLinks(next)
+  next = repairedLinks.html
+  repairedInternalLinks += repairedLinks.changedLinks
+
   if (next !== html) {
     fs.writeFileSync(filePath, next)
     touchedFiles += 1
   }
 }
 
-console.log(`[repair-broken-canonicals] Rewrote ${replacements} canonical alias references in ${touchedFiles} HTML files.`)
+console.log(
+  `[repair-broken-canonicals] Rewrote ${replacements} canonical alias references, normalized ${normalizedDescriptionTags} description tags, and repaired ${repairedInternalLinks} internal links in ${touchedFiles} HTML files.`,
+)
