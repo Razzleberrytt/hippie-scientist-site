@@ -33,7 +33,7 @@ async function loadBrowseCompounds(): Promise<RuntimeRecord[]> {
     .filter(
       (compound) =>
         compound?.slug &&
-        getRuntimeVisibility(compound).canRender &&
+        getRuntimeVisibility(compound).canIndex &&
         !isRedirectedCompoundDuplicate(String(compound.slug), presentSlugs),
     )
     .sort((a, b) => getCompoundName(a).localeCompare(getCompoundName(b)))
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: P): Promise<Metadata> {
 
   return {
     title: `Compound Profiles & Research Library — Page ${n}`,
-    description: `Browse page ${n} of The Hippie Scientist compound research library, with evidence, mechanism, safety, and practical context for supplement constituents.`,
+    description: `Browse page ${n} of The Hippie Scientist published compound library, with evidence, mechanism, safety, and practical context for supplement constituents.`,
     alternates: {
       canonical: `/compounds/page/${n}/`,
     },
@@ -81,7 +81,7 @@ export default async function CompoundsPageN({ params }: P) {
 
       <Pagination basePath="/compounds" currentPage={p.currentPage} totalPages={p.totalPages} itemLabel="Compound profiles" />
 
-      <nav aria-label="Compound profiles on this page" className="sr-only">
+      <nav aria-label="Published compound profiles on this page" className="sr-only">
         <ul>
           {p.pageItems.map((compound) => (
             <li key={compound.slug}>
