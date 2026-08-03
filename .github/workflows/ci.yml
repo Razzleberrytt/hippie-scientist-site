@@ -95,7 +95,6 @@ jobs:
 
       - name: Audit internal links through redirects
         if: always()
-        continue-on-error: true
         run: node scripts/ci/audit-internal-redirect-links.mjs
 
       - name: Upload SEO audit reports
