@@ -10,6 +10,12 @@ export type Ref = {
   doi?: string
 }
 
+function sourceLabel(url: string): string {
+  if (url.includes('pubmed.ncbi.nlm.nih.gov')) return 'PubMed →'
+  if (url.includes('doi.org')) return 'DOI →'
+  return 'Source →'
+}
+
 export default function References({ refs }: { refs: Ref[] }) {
   return (
     <section id="references" aria-label="References" className="card-premium p-6 space-y-3 max-w-4xl">
@@ -29,7 +35,7 @@ export default function References({ refs }: { refs: Ref[] }) {
               <>
                 {' '}
                 <a href={ref.url} target="_blank" rel="noopener noreferrer" itemProp="url" className="text-brand-700 underline hover:text-brand-800">
-                  PubMed →
+                  {sourceLabel(ref.url)}
                 </a>
               </>
             ) : null}

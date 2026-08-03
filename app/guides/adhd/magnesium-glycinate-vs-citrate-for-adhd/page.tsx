@@ -1,482 +1,406 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import JsonLd from '@/components/seo/JsonLd'
 import type { Metadata } from 'next'
-import { buildPageMetadata, blogJsonLd, breadcrumbJsonLd, faqPageJsonLd, compactMetaTitle } from '../../../../src/lib/seo'
-import LastUpdatedBadge from '../../../../src/components/editorial/LastUpdatedBadge'
-import ResponsiveTable from '@/components/ui/ResponsiveTable'
-import SafetyNotice from '@/components/evidence/SafetyNotice'
-import EvidenceSummaryCard from '@/components/evidence/EvidenceSummaryCard'
-import EmailCapture from '@/components/EmailCapture'
-import NewsletterCtaBlock from '@/components/NewsletterCtaBlock'
-import PathwayDiagram from '@/components/PathwayDiagram'
-import EvidenceLegend from '@/components/EvidenceLegend'
-import { pathwayDiagrams } from '@/lib/pathway-data'
-import References from '@/components/References'
+import Image from 'next/image'
+import Link from 'next/link'
+import AffiliateDisclosure from '@/components/AffiliateDisclosure'
+import { ArticleLayout, TableOfContents } from '@/components/articles'
+import type { Heading } from '@/components/articles'
 import RecommendationSection from '@/components/RecommendationSection'
+import References from '@/components/References'
+import StructuredData from '@/components/StructuredData'
+import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import { getRevenueProductSet } from '@/config/revenue-products'
+import { SITE_URL } from '@/lib/navigation-config'
 
-const SLUG = 'magnesium-glycinate-vs-citrate-for-adhd'
-const TITLE = 'Magnesium Glycinate vs Citrate for ADHD: Which Form Works Better?'
+const PATH = '/guides/adhd/magnesium-glycinate-vs-citrate-for-adhd'
+const PAGE_URL = `${SITE_URL}${PATH}`
+const TITLE = 'Magnesium Glycinate vs Citrate for ADHD: Evidence & Tradeoffs'
 const DESCRIPTION =
-  'Evidence-based comparison of magnesium glycinate and citrate for ADHD. Covers absorption, sleep support, calming effects, GI tolerability, dosage, and practical product guidance.'
-const DATE = '2026-06-12'
-const AUTHOR = 'Will'
-const READING_TIME = '11 min read'
-const TAGS = ['magnesium', 'ADHD', 'focus', 'sleep', 'minerals']
-const CATEGORY = 'Supplement Evidence'
+  'Compare magnesium glycinate and citrate for ADHD without the marketing shortcuts. Direct ADHD evidence, sleep context, absorption, GI effects, labels, safety, and cost.'
 
-export const metadata: Metadata = buildPageMetadata({
-  title: compactMetaTitle(TITLE),
+export const metadata: Metadata = {
+  title: TITLE,
   description: DESCRIPTION,
-  path: `/guides/adhd/${SLUG}`,
-  openGraphType: 'article',
-})
+  alternates: { canonical: `${PATH}/` },
+  openGraph: {
+    title: TITLE,
+    description: DESCRIPTION,
+    url: `${PATH}/`,
+    type: 'article',
+    images: ['/images/guides/magnesium-glycinate-vs-citrate-for-adhd.jpg'],
+  },
+}
+
+const HEADINGS: Heading[] = [
+  { id: 'verdict', text: 'Quick verdict', level: 2 },
+  { id: 'comparison', text: 'Side-by-side comparison', level: 2 },
+  { id: 'claim-check', text: 'Claim check', level: 2 },
+  { id: 'choose', text: 'How to choose', level: 2 },
+  { id: 'dose-safety', text: 'Dose and safety', level: 2 },
+  { id: 'faq', text: 'Frequently asked questions', level: 2 },
+]
+
+const COMPARISON_ROWS = [
+  ['Direct ADHD evidence', 'No form-specific ADHD trial showing benefit or superiority', 'No form-specific ADHD trial showing benefit or superiority'],
+  ['Sleep evidence', 'One 2025 placebo-controlled trial in adults with poor sleep found a small benefit from bisglycinate; it was not an ADHD trial', 'No comparable ADHD or direct glycinate-vs-citrate sleep trial'],
+  ['Absorption evidence', 'No authoritative evidence that glycinate is uniquely best for ADHD', 'NIH summarizes citrate as more completely absorbed than oxide in small studies; that does not prove superiority to glycinate'],
+  ['GI fit', 'Often chosen by people trying to avoid a laxative-style product, but individual tolerance varies', 'Can loosen stools; useful when constipation is part of the picture and less useful when diarrhea is a risk'],
+  ['Cost', 'Usually higher', 'Usually lower'],
+  ['Best practical use', 'A simple trial when sleep or perceived GI tolerance is the main reason for the form choice', 'A cost-conscious repletion option or a form that may also help constipation'],
+  ['What it cannot claim', 'Proven calm-focus synergy or better ADHD symptom control', 'Proven ADHD efficacy or equal benefit at every dose'],
+] as const
 
 const FAQS = [
   {
     question: 'Is magnesium glycinate or citrate better for ADHD?',
     answer:
-      'Magnesium glycinate is generally considered the better first choice for ADHD-related use. The glycine component adds mild calming support, it is gentler on the digestive system, and it is well-absorbed. Citrate is a reasonable alternative with good absorption at a lower price point, but it has a stronger laxative effect at higher doses. For sleep support, glycinate is typically preferred. For general magnesium repletion at a lower cost, citrate is acceptable.',
+      'Neither has been proven better for ADHD. There is no direct ADHD head-to-head trial. Glycinate may be a practical fit when sleep or perceived GI tolerance matters; citrate may be a practical fit when cost or constipation matters. Those are use-case differences, not evidence of superior ADHD symptom control.',
   },
   {
-    question: 'Can magnesium help ADHD symptoms directly?',
+    question: 'Does the glycine in magnesium glycinate make it better for focus or calm?',
     answer:
-      'The evidence for magnesium improving core ADHD symptoms (inattention, hyperactivity) is primarily in populations with documented magnesium deficiency — which is more common in ADHD than the general population. Correcting a deficiency may improve symptoms by normalizing nervous system excitability. Using magnesium as a primary ADHD treatment in a non-deficient person has weaker supporting evidence. Testing serum magnesium levels before supplementing is reasonable.',
+      'That claim is plausible but unproven. The effect of glycine has not been isolated in a magnesium-glycinate ADHD trial, so the combined product cannot be assumed to provide a special calm-focus effect beyond magnesium itself.',
   },
   {
-    question: 'What dose of magnesium glycinate for ADHD?',
+    question: 'Is citrate absorbed better than glycinate?',
     answer:
-      'Common supplemental doses are 200–400 mg elemental magnesium daily. For ADHD specifically, many practitioners use 200–300 mg elemental magnesium glycinate taken in the evening. Start at the lower end and increase gradually. Note that "magnesium glycinate 400 mg" on a label refers to the total salt weight, not elemental magnesium — check the label for elemental magnesium content, which is typically 60–75 mg per 400 mg serving of the chelate.',
+      'NIH summarizes small studies showing citrate is absorbed more completely than oxide and sulfate. That is not the same as a direct citrate-versus-glycinate comparison, and it does not establish that citrate produces better ADHD or sleep outcomes.',
   },
   {
-    question: 'Can I take magnesium glycinate every night for ADHD?',
+    question: 'Which form is less likely to cause diarrhea?',
     answer:
-      'Daily evening use is a common pattern and is generally considered reasonable for healthy adults within typical supplemental dose ranges. Long-term formal safety data for high-dose supplementation is limited, but magnesium at physiological doses has a good safety record. Avoid exceeding the tolerable upper intake level of 350 mg supplemental magnesium per day from supplements (dietary magnesium is not counted in this limit). If you have kidney disease or take medications, consult a clinician first.',
+      'Citrate can have a more noticeable laxative effect, but GI response varies by dose, serving size, diet, and individual sensitivity. A lower elemental dose can matter as much as the form name.',
   },
   {
-    question: 'Does magnesium citrate have a laxative effect at ADHD doses?',
+    question: 'What dose should I use for ADHD?',
     answer:
-      'At typical ADHD supplemental doses (150–200 mg elemental magnesium), GI effects are mild for most people. Magnesium citrate has a stronger osmotic laxative effect than glycinate at equal elemental doses, particularly above 200–300 mg. If loose stools occur with citrate, switching to glycinate or reducing the dose usually resolves the issue. Some people find citrate useful for constipation as a side benefit; for others it is a reason to use glycinate instead.',
+      'There is no established ADHD-specific dose for either form. Read the label for elemental magnesium rather than the total chelate weight. The NIH adult upper limit is 350 mg per day from supplements and medications unless a clinician recommends otherwise.',
   },
   {
-    question: 'Is magnesium threonate better than glycinate for ADHD?',
+    question: 'Should I test magnesium before choosing a form?',
     answer:
-      'Magnesium threonate (L-threonate) is marketed for brain health due to animal data suggesting greater brain penetration. Human trial data for threonate vs glycinate in ADHD specifically is very limited. It is substantially more expensive than glycinate. For most people starting magnesium supplementation for ADHD, glycinate is the most practical first choice: better evidence, better cost, and a strong safety profile. Threonate may be worth exploring if glycinate does not produce results after a fair trial.',
+      'Clinical context can be useful, but no single magnesium test is definitive. NIH notes that serum magnesium is commonly measured yet does not closely reflect total-body or tissue status. Diet, symptoms, medical history, medications, and laboratory findings may all matter.',
   },
 ]
 
-const MAGNESIUM_GLYCINATE_VS_CITRATE_FOR_ADHD_REFS = [
-  { n: 1, text: 'Starobrat-Hermelin B, Kozielec T. (1997). Magnesium in ADHD. Magnes Res, 10(2): 149-156.', url: 'https://pubmed.ncbi.nlm.nih.gov/9368238/' },
-  { n: 2, text: 'Mousain-Bosc M, et al. (2006). Magnesium-B6 supplementation in ADHD. Magnes Res, 19(1): 46-52.', url: 'https://pubmed.ncbi.nlm.nih.gov/16846101/' },
-  { n: 3, text: 'Abbasi B, et al. (2012). Magnesium and sleep. J Res Med Sci, 17(12): 1161-1169.', url: 'https://pubmed.ncbi.nlm.nih.gov/23853635/' },
-]
+const REFERENCES = [
+  {
+    n: 1,
+    text: 'NIH Office of Dietary Supplements. Magnesium: Fact Sheet for Health Professionals.',
+    url: 'https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/',
+  },
+  {
+    n: 2,
+    text: 'Schuster J, et al. Magnesium bisglycinate supplementation in healthy adults reporting poor sleep: randomized placebo-controlled trial. 2025. PMID: 40918053.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/40918053/',
+  },
+  {
+    n: 3,
+    text: 'Ghanizadeh A. A systematic review of magnesium therapy for treating attention deficit hyperactivity disorder. 2013. PMID: 23808779.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/23808779/',
+  },
+  {
+    n: 4,
+    text: 'Huang YH, et al. Magnesium levels in children with ADHD: systematic review and meta-analysis. 2019. PMID: 30496768.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/30496768/',
+  },
+] as const
 
-export default function MagnesiumGlycinateCitrateAdhdPage() {
-  const breadcrumbLd = breadcrumbJsonLd([
-    { name: 'Guides', url: 'https://thehippiescientist.net/guides/' },
-    { name: TITLE, url: `https://thehippiescientist.net/guides/adhd/${SLUG}/` },
-  ])
-  const articleLd = blogJsonLd(
-    { title: TITLE, slug: SLUG, date: DATE, description: DESCRIPTION },
-    `/guides/adhd/${SLUG}/`,
-  )
-  const faqLd = faqPageJsonLd({ pagePath: `/guides/adhd/${SLUG}/`, questions: FAQS })
+export default function MagnesiumGlycinateVsCitrateForAdhdPage() {
+  const toc = <TableOfContents headings={HEADINGS} />
+  const magnesiumProducts = getRevenueProductSet('magnesium')
 
   return (
-    <article className="mx-auto max-w-5xl space-y-0 px-4 pb-20 pt-6 sm:px-6 lg:px-8">
-      <JsonLd schema={articleLd} />
-      <JsonLd schema={breadcrumbLd} />
-      {faqLd && <JsonLd schema={faqLd} />}
+    <ArticleLayout toc={toc} zone="supplement">
+      <StructuredData
+        pageUrl={PAGE_URL}
+        headline={TITLE}
+        description={DESCRIPTION}
+        datePublished="2026-06-12"
+        dateModified="2026-08-02"
+        image={`${SITE_URL}/images/guides/magnesium-glycinate-vs-citrate-for-adhd.jpg`}
+        faqs={FAQS}
+        breadcrumbs={[
+          { label: 'Home', href: '/' },
+          { label: 'ADHD Guides', href: '/guides/adhd/' },
+          { label: 'Glycinate vs Citrate', href: PATH },
+        ]}
+        zone="monetized"
+      />
 
-      {/* Breadcrumb */}
-      <nav className="mb-6 flex items-center gap-2 text-sm text-muted">
-        <Link href="/guides/" className="transition hover:text-ink">Guides</Link>
-        <span>/</span>
-        <span className="text-ink line-clamp-1">{TITLE}</span>
-      </nav>
+      <div className="space-y-12">
+        <AffiliateDisclosure variant="compact" />
 
-      {/* Hero */}
-      <section className="rounded-[1.5rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 lg:p-10">
-        <div className="flex flex-wrap items-center gap-2 text-xs">
-          <span className="rounded-full border border-brand-900/10 bg-brand-50 px-2.5 py-0.5 font-bold uppercase tracking-wider text-brand-800">
-            {CATEGORY}
-          </span>
-          {TAGS.slice(0, 3).map((tag) => (
-            <span key={tag} className="rounded-full border border-brand-900/10 bg-white px-2.5 py-0.5 font-semibold text-muted capitalize">
-              {tag}
-            </span>
-          ))}
-          <span className="text-muted">June 12, 2026</span>
-          <span className="text-muted">·</span>
-          <span className="text-muted">{READING_TIME}</span>
-        </div>
-
-        <h1 className="mt-4 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-4xl lg:text-5xl">
-          {TITLE}
-        </h1>
-        <p className="mt-2 text-sm text-muted">
-          By{' '}
-          <Link href="/info/about/" rel="author" className="font-medium text-ink hover:underline">
-            {AUTHOR}
-          </Link>
-        </p>
-        <div className="mt-3">
-          <LastUpdatedBadge date={DATE} label="Last updated" />
-        </div>
-        <p className="mt-4 max-w-3xl text-base leading-7 text-muted">{DESCRIPTION}</p>
-
-        <figure className="mt-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
-            <Image
-              src="/images/guides/magnesium-glycinate-vs-citrate-for-adhd.jpg"
-              alt="Magnesium glycinate and magnesium citrate supplements compared for ADHD"
-              width={1536}
-              height={1024}
-              priority
-              className="w-full h-auto"
-            />
+        <section className="rounded-[2rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-10">
+          <p className="eyebrow-label">Symmetrical comparison</p>
+          <h1 className="mt-3 font-display text-3xl font-bold leading-tight tracking-tight text-ink sm:text-5xl">
+            Magnesium Glycinate vs Citrate for ADHD
+          </h1>
+          <p className="mt-4 max-w-3xl text-base leading-7 text-muted">
+            There is no direct ADHD head-to-head trial showing that glycinate beats citrate. The useful
+            comparison is practical: sleep context, GI response, constipation, cost, elemental dose, and
+            medication safety. This page keeps those tradeoffs separate from claims about treating ADHD.
+          </p>
+          <div className="mt-5 flex flex-wrap gap-3 text-xs font-semibold">
+            <Link href="/guides/adhd/best-magnesium-supplement-for-adhd/" className="text-brand-700 hover:underline">
+              Magnesium buying guide →
+            </Link>
+            <Link href="/guides/sleep/magnesium-types-for-sleep/" className="text-brand-700 hover:underline">
+              Compare forms for sleep →
+            </Link>
           </div>
-          <figcaption className="mt-3 text-center text-sm text-muted">
-            Glycinate vs citrate — the two magnesium forms most relevant to ADHD.
-          </figcaption>
-        </figure>
-      </section>
 
-      {/* Disclosure */}
-      <div className="mt-4 rounded-[1rem] border border-brand-900/10 bg-brand-50/60 px-5 py-3 text-xs leading-6 text-muted">
-        <strong className="text-ink">Affiliate disclosure:</strong> This article contains affiliate
-        links. If you purchase through these links, we may earn a commission at no additional cost to
-        you. We only link to forms and dose ranges consistent with the research reviewed on this page.
-      </div>
-
-      {/* Body + sidebar */}
-      <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_240px]">
-        <div className="space-y-6">
-
-          {/* Quick Verdict */}
-          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
-            <p className="eyebrow-label">Quick Verdict</p>
-            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
-              Glycinate or Citrate — Which Wins for ADHD?
-            </h2>
-            <ul className="mt-4 space-y-2">
-              {[
-                ['Glycinate is the better first choice for ADHD', 'The glycine component adds mild calming support, GI tolerance is better, and it\'s well-suited for evening use.'],
-                ['Citrate is a reasonable budget alternative', 'Similar elemental absorption at lower cost, but more laxative potential at higher doses.'],
-                ['Both forms help correct magnesium deficiency', 'Deficiency is more common in ADHD and correcting it may reduce hyperactivation and support sleep.'],
-                ['Neither is a primary ADHD treatment', 'Evidence for direct ADHD symptom improvement is strongest in deficient populations — not as a standalone stimulant replacement.'],
-              ].map(([bold, rest]) => (
-                <li key={bold as string} className="flex gap-2 text-[1.01rem] leading-[1.85] text-muted">
-                  <span className="mt-1 flex-shrink-0 text-brand-700">▸</span>
-                  <span><strong>{bold as string}.</strong> {rest as string}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          {/* Main content */}
-          <section className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8 space-y-8">
-
-            <div id="why-form-matters">
-              <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
-                Why the Form of Magnesium Matters for ADHD
-              </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                Not all magnesium supplements deliver the same amount of usable magnesium to your cells.
-                Bioavailability — how much is absorbed in the gut and reaches tissues — varies significantly
-                by form. For ADHD specifically, additional factors matter: whether the chelating agent has
-                its own neurological effect (glycine does), how the supplement affects digestion, and
-                whether the timing suits sleep support.
-              </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
-                <strong>Magnesium glycinate</strong> is magnesium chelated to glycine, an amino acid that
-                acts as an inhibitory neurotransmitter in the central nervous system. Glycine itself has
-                evidence for sleep quality support and may add a calming effect beyond what magnesium alone
-                provides — making glycinate a natural fit for ADHD-related sleep difficulties and evening
-                calming support.
-              </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
-                <strong>Magnesium citrate</strong> is magnesium bound to citric acid. It has good
-                bioavailability and is substantially cheaper than glycinate, but the citrate form has
-                a stronger osmotic effect in the gut — meaning it draws water into the intestines, which
-                can cause loose stools at higher doses. At typical supplemental doses for ADHD (150–200 mg
-                elemental), this is usually mild, but it is a meaningful difference for sensitive users.
-              </p>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Mechanism */}
-            <div id="mechanism">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                How Magnesium Works in the Brain
-              </h2>
-              <PathwayDiagram data={pathwayDiagrams['magnesium-adhd']} />
-              <p className="mt-4 text-[1.01rem] leading-[1.85] text-muted">
-                Magnesium&apos;s primary role in neural excitability is as a voltage-dependent blocker of
-                NMDA receptors — the &ldquo;volume knob&rdquo; for excitatory signaling in the brain. When
-                magnesium levels are adequate, NMDA receptors require stronger signals to activate, which
-                reduces neural hyperactivation. This is particularly relevant for ADHD, where
-                hyperactivation and sensory overload are common presentations.
-              </p>
-              <p className="mt-3 text-[1.01rem] leading-[1.85] text-muted">
-                Magnesium also supports GABA activity (the brain&apos;s primary inhibitory
-                neurotransmitter), which contributes to its calming and sleep-supporting properties. GABA
-                dysregulation is implicated in anxiety and sleep problems commonly co-occurring with ADHD.
-              </p>
-              <EvidenceLegend highlightTier="moderate" className="mt-4" />
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Evidence */}
-            <div id="evidence">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Evidence Summary
-              </h2>
-              <EvidenceSummaryCard
-                title="Magnesium &amp; ADHD Symptoms"
-                evidenceLevel="Moderate"
-                humanEvidence="Several controlled trials show improvements in ADHD-related hyperactivity, emotional dysregulation, and sleep — particularly in children and adults with confirmed low magnesium status. Effects are most consistent in deficient populations; evidence in magnesium-replete individuals is weaker. Form comparison trials (glycinate vs citrate specifically for ADHD) are limited."
-                mechanisticEvidence="NMDA receptor blockade by magnesium is well-established in preclinical literature. The connection to ADHD is biologically plausible: NMDA hyperactivation is proposed to contribute to impulsivity and executive dysfunction. GABA support via magnesium provides additional rationale for sleep and calming effects."
-                safetyProfile="Well-tolerated at supplemental doses. Main risks: laxative effect (dose-dependent, stronger with citrate), hypotension at very high doses, contraindication in severe kidney disease. Avoid magnesium oxide — poor bioavailability and significant GI effects."
+          <figure className="mt-7">
+            <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
+              <Image
+                src="/images/guides/magnesium-glycinate-vs-citrate-for-adhd.jpg"
+                alt="Magnesium glycinate and citrate bottles compared side by side"
+                width={1536}
+                height={1024}
+                priority
+                className="h-auto w-full"
               />
             </div>
+            <figcaption className="mt-3 text-center text-sm text-muted">
+              A form decision should be based on tradeoffs—not an unsupported ADHD winner.
+            </figcaption>
+          </figure>
+        </section>
 
-            <hr className="border-brand-900/10" />
-
-            {/* Comparison Table */}
-            <div id="comparison">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Glycinate vs Citrate: Side-by-Side
-              </h2>
-              <ResponsiveTable label="Magnesium glycinate vs citrate comparison for ADHD">
-                <table className="min-w-[600px] w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-brand-900/10">
-                      {['Factor', 'Glycinate', 'Citrate'].map((h) => (
-                        <th key={h} className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">{h}</th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-brand-900/5">
-                    {[
-                      ['Absorption', 'High — chelated form bypasses some GI barriers', 'Good — soluble salt, solid bioavailability'],
-                      ['GI tolerance', 'Excellent — rarely causes loose stools', 'Moderate — laxative effect above ~200 mg elemental'],
-                      ['Glycine co-factor', 'Yes — glycine adds mild calming + sleep support', 'No — citrate is neutral, no added CNS effect'],
-                      ['Cost', '$$–$$$ — premium form', '$ — widely available, lower cost'],
-                      ['Best for ADHD sleep', '★★★ First choice', '★★ Acceptable alternative'],
-                      ['Best for ADHD calm focus', '★★★ First choice', '★★ Good if tolerated'],
-                      ['Best for deficiency correction', '★★★', '★★★ (both equally effective)'],
-                      ['Avoid at high doses?', 'No special concern', 'Yes — GI effects above 300 mg elemental/day'],
-                    ].map(([factor, glycinate, citrate]) => (
-                      <tr key={factor as string} className="align-top">
-                        <td className="py-3 pr-4 font-medium text-ink">{factor}</td>
-                        <td className="py-3 pr-4 text-muted">{glycinate}</td>
-                        <td className="py-3 text-muted">{citrate}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </ResponsiveTable>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Dosage */}
-            <div id="dosage">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Dosage Guide for ADHD
-              </h2>
-              <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-5 shadow-sm">
-                <p className="mb-3 text-[10px] font-bold uppercase tracking-wider text-muted">
-                  Magnesium Dosage Reference — ADHD Use
-                </p>
-                <ResponsiveTable label="Magnesium dosage for ADHD">
-                  <table className="min-w-[520px] w-full text-sm">
-                    <thead>
-                      <tr className="border-b border-brand-900/10">
-                        {['Use Case', 'Form', 'Elemental Dose', 'Timing'].map((h) => (
-                          <th key={h} className="pb-2 pr-4 text-left text-xs font-bold uppercase tracking-wider text-muted">{h}</th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-brand-900/5">
-                      {[
-                        ['Sleep + calm support', 'Glycinate', '200–300 mg', '30–60 min before bed'],
-                        ['General repletion', 'Glycinate or Citrate', '200–400 mg', 'Evening, with food'],
-                        ['Budget option', 'Citrate', '150–250 mg', 'Evening — start low'],
-                        ['Deficiency correction', 'Either', '200–400 mg', 'As directed by clinician'],
-                      ].map(([use, form, dose, timing]) => (
-                        <tr key={use as string} className="align-top">
-                          <td className="py-3 pr-4 font-medium text-ink">{use}</td>
-                          <td className="py-3 pr-4 text-muted">{form}</td>
-                          <td className="py-3 pr-4 text-muted">{dose}</td>
-                          <td className="py-3 text-muted">{timing}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </ResponsiveTable>
-                <p className="mt-3 text-xs text-muted">
-                  Check product labels for elemental magnesium content — the chelate weight shown on the
-                  label is not the same as elemental magnesium. A product showing &ldquo;400 mg magnesium
-                  glycinate&rdquo; typically provides 60–80 mg of elemental magnesium per tablet.
-                </p>
+        <section id="verdict" className="scroll-mt-20 rounded-[1.65rem] border border-brand-200 bg-brand-50/60 p-6 shadow-sm sm:p-8">
+          <p className="eyebrow-label">Quick verdict</p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+            Glycinate for sleep-oriented fit; citrate for cost or constipation
+          </h2>
+          <p className="mt-3 text-sm leading-7 text-muted sm:text-base">
+            That is a shopping shortcut, not an efficacy ranking. Glycinate has a small recent sleep signal
+            in non-ADHD adults. Citrate has practical absorption evidence relative to oxide and a more useful
+            laxative effect for some people. Neither has demonstrated superior control of inattention,
+            hyperactivity, impulsivity, or executive dysfunction.
+          </p>
+          <div className="mt-5 grid gap-3 md:grid-cols-3">
+            {[
+              ['Choose glycinate when', 'You want a simple, sleep-oriented trial and are willing to pay more without assuming ADHD superiority.'],
+              ['Choose citrate when', 'Lower cost or constipation matters and a looser-stool effect would not be a problem.'],
+              ['Choose neither yet when', 'Kidney disease, medication interactions, unexplained symptoms, or a child’s dosing make clinical review the next step.'],
+            ].map(([title, copy]) => (
+              <div key={title} className="rounded-xl border border-brand-900/10 bg-white/80 p-4">
+                <h3 className="text-sm font-semibold text-ink">{title}</h3>
+                <p className="mt-2 text-xs leading-6 text-muted">{copy}</p>
               </div>
-            </div>
+            ))}
+          </div>
+        </section>
 
-            <hr className="border-brand-900/10" />
-
-            {/* Products */}
-            <div id="products">
-              <h2 className="mb-3 text-2xl font-semibold tracking-tight text-ink">
-                Product Recommendations
-              </h2>
-              <p className="text-[1.01rem] leading-[1.85] text-muted">
-                These picks favor glycinate-chelated forms with clearly labeled elemental magnesium,
-                consistent with the comparison above. Avoid magnesium oxide — poor bioavailability and
-                a stronger laxative effect make it a weak fit for ADHD-related use.
-              </p>
-              <div className="mt-4">
-                <RecommendationSection products={getRevenueProductSet('magnesium')?.products ?? []} />
-              </div>
-            </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Safety */}
-            <div id="safety">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Safety</h2>
-              <SafetyNotice title="Safety Summary — Magnesium for ADHD">
-                <ul className="ml-5 space-y-1.5 list-disc">
-                  {[
-                    ['Generally safe at supplemental doses', 'Magnesium from food and supplements at physiological amounts is well-tolerated in healthy adults and children.'],
-                    ['Tolerable upper level: 350 mg/day supplemental', 'This limit applies to magnesium from supplements only. Dietary magnesium from food is not counted. Exceeding this level increases risk of adverse effects including diarrhea.'],
-                    ['Kidney disease caution', 'Magnesium is renally cleared. Impaired kidney function can lead to magnesium accumulation. Do not supplement without clinician guidance if you have chronic kidney disease.'],
-                    ['Drug interactions', 'Magnesium can reduce absorption of tetracycline and quinolone antibiotics, some bisphosphonates, and may interact with blood pressure medications. Take at least 2 hours apart from these drugs.'],
-                    ['ADHD medications', 'No established interaction between supplemental magnesium and stimulant ADHD medications. Some practitioners use magnesium alongside methylphenidate to potentially reduce side effects — discuss with your prescribing clinician.'],
-                    ['Avoid oxide form', 'Magnesium oxide is poorly absorbed and acts primarily as a laxative. It is not appropriate for ADHD-related supplementation goals.'],
-                  ].map(([bold, text]) => (
-                    <li key={bold as string}>
-                      <strong>{bold as string}.</strong> {text as string}
-                    </li>
+        <section id="comparison" className="scroll-mt-20 space-y-5">
+          <div>
+            <p className="eyebrow-label">Side by side</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+              Glycinate vs citrate without the marketing shortcuts
+            </h2>
+          </div>
+          <ResponsiveTable label="Magnesium glycinate and citrate comparison for ADHD-related decisions">
+            <table className="min-w-[850px] w-full text-left text-sm">
+              <thead className="bg-brand-50/80">
+                <tr className="border-b border-brand-900/10">
+                  {['Question', 'Glycinate / bisglycinate', 'Citrate'].map((heading) => (
+                    <th key={heading} className="px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] text-brand-900">
+                      {heading}
+                    </th>
                   ))}
-                </ul>
-              </SafetyNotice>
-            </div>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-brand-900/10 bg-white">
+                {COMPARISON_ROWS.map(([question, glycinate, citrate]) => (
+                  <tr key={question} className="align-top">
+                    <td className="px-4 py-4 font-semibold text-ink">{question}</td>
+                    <td className="px-4 py-4 text-muted">{glycinate}</td>
+                    <td className="px-4 py-4 text-muted">{citrate}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </ResponsiveTable>
+        </section>
 
-            <hr className="border-brand-900/10" />
+        <section id="claim-check" className="scroll-mt-20 space-y-5">
+          <div>
+            <p className="eyebrow-label">Claim check</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+              Four claims that need a reality check
+            </h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            {[
+              {
+                claim: '“Glycinate is best for ADHD.”',
+                verdict: 'Unsupported',
+                explanation:
+                  'No direct ADHD comparison establishes a winning form. Choosing glycinate for sleep context or tolerance is different from claiming better ADHD efficacy.',
+              },
+              {
+                claim: '“The glycine creates calm-focus synergy.”',
+                verdict: 'Not isolated',
+                explanation:
+                  'The glycine contribution has not been separated from magnesium in an ADHD trial. Mechanistic plausibility should not be presented as a demonstrated clinical effect.',
+              },
+              {
+                claim: '“A normal serum test means magnesium is fine.”',
+                verdict: 'Too simple',
+                explanation:
+                  'Serum magnesium is commonly used but does not closely reflect total-body or tissue magnesium. NIH states that no single assessment method is satisfactory.',
+              },
+              {
+                claim: '“Lower magnesium in ADHD proves supplementation works.”',
+                verdict: 'Association, not treatment evidence',
+                explanation:
+                  'Observational meta-analyses can identify group differences, but they cannot prove causation or establish that supplementation improves symptoms.',
+              },
+            ].map((item) => (
+              <div key={item.claim} className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
+                <p className="text-xs font-bold uppercase tracking-[0.12em] text-brand-700">{item.verdict}</p>
+                <h3 className="mt-2 text-base font-semibold text-ink">{item.claim}</h3>
+                <p className="mt-2 text-sm leading-6 text-muted">{item.explanation}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
-            {/* FAQ */}
-            <div id="faq">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">
-                Frequently Asked Questions
-              </h2>
-              <div className="space-y-4">
-                {FAQS.map((faq, i) => (
-                  <div key={i} className="rounded-[0.75rem] border border-brand-900/10 bg-brand-50/40 p-4">
-                    <h3 className="font-semibold text-ink">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
+        <section className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+          <p className="eyebrow-label">Evidence boundary</p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+            What the current research actually supports
+          </h2>
+          <div className="mt-4 space-y-4 text-sm leading-7 text-muted sm:text-base">
+            <p>
+              The ADHD treatment literature remains inadequate. A systematic review found no randomized
+              double-blind magnesium trial and no magnesium-monotherapy study for ADHD. That means neither
+              glycinate nor citrate can be ranked as an evidence-based ADHD treatment.
+            </p>
+            <p>
+              The 2025 bisglycinate trial enrolled 155 adults with self-reported poor sleep, used 250 mg
+              elemental magnesium daily for four weeks, and found a small improvement in insomnia severity.
+              It did not recruit an ADHD population, measure core ADHD outcomes, or compare citrate.
+            </p>
+            <p>
+              NIH’s form discussion is narrower: more soluble forms such as citrate are absorbed more
+              completely than oxide in small studies. It does not identify a universally superior form for
+              ADHD, sleep, anxiety, or cognition.
+            </p>
+          </div>
+        </section>
+
+        <section id="choose" className="scroll-mt-20 space-y-5">
+          <div>
+            <p className="eyebrow-label">Decision path</p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">How to choose in practice</h2>
+          </div>
+          <ol className="space-y-4">
+            {[
+              ['Define the actual target', 'Separate core ADHD symptoms from poor sleep, constipation, low dietary intake, muscle tension, or another reason for considering magnesium.'],
+              ['Check the elemental dose', 'Compare the Supplement Facts panel, not the front-label compound weight. A lower, clearly labeled serving is easier to evaluate.'],
+              ['Pick one form', 'Do not start glycinate, citrate, and a multi-ingredient ADHD blend together. One change makes benefit and side effects interpretable.'],
+              ['Track the matching outcome', 'For a sleep-oriented trial, track sleep onset and next-day function. For constipation, track stool changes. Do not redefine any vague change as improved ADHD.'],
+              ['Stop for poor fit', 'Persistent diarrhea, nausea, cramping, unusual weakness, or other concerning symptoms are reasons to stop and seek clinical advice—not to keep escalating.'],
+            ].map(([title, copy], index) => (
+              <li key={title} className="rounded-2xl border border-brand-900/10 bg-white/90 p-5 shadow-sm">
+                <div className="flex gap-4">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-100 text-sm font-bold text-brand-800">
+                    {index + 1}
+                  </span>
+                  <div>
+                    <h3 className="font-semibold text-ink">{title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-muted">{copy}</p>
                   </div>
-                ))}
-              </div>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section id="dose-safety" className="scroll-mt-20 rounded-[1.65rem] border border-amber-900/15 bg-amber-50/70 p-6 shadow-sm sm:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-amber-800">Dose and safety</p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-amber-950">
+            The form name does not remove the guardrails
+          </h2>
+          <ul className="mt-4 space-y-3 text-sm leading-7 text-amber-950/90">
+            <li>
+              <strong>No ADHD-specific dose is established.</strong> The adult upper limit is 350 mg/day
+              from supplements and medications unless a clinician recommends otherwise.
+            </li>
+            <li>
+              <strong>Children need pediatric guidance.</strong> Supplemental upper limits vary by age, and
+              an adult dose should not be copied for a child with ADHD.
+            </li>
+            <li>
+              <strong>Kidney impairment increases risk.</strong> Reduced magnesium clearance can lead to
+              accumulation and toxicity.
+            </li>
+            <li>
+              <strong>Magnesium can interfere with medicines.</strong> It can reduce absorption of oral
+              bisphosphonates and bind tetracycline or quinolone antibiotics. Follow pharmacist or label
+              spacing instructions.
+            </li>
+            <li>
+              <strong>Count other sources.</strong> Antacids, laxatives, multivitamins, and sleep products can
+              already contain magnesium.
+            </li>
+          </ul>
+        </section>
+
+        {magnesiumProducts && (
+          <section className="space-y-4">
+            <div className="max-w-3xl">
+              <p className="eyebrow-label">Product comparison</p>
+              <h2 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
+                Compare labels after choosing the tradeoff
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-muted">
+                Use the product set to compare elemental dose, serving size, formulation, and cost. It is not
+                evidence that any listed product treats ADHD or that glycinate is clinically superior.
+              </p>
             </div>
-
-            <hr className="border-brand-900/10" />
-
-            {/* Related */}
-            <div id="related">
-              <h2 className="mb-4 text-2xl font-semibold tracking-tight text-ink">Related Articles</h2>
-              <div className="grid gap-3 sm:grid-cols-2">
-                {[
-                  ['/guides/adhd/magnesium-for-adhd/', 'ADHD Cluster', 'Magnesium for ADHD', 'Evidence review, forms, sleep, and practical use.'],
-                  ['/guides/adhd/best-supplements-for-adhd/', 'ADHD Cornerstone', 'Best Supplements for ADHD', 'Evidence-ranked guide covering all key ADHD supplements.'],
-                  ['/guides/adhd/l-theanine-magnesium-adhd-stack', 'ADHD Cluster', 'L-Theanine + Magnesium Stack', 'How to combine L-theanine and magnesium for ADHD.'],
-                  ['/guides/adhd/best-magnesium-supplement-for-adhd', 'Buying Guide', 'Best Magnesium Supplement for ADHD', 'Which product to buy first — form, dose, and practical guidance.'],
-                  ['/guides/adhd/adhd-stack-guide', 'ADHD Cluster', 'ADHD Stack Guide', 'How to build a safe, evidence-based ADHD supplement stack.'],
-                  ['/guides/adhd/l-theanine-for-adhd/', 'ADHD Cluster', 'L-Theanine for ADHD', 'Evidence on attention, sleep, and emotional regulation.'],
-                  ['/guides/adhd/sleep-and-adhd', 'Sleep + ADHD', 'Sleep and ADHD', 'Why sleep issues are common in ADHD and how to address them.'],
-                  ['/guides/focus', 'Goal Hub', 'Focus Goal Hub', 'Compare all focus supplements side by side.'],
-                ].map(([href, eyebrow, label, desc]) => (
-                  <Link key={href as string} href={href as string}
-                    className="group rounded-[0.75rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm transition hover:border-brand-700/30">
-                    <p className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted">{eyebrow}</p>
-                    <p className="font-semibold text-ink transition group-hover:text-brand-700">{label}</p>
-                    <p className="mt-1 text-xs text-muted">{desc}</p>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
+            <RecommendationSection products={magnesiumProducts.products} />
           </section>
+        )}
 
-          <EmailCapture
-            headline="Get the ADHD supplement checklist"
-            description="Evidence-first supplement updates, safety context, and ADHD research notes. No diagnosis or personal medical advice."
-            ctaLabel="Get Checklist"
-            location={`article-${SLUG}`}
-          />
-
-          <NewsletterCtaBlock
-            title="Continue with the newsletter archive"
-            description="Short notes built for cautious supplement decisions."
-            location={`article-${SLUG}-newsletter`}
-          />
-        </div>
-
-        {/* Sidebar */}
-        <aside className="space-y-4 lg:sticky lg:top-24 lg:self-start">
-          <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">In this article</p>
-            <nav className="mt-3 space-y-1.5" aria-label="Article sections">
-              {[
-                ['#why-form-matters', 'Why Form Matters'],
-                ['#mechanism', 'How Magnesium Works'],
-                ['#evidence', 'Evidence Summary'],
-                ['#comparison', 'Glycinate vs Citrate'],
-                ['#dosage', 'Dosage Guide'],
-                ['#products', 'Product Picks'],
-                ['#safety', 'Safety'],
-                ['#faq', 'FAQ'],
-                ['#related', 'Related Articles'],
-              ].map(([href, label]) => (
-                <a key={href} href={href as string}
-                  className="block text-sm text-brand-700 hover:text-brand-800 hover:underline">
-                  {label}
-                </a>
-              ))}
-            </nav>
+        <section className="rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <h2 className="text-xl font-semibold text-ink">Related evidence paths</h2>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            <Link href="/guides/adhd/best-magnesium-supplement-for-adhd/" className="rounded-xl border border-brand-900/10 p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/30 hover:underline">
+              Use the full magnesium buying checklist →
+            </Link>
+            <Link href="/guides/adhd/adhd-supplements/" className="rounded-xl border border-brand-900/10 p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/30 hover:underline">
+              Compare magnesium with other ADHD adjuncts →
+            </Link>
+            <Link href="/guides/sleep/magnesium-types-for-sleep/" className="rounded-xl border border-brand-900/10 p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/30 hover:underline">
+              Compare magnesium forms for sleep →
+            </Link>
+            <Link href="/compounds/magnesium/" className="rounded-xl border border-brand-900/10 p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/30 hover:underline">
+              Read the magnesium compound profile →
+            </Link>
           </div>
+        </section>
 
-          <div className="rounded-[1rem] border border-brand-900/10 bg-white/90 p-4 shadow-sm">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-muted">ADHD cluster</p>
-            <div className="mt-3 space-y-2">
-              {[
-                ['/guides/adhd/best-supplements-for-adhd/', 'Best supplements for ADHD →'],
-                ['/guides/adhd/magnesium-for-adhd/', 'Magnesium for ADHD →'],
-                ['/guides/adhd/l-theanine-for-adhd/', 'L-Theanine for ADHD →'],
-                ['/guides/adhd/adhd-stack-guide', 'ADHD stack guide →'],
-                ['/guides/adhd/sleep-and-adhd', 'Sleep and ADHD →'],
-                ['/guides/focus', 'Focus goal hub →'],
-              ].map(([href, label]) => (
-                <Link key={href as string} href={href as string}
-                  className="block text-sm font-medium text-brand-700 hover:text-brand-800 hover:underline">
-                  {label}
-                </Link>
-              ))}
-            </div>
+        <section id="faq" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm sm:p-8">
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">Frequently asked questions</h2>
+          <div className="mt-5 divide-y divide-brand-900/10">
+            {FAQS.map((faq) => (
+              <div key={faq.question} className="py-5 first:pt-0 last:pb-0">
+                <h3 className="font-semibold text-ink">{faq.question}</h3>
+                <p className="mt-2 text-sm leading-7 text-muted">{faq.answer}</p>
+              </div>
+            ))}
           </div>
-        </aside>
-      </div>
+        </section>
 
-      <div className="mt-8">
-        <Link href="/guides/" className="text-sm font-semibold text-brand-700 hover:text-brand-800">
-          ← Back to Guides
-        </Link>
+        <References refs={[...REFERENCES]} />
+
+        <p className="text-xs leading-6 text-muted">
+          This comparison is educational. It does not diagnose magnesium deficiency or recommend magnesium
+          as a treatment for ADHD. Discuss pediatric use, pregnancy, kidney disease, persistent symptoms, and
+          medication interactions with a qualified clinician or pharmacist.
+        </p>
       </div>
-      <References refs={MAGNESIUM_GLYCINATE_VS_CITRATE_FOR_ADHD_REFS} />
-    </article>
+    </ArticleLayout>
   )
 }
