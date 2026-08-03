@@ -35,7 +35,7 @@ const FEATURED_CATEGORIES: CompareCategory[] = [
     label: 'Adaptogens',
     blurb: 'Stress-response herbs compared by onset speed, stimulation profile, and how long each takes to build an effect.',
     pairs: [
-      { slug: 'ashwagandha-vs-rhodiola', label: 'Ashwagandha vs Rhodiola' },
+      { slug: 'rhodiola-vs-ashwagandha', label: 'Rhodiola vs Ashwagandha' },
       { slug: 'ashwagandha-vs-eleuthero', label: 'Ashwagandha vs Eleuthero' },
       { slug: 'reishi-vs-ashwagandha', label: 'Reishi vs Ashwagandha' },
       { slug: 'bacopa-vs-rhodiola', label: 'Bacopa vs Rhodiola' },
