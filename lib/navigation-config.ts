@@ -88,9 +88,14 @@ export const routeLabels: Record<string, RouteMetadata> = {
     description: 'Sleep aids, alternatives, and sleep-hygiene evidence',
     parent: '/guides',
   },
+  '/guides/stress': {
+    label: 'Stress',
+    description: 'Acute tension, chronic overload, burnout, cortisol concerns, and stress-support evidence',
+    parent: '/guides',
+  },
   '/guides/anxiety': {
-    label: 'Anxiety & Stress',
-    description: 'Calming supports, adaptogens, and stress-management evidence',
+    label: 'Anxiety',
+    description: 'Anxiety patterns, calming supports, and evidence-aware safety guidance',
     parent: '/guides',
   },
   '/guides/focus': {
