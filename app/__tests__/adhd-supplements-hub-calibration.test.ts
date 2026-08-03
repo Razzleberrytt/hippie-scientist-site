@@ -14,8 +14,8 @@ describe('ADHD supplements hub evidence calibration', () => {
 
     expect(source).toContain('Start with the problem, not the product')
     expect(source).toContain('A lower nutrient level in an ADHD group does not prove causation')
-    expect(source).toContain('A sleep benefit does not prove an attention benefit')
-    expect(source).toContain('A study in healthy adults does not establish an ADHD treatment')
+    expect(source).toMatch(/A sleep benefit does not prove\s+an attention benefit/)
+    expect(source).toMatch(/A study in healthy adults does not establish\s+an ADHD treatment/)
   })
 
   it('does not restore the old strong-tier or product-first framing', () => {
