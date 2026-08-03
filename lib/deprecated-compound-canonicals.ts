@@ -50,3 +50,21 @@ export const DEPRECATED_COMPOUND_CANONICALS: Record<string, string> = {
   resveratrol: '/herbs/resveratrol',
   'trans-resveratrol': '/herbs/resveratrol',
 }
+
+// True when `slug` redirects to another browseable record. Same-taxonomy
+// aliases are hidden only when the canonical compound record is present, so an
+// alias can remain discoverable if it is the only runtime record available.
+// Cross-taxonomy aliases are always hidden because their canonical profile
+// belongs in the herb library rather than the compound directory.
+export function isRedirectedCompoundDuplicate(
+  slug: string | undefined | null,
+  presentSlugs: Set<string>,
+): boolean {
+  if (!slug) return false
+
+  const target = DEPRECATED_COMPOUND_CANONICALS[slug]
+  if (!target) return false
+  if (target.startsWith('/')) return true
+
+  return presentSlugs.has(target)
+}
