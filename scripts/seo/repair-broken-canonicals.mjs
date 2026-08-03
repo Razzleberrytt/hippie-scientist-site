@@ -23,6 +23,21 @@ const CANONICAL_REPLACEMENTS = new Map([
   ['https://thehippiescientist.net/herbs/angelica-root/', 'https://thehippiescientist.net/herbs/angelica-archangelica/'],
 ])
 
+const INTERNAL_LINK_REPLACEMENTS = new Map([
+  ['/compounds/citicoline/', '/compounds/cdp-choline/'],
+  ['/state-of-supplement-evidence-2026/', '/articles/state-of-supplement-evidence-2026/'],
+  ['/education/insomnia/', '/guides/sleep/'],
+])
+
+const UNPUBLISHED_PROFILE_TARGETS = new Set([
+  '/compounds/dmt/',
+  '/compounds/harmaline/',
+  '/compounds/harmine/',
+  '/compounds/kratom/',
+  '/compounds/mitragynine/',
+  '/compounds/7-hydroxymitragynine/',
+])
+
 function* walkHtmlFiles(dir) {
   if (!fs.existsSync(dir)) return
 
@@ -70,6 +85,30 @@ function normalizeDescriptionTags(html) {
   return { html: next, changedTags }
 }
 
+function repairInternalLinks(html) {
+  let changedLinks = 0
+  let next = html
+
+  for (const [from, to] of INTERNAL_LINK_REPLACEMENTS) {
+    for (const quote of ['"', "'"]) {
+      const source = `href=${quote}${from}${quote}`
+      const target = `href=${quote}${to}${quote}`
+      if (!next.includes(source)) continue
+      const before = next
+      next = next.split(source).join(target)
+      changedLinks += before.split(source).length - 1
+    }
+  }
+
+  next = next.replace(/<a\b([^>]*\bhref=(["'])(\/compounds\/(?:dmt|harmaline|harmine|kratom|mitragynine|7-hydroxymitragynine)\/)\2[^>]*)>([\s\S]*?)<\/a>/gi, (match, _attrs, _quote, href, innerHtml) => {
+    if (!UNPUBLISHED_PROFILE_TARGETS.has(href)) return match
+    changedLinks += 1
+    return innerHtml
+  })
+
+  return { html: next, changedLinks }
+}
+
 if (!fs.existsSync(outDir)) {
   console.warn('[repair-broken-canonicals] out directory not found; skipping.')
   process.exit(0)
@@ -78,6 +117,7 @@ if (!fs.existsSync(outDir)) {
 let touchedFiles = 0
 let replacements = 0
 let normalizedDescriptionTags = 0
+let repairedInternalLinks = 0
 
 for (const filePath of walkHtmlFiles(outDir)) {
   const html = fs.readFileSync(filePath, 'utf8')
@@ -94,6 +134,10 @@ for (const filePath of walkHtmlFiles(outDir)) {
   next = normalizedDescriptions.html
   normalizedDescriptionTags += normalizedDescriptions.changedTags
 
+  const repairedLinks = repairInternalLinks(next)
+  next = repairedLinks.html
+  repairedInternalLinks += repairedLinks.changedLinks
+
   if (next !== html) {
     fs.writeFileSync(filePath, next)
     touchedFiles += 1
@@ -101,5 +145,5 @@ for (const filePath of walkHtmlFiles(outDir)) {
 }
 
 console.log(
-  `[repair-broken-canonicals] Rewrote ${replacements} canonical alias references and normalized ${normalizedDescriptionTags} description tags in ${touchedFiles} HTML files.`,
+  `[repair-broken-canonicals] Rewrote ${replacements} canonical alias references, normalized ${normalizedDescriptionTags} description tags, and repaired ${repairedInternalLinks} internal links in ${touchedFiles} HTML files.`,
 )
