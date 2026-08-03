@@ -68,6 +68,17 @@ export const routeLabels: Record<string, RouteMetadata> = {
     description: 'Search the complete site',
     parent: '/library',
   },
+  '/goals': {
+    label: 'Supplement Goals',
+    description: 'Compare supplement options by the outcome you want to improve',
+    parent: '/library',
+  },
+  '/goals/[slug]': {
+    label: 'Goal Guide',
+    description: 'Goal-based supplement comparison by fit, onset, evidence, and risk',
+    parent: '/goals',
+    isDynamic: true,
+  },
   '/guides': {
     label: 'Topics & Guides',
     description: 'Goal-based and practical evidence guides',
