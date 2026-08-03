@@ -13,11 +13,14 @@ export const metadata: Metadata = buildPageMetadata({
 
 const bestGuides = [
   {
-    title: 'Best Magnesium Supplements for ADHD',
-    href: '/guides/best/magnesium-supplements-for-adhd/',
-    description: 'Compare magnesium forms by ADHD fit, tolerability, sleep context, and practical dosing.',
-    bestFor: 'People comparing glycinate, threonate, citrate, and other magnesium forms for attention, sleep, and nervous-system support.',
-    caution: 'Medication use, kidney disease, loose stools, and sedating stacks should be reviewed carefully.',
+    title: 'Best Magnesium Supplement for ADHD',
+    href: '/guides/adhd/best-magnesium-supplement-for-adhd/',
+    description:
+      'Compare magnesium glycinate, citrate, oxide, and L-threonate by evidence boundaries, elemental dose, tolerability, cost, and label quality.',
+    bestFor:
+      'People deciding whether magnesium fits a deficiency, constipation, or sleep context without mistaking one form for a proven ADHD treatment.',
+    caution:
+      'No form has proven superiority for core ADHD symptoms. Review kidney disease, pediatric limits, medications, and total supplemental magnesium.',
   },
   {
     title: 'Best Supplements for Stress',
