@@ -88,6 +88,19 @@ const SECTIONS = [
   },
 ]
 
+const FEATURED_DECISION_ROUTES = [
+  {
+    title: 'Stress Decision Hub',
+    href: '/guides/stress/',
+    desc: 'Route acute tension, chronic overload, poor sleep, fatigue, cortisol concerns, or supplement-stacking risk to the right evidence page.',
+  },
+  {
+    title: 'Best Supplements for Focus Without Caffeine',
+    href: '/best-supplements-for-focus-without-caffeine/',
+    desc: 'Compare caffeine-free options for calm focus, brain fog, sleep-related attention problems, stress fatigue, and long-term memory support.',
+  },
+]
+
 export default function LibraryHub() {
   return (
     <div className="mx-auto max-w-5xl px-4 pb-24 pt-8">
@@ -115,6 +128,26 @@ export default function LibraryHub() {
           </Link>
         ))}
       </div>
+
+      <section className="mt-14" aria-labelledby="featured-decision-routes-heading">
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Start with the problem</p>
+        <h2 id="featured-decision-routes-heading" className="mt-2 text-2xl font-bold text-ink">
+          Featured decision routes
+        </h2>
+        <div className="mt-5 grid gap-4 md:grid-cols-2">
+          {FEATURED_DECISION_ROUTES.map((route) => (
+            <Link
+              key={route.href}
+              href={route.href}
+              className="rounded-2xl border border-brand-900/10 bg-white p-6 transition hover:-translate-y-0.5 hover:border-brand-700/30 hover:bg-brand-50/30 hover:shadow-sm dark:border-white/10 dark:bg-[var(--surface-card)]"
+            >
+              <h3 className="text-lg font-bold text-ink">{route.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-muted">{route.desc}</p>
+              <span className="mt-4 inline-flex text-sm font-semibold text-brand-800">Open guide →</span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <div className="mt-16 rounded-2xl border border-brand-900/10 bg-brand-50/50 p-8 text-center">
         <h2 className="text-xl font-bold text-ink">Browse the reference databases</h2>
