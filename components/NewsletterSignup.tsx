@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { type FormEvent, useEffect, useId, useRef, useState } from 'react'
 import { safetyChecklistLeadMagnet } from '@/lib/lead-magnet'
 import { mailchimpSignupConfig } from '@/lib/mailchimp-integration'
@@ -57,6 +58,8 @@ export default function NewsletterSignup({
   variant = 'card',
   className = '',
 }: NewsletterSignupProps) {
+  const pathname = usePathname()
+  const suppressOnHomepage = location === 'global-footer' && pathname === '/'
   const isFooter = variant === 'footer'
   const textColor = isFooter ? 'text-white' : 'text-ink'
   const mutedColor = isFooter ? 'text-white/65' : 'text-muted'
@@ -80,7 +83,7 @@ export default function NewsletterSignup({
   const usesTurnstile = usesClientPost && Boolean(turnstileSiteKey)
 
   useEffect(() => {
-    if (!usesTurnstile || !turnstileContainerRef.current || turnstileWidgetIdRef.current) return
+    if (suppressOnHomepage || !usesTurnstile || !turnstileContainerRef.current || turnstileWidgetIdRef.current) return
 
     let cancelled = false
     loadTurnstileScript()
@@ -106,7 +109,7 @@ export default function NewsletterSignup({
     return () => {
       cancelled = true
     }
-  }, [usesTurnstile])
+  }, [suppressOnHomepage, usesTurnstile])
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     if (!usesClientPost) return
@@ -150,6 +153,8 @@ export default function NewsletterSignup({
       setMessage(error instanceof Error ? error.message : 'Could not subscribe this email right now.')
     }
   }
+
+  if (suppressOnHomepage) return null
 
   return (
     <section className={`${variantClasses[variant]} ${className}`} data-signup-location={location}>
