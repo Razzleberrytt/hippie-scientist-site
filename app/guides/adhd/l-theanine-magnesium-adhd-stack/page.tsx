@@ -476,8 +476,8 @@ export default function LTheanineMagnesiumAdhdStackPage() {
             <Link href="/safety-checker/" className="text-brand-700 hover:underline">
               Check interaction pathways →
             </Link>
-            <Link href="/guides/adhd/adhd-medication-supplement-interactions/" className="text-brand-700 hover:underline">
-              Medication interaction guide →
+            <Link href="/guides/other/supplement-stacking-safety/" className="text-brand-700 hover:underline">
+              General stacking safety guide →
             </Link>
           </div>
         </section>
