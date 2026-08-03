@@ -223,8 +223,8 @@ export default function LTheanineMagnesiumAdhdStackPage() {
       title: TITLE,
       slug: SLUG,
       date: DATE_PUBLISHED,
+      updated: DATE_MODIFIED,
       description: DESCRIPTION,
-      dateModified: DATE_MODIFIED,
     },
     `${PATH}/`,
   )
