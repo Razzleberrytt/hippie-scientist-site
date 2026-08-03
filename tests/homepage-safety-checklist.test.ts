@@ -7,9 +7,10 @@ function read(relativePath: string) {
 }
 
 describe('homepage safety checklist capture', () => {
-  it('keeps one owned-audience conversion surface on the homepage', () => {
+  it('renders one owned-audience conversion surface on the homepage', () => {
     const page = read('app/page.tsx')
     const capture = read('components/HomepageEmailCapture.tsx')
+    const signup = read('components/NewsletterSignup.tsx')
 
     expect(page).toContain("import HomepageEmailCapture from '@/components/HomepageEmailCapture'")
     expect(page).toContain('<HomepageEmailCapture />')
@@ -17,6 +18,9 @@ describe('homepage safety checklist capture', () => {
     expect(capture).toContain("variant='editorial'")
     expect(capture).toContain('Get the free 5-point supplement safety checklist')
     expect(capture).toContain('Send me the checklist')
-    expect(capture).toContain("[data-signup-location='global-footer'] { display: none; }")
+    expect(capture).not.toContain("[data-signup-location='global-footer']")
+    expect(signup).toContain("import { usePathname } from 'next/navigation'")
+    expect(signup).toContain("location === 'global-footer' && pathname === '/'")
+    expect(signup).toContain('if (suppressOnHomepage) return null')
   })
 })
