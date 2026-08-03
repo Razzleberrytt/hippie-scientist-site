@@ -36,6 +36,22 @@
 
 Older `/articles/*`, `/goals/*`, `/stacks/*`, top-level `/compare/*`, and top-level `/best-supplements-for-*` URLs should be treated as legacy compatibility/redirect surfaces unless explicitly reactivated. Prefer linking to the current `/guides/*` taxonomy. See `docs/site-organization.md`.
 
+## Evidence-first decision pages
+
+Before editing a best-of guide, comparison, stack, condition-adjacent page, or any route that helps a reader decide what to take or buy, read `docs/content-quality/evidence-first-decision-page-standard.md`.
+
+Required practices:
+
+- Separate outcomes that are not interchangeable: acute attention, long-term memory, fatigue, sleep, deficiency correction, symptom scales, and biomarkers require different claims.
+- State the studied population, comparator, product or extract, duration, and directness boundary.
+- Include null, negative, contradictory, subgroup-only, and non-replicated evidence—not only studies that support the ranking.
+- Treat trial doses and timelines as study context, not universal protocols.
+- Do not convert mechanism, observational association, preclinical findings, or an adjacent population into direct treatment evidence.
+- Disclose meaningful product funding, investigator conflicts, and lack of independent replication when they affect interpretation.
+- Set evidence order before product availability or commission; broad comparisons should not monetize only one ranked option without an explicit reason.
+- Consolidate overlapping routes when they serve the same reader job, and protect the decision with redirects, documentation, and regression tests.
+- Add route-specific tests for the exact overclaim, dose, monetization, or canonical pattern removed during the upgrade.
+
 ## Data pipeline
 - Primary source: `data-sources/herb_monograph_master.xlsx`. The workbook is editable — edit it to make broad/structured content changes, then run `npm run data:build`.
 - Generated JSON lives in `public/data/`. You may also edit these files directly to fix or patch content, but for larger changes prefer the workbook so edits are not lost on the next regeneration.
