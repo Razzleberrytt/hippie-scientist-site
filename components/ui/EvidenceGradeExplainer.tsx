@@ -36,8 +36,8 @@ const GRADES = [
 export default function EvidenceGradeExplainer() {
   return (
     <details className="group">
-      <summary className="flex cursor-pointer items-center gap-2 text-xs font-semibold uppercase tracking-wider text-muted select-none hover:text-ink transition-colors">
-        <span aria-hidden="true" className="text-brand-500 group-open:rotate-90 transition-transform inline-block">▶</span>
+      <summary className="flex min-h-11 cursor-pointer items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold uppercase tracking-wider text-muted select-none transition-colors hover:bg-brand-50/60 hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2">
+        <span aria-hidden="true" className="inline-block text-brand-500 transition-transform group-open:rotate-90">▶</span>
         How evidence grades work
       </summary>
       <div className="mt-3 rounded-xl border border-brand-900/10 bg-white/70 p-3 space-y-2">
