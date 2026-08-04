@@ -16,7 +16,7 @@ export default async function HerbCompoundLinks({ herbSlug, herbName }: HerbComp
   if (links.length === 0) return null
 
   return (
-    <section className="card-premium p-4 sm:p-5 space-y-3" aria-labelledby="active-compounds-heading">
+    <section className="card-premium space-y-3 p-4 sm:p-5" aria-labelledby="active-compounds-heading">
       <div className="space-y-1">
         <h2 id="active-compounds-heading" className="text-lg font-bold text-ink">
           Active Compounds
@@ -30,9 +30,10 @@ export default async function HerbCompoundLinks({ herbSlug, herbName }: HerbComp
           <li key={link.slug} className="shrink-0">
             <Link
               href={link.href}
-              className="inline-block whitespace-nowrap rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold text-brand-800 hover:bg-brand-50"
+              className="inline-flex min-h-11 items-center gap-1.5 whitespace-nowrap rounded-full border border-brand-900/10 bg-brand-50/50 px-4 py-2 text-sm font-semibold text-brand-800 transition hover:border-brand-700/30 hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-700 focus-visible:ring-offset-2"
             >
               {link.anchor}
+              <span aria-hidden="true">→</span>
             </Link>
           </li>
         ))}
