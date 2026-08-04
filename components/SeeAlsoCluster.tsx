@@ -37,7 +37,6 @@ export default function SeeAlsoCluster({
 
   if (!seeAlso.length || !clusters.length) return null
 
-  // Group entries by cluster for display
   type GroupedEntry = {
     clusterId: string
     clusterLabel: string
@@ -45,61 +44,60 @@ export default function SeeAlsoCluster({
     entries: typeof seeAlso
   }
 
-  const grouped: GroupedEntry[] = clusters.map((cluster) => ({
-    clusterId: cluster.id,
-    clusterLabel: cluster.label,
-    clusterGoalHref: `/goals/${cluster.goalSlug}`,
-    entries: seeAlso.filter((e) => e.cluster === cluster.id),
-  })).filter((g) => g.entries.length > 0)
+  const grouped: GroupedEntry[] = clusters
+    .map((cluster) => ({
+      clusterId: cluster.id,
+      clusterLabel: cluster.label,
+      clusterGoalHref: `/goals/${cluster.goalSlug}`,
+      entries: seeAlso.filter((entry) => entry.cluster === cluster.id),
+    }))
+    .filter((group) => group.entries.length > 0)
 
   if (!grouped.length) return null
 
+  const guideLinkClass =
+    'inline-flex min-h-11 items-center rounded-lg px-2.5 text-xs font-semibold text-brand-700 transition hover:bg-brand-50 hover:text-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2'
+
   return (
     <section
-      className={`rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5 space-y-4 ${className ?? ''}`}
-      aria-labelledby='see-also-cluster-heading'
+      className={`space-y-4 rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5 ${className ?? ''}`}
+      aria-labelledby="see-also-cluster-heading"
     >
-      <div className='flex items-center justify-between gap-2 flex-wrap'>
+      <div className="flex flex-wrap items-center justify-between gap-2">
         <p
-          id='see-also-cluster-heading'
-          className='text-[10px] font-bold uppercase tracking-wider text-brand-700'
+          id="see-also-cluster-heading"
+          className="text-xs font-bold uppercase tracking-wider text-brand-700"
         >
           Also in this cluster
         </p>
-        {grouped.length === 1 && (
-          <Link
-            href={grouped[0].clusterGoalHref}
-            className='text-[10px] font-semibold text-brand-600 hover:text-brand-800 hover:underline transition'
-          >
+        {grouped.length === 1 ? (
+          <Link href={grouped[0].clusterGoalHref} className={guideLinkClass}>
             {grouped[0].clusterLabel} guide →
           </Link>
-        )}
+        ) : null}
       </div>
 
       {grouped.map((group) => (
-        <div key={group.clusterId} className='space-y-2'>
-          {grouped.length > 1 && (
-            <div className='flex items-center justify-between gap-2'>
-              <p className='text-[10px] font-semibold uppercase tracking-wider text-muted'>
+        <div key={group.clusterId} className="space-y-2">
+          {grouped.length > 1 ? (
+            <div className="flex items-center justify-between gap-2">
+              <p className="text-xs font-semibold uppercase tracking-wider text-muted">
                 {group.clusterLabel}
               </p>
-              <Link
-                href={group.clusterGoalHref}
-                className='text-[10px] font-semibold text-brand-600 hover:text-brand-800 hover:underline transition'
-              >
+              <Link href={group.clusterGoalHref} className={guideLinkClass}>
                 Full guide →
               </Link>
             </div>
-          )}
-          <div className='flex gap-2 overflow-x-auto pb-1.5 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin]'>
+          ) : null}
+          <div className="flex gap-2 overflow-x-auto pb-1.5 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin]">
             {group.entries.map((entry) => (
               <Link
                 key={`${entry.kind}:${entry.slug}`}
                 href={entry.href}
                 title={entry.reason}
-                className='shrink-0 whitespace-nowrap rounded-full border border-brand-900/10 bg-brand-50/50 px-3 py-1.5 text-xs font-semibold capitalize text-brand-800 hover:bg-brand-50 transition'
+                className="inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border border-brand-900/10 bg-brand-50/50 px-3.5 text-sm font-semibold capitalize text-brand-800 transition hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
               >
-                {entry.label}
+                {entry.label} →
               </Link>
             ))}
           </div>
