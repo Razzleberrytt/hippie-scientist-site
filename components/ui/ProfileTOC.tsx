@@ -38,7 +38,7 @@ export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[
               href={`#${id}`}
               onClick={() => setMobileOpen(false)}
               aria-current={isActive ? 'location' : undefined}
-              className={`block rounded-xl px-3 py-2 text-sm transition-colors ${
+              className={`flex min-h-11 items-center rounded-xl px-3 py-2 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2 ${
                 isActive
                   ? 'bg-brand-50 font-semibold text-brand-900 shadow-sm dark:bg-white/10 dark:text-brand-50'
                   : 'text-muted hover:bg-brand-50/60 hover:text-ink dark:hover:bg-white/10 dark:hover:text-brand-50'
@@ -63,7 +63,7 @@ export default function ProfileTOC({ items, variant = 'all' }: { items: TocItem[
             type='button'
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((open) => !open)}
-            className='flex w-full items-center justify-between rounded-xl px-2 py-1 text-left text-sm font-semibold text-ink'
+            className='flex min-h-11 w-full items-center justify-between rounded-xl px-3 py-2 text-left text-sm font-semibold text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2'
           >
             On this page
             <span aria-hidden='true' className={`text-muted transition-transform ${mobileOpen ? 'rotate-180' : ''}`}>
