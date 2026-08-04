@@ -297,8 +297,8 @@ export default function EducationHubPage() {
         <div className='space-y-4'>
           <p className='eyebrow-label'>Educational Authority Hub</p>
 
-          <h1 className='text-6xl font-bold tracking-tight text-ink leading-tight'>
-            Neuroscience, Neuropharmacology, and Systems-Biology Education
+          <h1 className='max-w-4xl text-4xl font-bold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-6xl'>
+            Neuroscience and Neuropharmacology, Explained Clearly
           </h1>
         </div>
 
@@ -313,21 +313,9 @@ export default function EducationHubPage() {
           />
         </div>
 
-        <div className='space-y-5 text-lg leading-9 text-muted max-w-4xl'>
-          <p>
-            The Hippie Scientist educational ecosystem explores neurochemistry,
-            cognition systems, stress neurobiology, psychoactive education,
-            recovery-oriented neuroscience, and evidence-informed
-            neuropharmacology through a systems-oriented framework.
-          </p>
-
-          <p>
-            Educational content is designed to emphasize scientific nuance,
-            biological complexity, evidence interpretation, uncertainty
-            awareness, and anti-oversimplification neuroscience literacy rather
-            than sensationalized optimization narratives.
-          </p>
-        </div>
+        <p className='max-w-4xl text-base leading-8 text-muted sm:text-lg sm:leading-9'>
+          Explore how stress, sleep, cognition, neurotransmitters, psychoactive substances, and research evidence fit together—without reducing complex biology to simplistic claims.
+        </p>
 
         <div className='flex flex-wrap gap-3'>
           <Link
