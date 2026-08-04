@@ -25,10 +25,13 @@ export function GuideCardGrid({ cards }: { cards: GuideCard[] }) {
         <Link
           key={card.href}
           href={card.href}
-          className="rounded-xl border-2 border-brand-900/12 bg-white p-5 shadow-[0_1px_2px_rgba(13,23,18,0.06)] transition hover:border-brand-700/30 hover:shadow-md dark:border-white/10 dark:bg-[var(--surface-card)]"
+          className="flex h-full flex-col rounded-2xl border border-brand-900/10 bg-white p-5 shadow-[0_1px_2px_rgba(13,23,18,0.06)] transition hover:-translate-y-0.5 hover:border-brand-700/30 hover:shadow-md dark:border-white/10 dark:bg-[var(--surface-card)]"
         >
           <h3 className="font-bold text-ink">{card.title}</h3>
           {card.desc ? <p className="mt-1.5 text-sm leading-relaxed text-muted">{card.desc}</p> : null}
+          <span className="mt-auto pt-4 text-sm font-bold text-brand-800 dark:text-[var(--text-primary)]">
+            Open guide <span aria-hidden="true">→</span>
+          </span>
         </Link>
       ))}
     </div>
