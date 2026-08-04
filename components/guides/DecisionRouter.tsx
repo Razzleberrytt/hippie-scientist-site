@@ -31,14 +31,14 @@ export function DecisionRouter({ items }: { items: IntentRoute[] }) {
         <Link
           key={item.href + item.problem}
           href={item.href}
-          className="group flex flex-col rounded-xl border-2 border-brand-900/12 bg-white p-5 shadow-[0_1px_2px_rgba(13,23,18,0.06)] transition-all hover:-translate-y-0.5 hover:border-brand-700/30 hover:shadow-md dark:border-white/10 dark:bg-[var(--surface-card)]"
+          className="group flex h-full flex-col rounded-2xl border border-brand-900/10 bg-white p-5 shadow-[0_1px_2px_rgba(13,23,18,0.06)] transition-all hover:-translate-y-0.5 hover:border-brand-700/30 hover:shadow-md dark:border-white/10 dark:bg-[var(--surface-card)]"
         >
           <span className="text-[0.7rem] font-bold uppercase tracking-wider text-brand-700">
             If your problem is
           </span>
           <span className="mt-1 text-base font-bold leading-snug text-ink">{item.problem}</span>
           {item.why ? <span className="mt-2 text-sm leading-6 text-muted">{item.why}</span> : null}
-          <span className="mt-3 inline-flex items-center gap-1 text-sm font-bold text-brand-800 transition group-hover:gap-1.5 dark:text-[var(--text-primary)]">
+          <span className="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-bold text-brand-800 transition group-hover:gap-1.5 dark:text-[var(--text-primary)]">
             Start with {item.cta}
             <span aria-hidden="true">→</span>
           </span>
