@@ -40,8 +40,13 @@ export default function RelatedDiscoveryGroups({
             {group.description ? <p className="mt-1 text-xs leading-5 text-muted">{group.description}</p> : null}
             <div className="mt-2 space-y-1.5">
               {group.links.slice(0, 4).map((item) => (
-                <Link key={item.href} href={item.href} className="block text-sm text-muted underline-offset-4 hover:underline">
-                  {item.label}
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="flex min-h-11 items-center justify-between gap-3 rounded-lg px-2 py-2 text-sm font-medium text-brand-800 transition hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+                >
+                  <span>{item.label}</span>
+                  <span aria-hidden="true">→</span>
                 </Link>
               ))}
             </div>
