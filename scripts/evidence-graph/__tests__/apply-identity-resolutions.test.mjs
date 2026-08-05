@@ -69,6 +69,59 @@ test('merges an approved alias identity without deleting provenance', () => {
   assert.ok(retired.reviewFlags.includes('merged-into-canonical-identity'))
 })
 
+test('establishes a distinct form without deprecating or flattening it', () => {
+  const registry = [
+    record({
+      id: 'compound:berberine',
+      canonicalSlug: 'berberine',
+      canonicalName: 'Berberine',
+    }),
+    record({
+      id: 'compound:berberine-hcl',
+      canonicalSlug: 'berberine-hcl',
+      canonicalName: 'Berberine',
+      provenance: {
+        workbook: 'fixture.xlsx',
+        sheet: 'Entity_Master',
+        sourceRow: 3,
+        sourceSlug: 'berberine-hcl',
+        canonicalSlugField: 'slug',
+        duplicateGroup: null,
+        importerVersion: 'test',
+      },
+    }),
+  ]
+  const resolutions = {
+    schemaVersion: '0.2.0',
+    resolutions: [{
+      collisionKey: 'berberine',
+      action: 'establish-form',
+      canonicalRecordId: 'compound:berberine',
+      formRecordIds: ['compound:berberine-hcl'],
+      formCanonicalNames: {
+        'compound:berberine-hcl': 'Berberine hydrochloride',
+      },
+      formAliases: {
+        'compound:berberine-hcl': ['Berberine HCl'],
+      },
+      status: 'approved',
+    }],
+  }
+
+  const result = applyIdentityResolutions(registry, resolutions)
+  const parent = result.registry.find((item) => item.id === 'compound:berberine')
+  const form = result.registry.find((item) => item.id === 'compound:berberine-hcl')
+
+  assert.equal(result.report.summary.formRecords, 1)
+  assert.equal(parent.status, 'active')
+  assert.equal(form.status, 'active')
+  assert.equal(form.parentEntityId, parent.id)
+  assert.equal(form.canonicalName, 'Berberine hydrochloride')
+  assert.ok(form.aliases.includes('Berberine HCl'))
+  assert.ok(form.reviewFlags.includes('form-of-parent-identity'))
+  assert.ok(!form.reviewFlags.includes('identity-collision'))
+})
+
 test('rejects cross-type alias merges', () => {
   const registry = [
     record({ id: 'compound:example' }),
@@ -80,6 +133,27 @@ test('rejects cross-type alias merges', () => {
       action: 'merge-alias',
       canonicalRecordId: 'compound:example',
       retiredRecordIds: ['herb:example'],
+      status: 'approved',
+    }],
+  }
+
+  assert.throws(
+    () => applyIdentityResolutions(registry, resolutions),
+    /cannot cross entity types/,
+  )
+})
+
+test('rejects cross-type parent-form relationships', () => {
+  const registry = [
+    record({ id: 'compound:example' }),
+    record({ id: 'herb:example-form', entityType: 'herb' }),
+  ]
+  const resolutions = {
+    resolutions: [{
+      collisionKey: 'example',
+      action: 'establish-form',
+      canonicalRecordId: 'compound:example',
+      formRecordIds: ['herb:example-form'],
       status: 'approved',
     }],
   }
