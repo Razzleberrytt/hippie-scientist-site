@@ -96,13 +96,20 @@ The generated validation report lives at:
 data/graph/identity/identity-validation-report.json
 ```
 
-## Import command
+The human-editable collision queue lives at:
+
+```text
+data/graph/identity/identity-collision-review.csv
+```
+
+## Import commands
 
 ```bash
 node scripts/evidence-graph/build-identity-registry.mjs
+node scripts/evidence-graph/build-identity-collision-review.mjs
 ```
 
-The command is read-only with respect to the workbook and writes only the two graph identity outputs above.
+The commands are read-only with respect to the workbook and write only graph identity outputs.
 
 ## Collision handling
 
@@ -123,6 +130,14 @@ Each collision receives:
 - the involved record IDs and workbook provenance
 
 Records involved in collisions are marked `duplicate-candidate` and receive review flags. Scientifically meaningful forms remain separate until a reviewer explicitly assigns a parent identity or alias resolution.
+
+The CSV review queue contains blank editorial columns for:
+
+- resolution status
+- chosen canonical record ID
+- resolution notes
+
+This keeps automated detection separate from human identity decisions.
 
 ## Current baseline
 
@@ -146,8 +161,9 @@ The focused GitHub Actions workflow runs:
 
 1. identity unit tests
 2. registry generation from the workbook
-3. output consistency checks
-4. artifact upload for the registry and validation report
+3. collision-review CSV generation
+4. output consistency checks
+5. artifact upload for all three generated outputs
 
 Workflow file:
 
