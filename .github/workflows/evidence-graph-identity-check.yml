@@ -54,6 +54,17 @@ jobs:
       - name: Run identity unit tests
         run: node --test scripts/evidence-graph/__tests__/build-identity-registry.test.mjs
 
+      - name: Print workbook sheet names
+        run: |
+          node --input-type=module <<'NODE'
+          import { readWorkbook, getSheetNames } from './scripts/data/workbook-parser.mjs'
+          import { getRepoRoot, resolveWorkbookPath } from './scripts/workbook-source.mjs'
+
+          const workbookPath = resolveWorkbookPath(getRepoRoot())
+          const workbook = await readWorkbook(workbookPath)
+          console.log(JSON.stringify(getSheetNames(workbook), null, 2))
+          NODE
+
       - name: Build registry from workbook
         run: node scripts/evidence-graph/build-identity-registry.mjs
 
