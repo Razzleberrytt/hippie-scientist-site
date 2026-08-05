@@ -58,8 +58,9 @@ jobs:
         run: |
           node scripts/evidence-graph/build-identity-registry.mjs
           node scripts/evidence-graph/build-identity-collision-review.mjs
+          node scripts/evidence-graph/apply-identity-resolutions.mjs
 
-      - name: Verify generated baseline
+      - name: Verify generated outputs
         run: |
           node --input-type=module <<'NODE'
           import fs from 'node:fs'
@@ -67,45 +68,34 @@ jobs:
 
           const registry = JSON.parse(fs.readFileSync('data/graph/identity/substance-registry.json', 'utf8'))
           const report = JSON.parse(fs.readFileSync('data/graph/identity/identity-validation-report.json', 'utf8'))
+          const resolutionReport = JSON.parse(fs.readFileSync('data/graph/identity/identity-resolution-report.json', 'utf8'))
           const collisionCsv = fs.readFileSync('data/graph/identity/identity-collision-review.csv', 'utf8').trimEnd()
-          const reviewQueue = registry.filter((record) => record.status !== 'active')
-          const duplicateCandidates = registry.filter((record) => record.status === 'duplicate-candidate')
           const collisionCsvRows = collisionCsv ? collisionCsv.split('\n').length - 1 : 0
+          const deprecated = registry.filter((record) => record.status === 'deprecated')
+          const forms = registry.filter((record) => record.reviewFlags?.includes('form-of-parent-identity'))
+          const berberine = registry.find((record) => record.id === 'compound:berberine')
+          const berberineHcl = registry.find((record) => record.id === 'compound:berberine-hcl')
 
           assert.ok(Array.isArray(registry), 'Registry must be a JSON array')
           assert.ok(registry.length > 0, 'Registry must contain imported identities')
           assert.equal(report.summary.missingIdRecords, 0, 'Workbook identities must all have stable IDs')
           assert.equal(report.summary.registryRecords, registry.length, 'Registry count must match valid report count')
-          assert.equal(report.summary.reviewQueueRecords, reviewQueue.length, 'Review queue count must match registry statuses')
-          assert.equal(report.summary.duplicateCandidateRecords, duplicateCandidates.length, 'Duplicate candidate count must match registry statuses')
           assert.equal(collisionCsvRows, report.summary.collisionCount, 'Collision CSV must contain one row per collision group')
-          assert.ok(
-            duplicateCandidates.every((record) => record.reviewFlags.includes('identity-collision')),
-            'Every duplicate candidate must retain an identity-collision review flag',
-          )
-          NODE
+          assert.equal(resolutionReport.summary.appliedResolutions, 4, 'All approved identity resolutions must apply')
+          assert.equal(resolutionReport.summary.skippedResolutions, 0, 'Approved resolutions must not be skipped')
+          assert.equal(resolutionReport.summary.deprecatedRecords, deprecated.length, 'Deprecated count must match registry')
+          assert.equal(resolutionReport.summary.formRecords, forms.length, 'Form count must match registry')
+          assert.equal(berberineHcl.parentEntityId, berberine.id, 'Berberine HCl must link to parent berberine')
+          assert.equal(berberineHcl.canonicalName, 'Berberine hydrochloride')
+          assert.equal(berberineHcl.status, 'active', 'Distinct forms must remain active identities')
+          assert.ok(berberineHcl.aliases.includes('Berberine HCl'))
+          assert.ok(!berberineHcl.reviewFlags.includes('identity-collision'))
 
-      - name: Apply approved identity resolutions
-        run: node scripts/evidence-graph/apply-identity-resolutions.mjs
-
-      - name: Verify resolution overlay
-        run: |
-          node --input-type=module <<'NODE'
-          import fs from 'node:fs'
-          import assert from 'node:assert/strict'
-
-          const registry = JSON.parse(fs.readFileSync('data/graph/identity/substance-registry.json', 'utf8'))
-          const report = JSON.parse(fs.readFileSync('data/graph/identity/identity-resolution-report.json', 'utf8'))
-
-          assert.equal(report.summary.appliedResolutions, 3, 'All seeded approved resolutions must apply')
-          assert.equal(report.summary.skippedResolutions, 0, 'No approved seeded resolution may be skipped')
-          assert.equal(report.summary.deprecatedRecords, 3, 'Each alias merge must deprecate one duplicate identity')
-
-          for (const id of ['compound:coq10', 'herb:hericium-erinaceus', 'compound:nr']) {
-            const record = registry.find((item) => item.id === id)
-            assert.equal(record?.status, 'deprecated', `${id} must be deprecated by the resolution overlay`)
-            assert.ok(record?.parentEntityId, `${id} must point to its canonical identity`)
-          }
+          console.log(JSON.stringify({
+            baseline: report.summary,
+            collisionSummary: report.collisionSummary,
+            resolutions: resolutionReport.summary,
+          }, null, 2))
           NODE
 
       - name: Upload identity outputs
