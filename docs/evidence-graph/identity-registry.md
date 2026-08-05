@@ -6,6 +6,20 @@ The identity registry gives every herb, compound, and scientifically meaningful 
 
 This is a parallel foundation. It does not replace the existing workbook importer or the generated files in `public/data`.
 
+## Current canonical source
+
+The current workbook stores herb and compound identities together in `Entity_Master` and distinguishes them with `entity_type`.
+
+The importer also supports older workbook layouts that used separate identity sheets:
+
+- `Herb Master V3`
+- `Herb Monographs`
+- `Site Export Herbs`
+- `Compound Master V3`
+- `Site Export Compounds`
+
+When both layouts exist, the split sheets remain preferred for backward compatibility. When they are absent, the importer reads herb and compound rows from `Entity_Master`.
+
 ## Stable ID formats
 
 - Herb: `herb:{canonical-slug}`
@@ -76,19 +90,83 @@ The generated registry target lives at:
 data/graph/identity/substance-registry.json
 ```
 
+The generated validation report lives at:
+
+```text
+data/graph/identity/identity-validation-report.json
+```
+
+## Import command
+
+```bash
+node scripts/evidence-graph/build-identity-registry.mjs
+```
+
+The command is read-only with respect to the workbook and writes only the two graph identity outputs above.
+
+## Collision handling
+
+The importer never merges identities automatically.
+
+It detects:
+
+- duplicate stable IDs
+- duplicate canonical slugs
+- duplicate canonical names
+- aliases that collide with other aliases, names, or slugs
+
+Each collision receives:
+
+- a classification
+- a severity
+- a recommended editorial action
+- the involved record IDs and workbook provenance
+
+Records involved in collisions are marked `duplicate-candidate` and receive review flags. Scientifically meaningful forms remain separate until a reviewer explicitly assigns a parent identity or alias resolution.
+
+## Current baseline
+
+The validated `Entity_Master` import currently produces:
+
+- 881 registry records
+- 293 herbs
+- 588 compounds
+- 0 invalid records
+- 0 missing stable IDs
+- 43 collision groups
+- 88 duplicate-candidate records
+- 77 additional form-sensitive review records
+- 165 total records in the identity review queue
+
+These counts are a workbook baseline, not permanent acceptance thresholds. CI validates structural consistency rather than freezing the exact totals.
+
+## Continuous validation
+
+The focused GitHub Actions workflow runs:
+
+1. identity unit tests
+2. registry generation from the workbook
+3. output consistency checks
+4. artifact upload for the registry and validation report
+
+Workflow file:
+
+```text
+.github/workflows/evidence-graph-identity-check.yml
+```
+
 ## Publication rule
 
 The registry is internal graph infrastructure. It must not change live routes or overwrite `public/data` until the pilot graph passes validation and review.
 
 ## Next implementation step
 
-Build a read-only workbook importer that inventories `Herb Master V3` and `Compound Master V3`, generates registry candidates, and reports:
+Resolve the highest-severity identity collisions first, beginning with:
 
-- duplicate stable IDs
-- duplicate canonical slugs
-- alias collisions
-- missing names or slugs
-- form-sensitive names requiring review
-- parent-form candidates
+1. stable-ID or canonical-slug collisions, if any appear
+2. same-type canonical-name duplicates
+3. cross-type name conflicts
+4. alias duplicates
+5. parent-form assignments for extract, salt, species, and plant-part identities
 
-The importer should write only to `data/graph/identity/` and a validation report under `ops/evidence-graph/`.
+After the collision queue is reviewed, the registry can safely anchor claim, study, safety, and relationship imports.
