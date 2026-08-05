@@ -3,6 +3,9 @@ import assert from 'node:assert/strict'
 import {
   buildIdentityRecord,
   buildIdentityValidationReport,
+  collectEntityMasterRecords,
+  normalizeEntityMasterType,
+  resolveIdentitySources,
 } from '../build-identity-registry.mjs'
 
 const workbookPath = '/repo/data-sources/herb_monograph_master.xlsx'
@@ -46,7 +49,7 @@ test('builds a stable herb identity with workbook provenance', () => {
     sourceSlug: 'ashwagandha',
     canonicalSlugField: 'slug',
     duplicateGroup: null,
-    importerVersion: '0.1.0',
+    importerVersion: '0.2.0',
   })
 })
 
@@ -107,4 +110,64 @@ test('keeps incomplete candidates in the report but marks them invalid', () => {
   assert.equal(record.id, null)
   assert.equal(report.summary.invalidRecords, 1)
   assert.equal(report.summary.missingIdRecords, 1)
+})
+
+test('normalizes only supported Entity_Master identity types', () => {
+  assert.equal(normalizeEntityMasterType(' Herb '), 'herb')
+  assert.equal(normalizeEntityMasterType('COMPOUND'), 'compound')
+  assert.equal(normalizeEntityMasterType('study'), null)
+  assert.equal(normalizeEntityMasterType(''), null)
+})
+
+test('imports herb and compound identities from Entity_Master', () => {
+  const records = collectEntityMasterRecords({
+    rows: [
+      {
+        entity_type: 'herb',
+        slug: 'ashwagandha',
+        name: 'Ashwagandha',
+        latin_name: 'Withania somnifera',
+      },
+      {
+        entity_type: 'compound',
+        slug: 'withaferin-a',
+        name: 'Withaferin A',
+      },
+      {
+        entity_type: 'study',
+        slug: 'ignored-study',
+        name: 'Ignored Study',
+      },
+    ],
+    sheetName: 'Entity_Master',
+    workbookPath,
+  })
+
+  assert.deepEqual(records.map((record) => record.id), [
+    'herb:ashwagandha',
+    'compound:withaferin-a',
+  ])
+  assert.ok(records.every((record) => record.provenance.sheet === 'Entity_Master'))
+})
+
+test('prefers legacy split sheets but supports canonical Entity_Master fallback', () => {
+  const legacyWorkbook = {
+    SheetNames: ['Herb Master V3', 'Compound Master V3', 'Entity_Master'],
+    Sheets: {},
+  }
+  assert.deepEqual(resolveIdentitySources(legacyWorkbook), {
+    herbSheetName: 'Herb Master V3',
+    compoundSheetName: 'Compound Master V3',
+    entityMasterSheetName: 'Entity_Master',
+  })
+
+  const canonicalWorkbook = {
+    SheetNames: ['README', 'Entity_Master', 'Evidence_Register'],
+    Sheets: {},
+  }
+  assert.deepEqual(resolveIdentitySources(canonicalWorkbook), {
+    herbSheetName: null,
+    compoundSheetName: null,
+    entityMasterSheetName: 'Entity_Master',
+  })
 })
