@@ -20,28 +20,11 @@ const HERB_SHEET = 'Herb Master V3'
 const COMPOUND_SHEET = 'Compound Master V3'
 const DEFAULT_OUTPUT = 'data/graph/identity/substance-registry.json'
 const DEFAULT_REPORT = 'data/graph/identity/identity-validation-report.json'
+const IMPORTER_VERSION = '0.1.0'
 
-const ALIAS_FIELDS = [
-  'aliases',
-  'common_names',
-  'commonNames',
-  'alternate_names',
-  'synonyms',
-]
-
-const SCIENTIFIC_NAME_FIELDS = [
-  'latin_name',
-  'scientific_name',
-  'scientificName',
-]
-
-const FORM_FIELDS = [
-  'formulations',
-  'oral_form',
-  'extract_type',
-  'standardization_target',
-  'preparation',
-]
+const ALIAS_FIELDS = ['aliases', 'common_names', 'commonNames', 'alternate_names', 'synonyms']
+const SCIENTIFIC_NAME_FIELDS = ['latin_name', 'scientific_name', 'scientificName']
+const FORM_FIELDS = ['formulations', 'oral_form', 'extract_type', 'standardization_target', 'preparation']
 
 function clean(value) {
   if (value === null || value === undefined) return ''
@@ -68,11 +51,15 @@ function canonicalNameFor(row) {
   return clean(row?.name) || clean(row?.canonical_name)
 }
 
-function provenanceFor({ workbookPath, sheetName, rowNumber }) {
+function provenanceFor({ workbookPath, sheetName, rowNumber, row, canonicalSlug }) {
   return {
     workbook: path.basename(workbookPath),
     sheet: sheetName,
-    row: rowNumber,
+    sourceRow: rowNumber,
+    sourceSlug: clean(row?.slug) || canonicalSlug || `row-${rowNumber}`,
+    canonicalSlugField: clean(row?.canonical_slug_v2) ? 'canonical_slug_v2' : 'slug',
+    duplicateGroup: clean(row?.duplicate_group_v2) || null,
+    importerVersion: IMPORTER_VERSION,
   }
 }
 
@@ -82,35 +69,34 @@ export function buildIdentityRecord({ row, rowNumber, sheetName, entityType, wor
   const scientificName = firstValue(row, SCIENTIFIC_NAME_FIELDS)
   const aliases = normalizeAliases([
     ...allValues(row, ALIAS_FIELDS),
-    canonicalName,
     scientificName,
   ]).filter((value) => normalizeIdentityText(value) !== normalizeIdentityText(canonicalName))
-  const formSignals = FORM_FIELDS
-    .map((field) => clean(row?.[field]))
-    .filter(Boolean)
-  const reviewReasons = []
+  const formSignals = FORM_FIELDS.map((field) => clean(row?.[field])).filter(Boolean)
+  const reviewFlags = []
 
-  if (!canonicalSlug) reviewReasons.push('missing-canonical-slug')
-  if (!canonicalName) reviewReasons.push('missing-canonical-name')
+  if (!canonicalSlug) reviewFlags.push('missing-canonical-slug')
+  if (!canonicalName) reviewFlags.push('missing-canonical-name')
   if (requiresFormReview([canonicalName, scientificName, ...formSignals].join(' '))) {
-    reviewReasons.push('form-sensitive-identity')
+    reviewFlags.push('form-sensitive-identity')
   }
 
-  const id = canonicalSlug
-    ? buildStableEntityId(entityType, canonicalSlug)
-    : null
-
   return {
-    id,
+    id: canonicalSlug ? buildStableEntityId(entityType, canonicalSlug) : null,
     entityType,
     canonicalSlug: canonicalSlug || null,
     canonicalName: canonicalName || null,
     scientificName: scientificName || null,
+    parentEntityId: null,
     aliases,
-    parentId: null,
-    status: reviewReasons.length ? 'needs-review' : 'active',
-    reviewReasons,
-    provenance: provenanceFor({ workbookPath, sheetName, rowNumber }),
+    status: reviewFlags.length ? 'needs-review' : 'active',
+    reviewFlags,
+    provenance: provenanceFor({
+      workbookPath,
+      sheetName,
+      rowNumber,
+      row,
+      canonicalSlug,
+    }),
   }
 }
 
@@ -133,6 +119,16 @@ function addIndexValue(index, key, record) {
   index.set(key, existing)
 }
 
+function summarizeRecord(record) {
+  return {
+    id: record.id,
+    entityType: record.entityType,
+    canonicalName: record.canonicalName,
+    canonicalSlug: record.canonicalSlug,
+    provenance: record.provenance,
+  }
+}
+
 export function buildIdentityValidationReport(records) {
   const idIndex = new Map()
   const slugIndex = new Map()
@@ -149,67 +145,43 @@ export function buildIdentityValidationReport(records) {
   }
 
   const collisionsFrom = (index, type) => [...index.entries()]
-    .filter(([key, matches]) => key && matches.length > 1)
+    .filter(([key, matches]) => key && new Set(matches.map((record) => record.id)).size > 1)
     .map(([key, matches]) => ({
       type,
       key,
-      recordIds: matches.map((record) => record.id),
-      entities: matches.map((record) => ({
-        id: record.id,
-        entityType: record.entityType,
-        canonicalName: record.canonicalName,
-        canonicalSlug: record.canonicalSlug,
-        provenance: record.provenance,
-      })),
-    }))
-
-  const aliasCollisions = [...aliasIndex.entries()]
-    .filter(([key, matches]) => {
-      if (!key || matches.length < 2) return false
-      return new Set(matches.map((record) => record.id)).size > 1
-    })
-    .map(([key, matches]) => ({
-      type: 'alias-collision',
-      key,
       recordIds: [...new Set(matches.map((record) => record.id))],
-      entities: matches.map((record) => ({
-        id: record.id,
-        entityType: record.entityType,
-        canonicalName: record.canonicalName,
-        canonicalSlug: record.canonicalSlug,
-        provenance: record.provenance,
-      })),
+      entities: matches.map(summarizeRecord),
     }))
 
   const missingIds = records.filter((record) => !record.id)
+  const invalidRecords = records.filter((record) => !record.id || !record.canonicalSlug || !record.canonicalName)
   const needsReview = records.filter((record) => record.status === 'needs-review')
   const collisions = [
     ...collisionsFrom(idIndex, 'stable-id-collision'),
     ...collisionsFrom(slugIndex, 'canonical-slug-collision'),
     ...collisionsFrom(nameIndex, 'canonical-name-collision'),
-    ...aliasCollisions,
+    ...collisionsFrom(aliasIndex, 'alias-collision'),
   ]
 
   return {
+    importerVersion: IMPORTER_VERSION,
     generatedAt: new Date().toISOString(),
     summary: {
-      totalRecords: records.length,
+      totalCandidates: records.length,
+      registryRecords: records.length - invalidRecords.length,
       herbRecords: records.filter((record) => record.entityType === 'herb').length,
       compoundRecords: records.filter((record) => record.entityType === 'compound').length,
       activeRecords: records.filter((record) => record.status === 'active').length,
       needsReviewRecords: needsReview.length,
+      invalidRecords: invalidRecords.length,
       missingIdRecords: missingIds.length,
       collisionCount: collisions.length,
     },
     collisions,
-    missingIds,
+    invalidRecords: invalidRecords.map(summarizeRecord),
     needsReview: needsReview.map((record) => ({
-      id: record.id,
-      canonicalName: record.canonicalName,
-      canonicalSlug: record.canonicalSlug,
-      entityType: record.entityType,
-      reviewReasons: record.reviewReasons,
-      provenance: record.provenance,
+      ...summarizeRecord(record),
+      reviewFlags: record.reviewFlags,
     })),
   }
 }
@@ -222,12 +194,8 @@ function sortRecords(records) {
   })
 }
 
-function ensureParentDirectory(filePath) {
-  fs.mkdirSync(path.dirname(filePath), { recursive: true })
-}
-
 function writeJson(filePath, value) {
-  ensureParentDirectory(filePath)
+  fs.mkdirSync(path.dirname(filePath), { recursive: true })
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8')
 }
 
@@ -248,29 +216,30 @@ export async function buildIdentityRegistry(options = {}) {
   if (!herbSheet) throw new Error(`Required workbook sheet not found: ${HERB_SHEET}`)
   if (!compoundSheet) throw new Error(`Required workbook sheet not found: ${COMPOUND_SHEET}`)
 
-  const herbRecords = collectRecords({
-    rows: sheetToRows(herbSheet),
-    sheetName: HERB_SHEET,
-    entityType: 'herb',
-    workbookPath,
-  })
-  const compoundRecords = collectRecords({
-    rows: sheetToRows(compoundSheet),
-    sheetName: COMPOUND_SHEET,
-    entityType: 'compound',
-    workbookPath,
-  })
-  const records = sortRecords([...herbRecords, ...compoundRecords])
+  const records = sortRecords([
+    ...collectRecords({
+      rows: sheetToRows(herbSheet),
+      sheetName: HERB_SHEET,
+      entityType: 'herb',
+      workbookPath,
+    }),
+    ...collectRecords({
+      rows: sheetToRows(compoundSheet),
+      sheetName: COMPOUND_SHEET,
+      entityType: 'compound',
+      workbookPath,
+    }),
+  ])
   const report = buildIdentityValidationReport(records)
-  const registry = {
-    schemaVersion: '0.1.0',
-    generatedAt: report.generatedAt,
-    sourceWorkbook: path.relative(repoRoot, workbookPath).replaceAll(path.sep, '/'),
-    records,
-  }
+  const registry = records.filter((record) => (
+    record.id && record.canonicalSlug && record.canonicalName
+  ))
 
   writeJson(outputPath, registry)
-  writeJson(reportPath, report)
+  writeJson(reportPath, {
+    ...report,
+    sourceWorkbook: path.relative(repoRoot, workbookPath).replaceAll(path.sep, '/'),
+  })
 
   return { registry, report, outputPath, reportPath }
 }
@@ -281,13 +250,11 @@ async function main() {
 
   console.log(`[evidence-graph] Identity registry written: ${path.relative(getRepoRoot(), result.outputPath)}`)
   console.log(`[evidence-graph] Validation report written: ${path.relative(getRepoRoot(), result.reportPath)}`)
-  console.log(`[evidence-graph] Records: ${summary.totalRecords} (${summary.herbRecords} herbs, ${summary.compoundRecords} compounds)`)
+  console.log(`[evidence-graph] Registry records: ${summary.registryRecords} (${summary.herbRecords} herb candidates, ${summary.compoundRecords} compound candidates)`)
   console.log(`[evidence-graph] Needs review: ${summary.needsReviewRecords}`)
   console.log(`[evidence-graph] Collisions: ${summary.collisionCount}`)
 
-  if (summary.missingIdRecords > 0) {
-    process.exitCode = 1
-  }
+  if (summary.invalidRecords > 0) process.exitCode = 1
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
