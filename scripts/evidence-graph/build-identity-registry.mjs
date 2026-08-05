@@ -26,7 +26,7 @@ const COMPOUND_SHEET_CANDIDATES = ['Compound Master V3', 'Site Export Compounds'
 const ENTITY_MASTER_CANDIDATES = ['Entity_Master', 'Sheet7']
 const DEFAULT_OUTPUT = 'data/graph/identity/substance-registry.json'
 const DEFAULT_REPORT = 'data/graph/identity/identity-validation-report.json'
-const IMPORTER_VERSION = '0.2.0'
+const IMPORTER_VERSION = '0.3.0'
 
 const ALIAS_FIELDS = ['aliases', 'common_names', 'commonNames', 'alternate_names', 'synonyms']
 const SCIENTIFIC_NAME_FIELDS = ['latin_name', 'scientific_name', 'scientificName']
@@ -203,6 +203,78 @@ function summarizeRecord(record) {
   }
 }
 
+export function classifyIdentityCollision(collision) {
+  const entityTypes = new Set(collision.entities.map((entity) => entity.entityType))
+  const crossType = entityTypes.size > 1
+
+  if (collision.type === 'stable-id-collision' || collision.type === 'canonical-slug-collision') {
+    return {
+      classification: 'identity-critical',
+      severity: 'blocking',
+      recommendedAction: 'Resolve the canonical identity or slug before graph publication.',
+    }
+  }
+
+  if (collision.type === 'canonical-name-collision') {
+    return crossType
+      ? {
+          classification: 'cross-type-name-conflict',
+          severity: 'high',
+          recommendedAction: 'Confirm whether one row is misclassified or represents a distinct form.',
+        }
+      : {
+          classification: 'same-type-name-duplicate',
+          severity: 'high',
+          recommendedAction: 'Choose a canonical record and preserve the other slug as an alias or form.',
+        }
+  }
+
+  return crossType
+    ? {
+        classification: 'cross-type-alias-conflict',
+        severity: 'medium',
+        recommendedAction: 'Review whether the alias points to a parent substance, form, or misclassified row.',
+      }
+    : {
+        classification: 'same-type-alias-duplicate',
+        severity: 'medium',
+        recommendedAction: 'Choose a canonical record and retain alternate names as aliases.',
+      }
+}
+
+function collisionSummary(collisions) {
+  const byType = {}
+  const byClassification = {}
+  const bySeverity = {}
+
+  for (const collision of collisions) {
+    byType[collision.type] = (byType[collision.type] ?? 0) + 1
+    byClassification[collision.classification] = (byClassification[collision.classification] ?? 0) + 1
+    bySeverity[collision.severity] = (bySeverity[collision.severity] ?? 0) + 1
+  }
+
+  return { byType, byClassification, bySeverity }
+}
+
+export function markCollisionCandidates(records, collisions) {
+  const recordsById = new Map(records.filter((record) => record.id).map((record) => [record.id, record]))
+
+  for (const collision of collisions) {
+    for (const recordId of collision.recordIds) {
+      const record = recordsById.get(recordId)
+      if (!record) continue
+
+      record.status = 'duplicate-candidate'
+      const flags = new Set(record.reviewFlags)
+      flags.add('identity-collision')
+      flags.add(`collision:${collision.classification}`)
+      record.reviewFlags = [...flags]
+    }
+  }
+
+  return records
+}
+
 export function buildIdentityValidationReport(records) {
   const idIndex = new Map()
   const slugIndex = new Map()
@@ -245,15 +317,23 @@ export function buildIdentityValidationReport(records) {
       entities: matches.map(summarizeRecord),
     }))
 
-  const missingIds = records.filter((record) => !record.id)
-  const invalidRecords = records.filter((record) => !record.id || !record.canonicalSlug || !record.canonicalName)
-  const needsReview = records.filter((record) => record.status === 'needs-review')
   const collisions = [
     ...collisionsFrom(idIndex, 'stable-id-collision'),
     ...collisionsFrom(slugIndex, 'canonical-slug-collision'),
     ...collisionsFrom(nameIndex, 'canonical-name-collision'),
     ...aliasCollisions,
-  ]
+  ].map((collision) => ({
+    ...collision,
+    ...classifyIdentityCollision(collision),
+  }))
+
+  markCollisionCandidates(records, collisions)
+
+  const missingIds = records.filter((record) => !record.id)
+  const invalidRecords = records.filter((record) => !record.id || !record.canonicalSlug || !record.canonicalName)
+  const needsReview = records.filter((record) => record.status === 'needs-review')
+  const duplicateCandidates = records.filter((record) => record.status === 'duplicate-candidate')
+  const reviewQueue = records.filter((record) => record.status !== 'active')
 
   return {
     importerVersion: IMPORTER_VERSION,
@@ -265,14 +345,23 @@ export function buildIdentityValidationReport(records) {
       compoundRecords: records.filter((record) => record.entityType === 'compound').length,
       activeRecords: records.filter((record) => record.status === 'active').length,
       needsReviewRecords: needsReview.length,
+      duplicateCandidateRecords: duplicateCandidates.length,
+      reviewQueueRecords: reviewQueue.length,
       invalidRecords: invalidRecords.length,
       missingIdRecords: missingIds.length,
       collisionCount: collisions.length,
     },
+    collisionSummary: collisionSummary(collisions),
     collisions,
     invalidRecords: invalidRecords.map(summarizeRecord),
-    needsReview: needsReview.map((record) => ({
+    reviewQueue: reviewQueue.map((record) => ({
       ...summarizeRecord(record),
+      status: record.status,
+      reviewFlags: record.reviewFlags,
+    })),
+    needsReview: reviewQueue.map((record) => ({
+      ...summarizeRecord(record),
+      status: record.status,
       reviewFlags: record.reviewFlags,
     })),
   }
@@ -369,7 +458,7 @@ async function main() {
   console.log(`[evidence-graph] Identity registry written: ${path.relative(getRepoRoot(), result.outputPath)}`)
   console.log(`[evidence-graph] Validation report written: ${path.relative(getRepoRoot(), result.reportPath)}`)
   console.log(`[evidence-graph] Registry records: ${summary.registryRecords} (${summary.herbRecords} herbs, ${summary.compoundRecords} compounds)`)
-  console.log(`[evidence-graph] Needs review: ${summary.needsReviewRecords}`)
+  console.log(`[evidence-graph] Review queue: ${summary.reviewQueueRecords} (${summary.duplicateCandidateRecords} collision candidates)`)
   console.log(`[evidence-graph] Collisions: ${summary.collisionCount}`)
 
   if (summary.invalidRecords > 0) process.exitCode = 1
