@@ -52,10 +52,12 @@ jobs:
         run: npm ci
 
       - name: Run identity unit tests
-        run: node --test scripts/evidence-graph/__tests__/build-identity-registry.test.mjs
+        run: node --test scripts/evidence-graph/__tests__/*.test.mjs
 
       - name: Build registry from workbook
-        run: node scripts/evidence-graph/build-identity-registry.mjs
+        run: |
+          node scripts/evidence-graph/build-identity-registry.mjs
+          node scripts/evidence-graph/build-identity-collision-review.mjs
 
       - name: Verify generated outputs
         run: |
@@ -65,8 +67,10 @@ jobs:
 
           const registry = JSON.parse(fs.readFileSync('data/graph/identity/substance-registry.json', 'utf8'))
           const report = JSON.parse(fs.readFileSync('data/graph/identity/identity-validation-report.json', 'utf8'))
+          const collisionCsv = fs.readFileSync('data/graph/identity/identity-collision-review.csv', 'utf8').trimEnd()
           const reviewQueue = registry.filter((record) => record.status !== 'active')
           const duplicateCandidates = registry.filter((record) => record.status === 'duplicate-candidate')
+          const collisionCsvRows = collisionCsv ? collisionCsv.split('\n').length - 1 : 0
 
           assert.ok(Array.isArray(registry), 'Registry must be a JSON array')
           assert.ok(registry.length > 0, 'Registry must contain imported identities')
@@ -74,6 +78,7 @@ jobs:
           assert.equal(report.summary.registryRecords, registry.length, 'Registry count must match valid report count')
           assert.equal(report.summary.reviewQueueRecords, reviewQueue.length, 'Review queue count must match registry statuses')
           assert.equal(report.summary.duplicateCandidateRecords, duplicateCandidates.length, 'Duplicate candidate count must match registry statuses')
+          assert.equal(collisionCsvRows, report.summary.collisionCount, 'Collision CSV must contain one row per collision group')
           assert.ok(
             duplicateCandidates.every((record) => record.reviewFlags.includes('identity-collision')),
             'Every duplicate candidate must retain an identity-collision review flag',
@@ -93,5 +98,6 @@ jobs:
           path: |
             data/graph/identity/substance-registry.json
             data/graph/identity/identity-validation-report.json
+            data/graph/identity/identity-collision-review.csv
           if-no-files-found: warn
           retention-days: 14
