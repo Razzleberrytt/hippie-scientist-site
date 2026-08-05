@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "0.1.0",
+  "schemaVersion": "0.2.0",
   "resolutions": [
     {
       "collisionKey": "coenzyme-q10",
@@ -29,6 +29,22 @@
       "retiredRecordIds": ["compound:nr"],
       "status": "approved",
       "reason": "NR is an abbreviation for nicotinamide riboside and should remain an alias rather than a separate compound identity.",
+      "reviewedAt": "2026-08-05"
+    },
+    {
+      "collisionKey": "berberine",
+      "collisionType": "canonical-name-collision",
+      "action": "establish-form",
+      "canonicalRecordId": "compound:berberine",
+      "formRecordIds": ["compound:berberine-hcl"],
+      "formCanonicalNames": {
+        "compound:berberine-hcl": "Berberine hydrochloride"
+      },
+      "formAliases": {
+        "compound:berberine-hcl": ["Berberine HCl"]
+      },
+      "status": "approved",
+      "reason": "Berberine hydrochloride is a distinct salt form used in products and research. It must remain queryable as a child identity rather than being flattened into the parent compound.",
       "reviewedAt": "2026-08-05"
     }
   ]
