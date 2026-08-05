@@ -9,18 +9,24 @@ import {
   normalizeIdentityText,
   requiresFormReview,
 } from '../../config/evidence-graph/identity-rules.mjs'
-import { getSheet, readWorkbook, sheetToRows } from '../data/workbook-parser.mjs'
+import {
+  getSheet,
+  getSheetNames,
+  readWorkbook,
+  sheetToRows,
+} from '../data/workbook-parser.mjs'
 import {
   assertWorkbookExists,
   getRepoRoot,
   resolveWorkbookPath,
 } from '../workbook-source.mjs'
 
-const HERB_SHEET = 'Herb Master V3'
-const COMPOUND_SHEET = 'Compound Master V3'
+const HERB_SHEET_CANDIDATES = ['Herb Master V3', 'Herb Monographs', 'Site Export Herbs']
+const COMPOUND_SHEET_CANDIDATES = ['Compound Master V3', 'Site Export Compounds']
+const ENTITY_MASTER_CANDIDATES = ['Entity_Master', 'Sheet7']
 const DEFAULT_OUTPUT = 'data/graph/identity/substance-registry.json'
 const DEFAULT_REPORT = 'data/graph/identity/identity-validation-report.json'
-const IMPORTER_VERSION = '0.1.0'
+const IMPORTER_VERSION = '0.2.0'
 
 const ALIAS_FIELDS = ['aliases', 'common_names', 'commonNames', 'alternate_names', 'synonyms']
 const SCIENTIFIC_NAME_FIELDS = ['latin_name', 'scientific_name', 'scientificName']
@@ -110,6 +116,58 @@ function collectRecords({ rows, sheetName, entityType, workbookPath }) {
       workbookPath,
     }))
     .filter((record) => record.canonicalName || record.canonicalSlug)
+}
+
+export function normalizeEntityMasterType(value) {
+  const type = clean(value).toLowerCase()
+  return type === 'herb' || type === 'compound' ? type : null
+}
+
+export function collectEntityMasterRecords({ rows, sheetName, workbookPath }) {
+  return rows
+    .map((row, index) => {
+      const entityType = normalizeEntityMasterType(row?.entity_type)
+      if (!entityType) return null
+      return buildIdentityRecord({
+        row,
+        rowNumber: index + 2,
+        sheetName,
+        entityType,
+        workbookPath,
+      })
+    })
+    .filter((record) => record && (record.canonicalName || record.canonicalSlug))
+}
+
+function findSheetName(workbook, candidates) {
+  const names = getSheetNames(workbook)
+  const exact = candidates.find((candidate) => names.includes(candidate))
+  if (exact) return exact
+
+  const normalized = new Map(names.map((name) => [clean(name).toLowerCase(), name]))
+  for (const candidate of candidates) {
+    const match = normalized.get(clean(candidate).toLowerCase())
+    if (match) return match
+  }
+  return null
+}
+
+export function resolveIdentitySources(workbook) {
+  const herbSheetName = findSheetName(workbook, HERB_SHEET_CANDIDATES)
+  const compoundSheetName = findSheetName(workbook, COMPOUND_SHEET_CANDIDATES)
+  const entityMasterSheetName = findSheetName(workbook, ENTITY_MASTER_CANDIDATES)
+
+  if (!herbSheetName && !compoundSheetName && !entityMasterSheetName) {
+    throw new Error(
+      `No supported identity sheet found. Expected one of ${[
+        ...HERB_SHEET_CANDIDATES,
+        ...COMPOUND_SHEET_CANDIDATES,
+        ...ENTITY_MASTER_CANDIDATES,
+      ].join(', ')}. Available sheets: ${getSheetNames(workbook).join(', ')}`,
+    )
+  }
+
+  return { herbSheetName, compoundSheetName, entityMasterSheetName }
 }
 
 function addIndexValue(index, key, record) {
@@ -241,29 +299,51 @@ export async function buildIdentityRegistry(options = {}) {
 
   assertWorkbookExists(workbookPath)
 
-  const workbook = await readWorkbook(workbookPath, {
-    sheets: [HERB_SHEET, COMPOUND_SHEET],
-  })
-  const herbSheet = getSheet(workbook, HERB_SHEET)
-  const compoundSheet = getSheet(workbook, COMPOUND_SHEET)
+  const requestedSheets = [
+    ...HERB_SHEET_CANDIDATES,
+    ...COMPOUND_SHEET_CANDIDATES,
+    ...ENTITY_MASTER_CANDIDATES,
+  ]
+  const workbook = await readWorkbook(workbookPath, { sheets: requestedSheets })
+  const sources = resolveIdentitySources(workbook)
 
-  if (!herbSheet) throw new Error(`Required workbook sheet not found: ${HERB_SHEET}`)
-  if (!compoundSheet) throw new Error(`Required workbook sheet not found: ${COMPOUND_SHEET}`)
+  const entityMasterRecords = sources.entityMasterSheetName
+    ? collectEntityMasterRecords({
+        rows: sheetToRows(getSheet(workbook, sources.entityMasterSheetName)),
+        sheetName: sources.entityMasterSheetName,
+        workbookPath,
+      })
+    : []
 
-  const records = sortRecords([
-    ...collectRecords({
-      rows: sheetToRows(herbSheet),
-      sheetName: HERB_SHEET,
-      entityType: 'herb',
-      workbookPath,
-    }),
-    ...collectRecords({
-      rows: sheetToRows(compoundSheet),
-      sheetName: COMPOUND_SHEET,
-      entityType: 'compound',
-      workbookPath,
-    }),
-  ])
+  const masterHerbs = entityMasterRecords.filter((record) => record.entityType === 'herb')
+  const masterCompounds = entityMasterRecords.filter((record) => record.entityType === 'compound')
+
+  const herbRecords = sources.herbSheetName
+    ? collectRecords({
+        rows: sheetToRows(getSheet(workbook, sources.herbSheetName)),
+        sheetName: sources.herbSheetName,
+        entityType: 'herb',
+        workbookPath,
+      })
+    : masterHerbs
+
+  const compoundRecords = sources.compoundSheetName
+    ? collectRecords({
+        rows: sheetToRows(getSheet(workbook, sources.compoundSheetName)),
+        sheetName: sources.compoundSheetName,
+        entityType: 'compound',
+        workbookPath,
+      })
+    : masterCompounds
+
+  if (herbRecords.length === 0) {
+    throw new Error('No herb identities were found in supported workbook sheets')
+  }
+  if (compoundRecords.length === 0) {
+    throw new Error('No compound identities were found in supported workbook sheets')
+  }
+
+  const records = sortRecords([...herbRecords, ...compoundRecords])
   const report = buildIdentityValidationReport(records)
   const registry = records.filter((record) => (
     record.id && record.canonicalSlug && record.canonicalName
@@ -273,6 +353,10 @@ export async function buildIdentityRegistry(options = {}) {
   writeJson(reportPath, {
     ...report,
     sourceWorkbook: path.relative(repoRoot, workbookPath).replaceAll(path.sep, '/'),
+    sourceSheets: {
+      herbs: sources.herbSheetName || sources.entityMasterSheetName,
+      compounds: sources.compoundSheetName || sources.entityMasterSheetName,
+    },
   })
 
   return { registry, report, outputPath, reportPath }
@@ -284,7 +368,7 @@ async function main() {
 
   console.log(`[evidence-graph] Identity registry written: ${path.relative(getRepoRoot(), result.outputPath)}`)
   console.log(`[evidence-graph] Validation report written: ${path.relative(getRepoRoot(), result.reportPath)}`)
-  console.log(`[evidence-graph] Registry records: ${summary.registryRecords} (${summary.herbRecords} herb candidates, ${summary.compoundRecords} compound candidates)`)
+  console.log(`[evidence-graph] Registry records: ${summary.registryRecords} (${summary.herbRecords} herbs, ${summary.compoundRecords} compounds)`)
   console.log(`[evidence-graph] Needs review: ${summary.needsReviewRecords}`)
   console.log(`[evidence-graph] Collisions: ${summary.collisionCount}`)
 
