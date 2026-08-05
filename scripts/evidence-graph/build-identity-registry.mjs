@@ -119,6 +119,22 @@ function addIndexValue(index, key, record) {
   index.set(key, existing)
 }
 
+function uniqueRecords(records) {
+  const byIdentity = new Map()
+
+  for (const record of records) {
+    const key = record.id || [
+      record.entityType,
+      record.canonicalSlug,
+      record.provenance?.sheet,
+      record.provenance?.sourceRow,
+    ].join(':')
+    if (!byIdentity.has(key)) byIdentity.set(key, record)
+  }
+
+  return [...byIdentity.values()]
+}
+
 function summarizeRecord(record) {
   return {
     id: record.id,
@@ -145,11 +161,29 @@ export function buildIdentityValidationReport(records) {
   }
 
   const collisionsFrom = (index, type) => [...index.entries()]
-    .filter(([key, matches]) => key && new Set(matches.map((record) => record.id)).size > 1)
+    .map(([key, matches]) => [key, uniqueRecords(matches)])
+    .filter(([key, matches]) => key && matches.length > 1)
     .map(([key, matches]) => ({
       type,
       key,
-      recordIds: [...new Set(matches.map((record) => record.id))],
+      recordIds: matches.map((record) => record.id),
+      entities: matches.map(summarizeRecord),
+    }))
+
+  const aliasCollisions = [...aliasIndex.entries()]
+    .map(([key, aliasMatches]) => [
+      key,
+      uniqueRecords([
+        ...aliasMatches,
+        ...(nameIndex.get(key) ?? []),
+        ...(slugIndex.get(key) ?? []),
+      ]),
+    ])
+    .filter(([key, matches]) => key && matches.length > 1)
+    .map(([key, matches]) => ({
+      type: 'alias-collision',
+      key,
+      recordIds: matches.map((record) => record.id),
       entities: matches.map(summarizeRecord),
     }))
 
@@ -160,7 +194,7 @@ export function buildIdentityValidationReport(records) {
     ...collisionsFrom(idIndex, 'stable-id-collision'),
     ...collisionsFrom(slugIndex, 'canonical-slug-collision'),
     ...collisionsFrom(nameIndex, 'canonical-name-collision'),
-    ...collisionsFrom(aliasIndex, 'alias-collision'),
+    ...aliasCollisions,
   ]
 
   return {
