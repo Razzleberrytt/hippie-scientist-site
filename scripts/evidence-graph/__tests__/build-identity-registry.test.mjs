@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import {
   buildIdentityRecord,
   buildIdentityValidationReport,
+  classifyIdentityCollision,
   collectEntityMasterRecords,
   normalizeEntityMasterType,
   resolveIdentitySources,
@@ -49,7 +50,7 @@ test('builds a stable herb identity with workbook provenance', () => {
     sourceSlug: 'ashwagandha',
     canonicalSlugField: 'slug',
     duplicateGroup: null,
-    importerVersion: '0.2.0',
+    importerVersion: '0.3.0',
   })
 })
 
@@ -70,7 +71,7 @@ test('prefers canonical_slug_v2 and flags form-sensitive identities', () => {
   assert.deepEqual(record.reviewFlags, ['form-sensitive-identity'])
 })
 
-test('reports cross-record canonical and alias collisions', () => {
+test('reports and marks cross-record canonical and alias collisions', () => {
   const records = [
     makeRecord({
       row: {
@@ -92,11 +93,28 @@ test('reports cross-record canonical and alias collisions', () => {
   ]
 
   const report = buildIdentityValidationReport(records)
-  const collisionTypes = report.collisions.map((collision) => collision.type)
+  const aliasCollision = report.collisions.find((collision) => collision.type === 'alias-collision')
 
-  assert.ok(collisionTypes.includes('alias-collision'))
+  assert.ok(aliasCollision)
+  assert.equal(aliasCollision.classification, 'cross-type-alias-conflict')
+  assert.equal(aliasCollision.severity, 'medium')
   assert.equal(report.summary.totalCandidates, 2)
-  assert.ok(report.summary.collisionCount >= 1)
+  assert.equal(report.summary.duplicateCandidateRecords, 2)
+  assert.ok(records.every((record) => record.status === 'duplicate-candidate'))
+  assert.ok(records.every((record) => record.reviewFlags.includes('identity-collision')))
+})
+
+test('classifies same-type name collisions as likely duplicates', () => {
+  const classification = classifyIdentityCollision({
+    type: 'canonical-name-collision',
+    entities: [
+      { entityType: 'compound' },
+      { entityType: 'compound' },
+    ],
+  })
+
+  assert.equal(classification.classification, 'same-type-name-duplicate')
+  assert.equal(classification.severity, 'high')
 })
 
 test('keeps incomplete candidates in the report but marks them invalid', () => {
