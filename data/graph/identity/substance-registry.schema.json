@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thehippiescientist.net/schemas/substance-registry.schema.json",
+  "title": "Evidence Graph Substance Registry",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "id",
+      "entityType",
+      "canonicalSlug",
+      "canonicalName",
+      "aliases",
+      "status",
+      "provenance"
+    ],
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^(herb|compound|form):[a-z0-9]+(?:-[a-z0-9]+)*$"
+      },
+      "entityType": {
+        "enum": ["herb", "compound", "substanceForm"]
+      },
+      "canonicalSlug": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+      },
+      "canonicalName": {
+        "type": "string",
+        "minLength": 1
+      },
+      "scientificName": {
+        "type": ["string", "null"]
+      },
+      "parentEntityId": {
+        "type": ["string", "null"],
+        "pattern": "^(herb|compound):[a-z0-9]+(?:-[a-z0-9]+)*$"
+      },
+      "aliases": {
+        "type": "array",
+        "items": { "type": "string", "minLength": 1 },
+        "uniqueItems": true
+      },
+      "status": {
+        "enum": [
+          "active",
+          "needs-review",
+          "duplicate-candidate",
+          "deprecated",
+          "archived"
+        ]
+      },
+      "reviewFlags": {
+        "type": "array",
+        "items": { "type": "string", "minLength": 1 },
+        "uniqueItems": true
+      },
+      "provenance": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["workbook", "sheet", "sourceSlug"],
+        "properties": {
+          "workbook": { "type": "string", "minLength": 1 },
+          "sheet": { "type": "string", "minLength": 1 },
+          "sourceRow": { "type": ["integer", "null"], "minimum": 2 },
+          "sourceSlug": { "type": "string", "minLength": 1 },
+          "canonicalSlugField": { "type": ["string", "null"] },
+          "duplicateGroup": { "type": ["string", "null"] },
+          "importerVersion": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}
