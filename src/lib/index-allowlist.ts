@@ -18,6 +18,12 @@ export const CORE_INDEXABLE_ROUTES = [
   '/info/supplement-safety-checklist',
   '/stacks',
   '/tools',
+  '/tools/botanical-activity-atlas',
+  '/tools/botanical-activity-atlas/alkaloid-botanicals',
+  '/tools/botanical-activity-atlas/natural-stimulants',
+  '/tools/botanical-activity-atlas/calming-botanicals',
+  '/tools/botanical-activity-atlas/dream-and-perception-herbs',
+  '/tools/botanical-activity-atlas/serotonergic-interaction-risk',
 ] as const
 
 export const MONEY_ENTRY_ROUTES = [

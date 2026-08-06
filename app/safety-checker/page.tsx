@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 import { Suspense } from 'react'
 import { getHerbs, getCompounds } from '../../src/lib/runtime-data'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
@@ -128,6 +129,22 @@ export default async function SafetyCheckerPage() {
           compounds={compounds.map((compound) => toSafetyToolRecord(compound, 'compound'))}
         />
       </Suspense>
+
+      <section className='rounded-2xl border border-emerald-900/10 bg-emerald-50/45 p-5 shadow-sm'>
+        <p className='eyebrow-label'>Continue researching</p>
+        <h2 className='mt-2 text-xl font-bold tracking-tight text-ink'>Compare active botanicals by chemistry and risk</h2>
+        <p className='mt-2 max-w-3xl text-sm leading-6 text-muted'>
+          The Botanical Activity Atlas groups herbs by active-compound class, effect profile, evidence, noticeability, and structured safety signals. Use the focused serotonergic guide when antidepressants, MAO inhibition, or serotonin-related stacking is part of the question.
+        </p>
+        <div className='mt-4 flex flex-wrap gap-3'>
+          <Link href='/tools/botanical-activity-atlas/serotonergic-interaction-risk/' className='rounded-full bg-emerald-900 px-4 py-2 text-sm font-bold text-white transition hover:bg-emerald-800'>
+            View serotonergic-risk botanicals
+          </Link>
+          <Link href='/tools/botanical-activity-atlas/' className='rounded-full border border-emerald-900/20 bg-white px-4 py-2 text-sm font-bold text-emerald-900 transition hover:border-emerald-900/35'>
+            Open the complete atlas
+          </Link>
+        </div>
+      </section>
 
       <section className='rounded-2xl border border-rose-900/15 bg-rose-50/50 p-5 text-xs leading-relaxed text-rose-950'>
         <p className='font-bold flex items-center gap-1.5'>
