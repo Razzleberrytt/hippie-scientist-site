@@ -58,6 +58,7 @@ Files:
 - `components/ComparisonTable.tsx`
 - `components/compare-table-client.tsx`
 - `components/compare/EvidenceMatrix.tsx`
+- `components/guides/GuidePage.tsx`
 - `mdx-components.tsx`
 
 Implemented:
@@ -71,6 +72,7 @@ Notes:
 - Wide tables use a keyboard-focusable scroll region through the shared `ResponsiveTable` wrapper.
 - Tables receive captions.
 - Data tables use `scope="col"` and `scope="row"`.
+- Shared guide-template dosage tables use the same keyboard-reachable wrapper, captions, and semantic headers.
 - MDX tables receive a default screen-reader caption.
 
 ### Navigation
@@ -130,16 +132,11 @@ Implemented:
 
 ### Medium Priority
 
-1. Convert older guide-template dosage tables in `components/guides/GuidePage.tsx` to `ResponsiveTable`.
-   - Add caption.
-   - Add `scope="col"` to column headers.
-   - Change first data cell to row header with `scope="row"`.
-   - Keep workbook/source content unchanged.
-2. Audit all remaining raw `<table>` occurrences and either:
+1. Audit all remaining raw `<table>` occurrences and either:
    - confirm table semantics are complete, or
    - migrate to `ResponsiveTable`.
-3. Check all custom icon-only buttons for visible text or `aria-label`.
-4. Check dark-mode contrast on hardcoded utility colors.
+2. Check all custom icon-only buttons for visible text or `aria-label`.
+3. Check dark-mode contrast on hardcoded utility colors.
 
 ### Lower Priority
 
