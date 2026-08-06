@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { buildAtlasSourcePerformance } from '@/lib/atlasAnalyticsReport'
 import { readAnalyticsEvents, type StoredAnalyticsEvent } from '@/utils/analytics/eventStorage'
 
 type GroupRow = {
@@ -67,6 +68,8 @@ export default function AnalyticsViewer() {
     [events]
   )
 
+  const atlasReport = useMemo(() => buildAtlasSourcePerformance(events), [events])
+
   const byHerb = useMemo(
     () => groupCounts(clickEvents, event => event.slug || 'unknown'),
     [clickEvents]
@@ -88,10 +91,46 @@ export default function AnalyticsViewer() {
   )
 
   return (
-    <aside className='fixed bottom-3 right-3 z-[100] max-h-[80vh] w-[min(26rem,92vw)] overflow-auto rounded-lg border border-white/15 bg-black/85 p-3 text-white shadow-lg backdrop-blur'>
+    <aside className='fixed bottom-3 right-3 z-[100] max-h-[80vh] w-[min(38rem,94vw)] overflow-auto rounded-lg border border-white/15 bg-black/85 p-3 text-white shadow-lg backdrop-blur'>
       <h2 className='text-sm font-semibold text-white'>Dev Analytics Viewer</h2>
-      <p className='mt-1 text-xs text-white/75'>Total affiliate clicks: {clickEvents.length}</p>
 
+      <section className='mt-3 rounded-md border border-white/10 bg-white/5 p-2'>
+        <h3 className='text-xs font-semibold uppercase tracking-wide text-white/80'>Atlas source performance</h3>
+        <p className='mt-1 text-xs text-white/65'>
+          {atlasReport.attributedSessions} attributed sessions
+          {atlasReport.unattributedEvents ? ` · ${atlasReport.unattributedEvents} legacy events excluded` : ''}
+        </p>
+        {atlasReport.rows.length === 0 ? (
+          <p className='mt-2 text-xs text-white/60'>No session-level atlas data yet.</p>
+        ) : (
+          <div className='mt-2 overflow-x-auto'>
+            <table className='min-w-full text-xs'>
+              <thead>
+                <tr className='text-left text-white/65'>
+                  <th className='pr-3 font-medium'>Source</th>
+                  <th className='pr-3 font-medium'>Sessions</th>
+                  <th className='pr-3 font-medium'>Profile rate</th>
+                  <th className='pr-3 font-medium'>Avg depth</th>
+                  <th className='font-medium'>Top first filter</th>
+                </tr>
+              </thead>
+              <tbody>
+                {atlasReport.rows.map(row => (
+                  <tr key={row.source} className='border-t border-white/10'>
+                    <td className='py-1.5 pr-3 font-medium text-white/95'>{row.source}</td>
+                    <td className='py-1.5 pr-3 text-white/80'>{row.sessions}</td>
+                    <td className='py-1.5 pr-3 text-white/80'>{Math.round(row.profileOpenRate * 100)}%</td>
+                    <td className='py-1.5 pr-3 text-white/80'>{row.averageFilterDepth.toFixed(1)}</td>
+                    <td className='py-1.5 text-white/80'>{row.topFirstFilter}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </section>
+
+      <p className='mt-3 text-xs text-white/75'>Total affiliate clicks: {clickEvents.length}</p>
       <div className='mt-3 space-y-3'>
         <Table title='Clicks by herb' rows={byHerb} />
         <Table title='Clicks by product' rows={byProduct} />

@@ -14,15 +14,24 @@ export type AtlasLandingSource =
   | 'direct_or_external'
 
 export type AtlasEngagementState = {
+  sessionId: string
   firstFilter: AtlasFilterName | null
   distinctFilters: AtlasFilterName[]
   profileOpened: boolean
 }
 
-const EMPTY_ENGAGEMENT: AtlasEngagementState = {
-  firstFilter: null,
-  distinctFilters: [],
-  profileOpened: false,
+function createSessionId() {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') return crypto.randomUUID()
+  return `atlas-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`
+}
+
+function emptyEngagement(): AtlasEngagementState {
+  return {
+    sessionId: createSessionId(),
+    firstFilter: null,
+    distinctFilters: [],
+    profileOpened: false,
+  }
 }
 
 export function getAtlasLandingSource(referrer = typeof document !== 'undefined' ? document.referrer : ''): AtlasLandingSource {
@@ -45,17 +54,26 @@ export function getAtlasLandingSource(referrer = typeof document !== 'undefined'
 }
 
 export function getAtlasEngagementState(): AtlasEngagementState {
-  if (typeof window === 'undefined') return EMPTY_ENGAGEMENT
+  if (typeof window === 'undefined') return emptyEngagement()
   try {
     const parsed = JSON.parse(window.sessionStorage.getItem(ENGAGEMENT_KEY) || 'null')
-    if (!parsed || !Array.isArray(parsed.distinctFilters)) return EMPTY_ENGAGEMENT
-    return {
+    if (!parsed || !Array.isArray(parsed.distinctFilters)) {
+      const next = emptyEngagement()
+      saveAtlasEngagementState(next)
+      return next
+    }
+    const next = {
+      sessionId: typeof parsed.sessionId === 'string' && parsed.sessionId ? parsed.sessionId : createSessionId(),
       firstFilter: parsed.firstFilter ?? null,
       distinctFilters: parsed.distinctFilters,
       profileOpened: Boolean(parsed.profileOpened),
     }
+    if (!parsed.sessionId) saveAtlasEngagementState(next)
+    return next
   } catch {
-    return EMPTY_ENGAGEMENT
+    const next = emptyEngagement()
+    saveAtlasEngagementState(next)
+    return next
   }
 }
 
@@ -87,7 +105,7 @@ function withLandingSource(context: string) {
 }
 
 function withEngagementDepth(context: string, state = getAtlasEngagementState()) {
-  return `${context};first_filter:${state.firstFilter ?? 'none'};distinct_filters:${state.distinctFilters.length};profile_opened:${state.profileOpened ? 'yes' : 'no'}`
+  return `${context};session:${state.sessionId};first_filter:${state.firstFilter ?? 'none'};distinct_filters:${state.distinctFilters.length};profile_opened:${state.profileOpened ? 'yes' : 'no'}`
 }
 
 export function trackAtlasFilter(params: {
