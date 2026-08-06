@@ -1,6 +1,7 @@
 import { getHerbs } from '@/lib/runtime-data'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import {
+  inferAtlasEffectsFromMechanisms,
   normalizeCompoundClass,
   normalizeEffect,
   normalizeEvidence,
@@ -40,7 +41,19 @@ const inferCompoundClasses = (compounds: string[]): string[] =>
   uniqueNormalized(compounds, normalizeCompoundClass).filter((value) => KNOWN_COMPOUND_CLASSES.has(value))
 
 export const toAtlasRecord = (herb: RuntimeRecord): BotanicalAtlasRecord => {
-  const rawEffects = collect(herb.primary_effects, herb.effects, herb.primaryActions, herb.benefits)
+  const explicitEffects = uniqueNormalized(
+    collect(herb.primary_effects, herb.effects, herb.primaryActions, herb.benefits),
+    normalizeEffect,
+  )
+  const mechanisms = collect(
+    herb.mechanisms,
+    herb.raw_mechanisms,
+    herb.canonical_mechanisms,
+    herb.mechanism_target_systems,
+    herb.mechanism_classes,
+  )
+  const inferredEffects = inferAtlasEffectsFromMechanisms(mechanisms)
+  const effects = Array.from(new Set([...explicitEffects, ...inferredEffects]))
   const compounds = collect(herb.activeCompounds, herb.active_compounds, herb.compounds, herb.activeconstituents)
   const explicitClasses = uniqueNormalized(
     collect(herb.compoundClasses, herb.pharmCategories, herb.compoundClass),
@@ -61,7 +74,7 @@ export const toAtlasRecord = (herb: RuntimeRecord): BotanicalAtlasRecord => {
     slug: herb.slug,
     name: text(herb.displayName, herb.name, herb.commonName, herb.common, herb.slug.replaceAll('-', ' ')),
     scientificName: text(herb.scientificName, herb.scientificname, herb.latinName) || undefined,
-    effects: uniqueNormalized(rawEffects, normalizeEffect),
+    effects,
     compounds,
     compoundClasses,
     evidence: normalizeEvidence(text(herb.evidence_tier, herb.evidenceTier, herb.evidence_grade, herb.evidenceLevel)),
