@@ -1,0 +1,38 @@
+name: Botanical Activity Atlas Coverage
+
+on:
+  pull_request:
+    paths:
+      - 'public/data/herbs.json'
+      - 'public/data/compounds.json'
+      - 'src/lib/index-allowlist.ts'
+      - 'src/lib/botanical-atlas-taxonomy.ts'
+      - 'scripts/audit/botanical-atlas-coverage.mjs'
+      - '.github/workflows/botanical-atlas-coverage.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  coverage-report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generate atlas coverage report
+        run: node scripts/audit/botanical-atlas-coverage.mjs
+
+      - name: Add coverage summary
+        run: cat reports/botanical-atlas/coverage.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: botanical-atlas-coverage
+          path: reports/botanical-atlas/
+          retention-days: 30
