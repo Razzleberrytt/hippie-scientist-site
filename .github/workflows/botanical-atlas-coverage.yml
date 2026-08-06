@@ -9,6 +9,16 @@ on:
       - 'src/lib/botanical-atlas-taxonomy.ts'
       - 'scripts/audit/botanical-atlas-coverage.mjs'
       - '.github/workflows/botanical-atlas-coverage.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'public/data/herbs.json'
+      - 'public/data/compounds.json'
+      - 'src/lib/index-allowlist.ts'
+      - 'src/lib/botanical-atlas-taxonomy.ts'
+      - 'scripts/audit/botanical-atlas-coverage.mjs'
+      - '.github/workflows/botanical-atlas-coverage.yml'
   workflow_dispatch:
 
 permissions:
