@@ -3,7 +3,7 @@ slug: lions-mane-vs-stimulants-adhd
 title: "Lion's Mane vs Stimulants for ADHD: What the Evidence Shows"
 description: "Honest comparison of Lion's Mane and prescription stimulants (Adderall, Vyvanse, Ritalin) for ADHD. Covers the evidence gap, realistic expectations, and why Lion's Mane is not a substitute for ADHD medication."
 date: '2026-06-30'
-updatedAt: '2026-07-05'
+updatedAt: '2026-08-06'
 author: Will
 category: Cognitive health
 keywords:
@@ -56,7 +56,6 @@ references:
 | **Side effects** | Mild (GI upset, possible allergy) | Significant (appetite suppression, insomnia, anxiety, cardiovascular strain) |
 | **Regulation** | Supplement — no FDA oversight, no quality standards for ADHD claims | Schedule II controlled substance — rigorous manufacturing and prescribing standards |
 | **Cost** | $15–40/month | $30–300/month (varies widely by insurance) |
-
 
 ![Lions Mane Vs Stimulants Adhd](/images/guides/lions-mane.jpg)
 
@@ -115,8 +114,15 @@ Lion's Mane could be considered as a supplement to — **not a replacement for**
 
 ---
 
+## Compare active botanicals
+
+Use the [Natural Stimulants comparison](/tools/botanical-activity-atlas/natural-stimulants/?effect=Stimulating+%2F+energy&sort=evidence) to compare botanicals by evidence, noticeability, chemistry, and safety. The atlas separates explicit effect data from pathway-derived discovery categories and does not treat supplements as substitutes for prescribed ADHD care.
+
+---
+
 ## Related Articles
 
 - [Lion's Mane: Benefits, Dosage & Evidence](/articles/lions-mane-mushroom-benefits-mechanisms-dosage-evidence-guide/)
 - [L-Theanine: Calm Focus Guide](/articles/l-theanine/)
 - [Bacopa Monnieri: Memory Evidence Guide](/articles/bacopa-monnieri/)
+- [Compare natural stimulants in the Botanical Activity Atlas](/tools/botanical-activity-atlas/natural-stimulants/?effect=Stimulating+%2F+energy&sort=evidence)
