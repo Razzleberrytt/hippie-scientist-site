@@ -2,6 +2,11 @@
 
 import Link from 'next/link'
 import { useMemo, useState } from 'react'
+import {
+  trackAtlasFilter,
+  trackAtlasProfileClick,
+  trackAtlasReset,
+} from '@/lib/botanicalAtlasTracking'
 
 export interface BotanicalAtlasRecord {
   slug: string
@@ -41,14 +46,7 @@ export default function BotanicalActivityAtlasClient({ records }: Props) {
   const filtered = useMemo(() => {
     const needle = normalize(query)
     return records.filter((record) => {
-      const searchable = [
-        record.name,
-        record.scientificName ?? '',
-        ...record.effects,
-        ...record.compounds,
-        ...record.compoundClasses,
-        ...record.safety,
-      ]
+      const searchable = [record.name, record.scientificName ?? '', ...record.effects, ...record.compounds, ...record.compoundClasses, ...record.safety]
         .join(' ')
         .toLowerCase()
 
@@ -72,7 +70,17 @@ export default function BotanicalActivityAtlasClient({ records }: Props) {
     safety !== 'all' && `Safety: ${safety}`,
   ].filter(Boolean) as string[]
 
+  const setTrackedFilter = (
+    filter: 'effect' | 'chemistry' | 'evidence' | 'noticeability' | 'safety',
+    value: string,
+    setter: (value: string) => void,
+  ) => {
+    setter(value)
+    trackAtlasFilter({ filter, value, resultCount: filtered.length })
+  }
+
   const reset = () => {
+    trackAtlasReset(activeFilters.length)
     setQuery('')
     setEffect('all')
     setEvidence('all')
@@ -86,39 +94,45 @@ export default function BotanicalActivityAtlasClient({ records }: Props) {
       <div className='grid gap-3 rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm md:grid-cols-2 xl:grid-cols-6'>
         <label>
           <span className='mb-1 block text-xs font-bold uppercase tracking-wide text-muted'>Search</span>
-          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder='Herb, compound, effect…' className='w-full rounded-xl border border-brand-900/15 bg-white px-3 py-2 text-sm text-ink outline-none focus:border-emerald-600' />
+          <input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            onBlur={() => query.trim() && trackAtlasFilter({ filter: 'search', value: query.trim(), resultCount: filtered.length })}
+            placeholder='Herb, compound, effect…'
+            className='w-full rounded-xl border border-brand-900/15 bg-white px-3 py-2 text-sm text-ink outline-none focus:border-emerald-600'
+          />
         </label>
         <label>
           <span className='mb-1 block text-xs font-bold uppercase tracking-wide text-muted'>Effect</span>
-          <select value={effect} onChange={(event) => setEffect(event.target.value)} className='w-full rounded-xl border border-brand-900/15 bg-white px-3 py-2 text-sm text-ink'>
+          <select value={effect} onChange={(event) => setTrackedFilter('effect', event.target.value, setEffect)} className='w-full rounded-xl border border-brand-900/15 bg-white px-3 py-2 text-sm text-ink'>
             <option value='all'>All effects</option>
             {effects.map((item) => <option key={item} value={item}>{item}</option>)}
           </select>
         </label>
         <label>
           <span className='mb-1 block text-xs font-bold uppercase tracking-wide text-muted'>Chemistry</span>
-          <select value={compoundClass} onChange={(event) => setCompoundClass(event.target.value)} className='w-full rounded-xl border border-brand-900/15 bg-white px-3 py-2 text-sm text-ink'>
+          <select value={compoundClass} onChange={(event) => setTrackedFilter('chemistry', event.target.value, setCompoundClass)} className='w-full rounded-xl border border-brand-900/15 bg-white px-3 py-2 text-sm text-ink'>
             <option value='all'>All classes</option>
             {compoundClasses.map((item) => <option key={item} value={item}>{item}</option>)}
           </select>
         </label>
         <label>
           <span className='mb-1 block text-xs font-bold uppercase tracking-wide text-muted'>Evidence</span>
-          <select value={evidence} onChange={(event) => setEvidence(event.target.value)} className='w-full rounded-xl border border-brand-900/15 bg-white px-3 py-2 text-sm text-ink'>
+          <select value={evidence} onChange={(event) => setTrackedFilter('evidence', event.target.value, setEvidence)} className='w-full rounded-xl border border-brand-900/15 bg-white px-3 py-2 text-sm text-ink'>
             <option value='all'>All evidence</option>
             {evidenceLevels.map((item) => <option key={item} value={item}>{item}</option>)}
           </select>
         </label>
         <label>
           <span className='mb-1 block text-xs font-bold uppercase tracking-wide text-muted'>Noticeability</span>
-          <select value={intensity} onChange={(event) => setIntensity(event.target.value)} className='w-full rounded-xl border border-brand-900/15 bg-white px-3 py-2 text-sm text-ink'>
+          <select value={intensity} onChange={(event) => setTrackedFilter('noticeability', event.target.value, setIntensity)} className='w-full rounded-xl border border-brand-900/15 bg-white px-3 py-2 text-sm text-ink'>
             <option value='all'>All levels</option>
             {intensityLevels.map((item) => <option key={item} value={item}>{item}</option>)}
           </select>
         </label>
         <label>
           <span className='mb-1 block text-xs font-bold uppercase tracking-wide text-muted'>Safety concern</span>
-          <select value={safety} onChange={(event) => setSafety(event.target.value)} className='w-full rounded-xl border border-brand-900/15 bg-white px-3 py-2 text-sm text-ink'>
+          <select value={safety} onChange={(event) => setTrackedFilter('safety', event.target.value, setSafety)} className='w-full rounded-xl border border-brand-900/15 bg-white px-3 py-2 text-sm text-ink'>
             <option value='all'>All signals</option>
             {safetySignals.map((item) => <option key={item} value={item}>{item}</option>)}
           </select>
@@ -140,26 +154,17 @@ export default function BotanicalActivityAtlasClient({ records }: Props) {
         <table className='min-w-[1100px] w-full border-collapse text-left text-sm'>
           <thead className='bg-brand-50/80 text-xs uppercase tracking-wide text-muted'>
             <tr>
-              <th className='p-4'>Botanical</th>
-              <th className='p-4'>Active chemistry</th>
-              <th className='p-4'>Effect profile</th>
-              <th className='p-4'>Noticeability</th>
-              <th className='p-4'>Evidence</th>
-              <th className='p-4'>Safety signals</th>
-              <th className='p-4'>Timing</th>
+              <th className='p-4'>Botanical</th><th className='p-4'>Active chemistry</th><th className='p-4'>Effect profile</th><th className='p-4'>Noticeability</th><th className='p-4'>Evidence</th><th className='p-4'>Safety signals</th><th className='p-4'>Timing</th>
             </tr>
           </thead>
           <tbody>
-            {filtered.map((record) => (
+            {filtered.map((record, index) => (
               <tr key={record.slug} className='border-t border-brand-900/10 align-top'>
                 <td className='p-4'>
-                  <Link href={`/herbs/${record.slug}/`} className='font-bold text-emerald-900 hover:underline'>{record.name}</Link>
+                  <Link href={`/herbs/${record.slug}/`} onClick={() => trackAtlasProfileClick({ slug: record.slug, position: index + 1, activeFilterCount: activeFilters.length })} className='font-bold text-emerald-900 hover:underline'>{record.name}</Link>
                   {record.scientificName ? <p className='mt-1 text-xs italic text-muted'>{record.scientificName}</p> : null}
                 </td>
-                <td className='p-4'>
-                  <p className='font-medium text-ink'>{record.compounds.slice(0, 4).join(', ') || 'Not yet mapped'}</p>
-                  {record.compoundClasses.length ? <p className='mt-1 text-xs text-muted'>{record.compoundClasses.join(', ')}</p> : null}
-                </td>
+                <td className='p-4'><p className='font-medium text-ink'>{record.compounds.slice(0, 4).join(', ') || 'Not yet mapped'}</p>{record.compoundClasses.length ? <p className='mt-1 text-xs text-muted'>{record.compoundClasses.join(', ')}</p> : null}</td>
                 <td className='p-4 text-muted'>{record.effects.slice(0, 5).join(' · ') || 'Unclassified'}</td>
                 <td className='p-4 font-semibold text-ink'>{record.intensity}</td>
                 <td className='p-4'>{record.evidence}</td>
