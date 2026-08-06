@@ -42,3 +42,19 @@ jobs:
 
       - name: Run full check
         run: npm run check:full
+
+      - name: Generate Botanical Activity Atlas coverage report
+        if: always()
+        run: node scripts/audit/botanical-atlas-coverage.mjs
+
+      - name: Add atlas coverage summary
+        if: always()
+        run: cat reports/botanical-atlas/coverage.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload atlas coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: botanical-atlas-coverage-${{ github.run_id }}
+          path: reports/botanical-atlas/
+          retention-days: 30
