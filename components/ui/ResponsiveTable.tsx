@@ -6,6 +6,7 @@ type ResponsiveTableProps = {
   label: string
   className?: string
   hint?: string
+  showTitle?: boolean
 }
 
 function slugifyLabel(label: string) {
@@ -17,13 +18,14 @@ export default function ResponsiveTable({
   label,
   className = '',
   hint = 'This table scrolls horizontally on small screens. Use Tab to focus the table region, then scroll with arrow keys or touch.',
+  showTitle = true,
 }: ResponsiveTableProps) {
   const hintId = `${slugifyLabel(label)}-scroll-hint`
-  const showTitle = !/^article table$/i.test(label.trim())
+  const shouldShowTitle = showTitle && !/^article table$/i.test(label.trim())
 
   return (
     <div className={`responsive-table-shell ${className}`}>
-      {showTitle ? (
+      {shouldShowTitle ? (
         <div className="responsive-table-title" aria-hidden="true">
           {label}
         </div>

@@ -1,5 +1,6 @@
 import type { CompareItem, EvidenceLevel } from '@/lib/compare'
 import { evidenceLabelText, stimulationProfile } from '@/lib/compare'
+import ResponsiveTable from '@/components/ui/ResponsiveTable'
 
 interface CompareSummaryTableProps {
   item1: CompareItem
@@ -28,6 +29,7 @@ type RowDef = {
 export default function CompareSummaryTable({ item1, item2 }: CompareSummaryTableProps) {
   const ev1 = EVIDENCE_RANK[item1.evidenceLevel]
   const ev2 = EVIDENCE_RANK[item2.evidenceLevel]
+  const tableLabel = `${item1.name} and ${item2.name} comparison summary`
 
   const rows: RowDef[] = [
     {
@@ -110,26 +112,33 @@ export default function CompareSummaryTable({ item1, item2 }: CompareSummaryTabl
         </p>
       </div>
 
-      {/* Desktop / tablet: full table */}
-      <div className="hidden sm:block overflow-x-auto rounded-card border border-brand-900/10 bg-white/80">
-        <table className="w-full text-sm border-collapse">
+      {/* Desktop / tablet: semantic table with keyboard-reachable horizontal overflow. */}
+      <ResponsiveTable
+        label={tableLabel}
+        showTitle={false}
+        className="hidden rounded-card border border-brand-900/10 bg-white/80 sm:block"
+      >
+        <table className="w-full min-w-[720px] border-collapse text-sm">
+          <caption className="sr-only">
+            Core tradeoffs between {item1.name} and {item2.name}, including fit, timing, evidence, dose, and type.
+          </caption>
           <thead>
             <tr className="border-b border-brand-900/10 bg-paper-50">
               <th
                 scope="col"
-                className="py-3 px-4 text-left text-xs font-bold uppercase tracking-[0.13em] text-brand-700 w-1/4"
+                className="w-1/4 px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.13em] text-brand-700"
               >
                 Factor
               </th>
               <th
                 scope="col"
-                className="py-3 px-4 text-left text-xs font-bold uppercase tracking-[0.13em] text-brand-700"
+                className="px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.13em] text-brand-700"
               >
                 {item1.name}
               </th>
               <th
                 scope="col"
-                className="py-3 px-4 text-left text-xs font-bold uppercase tracking-[0.13em] text-brand-700"
+                className="px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.13em] text-brand-700"
               >
                 {item2.name}
               </th>
@@ -141,15 +150,18 @@ export default function CompareSummaryTable({ item1, item2 }: CompareSummaryTabl
               return (
                 <tr
                   key={row.label}
-                  className="hover:bg-paper-50 transition-colors duration-150 align-top"
+                  className="align-top transition-colors duration-150 hover:bg-paper-50"
                 >
-                  <td className="py-3 px-4 text-xs font-bold uppercase tracking-[0.11em] text-brand-700">
+                  <th
+                    scope="row"
+                    className="px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.11em] text-brand-700"
+                  >
                     {row.label}
-                  </td>
-                  <td className={`py-3 px-4 leading-relaxed ${win === 1 ? highlightClass : ''}`}>
+                  </th>
+                  <td className={`px-4 py-3 leading-relaxed ${win === 1 ? highlightClass : ''}`}>
                     {row.v1}
                   </td>
-                  <td className={`py-3 px-4 leading-relaxed ${win === 2 ? highlightClass : ''}`}>
+                  <td className={`px-4 py-3 leading-relaxed ${win === 2 ? highlightClass : ''}`}>
                     {row.v2}
                   </td>
                 </tr>
@@ -157,16 +169,22 @@ export default function CompareSummaryTable({ item1, item2 }: CompareSummaryTabl
             })}
           </tbody>
         </table>
-      </div>
+      </ResponsiveTable>
 
-      {/* Mobile: 3-col grid per row */}
-      <div className="sm:hidden rounded-card border border-brand-900/10 bg-white/80 overflow-hidden">
-        <div className="grid grid-cols-3 gap-0 border-b border-brand-900/10 bg-paper-50 px-3 py-2">
-          <span className="text-[0.65rem] font-bold uppercase tracking-[0.13em] text-brand-700" />
-          <span className="text-[0.65rem] font-bold uppercase tracking-[0.13em] text-brand-700 text-center">
+      {/* Mobile: preserve the compact visual grid while exposing real table semantics. */}
+      <div
+        role="table"
+        aria-label={tableLabel}
+        className="overflow-hidden rounded-card border border-brand-900/10 bg-white/80 sm:hidden"
+      >
+        <div role="row" className="grid grid-cols-3 gap-0 border-b border-brand-900/10 bg-paper-50 px-3 py-2">
+          <span role="columnheader" className="text-[0.65rem] font-bold uppercase tracking-[0.13em] text-brand-700">
+            <span className="sr-only">Factor</span>
+          </span>
+          <span role="columnheader" className="text-center text-[0.65rem] font-bold uppercase tracking-[0.13em] text-brand-700">
             {item1.name}
           </span>
-          <span className="text-[0.65rem] font-bold uppercase tracking-[0.13em] text-brand-700 text-center">
+          <span role="columnheader" className="text-center text-[0.65rem] font-bold uppercase tracking-[0.13em] text-brand-700">
             {item2.name}
           </span>
         </div>
@@ -175,18 +193,19 @@ export default function CompareSummaryTable({ item1, item2 }: CompareSummaryTabl
           const win = winner(row)
           return (
             <div
+              role="row"
               key={row.label}
-              className={`grid grid-cols-3 gap-0 px-3 py-2.5 text-xs items-start ${
+              className={`grid grid-cols-3 items-start gap-0 px-3 py-2.5 text-xs ${
                 i < rows.length - 1 ? 'border-b border-brand-900/10' : ''
               }`}
             >
-              <span className="font-bold uppercase tracking-[0.1em] text-brand-700 leading-snug pr-2">
+              <span role="rowheader" className="pr-2 font-bold uppercase leading-snug tracking-[0.1em] text-brand-700">
                 {row.label}
               </span>
-              <span className={`leading-snug pr-1 text-center ${win === 1 ? 'font-semibold text-ink' : 'text-muted'}`}>
+              <span role="cell" className={`pr-1 text-center leading-snug ${win === 1 ? 'font-semibold text-ink' : 'text-muted'}`}>
                 {row.v1}
               </span>
-              <span className={`leading-snug text-center ${win === 2 ? 'font-semibold text-ink' : 'text-muted'}`}>
+              <span role="cell" className={`text-center leading-snug ${win === 2 ? 'font-semibold text-ink' : 'text-muted'}`}>
                 {row.v2}
               </span>
             </div>
