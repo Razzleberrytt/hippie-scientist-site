@@ -22,27 +22,21 @@ interface Props {
 }
 
 const normalize = (value: string) => value.trim().toLowerCase()
+const sortedUnique = (values: string[]) => Array.from(new Set(values.filter(Boolean))).sort()
 
 export default function BotanicalActivityAtlasClient({ records }: Props) {
   const [query, setQuery] = useState('')
   const [effect, setEffect] = useState('all')
   const [evidence, setEvidence] = useState('all')
   const [intensity, setIntensity] = useState('all')
+  const [compoundClass, setCompoundClass] = useState('all')
+  const [safety, setSafety] = useState('all')
 
-  const effects = useMemo(
-    () => Array.from(new Set(records.flatMap((record) => record.effects))).sort(),
-    [records],
-  )
-
-  const evidenceLevels = useMemo(
-    () => Array.from(new Set(records.map((record) => record.evidence).filter(Boolean))).sort(),
-    [records],
-  )
-
-  const intensityLevels = useMemo(
-    () => Array.from(new Set(records.map((record) => record.intensity).filter(Boolean))).sort(),
-    [records],
-  )
+  const effects = useMemo(() => sortedUnique(records.flatMap((record) => record.effects)), [records])
+  const evidenceLevels = useMemo(() => sortedUnique(records.map((record) => record.evidence)), [records])
+  const intensityLevels = useMemo(() => sortedUnique(records.map((record) => record.intensity)), [records])
+  const compoundClasses = useMemo(() => sortedUnique(records.flatMap((record) => record.compoundClasses)), [records])
+  const safetySignals = useMemo(() => sortedUnique(records.flatMap((record) => record.safety)), [records])
 
   const filtered = useMemo(() => {
     const needle = normalize(query)
@@ -62,28 +56,50 @@ export default function BotanicalActivityAtlasClient({ records }: Props) {
         (!needle || searchable.includes(needle)) &&
         (effect === 'all' || record.effects.includes(effect)) &&
         (evidence === 'all' || record.evidence === evidence) &&
-        (intensity === 'all' || record.intensity === intensity)
+        (intensity === 'all' || record.intensity === intensity) &&
+        (compoundClass === 'all' || record.compoundClasses.includes(compoundClass)) &&
+        (safety === 'all' || record.safety.includes(safety))
       )
     })
-  }, [records, query, effect, evidence, intensity])
+  }, [records, query, effect, evidence, intensity, compoundClass, safety])
+
+  const activeFilters = [
+    query && `Search: ${query}`,
+    effect !== 'all' && `Effect: ${effect}`,
+    evidence !== 'all' && `Evidence: ${evidence}`,
+    intensity !== 'all' && `Noticeability: ${intensity}`,
+    compoundClass !== 'all' && `Chemistry: ${compoundClass}`,
+    safety !== 'all' && `Safety: ${safety}`,
+  ].filter(Boolean) as string[]
+
+  const reset = () => {
+    setQuery('')
+    setEffect('all')
+    setEvidence('all')
+    setIntensity('all')
+    setCompoundClass('all')
+    setSafety('all')
+  }
 
   return (
     <section className='space-y-5'>
-      <div className='grid gap-3 rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm md:grid-cols-4'>
-        <label className='md:col-span-1'>
+      <div className='grid gap-3 rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm md:grid-cols-2 xl:grid-cols-6'>
+        <label>
           <span className='mb-1 block text-xs font-bold uppercase tracking-wide text-muted'>Search</span>
-          <input
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder='Herb, compound, effect…'
-            className='w-full rounded-xl border border-brand-900/15 bg-white px-3 py-2 text-sm text-ink outline-none focus:border-emerald-600'
-          />
+          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder='Herb, compound, effect…' className='w-full rounded-xl border border-brand-900/15 bg-white px-3 py-2 text-sm text-ink outline-none focus:border-emerald-600' />
         </label>
         <label>
           <span className='mb-1 block text-xs font-bold uppercase tracking-wide text-muted'>Effect</span>
           <select value={effect} onChange={(event) => setEffect(event.target.value)} className='w-full rounded-xl border border-brand-900/15 bg-white px-3 py-2 text-sm text-ink'>
             <option value='all'>All effects</option>
             {effects.map((item) => <option key={item} value={item}>{item}</option>)}
+          </select>
+        </label>
+        <label>
+          <span className='mb-1 block text-xs font-bold uppercase tracking-wide text-muted'>Chemistry</span>
+          <select value={compoundClass} onChange={(event) => setCompoundClass(event.target.value)} className='w-full rounded-xl border border-brand-900/15 bg-white px-3 py-2 text-sm text-ink'>
+            <option value='all'>All classes</option>
+            {compoundClasses.map((item) => <option key={item} value={item}>{item}</option>)}
           </select>
         </label>
         <label>
@@ -100,12 +116,25 @@ export default function BotanicalActivityAtlasClient({ records }: Props) {
             {intensityLevels.map((item) => <option key={item} value={item}>{item}</option>)}
           </select>
         </label>
+        <label>
+          <span className='mb-1 block text-xs font-bold uppercase tracking-wide text-muted'>Safety concern</span>
+          <select value={safety} onChange={(event) => setSafety(event.target.value)} className='w-full rounded-xl border border-brand-900/15 bg-white px-3 py-2 text-sm text-ink'>
+            <option value='all'>All signals</option>
+            {safetySignals.map((item) => <option key={item} value={item}>{item}</option>)}
+          </select>
+        </label>
       </div>
 
-      <div className='flex items-center justify-between gap-3 text-sm text-muted'>
-        <p><strong className='text-ink'>{filtered.length}</strong> botanicals shown</p>
-        <button type='button' onClick={() => { setQuery(''); setEffect('all'); setEvidence('all'); setIntensity('all') }} className='font-semibold text-emerald-800 hover:underline'>Reset filters</button>
+      <div className='flex flex-wrap items-center justify-between gap-3 text-sm text-muted'>
+        <p><strong className='text-ink'>{filtered.length}</strong> of {records.length} botanicals shown</p>
+        <button type='button' onClick={reset} disabled={!activeFilters.length} className='font-semibold text-emerald-800 hover:underline disabled:cursor-not-allowed disabled:opacity-40'>Reset filters</button>
       </div>
+
+      {activeFilters.length ? (
+        <div className='flex flex-wrap gap-2' aria-label='Active filters'>
+          {activeFilters.map((item) => <span key={item} className='rounded-full border border-emerald-900/10 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-950'>{item}</span>)}
+        </div>
+      ) : null}
 
       <div className='overflow-x-auto rounded-2xl border border-brand-900/10 bg-white/90 shadow-sm'>
         <table className='min-w-[1100px] w-full border-collapse text-left text-sm'>
@@ -142,7 +171,7 @@ export default function BotanicalActivityAtlasClient({ records }: Props) {
         </table>
       </div>
 
-      {!filtered.length ? <div className='rounded-2xl border border-dashed border-brand-900/20 bg-white/70 p-8 text-center text-muted'>No botanicals match those filters.</div> : null}
+      {!filtered.length ? <div className='rounded-2xl border border-dashed border-brand-900/20 bg-white/70 p-8 text-center text-muted'>No botanicals match those filters. Try removing one filter or using a broader search term.</div> : null}
     </section>
   )
 }
