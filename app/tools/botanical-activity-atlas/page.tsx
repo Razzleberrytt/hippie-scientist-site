@@ -1,19 +1,11 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
-import BotanicalActivityAtlasClient, { type BotanicalAtlasRecord } from '@/components/atlas/BotanicalActivityAtlasClient'
-import { getHerbs } from '@/lib/runtime-data'
-import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
+import BotanicalActivityAtlasClient from '@/components/atlas/BotanicalActivityAtlasClient'
+import { getBotanicalAtlasRecords } from '@/lib/botanical-atlas-data'
+import { BOTANICAL_ATLAS_CATEGORIES } from '@/lib/botanical-atlas-categories'
 import { buildToolPageSchemaGraph } from '@/lib/schema-graph'
 import { buildPageMetadata, SITE_URL } from '@/lib/seo'
-import {
-  normalizeCompoundClass,
-  normalizeEffect,
-  normalizeEvidence,
-  normalizeIntensity,
-  normalizeSafetySignal,
-  uniqueNormalized,
-} from '@/lib/botanical-atlas-taxonomy'
-import type { RuntimeRecord } from '@/types/content'
 
 export const metadata: Metadata = buildPageMetadata({
   title: 'Botanical Activity Atlas – Effects, Compounds & Safety',
@@ -22,50 +14,8 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/tools/botanical-activity-atlas',
 })
 
-const list = (value: unknown): string[] => {
-  if (Array.isArray(value)) return value.map(String).map((item) => item.trim()).filter(Boolean)
-  if (typeof value === 'string') return value.split(/[;,|]/).map((item) => item.trim()).filter(Boolean)
-  return []
-}
-
-const text = (...values: unknown[]): string => {
-  const value = values.find((item) => typeof item === 'string' && item.trim())
-  return typeof value === 'string' ? value.trim() : ''
-}
-
-const toAtlasRecord = (herb: RuntimeRecord): BotanicalAtlasRecord => {
-  const rawEffects = list(herb.primary_effects ?? herb.effects ?? herb.primaryActions)
-  const rawClasses = list(herb.compoundClasses ?? herb.pharmCategories ?? herb.compoundClass)
-  const rawSafety = list(herb.safety_flags ?? herb.interactionTags ?? herb.contraindications ?? herb.interactions)
-
-  return {
-    slug: herb.slug,
-    name: text(herb.displayName, herb.name, herb.commonName, herb.common, herb.slug.replaceAll('-', ' ')),
-    scientificName: text(herb.scientificName, herb.scientificname, herb.latinName) || undefined,
-    effects: uniqueNormalized(rawEffects, normalizeEffect),
-    compounds: list(herb.activeCompounds ?? herb.active_compounds ?? herb.compounds ?? herb.activeconstituents),
-    compoundClasses: uniqueNormalized(rawClasses, normalizeCompoundClass),
-    evidence: normalizeEvidence(text(herb.evidence_tier, herb.evidenceTier, herb.evidence_grade, herb.evidenceLevel)),
-    intensity: normalizeIntensity(text(herb.intensityLabel, herb.intensityClean, herb.intensityLevel, herb.intensity)),
-    safety: uniqueNormalized(rawSafety, normalizeSafetySignal),
-    onset: text(herb.time_to_effect, herb.onset) || undefined,
-    duration: text(herb.duration) || undefined,
-  }
-}
-
 export default async function BotanicalActivityAtlasPage() {
-  const rawHerbs = await getHerbs()
-  const herbs = rawHerbs
-    .filter((herb: RuntimeRecord) => {
-      try {
-        return getRuntimeVisibility(herb).canRender
-      } catch {
-        return true
-      }
-    })
-    .map(toAtlasRecord)
-    .filter((herb: BotanicalAtlasRecord) => herb.effects.length || herb.compounds.length || herb.safety.length)
-    .sort((a: BotanicalAtlasRecord, b: BotanicalAtlasRecord) => a.name.localeCompare(b.name))
+  const herbs = await getBotanicalAtlasRecords()
 
   const schemaGraph = buildToolPageSchemaGraph({
     path: '/tools/botanical-activity-atlas',
@@ -121,6 +71,24 @@ export default async function BotanicalActivityAtlasPage() {
           <h2 className='font-bold text-ink'>Labels are normalized</h2>
           <p className='mt-2 text-sm leading-6 text-muted'>Related source terms are grouped into consistent effect, evidence, chemistry, noticeability, and safety categories.</p>
         </article>
+      </section>
+
+      <section className='space-y-4'>
+        <div>
+          <p className='eyebrow-label'>Focused Comparisons</p>
+          <h2 className='mt-1 text-2xl font-bold text-ink'>Start with a high-interest category</h2>
+          <p className='mt-2 max-w-3xl text-sm leading-6 text-muted'>These curated entry pages use the same atlas data while adding category-specific context and safety framing.</p>
+        </div>
+        <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
+          {BOTANICAL_ATLAS_CATEGORIES.map((category) => (
+            <Link key={category.slug} href={`/tools/botanical-activity-atlas/${category.slug}/`} className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-800/30'>
+              <p className='text-xs font-bold uppercase tracking-wide text-emerald-800'>{category.eyebrow}</p>
+              <h3 className='mt-2 font-bold text-ink'>{category.shortTitle}</h3>
+              <p className='mt-2 text-sm leading-6 text-muted'>{category.description}</p>
+              <span className='mt-3 inline-block text-sm font-semibold text-emerald-800'>Open comparison →</span>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <BotanicalActivityAtlasClient records={herbs} />
