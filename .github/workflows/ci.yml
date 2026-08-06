@@ -75,6 +75,21 @@ jobs:
       - name: Validate canonical data system (schema, SQLite, graph, freshness)
         run: npm run data:ci
 
+      - name: Generate Related Botanicals quality audit
+        run: npx tsx scripts/audit-related-botanicals.ts
+
+      - name: Add Related Botanicals audit summary
+        if: always() && hashFiles('reports/related-botanicals/related-botanicals-audit.md') != ''
+        run: cat reports/related-botanicals/related-botanicals-audit.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload Related Botanicals audit
+        if: always() && hashFiles('reports/related-botanicals/*') != ''
+        uses: actions/upload-artifact@v7
+        with:
+          name: related-botanicals-audit-${{ github.sha }}
+          path: reports/related-botanicals/
+          retention-days: 30
+
       - name: Guard workbook source of truth
         run: npm run guard:source-of-truth
 
@@ -133,8 +148,8 @@ jobs:
         if: always()
         run: |
           echo "## CI quality gate" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Purpose: enforce lint, typecheck, workbook/data correctness, build verification, and security audit" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Purpose: enforce lint, typecheck, workbook/data correctness, recommendation-quality auditing, build verification, and security audit" >> "$GITHUB_STEP_SUMMARY"
           echo "- Branch/ref: $GITHUB_REF" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Key commands: npm ci; npm run check:node; npm run validate:workbook-source; npm run validate:static-export; npm run routes:inventory; npm run lint; npm run typecheck; npm run data:build; npm run data:validate; npm run guard:source-of-truth; npm run build:deploy; npm run verify:output; npm run audit:seo-reports; npm run indexability:report; node scripts/ci/audit-internal-redirect-links.mjs; npm run validate:route-seo; npm run audit:high" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Artifacts: seo-audit-reports (including indexability candidates); npm-audit-after" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Key commands: npm ci; npm run check:node; npm run validate:workbook-source; npm run validate:static-export; npm run routes:inventory; npm run lint; npm run typecheck; npm run data:ci; npx tsx scripts/audit-related-botanicals.ts; npm run guard:source-of-truth; npm run build:deploy; npm run verify:output; npm run audit:seo-reports; npm run indexability:report; node scripts/ci/audit-internal-redirect-links.mjs; npm run validate:route-seo; npm run audit:high" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Artifacts: related-botanicals audit; seo-audit-reports (including indexability candidates); npm-audit-after" >> "$GITHUB_STEP_SUMMARY"
           echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
