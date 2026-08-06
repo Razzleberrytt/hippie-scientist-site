@@ -7,6 +7,7 @@ import type {
   GuideProductOption,
 } from '@/lib/schemas/guide-schemas'
 import InternalLinks from './InternalLinks'
+import ResponsiveTable from '@/components/ui/ResponsiveTable'
 
 const EVIDENCE_STYLES: Record<
   EvidenceLevel,
@@ -331,17 +332,23 @@ export default function GuidePage({ guide }: Props) {
       {hasDosage && (
         <section id="dosage" className="scroll-mt-20 space-y-4">
           <h2 className="text-2xl font-semibold tracking-tight text-ink">Dosage &amp; Forms</h2>
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white/90 shadow-sm">
-            <table className="w-full text-sm">
+          <ResponsiveTable
+            label={`${guide.title} dosage and forms`}
+            className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white/90 shadow-sm"
+          >
+            <table className="min-w-full border-collapse text-sm">
+              <caption className="sr-only">
+                Dosage forms, typical ranges, and notes for {guide.title}
+              </caption>
               <thead>
                 <tr className="border-b border-brand-900/10 bg-brand-50/50">
-                  <th className="px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-brand-700">
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-brand-700">
                     Form
                   </th>
-                  <th className="px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-brand-700">
+                  <th scope="col" className="px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-brand-700">
                     Typical Range
                   </th>
-                  <th className="hidden px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-brand-700 sm:table-cell">
+                  <th scope="col" className="hidden px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-brand-700 sm:table-cell">
                     Notes
                   </th>
                 </tr>
@@ -352,7 +359,7 @@ export default function GuidePage({ guide }: Props) {
                     key={i}
                     className="border-b border-brand-900/5 last:border-0 hover:bg-brand-50/30"
                   >
-                    <td className="px-4 py-3 font-medium text-ink">{row.form}</td>
+                    <th scope="row" className="px-4 py-3 text-left font-medium text-ink">{row.form}</th>
                     <td className="px-4 py-3 text-muted">{row.range}</td>
                     <td className="hidden px-4 py-3 text-muted sm:table-cell">
                       {row.bioavailabilityNote ? (
@@ -365,7 +372,7 @@ export default function GuidePage({ guide }: Props) {
                 ))}
               </tbody>
             </table>
-          </div>
+          </ResponsiveTable>
           <p className="text-xs text-muted">
             Always start at the lower end of the range and consult a qualified healthcare provider
             before combining with medications.
