@@ -16,16 +16,19 @@ const EFFECT_RULES: Array<[string, RegExp]> = [
   ['Hormonal / reproductive', /hormon|libido|sexual|fertil|testoster|estrogen|thyroid/],
 ]
 
+// Specific families come before broad classes so named compounds land in the
+// most useful atlas bucket. Patterns are intentionally conservative: an
+// unrecognized compound remains unclassified rather than being guessed.
 const CLASS_RULES: Array<[string, RegExp]> = [
-  ['Methylxanthines', /methylxanthine|caffeine|theobromine|theophylline/],
-  ['Alkaloids', /alkaloid|amine|indole|isoquinoline|aporphine|tropane|xanthine/],
-  ['Flavonoids', /flavonoid|flavone|flavan|catechin/],
-  ['Terpenes / terpenoids', /terpene|terpenoid|sesquiterp|diterp|triterp/],
-  ['Glycosides', /glycoside|saponin/],
-  ['Phenolics', /phenol|polyphenol|phenolic acid/],
-  ['Lactones', /lactone|kavalactone/],
-  ['Cannabinoids', /cannabinoid/],
-  ['Withanolides', /withanolide/],
+  ['Methylxanthines', /\b(?:methylxanthines?|caffeine|theobromine|theophylline|paraxanthine)\b/],
+  ['Withanolides', /\b(?:withanolides?|withaferin(?: a)?|withanosides?)\b/],
+  ['Cannabinoids', /\b(?:cannabinoids?|cannabidiol|cannabigerol|cannabinol|tetrahydrocannabinol|thc|cbd|cbg|cbn)\b/],
+  ['Lactones', /\b(?:lactones?|kavalactones?|kavain|dihydrokavain|methysticin|dihydromethysticin|yangonin|lactucin|lactucopicrin)\b/],
+  ['Flavonoids', /\b(?:flavonoids?|flavones?|flavanones?|flavanols?|catechins?|epicatechin|egcg|apigenin|quercetin|kaempferol|luteolin|rutin|hesperidin|naringenin)\b/],
+  ['Terpenes / terpenoids', /\b(?:terpenes?|terpenoids?|sesquiterpenes?|diterpenes?|triterpenes?|linalool|limonene|myrcene|pinene|caryophyllene|humulene|borneol|menthol|camphor|thymol|carvacrol)\b/],
+  ['Glycosides', /\b(?:glycosides?|saponins?|ginsenosides?|salicin|glycyrrhizin|glycyrrhizic acid|bacosides?|asiaticoside)\b/],
+  ['Phenolics', /\b(?:phenols?|polyphenols?|phenolic acids?|rosmarinic acid|caffeic acid|ferulic acid|gallic acid|ellagic acid|curcumin|eugenol)\b/],
+  ['Alkaloids', /\b(?:alkaloids?|isoquinolines?|aporphines?|tropanes?|indole alkaloids?|berberine|palmatine|mitragynine|mesembrine|yohimbine|harmine|harmaline|hordenine|synephrine|nicotine|lobeline|huperzine a|tetrahydropalmatine)\b/],
 ]
 
 const SAFETY_RULES: Array<[string, RegExp]> = [
