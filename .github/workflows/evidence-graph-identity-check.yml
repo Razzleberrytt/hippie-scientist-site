@@ -1,0 +1,111 @@
+name: Evidence Graph Identity Check
+
+on:
+  push:
+    paths:
+      - '.github/workflows/evidence-graph-identity-check.yml'
+      - 'config/evidence-graph/**'
+      - 'data/graph/identity/**'
+      - 'docs/evidence-graph/**'
+      - 'scripts/evidence-graph/**'
+      - 'scripts/data/workbook-parser.mjs'
+      - 'scripts/workbook-source.mjs'
+      - 'data-sources/herb_monograph_master.xlsx'
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - '.github/workflows/evidence-graph-identity-check.yml'
+      - 'config/evidence-graph/**'
+      - 'data/graph/identity/**'
+      - 'docs/evidence-graph/**'
+      - 'scripts/evidence-graph/**'
+      - 'scripts/data/workbook-parser.mjs'
+      - 'scripts/workbook-source.mjs'
+      - 'data-sources/herb_monograph_master.xlsx'
+  workflow_dispatch:
+
+concurrency:
+  group: evidence-graph-identity-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  identity-registry:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node from .nvmrc
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run identity unit tests
+        run: node --test scripts/evidence-graph/__tests__/*.test.mjs
+
+      - name: Build registry from workbook
+        run: |
+          node scripts/evidence-graph/build-identity-registry.mjs
+          node scripts/evidence-graph/build-identity-collision-review.mjs
+          node scripts/evidence-graph/apply-identity-resolutions.mjs
+
+      - name: Verify generated outputs
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs'
+          import assert from 'node:assert/strict'
+
+          const registry = JSON.parse(fs.readFileSync('data/graph/identity/substance-registry.json', 'utf8'))
+          const report = JSON.parse(fs.readFileSync('data/graph/identity/identity-validation-report.json', 'utf8'))
+          const resolutionReport = JSON.parse(fs.readFileSync('data/graph/identity/identity-resolution-report.json', 'utf8'))
+          const collisionCsv = fs.readFileSync('data/graph/identity/identity-collision-review.csv', 'utf8').trimEnd()
+          const collisionCsvRows = collisionCsv ? collisionCsv.split('\n').length - 1 : 0
+          const deprecated = registry.filter((record) => record.status === 'deprecated')
+          const forms = registry.filter((record) => record.reviewFlags?.includes('form-of-parent-identity'))
+          const berberine = registry.find((record) => record.id === 'compound:berberine')
+          const berberineHcl = registry.find((record) => record.id === 'compound:berberine-hcl')
+
+          assert.ok(Array.isArray(registry), 'Registry must be a JSON array')
+          assert.ok(registry.length > 0, 'Registry must contain imported identities')
+          assert.equal(report.summary.missingIdRecords, 0, 'Workbook identities must all have stable IDs')
+          assert.equal(report.summary.registryRecords, registry.length, 'Registry count must match valid report count')
+          assert.equal(collisionCsvRows, report.summary.collisionCount, 'Collision CSV must contain one row per collision group')
+          assert.equal(resolutionReport.summary.appliedResolutions, 4, 'All approved identity resolutions must apply')
+          assert.equal(resolutionReport.summary.skippedResolutions, 0, 'Approved resolutions must not be skipped')
+          assert.equal(resolutionReport.summary.deprecatedRecords, deprecated.length, 'Deprecated count must match registry')
+          assert.equal(resolutionReport.summary.formRecords, forms.length, 'Form count must match registry')
+          assert.equal(berberineHcl.parentEntityId, berberine.id, 'Berberine HCl must link to parent berberine')
+          assert.equal(berberineHcl.canonicalName, 'Berberine hydrochloride')
+          assert.equal(berberineHcl.status, 'active', 'Distinct forms must remain active identities')
+          assert.ok(berberineHcl.aliases.includes('Berberine HCl'))
+          assert.ok(!berberineHcl.reviewFlags.includes('identity-collision'))
+
+          console.log(JSON.stringify({
+            baseline: report.summary,
+            collisionSummary: report.collisionSummary,
+            resolutions: resolutionReport.summary,
+          }, null, 2))
+          NODE
+
+      - name: Upload identity outputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidence-graph-identity-output
+          path: |
+            data/graph/identity/substance-registry.json
+            data/graph/identity/identity-validation-report.json
+            data/graph/identity/identity-collision-review.csv
+            data/graph/identity/identity-resolutions.json
+            data/graph/identity/identity-resolution-report.json
+          if-no-files-found: warn
+          retention-days: 14
