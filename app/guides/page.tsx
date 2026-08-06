@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SITE_URL } from '@/lib/navigation-config'
 import buildReport from '@/public/data/build-report.json'
+import { AtlasComparisonCallout } from '@/components/guides/AtlasComparisonCallout'
 
 export const metadata: Metadata = {
   title: 'Evidence Library — Supplements, Science & Mental Health',
@@ -113,6 +114,15 @@ export default function LibraryHub() {
           Guides, articles, mental health explainers, comparisons, and science foundations — organized as one connected library instead of separate content silos.
         </p>
       </header>
+
+      <AtlasComparisonCallout
+        title="Compare botanicals across anxiety, sleep, and focus goals"
+        description="Use the Botanical Activity Atlas to filter the same structured library by calming, sleep-related, stimulating, cognition, chemistry, evidence strength, noticeability, and safety signals. It is the fastest way to compare options before opening individual guides."
+        href="/tools/botanical-activity-atlas/?sort=evidence"
+        cta="Compare botanicals by evidence"
+        secondaryHref="/safety-checker/"
+        secondaryCta="Check interaction risk"
+      />
 
       <div className="grid gap-0 border-y border-brand-900/10 md:grid-cols-2 md:gap-6 md:border-0">
         {SECTIONS.map((section) => (
