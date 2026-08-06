@@ -19,6 +19,7 @@ type AtlasCalloutConfig = {
   cta: string
   secondaryHref: string
   secondaryCta: string
+  trackingSource: string
 }
 
 function getAtlasCallout(items: IntentRoute[]): AtlasCalloutConfig | null {
@@ -32,6 +33,7 @@ function getAtlasCallout(items: IntentRoute[]): AtlasCalloutConfig | null {
       cta: 'Compare calming botanicals',
       secondaryHref: '/tools/botanical-activity-atlas/',
       secondaryCta: 'Open the full atlas',
+      trackingSource: 'anxiety_hub',
     }
   }
 
@@ -45,6 +47,7 @@ function getAtlasCallout(items: IntentRoute[]): AtlasCalloutConfig | null {
       cta: 'Compare sleep botanicals',
       secondaryHref: '/tools/botanical-activity-atlas/',
       secondaryCta: 'Open the full atlas',
+      trackingSource: 'sleep_hub',
     }
   }
 
@@ -58,6 +61,7 @@ function getAtlasCallout(items: IntentRoute[]): AtlasCalloutConfig | null {
       cta: 'Compare focus botanicals',
       secondaryHref: '/tools/botanical-activity-atlas/',
       secondaryCta: 'Open the full atlas',
+      trackingSource: 'focus_hub',
     }
   }
 
