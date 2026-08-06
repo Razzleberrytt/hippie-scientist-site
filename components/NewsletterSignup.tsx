@@ -59,7 +59,8 @@ export default function NewsletterSignup({
   className = '',
 }: NewsletterSignupProps) {
   const pathname = usePathname()
-  const suppressOnHomepage = location === 'global-footer' && pathname === '/'
+  const resolvedLocation =
+    location === 'global-footer' && pathname === '/' ? 'homepage-safety-checklist' : location
   const isFooter = variant === 'footer'
   const textColor = isFooter ? 'text-white' : 'text-ink'
   const mutedColor = isFooter ? 'text-white/65' : 'text-muted'
@@ -83,7 +84,7 @@ export default function NewsletterSignup({
   const usesTurnstile = usesClientPost && Boolean(turnstileSiteKey)
 
   useEffect(() => {
-    if (suppressOnHomepage || !usesTurnstile || !turnstileContainerRef.current || turnstileWidgetIdRef.current) return
+    if (!usesTurnstile || !turnstileContainerRef.current || turnstileWidgetIdRef.current) return
 
     let cancelled = false
     loadTurnstileScript()
@@ -109,7 +110,7 @@ export default function NewsletterSignup({
     return () => {
       cancelled = true
     }
-  }, [suppressOnHomepage, usesTurnstile])
+  }, [usesTurnstile])
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     if (!usesClientPost) return
@@ -127,7 +128,7 @@ export default function NewsletterSignup({
           firstName: '',
           magnet: safetyChecklistLeadMagnet.slug,
           confirmEmail,
-          source: location,
+          source: resolvedLocation,
           turnstileToken: usesTurnstile ? turnstileToken : undefined,
         }),
       })
@@ -143,7 +144,7 @@ export default function NewsletterSignup({
         setTurnstileToken('')
       }
       setMessage('You are subscribed. Open the safety checklist while the next evidence note is prepared.')
-      trackEmailSignup({ source: location })
+      trackEmailSignup({ source: resolvedLocation })
     } catch (error) {
       if (usesTurnstile) {
         window.turnstile?.reset(turnstileWidgetIdRef.current)
@@ -154,10 +155,8 @@ export default function NewsletterSignup({
     }
   }
 
-  if (suppressOnHomepage) return null
-
   return (
-    <section className={`${variantClasses[variant]} ${className}`} data-signup-location={location}>
+    <section className={`${variantClasses[variant]} ${className}`} data-signup-location={resolvedLocation}>
       <div className='grid gap-5 lg:grid-cols-[1fr_0.9fr] lg:items-center'>
         <div>
           <p className={`text-xs font-bold uppercase tracking-[0.18em] ${isFooter ? 'text-emerald-300' : 'text-brand-700'}`}>
@@ -180,7 +179,7 @@ export default function NewsletterSignup({
           onSubmit={handleSubmit}
           className='flex flex-col gap-3'
         >
-          <input type='hidden' name='SOURCE' value={location} />
+          <input type='hidden' name='SOURCE' value={resolvedLocation} />
           <input type='hidden' name='LEAD_MAGNET' value={safetyChecklistLeadMagnet.slug} />
           <div aria-hidden='true' className='absolute left-[-5000px]'>
             <label htmlFor={honeypotId}>Leave this field empty</label>
