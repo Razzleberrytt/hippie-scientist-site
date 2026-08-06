@@ -17,6 +17,7 @@ const EFFECT_RULES: Array<[string, RegExp]> = [
 ]
 
 const CLASS_RULES: Array<[string, RegExp]> = [
+  ['Methylxanthines', /methylxanthine|caffeine|theobromine|theophylline/],
   ['Alkaloids', /alkaloid|amine|indole|isoquinoline|aporphine|tropane|xanthine/],
   ['Flavonoids', /flavonoid|flavone|flavan|catechin/],
   ['Terpenes / terpenoids', /terpene|terpenoid|sesquiterp|diterp|triterp/],
@@ -25,7 +26,6 @@ const CLASS_RULES: Array<[string, RegExp]> = [
   ['Lactones', /lactone|kavalactone/],
   ['Cannabinoids', /cannabinoid/],
   ['Withanolides', /withanolide/],
-  ['Methylxanthines', /methylxanthine|caffeine|theobromine|theophylline/],
 ]
 
 const SAFETY_RULES: Array<[string, RegExp]> = [
