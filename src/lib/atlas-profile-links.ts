@@ -5,6 +5,11 @@ import {
   normalizeSafetySignal,
   uniqueNormalized,
 } from '@/lib/botanical-atlas-taxonomy'
+import {
+  DEFAULT_ATLAS_URL_STATE,
+  serializeAtlasUrlState,
+  type AtlasUrlState,
+} from '@/lib/botanical-atlas-url-state'
 
 export type AtlasProfileLink = {
   href: string
@@ -18,65 +23,90 @@ const list = (value: unknown): string[] => {
   return value.split(/[;,|]/).map((item) => item.trim()).filter(Boolean)
 }
 
+const collect = (...values: unknown[]): string[] => values.flatMap(list)
+const ATLAS_ROOT = '/tools/botanical-activity-atlas/'
+
+const atlasHref = (path: string, overrides: Partial<AtlasUrlState>) =>
+  `${path}${serializeAtlasUrlState({ ...DEFAULT_ATLAS_URL_STATE, ...overrides })}`
+
 const FULL_ATLAS_LINK: AtlasProfileLink = {
-  href: '/tools/botanical-activity-atlas/',
+  href: ATLAS_ROOT,
   label: 'Open the full activity atlas',
   reason: 'Compare effects, evidence, and safety',
 }
 
 export function getAtlasProfileLinks(record: RuntimeRecord): AtlasProfileLink[] {
   const effects = uniqueNormalized(
-    list(record.primary_effects ?? record.effects ?? record.primaryActions),
+    collect(record.primary_effects, record.effects, record.primaryActions, record.benefits),
     normalizeEffect,
   )
   const compoundClasses = uniqueNormalized(
-    list(record.compoundClasses ?? record.pharmCategories ?? record.compoundClass),
+    collect(record.compoundClasses, record.pharmCategories, record.compoundClass),
     normalizeCompoundClass,
   )
   const safety = uniqueNormalized(
-    list(record.safety_flags ?? record.interactionTags ?? record.contraindications ?? record.interactions),
+    collect(
+      record.safety_flags,
+      record.interactionTags,
+      record.contraindications,
+      record.interactions,
+      record.safety,
+      record.warnings,
+      record.side_effects,
+    ),
     normalizeSafetySignal,
   )
 
   const specificLinks: AtlasProfileLink[] = []
+  const chemistry = compoundClasses.includes('Methylxanthines')
+    ? 'Methylxanthines'
+    : compoundClasses.includes('Alkaloids')
+      ? 'Alkaloids'
+      : null
 
-  if (compoundClasses.includes('Alkaloids') || compoundClasses.includes('Methylxanthines')) {
+  if (chemistry) {
     specificLinks.push({
-      href: '/tools/botanical-activity-atlas/alkaloid-botanicals/',
-      label: 'Compare alkaloid botanicals',
-      reason: 'Related active-chemistry family',
+      href: atlasHref(`${ATLAS_ROOT}alkaloid-botanicals/`, { compoundClass: chemistry }),
+      label: chemistry === 'Methylxanthines' ? 'Compare methylxanthine botanicals' : 'Compare alkaloid botanicals',
+      reason: `Filtered to the ${chemistry.toLowerCase()} chemistry family`,
     })
   }
 
   if (effects.includes('Stimulating / energy')) {
     specificLinks.push({
-      href: '/tools/botanical-activity-atlas/natural-stimulants/',
+      href: atlasHref(`${ATLAS_ROOT}natural-stimulants/`, { effect: 'Stimulating / energy' }),
       label: 'Compare natural stimulants',
-      reason: 'Related effect profile',
+      reason: 'Filtered to a related effect profile',
     })
   }
 
-  if (effects.includes('Calming') || effects.includes('Sedating / sleep')) {
+  const calmingEffect = effects.includes('Calming')
+    ? 'Calming'
+    : effects.includes('Sedating / sleep')
+      ? 'Sedating / sleep'
+      : null
+
+  if (calmingEffect) {
     specificLinks.push({
-      href: '/tools/botanical-activity-atlas/calming-botanicals/',
-      label: 'Compare calming botanicals',
-      reason: 'Related effect profile',
+      href: atlasHref(`${ATLAS_ROOT}calming-botanicals/`, { effect: calmingEffect }),
+      label: calmingEffect === 'Calming' ? 'Compare calming botanicals' : 'Compare sleep-supporting botanicals',
+      reason: 'Filtered to a related effect profile',
     })
   }
 
   if (effects.includes('Dream / perception')) {
     specificLinks.push({
-      href: '/tools/botanical-activity-atlas/dream-and-perception-herbs/',
+      href: atlasHref(`${ATLAS_ROOT}dream-and-perception-herbs/`, { effect: 'Dream / perception' }),
       label: 'Explore dream & perception herbs',
-      reason: 'Related effect profile',
+      reason: 'Filtered to a related effect profile',
     })
   }
 
   if (safety.includes('Serotonergic')) {
     specificLinks.push({
-      href: '/tools/botanical-activity-atlas/serotonergic-interaction-risk/',
+      href: atlasHref(`${ATLAS_ROOT}serotonergic-interaction-risk/`, { safety: 'Serotonergic' }),
       label: 'Review serotonergic risks',
-      reason: 'Related safety signal',
+      reason: 'Filtered to the relevant safety signal',
     })
   }
 
