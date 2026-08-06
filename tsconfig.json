@@ -13,7 +13,7 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*", "./src/*"]
     },
     "incremental": true,
     "plugins": [{ "name": "next" }],
@@ -27,28 +27,12 @@
     ".next/types/**/*.ts"
   ],
   "exclude": [
-    // Dependencies; not project source.
     "node_modules",
-
-    // Dev-only viewer code; not imported by active App Router pages.
     "src/dev/**/*",
-
-    // Legacy client-router pages from the pre-App Router implementation.
-    // Active production routes live under app/** and remain type-checked.
     "src/pages/**/*",
-
-    // Tooling scripts; validated by their own commands, not the app typecheck.
     "scripts/**/*",
-
-    // Cloudflare Pages Functions — compiled by Wrangler, not tsc.
     "functions/**/*",
-
-    // Deferred governed-enrichment agents; inactive for the MVP runtime.
     "agent/**/*",
-
-    // Legacy src component surfaces from removed/deferred MVP systems.
-    // Safe per reachability scans; dead source has been removed where confidence was high.
-    // Scheduled for later deletion or rebuild instead of restoring removed legacy modules.
     "src/components/AdvancedSearch.tsx",
     "src/components/BlendSummaryCard.tsx",
     "src/components/CategoryAnalytics.tsx",
@@ -74,14 +58,7 @@
     "src/components/StatsCounters.tsx",
     "src/components/TagBadge.tsx",
     "src/components/TagFilterBar.tsx",
-    // Phase 2 (2026-06 plan activation, post-audit): additional quarantined legacy surfaces.
-    // Header.tsx, some src/app/* dups (compare/ecosystems/stacks/protocols/best) vs active root app/*.
-    // Topics/[slug] is actively re-exported (see app/topics/[slug]/page.tsx); do not exclude whole src/app.
-    // Reachability audited via grep; confirmed deads excluded here + docs/legacy-*.md.
-    // Full src/ consolidation deferred (hybrid @/* src-first in tsconfig; active runtime bits in src/lib/* used by lib/runtime).
     "src/components/Header.tsx",
-    // src/app/* dups vs active root app/* (no reexports for compare/stacks/etc; topics is reexported so kept).
-    // Excluding reduces tsc noise + signals legacy per plan Phase2. Full rm possible after reachability + sitemap confirm.
     "src/app/compare/**/*",
     "src/app/stacks/**/*",
     "src/app/protocols/**/*",
@@ -92,9 +69,6 @@
     "src/components/filters/**/*",
     "src/components/interactions/**/*",
     "src/components/trust/**/*",
-
-    // Deprecated src/lib experiments and duplicate data consumers.
-    // Keep active src/lib/runtime-*.ts included; these inactive modules are future cleanup candidates.
     "src/lib/affiliateClickTracking.ts",
     "src/lib/collectionEnrichment.ts",
     "src/lib/collectionQuality.ts",
