@@ -22,30 +22,47 @@ export interface BotanicalAtlasRecord {
 
 interface Props { records: BotanicalAtlasRecord[] }
 type SortOption = 'name' | 'evidence' | 'noticeability'
+type EffectSource = 'all' | 'explicit'
+
+type AtlasFilters = {
+  query: string
+  effect: string
+  effectSource: EffectSource
+  evidence: string
+  intensity: string
+  compoundClass: string
+  safety: string
+}
 
 const normalize = (value: string) => value.trim().toLowerCase()
 const sortedUnique = (values: string[]) => Array.from(new Set(values.filter(Boolean))).sort()
 const evidenceRank: Record<string, number> = { Strong: 5, Moderate: 4, Preliminary: 3, 'Traditional / preclinical': 2, Unclassified: 1 }
 const intensityRank: Record<string, number> = { Pronounced: 5, Moderate: 4, Subtle: 3, Variable: 2, Unknown: 1 }
 
-function matchesFilters(record: BotanicalAtlasRecord, filters: { query: string; effect: string; evidence: string; intensity: string; compoundClass: string; safety: string }) {
-  const searchable = [record.name, record.scientificName ?? '', ...record.effects, ...record.compounds, ...record.compoundClasses, ...record.safety].join(' ').toLowerCase()
+export function effectsForSource(record: BotanicalAtlasRecord, source: EffectSource): string[] {
+  return source === 'explicit' ? (record.explicitEffects ?? record.effects) : record.effects
+}
+
+export function matchesFilters(record: BotanicalAtlasRecord, filters: AtlasFilters) {
+  const availableEffects = effectsForSource(record, filters.effectSource)
+  const searchable = [record.name, record.scientificName ?? '', ...availableEffects, ...record.compounds, ...record.compoundClasses, ...record.safety].join(' ').toLowerCase()
   const needle = normalize(filters.query)
   return (!needle || searchable.includes(needle))
-    && (filters.effect === 'all' || record.effects.includes(filters.effect))
+    && (filters.effect === 'all' || availableEffects.includes(filters.effect))
     && (filters.evidence === 'all' || record.evidence === filters.evidence)
     && (filters.intensity === 'all' || record.intensity === filters.intensity)
     && (filters.compoundClass === 'all' || record.compoundClasses.includes(filters.compoundClass))
     && (filters.safety === 'all' || record.safety.includes(filters.safety))
 }
 
-function EffectTags({ record, limit = 5 }: { record: BotanicalAtlasRecord; limit?: number }) {
+function EffectTags({ record, limit = 5, source = 'all' }: { record: BotanicalAtlasRecord; limit?: number; source?: EffectSource }) {
+  const visibleEffects = effectsForSource(record, source)
   const inferred = new Set(record.inferredEffects ?? [])
-  if (!record.effects.length) return <span className='text-muted'>Unclassified</span>
+  if (!visibleEffects.length) return <span className='text-muted'>Unclassified</span>
   return (
     <span className='flex flex-wrap gap-1.5'>
-      {record.effects.slice(0, limit).map((effect) => {
-        const pathwayDerived = inferred.has(effect)
+      {visibleEffects.slice(0, limit).map((effect) => {
+        const pathwayDerived = source === 'all' && inferred.has(effect)
         return (
           <span
             key={effect}
@@ -65,18 +82,19 @@ function EffectTags({ record, limit = 5 }: { record: BotanicalAtlasRecord; limit
 export default function BotanicalActivityAtlasClient({ records }: Props) {
   const [query, setQuery] = useState('')
   const [effect, setEffect] = useState('all')
+  const [effectSource, setEffectSource] = useState<EffectSource>('all')
   const [evidence, setEvidence] = useState('all')
   const [intensity, setIntensity] = useState('all')
   const [compoundClass, setCompoundClass] = useState('all')
   const [safety, setSafety] = useState('all')
   const [sort, setSort] = useState<SortOption>('name')
 
-  const effects = useMemo(() => sortedUnique(records.flatMap((record) => record.effects)), [records])
+  const effects = useMemo(() => sortedUnique(records.flatMap((record) => effectsForSource(record, effectSource))), [records, effectSource])
   const evidenceLevels = useMemo(() => sortedUnique(records.map((record) => record.evidence)), [records])
   const intensityLevels = useMemo(() => sortedUnique(records.map((record) => record.intensity)), [records])
   const compoundClasses = useMemo(() => sortedUnique(records.flatMap((record) => record.compoundClasses)), [records])
   const safetySignals = useMemo(() => sortedUnique(records.flatMap((record) => record.safety)), [records])
-  const filters = useMemo(() => ({ query, effect, evidence, intensity, compoundClass, safety }), [query, effect, evidence, intensity, compoundClass, safety])
+  const filters = useMemo(() => ({ query, effect, effectSource, evidence, intensity, compoundClass, safety }), [query, effect, effectSource, evidence, intensity, compoundClass, safety])
 
   const filtered = useMemo(() => {
     const matches = records.filter((record) => matchesFilters(record, filters))
@@ -90,6 +108,7 @@ export default function BotanicalActivityAtlasClient({ records }: Props) {
   const activeFilters = [
     query && `Search: ${query}`,
     effect !== 'all' && `Effect: ${effect}`,
+    effectSource === 'explicit' && 'Effect source: explicit only',
     evidence !== 'all' && `Evidence: ${evidence}`,
     intensity !== 'all' && `Noticeability: ${intensity}`,
     compoundClass !== 'all' && `Chemistry: ${compoundClass}`,
@@ -109,9 +128,18 @@ export default function BotanicalActivityAtlasClient({ records }: Props) {
     trackAtlasFilter({ filter, value, resultCount: records.filter((record) => matchesFilters(record, nextFilters)).length })
   }
 
+  const changeEffectSource = (value: EffectSource) => {
+    const available = sortedUnique(records.flatMap((record) => effectsForSource(record, value)))
+    const nextEffect = effect === 'all' || available.includes(effect) ? effect : 'all'
+    const nextFilters = { ...filters, effectSource: value, effect: nextEffect }
+    setEffectSource(value)
+    setEffect(nextEffect)
+    trackAtlasFilter({ filter: 'effect', value: value === 'explicit' ? 'explicit-only' : 'include-pathways', resultCount: records.filter((record) => matchesFilters(record, nextFilters)).length })
+  }
+
   const reset = () => {
     trackAtlasReset(activeFilters.length)
-    setQuery(''); setEffect('all'); setEvidence('all'); setIntensity('all'); setCompoundClass('all'); setSafety('all'); setSort('name')
+    setQuery(''); setEffect('all'); setEffectSource('all'); setEvidence('all'); setIntensity('all'); setCompoundClass('all'); setSafety('all'); setSort('name')
   }
 
   const trackProfile = (record: BotanicalAtlasRecord, index: number) =>
@@ -122,8 +150,9 @@ export default function BotanicalActivityAtlasClient({ records }: Props) {
 
   return (
     <section className='space-y-5'>
-      <div className='grid gap-3 rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm md:grid-cols-2 xl:grid-cols-6'>
+      <div className='grid gap-3 rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm md:grid-cols-2 xl:grid-cols-4'>
         <label><span className={labelClass}>Search</span><input value={query} onChange={(event) => setQuery(event.target.value)} onBlur={() => query.trim() && trackAtlasFilter({ filter: 'search', value: query.trim(), resultCount: filtered.length })} placeholder='Herb, compound, effect…' className={selectClass} /></label>
+        <label><span className={labelClass}>Effect source</span><select value={effectSource} onChange={(event) => changeEffectSource(event.target.value as EffectSource)} className={selectClass}><option value='all'>Include pathway-derived</option><option value='explicit'>Explicit effects only</option></select></label>
         <label><span className={labelClass}>Effect</span><select value={effect} onChange={(event) => setTrackedFilter('effect', event.target.value, setEffect)} className={selectClass}><option value='all'>All effects</option>{effects.map((item) => <option key={item}>{item}</option>)}</select></label>
         <label><span className={labelClass}>Chemistry</span><select value={compoundClass} onChange={(event) => setTrackedFilter('chemistry', event.target.value, setCompoundClass)} className={selectClass}><option value='all'>All classes</option>{compoundClasses.map((item) => <option key={item}>{item}</option>)}</select></label>
         <label><span className={labelClass}>Evidence</span><select value={evidence} onChange={(event) => setTrackedFilter('evidence', event.target.value, setEvidence)} className={selectClass}><option value='all'>All evidence</option>{evidenceLevels.map((item) => <option key={item}>{item}</option>)}</select></label>
@@ -146,7 +175,7 @@ export default function BotanicalActivityAtlasClient({ records }: Props) {
         {filtered.map((record, index) => <article key={record.slug} className='rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm'>
           <div className='flex items-start justify-between gap-3'><div><Link href={`/herbs/${record.slug}/`} onClick={() => trackProfile(record, index)} className='text-lg font-bold text-emerald-900 hover:underline'>{record.name}</Link>{record.scientificName ? <p className='mt-1 text-xs italic text-muted'>{record.scientificName}</p> : null}</div><span className='rounded-full bg-brand-50 px-2.5 py-1 text-xs font-bold text-ink'>{record.evidence}</span></div>
           <div className='mt-4 grid grid-cols-2 gap-3 text-sm'><div><p className={labelClass}>Noticeability</p><p className='font-semibold text-ink'>{record.intensity}</p></div><div><p className={labelClass}>Chemistry</p><p className='text-ink'>{record.compoundClasses.slice(0, 2).join(', ') || 'Not mapped'}</p></div></div>
-          <div className='mt-4'><p className={labelClass}>Effects</p><EffectTags record={record} limit={4} /></div>
+          <div className='mt-4'><p className={labelClass}>Effects</p><EffectTags record={record} limit={4} source={effectSource} /></div>
           {record.safety.length ? <div className='mt-4 rounded-xl bg-amber-50 p-3'><p className='text-xs font-bold uppercase tracking-wide text-amber-950'>Safety signals</p><p className='mt-1 text-sm text-amber-950'>{record.safety.slice(0, 3).join(' · ')}</p></div> : null}
           <Link href={`/herbs/${record.slug}/`} onClick={() => trackProfile(record, index)} className='mt-4 inline-flex font-semibold text-emerald-800 hover:underline'>Open full profile →</Link>
         </article>)}
@@ -154,7 +183,7 @@ export default function BotanicalActivityAtlasClient({ records }: Props) {
 
       <div className='hidden overflow-x-auto rounded-2xl border border-brand-900/10 bg-white/90 shadow-sm md:block'>
         <table className='min-w-[1100px] w-full border-collapse text-left text-sm'><thead className='bg-brand-50/80 text-xs uppercase tracking-wide text-muted'><tr><th className='p-4'>Botanical</th><th className='p-4'>Active chemistry</th><th className='p-4'>Effect profile</th><th className='p-4'>Noticeability</th><th className='p-4'>Evidence</th><th className='p-4'>Safety signals</th><th className='p-4'>Timing</th></tr></thead>
-          <tbody>{filtered.map((record, index) => <tr key={record.slug} className='border-t border-brand-900/10 align-top'><td className='p-4'><Link href={`/herbs/${record.slug}/`} onClick={() => trackProfile(record, index)} className='font-bold text-emerald-900 hover:underline'>{record.name}</Link>{record.scientificName ? <p className='mt-1 text-xs italic text-muted'>{record.scientificName}</p> : null}</td><td className='p-4'><p className='font-medium text-ink'>{record.compounds.slice(0, 4).join(', ') || 'Not yet mapped'}</p>{record.compoundClasses.length ? <p className='mt-1 text-xs text-muted'>{record.compoundClasses.join(', ')}</p> : null}</td><td className='p-4'><EffectTags record={record} /></td><td className='p-4 font-semibold text-ink'>{record.intensity}</td><td className='p-4'>{record.evidence}</td><td className='p-4 text-muted'>{record.safety.slice(0, 4).join(' · ') || 'No structured flags'}</td><td className='p-4 text-muted'>{[record.onset && `Onset: ${record.onset}`, record.duration && `Duration: ${record.duration}`].filter(Boolean).join(' · ') || 'Not established'}</td></tr>)}</tbody>
+          <tbody>{filtered.map((record, index) => <tr key={record.slug} className='border-t border-brand-900/10 align-top'><td className='p-4'><Link href={`/herbs/${record.slug}/`} onClick={() => trackProfile(record, index)} className='font-bold text-emerald-900 hover:underline'>{record.name}</Link>{record.scientificName ? <p className='mt-1 text-xs italic text-muted'>{record.scientificName}</p> : null}</td><td className='p-4'><p className='font-medium text-ink'>{record.compounds.slice(0, 4).join(', ') || 'Not yet mapped'}</p>{record.compoundClasses.length ? <p className='mt-1 text-xs text-muted'>{record.compoundClasses.join(', ')}</p> : null}</td><td className='p-4'><EffectTags record={record} source={effectSource} /></td><td className='p-4 font-semibold text-ink'>{record.intensity}</td><td className='p-4'>{record.evidence}</td><td className='p-4 text-muted'>{record.safety.slice(0, 4).join(' · ') || 'No structured flags'}</td><td className='p-4 text-muted'>{[record.onset && `Onset: ${record.onset}`, record.duration && `Duration: ${record.duration}`].filter(Boolean).join(' · ') || 'Not established'}</td></tr>)}</tbody>
         </table>
       </div>
 
