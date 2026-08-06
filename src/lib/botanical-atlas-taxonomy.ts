@@ -16,6 +16,22 @@ const EFFECT_RULES: Array<[string, RegExp]> = [
   ['Hormonal / reproductive', /hormon|libido|sexual|fertil|testoster|estrogen|thyroid/],
 ]
 
+// Mechanism labels can improve discovery when a record lacks plain-language
+// effects. These mappings describe pathway relevance, not proven outcomes.
+const MECHANISM_EFFECT_RULES: Array<[string, RegExp]> = [
+  ['Calming', /\b(?:gaba(?:-?a|-?b)?|benzodiazepine|hpa axis|cortisol|adaptogenic?)\b/],
+  ['Sedating / sleep', /\b(?:melatonin|orexin|hypnotic|sleep architecture|sleep latency)\b/],
+  ['Stimulating / energy', /\b(?:adenosine antagon|adrenergic|norepinephrine|noradrenaline|dopaminergic|catecholamine|ampk activation)\b/],
+  ['Mood', /\b(?:serotonin|serotonergic|5-ht|monoamine oxidase|maoi|sri|reuptake inhibition)\b/],
+  ['Cognition / focus', /\b(?:acetylcholine|cholinergic|acetylcholinesterase|ache inhibit|muscarinic|nicotinic receptor|bdnf|neuroplasticity)\b/],
+  ['Pain / discomfort', /\b(?:opioid|mu-opioid|kappa-opioid|nocicept|analges|cox inhibition)\b/],
+  ['Dream / perception', /\b(?:5-ht2a|kappa-opioid agon|cb1 agon|dissociative|oneirogenic)\b/],
+  ['Cardiovascular', /\b(?:vasodilat|vasoconstrict|ace inhibit|calcium channel|blood pressure|cardiac ion channel)\b/],
+  ['Metabolic', /\b(?:glucose metabolism|insulin sensit|ampk|lipid metabolism|thermogen)\b/],
+  ['Inflammation', /\b(?:cox-?1|cox-?2|nf-?kappa-?b|nf-?kb|inflammatory signaling|cytokine modulation)\b/],
+  ['Immune', /\b(?:immune signaling|immunomod|toll-like receptor|antiviral|antimicrobial)\b/],
+]
+
 // Specific families come before broad classes so named compounds land in the
 // most useful atlas bucket. Patterns are intentionally conservative: an
 // unrecognized compound remains unclassified rather than being guessed.
@@ -54,6 +70,16 @@ const firstMatch = (value: string, rules: Array<[string, RegExp]>) => {
 export const normalizeEffect = (value: string) => firstMatch(value, EFFECT_RULES) ?? value.trim()
 export const normalizeCompoundClass = (value: string) => firstMatch(value, CLASS_RULES) ?? value.trim()
 export const normalizeSafetySignal = (value: string) => firstMatch(value, SAFETY_RULES) ?? value.trim()
+
+export const inferAtlasEffectsFromMechanisms = (values: string[]): string[] => {
+  const effects = values.flatMap((value) => {
+    const normalized = clean(value)
+    return MECHANISM_EFFECT_RULES
+      .filter(([, pattern]) => pattern.test(normalized))
+      .map(([effect]) => effect)
+  })
+  return Array.from(new Set(effects))
+}
 
 export const normalizeEvidence = (value: string) => {
   const normalized = clean(value)
