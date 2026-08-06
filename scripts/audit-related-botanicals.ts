@@ -29,6 +29,15 @@ const lowConfidence = rows.flatMap((row) => row.matches
 const safetyDominated = rows.flatMap((row) => row.matches
   .filter((match) => match.reasons[0]?.type === 'safety')
   .map((match) => ({ source: row.source, match })))
+const allPairs = rows.flatMap((row) => row.matches.map((match) => ({ source: row.source, match })))
+const strongestPairs = [...allPairs]
+  .sort((a, b) => b.match.score - a.match.score
+    || a.source.name.localeCompare(b.source.name)
+    || a.match.name.localeCompare(b.match.name))
+  .slice(0, 20)
+const averageTopScore = rows.length
+  ? rows.reduce((sum, row) => sum + (row.matches[0]?.score ?? 0), 0) / rows.length
+  : 0
 
 const summary = {
   generatedAt: new Date().toISOString(),
@@ -37,6 +46,7 @@ const summary = {
   botanicalsWithoutMatches: noMatches.length,
   lowConfidenceMatches: lowConfidence.length,
   safetyDominatedMatches: safetyDominated.length,
+  averageTopScore: Number(averageTopScore.toFixed(2)),
 }
 
 const markdown = [
@@ -51,6 +61,13 @@ const markdown = [
   `- Botanicals without qualifying matches: ${summary.botanicalsWithoutMatches}`,
   `- Low-confidence matches (score < 4): ${summary.lowConfidenceMatches}`,
   `- Safety-dominated top reasons: ${summary.safetyDominatedMatches}`,
+  `- Average top recommendation score: ${summary.averageTopScore}`,
+  '',
+  '## Strongest pairings',
+  '',
+  ...strongestPairs.map(({ source, match }, index) =>
+    `${index + 1}. **${source.name} → ${match.name}** — score ${match.score}; ${match.reasons.slice(0, 3).map((reason) => `${reason.label}: ${reason.values.join(', ')}`).join(' · ')}`,
+  ),
   '',
   '## Recommendations',
   '',
@@ -69,7 +86,7 @@ const markdown = [
 
 await mkdir(outputDir, { recursive: true })
 await Promise.all([
-  writeFile(path.join(outputDir, 'related-botanicals-audit.json'), JSON.stringify({ summary, rows }, null, 2) + '\n'),
+  writeFile(path.join(outputDir, 'related-botanicals-audit.json'), JSON.stringify({ summary, strongestPairs, rows }, null, 2) + '\n'),
   writeFile(path.join(outputDir, 'related-botanicals-audit.md'), markdown + '\n'),
 ])
 
