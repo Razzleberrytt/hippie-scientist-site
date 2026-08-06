@@ -2,6 +2,8 @@
 
 import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
+import AtlasEmptyResultRecovery from '@/components/atlas/AtlasEmptyResultRecovery'
+import type { AtlasRecoveryAction } from '@/lib/botanical-atlas-recovery'
 import { trackAtlasFilter, trackAtlasProfileClick, trackAtlasReset } from '@/lib/botanicalAtlasTracking'
 import {
   DEFAULT_ATLAS_URL_STATE,
@@ -134,6 +136,16 @@ export default function BotanicalActivityAtlasClient({ records }: Props) {
     setQuery(DEFAULT_ATLAS_URL_STATE.query); setEffect(DEFAULT_ATLAS_URL_STATE.effect); setEffectSource(DEFAULT_ATLAS_URL_STATE.effectSource); setEvidence(DEFAULT_ATLAS_URL_STATE.evidence); setIntensity(DEFAULT_ATLAS_URL_STATE.intensity); setCompoundClass(DEFAULT_ATLAS_URL_STATE.compoundClass); setSafety(DEFAULT_ATLAS_URL_STATE.safety); setSort(DEFAULT_ATLAS_URL_STATE.sort)
   }
 
+  const recover = (action: AtlasRecoveryAction) => {
+    if (action === 'clear-query') setQuery('')
+    if (action === 'include-pathways') changeEffectSource('all')
+    if (action === 'clear-effect') setTrackedFilter('effect', 'all', setEffect)
+    if (action === 'clear-evidence') setTrackedFilter('evidence', 'all', setEvidence)
+    if (action === 'clear-intensity') setTrackedFilter('noticeability', 'all', setIntensity)
+    if (action === 'clear-chemistry') setTrackedFilter('chemistry', 'all', setCompoundClass)
+    if (action === 'clear-safety') setTrackedFilter('safety', 'all', setSafety)
+  }
+
   const copyLink = async () => {
     try {
       await navigator.clipboard.writeText(window.location.href)
@@ -172,6 +184,8 @@ export default function BotanicalActivityAtlasClient({ records }: Props) {
 
     {activeFilters.length ? <div className='flex flex-wrap gap-2' aria-label='Active filters'>{activeFilters.map((item) => <span key={item} className='rounded-full border border-emerald-900/10 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-950'>{item}</span>)}</div> : null}
 
+    {!filtered.length ? <AtlasEmptyResultRecovery records={records} filters={filters} onRecover={recover} onReset={reset} /> : null}
+
     <div className='grid gap-4 md:hidden'>{filtered.map((record, index) => <article key={record.slug} className='rounded-2xl border border-brand-900/10 bg-white/90 p-4 shadow-sm'>
       <div className='flex items-start justify-between gap-3'><div><Link href={`/herbs/${record.slug}/`} onClick={() => trackProfile(record, index)} className='text-lg font-bold text-emerald-900 hover:underline'>{record.name}</Link>{record.scientificName ? <p className='mt-1 text-xs italic text-muted'>{record.scientificName}</p> : null}</div><span className='rounded-full bg-brand-50 px-2.5 py-1 text-xs font-bold text-ink'>{record.evidence}</span></div>
       <div className='mt-4 grid grid-cols-2 gap-3 text-sm'><div><p className={labelClass}>Noticeability</p><p className='font-semibold text-ink'>{record.intensity}</p></div><div><p className={labelClass}>Chemistry</p><p className='text-ink'>{record.compoundClasses.slice(0, 2).join(', ') || 'Not mapped'}</p></div></div>
@@ -181,7 +195,5 @@ export default function BotanicalActivityAtlasClient({ records }: Props) {
     </article>)}</div>
 
     <div className='hidden overflow-x-auto rounded-2xl border border-brand-900/10 bg-white/90 shadow-sm md:block'><table className='min-w-[1100px] w-full border-collapse text-left text-sm'><thead className='bg-brand-50/80 text-xs uppercase tracking-wide text-muted'><tr><th className='p-4'>Botanical</th><th className='p-4'>Active chemistry</th><th className='p-4'>Effect profile</th><th className='p-4'>Noticeability</th><th className='p-4'>Evidence</th><th className='p-4'>Safety signals</th><th className='p-4'>Timing</th></tr></thead><tbody>{filtered.map((record, index) => <tr key={record.slug} className='border-t border-brand-900/10 align-top'><td className='p-4'><Link href={`/herbs/${record.slug}/`} onClick={() => trackProfile(record, index)} className='font-bold text-emerald-900 hover:underline'>{record.name}</Link>{record.scientificName ? <p className='mt-1 text-xs italic text-muted'>{record.scientificName}</p> : null}</td><td className='p-4'><p className='font-medium text-ink'>{record.compounds.slice(0, 4).join(', ') || 'Not yet mapped'}</p>{record.compoundClasses.length ? <p className='mt-1 text-xs text-muted'>{record.compoundClasses.join(', ')}</p> : null}</td><td className='p-4'><EffectTags record={record} source={effectSource} /></td><td className='p-4 font-semibold text-ink'>{record.intensity}</td><td className='p-4'>{record.evidence}</td><td className='p-4 text-muted'>{record.safety.slice(0, 4).join(' · ') || 'No structured flags'}</td><td className='p-4 text-muted'>{[record.onset && `Onset: ${record.onset}`, record.duration && `Duration: ${record.duration}`].filter(Boolean).join(' · ') || 'Not established'}</td></tr>)}</tbody></table></div>
-
-    {!filtered.length ? <div className='rounded-2xl border border-dashed border-brand-900/20 bg-white/70 p-8 text-center text-muted'>No botanicals match those filters. Try removing one filter or using a broader search term.</div> : null}
   </section>
 }
