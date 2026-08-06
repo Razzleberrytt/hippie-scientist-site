@@ -147,20 +147,26 @@ export default function Page() {
 
         <section className="card-premium p-6 sm:p-8">
           <h2 className="text-xl font-semibold text-ink dark:text-[var(--text-primary)]">Decision table</h2>
-          <div className="mt-5 overflow-x-auto">
+          <div
+            className="accessible-table-region mt-5 overflow-x-auto"
+            role="region"
+            aria-label="Magnesium glycinate and L-threonate sleep comparison table"
+            tabIndex={0}
+          >
             <table className="min-w-full border-collapse text-left text-sm">
+              <caption className="sr-only">Sleep-focused comparison of magnesium glycinate and magnesium L-threonate</caption>
               <thead>
                 <tr className="border-b border-brand-900/10 dark:border-white/10">
-                  <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink dark:text-[var(--text-primary)]">Factor</th>
-                  <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink dark:text-[var(--text-primary)]">Glycinate</th>
-                  <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink dark:text-[var(--text-primary)]">L-threonate</th>
-                  <th className="py-3 text-xs font-bold uppercase tracking-wider text-ink dark:text-[var(--text-primary)]">Call</th>
+                  <th scope="col" className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink dark:text-[var(--text-primary)]">Factor</th>
+                  <th scope="col" className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink dark:text-[var(--text-primary)]">Glycinate</th>
+                  <th scope="col" className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink dark:text-[var(--text-primary)]">L-threonate</th>
+                  <th scope="col" className="py-3 text-xs font-bold uppercase tracking-wider text-ink dark:text-[var(--text-primary)]">Call</th>
                 </tr>
               </thead>
               <tbody>
                 {comparisonRows.map((row) => (
                   <tr key={row.factor} className="border-b border-brand-900/5 align-top last:border-0 dark:border-white/10">
-                    <td className="py-3 pr-4 font-semibold text-ink dark:text-[var(--text-primary)]">{row.factor}</td>
+                    <th scope="row" className="py-3 pr-4 text-left font-semibold text-ink dark:text-[var(--text-primary)]">{row.factor}</th>
                     <td className="py-3 pr-4 text-muted dark:text-[var(--text-secondary)]">{row.glycinate}</td>
                     <td className="py-3 pr-4 text-muted dark:text-[var(--text-secondary)]">{row.threonate}</td>
                     <td className="py-3 text-muted dark:text-[var(--text-secondary)]">{row.call}</td>
@@ -200,7 +206,13 @@ export default function Page() {
           <ul className="mt-4 space-y-2 text-sm leading-7 text-muted dark:text-[var(--text-secondary)]">
             {references.map((reference) => (
               <li key={reference.href}>
-                <a href={reference.href} className="font-semibold text-brand-800 hover:underline dark:text-[var(--text-primary)]" rel="noreferrer" target="_blank">
+                <a
+                  href={reference.href}
+                  className="font-semibold text-brand-800 hover:underline dark:text-[var(--text-primary)]"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label={`${reference.label} (opens in a new tab)`}
+                >
                   {reference.label}
                 </a>
               </li>
