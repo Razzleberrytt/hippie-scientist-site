@@ -17,28 +17,69 @@ const list = (value: unknown): string[] => {
   return []
 }
 
+const collect = (...values: unknown[]): string[] => values.flatMap(list)
+
 const text = (...values: unknown[]): string => {
   const value = values.find((item) => typeof item === 'string' && item.trim())
   return typeof value === 'string' ? value.trim() : ''
 }
 
+const KNOWN_COMPOUND_CLASSES = new Set([
+  'Methylxanthines',
+  'Alkaloids',
+  'Flavonoids',
+  'Terpenes / terpenoids',
+  'Glycosides',
+  'Phenolics',
+  'Lactones',
+  'Cannabinoids',
+  'Withanolides',
+])
+
+const inferCompoundClasses = (compounds: string[]): string[] =>
+  uniqueNormalized(compounds, normalizeCompoundClass).filter((value) => KNOWN_COMPOUND_CLASSES.has(value))
+
 export const toAtlasRecord = (herb: RuntimeRecord): BotanicalAtlasRecord => {
-  const rawEffects = list(herb.primary_effects ?? herb.effects ?? herb.primaryActions)
-  const rawClasses = list(herb.compoundClasses ?? herb.pharmCategories ?? herb.compoundClass)
-  const rawSafety = list(herb.safety_flags ?? herb.interactionTags ?? herb.contraindications ?? herb.interactions)
+  const rawEffects = collect(herb.primary_effects, herb.effects, herb.primaryActions, herb.benefits)
+  const compounds = collect(herb.activeCompounds, herb.active_compounds, herb.compounds, herb.activeconstituents)
+  const explicitClasses = uniqueNormalized(
+    collect(herb.compoundClasses, herb.pharmCategories, herb.compoundClass),
+    normalizeCompoundClass,
+  )
+  const compoundClasses = explicitClasses.length ? explicitClasses : inferCompoundClasses(compounds)
+  const rawSafety = collect(
+    herb.safety_flags,
+    herb.interactionTags,
+    herb.contraindications,
+    herb.interactions,
+    herb.safety,
+    herb.warnings,
+    herb.side_effects,
+  )
 
   return {
     slug: herb.slug,
     name: text(herb.displayName, herb.name, herb.commonName, herb.common, herb.slug.replaceAll('-', ' ')),
     scientificName: text(herb.scientificName, herb.scientificname, herb.latinName) || undefined,
     effects: uniqueNormalized(rawEffects, normalizeEffect),
-    compounds: list(herb.activeCompounds ?? herb.active_compounds ?? herb.compounds ?? herb.activeconstituents),
-    compoundClasses: uniqueNormalized(rawClasses, normalizeCompoundClass),
+    compounds,
+    compoundClasses,
     evidence: normalizeEvidence(text(herb.evidence_tier, herb.evidenceTier, herb.evidence_grade, herb.evidenceLevel)),
-    intensity: normalizeIntensity(text(herb.intensityLabel, herb.intensityClean, herb.intensityLevel, herb.intensity)),
+    intensity: normalizeIntensity(
+      text(
+        herb.intensityLabel,
+        herb.intensityClean,
+        herb.intensityLevel,
+        herb.intensity,
+        herb.noticeability,
+        herb.effectIntensity,
+        herb.subjectiveIntensity,
+        herb.strength,
+      ),
+    ),
     safety: uniqueNormalized(rawSafety, normalizeSafetySignal),
-    onset: text(herb.time_to_effect, herb.onset) || undefined,
-    duration: text(herb.duration) || undefined,
+    onset: text(herb.time_to_effect, herb.onset, herb.onsetTime) || undefined,
+    duration: text(herb.duration, herb.effectDuration) || undefined,
   }
 }
 
