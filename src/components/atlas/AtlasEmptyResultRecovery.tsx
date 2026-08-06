@@ -1,6 +1,8 @@
 'use client'
 
+import { useEffect, useMemo } from 'react'
 import { getAtlasRecoverySuggestions, type AtlasRecoveryAction, type AtlasRecoveryFilters, type AtlasRecoveryRecord } from '@/lib/botanical-atlas-recovery'
+import { trackAtlasRecoveryAccepted, trackAtlasRecoveryShown } from '@/lib/botanicalAtlasTracking'
 
 type Props = {
   records: AtlasRecoveryRecord[]
@@ -10,7 +12,12 @@ type Props = {
 }
 
 export default function AtlasEmptyResultRecovery({ records, filters, onRecover, onReset }: Props) {
-  const suggestions = getAtlasRecoverySuggestions(records, filters)
+  const suggestions = useMemo(() => getAtlasRecoverySuggestions(records, filters), [records, filters])
+  const signature = suggestions.map((item) => `${item.action}:${item.recoveredCount}`).join('|')
+
+  useEffect(() => {
+    if (suggestions.length) trackAtlasRecoveryShown(suggestions)
+  }, [signature]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <section className='rounded-2xl border border-dashed border-amber-900/25 bg-amber-50/60 p-6 text-amber-950' aria-live='polite'>
@@ -24,7 +31,7 @@ export default function AtlasEmptyResultRecovery({ records, filters, onRecover, 
             <button
               key={suggestion.action}
               type='button'
-              onClick={() => onRecover(suggestion.action)}
+              onClick={() => { trackAtlasRecoveryAccepted(suggestion); onRecover(suggestion.action) }}
               className='min-h-11 rounded-xl border border-amber-900/15 bg-white px-4 py-3 text-left font-semibold text-amber-950 shadow-sm transition hover:-translate-y-0.5 hover:border-amber-900/30'
             >
               <span className='block'>{suggestion.label}</span>
