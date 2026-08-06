@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import { SITE_URL } from '@/src/lib/seo'
 import RecommendationSection from '@/components/RecommendationSection'
 import { getRevenueProductSet } from '@/config/revenue-products'
@@ -147,12 +148,7 @@ export default function Page() {
 
         <section className="card-premium p-6 sm:p-8">
           <h2 className="text-xl font-semibold text-ink dark:text-[var(--text-primary)]">Decision table</h2>
-          <div
-            className="accessible-table-region mt-5 overflow-x-auto"
-            role="region"
-            aria-label="Magnesium glycinate and L-threonate sleep comparison table"
-            tabIndex={0}
-          >
+          <ResponsiveTable label="Magnesium glycinate and L-threonate sleep comparison table" className="mt-5">
             <table className="min-w-full border-collapse text-left text-sm">
               <caption className="sr-only">Sleep-focused comparison of magnesium glycinate and magnesium L-threonate</caption>
               <thead>
@@ -174,7 +170,7 @@ export default function Page() {
                 ))}
               </tbody>
             </table>
-          </div>
+          </ResponsiveTable>
         </section>
 
         {sections.map((section) => (
