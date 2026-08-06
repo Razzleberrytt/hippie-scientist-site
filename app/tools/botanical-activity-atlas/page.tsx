@@ -5,6 +5,14 @@ import { getHerbs } from '@/lib/runtime-data'
 import { getRuntimeVisibility } from '../../../lib/runtime-visibility'
 import { buildToolPageSchemaGraph } from '@/lib/schema-graph'
 import { buildPageMetadata, SITE_URL } from '@/lib/seo'
+import {
+  normalizeCompoundClass,
+  normalizeEffect,
+  normalizeEvidence,
+  normalizeIntensity,
+  normalizeSafetySignal,
+  uniqueNormalized,
+} from '@/lib/botanical-atlas-taxonomy'
 import type { RuntimeRecord } from '@/types/content'
 
 export const metadata: Metadata = buildPageMetadata({
@@ -25,19 +33,25 @@ const text = (...values: unknown[]): string => {
   return typeof value === 'string' ? value.trim() : ''
 }
 
-const toAtlasRecord = (herb: RuntimeRecord): BotanicalAtlasRecord => ({
-  slug: herb.slug,
-  name: text(herb.displayName, herb.name, herb.commonName, herb.common, herb.slug.replaceAll('-', ' ')),
-  scientificName: text(herb.scientificName, herb.scientificname, herb.latinName) || undefined,
-  effects: list(herb.primary_effects ?? herb.effects ?? herb.primaryActions),
-  compounds: list(herb.activeCompounds ?? herb.active_compounds ?? herb.compounds ?? herb.activeconstituents),
-  compoundClasses: list(herb.compoundClasses ?? herb.pharmCategories ?? herb.compoundClass),
-  evidence: text(herb.evidence_tier, herb.evidenceTier, herb.evidence_grade, herb.evidenceLevel, 'Unclassified'),
-  intensity: text(herb.intensityLabel, herb.intensityClean, herb.intensityLevel, herb.intensity, 'Unknown'),
-  safety: list(herb.safety_flags ?? herb.interactionTags ?? herb.contraindications ?? herb.interactions),
-  onset: text(herb.time_to_effect, herb.onset) || undefined,
-  duration: text(herb.duration) || undefined,
-})
+const toAtlasRecord = (herb: RuntimeRecord): BotanicalAtlasRecord => {
+  const rawEffects = list(herb.primary_effects ?? herb.effects ?? herb.primaryActions)
+  const rawClasses = list(herb.compoundClasses ?? herb.pharmCategories ?? herb.compoundClass)
+  const rawSafety = list(herb.safety_flags ?? herb.interactionTags ?? herb.contraindications ?? herb.interactions)
+
+  return {
+    slug: herb.slug,
+    name: text(herb.displayName, herb.name, herb.commonName, herb.common, herb.slug.replaceAll('-', ' ')),
+    scientificName: text(herb.scientificName, herb.scientificname, herb.latinName) || undefined,
+    effects: uniqueNormalized(rawEffects, normalizeEffect),
+    compounds: list(herb.activeCompounds ?? herb.active_compounds ?? herb.compounds ?? herb.activeconstituents),
+    compoundClasses: uniqueNormalized(rawClasses, normalizeCompoundClass),
+    evidence: normalizeEvidence(text(herb.evidence_tier, herb.evidenceTier, herb.evidence_grade, herb.evidenceLevel)),
+    intensity: normalizeIntensity(text(herb.intensityLabel, herb.intensityClean, herb.intensityLevel, herb.intensity)),
+    safety: uniqueNormalized(rawSafety, normalizeSafetySignal),
+    onset: text(herb.time_to_effect, herb.onset) || undefined,
+    duration: text(herb.duration) || undefined,
+  }
+}
 
 export default async function BotanicalActivityAtlasPage() {
   const rawHerbs = await getHerbs()
@@ -104,8 +118,8 @@ export default async function BotanicalActivityAtlasPage() {
           <p className='mt-2 text-sm leading-6 text-muted'>Strong sensations may reflect stimulation, sedation, toxicity, side effects, or dose—not superior benefits.</p>
         </article>
         <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
-          <h2 className='font-bold text-ink'>Labels are not interchangeable</h2>
-          <p className='mt-2 text-sm leading-6 text-muted'>Species, plant part, extraction, adulteration, and batch variation can radically change a botanical product.</p>
+          <h2 className='font-bold text-ink'>Labels are normalized</h2>
+          <p className='mt-2 text-sm leading-6 text-muted'>Related source terms are grouped into consistent effect, evidence, chemistry, noticeability, and safety categories.</p>
         </article>
       </section>
 
