@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import ResponsiveTable from '@/components/ui/ResponsiveTable'
 import { SITE_URL } from '@/src/lib/seo'
 
 const path = '/guides/sleep/apigenin-for-sleep/'
@@ -135,12 +136,7 @@ export default function Page() {
 
         <section className="card-premium p-6 sm:p-8">
           <h2 className="text-xl font-semibold text-ink dark:text-[var(--text-primary)]">Verdict table</h2>
-          <div
-            className="accessible-table-region mt-5 overflow-x-auto"
-            role="region"
-            aria-label="Apigenin sleep evidence verdict table"
-            tabIndex={0}
-          >
+          <ResponsiveTable label="Apigenin sleep evidence verdict table" className="mt-5">
             <table className="min-w-full border-collapse text-left text-sm">
               <caption className="sr-only">Verdicts and context for common apigenin sleep questions</caption>
               <thead>
@@ -160,7 +156,7 @@ export default function Page() {
                 ))}
               </tbody>
             </table>
-          </div>
+          </ResponsiveTable>
         </section>
 
         {sections.map((section) => (
