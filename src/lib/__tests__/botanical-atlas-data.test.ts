@@ -57,4 +57,33 @@ describe('Botanical Activity Atlas runtime fallbacks', () => {
     expect(result.effects).toContain('Calming')
     expect(result.effects).toContain('Sedating / sleep')
   })
+
+  it('enriches discovery effects from structured mechanisms', () => {
+    const result = toAtlasRecord(record({
+      effects: [],
+      mechanisms: ['GABA-A positive allosteric modulation', 'acetylcholinesterase inhibition'],
+      canonical_mechanisms: ['Serotonergic signaling'],
+    }))
+
+    expect(result.effects).toContain('Calming')
+    expect(result.effects).toContain('Cognition / focus')
+    expect(result.effects).toContain('Mood')
+  })
+
+  it('keeps explicit effects and deduplicates inferred matches', () => {
+    const result = toAtlasRecord(record({
+      effects: ['calming'],
+      mechanisms: ['GABA-A modulation', 'HPA axis modulation'],
+    }))
+
+    expect(result.effects.filter((effect) => effect === 'Calming')).toHaveLength(1)
+  })
+
+  it('does not expose unknown mechanism text as an effect label', () => {
+    const result = toAtlasRecord(record({
+      mechanisms: ['Unmapped experimental pathway XYZ'],
+    }))
+
+    expect(result.effects).toEqual([])
+  })
 })
