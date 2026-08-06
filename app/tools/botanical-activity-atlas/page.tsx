@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import SchemaGraphScript from '@/components/seo/SchemaGraphScript'
 import BotanicalActivityAtlasClient from '@/components/atlas/BotanicalActivityAtlasClient'
+import AtlasLandingContext from '@/components/atlas/AtlasLandingContext'
 import { getBotanicalAtlasRecords } from '@/lib/botanical-atlas-data'
 import { BOTANICAL_ATLAS_CATEGORIES } from '@/lib/botanical-atlas-categories'
 import { buildToolPageSchemaGraph } from '@/lib/schema-graph'
@@ -57,6 +58,8 @@ export default async function BotanicalActivityAtlasPage() {
           Explore which botanicals contain pharmacologically active compounds, what effects they are associated with, how noticeable those effects may be, how strong the evidence is, and which safety signals deserve attention.
         </p>
       </section>
+
+      <AtlasLandingContext />
 
       <section className='grid gap-4 md:grid-cols-3'>
         <article className='rounded-2xl border border-brand-900/10 bg-white/85 p-5 shadow-sm'>
