@@ -35,6 +35,26 @@ describe('botanical atlas taxonomy', () => {
     expect(normalizeSafetySignal('Potential hepatotoxicity')).toBe('Liver')
   })
 
+  it('recognizes established named compounds across major botanical families', () => {
+    expect(normalizeCompoundClass('withaferin A')).toBe('Withanolides')
+    expect(normalizeCompoundClass('CBD and CBG')).toBe('Cannabinoids')
+    expect(normalizeCompoundClass('kavain and methysticin')).toBe('Lactones')
+    expect(normalizeCompoundClass('EGCG and epicatechin')).toBe('Flavonoids')
+    expect(normalizeCompoundClass('linalool and beta-caryophyllene')).toBe('Terpenes / terpenoids')
+    expect(normalizeCompoundClass('ginsenosides')).toBe('Glycosides')
+    expect(normalizeCompoundClass('rosmarinic acid')).toBe('Phenolics')
+    expect(normalizeCompoundClass('berberine and palmatine')).toBe('Alkaloids')
+  })
+
+  it('keeps specific classes ahead of broad alkaloid matching', () => {
+    expect(normalizeCompoundClass('caffeine alkaloid')).toBe('Methylxanthines')
+    expect(normalizeCompoundClass('withanolide lactone')).toBe('Withanolides')
+  })
+
+  it('does not invent a class for an unknown compound name', () => {
+    expect(normalizeCompoundClass('mystery constituent ZX-41')).toBe('mystery constituent ZX-41')
+  })
+
   it('deduplicates normalized variants', () => {
     expect(uniqueNormalized(['calming', 'anxiolytic', 'relaxing'], normalizeEffect)).toEqual(['Calming'])
   })
