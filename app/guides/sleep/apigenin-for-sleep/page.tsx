@@ -135,19 +135,25 @@ export default function Page() {
 
         <section className="card-premium p-6 sm:p-8">
           <h2 className="text-xl font-semibold text-ink dark:text-[var(--text-primary)]">Verdict table</h2>
-          <div className="mt-5 overflow-x-auto">
+          <div
+            className="accessible-table-region mt-5 overflow-x-auto"
+            role="region"
+            aria-label="Apigenin sleep evidence verdict table"
+            tabIndex={0}
+          >
             <table className="min-w-full border-collapse text-left text-sm">
+              <caption className="sr-only">Verdicts and context for common apigenin sleep questions</caption>
               <thead>
                 <tr className="border-b border-brand-900/10 dark:border-white/10">
-                  <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink dark:text-[var(--text-primary)]">Question</th>
-                  <th className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink dark:text-[var(--text-primary)]">Answer</th>
-                  <th className="py-3 text-xs font-bold uppercase tracking-wider text-ink dark:text-[var(--text-primary)]">Context</th>
+                  <th scope="col" className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink dark:text-[var(--text-primary)]">Question</th>
+                  <th scope="col" className="py-3 pr-4 text-xs font-bold uppercase tracking-wider text-ink dark:text-[var(--text-primary)]">Answer</th>
+                  <th scope="col" className="py-3 text-xs font-bold uppercase tracking-wider text-ink dark:text-[var(--text-primary)]">Context</th>
                 </tr>
               </thead>
               <tbody>
                 {verdictRows.map((row) => (
                   <tr key={row.question} className="border-b border-brand-900/5 align-top last:border-0 dark:border-white/10">
-                    <td className="py-3 pr-4 font-semibold text-ink dark:text-[var(--text-primary)]">{row.question}</td>
+                    <th scope="row" className="py-3 pr-4 text-left font-semibold text-ink dark:text-[var(--text-primary)]">{row.question}</th>
                     <td className="py-3 pr-4 text-muted dark:text-[var(--text-secondary)]">{row.answer}</td>
                     <td className="py-3 text-muted dark:text-[var(--text-secondary)]">{row.note}</td>
                   </tr>
@@ -185,7 +191,13 @@ export default function Page() {
           <ul className="mt-4 space-y-2 text-sm leading-7 text-muted dark:text-[var(--text-secondary)]">
             {references.map((reference) => (
               <li key={reference.href}>
-                <a href={reference.href} className="font-semibold text-brand-800 hover:underline dark:text-[var(--text-primary)]" rel="noreferrer" target="_blank">
+                <a
+                  href={reference.href}
+                  className="font-semibold text-brand-800 hover:underline dark:text-[var(--text-primary)]"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label={`${reference.label} (opens in a new tab)`}
+                >
                   {reference.label}
                 </a>
               </li>
