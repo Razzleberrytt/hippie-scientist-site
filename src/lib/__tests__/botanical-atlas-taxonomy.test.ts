@@ -30,6 +30,7 @@ describe('botanical atlas taxonomy', () => {
   it('groups active chemistry and safety concerns', () => {
     expect(normalizeCompoundClass('isoquinoline alkaloids')).toBe('Alkaloids')
     expect(normalizeCompoundClass('kavalactones')).toBe('Lactones')
+    expect(normalizeCompoundClass('caffeine and theobromine')).toBe('Methylxanthines')
     expect(normalizeSafetySignal('May interact with SSRIs')).toBe('Serotonergic')
     expect(normalizeSafetySignal('Potential hepatotoxicity')).toBe('Liver')
   })
