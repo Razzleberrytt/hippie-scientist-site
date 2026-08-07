@@ -47,6 +47,37 @@ describe('related botanicals engine', () => {
     expect(scoreRelatedBotanical(source, safetyOnly)).toBeNull()
   })
 
+  it('does not recommend duplicate aliases for the same scientific species', () => {
+    const source = herb({ scientificName: 'Morus alba', explicitEffects: ['Metabolic'], effects: ['Metabolic'] })
+    const alias = herb({ slug: 'mulberry-leaf', name: 'Mulberry Leaf', scientificName: ' morus   alba ', explicitEffects: ['Metabolic'], effects: ['Metabolic'] })
+
+    expect(scoreRelatedBotanical(source, alias)).toBeNull()
+  })
+
+  it('does not qualify broad antioxidant or tonic labels by themselves', () => {
+    const antioxidantSource = herb({ explicitEffects: ['antioxidant'], effects: ['antioxidant'] })
+    const antioxidantCandidate = herb({ slug: 'antioxidant', name: 'Antioxidant', explicitEffects: ['antioxidant'], effects: ['antioxidant'] })
+    const tonicSource = herb({ explicitEffects: ['tonic'], effects: ['tonic'] })
+    const tonicCandidate = herb({ slug: 'tonic', name: 'Tonic', explicitEffects: ['tonic'], effects: ['tonic'] })
+
+    expect(scoreRelatedBotanical(antioxidantSource, antioxidantCandidate)).toBeNull()
+    expect(scoreRelatedBotanical(tonicSource, tonicCandidate)).toBeNull()
+  })
+
+  it('allows broad labels when chemistry independently supports the relationship', () => {
+    const source = herb({ explicitEffects: ['antioxidant'], effects: ['antioxidant'], compoundClasses: ['Flavonoids'] })
+    const candidate = herb({ slug: 'chemistry', name: 'Chemistry', explicitEffects: ['antioxidant'], effects: ['antioxidant'], compoundClasses: ['Flavonoids'] })
+
+    expect(scoreRelatedBotanical(source, candidate)?.reasons.some((reason) => reason.type === 'compound-class')).toBe(true)
+  })
+
+  it('rejects otherwise-substantive matches below the minimum confidence score', () => {
+    const source = herb({ explicitEffects: ['Cognition / focus', 'Calming', 'Mood'] })
+    const candidate = herb({ slug: 'thin', name: 'Thin', explicitEffects: ['Cognition / focus', 'Metabolic', 'Immune'] })
+
+    expect(scoreRelatedBotanical(source, candidate)).toBeNull()
+  })
+
   it('falls back to combined effects when explicit effect provenance is unavailable', () => {
     const source = herb({ explicitEffects: undefined, effects: ['Cognition / focus'] })
     const candidate = herb({ slug: 'legacy', name: 'Legacy', explicitEffects: undefined, effects: ['Cognition / focus'] })
