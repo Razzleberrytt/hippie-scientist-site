@@ -1,6 +1,7 @@
 export type RelatedBotanicalRecord = {
   slug: string
   name: string
+  scientificName?: string
   explicitEffects?: string[]
   effects: string[]
   compounds: string[]
@@ -40,8 +41,16 @@ const WEIGHTS = {
   noticeability: 0.75,
 } as const
 
+// Broad umbrella labels can be useful supporting context, but should not by
+// themselves create a recommendation. Otherwise common tags such as
+// "antioxidant" produce many technically-correct but low-value pairings.
+const GENERIC_EFFECTS = new Set(['antioxidant', 'tonic'])
+const MINIMUM_RECOMMENDATION_SCORE = 4
+
+const normalizedText = (value = '') => value.trim().toLowerCase().replace(/\s+/g, ' ')
+
 const normalized = (values: string[] = []) =>
-  new Map(values.filter(Boolean).map((value) => [value.trim().toLowerCase(), value.trim()]))
+  new Map(values.filter(Boolean).map((value) => [normalizedText(value), value.trim()]))
 
 function sharedValues(left: string[] = [], right: string[] = []) {
   const a = normalized(left)
@@ -70,11 +79,18 @@ function overlapReason(
   return { type, label, values, score }
 }
 
+function isSameBotanical(source: RelatedBotanicalRecord, candidate: RelatedBotanicalRecord) {
+  if (source.slug === candidate.slug) return true
+  const sourceScientific = normalizedText(source.scientificName)
+  const candidateScientific = normalizedText(candidate.scientificName)
+  return Boolean(sourceScientific && candidateScientific && sourceScientific === candidateScientific)
+}
+
 export function scoreRelatedBotanical(
   source: RelatedBotanicalRecord,
   candidate: RelatedBotanicalRecord,
 ): RelatedBotanicalMatch | null {
-  if (source.slug === candidate.slug) return null
+  if (isSameBotanical(source, candidate)) return null
 
   const sourceExplicit = source.explicitEffects?.length ? source.explicitEffects : source.effects
   const candidateExplicit = candidate.explicitEffects?.length ? candidate.explicitEffects : candidate.effects
@@ -93,10 +109,13 @@ export function scoreRelatedBotanical(
   }
 
   const score = reasons.reduce((sum, reason) => sum + reason.score, 0)
-  const hasSubstantiveRelationship = reasons.some((reason) =>
-    reason.type === 'explicit-effect' || reason.type === 'compound-class' || reason.type === 'compound',
+  const effectReason = reasons.find((reason) => reason.type === 'explicit-effect')
+  const hasSpecificEffect = Boolean(effectReason?.values.some((value) => !GENERIC_EFFECTS.has(normalizedText(value))))
+  const hasChemistryRelationship = reasons.some((reason) =>
+    reason.type === 'compound-class' || reason.type === 'compound',
   )
-  if (!hasSubstantiveRelationship || score <= 0) return null
+  const hasSubstantiveRelationship = hasSpecificEffect || hasChemistryRelationship
+  if (!hasSubstantiveRelationship || score < MINIMUM_RECOMMENDATION_SCORE) return null
 
   return {
     record: candidate,
