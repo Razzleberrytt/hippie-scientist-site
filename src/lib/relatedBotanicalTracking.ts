@@ -81,3 +81,16 @@ export function trackRelatedBotanicalClick(sourceSlug: string, item: RelatedBota
     targetType: 'herb',
   })
 }
+
+export function trackRelatedBotanicalCompare(sourceSlug: string, item: RelatedBotanicalTrackingItem, compareHref: string) {
+  if (typeof window === 'undefined') return
+  const session = ensureSourceVisited(sourceSlug)
+  appendAnalyticsEvent({
+    type: 'related_botanical_compare_click',
+    slug: sourceSlug,
+    item: item.slug,
+    context: `session:${session.sessionId};position:${item.position};score:${item.score};reason_types:${item.reasonTypes.join('|')};compare_href:${compareHref};profile_depth:${session.visitedProfiles.length}`,
+    sourceType: 'herb',
+    targetType: 'comparison',
+  })
+}
