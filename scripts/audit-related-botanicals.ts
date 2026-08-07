@@ -8,10 +8,11 @@ const topN = Math.max(1, Number(process.env.RELATED_BOTANICALS_TOP_N ?? 5) || 5)
 
 const records = await getBotanicalAtlasRecords()
 const rows = records.map((source) => ({
-  source: { slug: source.slug, name: source.name },
+  source: { slug: source.slug, name: source.name, scientificName: source.scientificName },
   matches: getRelatedBotanicals(source, records, topN).map((match) => ({
     slug: match.record.slug,
     name: match.record.name,
+    scientificName: match.record.scientificName,
     score: match.score,
     reasons: match.reasons.map((reason) => ({
       type: reason.type,
@@ -30,6 +31,15 @@ const safetyDominated = rows.flatMap((row) => row.matches
   .filter((match) => match.reasons[0]?.type === 'safety')
   .map((match) => ({ source: row.source, match })))
 const allPairs = rows.flatMap((row) => row.matches.map((match) => ({ source: row.source, match })))
+const chemistrySupported = allPairs.filter(({ match }) => match.reasons.some((reason) =>
+  reason.type === 'compound-class' || reason.type === 'compound',
+))
+const effectOnly = allPairs.filter(({ match }) => {
+  const substantiveTypes = new Set(match.reasons
+    .filter((reason) => ['explicit-effect', 'compound-class', 'compound'].includes(reason.type))
+    .map((reason) => reason.type))
+  return substantiveTypes.size === 1 && substantiveTypes.has('explicit-effect')
+})
 const strongestPairs = [...allPairs]
   .sort((a, b) => b.match.score - a.match.score
     || a.source.name.localeCompare(b.source.name)
@@ -46,6 +56,8 @@ const summary = {
   botanicalsWithoutMatches: noMatches.length,
   lowConfidenceMatches: lowConfidence.length,
   safetyDominatedMatches: safetyDominated.length,
+  chemistrySupportedMatches: chemistrySupported.length,
+  effectOnlyMatches: effectOnly.length,
   averageTopScore: Number(averageTopScore.toFixed(2)),
 }
 
@@ -61,6 +73,8 @@ const markdown = [
   `- Botanicals without qualifying matches: ${summary.botanicalsWithoutMatches}`,
   `- Low-confidence matches (score < 4): ${summary.lowConfidenceMatches}`,
   `- Safety-dominated top reasons: ${summary.safetyDominatedMatches}`,
+  `- Chemistry-supported matches: ${summary.chemistrySupportedMatches}`,
+  `- Effect-only matches: ${summary.effectOnlyMatches}`,
   `- Average top recommendation score: ${summary.averageTopScore}`,
   '',
   '## Strongest pairings',
