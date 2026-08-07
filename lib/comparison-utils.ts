@@ -22,12 +22,15 @@ export const BUILT_COMPARE_SLUGS = [
   'berberine-vs-metformin',
   'caffeine-vs-l-theanine',
   'caffeine-vs-l-theanine-vs-bacopa-for-focus',
+  'coffee-vs-guarana',
+  'coptis-vs-goldenseal',
   'curcumin-vs-boswellia-vs-omega-3',
   'guarana-vs-yerba-mate',
   'kanna-vs-ssris',
   'kava-vs-alcohol',
   'melatonin-vs-magnesium',
   'melatonin-vs-valerian-vs-magnesium-for-sleep',
+  'oregano-vs-thyme',
   'rhodiola-vs-ashwagandha',
   'sleep-herbs-vs-melatonin',
 ] as const
@@ -37,6 +40,7 @@ const validSlugs = new Set<string>(BUILT_COMPARE_SLUGS)
 const COMPARISON_ENTITY_ALIASES: Record<string, string> = {
   'panax-quinquefolius': 'american-ginseng',
   'panax-ginseng': 'asian-ginseng',
+  'coffea-arabica': 'coffee',
 }
 
 function comparisonEntitySlug(slug: string) {
