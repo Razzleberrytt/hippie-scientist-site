@@ -43,6 +43,40 @@ describe('comparison hub tracking', () => {
     }))
   })
 
+  it('hands hub source attribution to the destination comparison view', () => {
+    trackCompareHubClick({
+      source: 'featured_category',
+      href: '/guides/compare/coffee-vs-green-tea/',
+      label: 'Coffee vs Green Tea',
+      category: 'Energy & focus',
+    })
+    appendAnalyticsEvent.mockClear()
+
+    trackComparisonPageViewed('coffee-vs-green-tea')
+
+    expect(appendAnalyticsEvent).toHaveBeenCalledWith(expect.objectContaining({
+      type: 'comparison_page_viewed',
+      slug: 'coffee-vs-green-tea',
+      context: expect.stringContaining('entry_source:featured_category;entry_category:Energy & focus;entry_label:Coffee vs Green Tea'),
+    }))
+  })
+
+  it('does not attach a pending hub entry to a different comparison page', () => {
+    trackCompareHubClick({
+      source: 'goal_starter',
+      href: '/guides/compare/coffee-vs-green-tea/',
+      label: 'Compare Coffee & Green Tea',
+    })
+    appendAnalyticsEvent.mockClear()
+
+    trackComparisonPageViewed('st-johns-wort-vs-saffron')
+
+    expect(appendAnalyticsEvent).toHaveBeenCalledWith(expect.objectContaining({
+      type: 'comparison_page_viewed',
+      context: expect.stringContaining('entry_source:direct_or_external;entry_category:none'),
+    }))
+  })
+
   it('records one comparison view per page per session', () => {
     trackComparisonPageViewed('coffee-vs-green-tea')
     trackComparisonPageViewed('coffee-vs-green-tea')
