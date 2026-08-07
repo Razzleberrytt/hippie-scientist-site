@@ -7,6 +7,7 @@ import { CompareTableSkeleton } from '@/components/skeletons'
 import { PremiumCallout, PremiumCard, PremiumHero, PremiumSectionHeader } from '@/components/ui/PremiumVisual'
 import { getCompounds } from '../../../src/lib/runtime-data'
 import { cleanSummary, formatDisplayLabel, isClean, list } from '@/lib/display-utils'
+import { isBuiltComparisonSlug } from '@/lib/comparison-utils'
 
 import { buildPageMetadata, SEO_YEAR, SITE_URL } from '../../../src/lib/seo'
 import { buildCompareHubSchemaGraph } from '../../../src/lib/schema-graph'
@@ -24,121 +25,127 @@ export const metadata: Metadata = buildPageMetadata({
   path: '/guides/compare/',
 })
 
+type ComparePair = { slug: string; label: string; note?: string }
 type CompareCategory = {
   label: string
   blurb: string
-  pairs: { slug: string; label: string }[]
+  pairs: ComparePair[]
 }
 
 const FEATURED_CATEGORIES: CompareCategory[] = [
   {
-    label: 'Adaptogens',
-    blurb: 'Stress-response herbs compared by onset speed, stimulation profile, and how long each takes to build an effect.',
+    label: 'Energy & focus',
+    blurb: 'Compare common caffeine sources and focus stacks by dose transparency, stimulation profile, and the evidence behind their non-caffeine compounds.',
     pairs: [
-      { slug: 'rhodiola-vs-ashwagandha', label: 'Rhodiola vs Ashwagandha' },
-      { slug: 'ashwagandha-vs-eleuthero', label: 'Ashwagandha vs Eleuthero' },
-      { slug: 'reishi-vs-ashwagandha', label: 'Reishi vs Ashwagandha' },
-      { slug: 'bacopa-vs-rhodiola', label: 'Bacopa vs Rhodiola' },
+      { slug: 'coffee-vs-green-tea', label: 'Coffee vs Green Tea', note: 'Everyday caffeine + polyphenol tradeoffs' },
+      { slug: 'coffee-vs-guarana', label: 'Coffee vs Guarana', note: 'Beverage vs concentrated botanical stimulant' },
+      { slug: 'guarana-vs-guayusa', label: 'Guarana vs Guayusa', note: 'Two naturally caffeinated botanicals' },
+      { slug: 'guarana-vs-yerba-mate', label: 'Guarana vs Yerba Mate', note: 'Caffeine source and preparation differences' },
+      { slug: 'caffeine-vs-l-theanine', label: 'Caffeine vs L-Theanine', note: 'Stimulation vs calm-focus context' },
+      { slug: 'caffeine-vs-l-theanine-vs-bacopa-for-focus', label: 'Caffeine vs L-Theanine vs Bacopa', note: 'Fast stimulation vs slower support' },
     ],
   },
   {
-    label: 'Cognitive',
-    blurb: 'Nootropics contrasted by mechanism — cholinergic support, neuroprotective herbs, and calm-focus amino acids work differently and are not interchangeable.',
+    label: 'Stress, mood & adaptogens',
+    blurb: 'Compare botanicals used around stress and mood while keeping stimulation level, evidence quality, and medication interactions visible.',
     pairs: [
-      { slug: 'bacopa-vs-lions-mane', label: "Bacopa vs Lion's Mane" },
-      { slug: 'bacopa-vs-ginkgo-biloba', label: 'Bacopa vs Ginkgo Biloba' },
-      { slug: 'alpha-gpc-vs-cdp-choline', label: 'Alpha-GPC vs CDP-Choline' },
-      { slug: 'caffeine-vs-l-theanine-vs-bacopa-for-focus', label: 'Caffeine vs L-Theanine vs Bacopa' },
+      { slug: 'rhodiola-vs-ashwagandha', label: 'Rhodiola vs Ashwagandha', note: 'More stimulating vs more calming adaptogen profile' },
+      { slug: 'american-ginseng-vs-asian-ginseng', label: 'American vs Asian Ginseng', note: 'Closely related species with different practical profiles' },
+      { slug: 'st-johns-wort-vs-saffron', label: "St. John’s Wort vs Saffron", note: 'Mood evidence with interaction burden front and center' },
+      { slug: 'ashwagandha-vs-l-theanine-vs-magnesium', label: 'Ashwagandha vs L-Theanine vs Magnesium', note: 'Three different calm-support approaches' },
     ],
   },
   {
-    label: 'Sleep',
-    blurb: 'Sleep aids compared by next-day grogginess risk, dependency potential, and whether they help with falling asleep, staying asleep, or both.',
+    label: 'Sleep & evening use',
+    blurb: 'Compare sleep-oriented options by timing, next-day effects, and whether the evidence is about circadian timing, relaxation, or broader sleep support.',
     pairs: [
-      { slug: 'melatonin-vs-valerian', label: 'Melatonin vs Valerian' },
-      { slug: 'valerian-vs-passionflower', label: 'Valerian vs Passionflower' },
-      { slug: 'glycine-vs-melatonin', label: 'Glycine vs Melatonin' },
-      { slug: 'melatonin-vs-l-theanine', label: 'Melatonin vs L-Theanine' },
-      { slug: 'l-theanine-vs-magnesium', label: 'L-Theanine vs Magnesium' },
+      { slug: 'melatonin-vs-magnesium', label: 'Melatonin vs Magnesium' },
+      { slug: 'sleep-herbs-vs-melatonin', label: 'Sleep Herbs vs Melatonin' },
+      { slug: 'melatonin-vs-valerian-vs-magnesium-for-sleep', label: 'Melatonin vs Valerian vs Magnesium' },
     ],
   },
   {
-    label: 'Athletic',
-    blurb: 'Performance compounds compared by evidence strength and use case — strength and power output differ from endurance and recovery support.',
+    label: 'Botanical chemistry',
+    blurb: 'Closely related herbs compared through shared constituents and preparation-specific safety rather than assuming similar chemistry makes them interchangeable.',
     pairs: [
-      { slug: 'creatine-vs-beta-alanine', label: 'Creatine vs Beta-Alanine' },
-      { slug: 'creatine-vs-bcaa', label: 'Creatine vs BCAAs' },
-      { slug: 'dynamic', label: 'Performance comparison matrix' },
-      { slug: 'cordyceps-vs-beta-alanine', label: 'Cordyceps vs Beta-Alanine' },
+      { slug: 'coptis-vs-goldenseal', label: 'Coptis vs Goldenseal', note: 'Berberine-rich botanicals with different context' },
+      { slug: 'coptis-vs-phellodendron', label: 'Coptis vs Phellodendron', note: 'Specialist berberine / alkaloid comparison' },
+      { slug: 'oregano-vs-thyme', label: 'Oregano vs Thyme', note: 'Thymol/carvacrol chemistry and preparation differences' },
     ],
   },
   {
-    label: 'Immune',
-    blurb: 'Immune and general-health compounds compared by mechanism overlap, so you are not paying for two ingredients that do the same thing.',
+    label: 'Metabolic & inflammation',
+    blurb: 'Evidence and safety comparisons for popular metabolic and anti-inflammatory choices, including where supplement and medication contexts are not equivalent.',
     pairs: [
-      { slug: 'echinacea-vs-elderberry', label: 'Echinacea vs Elderberry' },
-      { slug: 'vitamin-d-vs-magnesium', label: 'Vitamin D vs Magnesium' },
-      { slug: 'vitamin-d-vs-vitamin-d3', label: 'Vitamin D vs Vitamin D3' },
-      { slug: 'quercetin-vs-resveratrol', label: 'Quercetin vs Resveratrol' },
-    ],
-  },
-  {
-    label: 'Gut & Cardiovascular',
-    blurb: 'Anti-inflammatory and metabolic options compared by mechanism and drug-interaction risk, since several of these overlap with common prescriptions.',
-    pairs: [
-      { slug: 'turmeric-vs-ginger', label: 'Turmeric vs Ginger' },
-      { slug: 'curcumin-vs-boswellia-vs-omega-3', label: 'Curcumin vs Boswellia vs Omega-3' },
-      { slug: 'hawthorn-vs-coq10', label: 'Hawthorn vs CoQ10' },
       { slug: 'berberine-vs-metformin', label: 'Berberine vs Metformin' },
+      { slug: 'berberine-vs-inositol', label: 'Berberine vs Inositol' },
+      { slug: 'curcumin-vs-boswellia-vs-omega-3', label: 'Curcumin vs Boswellia vs Omega-3' },
+    ],
+  },
+  {
+    label: 'High-caution comparisons',
+    blurb: 'These pages are especially safety-oriented. A superficial similarity does not make the substances equivalent, interchangeable, or appropriate to combine.',
+    pairs: [
+      { slug: 'kanna-vs-ssris', label: 'Kanna vs SSRIs' },
+      { slug: 'kava-vs-alcohol', label: 'Kava vs Alcohol' },
     ],
   },
 ]
 
+const builtFeaturedCategories = FEATURED_CATEGORIES
+  .map(category => ({
+    ...category,
+    pairs: category.pairs.filter(pair => isBuiltComparisonSlug(pair.slug)),
+  }))
+  .filter(category => category.pairs.length > 0)
+
 const popularComparisonPairs = [
-  { label: 'Melatonin vs Magnesium', href: '/guides/compare/melatonin-vs-magnesium/' },
-  { label: 'Sleep herbs vs Melatonin', href: '/guides/compare/sleep-herbs-vs-melatonin/' },
-  { label: 'Rhodiola vs Ashwagandha', href: '/guides/compare/rhodiola-vs-ashwagandha/' },
-  { label: 'Ashwagandha vs L-Theanine vs Magnesium', href: '/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/' },
-  { label: 'Caffeine vs L-Theanine vs Bacopa for Focus', href: '/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/' },
-  { label: 'Dynamic Ingredient Comparison Matrix', href: '/guides/compare/dynamic/' },
+  { slug: 'coffee-vs-green-tea', label: 'Coffee vs Green Tea' },
+  { slug: 'st-johns-wort-vs-saffron', label: "St. John’s Wort vs Saffron" },
+  { slug: 'rhodiola-vs-ashwagandha', label: 'Rhodiola vs Ashwagandha' },
+  { slug: 'american-ginseng-vs-asian-ginseng', label: 'American vs Asian Ginseng' },
+  { slug: 'melatonin-vs-magnesium', label: 'Melatonin vs Magnesium' },
+  { slug: 'coptis-vs-goldenseal', label: 'Coptis vs Goldenseal' },
 ]
+  .filter(pair => isBuiltComparisonSlug(pair.slug))
+  .map(pair => ({ ...pair, href: `/guides/compare/${pair.slug}/` }))
 
 const goalStarterPaths = [
   {
+    goal: 'Energy',
+    title: 'Choosing a daily caffeine source? Compare dose, stimulation, and non-caffeine chemistry.',
+    href: '/guides/compare/coffee-vs-green-tea/',
+    cta: 'Compare Coffee & Green Tea',
+  },
+  {
     goal: 'Sleep',
-    title: 'Need help sleeping? Start with timing and next-day grogginess.',
+    title: 'Need help sleeping? Start with timing, evidence, and next-day effects.',
     href: '/guides/compare/melatonin-vs-magnesium/',
     cta: 'Compare sleep options',
   },
   {
     goal: 'Stress & calm',
-    title: 'Choosing between adaptogens? Compare steadiness, stimulation, and safety.',
+    title: 'Choosing between adaptogens? Compare stimulation, steadiness, and safety.',
     href: '/guides/compare/rhodiola-vs-ashwagandha/',
     cta: 'Compare stress support',
   },
   {
-    goal: 'Focus',
-    title: 'Need cleaner focus? Compare stimulation, onset, and evidence strength.',
-    href: '/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/',
-    cta: 'Compare focus options',
+    goal: 'Mood',
+    title: 'Looking at mood-oriented botanicals? Start with evidence and medication interactions.',
+    href: '/guides/compare/st-johns-wort-vs-saffron/',
+    cta: 'Compare mood botanicals',
   },
   {
-    goal: 'Calm + sleep',
-    title: 'Balancing relaxation and sleep? Compare calming options side by side.',
-    href: '/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/',
-    cta: 'Compare calming options',
+    goal: 'Metabolic',
+    title: 'Comparing berberine with other metabolic options? Keep medication context explicit.',
+    href: '/guides/compare/berberine-vs-metformin/',
+    cta: 'Compare metabolic options',
   },
   {
-    goal: 'Inflammation',
-    title: 'Comparing anti-inflammatory paths? Start with mechanism and safety fit.',
-    href: '/guides/compare/curcumin-vs-boswellia-vs-omega-3/',
-    cta: 'Compare inflammation options',
-  },
-  {
-    goal: 'Performance',
-    title: 'Need energy or training support? Compare performance tradeoffs first.',
+    goal: 'Build your own',
+    title: 'Already know the two ingredients? Use the research matrix to scan them side by side.',
     href: '/guides/compare/dynamic/',
-    cta: 'Compare performance options',
+    cta: 'Open comparison matrix',
   },
 ]
 
@@ -149,11 +156,11 @@ const guidanceCards = [
   },
   {
     title: 'Map safety and profile fit',
-    body: 'Check caution flags, stimulation or sedation profile, and tolerance risk before focusing on convenience or trend.',
+    body: 'Check caution flags, stimulation or sedation profile, and interaction risk before focusing on convenience or trend.',
   },
   {
     title: 'Use tradeoffs, not hype',
-    body: 'Compare onset, duration, and cost/value side by side. Fast effects or lower cost can come with tradeoffs in certainty or tolerability.',
+    body: 'Compare onset, duration, preparation, and evidence side by side. Similar labels do not make two ingredients interchangeable.',
   },
 ]
 
@@ -166,7 +173,7 @@ const compareFaqs = [
   {
     question: 'Why do two supplements compare differently depending on the goal?',
     answer:
-      'Mechanism relevance shifts with the goal. Ashwagandha and rhodiola are both adaptogens, but ashwagandha leans calming and better fits evening stress or sleep-adjacent anxiety, while rhodiola is more stimulating and fits daytime fatigue. The same pair can rank differently on a sleep comparison than on a focus comparison.',
+      'Mechanism relevance shifts with the goal. Two botanicals can overlap chemically but differ in stimulation, preparation, safety, or the outcomes actually studied in humans. The comparison pages are designed to make those tradeoffs visible rather than declare a universal winner.',
   },
   {
     question: 'Does a higher price mean better quality?',
@@ -218,7 +225,7 @@ export default async function ComparePage() {
       <PremiumHero
         eyebrow="Evidence-informed comparison"
         title="Herb & Supplement Comparison Center"
-        description="Compare herbs and supplements by evidence strength, mechanism, stimulation profile, safety, and dosing. Each comparison page shows data-backed tradeoffs — not marketing claims."
+        description="Compare real, published side-by-side guides by evidence, chemistry, safety, stimulation profile, and preparation. Every featured link below resolves to a comparison page that actually exists."
         actions={[
           { href: '#start-by-goal', label: 'Start by goal' },
           { href: '#featured-comparisons', label: 'Browse comparisons', variant: 'secondary' },
@@ -249,7 +256,7 @@ export default async function ComparePage() {
         <PremiumSectionHeader
           eyebrow="Start by goal"
           title="Pick the decision you are actually trying to make"
-          description="Not sure which comparison to open first? Start with the goal, then use the side-by-side page to check evidence, timing, safety, and fit."
+          description="Use a curated comparison when one exists, or open the research matrix when you already know the two ingredients you want to inspect."
         />
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {goalStarterPaths.map((path) => (
@@ -268,25 +275,26 @@ export default async function ComparePage() {
 
       <section id="featured-comparisons" className="space-y-7 scroll-mt-24">
         <PremiumSectionHeader
-          eyebrow="Browse by category"
-          title="Featured comparisons"
-          description="Each page covers evidence level, mechanisms, dosing, safety, and which fits your goal better."
+          eyebrow="Browse real comparison pages"
+          title="Curated comparisons"
+          description="These are published routes, grouped by the decision they help clarify. New comparison pages automatically stay off this hub until their route is actually built."
         />
-        {FEATURED_CATEGORIES.map((cat) => (
+        {builtFeaturedCategories.map((cat) => (
           <div key={cat.label} className="space-y-3">
             <div>
               <h3 className="text-xs font-bold uppercase tracking-widest text-brand-700 dark:text-brand-200">{cat.label}</h3>
               <p className="mt-1 text-sm leading-6 text-muted">{cat.blurb}</p>
             </div>
-            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {cat.pairs.map((pair) => (
                 <li key={pair.slug}>
                   <Link
                     href={`/guides/compare/${pair.slug}/`}
-                    className="library-content-card flex h-full flex-col justify-between rounded-2xl border border-brand-900/10 bg-white/90 px-4 py-3 text-sm font-semibold text-ink shadow-sm transition hover:border-brand-300 hover:shadow dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
+                    className="library-content-card flex h-full flex-col justify-between rounded-2xl border border-brand-900/10 bg-white/90 px-4 py-4 text-sm font-semibold text-ink shadow-sm transition hover:border-brand-300 hover:shadow dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10"
                   >
                     <span className="block text-pretty leading-6">{pair.label}</span>
-                    <span className="mt-1 block text-xs font-bold text-brand-700 dark:text-brand-100">Compare →</span>
+                    {pair.note ? <span className="mt-2 block text-xs font-normal leading-5 text-muted">{pair.note}</span> : null}
+                    <span className="mt-3 block text-xs font-bold text-brand-700 dark:text-brand-100">Compare →</span>
                   </Link>
                 </li>
               ))}
@@ -296,9 +304,10 @@ export default async function ComparePage() {
       </section>
 
       <PremiumCard as="section" className="p-5">
-        <h2 className="text-xl font-semibold text-ink">More comparison starting points</h2>
-        <p className="mt-2 text-sm leading-6 text-muted">Flagship pages with the most detailed evidence breakdowns.</p>
-        <ul className="mt-4 grid gap-2 text-sm leading-6 text-muted sm:grid-cols-2">
+        <p className="eyebrow-label">Good places to start</p>
+        <h2 className="mt-2 text-xl font-semibold text-ink">Featured decision pages</h2>
+        <p className="mt-2 text-sm leading-6 text-muted">A small set of useful entry points across energy, mood, stress, sleep, and botanical chemistry.</p>
+        <ul className="mt-4 grid gap-2 text-sm leading-6 text-muted sm:grid-cols-2 lg:grid-cols-3">
           {popularComparisonPairs.map(pair => (
             <li key={pair.href}>
               <Link href={pair.href} className="font-semibold text-brand-800 hover:underline dark:text-brand-100 dark:hover:text-white">{pair.label}</Link>
@@ -316,7 +325,7 @@ export default async function ComparePage() {
 
       <PremiumCard as="section" className="p-5">
         <p className="eyebrow-label">Decision next step</p>
-        <h2 className="mt-2 text-xl font-semibold text-ink">Use comparisons to choose a safer path</h2>
+        <h2 className="mt-2 text-xl font-semibold text-ink">Use comparisons to choose a safer research path</h2>
         <div className="mt-4 grid gap-3 text-sm leading-6 text-muted md:grid-cols-4">
           <Link href="/guides/" className="rounded-xl border border-brand-900/10 p-4 font-semibold text-ink transition hover:bg-brand-50 dark:border-white/10 dark:hover:bg-white/10">
             Start from your goal
