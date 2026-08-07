@@ -46,6 +46,14 @@ describe('comparison shortlist', () => {
     expect(isAliasPair(phellodendron, phellodendronLatin)).toBe(true)
   })
 
+  it('filters known same-entity records through canonical identity groups', () => {
+    expect(isAliasPair(herb('coptis'), herb('coptis-chinensis'))).toBe(true)
+    expect(isAliasPair(herb('phellodendron'), herb('phellodendron-amurense'))).toBe(true)
+    expect(isAliasPair(herb('hypericum-perforatum'), herb('st-johns-wort'))).toBe(true)
+    expect(isAliasPair(herb('citrus-sinensis'), herb('orange-peel'))).toBe(true)
+    expect(isAliasPair(herb('holy-basil'), herb('holy-basil-purple'))).toBe(true)
+  })
+
   it('filters genus-only rows against species rows even when scientific metadata is missing', () => {
     expect(isAliasPair(
       herb('berberis', { name: 'Berberis' }),
