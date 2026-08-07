@@ -1,5 +1,9 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { trackRelatedBotanicalClick, trackRelatedBotanicalsShown } from '@/lib/relatedBotanicalTracking'
+import {
+  trackRelatedBotanicalClick,
+  trackRelatedBotanicalCompare,
+  trackRelatedBotanicalsShown,
+} from '@/lib/relatedBotanicalTracking'
 
 const appendAnalyticsEvent = vi.fn()
 
@@ -19,7 +23,7 @@ describe('related botanical tracking', () => {
     expect(appendAnalyticsEvent).toHaveBeenCalledWith(expect.objectContaining({
       type: 'related_botanicals_shown',
       slug: 'ashwagandha',
-      item: 'rhodiola:1:10.5',
+      item: 'rhodiola~1~10.5~explicit-effect|compound-class',
       context: expect.stringContaining('depth:1'),
     }))
   })
@@ -47,6 +51,20 @@ describe('related botanical tracking', () => {
 
     expect(appendAnalyticsEvent).toHaveBeenLastCalledWith(expect.objectContaining({
       context: expect.stringContaining('profile_depth:2'),
+    }))
+  })
+
+  it('tracks comparison clicks without inflating profile exploration depth', () => {
+    const item = { slug: 'rhodiola', position: 1, score: 10.5, reasonTypes: ['explicit-effect'] }
+    trackRelatedBotanicalsShown('ashwagandha', [item])
+    trackRelatedBotanicalCompare('ashwagandha', item, '/guides/compare/rhodiola-vs-ashwagandha/')
+
+    expect(appendAnalyticsEvent).toHaveBeenLastCalledWith(expect.objectContaining({
+      type: 'related_botanical_compare_click',
+      slug: 'ashwagandha',
+      item: 'rhodiola',
+      targetType: 'comparison',
+      context: expect.stringContaining('profile_depth:1'),
     }))
   })
 })

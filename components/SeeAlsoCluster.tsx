@@ -10,6 +10,7 @@ import Link from 'next/link'
 import { getClusterSeeAlso, getEntityClusters } from '@/lib/cluster-linking'
 import { getBotanicalAtlasRecords } from '@/lib/botanical-atlas-data'
 import { getRelatedBotanicals, type RelatedBotanicalMatch } from '@/lib/related-botanicals'
+import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import RelatedBotanicalsTracked from '@/components/RelatedBotanicalsTracked'
 import type { EntityKind } from '@/lib/schema'
 
@@ -36,18 +37,22 @@ function meaningfulReasons(match: RelatedBotanicalMatch) {
   return (preferred.length ? preferred : fallback).slice(0, 2)
 }
 
-function toTrackedMatches(matches: RelatedBotanicalMatch[]) {
-  return matches.map((match) => ({
-    slug: match.record.slug,
-    name: match.record.name,
-    scientificName: match.record.scientificName,
-    score: match.score,
-    reasons: meaningfulReasons(match).map((reason) => ({
-      type: reason.type,
-      label: reason.label,
-      values: reason.values,
-    })),
-  }))
+function toTrackedMatches(sourceSlug: string, matches: RelatedBotanicalMatch[]) {
+  return matches.map((match) => {
+    const comparisonSlug = getValidComparisonSlug(sourceSlug, match.record.slug)
+    return {
+      slug: match.record.slug,
+      name: match.record.name,
+      scientificName: match.record.scientificName,
+      score: match.score,
+      compareHref: comparisonSlug ? `/guides/compare/${comparisonSlug}/` : undefined,
+      reasons: meaningfulReasons(match).map((reason) => ({
+        type: reason.type,
+        label: reason.label,
+        values: reason.values,
+      })),
+    }
+  })
 }
 
 export default async function SeeAlsoCluster({
@@ -92,7 +97,7 @@ export default async function SeeAlsoCluster({
   return (
     <div className={`space-y-4 ${className ?? ''}`}>
       {relatedMatches.length > 0 ? (
-        <RelatedBotanicalsTracked sourceSlug={relatedSourceSlug} matches={toTrackedMatches(relatedMatches)} />
+        <RelatedBotanicalsTracked sourceSlug={relatedSourceSlug} matches={toTrackedMatches(relatedSourceSlug, relatedMatches)} />
       ) : null}
 
       {grouped.length > 0 ? (
