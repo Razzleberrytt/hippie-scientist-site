@@ -1,4 +1,5 @@
 import { getHerbCompoundMap, getHerbs } from '@/lib/runtime-data'
+import { cache } from '@/lib/react-cache'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import {
   inferAtlasEffectsFromMechanisms,
@@ -144,7 +145,7 @@ export function enrichAtlasRecordWithMappedCompounds(
   return { ...record, compounds, compoundClasses }
 }
 
-export async function getBotanicalAtlasRecords(): Promise<BotanicalAtlasRecord[]> {
+export const getBotanicalAtlasRecords = cache(async (): Promise<BotanicalAtlasRecord[]> => {
   const [rawHerbs, herbCompoundMap] = await Promise.all([
     getHerbs(),
     getHerbCompoundMap(),
@@ -163,4 +164,4 @@ export async function getBotanicalAtlasRecords(): Promise<BotanicalAtlasRecord[]
     .map((record) => enrichAtlasRecordWithMappedCompounds(record, mappedCompoundsByHerb.get(record.slug)))
     .filter((herb) => herb.effects.length || herb.compounds.length || herb.safety.length)
     .sort((a, b) => a.name.localeCompare(b.name))
-}
+})
