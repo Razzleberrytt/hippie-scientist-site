@@ -1,5 +1,9 @@
 import { describe, expect, it } from 'vitest'
-import { toAtlasRecord } from '@/lib/botanical-atlas-data'
+import {
+  buildMappedCompoundsByHerb,
+  enrichAtlasRecordWithMappedCompounds,
+  toAtlasRecord,
+} from '@/lib/botanical-atlas-data'
 import type { RuntimeRecord } from '@/types/content'
 
 const record = (overrides: Record<string, unknown>): RuntimeRecord => ({
@@ -74,5 +78,23 @@ describe('Botanical Activity Atlas runtime fallbacks', () => {
     const result = toAtlasRecord(record({ mechanisms: ['Unmapped experimental pathway XYZ'] }))
     expect(result.effects).toEqual([])
     expect(result.inferredEffects).toEqual([])
+  })
+
+  it('indexes only contains relationships from the canonical herb-compound map', () => {
+    const mapped = buildMappedCompoundsByHerb([
+      record({ herb_slug: 'ashwagandha', compound: 'Withanolides', relationship: 'contains_compound' }),
+      record({ herb_slug: 'ashwagandha', compound: 'Withaferin A', relationship: 'contains_compound' }),
+      record({ herb_slug: 'ashwagandha', compound: 'Noise', relationship: 'compared_with' }),
+    ])
+
+    expect(mapped.get('ashwagandha')).toEqual(['Withanolides', 'Withaferin A'])
+  })
+
+  it('merges canonical mapped compounds without duplicates and infers chemistry classes', () => {
+    const atlasRecord = toAtlasRecord(record({ slug: 'ashwagandha', effects: ['calming'], active_constituents: ['Withaferin A'] }))
+    const enriched = enrichAtlasRecordWithMappedCompounds(atlasRecord, ['withaferin a', 'Withanolides'])
+
+    expect(enriched.compounds).toEqual(['withaferin a', 'Withanolides'])
+    expect(enriched.compoundClasses).toContain('Withanolides')
   })
 })

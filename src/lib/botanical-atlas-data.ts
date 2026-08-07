@@ -1,4 +1,4 @@
-import { getHerbs } from '@/lib/runtime-data'
+import { getHerbCompoundMap, getHerbs } from '@/lib/runtime-data'
 import { getRuntimeVisibility } from '../../lib/runtime-visibility'
 import {
   inferAtlasEffectsFromMechanisms,
@@ -113,8 +113,44 @@ export const toAtlasRecord = (herb: RuntimeRecord): BotanicalAtlasRecord => {
   }
 }
 
+export function buildMappedCompoundsByHerb(rows: RuntimeRecord[]): Map<string, string[]> {
+  const compoundsByHerb = new Map<string, string[]>()
+
+  for (const row of rows) {
+    const herbSlug = text(row.herb_slug, row.herbSlug)
+    const compound = text(row.compound, row.compound_name, row.compoundName, row.compound_slug, row.compoundSlug)
+    const relationship = text(row.relationship, row.relationship_type, row.relationshipType).toLowerCase()
+    if (!herbSlug || !compound) continue
+    if (relationship && !relationship.includes('contains')) continue
+
+    const existing = compoundsByHerb.get(herbSlug) ?? []
+    compoundsByHerb.set(herbSlug, collect(existing, compound))
+  }
+
+  return compoundsByHerb
+}
+
+export function enrichAtlasRecordWithMappedCompounds(
+  record: BotanicalAtlasRecord,
+  mappedCompounds: string[] = [],
+): BotanicalAtlasRecord {
+  const compounds = Array.from(new Map(
+    collect(record.compounds, mappedCompounds).map((compound) => [compound.toLowerCase(), compound]),
+  ).values())
+  const compoundClasses = record.compoundClasses.length
+    ? record.compoundClasses
+    : inferCompoundClasses(compounds)
+
+  return { ...record, compounds, compoundClasses }
+}
+
 export async function getBotanicalAtlasRecords(): Promise<BotanicalAtlasRecord[]> {
-  const rawHerbs: RuntimeRecord[] = await getHerbs()
+  const [rawHerbs, herbCompoundMap] = await Promise.all([
+    getHerbs(),
+    getHerbCompoundMap(),
+  ])
+  const mappedCompoundsByHerb = buildMappedCompoundsByHerb(herbCompoundMap)
+
   return rawHerbs
     .filter((herb) => {
       try {
@@ -124,6 +160,7 @@ export async function getBotanicalAtlasRecords(): Promise<BotanicalAtlasRecord[]
       }
     })
     .map(toAtlasRecord)
+    .map((record) => enrichAtlasRecordWithMappedCompounds(record, mappedCompoundsByHerb.get(record.slug)))
     .filter((herb) => herb.effects.length || herb.compounds.length || herb.safety.length)
     .sort((a, b) => a.name.localeCompare(b.name))
 }
