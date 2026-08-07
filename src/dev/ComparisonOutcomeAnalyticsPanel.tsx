@@ -9,6 +9,14 @@ const LABELS: Record<string, string> = {
   compare_hub: 'Comparison hub',
 }
 
+const SOURCE_LABELS: Record<string, string> = {
+  goal_starter: 'Goal starter',
+  featured_category: 'Featured category',
+  featured_entry: 'Featured entry',
+  dynamic_matrix: 'Dynamic matrix',
+  direct_or_external: 'Direct / external',
+}
+
 export default function ComparisonOutcomeAnalyticsPanel({ events }: { events: ComparisonOutcomeAnalyticsEvent[] }) {
   const report = buildComparisonOutcomePerformance(events)
 
@@ -33,6 +41,30 @@ export default function ComparisonOutcomeAnalyticsPanel({ events }: { events: Co
                 <td className='py-1.5 pr-3 text-white/80'>{row.engagedSessions}</td>
                 <td className='py-1.5 pr-3 text-white/80'>{Math.round(row.continuationRate * 100)}%</td>
                 <td className='py-1.5 text-white/80'>{row.outcomes}</td>
+              </tr>
+            ))}</tbody>
+          </table>
+        </div>
+      )}
+
+      <h4 className='mt-3 text-xs font-semibold uppercase tracking-wide text-white/80'>Source → page → outcome</h4>
+      {report.journeyRows.length === 0 ? (
+        <p className='mt-1 text-xs text-white/60'>No source-attributed comparison journeys yet.</p>
+      ) : (
+        <div className='mt-1 overflow-x-auto'>
+          <table className='min-w-full text-xs'>
+            <thead><tr className='text-left text-white/65'><th className='pr-3 font-medium'>Entry</th><th className='pr-3 font-medium'>Page</th><th className='pr-3 font-medium'>Views</th><th className='pr-3 font-medium'>Continued</th><th className='pr-3 font-medium'>Rate</th><th className='font-medium'>Top next action</th></tr></thead>
+            <tbody>{report.journeyRows.slice(0, 24).map(row => (
+              <tr key={`${row.pageSlug}:${row.entrySource}:${row.entryCategory}`} className='border-t border-white/10'>
+                <td className='py-1.5 pr-3 text-white/90'>
+                  <span className='font-medium'>{SOURCE_LABELS[row.entrySource] ?? row.entrySource}</span>
+                  {row.entryCategory !== 'none' ? <span className='block text-white/55'>{row.entryCategory}</span> : null}
+                </td>
+                <td className='py-1.5 pr-3 font-medium text-white/95'>{row.pageSlug}</td>
+                <td className='py-1.5 pr-3 text-white/80'>{row.views}</td>
+                <td className='py-1.5 pr-3 text-white/80'>{row.engagedSessions}</td>
+                <td className='py-1.5 pr-3 text-white/80'>{Math.round(row.continuationRate * 100)}%</td>
+                <td className='py-1.5 text-white/80'>{LABELS[row.topOutcome] ?? row.topOutcome}</td>
               </tr>
             ))}</tbody>
           </table>

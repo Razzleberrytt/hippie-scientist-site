@@ -5,8 +5,15 @@ import { appendAnalyticsEvent } from '@/lib/analyticsEventStorage'
 const SESSION_KEY = 'hs_compare_hub_session'
 const SEEN_CATEGORY_KEY = 'hs_compare_hub_seen_categories'
 const SEEN_COMPARISON_KEY = 'hs_compare_seen_pages'
+const PENDING_ENTRY_KEY = 'hs_compare_pending_entry'
 
 type HubSession = { sessionId: string }
+type PendingEntry = {
+  pageSlug: string
+  source: CompareHubClickSource
+  category: string
+  label: string
+}
 
 function createSessionId() {
   if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') return crypto.randomUUID()
@@ -37,6 +44,36 @@ function readStringSet(key: string) {
 function persistStringSet(key: string, values: Set<string>) {
   if (typeof window === 'undefined') return
   try { window.sessionStorage.setItem(key, JSON.stringify(Array.from(values))) } catch { /* ignore */ }
+}
+
+function comparisonSlugFromHref(href: string) {
+  const match = href.match(/^\/guides\/compare\/([^/?#]+)\/?(?:[?#].*)?$/)
+  if (!match || match[1] === 'dynamic') return undefined
+  return match[1]
+}
+
+function writePendingEntry(entry: PendingEntry) {
+  if (typeof window === 'undefined') return
+  try { window.sessionStorage.setItem(PENDING_ENTRY_KEY, JSON.stringify(entry)) } catch { /* ignore */ }
+}
+
+function consumePendingEntry(pageSlug: string): PendingEntry | undefined {
+  if (typeof window === 'undefined') return undefined
+  try {
+    const raw = window.sessionStorage.getItem(PENDING_ENTRY_KEY)
+    if (!raw) return undefined
+    const parsed = JSON.parse(raw) as Partial<PendingEntry>
+    if (parsed.pageSlug !== pageSlug || typeof parsed.source !== 'string') return undefined
+    window.sessionStorage.removeItem(PENDING_ENTRY_KEY)
+    return {
+      pageSlug,
+      source: parsed.source as CompareHubClickSource,
+      category: typeof parsed.category === 'string' ? parsed.category : 'none',
+      label: typeof parsed.label === 'string' ? parsed.label : pageSlug,
+    }
+  } catch {
+    return undefined
+  }
 }
 
 export function trackCompareHubCategoryShown(category: string) {
@@ -70,6 +107,15 @@ export function trackCompareHubClick({
 }) {
   if (typeof window === 'undefined') return
   const session = getSession()
+  const pageSlug = comparisonSlugFromHref(href)
+  if (pageSlug) {
+    writePendingEntry({
+      pageSlug,
+      source,
+      category: category || 'none',
+      label,
+    })
+  }
   appendAnalyticsEvent({
     type: 'compare_hub_click',
     slug: href,
@@ -90,10 +136,11 @@ export function trackComparisonPageViewed(pageSlug: string) {
   if (seen.has(key)) return
   seen.add(key)
   persistStringSet(SEEN_COMPARISON_KEY, seen)
+  const entry = consumePendingEntry(pageSlug)
   appendAnalyticsEvent({
     type: 'comparison_page_viewed',
     slug: pageSlug,
-    context: `session:${session.sessionId}`,
+    context: `session:${session.sessionId};entry_source:${entry?.source || 'direct_or_external'};entry_category:${entry?.category || 'none'};entry_label:${(entry?.label || pageSlug).replace(/[;:]/g, ' ')}`,
     sourceType: 'comparison',
     targetType: 'comparison',
   })
