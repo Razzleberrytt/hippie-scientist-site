@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useEffect, useMemo } from 'react'
 import {
   trackRelatedBotanicalClick,
+  trackRelatedBotanicalCompare,
   trackRelatedBotanicalsShown,
   type RelatedBotanicalTrackingItem,
 } from '@/lib/relatedBotanicalTracking'
@@ -19,6 +20,7 @@ type RelatedBotanicalCard = {
   name: string
   scientificName?: string
   score: number
+  compareHref?: string
   reasons: DisplayReason[]
 }
 
@@ -58,14 +60,12 @@ export default function RelatedBotanicalsTracked({ sourceSlug, matches }: Props)
 
       <div className="grid gap-3 md:grid-cols-3">
         {matches.map((match, index) => (
-          <Link
+          <article
             key={match.slug}
-            href={`/herbs/${match.slug}/`}
-            onClick={() => trackRelatedBotanicalClick(sourceSlug, trackingItems[index])}
-            className="group rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4 transition hover:border-brand-600/30 hover:bg-brand-50/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+            className="rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4 transition hover:border-brand-600/30 hover:bg-brand-50/40"
           >
             <div className="space-y-1">
-              <h3 className="font-bold text-ink group-hover:text-brand-800">{match.name}</h3>
+              <h3 className="font-bold text-ink">{match.name}</h3>
               {match.scientificName ? <p className="text-xs italic text-muted">{match.scientificName}</p> : null}
             </div>
 
@@ -81,8 +81,25 @@ export default function RelatedBotanicalsTracked({ sourceSlug, matches }: Props)
               </div>
             ) : null}
 
-            <p className="mt-3 text-xs font-bold text-brand-800">Explore profile →</p>
-          </Link>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Link
+                href={`/herbs/${match.slug}/`}
+                onClick={() => trackRelatedBotanicalClick(sourceSlug, trackingItems[index])}
+                className="inline-flex min-h-10 items-center rounded-full bg-brand-800 px-3.5 text-xs font-bold text-white transition hover:bg-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+              >
+                Explore profile →
+              </Link>
+              {match.compareHref ? (
+                <Link
+                  href={match.compareHref}
+                  onClick={() => trackRelatedBotanicalCompare(sourceSlug, trackingItems[index], match.compareHref!)}
+                  className="inline-flex min-h-10 items-center rounded-full border border-brand-900/15 px-3.5 text-xs font-bold text-brand-800 transition hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+                >
+                  Compare ↔
+                </Link>
+              ) : null}
+            </div>
+          </article>
         ))}
       </div>
     </section>
