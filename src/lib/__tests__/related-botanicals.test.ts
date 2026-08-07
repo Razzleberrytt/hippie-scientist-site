@@ -54,6 +54,14 @@ describe('related botanicals engine', () => {
     expect(scoreRelatedBotanical(source, alias)).toBeNull()
   })
 
+  it('suppresses aliases when a scientific name matches the other record display name', () => {
+    const commonName = herb({ name: 'Thunder God Vine', scientificName: 'Tripterygium wilfordii', explicitEffects: ['Inflammation'], effects: ['Inflammation'] })
+    const latinName = herb({ slug: 'tripterygium-wilfordii', name: 'Tripterygium Wilfordii', explicitEffects: ['Inflammation'], effects: ['Inflammation'] })
+
+    expect(scoreRelatedBotanical(commonName, latinName)).toBeNull()
+    expect(scoreRelatedBotanical(latinName, commonName)).toBeNull()
+  })
+
   it('does not qualify broad antioxidant or tonic labels by themselves', () => {
     const antioxidantSource = herb({ explicitEffects: ['antioxidant'], effects: ['antioxidant'] })
     const antioxidantCandidate = herb({ slug: 'antioxidant', name: 'Antioxidant', explicitEffects: ['antioxidant'], effects: ['antioxidant'] })
