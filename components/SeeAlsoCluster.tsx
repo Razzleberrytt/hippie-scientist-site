@@ -24,19 +24,36 @@ type SeeAlsoClusterProps = {
 }
 
 const HERB_SOURCE_ALIASES: Record<string, string> = {
-  'american-ginseng': 'panax-quinquefolius',
-  'asian-ginseng': 'panax-ginseng',
-  coffee: 'coffea-arabica',
-  'green-tea': 'camellia-sinensis',
-  'st-johns-wort': 'hypericum-perforatum',
+  'lions-mane': 'hericium-erinaceus',
+  passionflower: 'passiflora-incarnata',
+  kava: 'piper-methysticum',
+  'ashwagandha-withania-somnifera': 'ashwagandha',
 }
 
-function formatReason(match: RelatedBotanicalMatch) {
-  return match.reasons
-    .filter((reason) => reason.type !== 'safety')
-    .slice(0, 2)
-    .map((reason) => reason.label)
-    .join(' · ')
+function meaningfulReasons(match: RelatedBotanicalMatch) {
+  const preferred = match.reasons.filter((reason) =>
+    reason.type === 'compound' || reason.type === 'compound-class' || reason.type === 'explicit-effect',
+  )
+  const fallback = match.reasons.filter((reason) => reason.type !== 'safety')
+  return (preferred.length ? preferred : fallback).slice(0, 2)
+}
+
+function toTrackedMatches(sourceSlug: string, matches: RelatedBotanicalMatch[]) {
+  return matches.map((match) => {
+    const comparisonSlug = getValidComparisonSlug(sourceSlug, match.record.slug)
+    return {
+      slug: match.record.slug,
+      name: match.record.name,
+      scientificName: match.record.scientificName,
+      score: match.score,
+      compareHref: comparisonSlug ? `/guides/compare/${comparisonSlug}/` : undefined,
+      reasons: meaningfulReasons(match).map((reason) => ({
+        type: reason.type,
+        label: reason.label,
+        values: reason.values,
+      })),
+    }
+  })
 }
 
 export default async function SeeAlsoCluster({
@@ -68,54 +85,69 @@ export default async function SeeAlsoCluster({
     .map((cluster) => ({
       clusterId: cluster.id,
       clusterLabel: cluster.label,
-      clusterGoalHref: cluster.goalHref,
-      entries: seeAlso.filter((entry) => entry.clusterId === cluster.id),
+      clusterGoalHref: `/goals/${cluster.goalSlug}`,
+      entries: seeAlso.filter((entry) => entry.cluster === cluster.id),
     }))
     .filter((group) => group.entries.length > 0)
 
-  if (grouped.length === 0 && relatedMatches.length === 0) return null
+  if (!relatedMatches.length && !grouped.length) return null
+
+  const guideLinkClass =
+    'inline-flex min-h-11 items-center rounded-lg px-2.5 text-xs font-semibold text-brand-700 transition hover:bg-brand-50 hover:text-brand-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2'
 
   return (
-    <section className={className} aria-label='Related research'>
+    <div className={`space-y-4 ${className ?? ''}`}>
       {relatedMatches.length > 0 ? (
-        <div className='mb-6'>
-          <div className='mb-3'>
-            <p className='text-xs font-bold uppercase tracking-widest text-brand-700 dark:text-brand-200'>Related Botanicals</p>
-            <p className='mt-1 text-sm leading-6 text-muted'>Deterministic research-navigation links based on shared effects and chemistry. These are not treatment recommendations.</p>
-          </div>
-          <RelatedBotanicalsTracked sourceSlug={relatedSourceSlug} matches={relatedMatches.map((match) => ({
-            slug: match.botanical.slug,
-            name: match.botanical.name,
-            scientificName: match.botanical.scientificName,
-            score: match.score,
-            reasonTypes: match.reasons.map((reason) => reason.type),
-            reasonLabel: formatReason(match),
-            compareSlug: getValidComparisonSlug(relatedSourceSlug, match.botanical.slug),
-          }))} />
-        </div>
+        <RelatedBotanicalsTracked sourceSlug={relatedSourceSlug} matches={toTrackedMatches(relatedSourceSlug, relatedMatches)} />
       ) : null}
 
       {grouped.length > 0 ? (
-        <div className='space-y-5'>
+        <section
+          className="space-y-4 rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5"
+          aria-labelledby="see-also-cluster-heading"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <p
+              id="see-also-cluster-heading"
+              className="text-xs font-bold uppercase tracking-wider text-brand-700"
+            >
+              Also in this cluster
+            </p>
+            {grouped.length === 1 ? (
+              <Link href={grouped[0].clusterGoalHref} className={guideLinkClass}>
+                {grouped[0].clusterLabel} guide →
+              </Link>
+            ) : null}
+          </div>
+
           {grouped.map((group) => (
-            <div key={group.clusterId}>
-              <div className='flex flex-wrap items-center justify-between gap-2'>
-                <p className='text-xs font-bold uppercase tracking-widest text-brand-700 dark:text-brand-200'>{group.clusterLabel}</p>
-                <Link href={group.clusterGoalHref} className='text-xs font-semibold text-brand-700 hover:underline dark:text-brand-100'>Explore goal →</Link>
-              </div>
-              <ul className='mt-2 grid gap-2 sm:grid-cols-2'>
+            <div key={group.clusterId} className="space-y-2">
+              {grouped.length > 1 ? (
+                <div className="flex items-center justify-between gap-2">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted">
+                    {group.clusterLabel}
+                  </p>
+                  <Link href={group.clusterGoalHref} className={guideLinkClass}>
+                    Full guide →
+                  </Link>
+                </div>
+              ) : null}
+              <div className="flex gap-2 overflow-x-auto pb-1.5 [-webkit-overflow-scrolling:touch] [scrollbar-width:thin]">
                 {group.entries.map((entry) => (
-                  <li key={`${group.clusterId}:${entry.kind}:${entry.slug}`}>
-                    <Link href={entry.href} className='block rounded-xl border border-brand-900/10 bg-white/80 px-3 py-2 text-sm font-semibold text-ink transition hover:border-brand-300 hover:shadow-sm dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10'>
-                      {entry.label}
-                    </Link>
-                  </li>
+                  <Link
+                    key={`${entry.kind}:${entry.slug}`}
+                    href={entry.href}
+                    title={entry.reason}
+                    className="inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-full border border-brand-900/10 bg-brand-50/50 px-3.5 text-sm font-semibold capitalize text-brand-800 transition hover:bg-brand-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
+                  >
+                    {entry.label} →
+                  </Link>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
-        </div>
+        </section>
       ) : null}
-    </section>
+    </div>
   )
 }
