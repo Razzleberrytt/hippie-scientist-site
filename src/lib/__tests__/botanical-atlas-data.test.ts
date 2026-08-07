@@ -20,6 +20,19 @@ describe('Botanical Activity Atlas runtime fallbacks', () => {
     expect(result.compoundClasses).toEqual(['Methylxanthines'])
   })
 
+  it('reads snake_case runtime identity and chemistry fields', () => {
+    const result = toAtlasRecord(record({
+      scientific_name: 'Morus alba',
+      active_constituents: ['caffeine'],
+      compound_profile: ['theobromine'],
+      related_compounds: ['theophylline'],
+    }))
+
+    expect(result.scientificName).toBe('Morus alba')
+    expect(result.compounds).toEqual(['caffeine', 'theobromine', 'theophylline'])
+    expect(result.compoundClasses).toEqual(['Methylxanthines'])
+  })
+
   it('does not turn unknown compound names into fake chemical classes', () => {
     const result = toAtlasRecord(record({ activeCompounds: ['mystery constituent'] }))
     expect(result.compoundClasses).toEqual([])

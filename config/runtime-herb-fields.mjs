@@ -9,6 +9,7 @@ export const HERB_RUNTIME_FIELDS = [
   'id',
   'slug',
   'name',
+  'scientific_name',
   'latin_name',
   'common_names',
   'aliases',
