@@ -4,14 +4,13 @@
  * Herb profiles get an evidence-aware Related Botanicals block powered by the
  * deterministic relationship engine, followed by the existing semantic-cluster
  * navigation. Compound profiles keep the cluster navigation only.
- *
- * Server component — no client state, no side effects.
  */
 
 import Link from 'next/link'
 import { getClusterSeeAlso, getEntityClusters } from '@/lib/cluster-linking'
 import { getBotanicalAtlasRecords } from '@/lib/botanical-atlas-data'
 import { getRelatedBotanicals, type RelatedBotanicalMatch } from '@/lib/related-botanicals'
+import RelatedBotanicalsTracked from '@/components/RelatedBotanicalsTracked'
 import type { EntityKind } from '@/lib/schema'
 
 type SeeAlsoClusterProps = {
@@ -37,58 +36,18 @@ function meaningfulReasons(match: RelatedBotanicalMatch) {
   return (preferred.length ? preferred : fallback).slice(0, 2)
 }
 
-function RelatedBotanicals({ matches }: { matches: RelatedBotanicalMatch[] }) {
-  if (!matches.length) return null
-
-  return (
-    <section
-      className="space-y-4 rounded-2xl border border-brand-900/10 bg-white/80 p-4 sm:p-5"
-      aria-labelledby="related-botanicals-heading"
-    >
-      <div className="space-y-1">
-        <p id="related-botanicals-heading" className="text-xs font-bold uppercase tracking-wider text-brand-700">
-          Related botanicals
-        </p>
-        <p className="text-sm leading-6 text-muted">
-          Ranked from shared effects and chemistry. These are research-navigation links, not treatment recommendations.
-        </p>
-      </div>
-
-      <div className="grid gap-3 md:grid-cols-3">
-        {matches.map((match) => {
-          const reasons = meaningfulReasons(match)
-          return (
-            <Link
-              key={match.record.slug}
-              href={`/herbs/${match.record.slug}/`}
-              className="group rounded-2xl border border-brand-900/10 bg-[var(--surface-card)] p-4 transition hover:border-brand-600/30 hover:bg-brand-50/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-600 focus-visible:ring-offset-2"
-            >
-              <div className="space-y-1">
-                <h3 className="font-bold text-ink group-hover:text-brand-800">{match.record.name}</h3>
-                {match.record.scientificName ? (
-                  <p className="text-xs italic text-muted">{match.record.scientificName}</p>
-                ) : null}
-              </div>
-
-              {reasons.length > 0 ? (
-                <div className="mt-3 space-y-2">
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-muted">Why related</p>
-                  {reasons.map((reason) => (
-                    <div key={`${match.record.slug}:${reason.type}`} className="text-xs leading-5 text-muted">
-                      <span className="font-semibold text-ink">{reason.label}:</span>{' '}
-                      {reason.values.slice(0, 3).join(', ')}
-                    </div>
-                  ))}
-                </div>
-              ) : null}
-
-              <p className="mt-3 text-xs font-bold text-brand-800">Explore profile →</p>
-            </Link>
-          )
-        })}
-      </div>
-    </section>
-  )
+function toTrackedMatches(matches: RelatedBotanicalMatch[]) {
+  return matches.map((match) => ({
+    slug: match.record.slug,
+    name: match.record.name,
+    scientificName: match.record.scientificName,
+    score: match.score,
+    reasons: meaningfulReasons(match).map((reason) => ({
+      type: reason.type,
+      label: reason.label,
+      values: reason.values,
+    })),
+  }))
 }
 
 export default async function SeeAlsoCluster({
@@ -101,10 +60,11 @@ export default async function SeeAlsoCluster({
   const clusters = getEntityClusters(slug, kind)
 
   let relatedMatches: RelatedBotanicalMatch[] = []
+  let relatedSourceSlug = slug
   if (kind === 'herb') {
     const atlasRecords = await getBotanicalAtlasRecords()
-    const sourceSlug = HERB_SOURCE_ALIASES[slug] ?? slug
-    const source = atlasRecords.find((record) => record.slug === sourceSlug)
+    relatedSourceSlug = HERB_SOURCE_ALIASES[slug] ?? slug
+    const source = atlasRecords.find((record) => record.slug === relatedSourceSlug)
     if (source) relatedMatches = getRelatedBotanicals(source, atlasRecords, 3)
   }
 
@@ -131,7 +91,9 @@ export default async function SeeAlsoCluster({
 
   return (
     <div className={`space-y-4 ${className ?? ''}`}>
-      <RelatedBotanicals matches={relatedMatches} />
+      {relatedMatches.length > 0 ? (
+        <RelatedBotanicalsTracked sourceSlug={relatedSourceSlug} matches={toTrackedMatches(relatedMatches)} />
+      ) : null}
 
       {grouped.length > 0 ? (
         <section
