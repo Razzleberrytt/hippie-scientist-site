@@ -16,8 +16,6 @@ const EFFECT_RULES: Array<[string, RegExp]> = [
   ['Hormonal / reproductive', /hormon|libido|sexual|fertil|testoster|estrogen|thyroid/],
 ]
 
-// Mechanism labels can improve discovery when a record lacks plain-language
-// effects. These mappings describe pathway relevance, not proven outcomes.
 const MECHANISM_EFFECT_RULES: Array<[string, RegExp]> = [
   ['Calming', /\b(?:gaba(?:-?a|-?b)?|benzodiazepine|hpa axis|cortisol|adaptogenic?)\b/],
   ['Sedating / sleep', /\b(?:melatonin|orexin|hypnotic|sleep architecture|sleep latency)\b/],
@@ -32,9 +30,6 @@ const MECHANISM_EFFECT_RULES: Array<[string, RegExp]> = [
   ['Immune', /\b(?:immune signaling|immunomod|toll-like receptor|antiviral|antimicrobial)\b/],
 ]
 
-// Specific families come before broad classes so named compounds land in the
-// most useful atlas bucket. Patterns are intentionally conservative: an
-// unrecognized compound remains unclassified rather than being guessed.
 const CLASS_RULES: Array<[string, RegExp]> = [
   ['Methylxanthines', /\b(?:methylxanthines?|caffeine|theobromine|theophylline|paraxanthine)\b/],
   ['Withanolides', /\b(?:withanolides?|withaferin(?: a)?|withanosides?)\b/],
@@ -70,6 +65,11 @@ const firstMatch = (value: string, rules: Array<[string, RegExp]>) => {
 export const normalizeEffect = (value: string) => firstMatch(value, EFFECT_RULES) ?? value.trim()
 export const normalizeCompoundClass = (value: string) => firstMatch(value, CLASS_RULES) ?? value.trim()
 export const normalizeSafetySignal = (value: string) => firstMatch(value, SAFETY_RULES) ?? value.trim()
+export const normalizeSafetySignals = (value: string): string[] => {
+  const normalized = clean(value)
+  const matches = SAFETY_RULES.filter(([, pattern]) => pattern.test(normalized)).map(([label]) => label)
+  return matches.length ? matches : (value.trim() ? [value.trim()] : [])
+}
 
 export const inferAtlasEffectsFromMechanisms = (values: string[]): string[] => {
   const effects = values.flatMap((value) => {

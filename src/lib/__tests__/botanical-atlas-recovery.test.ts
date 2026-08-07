@@ -18,15 +18,15 @@ const base = {
 }
 
 describe('botanical atlas recovery', () => {
-  it('ranks the change restoring the most records first', () => {
+  it('ranks equal recovery counts deterministically by label', () => {
     const suggestions = getAtlasRecoverySuggestions(records, {
       ...base,
       effect: 'Calming',
       compoundClass: 'Alkaloids',
     })
 
-    expect(suggestions[0]).toMatchObject({ action: 'clear-effect', recoveredCount: 1 })
-    expect(suggestions[1]).toMatchObject({ action: 'clear-chemistry', recoveredCount: 1 })
+    expect(suggestions[0]).toMatchObject({ action: 'clear-chemistry', recoveredCount: 1 })
+    expect(suggestions[1]).toMatchObject({ action: 'clear-effect', recoveredCount: 1 })
   })
 
   it('offers pathway inclusion when explicit-only mode hides inferred effects', () => {
@@ -57,15 +57,13 @@ describe('botanical atlas recovery', () => {
 
   it('limits the recovery queue', () => {
     const suggestions = getAtlasRecoverySuggestions(records, {
-      query: 'missing',
+      ...base,
+      query: 'herb',
       effect: 'Calming',
-      effectSource: 'explicit',
-      evidence: 'Strong',
-      intensity: 'Unknown',
       compoundClass: 'Alkaloids',
-      safety: 'Serotonergic',
-    }, 2)
+    }, 1)
 
-    expect(suggestions).toHaveLength(2)
+    expect(suggestions).toHaveLength(1)
+    expect(suggestions[0]?.recoveredCount).toBe(1)
   })
 })

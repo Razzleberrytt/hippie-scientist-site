@@ -45,7 +45,7 @@ const WEIGHTS = {
 // themselves create a recommendation. Otherwise common tags such as
 // "antioxidant" produce many technically-correct but low-value pairings.
 const GENERIC_EFFECTS = new Set(['antioxidant', 'tonic'])
-const MINIMUM_RECOMMENDATION_SCORE = 4
+const MINIMUM_RECOMMENDATION_SCORE = 4.5
 
 const normalizedText = (value = '') => value.trim().toLowerCase().replace(/\s+/g, ' ')
 

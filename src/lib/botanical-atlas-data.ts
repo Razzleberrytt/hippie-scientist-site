@@ -7,7 +7,7 @@ import {
   normalizeEffect,
   normalizeEvidence,
   normalizeIntensity,
-  normalizeSafetySignal,
+  normalizeSafetySignals,
   uniqueNormalized,
 } from '@/lib/botanical-atlas-taxonomy'
 import type { BotanicalAtlasRecord } from '@/components/atlas/BotanicalActivityAtlasClient'
@@ -108,7 +108,7 @@ export const toAtlasRecord = (herb: RuntimeRecord): BotanicalAtlasRecord => {
         herb.strength,
       ),
     ),
-    safety: uniqueNormalized(rawSafety, normalizeSafetySignal),
+    safety: Array.from(new Set(rawSafety.flatMap(normalizeSafetySignals))),
     onset: text(herb.time_to_effect, herb.onset, herb.onsetTime) || undefined,
     duration: text(herb.duration, herb.effectDuration) || undefined,
   }
