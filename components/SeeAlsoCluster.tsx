@@ -12,6 +12,7 @@ import { getBotanicalAtlasRecords } from '@/lib/botanical-atlas-data'
 import { getRelatedBotanicals, type RelatedBotanicalMatch } from '@/lib/related-botanicals'
 import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import RelatedBotanicalsTracked from '@/components/RelatedBotanicalsTracked'
+import type { BotanicalAtlasRecord } from '@/components/atlas/BotanicalActivityAtlasClient'
 import type { EntityKind } from '@/lib/schema'
 
 type SeeAlsoClusterProps = {
@@ -67,9 +68,9 @@ export default async function SeeAlsoCluster({
   let relatedMatches: RelatedBotanicalMatch[] = []
   let relatedSourceSlug = slug
   if (kind === 'herb') {
-    const atlasRecords = await getBotanicalAtlasRecords()
+    const atlasRecords: BotanicalAtlasRecord[] = await getBotanicalAtlasRecords()
     relatedSourceSlug = HERB_SOURCE_ALIASES[slug] ?? slug
-    const source = atlasRecords.find((record) => record.slug === relatedSourceSlug)
+    const source = atlasRecords.find((record: BotanicalAtlasRecord) => record.slug === relatedSourceSlug)
     if (source) relatedMatches = getRelatedBotanicals(source, atlasRecords, 3)
   }
 
