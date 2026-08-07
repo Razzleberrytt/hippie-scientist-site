@@ -6,14 +6,20 @@ on:
     paths:
       - 'src/lib/related-botanicals.ts'
       - 'src/lib/botanical-atlas-data.ts'
+      - 'src/lib/comparison-shortlist.ts'
+      - 'lib/comparison-utils.ts'
       - 'scripts/audit-related-botanicals.ts'
+      - 'scripts/rank-related-comparisons.ts'
       - '.github/workflows/related-botanicals-audit.yml'
   push:
     branches: [main]
     paths:
       - 'src/lib/related-botanicals.ts'
       - 'src/lib/botanical-atlas-data.ts'
+      - 'src/lib/comparison-shortlist.ts'
+      - 'lib/comparison-utils.ts'
       - 'scripts/audit-related-botanicals.ts'
+      - 'scripts/rank-related-comparisons.ts'
 
 jobs:
   audit:
@@ -29,8 +35,13 @@ jobs:
         run: npm run data:build:core
       - name: Generate recommendation audit
         run: npx tsx scripts/audit-related-botanicals.ts
+      - name: Generate comparison shortlist
+        run: npx tsx scripts/rank-related-comparisons.ts
       - name: Add summary
-        run: cat reports/related-botanicals/related-botanicals-audit.md >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          cat reports/related-botanicals/related-botanicals-audit.md >> "$GITHUB_STEP_SUMMARY"
+          printf '\n\n' >> "$GITHUB_STEP_SUMMARY"
+          cat reports/related-botanicals/comparison-shortlist.md >> "$GITHUB_STEP_SUMMARY"
       - name: Upload audit artifacts
         uses: actions/upload-artifact@v4
         with:
