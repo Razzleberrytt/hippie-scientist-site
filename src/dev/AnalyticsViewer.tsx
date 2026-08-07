@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { buildAtlasRecoveryPerformance, buildAtlasSourcePerformance, buildRelatedBotanicalPerformance } from '@/lib/atlasAnalyticsReport'
+import { buildCompareHubPerformance } from '@/lib/compareHubAnalyticsReport'
 import { readAnalyticsEvents, type StoredAnalyticsEvent } from '@/utils/analytics/eventStorage'
 
 type GroupRow = { label: string; count: number }
@@ -36,6 +37,7 @@ export default function AnalyticsViewer() {
   const atlasReport = useMemo(() => buildAtlasSourcePerformance(events), [events])
   const recoveryReport = useMemo(() => buildAtlasRecoveryPerformance(events), [events])
   const relatedReport = useMemo(() => buildRelatedBotanicalPerformance(events), [events])
+  const compareHubReport = useMemo(() => buildCompareHubPerformance(events), [events])
   const byHerb = useMemo(() => groupCounts(clickEvents, event => event.slug || 'unknown'), [clickEvents])
   const byProduct = useMemo(() => groupCounts(clickEvents, event => event.item || 'unknown'), [clickEvents])
   const byPosition = useMemo(() => groupCounts(clickEvents, event => event.productPosition || 'unknown'), [clickEvents])
@@ -63,6 +65,18 @@ export default function AnalyticsViewer() {
 
       <h4 className='mt-3 text-xs font-semibold uppercase tracking-wide text-white/80'>Reason signal performance</h4>
       {relatedReport.reasonRows.length === 0 ? <p className='mt-1 text-xs text-white/60'>No reason-signal data yet.</p> : <div className='mt-1 overflow-x-auto'><table className='min-w-full text-xs'><thead><tr className='text-left text-white/65'><th className='pr-3 font-medium'>Reason</th><th className='pr-3 font-medium'>Shown</th><th className='pr-3 font-medium'>Clicks</th><th className='pr-3 font-medium'>CTR</th><th className='pr-3 font-medium'>Avg depth</th><th className='font-medium'>Depth 3+</th></tr></thead><tbody>{relatedReport.reasonRows.map(row => <tr key={row.reasonType} className='border-t border-white/10'><td className='py-1.5 pr-3 font-medium text-white/95'>{row.reasonType}</td><td className='py-1.5 pr-3 text-white/80'>{row.impressions}</td><td className='py-1.5 pr-3 text-white/80'>{row.clicks}</td><td className='py-1.5 pr-3 text-white/80'>{Math.round(row.ctr * 100)}%</td><td className='py-1.5 pr-3 text-white/80'>{row.averageClickDepth.toFixed(1)}</td><td className='py-1.5 text-white/80'>{Math.round(row.deepExplorationRate * 100)}%</td></tr>)}</tbody></table></div>}
+    </section>
+
+    <section className='mt-3 rounded-md border border-white/10 bg-white/5 p-2'>
+      <h3 className='text-xs font-semibold uppercase tracking-wide text-white/80'>Comparison hub performance</h3>
+      <p className='mt-1 text-xs text-white/65'>{compareHubReport.attributedCategoryImpressions} category impressions · {compareHubReport.attributedClicks} unique destination clicks · {compareHubReport.dynamicMatrixClicks} dynamic-matrix clicks{compareHubReport.unattributedEvents ? ` · ${compareHubReport.unattributedEvents} unattributed events excluded` : ''}</p>
+      {compareHubReport.categoryRows.length === 0 ? <p className='mt-2 text-xs text-white/60'>No comparison-hub data yet.</p> : <div className='mt-2 overflow-x-auto'><table className='min-w-full text-xs'><thead><tr className='text-left text-white/65'><th className='pr-3 font-medium'>Category</th><th className='pr-3 font-medium'>Seen</th><th className='pr-3 font-medium'>Clicks</th><th className='font-medium'>CTR</th></tr></thead><tbody>{compareHubReport.categoryRows.map(row => <tr key={row.category} className='border-t border-white/10'><td className='py-1.5 pr-3 font-medium text-white/95'>{row.category}</td><td className='py-1.5 pr-3 text-white/80'>{row.impressions}</td><td className='py-1.5 pr-3 text-white/80'>{row.clicks}</td><td className='py-1.5 text-white/80'>{Math.round(row.ctr * 100)}%</td></tr>)}</tbody></table></div>}
+
+      <h4 className='mt-3 text-xs font-semibold uppercase tracking-wide text-white/80'>Top goal starters</h4>
+      {compareHubReport.goalRows.length === 0 ? <p className='mt-1 text-xs text-white/60'>No goal-starter clicks yet.</p> : <div className='mt-1 grid gap-1 text-xs sm:grid-cols-2'>{compareHubReport.goalRows.slice(0, 8).map(row => <div key={row.label} className='flex justify-between gap-3 border-t border-white/10 py-1.5'><span className='text-white/90'>{row.label}</span><span className='text-white/70'>{row.clicks}</span></div>)}</div>}
+
+      <h4 className='mt-3 text-xs font-semibold uppercase tracking-wide text-white/80'>Top comparison destinations</h4>
+      {compareHubReport.routeRows.length === 0 ? <p className='mt-1 text-xs text-white/60'>No comparison clicks yet.</p> : <div className='mt-1 overflow-x-auto'><table className='min-w-full text-xs'><thead><tr className='text-left text-white/65'><th className='pr-3 font-medium'>Destination</th><th className='font-medium'>Clicks</th></tr></thead><tbody>{compareHubReport.routeRows.slice(0, 12).map(row => <tr key={row.href} className='border-t border-white/10'><td className='py-1.5 pr-3 text-white/90'>{row.label}</td><td className='py-1.5 text-white/80'>{row.clicks}</td></tr>)}</tbody></table></div>}
     </section>
 
     <p className='mt-3 text-xs text-white/75'>Total affiliate clicks: {clickEvents.length}</p>
