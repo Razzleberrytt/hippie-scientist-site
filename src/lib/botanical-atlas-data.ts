@@ -55,7 +55,15 @@ export const toAtlasRecord = (herb: RuntimeRecord): BotanicalAtlasRecord => {
   const inferredEffects = inferAtlasEffectsFromMechanisms(mechanisms)
     .filter((effect) => !explicitEffects.includes(effect))
   const effects = [...explicitEffects, ...inferredEffects]
-  const compounds = collect(herb.activeCompounds, herb.active_compounds, herb.compounds, herb.activeconstituents)
+  const compounds = collect(
+    herb.activeCompounds,
+    herb.active_compounds,
+    herb.active_constituents,
+    herb.activeconstituents,
+    herb.compounds,
+    herb.compound_profile,
+    herb.related_compounds,
+  )
   const explicitClasses = uniqueNormalized(
     collect(herb.compoundClasses, herb.pharmCategories, herb.compoundClass),
     normalizeCompoundClass,
@@ -74,7 +82,13 @@ export const toAtlasRecord = (herb: RuntimeRecord): BotanicalAtlasRecord => {
   return {
     slug: herb.slug,
     name: text(herb.displayName, herb.name, herb.commonName, herb.common, herb.slug.replaceAll('-', ' ')),
-    scientificName: text(herb.scientificName, herb.scientificname, herb.latinName) || undefined,
+    scientificName: text(
+      herb.scientificName,
+      herb.scientificname,
+      herb.scientific_name,
+      herb.latinName,
+      herb.latin_name,
+    ) || undefined,
     effects,
     explicitEffects,
     inferredEffects,
