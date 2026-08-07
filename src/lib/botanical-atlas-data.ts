@@ -150,10 +150,12 @@ export const getBotanicalAtlasRecords = cache(async (): Promise<BotanicalAtlasRe
     getHerbs(),
     getHerbCompoundMap(),
   ])
-  const mappedCompoundsByHerb = buildMappedCompoundsByHerb(herbCompoundMap)
+  const herbRecords = rawHerbs as RuntimeRecord[]
+  const compoundMapRows = herbCompoundMap as RuntimeRecord[]
+  const mappedCompoundsByHerb = buildMappedCompoundsByHerb(compoundMapRows)
 
-  return rawHerbs
-    .filter((herb) => {
+  return herbRecords
+    .filter((herb: RuntimeRecord) => {
       try {
         return getRuntimeVisibility(herb).canRender
       } catch {
@@ -161,7 +163,7 @@ export const getBotanicalAtlasRecords = cache(async (): Promise<BotanicalAtlasRe
       }
     })
     .map(toAtlasRecord)
-    .map((record) => enrichAtlasRecordWithMappedCompounds(record, mappedCompoundsByHerb.get(record.slug)))
-    .filter((herb) => herb.effects.length || herb.compounds.length || herb.safety.length)
-    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((record: BotanicalAtlasRecord) => enrichAtlasRecordWithMappedCompounds(record, mappedCompoundsByHerb.get(record.slug)))
+    .filter((herb: BotanicalAtlasRecord) => herb.effects.length || herb.compounds.length || herb.safety.length)
+    .sort((a: BotanicalAtlasRecord, b: BotanicalAtlasRecord) => a.name.localeCompare(b.name))
 })
