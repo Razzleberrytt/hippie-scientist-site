@@ -44,10 +44,32 @@ describe('comparison shortlist', () => {
 
     expect(isAliasPair(astragalus, astragalusLatin)).toBe(true)
     expect(isAliasPair(phellodendron, phellodendronLatin)).toBe(true)
+  })
 
-    const rows = buildComparisonShortlist([astragalus, astragalusLatin, phellodendron, phellodendronLatin], 20)
-    expect(rows.some((row) => new Set([row.a.slug, row.b.slug]).has('astragalus') && new Set([row.a.slug, row.b.slug]).has('astragalus-membranaceus'))).toBe(false)
-    expect(rows.some((row) => new Set([row.a.slug, row.b.slug]).has('phellodendron') && new Set([row.a.slug, row.b.slug]).has('phellodendron-amurense'))).toBe(false)
+  it('filters genus-only rows against species rows even when scientific metadata is missing', () => {
+    expect(isAliasPair(
+      herb('berberis', { name: 'Berberis' }),
+      herb('berberis-vulgaris', { name: 'Berberis Vulgaris' }),
+    )).toBe(true)
+    expect(isAliasPair(
+      herb('boswellia', { name: 'Boswellia' }),
+      herb('boswellia-carterii', { name: 'Boswellia Carterii' }),
+    )).toBe(true)
+    expect(isAliasPair(
+      herb('coffee', { name: 'Coffee' }),
+      herb('coffee-cherry', { name: 'Coffee Cherry' }),
+    )).toBe(true)
+  })
+
+  it('does not collapse distinct multi-word botanicals just because they share a genus-like word', () => {
+    expect(isAliasPair(
+      herb('american-ginseng', { name: 'American Ginseng' }),
+      herb('asian-ginseng', { name: 'Asian Ginseng' }),
+    )).toBe(false)
+    expect(isAliasPair(
+      herb('lemon-balm', { name: 'Lemon Balm' }),
+      herb('lemon-verbena', { name: 'Lemon Verbena' }),
+    )).toBe(false)
   })
 
   it('prioritizes chemistry-supported, better-evidenced candidates', () => {

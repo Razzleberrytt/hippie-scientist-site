@@ -16,13 +16,24 @@ export type ComparisonShortlistRow = {
 const GENERIC_EFFECTS = new Set(['antioxidant', 'tonic'])
 
 function normalize(value = '') {
-  return value.trim().toLowerCase().replace(/\s+/g, ' ')
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[()]/g, ' ')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/[-_]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
+
+function tokens(value = '') {
+  return normalize(value).split(' ').filter(Boolean)
 }
 
 export function evidenceTier(value = '') {
   const text = normalize(value)
   if (!text || text === 'unclassified' || text === 'unknown') return 0
-  if (/strong|high|robust|well[- ]?supported/.test(text)) return 3
+  if (/strong|high|robust|well supported/.test(text)) return 3
   if (/moderate|medium|mixed/.test(text)) return 2
   if (/limited|low|preliminary|emerging|traditional/.test(text)) return 1
   return 1
@@ -30,6 +41,22 @@ export function evidenceTier(value = '') {
 
 function pairKey(a: string, b: string) {
   return [a, b].sort().join('::')
+}
+
+function containsIdentityName(container: string, candidate: string) {
+  if (!container || !candidate) return false
+  const containerTokens = tokens(container)
+  const candidateTokens = tokens(candidate)
+  if (candidateTokens.length < 2) return false
+  return candidateTokens.every((token) => containerTokens.includes(token))
+}
+
+function isGenusVsSpeciesName(aName: string, bName: string) {
+  const aTokens = tokens(aName)
+  const bTokens = tokens(bName)
+  if (aTokens.length === 1 && bTokens.length >= 2 && aTokens[0] === bTokens[0]) return true
+  if (bTokens.length === 1 && aTokens.length >= 2 && bTokens[0] === aTokens[0]) return true
+  return false
 }
 
 export function isAliasPair(a: RelatedBotanicalRecord, b: RelatedBotanicalRecord) {
@@ -42,6 +69,15 @@ export function isAliasPair(a: RelatedBotanicalRecord, b: RelatedBotanicalRecord
   if (aScientific && bScientific && aScientific === bScientific) return true
   if (aScientific && aScientific === bName) return true
   if (bScientific && bScientific === aName) return true
+
+  // Runtime data sometimes drops scientificName on one duplicate record. Catch the
+  // common genus-only/common-name record paired with its explicit Latin species row.
+  if (isGenusVsSpeciesName(aName, bName)) return true
+
+  // Parenthetical/binomial display names such as "Turmeric (Curcuma longa)" should
+  // collapse against a row explicitly named "Curcuma longa" when present.
+  if (containsIdentityName(a.name, bScientific || b.name) && tokens(bScientific || b.name).length >= 2) return true
+  if (containsIdentityName(b.name, aScientific || a.name) && tokens(aScientific || a.name).length >= 2) return true
 
   return false
 }
