@@ -1,4 +1,5 @@
 import { getValidComparisonSlug } from '@/lib/comparison-utils'
+import { isSameComparisonIdentity } from '@/lib/comparison-identity-groups'
 import { scoreRelatedBotanical, type RelatedBotanicalRecord, type RelatedBotanicalReason } from '@/lib/related-botanicals'
 
 export type ComparisonIntentSignal = {
@@ -79,6 +80,8 @@ function isGenusVsSpeciesName(aName: string, bName: string) {
 }
 
 export function isAliasPair(a: RelatedBotanicalRecord, b: RelatedBotanicalRecord) {
+  if (isSameComparisonIdentity(a.slug, b.slug)) return true
+
   const aName = normalize(a.name)
   const bName = normalize(b.name)
   const aScientific = normalize(a.scientificName)
