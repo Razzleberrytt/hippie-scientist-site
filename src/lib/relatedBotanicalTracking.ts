@@ -56,7 +56,7 @@ export function trackRelatedBotanicalsShown(sourceSlug: string, items: RelatedBo
   appendAnalyticsEvent({
     type: 'related_botanicals_shown',
     slug: sourceSlug,
-    item: items.map((item) => `${item.slug}:${item.position}:${item.score}`).join(','),
+    item: items.map((item) => `${item.slug}~${item.position}~${item.score}~${item.reasonTypes.join('|')}`).join(','),
     context: `session:${session.sessionId};depth:${session.visitedProfiles.length};reason_types:${Array.from(new Set(items.flatMap((item) => item.reasonTypes))).sort().join('|')}`,
     sourceType: 'herb',
     targetType: 'herb',

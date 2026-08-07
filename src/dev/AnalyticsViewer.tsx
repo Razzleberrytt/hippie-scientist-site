@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { buildAtlasRecoveryPerformance, buildAtlasSourcePerformance } from '@/lib/atlasAnalyticsReport'
+import { buildAtlasRecoveryPerformance, buildAtlasSourcePerformance, buildRelatedBotanicalPerformance } from '@/lib/atlasAnalyticsReport'
 import { readAnalyticsEvents, type StoredAnalyticsEvent } from '@/utils/analytics/eventStorage'
 
 type GroupRow = { label: string; count: number }
@@ -35,12 +35,13 @@ export default function AnalyticsViewer() {
   const clickEvents = useMemo(() => events.filter(event => event.type === 'affiliate_link_click'), [events])
   const atlasReport = useMemo(() => buildAtlasSourcePerformance(events), [events])
   const recoveryReport = useMemo(() => buildAtlasRecoveryPerformance(events), [events])
+  const relatedReport = useMemo(() => buildRelatedBotanicalPerformance(events), [events])
   const byHerb = useMemo(() => groupCounts(clickEvents, event => event.slug || 'unknown'), [clickEvents])
   const byProduct = useMemo(() => groupCounts(clickEvents, event => event.item || 'unknown'), [clickEvents])
   const byPosition = useMemo(() => groupCounts(clickEvents, event => event.productPosition || 'unknown'), [clickEvents])
   const byUseCaseAnchor = useMemo(() => groupCounts(clickEvents, event => event.useCaseAnchor || 'none'), [clickEvents])
 
-  return <aside className='fixed bottom-3 right-3 z-[100] max-h-[80vh] w-[min(44rem,96vw)] overflow-auto rounded-lg border border-white/15 bg-black/85 p-3 text-white shadow-lg backdrop-blur'>
+  return <aside className='fixed bottom-3 right-3 z-[100] max-h-[80vh] w-[min(52rem,96vw)] overflow-auto rounded-lg border border-white/15 bg-black/85 p-3 text-white shadow-lg backdrop-blur'>
     <h2 className='text-sm font-semibold text-white'>Dev Analytics Viewer</h2>
 
     <section className='mt-3 rounded-md border border-white/10 bg-white/5 p-2'>
@@ -53,6 +54,15 @@ export default function AnalyticsViewer() {
       <h3 className='text-xs font-semibold uppercase tracking-wide text-white/80'>Atlas recovery performance</h3>
       <p className='mt-1 text-xs text-white/65'>{recoveryReport.recoverySessions} recovery sessions{recoveryReport.unattributedEvents ? ` · ${recoveryReport.unattributedEvents} legacy events excluded` : ''}</p>
       {recoveryReport.rows.length === 0 ? <p className='mt-2 text-xs text-white/60'>No recovery-funnel data yet.</p> : <div className='mt-2 overflow-x-auto'><table className='min-w-full text-xs'><thead><tr className='text-left text-white/65'><th className='pr-3 font-medium'>Action</th><th className='pr-3 font-medium'>Shown</th><th className='pr-3 font-medium'>Accepted</th><th className='pr-3 font-medium'>Accept rate</th><th className='pr-3 font-medium'>Profile rate</th><th className='font-medium'>Avg restored</th></tr></thead><tbody>{recoveryReport.rows.map(row => <tr key={row.action} className='border-t border-white/10'><td className='py-1.5 pr-3 font-medium text-white/95'>{row.action}</td><td className='py-1.5 pr-3 text-white/80'>{row.impressions}</td><td className='py-1.5 pr-3 text-white/80'>{row.acceptances}</td><td className='py-1.5 pr-3 text-white/80'>{Math.round(row.acceptanceRate * 100)}%</td><td className='py-1.5 pr-3 text-white/80'>{Math.round(row.postRecoveryProfileRate * 100)}%</td><td className='py-1.5 text-white/80'>{row.averageRestoredResults.toFixed(1)}</td></tr>)}</tbody></table></div>}
+    </section>
+
+    <section className='mt-3 rounded-md border border-white/10 bg-white/5 p-2'>
+      <h3 className='text-xs font-semibold uppercase tracking-wide text-white/80'>Related Botanicals performance</h3>
+      <p className='mt-1 text-xs text-white/65'>{relatedReport.attributedImpressions} unique card impressions · {relatedReport.attributedClicks} unique clicks{relatedReport.unattributedEvents ? ` · ${relatedReport.unattributedEvents} unattributed events excluded` : ''}</p>
+      {relatedReport.cardRows.length === 0 ? <p className='mt-2 text-xs text-white/60'>No Related Botanicals data yet.</p> : <div className='mt-2 overflow-x-auto'><table className='min-w-full text-xs'><thead><tr className='text-left text-white/65'><th className='pr-3 font-medium'>Card</th><th className='pr-3 font-medium'>Pos</th><th className='pr-3 font-medium'>Shown</th><th className='pr-3 font-medium'>Clicks</th><th className='pr-3 font-medium'>CTR</th><th className='pr-3 font-medium'>Avg depth</th><th className='font-medium'>Depth 3+</th></tr></thead><tbody>{relatedReport.cardRows.slice(0, 20).map(row => <tr key={`${row.sourceSlug}:${row.targetSlug}:${row.position}`} className='border-t border-white/10'><td className='py-1.5 pr-3 font-medium text-white/95'>{row.sourceSlug} → {row.targetSlug}</td><td className='py-1.5 pr-3 text-white/80'>{row.position}</td><td className='py-1.5 pr-3 text-white/80'>{row.impressions}</td><td className='py-1.5 pr-3 text-white/80'>{row.clicks}</td><td className='py-1.5 pr-3 text-white/80'>{Math.round(row.ctr * 100)}%</td><td className='py-1.5 pr-3 text-white/80'>{row.averageClickDepth.toFixed(1)}</td><td className='py-1.5 text-white/80'>{Math.round(row.deepExplorationRate * 100)}%</td></tr>)}</tbody></table></div>}
+
+      <h4 className='mt-3 text-xs font-semibold uppercase tracking-wide text-white/80'>Reason signal performance</h4>
+      {relatedReport.reasonRows.length === 0 ? <p className='mt-1 text-xs text-white/60'>No reason-signal data yet.</p> : <div className='mt-1 overflow-x-auto'><table className='min-w-full text-xs'><thead><tr className='text-left text-white/65'><th className='pr-3 font-medium'>Reason</th><th className='pr-3 font-medium'>Shown</th><th className='pr-3 font-medium'>Clicks</th><th className='pr-3 font-medium'>CTR</th><th className='pr-3 font-medium'>Avg depth</th><th className='font-medium'>Depth 3+</th></tr></thead><tbody>{relatedReport.reasonRows.map(row => <tr key={row.reasonType} className='border-t border-white/10'><td className='py-1.5 pr-3 font-medium text-white/95'>{row.reasonType}</td><td className='py-1.5 pr-3 text-white/80'>{row.impressions}</td><td className='py-1.5 pr-3 text-white/80'>{row.clicks}</td><td className='py-1.5 pr-3 text-white/80'>{Math.round(row.ctr * 100)}%</td><td className='py-1.5 pr-3 text-white/80'>{row.averageClickDepth.toFixed(1)}</td><td className='py-1.5 text-white/80'>{Math.round(row.deepExplorationRate * 100)}%</td></tr>)}</tbody></table></div>}
     </section>
 
     <p className='mt-3 text-xs text-white/75'>Total affiliate clicks: {clickEvents.length}</p>

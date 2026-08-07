@@ -2,6 +2,7 @@ export type AtlasAnalyticsEvent = {
   type?: string
   context?: string
   item?: string
+  slug?: string
 }
 
 export type AtlasSourcePerformanceRow = {
@@ -23,6 +24,26 @@ export type AtlasRecoveryPerformanceRow = {
   averageRestoredResults: number
 }
 
+export type RelatedBotanicalCardPerformanceRow = {
+  sourceSlug: string
+  targetSlug: string
+  position: number
+  impressions: number
+  clicks: number
+  ctr: number
+  averageClickDepth: number
+  deepExplorationRate: number
+}
+
+export type RelatedBotanicalReasonPerformanceRow = {
+  reasonType: string
+  impressions: number
+  clicks: number
+  ctr: number
+  averageClickDepth: number
+  deepExplorationRate: number
+}
+
 type SessionSummary = {
   source: string
   firstFilter: string
@@ -35,6 +56,18 @@ type RecoverySessionSummary = {
   accepted: string | null
   restoredResults: number
   profileOpened: boolean
+}
+
+type RelatedExposure = {
+  sessionId: string
+  sourceSlug: string
+  targetSlug: string
+  position: number
+  reasonTypes: string[]
+}
+
+type RelatedClick = RelatedExposure & {
+  profileDepth: number
 }
 
 export function parseAtlasContext(context = '') {
@@ -177,6 +210,141 @@ export function buildAtlasRecoveryPerformance(events: AtlasAnalyticsEvent[]) {
   return {
     rows,
     recoverySessions: Array.from(sessions.values()).filter((session) => session.shown.size || session.accepted).length,
+    unattributedEvents,
+  }
+}
+
+function parseReasonTypes(value = '') {
+  return value.split('|').map((item) => item.trim()).filter(Boolean)
+}
+
+function parseRelatedShownItems(item = '', fallbackReasonTypes: string[] = []) {
+  return item.split(',').map((entry) => {
+    const [targetSlug = '', positionRaw = '0', , reasonsRaw = ''] = entry.split('~')
+    return {
+      targetSlug,
+      position: Number(positionRaw) || 0,
+      reasonTypes: parseReasonTypes(reasonsRaw).length ? parseReasonTypes(reasonsRaw) : fallbackReasonTypes,
+    }
+  }).filter((entry) => entry.targetSlug)
+}
+
+export function buildRelatedBotanicalPerformance(events: AtlasAnalyticsEvent[]) {
+  const exposures = new Map<string, RelatedExposure>()
+  const clicks = new Map<string, RelatedClick>()
+  let unattributedEvents = 0
+
+  events.forEach((event) => {
+    if (event.type !== 'related_botanicals_shown' && event.type !== 'related_botanical_click') return
+    const values = parseAtlasContext(event.context)
+    const sessionId = values.get('session')
+    const sourceSlug = event.slug || 'unknown'
+    if (!sessionId) {
+      unattributedEvents += 1
+      return
+    }
+
+    if (event.type === 'related_botanicals_shown') {
+      const fallbackReasonTypes = parseReasonTypes(values.get('reason_types'))
+      parseRelatedShownItems(event.item, fallbackReasonTypes).forEach((item) => {
+        const key = `${sessionId}|${sourceSlug}|${item.targetSlug}`
+        if (!exposures.has(key)) exposures.set(key, { sessionId, sourceSlug, ...item })
+      })
+      return
+    }
+
+    const targetSlug = event.item || 'unknown'
+    const key = `${sessionId}|${sourceSlug}|${targetSlug}`
+    const click: RelatedClick = {
+      sessionId,
+      sourceSlug,
+      targetSlug,
+      position: Number(values.get('position') ?? 0) || 0,
+      reasonTypes: parseReasonTypes(values.get('reason_types')),
+      profileDepth: Number(values.get('profile_depth') ?? 0) || 0,
+    }
+    const prior = clicks.get(key)
+    if (!prior || click.profileDepth > prior.profileDepth) clicks.set(key, click)
+  })
+
+  const cardStats = new Map<string, {
+    sourceSlug: string
+    targetSlug: string
+    position: number
+    impressions: number
+    clicks: number
+    clickDepthTotal: number
+    deepClicks: number
+  }>()
+
+  exposures.forEach((exposure, key) => {
+    const groupKey = `${exposure.sourceSlug}|${exposure.targetSlug}|${exposure.position}`
+    const current = cardStats.get(groupKey) ?? {
+      sourceSlug: exposure.sourceSlug,
+      targetSlug: exposure.targetSlug,
+      position: exposure.position,
+      impressions: 0,
+      clicks: 0,
+      clickDepthTotal: 0,
+      deepClicks: 0,
+    }
+    current.impressions += 1
+    const click = clicks.get(key)
+    if (click) {
+      current.clicks += 1
+      current.clickDepthTotal += click.profileDepth
+      if (click.profileDepth >= 3) current.deepClicks += 1
+    }
+    cardStats.set(groupKey, current)
+  })
+
+  const cardRows: RelatedBotanicalCardPerformanceRow[] = Array.from(cardStats.values()).map((values) => ({
+    sourceSlug: values.sourceSlug,
+    targetSlug: values.targetSlug,
+    position: values.position,
+    impressions: values.impressions,
+    clicks: values.clicks,
+    ctr: values.impressions ? values.clicks / values.impressions : 0,
+    averageClickDepth: values.clicks ? values.clickDepthTotal / values.clicks : 0,
+    deepExplorationRate: values.clicks ? values.deepClicks / values.clicks : 0,
+  })).sort((a, b) => b.deepExplorationRate - a.deepExplorationRate
+    || b.ctr - a.ctr
+    || b.impressions - a.impressions
+    || a.sourceSlug.localeCompare(b.sourceSlug)
+    || a.targetSlug.localeCompare(b.targetSlug))
+
+  const reasonStats = new Map<string, { impressions: number; clicks: number; clickDepthTotal: number; deepClicks: number }>()
+  exposures.forEach((exposure, key) => {
+    const click = clicks.get(key)
+    Array.from(new Set(exposure.reasonTypes)).forEach((reasonType) => {
+      const current = reasonStats.get(reasonType) ?? { impressions: 0, clicks: 0, clickDepthTotal: 0, deepClicks: 0 }
+      current.impressions += 1
+      if (click) {
+        current.clicks += 1
+        current.clickDepthTotal += click.profileDepth
+        if (click.profileDepth >= 3) current.deepClicks += 1
+      }
+      reasonStats.set(reasonType, current)
+    })
+  })
+
+  const reasonRows: RelatedBotanicalReasonPerformanceRow[] = Array.from(reasonStats.entries()).map(([reasonType, values]) => ({
+    reasonType,
+    impressions: values.impressions,
+    clicks: values.clicks,
+    ctr: values.impressions ? values.clicks / values.impressions : 0,
+    averageClickDepth: values.clicks ? values.clickDepthTotal / values.clicks : 0,
+    deepExplorationRate: values.clicks ? values.deepClicks / values.clicks : 0,
+  })).sort((a, b) => b.deepExplorationRate - a.deepExplorationRate
+    || b.ctr - a.ctr
+    || b.impressions - a.impressions
+    || a.reasonType.localeCompare(b.reasonType))
+
+  return {
+    cardRows,
+    reasonRows,
+    attributedImpressions: exposures.size,
+    attributedClicks: clicks.size,
     unattributedEvents,
   }
 }
