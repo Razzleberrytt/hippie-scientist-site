@@ -16,7 +16,7 @@ export type ComparisonShortlistRow = {
 const GENERIC_EFFECTS = new Set(['antioxidant', 'tonic'])
 
 function normalize(value = '') {
-  return value.trim().toLowerCase()
+  return value.trim().toLowerCase().replace(/\s+/g, ' ')
 }
 
 export function evidenceTier(value = '') {
@@ -32,13 +32,27 @@ function pairKey(a: string, b: string) {
   return [a, b].sort().join('::')
 }
 
+export function isAliasPair(a: RelatedBotanicalRecord, b: RelatedBotanicalRecord) {
+  const aName = normalize(a.name)
+  const bName = normalize(b.name)
+  const aScientific = normalize(a.scientificName)
+  const bScientific = normalize(b.scientificName)
+
+  if (aName && aName === bName) return true
+  if (aScientific && bScientific && aScientific === bScientific) return true
+  if (aScientific && aScientific === bName) return true
+  if (bScientific && bScientific === aName) return true
+
+  return false
+}
+
 export function buildComparisonShortlist(records: RelatedBotanicalRecord[], limit = 30) {
   const seen = new Set<string>()
   const rows: ComparisonShortlistRow[] = []
 
   for (const a of records) {
     for (const b of records) {
-      if (a.slug === b.slug) continue
+      if (a.slug === b.slug || isAliasPair(a, b)) continue
       const key = pairKey(a.slug, b.slug)
       if (seen.has(key)) continue
       seen.add(key)
