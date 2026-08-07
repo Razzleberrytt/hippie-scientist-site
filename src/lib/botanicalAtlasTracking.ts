@@ -1,4 +1,4 @@
-import { appendAnalyticsEvent } from '@/utils/analytics/eventStorage'
+import { appendAnalyticsEvent } from '@/lib/analyticsEventStorage'
 import type { AtlasRecoveryAction, AtlasRecoverySuggestion } from '@/lib/botanical-atlas-recovery'
 
 type AtlasFilterName = 'search' | 'effect' | 'chemistry' | 'evidence' | 'noticeability' | 'safety'
