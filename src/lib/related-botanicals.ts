@@ -81,9 +81,17 @@ function overlapReason(
 
 function isSameBotanical(source: RelatedBotanicalRecord, candidate: RelatedBotanicalRecord) {
   if (source.slug === candidate.slug) return true
+
+  const sourceName = normalizedText(source.name)
+  const candidateName = normalizedText(candidate.name)
   const sourceScientific = normalizedText(source.scientificName)
   const candidateScientific = normalizedText(candidate.scientificName)
-  return Boolean(sourceScientific && candidateScientific && sourceScientific === candidateScientific)
+
+  if (sourceScientific && candidateScientific && sourceScientific === candidateScientific) return true
+  if (sourceScientific && sourceScientific === candidateName) return true
+  if (candidateScientific && candidateScientific === sourceName) return true
+
+  return false
 }
 
 export function scoreRelatedBotanical(
