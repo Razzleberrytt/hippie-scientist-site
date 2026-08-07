@@ -33,6 +33,8 @@ export default function CompareHubAnalytics() {
   const pathname = usePathname()
 
   useEffect(() => {
+    if (!pathname) return
+
     const isHub = pathname === '/guides/compare' || pathname === '/guides/compare/'
     const pageSlug = comparisonPageSlug(pathname)
 
