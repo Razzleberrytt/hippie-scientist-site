@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildComparisonShortlist, evidenceTier } from '@/lib/comparison-shortlist'
+import { buildComparisonShortlist, evidenceTier, isAliasPair } from '@/lib/comparison-shortlist'
 import type { RelatedBotanicalRecord } from '@/lib/related-botanicals'
 
 const herb = (slug: string, overrides: Partial<RelatedBotanicalRecord> = {}): RelatedBotanicalRecord => ({
@@ -34,6 +34,20 @@ describe('comparison shortlist', () => {
     const lemonPairs = rows.filter((row) => row.a.slug === 'lemon-balm' || row.b.slug === 'lemon-balm')
     const keys = lemonPairs.map((row) => [row.a.slug, row.b.slug].sort().join('::'))
     expect(new Set(keys).size).toBe(keys.length)
+  })
+
+  it('filters scientific-name aliases and common-name to Latin-name duplicates', () => {
+    const astragalus = herb('astragalus', { name: 'Astragalus', scientificName: 'Astragalus membranaceus' })
+    const astragalusLatin = herb('astragalus-membranaceus', { name: 'Astragalus Membranaceus' })
+    const phellodendron = herb('phellodendron', { name: 'Phellodendron', scientificName: 'Phellodendron amurense' })
+    const phellodendronLatin = herb('phellodendron-amurense', { name: 'Phellodendron Amurense' })
+
+    expect(isAliasPair(astragalus, astragalusLatin)).toBe(true)
+    expect(isAliasPair(phellodendron, phellodendronLatin)).toBe(true)
+
+    const rows = buildComparisonShortlist([astragalus, astragalusLatin, phellodendron, phellodendronLatin], 20)
+    expect(rows.some((row) => new Set([row.a.slug, row.b.slug]).has('astragalus') && new Set([row.a.slug, row.b.slug]).has('astragalus-membranaceus'))).toBe(false)
+    expect(rows.some((row) => new Set([row.a.slug, row.b.slug]).has('phellodendron') && new Set([row.a.slug, row.b.slug]).has('phellodendron-amurense'))).toBe(false)
   })
 
   it('prioritizes chemistry-supported, better-evidenced candidates', () => {
