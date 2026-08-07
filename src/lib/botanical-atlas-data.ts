@@ -100,9 +100,9 @@ export const toAtlasRecord = (herb: RuntimeRecord): BotanicalAtlasRecord => {
 }
 
 export async function getBotanicalAtlasRecords(): Promise<BotanicalAtlasRecord[]> {
-  const rawHerbs = await getHerbs()
+  const rawHerbs: RuntimeRecord[] = await getHerbs()
   return rawHerbs
-    .filter((herb: RuntimeRecord) => {
+    .filter((herb) => {
       try {
         return getRuntimeVisibility(herb).canRender
       } catch {

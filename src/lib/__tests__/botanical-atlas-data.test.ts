@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { toAtlasRecord } from '@/lib/botanical-atlas-data'
 import type { RuntimeRecord } from '@/types/content'
 
-const record = (overrides: Partial<RuntimeRecord>): RuntimeRecord => ({
+const record = (overrides: Record<string, unknown>): RuntimeRecord => ({
   slug: 'test-herb',
   name: 'Test Herb',
   ...overrides,

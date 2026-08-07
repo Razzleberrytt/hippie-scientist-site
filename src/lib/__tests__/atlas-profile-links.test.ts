@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { getAtlasProfileLinks } from '@/lib/atlas-profile-links'
 import type { RuntimeRecord } from '@/types/content'
 
-const record = (overrides: Partial<RuntimeRecord>): RuntimeRecord => ({
+const record = (overrides: Record<string, unknown>): RuntimeRecord => ({
   slug: 'example-herb',
   name: 'Example Herb',
   ...overrides,
