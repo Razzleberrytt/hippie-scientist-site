@@ -34,10 +34,21 @@ export const BUILT_COMPARE_SLUGS = [
 
 const validSlugs = new Set<string>(BUILT_COMPARE_SLUGS)
 
+const COMPARISON_ENTITY_ALIASES: Record<string, string> = {
+  'panax-quinquefolius': 'american-ginseng',
+  'panax-ginseng': 'asian-ginseng',
+}
+
+function comparisonEntitySlug(slug: string) {
+  return COMPARISON_ENTITY_ALIASES[slug] ?? slug
+}
+
 export function getValidComparisonSlug(a: string, b: string): string | undefined {
-  const slug1 = `${a}-vs-${b}`
+  const normalizedA = comparisonEntitySlug(a)
+  const normalizedB = comparisonEntitySlug(b)
+  const slug1 = `${normalizedA}-vs-${normalizedB}`
   if (validSlugs.has(slug1)) return slug1
-  const slug2 = `${b}-vs-${a}`
+  const slug2 = `${normalizedB}-vs-${normalizedA}`
   if (validSlugs.has(slug2)) return slug2
   return undefined
 }
