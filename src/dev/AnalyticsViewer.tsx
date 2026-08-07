@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { buildAtlasRecoveryPerformance, buildAtlasSourcePerformance, buildRelatedBotanicalPerformance } from '@/lib/atlasAnalyticsReport'
 import { buildCompareHubPerformance } from '@/lib/compareHubAnalyticsReport'
+import ComparisonOutcomeAnalyticsPanel from '@/dev/ComparisonOutcomeAnalyticsPanel'
 import { readAnalyticsEvents, type StoredAnalyticsEvent } from '@/utils/analytics/eventStorage'
 
 type GroupRow = { label: string; count: number }
@@ -78,6 +79,8 @@ export default function AnalyticsViewer() {
       <h4 className='mt-3 text-xs font-semibold uppercase tracking-wide text-white/80'>Top comparison destinations</h4>
       {compareHubReport.routeRows.length === 0 ? <p className='mt-1 text-xs text-white/60'>No comparison clicks yet.</p> : <div className='mt-1 overflow-x-auto'><table className='min-w-full text-xs'><thead><tr className='text-left text-white/65'><th className='pr-3 font-medium'>Destination</th><th className='font-medium'>Clicks</th></tr></thead><tbody>{compareHubReport.routeRows.slice(0, 12).map(row => <tr key={row.href} className='border-t border-white/10'><td className='py-1.5 pr-3 text-white/90'>{row.label}</td><td className='py-1.5 text-white/80'>{row.clicks}</td></tr>)}</tbody></table></div>}
     </section>
+
+    <ComparisonOutcomeAnalyticsPanel events={events} />
 
     <p className='mt-3 text-xs text-white/75'>Total affiliate clicks: {clickEvents.length}</p>
     <div className='mt-3 space-y-3'><Table title='Clicks by herb' rows={byHerb} /><Table title='Clicks by product' rows={byProduct} /><Table title='Clicks by position' rows={byPosition} /><Table title='Clicks by use-case anchor' rows={byUseCaseAnchor} /></div>
