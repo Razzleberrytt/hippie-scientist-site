@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildComparisonShortlist, evidenceTier, isAliasPair } from '@/lib/comparison-shortlist'
+import { buildComparisonShortlist, evidenceTier, isAliasPair, scoreComparisonIntent } from '@/lib/comparison-shortlist'
 import type { RelatedBotanicalRecord } from '@/lib/related-botanicals'
 
 const herb = (slug: string, overrides: Partial<RelatedBotanicalRecord> = {}): RelatedBotanicalRecord => ({
@@ -85,5 +85,30 @@ describe('comparison shortlist', () => {
     expect(effectPair).toBeTruthy()
     expect(chemistryPair!.chemistrySupported).toBe(true)
     expect(chemistryPair!.priorityScore).toBeGreaterThan(effectPair!.priorityScore)
+  })
+
+  it('boosts shared user goals and penalizes chemistry-only editorial candidates', () => {
+    const goalA = herb('goal-a', { explicitEffects: ['energy', 'focus'] })
+    const goalB = herb('goal-b', { explicitEffects: ['energy', 'focus'] })
+    const chemistryA = herb('chem-a', { explicitEffects: ['digestion'], compoundClasses: ['alkaloid'] })
+    const chemistryB = herb('chem-b', { explicitEffects: ['circulation'], compoundClasses: ['alkaloid'] })
+
+    const goalIntent = scoreComparisonIntent(goalA, goalB, false, ['energy', 'focus'])
+    const chemistryIntent = scoreComparisonIntent(chemistryA, chemistryB, true, [])
+
+    expect(goalIntent.score).toBeGreaterThan(0)
+    expect(chemistryIntent.score).toBeLessThan(0)
+    expect(goalIntent.signals.some((signal) => signal.label.startsWith('Shared user goal'))).toBe(true)
+    expect(chemistryIntent.signals.some((signal) => signal.label === 'Chemistry-only editorial penalty')).toBe(true)
+  })
+
+  it('recognizes familiar shared compounds as useful comparison anchors', () => {
+    const guarana = herb('guarana', { compounds: ['Caffeine', 'theobromine'], explicitEffects: ['energy'] })
+    const guayusa = herb('guayusa', { compounds: ['caffeine'], explicitEffects: ['energy'] })
+
+    const intent = scoreComparisonIntent(guarana, guayusa, true, ['energy'])
+
+    expect(intent.score).toBeGreaterThan(0)
+    expect(intent.signals.some((signal) => signal.label.includes('Recognizable shared compound'))).toBe(true)
   })
 })
