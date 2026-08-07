@@ -16,12 +16,14 @@
  * `getBuiltCompareSlugs()`), so add the slug here when you add a compare page.
  */
 export const BUILT_COMPARE_SLUGS = [
+  'american-ginseng-vs-asian-ginseng',
   'ashwagandha-vs-l-theanine-vs-magnesium',
   'berberine-vs-inositol',
   'berberine-vs-metformin',
   'caffeine-vs-l-theanine',
   'caffeine-vs-l-theanine-vs-bacopa-for-focus',
   'curcumin-vs-boswellia-vs-omega-3',
+  'guarana-vs-yerba-mate',
   'kanna-vs-ssris',
   'kava-vs-alcohol',
   'melatonin-vs-magnesium',
