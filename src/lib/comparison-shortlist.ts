@@ -1,19 +1,38 @@
 import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { scoreRelatedBotanical, type RelatedBotanicalRecord, type RelatedBotanicalReason } from '@/lib/related-botanicals'
 
+export type ComparisonIntentSignal = {
+  label: string
+  score: number
+}
+
 export type ComparisonShortlistRow = {
   a: RelatedBotanicalRecord
   b: RelatedBotanicalRecord
   relationshipScore: number
+  scientificPriorityScore: number
+  editorialIntentScore: number
   priorityScore: number
   chemistrySupported: boolean
   sharedSpecificEffects: string[]
   evidenceTier: number
   evidenceLabel: string
+  intentSignals: ComparisonIntentSignal[]
   reasons: RelatedBotanicalReason[]
 }
 
 const GENERIC_EFFECTS = new Set(['antioxidant', 'tonic'])
+const RECOGNIZABLE_DECISION_COMPOUNDS = new Set([
+  'berberine',
+  'caffeine',
+  'carvacrol',
+  'curcumin',
+  'ginsenoside rb1',
+  'ginsenoside rg1',
+  'melatonin',
+  'theobromine',
+  'thymol',
+])
 
 function normalize(value = '') {
   return value
@@ -70,16 +89,55 @@ export function isAliasPair(a: RelatedBotanicalRecord, b: RelatedBotanicalRecord
   if (aScientific && aScientific === bName) return true
   if (bScientific && bScientific === aName) return true
 
-  // Runtime data sometimes drops scientificName on one duplicate record. Catch the
-  // common genus-only/common-name record paired with its explicit Latin species row.
   if (isGenusVsSpeciesName(aName, bName)) return true
-
-  // Parenthetical/binomial display names such as "Turmeric (Curcuma longa)" should
-  // collapse against a row explicitly named "Curcuma longa" when present.
   if (containsIdentityName(a.name, bScientific || b.name) && tokens(bScientific || b.name).length >= 2) return true
   if (containsIdentityName(b.name, aScientific || a.name) && tokens(aScientific || a.name).length >= 2) return true
 
   return false
+}
+
+function sharedNormalized(left: string[] = [], right: string[] = []) {
+  const rightSet = new Set(right.map(normalize).filter(Boolean))
+  return left.map((value) => ({ normalized: normalize(value), display: value }))
+    .filter(({ normalized }) => normalized && rightSet.has(normalized))
+}
+
+export function scoreComparisonIntent(
+  a: RelatedBotanicalRecord,
+  b: RelatedBotanicalRecord,
+  chemistrySupported: boolean,
+  sharedSpecificEffects: string[],
+): { score: number; signals: ComparisonIntentSignal[] } {
+  const signals: ComparisonIntentSignal[] = []
+
+  if (sharedSpecificEffects.length) {
+    signals.push({
+      label: `Shared user goal (${sharedSpecificEffects.slice(0, 3).join(', ')})`,
+      score: Math.min(sharedSpecificEffects.length, 3) * 2,
+    })
+  }
+
+  const recognizableCompounds = sharedNormalized(a.compounds, b.compounds)
+    .filter(({ normalized }) => RECOGNIZABLE_DECISION_COMPOUNDS.has(normalized))
+  if (recognizableCompounds.length) {
+    signals.push({
+      label: `Recognizable shared compound (${recognizableCompounds.slice(0, 2).map(({ display }) => display).join(', ')})`,
+      score: Math.min(recognizableCompounds.length, 2) * 2,
+    })
+  }
+
+  const bothHaveSpecificEffects = (a.explicitEffects ?? a.effects).some((value) => !GENERIC_EFFECTS.has(normalize(value)))
+    && (b.explicitEffects ?? b.effects).some((value) => !GENERIC_EFFECTS.has(normalize(value)))
+  if (bothHaveSpecificEffects && sharedSpecificEffects.length) {
+    signals.push({ label: 'Both records have user-facing effect context', score: 1 })
+  }
+
+  if (chemistrySupported && sharedSpecificEffects.length === 0) {
+    signals.push({ label: 'Chemistry-only editorial penalty', score: -4 })
+  }
+
+  const score = signals.reduce((sum, signal) => sum + signal.score, 0)
+  return { score, signals }
 }
 
 export function buildComparisonShortlist(records: RelatedBotanicalRecord[], limit = 30) {
@@ -102,20 +160,25 @@ export function buildComparisonShortlist(records: RelatedBotanicalRecord[], limi
         .find((reason) => reason.type === 'explicit-effect')?.values
         .filter((value) => !GENERIC_EFFECTS.has(normalize(value))) ?? []
       const tier = Math.min(evidenceTier(a.evidence), evidenceTier(b.evidence))
-      const priorityScore = match.score
+      const scientificPriorityScore = match.score
         + (chemistrySupported ? 4 : 0)
         + tier * 2
         + Math.min(sharedSpecificEffects.length, 3)
+      const intent = scoreComparisonIntent(a, b, chemistrySupported, sharedSpecificEffects)
+      const priorityScore = scientificPriorityScore + intent.score
 
       rows.push({
         a,
         b,
         relationshipScore: match.score,
+        scientificPriorityScore: Number(scientificPriorityScore.toFixed(4)),
+        editorialIntentScore: Number(intent.score.toFixed(4)),
         priorityScore: Number(priorityScore.toFixed(4)),
         chemistrySupported,
         sharedSpecificEffects,
         evidenceTier: tier,
         evidenceLabel: tier === 3 ? 'strong' : tier === 2 ? 'moderate' : tier === 1 ? 'limited' : 'unclassified',
+        intentSignals: intent.signals,
         reasons: match.reasons,
       })
     }
@@ -123,6 +186,8 @@ export function buildComparisonShortlist(records: RelatedBotanicalRecord[], limi
 
   return rows
     .sort((x, y) => y.priorityScore - x.priorityScore
+      || y.editorialIntentScore - x.editorialIntentScore
+      || y.scientificPriorityScore - x.scientificPriorityScore
       || y.relationshipScore - x.relationshipScore
       || x.a.name.localeCompare(y.a.name)
       || x.b.name.localeCompare(y.b.name))
