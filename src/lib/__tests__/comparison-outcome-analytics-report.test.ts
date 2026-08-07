@@ -43,6 +43,36 @@ describe('comparison outcome analytics report', () => {
     ]))
   })
 
+  it('attributes continuation behavior to the hub source and category that opened the comparison', () => {
+    const report = buildComparisonOutcomePerformance([
+      { type: 'comparison_page_viewed', slug: 'coffee-vs-green-tea', context: 'session:s1;entry_source:featured_category;entry_category:Energy & focus;entry_label:Coffee vs Green Tea' },
+      { type: 'comparison_page_viewed', slug: 'coffee-vs-green-tea', context: 'session:s2;entry_source:goal_starter;entry_category:none;entry_label:Compare Coffee & Green Tea' },
+      { type: 'comparison_outcome_click', slug: 'coffee-vs-green-tea', item: '/herbs/coffea-arabica/', context: 'session:s1;outcome:herb_profile' },
+      { type: 'comparison_outcome_click', slug: 'coffee-vs-green-tea', item: '#references', context: 'session:s2;outcome:reference' },
+    ])
+
+    expect(report.journeyRows).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        pageSlug: 'coffee-vs-green-tea',
+        entrySource: 'featured_category',
+        entryCategory: 'Energy & focus',
+        views: 1,
+        engagedSessions: 1,
+        continuationRate: 1,
+        topOutcome: 'herb_profile',
+      }),
+      expect.objectContaining({
+        pageSlug: 'coffee-vs-green-tea',
+        entrySource: 'goal_starter',
+        entryCategory: 'none',
+        views: 1,
+        engagedSessions: 1,
+        continuationRate: 1,
+        topOutcome: 'reference',
+      }),
+    ]))
+  })
+
   it('excludes events without a session id', () => {
     const report = buildComparisonOutcomePerformance([
       { type: 'comparison_page_viewed', slug: 'a-vs-b', context: '' },
