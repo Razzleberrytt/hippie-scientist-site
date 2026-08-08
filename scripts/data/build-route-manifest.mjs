@@ -173,6 +173,7 @@ async function main() {
     routeEntry('/compare', 'static'),
     routeEntry('/goals', 'static'),
     routeEntry('/stacks', 'static'),
+    routeEntry('/tools/botanical-activity-atlas', 'static'),
   ].map(entry => ({
     ...entry,
     meta_title: entry.route === '/' ? 'The Hippie Scientist' : '',
