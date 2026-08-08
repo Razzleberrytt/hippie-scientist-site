@@ -1,4 +1,5 @@
 export type ObservedDemandTier = 'high-confidence' | 'promising' | 'emerging' | 'insufficient'
+export type EditorialQueueAction = 'build-next' | 'research-first' | 'validate-and-outline' | 'keep-observing' | 'no-action'
 
 export type ObservedDemandInput = {
   impressions: number
@@ -24,4 +25,14 @@ export function observedDemandRank(tier: ObservedDemandTier) {
   if (tier === 'promising') return 2
   if (tier === 'emerging') return 1
   return 0
+}
+
+export function recommendEditorialAction(
+  demandTier: ObservedDemandTier,
+  evidenceTier: number,
+): EditorialQueueAction {
+  if (demandTier === 'high-confidence') return evidenceTier >= 2 ? 'build-next' : 'research-first'
+  if (demandTier === 'promising') return evidenceTier >= 2 ? 'validate-and-outline' : 'research-first'
+  if (demandTier === 'emerging') return 'keep-observing'
+  return 'no-action'
 }
