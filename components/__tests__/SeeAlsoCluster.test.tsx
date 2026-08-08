@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
 import SeeAlsoCluster from '../SeeAlsoCluster'
 
@@ -39,9 +39,12 @@ describe('SeeAlsoCluster', () => {
     expect(screen.queryByRole('link', { name: /^Bacopa$/ })).toBeNull()
   })
 
-  it('respects the limit prop on the number of peer entries shown', async () => {
+  it('respects the limit prop on the number of semantic-cluster peer entries shown', async () => {
     await renderCluster({ slug: 'bacopa', kind: 'herb', limit: 1 })
-    const peerLinks = screen.getAllByRole('link').filter((link) => !/Full guide|guide →/.test(link.textContent || ''))
+    const clusterRegion = screen.getByRole('region', { name: 'Also in this cluster' })
+    const peerLinks = within(clusterRegion)
+      .getAllByRole('link')
+      .filter((link) => !/Full guide|guide →/.test(link.textContent || ''))
     expect(peerLinks.length).toBeLessThanOrEqual(1)
   })
 })
