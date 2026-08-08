@@ -1,8 +1,14 @@
 import { getValidComparisonSlug } from '@/lib/comparison-utils'
 import { isSameComparisonIdentity } from '@/lib/comparison-identity-groups'
+import type { RelatedBotanicalCardPerformanceRow } from '@/lib/atlasAnalyticsReport'
 import { scoreRelatedBotanical, type RelatedBotanicalRecord, type RelatedBotanicalReason } from '@/lib/related-botanicals'
 
 export type ComparisonIntentSignal = {
+  label: string
+  score: number
+}
+
+export type ComparisonBehaviorSignal = {
   label: string
   score: number
 }
@@ -13,12 +19,20 @@ export type ComparisonShortlistRow = {
   relationshipScore: number
   scientificPriorityScore: number
   editorialIntentScore: number
+  observedBehaviorScore: number
   priorityScore: number
   chemistrySupported: boolean
   sharedSpecificEffects: string[]
   evidenceTier: number
   evidenceLabel: string
   intentSignals: ComparisonIntentSignal[]
+  behaviorSignals: ComparisonBehaviorSignal[]
+  observedBehavior: {
+    impressions: number
+    clicks: number
+    ctr: number
+    deepExplorationRate: number
+  }
   reasons: RelatedBotanicalReason[]
 }
 
@@ -143,7 +157,67 @@ export function scoreComparisonIntent(
   return { score, signals }
 }
 
-export function buildComparisonShortlist(records: RelatedBotanicalRecord[], limit = 30) {
+export function scoreObservedComparisonBehavior(
+  aSlug: string,
+  bSlug: string,
+  rows: RelatedBotanicalCardPerformanceRow[] = [],
+): {
+  score: number
+  signals: ComparisonBehaviorSignal[]
+  impressions: number
+  clicks: number
+  ctr: number
+  deepExplorationRate: number
+} {
+  const pairRows = rows.filter((row) =>
+    (row.sourceSlug === aSlug && row.targetSlug === bSlug)
+    || (row.sourceSlug === bSlug && row.targetSlug === aSlug),
+  )
+  if (!pairRows.length) {
+    return { score: 0, signals: [], impressions: 0, clicks: 0, ctr: 0, deepExplorationRate: 0 }
+  }
+
+  const impressions = pairRows.reduce((sum, row) => sum + row.impressions, 0)
+  const clicks = pairRows.reduce((sum, row) => sum + row.clicks, 0)
+  const ctr = impressions ? clicks / impressions : 0
+  const deepClicks = pairRows.reduce((sum, row) => sum + row.deepExplorationRate * row.clicks, 0)
+  const deepExplorationRate = clicks ? deepClicks / clicks : 0
+
+  // Shrink low-sample CTR toward zero so one lucky click cannot dominate the queue.
+  const confidence = impressions / (impressions + 8)
+  const demandScore = confidence * ctr * 8
+  const depthScore = confidence * deepExplorationRate * 3
+  const clickScore = Math.min(clicks, 4) * 0.75
+  const exposureScore = Math.min(Math.log2(impressions + 1), 3) * 0.25
+  const score = demandScore + depthScore + clickScore + exposureScore
+
+  const signals: ComparisonBehaviorSignal[] = []
+  signals.push({
+    label: `Observed related-card demand (${clicks}/${impressions} clicks, ${Math.round(ctr * 100)}% CTR)`,
+    score: Number((demandScore + clickScore + exposureScore).toFixed(4)),
+  })
+  if (clicks > 0) {
+    signals.push({
+      label: `Post-click research depth (${Math.round(deepExplorationRate * 100)}% reached depth 3+)`,
+      score: Number(depthScore.toFixed(4)),
+    })
+  }
+
+  return {
+    score: Number(score.toFixed(4)),
+    signals,
+    impressions,
+    clicks,
+    ctr,
+    deepExplorationRate,
+  }
+}
+
+export function buildComparisonShortlist(
+  records: RelatedBotanicalRecord[],
+  limit = 30,
+  behaviorRows: RelatedBotanicalCardPerformanceRow[] = [],
+) {
   const seen = new Set<string>()
   const rows: ComparisonShortlistRow[] = []
 
@@ -168,7 +242,8 @@ export function buildComparisonShortlist(records: RelatedBotanicalRecord[], limi
         + tier * 2
         + Math.min(sharedSpecificEffects.length, 3)
       const intent = scoreComparisonIntent(a, b, chemistrySupported, sharedSpecificEffects)
-      const priorityScore = scientificPriorityScore + intent.score
+      const behavior = scoreObservedComparisonBehavior(a.slug, b.slug, behaviorRows)
+      const priorityScore = scientificPriorityScore + intent.score + behavior.score
 
       rows.push({
         a,
@@ -176,12 +251,20 @@ export function buildComparisonShortlist(records: RelatedBotanicalRecord[], limi
         relationshipScore: match.score,
         scientificPriorityScore: Number(scientificPriorityScore.toFixed(4)),
         editorialIntentScore: Number(intent.score.toFixed(4)),
+        observedBehaviorScore: behavior.score,
         priorityScore: Number(priorityScore.toFixed(4)),
         chemistrySupported,
         sharedSpecificEffects,
         evidenceTier: tier,
         evidenceLabel: tier === 3 ? 'strong' : tier === 2 ? 'moderate' : tier === 1 ? 'limited' : 'unclassified',
         intentSignals: intent.signals,
+        behaviorSignals: behavior.signals,
+        observedBehavior: {
+          impressions: behavior.impressions,
+          clicks: behavior.clicks,
+          ctr: behavior.ctr,
+          deepExplorationRate: behavior.deepExplorationRate,
+        },
         reasons: match.reasons,
       })
     }
@@ -189,6 +272,7 @@ export function buildComparisonShortlist(records: RelatedBotanicalRecord[], limi
 
   return rows
     .sort((x, y) => y.priorityScore - x.priorityScore
+      || y.observedBehaviorScore - x.observedBehaviorScore
       || y.editorialIntentScore - x.editorialIntentScore
       || y.scientificPriorityScore - x.scientificPriorityScore
       || y.relationshipScore - x.relationshipScore
