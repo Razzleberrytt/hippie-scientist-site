@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest'
-import { buildComparisonShortlist, evidenceTier, isAliasPair, scoreComparisonIntent } from '@/lib/comparison-shortlist'
+import {
+  buildComparisonShortlist,
+  evidenceTier,
+  isAliasPair,
+  scoreComparisonIntent,
+  scoreObservedComparisonBehavior,
+} from '@/lib/comparison-shortlist'
 import type { RelatedBotanicalRecord } from '@/lib/related-botanicals'
 
 const herb = (slug: string, overrides: Partial<RelatedBotanicalRecord> = {}): RelatedBotanicalRecord => ({
@@ -118,5 +124,38 @@ describe('comparison shortlist', () => {
 
     expect(intent.score).toBeGreaterThan(0)
     expect(intent.signals.some((signal) => signal.label.includes('Recognizable shared compound'))).toBe(true)
+  })
+
+  it('turns related-card demand into a confidence-weighted observed behavior score', () => {
+    const sparse = scoreObservedComparisonBehavior('alpha', 'beta', [
+      { sourceSlug: 'alpha', targetSlug: 'beta', position: 1, impressions: 1, clicks: 1, ctr: 1, averageClickDepth: 3, deepExplorationRate: 1 },
+    ])
+    const established = scoreObservedComparisonBehavior('alpha', 'beta', [
+      { sourceSlug: 'alpha', targetSlug: 'beta', position: 1, impressions: 20, clicks: 8, ctr: 0.4, averageClickDepth: 3.2, deepExplorationRate: 0.75 },
+    ])
+
+    expect(sparse.score).toBeGreaterThan(0)
+    expect(established.score).toBeGreaterThan(sparse.score)
+    expect(established.signals.some((signal) => signal.label.startsWith('Observed related-card demand'))).toBe(true)
+  })
+
+  it('uses observed behavior to break otherwise similar shortlist candidates', () => {
+    const source = herb('behavior-source', { explicitEffects: ['calming', 'sleep'] })
+    const demanded = herb('behavior-demanded', { explicitEffects: ['calming', 'sleep'] })
+    const quiet = herb('behavior-quiet', { explicitEffects: ['calming', 'sleep'] })
+
+    const rows = buildComparisonShortlist([source, demanded, quiet], 20, [
+      { sourceSlug: 'behavior-source', targetSlug: 'behavior-demanded', position: 1, impressions: 24, clicks: 9, ctr: 0.375, averageClickDepth: 3.1, deepExplorationRate: 0.78 },
+      { sourceSlug: 'behavior-demanded', targetSlug: 'behavior-source', position: 2, impressions: 12, clicks: 4, ctr: 0.333, averageClickDepth: 2.8, deepExplorationRate: 0.5 },
+      { sourceSlug: 'behavior-source', targetSlug: 'behavior-quiet', position: 1, impressions: 24, clicks: 1, ctr: 0.042, averageClickDepth: 2, deepExplorationRate: 0 },
+    ])
+
+    const demandedPair = rows.find((row) => [row.a.slug, row.b.slug].includes('behavior-source') && [row.a.slug, row.b.slug].includes('behavior-demanded'))
+    const quietPair = rows.find((row) => [row.a.slug, row.b.slug].includes('behavior-source') && [row.a.slug, row.b.slug].includes('behavior-quiet'))
+
+    expect(demandedPair).toBeTruthy()
+    expect(quietPair).toBeTruthy()
+    expect(demandedPair!.observedBehaviorScore).toBeGreaterThan(quietPair!.observedBehaviorScore)
+    expect(demandedPair!.priorityScore).toBeGreaterThan(quietPair!.priorityScore)
   })
 })
