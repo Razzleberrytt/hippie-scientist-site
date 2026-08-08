@@ -308,7 +308,7 @@ export default function BestNootropicsForFocusPage() {
             <Link href="/guides/focus/" className="text-brand-700 hover:underline">
               Focus evidence hub →
             </Link>
-            <Link href="/guides/focus-without-caffeine-crash/" className="text-brand-700 hover:underline">
+            <Link href="/guides/focus/focus-without-caffeine-crash/" className="text-brand-700 hover:underline">
               Caffeine-crash alternatives →
             </Link>
             <Link href="/guides/adhd/adhd-supplements/" className="text-brand-700 hover:underline">
@@ -537,9 +537,9 @@ export default function BestNootropicsForFocusPage() {
 
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
           <Link href="/guides/focus/" className="hover:text-brand-800">Focus goal hub →</Link>
-          <Link href="/guides/focus-without-caffeine-crash/" className="hover:text-brand-800">Focus Without the Caffeine Crash →</Link>
+          <Link href="/guides/focus/focus-without-caffeine-crash/" className="hover:text-brand-800">Focus Without the Caffeine Crash →</Link>
           <Link href="/guides/adhd/adhd-supplements/" className="hover:text-brand-800">ADHD Supplements Hub →</Link>
-          <Link href="/guides/supplements-for-brain-fog-and-fatigue/" className="hover:text-brand-800">Brain Fog & Fatigue →</Link>
+          <Link href="/guides/other/supplements-for-brain-fog-and-fatigue/" className="hover:text-brand-800">Brain Fog & Fatigue →</Link>
           <Link href="/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/" className="hover:text-brand-800">Caffeine vs L-Theanine vs Bacopa →</Link>
           <Link href="/guides/" className="hover:text-brand-800">All Guides →</Link>
         </nav>

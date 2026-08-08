@@ -78,7 +78,7 @@ export const GOAL_START_HERE_LINKS: Record<string, GoalStartHereLink[]> = {
     {
       role: 'Related article',
       title: 'How to lower cortisol naturally',
-      href: '/guides/how-to-lower-cortisol-naturally/',
+      href: '/guides/anxiety/how-to-lower-cortisol-naturally/',
       note: 'A lifestyle-and-supplement bridge for stress physiology readers.',
     },
   ],
@@ -154,7 +154,7 @@ export const GOAL_START_HERE_LINKS: Record<string, GoalStartHereLink[]> = {
     {
       role: 'Related article',
       title: 'Focus without the caffeine crash',
-      href: '/guides/focus-without-caffeine-crash/',
+      href: '/guides/focus/focus-without-caffeine-crash/',
       note: 'A practical guide for readers trying to reduce stimulant downside.',
     },
   ],
