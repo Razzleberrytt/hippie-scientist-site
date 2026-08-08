@@ -2,6 +2,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { buildRelatedBotanicalPerformance, type AtlasAnalyticsEvent } from '../src/lib/atlasAnalyticsReport'
 import { getBotanicalAtlasRecords } from '../src/lib/botanical-atlas-data'
+import { classifyObservedDemand, observedDemandRank } from '../src/lib/comparison-demand-tier'
 import { buildComparisonShortlist } from '../src/lib/comparison-shortlist'
 
 const outputDir = path.resolve(process.cwd(), 'reports/related-botanicals')
@@ -21,6 +22,20 @@ const [records, behaviorRows] = await Promise.all([
   loadBehaviorRows(),
 ])
 const rows = buildComparisonShortlist(records, limit, behaviorRows)
+const observedDemandQueue = rows
+  .map((row) => ({
+    row,
+    demandTier: classifyObservedDemand({
+      impressions: row.observedBehavior.impressions,
+      clicks: row.observedBehavior.clicks,
+      ctr: row.observedBehavior.ctr,
+      observedBehaviorScore: row.observedBehaviorScore,
+    }),
+  }))
+  .filter(({ demandTier }) => demandTier !== 'insufficient')
+  .sort((a, b) => observedDemandRank(b.demandTier) - observedDemandRank(a.demandTier)
+    || b.row.observedBehaviorScore - a.row.observedBehaviorScore
+    || b.row.priorityScore - a.row.priorityScore)
 
 const markdown = [
   '# Curated Botanical Comparison Shortlist',
@@ -32,6 +47,22 @@ const markdown = [
     : 'Observed behavior source: none supplied. Set `ANALYTICS_EVENTS_PATH` to a JSON analytics export to add pair-level demand and research-depth signals.',
   '',
   'Ranks unbuilt botanical comparison opportunities using scientific priority, deterministic editorial-intent proxies, and optional observed Related Botanicals behavior. Observed behavior is confidence-weighted so tiny samples cannot dominate the queue. This remains a human-reviewed shortlist, not an auto-publishing queue.',
+  '',
+  '## Observed-demand editorial queue',
+  '',
+  analyticsEventsPath
+    ? 'Candidates below have enough real Related Botanicals behavior to earn an observed-demand tier. High-confidence requires at least 20 impressions, 5 clicks, 20% CTR, and a behavior score of 4.5; lower tiers retain stricter sample-size floors than raw CTR alone.'
+    : 'No analytics export supplied, so no observed-demand editorial queue can be generated yet.',
+  '',
+  ...(observedDemandQueue.length
+    ? [
+        '| Tier | Pair | Behavior | Clicks / impressions | CTR | Depth 3+ | Combined priority |',
+        '| --- | --- | ---: | ---: | ---: | ---: | ---: |',
+        ...observedDemandQueue.map(({ row, demandTier }) => `| **${demandTier}** | ${row.a.name} vs ${row.b.name} | ${row.observedBehaviorScore.toFixed(2)} | ${row.observedBehavior.clicks} / ${row.observedBehavior.impressions} | ${Math.round(row.observedBehavior.ctr * 100)}% | ${Math.round(row.observedBehavior.deepExplorationRate * 100)}% | ${row.priorityScore.toFixed(2)} |`),
+      ]
+    : ['No candidates currently clear the observed-demand sample thresholds.']),
+  '',
+  '## Full scientific + editorial shortlist',
   '',
   '| Rank | Pair | Combined | Scientific | Intent proxy | Observed behavior | Relationship | Chemistry | Evidence | Shared specific effects |',
   '| ---: | --- | ---: | ---: | ---: | ---: | ---: | :---: | --- | --- |',
@@ -46,6 +77,7 @@ const markdown = [
     `- Scientific priority: ${row.scientificPriorityScore.toFixed(2)}`,
     `- Editorial intent proxy: ${row.editorialIntentScore.toFixed(2)}`,
     `- Observed behavior: ${row.observedBehaviorScore.toFixed(2)} (${row.observedBehavior.clicks}/${row.observedBehavior.impressions} clicks; ${Math.round(row.observedBehavior.ctr * 100)}% CTR; ${Math.round(row.observedBehavior.deepExplorationRate * 100)}% depth 3+)`,
+    `- Observed-demand tier: ${classifyObservedDemand({ impressions: row.observedBehavior.impressions, clicks: row.observedBehavior.clicks, ctr: row.observedBehavior.ctr, observedBehaviorScore: row.observedBehaviorScore })}`,
     `- Relationship score: ${row.relationshipScore.toFixed(2)}`,
     `- Chemistry-supported: ${row.chemistrySupported ? 'yes' : 'no'}`,
     `- Pair evidence tier: ${row.evidenceLabel}`,
@@ -56,15 +88,28 @@ const markdown = [
   ]),
 ].join('\n')
 
+const editorialQueue = observedDemandQueue.map(({ row, demandTier }) => ({
+  demandTier,
+  pair: `${row.a.name} vs ${row.b.name}`,
+  aSlug: row.a.slug,
+  bSlug: row.b.slug,
+  priorityScore: row.priorityScore,
+  observedBehaviorScore: row.observedBehaviorScore,
+  ...row.observedBehavior,
+}))
+
 await mkdir(outputDir, { recursive: true })
 await Promise.all([
-  writeFile(path.join(outputDir, 'comparison-shortlist.json'), JSON.stringify({ generatedAt: new Date().toISOString(), analyticsEventsPath: analyticsEventsPath ?? null, rows }, null, 2) + '\n'),
+  writeFile(path.join(outputDir, 'comparison-shortlist.json'), JSON.stringify({ generatedAt: new Date().toISOString(), analyticsEventsPath: analyticsEventsPath ?? null, editorialQueue, rows }, null, 2) + '\n'),
   writeFile(path.join(outputDir, 'comparison-shortlist.md'), markdown + '\n'),
+  writeFile(path.join(outputDir, 'observed-demand-editorial-queue.json'), JSON.stringify({ generatedAt: new Date().toISOString(), analyticsEventsPath: analyticsEventsPath ?? null, candidates: editorialQueue }, null, 2) + '\n'),
 ])
 
 console.log(JSON.stringify({
   candidates: rows.length,
   behaviorRows: behaviorRows.length,
+  observedDemandCandidates: editorialQueue.length,
+  highConfidenceCandidates: editorialQueue.filter((candidate) => candidate.demandTier === 'high-confidence').length,
   top: rows.slice(0, 5).map((row) => ({
     pair: `${row.a.name} vs ${row.b.name}`,
     combined: row.priorityScore,
