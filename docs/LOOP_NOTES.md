@@ -4354,9 +4354,8 @@ read `80 insertions, 1 deletion`, not a rewrite.
 - **60 thin pages** (<500 words) across the clusters, e.g.
   `/guides/anxiety/natural-alternatives-to-anxiety-medication` at ~42 words
   and `/guides/anxiety/best-supplements-for-stress` at ~277.
-- **10 orphaned pages** with zero inbound internal links, incl. three ADHD
-  guides (`citicoline-for-adhd`, `vitamin-d-and-adhd`, `zinc-and-adhd`) and
-  five `mental-health/*-personality-disorder` pages.
+- **0 genuine orphans, 18 undeterminable** — see the PR-review correction
+  below; the first-pass "10 orphans" number was wrong.
 - **17 redirect-hop links** worth repointing at their canonical targets.
 - **1 duplicate slug**: `sleep-herbs-vs-melatonin` is published at BOTH
   `/guides/compare/sleep-herbs-vs-melatonin` and
@@ -4380,3 +4379,44 @@ is still dead and is a clean, self-contained next cycle: retarget it to
 template literals (`` canonical: `${SITE_URL}/…` ``), which it currently
 misses — I verified both `rhabdomyolysis` and `serotonin-syndrome-supplements`
 declare correct canonicals that way and would otherwise be false positives.
+
+### PR-review correction — orphan detection was wrong in BOTH directions
+
+Codex flagged (correctly) that `buildBacklinkSet()` collected links from every
+file including the audited page's own `page.tsx`, so a page citing its own
+route (canonical, JSON-LD `url`, breadcrumb) self-cleared the orphan check. Its
+*recommended* fix — just exclude self-references — was verified before
+implementing and would have been **wrong**: it produces 8 false-positive
+orphans. All 8 `/guides/compare/*` pages are genuinely linked from the compare
+hub, which maps over a slug array and builds `` href={`/guides/compare/${pair.slug}/`} ``,
+a form the literal-string regexes cannot see. Two bugs were cancelling out.
+
+Chased it properly and hit a third pattern: the mental-health hub links its
+children as `` href={`${HUB_PATH}/${article.slug}/`} `` where the prefix is a
+file-local const, so even template-prefix matching missed it. Added const
+resolution — and that produced `Orphaned pages: 0`, which looked great and was
+**also dishonest**: measuring it showed 8 of the 10 cluster prefixes are
+dynamically linked, so blanket-clearing their children disables orphan
+detection for ~90% of the corpus. That is precisely the silent-false-all-clear
+this entire PR exists to fix, so shipping it would have been hypocritical.
+
+Final design: self-references never count (Codex's valid point); a page with no
+literal inbound link whose parent prefix IS dynamically linked is reported as
+its own explicit `orphan_undeterminable` (info) status rather than silently
+cleared or falsely accused. Result: **0 genuine orphans, 18 undeterminable**,
+both surfaced in the summary. Only 18 rather than ~150 because most pages do
+have a literal inbound link somewhere, so the heuristic is not vacuous.
+
+**Takeaway:** regex source-scanning fundamentally cannot resolve this repo's
+link-construction patterns (literal, slug-array + literal prefix, slug-array +
+const prefix). Trustworthy orphan detection needs the built `out/` HTML where
+every href is resolved; `collectBuiltRoutes()` already reads `out/` when it
+exists and is the natural place to build that. Until then the audit is honest
+about what it cannot determine. Also fixed from the same review: `issuesByCluster`
+excluded the hub's own issues, because a route equal to the prefix never
+satisfies `startsWith(prefix + '/')` — `/guides/other` read 36 instead of 37.
+
+**Second takeaway, on reviews:** both Codex findings were real, but one of the
+two recommended *fixes* was actively harmful. Verify the suggested remedy
+against the data, not just the reported symptom — the P2 comment here was
+right about the mechanism and wrong about the conclusion.

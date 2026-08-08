@@ -9,6 +9,7 @@ import {
   collectPages,
   loadRedirects,
   findDuplicateSlugs,
+  checkOrphaned,
 } from './content-audit.mjs'
 
 describe('CLI entrypoint detection', () => {
@@ -190,5 +191,40 @@ describe('duplicate slug detection', () => {
     // Both nested pages share the `guides` family, so comparing family names
     // alone would have reported every nested page as a duplicate.
     expect(findDuplicateSlugs([{ slug: 'x', route: '/guides/sleep/x', family: 'guides' }])).toHaveLength(0)
+  })
+})
+
+describe('orphan detection', () => {
+  const ROUTE = '/guides/sleep/foo'
+  const OWN = path.resolve('app/guides/sleep/foo/page.tsx')
+  const OTHER = path.resolve('app/guides/sleep/page.tsx')
+
+  it('does not count a page citing its own route as an inbound link', () => {
+    // Canonical / JSON-LD url / breadcrumb all name the page's own route; if
+    // those counted, nothing could ever be reported as orphaned.
+    const issues = checkOrphaned(ROUTE, new Map([[ROUTE, new Set([OWN])]]), OWN)
+    expect(issues).toHaveLength(1)
+    expect(issues[0].type).toBe('orphaned_page')
+  })
+
+  it('counts a reference from any other file as an inbound link', () => {
+    expect(checkOrphaned(ROUTE, new Map([[ROUTE, new Set([OWN, OTHER])]]), OWN)).toHaveLength(0)
+  })
+
+  it('reports pages under a dynamically-linked prefix as undeterminable, not orphaned', () => {
+    // Hubs link children as href={`${HUB_PATH}/${article.slug}/`}; a regex
+    // source scan cannot resolve those slugs, so calling the page orphaned
+    // would be a false positive and calling it linked would be a false
+    // all-clear. It is surfaced as its own explicit status instead.
+    const issues = checkOrphaned(ROUTE, new Map(), OWN, new Set(['/guides/sleep/']))
+    expect(issues).toHaveLength(1)
+    expect(issues[0].type).toBe('orphan_undeterminable')
+    expect(issues[0].severity).toBe('info')
+  })
+
+  it('still reports a real orphan when its prefix is not dynamically linked', () => {
+    const issues = checkOrphaned(ROUTE, new Map(), OWN, new Set(['/guides/other/']))
+    expect(issues).toHaveLength(1)
+    expect(issues[0].type).toBe('orphaned_page')
   })
 })

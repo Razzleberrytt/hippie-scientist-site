@@ -472,9 +472,25 @@ function checkBrokenInternalLinks(source, route, knownRoutes, redirects) {
 
 // ─── Orphan check ────────────────────────────────────────────────────────────
 
+/**
+ * Collect internal links across the source tree.
+ *
+ * Returns `{ links, dynamicPrefixes }`:
+ *  - `links` maps a route -> the set of files that reference it. Tracking the
+ *    source lets orphan detection ignore a page's *own* self-references (its
+ *    canonical, JSON-LD `url`, breadcrumb, etc.), which would otherwise clear
+ *    every page of being orphaned regardless of real inbound links.
+ *  - `dynamicPrefixes` holds template-literal link bases such as
+ *    `` href={`/guides/compare/${pair.slug}/`} ``. Hubs commonly map over a
+ *    slug array instead of writing literal routes, so the literal-string
+ *    regexes below cannot see those links at all. Without this, excluding
+ *    self-references alone would falsely report all 8 hub-linked
+ *    /guides/compare/* pages as orphans.
+ */
 function buildBacklinkSet() {
   // Collect all internal links across .tsx, .ts, .md files in app/, components/, lib/, docs/
-  const links = new Set()
+  const links = new Map()
+  const dynamicPrefixes = new Set()
   const searchDirs = ['app', 'components', 'lib', 'docs', 'data']
 
   function walkForLinks(dir) {
@@ -494,26 +510,63 @@ function buildBacklinkSet() {
       try { src = fs.readFileSync(filePath, 'utf-8') } catch { continue }
 
       // href="/..." JSX attribute patterns
+      const addLink = (raw) => {
+        const route = raw.replace(/\/$/, '') || '/'
+        if (!links.has(route)) links.set(route, new Set())
+        links.get(route).add(path.resolve(filePath))
+      }
+
       const hrefPattern = /href=["'](\/[^"'#\s?]+)["']/g
       let m
       while ((m = hrefPattern.exec(src)) !== null) {
-        links.add(m[1].replace(/\/$/, '') || '/')
+        addLink(m[1])
+      }
+      // Template-literal hrefs whose tail is interpolated, e.g.
+      // href={`/guides/compare/${pair.slug}/`} — record the static prefix.
+      const dynamicHrefPattern = /href=\{`(\/[^`$]*\/)\$\{/g
+      while ((m = dynamicHrefPattern.exec(src)) !== null) {
+        dynamicPrefixes.add(m[1])
+      }
+      // Same shape as an object property: href: `/guides/compare/${slug}/`
+      const dynamicHrefPropPattern = /href\s*:\s*`(\/[^`$]*\/)\$\{/g
+      while ((m = dynamicHrefPropPattern.exec(src)) !== null) {
+        dynamicPrefixes.add(m[1])
+      }
+      // Hubs often hold their base path in a file-local constant and build
+      // links as href={`${HUB_PATH}/${article.slug}/`}. Resolve those consts
+      // so the prefix is still recognized — without this, every child of such
+      // a hub reads as orphaned even though the hub maps over and links all
+      // of them.
+      const pathConsts = new Map()
+      const constPattern = /\bconst\s+([A-Za-z_$][\w$]*)\s*=\s*['"](\/[^'"]*)['"]/g
+      while ((m = constPattern.exec(src)) !== null) {
+        pathConsts.set(m[1], m[2].replace(/\/$/, ''))
+      }
+      // Capture whatever static text sits between the constant and the next
+      // interpolation, e.g. `${HUB_PATH}/${article.slug}/` yields base
+      // '/guides/mental-health' + middle '/'.
+      const constPrefixPattern = /href=?[\s:]*\{?`\$\{([A-Za-z_$][\w$]*)\}([^`$]*)\$\{/g
+      while ((m = constPrefixPattern.exec(src)) !== null) {
+        const base = pathConsts.get(m[1])
+        if (!base) continue
+        const prefix = `${base}${m[2]}`
+        dynamicPrefixes.add(prefix.endsWith('/') ? prefix : `${prefix}/`)
       }
       // href: '/...' object-property patterns (link data in arrays/config, e.g.
       // `{ href: '/guides/elderberry', title: '...' }`) — single or double quoted.
       const hrefPropPattern = /href\s*:\s*["'](\/[^"'#\s?]+)["']/g
       while ((m = hrefPropPattern.exec(src)) !== null) {
-        links.add(m[1].replace(/\/$/, '') || '/')
+        addLink(m[1])
       }
       // Markdown link patterns [text](/path)
       const mdPattern = /\]\((\/[^)#\s?]+)\)/g
       while ((m = mdPattern.exec(src)) !== null) {
-        links.add(m[1].replace(/\/$/, '') || '/')
+        addLink(m[1])
       }
       // Sitemap / JSON string references
       const strPattern = /"(\/(?:articles|guides|compare)\/[^"#\s?]+)"/g
       while ((m = strPattern.exec(src)) !== null) {
-        links.add(m[1].replace(/\/$/, '') || '/')
+        addLink(m[1])
       }
     }
   }
@@ -522,19 +575,49 @@ function buildBacklinkSet() {
   // Also check scripts/ for any route references
   walkForLinks(path.join(ROOT, 'scripts'))
 
-  return links
+  return { links, dynamicPrefixes }
 }
 
-function checkOrphaned(route, backlinkSet) {
-  if (!backlinkSet.has(route)) {
+/**
+ * Orphan detection, source-scan edition.
+ *
+ * Two things make a naive answer wrong here:
+ *  1. A page cites its own route (canonical, JSON-LD `url`, breadcrumb), which
+ *     must NOT count as an inbound link or nothing is ever orphaned.
+ *  2. Most hubs link their children without ever writing the literal route —
+ *     `` href={`${HUB_PATH}/${article.slug}/`} `` over an imported slug array.
+ *     A regex source scan cannot resolve those slugs, so for any page sitting
+ *     under such a prefix we genuinely cannot tell.
+ *
+ * Rather than guess, case 2 is reported as UNDETERMINABLE and surfaced in the
+ * summary. Silently treating those pages as "linked" would print a clean
+ * `Orphaned pages: 0` while being blind to ~90% of the corpus — the same false
+ * all-clear this audit's one-level-deep page collection used to produce.
+ * Trustworthy orphan detection needs the built `out/` HTML, where every href
+ * is fully resolved.
+ */
+function checkOrphaned(route, backlinks, ownFile, dynamicPrefixes = new Set()) {
+  const sources = backlinks.get(route)
+  const own = ownFile ? path.resolve(ownFile) : null
+  const hasExternalLink = sources && [...sources].some((f) => f !== own)
+  if (hasExternalLink) return []
+
+  const parentPrefix = `${route.slice(0, route.lastIndexOf('/'))}/`
+  if (dynamicPrefixes.has(parentPrefix)) {
     return [{
-      type: 'orphaned_page',
-      severity: 'warning',
+      type: 'orphan_undeterminable',
+      severity: 'info',
       route,
-      detail: `No inbound links found to "${route}" in .tsx/.ts/.md/.json files`,
+      detail: `No literal inbound link found, but "${parentPrefix}" is linked dynamically (hub maps over a slug array), so orphan status cannot be resolved from source`,
     }]
   }
-  return []
+
+  return [{
+    type: 'orphaned_page',
+    severity: 'warning',
+    route,
+    detail: `No inbound links found to "${route}" in .tsx/.ts/.md/.json files`,
+  }]
 }
 
 // ─── Duplicate slug check ────────────────────────────────────────────────────
@@ -578,7 +661,7 @@ function run() {
   const knownRoutes = buildKnownRouteSet(pages)
   const redirects = loadRedirects()
   console.log('Building backlink index...')
-  const backlinkSet = buildBacklinkSet()
+  const { links: backlinks, dynamicPrefixes } = buildBacklinkSet()
 
   const allIssues = []
 
@@ -604,7 +687,7 @@ function run() {
       ...checkThin(source, page.route, wordCount),
       ...checkAffiliateHardcoding(source, page.route),
       ...checkBrokenInternalLinks(source, page.route, knownRoutes, redirects),
-      ...checkOrphaned(page.route, backlinkSet),
+      ...checkOrphaned(page.route, backlinks, page.pagePath, dynamicPrefixes),
     )
   }
 
@@ -618,6 +701,7 @@ function run() {
     missingMetadata: allIssues.filter(i => i.type === 'missing_metadata').length,
     thinPages: allIssues.filter(i => i.type === 'thin_page').length,
     orphanedPages: allIssues.filter(i => i.type === 'orphaned_page').length,
+    orphanUndeterminable: allIssues.filter(i => i.type === 'orphan_undeterminable').length,
     brokenInternalLinks: allIssues.filter(i => i.type === 'broken_internal_link').length,
     redirectedInternalLinks: allIssues.filter(i => i.type === 'redirected_internal_link').length,
     hardcodedAffiliateTags: allIssues.filter(i => i.type === 'hardcoded_affiliate_tag').length,
@@ -634,7 +718,7 @@ function run() {
     summary,
     totalIssues: allIssues.length,
     issuesByType: Object.fromEntries(
-      ['duplicate_slug', 'missing_metadata', 'thin_page', 'orphaned_page', 'broken_internal_link', 'redirected_internal_link', 'hardcoded_affiliate_tag']
+      ['duplicate_slug', 'missing_metadata', 'thin_page', 'orphaned_page', 'orphan_undeterminable', 'broken_internal_link', 'redirected_internal_link', 'hardcoded_affiliate_tag']
         .map(type => [type, allIssues.filter(i => i.type === type).length])
     ),
     // Derived from CONTENT_FAMILIES so this can't drift back into reporting a
@@ -650,7 +734,10 @@ function run() {
     issuesByCluster: Object.fromEntries(
       [...new Set(pages.map(p => p.route.split('/').slice(0, 3).join('/')))]
         .sort()
-        .map(prefix => [prefix, allIssues.filter(i => i.route?.startsWith(`${prefix}/`)).length])
+        // Match the hub's own route exactly as well as its descendants — an
+        // issue on /guides/other itself never satisfies startsWith('/guides/other/'),
+        // which made the cluster totals disagree with the issue list.
+        .map(prefix => [prefix, allIssues.filter(i => i.route === prefix || i.route?.startsWith(`${prefix}/`)).length])
         .filter(([, count]) => count > 0)
     ),
     durationMs: Date.now() - startTime,
@@ -669,6 +756,7 @@ function run() {
   console.log(`  Missing metadata:        ${summary.missingMetadata}`)
   console.log(`  Thin pages (<${THIN_THRESHOLD}w):     ${summary.thinPages}`)
   console.log(`  Orphaned pages:          ${summary.orphanedPages}`)
+  console.log(`  Orphan undeterminable:   ${summary.orphanUndeterminable} (hub links built dynamically; needs out/ to resolve)`)
   console.log(`  Broken internal links:   ${summary.brokenInternalLinks}`)
   console.log(`  Redirect-hop links:      ${summary.redirectedInternalLinks}`)
   console.log(`  Hardcoded affiliate tags:${summary.hardcodedAffiliateTags}`)
@@ -704,4 +792,4 @@ if (isMainModule(process.argv[1])) {
   run()
 }
 
-export { countWords, isMainModule, collectPages, loadRedirects, findDuplicateSlugs }
+export { countWords, isMainModule, collectPages, loadRedirects, findDuplicateSlugs, checkOrphaned }
