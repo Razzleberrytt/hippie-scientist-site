@@ -3,7 +3,12 @@
  * content-audit.mjs
  *
  * Warning-only content audit for static page families:
- *   app/articles/*, app/guides/*, app/compare/*
+ *   app/articles/**, app/guides/**
+ *
+ * Page collection recurses to any depth, because most real content lives one
+ * level below the family root (e.g. app/guides/sleep/magnesium-for-sleep/).
+ * A one-level-deep scan only sees the ~10 cluster hub pages and silently
+ * reports an all-clear for the ~155 pages underneath them.
  *
  * Skips workbook-driven routes (/herbs, /compounds, /goals, /stacks).
  * Always exits 0 — visibility only, never blocks the build.
@@ -26,14 +31,18 @@ const ROOT = path.resolve(__dirname, '..')
 
 // ─── Config ──────────────────────────────────────────────────────────────────
 
+// NOTE: comparison pages live at app/guides/compare/**, not app/compare —
+// there is no top-level app/compare directory, so listing one here scanned
+// nothing. They are covered by the recursive `guides` walk below.
 const CONTENT_FAMILIES = [
   { family: 'articles', dir: path.join(ROOT, 'app', 'articles') },
   { family: 'guides',   dir: path.join(ROOT, 'app', 'guides') },
-  { family: 'compare',  dir: path.join(ROOT, 'app', 'compare') },
 ]
 
-// Directories to skip within a family (dynamic catch-all and special dirs)
-const SKIP_DIRS = new Set(['[slug]', '[goal]', 'dynamic', 'style'])
+// Directories to skip within a family (dynamic catch-all and special dirs).
+// Dynamic segments (`[slug]`, `[goal]`, …) and route groups (`(marketing)`)
+// are skipped structurally below; these are the named non-route exceptions.
+const SKIP_DIRS = new Set(['dynamic', 'style'])
 
 // Approved affiliate tag — anything else hardcoded is a finding
 const APPROVED_TAG = 'razzleberry02-20'
@@ -45,17 +54,38 @@ const THIN_THRESHOLD = 500
 
 function collectPages() {
   const pages = []
-  for (const { family, dir } of CONTENT_FAMILIES) {
-    if (!fs.existsSync(dir)) continue
-    const entries = fs.readdirSync(dir, { withFileTypes: true })
+
+  // Recurse the whole family tree. `segments` accumulates the route path below
+  // the family root, so app/guides/sleep/magnesium-for-sleep/page.tsx becomes
+  // /guides/sleep/magnesium-for-sleep with slug `magnesium-for-sleep`.
+  function walkFamily(family, dir, segments) {
+    let entries
+    try { entries = fs.readdirSync(dir, { withFileTypes: true }) } catch { return }
+
+    // A page.tsx at this level is a real route (the family root itself, e.g.
+    // /guides, is a hub page and is intentionally not audited as content).
+    if (segments.length > 0 && entries.some((e) => e.isFile() && e.name === 'page.tsx')) {
+      pages.push({
+        family,
+        slug: segments[segments.length - 1],
+        pagePath: path.join(dir, 'page.tsx'),
+        route: `/${[family, ...segments].join('/')}`,
+      })
+    }
+
     for (const entry of entries) {
       if (!entry.isDirectory()) continue
       if (SKIP_DIRS.has(entry.name)) continue
-      const slug = entry.name
-      const pagePath = path.join(dir, slug, 'page.tsx')
-      if (!fs.existsSync(pagePath)) continue
-      pages.push({ family, slug, pagePath, route: `/${family}/${slug}` })
+      if (/^\[.+\]$/.test(entry.name)) continue // dynamic segment — not a static page
+      if (entry.name.startsWith('(')) continue // route group — adds no path segment
+      if (entry.name.startsWith('_')) continue // private folder — not routable
+      walkFamily(family, path.join(dir, entry.name), [...segments, entry.name])
     }
+  }
+
+  for (const { family, dir } of CONTENT_FAMILIES) {
+    if (!fs.existsSync(dir)) continue
+    walkFamily(family, dir, [])
   }
   return pages
 }
@@ -361,7 +391,27 @@ function buildKnownRouteSet(pages) {
 
 // ─── Internal link check ─────────────────────────────────────────────────────
 
-function checkBrokenInternalLinks(source, route, knownRoutes) {
+/**
+ * Parse public/_redirects (Cloudflare Pages format: `from  to  [status]`) into
+ * a from -> to map, with trailing slashes normalized off the source so lookups
+ * match the normalized hrefs used below.
+ */
+function loadRedirects() {
+  const map = new Map()
+  const file = path.join(ROOT, 'public', '_redirects')
+  if (!fs.existsSync(file)) return map
+  for (const line of fs.readFileSync(file, 'utf-8').split('\n')) {
+    const trimmed = line.trim()
+    if (!trimmed || trimmed.startsWith('#')) continue
+    const [from, to] = trimmed.split(/\s+/)
+    if (!from || !to || !from.startsWith('/')) continue
+    if (from.includes('*') || from.includes(':')) continue // wildcard/param rules
+    map.set(from.replace(/\/$/, '') || '/', to)
+  }
+  return map
+}
+
+function checkBrokenInternalLinks(source, route, knownRoutes, redirects) {
   const issues = []
 
   // Match href="/path" patterns — skip anchors (#), external (https://), mailto:
@@ -389,12 +439,26 @@ function checkBrokenInternalLinks(source, route, knownRoutes) {
       // Only flag if it looks like our auditable families
       const auditablePrefixes = ['/articles/', '/guides/', '/compare/']
       if (auditablePrefixes.some(p => pathOnly.startsWith(p))) {
-        issues.push({
-          type: 'broken_internal_link',
-          severity: 'warning',
-          route,
-          detail: `Link to "${pathOnly}" not found in known routes`,
-        })
+        // A path covered by public/_redirects still resolves for users, so it
+        // is not a 404 — but linking through a 301 wastes crawl budget and
+        // link equity. Report it separately so the broken_internal_link list
+        // stays a true dead-link worklist.
+        const redirectTarget = redirects.get(pathOnly)
+        if (redirectTarget) {
+          issues.push({
+            type: 'redirected_internal_link',
+            severity: 'info',
+            route,
+            detail: `Link to "${pathOnly}" hops through a 301 to "${redirectTarget}" — link directly to the destination`,
+          })
+        } else {
+          issues.push({
+            type: 'broken_internal_link',
+            severity: 'warning',
+            route,
+            detail: `Link to "${pathOnly}" not found in known routes`,
+          })
+        }
       }
     }
   }
@@ -475,20 +539,26 @@ function checkOrphaned(route, backlinkSet) {
 
 // ─── Duplicate slug check ────────────────────────────────────────────────────
 
+// Reports a leaf slug that resolves to more than one distinct route (e.g. the
+// same topic published under two clusters), which is a content-cannibalization
+// signal. Keyed on the routes themselves rather than the family name: now that
+// collection recurses, two pages sharing a leaf slug are usually both in the
+// `guides` family, so comparing family names alone would flag every one of them.
 function findDuplicateSlugs(pages) {
   const slugMap = new Map()
   for (const p of pages) {
-    if (!slugMap.has(p.slug)) slugMap.set(p.slug, [])
-    slugMap.get(p.slug).push(p.family)
+    if (!slugMap.has(p.slug)) slugMap.set(p.slug, new Set())
+    slugMap.get(p.slug).add(p.route)
   }
   const issues = []
-  for (const [slug, families] of slugMap) {
-    if (families.length > 1) {
+  for (const [slug, routeSet] of slugMap) {
+    if (routeSet.size > 1) {
+      const routes = [...routeSet].sort()
       issues.push({
         type: 'duplicate_slug',
         severity: 'warning',
-        route: `/${families[0]}/${slug}`,
-        detail: `Slug "${slug}" exists in multiple families: ${families.join(', ')}`,
+        route: routes[0],
+        detail: `Slug "${slug}" exists at multiple routes: ${routes.join(', ')}`,
       })
     }
   }
@@ -506,6 +576,7 @@ function run() {
 
   // Build reference data
   const knownRoutes = buildKnownRouteSet(pages)
+  const redirects = loadRedirects()
   console.log('Building backlink index...')
   const backlinkSet = buildBacklinkSet()
 
@@ -532,7 +603,7 @@ function run() {
       ...checkMetadata(source, page.route),
       ...checkThin(source, page.route, wordCount),
       ...checkAffiliateHardcoding(source, page.route),
-      ...checkBrokenInternalLinks(source, page.route, knownRoutes),
+      ...checkBrokenInternalLinks(source, page.route, knownRoutes, redirects),
       ...checkOrphaned(page.route, backlinkSet),
     )
   }
@@ -548,6 +619,7 @@ function run() {
     thinPages: allIssues.filter(i => i.type === 'thin_page').length,
     orphanedPages: allIssues.filter(i => i.type === 'orphaned_page').length,
     brokenInternalLinks: allIssues.filter(i => i.type === 'broken_internal_link').length,
+    redirectedInternalLinks: allIssues.filter(i => i.type === 'redirected_internal_link').length,
     hardcodedAffiliateTags: allIssues.filter(i => i.type === 'hardcoded_affiliate_tag').length,
   }
 
@@ -562,14 +634,24 @@ function run() {
     summary,
     totalIssues: allIssues.length,
     issuesByType: Object.fromEntries(
-      ['duplicate_slug', 'missing_metadata', 'thin_page', 'orphaned_page', 'broken_internal_link', 'hardcoded_affiliate_tag']
+      ['duplicate_slug', 'missing_metadata', 'thin_page', 'orphaned_page', 'broken_internal_link', 'redirected_internal_link', 'hardcoded_affiliate_tag']
         .map(type => [type, allIssues.filter(i => i.type === type).length])
     ),
+    // Derived from CONTENT_FAMILIES so this can't drift back into reporting a
+    // hardcoded family that is no longer scanned (it silently read 0 forever).
     issuesByFamily: Object.fromEntries(
-      ['articles', 'guides', 'compare'].map(family => [
+      CONTENT_FAMILIES.map(({ family }) => [
         family,
         allIssues.filter(i => i.route?.startsWith(`/${family}/`)).length,
       ])
+    ),
+    // Most content sits one level below the family root, so a per-cluster
+    // breakdown (/guides/sleep/*, /guides/adhd/*, …) is what's actionable.
+    issuesByCluster: Object.fromEntries(
+      [...new Set(pages.map(p => p.route.split('/').slice(0, 3).join('/')))]
+        .sort()
+        .map(prefix => [prefix, allIssues.filter(i => i.route?.startsWith(`${prefix}/`)).length])
+        .filter(([, count]) => count > 0)
     ),
     durationMs: Date.now() - startTime,
   }
@@ -588,6 +670,7 @@ function run() {
   console.log(`  Thin pages (<${THIN_THRESHOLD}w):     ${summary.thinPages}`)
   console.log(`  Orphaned pages:          ${summary.orphanedPages}`)
   console.log(`  Broken internal links:   ${summary.brokenInternalLinks}`)
+  console.log(`  Redirect-hop links:      ${summary.redirectedInternalLinks}`)
   console.log(`  Hardcoded affiliate tags:${summary.hardcodedAffiliateTags}`)
   console.log(`  Total issues:            ${allIssues.length}`)
   console.log(`\n  Reports written to ops/reports/`)
@@ -621,4 +704,4 @@ if (isMainModule(process.argv[1])) {
   run()
 }
 
-export { countWords, isMainModule }
+export { countWords, isMainModule, collectPages, loadRedirects, findDuplicateSlugs }

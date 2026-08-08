@@ -16,13 +16,13 @@ const GUIDE_SLUGS = ["ashwagandha", "lions-mane"];
 
 const RELATED_GUIDE_MAP: Record<string, RelatedArticle[]> = {
   ashwagandha: [
-    { href: "/guides/turmeric-curcumin/", title: "Turmeric & Curcumin Guide", description: "Anti-inflammatory evidence, bioavailability forms, and dosage comparison.", category: "stress" },
+    { href: "/guides/herbs/turmeric-curcumin/", title: "Turmeric & Curcumin Guide", description: "Anti-inflammatory evidence, bioavailability forms, and dosage comparison.", category: "stress" },
     { href: "/guides/lions-mane/", title: "Lion's Mane Guide", description: "Cognitive support, NGF synthesis, and neuroregeneration evidence.", category: "focus" },
     { href: "/guides/sleep/magnesium-for-sleep/", title: "Magnesium for Sleep Guide", description: "Magnesium forms, dosage, and evidence for sleep and anxiety support.", category: "sleep" },
   ],
   "lions-mane": [
     { href: "/guides/ashwagandha/", title: "Ashwagandha Guide", description: "Cortisol modulation, stress adaptation, and sleep quality evidence.", category: "stress" },
-    { href: "/guides/turmeric-curcumin/", title: "Turmeric & Curcumin Guide", description: "Anti-inflammatory and neuroprotective evidence with bioavailability context.", category: "stress" },
+    { href: "/guides/herbs/turmeric-curcumin/", title: "Turmeric & Curcumin Guide", description: "Anti-inflammatory and neuroprotective evidence with bioavailability context.", category: "stress" },
     { href: "/guides/sleep/magnesium-for-sleep/", title: "Magnesium for Sleep Guide", description: "Magnesium forms, dosage, and evidence for sleep and anxiety support.", category: "sleep" },
   ],
 };

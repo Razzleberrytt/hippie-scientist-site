@@ -4267,3 +4267,116 @@ every time. If a new completeness/gap script gets added later, wire it to
 `loadDocumentedSafetyExceptions()` (now exported from
 `scripts/audit/content-gap-report.mjs`) up front rather than rediscovering
 this same false-positive class a third time.
+
+---
+
+## 2026-08-08 — `audit:content` was scanning 10 of 165 guide pages; the 94% it never opened held 15 live 404 links
+
+Fresh cold session, ~449 commits of other agents' work since the last entry
+(2026-07-27). Ran the standard audit sweep; almost everything came back
+clean or full of already-reviewed exceptions. Two near-misses worth recording
+before the real find:
+
+- `audit:why-noindex` flags `apigenin` as NOINDEX but `READY_TO_PROMOTE`
+  (scores PUBLISH(95)). Did **not** promote it: its holdback is
+  `runtime_export_decision: research_archive_runtime` and its
+  `evidence_tier` is `Mechanistic Evidence`. The readiness score measures
+  *content completeness*, not evidence tier — promoting would have reversed
+  a deliberate evidence-governance decision, the exact failure mode the
+  2026-07-16 and 2026-07-27 entries warn about. The script's
+  `READY_TO_PROMOTE` verdict is content-only and should not be read as
+  "safe to index".
+- `audit:content-gaps` shows `interactions` missing on 11 of the top-20
+  highest-traffic slugs (36% fill overall). Chased it: not a bug and not a
+  fill gap. `interaction_edges.json` only derives *pairwise* edges from the
+  5 `additive` risk mechanisms; slugs like `magnesium`, `lions-mane`,
+  `echinacea` carry only `single_only` mechanisms (pregnancy/renal/hepatic/
+  thyroid), so they legitimately have zero edges. Verified the rendering is
+  graceful too — `InteractionWarnings` returns null and both profile pages
+  drop the TOC entry, so the 548 zero-edge profiles show no empty shell and
+  no dangling `#interactions` anchor. Left alone.
+
+**The real find.** `npm run audit:content` (`scripts/content-audit.mjs`) —
+one of the two audits this loop's own prompt tells every cycle to run —
+reported `Pages audited: 10` and `Total issues: 1`. Its `collectPages()`
+read exactly one level deep (`readdirSync(dir)` → `dir/<slug>/page.tsx`),
+so it only ever saw the ~10 cluster **hub** pages. Every real guide lives
+one level below that (`app/guides/sleep/magnesium-for-sleep/`), so **155
+pages — all 18 sleep, 14 anxiety, 22 adhd, 5 focus, 22 compare, 47 other —
+were invisible** to its thin-page, missing-metadata, orphan, broken-link
+and affiliate-tag checks. It had been printing a confident all-clear over
+94% of the guide corpus. Separately its third family pointed at
+`app/compare`, which does not exist (comparisons are at
+`app/guides/compare/**`), so that entry scanned nothing at all.
+
+Made collection recursive, dropped the dead `app/compare` family, and
+skipped dynamic segments/route groups/private folders structurally rather
+than by hardcoded name. Coverage went **10 → 164 pages**, surfacing 103
+previously-invisible issues.
+
+Had to fix two things the new coverage broke or exposed:
+1. `findDuplicateSlugs()` compared *family names*, so once collection
+   recursed, any two nested pages sharing a leaf slug both read as
+   `['guides','guides']` and every one would have been flagged. Rekeyed it
+   on distinct **routes**, which preserves the original
+   content-cannibalization intent and is what actually matters.
+2. 17 of the 32 "broken" links were false positives — they resolve through
+   a 301 in `public/_redirects`. Taught the audit to load `_redirects` and
+   report those as a separate `redirected_internal_link` (info) finding, so
+   `broken_internal_link` stays a true 404 worklist. Split confirmed by
+   hand before coding it: 15 real 404s / 17 redirect hops, and the script
+   then reproduced exactly that split.
+
+**The 15 were real user-facing 404s** — 8 distinct flat `/guides/<slug>`
+targets whose pages had been moved into clusters, each with exactly one
+unambiguous destination. Rewrote 25 references across 15 files (more than
+the audited 15, because `app/learn/gaba` and `lib/goal-start-here-links.ts`
+sit outside the audited families but had the same dead links). Used a
+`(?<!/images)` lookbehind because `/images/guides/turmeric-curcumin.jpg`
+contains `/guides/turmeric-curcumin` as a substring — a naive replace would
+have corrupted every hero image path. Broken links now 0.
+
+Also caught while fixing turmeric: `app/guides/herbs/turmeric-curcumin/page.tsx`
+declared `PAGE_URL = '…/guides/turmeric-curcumin'` (a 404) and fed it to
+`<StructuredData pageUrl>`, so the page's JSON-LD `@id`/`url` and its
+breadcrumb item pointed at a nonexistent URL while the HTML canonical
+(`buildPageMetadata({ path: '/guides/herbs/turmeric-curcumin' })`) was
+correct — conflicting signals to Google. Fixed both.
+
+Added 8 regression tests to the **existing** `scripts/content-audit.test.mjs`.
+Near-miss worth flagging: I first wrote that file with `Write` and silently
+clobbered 115 lines of existing `countWords`/`isMainModule` tests — caught it
+only because `git status` showed ` M` instead of `??`. **Always check whether
+a colocated `*.test.mjs` already exists before creating one**; the diff should
+read `80 insertions, 1 deletion`, not a rewrite.
+
+**Handed to future cycles — a now-real worklist that was invisible before:**
+- **60 thin pages** (<500 words) across the clusters, e.g.
+  `/guides/anxiety/natural-alternatives-to-anxiety-medication` at ~42 words
+  and `/guides/anxiety/best-supplements-for-stress` at ~277.
+- **10 orphaned pages** with zero inbound internal links, incl. three ADHD
+  guides (`citicoline-for-adhd`, `vitamin-d-and-adhd`, `zinc-and-adhd`) and
+  five `mental-health/*-personality-disorder` pages.
+- **17 redirect-hop links** worth repointing at their canonical targets.
+- **1 duplicate slug**: `sleep-herbs-vs-melatonin` is published at BOTH
+  `/guides/compare/sleep-herbs-vs-melatonin` and
+  `/guides/sleep/sleep-herbs-vs-melatonin` — real cannibalization, but
+  picking the canonical affects indexed URLs, so it needs a deliberate
+  decision rather than a blind autonomous fix.
+- Deliberately **not** done: adding `public/_redirects` entries for the 8
+  flat paths. Git history is squashed so I could not confirm those URLs were
+  ever publicly live, and the internal-link fix already removes every
+  user-facing 404. Worth revisiting against Search Console data.
+
+**Standing takeaway:** two separate audits this loop relies on had silently
+dead scan paths (`app/education` in
+`scripts/audit/check-education-canonicals.mjs`, which still reports
+"0 files, 0 problems" because those routes were renamed to `app/learn/`, and
+`app/compare` here). A directory-scanning audit that reports zero findings is
+indistinguishable from one that is passing — **always check the "N files
+scanned" number, not just the exit code.** `check-education-canonicals.mjs`
+is still dead and is a clean, self-contained next cycle: retarget it to
+`app/learn/` (70 pages) and teach its `extractCanonical()` regex to match
+template literals (`` canonical: `${SITE_URL}/…` ``), which it currently
+misses — I verified both `rhabdomyolysis` and `serotonin-syndrome-supplements`
+declare correct canonicals that way and would otherwise be false positives.
