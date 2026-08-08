@@ -6,9 +6,23 @@ import { fileURLToPath } from 'node:url'
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const allowlistPath = path.join(repoRoot, 'security', 'audit-allowlist.json')
+const allowlistFragmentsDir = path.join(repoRoot, 'security', 'audit-allowlist.d')
 
-const allowlist = JSON.parse(fs.readFileSync(allowlistPath, 'utf8'))
-const rules = Array.isArray(allowlist.rules) ? allowlist.rules : []
+function readRules(filePath) {
+  const payload = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+  return Array.isArray(payload.rules) ? payload.rules : []
+}
+
+const fragmentPaths = fs.existsSync(allowlistFragmentsDir)
+  ? fs.readdirSync(allowlistFragmentsDir)
+      .filter((name) => name.endsWith('.json'))
+      .sort()
+      .map((name) => path.join(allowlistFragmentsDir, name))
+  : []
+const rules = [
+  ...readRules(allowlistPath),
+  ...fragmentPaths.flatMap((filePath) => readRules(filePath)),
+]
 
 function getNpmInvocation() {
   const npmExecPath = process.env.npm_execpath
