@@ -301,7 +301,7 @@ export default function AshwagandhaArticlePage() {
                       <td className="p-4 text-brand-700 font-medium">Strong</td>
                       <td className="p-4 text-muted">4–8 weeks</td>
                       <td className="p-4">
-                        <Link href="/guides/how-to-lower-cortisol-naturally/" className="text-brand-700 hover:underline font-medium">
+                        <Link href="/guides/anxiety/how-to-lower-cortisol-naturally/" className="text-brand-700 hover:underline font-medium">
                           Cortisol guide →
                         </Link>
                       </td>

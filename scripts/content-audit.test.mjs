@@ -3,7 +3,13 @@ import os from 'os'
 import path from 'path'
 import { afterEach, describe, expect, it } from 'vitest'
 
-import { countWords, isMainModule } from './content-audit.mjs'
+import {
+  countWords,
+  isMainModule,
+  collectPages,
+  loadRedirects,
+  findDuplicateSlugs,
+} from './content-audit.mjs'
 
 describe('CLI entrypoint detection', () => {
   it('recognizes a relative Windows-compatible script path as the main module', () => {
@@ -111,5 +117,78 @@ describe('countWords', () => {
         fs.rmSync(libDir, { recursive: true, force: true })
       }
     })
+  })
+})
+
+describe('page collection', () => {
+  const pages = collectPages()
+  const routes = new Set(pages.map((p) => p.route))
+
+  // Regression guard: collectPages() used to read only one level deep, so it
+  // saw the ~10 cluster hub pages and silently reported an all-clear for the
+  // ~155 real guide pages nested underneath them.
+  it('recurses past the family root into cluster subdirectories', () => {
+    expect(pages.length).toBeGreaterThan(100)
+    expect(routes.has('/guides/sleep/magnesium-for-sleep')).toBe(true)
+    expect(routes.has('/guides/anxiety/how-to-lower-cortisol-naturally')).toBe(true)
+    expect(routes.has('/guides/herbs/turmeric-curcumin')).toBe(true)
+  })
+
+  // `stress` is intentionally absent: app/guides/stress holds only a hub
+  // page.tsx with no nested children, so it has nothing below the hub to find.
+  it('covers every authority cluster that has nested pages, not just the hubs', () => {
+    for (const cluster of ['sleep', 'anxiety', 'focus', 'adhd', 'compare', 'herbs']) {
+      const inCluster = pages.filter((p) => p.route.startsWith(`/guides/${cluster}/`))
+      expect(inCluster.length, `expected nested pages under /guides/${cluster}/`).toBeGreaterThan(0)
+    }
+  })
+
+  it('builds the route from the full path below the family root', () => {
+    const page = pages.find((p) => p.route === '/guides/sleep/magnesium-for-sleep')
+    expect(page).toBeDefined()
+    expect(page.family).toBe('guides')
+    expect(page.slug).toBe('magnesium-for-sleep')
+    expect(page.pagePath.endsWith(path.join('app', 'guides', 'sleep', 'magnesium-for-sleep', 'page.tsx'))).toBe(true)
+  })
+
+  it('skips dynamic segments and route groups', () => {
+    expect(pages.some((p) => p.route.includes('['))).toBe(false)
+    expect(pages.some((p) => p.route.includes('('))).toBe(false)
+  })
+})
+
+describe('redirect awareness', () => {
+  it('parses public/_redirects into a from -> to map', () => {
+    const redirects = loadRedirects()
+    expect(redirects.size).toBeGreaterThan(0)
+    // A path served by a 301 is not a dead link; it is reported as a redirect
+    // hop so broken_internal_link stays a true 404 worklist.
+    expect(redirects.get('/guides/kava')).toBe('/guides/herbs/kava/')
+  })
+
+  it('ignores comments and wildcard/param rules', () => {
+    for (const from of loadRedirects().keys()) {
+      expect(from.startsWith('/')).toBe(true)
+      expect(from.includes('*')).toBe(false)
+      expect(from.includes(':')).toBe(false)
+    }
+  })
+})
+
+describe('duplicate slug detection', () => {
+  it('flags one leaf slug published at two distinct routes', () => {
+    const issues = findDuplicateSlugs([
+      { slug: 'x', route: '/guides/sleep/x', family: 'guides' },
+      { slug: 'x', route: '/guides/compare/x', family: 'guides' },
+    ])
+    expect(issues).toHaveLength(1)
+    expect(issues[0].detail).toContain('/guides/compare/x')
+    expect(issues[0].detail).toContain('/guides/sleep/x')
+  })
+
+  it('does not flag a single page just because collection now recurses', () => {
+    // Both nested pages share the `guides` family, so comparing family names
+    // alone would have reported every nested page as a duplicate.
+    expect(findDuplicateSlugs([{ slug: 'x', route: '/guides/sleep/x', family: 'guides' }])).toHaveLength(0)
   })
 })

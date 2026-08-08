@@ -235,7 +235,7 @@ export default function BestSupplementsForStressPage() {
         <nav className="flex flex-wrap gap-4 text-sm font-semibold text-brand-700">
           <Link href="/guides/herbs/ashwagandha/" className="hover:text-brand-800">Ashwagandha Evidence Guide →</Link>
           <Link href="/guides/herbs/l-theanine/" className="hover:text-brand-800">L-Theanine for Acute Stress →</Link>
-          <Link href="/guides/how-to-lower-cortisol-naturally/" className="hover:text-brand-800">How to Lower Cortisol Naturally →</Link>
+          <Link href="/guides/anxiety/how-to-lower-cortisol-naturally/" className="hover:text-brand-800">How to Lower Cortisol Naturally →</Link>
           <Link href="/guides/compare/rhodiola-vs-ashwagandha/" className="hover:text-brand-800">Rhodiola vs Ashwagandha →</Link>
           <Link href="/guides/rhodiola-complete-guide/" className="hover:text-brand-800">Complete Rhodiola Guide →</Link>
           <Link href="/guides/" className="hover:text-brand-800">All Guides →</Link>

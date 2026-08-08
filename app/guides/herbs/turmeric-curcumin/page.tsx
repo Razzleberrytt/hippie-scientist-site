@@ -18,7 +18,7 @@ import type { Heading } from '@/components/articles'
 import References from '@/components/References'
 
 const SLUG = 'turmeric-curcumin'
-const PAGE_URL = 'https://thehippiescientist.net/guides/turmeric-curcumin'
+const PAGE_URL = 'https://thehippiescientist.net/guides/herbs/turmeric-curcumin'
 const TITLE = 'Turmeric & Curcumin: Evidence, Dose, Bioavailability'
 const DESCRIPTION =
   'A science-backed breakdown of curcumin bioavailability, anti-inflammatory evidence, dosage ranges, form comparison, and safety context — including what the research actually shows versus the hype.'
@@ -184,7 +184,7 @@ export default function TurmericCurcuminGuidePage() {
         breadcrumbs={[
           { label: 'Home', href: '/' },
           { label: 'Guides', href: '/guides' },
-          { label: 'Turmeric & Curcumin', href: '/guides/turmeric-curcumin' },
+          { label: 'Turmeric & Curcumin', href: '/guides/herbs/turmeric-curcumin' },
         ]}
       />
       <div className="space-y-8">

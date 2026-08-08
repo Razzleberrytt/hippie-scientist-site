@@ -243,7 +243,7 @@ export default function Page() {
               When overthinking is really chronic stress wearing a different mask, ashwagandha addresses
               the root by lowering cortisol and perceived stress over 4–8 weeks. It will not stop a single
               spiral tonight, but it lowers the baseline that makes spirals more likely. See our{' '}
-              <Link href="/guides/how-to-lower-cortisol-naturally/" className="font-medium text-brand-700 hover:underline">how to lower cortisol naturally</Link>{' '}
+              <Link href="/guides/anxiety/how-to-lower-cortisol-naturally/" className="font-medium text-brand-700 hover:underline">how to lower cortisol naturally</Link>{' '}
               guide.
             </p>
           </article>
@@ -301,8 +301,8 @@ export default function Page() {
           <div className="grid gap-3 sm:grid-cols-2">
             <Link href="/guides/anxiety/best-herbs-for-anxiety/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Anxiety →</Link>
             <Link href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Natural Anxiolytics Beyond Ashwagandha →</Link>
-            <Link href="/guides/best-herbs-for-stress-and-anxiety-at-night/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Stress &amp; Anxiety at Night →</Link>
-            <Link href="/guides/how-to-lower-cortisol-naturally/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">How to Lower Cortisol Naturally →</Link>
+            <Link href="/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Stress &amp; Anxiety at Night →</Link>
+            <Link href="/guides/anxiety/how-to-lower-cortisol-naturally/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">How to Lower Cortisol Naturally →</Link>
             <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Ashwagandha vs L-theanine vs Magnesium →</Link>
             <Link href="/guides/anxiety/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Anxiety Guides →</Link>
           </div>

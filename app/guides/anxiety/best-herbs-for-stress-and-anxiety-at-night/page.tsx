@@ -239,7 +239,7 @@ export default function Page() {
               just sedating you. Allow 2–6 weeks of consistent use. Learn how it compares in{' '}
               <Link href="/guides/compare/rhodiola-vs-ashwagandha/" className="font-medium text-brand-700 hover:underline">rhodiola vs ashwagandha</Link>{' '}
               and our{' '}
-              <Link href="/guides/how-to-lower-cortisol-naturally/" className="font-medium text-brand-700 hover:underline">how to lower cortisol naturally</Link>{' '}
+              <Link href="/guides/anxiety/how-to-lower-cortisol-naturally/" className="font-medium text-brand-700 hover:underline">how to lower cortisol naturally</Link>{' '}
               guide.
             </p>
           </article>
@@ -322,9 +322,9 @@ export default function Page() {
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Related guides &amp; comparisons</h2>
           <div className="grid gap-3 sm:grid-cols-2">
-            <Link href="/guides/best-natural-sleep-aids-that-work/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Natural Sleep Aids That Work →</Link>
+            <Link href="/guides/sleep/best-natural-sleep-aids-that-work/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Natural Sleep Aids That Work →</Link>
             <Link href="/guides/anxiety/best-herbs-for-anxiety/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Anxiety →</Link>
-            <Link href="/guides/how-to-lower-cortisol-naturally/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">How to Lower Cortisol Naturally →</Link>
+            <Link href="/guides/anxiety/how-to-lower-cortisol-naturally/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">How to Lower Cortisol Naturally →</Link>
             <Link href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Natural Anxiolytics Beyond Ashwagandha →</Link>
             <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Ashwagandha vs L-theanine vs Magnesium →</Link>
             <Link href="/guides/anxiety/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Anxiety Guides →</Link>
