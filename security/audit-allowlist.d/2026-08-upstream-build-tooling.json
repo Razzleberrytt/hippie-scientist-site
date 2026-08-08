@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "generatedAt": "2026-08-07",
+  "rules": [
+    {
+      "id": "js-yaml-gray-matter-build-tooling-2026-08",
+      "package": "js-yaml",
+      "severity": "high",
+      "expiresOn": "2026-08-22",
+      "advisoryUrls": [
+        "https://github.com/advisories/GHSA-5p4m-2wfm-xmqj"
+      ],
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Remove%20js-yaml%20audit%20exception%20after%20gray-matter%20upstream%20update",
+      "rationale": "The affected js-yaml 3.15.0 copy is nested under gray-matter 4.0.3 and is used only while parsing repository-controlled front matter during trusted local/CI content builds. The advisory is a CPU denial-of-service in !!omap resolution. The advisory lists 3.15.1 as patched, but npm currently publishes 3.15.0 as the v3 legacy release; forcing js-yaml 4/5 into gray-matter is incompatible with gray-matter's v3 API usage. The static export ships no YAML parser or user-controlled YAML endpoint. Short-lived exception pending an upstream-compatible patched gray-matter/js-yaml path."
+    },
+    {
+      "id": "nanoid-postcss-build-tooling-2026-08",
+      "package": "nanoid",
+      "severity": "high",
+      "expiresOn": "2026-08-22",
+      "advisoryUrls": [
+        "https://github.com/advisories/GHSA-2v37-7h3g-55p8"
+      ],
+      "followUpIssueUrl": "https://github.com/Razzleberrytt/hippie-scientist-site/issues/new?title=Remove%20nanoid%20audit%20exception%20after%20PostCSS%20upstream%20update",
+      "rationale": "The affected nanoid 3.3.16 copy is transitive build tooling through PostCSS and is used only in trusted CSS compilation. The advisory concerns custom generators looping indefinitely when called with size zero; the site does not call nanoid directly and no user-controlled size reaches the build pipeline. The advisory lists 3.3.17 as patched, but npm currently publishes 3.3.16 as the v3 legacy release; forcing nanoid 5/6 across PostCSS's dependency boundary risks ESM/API incompatibility. The static export ships no server-side nanoid endpoint. Short-lived exception pending a compatible PostCSS/nanoid release."
+    }
+  ]
+}
