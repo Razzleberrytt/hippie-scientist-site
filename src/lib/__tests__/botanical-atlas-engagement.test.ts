@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 const { appendAnalyticsEvent } = vi.hoisted(() => ({ appendAnalyticsEvent: vi.fn() }))
-vi.mock('@/utils/analytics/eventStorage', () => ({ appendAnalyticsEvent }))
+vi.mock('@/lib/analyticsEventStorage', () => ({ appendAnalyticsEvent }))
 
 import {
   getAtlasEngagementState,
