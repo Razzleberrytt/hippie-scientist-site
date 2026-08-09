@@ -58,6 +58,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: { default: HOME_TITLE, template: '%s' },
   description: DEFAULT_DESCRIPTION,
+  icons: {
+    icon: [
+      { url: '/favicon.ico', type: 'image/x-icon' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+  },
   ...rootMetadata,
   openGraph: rootMetadata.openGraph
     ? {

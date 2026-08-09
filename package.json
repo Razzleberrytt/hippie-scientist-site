@@ -144,6 +144,7 @@
     "validate:editorial-workbook": "node scripts/data/validate-editorial-workbook.mjs",
     "build:app": "node scripts/ci/validate-article-quality.mjs && node scripts/build-blog.mjs && node scripts/build-articles.mjs && next build",
     "build:pagefind": "npx pagefind --site out --output-path out/pagefind",
+    "favicon:build": "node scripts/generate-favicon.mjs",
     "analyze": "ANALYZE=true npm run build",
     "build:analyze": "ANALYZE=true npm run build",
     "validate:guide-faqs": "node scripts/ci/validate-guide-faqs.mjs",
