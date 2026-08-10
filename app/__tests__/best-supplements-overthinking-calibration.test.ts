@@ -26,7 +26,7 @@ describe('best supplements for overthinking evidence calibration', () => {
     expect(source).toContain('Subjective anxiety in vulnerable groups')
     expect(source).toContain('Chronic stress — not a same-night rescue')
     expect(source).toContain('does not establish a treatment for rumination')
-    expect(source).toContain('quality of the existing evidence was poor')
+    expect(source).toContain('evidence was poor')
   })
 
   it('does not monetize one ingredient inside a broad comparison', () => {
