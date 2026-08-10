@@ -7,7 +7,7 @@ import { buildGuideHubSchemaGraph } from '../../../src/lib/schema-graph'
 export const metadata: Metadata = buildPageMetadata({
   title: 'Best Supplement Guides by Goal',
   description:
-    'Browse evidence-informed best supplement guides for ADHD, stress, blood pressure, fat loss, gut health, and joint support, with safety-first decision context.',
+    'Browse evidence-informed best supplement guides for sleep, focus, ADHD, stress, blood pressure, fat loss, gut health, and joint support, with safety-first decision context.',
   path: '/guides/best/',
 })
 
@@ -21,6 +21,26 @@ const bestGuides = [
       'People deciding whether magnesium fits a deficiency, constipation, or sleep context without mistaking one form for a proven ADHD treatment.',
     caution:
       'No form has proven superiority for core ADHD symptoms. Review kidney disease, pediatric limits, medications, and total supplemental magnesium.',
+  },
+  {
+    title: 'Best Sleep Supplements by Problem',
+    href: '/guides/sleep/best-supplements-for-sleep/',
+    description:
+      'Compare melatonin, magnesium glycinate, L-theanine, ashwagandha, valerian, and passionflower by the sleep problem they actually fit.',
+    bestFor:
+      'Readers trying to match a supplement to circadian timing, racing thoughts, tension, or stress-linked sleep disruption instead of buying the strongest-looking sleep blend.',
+    caution:
+      'Persistent insomnia, loud snoring or gasping, severe daytime sleepiness, restless legs, medication changes, and overlapping sedatives need a different next step.',
+  },
+  {
+    title: 'Best Nootropics for Focus',
+    href: '/guides/focus/best-nootropics-for-focus/',
+    description:
+      'Compare focus nootropics by the outcome actually studied: acute attention, long-term memory, stress-related fatigue, or population-specific memory support.',
+    bestFor:
+      'Readers who want to separate same-day alertness from longer-term memory support and avoid treating every cognitive supplement as an interchangeable focus booster.',
+    caution:
+      'Caffeine can worsen sleep, anxiety, palpitations, and blood pressure, while persistent concentration problems may need assessment rather than a larger supplement stack.',
   },
   {
     title: 'Best Supplements for Stress',
@@ -86,7 +106,7 @@ export default function BestSupplementGuidesHub() {
     path: '/guides/best/',
     title: 'Best Supplement Guides by Goal',
     description:
-      'Browse evidence-informed best supplement guides for ADHD, stress, blood pressure, fat loss, gut health, and joint support, with safety-first decision context.',
+      'Browse evidence-informed best supplement guides for sleep, focus, ADHD, stress, blood pressure, fat loss, gut health, and joint support, with safety-first decision context.',
     breadcrumbs: [
       { name: 'Home', url: `${SITE_URL}/` },
       { name: 'Guides', url: `${SITE_URL}/guides/` },
