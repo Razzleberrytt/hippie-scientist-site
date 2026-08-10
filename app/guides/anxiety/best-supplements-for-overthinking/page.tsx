@@ -5,9 +5,6 @@ import StructuredData from '@/components/StructuredData'
 import { SITE_URL } from '@/lib/navigation-config'
 import { ArticleLayout, TableOfContents } from '@/components/articles'
 import type { Heading } from '@/components/articles'
-import { getRevenueProductSet } from '@/config/revenue-products'
-import RecommendationSection from '@/components/RecommendationSection'
-import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 import References from '@/components/References'
 
@@ -16,12 +13,12 @@ const PAGE_URL = `${SITE_URL}/guides/anxiety/best-supplements-for-overthinking`
 export const metadata: Metadata = {
   title: 'Best Supplements for Overthinking & a Racing Mind',
   description:
-    'Stuck in mental loops? An evidence-informed guide to supplements for overthinking — L-theanine, magnesium, lemon balm, ashwagandha and saffron — matched to whether your overthinking is anxious, stress-driven or sleep-deprived.',
+    'An evidence-first guide to supplements commonly considered for overthinking, separating direct evidence from adjacent stress, anxiety, and cognition research.',
   alternates: { canonical: '/guides/anxiety/best-supplements-for-overthinking/' },
   openGraph: {
     title: 'Best Supplements for Overthinking & a Racing Mind',
     description:
-      'Supplements that genuinely help quiet a racing mind — matched to whether your overthinking is anxiety, stress overload or poor sleep, with dosing and safety.',
+      'Compare L-theanine, magnesium, and ashwagandha by what human studies actually measured, with evidence limits and safety context kept visible.',
     url: '/guides/anxiety/best-supplements-for-overthinking/',
     type: 'article',
     images: ['/og-default.jpg'],
@@ -32,262 +29,274 @@ const FAQS = [
   {
     question: 'What supplement is best for overthinking?',
     answer:
-      'L-theanine is the best first choice for most people. At 100–200&nbsp;mg it quiets stress-driven mental chatter within an hour without sedation or dependency. If overthinking is worse in the evening and tied to tension, magnesium glycinate is a strong addition. If it is chronic and stress-hormone driven, ashwagandha addresses the underlying load over a few weeks.',
+      'No supplement has strong direct evidence for treating overthinking itself. The closest evidence is indirect: L-theanine research includes acute cognition and mood outcomes, magnesium research includes subjective anxiety in vulnerable groups, and ashwagandha research includes chronic-stress outcomes. That makes these possible context-dependent options, not a proven ranking.',
   },
   {
-    question: 'Can supplements stop a racing mind at night?',
+    question: 'Can a supplement stop a racing mind at night?',
     answer:
-      'They can take the edge off. L-theanine and magnesium in the evening, or a passionflower or lemon balm tea, reduce the arousal that fuels bedtime rumination. But supplements work best alongside a wind-down routine — dimming screens, a caffeine curfew, and a quick written "brain dump" to get the loop out of your head and onto paper.',
+      'A supplement may change arousal, stress, or anxiety for some people, but the studies cited here do not establish a reliable same-night treatment for rumination. Persistent bedtime rumination is better approached by checking sleep, caffeine, stress load, medications, and mental-health context rather than assuming a capsule is the missing piece.',
   },
   {
     question: 'Is overthinking the same as anxiety?',
     answer:
-      'They overlap but are not identical. Overthinking (rumination) is a thinking pattern; anxiety is the broader emotional and physical state that often drives it. Mild, situational overthinking responds well to calming supplements and routine changes. Persistent rumination that interferes with daily life, sleep or mood is better addressed with a clinician and approaches like CBT, with supplements as optional support.',
+      'No. Overthinking or rumination describes a thinking pattern, while anxiety is a broader emotional and physical state. They can overlap, but evidence for an anxiety or stress outcome should not automatically be presented as evidence for rumination itself.',
   },
   {
-    question: 'How long until these supplements work?',
+    question: 'How long should I expect a supplement to take?',
     answer:
-      'L-theanine and magnesium are felt the same day, often within an hour or two. Lemon balm is similar. Ashwagandha and saffron work gradually, usually over 2–6 weeks of consistent daily use. Give the fast options a few days and the adaptogens at least a month before judging them.',
+      'There is no single evidence-based timeline for this goal. The cited L-theanine study measured acute effects, the ashwagandha trial ran for 60 days, and the magnesium review combined heterogeneous studies. Those timelines are study context, not a universal protocol.',
   },
 ]
 
 const HEADINGS: Heading[] = [
   { id: 'quick-answer', text: 'Quick answer', level: 2 },
-  { id: 'takeaways', text: 'Key takeaways', level: 2 },
-  { id: 'match', text: 'Match the supplement to why your mind races', level: 2 },
-  { id: 'options', text: 'The options worth trying', level: 2 },
-  { id: 'basics', text: 'The basics that beat any supplement', level: 2 },
-  { id: 'risks', text: 'Risks & safety', level: 2 },
+  { id: 'decision-map', text: 'Choose by the outcome actually studied', level: 2 },
+  { id: 'evidence-profiles', text: 'Evidence profiles', level: 2 },
+  { id: 'study-context', text: 'Study context, not a protocol', level: 2 },
+  { id: 'basics', text: 'What to check before adding a supplement', level: 2 },
+  { id: 'risks', text: 'When a supplement is the wrong next step', level: 2 },
   { id: 'faq', text: 'Frequently asked questions', level: 2 },
 ]
 
-const BEST_SUPPLEMENTS_FOR_OVERTHINKING_REFS = [
-  { n: 1, text: 'Haskell CF, et al. (2008). L-theanine, caffeine and cognition. Biol Psychol, 77(2): 113-122.', url: 'https://pubmed.ncbi.nlm.nih.gov/18006208/' },
-  { n: 2, text: 'Chandrasekhar K, et al. (2012). Ashwagandha for stress. Indian J Psychol Med, 34(3): 255-262.', url: 'https://pubmed.ncbi.nlm.nih.gov/23439798/' },
-  { n: 3, text: 'Boyle NB, et al. (2017). Magnesium and subjective anxiety. Nutrients, 9(5): 429.', url: 'https://pubmed.ncbi.nlm.nih.gov/28445426/' },
+const REFERENCES = [
+  {
+    n: 1,
+    text: 'Haskell CF, et al. L-theanine, caffeine and cognition. Biol Psychol. 2008. PMID: 18006208.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/18006208/',
+  },
+  {
+    n: 2,
+    text: 'Chandrasekhar K, et al. Ashwagandha root extract for stress and anxiety in adults. Indian J Psychol Med. 2012. PMID: 23439798.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/23439798/',
+  },
+  {
+    n: 3,
+    text: 'Boyle NB, et al. Magnesium supplementation and subjective anxiety and stress: systematic review. Nutrients. 2017. PMID: 28445426.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/28445426/',
+  },
 ]
+
+const DECISION_ROWS = [
+  {
+    label: 'Acute cognition and mood — not rumination',
+    option: 'L-theanine is often marketed here, but the cited trial does not prove an anti-rumination effect.',
+    evidence:
+      'The randomized crossover study measured cognition and mood after L-theanine, caffeine, and their combination. L-theanine alone did not produce a clean broad benefit pattern.',
+    href: '/compounds/l-theanine/',
+  },
+  {
+    label: 'Subjective anxiety in vulnerable groups',
+    option: 'Magnesium may be relevant when anxiety vulnerability or low-magnesium risk is part of the picture.',
+    evidence:
+      'A systematic review found suggestive results in anxiety-vulnerable samples, but the authors judged the quality of the existing evidence poor and called for better trials.',
+    href: '/compounds/magnesium-glycinate/',
+  },
+  {
+    label: 'Chronic stress — not a same-night rescue',
+    option: 'Ashwagandha has more direct stress evidence than rumination evidence.',
+    evidence:
+      'A 60-day randomized placebo-controlled trial in 64 adults with chronic stress reported improvements in stress scales and serum cortisol for one high-concentration root extract. That does not establish a treatment for rumination or prove every ashwagandha product equivalent.',
+    href: '/herbs/ashwagandha/',
+  },
+  {
+    label: 'Persistent intrusive or impairing rumination',
+    option: 'Do not make the next decision a supplement ranking.',
+    evidence:
+      'If repetitive thoughts are persistent, intrusive, tied to panic or low mood, or disrupting sleep and daily function, the higher-value next step is assessment of the underlying problem rather than stacking calming products.',
+    href: '/info/supplement-safety-checklist/',
+  },
+] as const
 
 export default function Page() {
   const toc = <TableOfContents headings={HEADINGS} />
-  const ashwagandhaProducts = getRevenueProductSet('ashwagandha')
+
   return (
     <ArticleLayout toc={toc} zone="supplement">
       <StructuredData
         pageUrl={PAGE_URL}
         headline="Best Supplements for Overthinking"
-        description="Evidence-informed guide to supplements for overthinking and a racing mind — L-theanine, magnesium, lemon balm, ashwagandha and saffron — matched to the cause, with dosing and safety."
+        description="Evidence-first guide to supplements commonly considered for overthinking, separating direct evidence from adjacent stress, anxiety, and cognition research."
         datePublished="2026-06-18"
-        dateModified="2026-06-18"
+        dateModified="2026-08-10"
         faqs={FAQS}
         breadcrumbs={[
           { label: 'Home', href: '/' },
-          { label: 'Guides', href: '/guides' },
-          { label: 'Best Supplements for Overthinking', href: '/guides/anxiety/best-supplements-for-overthinking' },
+          { label: 'Guides', href: '/guides/' },
+          { label: 'Anxiety Guides', href: '/guides/anxiety/' },
+          { label: 'Best Supplements for Overthinking', href: '/guides/anxiety/best-supplements-for-overthinking/' },
         ]}
       />
 
       <div className="space-y-12">
-        <AffiliateDisclosure variant="compact" className="mb-6" />
-        {/* Hero */}
         <section className="hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-10">
-          <p className="eyebrow-label">Decision guide</p>
+          <p className="eyebrow-label">Evidence-first decision guide</p>
           <h1 className="mt-3 text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
             Best Supplements for Overthinking
           </h1>
           <p className="mt-2 text-xs text-muted">
             Written and edited by{' '}
-            <Link href="/info/author/" rel="author" className="font-medium text-brand-700 hover:underline">Willie B. Randolph III</Link>
-            {' '}· Last updated June 2026
+            <Link href="/info/author/" rel="author" className="font-medium text-brand-700 hover:underline">
+              Willie B. Randolph III
+            </Link>{' '}
+            · Last updated August 10, 2026
           </p>
-          <p className="detail-reading mt-4 text-muted">
-            Overthinking is the mental version of a car idling too high — the engine of your attention
-            running when it should be resting. Supplements will not rewrite your thinking habits, but a
-            few can genuinely lower the background arousal that keeps the loops spinning. The key is to
-            match the supplement to <em>why</em> your mind is racing: anxiety, stress overload, or simple
-            sleep deprivation. This guide breaks down the best-supported options for each.
+          <p className="detail-reading mt-4 max-w-3xl text-muted">
+            “Overthinking” is not a single clinical outcome, and the human studies behind popular calming supplements usually
+            measure something adjacent: cognition, mood, subjective anxiety, stress scales, or cortisol. That distinction matters.
+            This guide keeps those outcomes separate so a plausible option does not get promoted into a proven treatment.
           </p>
 
-        <figure className="mt-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
-            <Image
-              src="/images/guides/best-supplements-for-overthinking.jpg"
-              alt="L-theanine and magnesium supplements with green tea and lavender for racing thoughts"
-              width={1536}
-              height={1024}
-              priority
-              className="w-full h-auto"
-            />
+          <figure className="mt-6">
+            <div className="overflow-hidden rounded-2xl border border-brand-900/10 bg-white shadow-sm">
+              <Image
+                src="/images/guides/best-supplements-for-overthinking.jpg"
+                alt="L-theanine and magnesium supplements with green tea and lavender"
+                width={1536}
+                height={1024}
+                priority
+                className="h-auto w-full"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm text-muted">
+              Commonly marketed options are not automatically supported for the same outcome.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section id="quick-answer" className="card-premium scroll-mt-20 border-brand-700/30 bg-brand-50/60 p-6">
+          <p className="eyebrow-label">Quick answer</p>
+          <h2 className="mt-1 text-2xl font-semibold text-ink">There is no proven “best supplement” for overthinking</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            No supplement has strong direct evidence for treating “overthinking” itself. L-theanine, magnesium, and ashwagandha
+            are better understood as options with <em>adjacent</em> evidence in cognition or mood, subjective anxiety, or chronic
+            stress. The practical edge is to identify the outcome you are actually trying to change, then judge the evidence for
+            that outcome rather than buying a generic “calm” stack.
+          </p>
+        </section>
+
+        <section id="decision-map" className="scroll-mt-20 space-y-5">
+          <div>
+            <p className="eyebrow-label">Decision map</p>
+            <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">Choose by the outcome actually studied</h2>
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-muted">
+              These are not interchangeable claims. A stress score, an anxiety questionnaire, a reaction-time task, and repetitive
+              rumination answer different questions.
+            </p>
           </div>
-          <figcaption className="mt-3 text-center text-sm text-muted">
-            Supplements that may quiet overthinking and racing thoughts.
-          </figcaption>
-        </figure>
-        </section>
 
-        {/* Fastest useful choice */}
-        <section className="card-premium scroll-mt-20 space-y-3 border-brand-700/30 bg-brand-50/60 p-6">
-          <p className="eyebrow-label">Fastest useful choice</p>
-          <h2 className="text-xl font-semibold text-ink">If you only try one thing: L-theanine</h2>
-          <p className="text-muted">
-            <strong>L-theanine 100–200 mg is the fastest useful choice for overthinking</strong> —
-            effects typically within 30–60 minutes, no sedation, no dependency. It works by raising
-            calming alpha-wave activity and dialing down anxious mental chatter. If overthinking
-            peaks at night with physical tension, add{' '}
-            <Link href="/compounds/magnesium-glycinate/" className="font-semibold text-brand-700 hover:underline">
-              magnesium glycinate
-            </Link>{' '}
-            in the evening. See the{' '}
-            <Link href="/guides/herbs/l-theanine/" className="font-semibold text-brand-700 hover:underline">
-              full L-theanine guide
-            </Link>{' '}
-            for dosing and stacking notes.
-          </p>
-        </section>
-
-        {/* Quick Answer */}
-        <section id="quick-answer" className="card-premium scroll-mt-20 space-y-3 p-6">
-          <h2 className="text-2xl font-semibold text-ink">Quick answer</h2>
-          <p className="text-muted">
-            Start with <strong className="text-ink">L-theanine</strong> (100–200&nbsp;mg) — it is the most
-            reliable, fastest and safest way to quiet mental chatter without sedation. Add{' '}
-            <strong className="text-ink">magnesium glycinate</strong> in the evening if overthinking peaks
-            at night with physical tension. If the rumination is chronic and stress-driven, layer in{' '}
-            <strong className="text-ink">ashwagandha</strong> and give it a few weeks.{' '}
-            <strong className="text-ink">Lemon balm</strong> and{' '}
-            <strong className="text-ink">saffron</strong> are gentle add-ons. Pair all of it with a
-            screen curfew and a written &ldquo;brain dump&rdquo; — behavior moves rumination more than any
-            capsule.
-          </p>
-        </section>
-
-        {/* Key Takeaways */}
-        <section id="takeaways" className="scroll-mt-20 space-y-4">
-          <h2 className="text-2xl font-semibold text-ink">Key takeaways</h2>
-          <ul className="space-y-2 text-muted">
-            <li>• <strong className="text-ink">L-theanine is the default</strong> — fast, calming, non-sedating and very safe for daily use.</li>
-            <li>• <strong className="text-ink">Find the driver:</strong> anxious overthinking, stress-overload overthinking, and sleep-deprived overthinking each respond to a different tool.</li>
-            <li>• <strong className="text-ink">Evening tension?</strong> Magnesium glycinate plus L-theanine is a clean, well-tolerated nighttime combination.</li>
-            <li>• <strong className="text-ink">Chronic loops?</strong> Adaptogens like ashwagandha address the underlying stress load over weeks.</li>
-            <li>• <strong className="text-ink">Supplements support, not replace,</strong> the behavioral basics — sleep, caffeine timing and getting thoughts out of your head.</li>
-          </ul>
-        </section>
-
-        {/* Match driver */}
-        <section id="match" className="scroll-mt-20 space-y-4">
-          <p className="eyebrow-label">Find your driver</p>
-          <h2 className="text-2xl font-semibold text-ink">Match the supplement to why your mind races</h2>
-          <div className="grid gap-4 sm:grid-cols-3">
-            {[
-              { driver: 'Anxious overthinking', detail: 'Worry-based loops, "what ifs"', pick: 'L-theanine + lemon balm', href: '/compounds/l-theanine' },
-              { driver: 'Stress-overload overthinking', detail: 'Too much on your plate', pick: 'Ashwagandha + magnesium', href: '/herbs/ashwagandha' },
-              { driver: 'Sleep-deprived overthinking', detail: 'Worse when under-slept', pick: 'Magnesium + sleep routine', href: '/compounds/magnesium-glycinate' },
-            ].map((row) => (
-              <Link key={row.driver} href={row.href} className="card-premium block p-5 transition hover:border-brand-700/40">
-                <p className="text-sm font-semibold text-ink">{row.driver}</p>
-                <p className="mt-1 text-xs text-muted">{row.detail}</p>
-                <p className="mt-3 text-xs font-bold uppercase tracking-wider text-brand-700">Try</p>
-                <p className="mt-1 text-sm font-medium text-brand-800">{row.pick} →</p>
-              </Link>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {DECISION_ROWS.map((row) => (
+              <article key={row.label} className="card-premium p-5">
+                <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-700">Closest evidence context</p>
+                <h3 className="mt-2 text-lg font-semibold text-ink">{row.label}</h3>
+                <p className="mt-3 text-sm font-medium leading-6 text-ink">{row.option}</p>
+                <p className="mt-2 text-sm leading-6 text-muted">{row.evidence}</p>
+                <Link href={row.href} className="mt-4 inline-block text-sm font-semibold text-brand-700 hover:underline">
+                  Read the narrower page →
+                </Link>
+              </article>
             ))}
           </div>
         </section>
 
-        {/* Evidence overview */}
-        <section id="options" className="scroll-mt-20 space-y-5">
-          <p className="eyebrow-label">Evidence overview</p>
-          <h2 className="text-2xl font-semibold text-ink">The options worth trying</h2>
+        <section id="evidence-profiles" className="scroll-mt-20 space-y-5">
+          <p className="eyebrow-label">Evidence profiles</p>
+          <h2 className="text-2xl font-semibold tracking-tight text-ink">What the cited human evidence does — and does not — show</h2>
 
           <article className="card-premium p-6">
-            <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/compounds/l-theanine/" className="hover:underline">L-theanine</Link>{' '}
-              <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">First choice</span>
-            </h3>
-            <p className="mt-3 text-sm text-muted">
-              An amino acid from tea that raises calming alpha-wave activity and modulates GABA and
-              glutamate. Trials show reduced stress and a quieter, calmer focus without drowsiness. It is
-              the cleanest way to take the volume down on mental chatter, and it pairs perfectly with
-              magnesium. Compare them in{' '}
-              <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/" className="font-medium text-brand-700 hover:underline">L-theanine vs magnesium</Link>.
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <h3 className="text-xl font-semibold text-brand-800">
+                <Link href="/compounds/l-theanine/" className="hover:underline">L-theanine</Link>
+              </h3>
+              <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-800">Indirect for rumination</span>
+            </div>
+            <p className="mt-4 text-sm leading-7 text-muted">
+              The cited randomized crossover trial tested acute cognition and mood after L-theanine, caffeine, and their
+              combination. L-theanine alone increased headache ratings and reduced performance on one serial-subtraction task;
+              several clearer performance effects involved caffeine or the combination. That evidence does not establish a
+              treatment for rumination, nor does it justify promising that L-theanine will reliably “quiet mental chatter.”
             </p>
           </article>
 
           <article className="card-premium p-6">
-            <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/compounds/magnesium-glycinate/" className="hover:underline">Magnesium glycinate</Link>
-            </h3>
-            <p className="mt-3 text-sm text-muted">
-              Magnesium lowers nervous-system excitability and supports relaxation, and many people who
-              overthink are running low on it. The glycinate form is gentle and well absorbed, making it a
-              natural evening companion to L-theanine when rumination peaks at night.
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <h3 className="text-xl font-semibold text-brand-800">
+                <Link href="/compounds/magnesium-glycinate/" className="hover:underline">Magnesium</Link>
+              </h3>
+              <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-800">Suggestive, low-quality evidence</span>
+            </div>
+            <p className="mt-4 text-sm leading-7 text-muted">
+              The systematic review covered 18 studies in groups already vulnerable to anxiety, including mildly anxious,
+              premenstrual, postpartum, and hypertensive samples. Results were mixed, and the authors concluded that the quality
+              of the existing evidence was poor. The review therefore supports caution—not a claim that magnesium glycinate is a
+              reliable treatment for overthinking or that one magnesium form is proven superior for this goal.
             </p>
           </article>
 
           <article className="card-premium p-6">
-            <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/herbs/melissa-officinalis/" className="hover:underline">Lemon balm &amp; saffron</Link>
-            </h3>
-            <p className="mt-3 text-sm text-muted">
-              Lemon balm is a gentle calming herb with some trial support for reducing stress and
-              improving calm. Saffron has growing evidence for mood and rumination at standardized doses.
-              Both are low-risk add-ons rather than primary tools — useful if L-theanine and magnesium are
-              not quite enough.
-            </p>
-          </article>
-
-          <article className="card-premium p-6">
-            <h3 className="text-xl font-semibold text-brand-800">
-              <Link href="/herbs/ashwagandha/" className="hover:underline">Ashwagandha</Link>{' '}
-              <span className="ml-2 rounded-full bg-brand-50 px-3 py-0.5 align-middle text-xs font-semibold text-brand-800">For chronic loops</span>
-            </h3>
-            <p className="mt-3 text-sm text-muted">
-              When overthinking is really chronic stress wearing a different mask, ashwagandha addresses
-              the root by lowering cortisol and perceived stress over 4–8 weeks. It will not stop a single
-              spiral tonight, but it lowers the baseline that makes spirals more likely. See our{' '}
-              <Link href="/guides/anxiety/how-to-lower-cortisol-naturally/" className="font-medium text-brand-700 hover:underline">how to lower cortisol naturally</Link>{' '}
-              guide.
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <h3 className="text-xl font-semibold text-brand-800">
+                <Link href="/herbs/ashwagandha/" className="hover:underline">Ashwagandha</Link>
+              </h3>
+              <span className="rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-800">Stress evidence, not rumination evidence</span>
+            </div>
+            <p className="mt-4 text-sm leading-7 text-muted">
+              A small randomized placebo-controlled trial enrolled 64 adults with chronic stress and tested one high-concentration
+              full-spectrum root extract for 60 days. Stress-scale scores and serum cortisol improved relative to placebo. That is
+              relevant when chronic stress is the question, but it does not prove an immediate anti-rumination effect, establish a
+              universal dose, or show that every extract on the market is equivalent.
             </p>
           </article>
         </section>
 
-        {/* Behavioral basics */}
-        <section id="basics" className="scroll-mt-20 space-y-3 rounded-[1.65rem] border border-brand-900/10 bg-brand-50/40 p-6">
-          <h2 className="text-xl font-semibold text-ink">The basics that beat any supplement</h2>
-          <ul className="space-y-2 text-sm text-muted">
-            <li>• <strong className="text-ink">Brain dump:</strong> write the loop down for two minutes — externalizing a worry reliably loosens its grip.</li>
-            <li>• <strong className="text-ink">Caffeine curfew:</strong> afternoon caffeine amplifies the arousal that feeds overthinking.</li>
-            <li>• <strong className="text-ink">Protect sleep:</strong> under-slept brains ruminate more; consistent sleep is the highest-leverage fix.</li>
-            <li>• <strong className="text-ink">Move:</strong> even a short walk interrupts a spiral by shifting your physiology.</li>
+        <section id="study-context" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-white/90 p-6 shadow-sm">
+          <p className="eyebrow-label">Dose and timeline boundary</p>
+          <h2 className="mt-1 text-2xl font-semibold text-ink">Study context is not a protocol</h2>
+          <p className="mt-3 text-sm leading-7 text-muted">
+            The studies on this page used different populations, products, outcomes, doses, and durations. A milligram amount from
+            one trial should not be copied into a universal “start here” instruction, and an acute cognition study should not be
+            given the same expected timeline as a 60-day chronic-stress trial. Product identity and the reason for taking it matter.
+          </p>
+        </section>
+
+        <section id="basics" className="scroll-mt-20 rounded-[1.65rem] border border-brand-900/10 bg-brand-50/40 p-6">
+          <h2 className="text-xl font-semibold text-ink">What to check before adding a supplement</h2>
+          <ul className="mt-4 space-y-3 text-sm leading-7 text-muted">
+            <li>• <strong className="text-ink">Name the actual problem:</strong> worry, intrusive thoughts, sleep loss, stimulant overload, chronic stress, or another driver may require different next steps.</li>
+            <li>• <strong className="text-ink">Audit caffeine and sleep:</strong> adding a calming product while leaving a large arousal driver untouched makes the result difficult to interpret.</li>
+            <li>• <strong className="text-ink">Change one variable:</strong> multi-ingredient stacks make benefits, adverse effects, and interactions harder to attribute.</li>
+            <li>• <strong className="text-ink">Define a stop rule:</strong> stop and reassess if symptoms worsen, new adverse effects appear, or the chosen outcome does not meaningfully improve.</li>
           </ul>
         </section>
 
-        {/* Risks & safety */}
-        <section id="risks" className="scroll-mt-20 space-y-3 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6">
-          <h2 className="text-xl font-semibold text-amber-900">Risks &amp; safety</h2>
-          <ul className="space-y-2 text-sm text-amber-900">
-            <li>• This is educational guidance, not treatment. Persistent rumination, intrusive thoughts, panic attacks, or low mood deserve a clinician&rsquo;s input.</li>
-            <li>• <strong>Ashwagandha:</strong> avoid in pregnancy and breastfeeding; rare hepatotoxicity reported; caution with thyroid conditions, autoimmune disease, and immunosuppressants.</li>
-            <li>• <strong>Magnesium:</strong> caution with kidney disease (kidneys regulate excretion); high doses cause loose stools &mdash; lower the dose rather than stopping.</li>
-            <li>• <strong>Saffron:</strong> serotonergic activity &mdash; do not combine with SSRIs, SNRIs, or MAOIs without clinician guidance (serotonin syndrome risk); avoid high doses in pregnancy.</li>
-            <li>• <strong>Lemon balm:</strong> generally well-tolerated; caution with sedatives and thyroid medications.</li>
-            <li>• If you take medication for anxiety, mood, sleep, blood pressure, or thyroid, confirm compatibility before adding supplements.</li>
+        <section id="risks" className="scroll-mt-20 rounded-[1.65rem] border border-amber-200 bg-amber-50/70 p-6">
+          <p className="eyebrow-label">Safety boundary</p>
+          <h2 className="mt-1 text-2xl font-semibold text-amber-950">When a supplement is the wrong next step</h2>
+          <ul className="mt-4 space-y-3 text-sm leading-7 text-amber-900">
+            <li>• Repetitive thoughts are intrusive, frightening, tied to compulsions, panic, or low mood, or are significantly impairing sleep or daily function.</li>
+            <li>• Symptoms appeared after a medication or substance change, or you are combining multiple stimulating, sedating, or mood-active products.</li>
+            <li>• Pregnancy, breastfeeding, significant liver or kidney disease, or a complex medication regimen changes the safety calculation.</li>
+            <li>• You are using supplements to postpone assessment of a persistent mental-health or sleep problem.</li>
           </ul>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Link href="/safety-checker/" className="rounded-full bg-amber-900 px-4 py-2 text-sm font-semibold text-white hover:bg-amber-950">
+              Check interaction cautions
+            </Link>
+            <Link href="/info/supplement-safety-checklist/" className="rounded-full border border-amber-900/20 px-4 py-2 text-sm font-semibold text-amber-950 hover:bg-white/60">
+              Use the safety checklist
+            </Link>
+          </div>
         </section>
 
-        {ashwagandhaProducts && (
-        <>
-          <References refs={BEST_SUPPLEMENTS_FOR_OVERTHINKING_REFS} />
-            <RecommendationSection products={ashwagandhaProducts.products} />
-        </>
-        )}
+        <References refs={REFERENCES} />
 
-        {/* FAQs */}
         <section id="faq" className="scroll-mt-20 space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Frequently asked questions</h2>
           <div className="space-y-3">
             {FAQS.map((faq) => (
               <details key={faq.question} className="card-premium p-5">
                 <summary className="cursor-pointer text-base font-semibold text-ink">{faq.question}</summary>
-                <p className="mt-2 text-sm text-muted">{faq.answer}</p>
+                <p className="mt-2 text-sm leading-6 text-muted">{faq.answer}</p>
               </details>
             ))}
           </div>
@@ -295,16 +304,15 @@ export default function Page() {
 
         <EmailCapture location="guides-best-supplements-for-overthinking" className="mt-6" />
 
-        {/* Related */}
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-ink">Related guides &amp; comparisons</h2>
           <div className="grid gap-3 sm:grid-cols-2">
             <Link href="/guides/anxiety/best-herbs-for-anxiety/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Anxiety →</Link>
-            <Link href="/guides/anxiety/natural-anxiolytics-beyond-ashwagandha/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Natural Anxiolytics Beyond Ashwagandha →</Link>
-            <Link href="/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Best Herbs for Stress &amp; Anxiety at Night →</Link>
-            <Link href="/guides/anxiety/how-to-lower-cortisol-naturally/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">How to Lower Cortisol Naturally →</Link>
+            <Link href="/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Stress &amp; Anxiety at Night →</Link>
             <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Ashwagandha vs L-theanine vs Magnesium →</Link>
+            <Link href="/safety-checker/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">Safety Interaction Checker →</Link>
             <Link href="/guides/anxiety/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Anxiety Guides →</Link>
+            <Link href="/guides/" className="card-premium block p-4 text-sm font-semibold text-brand-700 hover:border-brand-700/40">All Guides →</Link>
           </div>
         </section>
       </div>
