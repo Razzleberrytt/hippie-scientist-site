@@ -3,7 +3,7 @@
 export const SEO_GUIDE_ROUTES = {
   sleep: '/guides/sleep/best-supplements-for-sleep',
   stress: '/guides/best/supplements-for-stress/',
-  focus: '/guides/focus/best-supplements-for-focus',
+  focus: '/guides/focus/best-nootropics-for-focus/',
   anxiety: '/guides/anxiety/best-herbs-for-anxiety',
   adaptogensStress: '/guides/anxiety/best-adaptogens-for-stress',
 } as const

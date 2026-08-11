@@ -1,0 +1,2 @@
+# Consolidate the older focus best-supplements quick reference into the evidence-first nootropics guide.
+/guides/focus/best-supplements-for-focus/ /guides/focus/best-nootropics-for-focus/ 301
