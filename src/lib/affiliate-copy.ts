@@ -5,8 +5,11 @@ const DYNAMIC_OR_UNSOURCED_SUPERIORITY =
   /\b(well[- ]reviewed|preferred by most sleep researchers|faster absorption|superior bioavailability)\b/i
 
 const RANKING_PREFIXES: Array<[RegExp, string]> = [
-  [/^best\s+overall\s+(?:pick|choice|option)\s+for\s+/i, 'Product example for '],
-  [/^best\s+value\s+(?:pick|choice|option)\s+for\s+/i, 'Value-oriented product example for '],
+  // Registry copy uses both “Best overall for …” and “Best overall pick for …”.
+  [/^best\s+overall(?:\s+(?:pick|choice|option))?\s+for\s+/i, 'Product example for '],
+  [/^best\s+overall(?:\s+(?:pick|choice|option))?\s+/i, 'Product example: '],
+  [/^best\s+value(?:\s+(?:pick|choice|option))?\s+for\s+/i, 'Value-oriented product example for '],
+  [/^best\s+value(?:\s+(?:pick|choice|option))?\s+/i, 'Value-oriented product example: '],
   [/^budget\s+(?:pick|choice|option)\s+for\s+/i, 'Budget product example for '],
   [/^premium\s+(?:pick|choice|option)\s+for\s+/i, 'Premium product example for '],
 ]
@@ -15,6 +18,15 @@ function neutralizeUnsourcedRanking(text: string): string {
   for (const [pattern, replacement] of RANKING_PREFIXES) {
     if (pattern.test(text)) return text.replace(pattern, replacement)
   }
+
+  // Some registry rows insert a format word before “pick” (for example,
+  // “Budget capsule pick for …”). Keep the useful format descriptor while removing
+  // the editorial-selection word.
+  const budgetFormatPick = text.match(/^budget\s+([\w-]+)\s+pick\s+for\s+/i)
+  if (budgetFormatPick) {
+    return text.replace(budgetFormatPick[0], `Budget ${budgetFormatPick[1]} example for `)
+  }
+
   return text
 }
 
