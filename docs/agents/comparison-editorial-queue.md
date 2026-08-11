@@ -54,4 +54,26 @@ Prefer `comparison-agent-work-queue.json` as the machine-facing entry point. For
 4. Preserve `packetId` in notes or PR descriptions when practical so work remains traceable to the generated queue.
 5. Regenerate the queue after meaningful evidence, behavior, or comparison-page changes so completed or obsolete packets do not remain authoritative.
 
+## Preparing agent assignments
+
+Use the orchestrator adapter when an agent needs a smaller, ordered set of executable assignments instead of the full work-packet queue:
+
+```bash
+node agent/orchestrator/prepare-comparison-assignments.js
+```
+
+The adapter intentionally converts only `build-next`, `research-first`, and `validate-and-outline` packets. `keep-observing` and `no-action` are not promoted into executable work.
+
+Useful filters:
+
+```bash
+node agent/orchestrator/prepare-comparison-assignments.js --action=research-first --limit=5
+node agent/orchestrator/prepare-comparison-assignments.js --packet=comparison:lemon-balm:passionflower --limit=1
+node agent/orchestrator/prepare-comparison-assignments.js --queue=reports/related-botanicals/comparison-agent-work-queue.json
+```
+
+Assignments are ordered by evidence-gated action priority, then the existing comparison priority score. Their `assignmentId` is derived from the stable source `packetId`, so filtering or changing the queue limit does not rename the same underlying task.
+
+The adapter does not execute, publish, or promote work. It only packages already-authorized packet actions into reviewable assignments with the packet's rationale, evidence state, demand state, research gaps, completion criteria, and explicit no-auto-publish guardrails.
+
 The goal is a controlled progression from **observe → validate → research → build**, not autonomous page proliferation.
