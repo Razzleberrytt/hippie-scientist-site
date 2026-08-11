@@ -1,187 +1,94 @@
 import type { CompareItem } from '@/lib/compare'
-import { stimulationProfile } from '@/lib/compare'
 
 interface CompareSynergyProps {
   item1: CompareItem
   item2: CompareItem
 }
 
-type SynergyStatus = 'yes' | 'conditional' | 'not-recommended'
-
-function determineSynergy(item1: CompareItem, item2: CompareItem): SynergyStatus {
-  const isAdaptogenOrStress = (item: CompareItem) => {
-    const text = [...item.mechanismCategories, ...item.mechanisms, item.description]
-      .join(' ')
-      .toLowerCase()
-    return /adapt|hpa.axis|cortisol|stress/.test(text)
-  }
-
-  // Both are adaptogens/stress modulators — conditional (don't double-dose cortisol axis)
-  if (isAdaptogenOrStress(item1) && isAdaptogenOrStress(item2)) {
-    return 'conditional'
-  }
-
-  const profile1 = stimulationProfile(item1)
-  const profile2 = stimulationProfile(item2)
-
-  // Calming + stimulating pair up well
-  if (
-    (profile1 === 'calming' && profile2 === 'stimulating') ||
-    (profile1 === 'stimulating' && profile2 === 'calming')
-  ) {
-    return 'yes'
-  }
-
-  // Different mechanism category domains → likely complementary
-  const cats1 = new Set(item1.mechanismCategories.map((c) => c.toLowerCase()))
-  const cats2 = new Set(item2.mechanismCategories.map((c) => c.toLowerCase()))
-  const shared = [...cats1].filter((c) => cats2.has(c))
-  if (shared.length === 0 && cats1.size > 0 && cats2.size > 0) {
-    return 'yes'
-  }
-
-  return 'conditional'
+function timingContext(item: CompareItem): string | null {
+  const timing = item.bestTiming?.trim()
+  return timing || null
 }
 
-function deriveTiming(item: CompareItem): 'morning' | 'evening' | 'flexible' {
-  const profile = stimulationProfile(item)
-  if (item.bestTiming) {
-    const t = item.bestTiming.toLowerCase()
-    if (/morning|am|early|before work|wake/.test(t)) return 'morning'
-    if (/evening|night|pm|before bed|sleep/.test(t)) return 'evening'
-  }
-  if (profile === 'stimulating') return 'morning'
-  if (profile === 'calming') return 'evening'
-  return 'flexible'
-}
-
-function buildMechanismExplanation(
-  status: SynergyStatus,
-  item1: CompareItem,
-  item2: CompareItem,
-): string {
-  const m1 = item1.canonicalMechanisms.slice(0, 2).join(' and ') || item1.mechanisms[0] || 'its active compounds'
-  const m2 = item2.canonicalMechanisms.slice(0, 2).join(' and ') || item2.mechanisms[0] || 'different pathways'
-
-  if (status === 'yes') {
-    return `${item1.name} works primarily through ${m1}, while ${item2.name} acts via ${m2}. These non-overlapping mechanisms make them naturally complementary — each supports a different aspect of the same outcome without redundancy.`
-  }
-
-  if (status === 'conditional') {
-    return `${item1.name} and ${item2.name} share overlapping mechanisms (${m1} and ${m2} respectively). Starting one at a time allows you to gauge individual tolerance and isolate any response before combining. Many people use both successfully, but conservative titration is advisable.`
-  }
-
-  return `${item1.name} and ${item2.name} may compete at shared receptors or pathways. Combining them without medical guidance is not recommended based on current data.`
+function safetySignals(item: CompareItem): string[] {
+  return [
+    ...(item.keyInteractions ?? []).map((value) => `${item.name}: interaction — ${value}`),
+    ...(item.contraindications ?? []).map((value) => `${item.name}: avoid/caution — ${value}`),
+  ].slice(0, 6)
 }
 
 export default function CompareSynergy({ item1, item2 }: CompareSynergyProps) {
-  const status = determineSynergy(item1, item2)
-  const timing1 = deriveTiming(item1)
-  const timing2 = deriveTiming(item2)
-  const explanation = buildMechanismExplanation(status, item1, item2)
-
-  const badgeConfig: Record<
-    SynergyStatus,
-    { icon: string; label: string; badgeClass: string }
-  > = {
-    yes: {
-      icon: '✅',
-      label: 'YES — Generally Compatible',
-      badgeClass: 'bg-brand-50/50 border border-brand-900/10 text-evidence-strong',
-    },
-    conditional: {
-      icon: '⚠️',
-      label: 'CONDITIONAL — Use with Care',
-      badgeClass: 'bg-amber-50/60 border border-amber-600/20 text-safety-caution',
-    },
-    'not-recommended': {
-      icon: '❌',
-      label: 'NOT RECOMMENDED',
-      badgeClass: 'bg-red-50/60 border border-red-600/20 text-safety-avoid',
-    },
-  }
-
-  const badge = badgeConfig[status]
-
-  // Build timing protocol cards only when the synergy allows combination
-  const showTimingProtocol = status !== 'not-recommended'
-
-  // Assign morning/evening slots
-  const morningItem =
-    timing1 === 'morning' ? item1 : timing2 === 'morning' ? item2 : item1
-  const eveningItem =
-    timing2 === 'evening' ? item2 : timing1 === 'evening' ? item1 : item2
-  const morningTiming =
-    morningItem.bestTiming || 'Morning — with or without food'
-  const eveningTiming =
-    eveningItem.bestTiming || 'Evening — 30–60 min before bed'
-
-  const sameItem = morningItem.slug === eveningItem.slug
+  const timing1 = timingContext(item1)
+  const timing2 = timingContext(item2)
+  const safetyItems = [...safetySignals(item1), ...safetySignals(item2)].slice(0, 8)
 
   return (
-    <section className="space-y-6 max-w-4xl">
+    <section className="max-w-4xl space-y-6">
       <div>
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Combination Guide</p>
-        <h2 className="text-2xl font-semibold tracking-tight text-ink mt-1">
-          Can You Take {item1.name} and {item2.name} Together?
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Combination guide</p>
+        <h2 className="mt-1 text-2xl font-semibold tracking-tight text-ink">
+          What to consider before combining {item1.name} and {item2.name}
         </h2>
       </div>
 
-      {/* Status badge */}
-      <div
-        className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold ${badge.badgeClass}`}
-      >
-        <span aria-hidden="true">{badge.icon}</span>
-        {badge.label}
+      <div className="inline-flex items-center gap-2 rounded-full border border-amber-600/20 bg-amber-50/60 px-4 py-2 text-sm font-semibold text-safety-caution">
+        <span aria-hidden="true">⚠️</span>
+        EVIDENCE CHECK — Compatibility not established here
       </div>
 
-      {/* Mechanism explanation */}
-      <p className="text-sm leading-relaxed text-muted max-w-prose">{explanation}</p>
+      <p className="max-w-prose text-sm leading-relaxed text-muted">
+        Shared or different mechanisms can help explain why two ingredients might affect similar outcomes, but mechanism matching alone cannot establish that a combination is safe, beneficial, or appropriately dosed. Review the known interaction and contraindication information for each ingredient before considering a stack.
+      </p>
 
-      {/* Timing protocol */}
-      {showTimingProtocol && (
-        <div className="card-premium p-5 space-y-4">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">
-            Suggested Timing Protocol
+      {safetyItems.length > 0 ? (
+        <div className="card-premium p-5">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Safety signals to review</p>
+          <ul className="mt-3 space-y-2 text-sm leading-6 text-muted">
+            {safetyItems.map((item) => (
+              <li key={item} className="flex gap-2">
+                <span aria-hidden="true" className="text-safety-caution">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <div className="rounded-xl border border-brand-900/10 bg-[var(--surface-subtle)] p-4">
+          <p className="text-sm leading-6 text-muted">
+            No specific interaction signal is surfaced in this comparison dataset. That is not evidence that the combination is interaction-free; interaction data for supplements are often incomplete.
           </p>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="space-y-1">
-              <p className="text-xs font-bold uppercase tracking-wider text-ink">Morning</p>
-              <p className="text-sm font-semibold text-ink">{morningItem.name}</p>
-              <p className="text-xs leading-relaxed text-muted">{morningTiming}</p>
-            </div>
-            {!sameItem && (
-              <div className="space-y-1">
-                <p className="text-xs font-bold uppercase tracking-wider text-ink">Evening</p>
-                <p className="text-sm font-semibold text-ink">{eveningItem.name}</p>
-                <p className="text-xs leading-relaxed text-muted">{eveningTiming}</p>
-              </div>
-            )}
-            {sameItem && (
-              <div className="space-y-1">
-                <p className="text-xs font-bold uppercase tracking-wider text-ink">Note</p>
-                <p className="text-xs leading-relaxed text-muted">
-                  Both items share a similar timing profile. Follow manufacturer guidelines and adjust based on individual response.
-                </p>
-              </div>
-            )}
-          </div>
-
-          {status === 'conditional' && (
-            <p className="text-xs leading-relaxed text-safety-caution border-t border-brand-900/10 pt-3">
-              Start each supplement separately for at least one week before combining. Reduce dose of each by one-third when stacking until tolerance is confirmed.
-            </p>
-          )}
         </div>
       )}
 
-      {/* General disclaimer */}
+      {timing1 || timing2 ? (
+        <div className="card-premium space-y-4 p-5">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-brand-700">Existing timing context</p>
+          <p className="text-xs leading-5 text-muted">
+            These are ingredient-specific timing notes already present in the source data, not a combined dosing protocol.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {timing1 ? (
+              <div className="space-y-1">
+                <p className="text-sm font-semibold text-ink">{item1.name}</p>
+                <p className="text-xs leading-relaxed text-muted">{timing1}</p>
+              </div>
+            ) : null}
+            {timing2 ? (
+              <div className="space-y-1">
+                <p className="text-sm font-semibold text-ink">{item2.name}</p>
+                <p className="text-xs leading-relaxed text-muted">{timing2}</p>
+              </div>
+            ) : null}
+          </div>
+        </div>
+      ) : null}
+
       <div className="rounded-xl border border-yellow-200 bg-amber-50/60 p-4">
-        <p className="text-xs font-semibold text-safety-caution uppercase tracking-wider">
-          Always Consult a Healthcare Provider
+        <p className="text-xs font-semibold uppercase tracking-wider text-safety-caution">
+          Check the full combination, not just the mechanism
         </p>
         <p className="mt-1 text-xs leading-relaxed text-muted">
-          This analysis is based on documented mechanisms and is not a substitute for personalised medical advice. Individual responses vary. If you take prescription medications, consult a healthcare provider before combining any supplements.
+          Supplements can interact with other supplements, prescription or over-the-counter medicines, and health conditions. If you use medications, have a chronic condition, are pregnant or breastfeeding, or are considering multiple active products, review the combination with a pharmacist or other qualified health professional.
         </p>
       </div>
     </section>
