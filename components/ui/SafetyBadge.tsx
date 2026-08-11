@@ -6,18 +6,19 @@ import {
 } from '@/lib/decision-primitives'
 
 export default function SafetyBadge({ level = 'Safety review pending' }: { level?: string }) {
-  const label = normalizeDecisionSafety(level)
-  const tone = getDecisionSafetyTone(label)
-  const isPending = label === 'Safety review pending'
+  const normalizedLabel = normalizeDecisionSafety(level)
+  const isPending = normalizedLabel === 'Safety review pending'
+  const label = isPending ? 'Safety data limited' : normalizedLabel
+  const tone = getDecisionSafetyTone(normalizedLabel)
   const aria = isPending
-    ? 'Safety data pending review; use caution and review the full profile before choosing.'
+    ? 'Safety data are limited; use caution and review the full profile before choosing.'
     : undefined
 
   return (
     <span
       className={`${decisionStatusBadgeClass} ${safetyToneClasses(tone)}`}
       aria-label={aria}
-      title={isPending ? 'Safety data is still under review' : undefined}
+      title={isPending ? 'Safety data are limited; review the full profile' : undefined}
     >
       {label}
     </span>
