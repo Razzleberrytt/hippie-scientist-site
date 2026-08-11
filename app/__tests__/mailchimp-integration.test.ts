@@ -25,19 +25,27 @@ describe('mailchimp signup config', () => {
     vi.resetModules()
   })
 
-  it('uses the local subscribe endpoint as a client-post API action by default', async () => {
+  it('uses the generic safety subscribe endpoint as a client-post API action by default', async () => {
     delete process.env.NEXT_PUBLIC_MAILCHIMP_FORM_ACTION
     delete process.env.NEXT_PUBLIC_EMAIL_CAPTURE_ACTION
 
     const { mailchimpSignupConfig, validateMailchimpConfig } = await loadConfig()
 
-    expect(mailchimpSignupConfig.action).toBe('/api/subscribe')
+    expect(mailchimpSignupConfig.action).toBe('/api/subscribe-safety')
     expect(mailchimpSignupConfig.isApiAction).toBe(true)
     expect(mailchimpSignupConfig.isMailchimpAction).toBe(false)
     expect(validateMailchimpConfig()).toEqual({
       ok: true,
       message: 'Using Cloudflare Pages Function newsletter endpoint.',
     })
+  })
+
+  it('migrates the legacy internal subscribe action to the generic safety endpoint', async () => {
+    process.env.NEXT_PUBLIC_MAILCHIMP_FORM_ACTION = '/api/subscribe'
+    delete process.env.NEXT_PUBLIC_EMAIL_CAPTURE_ACTION
+
+    const { mailchimpSignupConfig } = await loadConfig()
+    expect(mailchimpSignupConfig.action).toBe('/api/subscribe-safety')
   })
 
   it('detects Mailchimp hosted form actions', async () => {
