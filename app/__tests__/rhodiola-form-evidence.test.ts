@@ -62,6 +62,10 @@ describe('rhodiola extract vs powder evidence framing', () => {
     expect(page).toContain('.products.filter((product) => Boolean(product.asin))')
     expect(directProducts.length).toBeGreaterThan(0)
     expect(directProducts.every((product) => Boolean(product.asin))).toBe(true)
-    expect(directProducts.every((product) => !product.affiliateUrl.includes('/s?k='))).toBe(true)
+    expect(
+      directProducts.every(
+        (product) => typeof product.affiliateUrl === 'string' && !product.affiliateUrl.includes('/s?k='),
+      ),
+    ).toBe(true)
   })
 })
