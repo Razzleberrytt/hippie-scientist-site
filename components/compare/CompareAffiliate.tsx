@@ -12,8 +12,8 @@ interface CompareAffiliateProps {
 export default function CompareAffiliate({ item1, item2, isHR }: CompareAffiliateProps) {
   if (isHR) return null
 
-  const set1 = revenueProductSets[item1.slug]
-  const set2 = revenueProductSets[item2.slug]
+  const set1 = item1.doNotMonetize ? undefined : revenueProductSets[item1.slug]
+  const set2 = item2.doNotMonetize ? undefined : revenueProductSets[item2.slug]
 
   if (!set1 && !set2) return null
 
@@ -28,7 +28,7 @@ export default function CompareAffiliate({ item1, item2, isHR }: CompareAffiliat
             Only shop after the fit makes sense
           </h2>
           <p className="text-sm leading-6 text-muted">
-            Use the comparison, dosing notes, safety flags, and full profiles first. These product sections are optional next steps for readers who already know which side fits their goal.
+            Use the comparison, dosing notes, safety flags, and full profiles first. These product sections are optional next steps for readers who already know which side deserves further consideration.
           </p>
           <Link
             href="/info/affiliate-disclosure/"
@@ -41,7 +41,7 @@ export default function CompareAffiliate({ item1, item2, isHR }: CompareAffiliat
 
       {set1 && (
         <RecommendationSection
-          title={`If you choose ${item1.name}`}
+          title={`Product examples for ${item1.name}`}
           products={set1.products}
           trackingProductSlug={item1.slug}
           trackingLocation="compare-recommendation"
@@ -49,7 +49,7 @@ export default function CompareAffiliate({ item1, item2, isHR }: CompareAffiliat
       )}
       {set2 && (
         <RecommendationSection
-          title={`If you choose ${item2.name}`}
+          title={`Product examples for ${item2.name}`}
           products={set2.products}
           trackingProductSlug={item2.slug}
           trackingLocation="compare-recommendation"
