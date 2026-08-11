@@ -4,6 +4,20 @@ const DEFAULT_FALLBACK =
 const DYNAMIC_OR_UNSOURCED_SUPERIORITY =
   /\b(well[- ]reviewed|preferred by most sleep researchers|faster absorption|superior bioavailability)\b/i
 
+const RANKING_PREFIXES: Array<[RegExp, string]> = [
+  [/^best\s+overall\s+(?:pick|choice|option)\s+for\s+/i, 'Product example for '],
+  [/^best\s+value\s+(?:pick|choice|option)\s+for\s+/i, 'Value-oriented product example for '],
+  [/^budget\s+(?:pick|choice|option)\s+for\s+/i, 'Budget product example for '],
+  [/^premium\s+(?:pick|choice|option)\s+for\s+/i, 'Premium product example for '],
+]
+
+function neutralizeUnsourcedRanking(text: string): string {
+  for (const [pattern, replacement] of RANKING_PREFIXES) {
+    if (pattern.test(text)) return text.replace(pattern, replacement)
+  }
+  return text
+}
+
 function formatFirstPassFallback(productName: string): string {
   const doseMatch = productName.match(/\b\d+(?:\.\d+)?\s*(?:mg|mcg|µg)\b/i)?.[0]
   const doseContext = doseMatch ? ` with a clearly labeled ${doseMatch} dose` : ''
@@ -35,5 +49,8 @@ export function affiliateRationaleForDisplay(
     return `Use ${productName} as a product-format example.${doseContext} Verify formulation, serving size, third-party testing, and safety context before buying.`
   }
 
-  return text
+  // Unsourced commercial cards can organize examples by registry slot, but labels
+  // such as "best overall" read like evidence-backed comparative judgments. Keep the
+  // useful product-format rationale while removing that unsupported ranking signal.
+  return neutralizeUnsourcedRanking(text)
 }
