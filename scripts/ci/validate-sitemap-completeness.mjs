@@ -27,19 +27,13 @@ const APP_DIR = path.join(ROOT, 'app')
 const OUT_DIR = path.join(ROOT, 'out')
 const REQUIRE_BUILT = process.argv.includes('--require-built')
 
-// Directories that are never page routes (Next.js internals, tests, API-ish
-// utility pages that are intentionally excluded from search indexing).
 const SKIP_DIR_NAMES = new Set(['__tests__', 'api'])
 
-// Route paths (relative to app/, route groups already stripped) that are
-// real, working pages but are deliberately excluded from the sitemap. Keep
-// this list short and documented — anything added here should have a real
-// reason, not just "the checker complained so I silenced it."
 const EXCLUDED_ROUTES = new Set([
-  'build', // app/(public)/build — internal dev-only stack builder, already noindex
-  'guides/anxiety/natural-alternatives-to-anxiety-medication', // canonicalizes to guides/anxiety/best-herbs-for-anxiety (deliberate duplicate-content consolidation)
-  'guides/anxiety/natural-anxiolytics-beyond-ashwagandha', // canonicalizes to guides/anxiety/best-herbs-for-anxiety (deliberate duplicate-content consolidation)
-  'guides/focus/best-supplements-for-focus', // compatibility wrapper redirects/canonicalizes to guides/focus/best-nootropics-for-focus
+  'build',
+  'guides/anxiety/natural-alternatives-to-anxiety-medication',
+  'guides/anxiety/natural-anxiolytics-beyond-ashwagandha',
+  'guides/focus/best-supplements-for-focus',
 ])
 
 const SPECIAL_FILE_ROUTES = new Set([
@@ -53,7 +47,6 @@ const SPECIAL_FILE_ROUTES = new Set([
 ])
 
 function stripRouteGroups(routeSegments) {
-  // Route groups like (public) are stripped from the URL by Next.js.
   return routeSegments.filter((segment) => !/^\(.*\)$/.test(segment))
 }
 
@@ -99,7 +92,7 @@ function collectStaticRoutes(dirPath, routeSegments) {
   for (const entry of entries) {
     if (!entry.isDirectory()) continue
     if (SKIP_DIR_NAMES.has(entry.name)) continue
-    if (/^\[/.test(entry.name)) continue // dynamic segments are data-driven, validated separately
+    if (/^\[/.test(entry.name)) continue
     results.push(...collectStaticRoutes(path.join(dirPath, entry.name), [...routeSegments, entry.name]))
   }
 
@@ -110,9 +103,7 @@ function parseXmlUrls(xmlContent) {
   const urls = []
   const locRegex = /<loc>(.*?)<\/loc>/g
   let match
-  while ((match = locRegex.exec(xmlContent)) !== null) {
-    urls.push(match[1])
-  }
+  while ((match = locRegex.exec(xmlContent)) !== null) urls.push(match[1])
   return urls
 }
 
@@ -124,6 +115,15 @@ function normalizePath(url) {
   } catch {
     return url
   }
+}
+
+function writeDiagnostic(staticRoutes, sitemapUrls, missing) {
+  const reportDir = path.join(ROOT, 'ops', 'reports')
+  fs.mkdirSync(reportDir, { recursive: true })
+  fs.writeFileSync(
+    path.join(reportDir, 'sitemap-completeness-diagnostic.json'),
+    JSON.stringify({ staticRouteCount: staticRoutes.length, sitemapUrlCount: sitemapUrls.size, missing }, null, 2) + '\n',
+  )
 }
 
 function main() {
@@ -153,16 +153,14 @@ function main() {
   }
 
   const sitemapUrls = new Set(parseXmlUrls(fs.readFileSync(sitemapPath, 'utf8')).map(normalizePath))
-
   const missing = staticRoutes.filter((route) => !sitemapUrls.has(route)).sort()
+  writeDiagnostic(staticRoutes, sitemapUrls, missing)
 
   console.log(`[validate-sitemap-completeness] Found ${staticRoutes.length} static app/ routes without an explicit noindex signal; ${sitemapUrls.size} URLs in sitemap.xml.`)
 
   if (missing.length > 0) {
     console.error(`[validate-sitemap-completeness] FAIL: ${missing.length} real, indexable route(s) are missing from sitemap.xml:`)
-    for (const route of missing) {
-      console.error(`  - ${route}`)
-    }
+    for (const route of missing) console.error(`  - ${route}`)
     console.error('')
     console.error('If a route is intentionally excluded, add it to EXCLUDED_ROUTES in this script with a comment explaining why.')
     console.error('If not, the sitemap generator in app/sitemap.ts is silently dropping real content — check')
