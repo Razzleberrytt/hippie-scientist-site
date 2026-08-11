@@ -1,4 +1,4 @@
-const fallbackAction = '/api/subscribe'
+const fallbackAction = '/api/subscribe-safety'
 
 function getMailchimpHoneypotName(action: string): string {
   try {
@@ -11,10 +11,18 @@ function getMailchimpHoneypotName(action: string): string {
   }
 }
 
-const rawAction =
+const configuredAction =
   process.env.NEXT_PUBLIC_MAILCHIMP_FORM_ACTION?.trim() ||
   process.env.NEXT_PUBLIC_EMAIL_CAPTURE_ACTION?.trim() ||
-  fallbackAction
+  ''
+
+// `/api/subscribe` is the legacy ADHD capture endpoint. Existing deployments may
+// still carry that value in an environment variable, so migrate it at read time
+// for the generic NewsletterSignup instead of silently mis-tagging new safety-list
+// subscribers. External Mailchimp actions remain untouched.
+const rawAction = !configuredAction || configuredAction === '/api/subscribe'
+  ? fallbackAction
+  : configuredAction
 
 const isMailchimpAction = rawAction.includes('list-manage.com')
 const isApiAction = rawAction.startsWith('/api/')
