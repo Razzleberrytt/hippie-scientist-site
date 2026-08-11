@@ -12,8 +12,8 @@ import path from 'node:path'
  *   - config/profile-verdicts.ts (small, fully author-controlled overlay)
  *
  * WARN-only debt inventory:
- *   - content/articles/**/*.{md,mdx}
- *   - app/guides/**/*.{ts,tsx}
+ *   - Markdown/MDX files recursively under content/articles
+ *   - TypeScript/TSX files recursively under app/guides
  *
  * The guide scan intentionally starts warn-only because the App Router guide
  * library predates this guard and contains legacy phrasing. Surfacing that debt
@@ -99,20 +99,19 @@ function scanText(text, { negationAware, patterns = BANNED }) {
   return hits
 }
 
-function walkFiles(dir, matcher, prefix) {
+function walkFiles(dir, matcher) {
   if (!fs.existsSync(dir)) return []
   const files = []
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const absolute = path.join(dir, entry.name)
     if (entry.isDirectory()) {
-      files.push(...walkFiles(absolute, matcher, prefix))
+      files.push(...walkFiles(absolute, matcher))
       continue
     }
     if (!matcher.test(entry.name)) continue
     files.push({
       absolute,
       relative: path.relative(ROOT, absolute).replaceAll('\\', '/'),
-      prefix,
     })
   }
   return files
@@ -131,14 +130,14 @@ const overlayHits = scanText(fs.readFileSync(overlayPath, 'utf8'), {
 
 // ── WARN only: long-form Markdown prose ──────────────────────────────────────
 const warnings = []
-for (const file of walkFiles(path.join(ROOT, 'content/articles'), /\.mdx?$/, 'article')) {
+for (const file of walkFiles(path.join(ROOT, 'content/articles'), /\.mdx?$/)) {
   const text = fs.readFileSync(file.absolute, 'utf8')
   pushWarnings(warnings, file.relative, scanText(text, { negationAware: true, patterns: BANNED }))
 }
 
 // ── WARN only: App Router decision guides ────────────────────────────────────
 const guideWarnings = []
-for (const file of walkFiles(path.join(ROOT, 'app/guides'), /\.(?:ts|tsx)$/, 'guide')) {
+for (const file of walkFiles(path.join(ROOT, 'app/guides'), /\.(?:ts|tsx)$/)) {
   const text = fs.readFileSync(file.absolute, 'utf8')
   pushWarnings(guideWarnings, file.relative, scanText(text, { negationAware: true, patterns: BANNED }))
   pushWarnings(guideWarnings, file.relative, scanText(text, { negationAware: true, patterns: GUIDE_RISK_PATTERNS }))
