@@ -39,12 +39,9 @@ export function handleLegacyCompareRequest(request: Request, legacyPrefix: strin
     return Response.redirect(url.toString(), 301)
   }
 
-  return new Response('This comparison page is no longer available.', {
-    status: 410,
-    headers: {
-      'Cache-Control': 'public, max-age=86400',
-      'Content-Type': 'text/plain; charset=utf-8',
-      'X-Robots-Tag': 'noindex, nofollow',
-    },
-  })
+  // Old comparison URLs are still present in historical/internal content. Sending
+  // them to the live comparison hub avoids dead-end 410 responses while keeping
+  // retired thin pages out of the index.
+  url.pathname = '/guides/compare/'
+  return Response.redirect(url.toString(), 301)
 }
