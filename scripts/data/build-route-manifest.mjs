@@ -37,6 +37,10 @@ const STATIC_ROUTE_METADATA = {
     title: 'Supplement Stacks & Combination Guides',
     description: 'Review supplement combinations with evidence limits, interaction cautions, timing context, and safer decision paths kept visible.',
   },
+  '/tools': {
+    title: 'Evidence & Supplement Tools',
+    description: 'Explore evidence-first tools for comparing supplements, checking safety context, and navigating botanical and compound research.',
+  },
   '/tools/botanical-activity-atlas': {
     title: 'Botanical Activity Atlas',
     description: 'Explore botanical activity and mechanism relationships across herbs and compounds with conservative evidence and safety context.',
