@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { describe, expect, it } from 'vitest'
 
-const RETIRED_PAGE = 'app/guides/focus/best-supplements-for-focus/page.tsx'
+const COMPAT_PAGE = 'app/guides/focus/best-supplements-for-focus/page.tsx'
 const HUB = 'app/guides/focus/page.tsx'
 const CANONICAL_ROUTES = 'src/lib/canonical-routes.ts'
 const GOAL_SEO = 'src/lib/goal-seo.ts'
@@ -13,12 +13,13 @@ function read(relativePath: string) {
 }
 
 describe('focus best-supplements route consolidation', () => {
-  it('retires the older quick-reference route and redirects it to the evidence-first guide', () => {
-    expect(fs.existsSync(path.join(process.cwd(), RETIRED_PAGE))).toBe(false)
-
+  it('redirects the older route and keeps its generator wrapper canonicalized to the evidence-first guide', () => {
     const redirects = read(OVERRIDE)
     expect(redirects).toContain('/guides/focus/best-supplements-for-focus/')
     expect(redirects).toContain('/guides/focus/best-nootropics-for-focus/ 301')
+
+    const compatibilitySource = read(COMPAT_PAGE)
+    expect(compatibilitySource).toContain("const CANONICAL_PATH = '/guides/focus/best-nootropics-for-focus/'")
   })
 
   it('uses the evidence-first guide for focus discovery and shared canonical registries', () => {
