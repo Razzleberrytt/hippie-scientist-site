@@ -33,38 +33,56 @@ jobs:
           COMMIT_HASH: ${{ github.sha }}
         run: npm run build:deploy
 
-      - name: Validate governed build
-        run: node scripts/ci/validate-governed-build.mjs
+      - name: Verify prebuild gates
+        run: npm run verify:prebuild
 
-      - name: Validate profile robots
-        run: node scripts/ci/validate-profile-robots.mjs
+      - name: Verify core routes
+        run: node scripts/verify-core-routes.mjs
 
-      - name: Validate built SEO metadata
-        run: node scripts/ci/validate-built-seo-meta.mjs
+      - name: Verify redirects
+        run: node scripts/verify-redirects.mjs
+
+      - name: Audit profile robots
+        run: node scripts/ci/audit-profile-robots.mjs
+
+      - name: Validate deploy readiness
+        run: node scripts/ci/validate-deploy-readiness.mjs
+
+      - name: Validate build SEO metadata
+        run: node scripts/ci/validate-build-seo-metadata.mjs
+
+      - name: Audit metadata duplicates
+        run: node scripts/ci/audit-metadata-duplicates.mjs
+
+      - name: Audit internal links
+        run: node scripts/ci/audit-internal-links.mjs
+
+      - name: Audit structured data
+        run: node scripts/ci/audit-structured-data.mjs
+
+      - name: Audit SEO routes
+        run: node scripts/ci/audit-seo-routes.mjs
+
+      - name: Validate guide FAQs
+        run: node scripts/ci/validate-guide-faqs.mjs
 
       - name: Validate sitemap
-        run: node scripts/ci/validate-sitemap.mjs
+        run: node scripts/ci/validate-sitemap.mjs --require-built
 
       - name: Validate sitemap completeness
-        run: node scripts/ci/validate-sitemap-completeness.mjs
+        run: node scripts/ci/validate-sitemap-completeness.mjs --require-built
 
-      - name: Validate sitemap governance
-        run: node scripts/ci/validate-sitemap-governance.mjs
+      - name: Validate robots
+        run: node scripts/ci/validate-robots.mjs --require-built
 
-      - name: Validate priority SEO
-        run: node scripts/ci/validate-priority-seo.mjs
+      - name: Audit sitemap affiliate policy
+        run: npm run audit:sitemap-affiliate
 
-      - name: Report third-party scripts
-        run: node scripts/ci/report-third-party-scripts.mjs
+      - name: Validate Pagefind body
+        run: npm run validate:pagefind-body
 
-      - name: Validate privacy surface
-        run: node scripts/ci/validate-privacy-surface.mjs
+      - name: Validate cluster-member export
+        run: npm run validate:cluster-member-export
 
-      - name: Validate dead routes
-        run: node scripts/ci/validate-dead-routes.mjs
-
-      - name: Validate compounds index count
-        run: node scripts/ci/validate-compounds-index-count.mjs
-
-      - name: Validate Next assets
-        run: node scripts/ci/validate-next-assets.mjs
+      - name: Report performance budget
+        run: node scripts/report-performance-budget.mjs
