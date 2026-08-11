@@ -17,12 +17,16 @@ interface CompareSchemaProps {
   citationUrls?: string[]
 }
 
-export default function CompareSchema({ item1, item2, slug, faqs, dateModified, citationUrls = [] }: CompareSchemaProps) {
+function entitySchemaType(item: Pick<CompareItem, 'type'>): 'Substance' | 'ChemicalSubstance' {
+  return item.type === 'herb' ? 'Substance' : 'ChemicalSubstance'
+}
+
+export function buildCompareSchema({ item1, item2, slug, faqs, dateModified, citationUrls = [] }: CompareSchemaProps) {
   const pageUrl = `${SITE_URL}/guides/compare/${slug}/`
   const headline = `${item1.name} vs ${item2.name}: Complete Comparison`
-  const description = `Compare ${item1.name} and ${item2.name} by evidence, mechanisms, dosing, safety, and best-fit use cases.`
+  const description = `Compare ${item1.name} and ${item2.name} by evidence, mechanisms, source-reported dosing context, and safety considerations.`
 
-  const schema = {
+  return {
     '@context': 'https://schema.org',
     '@graph': [
       {
@@ -48,12 +52,12 @@ export default function CompareSchema({ item1, item2, slug, faqs, dateModified, 
         },
         about: [
           {
-            '@type': item1.type === 'herb' ? 'MedicalTherapy' : 'ChemicalSubstance',
+            '@type': entitySchemaType(item1),
             name: item1.name,
             url: `${SITE_URL}/${item1.type === 'herb' ? 'herbs' : 'compounds'}/${item1.slug}/`,
           },
           {
-            '@type': item2.type === 'herb' ? 'MedicalTherapy' : 'ChemicalSubstance',
+            '@type': entitySchemaType(item2),
             name: item2.name,
             url: `${SITE_URL}/${item2.type === 'herb' ? 'herbs' : 'compounds'}/${item2.slug}/`,
           },
@@ -84,6 +88,8 @@ export default function CompareSchema({ item1, item2, slug, faqs, dateModified, 
         : []),
     ],
   }
+}
 
-  return <JsonLd schema={schema} />
+export default function CompareSchema(props: CompareSchemaProps) {
+  return <JsonLd schema={buildCompareSchema(props)} />
 }
