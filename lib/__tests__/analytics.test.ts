@@ -1,8 +1,14 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { getGuideTrackingContext, trackGuideView, trackLeadMagnetClick } from '../analytics'
+import {
+  getGuideTrackingContext,
+  trackEmailSignup,
+  trackGuideView,
+  trackLeadMagnetClick,
+} from '../analytics'
 
 afterEach(() => {
   delete (window as Window & { gtag?: unknown }).gtag
+  window.history.replaceState({}, '', '/')
 })
 
 describe('guide analytics', () => {
@@ -56,6 +62,21 @@ describe('guide analytics', () => {
     expect(gtag).toHaveBeenCalledWith('event', 'lead_magnet_click', {
       lead_magnet_slug: 'adhd-supplement-starter-checklist',
       source_path: '/guides/adhd/',
+    })
+  })
+
+  it('attributes successful email signups to the actual source route', () => {
+    const gtag = vi.fn()
+    ;(window as Window & { gtag?: unknown }).gtag = gtag
+    window.history.replaceState({}, '', '/guides/anxiety/ashwagandha-for-anxiety')
+
+    trackEmailSignup({ source: 'article-adhd-checklist' })
+
+    expect(gtag).toHaveBeenCalledWith('event', 'email_signup', {
+      source: 'article-adhd-checklist',
+      signup_source: 'article-adhd-checklist',
+      page_path: '/guides/anxiety/ashwagandha-for-anxiety/',
+      source_path: '/guides/anxiety/ashwagandha-for-anxiety/',
     })
   })
 })
