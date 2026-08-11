@@ -78,11 +78,6 @@ const BEST_FIRST: GuideCard[] = [
     title: 'Focus Without the Crash',
     desc: 'Steady all-day attention without the caffeine rollercoaster.',
   },
-  {
-    href: '/guides/focus/best-supplements-for-focus/',
-    title: 'Best Supplements for Focus',
-    desc: 'Quick reference with dosing and stacking notes.',
-  },
 ]
 
 const COMPARISONS: GuideCard[] = [
@@ -132,7 +127,6 @@ const FOCUS_REFS = [
 // Full library — kept, but secondary to the decision sections above.
 const ALL_GUIDES = [
   { slug: 'best-nootropics-for-focus', title: 'Best Nootropics for Focus' },
-  { slug: 'best-supplements-for-focus', title: 'Best Supplements for Focus' },
   { slug: 'focus-without-caffeine-crash', title: 'Focus Without the Caffeine Crash' },
   { slug: 'l-theanine-vs-caffeine-for-focus', title: 'L-Theanine vs Caffeine for Focus' },
   { slug: 'l-theanine-without-caffeine', title: 'L-Theanine Without Caffeine' },
