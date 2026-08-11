@@ -2,7 +2,7 @@
 
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import { buildAiEntityArtifacts } from '../data/ai-entity-enrichment-lib.mjs'
+import { buildAiEntityArtifacts } from '../data/ai-entity-artifacts.mjs'
 
 const ROOT = process.cwd()
 const DATA_DIR_ARG = process.argv.find((arg) => arg.startsWith('--data-dir='))

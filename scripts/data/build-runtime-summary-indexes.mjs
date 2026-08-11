@@ -7,7 +7,7 @@ import {
   printBuildTimingReport,
 } from '../ci/report-build-stage-timings.mjs'
 import { exportCanonicalCitationsToRuntime } from './canonical/citation-export.mjs'
-import { buildAiEntityArtifacts } from './ai-entity-enrichment-lib.mjs'
+import { buildAiEntityArtifacts } from './ai-entity-artifacts.mjs'
 
 const DATA_DIR_ARG = process.argv.find((arg) => arg.startsWith('--data-dir='))
 const DATA_DIR = DATA_DIR_ARG
