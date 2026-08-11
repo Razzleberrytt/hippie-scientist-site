@@ -19,6 +19,21 @@ function getGtag(): Gtag | null {
   return typeof candidate === 'function' ? (candidate as Gtag) : null
 }
 
+function normalizePagePath(pathname: string): string {
+  const pathOnly = pathname.split(/[?#]/, 1)[0]
+  if (!pathOnly) return '/'
+  const withLeadingSlash = pathOnly.startsWith('/') ? pathOnly : `/${pathOnly}`
+  return withLeadingSlash === '/' || withLeadingSlash.endsWith('/')
+    ? withLeadingSlash
+    : `${withLeadingSlash}/`
+}
+
+function getCurrentPagePath(explicitPath?: string): string {
+  if (explicitPath) return normalizePagePath(explicitPath)
+  if (typeof window === 'undefined') return '/'
+  return normalizePagePath(window.location.pathname)
+}
+
 export function trackAffiliateClick(params: { itemName: string; program: string; asin?: string }): void {
   try {
     getGtag()?.('event', 'affiliate_click', {
@@ -33,10 +48,14 @@ export function trackAffiliateClick(params: { itemName: string; program: string;
   }
 }
 
-export function trackEmailSignup(params: { source: string }): void {
+export function trackEmailSignup(params: { source: string; pagePath?: string }): void {
   try {
+    const pagePath = getCurrentPagePath(params.pagePath)
     getGtag()?.('event', 'email_signup', {
       source: params.source,
+      signup_source: params.source,
+      page_path: pagePath,
+      source_path: pagePath,
     })
   } catch {
     // Analytics must never block signup flow.
