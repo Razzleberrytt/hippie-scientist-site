@@ -11,11 +11,11 @@ import { buildGuideHubSchemaGraph } from '../../../src/lib/schema-graph'
 export const metadata: Metadata = {
   title: 'Anxiety & Stress Supplement Guides',
   description:
-    'Choose the right natural support based on the kind of anxiety or stress you have — overthinking, situational nerves, chronic stress, or nighttime worry. Evidence-based, decision-first guides.',
+    'Compare natural anxiety and stress supports by symptom pattern, evidence, timescale, and safety — without treating short-term stress findings as proof of anxiety relief.',
   alternates: { canonical: `${SITE_URL}/guides/anxiety/` },
   openGraph: {
     title: 'Anxiety & Stress Guides',
-    description: 'Match the right adaptogen or anxiolytic to the kind of anxiety you have.',
+    description: 'Compare anxiety and stress supports by evidence, timescale, and safety.',
     url: `${SITE_URL}/guides/anxiety/`,
     type: 'website',
     images: ['/og-default.jpg'],
@@ -26,43 +26,43 @@ export const metadata: Metadata = {
 const START_HERE: IntentRoute[] = [
   {
     problem: 'Overthinking — a mind that won’t switch off',
-    why: 'Calming supports matched to the overthinking pattern.',
+    why: 'Compare calming-support evidence without assuming every stress finding translates to anxiety relief.',
     cta: 'Supplements for Overthinking',
     href: '/guides/anxiety/best-supplements-for-overthinking/',
   },
   {
     problem: 'Situational nerves before a specific event',
-    why: 'Fast, non-sedating calm for a presentation, exam, or flight.',
+    why: 'Acute anxiety evidence for L-theanine is inconsistent; this guide separates attention and stress findings from anxiety claims.',
     cta: 'L-Theanine for Anxiety',
     href: '/guides/anxiety/l-theanine-for-anxiety/',
   },
   {
     problem: 'Chronic, ongoing baseline anxiety',
-    why: 'An adaptogen that lowers cortisol and baseline stress over weeks.',
+    why: 'Repeated-dose ashwagandha trials are more relevant here than instant-relief claims, but study populations and formulations still vary.',
     cta: 'Ashwagandha for Anxiety',
     href: '/guides/anxiety/ashwagandha-for-anxiety/',
   },
   {
     problem: 'Racing thoughts keeping you up at night',
-    why: 'Calming herbs matched to anxiety-driven insomnia.',
+    why: 'Review sleep- and stress-related evidence with medication, sedation, and next-day safety in view.',
     cta: 'Herbs for Nighttime Anxiety',
     href: '/guides/anxiety/best-herbs-for-stress-and-anxiety-at-night/',
   },
   {
     problem: 'Chronically elevated stress / high cortisol',
-    why: 'Supplement and lifestyle strategies to bring cortisol down.',
+    why: 'Separate cortisol findings from perceived-stress outcomes and keep lifestyle and supplement evidence distinct.',
     cta: 'How to Lower Cortisol',
     href: '/guides/anxiety/how-to-lower-cortisol-naturally/',
   },
   {
     problem: 'You want a full plan',
-    why: 'How to combine anxiety supports safely — timing and synergy.',
+    why: 'Review how common combinations are discussed, with timing, interaction, and safety boundaries kept visible.',
     cta: 'Anxiety Stack Guide',
     href: '/guides/anxiety/anxiety-stack-guide/',
   },
   {
     problem: 'Comparing your options',
-    why: 'Two popular anxiolytics, side by side with the evidence.',
+    why: 'Put two popular options side by side without assuming either is universally better.',
     cta: 'CBD vs Ashwagandha',
     href: '/guides/anxiety/cbd-vs-ashwagandha-for-anxiety/',
   },
@@ -82,17 +82,17 @@ const BEST_FIRST: GuideCard[] = [
   {
     href: '/guides/anxiety/ashwagandha-for-anxiety/',
     title: 'Ashwagandha for Anxiety',
-    desc: 'The best-studied adaptogen for chronic, cortisol-driven anxiety.',
+    desc: 'Repeated-use trial evidence for stress and anxiety symptoms, plus formulation, safety, and certainty limits.',
   },
   {
     href: '/guides/anxiety/l-theanine-for-anxiety/',
     title: 'L-Theanine for Anxiety',
-    desc: 'Fast, non-sedating calm for in-the-moment nerves.',
+    desc: 'Separate the short-term attention and stress signal from the much less consistent anxiety evidence.',
   },
   {
     href: '/guides/anxiety/anxiety-stack-guide/',
     title: 'Anxiety Stack Guide',
-    desc: 'How to combine options into one coherent, safe routine.',
+    desc: 'How common combinations are discussed while keeping interactions, timing, and uncertainty visible.',
   },
 ]
 
@@ -100,17 +100,17 @@ const COMPARISONS: GuideCard[] = [
   {
     href: '/guides/anxiety/cbd-vs-ashwagandha-for-anxiety/',
     title: 'CBD vs Ashwagandha for Anxiety',
-    desc: 'Two popular anxiolytics — mechanisms, evidence, and safety.',
+    desc: 'Two popular options compared by mechanisms, human evidence, uncertainty, and safety.',
   },
   {
     href: '/guides/anxiety/natural-anxiolytics-beyond-ashwagandha/',
     title: 'Natural Anxiolytics Beyond Ashwagandha',
-    desc: 'L-theanine, kava, kanna — calming botanicals compared.',
+    desc: 'L-theanine, kava, kanna, and other options compared without treating popularity as proof.',
   },
   {
     href: '/guides/anxiety/best-adaptogens-for-stress/',
     title: 'Best Adaptogens for Stress',
-    desc: 'Ashwagandha, rhodiola, eleuthero, schisandra — when to use which.',
+    desc: 'Compare ashwagandha, rhodiola, eleuthero, and schisandra by the outcomes and populations actually studied.',
   },
 ]
 
@@ -130,10 +130,26 @@ const DEPTH_LINKS = [
 ]
 
 const ANXIETY_REFS = [
-  { n: 1, text: 'Chandrasekhar K, et al. (2012). A prospective, randomized, double-blind, placebo-controlled study of Withania somnifera (ashwagandha) in reducing stress and anxiety. Indian J Psychol Med, 34(3): 255-262.', url: 'https://pubmed.ncbi.nlm.nih.gov/23439798/' },
-  { n: 2, text: 'Hidese S, et al. (2019). Effects of L-theanine administration on stress-related symptoms and cognitive functions in healthy adults. Nutrients, 11(10): 2362.', url: 'https://pubmed.ncbi.nlm.nih.gov/31581491/' },
-  { n: 3, text: 'Sarris J, et al. (2020). Kava for generalised anxiety disorder: A 16-week double-blind, randomised, placebo-controlled study. Aust N Z J Psychiatry, 54(3): 288-297.', url: 'https://pubmed.ncbi.nlm.nih.gov/31665900/' },
-  { n: 4, text: 'Panossian A, Wikman G. (2010). Effects of adaptogens on the central nervous system and the molecular mechanisms associated with their stress-protective activity. Pharmaceuticals, 3(1): 188-224.', url: 'https://pubmed.ncbi.nlm.nih.gov/27713248/' },
+  {
+    n: 1,
+    text: 'Arumugam V, Vijayakumar V, Balakrishnan A, et al. (2024). Effects of Ashwagandha (Withania somnifera) on stress and anxiety: a systematic review and meta-analysis. Explore (NY), 20(6): 103062.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/39348746/',
+  },
+  {
+    n: 2,
+    text: 'Gerolymos C, Saddier E, Boyer L, Fond G. (2026). Cognitive and affective effects of L-Theanine: a systematic review and meta-analysis of 31 randomized trials. Molecular Psychiatry. Online ahead of print.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/42410082/',
+  },
+  {
+    n: 3,
+    text: 'Sarris J, et al. (2020). Kava for generalised anxiety disorder: a 16-week double-blind, randomised, placebo-controlled study. Aust N Z J Psychiatry, 54(3): 288-297.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/31665900/',
+  },
+  {
+    n: 4,
+    text: 'Albalawi AA. (2025). Dual impact of Ashwagandha: significant cortisol reduction but no effects on perceived stress — a systematic review and meta-analysis. Nutrition and Health, 31(4): 1395-1408.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/40746175/',
+  },
 ]
 
 // Full library — kept, but secondary to the decision sections above.
@@ -158,7 +174,7 @@ export default function AnxietyGuideIndex() {
     path: '/guides/anxiety/',
     title: 'Anxiety & Stress Supplement Guides',
     description:
-      'Choose the right natural support based on the kind of anxiety or stress you have — overthinking, situational nerves, chronic stress, or nighttime worry.',
+      'Compare natural anxiety and stress supports by symptom pattern, evidence, timescale, and safety.',
     breadcrumbs: [
       { name: 'Home', url: `${SITE_URL}/` },
       { name: 'Guides', url: `${SITE_URL}/guides/` },
@@ -179,49 +195,50 @@ export default function AnxietyGuideIndex() {
         <span className="font-medium text-ink">Anxiety &amp; Stress</span>
       </nav>
 
-      {/* Hero */}
       <header className="mb-10">
         <h1 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">Anxiety &amp; Stress Guides</h1>
         <p className="mt-3 max-w-2xl text-lg leading-8 text-muted">
-          Different kinds of anxiety need different tools. Tell us what yours feels like and we will
-          point you to the right guide first.
+          “Stress,” “acute stress,” and an anxiety disorder are not interchangeable outcomes. Use the
+          pattern below to find the most relevant guide, then check what population, preparation,
+          duration, and outcome the human evidence actually studied before treating a result as
+          personally applicable.
         </p>
       </header>
 
-      {/* Start Here — decision routing */}
       <section className="mb-12">
         <HubSectionHeading
           eyebrow="Start here"
-          title="What kind of anxiety do you have?"
-          sub="Pick the description that fits best — each routes you to the most relevant guide."
+          title="What kind of anxiety or stress are you dealing with?"
+          sub="Pick the closest description — each routes you to a guide that separates the evidence from the marketing shorthand."
         />
         <DecisionRouter items={START_HERE} />
       </section>
 
-      {/* Best first pages */}
       <section className="mb-12">
         <HubSectionHeading eyebrow="Best first reads" title="If you only read a few" />
         <GuideCardGrid cards={BEST_FIRST} />
       </section>
 
-      {/* Comparison guides */}
       <section className="mb-12">
         <HubSectionHeading
           eyebrow="Compare & choose"
           title="Deciding between options?"
-          sub="These weigh the alternatives instead of listing everything."
+          sub="These compare human evidence, uncertainty, and safety instead of assuming a winner."
         />
         <GuideCardGrid cards={COMPARISONS} />
       </section>
 
-      {/* Editorial note */}
       <section className="mb-12 rounded-xl border-l-4 border-brand-700/40 bg-brand-50/60 p-5 dark:bg-[var(--surface-subtle)]">
         <p className="text-sm leading-7 text-ink dark:text-[var(--text-secondary)]">
-          <span className="font-bold">A note on matching the tool to the problem.</span> Acute,
-          in-the-moment nerves and chronic, cortisol-driven stress respond to different supports — a
-          fast anxiolytic like L-theanine versus a slow adaptogen like ashwagandha. None of these
-          replaces care for a diagnosed anxiety disorder; if anxiety is severe or persistent, talk to
-          a clinician.
+          <span className="font-bold">What the newer reviews change.</span> The July 2026
+          L-theanine meta-analysis pooled 31 randomized trials and found a short-term attention
+          signal, but anxiety effects were inconsistent and generally non-significant; the acute
+          stress reduction was modest and sensitive to studies at high risk of bias. That does not
+          support calling L-theanine a guaranteed “fast anxiolytic.” Ashwagandha has a larger
+          repeated-dose anxiety/stress literature, but reviews still report substantial between-study
+          heterogeneity, formulation differences, and unresolved long-term safety questions. A 2025
+          meta-analysis also found cortisol reduction without a clear perceived-stress benefit,
+          which is why this hub keeps biomarker changes separate from how people actually feel.
         </p>
       </section>
 
@@ -247,7 +264,6 @@ export default function AnxietyGuideIndex() {
         </div>
       </section>
 
-      {/* All guides — secondary */}
       <section className="mb-12">
         <HubSectionHeading eyebrow="Full library" title="All anxiety & stress guides" />
         <ul className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
