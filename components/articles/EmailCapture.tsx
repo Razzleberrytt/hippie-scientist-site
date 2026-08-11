@@ -3,6 +3,7 @@
 import { FormEvent, useId, useState } from 'react'
 import Link from 'next/link'
 import { trackEmailSignup } from '@/lib/analytics'
+import TurnstileWidget, { turnstileEnabled } from '@/components/security/TurnstileWidget'
 
 type EmailCaptureProps = {
   title: string
@@ -22,11 +23,20 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
   const [email, setEmail] = useState('')
   const [firstName, setFirstName] = useState('')
   const [confirmEmail, setConfirmEmail] = useState('')
+  const [turnstileToken, setTurnstileToken] = useState('')
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0)
   const [state, setState] = useState<SubmitState>('idle')
   const [message, setMessage] = useState('')
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
+
+    if (turnstileEnabled && !turnstileToken) {
+      setState('error')
+      setMessage('Complete the security check before subscribing.')
+      return
+    }
+
     setState('loading')
     setMessage('')
 
@@ -34,7 +44,13 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
       const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, firstName, magnet, confirmEmail }),
+        body: JSON.stringify({
+          email,
+          firstName,
+          magnet,
+          confirmEmail,
+          turnstileToken: turnstileEnabled ? turnstileToken : undefined,
+        }),
       })
       const payload = (await response.json().catch(() => null)) as { ok?: boolean; error?: string } | null
 
@@ -44,10 +60,12 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
 
       setState('success')
       setMessage('You are subscribed. Open the checklist below.')
+      setTurnstileResetKey((value) => value + 1)
       trackEmailSignup({ source: `article-${magnet}` })
     } catch (error) {
       setState('error')
       setMessage(error instanceof Error ? error.message : 'Could not subscribe this email right now.')
+      setTurnstileResetKey((value) => value + 1)
     }
   }
 
@@ -123,9 +141,11 @@ export default function EmailCapture({ title, description, ctaLabel, magnet }: E
             />
           </div>
 
+          <TurnstileWidget onTokenChange={setTurnstileToken} resetKey={turnstileResetKey} />
+
           <button
             type="submit"
-            disabled={isLoading}
+            disabled={isLoading || (turnstileEnabled && !turnstileToken)}
             className="inline-flex w-full items-center justify-center rounded-full bg-brand-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-brand-800 disabled:cursor-not-allowed disabled:opacity-70 sm:w-fit"
           >
             {isLoading ? 'Sending…' : ctaLabel}
