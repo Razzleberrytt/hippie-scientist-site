@@ -1,7 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 
-const dataDir = path.join(process.cwd(), 'public/data')
+const dataDirArg = process.argv.find((arg) => arg.startsWith('--data-dir='))
+const dataDir = path.resolve(process.cwd(), dataDirArg ? dataDirArg.split('=')[1] : 'public/data')
 const herbSourcesCachePath = path.join(process.cwd(), 'ops/cache/pubmed-herb-sources-cache.json')
 
 function readHerbSourcesCache() {
