@@ -26,7 +26,7 @@ describe('rhodiola extract vs powder evidence framing', () => {
 
     expect(page).toContain('traceability advantage, not proof')
     expect(page).toContain('does not establish')
-    expect(page).not.toMatch(/extracts? (?:work|works) better than powder/i)
+    expect(page).not.toMatch(/extracts? are (?:more effective|superior)/i)
     expect(page).not.toMatch(/prefer (?:a )?(?:standardized|characterized) extract/i)
     expect(page).not.toMatch(/best (?:form|choice)/i)
   })
