@@ -414,7 +414,7 @@ export default function SleepStackGuidePage() {
                     </tr>
                     <tr className="align-top">
                       <td className="py-3 pr-4 font-medium text-ink">L-Theanine</td>
-                      <td className="py-3 pr-4 text-muted"><a href="https://pubmed.ncbi.nlm.nih.gov/39992383/" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">Recent systematic review and meta-analysis</a></td>
+                      <td className="py-3 pr-4 text-muted"><a href="https://pubmed.ncbi.nlm.nih.gov/40056718/" target="_blank" rel="noopener noreferrer" className="text-brand-700 underline">Bulman et al. (2025) systematic review and meta-analysis</a></td>
                       <td className="py-3 text-muted">Small human sleep effects with uncertainty about pure L-theanine, optimal dose, and duration.</td>
                     </tr>
                     <tr className="align-top">
