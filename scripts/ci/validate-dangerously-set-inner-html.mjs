@@ -13,7 +13,6 @@ const ALLOWLIST = new Set([
   'app/articles/ashwagandha-for-anxiety/page.tsx',
   'app/articles/ashwagandha-for-sleep/page.tsx',
   'app/articles/ashwagandha-vs-magnesium-for-sleep/page.tsx',
-  'app/articles/ashwagandha/page.tsx',
   'app/articles/best-herbs-for-sleep/page.tsx',
   'app/articles/best-magnesium-supplement-for-adhd/page.tsx',
   'app/articles/cbd-vs-ashwagandha-for-anxiety/page.tsx',
@@ -22,13 +21,11 @@ const ALLOWLIST = new Set([
   'app/articles/l-theanine-for-sleep/page.tsx',
   'app/articles/l-theanine-magnesium-adhd-stack/page.tsx',
   'app/articles/l-theanine-without-caffeine/page.tsx',
-  'app/articles/l-theanine/page.tsx',
   'app/articles/magnesium-glycinate-vs-citrate-for-adhd/page.tsx',
   'app/articles/magnesium-types-for-sleep/page.tsx',
   'app/articles/natural-anxiety-relief/page.tsx',
   'app/articles/sleep-stack-guide/page.tsx',
   'app/compounds/[slug]/page.tsx',
-  'app/education/[slug]/page.tsx',
   'app/faq/page.tsx',
   'app/guides/[slug]/page.tsx',
   'app/guides/adhd-supplements/page.tsx',
@@ -72,6 +69,27 @@ function assertDetectorWorks() {
     countRawJsonLdSerializations(mixed) !== 1
   ) {
     throw new Error('Raw JSON-LD detector self-test failed.')
+  }
+}
+
+function validateAllowlistState(violations) {
+  for (const relPath of ALLOWLIST) {
+    const absPath = path.join(ROOT, relPath)
+    if (!fs.existsSync(absPath)) {
+      violations.push({
+        file: relPath,
+        text: 'stale allowlist entry references a file that no longer exists',
+      })
+      continue
+    }
+
+    const content = fs.readFileSync(absPath, 'utf8')
+    if (!content.includes('dangerouslySetInnerHTML')) {
+      violations.push({
+        file: relPath,
+        text: 'stale allowlist entry grants an exception the file no longer uses',
+      })
+    }
   }
 }
 
@@ -121,25 +139,26 @@ function main() {
 
   const violations = []
   const rawJsonLdCounts = new Map()
+  validateAllowlistState(violations)
   for (const dir of SCAN_DIRS) {
     scanDirectory(dir, violations, rawJsonLdCounts)
   }
   validateRawJsonLdBaseline(rawJsonLdCounts, violations)
 
   if (violations.length > 0) {
-    console.error('[validate-html-injection] FAIL: Unapproved HTML or raw JSON-LD serialization detected!')
+    console.error('[validate-html-injection] FAIL: Unapproved HTML, stale allowlist state, or raw JSON-LD serialization detected!')
     violations.forEach((violation) => {
       if (violation.text === 'dangerouslySetInnerHTML') {
         console.error(`  - ${violation.file}: Contains dangerouslySetInnerHTML. Render structured data via components/seo/JsonLd.tsx instead.`)
       } else {
-        console.error(`  - ${violation.file}: ${violation.text}. Use JsonLd/SchemaOrg or serializeJsonLd, then update the baseline downward.`)
+        console.error(`  - ${violation.file}: ${violation.text}. Use JsonLd/SchemaOrg or serializeJsonLd, then update the baseline/allowlist downward.`)
       }
     })
     process.exit(1)
   }
 
   const remainingRawCount = [...rawJsonLdCounts.values()].reduce((sum, count) => sum + count, 0)
-  console.log(`[validate-html-injection] PASS: No unapproved usages found; raw JSON-LD baseline remains bounded at ${remainingRawCount}.`)
+  console.log(`[validate-html-injection] PASS: No unapproved usages found; allowlist entries are live and necessary; raw JSON-LD baseline remains bounded at ${remainingRawCount}.`)
   process.exit(0)
 }
 
