@@ -39,6 +39,7 @@ const EXCLUDED_ROUTES = new Set([
   'build', // app/(public)/build — internal dev-only stack builder, already noindex
   'guides/anxiety/natural-alternatives-to-anxiety-medication', // canonicalizes to guides/anxiety/best-herbs-for-anxiety (deliberate duplicate-content consolidation)
   'guides/anxiety/natural-anxiolytics-beyond-ashwagandha', // canonicalizes to guides/anxiety/best-herbs-for-anxiety (deliberate duplicate-content consolidation)
+  'guides/focus/best-supplements-for-focus', // compatibility wrapper redirects/canonicalizes to guides/focus/best-nootropics-for-focus
 ])
 
 const SPECIAL_FILE_ROUTES = new Set([
