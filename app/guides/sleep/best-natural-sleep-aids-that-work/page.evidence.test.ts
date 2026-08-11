@@ -15,11 +15,13 @@ describe('natural sleep aids evidence discipline', () => {
     expect(source).toContain('Combination evidence is product-specific')
   })
 
-  it('anchors L-theanine sleep claims to the current meta-analysis', () => {
+  it('anchors L-theanine sleep claims to current reviews and gives study context', () => {
     expect(source).toContain('https://pubmed.ncbi.nlm.nih.gov/40056718/')
-    expect(source).toContain('small improvements')
-    expect(source).toContain('pure L-theanine')
-    expect(source).toContain('dose and duration')
+    expect(source).toContain('https://pubmed.ncbi.nlm.nih.gov/41176609/')
+    expect(source).toContain('19 articles included 897 people')
+    expect(source).toContain('13 standalone L-theanine trials (550 participants)')
+    expect(source).toContain('single dose to eight weeks')
+    expect(source).toContain('limited, mixed')
   })
 
   it('keeps magnesium and valerian certainty aligned to higher-level evidence', () => {
@@ -27,6 +29,18 @@ describe('natural sleep aids evidence discipline', () => {
     expect(source).toContain('low to very low')
     expect(source).toContain('https://pubmed.ncbi.nlm.nih.gov/38359657/')
     expect(source).toContain('no demonstrated efficacy for treating insomnia')
+  })
+
+  it('retains the explicit passionflower pregnancy warning', () => {
+    expect(source).toContain('https://www.nccih.nih.gov/health/passionflower')
+    expect(source).toContain('Do not use passionflower during pregnancy')
+    expect(source).toContain('may induce uterine contractions')
+  })
+
+  it('does not funnel this broad comparison into a valerian-only product module', () => {
+    expect(source).not.toContain('RecommendationSection')
+    expect(source).not.toContain("getRevenueProductSet('valerian')")
+    expect(source).not.toContain('valerianProducts')
   })
 
   it('marks the evidence update in structured data and visible copy', () => {
