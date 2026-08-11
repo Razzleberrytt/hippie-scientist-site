@@ -4,7 +4,7 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs/promises'
 import os from 'node:os'
 import path from 'node:path'
-import { buildAiEntityArtifacts } from './ai-entity-enrichment-lib.mjs'
+import { buildAiEntityArtifacts } from './ai-entity-artifacts.mjs'
 
 const tempRoot = await fs.mkdtemp(path.join(os.tmpdir(), 'ths-ai-entity-'))
 const previousCwd = process.cwd()
@@ -77,21 +77,38 @@ try {
         },
       },
     ],
-    compounds: [],
+    compounds: [
+      {
+        slug: 'test-compound',
+        name: 'Test Compound',
+        relatedEntities: [
+          {
+            entityType: 'herb',
+            slug: 'test-herb',
+            relationshipType: 'found-in',
+          },
+        ],
+      },
+    ],
   })
 
-  assert.equal(report.summary.entities, 1)
+  assert.equal(report.summary.entities, 2)
   assert.ok(report.summary.averageScore > 0)
 
-  const artifactPath = path.join(dataDir, 'ai-entities', 'herb', 'test-herb.json')
+  const herbArtifactPath = path.join(dataDir, 'ai-entities', 'herb', 'test-herb.json')
+  const compoundArtifactPath = path.join(dataDir, 'ai-entities', 'compound', 'test-compound.json')
   const manifestPath = path.join(dataDir, 'ai-entities', 'manifest.json')
-  const artifact = JSON.parse(await fs.readFile(artifactPath, 'utf8'))
+  const herbArtifact = JSON.parse(await fs.readFile(herbArtifactPath, 'utf8'))
+  const compoundArtifact = JSON.parse(await fs.readFile(compoundArtifactPath, 'utf8'))
   const manifest = JSON.parse(await fs.readFile(manifestPath, 'utf8'))
 
-  assert.equal(artifact['@context'], 'https://schema.org')
-  assert.ok(artifact['@graph'].some((node) => node['@type'] === 'Claim'))
-  assert.ok(artifact['@graph'].some((node) => node['@type'] === 'ScholarlyArticle'))
-  assert.equal(manifest.entities[0].dataUrl, '/data/ai-entities/herb/test-herb.json')
+  assert.equal(herbArtifact['@context'], 'https://schema.org')
+  assert.ok(herbArtifact['@graph'].some((node) => node['@type'] === 'Claim'))
+  assert.ok(herbArtifact['@graph'].some((node) => node['@type'] === 'ScholarlyArticle'))
+  assert.ok(herbArtifact['@graph'].some((node) => Array.isArray(node['@type']) && node['@type'].includes('Substance')))
+  assert.ok(!JSON.stringify(herbArtifact).includes('MedicalSubstance'))
+  assert.ok(!JSON.stringify(compoundArtifact).includes('MedicalSubstance'))
+  assert.equal(manifest.entities.find((entry) => entry.slug === 'test-herb')?.dataUrl, '/data/ai-entities/herb/test-herb.json')
 
   console.log('AI entity enrichment smoke test passed.')
 } finally {
