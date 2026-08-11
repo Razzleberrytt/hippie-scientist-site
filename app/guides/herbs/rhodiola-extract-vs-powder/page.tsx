@@ -94,7 +94,8 @@ const RHODIOLA_EXTRACT_VS_POWDER_REFS = [
 ]
 
 export default function RhodiolaExtractVsPowderGuidePage() {
-  const rhodiolaProducts = getRevenueProductSet('rhodiola')
+  const rhodiolaProductSet = getRevenueProductSet('rhodiola')
+  const rhodiolaProducts = rhodiolaProductSet?.products.filter((product) => Boolean(product.asin)) ?? []
   const toc = <TableOfContents headings={HEADINGS} />
 
   return (
@@ -170,10 +171,29 @@ export default function RhodiolaExtractVsPowderGuidePage() {
         <section id="research" className="scroll-mt-20 space-y-4">
           <h2 className="text-2xl font-semibold tracking-tight text-ink">What the Research Actually Used</h2>
           <p className="text-sm leading-6 text-muted">
-            Several small trials studied specific extracts, including SHR-5, for fatigue or performance under
-            stress. Systematic reviews have flagged inconsistent findings and methodological limitations, so a
-            positive result with one preparation should not be generalized to all rhodiola products.
+            The human trials are not interchangeable. Their participants, preparations, comparators, durations,
+            and outcomes differ enough that a positive result should stay attached to the exact intervention studied.
           </p>
+          <ul className="space-y-3 text-sm leading-6 text-muted">
+            <li>
+              <strong className="text-ink">Stress-related fatigue:</strong> a 2009 randomized double-blind trial
+              enrolled 60 adults ages 20–55 who met Swedish criteria for fatigue syndrome. Thirty received the
+              proprietary SHR-5 extract at 576 mg/day and 30 received placebo for 28 days. Some fatigue, attention,
+              and cortisol outcomes favored SHR-5, while several symptom measures improved in both groups.
+            </li>
+            <li>
+              <strong className="text-ink">Night-duty physicians:</strong> a 2000 double-blind crossover trial
+              studied 56 young, healthy physicians during night shifts. Participants used a repeated low-dose SHR-5
+              regimen for a two-week treatment period versus placebo, with a washout and crossover; the primary
+              signal was improved performance on a composite of mental-fatigue tests during the first treatment period.
+            </li>
+            <li>
+              <strong className="text-ink">Shift-work nursing students:</strong> a later randomized placebo-controlled
+              trial enrolled 48 nursing students ages 18–55. The rhodiola group used 364 mg at the start of the wakeful
+              period, with up to one additional capsule within four hours, for 42 days. On the study&apos;s fatigue outcomes,
+              the placebo group did better—an important reminder that the clinical literature is not uniformly positive.
+            </li>
+          </ul>
           <p className="text-sm leading-6 text-muted">
             The European Medicines Agency&apos;s current assessment is an important reality check: its conclusion
             for temporary relief of stress symptoms such as fatigue and weakness is based on long-standing
@@ -230,11 +250,11 @@ export default function RhodiolaExtractVsPowderGuidePage() {
           </SafetyNotice>
         </div>
 
-        {rhodiolaProducts && (
+        {rhodiolaProducts.length > 0 && (
           <AffiliateProductBox
             slug="rhodiola"
-            products={rhodiolaProducts.products}
-            heading="Rhodiola Products to Compare"
+            products={rhodiolaProducts}
+            heading="Rhodiola Products with Direct Listings to Compare"
           />
         )}
 
