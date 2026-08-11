@@ -1,6 +1,4 @@
 import type { Metadata } from 'next'
-import RecommendationSection from '@/components/RecommendationSection'
-import { getRevenueProductSet } from '@/config/revenue-products'
 import Link from 'next/link'
 import { buildPageMetadata } from '../../../../src/lib/seo'
 import AuthorityJsonLd from '@/components/seo/AuthorityJsonLd'
@@ -200,15 +198,12 @@ export default function CaffeineVsLTheaninePage() {
           <Link href="/learn/why-calm-focus-differs-from-stimulation/" className="inline-flex min-h-[44px] items-center rounded-full border border-brand-900/10 px-5 text-sm font-semibold text-ink transition hover:bg-white/70 dark:border-white/10 dark:hover:bg-white/10">
             Calm focus vs stimulation
           </Link>
-          <Link href="/guides/focus/best-supplements-for-focus/" className="inline-flex min-h-[44px] items-center rounded-full border border-brand-900/10 px-5 text-sm font-semibold text-ink transition hover:bg-white/70 dark:border-white/10 dark:hover:bg-white/10">
-            Best focus supplements
+          <Link href="/guides/focus/best-nootropics-for-focus/" className="inline-flex min-h-[44px] items-center rounded-full border border-brand-900/10 px-5 text-sm font-semibold text-ink transition hover:bg-white/70 dark:border-white/10 dark:hover:bg-white/10">
+            Best focus nootropics
           </Link>
         </div>
       </section>
 
-      <div className="max-w-4xl">
-        <RecommendationSection products={getRevenueProductSet('l-theanine')?.products ?? []} />
-      </div>
       <References refs={CAFFEINE_VS_L_THEANINE_REFS} />
     </div>
   )
