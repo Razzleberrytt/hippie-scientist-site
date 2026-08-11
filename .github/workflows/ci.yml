@@ -101,8 +101,59 @@ jobs:
           COMMIT_HASH: ${{ github.sha }}
         run: npm run build:deploy
 
-      - name: Verify build output
-        run: npm run verify:output
+      - name: Verify prebuild contracts
+        run: npm run verify:prebuild
+
+      - name: Verify core routes
+        run: node scripts/verify-core-routes.mjs
+
+      - name: Verify redirects
+        run: node scripts/verify-redirects.mjs
+
+      - name: Audit profile robots
+        run: node scripts/ci/audit-profile-robots.mjs
+
+      - name: Validate deploy readiness
+        run: node scripts/ci/validate-deploy-readiness.mjs
+
+      - name: Validate built SEO metadata
+        run: node scripts/ci/validate-build-seo-metadata.mjs
+
+      - name: Audit metadata duplicates
+        run: node scripts/ci/audit-metadata-duplicates.mjs
+
+      - name: Audit internal links
+        run: node scripts/ci/audit-internal-links.mjs
+
+      - name: Audit structured data
+        run: node scripts/ci/audit-structured-data.mjs
+
+      - name: Audit SEO routes
+        run: node scripts/ci/audit-seo-routes.mjs
+
+      - name: Validate guide FAQs
+        run: node scripts/ci/validate-guide-faqs.mjs
+
+      - name: Validate built sitemap
+        run: node scripts/ci/validate-sitemap.mjs --require-built
+
+      - name: Validate sitemap completeness
+        run: node scripts/ci/validate-sitemap-completeness.mjs --require-built
+
+      - name: Validate robots
+        run: node scripts/ci/validate-robots.mjs --require-built
+
+      - name: Audit sitemap affiliate links
+        run: npm run audit:sitemap-affiliate
+
+      - name: Validate Pagefind body
+        run: npm run validate:pagefind-body
+
+      - name: Validate cluster-member export
+        run: npm run validate:cluster-member-export
+
+      - name: Report performance budget
+        run: node scripts/report-performance-budget.mjs
 
       - name: Generate SEO audit reports
         if: always()
@@ -150,6 +201,6 @@ jobs:
           echo "## CI quality gate" >> "$GITHUB_STEP_SUMMARY"
           echo "- Purpose: enforce lint, typecheck, workbook/data correctness, recommendation-quality auditing, build verification, and security audit" >> "$GITHUB_STEP_SUMMARY"
           echo "- Branch/ref: $GITHUB_REF" >> "$GITHUB_STEP_SUMMARY"
-          echo "- Key commands: npm ci; npm run check:node; npm run validate:workbook-source; npm run validate:static-export; npm run routes:inventory; npm run lint; npm run typecheck; npm run data:ci; npx tsx scripts/audit-related-botanicals.ts; npm run guard:source-of-truth; npm run build:deploy; npm run verify:output; npm run audit:seo-reports; npm run indexability:report; node scripts/ci/audit-internal-redirect-links.mjs; npm run validate:route-seo; npm run audit:high" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Key commands: npm ci; npm run check:node; npm run validate:workbook-source; npm run validate:static-export; npm run routes:inventory; npm run lint; npm run typecheck; npm run data:ci; npx tsx scripts/audit-related-botanicals.ts; npm run guard:source-of-truth; npm run build:deploy; granular verify:output diagnostics; npm run audit:seo-reports; npm run indexability:report; node scripts/ci/audit-internal-redirect-links.mjs; npm run validate:route-seo; npm run audit:high" >> "$GITHUB_STEP_SUMMARY"
           echo "- Artifacts: related-botanicals audit; seo-audit-reports (including indexability candidates); npm-audit-after" >> "$GITHUB_STEP_SUMMARY"
           echo "- Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
