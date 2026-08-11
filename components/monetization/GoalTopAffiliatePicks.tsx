@@ -6,9 +6,9 @@ import { isRestrictedRecord } from '@/src/lib/restricted-ingredients'
 import { resolveRegionalUrl } from '@/src/lib/platforms'
 
 const SLOT_LABELS: Record<string, string> = {
-  budget: 'Budget pick',
-  overall: 'Best overall',
-  premium: 'Premium pick',
+  budget: 'Budget example',
+  overall: 'Featured example',
+  premium: 'Premium example',
 }
 
 type GoalTopAffiliatePicksProps = {
@@ -54,7 +54,7 @@ export default function GoalTopAffiliatePicks({
         brand: product.brand,
         href,
         rationale: product.rationale || `Starting point for ${pick.need.toLowerCase()} — verify dose and safety on the full profile.`,
-        slotLabel: SLOT_LABELS[product.slot] || 'Editor pick',
+        slotLabel: SLOT_LABELS[product.slot] || 'Product example',
         productSlot: product.slot,
       },
     ]
@@ -65,7 +65,7 @@ export default function GoalTopAffiliatePicks({
   return (
     <section className='card-premium p-5 sm:p-8'>
       <p className='eyebrow-label'>Optional sourcing notes</p>
-      <h2 className='mt-2 text-xl font-semibold text-ink'>Sourcing picks for this goal</h2>
+      <h2 className='mt-2 text-xl font-semibold text-ink'>Sourcing examples for this goal</h2>
       <p className='mt-2 text-sm leading-6 text-muted'>
         These are product examples to research carefully — not prescriptions and not a substitute for the safety notes above.
       </p>
