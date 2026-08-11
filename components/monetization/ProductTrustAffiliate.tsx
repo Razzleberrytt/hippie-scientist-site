@@ -8,6 +8,9 @@ type ProductTrustAffiliateProps = {
   slotLabel?: string
   compact?: boolean
   suppressMonetization?: boolean
+  productSlug?: string
+  productSlot?: string
+  trackingLocation?: string
 }
 
 export default function ProductTrustAffiliate({
@@ -18,6 +21,9 @@ export default function ProductTrustAffiliate({
   slotLabel,
   compact = false,
   suppressMonetization = false,
+  productSlug,
+  productSlot,
+  trackingLocation,
 }: ProductTrustAffiliateProps) {
   if (suppressMonetization) return null
 
@@ -37,6 +43,9 @@ export default function ProductTrustAffiliate({
           href={href}
           target='_blank'
           rel='nofollow sponsored noopener noreferrer'
+          data-ingredient={productSlug || undefined}
+          data-product-slot={productSlot || undefined}
+          data-tracking-location={trackingLocation || undefined}
           className='inline-flex min-h-10 w-full items-center justify-center rounded-full bg-brand-950 px-3.5 py-2 text-xs font-bold text-white transition hover:bg-brand-900 dark:bg-brand-200 dark:text-brand-950 dark:hover:bg-brand-100'
         >
           Review on Amazon →
@@ -63,6 +72,9 @@ export default function ProductTrustAffiliate({
         href={href}
         target='_blank'
         rel='nofollow sponsored noopener noreferrer'
+        data-ingredient={productSlug || undefined}
+        data-product-slot={productSlot || undefined}
+        data-tracking-location={trackingLocation || undefined}
         className='mt-4 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-brand-950 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-brand-900 dark:bg-brand-200 dark:text-brand-950 dark:hover:bg-brand-100'
       >
         Check {productName} sourcing on Amazon →

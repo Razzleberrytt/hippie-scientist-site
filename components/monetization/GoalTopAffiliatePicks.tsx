@@ -55,6 +55,7 @@ export default function GoalTopAffiliatePicks({
         href,
         rationale: product.rationale || `Starting point for ${pick.need.toLowerCase()} — verify dose and safety on the full profile.`,
         slotLabel: SLOT_LABELS[product.slot] || 'Editor pick',
+        productSlot: product.slot,
       },
     ]
   })
@@ -78,6 +79,9 @@ export default function GoalTopAffiliatePicks({
               href={pick.href}
               rationale={pick.rationale}
               slotLabel={pick.slotLabel}
+              productSlug={pick.key}
+              productSlot={pick.productSlot}
+              trackingLocation='goal-top-picks'
             />
           </div>
         ))}
