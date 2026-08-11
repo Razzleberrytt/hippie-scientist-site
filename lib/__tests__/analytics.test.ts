@@ -8,7 +8,6 @@ import {
 
 afterEach(() => {
   delete (window as Window & { gtag?: unknown }).gtag
-  window.history.replaceState({}, '', '/')
 })
 
 describe('guide analytics', () => {
@@ -65,12 +64,14 @@ describe('guide analytics', () => {
     })
   })
 
-  it('attributes successful email signups to the actual source route', () => {
+  it('attributes successful email signups to the supplied source route', () => {
     const gtag = vi.fn()
     ;(window as Window & { gtag?: unknown }).gtag = gtag
-    window.history.replaceState({}, '', '/guides/anxiety/ashwagandha-for-anxiety')
 
-    trackEmailSignup({ source: 'article-adhd-checklist' })
+    trackEmailSignup({
+      source: 'article-adhd-checklist',
+      pagePath: '/guides/anxiety/ashwagandha-for-anxiety',
+    })
 
     expect(gtag).toHaveBeenCalledWith('event', 'email_signup', {
       source: 'article-adhd-checklist',
