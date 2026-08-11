@@ -8,9 +8,13 @@ function source() {
   return fs.readFileSync(PAGE, 'utf8')
 }
 
+function normalizedSource() {
+  return source().replace(/\s+/g, ' ')
+}
+
 describe('anxiety hub evidence framing', () => {
   it('uses current systematic-review anchors for L-theanine and ashwagandha', () => {
-    const page = source()
+    const page = normalizedSource()
 
     expect(page).toContain('42410082')
     expect(page).toContain('39348746')
@@ -19,7 +23,7 @@ describe('anxiety hub evidence framing', () => {
   })
 
   it('does not market L-theanine as a reliable fast anxiolytic', () => {
-    const page = source()
+    const page = normalizedSource()
 
     expect(page).not.toMatch(/fast, non-sedating calm/i)
     expect(page).not.toMatch(/fast anxiolytic like L-theanine/i)
@@ -28,7 +32,7 @@ describe('anxiety hub evidence framing', () => {
   })
 
   it('keeps cortisol findings separate from perceived stress', () => {
-    const page = source()
+    const page = normalizedSource()
 
     expect(page).toContain('cortisol reduction without a clear perceived-stress benefit')
     expect(page).toContain('keeps biomarker changes separate from how people actually feel')
