@@ -58,7 +58,7 @@ describe('CompareSummaryTable', () => {
     expect(container.querySelector('.responsive-table-title')).toBeNull()
   })
 
-  it('uses a real caption and row headers in the desktop table', () => {
+  it('uses a real caption and source-honest row headers in the desktop table', () => {
     render(<CompareSummaryTable item1={item1} item2={item2} />)
 
     expect(
@@ -66,7 +66,8 @@ describe('CompareSummaryTable', () => {
         name: /Core tradeoffs between Ashwagandha and L-theanine/i,
       }),
     ).toBeTruthy()
-    expect(screen.getAllByRole('rowheader', { name: 'Best for' })).toHaveLength(2)
+    expect(screen.getAllByRole('rowheader', { name: 'Primary profile focus' })).toHaveLength(2)
+    expect(screen.getAllByRole('rowheader', { name: 'Dose / form in source data' })).toHaveLength(2)
   })
 
   it('exposes the compact mobile grid with table semantics', () => {
@@ -78,6 +79,20 @@ describe('CompareSummaryTable', () => {
     expect(within(mobileTable).getByRole('columnheader', { name: 'Factor' })).toBeTruthy()
     expect(within(mobileTable).getByRole('columnheader', { name: 'Ashwagandha' })).toBeTruthy()
     expect(within(mobileTable).getByRole('columnheader', { name: 'L-theanine' })).toBeTruthy()
-    expect(within(mobileTable).getByRole('rowheader', { name: 'Evidence' })).toBeTruthy()
+    expect(within(mobileTable).getByRole('rowheader', { name: 'Evidence signal' })).toBeTruthy()
+  })
+
+  it('uses Not reported instead of inventing onset or effective-dose certainty', () => {
+    render(
+      <CompareSummaryTable
+        item1={compareItem({ onsetTime: undefined, typicalDose: 'chelated mineral capsule or powder' })}
+        item2={item2}
+      />,
+    )
+
+    expect(screen.getAllByText('Not reported').length).toBeGreaterThan(0)
+    expect(screen.getAllByText('chelated mineral capsule or powder').length).toBeGreaterThan(0)
+    expect(screen.queryByText('Effective dose')).not.toBeInTheDocument()
+    expect(screen.queryByText('Best for')).not.toBeInTheDocument()
   })
 })
