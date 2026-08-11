@@ -8,6 +8,7 @@ import {
 } from '../ci/report-build-stage-timings.mjs'
 import { exportCanonicalCitationsToRuntime } from './canonical/citation-export.mjs'
 import { buildAiEntityArtifacts } from './ai-entity-artifacts.mjs'
+import { reconcileValidatedClusterMemberGovernance } from './cluster-member-governance-policy.mjs'
 import { reconcileDeliberateGovernanceHolds } from './governance-hold-policy.mjs'
 
 const DATA_DIR_ARG = process.argv.find((arg) => arg.startsWith('--data-dir='))
@@ -214,8 +215,23 @@ async function main() {
   await import('./apply-governance-overlay.mjs')
   governanceTimer.finish()
 
-  // Curated allowlists express editorial priority, but an explicit content hold
-  // (hidden_until_grounded/research_only) outranks that priority until grounded.
+  // The generic overlay uses a broad record-level source gate. A small set of
+  // source-backed cluster-member routes has a stricter, dedicated trust contract,
+  // so restore that explicit authority before applying any deliberate editorial holds.
+  const clusterTimer = createStageTimer('cluster-member-governance-reconciliation')
+  const clusterReport = await reconcileValidatedClusterMemberGovernance({ dataDir: DATA_DIR })
+  clusterTimer.finish({ corrected: clusterReport.total })
+  if (clusterReport.total > 0) {
+    console.log(
+      `[summary-indexes] restored validated cluster-member authority: ${[
+        ...clusterReport.herbs.map((slug) => `herb:${slug}`),
+        ...clusterReport.compounds.map((slug) => `compound:${slug}`),
+      ].join(', ')}`,
+    )
+  }
+
+  // Curated allowlists and validated cluster trust express editorial priority, but an
+  // explicit content hold (hidden_until_grounded/research_only) outranks either until grounded.
   const holdTimer = createStageTimer('deliberate-governance-hold-reconciliation')
   const holdReport = await reconcileDeliberateGovernanceHolds({ dataDir: DATA_DIR })
   holdTimer.finish({ corrected: holdReport.total })
