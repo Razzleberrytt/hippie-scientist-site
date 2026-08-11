@@ -2,9 +2,6 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArticleLayout } from '@/components/articles'
-import { getRevenueProductSet } from '@/config/revenue-products'
-import RecommendationSection from '@/components/RecommendationSection'
-import AffiliateDisclosure from '@/components/AffiliateDisclosure'
 import EmailCapture from '@/components/EmailCapture'
 import References from '@/components/References'
 
@@ -21,10 +18,8 @@ const SUPPLEMENTS_FOR_BRAIN_FOG_AND_FATIGUE_REFS = [
 ]
 
 export default function Page() {
-  const lionsManeProducts = getRevenueProductSet('lions-mane')
   return (
     <ArticleLayout>
-      <AffiliateDisclosure variant="compact" className="mb-6" />
       <section className='hero-shell rounded-[2rem] border border-brand-900/10 p-6 shadow-card sm:p-8'>
         <p className='eyebrow-label'>Guide</p>
         <h1 className='mt-2 text-3xl font-semibold text-ink sm:text-4xl'>Supplements for Brain Fog and Fatigue</h1>
@@ -42,7 +37,7 @@ export default function Page() {
             />
           </div>
           <figcaption className="mt-3 text-center text-sm text-muted">
-            Supplements that may help lift brain fog and fatigue.
+            Supplements commonly discussed for brain fog and fatigue.
           </figcaption>
         </figure>
       </section>
@@ -56,23 +51,17 @@ export default function Page() {
         </ul>
       </section>
 
-      {lionsManeProducts && (
-      <>
-        <References refs={SUPPLEMENTS_FOR_BRAIN_FOG_AND_FATIGUE_REFS} />
-          <RecommendationSection products={lionsManeProducts.products} />
-      </>
-      )}
+      <References refs={SUPPLEMENTS_FOR_BRAIN_FOG_AND_FATIGUE_REFS} />
       <EmailCapture location="guides-supplements-for-brain-fog-and-fatigue" className="mt-6" />
 
       <section className='card-premium p-6'>
         <h2 className='text-xl font-semibold text-ink'>Where to go next</h2>
         <div className='mt-4 flex flex-wrap gap-4'>
-          <Link href='/guides/other/supplements-for-brain-fog-and-fatigue/' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for brain fog</Link>
-          <Link href='/guides/other/supplements-for-brain-fog-and-fatigue/' className='text-sm font-medium text-emerald-700 hover:underline'>Best supplements for fatigue</Link>
-          <Link href='/guides/focus/best-nootropics-for-focus/' className='text-sm font-medium text-emerald-700 hover:underline'>Creatine vs caffeine</Link>
+          <Link href='/guides/focus/best-nootropics-for-focus/' className='text-sm font-medium text-emerald-700 hover:underline'>Compare focus nootropics by evidence</Link>
+          <Link href='/guides/other/creatine-brain-health/' className='text-sm font-medium text-emerald-700 hover:underline'>Creatine and brain health</Link>
+          <Link href='/guides/focus/focus-without-caffeine-crash/' className='text-sm font-medium text-emerald-700 hover:underline'>Focus without the caffeine crash</Link>
         </div>
       </section>
     </ArticleLayout>
   )
 }
-
