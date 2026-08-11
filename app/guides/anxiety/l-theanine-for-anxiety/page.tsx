@@ -13,8 +13,9 @@ import RecommendationSection from '@/components/RecommendationSection'
 const SLUG = 'l-theanine-for-anxiety'
 const TITLE = 'L-Theanine for Anxiety: Benefits, Dosage, Safety, and Research Review'
 const DESCRIPTION =
-  'An evidence-based review of L-theanine for anxiety, stress, calm focus, dosage, safety, and how it compares with ashwagandha and magnesium.'
+  'An evidence-first review of L-theanine for anxiety and stress, including the 2026 meta-analysis, studied doses, safety limits, and what the trials do not establish.'
 const DATE = '2026-08-02'
+const UPDATED_DATE = '2026-08-11'
 
 export const metadata = buildPageMetadata({
   title: compactMetaTitle(TITLE),
@@ -27,32 +28,32 @@ const FAQS = [
   {
     question: 'Does L-theanine help anxiety?',
     answer:
-      'Small studies suggest L-theanine may reduce some stress responses in healthy adults, but a placebo-controlled trial in generalized anxiety disorder did not find an anxiety benefit. It is not an established anxiety treatment and should not replace professional care.',
+      'The best current synthesis does not show a consistent anxiety benefit. A 2026 meta-analysis of 31 randomized trials found anxiety effects inconsistent and non-significant overall, while a placebo-controlled trial in generalized anxiety disorder also did not find an anxiety benefit. L-theanine is not an established anxiety treatment.',
   },
   {
     question: 'How long does L-theanine take to work?',
     answer:
-      'A small acute-stress study measured changes during the first three hours after a 200 mg dose. That does not establish a guaranteed onset time, and individual responses vary.',
+      'There is no validated onset time for anxiety relief. Acute studies measure outcomes within specific experimental windows after a single dose, but those schedules do not establish when an individual will feel an effect or whether anxiety will improve at all.',
   },
   {
     question: 'How much L-theanine should I take for anxiety?',
     answer:
-      'There is no established treatment dose for anxiety. Small stress studies have commonly tested 200 mg, while a generalized anxiety disorder trial tested higher adjunctive doses without an anxiety benefit. Discuss use with a clinician if symptoms are persistent or you take medication.',
+      'There is no established treatment dose for anxiety. A 200 mg single dose appears often in acute studies, and some repeated-dose studies have also used 200 mg per day, but study doses are not universal dosing instructions. Product-specific and medication-specific guidance still matters.',
   },
   {
     question: 'Is L-theanine better than ashwagandha for anxiety?',
     answer:
-      'There is not enough head-to-head evidence to declare a winner. L-theanine has been studied mainly for acute stress responses, while ashwagandha trials generally use standardized extracts over several weeks and carry different safety considerations.',
+      'There is not enough direct head-to-head evidence to declare one better. The products have different trial designs, preparations, safety questions, and evidence limitations, so separate studies should not be treated as a comparative ranking.',
   },
   {
     question: 'Can I take L-theanine every day?',
     answer:
-      'A small study tested 200 mg daily for four weeks, but long-term effectiveness and safety are not well established. Treat daily use as a supplement decision, especially if you take medication or have a medical condition.',
+      'Some randomized studies have tested repeated daily use for several weeks, but that does not establish long-term effectiveness or safety for every person. If you use prescription medication, are pregnant or breastfeeding, or have a medical condition, discuss regular supplement use with a clinician or pharmacist.',
   },
   {
     question: 'Is L-theanine sedating?',
     answer:
-      'L-theanine is usually described as calming rather than strongly sedating. That is why many readers use it during the day for calm focus or with caffeine to smooth stimulation.',
+      'L-theanine is not established as a sedative, and many studies assess attention or stress without using sleep as the primary outcome. Individual responses can still differ. A calming reputation should not be treated as proof that it relieves an anxiety disorder.',
   },
 ]
 
@@ -60,32 +61,32 @@ const relatedArticles = [
   {
     href: '/guides/herbs/l-theanine/',
     title: 'Complete L-Theanine Evidence Guide',
-    description: 'The main hub for caffeine, calm focus, sleep, stress, dosage, safety, and evidence.',
+    description: 'The main hub for cognition, sleep, stress, dosage, safety, and evidence.',
   },
   {
     href: '/guides/anxiety/natural-anxiety-relief/',
     title: 'Natural Anxiety Relief',
-    description: 'A broader anxiety guide for readers comparing supplement and lifestyle options.',
+    description: 'A broader anxiety guide for comparing evidence, safety, and non-supplement options.',
   },
   {
     href: '/guides/anxiety/ashwagandha-for-anxiety',
     title: 'Ashwagandha for Anxiety',
-    description: 'Better fit when the problem is chronic stress rather than acute overarousal.',
+    description: 'A separate review of ashwagandha trials, extract-specific evidence, and safety limits.',
   },
   {
     href: '/guides/sleep/magnesium-for-sleep/',
     title: 'Magnesium for Sleep',
-    description: 'Better fit when sleep, muscle tension, or magnesium status is the main issue.',
+    description: 'What magnesium trials do and do not show for sleep, deficiency, and supplement choice.',
   },
   {
     href: '/guides/sleep/l-theanine-for-sleep',
     title: 'L-Theanine for Sleep',
-    description: 'A focused sleep page for wired-at-night and racing-thought use cases.',
+    description: 'A sleep-specific review that keeps sleep findings separate from anxiety claims.',
   },
   {
     href: '/guides/anxiety/anxiety-stack-guide',
     title: 'Anxiety Stack Guide',
-    description: 'A practical stack guide for readers comparing combined support options.',
+    description: 'How to evaluate combination claims without assuming separate ingredients work better together.',
   },
 ]
 
@@ -97,7 +98,7 @@ export default function LTheanineForAnxietyPage() {
   ])
 
   const articleLd = blogJsonLd(
-    { title: TITLE, slug: SLUG, date: DATE, description: DESCRIPTION },
+    { title: TITLE, slug: SLUG, date: DATE, updated: UPDATED_DATE, description: DESCRIPTION },
     `/guides/anxiety/${SLUG}/`,
   )
 
@@ -111,62 +112,64 @@ export default function LTheanineForAnxietyPage() {
 
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="mb-8">
-          <LastUpdatedBadge date={DATE} />
+          <LastUpdatedBadge date={UPDATED_DATE} label="Last updated" />
           <h1 className="text-4xl font-bold tracking-tight mt-4 mb-4">{TITLE}</h1>
           <p className="text-xl text-muted-foreground">{DESCRIPTION}</p>
 
-        <figure className="mt-6">
-          <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
-            <Image
-              src="/images/guides/l-theanine-for-anxiety.jpg"
-              alt="L-theanine capsules and green tea used for anxiety and calm"
-              width={1536}
-              height={1024}
-              priority
-              className="w-full h-auto"
-            />
-          </div>
-          <figcaption className="mt-3 text-center text-sm text-muted">
-            L-theanine from green tea — used for fast, non-sedating calm.
-          </figcaption>
-        </figure>
+          <figure className="mt-6">
+            <div className="overflow-hidden rounded-2xl border border-brand-900/10 shadow-sm bg-white">
+              <Image
+                src="/images/guides/l-theanine-for-anxiety.jpg"
+                alt="L-theanine capsules and green tea reviewed for stress and anxiety evidence"
+                width={1536}
+                height={1024}
+                priority
+                className="w-full h-auto"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm text-muted">
+              L-theanine from tea — reviewed here for stress and anxiety evidence, not as a proven anxiety treatment.
+            </figcaption>
+          </figure>
         </div>
 
         <div className="prose prose-sm mb-8 p-4 bg-muted/50 rounded-lg">
           <p className="text-sm">
             <strong>Affiliate Disclosure:</strong> This article contains affiliate links.
             Purchases through these links may earn us a small commission at no extra cost to you.
-            We only link to products we believe offer genuine value.
+            Commercial links do not change the evidence standard used in this review.
           </p>
         </div>
 
         <section className="mb-10 p-6 border rounded-xl bg-card">
           <h2 className="text-2xl font-semibold mb-4">Quick Verdict</h2>
           <p className="text-muted-foreground mb-4">
-            L-theanine has limited evidence for reducing some stress responses in healthy adults,
-            but it has not been shown to treat an anxiety disorder. Consider it an optional,
-            one-ingredient trial for situational tension—not a substitute for anxiety care.
+            The strongest current synthesis is less supportive of anxiety marketing than older summaries.
+            A 2026 meta-analysis of 31 randomized trials with 1,168 participants found a modest acute-stress
+            effect that was largely influenced by studies at high risk of bias, while anxiety effects were
+            inconsistent and not significant overall. L-theanine may have other studied effects, especially
+            on short-term attention, but the evidence does not establish it as an anxiety treatment.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
             <div className="p-4 rounded-lg bg-muted/50">
-              <p className="font-semibold mb-1">Best fit</p>
-              <p className="text-muted-foreground">A cautious trial for situational stress or caffeine-related tension.</p>
+              <p className="font-semibold mb-1">What the evidence supports</p>
+              <p className="text-muted-foreground">A short-term attention signal and a modest, uncertain acute-stress effect in pooled randomized trials.</p>
             </div>
             <div className="p-4 rounded-lg bg-muted/50">
-              <p className="font-semibold mb-1">Studied dose</p>
-              <p className="text-muted-foreground">200 mg in small acute and four-week stress studies; not an established anxiety dose.</p>
+              <p className="font-semibold mb-1">What it does not establish</p>
+              <p className="text-muted-foreground">Reliable relief of anxiety symptoms or treatment of generalized anxiety disorder.</p>
             </div>
             <div className="p-4 rounded-lg bg-muted/50">
-              <p className="font-semibold mb-1">Evidence level</p>
-              <p className="text-muted-foreground">Limited for stress; a generalized anxiety disorder trial was negative.</p>
+              <p className="font-semibold mb-1">Studied amounts</p>
+              <p className="text-muted-foreground">Study protocols vary; 200 mg is common in acute research, but there is no established anxiety dose.</p>
             </div>
             <div className="p-4 rounded-lg bg-muted/50">
-              <p className="font-semibold mb-1">Main caution</p>
-              <p className="text-muted-foreground">Not a replacement for clinical anxiety care or medication guidance.</p>
+              <p className="font-semibold mb-1">Safety confidence</p>
+              <p className="text-muted-foreground">No serious adverse events were reported in the 2026 trial synthesis, but long-term and interaction evidence remain incomplete.</p>
             </div>
           </div>
           <p className="text-sm text-muted-foreground mt-4">
-            For the complete evidence hub, read the{' '}
+            For the broader evidence hub, read the{' '}
             <Link href="/guides/herbs/l-theanine/" className="text-primary underline">
               full L-theanine guide
             </Link>
@@ -178,30 +181,35 @@ export default function LTheanineForAnxietyPage() {
           <h2 className="text-3xl font-semibold mb-6">What Is L-Theanine?</h2>
           <div className="prose prose-lg max-w-none">
             <p>
-              L-theanine is a non-protein amino acid found primarily in tea leaves from
-              <em> Camellia sinensis</em>. It is best known for calm alertness: a relaxed but
-              functional state that can pair well with focus work.
+              L-theanine is a non-protein amino acid found in tea leaves from <em>Camellia sinensis</em>.
+              Supplement studies have examined attention, stress responses, mood, and sleep, sometimes using
+              L-theanine alone and sometimes with caffeine or other ingredients.
             </p>
             <p>
-              For anxiety readers, the key point is not sedation. L-theanine is better framed as
-              a support for overarousal: mental tension, racing thoughts, caffeine sensitivity,
-              and stress that makes the body feel wired.
+              That range of research creates an important interpretation problem: a finding about attention,
+              an acute laboratory stress task, or a combination product does not automatically show that
+              L-theanine treats persistent anxiety symptoms.
             </p>
           </div>
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">How L-Theanine May Affect Anxiety</h2>
+          <h2 className="text-3xl font-semibold mb-6">Stress Findings Are Not the Same as Anxiety Treatment</h2>
           <div className="prose prose-lg max-w-none">
             <p>
-              Current evidence suggests L-theanine is most relevant for stress-related mental
-              tension rather than severe clinical anxiety disorders. Research has examined acute
-              stress response, alpha-wave activity, and the way theanine can smooth caffeine.
+              The 2026 systematic review and meta-analysis pooled 31 randomized trials involving 1,168
+              participants across healthy and clinical populations. Its primary acute-stress analysis found
+              a modest effect, but that result was largely influenced by studies judged to have a high risk of bias.
             </p>
             <p>
-              The practical hypothesis is that L-theanine may take the edge off for some people
-              without strong sedation. The studies are too small and mixed to promise that result,
-              particularly for persistent or diagnosed anxiety.
+              For anxiety outcomes, the pooled evidence was inconsistent and not significant overall. That
+              matches an earlier randomized trial in 46 people with generalized anxiety disorder, where
+              adjunctive L-theanine did not improve anxiety symptoms more than placebo.
+            </p>
+            <p>
+              Mechanistic ideas—such as changes in alpha-wave activity or neurotransmitter signaling—can help
+              generate hypotheses. They cannot substitute for clinical outcome evidence when the question is
+              whether a supplement meaningfully improves anxiety.
             </p>
           </div>
         </section>
@@ -211,42 +219,47 @@ export default function LTheanineForAnxietyPage() {
           <EvidenceSummaryCard
             title="L-Theanine for Anxiety and Stress"
             evidenceLevel="Limited"
-            humanEvidence="Small studies in healthy adults report changes in some psychological or physiological stress measures. In a placebo-controlled generalized anxiety disorder trial, adjunctive L-theanine did not reduce anxiety more than placebo."
-            mechanisticEvidence="L-theanine is proposed to support alpha-wave activity and modulate glutamate and GABA-related pathways. This may help explain relaxed alertness without strong sedation."
-            safetyProfile="Generally well tolerated at common doses. Use caution with blood-pressure medications, sedatives, sleep medications, prescription stimulants, pregnancy, breastfeeding, or psychiatric conditions."
+            humanEvidence="A 2026 meta-analysis of 31 randomized trials (n=1,168) found a modest acute-stress effect that was largely influenced by high-risk-of-bias studies; anxiety effects were inconsistent and non-significant overall. A separate randomized generalized anxiety disorder trial also found no anxiety benefit over placebo."
+            mechanisticEvidence="Studies have explored alpha-wave activity and glutamate- or GABA-related pathways, but mechanistic plausibility does not establish an anxiety treatment effect."
+            safetyProfile="The 2026 meta-analysis reported no serious adverse events in the included randomized trials. That does not establish long-term safety or rule out product-, medication-, or person-specific concerns."
           />
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">Dosage and Timing</h2>
+          <h2 className="text-3xl font-semibold mb-6">What Doses Have Been Studied?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="border rounded-xl p-5">
-              <h3 className="font-semibold mb-2">Situational anxiety</h3>
-              <p className="text-muted-foreground text-sm">200 mg has been tested in small acute-stress studies; no clinical anxiety dose is established.</p>
+              <h3 className="font-semibold mb-2">Single-dose studies</h3>
+              <p className="text-muted-foreground text-sm">A 200 mg single dose appears in several acute protocols. That is a study design detail, not a guaranteed onset or anxiety-relief dose.</p>
             </div>
             <div className="border rounded-xl p-5">
-              <h3 className="font-semibold mb-2">Caffeine jitters</h3>
-              <p className="text-muted-foreground text-sm">Combination studies use varied ratios; avoid adding caffeine if it worsens anxiety.</p>
+              <h3 className="font-semibold mb-2">Repeated dosing</h3>
+              <p className="text-muted-foreground text-sm">Some small studies tested daily use for several weeks. Results from one population or product should not be converted into a universal regimen.</p>
             </div>
             <div className="border rounded-xl p-5">
-              <h3 className="font-semibold mb-2">Evening tension</h3>
-              <p className="text-muted-foreground text-sm">Sleep evidence is preliminary; do not assume a stress-study dose treats insomnia.</p>
+              <h3 className="font-semibold mb-2">Clinical anxiety</h3>
+              <p className="text-muted-foreground text-sm">No treatment dose is established. The randomized generalized anxiety disorder trial did not show an anxiety benefit despite testing adjunctive L-theanine.</p>
             </div>
           </div>
+          <p className="mt-4 text-sm text-muted-foreground">
+            Do not escalate a supplement dose simply because a lower amount did not produce a noticeable effect.
+            Study dosing is context for interpreting research, not individualized medical guidance.
+          </p>
         </section>
 
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-6">L-Theanine vs Ashwagandha vs Magnesium</h2>
           <div className="prose prose-lg max-w-none">
             <p>
-              <strong>L-theanine</strong> has small acute-stress studies. <strong>Ashwagandha</strong>
-              has several short-term extract trials but more interaction and safety considerations.
-              <strong>Magnesium</strong> is most directly relevant when intake or status is low.
-              These are different evidence bases, not proven interchangeable anxiety treatments.
+              These ingredients have different evidence bases and should not be ranked by comparing unrelated
+              studies. L-theanine now has a broad randomized-trial synthesis showing inconsistent anxiety effects.
+              Ashwagandha research is extract-specific and carries its own safety questions. Magnesium is most
+              clearly indicated when correcting inadequate intake or deficiency, while supplement trials for
+              symptoms such as sleep or anxiety remain a separate question.
             </p>
             <p>
-              For deeper comparisons, read{' '}
-              <Link href="/guides/herbs/ashwagandha/" className="text-primary underline">
+              For deeper context, read{' '}
+              <Link href="/guides/anxiety/ashwagandha-for-anxiety" className="text-primary underline">
                 Ashwagandha for Anxiety
               </Link>
               ,{' '}
@@ -255,7 +268,7 @@ export default function LTheanineForAnxietyPage() {
               </Link>
               , and{' '}
               <Link href="/guides/compare/ashwagandha-vs-l-theanine-vs-magnesium/" className="text-primary underline">
-                L-Theanine vs Magnesium
+                Ashwagandha vs L-Theanine vs Magnesium
               </Link>
               .
             </p>
@@ -263,13 +276,12 @@ export default function LTheanineForAnxietyPage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-3xl font-semibold mb-6">Anxiety and Sleep Overlap</h2>
+          <h2 className="text-3xl font-semibold mb-6">Anxiety and Sleep Are Separate Evidence Questions</h2>
           <div className="prose prose-lg max-w-none">
             <p>
-              Anxiety and sleep often reinforce each other. Poor sleep increases next-day anxiety,
-              and anxious rumination can delay sleep. L-theanine is most rational when the sleep
-              problem is a wired mind rather than pain, sleep apnea, restless legs, alcohol, or
-              inconsistent sleep timing.
+              Anxiety and poor sleep can reinforce each other, but evidence for one outcome should not be used
+              as proof of the other. L-theanine has separate sleep reviews and trials, and those results should
+              be interpreted on their own rather than used to rescue an unsupported anxiety claim.
             </p>
             <p>
               For sleep-specific context, read{' '}
@@ -289,12 +301,11 @@ export default function LTheanineForAnxietyPage() {
           <h2 className="text-3xl font-semibold mb-6">Safety and Side Effects</h2>
           <SafetyNotice>
             <ul className="space-y-2">
-              <li>L-theanine is generally well tolerated at typical supplemental doses.</li>
-              <li>Some people may experience mild side effects such as headache or dizziness.</li>
-              <li>Caution is advised with medications that affect blood pressure or sedation.</li>
-              <li>Use extra caution with prescription stimulants or psychiatric medications.</li>
-              <li>Pregnancy and breastfeeding: limited supplemental-dose safety data.</li>
-              <li>Do not stop prescribed medication without medical supervision.</li>
+              <li>The 2026 meta-analysis reported no serious adverse events across the included randomized trials.</li>
+              <li>That trial record does not establish long-term safety or prove that every supplement product is equivalent.</li>
+              <li>Medication and supplement interaction evidence is incomplete; check the exact product with a clinician or pharmacist if you take prescription medicines.</li>
+              <li>Pregnancy and breastfeeding safety at supplemental doses is not well established.</li>
+              <li>Do not stop, replace, or reduce prescribed anxiety treatment based on supplement claims.</li>
             </ul>
           </SafetyNotice>
         </section>
@@ -331,10 +342,9 @@ export default function LTheanineForAnxietyPage() {
           <h2 className="text-3xl font-semibold mb-6">Buyer Guide</h2>
           <div className="prose prose-lg max-w-none">
             <p>
-              Prefer a single-ingredient product with a clear per-serving dose, lot information,
-              and credible independent quality testing when available. Avoid proprietary stress
-              blends: they make dose comparison and side-effect attribution harder. Most readers
-              do not need a complex stack to test whether L-theanine helps.
+              If you decide to buy L-theanine, a single-ingredient product with a clearly stated per-serving
+              amount and credible independent quality testing is easier to evaluate than a proprietary blend.
+              Product quality does not turn limited anxiety evidence into proven effectiveness.
             </p>
           </div>
         </section>
@@ -343,10 +353,11 @@ export default function LTheanineForAnxietyPage() {
           <h2 className="text-3xl font-semibold mb-6">Sources and References</h2>
           <div className="p-6 bg-muted/50 rounded-xl text-sm">
             <ul className="list-disc pl-5 space-y-3 text-muted-foreground">
-              <li><a className="text-primary underline" href="https://pubmed.ncbi.nlm.nih.gov/30580081/" target="_blank" rel="noopener noreferrer">Sarris et al. (2019)</a>: placebo-controlled adjunctive trial in generalized anxiety disorder; no anxiety or insomnia-severity benefit over placebo.</li>
-              <li><a className="text-primary underline" href="https://pubmed.ncbi.nlm.nih.gov/34562208/" target="_blank" rel="noopener noreferrer">White et al. (2021)</a>: crossover study of a single 200 mg branded dose in 16 healthy, moderately stressed adults.</li>
-              <li><a className="text-primary underline" href="https://pubmed.ncbi.nlm.nih.gov/31623400/" target="_blank" rel="noopener noreferrer">Hidese et al. (2019)</a>: four-week, 30-person healthy-adult study; small sample and supplier-related conflict disclosed.</li>
-              <li><a className="text-primary underline" href="https://pubmed.ncbi.nlm.nih.gov/26797633/" target="_blank" rel="noopener noreferrer">Unno et al. (2016)</a>: acute stress crossover study using a nutrient drink, so effects cannot be attributed to L-theanine alone.</li>
+              <li><a className="text-primary underline" href="https://pubmed.ncbi.nlm.nih.gov/42410082/" target="_blank" rel="noopener noreferrer">Gerolymos et al. (2026)</a>: systematic review and meta-analysis of 31 randomized trials (n=1,168); acute-stress effects were modest and sensitive to study bias, while anxiety effects were inconsistent and non-significant overall.</li>
+              <li><a className="text-primary underline" href="https://pubmed.ncbi.nlm.nih.gov/30580081/" target="_blank" rel="noopener noreferrer">Sarris et al. (2019)</a>: double-blind randomized adjunctive trial in generalized anxiety disorder; no anxiety benefit over placebo.</li>
+              <li><a className="text-primary underline" href="https://pubmed.ncbi.nlm.nih.gov/34562208/" target="_blank" rel="noopener noreferrer">Evans et al. (2021)</a>: crossover study of a single 200 mg branded dose in healthy adults under an experimental stress task.</li>
+              <li><a className="text-primary underline" href="https://pubmed.ncbi.nlm.nih.gov/31623400/" target="_blank" rel="noopener noreferrer">Hidese et al. (2019)</a>: four-week crossover study in 30 healthy adults; small sample and supplier-related conflicts were disclosed.</li>
+              <li><a className="text-primary underline" href="https://pubmed.ncbi.nlm.nih.gov/40056718/" target="_blank" rel="noopener noreferrer">Bulman et al. (2025)</a>: sleep systematic review and meta-analysis; useful for keeping sleep findings separate from anxiety claims.</li>
             </ul>
           </div>
         </section>
