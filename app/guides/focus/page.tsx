@@ -11,11 +11,11 @@ import { buildGuideHubSchemaGraph } from '../../../src/lib/schema-graph'
 export const metadata: Metadata = {
   title: 'Focus & Cognition Supplement Guides',
   description:
-    'Match the right focus support to why your attention slips — energy crashes, caffeine jitters, or slow-building memory. Evidence-based, decision-first nootropic guides.',
+    'Compare focus supports by the problem you are trying to solve — acute attention, caffeine tradeoffs, or slower memory support — with current evidence and safety context.',
   alternates: { canonical: `${SITE_URL}/guides/focus/` },
   openGraph: {
     title: 'Focus & Cognition Guides',
-    description: 'Match the right nootropic to the reason your focus slips.',
+    description: 'Compare focus supports by evidence, timescale, and tradeoffs.',
     url: `${SITE_URL}/guides/focus/`,
     type: 'website',
     images: ['/og-default.jpg'],
@@ -32,31 +32,31 @@ const START_HERE: IntentRoute[] = [
   },
   {
     problem: 'Caffeine gives you jitters or a crash',
-    why: 'L-theanine smooths caffeine into calm, steady focus.',
+    why: 'Combination trials report some task-specific attention benefits from caffeine plus L-theanine, but not a guaranteed smoother response.',
     cta: 'L-Theanine vs Caffeine for Focus',
     href: '/guides/focus/l-theanine-vs-caffeine-for-focus/',
   },
   {
     problem: 'You want steady focus without the crash',
-    why: 'Timing, calmer nootropics, and habits that avoid the afternoon dip.',
+    why: 'Compare caffeine dose and timing with non-caffeine strategies instead of assuming another supplement fixes the dip.',
     cta: 'Focus Without the Caffeine Crash',
     href: '/guides/focus/focus-without-caffeine-crash/',
   },
   {
     problem: 'You want calm focus without a stimulant',
-    why: 'L-theanine on its own for quiet, unforced attention.',
+    why: 'Recent trial meta-analysis found a short-term attention signal for L-theanine in healthy adults, while effects remain task-specific.',
     cta: 'L-Theanine Without Caffeine',
     href: '/guides/focus/l-theanine-without-caffeine/',
   },
   {
     problem: 'Comparing the main options',
-    why: 'Fast stimulant vs calm amino acid vs slow-building memory herb.',
+    why: 'Caffeine has the clearest acute attention evidence; L-theanine findings are task-specific, while bacopa is studied with repeated use.',
     cta: 'Caffeine vs L-Theanine vs Bacopa',
     href: '/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/',
   },
   {
     problem: 'Focus problems tied to ADHD',
-    why: 'Attention, stimulant timing, and stacking need a different plan.',
+    why: 'ADHD deserves a separate evidence and safety pathway; supplements are not substitutes for established ADHD treatment.',
     cta: 'ADHD Stack Guide',
     href: '/guides/adhd/adhd-stack-guide/',
   },
@@ -71,12 +71,12 @@ const BEST_FIRST: GuideCard[] = [
   {
     href: '/guides/focus/l-theanine-vs-caffeine-for-focus/',
     title: 'L-Theanine + Caffeine',
-    desc: 'The most reliable everyday focus pairing — and when to use each alone.',
+    desc: 'A studied pairing with task-specific short-term effects — plus the uncertainty and tradeoffs that matter.',
   },
   {
     href: '/guides/focus/focus-without-caffeine-crash/',
     title: 'Focus Without the Crash',
-    desc: 'Steady all-day attention without the caffeine rollercoaster.',
+    desc: 'Compare caffeine timing, dose, and non-caffeine strategies without promising an all-day supplement fix.',
   },
 ]
 
@@ -84,12 +84,12 @@ const COMPARISONS: GuideCard[] = [
   {
     href: '/guides/focus/l-theanine-vs-caffeine-for-focus/',
     title: 'L-Theanine vs Caffeine',
-    desc: 'How they work together, and when to reach for each alone.',
+    desc: 'What the acute attention evidence supports for each, where the combination may help, and where uncertainty remains.',
   },
   {
     href: '/guides/compare/caffeine-vs-l-theanine-vs-bacopa-for-focus/',
     title: 'Caffeine vs L-Theanine vs Bacopa',
-    desc: 'Fast alertness vs calm focus vs slow-building memory — pick by timeframe.',
+    desc: 'Compare an acute stimulant, a task-specific amino-acid signal, and a repeatedly dosed memory herb by timeframe and evidence.',
   },
 ]
 
@@ -114,11 +114,21 @@ const DEPTH_LINKS = [
 const FOCUS_REFS = [
   {
     n: 1,
-    text: 'Giesbrecht T, Rycroft JA, Rowson MJ, De Bruin EA. (2010). The combination of L-theanine and caffeine improves cognitive performance and increases subjective alertness. Nutr Neurosci, 13(6): 283-290.',
-    url: 'https://pubmed.ncbi.nlm.nih.gov/20730951/',
+    text: 'Kløve K, Petersen A. (2025). A systematic review and meta-analysis of the acute effect of caffeine on attention. Psychopharmacology, 242(9): 1909-1930.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/40335666/',
   },
   {
     n: 2,
+    text: 'Payne ER, Aceves-Martins M, Dubost J, et al. (2025). Effects of tea or its bioactive compounds L-theanine or L-theanine plus caffeine on cognition, sleep, and mood in healthy participants: a systematic review and meta-analysis of randomized controlled trials. Nutrition Reviews, 83(10): 1873-1891.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/40314930/',
+  },
+  {
+    n: 3,
+    text: 'Gerolymos C, Saddier E, Boyer L, Fond G. (2026). Cognitive and affective effects of L-Theanine: a systematic review and meta-analysis of 31 randomized trials. Molecular Psychiatry. Online ahead of print.',
+    url: 'https://pubmed.ncbi.nlm.nih.gov/42410082/',
+  },
+  {
+    n: 4,
     text: 'Kongkeaw C, Dilokthornsakul P, Thanarangsarit P, et al. (2014). Meta-analysis of randomized controlled trials on cognitive effects of Bacopa monnieri extract. J Ethnopharmacol, 151(1): 528-535.',
     url: 'https://pubmed.ncbi.nlm.nih.gov/24484449/',
   },
@@ -137,7 +147,7 @@ export default function FocusGuideIndex() {
     path: '/guides/focus/',
     title: 'Focus & Cognition Supplement Guides',
     description:
-      'Match the right focus support to why your attention slips — energy crashes, caffeine jitters, or slow-building memory.',
+      'Compare focus supports by the problem you are trying to solve — acute attention, caffeine tradeoffs, or slower memory support.',
     breadcrumbs: [
       { name: 'Home', url: `${SITE_URL}/` },
       { name: 'Guides', url: `${SITE_URL}/guides/` },
@@ -158,19 +168,17 @@ export default function FocusGuideIndex() {
         <span className="font-medium text-ink">Focus &amp; Cognition</span>
       </nav>
 
-      {/* Hero */}
       <header className="mb-10">
         <h1 className="text-3xl font-bold tracking-tight text-ink sm:text-4xl">Focus &amp; Cognition Guides</h1>
         <p className="mt-3 max-w-2xl text-lg leading-8 text-muted">
-          The right focus supplement depends on why your attention slips — an energy dip, caffeine
-          jitters, or memory that builds slowly. Tell us what is getting in the way and we will point
-          you to the right guide first. Some options act within the hour, others need weeks of
-          consistent use before the effect is noticeable, so matching timescale to your situation
-          matters as much as matching the ingredient.
+          Focus studies do not support one universal “best” nootropic. Caffeine has the clearest
+          evidence for an acute attention effect in healthy adults; L-theanine and caffeine-plus-
+          L-theanine findings vary by task; and options such as bacopa are studied over repeated use
+          rather than as instant stimulants. Start with the problem and timescale, then check dose,
+          safety, and how closely the study population matches you.
         </p>
       </header>
 
-      {/* Start Here — decision routing */}
       <section className="mb-12">
         <HubSectionHeading
           eyebrow="Start here"
@@ -180,28 +188,25 @@ export default function FocusGuideIndex() {
         <DecisionRouter items={START_HERE} />
       </section>
 
-      {/* Best first pages */}
       <section className="mb-12">
         <HubSectionHeading eyebrow="Best first reads" title="If you only read a few" />
         <GuideCardGrid cards={BEST_FIRST} />
       </section>
 
-      {/* Comparison guides */}
       <section className="mb-12">
         <HubSectionHeading
           eyebrow="Comparisons"
           title="Deciding between options?"
-          sub="These make a clear call instead of saying “both may help.”"
+          sub="These compare the evidence and tradeoffs instead of forcing a winner when the data do not justify one."
         />
         <GuideCardGrid cards={COMPARISONS} />
       </section>
 
-      {/* ADHD & focus */}
       <section className="mb-12">
         <HubSectionHeading
           eyebrow="ADHD & focus"
           title="Focus problems tied to ADHD"
-          sub="Attention difficulties from ADHD respond differently than everyday distraction — stimulant timing, dosing, and stacking need a dedicated plan rather than a general nootropic."
+          sub="ADHD is not the same as everyday distraction. Use the dedicated pages for evidence and safety context, and do not treat supplements as replacements for established ADHD care."
         />
         <div className="flex flex-wrap gap-3">
           {ADHD_FOCUS.map((g) => (
@@ -216,21 +221,22 @@ export default function FocusGuideIndex() {
         </div>
       </section>
 
-      {/* Editorial note */}
       <section className="mb-12 rounded-xl border-l-4 border-brand-700/40 bg-brand-50/60 p-5 dark:bg-[var(--surface-subtle)]">
         <p className="text-sm leading-7 text-ink dark:text-[var(--text-secondary)]">
-          <span className="font-bold">A note on matching the tool to the problem.</span> Focus
-          supplements work on different timescales. Caffeine and L-theanine act within an hour; bacopa
-          builds memory over weeks; creatine and L-tyrosine mostly help when you are stressed or
-          sleep-deprived. None of them replaces sleep, movement, and a workload you can actually
-          sustain — and stimulants can amplify anxiety at higher doses. Choline sources like
-          citicoline and alpha-GPC are a different category again: they support the raw material for
-          attention-related signaling rather than delivering a felt stimulant effect, so give them
-          several weeks before judging whether they are doing anything for you.
+          <span className="font-bold">What the newer reviews change.</span> A 2025 meta-analysis of
+          31 double-blind, placebo-controlled caffeine trials in 1,455 rested, healthy adults found
+          small acute improvements in both attention accuracy and reaction time. A separate 2025
+          review of L-theanine, caffeine, and their combination found some small-to-moderate
+          first-two-hour differences on specific cognitive and mood tasks, but its confidence
+          intervals often showed uncertainty about the size or direction of the effect. A 2026
+          L-theanine meta-analysis found a short-term choice-reaction-time benefit after 200 mg in
+          healthy adults, while broader effects were not uniform across outcomes. The pairing is
+          studied, but the evidence does not show that it reliably smooths focus across tasks. The
+          2025 tea/theanine review also included industry-linked authors, so the cautious framing is
+          intentional.
         </p>
       </section>
 
-      {/* Research deeper */}
       <section className="mb-12">
         <HubSectionHeading
           eyebrow="Research deeper"
@@ -253,7 +259,6 @@ export default function FocusGuideIndex() {
         </div>
       </section>
 
-      {/* All guides — secondary */}
       <section className="mb-12">
         <HubSectionHeading eyebrow="Full library" title="All focus guides" />
         <ul className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
