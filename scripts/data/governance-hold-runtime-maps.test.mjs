@@ -15,6 +15,19 @@ async function readJson(filePath) {
   return JSON.parse(await fs.readFile(filePath, 'utf8'))
 }
 
+function stableClone(value) {
+  if (Array.isArray(value)) return value.map(stableClone)
+  if (value && typeof value === 'object') {
+    return Object.keys(value)
+      .sort((a, b) => a.localeCompare(b))
+      .reduce((output, key) => {
+        output[key] = stableClone(value[key])
+        return output
+      }, {})
+  }
+  return value
+}
+
 afterEach(async () => {
   await Promise.all(tempDirs.splice(0).map((dir) => fs.rm(dir, { recursive: true, force: true })))
 })
@@ -66,9 +79,12 @@ describe('deliberate governance hold runtime-map reconciliation', () => {
       'related-profiles.json',
     ])
 
-    const related = await readJson(path.join(root, 'runtime-maps/related-profiles.json'))
+    const relatedPath = path.join(root, 'runtime-maps/related-profiles.json')
+    const relatedRaw = await fs.readFile(relatedPath, 'utf8')
+    const related = JSON.parse(relatedRaw)
     expect(related['black-cohosh']).toBeUndefined()
     expect(related.ashwagandha).toEqual([{ slug: 'magnesium', score: 7 }])
+    expect(relatedRaw).toBe(`${JSON.stringify(stableClone(related))}\n`)
 
     const comparisons = await readJson(path.join(root, 'runtime-maps/comparison-recommendations.json'))
     expect(comparisons['black-cohosh']).toBeUndefined()
