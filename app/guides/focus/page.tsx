@@ -230,8 +230,8 @@ export default function FocusGuideIndex() {
           first-two-hour differences on specific cognitive and mood tasks, but its confidence
           intervals often showed uncertainty about the size or direction of the effect. A 2026
           L-theanine meta-analysis found a short-term choice-reaction-time benefit after 200 mg in
-          healthy adults, while broader effects were not uniform across outcomes. That makes
-          caffeine-plus-L-theanine a studied option, not a guaranteed “smooth focus” formula. The
+          healthy adults, while broader effects were not uniform across outcomes. The pairing is
+          studied, but the evidence does not show that it reliably smooths focus across tasks. The
           2025 tea/theanine review also included industry-linked authors, so the cautious framing is
           intentional.
         </p>
