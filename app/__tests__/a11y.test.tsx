@@ -14,13 +14,14 @@ async function checkA11y(container: HTMLElement) {
 }
 
 describe('a11y (axe-core)', () => {
-  it('SafetyBadge for pending status has accessible label and no serious violations', async () => {
+  it('SafetyBadge for pending status has accessible public wording and no serious violations', async () => {
     const { container } = render(<SafetyBadge level="Safety review pending" />)
-    // Visible text
-    expect(screen.getByText(/Safety review pending/i)).toBeInTheDocument()
-    // Has explanatory aria for ambiguous state
-    const badge = screen.getByText(/Safety review pending/i).closest('span')
-    expect(badge).toHaveAttribute('aria-label', expect.stringContaining('pending review'))
+    // Public text communicates the evidence state rather than the editorial workflow state.
+    expect(screen.getByText(/Safety data limited/i)).toBeInTheDocument()
+    expect(screen.queryByText(/Safety review pending/i)).not.toBeInTheDocument()
+    // The ambiguous/limited state still has an actionable accessible explanation.
+    const badge = screen.getByText(/Safety data limited/i).closest('span')
+    expect(badge).toHaveAttribute('aria-label', expect.stringMatching(/data.*limited.*caution.*full profile/i))
     await checkA11y(container)
   })
 
