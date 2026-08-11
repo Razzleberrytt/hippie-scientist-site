@@ -5,22 +5,24 @@ import path from 'node:path'
  * Claim-discipline guard for the editorial layer.
  *
  * The workbook data already passes `validate:evidence-language`. This guard
- * covers the *curated editorial layer* — the site's expressed point of view in
- * `config/profile-verdicts.ts` — where an overconfident or unsafe phrase would
- * be most damaging. That file is small and fully author-controlled, so banned
- * phrases there are a HARD failure.
+ * covers the curated editorial layer where an overconfident or unsafe phrase
+ * would be most damaging.
  *
- * Article prose (`content/articles/*.md`) is scanned in WARN-only mode: it is
- * long-form and legitimately quotes bad claims as examples ("avoid 'cures
- * anxiety in 24 hours'"), defines terms, and negates claims ("not a cure-all").
- * Failing on that would be false-positive chaos, so we only surface warnings a
- * human can review — never break the build on prose.
+ * HARD gate:
+ *   - config/profile-verdicts.ts (small, fully author-controlled overlay)
  *
- * Keep the banned list about *dangerous overclaiming*, not normal educational
- * hedged language ("may help", "evidence suggests" stay welcome).
+ * WARN-only debt inventory:
+ *   - Markdown/MDX files recursively under content/articles
+ *   - TypeScript/TSX files recursively under app/guides
+ *
+ * The guide scan intentionally starts warn-only because the App Router guide
+ * library predates this guard and contains legacy phrasing. Surfacing that debt
+ * in CI gives us a stable migration queue without breaking unrelated work. As
+ * priority guides are calibrated, they can graduate to hard-gated coverage.
  */
 
 const ROOT = process.cwd()
+const MAX_WARNINGS_PRINTED = 120
 
 // Dangerous overclaim / unsafe phrasing. Whole-word / phrase anchored.
 const BANNED = [
@@ -40,63 +42,132 @@ const BANNED = [
   { re: /\bproven cure\b/i, name: 'proven cure' },
 ]
 
-// Tokens that indicate the phrase is negated, quoted as a bad example, or
-// definitional — used to suppress WARN-mode noise on article prose.
-const CONTEXT_EXONERATORS =
-  /\b(?:not|no|never|without|isn't|aren't|don't|doesn't|won't|myth|avoid|red flag|unrealistic|distrust|beware|claim|marketing|hype|so-called|rather than|instead of|there is no|not a|money-back|standardiz|marker compound|warranty|refund)\b/i
+// High-signal patterns found in bespoke decision guides. These are not always
+// wrong in every imaginable context, so they are debt warnings rather than a
+// global hard failure. They flag copy that deserves claim-level sourcing or a
+// more explicit evidence boundary before it is used to guide a purchase/stack.
+const GUIDE_RISK_PATTERNS = [
+  {
+    re: /\b(?:no\s+(?:well[- ]documented\s+)?major|no\s+known\s+major)\s+interactions?\b/i,
+    name: 'interaction reassurance',
+  },
+  {
+    re: /\bsafe\s+to\s+(?:combine|stack|take\s+together)\b/i,
+    name: 'combination safety reassurance',
+  },
+  {
+    re: /\bworks?\s+(?:within|in)\s+\d+(?:\s*[–-]\s*\d+)?\s*(?:minutes?|hours?|days?|weeks?)\b/i,
+    name: 'efficacy timing certainty',
+  },
+  {
+    re: /\b(?:fastest|cleaner|best)\s+(?:useful\s+)?(?:choice|option|pick)\b/i,
+    name: 'pseudo-ranking recommendation',
+  },
+  {
+    re: /\bmeaningful\s+effects?\s+(?:typically\s+)?require\s+\d+(?:\s*[–-]\s*\d+)?\s*(?:days?|weeks?|months?)\b/i,
+    name: 'fixed efficacy timeline',
+  },
+]
 
-// Reference/citation metadata (YAML frontmatter or PubMed links) legitimately
-// carries study titles like "…for treating anxiety" — never a site claim.
+// Tokens that indicate the phrase is negated, quoted as a bad example, or
+// definitional — used to suppress WARN-mode noise on article/guide prose.
+const CONTEXT_EXONERATORS =
+  /\b(?:not|no|never|without|isn't|aren't|don't|doesn't|won't|myth|avoid|red flag|unrealistic|distrust|beware|claim|marketing|hype|so-called|rather than|instead of|there is no|not a|money-back|standardiz|marker compound|warranty|refund|does not establish|cannot establish)\b/i
+
+// Reference/citation metadata legitimately carries study titles that look like
+// claims — never treat those as site editorial language.
 const REFERENCE_LINE = /^\s*-?\s*(?:title|authors?|url|pmid|doi|year|journal):/i
 const CITATION_URL = /pubmed\.ncbi|doi\.org|ncbi\.nlm/i
 
-function scanText(text, { negationAware }) {
+function scanText(text, { negationAware, patterns = BANNED }) {
   const hits = []
   const lines = text.split('\n')
   lines.forEach((line, i) => {
     if (negationAware && (REFERENCE_LINE.test(line) || CITATION_URL.test(line))) return
-    for (const { re, name } of BANNED) {
+    for (const { re, name } of patterns) {
       const m = line.match(re)
       if (!m) continue
       if (negationAware) {
-        // Look at a window around the match for exonerating context.
+        // Look at a local window around the match for exonerating context.
         const idx = m.index ?? 0
-        const window = line.slice(Math.max(0, idx - 60), idx + m[0].length + 40)
+        const window = line.slice(Math.max(0, idx - 70), idx + m[0].length + 50)
         if (CONTEXT_EXONERATORS.test(window)) continue
       }
-      hits.push({ line: i + 1, name, matched: m[0], text: line.trim().slice(0, 120) })
+      hits.push({ line: i + 1, name, matched: m[0], text: line.trim().slice(0, 150) })
     }
   })
   return hits
 }
 
-// ── HARD gate: curated editorial overlay ─────────────────────────────────────
-const overlayPath = path.join(ROOT, 'config/profile-verdicts.ts')
-const overlayHits = scanText(fs.readFileSync(overlayPath, 'utf8'), { negationAware: false })
-
-// ── WARN only: article prose ─────────────────────────────────────────────────
-const articlesDir = path.join(ROOT, 'content/articles')
-const warnings = []
-if (fs.existsSync(articlesDir)) {
-  for (const file of fs.readdirSync(articlesDir).filter((f) => /\.mdx?$/.test(f))) {
-    const hits = scanText(fs.readFileSync(path.join(articlesDir, file), 'utf8'), { negationAware: true })
-    for (const h of hits) warnings.push({ file: `content/articles/${file}`, ...h })
+function walkFiles(dir, matcher) {
+  if (!fs.existsSync(dir)) return []
+  const files = []
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const absolute = path.join(dir, entry.name)
+    if (entry.isDirectory()) {
+      files.push(...walkFiles(absolute, matcher))
+      continue
+    }
+    if (!matcher.test(entry.name)) continue
+    files.push({
+      absolute,
+      relative: path.relative(ROOT, absolute).replaceAll('\\', '/'),
+    })
   }
+  return files
 }
 
-if (warnings.length) {
-  console.warn(`validate-claim-discipline: ${warnings.length} prose warning(s) to review (non-failing):`)
-  for (const w of warnings) console.warn(`  - ${w.file}:${w.line} [${w.name}] "${w.matched}" — ${w.text}`)
+function pushWarnings(target, file, hits) {
+  for (const hit of hits) target.push({ file, ...hit })
+}
+
+// ── HARD gate: curated editorial overlay ─────────────────────────────────────
+const overlayPath = path.join(ROOT, 'config/profile-verdicts.ts')
+const overlayHits = scanText(fs.readFileSync(overlayPath, 'utf8'), {
+  negationAware: false,
+  patterns: BANNED,
+})
+
+// ── WARN only: long-form Markdown prose ──────────────────────────────────────
+const warnings = []
+for (const file of walkFiles(path.join(ROOT, 'content/articles'), /\.mdx?$/)) {
+  const text = fs.readFileSync(file.absolute, 'utf8')
+  pushWarnings(warnings, file.relative, scanText(text, { negationAware: true, patterns: BANNED }))
+}
+
+// ── WARN only: App Router decision guides ────────────────────────────────────
+const guideWarnings = []
+for (const file of walkFiles(path.join(ROOT, 'app/guides'), /\.(?:ts|tsx)$/)) {
+  const text = fs.readFileSync(file.absolute, 'utf8')
+  pushWarnings(guideWarnings, file.relative, scanText(text, { negationAware: true, patterns: BANNED }))
+  pushWarnings(guideWarnings, file.relative, scanText(text, { negationAware: true, patterns: GUIDE_RISK_PATTERNS }))
+}
+
+const allWarnings = [...warnings, ...guideWarnings]
+if (allWarnings.length) {
+  console.warn(
+    `validate-claim-discipline: ${allWarnings.length} editorial warning(s) to review (non-failing; articles=${warnings.length}, app-guides=${guideWarnings.length}):`,
+  )
+  for (const warning of allWarnings.slice(0, MAX_WARNINGS_PRINTED)) {
+    console.warn(
+      `  - ${warning.file}:${warning.line} [${warning.name}] "${warning.matched}" — ${warning.text}`,
+    )
+  }
+  if (allWarnings.length > MAX_WARNINGS_PRINTED) {
+    console.warn(`  … ${allWarnings.length - MAX_WARNINGS_PRINTED} additional warning(s) omitted from console output`)
+  }
 }
 
 if (overlayHits.length) {
   console.error('\nvalidate-claim-discipline: FAILED — banned overclaim phrasing in config/profile-verdicts.ts:')
-  for (const h of overlayHits) {
-    console.error(`  - line ${h.line} [${h.name}] "${h.matched}" — ${h.text}`)
+  for (const hit of overlayHits) {
+    console.error(`  - line ${hit.line} [${hit.name}] "${hit.matched}" — ${hit.text}`)
   }
   console.error('\nUse calibrated, hedged language instead (may help, evidence suggests, appears more useful for).')
   process.exit(1)
 }
 
-console.log('validate-claim-discipline: OK (curated overlay clean' +
-  (warnings.length ? `; ${warnings.length} prose warning(s) above)` : ')'))
+console.log(
+  'validate-claim-discipline: OK (curated overlay clean' +
+    (allWarnings.length ? `; ${allWarnings.length} editorial warning(s) surfaced)` : ')'),
+)
