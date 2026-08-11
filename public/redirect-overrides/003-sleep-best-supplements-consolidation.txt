@@ -1,0 +1,2 @@
+# Consolidate the older sleep-best-supplements cornerstone into the current decision guide.
+/guides/sleep/sleep-best-supplements/ /guides/sleep/best-supplements-for-sleep/ 301

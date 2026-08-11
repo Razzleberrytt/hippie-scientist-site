@@ -10,7 +10,7 @@ export const GOAL_START_HERE_LINKS: Record<string, GoalStartHereLink[]> = {
     {
       role: 'Beginner guide',
       title: 'Best supplements for sleep',
-      href: '/guides/sleep/sleep-best-supplements/',
+      href: '/guides/sleep/best-supplements-for-sleep/',
       note: 'Start here if you want a plain-English overview before comparing individual options.',
     },
     {

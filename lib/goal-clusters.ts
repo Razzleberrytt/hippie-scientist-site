@@ -54,7 +54,7 @@ export const goalClusters: GoalCluster[] = [
       makeArticle(
         'sleep',
         'cornerstone',
-        'sleep-best-supplements',
+        'best-supplements-for-sleep',
         'Best Supplements for Sleep: Evidence-Based Guide',
         'A practical sleep supplement guide comparing magnesium, melatonin, valerian, L-theanine, and behavioral context without overstating weak evidence.',
         ['sleep', 'magnesium', 'melatonin', 'valerian', 'l-theanine'],
